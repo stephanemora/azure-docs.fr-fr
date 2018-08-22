@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34656439"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715061"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -65,7 +65,7 @@ Obtenez des réponses aux questions fréquemment posées sur les groupes de mach
 
 **Q.** Les groupes identiques fonctionnent-ils avec des ensembles haute disponibilité Azure ?
 
-**A.** Un groupe identique régional (non zonal) utilise des *groupes de placement*, dont chacun peut être configuré pour servir de groupe à haute disponibilité implicite avec cinq domaines d’erreur et cinq domaines de mise à jour. Les groupes identiques de plus de 100 machines virtuelles sont répartis entre plusieurs groupes de placement. Pour plus d’informations sur les groupes de placement, voir [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md) (Utilisation de grands groupes de machines virtuelles identiques). Un groupe de machines virtuelles à haute disponibilité peut figurer dans le même réseau virtuel qu’un groupe identique de machines virtuelles. Une configuration courante consiste à placer les machines virtuelles du nœud de contrôle qui nécessitent souvent une configuration unique dans un groupe à haute disponibilité, et les nœuds de données dans le groupe identique.
+**A.** Un groupe identique régional (non zonal) utilise des *groupes de placement*, qui servent de groupe à haute disponibilité implicite avec cinq domaines d’erreur et cinq domaines de mise à jour. Les groupes identiques de plus de 100 machines virtuelles sont répartis entre plusieurs groupes de placement. Pour plus d’informations sur les groupes de placement, voir [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md) (Utilisation de grands groupes de machines virtuelles identiques). Un groupe de machines virtuelles à haute disponibilité peut figurer dans le même réseau virtuel qu’un groupe identique de machines virtuelles. Une configuration courante consiste à placer les machines virtuelles du nœud de contrôle qui nécessitent souvent une configuration unique dans un groupe à haute disponibilité, et les nœuds de données dans le groupe identique.
 
 **Q.** Les groupes identiques fonctionnent-ils avec des zones de disponibilité Azure ?
 
@@ -269,8 +269,8 @@ Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez un
 nom d’élément linuxConfiguration | Obligatoire | type | Description
 --- | --- | --- | --- |  ---
 ssh | Non  | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
-chemin d’accès | OUI | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
-keyData | OUI | Chaîne | Spécifie une clé publique SSH encodée en base64
+chemin d’accès | Oui | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
+keyData | Oui | Chaîne | Spécifie une clé publique SSH encodée en base64
 
 Pour obtenir un exemple, consultez [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 

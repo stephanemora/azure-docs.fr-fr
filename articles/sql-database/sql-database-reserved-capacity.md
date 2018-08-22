@@ -1,0 +1,79 @@
+---
+title: Prépayer les vCores Azure SQL Database pour réaliser des économies | Microsoft Docs
+description: Découvrez comment acheter une capacité réservée Azure SQL Database pour réduire vos coûts de calcul.
+services: sql-database
+documentationcenter: ''
+author: CarlRabeler
+manager: craigg
+ms.service: sql-database
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/08/2018
+ms.author: carlrab
+ms.openlocfilehash: 1d1cad4b614eb35be9235a721368db8048be050a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39632217"
+---
+# <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
+
+Faites des économies avec Azure SQL Database en utilisant le prépaiement de ressources de calcul Azure SQL Database au lieu d’appliquer le tarif du paiement à l’utilisation. Avec une capacité réservée Azure SQL Database, vous prenez un engagement initial dans SQL Database, sur une période d’un an ou de trois ans, afin de bénéficier de remises importantes sur les coûts de calcul. Pour acheter une capacité réservée SQL Database, vous devez spécifier la région Azure, le type de déploiement, le service et la durée. 
+
+Il est inutile d’assigner la réservation aux instances de SQL Database. Les instances SQL Database correspondantes, qui sont déjà en cours d’exécution ou récemment déployées, bénéficient automatiquement de cet avantage. En achetant une réservation, vous payez d’avance les coûts de calcul des instances SQL Database pendant une durée d’un an ou de trois ans. Dès que vous achetez une réservation, les frais de calcul SQL Database qui correspondent aux attributs de la réservation ne sont plus facturés au tarif du paiement à l’utilisation. Une réservation ne couvre pas les frais de logiciels, ni ceux de réseau ou de stockage qui sont associés à l’instance SQL Database. À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer et les bases de données SQL sont facturées au tarif du paiement à l’utilisation. Les réservations ne se renouvellent pas automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité réservée SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+
+Vous pouvez acheter une capacité réservée Azure SQL Database sur le [portail Azure](https://portal.azure.com). Pour acheter une capacité réservée SQL Database :
+- Vous devez disposer du rôle de propriétaire sur au moins un abonnement Entreprise ou un abonnement Paiement à l’utilisation.
+- Concernant les abonnements Entreprise, les achats de réservation Azure doivent être activés sur le [portail EA](https://ea.azure.com).
+-  Pour ce qui est du programme des fournisseurs de solutions cloud, seuls les agents d’administration ou les agents commerciaux peuvent acheter une capacité réservée SQL Database.
+
+Vous trouverez des informations détaillées sur la facturation d’achat de réservations aux clients d’entreprise et aux clients avec paiement à l’utilisation dans [Questions fréquentes (FAQ)](#frequently-asked-questions).
+
+## <a name="determine-the-right-sql-size-before-purchase"></a>Déterminer la bonne taille de SQL avant l’achat
+
+La taille de la réservation doit être basée sur la quantité totale de calcul utilisé par les bases de données uniques et/ou les pools élastiques SQL, existants ou bientôt déployés au sein d’une région spécifique et utilisant le même niveau de performance avec une génération de matériel identique. 
+
+Par exemple, supposons que vous exécutez un processeur Gen5, option Usage général ; un pool élastique de 16 vCore et deux processeurs Gen5, option Critique pour l’entreprise ; des bases de données uniques 4 vCore. Admettons également que vous envisagez de déployer au cours du mois suivant un processeur Gen5 supplémentaire, option Usage général ; un pool élastique de 16 vCore et un processeur Gen5, option Critique pour l’entreprise ; un pool élastique de 32 vCore. Enfin, imaginons que vous savez que ces ressources vous seront nécessaires pendant au moins 1 an. Dans ce cas, vous devez acheter une réservation de 32 (2x16) vCores pour une durée d’un an, avec l’option Usage général pour pool élastique/bases de données uniques SQL Database d’une puissance de calcul Gen5, et une réservation de 40 (2x4 + 32) vCores pour une durée d’un an, avec l’option Critique pour l’entreprise pour pool élastique/bases de données uniques SQL Database d’une puissance de calcul Gen5.
+
+## <a name="buy-sql-database-reserved-capacity"></a>Acheter une capacité réservée SQL Database
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Sélectionnez **Tous les services** > **Réservations**.
+3. Sélectionnez **Ajouter**, puis dans le volet Sélectionner le Type de produit, choisissez **SQL Database** pour acheter une nouvelle réservation de bases de données SQL.
+4. Renseignez les champs obligatoires. Les bases de données uniques ou pools élastiques existants ou nouveaux, correspondant aux attributs que vous sélectionnez, peuvent prétendre à la remise de capacité réservée. Le nombre réel de vos instances SQL Database qui obtiennent la remise dépend de l’étendue et de la quantité sélectionnées.
+
+   ![Capture d’écran avant de soumettre l’achat de la capacité réservée SQL Database](./media/sql-database-reserved-vcores/sql-reserved-vcores-purchase.png)
+
+    | Champ      | Description|
+    |:------------|:--------------|
+    |NOM        |Nom de cette réservation.| 
+    |Abonnement|Abonnement utilisé pour payer la réservation de capacité réservée SQL Database. Les coûts initiaux de la réservation de capacité réservée SQL Database sont facturés selon le mode de paiement défini sur l’abonnement. Le type d’abonnement doit être un contrat Entreprise (numéro de l’offre : MS-AZR-0017P) ou Paiement à l’utilisation (numéro de l’offre : MS-AZR-0003P). Pour un abonnement Entreprise, les frais sont déduits du solde d’engagement monétaire de l’inscription ou facturés comme un dépassement. Pour un abonnement Paiement à l’utilisation, les frais sont facturés sur le mode de paiement par carte de crédit ou par facture défini sur l’abonnement.|    
+    |Étendue       |L’étendue de la réservation vCore peut couvrir un seul abonnement ou plusieurs abonnements (étendue partagée). Si vous sélectionnez : <ul><li>Abonnement unique : la remise de réservation vCore est appliquée aux instances SQL Database incluses dans cet abonnement. </li><li>Partagé : la remise de réservation vCore est appliquée aux instances SQL Database en cours d’exécution dans tous les abonnements de votre contexte de facturation. Pour les clients Entreprise, l’étendue partagée correspond à l’inscription et inclut tous les abonnements (à l’exception des abonnements de développement/test) au sein de l’inscription. Pour les clients Paiement à l’utilisation, l’étendue partagée correspond à tous les abonnements Paiement à l’utilisation créés par l’administrateur de compte.</li></ul>|
+    |Région      |Région Azure couverte par la réservation de capacité réservée SQL Database.|    
+    |Type de déploiement|Type de déploiement SQL pour lequel vous voulez acheter la réservation.|
+    |Niveau de service|Niveau de service des instances SQL Database.
+    |Terme        |Une année ou trois ans.|
+    |Quantité    |Nombre d’instances achetées au sein de la réservation de capacité réservée SQL Database. La quantité correspond au nombre d’instances SQL Database en cours d’exécution, qui peuvent bénéficier de la remise de facturation. Par exemple, si vous exécutez 10 instances SQL Database dans la région USA Est, vous devez spécifier 10 comme quantité, afin d’optimiser l’avantage pour toutes les machines en cours d’exécution. |
+
+5. Étudiez de plus près le coût de la réservation de capacité réservée SQL Database à la section **Coûts**.
+6. Sélectionnez **Achat**.
+7. Sélectionnez **Afficher cette réservation** pour connaître l’état de votre achat.
+
+## <a name="next-steps"></a>Étapes suivantes 
+La remise de réservation vCore est appliquée automatiquement au nombre d’instances SQL Database qui correspondent à l’étendue et aux attributs de la réservation de capacité réservée SQL Database. Vous pouvez mettre à jour l’étendue de la réservation de capacité réservée SQL Database par le biais du [portail Azure](https://portal.azure.com), de PowerShell, de CLI ou de l’API. 
+
+Pour savoir comment gérer la réservation de capacité réservée SQL Database, consultez [Gérer la capacité réservée SQL Database](../billing/billing-manage-reserved-vm-instance.md).
+
+Pour plus d’informations sur la réservation Azure, consultez les articles suivants :
+
+- [Qu’est-ce qu’une réservation Azure ?](../billing/billing-save-compute-costs-reservations.md)
+- [Gérer les réservations Azure](../billing/billing-manage-reserved-vm-instance.md)
+- [Comprendre l’usage d’une réservation pour votre abonnement avec paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)
+- [Comprendre l’usage d’une réservation pour votre inscription d’entreprise](../billing/billing-understand-reserved-instance-usage-ea.md)
+- [Réservations Azure dans le cadre du programme Fournisseur de solutions Microsoft Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
+
+## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
+
+Si vous avez d’autres questions, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e4144ca0d87abda3d9f8de47e56af59d0e4af312
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: a499f609e517d880b3a942ac6dc3eb0dc10b69e7
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938364"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038231"
 ---
 # <a name="azure-logging-and-auditing"></a>Journalisation et audit Azure
 
@@ -29,7 +29,7 @@ Azure offre un large éventail d’options de journalisation et d’audit de sé
 > Certaines recommandations contenues dans cet article risquent d’entraîner une augmentation de l’utilisation des données, des réseaux ou des ressources de calcul, et donc une augmentation des coûts de licence ou d’abonnement.
 
 ## <a name="types-of-logs-in-azure"></a>Types de journaux dans Azure
-Les applications cloud sont complexes, avec de nombreux éléments mobiles. Les journaux fournissent des données pour que vos applications continuent à fonctionner. Ils vous aident à résoudre des problèmes qui se sont produits ou à en empêcher de potentiels. Ils peuvent aussi aider à améliorer les performances ou la maintenabilité des applications, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
+Les applications cloud sont complexes, avec de nombreux éléments mobiles. Les journaux fournissent des données pour que vos applications continuent à fonctionner. Ils vous aident à résoudre des problèmes antérieurs et futurs. Ils peuvent aussi aider à améliorer les performances ou la maintenabilité des applications, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
 
 Les journaux Azure sont classés par type :
 * Les **journaux de contrôle/gestion** fournissent des informations sur les opérations CREATE, UPDATE, and DELETE Azure Resource Manager. Pour plus d’informations, consultez [Journaux des activités Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).
@@ -60,13 +60,13 @@ Dans cet article, PUT, POST et DELETE font référence à l’ensemble des opér
 
 ![Diagramme du journal d’activité](./media/azure-log-audit/azure-log-audit-fig1.png)
 
-Vous pouvez extraire des événements d’un journal d’activité en utilisant le portail Azure, [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli), des applets de commande PowerShell et l’[API REST Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). La durée de conservation des données des journaux d’activité est de 19 jours.
+Vous pouvez extraire des événements d’un journal d’activité en utilisant le portail Azure, [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli), des applets de commande PowerShell et l’[API REST Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough). La période de rétention des données des journaux d’activité est de 90 jours.
 
 Scénarios d’intégration pour un événement de journal d’activité :
 
 * [Créez une alerte par e-mail ou webhook qui est déclenchée par un événement du journal d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-auditlog-to-webhook-email).
 
-* [Envoyez-le à un hub d’événements](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs) pour que l’ingère un service tiers ou une solution d’analytique personnalisée comme PowerBI.
+* [Envoyez-le à un hub d’événements](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs) pour ingestion par un service tiers ou une solution d’analytique personnalisée comme PowerBI.
 
 * Analysez-le dans PowerBI à l’aide du [pack de contenu PowerBI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 
@@ -91,7 +91,7 @@ Les journaux de diagnostic Azure offrent plusieurs options de configuration, com
 
 * Enregistrez-les dans un [compte de stockage](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) pour audit ou inspection manuelle. Vous pouvez spécifier la durée de conservation (en jours) via les paramètres de diagnostic.
 
-* [Envoyez-les à un hub d’événements](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) pour que les ingère un service tiers ou une solution d’analytique personnalisée comme [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
+* [Envoyez-les à un hub d’événements](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) pour ingestion par un service tiers ou une solution d’analytique personnalisée comme [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
 * Analysez-les avec [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
@@ -317,7 +317,7 @@ Il existe quatre façons de [collecter des journaux et des métriques pour les s
 
 * Scripts pour collecter puis publier les données dans Log Analytics (cellules vides dans le tableau suivant et pour les services qui ne sont pas listés)
 
-| Service | Type de ressource | Journaux | Métriques | Solution |
+| Service | Type de ressource | Journaux | Mesures | Solution |
 | :------ | :------------ | :--- | :------ | :------- |
 |Azure Application Gateway| Microsoft.Network/<br>applicationGateways|  Diagnostics|Diagnostics|    [Azure Application](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)[Gateway Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application Insights||     Connecteur|  Connecteur|  [Connecteur](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)[Application Insights (version préliminaire)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|

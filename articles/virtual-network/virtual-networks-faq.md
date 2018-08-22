@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 08/09/2018
 ms.author: jdial
-ms.openlocfilehash: a5b4bac9e0d8bc10defaff251557129a70d8a022
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8dfe313cb82fd0ace7221ea320bb2228be75196c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29854187"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038308"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -41,7 +41,6 @@ Consultez la [Documentation Réseau virtuel](https://docs.microsoft.com/azure/vi
 Oui. Vous pouvez utiliser un réseau virtuel sans connexion à votre site. Par exemple, vous pouvez exécuter des contrôleurs de domaine Microsoft Windows Server Active Directory et des batteries de serveurs SharePoint dans un réseau virtuel Azure.
 
 ### <a name="can-i-perform-wan-optimization-between-vnets-or-a-vnet-and-my-on-premises-data-center"></a>Puis-je exécuter une optimisation WAN entre des réseaux virtuels ou entre un réseau virtuel et mon centre de données local ?
-
 Oui. Vous pouvez déployer une [appliance virtuelle réseau d’optimisation WAN](https://azure.microsoft.com/marketplace/?term=wan+optimization) à partir de plusieurs fournisseurs via Azure Marketplace.
 
 ## <a name="configuration"></a>Configuration
@@ -188,7 +187,6 @@ Oui. Vous pouvez déployer (facultatif) des instances de rôle de services cloud
 Oui. Vous devez connecter un groupe de machines virtuelles identiques à un réseau virtuel.
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>Existe-t-il une liste complète des services Azure à partir desquels je peux déployer des ressources dans un réseau virtuel ?
-
 Oui. Pour plus d’informations, consultez [Intégration d’un réseau virtuel pour les services Azure](virtual-network-for-azure-services.md).
 
 ### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>Pour quelles ressources PaaS Azure puis-je restreindre l’accès à partir d’un réseau virtuel ?
@@ -220,5 +218,38 @@ Oui. Vous pouvez utiliser des API REST pour les réseaux virtuels dans les modè
 ### <a name="is-there-tooling-support-for-vnets"></a>Existe-t-il une prise en charge des outils pour les réseaux virtuels ?
 Oui. En savoir plus sur l’utilisation des éléments suivants :
 - Le portail Azure pour déployer des réseaux virtuels via les modèles de déploiement [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) et [classique](virtual-networks-create-vnet-classic-pportal.md).
-- PowerShell pour gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/powershell/module/azurerm.network) et [classique](/powershell/module/azure/?view=azuresmps-3.7.0).
+- PowerShell pour gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/powershell/module/azurerm.network) et [classique](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 - L’interface de ligne de commande Azure pour déployer et gérer les réseaux virtuels déployés via les modèles de déploiement [Resource Manager](/cli/azure/network/vnet) et [classique](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
+
+## <a name="vnet-peering"></a>Homologation de réseaux virtuels
+
+### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Puis-je créer une connexion d’homologation pour un réseau virtuel dans une autre région ?
+Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet Peering est disponible dans toutes les régions publiques Azure. Vous ne pouvez pas homologuer globalement de régions publiques Azure dans des clouds nationaux. L’homologation globale n’est pas actuellement disponible dans les clouds nationaux.
+
+### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Puis-je activer l’homologation de réseau virtuel si mes réseaux virtuels font partie d’abonnements de différents locataires Azure Active Directory ?
+Il n’est actuellement pas possible d’établir une homologation de réseau virtuel (qu’elle locale ou globale) si vos abonnements appartiennent à différents locataires Azure Active Directory.
+
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Ma connexion d’homologation de réseau est à l’état *initiée*, pourquoi ne puis-je pas me connecter ?
+Si votre connexion d’homologation est dans un état Initiée, cela signifie que vous n’avez créé qu’un seul lien. Un lien bidirectionnel doit être créé afin d’établir une connexion avec succès. Par exemple, pour homologuer le réseau virtuel A au réseau virtuel B, un lien doit être créé de VNetA à VNetB et de VNetB à VNetA. La création des deux liens modifie l’état à *Connecté.*
+
+### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>Puis-je homologuer mon réseau virtuel avec un réseau virtuel dans un autre abonnement ?
+Oui. Vous pouvez homologuer des réseaux virtuels entre des abonnements et régions.
+
+### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>Puis-je homologuer deux réseaux virtuels avec des plages d’adresses correspondantes ou se chevauchant ?
+Non. Les espaces d’adresses ne doivent être se chevaucher pour pouvoir activer l’homologation de réseau virtuel.
+
+### <a name="how-much-do-vnet-peering-links-cost"></a>Combien coûtent les liens d’homologation de réseau virtuel ?
+Il n’existe aucun frais pour créer une connexion d’homologation de réseau virtuel. Le transfert de données entre des connexions d’homologation est facturé. [Voir ici](https://azure.microsoft.com/pricing/details/virtual-network/).
+
+### <a name="is-vnet-peering-traffic-encrypted"></a>Le trafic d’homologation de réseau virtuel est-il chiffré ?
+Non. Le trafic entre des ressources des réseaux virtuels homologués est privé et isolé. Il reste entièrement sur le Microsoft Backbone.
+
+### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Pourquoi ma connexion d’homologation est-elle dans un état déconnecté ?
+Les connexions d’homologation de réseau virtuel passent à l’état *Déconnecté* lorsqu’un lien d’homologation de réseau virtuel est supprimé. Vous devez supprimer les deux liens pour pouvoir rétablir une connexion d’homologation.
+
+### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Si j’effectue une homologation entre VNetA et VNetB, et que je dois également le faire entre VNetB et VNetC, cela signifie-il que VNetA et VNetC sont homologués ?
+Non. L’homologation transitive n’est pas pris en charge. Pour qu’ils le soient, vous devez homologuer VNetA et VNetC.
+
+### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Des restrictions de bande passante s’appliquent-elles aux connexions d’homologation ?
+Non. L’homologation de réseau virtuel, qu’elle soit locale ou globale, n’impose aucune restriction de bande passante. La bande passante n’est limitée que par les ressources de la machine virtuelle ou de calcul.
+

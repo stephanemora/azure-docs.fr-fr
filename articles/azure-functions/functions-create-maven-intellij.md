@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e926bfb023fe3edfd564aa6389e21f6594bec169
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117059"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002676"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Créer votre première fonction avec Java et IntelliJ (préversion)
 
@@ -74,8 +74,15 @@ Maven crée les fichiers projet dans un nouveau dossier avec le nom de _artifact
 Fermez la boîte de dialogue d’exécution quand vous avez terminé le test de votre fonction. Un seul hôte de fonction à la fois peut être actif et en cours d’exécution localement.
 
 ### <a name="debug-the-function-in-intellij"></a>Déboguer la fonction dans IntelliJ
+Pour démarrer l’hôte de fonction en mode débogage, ajoutez **-DenableDebug** comme argument quand vous exécutez votre fonction. Vous pouvez exécuter la ligne de commande ci-dessous dans un terminal ou la configurer dans des [objectifs maven](https://www.jetbrains.com/help/idea/maven-support.html#run_goal). L’hôte de la fonction ouvre alors le port de débogage 5005. 
 
-Vous pouvez déboguer des fonctions dans IntelliJ en attachant à l’hôte de fonction après le démarrage.  Exécutez la fonction Azure localement en utilisant les étapes ci-dessus puis, dans le menu **Exécuter**, sélectionnez **Attacher à un processus local**.  Vous voyez normalement un processus disponible sur le port 5005.  Après avoir attaché la fonction, vous pouvez atteindre des points d’arrêt et déboguer dans votre application de fonction.
+```
+mvn azure-functions:run -DenableDebug
+```
+
+Pour déboguer dans IntelliJ, dans le menu **Run** (Exécuter), sélectionnez **Edit Configurations** (Modifier les configurations). Cliquez sur **+** pour ajouter une configuration à distance (**Remote**). Renseignez **Name** (Nom) et **Settings** (Paramètres), puis cliquez sur **OK** pour enregistrer la configuration. Une fois terminé, cliquez sur **Debug** (Déboguer) « nom de la configuration à distance » ou appuyez sur **Maj+F9** pour démarrer le débogage.
+
+![Déboguer des fonctions dans IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
 Quand vous avez terminé, arrêtez le débogueur et le processus en cours d’exécution. Un seul hôte de fonction à la fois peut être actif et en cours d’exécution localement.
 

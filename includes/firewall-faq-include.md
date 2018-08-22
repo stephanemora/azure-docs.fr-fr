@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 7/30/2018
+ms.date: 8/13/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e23579479c61810d651bebae7b486b53aaaf0d42
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 5601f8d90f107636d2899a024772dccc8f75b69d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39361362"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "40131533"
 ---
 ### <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -79,6 +79,29 @@ Le service de pare-feu Azure vient compléter nos fonctionnalités de groupe de 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Comment faire pour configurer Pare-feu Azure avec mes points de terminaison de service ?
 
 Pour bénéficier d’un accès sécurisé aux services PaaS, nous vous recommandons des points de terminaison de service. Les clients Pare-feu Azure peuvent choisir d’activer les points de terminaison de service dans le sous-réseau Pare-feu Azure et de les désactiver sur les réseaux virtuels spoke connectés pour bénéficier des deux fonctionnalités (sécurité des points de terminaison de service et journalisation centralisée pour l’ensemble du trafic).
+
+### <a name="how-can-i-stop-and-start-azure-firewall"></a>Comment arrêter et démarrer le Pare-feu Azure ?
+
+Vous pouvez utiliser les méthodes *désallouer* et *allouer* d’Azure PowerShell.
+
+Par exemple : 
+
+```azurepowershell
+# Stop an exisitng firewall
+
+$azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"
+$azfw.Deallocate()
+Set-AzureRmFirewall -AzureFirewall $azfw
+```
+
+```azurepowershell
+#Start a firewall
+
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw.Allocate($vnet,$publicip)
+Set-AzureRmFirewall -AzureFirewall $azfw
+```
 
 ### <a name="what-are-the-known-service-limits"></a>Quelles sont les limites connues du service ?
 

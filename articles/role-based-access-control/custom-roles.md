@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7554ef46289600cd15e4675a91f42a2cd735f18
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 002eb9b70c2f3f9d0f6633b2d81425c688495d19
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112659"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714051"
 ---
 # <a name="custom-roles-in-azure"></a>Rôles personnalisés dans Azure
 
@@ -28,7 +28,7 @@ Si les [rôles intégrés](built-in-roles.md) ne répondent pas aux besoins spé
 
 ## <a name="custom-role-example"></a>Exemple de rôle personnalisé
 
-L’exemple suivant présente un rôle personnalisé pour la surveillance et le redémarrage de machines virtuelles, tel qu’affiché à l’aide d’Azure PowerShell :
+Voici ce à quoi ressemble un rôle personnalisé tel qu’il apparaît au format JSON. Ce rôle personnalisé peut être utilisé pour surveiller et redémarrer des machines virtuelles.
 
 ```json
 {
@@ -65,7 +65,7 @@ L’exemple suivant présente un rôle personnalisé pour la surveillance et le 
 }
 ```
 
-Une fois que vous avez créé un rôle personnalisé, celui-ci s’affiche dans le portail Azure avec une icône de ressource orange.
+Quand vous créez un rôle personnalisé, celui-ci s’affiche dans le portail Azure avec une icône de ressource orange.
 
 ![Icône de rôle personnalisé](./media/custom-roles/roles-custom-role-icon.png)
 
@@ -82,13 +82,15 @@ Une fois que vous avez créé un rôle personnalisé, celui-ci s’affiche dans 
 
 3. Tester le rôle personnalisé
 
-    Une fois que vous avez votre rôle personnalisé, vous devez le tester pour vérifier qu’il fonctionne comme prévu. Si des ajustements sont nécessaires, vous pouvez mettre à jour le rôle personnalisé.
+    Une fois que vous avez votre rôle personnalisé, vous devez le tester pour vérifier qu’il fonctionne comme prévu. Si vous avez besoin d’effectuer des ajustements ultérieurement, vous pouvez mettre à jour le rôle personnalisé.
+
+Pour obtenir un tutoriel pas à pas sur la création d’un rôle personnalisé, consultez [Tutoriel : Créer un rôle personnalisé à l’aide d’Azure PowerShell](tutorial-custom-role-powershell.md) ou [Tutoriel : Créer un rôle personnalisé à l’aide d’Azure CLI](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Propriétés du rôle personnalisé
 
 Un rôle personnalisé dispose des propriétés suivantes.
 
-| Propriété | Obligatoire | Type | Description |
+| Propriété | Obligatoire | type | Description |
 | --- | --- | --- | --- |
 | `Name` | Oui | Chaîne | Nom complet du rôle personnalisé. Doit être unique à votre locataire. Peut inclure des lettres, des chiffres, des espaces et des caractères spéciaux. Nombre maximal de caractères : 128. |
 | `Id` | Oui | Chaîne | ID unique du rôle personnalisé. Pour Azure PowerShell et Azure CLI, cet ID est généré automatiquement lorsque vous créez un nouveau rôle. |
@@ -98,16 +100,16 @@ Un rôle personnalisé dispose des propriétés suivantes.
 | `NotActions` | Non  | String[] | Tableau de chaînes qui spécifie les opérations d’administration exclues des `Actions` autorisées. Pour plus d’informations, voir [NotActions](role-definitions.md#notactions). |
 | `DataActions` | Non  | String[] | Tableau de chaînes qui spécifie les opérations de données que le rôle autorise sur vos données au sein de cet objet. Pour plus d’informations, voir [DataActions (préversion)](role-definitions.md#dataactions-preview). |
 | `NotDataActions` | Non  | String[] | Tableau de chaînes qui spécifie les opérations de données exclues des `DataActions` autorisées. Pour plus d’informations, voir [NotDataActions (préversion)](role-definitions.md#notdataactions-preview). |
-| `AssignableScopes` | Oui | String[] | Tableau de chaînes qui spécifie les étendues pour lesquelles le rôle personnalisé est disponible à des fins d’attribution. Impossible de définir sur l’étendue racine (`"/"`). Pour plus d’informations, voir [AssignableScopes](role-definitions.md#assignablescopes). |
+| `AssignableScopes` | Oui | String[] | Tableau de chaînes qui spécifie les étendues pour lesquelles le rôle personnalisé est disponible à des fins d’attribution. Ne peut pas être défini sur l’étendue racine (`"/"`) ou sur une étendue de groupe d’administration. Pour plus d’informations, consultez [AssignableScopes](role-definitions.md#assignablescopes) et [Organiser vos ressources avec des groupes d’administration Azure](../azure-resource-manager/management-groups-overview.md#custom-rbac-role-definition-and-assignment). |
 
-## <a name="assignablescopes-for-custom-roles"></a>AssignableScopes pour rôles personnalisés
+## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Qui peut créer, supprimer, mettre à jour ou afficher un rôle personnalisé
 
-Tout comme pour les rôles intégrés, la propriété `AssignableScopes` spécifie les étendues pour lesquelles le rôle est disponible à des fins d’attribution. Toutefois, vous ne pouvez pas utiliser l’étendue racine (`"/"`) dans vos propres rôles personnalisés. Si vous essayez, vous obtiendrez une erreur d’autorisation. La propriété `AssignableScopes` pour un rôle personnalisé contrôle également qui peut créer, supprimer, modifier ou afficher le rôle personnalisé.
+Tout comme pour les rôles intégrés, la propriété `AssignableScopes` spécifie les étendues pour lesquelles le rôle est disponible à des fins d’attribution. La propriété `AssignableScopes` pour un rôle personnalisé contrôle également qui peut créer, supprimer, mettre à jour ou afficher le rôle personnalisé.
 
 | Tâche | Opération | Description |
 | --- | --- | --- |
 | Créer/supprimer un rôle personnalisé | `Microsoft.Authorization/ roleDefinition/write` | Les utilisateurs ayant accès à cette opération sur toutes les étendues `AssignableScopes` du rôle personnalisé peuvent créer (ou supprimer) des rôles personnalisés utilisables dans ces étendues. Il s’agit, par exemple, des [Propriétaires](built-in-roles.md#owner) et [Administrateurs de l’accès utilisateur](built-in-roles.md#user-access-administrator) d’abonnements, de groupes de ressources et de ressources. |
-| Modifier un rôle personnalisé | `Microsoft.Authorization/ roleDefinition/write` | Les utilisateurs ayant accès à cette opération sur toutes les étendues `AssignableScopes` du rôle personnalisé peuvent modifier des rôles personnalisés dans ces étendues. Il s’agit, par exemple, des [Propriétaires](built-in-roles.md#owner) et [Administrateurs de l’accès utilisateur](built-in-roles.md#user-access-administrator) d’abonnements, de groupes de ressources et de ressources. |
+| Mettre à jour un rôle personnalisé | `Microsoft.Authorization/ roleDefinition/write` | Les utilisateurs ayant accès à cette opération sur toutes les étendues `AssignableScopes` du rôle personnalisé peuvent mettre à jour des rôles personnalisés dans ces étendues. Il s’agit, par exemple, des [Propriétaires](built-in-roles.md#owner) et [Administrateurs de l’accès utilisateur](built-in-roles.md#user-access-administrator) d’abonnements, de groupes de ressources et de ressources. |
 | Afficher un rôle personnalisé | `Microsoft.Authorization/ roleDefinition/read` | Les utilisateurs ayant accès à cette opération dans une étendue peuvent afficher les rôles personnalisés disponibles pour attribution dans cette étendue. Tous les rôles intégrés permettent que les rôles personnalisés soient disponibles pour attribution. |
 
 ## <a name="next-steps"></a>Étapes suivantes

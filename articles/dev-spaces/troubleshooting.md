@@ -11,12 +11,12 @@ ms.topic: article
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: douge
-ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 61bc081ca3221c0d588b7b7a2d9482d2fc70c0d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247318"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038297"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -63,6 +63,26 @@ Dans Visual Studio :
 2. Remplacez les paramètres de **Commentaires relatifs à la sortie de build du projet MSBuild** par **Détails** ou **Diagnostic**.
 
     ![Capture d’écran de la boîte de dialogue Outils Options](media/common/VerbositySetting.PNG)
+    
+## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Échec de la résolution de nom DNS pour une URL publique associée à un service Dev Spaces
+
+Lorsque cela se produit, vous pouvez voir une erreur « Impossible d’afficher cette page » ou « Impossible d’atteindre le site » dans votre navigateur web lors d’une tentative de connexion à l’URL publique associée à un service Dev Spaces.
+
+### <a name="try"></a>Essayez de procéder comme suit :
+
+Vous pouvez utiliser la commande suivante pour répertorier toutes les URL associées à vos services Dev Spaces :
+
+```cmd
+azds list-uris
+```
+
+Si une URL est à l’état *En attente*, cela signifie que Dev Spaces attend toujours que l’inscription DNS se termine. Cela peut parfois prend quelques minutes. Dev Spaces ouvre également un tunnel localhost pour chaque service, vous pouvez utiliser pendant l’attente d’inscription DNS.
+
+Si une URL reste à l’état *En attente* pendant plus de 5 minutes, cela peut indiquer un problème lié au contrôleur d’entrée nginx responsable de l’acquisition du point de terminaison public. Vous pouvez utiliser la commande suivante pour supprimer le pod qui exécute le contrôleur nginx. Il sera automatiquement recréé.
+
+```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
+```
 
 ## <a name="error-required-tools-and-configurations-are-missing"></a>Erreur « Les outils et configurations nécessaires sont manquants »
 

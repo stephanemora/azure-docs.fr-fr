@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: b0e078e3e7f18e3370ff1bcd90935e7fece265f0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391178"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005473"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -94,7 +94,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informe le runtime que votre code est terminé. Vous devez appeler `context.done`. Sinon, le runtime ne sait pas que votre fonction est terminée et que l’exécution va expirer. 
+Informe le runtime que votre code est terminé. Si votre fonction utilise la déclaration `async function` (disponible avec 8 nœuds ou plus dans Functions version 2.x), vous n’avez pas besoin d’utiliser `context.done()`. Le rappel `context.done` est appelé de manière implicite.
+
+Si votre fonction n’est pas une fonction asynchrone, **vous devez appeler `context.done`** pour indiquer au runtime que votre fonction est terminée. Sinon, l’exécution arrivera à expiration.
 
 La méthode `context.done` permet de transmettre une erreur définie par l’utilisateur au runtime ainsi qu’un conteneur de propriétés, qui remplaceront les propriétés de l’objet `context.bindings`.
 
@@ -335,7 +337,7 @@ Comme il n’existe encore aucune prise en charge directe pour l’auto-compilat
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, consultez les ressources suivantes :
 
-* [Bonnes pratiques pour Azure Functions](functions-best-practices.md)
+* [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
-* [Déclencheurs et liaisons Azure Functions](functions-triggers-bindings.md)
+* [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
 

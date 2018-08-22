@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6dfa1f247a079bf801f28d1083c86d36a74117c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037223"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004196"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure
 
@@ -40,6 +40,9 @@ Pour ajouter des utilisateurs B2B Collaboration au répertoire, procédez comme 
 5. Sous **Nom d’utilisateur**, entrez l’adresse e-mail de l’utilisateur externe. Vous pouvez éventuellement inclure un message d’accueil. Par exemple : 
 
    ![Indique où le nouvel utilisateur invité se trouve dans l’interface utilisateur](./media/add-users-administrator/InviteGuest.png) 
+
+    > [!NOTE]
+    > Certains fournisseurs de messagerie permettent aux utilisateurs d’ajouter un signe plus (+) et du texte à leurs adresses e-mail pour faciliter notamment le filtrage de la boîte de réception. Toutefois, Azure AD ne prend pas en charge les signes plus dans les adresses e-mail pour l’instant. Pour éviter les problèmes de livraison, omettez le signe plus (+) et les caractères après celui-ci jusqu’au symbole @.
 
 6. Sélectionnez **Inviter** pour envoyer automatiquement l’invitation à l’utilisateur invité. 
  

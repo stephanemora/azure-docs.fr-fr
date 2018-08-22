@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: amberb
-ms.openlocfilehash: 344d4032b59a920630a18f026aa3765fbc69d6d5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 7c4152140d291270386203e121da169b2a8deff5
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077734"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630804"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>Voir tous vos comptes de facturation dans le portail Azure  
 
@@ -27,7 +27,7 @@ Les comptes de facturation définissent vos relations de facturation Azure. Vous
 
 Pour le moment, vous ne pouvez voir que vos comptes de facturation personnels et Contrat Entreprise. Par défaut, la page [Gestion des coûts + facturation](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) affiche votre compte de facturation personnel. Toutefois, vous pouvez accéder à **Comptes de facturation** et changer de compte.
 
-Pour les comptes de facturation personnels, vous pouvez gérer et voir tous vos frais dans le [portail Azure](https://portal.azure.com). Par contre, pour les comptes Contrat Entreprise, vous pouvez uniquement voir les achats d’instances réservées, le solde et le cumul des frais du mois en cours. Ces fonctionnalités Contrat Entreprise sont en préversion et disponibles seulement si vous avez un rôle d’administrateur d’entreprise.
+Pour les comptes de facturation personnels, vous pouvez gérer et voir tous vos frais dans le [portail Azure](https://portal.azure.com). Par contre, pour les comptes Contrat Entreprise, vous pouvez uniquement voir les achats de réservations Azure, le solde et le cumul des frais du mois en cours. Ces fonctionnalités Contrat Entreprise sont en préversion et disponibles seulement si vous avez un rôle d’administrateur d’entreprise.
 
 ## <a name="change-billing-account-view"></a>Modifier la vue des comptes de facturation 
 

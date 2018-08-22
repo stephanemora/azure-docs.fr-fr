@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b8fec9a263eee6bf1e8bf347a9b6dd256840738f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392606"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630617"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride 
 
-La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
+La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](overview.md).
 
 Si vous disposez d’un environnement Active Directory local et que vous souhaitez lier à Azure AD vos appareils joints à un domaine, vous pouvez y parvenir en configurant simplement des appareils hybrides joints à Azure AD. Cet article contient les étapes à suivre pour une telle configuration. 
 
@@ -35,40 +35,17 @@ Si vous disposez d’un environnement Active Directory local et que vous souhait
 > Si l’utilisation d’Azure AD Connect constitue une solution pour vous, consultez [Sélectionner votre scénario](hybrid-azuread-join-plan.md#select-your-scenario). En recourant à Azure AD Connect, vous pouvez simplifier considérablement la configuration de la jonction Azure AD hybride.
 
 
-## <a name="before-you-begin"></a>Avant de commencer
-
-Avant de commencer à configurer des appareils hybrides joints à Azure AD dans votre environnement, vous devez vous familiariser avec les scénarios pris en charge et avec les contraintes.  
-
-Si vous comptez sur [l’outil de préparation système (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), assurez-vous que vous créez des images à partir d’une installation de Windows qui n’a pas été encore inscrite auprès d’Azure AD.
-
-Tous les appareils joints à un domaine qui exécutent Mise à jour anniversaire Windows 10 et Windows Server 2016 s’inscrivent automatiquement auprès d’Azure AD lors du redémarrage des appareils ou de la connexion des utilisateurs une fois les étapes de configuration mentionnées ci-dessous terminées. **Si ce comportement d’inscription automatique n’est pas recommandé, ou si un lancement contrôlé est souhaité**, suivez tout d’abord les instructions de la section « Étape 4 : Contrôle du déploiement et du lancement » ci-dessous pour activer ou désactiver le lancement automatique de manière sélective avant de suivre les autres étapes de configuration.  
-
-Pour améliorer la lisibilité des descriptions, cet article utilise les termes suivants : 
-
-- **Appareils Windows actuels** : ce terme désigne les appareils joints à un domaine qui exécutent Windows 10 ou Windows Server 2016.
-- **Appareils Windows de bas niveau** : ce terme fait référence à tous les appareils Windows joints à un domaine **pris en charge** qui n’exécutent ni Windows 10 ni Windows Server 2016.  
-
-### <a name="windows-current-devices"></a>Appareils Windows actuels
-
-- Pour les appareils qui fonctionnent avec le système d’exploitation d’ordinateur Windows, la version prise en charge est la Mise à jour anniversaire Windows 10 (version 1607) ou une version ultérieure. 
-- L’inscription des appareils Windows actuels **est** prise en charge dans les environnements non fédérés tels que les configurations de synchronisation du hachage de mot de passe.  
-
-
-### <a name="windows-down-level-devices"></a>Appareils Windows de bas niveau
-
-- Les appareils Windows de bas niveau pris en charge sont les suivants :
-    - Windows 8.1
-    - Windows 7
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Windows Server 2008 R2
-- L’inscription d’appareils de bas niveau Windows **est** prise en charge dans les environnements non fédérés via l’authentification unique transparente [Authentification unique transparente d’Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
-- L’inscription d’appareils de bas niveau Windows **n’est pas** prise en charge lors de l’utilisation de l’authentification directe Azure AD sans authentification unique transparente.
-- L’inscription des appareils Windows de bas niveau **n’est pas** prise en charge pour les appareils utilisant des profils d’itinérance. Si vous vous appuyez sur l’itinérance de profils ou de paramètres, utilisez Windows 10.
-
 
 
 ## <a name="prerequisites"></a>Prérequis
+
+Ce tutoriel part du principe que vous connaissez :
+    
+-  [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md)
+    
+-  [Comment planifier l’implémentation de la jointure hybride Azure Active Directory](hybrid-azuread-join-plan.md)
+
+-  [Comment contrôler la jointure hybride Azure Active Directory pour vos appareils](hybrid-azuread-join-control.md)
 
 
 Avant de commencer à activer des appareils hybrides joints à Azure AD dans votre organisation, vérifiez que :
@@ -115,15 +92,14 @@ Pour obtenir une vue d’ensemble des étapes requises par votre scénario, util
 
 | Étapes                                      | Appareils Windows actuels et synchronisation du hachage de mot de passe | Appareils Windows actuels et fédération | Appareils Windows de bas niveau |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| Étape 1 : Configuration du point de connexion de service | ![Vérification][1]                            | ![Vérification][1]                    | ![Vérification][1]        |
-| Étape 2 : Configuration de l’émission de revendications           |                                        | ![Vérification][1]                    | ![Vérification][1]        |
-| Étape 3 : Activation d’appareils non-Windows 10      |                                        |                                | ![Vérification][1]        |
-| Étape 4 : Contrôle du déploiement et du lancement     | ![Vérification][1]                            | ![Vérification][1]                    | ![Vérification][1]        |
-| Étape 5 : Vérification des appareils joints          | ![Vérification][1]                            | ![Vérification][1]                    | ![Vérification][1]        |
+| Configurer le point de connexion de service | ![Vérification][1]                            | ![Vérification][1]                    | ![Vérification][1]        |
+| Configurer l’émission de revendications           |                                        | ![Vérification][1]                    | ![Vérification][1]        |
+| Activer les appareils non-Windows 10      |                                        |                                | ![Vérification][1]        |
+| Vérifier des appareils joints          | ![Vérification][1]                            | ![Vérification][1]                    | ![Vérification][1]        |
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>Étape 1 : Configuration du point de connexion de service
+## <a name="configure-service-connection-point"></a>Configurer le point de connexion de service
 
 Vos appareils utilisent l’objet point de connexion de service (SCP) lors de l’inscription pour détecter les informations de client Azure AD. Dans votre service Active Directory (AD) local, l’objet SCP des appareils hybrides joints à Azure AD doit exister dans la partition de contexte d’appellation de configuration de la forêt de l’ordinateur. Il n’existe qu’un seul contexte d’appellation de configuration par forêt. Dans une configuration Active Directory à forêts multiples, le point de connexion de service doit exister dans toutes les forêts qui contiennent des ordinateurs joints à un domaine.
 
@@ -201,7 +177,7 @@ Pour obtenir la liste de vos domaines d’entreprise vérifiés, vous pouvez uti
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## <a name="step-2-setup-issuance-of-claims"></a>Étape 2 : Configuration de l’émission de revendications
+## <a name="setup-issuance-of-claims"></a>Configurer l’émission de revendications
 
 Dans une configuration Azure AD fédérée, les appareils s’appuient sur les services de fédération Active Directory (AD FS) ou sur un service de fédération local tiers pour s’authentifier auprès d’Azure AD. Les appareils s’authentifient pour obtenir un jeton d’accès afin de s’inscrire auprès du service Azure Active Directory Device Registration Service (Azure DRS).
 
@@ -505,7 +481,7 @@ Le script ci-après vous aide à créer les règles de transformation d’émiss
 
 - Si vous avez déjà émis une revendication **ImmutableID** pour les comptes d’utilisateurs, définissez l’élément **$immutableIDAlreadyIssuedforUsers** du script sur la valeur **$true**.
 
-## <a name="step-3-enable-windows-down-level-devices"></a>Étape 3 : Activation des appareils Windows de bas niveau
+## <a name="enable-windows-down-level-devices"></a>Activer des appareils Windows de bas niveau
 
 Si certains de vos appareils joints à un domaine sont des appareils Windows de bas niveau, vous devez :
 
@@ -563,64 +539,25 @@ Pour éviter les invites de certificat lorsque les utilisateurs des appareils in
 
 `https://device.login.microsoftonline.com`
 
-## <a name="step-4-control-deployment-and-rollout"></a>Étape 4 : Contrôle du déploiement et du lancement
 
-Une fois que vous avez exécuté les étapes requises, les appareils joints à un domaine sont prêts à joindre automatiquement Azure AD :
-
-- Tous les appareils joints à un domaine qui exécutent Mise à jour anniversaire Windows 10 et Windows Server 2016 s’inscrivent automatiquement auprès d’Azure AD lors du redémarrage des appareils ou de la connexion des utilisateurs. 
-
-- Les nouveaux appareils s’inscrivent auprès d’Azure AD au moment de leur redémarrage une fois l’opération de jonction de domaine effectuée.
-
-- Les appareils qui ont fait précédemment l’objet d’une inscription auprès d’Azure AD (par exemple pour Intune) passent à l’état *« Joint au domaine, Enregistré avec AAD »*. Cependant, un certain temps est nécessaire pour que ce processus soit effectué sur tous les appareils, en raison du flux normal de l’activité du domaine et des utilisateurs.
-
-### <a name="remarks"></a>Remarques
-
-- Vous pouvez utiliser un objet de stratégie de groupe ou un paramètre client System Center Configuration Manager pour contrôler le déploiement de l’inscription automatique des ordinateurs Windows 10 et Windows Server 2016 joints à un domaine. **Si vous ne souhaitez pas que ces appareils soient inscrits automatiquement auprès d’Azure AD ou si vous souhaitez contrôler leur inscription**, vous devez déployer une stratégie de groupe en désactivant l’inscription automatique pour tous ces appareils. Si vous utilisez Configuration Manager, vous devez définir le paramètre client sous Cloud Services -> Inscrire automatiquement les nouveaux appareils Windows 10 joints à un domaine auprès d’Azure Active Directory sur « Non », avant de commencer l’une des étapes de configuration. Une fois la configuration terminée, et lorsque vous êtes prêt à effectuer les tests, vous devez déployer la stratégie de groupe en activant l’inscription automatique uniquement pour les appareils de test, puis pour les appareils de votre choix.
-
-- Pour un lancement des ordinateurs Windows de bas niveau, vous pouvez déployer un [package Windows Installer](#windows-installer-packages-for-non-windows-10-computers) sur les ordinateurs que vous sélectionnez.
-
-- Si vous transmettez l’objet de stratégie de groupe à des appareils Windows 8.1 joints à un domaine, une tentative de jonction sera effectuée ; toutefois, il est recommandé d’utiliser le [package Windows Installer](#windows-installer-packages-for-non-windows-10-computers) pour joindre tous vos appareils Windows de bas niveau. 
-
-### <a name="create-a-group-policy-object"></a>Créer un objet de stratégie de groupe 
-
-Pour contrôler le lancement des ordinateurs Windows actuels, vous devez déployer l’objet de stratégie de groupe **Enregistrer les ordinateurs appartenant à un domaine en tant qu’appareils** sur les appareils que vous souhaitez inscrire. Par exemple, vous pouvez déployer la stratégie sur un groupe de sécurité ou sur une unité organisationnelle.
-
-**Pour configurer la stratégie :**
-
-1. Ouvrez **Gestionnaire de serveur**, puis accédez à `Tools > Group Policy Management`.
-2. Accédez au nœud de domaine qui correspond au domaine dans lequel vous souhaitez activer l’inscription automatique d’ordinateurs Windows actuels.
-3. Cliquez avec le bouton droit sur **Objets de stratégie de groupe**, puis sélectionnez **Nouveau**.
-4. Entrez un nom pour votre objet de stratégie de groupe. Par exemple, *jonction Azure AD hybride. 
-5. Cliquez sur **OK**.
-6. Cliquez avec le bouton droit sur votre nouvel objet de stratégie de groupe, puis sélectionnez **Modifier**.
-7. Accédez à **Configuration ordinateur** > **Stratégies** > **Modèles d’administration** > **Composants Windows** > **Enregistrement d’appareil**. 
-8. Cliquez avec le bouton droit sur **Enregistrer les ordinateurs appartenant à un domaine en tant qu’appareils**, puis sélectionnez **Modifier**.
-   
-   > [!NOTE]
-   > Ce modèle de stratégie de groupe a été renommé par rapport aux versions précédentes de la Console de gestion des stratégies de groupe. Si vous utilisez une version antérieure de la console, accédez à `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
-
-7. Sélectionnez **Activé**, puis cliquez sur **Appliquer**. Vous devez sélectionner **Désactivé** si vous souhaitez que la stratégie bloque l’inscription automatique auprès d’Azure AD des appareils contrôlés par cette stratégie de groupe.
-
-8. Cliquez sur **OK**.
-9. Liez l’objet de stratégie de groupe à un emplacement de votre choix. Par exemple, vous pouvez le lier à une unité organisationnelle spécifique. Vous pouvez également le lier à un groupe de sécurité spécifique d’ordinateurs qui rejoignent automatiquement Azure AD. Pour définir cette stratégie pour tous les ordinateurs Windows 10 ou Windows Server 2016 joints à un domaine de votre organisation, liez l’objet de stratégie de groupe au domaine.
-
-### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Packages Windows Installer pour les ordinateurs autres que Windows 10
-
-Pour joindre des ordinateurs Windows de bas niveau joints à un domaine dans un environnement fédéré, vous pouvez télécharger et installer ce package Windows Installer (.msi) à partir du Centre de téléchargement au niveau de la page [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) (Jonction Microsoft Workplace pour les ordinateurs non Windows 10).
-
-Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels comme System Center Configuration Manager. Le package prend en charge les options d’installation en mode silencieux standard avec le paramètre *quiet*. System Center Configuration Manager Current Branch offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions terminées. Pour plus d’informations, consultez l’article [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
-
-Le programme d’installation crée une tâche planifiée sur le système, qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche assure la jonction de l’appareil en mode silencieux à Azure AD avec les informations d’identification de l’utilisateur après l’avoir authentifié à l’aide de l’authentification Windows intégrée. Pour visualiser la tâche planifiée, sélectionnez sur l’appareil **Microsoft** > **Rattacher à l’espace de travail**, puis accédez à la bibliothèque du Planificateur de tâches.
-
-## <a name="step-5-verify-joined-devices"></a>Étape 5 : Vérification des appareils joints
+## <a name="verify-joined-devices"></a>Vérifier des appareils joints
 
 Vous pouvez vérifier les appareils qui ont été correctement joints dans votre organisation en utilisant l’applet de commande [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) dans le [module Azure Active Directory PowerShell](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 La sortie de cette applet de commande affiche les appareils qui sont enregistrés et joints à Azure AD. Pour obtenir tous les appareils, utilisez le paramètre **-All**, puis filtrez-les à l’aide de la propriété **deviceTrustType**. Les appareils joints à un domaine présentent la valeur **Joint au domaine**.
 
+
+
+## <a name="troubleshoot-your-implementation"></a>Résoudre les problèmes liés à votre implémentation
+
+Si vous rencontrez des problèmes pour effectuer une jonction Azure AD hybride avec des appareils Windows joints à un domaine, consultez :
+
+- [Résolution des problèmes de jonction Azure AD hybride pour les appareils Windows actuels](troubleshoot-hybrid-join-windows-current.md)
+- [Résolution des problèmes de jonction Azure AD hybride pour les appareils Windows de bas niveau](troubleshoot-hybrid-join-windows-legacy.md)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md)
+* [Présentation de la gestion des appareils dans Azure Active Directory](overview.md)
 
 
 

@@ -6,18 +6,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 08/09/2018
 ms.author: raynew
-ms.openlocfilehash: 96fc44ad7f69b4de0ec5ea3967fe5495086ba53a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d19aa4c3765beecc853a1b800a7ba1d3ebd74e9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413601"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004325"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice de support pour la réplication des machines virtuelles VMware et des serveurs physiques vers Azure
 
 Cet article répertorie les composants et les paramètres pris en charge pour la reprise après sinistre de machines virtuelles VMware vers Azure, avec [Azure Site Recovery](site-recovery-overview.md).
+
+Pour commencer à utiliser Azure Site Recovery avec le scénario de déploiement la plus simple, consultez nos [didacticiels](tutorial-prepare-azure.md). Cliquez [ici](vmware-azure-architecture.md) pour en savoir plus sur l’architecture Azure Site Recovery.
 
 ## <a name="replication-scenario"></a>Scénario de réplication
 
@@ -112,7 +114,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | SP1 3.12.49-11-default 
 **Composant** | **Pris en charge**
 --- | ---
 Systèmes de fichiers | ext3, ext4, XFS.
-Gestionnaire de volume | LVM2.
+Gestionnaire de volume | LVM2. LVM est pris en charge pour les disques de données uniquement. Les machines virtuelles Azure ont un seul disque de système d’exploitation.
 Dispositif de stockage paravirtualisé | Les appareils exportés par les pilotes paravirtualisés ne sont pas pris en charge.
 Unités de bloc d’entrée et de sortie en file d’attente | Non pris en charge.
 Serveurs physiques avec le contrôleur de stockage HP CCISS | Non pris en charge.
@@ -241,12 +243,15 @@ Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et e
 Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non 
 
 
-## <a name="mobility-service"></a>Service Mobilité
+## <a name="download-latest-azure-site-recovery-components"></a>Téléchargez les derniers composants Azure Site Recovery
 
-**Name** | **Description** | **Version la plus récente** | **Détails**
+**Name** | **Description** | **Instructions de téléchargement de la version la plus récente** 
 --- | --- | --- | --- | ---
-Configuration unifiée Azure Site Recovery | Coordonne les communications entre les serveurs VMware locaux et Azure  <br/><br/> Installé sur des serveurs VMware locaux | 9.12.4653.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://aka.ms/latest_asr_updates)
-Service Mobilité | Coordonne la réplication entre les serveurs VMware/serveurs physiques et Azure/site secondaire<br/><br/> Installé sur une machine virtuelle ou des serveurs physiques VMware que vous souhaitez répliquer | 9.12.4653.1 (disponible sur le portail) | [Fonctionnalités et correctifs récents](https://aka.ms/latest_asr_updates)
+Serveur de configuration | Coordonne les communications entre les serveurs VMware locaux et Azure  <br/><br/> Installé sur des serveurs VMware locaux | Pour une nouvelle installation, cliquez [ici](vmware-azure-deploy-configuration-server.md). Pour mettre à niveau un composant existant vers la version la plus récente, cliquez [ici](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Serveur de traitement|Installé par défaut sur le serveur de configuration. Il reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement, et les envoie vers le stockage Azure. À mesure que s’étend votre déploiement, vous pouvez ajouter des serveurs de traitement distincts afin de gérer de plus grands volumes de trafic de réplication.| Pour une nouvelle installation, cliquez [ici](vmware-azure-set-up-process-server-scale.md). Pour mettre à niveau un composant existant vers la version la plus récente, cliquez [ici](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Service Mobilité | Coordonne la réplication entre les serveurs VMware/serveurs physiques et Azure/site secondaire<br/><br/> Installé sur une machine virtuelle ou des serveurs physiques VMware que vous souhaitez répliquer | Pour une nouvelle installation, cliquez [ici](vmware-azure-install-mobility-service.md). Pour mettre à niveau un composant existant vers la version la plus récente, cliquez [ici](vmware-azure-install-mobility-service.md#update-mobility-service).
+
+Pour en savoir plus sur les derniers correctifs et fonctionnalités, cliquez [ici](https://aka.ms/latest_asr_updates).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

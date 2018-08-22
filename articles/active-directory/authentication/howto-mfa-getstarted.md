@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: d248f8bc5708dfe8554f513d4f96a6c1bee7605e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c2d0f14bca2b9ab062c61407479ab45a0104ff0a
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412410"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716261"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Déploiement basé sur le cloud Azure Multi-Factor Authentication
 
@@ -30,7 +30,7 @@ Avant de commencer, assurez-vous que vous disposez des prérequis suivants :
 
 **Activé par la stratégie d’accès conditionnel** : cette méthode est décrite dans cet article. C’est la méthode la plus souple pour activer la vérification en deux étapes pour vos utilisateurs. Activer à l’aide de la stratégie d’accès conditionnel ne fonctionne que pour Azure MFA dans le cloud, et c’est une fonctionnalité payante d’Azure AD.
 
-Activé par Azure AD Identity Protection : cette méthode utilise la stratégie des risques Azure AD Identity Protection pour imposer la vérification en deux étapes basée uniquement sur le risque de connexion pour toutes les applications cloud. Cette méthode requiert une licence Azure Active Directory P2. Vous trouverez plus d’informations sur cette méthode dans [Azure Active Directory Identity Protection](../active-directory-identityprotection.md#risky-sign-ins)
+Activé par Azure AD Identity Protection : cette méthode utilise la stratégie des risques Azure AD Identity Protection pour imposer la vérification en deux étapes basée uniquement sur le risque de connexion pour toutes les applications cloud. Cette méthode requiert une licence Azure Active Directory P2. Vous trouverez plus d’informations sur cette méthode dans [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins).
 
 Activé par l’utilisateur de modification d’état : c’est la méthode traditionnelle pour exiger une vérification en deux étapes. Elle fonctionne avec Azure MFA dans le cloud et le serveur Azure MFA. Cette méthode nécessite que les utilisateurs effectuent la vérification en deux étapes **chaque fois** qu’ils se connectent, puis remplace les stratégies d’accès conditionnel. Vous trouverez plus d’informations sur cette méthode dans [Comment exiger la vérification en deux étapes pour un utilisateur](howto-mfa-userstates.md)
 
@@ -109,3 +109,5 @@ Félicitations, vous avez configuré Azure Multi-Factor Authentication dans le c
 Pour configurer des paramètres supplémentaires tels que les adresses IP approuvées, les messages vocaux personnalisés et les alertes de fraude, consultez l’article [Configurer les paramètres d’Azure Multi-Factor Authentication](howto-mfa-mfasettings.md)
 
 Vous pouvez trouver des informations sur la gestion des paramètres utilisateur pour Azure Multi-Factor Authentication dans l’article [Gestion des paramètres utilisateur avec Azure Multi-Factor Authentication dans le cloud](howto-mfa-userdevicesettings.md)
+
+[Activer l’inscription convergée pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)

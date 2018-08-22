@@ -8,17 +8,20 @@ ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: vvasic
-ms.openlocfilehash: d4d3b7f54c7393b57339ea149e8a79f97891dc20
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 9ebc3a8cb01d93fc6cec5d208c5a10020413cec2
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646029"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39631093"
 ---
 # <a name="enable-automatic-tuning"></a>Activer le réglage automatique
 
-Azure SQL Database est un service de données géré automatiquement qui surveille vos requêtes en permanence et identifie les actions que vous pouvez effectuer pour améliorer les performances de votre charge de travail. Vous pouvez consulter les recommandations et les appliquer manuellement ou laisser Azure SQL Database appliquer automatiquement des actions correctives : il s’agit du **mode de réglage automatique**. Le réglage automatique peut être activé au niveau du serveur ou de la base de données.
+Azure SQL Database est un service de données géré automatiquement qui surveille vos requêtes en permanence et identifie les actions que vous pouvez effectuer pour améliorer les performances de votre charge de travail. Vous pouvez consulter les recommandations et les appliquer manuellement ou laisser Azure SQL Database appliquer automatiquement des actions correctives : il s’agit du **mode de réglage automatique**.
+
+Le réglage automatique peut être activé au niveau du serveur ou de la base de données par le biais du [portail Azure](sql-database-automatic-tuning-enable.md#azure-portal), des appels d’[API REST](sql-database-automatic-tuning-enable.md#rest-api) et des commandes [T-SQL](sql-database-automatic-tuning-enable.md#t-sql).
 
 ## <a name="enable-automatic-tuning-on-server"></a>Activer le réglage automatique sur le serveur
 Au niveau du serveur, vous pouvez choisir d’hériter de la configuration du réglage automatique à partir de « Valeurs Azure par défaut » ou de ne pas hériter de la configuration. Les valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX désactivé.
@@ -37,7 +40,9 @@ Sélectionnez les options de réglage automatique que vous souhaitez activer et 
 Les options de réglage automatique sur un serveur sont appliquées à toutes les bases de données de ce serveur. Par défaut, toutes les bases de données héritent de la configuration de leur serveur parent, mais celle-ci peut être remplacée et spécifiée individuellement pour chaque base de données.
 
 ### <a name="rest-api"></a>API REST
-[Cliquez ici pour en savoir plus sur la façon d’activer le réglage automatique au niveau du serveur par le biais de l’API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+
+Découvrez-en davantage sur l’utilisation de l’API REST pour activer le réglage automatique sur un serveur en consultant [Méthodes UPDATE et GET HTTP du réglage automatique SQL Server](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Activer le réglage automatique sur une base de données individuelle
 
@@ -60,7 +65,8 @@ Notez que l’option DROP_INDEX n’est pas compatible avec les applications uti
 Une fois que vous avez sélectionné la configuration voulue, cliquez sur **Appliquer**.
 
 ### <a name="rest-api"></a>API REST
-[Cliquez ici pour en savoir plus sur la façon d’activer le réglage automatique sur une base de données par le biais de l’API REST](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
+
+Découvrez-en davantage sur l’utilisation de l’API REST pour activer le réglage automatique sur une base de données unique en consultant [Méthodes UPDATE et GET HTTP du réglage automatique SQL Database](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -80,12 +86,14 @@ Pour configurer des options de réglage automatique individuelles par le biais d
    
 Si vous affectez la valeur ON à l’option de réglage, les paramètres héritées par la base de données sont substitués et l’option de réglage est activée. Si vous affectez la valeur OFF, les paramètres héritées par la base de données sont également substitués et l’option de réglage est désactivée. L’option de réglage automatique pour laquelle DEFAULT est spécifié hérite de la configuration du paramètre de réglage automatique de niveau base de données.  
 
+Découvrez-en davantage sur les options T-SQL pour configurer le réglage automatique en consultant [Options ALTER DATABASE SET (Transact-SQL) pour le serveur logique SQL Database](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
+
 ## <a name="disabled-by-the-system"></a>Désactivée par le système
 Le réglage automatique surveille toutes les actions effectuées sur la base de données et, dans certains cas, il peut déterminer que le réglage automatique ne peut pas fonctionner correctement sur la base de données. Dans ce cas, l’option de réglage est désactivée par le système. Dans la plupart des cas, cela est dû au fait que le Magasin des requêtes n’est pas activé ou est en lecture seule sur une base de données spécifique.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Configurer les notifications par e-mail sur l’ajustement automatique
 
-Consultez [Notifications par e-mail sur l’ajustement automatique](sql-database-automatic-tuning-email-notifications.md)
+Consultez le guide [Notifications par e-mail du réglage automatique](sql-database-automatic-tuning-email-notifications.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Lisez l’[article Réglage automatique](sql-database-automatic-tuning.md) pour en savoir plus sur le réglage automatique et sur la manière dont il peut vous aider à améliorer vos performances.

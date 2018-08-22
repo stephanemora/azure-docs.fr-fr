@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325249"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005873"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Présentation de Azure Load Balancer Standard
 
@@ -64,7 +64,15 @@ Le pool principal peut contenir des machines virtuelles autonomes, des groupes �
 
 Lorsque vous envisagez la conception de votre pool principal, vous pouvez concevoir le moins de ressources de pool principal individuelles pour optimiser davantage la durée des opérations de gestion.  Il n’existe aucune différence de performances ou de mise à l’échelle du plan de données.
 
-## <a name="az"></a> Zones de disponibilité
+### <a name="probes"></a>Sondes d’intégrité
+  
+Standard Load Balancer prend désormais en charge les [sondes d’intégrité HTTPS](load-balancer-custom-probe-overview.md#httpprobe) (sonde HTTP avec le wrapper TLS (Transport Layer Security)) pour surveiller avec précision vos applications HTTPS.  
+
+En outre, quand le pool principal entier [connaît un échec de sonde](load-balancer-custom-probe-overview.md#probedown), Standard Load Balancer permet à toutes les connexions TCP établies de se poursuivre. (Basic Load Balancer arrête toutes les connexions TCP à toutes les instances).
+
+Pour plus d’informations, consultez [Sondes d’intégrité Load Balancer](load-balancer-custom-probe-overview.md).
+
+### <a name="az"></a> Zones de disponibilité
 
 Load Balancer Standard prend en charge des fonctionnalités supplémentaires dans les régions où les Zones de disponibilité sont disponibles.  Ces fonctionnalités sont incrémentielles pour tous les Load Balancer Standard fournis.  Les configurations de Zones de disponibilité sont disponibles pour Load Balancer Standard public et interne.
 
@@ -167,7 +175,7 @@ Les références SKU ne sont pas mutables. Suivez les étapes décrites dans cet
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migration de la référence SKU De base à la référence SKU Standard
 
-1. Créez une ressource Standard (Load Balancer et adresses IP publiques si nécessaire). Recréez vos règles et définitions de sonde.
+1. Créez une ressource Standard (Load Balancer et adresses IP publiques si nécessaire). Recréez vos règles et définitions de sonde.  Si vous utilisiez une sonde TCP sur le port 443/tcp, envisagez de changer ce protocole de sonde au profit d’une sonde HTTPS et ajoutez un chemin.
 
 2. Créez ou mettez à jour un groupe de sécurité réseau (NSG) sur la carte réseau ou le sous-réseau pour mettre en liste verte le trafic à charge équilibrée, la sonde, ainsi que tout autre trafic que vous souhaitez autoriser.
 
@@ -177,7 +185,7 @@ Les références SKU ne sont pas mutables. Suivez les étapes décrites dans cet
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migration de la référence SKU Standard à la référence SKU De base
 
-1. Créez une ressource De base (Load Balancer et adresses IP publiques si nécessaire). Recréez vos règles et définitions de sonde. 
+1. Créez une ressource De base (Load Balancer et adresses IP publiques si nécessaire). Recréez vos règles et définitions de sonde.  Changez une sonde HTTPS au profit d’une sonde TCP sur le port 443/tcp. 
 
 2. Supprimez les ressources de la référence SKU Standard (Load Balancer et adresses IP publiques, le cas échéant) de toutes les instances de machine virtuelle. Veillez également à supprimer toutes les instances de machine virtuelle d’un groupe à haute disponibilité.
 
@@ -218,15 +226,16 @@ Load Balancer Standard est un produit facturé en fonction du nombre de règles 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment utiliser [Load Balancer Standard et les zones de disponibilité](load-balancer-standard-availability-zones.md)
+- Découvrez comment utiliser [Standard Load Balancer et les zones de disponibilité](load-balancer-standard-availability-zones.md).
+- Découvrez les [sondes d’intégrité](load-balancer-custom-probe-overview.md).
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)
 - En savoir plus sur les [Diagnostics Load Balancer Standard](load-balancer-standard-diagnostics.md).
 - En savoir plus sur les [métriques multidimensionnelles prises en charge](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) pour obtenir des diagnostics dans [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
-- Découvrez comment utiliser [Load Balancer pour les connexions sortantes](load-balancer-outbound-connections.md)
-- En savoir plus sur [Load Balancer Standard avec les règles d’équilibrage de charge des ports HA](load-balancer-ha-ports-overview.md)
-- Découvrez comment utiliser [Load Balancer avec plusieurs serveurs frontaux](load-balancer-multivip-overview.md)
+- Découvrez comment utiliser [Load Balancer pour les connexions sortantes](load-balancer-outbound-connections.md).
+- Découvrez [Load Balancer Standard avec les règles d’équilibrage de charge des ports HA](load-balancer-ha-ports-overview.md).
+- Découvrez comment utiliser [Load Balancer avec plusieurs serveurs frontaux](load-balancer-multivip-overview.md).
 - En savoir plus sur les [Réseaux virtuels](../virtual-network/virtual-networks-overview.md).
 - En savoir plus sur les [groupes de sécurité réseau](../virtual-network/security-overview.md).
-- En savoir plus sur les [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)
+- Découvrez les [points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 - En savoir plus sur les autres [fonctionnalités de mise en réseau](../networking/networking-overview.md) clés d’Azure.
 - En savoir plus sur [Load Balancer](load-balancer-overview.md).

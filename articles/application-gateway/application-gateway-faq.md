@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 8/10/2018
 ms.author: victorh
-ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399140"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038344"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -122,6 +122,12 @@ Les groupes de sécurité réseau sont pris en charge sur le sous-réseau d’Ap
 * La connectivité Internet sortante ne peut pas être bloquée.
 
 * Le trafic en provenance de la balise AzureLoadBalancer doit être autorisé.
+
+**Q. Les itinéraires définis par l’utilisateur sont-ils pris en charge sur le sous-réseau d’Application Gateway ?**
+
+Les itinéraires définis par l’utilisateur (UDR) sont pris en charge sur le sous-réseau d’Application Gateway tant qu’ils n’altèrent pas la communication de requête/réponse de bout en bout.
+
+Par exemple, vous pouvez configurer un UDR dans le sous-réseau d’Application Gateway pour pointer vers une appliance de pare-feu pour l’inspection des paquets, mais vous devez vous assurer que le paquet peut atteindre l’inspection sa destination prévue après l’inspection. Cela peut entraîner un comportement de sonde d’intégrité ou de routage du trafic incorrect. Cela inclut les itinéraires appris ou les itinéraires 0.0.0.0/0 par défaut propagés par ExpressRoute ou des passerelles VPN dans le réseau virtuel.
 
 **Q. Quelles sont les limites d’Application Gateway ? Puis-je augmenter ces limites ?**
 

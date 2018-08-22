@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 5d12b9f04dc1cc5017ab4c9ff1bde9b84ac24cfe
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b3279006d1ff947b76dd8fbba1438972e5f3ad8b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400102"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630960"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Stockage Blob Azure : niveaux de stockage chaud, froid et archive
 
@@ -71,6 +71,9 @@ Les objets blob des trois niveaux de stockage peuvent coexister au sein d’un m
 
 > [!NOTE]
 > Le stockage archive et la hiérarchisation au niveau de l’objet blob prennent en charge uniquement les objets blob de blocs. De plus, vous ne pouvez pas modifier le niveau d’un objet blob de blocs comportant des captures instantanées.
+
+### <a name="blob-lifecycle-management"></a>Gestion de cycle de vie des objets blob
+La gestion de cycle de vie du stockage Blob (préversion) offre une stratégie enrichie, basée sur des règles, que vous pouvez utiliser pour faire passer vos données au niveau d’accès le plus adapté et faire expirer les données à la fin de leur cycle de vie. Consultez [Gérer le cycle de vie du stockage Blob Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) pour en savoir plus.  
 
 ### <a name="blob-level-tiering-billing"></a>Facturation de la hiérarchisation au niveau de l’objet blob
 
@@ -187,6 +190,8 @@ Le stockage des données ainsi que d’autres limites sont établis à partir du
 ### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Évaluer les niveaux chaud, froid et archive dans les comptes de stockage d’objets blob GPv2
 
 [Vérifier la disponibilité de niveau chaud, froid et archive par région](https://azure.microsoft.com/regions/#services)
+
+[Gérer le cycle de vie du stockage Blob Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Évaluer l’utilisation des comptes de stockage actuels en activant les métriques Azure Storage](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

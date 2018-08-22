@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e1342ed574d84ed5b4edd5060c2d6d3ec8bca1a8
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903062"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003109"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Procédure de mise à niveau de votre IoT Hub
 
@@ -27,7 +27,7 @@ Lorsque vous avez plus d’appareils et avez besoin de davantage de fonctionnali
 
 Ces modifications peuvent se produire sans interrompre les opérations existantes.
 
-Si vous souhaitez passer à une version antérieure de votre IoT Hub, vous pouvez supprimer des unités et réduire la taille de l’IoT Hub. Toutefois, vous ne pouvez pas rétrograder à un niveau inférieur. Par exemple, vous pouvez passer du niveau S2 au niveau S1, mais pas du niveau S2 au niveau B1. 
+Si vous souhaitez passer à une version antérieure de votre IoT Hub, vous pouvez supprimer des unités et réduire la taille de l’IoT Hub. Toutefois, vous ne pouvez pas rétrograder à un niveau inférieur. Par exemple, vous pouvez passer du niveau S2 au niveau S1, mais pas du niveau S2 au niveau B1. Notez également que, dans un niveau, vous ne pouvez choisir qu’un seul type [d’édition](https://azure.microsoft.com/pricing/details/iot-hub/) par IoT Hub. Par exemple, vous pouvez créer un IoT Hub avec plusieurs unités de S1, mais pas avec plusieurs unités de différentes éditions, telles que S1 et B3, ou S1 et S2.
 
 Ces exemples sont destinés à vous aider à comprendre comment ajuster votre IoT Hub aux modifications de votre solution. Pour plus d’informations sur les fonctionnalités de chaque niveau, consultez toujours la [Tarification Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
@@ -45,7 +45,7 @@ Ces exemples sont destinés à vous aider à comprendre comment ajuster votre Io
 4. Pour modifier le nombre d’unités de votre hub, entrez une nouvelle valeur sous **Unités IoT Hub**. 
 5. Cliquez sur **Enregistrer** pour enregistrer vos modifications. 
 
-Votre IoT Hub est maintenant ajusté et vos configurations restent inchangées. Notez que la limite de partition pour le niveau De base d’IoT Hub est 8. Cette limite ne change pas quand vous migrez du niveau De base vers le niveau Standard.
+Votre IoT Hub est maintenant ajusté et vos configurations restent inchangées. Notez que le nombre de partitions est limité à 8 pour le niveau de base d’IoT Hub, et à 32 pour le niveau Standard. La plupart des hubs IoT n’ont besoin que de 4 partitions. Le nombre maximal de partitions est choisi au moment de la création du hub IoT, et il associe les messages appareil-à-cloud au nombre de lecteurs simultanés de ces messages. Cette limite ne change pas quand vous migrez du niveau De base vers le niveau Standard. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

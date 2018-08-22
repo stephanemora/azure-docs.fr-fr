@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d00a6d3c476e10b13d00ff1738cb54c2eeea104c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c230b08089f22dbd0ea46cdff331f1c8b354ef62
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521820"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038177"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -151,7 +151,7 @@ Du fait que les antivirus analysent les fichiers pour détecter la présence év
 Les solutions suivantes peuvent ignorer les fichiers hors connexion :
 
 - [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender ignore automatiquement la lecture de ces fichiers. Nous avons testé Defender et identifié un problème mineur : lorsque vous ajoutez un serveur à un groupe de synchronisation existant, les fichiers de mois de 800 octets sont rappelés (téléchargés) sur le nouveau serveur. Ces fichiers resteront sur le nouveau serveur et ne seront pas hiérarchisés, car ils ne respectent pas les exigences de taille de niveau (> à 64 Ko).
+    - Windows Defender ignore automatiquement la lecture des fichiers dans lesquels l’attribut hors connexion est défini. Nous avons testé Defender et identifié un problème mineur : lorsque vous ajoutez un serveur à un groupe de synchronisation existant, les fichiers de mois de 800 octets sont rappelés (téléchargés) sur le nouveau serveur. Ces fichiers resteront sur le nouveau serveur et ne seront pas hiérarchisés, car ils ne respectent pas les exigences de taille de niveau (> à 64 Ko).
 - [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
     - SCEP fonctionne comme Defender ; voir ci-dessus
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
@@ -192,12 +192,14 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | Sud-est de l’Australie | Victoria |
 | Centre du Canada | Toronto |
 | Est du Canada | Québec |
-| Centre des États-Unis | Iowa |
+| Inde Centre | Pune |
+| USA Centre | Iowa |
 | Est de l'Asie | Hong Kong (R.A.S.) |
 | Est des États-Unis | Virginie |
 | Est des États-Unis 2 | Virginie |
 | Europe du Nord | Irlande |
-| Asie du Sud-Est | Singapour |
+| Inde Sud | Chennai |
+| Asie Sud-Est | Singapour |
 | Sud du Royaume-Uni | Londres |
 | Ouest du Royaume-Uni | Cardiff |
 | Europe de l'Ouest | Pays-bas |
@@ -216,11 +218,13 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 | Australie Sud-Est | Australie Est     |
 | Canada Centre      | Est du Canada        |
 | Est du Canada         | Centre du Canada     |
+| Inde Centre       | Inde Sud        |
 | USA Centre          | USA Est 2          |
 | Asie Est           | Asie Sud-Est     |
 | USA Est             | USA Ouest            |
 | USA Est 2           | USA Centre         |
 | Europe Nord        | Europe Ouest        |
+| Inde Sud         | Inde Centre      |
 | Asie Sud-Est      | Asie Est          |
 | Sud du Royaume-Uni            | Ouest du Royaume-Uni            |
 | Ouest du Royaume-Uni             | Sud du Royaume-Uni           |

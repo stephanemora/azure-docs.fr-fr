@@ -7,23 +7,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/03/2018
 ms.author: carlrab
-ms.openlocfilehash: effb09cfc68961065ad0b4e4be52255bcd1fe4e0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fae9f0aaa001c233a6687dda5cd5b7c0128ff8b0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414165"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038123"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU 
 
-Cet article détaille les limites de ressources des pools élastiques Azure SQL Database suivant le modèle d’achat DTU.
+Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat par DTU.
 
 Pour connaître les limites de ressources des pools élastiques du modèle d’achat DTU, consultez [Limites des ressources DTU : pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md). Pour voir les limites de ressources par vCore, consultez [Limites de ressources par vCore : bases de données uniques](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources par vCore : pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md).
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Base de données unique : tailles de stockage et niveaux de performance
 

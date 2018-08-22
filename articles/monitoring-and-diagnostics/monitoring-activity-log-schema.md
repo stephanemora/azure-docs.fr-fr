@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917225"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003829"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./monitoring-diagnostic-logs-schema.md) est fourni à la fin de cet article.
@@ -120,7 +120,7 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 | description |Description textuelle statique d’un événement. |
 | eventDataId |Identificateur unique d’un événement. |
 | httpRequest |Objet blob décrivant la requête Http. Inclut généralement clientRequestId, clientIpAddress et la méthode (méthode HTTP. Par exemple, PUT). |
-| level |Niveau de l’événement. Une des valeurs suivantes : Critical, Error, Warning, Informational et Verbose |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critical » (Critique), « Error » (Erreur), « Warning » (Avertissement) ou « Informational » (Information) |
 | nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée. |
 | resourceProviderName |Nom du fournisseur de ressources de la ressource affectée. |
 | ResourceId |ID de ressource de la ressource affectée. |
@@ -134,7 +134,7 @@ Cette catégorie contient l’enregistrement de toutes les opérations de créat
 | subscriptionId |ID d’abonnement Azure. |
 
 ## <a name="service-health"></a>État d’intégrité du service
-Cette catégorie contient l’enregistrement de tout incident de l’état d’intégrité du service qui se sont produits dans Azure. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « SQL Azure dans l’est des États-Unis rencontre des temps d’arrêt. » Les événements de l’état d’intégrité du service se présentent sous cinq variétés : action requise, récupération assistée, incident, maintenance, informations ou sécurité et n’apparaissent que si une ressource de votre abonnement est affectée par l’événement.
+Cette catégorie contient l’enregistrement de tout incident de l’état d’intégrité du service qui se sont produits dans Azure. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « SQL Azure dans la région USA Est rencontre des temps d’arrêt. » Les événements de l’état d’intégrité du service se présentent sous cinq variétés : action requise, récupération assistée, incident, maintenance, informations ou sécurité et n’apparaissent que si une ressource de votre abonnement est affectée par l’événement.
 
 ### <a name="sample-event"></a>Exemple d’événement
 ```json
@@ -266,7 +266,7 @@ Cette catégorie contient l’enregistrement de toutes les activations des alert
 | correlationId | Un GUID au format chaîne. |
 | description |Description textuelle statique de l’événement d’alerte. |
 | eventDataId |Identificateur unique de l'événement d’alerte. |
-| level |Niveau de l’événement. Une des valeurs suivantes : Critical, Error, Warning, Informational et Verbose |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critical » (Critique), « Error » (Erreur), « Warning » (Avertissement) ou « Informational » (Information) |
 | nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, ceci est le nom du groupe de ressources qui contient l’alerte elle-même. |
 | resourceProviderName |Nom du fournisseur de ressources de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, ceci est le nom du fournisseur de ressources pour l’alerte elle-même. |
 | ResourceId | Nom de l’ID de ressource de la ressource affectée s’il s’agit d’une alerte métrique. Pour les autres types d’alertes, ceci est le nom de l’ID de ressource pour l’alerte elle-même. |
@@ -375,7 +375,7 @@ Cette catégorie contient l’enregistrement de tous les événements liés au f
 | correlationId | Un GUID au format chaîne. |
 | description |Description textuelle statique de l’événement de mise à l’échelle automatique. |
 | eventDataId |Identificateur unique de l'événement de mise à l’échelle automatique. |
-| level |Niveau de l’événement. Une des valeurs suivantes : Critical, Error, Warning, Informational et Verbose |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critical » (Critique), « Error » (Erreur), « Warning » (Avertissement) ou « Informational » (Information) |
 | nom_groupe_ressources |Nom du groupe de ressources du paramètre de mise à l’échelle automatique. |
 | resourceProviderName |Nom du fournisseur de ressources du paramètre de mise à l’échelle automatique. |
 | ResourceId |ID de ressource du paramètre de mise à l’échelle automatique. |
@@ -465,7 +465,7 @@ Cette catégorie contient l’enregistrement de toutes les alertes générées p
 | eventDataId |Identificateur unique de l’événement de sécurité. |
 | eventName |Nom convivial de l’événement de sécurité. |
 | id |URI (Unique Resource Identifier) de l’événement de sécurité. |
-| level |Niveau de l’événement. L’une des valeurs suivantes : Critical (Critique), Error (Erreur), Warning (Avertissement), Informational (Information) ou Verbose (Détaillé). |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critical » (Critique), « Error » (Erreur), « Warning » (Avertissement) ou « Informational » (Information) |
 | nom_groupe_ressources |Nom du groupe de ressources de la ressource. |
 | resourceProviderName |Nom du fournisseur de ressources pour Azure Security Center. Toujours Microsoft.Security. |
 | resourceType |Type de ressource qui a généré l’événement de sécurité, par exemple « Microsoft.Security/locations/alerts ». |
@@ -545,7 +545,7 @@ Cette catégorie contient l’enregistrement de toutes les nouvelles recommandat
 | eventDataId | Identificateur unique de l’événement de recommandation. |
 | category | Toujours « Recommandation » |
 | id |Identificateur de ressource unique de l’événement de recommandation. |
-| level |Niveau de l’événement. L’une des valeurs suivantes : Critical (Critique), Error (Erreur), Warning (Avertissement), Informational (Information) ou Verbose (Détaillé). |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critical » (Critique), « Error » (Erreur), « Warning » (Avertissement) ou « Informational » (Information) |
 | operationName |Nom de l’opération.  Toujours « Microsoft.Advisor/generateRecommendations/action »|
 | nom_groupe_ressources |Nom du groupe de ressources de la ressource. |
 | resourceProviderName |Nom du fournisseur de ressources pour la ressource à laquelle cette recommandation s’applique, comme « MICROSOFT.COMPUTE » |

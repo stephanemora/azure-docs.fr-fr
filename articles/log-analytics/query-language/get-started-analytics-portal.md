@@ -1,0 +1,194 @@
+---
+title: Bien démarrer avec le portail Analytics dans Azure Log Analytics | Microsoft Docs
+description: Cet article fournit un tutoriel qui explique comment écrire des requêtes dans Log Analytics à l’aide du portail Analytics.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: carmonm
+editor: ''
+ms.assetid: ''
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/06/2018
+ms.author: bwren
+ms.component: na
+ms.openlocfilehash: 6f6916b27aa251bc0a0c25be060378c11faab607
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39632288"
+---
+# <a name="get-started-with-the-analytics-portal"></a>Bien démarrer avec le portail Analytics
+
+Dans ce tutoriel, vous allez apprendre à écrire des requêtes Azure Log Analytics à l’aide du portail Analytics. Au terme du tutoriel, vous saurez :
+
+- Écrire des requêtes simples
+- Comprendre le schéma de vos données
+- Filtrer, trier et regrouper les résultats
+- Appliquer un intervalle de temps
+- Créer des graphiques
+- Enregistrer et charger des requêtes
+- Exporter et partager des requêtes
+
+
+## <a name="meet-the-analytics-portal"></a>Découvrir le portail Analytics
+Le portail Analytics est un outil web utilisé pour écrire et exécuter des requêtes Azure Log Analytics. 
+
+![page d'accueil](media/get-started-analytics-portal/homepage.png)
+
+La page d’accueil offre un accès aisé à des ressources utiles, telles que les requêtes enregistrées et récentes, et à des exemples. Ouvrez un nouvel onglet pour commencer à écrire vos propres requêtes.
+
+## <a name="basic-queries"></a>Requêtes de base
+Les requêtes peuvent être utilisées pour rechercher des termes, identifier des tendances, analyser des modèles et fournissent de nombreux autres insights basés sur vos données. Démarrez avec une requête de base :
+
+```OQL
+Event | search "error"
+```
+
+Cette requête recherche dans la table _Event_ les enregistrements qui contiennent le terme « error » dans n’importe quelle propriété.
+
+Les requêtes peuvent commencer par un nom de table ou une commande **search**. L’exemple ci-dessus commence par le nom de table _Event_, qui définit l’étendue de la requête. Le caractère barre verticale (|) sépare les commandes ; ainsi, la sortie de la première commande est l’entrée de la commande suivante. Vous pouvez ajouter n’importe quel nombre de commandes à une seule requête.
+
+Une autre façon d’écrire cette même requête serait :
+
+```OQL
+search in (Event) "error"
+```
+
+Dans cet exemple, l’étendue de la commande **search** est la table _Event_, et le terme « error » est recherché dans tous les enregistrements de cette table.
+
+## <a name="running-a-query"></a>Exécution d’une requête
+Exécutez une requête en cliquant sur le bouton **Exécuter** ou en appuyant sur **Maj+Entrée**. Prenez en compte les détails suivants qui déterminent le code exécuté et les données retournées :
+
+- Sauts de ligne : un simple saut rend votre requête plus claire. Plusieurs sauts de ligne la scindent en requêtes distinctes.
+- Curseur : placez votre curseur à l’intérieur de la requête pour l’exécuter. La première ligne vide trouvée marque la fin de la requête actuelle.
+- Intervalle de temps : un intervalle de temps couvrant les _dernières 24 heures_ est défini par défaut. Pour utiliser un autre intervalle, utilisez le sélecteur d’heure ou ajoutez un filtre d’intervalle de temps explicite à votre requête.
+
+
+## <a name="understand-the-schema"></a>Comprendre le schéma
+Le schéma est une collection de tables regroupées visuellement sous une catégorie logique. Plusieurs catégories proviennent de solutions de supervision. La catégorie _LogManagement_ contient des données courantes telles que les événements Windows et Syslog, les données de performances et les pulsations clientes.
+
+![Schéma](media/get-started-analytics-portal/schema.png)
+
+Dans chaque table, les données sont organisées en colonnes avec différents types de données, comme l’indiquent les icônes en regard du nom de colonne. Par exemple, la table _Event_ illustrée dans la capture d’écran comporte des colonnes telles que _Computer_, qui contient du texte, _EventCategory_, qui contient des nombres, et _TimeGenerated_, qui contient des dates/heures.
+
+## <a name="filter-the-results"></a>Filtrer les résultats
+Commencez par récupérer tout le contenu de la table _Event_.
+
+```OQL
+Event
+```
+
+Le portail Analytics définit automatiquement l’étendue des résultats par :
+
+- Intervalle de temps : par défaut, les requêtes sont limitées aux dernières 24 heures.
+- Nombre de résultats : les résultats sont limités à un maximum de 10 000 enregistrements.
+
+Cette requête étant très générale, elle retourne trop de résultats pour être utile. Vous pouvez filtrer les résultats par le biais des éléments de la table ou en ajoutant explicitement un filtre à la requête. Le filtrage des résultats par le biais des éléments de la table s’applique au jeu de résultats existant, tandis qu’un filtre appliqué à la requête elle-même retourne un nouveau jeu de résultats filtré et peut donc produire des résultats plus précis.
+
+### <a name="add-a-filter-to-the-query"></a>Ajouter un filtre à la requête
+Il existe une flèche à gauche de chaque enregistrement. Cliquez sur cette flèche pour ouvrir les détails de l’enregistrement correspondant.
+
+Placez le curseur au-dessus d’un nom de colonne afin qu’apparaissent les icônes « + » et « - ». Pour ajouter un filtre qui ne retourne que les enregistrements ayant la même valeur, cliquez sur le signe « + ». Cliquez sur « - » pour exclure les enregistrements ayant cette valeur, puis cliquez sur **Exécuter** pour réexécuter la requête.
+
+![Ajouter un filtre à une requête](media/get-started-analytics-portal/add-filter.png)
+
+### <a name="filter-through-the-table-elements"></a>Filtrer par le biais des éléments de la table
+Maintenant concentrons-nous sur les événements ayant pour gravité _Error_. Cette information est spécifiée dans une colonne nommée _EventLevelName_. Vous aurez besoin de faire défiler l’affichage vers la droite pour voir cette colonne.
+
+Cliquez sur l’icône Filtre à côté du titre de colonne, puis dans la fenêtre indépendante, sélectionnez les valeurs qui _commencent par_ le texte _error_ :
+
+![Filtrer](media/get-started-analytics-portal/filter.png)
+
+
+## <a name="sort-and-group-results"></a>Trier et regrouper les résultats
+Les résultats sont désormais limités de manière à inclure uniquement les événements d’erreur issus de SQL Server, créés dans les dernières 24 heures. Toutefois, les résultats ne sont pas triés. Pour trier les résultats en fonction d’une colonne spécifique, telle que _timestamp_, cliquez sur le titre de la colonne. Un premier clic trie par ordre croissant, tandis qu’un deuxième clic trie par ordre décroissant.
+
+![Trier la colonne](media/get-started-analytics-portal/sort-column.png)
+
+Une autre façon d’organiser les résultats consiste à utiliser des groupes. Pour regrouper les résultats selon une colonne spécifique, faites simplement glisser l’en-tête de la colonne au-dessus des autres colonnes. Pour créer des sous-groupes, faites glisser d’autres colonnes vers la barre supérieure.
+
+![Groupes](media/get-started-analytics-portal/groups.png)
+
+## <a name="select-columns-to-display"></a>Sélectionner les colonnes à afficher
+La table de résultats inclut souvent un grand nombre de colonnes. Peut-être constaterez-vous que certaines colonnes retournées ne sont pas affichées par défaut ou souhaiterez-vous supprimer certaines colonnes qui sont affichées. Pour sélectionner les colonnes à afficher, cliquez sur le bouton Colonnes :
+
+![Select columns](media/get-started-analytics-portal/select-columns.png)
+
+
+## <a name="select-a-time-range"></a>Sélectionner un intervalle de temps
+Par défaut, le portail Analytics applique l’intervalle de temps correspondant aux _dernières 24 heures_. Pour utiliser un autre intervalle, sélectionnez une autre valeur par le biais du sélecteur d’heure, puis cliquez sur **Exécuter**. Outre les valeurs prédéfinies, vous pouvez utiliser l’option _intervalle de temps personnalisé_ pour sélectionner un intervalle absolu pour votre requête.
+
+![Sélecteur d’heure](media/get-started-analytics-portal/time-picker.png)
+
+Quand vous sélectionnez un intervalle de temps personnalisé, les valeurs sélectionnées sont exprimées en UTC et peuvent donc être différentes de celles de votre fuseau horaire local.
+
+Si la requête contient explicitement un filtre pour _TimeGenerated_, le titre du sélecteur d’heure indique _Défini dans la requête_. La sélection manuelle est désactivée pour éviter un conflit.
+
+
+## <a name="charts"></a>Graphiques
+Outre dans une table, les résultats des requêtes peuvent être présentés sous forme visuelle. Utilisez la requête suivante en guise d’exemple :
+
+```OQL
+Event 
+| where EventLevelName == "Error" 
+| where TimeGenerated > ago(1d) 
+| summarize count() by Source 
+```
+
+Par défaut, les résultats sont affichés dans une table. Cliquez sur _Graphique_ pour afficher les résultats sous forme graphique :
+
+![Graphique à barres](media/get-started-analytics-portal/bar-chart.png)
+
+Les résultats sont affichés dans un graphique à barres empilées. Cliquez sur _Histogramme empilé_ et sélectionnez _Secteurs_ pour obtenir un autre affichage des résultats :
+
+![Graphique à secteurs](media/get-started-analytics-portal/pie-chart.png)
+
+Vous pouvez changer manuellement différentes propriétés de l’affichage, telles que les axes x et y, ou les préférences de regroupement et de fractionnement, à partir de la barre de contrôle.
+
+Vous pouvez également définir l’affichage par défaut dans la requête elle-même, à l’aide de l’opérateur render.
+
+### <a name="smart-diagnostics"></a>Smart Diagnostics
+Sur un graphique temporel, s’il existe un pic ou une chute brutal dans vos données, un point peut être mis en évidence sur la ligne. Cela indique que _Smart Diagnostics_ a identifié une combinaison de propriétés qui filtrent le changement soudain. Cliquez sur le point pour obtenir plus de détails sur le filtre, et pour afficher la version filtrée. Cela peut vous aider à identifier l’origine de la modification :
+
+![Smart Diagnostics](media/get-started-analytics-portal/smart-diagnostics.png)
+
+## <a name="pin-to-dashboard"></a>Épingler au tableau de bord
+Pour épingler un diagramme ou une table à l’un de vos tableaux de bord Azure partagés, cliquez sur l’icône en forme d’épingle.
+
+![Épingler au tableau de bord](media/get-started-analytics-portal/pin-dashboard.png)
+
+Certaines simplifications sont appliquées à un graphique quand vous l’épinglez à un tableau de bord :
+
+- Colonnes et lignes de table : si vous souhaitez épingler une table au tableau de bord, celle-ci doit avoir au plus quatre colonnes. Seules les sept premières lignes sont affichées.
+- Restriction de temps : les requêtes sont automatiquement limitées aux 14 derniers jours.
+- Restriction du nombre d’emplacements : si vous utilisez un graphique comportant un grand nombre d’emplacements discrets, les emplacements les moins remplis sont automatiquement regroupés en un seul emplacement _autres_.
+
+## <a name="save-queries"></a>Enregistrer des requêtes
+Une fois que vous avez créé une requête utile, vous pouvez l’enregistrer ou la partager avec d’autres utilisateurs. L’icône **Enregistrer** se trouve sur la barre supérieure.
+
+Vous pouvez enregistrer la page de l’intégralité de la requête ou une requête unique en tant que fonction. Les fonctions sont des requêtes qui peuvent également être référencées par d’autres requêtes. Pour enregistrer une requête en tant que fonction, vous devez fournir un alias de fonction, qui est le nom utilisé pour appeler cette requête quand elle est référencée par d’autres requêtes.
+
+![Enregistrer la fonction](media/get-started-analytics-portal/save-function.png)
+
+Les requêtes Log Analytics sont toujours enregistrées dans un espace de travail sélectionné et partagées avec les autres utilisateurs de cet espace de travail.
+
+## <a name="load-queries"></a>Charger des requêtes
+L’icône Explorateur de requêtes se trouve dans la zone supérieure droite. Il répertorie toutes les requêtes enregistrées par catégorie. Il vous permet également de marquer des requêtes spécifiques en tant que Favoris pour pouvoir les retrouver rapidement. Double-cliquez sur une requête enregistrée pour l’ajouter à la fenêtre active.
+
+![Explorateur de requêtes](media/get-started-analytics-portal/query-explorer.png)
+
+## <a name="export-and-share-as-link"></a>Exporter et partager en tant que lien
+Le portail Analytics prend en charge plusieurs méthodes d’exportation :
+
+- Excel : enregistrer les résultats dans un fichier CSV.
+- Power BI : exporter les résultats dans Power BI. Pour plus d’informations, consultez [Importation de données Azure Log Analytics dans Power BI](../log-analytics-powerbi.md).
+- Partager un lien : vous pouvez partager la requête elle-même sous la forme d’un lien, puis envoyer celui-ci à d’autres utilisateurs ayant accès à l’espace de travail afin qu’ils puissent exécuter la requête.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Découvrez-en plus sur [l’écriture de requêtes Log Analytics](get-started-queries.md).

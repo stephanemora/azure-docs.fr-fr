@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: a880ee18bb13b2cd8471cc58157469555397b872
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 56ee63e15c429c5a6212be36d420ae59afa48546
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716514"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629087"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Quotas de processeurs virtuels pour les machines virtuelles
 
@@ -63,7 +63,7 @@ Premium Storage Managed Disks                  5    10000
 ```
 
 ## <a name="reserved-vm-instances"></a>Instances de machines virtuelles réservées
-Les instances de machines virtuelles réservées, dont l’étendue se limite à un seul abonnement, ajoutent un nouvel aspect aux quotas de processeurs virtuels. Ces valeurs décrivent le nombre d’instances de la taille indiquée qui doivent être déployables dans l’abonnement. Elles jouent le rôle d’espace réservé dans le système de quota pour garantir que le quota est réservé et que les instances réservées sont déployables dans l’abonnement. Par exemple, si un abonnement spécifique a 10 instances réservées Standard_D1, la limite d’utilisation des instances réservées Standard_D1 est de 10. De cette façon, Azure veille à ce qu’il y ait toujours au moins 10 processeurs virtuels disponibles dans le quota Total des processeurs virtuels régionaux pour les instances Standard_D1 et au moins 10 processeurs virtuels disponibles dans le quota de processeurs virtuels Famille D Standard pour les instances Standard_D1.
+Les instances de machines virtuelles réservées, dont l’étendue se limite à un seul abonnement, ajoutent un nouvel aspect aux quotas de processeurs virtuels. Ces valeurs décrivent le nombre d’instances de la taille indiquée qui doivent être déployables dans l’abonnement. Elles jouent le rôle d’espace réservé dans le système de quota, pour garantir que le quota est réservé et que les réservations Azure sont ainsi déployables dans l’abonnement. Par exemple, si un abonnement spécifique dispose de 10 réservations Standard_D1, la limite d’utilisation des réservations Standard_D1 est de 10. De cette façon, Azure veille à ce qu’il y ait toujours au moins 10 processeurs virtuels disponibles dans le quota Total des processeurs virtuels régionaux pour les instances Standard_D1 et au moins 10 processeurs virtuels disponibles dans le quota de processeurs virtuels Famille D Standard pour les instances Standard_D1.
 
 Si une augmentation de quota est nécessaire pour acheter une instance réservée à abonnement unique, vous pouvez [demander une augmentation de quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) sur votre abonnement.
 

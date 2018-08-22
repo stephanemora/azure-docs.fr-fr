@@ -3,71 +3,142 @@ title: Surveiller l’identité et l’accès dans Azure Security Center | Mic
 description: Découvrez comment utiliser les fonctionnalités d’identité et d’accès dans Azure Security Center pour surveiller les problèmes liés à l’activité d’accès et à l’identité de vos utilisateurs.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
-ms.author: yurid
-ms.openlocfilehash: 5ee263ef8fb0f20049215eda53e0d58a45342b7e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/08/2018
+ms.author: rkarlin
+ms.openlocfilehash: 4a934bd69e63605fd624d06533c4e411bc94b531
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32774826"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630916"
 ---
-# <a name="monitor-identity-and-access-in-azure-security-center"></a>Surveiller l’identité et l’accès dans Azure Security Center
+# <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Surveiller l’identité et l’accès dans Azure Security Center (Préversion)
 Cet article vous aide à utiliser Azure Security Center pour surveiller l’identité et l’activité d’accès d’un utilisateur.
 
-## <a name="why-monitor-identity-and-access"></a>Pourquoi surveiller l’identité et l’accès ?
-L’identité doit être le plan de contrôle de votre entreprise. La protection de votre identité doit être votre priorité absolue. Auparavant, les organisations étaient entourées de périmètres définis. Il s’agissait de l’une des principales lignes de défense. Désormais, comme de plus en plus d’applications et de données sont déplacées vers le cloud, l’identité devient le nouveau périmètre.
+> [!NOTE]
+> La surveillance de l’identité et de l’accès est uniquement disponible en préversion, au niveau Standard du Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
+>
+>
 
-Le fait de surveiller vos activités d’identité vous permet de prendre des mesures avant qu’un événement ne survienne, ou des mesures réactives, pour contrer une tentative d’attaque. Le tableau de bord Identité et accès vous offre une vue d’ensemble de l’état de votre identité. Cela inclut les éléments suivants :
+L’identité doit être le plan de contrôle de votre entreprise. La protection de votre identité doit être votre priorité absolue. Le périmètre de sécurité a évolué d’un périmètre de réseau vers un périmètre d’identité. La sécurité se résume moins à la protection de votre réseau et plus à la défense de vos données, ainsi qu'à la gestion de la sécurité de vos applications et de vos utilisateurs. Désormais, comme de plus en plus d’applications et de données sont déplacées vers le cloud, l’identité devient le nouveau périmètre.
 
-* Nombre d’échecs de connexion. 
-* Comptes d’utilisateur utilisés lors de ces tentatives.
-* Comptes verrouillés.
-* Comptes dont le mot de passe a été modifié ou réinitialisé. 
-* Nombre de comptes actuellement connectés.
+Le fait de surveiller vos activités d’identité vous permet de prendre des mesures avant qu’un événement ne survienne, ou des mesures réactives, pour contrer une tentative d’attaque. Le tableau de bord Identité et accès vous fournit des recommandations, telles que :
 
-## <a name="monitor-identity-and-access-activities"></a>Surveiller les activités d’identité et d’accès
-Pour visualiser les activités en cours liées à l’identité et l’accès, vous devez accéder au tableau de bord **Identité et accès**.
+- Activer l’authentification multi-facteur pour les comptes privilégiés sur votre abonnement
+- Supprimer les comptes externes disposant d’autorisations d’écriture de votre abonnement
+- Supprimer des comptes externes disposant de privilèges de votre abonnement
 
-1. Ouvrez le tableau de bord **Security Center**.
+> [!NOTE]
+> Si votre abonnement comporte plus de 600 comptes, Security Center n’est pas en mesure d’exécuter les recommandations d’identité dans votre abonnement. Les recommandations qui ne sont pas exécutées sont listées sous « Évaluations non disponibles », comme indiqué ci-dessous.
+Security Center ne peut pas exécuter les recommandations d’identité sur des agents d’administration d’un partenaire fournisseur de solutions Cloud.
+>
+>
 
-2. Dans le volet gauche, dans **Prévention**, cliquez sur **Identité et accès**. Si vous avez plusieurs espaces de travail, un sélecteur s’affiche.
+Consultez [Recommandations](security-center-identity-access.md#recommendations) pour obtenir la liste des recommandations Identité et Accès fournie par Security Center.
 
-    ![Sélection de l’espace de travail](./media/security-center-identity-access\security-center-identity-access-fig1.png)
+## <a name="monitoring-security-health"></a>Surveillance de l’intégrité de la sécurité
+Vous pouvez surveiller l’état de sécurité de vos ressources dans le tableau de bord **Security Center - Vue d’ensemble**. La section **Ressources** est un indicateur d’intégrité affichant les niveaux de gravité pour chaque type de ressource.
 
-    > [!NOTE]
-    > Si la colonne située à l’extrême droite affiche le message **PLAN DE MISE À NIVEAU**, cela signifie que cet espace de travail utilise l’abonnement gratuit. Effectuez la mise à niveau vers l’abonnement Standard pour pouvoir utiliser cette fonctionnalité. Si la colonne située à l’extrême droite affiche le message **MISE À JOUR REQUISE**, mettez à jour [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour pouvoir utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center. 
-    > 
-3. Si vous avez plusieurs espaces de travail à examiner, hiérarchisez l’examen en fonction de la colonne **ÉCHECS D’OUVERTURES DE SESSIONS**. Cette colonne indique le nombre actuel de tentatives de connexion ayant échoué dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Identité et accès** s’affiche.
+Vous pouvez consulter une liste de tous les problèmes en sélectionnant **Recommandations**. Sous **Ressources**, vous pouvez voir une liste de problèmes propres au calcul et aux applications, à la sécurité des données, aux réseaux ou encore à l’identité et à l’accès. Pour plus d’informations sur la façon d’appliquer des recommandations, consultez [Implémentation des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md).
 
-    ![Identité et accès](./media/security-center-identity-access\security-center-identity-access-fig2.png)
+Pour obtenir une liste complète des recommandations d’identité et d’accès, consultez [Recommandations](security-center-identity-access.md#recommendations).
 
-4. Les informations disponibles dans ce tableau de bord peuvent vous aider à identifier immédiatement une activité suspecte potentielle. Ce tableau de bord est divisé en trois zones principales :
+Pour continuer, sélectionnez **Identité et accès** sous **Ressources**, ou dans le menu principal de Security Center.
 
-    a. **Posture d’identité**. Résume les activités d’identité qui surviennent dans cet espace de travail.
+![Tableau de bord de Security Center][1]
 
-    b. **Échecs d’ouvertures de sessions**. Vous aide à identifier rapidement la cause principale de l’échec d’une tentative d’ouverture de session. Affiche la liste des 10 comptes présentant le plus grand nombre de tentatives ayant échoué.
+## <a name="monitor-identity-and-access"></a>Surveiller l’identité et l’accès
+Sous **Identité et accès**, se trouvent deux onglets :
 
-    c. **Nombre de connexions dans le temps**. Vous permet d’identifier rapidement le nombre d’ouvertures de session au fil du temps. Ce champ affiche une liste des principales tentatives de connexion de compte.
-    
-Quelle que soit la mosaïque sélectionnée, le tableau de bord qui s’affiche se base sur la requête de recherche dans les journaux. Les seules différences sont le type de requête et le résultat. Vous pouvez toujours choisir un élément, un ordinateur par exemple, pour consulter les données pertinentes. 
+- **Vue d’ensemble** : recommandations identifiées par Security Center.
+- **Abonnements** : liste de vos abonnements et l’état de sécurité actuel de chacun d’eux.
 
-## <a name="see-also"></a>Voir aussi
-Dans cet article, vous avez vu comment surveiller l’identité et l’accès dans Azure Security Center. Pour plus d’informations sur Security Center, consultez les articles suivants :
+![Identité et accès][2]
 
+### <a name="overview-section"></a>Section Vue d’ensemble
+Sous **Vue d’ensemble**, se trouve une liste de recommandations. La première colonne indique la recommandation. La deuxième colonne précise le nombre total d’abonnements qui sont concernés par cette recommandation. La troisième colonne renseigne sur la gravité du problème.
+
+1. Sélectionnez une recommandation. La fenêtre de la recommandation s’ouvre pour afficher les informations suivantes :
+
+  - Description de la recommandation
+  - Liste des abonnements intègres et non intègres
+  - Liste des ressources non analysées en raison d’une évaluation ayant échoué, ou de la présence de la ressource sous un abonnement en cours d’exécution dans le niveau Gratuit et qui n’est pas évaluée
+
+  ![Fenêtre de la recommandation][3]
+
+1. Sélectionnez un abonnement dans la liste pour afficher des précisions supplémentaires.
+
+### <a name="subscriptions-section"></a>Section Abonnements
+Sous **Abonnements**, se trouve une liste d’abonnements. La première colonne liste les abonnements. La deuxième colonne précise le nombre total de recommandations pour chaque abonnement. La troisième colonne renseigne sur le niveau de gravité des problèmes.
+
+![Onglet de l’abonnement][4]
+
+1.  Sélectionnez un abonnement. Une vue récapitulative s’ouvre avec trois onglets :
+
+  - **Recommandations** : basées sur les évaluations effectuées par Security Center et qui ont échoué.
+  - **Évaluations passées** : liste des évaluations effectuées par Security Center et qui ont réussi.
+  - **Évaluations non disponibles** : liste des évaluations qui n’ont pas pu s’exécuter en raison d’une erreur, ou de la présence de plus de 600 comptes dans l’abonnement.
+
+  Sous **Recommandations** se trouve une liste de recommandations pour l’abonnement sélectionné, avec le niveau de gravité pour chaque recommandation.
+
+  ![Recommandations pour un abonnement sélectionné][5]
+
+1. Sélectionnez une recommandation pour obtenir une description de la recommandation, une liste d’abonnements intègres et non intègres, et une liste de ressources non analysées.
+
+  ![Description d’une recommandation][6]
+
+  Sous **Évaluations passées** se trouve une liste d’évaluations réussies.  L’état de gravité de ces évaluations est toujours vert.
+
+  ![Évaluations réussies][7]
+
+1. Sélectionnez une évaluation réussie dans la liste pour obtenir une description de l’évaluation et une liste d’abonnements intègres. Il existe un onglet pour les abonnements non intègres, celui-ci liste tous les abonnements qui ont échoué.
+
+  ![Évaluations réussies][8]
+
+## <a name="recommendations"></a>Recommandations
+Utilisez le tableau ci-dessous pour mieux comprendre les recommandations Identité et accès disponibles, et leurs effets.
+
+| Recommandation | Description |
+| --- | --- |
+| Désigner plusieurs propriétaires de votre abonnement | Recommande de désigner plusieurs propriétaires d’abonnement pour disposer d’une redondance de l’accès administrateur. |
+| Désigner jusqu’à 3 propriétaires de votre abonnement | Recommande de désigner moins de 3 propriétaires d’abonnement afin de réduire le risque potentiel de violation par un propriétaire compromis. |
+| Activer MFA pour les comptes disposant d’autorisations de type propriétaire sur votre abonnement | Recommande d’activer Multi-Factor Authentication (MFA) pour tous les comptes d’abonnement avec des privilèges d’administrateur pour éviter toute violation de comptes ou de ressources. |
+| Activer MFA pour les comptes disposant d’autorisations d’écriture sur votre abonnement | Recommande d’activer Multi-Factor Authentication (MFA) pour tous les comptes d’abonnement avec des privilèges d’écriture pour éviter toute violation de comptes ou de ressources. |
+| Activer MFA pour les comptes disposant d’autorisations de lecture sur votre abonnement | Recommande d’activer Multi-Factor Authentication (MFA) pour tous les comptes d’abonnement avec des privilèges de lecture pour éviter toute violation de comptes ou de ressources. |
+| Supprimer les comptes externes avec des autorisations de lecture de votre abonnement | Recommande de supprimer les comptes externes avec des privilèges de lecture de votre abonnement afin d’empêcher tout accès non contrôlé. |
+| Supprimer les comptes externes disposant d’autorisations d’écriture de votre abonnement | Recommande de supprimer les comptes externes avec des privilèges d’écriture de votre abonnement afin d’empêcher tout accès non contrôlé. |
+| Supprimer les comptes externes disposant d’autorisations de type propriétaire de votre abonnement | Recommande de supprimer les comptes externes avec des autorisations de propriétaire de votre abonnement afin d’empêcher tout accès non contrôlé. |
+| Supprimer les comptes déconseillés de votre abonnement | Recommande de supprimer les comptes déconseillés de vos abonnements. |
+| Supprimer les comptes déconseillés disposant d’autorisations de type propriétaire de votre abonnement | Recommande de supprimer les comptes déconseillés avec des autorisations de type propriétaire de vos abonnements. |
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :
+
+- [Protection de vos machines et de vos applications dans Azure Security Center](security-center-virtual-machine-recommendations.md)
+- [Protection de votre réseau dans Azure Security Center](security-center-network-recommendations.md)
+- [Protection de vos données et du service Azure SQL Database dans Azure Security Center](security-center-sql-service-recommendations.md)
+
+Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 * [Gérer et répondre aux alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Apprenez à gérer les alertes et à répondre aux incidents de sécurité dans Security Center.
-* [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md). découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Comprendre les alertes de sécurité dans Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). En savoir plus sur les différents types d’alertes de sécurité.
-* [Guide de résolution des problèmes d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Apprenez à résoudre les problèmes fréquents dans Azure Security Center. 
 * [FAQ du Centre de sécurité Azure](security-center-faq.md). Cherchez des réponses aux questions fréquentes concernant l’utilisation de Security Center.
-* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/). accédez à des billets de blog sur la sécurité et la conformité Azure.
 
+
+<!--Image references-->
+[1]: ./media/security-center-identity-access/overview.png
+[2]: ./media/security-center-identity-access/identity-dashboard.png
+[3]: ./media/security-center-identity-access/select-subscription.png
+[4]: ./media/security-center-identity-access/subscriptions.png
+[5]: ./media/security-center-identity-access/recommendations.png
+[6]: ./media/security-center-identity-access/designate.png
+[7]: ./media/security-center-identity-access/passed-assessments.png
+[8]: ./media/security-center-identity-access/remove.png

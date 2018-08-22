@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1d7855ff840fc1dd68effb19c43c3a691bd15d62
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216102"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714670"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuration réseau dans Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Lorsque vous créez un cluster Azure Kubernetes Service (AKS), vous pouvez séle
 
 ## <a name="basic-networking"></a>Mise en réseau de base
 
-L’option de mise en réseau **de base** est la configuration par défaut de la création de cluster AKS. La configuration réseau du cluster et de ses pods est gérée intégralement par Azure, et est appropriée pour les déploiements qui ne nécessitent pas de configuration personnalisée de réseau virtuel. Avec la mise en réseau de base, vous ne disposez d’aucun contrôle sur la configuration réseau, par exemple sur les sous-réseaux ou les plages d’adresses IP affectées au cluster.
+L’option de mise en réseau **de base** est la configuration par défaut de la création de cluster AKS. La configuration réseau du cluster et de ses pods est gérée intégralement par Azure, et convient aux déploiements qui n’ont pas besoin de configuration personnalisée de réseau virtuel. Avec la mise en réseau de base, vous ne disposez d’aucun contrôle sur la configuration réseau, par exemple sur les sous-réseaux ou les plages d’adresses IP affectées au cluster.
 
 Les nœuds d’un cluster AKS configurés pour la mise en réseau de base utilisent le plug-in Kubernetes [kubenet][kubenet].
 
@@ -97,15 +97,14 @@ Lorsque vous créez un cluster AKS, les paramètres suivants sont configurables 
 
 **Sous-réseau** : le sous-réseau du réseau virtuel dans lequel vous souhaitez déployer le cluster. Si vous souhaitez créer un nouveau sous-réseau dans le réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis exécutez la procédure décrite dans la section *Créer un sous-réseau*.
 
-**Plage d’adresses des services Kubernetes** : la *plage d’adresses des services Kubernetes* correspond à la plage à partir de laquelle les adresses IP sont affectées aux services Kubernetes du cluster (pour plus d’informations sur les services Kubernetes, voir [Services][services] dans la documentation de Kubernetes).
-
-La plage d’adresses IP des services Kubernetes :
+**Plage d’adresses du service Kubernetes** : il s’agit du jeu d’adresses IP virtuelles que Kubernetes affecte aux [services][services] dans votre cluster. Vous pouvez utiliser n’importe quelle plage d’adresses privées répondant aux exigences suivantes :
 
 * doit être située en dehors de la plage d’adresses IP du réseau virtuel de votre cluster ;
 * ne doit comporter aucun élément en commun avec les autres réseaux virtuels pour lesquelles il existe un lien de peering avec le réseau virtuel du cluster ;
 * ne doit avoir aucun élément en commun avec des adresses IP locales ;
+* ne doit pas être dans les plages `169.254.0.0/16`, `172.30.0.0/16`, ou `172.31.0.0/16`.
 
-Tout chevauchement entre des plages d’adresses IP est susceptible d’entraîner des comportements imprévisibles. Par exemple, si un pod tente d’accéder à une adresse IP à l’extérieur du cluster, qui se trouve également être une adresse IP de service, des comportements imprévisibles et des défaillances risquent de se produire.
+Bien qu’il soit techniquement possible de spécifier une plage d’adresses de service dans le même réseau virtuel que votre cluster, cette manière de procéder n’est pas recommandée. Tout chevauchement entre des plages d’adresses IP est susceptible d’entraîner des comportements imprévisibles. Pour plus d’informations, consultez la section [FAQ](#frequently-asked-questions) de cet article. Pour plus d’informations sur les réplicas Kubernetes, consultez[Services][services] dans la documentation de Kubernetes.
 
 **Adresse IP du service DNS Kubernetes** :l’adresse IP du service DNS du cluster. Cette adresse doit se situer dans la *plage d’adresses du service Kubernetes*.
 
@@ -154,6 +153,10 @@ La série suivante de questions-réponses s’applique à la configuration rése
 * *Comment configurer des propriétés supplémentaires pour le sous-réseau développé lors de la création du cluster AKS ? Par exemple, des points de terminaison du service.*
 
   La liste complète des propriétés pour le réseau virtuel et les sous- réseaux développés durant la création du cluster AKS peut être configurée dans la page de configuration du réseau virtuel standard du portail Azure.
+
+* *Puis-je utiliser un autre sous-réseau dans le réseau virtuel de mon cluster pour la* **plage d’adresses du service Kubernetes** ?
+
+  Cette configuration, bien que possible, n’est pas recommandée. La plage d’adresses du service est un jeu d’adresses IP virtuelles que Kubernetes affecte aux services dans votre cluster. Azure Networking ne peut pas voir la plage d’adresses IP de service du cluster Kubernetes. En raison de ce manque de visibilité, il est possible de créer ultérieurement un sous-réseau dans le réseau virtuel du cluster qui chevauche la plage d’adresses de service. Si un chevauchement de ce type se produit, Kubernetes peut affecter à un service une adresse IP déjà utilisée par une autre ressource dans le sous-réseau, ce qui provoque un comportement imprévisible ou des échecs. Utilisez une plage d’adresses en dehors du réseau virtuel du cluster pour éviter tout risque de chevauchement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

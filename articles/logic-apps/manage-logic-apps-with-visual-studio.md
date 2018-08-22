@@ -1,37 +1,34 @@
 ---
 title: Gérer des applications logiques avec Visual Studio - Azure Logic Apps | Microsoft Docs
 description: Gestion d’applications logiques et d’autres ressources à l’aide de Visual Studio Cloud Explorer
-author: ecfan
-manager: jeconnoc
-editor: ''
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: b4d7f557923a67ae0c9fc513cd2b4fe7555241be
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301114"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038255"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
 Même si vous pouvez créer, modifier, gérer et déployer des applications logiques dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, vous pouvez aussi utiliser Visual Studio pour ajouter des applications logiques au contrôle de code source, publier des versions différentes et créer des modèles [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) pour différents environnements de déploiement. Avec Visual Studio Cloud Explorer, vous pouvez rechercher et gérer vos applications logiques, ainsi que d’autres ressources Azure. Par exemple, vous pouvez ouvrir, télécharger, modifier, exécuter, désactiver et activer des applications logiques déjà déployées dans le portail Azure ou encore en afficher l’historique des exécutions. Si vous ne savez pas utiliser Azure Logic Apps dans Visual Studio, apprenez à [créer des applications logiques avec Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
-> Le déploiement ou la publication d’une application logique à partir de Visual Studio remplace la version de cette application dans le portail Azure. Par conséquent, si vous apportez des modifications dans le portail Azure que vous souhaitez conserver, veillez à [actualiser l’application logique dans Visual Studio](#refresh) à partir du portail Azure avant son prochain déploiement ou sa prochaine publication à partir de Visual Studio.
+> Le déploiement ou la publication d’une application logique à partir de Visual Studio remplace la version de cette application dans le portail Azure. Par conséquent, si vous apportez dans le portail Azure des modifications que vous souhaitez conserver, veillez à [actualiser l’application logique dans Visual Studio](#refresh) à partir du portail Azure avant son prochain déploiement ou sa prochaine publication à partir de Visual Studio.
 
 <a name="requirements"></a>
 
 ## <a name="prerequisites"></a>Prérequis
+
 
 * Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
@@ -161,6 +158,9 @@ Dans Cloud Explorer, ouvrez le menu contextuel de votre application logique et s
 
 ![Désactiver votre application logique](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
+> [!NOTE]
+> Lorsque vous désactivez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente continuent jusqu’à ce qu’elles soient terminées, ce qui peut prendre du temps. 
+
 Lorsque vous voulez que votre application logique reprenne du service, vous pouvez la réactiver. Dans Cloud Explorer, ouvrez le menu contextuel de votre application logique et sélectionnez **Activer**.
 
 ![Activer votre application logique](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
@@ -170,6 +170,9 @@ Lorsque vous voulez que votre application logique reprenne du service, vous pouv
 Pour supprimer votre application logique à partir du portail Azure, dans Cloud Explorer, ouvrez le menu contextuel de votre application logique, puis sélectionnez **Supprimer**.
 
 ![Supprimer votre application logique](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
+
+> [!NOTE]
+> Lorsque vous supprimez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente sont annulées. Si vous avez des milliers d’exécutions, l’annulation peut prendre beaucoup de temps. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

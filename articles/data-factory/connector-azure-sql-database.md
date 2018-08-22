@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: e5ecd3ab5133150368be935d8208a3e93a713df3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 59a48d06ca3c3bced73ed4043691b33784a4f81a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435826"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006025"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -537,7 +537,7 @@ Définissez la section **SqlSink** dans l’activité de copie :
 }
 ```
 
-Dans votre base de données, définissez la procédure stockée portant le même nom que **SqlWriterStoredProcedureName**. Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom du paramètre de la procédure stockée doit être le même que le **tableName** défini dans le jeu de données.
+Dans votre base de données, définissez la procédure stockée portant le même nom que **SqlWriterStoredProcedureName**. Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom de paramètre du type de table dans la procédure stockée doit être le même que le **tableName** défini dans le jeu de données.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

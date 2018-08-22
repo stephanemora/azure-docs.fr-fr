@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 416565a248fc9ef0861b5309d71fdac3b8fccc22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116059"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715768"
 ---
 # <a name="understand-role-definitions"></a>Comprendre les définitions de rôles
 
@@ -214,7 +214,7 @@ L’autorisation `NotDataActions` spécifie les opérations sur les données qui
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-La propriété `AssignableScopes` spécifie les étendues (groupes de gestion -actuellement en préversion-, abonnements, groupes de ressources ou ressources) dans lesquelles le rôle est disponible pour attribution. Vous pouvez rendre le rôle disponible pour attribution uniquement dans les abonnements ou les groupes de ressources qui le nécessitent, mais pas surcharger l’expérience utilisateur pour le reste des abonnements ou groupes de ressources. Vous devez utiliser au moins un groupe de gestion, abonnement, groupe de ressources ou ID de ressource.
+La propriété `AssignableScopes` spécifie les étendues (abonnements, groupes de ressources ou ressources) dans lesquelles le rôle est disponible pour attribution. Vous pouvez rendre le rôle disponible pour attribution uniquement dans les abonnements ou les groupes de ressources qui le nécessitent, mais pas surcharger l’expérience utilisateur pour le reste des abonnements ou groupes de ressources. Vous devez utiliser au moins un abonnement, groupe de ressources ou ID de ressource.
 
 La chaîne `AssignableScopes` est définie sur l’étendue racine (`"/"`) pour les rôles intégrés. L’étendue racine indique que le rôle est disponible pour attribution dans toutes les étendues. Voici des exemples d’étendues assignables valides :
 

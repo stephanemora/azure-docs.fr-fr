@@ -1,25 +1,20 @@
 ---
-title: Azure HDInsight Tools - Utiliser Visual Studio Code pour Hive, LLAP ou pySpark | Microsoft Docs
+title: Azure HDInsight Tools - Utiliser Visual Studio Code pour Hive, LLAP ou pySpark
 description: Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code pour créer et envoyer des requêtes et des scripts.
-Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-services: HDInsight
-documentationcenter: ''
+keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
+services: hdinsight
 author: jejiang
-manager: ''
-editor: jgao
-tags: azure-portal
-ms.assetid: ''
-ms.service: HDInsight
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: e8dc802d67b4cd2e38ab195b771ceeaa07876e58
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+editor: jasonwhowell
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 10/27/2017
+ms.openlocfilehash: 255f1ecb3c55ef94b6f4f3393257b3054ff1b725
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31595301"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038285"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utiliser les Azure HDInsight Tools pour Visual Studio Code
 
@@ -27,7 +22,6 @@ Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code (VSCod
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de poursuivre cet article, vérifiez que vous avez les éléments nécessaires suivants :
 
@@ -300,7 +294,7 @@ La configuration de Livy est prise en charge et peut être effectuée dans les p
     | args | Arguments de ligne de commande pour l’application | liste de valeurs string | 
     | jars | Fichiers JAR à utiliser dans cette session | Liste de chaînes | 
     | pyFiles | Fichiers Python à utiliser dans cette session | Liste de chaînes |
-    | fichiers | Fichiers à utiliser dans cette session | Liste de chaînes |
+    | fichiers d'entrée | Fichiers à utiliser dans cette session | Liste de chaînes |
     | driverMemory | Quantité de mémoire à utiliser pour le processus de pilote | chaîne |
     | driverCores | Nombre de cœurs à utiliser pour le processus de pilote | int |
     | executorMemory | Quantité de mémoire à utiliser par processus de l’exécuteur | chaîne |
@@ -358,7 +352,7 @@ HDInsight pour VS Code prend en charge les fonctionnalités suivantes :
 ### <a name="scenarios"></a>Scénarios
 * [Spark avec BI : effectuez une analyse interactive des données à l’aide de Spark dans HDInsight avec des outils BI](spark/apache-spark-use-bi-tools.md)
 * [Spark avec Machine Learning : Utiliser Spark dans HDInsight pour l’analyse de la température de bâtiments à l’aide de données HVAC](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Spark avec Machine Learning : utilisez Spark dans HDInsight pour prédire les résultats de l’inspection des aliments](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Analyse des journaux de site web à l’aide de Spark dans HDInsight](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>Créer et exécuter des applications

@@ -1,35 +1,29 @@
 ---
-title: Conseils sur l’utilisation de Hadoop sur un cluster HDInsight basé sur Linux - Azure | Microsoft Docs
+title: Conseils sur l’utilisation de Hadoop sur un cluster HDInsight basé sur Linux - Azure
 description: Obtenez des conseils d’implémentation concernant l’utilisation de clusters HDInsight (Hadoop) basés sur Linux dans un environnement Linux familier, exécuté dans le cloud Azure.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 3ad7aa01200bf2bf4a63a380b2b883983c8622d6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 08/09/2018
+ms.openlocfilehash: 85741e91ab074ca45fef79e7e946a74824a1734f
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405389"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038248"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informations sur l’utilisation de HDInsight sous Linux
 
 Les clusters Azure HDInsight fournissent Hadoop dans un environnement Linux familier, exécuté dans le cloud Azure. En principe, il fonctionne comme tout autre Hadoop sur une installation Linux. Ce document présente des différences spécifiques que vous devriez connaître.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 La plupart des étapes décrites dans ce document utilisent les utilitaires ci-après, que vous pouvez avoir besoin d’installer sur votre système.
 
@@ -104,18 +98,21 @@ Vous trouverez des exemples de données et de fichiers JAR sur le système HDSF 
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, stockage Azure et Data Lake Store
 
-Dans la plupart des distributions Hadoop, le système HDFS est sauvegardé par un stockage local sur les machines dans le cluster. L’utilisation du stockage peut être coûteuse pour une solution basée sur le cloud où vous êtes facturé à l’heure ou à la minute pour les ressources de calcul.
+Dans la plupart des distributions Hadoop, les données sont stockées dans HDFS, qui est sauvegardé par un stockage local sur les machines dans le cluster. L’utilisation du stockage peut être coûteuse pour une solution basée sur le cloud où vous êtes facturé à l’heure ou à la minute pour les ressources de calcul.
 
-HDInsight utilise des objets Blob dans le stockage Azure ou Azure Data Lake Store comme magasin par défaut. Ces services offrent les avantages suivants :
+Lorsque vous utilisez HDInsight, les fichiers de données sont stockés de manière évolutive et résiliente dans le cloud, à l’aide du Stockage Blob Azure et, éventuellement, d’Azure Data Lake Store. Ces services offrent les avantages suivants :
 
 * Un stockage à long terme peu coûteux
 * Un accès à partir de services externes tels que les sites Web, les utilitaires de téléchargement de fichier, les kits de développement logiciel (SDK) en différentes langues et les navigateurs Web
+* Capacité de fichiers volumineux et stockage évolutif volumineux
 
-Un compte de stockage Azure peut contenir jusqu’à 4,75 To, même si les objets blob individuels (ou les fichiers du point de vue de HDInsight) ne peuvent pas dépasser 195 Go. Azure Data Lake Store peut évoluer de manière dynamique pour contenir des milliers de milliards de fichiers, avec des fichiers individuels d’une taille supérieure à un pétaoctet. Pour plus d’informations, voir [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Présentation des objets blob) et [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+Pour plus d’informations, voir [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) (Présentation des objets blob) et [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
 Lorsque vous utilisez le stockage Azure ou Data Lake Store, vous n’avez aucune opération particulière à effectuer à partir de HDInsight pour accéder aux données. Par exemple, la commande suivante liste les fichiers dans le dossier `/example/data`, qu’il soit stocké sur le stockage Azure ou sur Data Lake Store :
 
     hdfs dfs -ls /example/data
+
+Dans HDInsight, les ressources de stockage de données (Stockage Blob Azure et Azure Data Lake Store) sont dissociées des ressources de calcul. Par conséquent, vous pouvez créer des clusters HDInsight pour effectuer les calculs dont vous avez besoin et, par la suite, supprimer le cluster lorsque le travail est terminé, tout en conservant vos fichiers de données en toute sécurité dans le stockage cloud aussi longtemps que nécessaire.
 
 ### <a name="uri-and-scheme"></a>URI et schéma
 
@@ -273,7 +270,7 @@ Pour utiliser une version différente d’un composant, chargez la version dont 
 > [!WARNING]
 > Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aide à identifier et à résoudre les problèmes liés à ces composants.
 >
-> Les composants personnalisés bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org). Par exemple: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
+> Les composants personnalisés bénéficient d’un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org). Par exemple: [Hadoop](http://hadoop.apache.org/), [Spark](http://spark.apache.org/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

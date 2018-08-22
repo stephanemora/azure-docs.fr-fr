@@ -2,30 +2,25 @@
 title: Vue d’ensemble des API Azure Event Hubs .NET Framework | Microsoft Docs
 description: Résumé de certaines des principales API clientes Event Hubs .NET Framework.
 services: event-hubs
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: dd915671c8b7d51595fea520187b917005f5dc53
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781892"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007281"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Vue d’ensemble de l’API Event Hubs .NET Framework
 
-Cet article passe en revue certaines des principales API clientes Event Hubs .NET Framework. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l’état d’une entité Event Hubs en créant, modifiant et supprimant des entités.
+Cet article passe en revue certaines des principales [API clientes .NET Framework](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) pour Azure Event Hubs. Il en existe deux catégories : les API de gestion et les API du runtime. Les API du runtime comportent toutes les opérations nécessaires pour envoyer et recevoir un message. Les opérations de gestion vous permettent de gérer l’état d’une entité Event Hubs en créant, modifiant et supprimant des entités.
 
-Les [scénarios d’analyse](event-hubs-metrics-azure-monitor.md) couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez les informations de référence de [l’API .NET Service Bus](/dotnet/api/microsoft.servicebus.messaging) et de [l’API EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
+Les [scénarios d’analyse](event-hubs-metrics-azure-monitor.md) couvrent la gestion et l’exécution. Pour obtenir une documentation de référence détaillée sur les API .NET, consultez les informations de référence sur [l’API .NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [l’API .NET Standard](/dotnet/api/microsoft.azure.eventhubs) et [l’API EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor).
 
 ## <a name="management-apis"></a>API de gestion
 
@@ -179,10 +174,11 @@ public class SimpleEventProcessor : IEventProcessor
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
+
 Pour en savoir plus sur les scénarios des concentrateurs d’événements, consultez ces liens :
 
-* [Nouveautés des concentrateurs d'événements Azure ?](event-hubs-what-is-event-hubs.md)
+* [Nouveautés des concentrateurs d’événements Azure ?](event-hubs-what-is-event-hubs.md)
 * [Guide de programmation de concentrateurs d’événements](event-hubs-programming-guide.md)
 
 Les informations de référence de l'API .NET se trouvent ici :

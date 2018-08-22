@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: b90d916514e7b5ce566d4823b44d4b4ef575224d
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 00acb08f567dbd50522d0e8a0b7b9a18a6658000
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35769552"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038291"
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
@@ -37,6 +37,4 @@ Les accélérateurs de solution IoT prennent en charge les suites de chiffrement
 
 ## <a name="see-also"></a>Voir aussi
 
-Découvrez-en davantage sur la sécurité d’IoT Hub dans la rubrique [Contrôler l’accès à IoT Hub][lnk-devguide-security] du guide du développeur IoT Hub.
-
-[lnk-devguide-security]: /azure/iot-hub/iot-hub-devguide-security.md
+En savoir plus sur la sécurité d’IoT Hub dans la rubrique [Contrôler l’accès à IoT Hub](../iot-hub/iot-hub-devguide-security.md) du guide du développeur IoT Hub. 

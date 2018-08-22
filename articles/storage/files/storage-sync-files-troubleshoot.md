@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 1475e1955a282581c66235c13d4dbe7153735a35
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e0c9708107139ec899cd5902a68ff90b57b741f7
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526740"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005917"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -674,6 +674,12 @@ if ($fileShare -eq $null) {
 2. Vérifiez que **Hybrid File Sync Service** apparaît dans la liste avec le rôle **Lecteur et Accès aux données**. 
 
     ![Une capture d’écran du principal de service Hybrid File Sync Service dans l’onglet contrôle d’accès du compte de stockage](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+
+    Si le **service Hybrid File Sync** n’apparaît pas dans la liste, effectuez les étapes suivantes :
+
+    - Cliquez sur **Add**.
+    - Dans le champ **Rôle**, sélectionnez **Lecteur et accès aux données**.
+    - Dans le champ **Sélectionnez**, tapez **Hybrid File Sync Service**, sélectionnez le rôle et cliquez sur **Enregistrer**.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 ```PowerShell    

@@ -2,28 +2,23 @@
 title: Bibliothèques de gestion Azure Event Hubs | Microsoft Docs
 description: Gérer les entités et espaces de noms des Event Hubs à partir de .NET
 services: event-hubs
-cloud: na
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-ms.assetid: ''
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: 1b158fd3ac3f36b71a76c149e8b6815f576be1c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26780971"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007305"
 ---
 # <a name="event-hubs-management-libraries"></a>Bibliothèque de gestion des Event Hubs
 
-Les bibliothèques de gestion des Event Hubs peuvent approvisionner dynamiquement des entités et des espaces de noms d’Event Hubs. Ce caractère dynamique permet des déploiements et des scénarios de messagerie complexes, et de déterminer ainsi par programmation les entités à approvisionner. Ces bibliothèques sont actuellement disponibles pour .NET.
+Vous pouvez utiliser les bibliothèques de gestion Azure Event Hubs pour approvisionner dynamiquement des entités et des espaces de noms d’Event Hubs. Ce caractère dynamique permet des déploiements et des scénarios de messagerie complexes, et de déterminer ainsi par programmation les entités à approvisionner. Ces bibliothèques sont actuellement disponibles pour .NET.
 
 ## <a name="supported-functionality"></a>Fonctionnalités prises en charge
 
@@ -77,6 +72,6 @@ Le modèle pour manipuler une ressource Event Hubs quelconque suit un protocole 
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 * [Exemple de gestion .NET](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Espace de noms Microsoft.Azure.Management.EventHub](/dotnet/api/Microsoft.Azure.Management.EventHub) 

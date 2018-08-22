@@ -3,7 +3,7 @@ title: Vue d’ensemble des fonctionnalités Azure Event Hubs | Microsoft Docs
 description: Vue d’ensemble et détails sur les fonctionnalités des concentrateurs d’événements
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
@@ -11,19 +11,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2018
-ms.author: sethm
-ms.openlocfilehash: f16f8aa73ecfa3e0a47ce2373a2e28a7a9968ff5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.author: shvija
+ms.openlocfilehash: abc85c322f7b8ee63c06639ae8845a5f07266b50
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248739"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007294"
 ---
 # <a name="event-hubs-features-overview"></a>Vue d’ensemble des fonctionnalités des concentrateurs d’événements
 
 Azure Event Hubs est un service évolutif de traitement d’événements qui ingère et traite de gros volumes de données et d’événements avec une faible latence et une haute fiabilité. Consultez la page [Qu’est-ce qu’Event Hubs ?](event-hubs-what-is-event-hubs.md) pour une vue d’ensemble de haut niveau.
 
 Cet article s’appuie sur les informations de l’[article de présentation](event-hubs-what-is-event-hubs.md) et fournit des détails techniques et de mise en œuvre sur les fonctionnalités et composants d’Event Hubs.
+
+## <a name="namespace"></a>Espace de noms
+Un espace de noms Event Hubs fournit un conteneur d’étendue unique, référencé par son [nom de domaine complet](https://en.wikipedia.org/wiki/Fully_qualified_domain_name), dans lequel vous créez un ou plusieurs Event Hubs ou rubriques Kafka. 
 
 ## <a name="event-publishers"></a>Éditeurs d'événements
 
@@ -114,7 +117,7 @@ Un *décalage* correspond à la position d’un événement dans une partition. 
 
 Les *points de contrôle* constituent un processus par lequel les lecteurs marquent ou valident leur position dans une séquence d’événements de partition. La réalisation des points de contrôle est la responsabilité du consommateur et se produit sur une base par partition dans un groupe de consommateurs. Cette responsabilité signifie que pour chaque groupe de consommateurs, chaque lecteur de partition doit conserver une trace de sa position actuelle dans le flux d’événements. Il peut informer le service lorsqu’il considère que le flux de données est complet.
 
-Si un lecteur se déconnecte d'une partition, lorsqu'il se reconnecte il commence la lecture au point de contrôle qui a été précédemment soumis par le dernier lecteur de cette partition dans ce groupe de consommateurs. Lorsque le lecteur se connecte, il transmet ce décalage au concentrateur d’événements pour spécifier l’emplacement où commencer la lecture. De cette façon, vous pouvez utiliser les points de contrôle pour marquer les événements comme « terminés » par les applications en aval et pour assurer la résilience si un basculement se produit entre des lecteurs en cours d’exécution sur des ordinateurs différents. Il est possible de revenir à des données plus anciennes en spécifiant un décalage inférieur à partir de ce processus de vérification. Grâce à ce mécanisme, les points de contrôle permettent une résilience au basculement renforcée, mais également la relecture du flux d’événements.
+Si un lecteur se déconnecte d'une partition, lorsqu'il se reconnecte il commence la lecture au point de contrôle qui a été précédemment soumis par le dernier lecteur de cette partition dans ce groupe de consommateurs. Lorsque le lecteur se connecte, il transmet le décalage à l’Event Hub pour spécifier l’emplacement où commencer la lecture. De cette façon, vous pouvez utiliser les points de contrôle pour marquer les événements comme « terminés » par les applications en aval et pour assurer la résilience si un basculement se produit entre des lecteurs en cours d’exécution sur des ordinateurs différents. Il est possible de revenir à des données plus anciennes en spécifiant un décalage inférieur à partir de ce processus de vérification. Grâce à ce mécanisme, les points de contrôle permettent une résilience au basculement renforcée, mais également la relecture du flux d’événements.
 
 ### <a name="common-consumer-tasks"></a>Tâches courantes du consommateur
 
@@ -137,7 +140,7 @@ Données d’événement :
 
 Il vous incombe de gérer le décalage.
 
-## <a name="capacity"></a>Capacity
+## <a name="capacity"></a>Capacité
 
 Azure Event Hubs possède une architecture parallèle hautement évolutive. Vous devez tenir compte de plusieurs facteurs importants lors du dimensionnement et de la mise à l’échelle de votre infrastructure.
 
@@ -145,14 +148,14 @@ Azure Event Hubs possède une architecture parallèle hautement évolutive. Vo
 
 La capacité de débit des concentrateurs d’événements est contrôlée par les *unités de débit*. Les unités de débit sont des unités de capacité achetées préalablement. Une unité de débit unique inclut la capacité suivante :
 
-* Entrée : jusqu’à 1 Mo par seconde ou 1 000 événements par seconde, selon ce qui se produit en premier.
-* Sortie : jusqu’à 2 Mo par seconde.
+* Entrée : jusqu’à 1 Mo par seconde ou 1 000 événements par seconde, selon ce qui se produit en premier.
+* Sortie : jusqu’à 2 Mo par seconde ou 4 096 événements par seconde.
 
 En cas de dépassement de la capacité des unités de débit achetées, l’entrée est limitée et une exception [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) est renvoyée. La sortie ne produit aucune exception de limitation, mais reste limitée à la capacité des unités de débit achetées. Si vous recevez des exceptions de vitesse de publication ou si vous attendez une sortie plus élevée, vérifiez le nombre d’unités de débit achetées pour l’espace de noms. Vous pouvez gérer des unités de débit sur le panneau **Mettre à l’échelle** des espaces de noms, dans le [portail Azure](https://portal.azure.com). Vous pouvez également gérer les unités de débit par programmation à l’aide des [API Event Hubs](event-hubs-api-overview.md).
 
 Les unités de débit sont achetées à l’avance et facturées à l’heure. Une fois achetées, les unités de débit sont facturées au moins une heure. Vous pouvez acheter jusqu’à 20 unités de débit par espace de noms Azure Event Hubs. Ces unités sont partagées entre tous les hubs d’événements de l’espace de noms en question.
 
-Il est possible d’acheter des unités de débit supplémentaires, par lots de 20 (pour un maximum de 100). Pour cela, contacter le support Azure. Vous pouvez même acheter des blocs de 100 unités de débit.
+Vous pouvez acheter des unités de débit supplémentaires par blocs de 20 (pour un maximum de 100). Pour cela, contactez le support Azure. Au-delà de cette limite, vous pouvez acheter des blocs de 100 unités de débit.
 
 Nous vous recommandons d’équilibrer soigneusement les partitions et les unités de débit pour obtenir un dimensionnement optimal. Une partition unique a une échelle maximale d'une unité de débit. Le nombre d’unités de débit doit être inférieur ou égal au nombre de partitions dans un concentrateur d’événements.
 
@@ -165,7 +168,7 @@ Pour plus d’informations sur les concentrateurs d’événements, accédez aux
 * Prise en main avec un [didacticiel des hubs d'événements][Event Hubs tutorial]
 * [Guide de programmation de hubs d’événements](event-hubs-programming-guide.md)
 * [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md)
-* [FAQ sur les hubs d'événements](event-hubs-faq.md)
+* [FAQ sur les hubs d’événements](event-hubs-faq.md)
 * [Exemples de hubs d’événements][]
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md

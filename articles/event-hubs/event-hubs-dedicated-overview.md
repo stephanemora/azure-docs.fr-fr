@@ -3,7 +3,7 @@ title: Vue d’ensemble de la capacité Azure Event Hubs Dedicated | Microsoft D
 description: Vue d’ensemble de la capacité Azure Event Hubs Dedicated.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 7009710328c96660accdcf9c88313ad92d25d41c
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: shvija
+ms.openlocfilehash: 1a7a7593e80f08296e3163e528e880f343366b8a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311414"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005702"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Vue d’ensemble d’Event Hubs Dedicated
 
@@ -32,12 +32,12 @@ Le tableau suivant compare les niveaux de service Event Hubs disponibles. L’of
 | Événements d’entrée | Paiement par million d’événements | Inclus |
 | Unité de débit (1 Mo/s en entrée, 2 Mo/s en sortie) | Paiement par heure | Inclus |
 | Taille des messages | 256 KB | 1 Mo |
-| Stratégies d’éditeur | OUI | OUI |   
+| Stratégies d’éditeur | Oui | Oui |   
 | Groupes de consommateurs | 20 | 20 |
-| Relecture des messages | OUI | OUI |
-| Unités de débit maximales | 20 (flexible jusqu’à 100)   | 1 unité de capacité (CU) ≈ 50 |
+| Relecture des messages | Oui | Oui |
+| Unités de débit maximales | 20 (flexible jusqu’à 100)   | 1 unité de capacité ≈ 50 |
 | Connexions réparties | 1 000 inclus | 100 K inclus |
-| Connexions négociées supplémentaires | OUI | OUI |
+| Connexions négociées supplémentaires | Oui | Oui |
 | Rétention des messages | 1 jour inclus | Jusqu’à 7 jours inclus |
 | Capture | Paiement par heure | Inclus |
 

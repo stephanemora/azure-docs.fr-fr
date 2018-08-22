@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ebd9943ad7f54a329dee16d57ab980b882d508f3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284164"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715105"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Guide pratique pour enregistrer des exemples de voix pour une voix personnalisée
 
@@ -68,13 +68,13 @@ Le point de départ de toute session d’enregistrement de voix personnalisée e
 
 Les énoncés de votre script peuvent provenir de n’importe quelle source : fiction, non-fiction, transcription de discours, bulletin d’informations ou tout autre document imprimé. Si vous souhaitez vous assurer que votre voix est parfaitement adaptée à l’énoncé de mots spécifiques (par exemple, la terminologie médicale ou le jargon de la programmation), vous pouvez inclure des phrases tirées d’ouvrages spécialisés ou de documents techniques. (Toutefois, consultez la section [Aspects juridiques](#legalities) ci-dessous.) Vous pouvez également écrire votre propre texte.
 
-Vos énoncés ne doivent pas nécessairement provenir de la même source ou du même type de source. Et leurs contenus peuvent être de nature totalement différente. Toutefois, si vous comptez utiliser des expressions spécifiques (par exemple, « Vous vous êtes connecté avec succès ») dans votre application de reconnaissance vocale, veillez à les inclure dans votre script. Vous aiderez ainsi votre acteur à bien prononcer ces expressions. Et si vous décidez d’utiliser un enregistrement à la place d’une synthèse vocale, vous aurez déjà ces expressions dans la même voix que votre synthèse vocale.
+Vos énoncés ne doivent pas nécessairement provenir de la même source ou du même type de source. Et leurs contenus peuvent être de nature totalement différente. Toutefois, si vous comptez utiliser des expressions spécifiques (par exemple, « Vous vous êtes connecté avec succès ») dans votre application de reconnaissance vocale, veillez à les inclure dans votre script. Vous aiderez ainsi votre acteur à bien prononcer ces expressions. Et si vous décidez d’utiliser un enregistrement à la place d’une synthèse vocale, vous aurez déjà ces expressions dans la même voix.
 
 L’homogénéité est essentielle dans le choix d’une voix professionnelle, mais la variété est le signe d’un bon script. Votre script doit inclure un grand nombre de mots et de phrases variées, avec un large éventail de longueurs, de structures et de tons. Chaque son dans la langue doit être représenté plusieurs fois dans de nombreux contextes (c’est la *couverture phonétique).* 
 
 En outre, le texte doit inclure toutes les représentations d’un son particulier par écrit et placer chaque son à différents endroits dans les phrases. Les phrases déclaratives et les questions doivent être incluses et lues avec l’intonation appropriée.
 
-Il est difficile d’écrire un script qui fournit *juste assez* de données pour permettre au portail Custom Speech de générer une bonne voix. En pratique, le moyen le plus simple de créer un script permettant d’obtenir une couverture phonétique efficace consiste à inclure un grand nombre d’échantillons. Les voix standard de Microsoft ont été créées à partir de dizaines de milliers d’énoncés. Vous devez être prêt à enregistrer quelques-uns voire plusieurs milliers énoncés pour générer une voix personnalisée de qualité production.
+Il est difficile d’écrire un script qui fournit *juste assez* de données pour permettre au portail Custom Speech de générer une bonne voix. En pratique, le moyen le plus simple de créer un script permettant d’obtenir une couverture phonétique efficace consiste à inclure un grand nombre d’échantillons. Les voix standard de Microsoft ont été créées à partir de dizaines de milliers d’énoncés. Vous devez être prêt à enregistrer au moins quelques-uns voire plusieurs milliers énoncés pour générer une voix personnalisée de qualité production.
 
 Vérifiez attentivement que le script ne contient pas d’erreurs. Si possible, demandez aussi à un tiers d’effectuer cette vérification. Lorsque vous parcourez le script avec votre acteur, vous allez probablement trouver d’autres erreurs.
 
@@ -85,7 +85,7 @@ Vous pouvez écrire votre script dans Microsoft Word. Ce script sera utilisé lo
 Un format de script de base comporte trois colonnes :
 
 * Le numéro de l’énoncé, à partir de 1. Cette numérotation aidera toutes les personnes dans le studio à accéder directement à un énoncé précis (« reprenons l’énoncé 356 »). Vous pouvez utiliser la fonctionnalité de numérotation de Word pour numéroter automatiquement les lignes du tableau.
-* Une colonne vide où vous inscrirez le numéro de la prise ou le code temporel de chaque énoncé, pour vous aider à le repérer dans l’enregistrement terminé.)
+* Une colonne vide où vous inscrirez le numéro de la prise ou le code temporel de chaque énoncé, pour vous aider à le repérer dans l’enregistrement terminé.
 * Le texte de l’énoncé lui-même.
 
 ![Exemple de script](media/custom-voice/script.png)
@@ -113,7 +113,7 @@ Heureusement, il est possible d’éviter totalement ces problèmes. Il existe d
 
 ## <a name="recording-your-script"></a>Enregistrement de votre script
 
-De préférence, enregistrez votre script dans un studio d’enregistrement professionnel spécialisé dans le travail de la voix. Ce type de studio est équipé d’une cabine d’enregistrement, d’un équipement approprié et d’un personnel compétent formé à son utilisation. Veillez à ne pas négliger l’enregistrement.
+Enregistrez votre script dans un studio d’enregistrement professionnel spécialisé dans le travail de la voix. Ce type de studio est équipé d’une cabine d’enregistrement, d’un équipement approprié et d’un personnel compétent formé à son utilisation. Veillez à ne pas négliger l’enregistrement.
 
 Discutez de votre projet avec l’ingénieur du son chargé de l’enregistrement et soyez attentif à ses conseils. L’enregistrement doit avoir peu voire aucune compression de plage dynamique (maximum 4:1). Il est essentiel que l’audio affiche un volume homogène et un rapport signal/bruit élevé, tout en étant exempt de sons parasites.
 
@@ -142,7 +142,7 @@ L’enregistrement doit contenir le moins de bruits parasites possible, avec pou
 > [!TIP]
 > Dans certains cas, vous pouvez utiliser un égaliseur ou un plug-in logiciel de réduction du bruit pour éliminer le bruit de vos enregistrements, même s’il est toujours préférable de le supprimer à sa source.
 
-Les niveaux doivent être réglés afin d’utiliser au maximum la plage dynamique disponible de l’enregistrement numérique sans saturation. Recherchez un son audio puissant mais pas trop, pour ne pas le déformer. Voici un exemple de forme d’onde d’un bon enregistrement.
+Réglez les niveaux afin d’utiliser au maximum la plage dynamique disponible de l’enregistrement numérique sans saturation. Recherchez un son audio puissant mais pas trop, pour ne pas le déformer. Voici un exemple de forme d’onde d’un bon enregistrement.
 
 ![forme d’onde d’un bon d’enregistrement](media/custom-voice/good-recording.png)
 
@@ -159,9 +159,9 @@ Dans l’idéal, différentes personnes occupent les rôles de directeur, ingén
 Pour éviter toute perdre de temps au studio, parcourez le script avec votre acteur avant la session d’enregistrement. À mesure qu’il se familiarise avec le texte, l’acteur apprendra à prononcer correctement les éventuels mots inconnus.
 
 > [!NOTE]
-> La plupart des studios d’enregistrement sont équipés d’un écran électronique pour afficher les scripts dans la cabine d’enregistrement. Dans ce cas, saisissez vos notes directement dans le document du script. Mais conservez une copie papier pour prendre des notes pendant la session. Les ingénieurs du son demandent souvent une copie papier également. Et gardez toujours une troisième copie imprimée en secours pour l’acteur, au cas où l’ordinateur tombe en panne !
+> La plupart des studios d’enregistrement sont équipés d’un écran électronique pour afficher les scripts dans la cabine d’enregistrement. Dans ce cas, saisissez vos notes directement dans le document du script. Mais conservez une copie papier pour prendre des notes pendant la session. Les ingénieurs du son demandent souvent une copie papier également. Et gardez toujours une troisième copie imprimée en secours pour l’acteur, au cas où l’ordinateur tombe en panne !
 
-L’acteur vous demandera parfois de lui préciser le mot à mettre en relief dans un énoncé. On parle ici de « mot clé » (operative word). Dites-lui que vous souhaitez une lecture naturelle, sans mise en relief particulière. Une mise en relief peut être ajoutée lorsque la reconnaissance vocale est synthétisée : elle ne doit pas faire partie de l’enregistrement d’origine.
+L’acteur vous demandera parfois de lui préciser le mot à mettre en relief dans un énoncé (« mot opérationnel »). Dites-lui que vous souhaitez une lecture naturelle, sans mise en relief particulière. Une mise en relief peut être ajoutée lorsque la reconnaissance vocale est synthétisée : elle ne doit pas faire partie de l’enregistrement d’origine.
 
 Demandez à l’acteur de prononcer distinctement tous les mots. Chaque mot du script doit être prononcé. Aucun son ne doit être omis ou avalé, comme c’est souvent le cas dans une conversation informelle,  *sauf si le script a été écrit dans ce sens.*
 
@@ -176,7 +176,7 @@ L’acteur ne doit *pas* ajouter de pause entre chaque mot. La phrase doit toujo
 
 ### <a name="the-recording-session"></a>La session d'enregistrement
 
-Créez un enregistrement de référence, ou *fichier de correspondance,* d’un énoncé standard en début de session. Demandez à l’acteur de répéter cette ligne à chaque page ou à chaque une page et demie. À chaque fois, comparez le nouvel enregistrement et la référence. Cet exercice aide l’acteur à conserver un niveau constant de volume, de tempo et d’intonation. Pendant ce temps, l’ingénieur du son peut utiliser le fichier de correspondance comme référence pour les niveaux et l’homogénéité globale du son.
+Créez un enregistrement de référence, ou *fichier de correspondance,* d’un énoncé standard en début de session. Demandez à l’acteur de répéter cette ligne à chaque page environ. À chaque fois, comparez le nouvel enregistrement et la référence. Cet exercice aide l’acteur à conserver un niveau constant de volume, de tempo et d’intonation. Pendant ce temps, l’ingénieur du son peut utiliser le fichier de correspondance comme référence pour les niveaux et l’homogénéité globale du son.
 
 Le fichier de correspondance est particulièrement important pour reprendre l’enregistrement après une pause ou à une date ultérieure. Vous pouvez jouer plusieurs fois ce fichier à l’acteur afin de le faire répéter, jusqu'à ce que les deux versions se ressemblent.
 
@@ -185,16 +185,16 @@ Demandez à l’acteur de respirer profondément et de faire une pause avant cha
 Enregistrez cinq bonnes secondes de silence avant le premier enregistrement pour saisir la « tonalité de la pièce ». Cela aide le portail Custom Voice à atténuer les éventuels bruits parasites restants.
 
 > [!TIP]
-> Comme vous avez avant tout besoin des lignes de l’acteur, vous pouvez effectuer un enregistrement monophonique (monocanal) de ces lignes. Mais s’il s’agit d’un enregistrement en stéréo, vous pouvez utiliser le second canal pour capturer le son provenant de la salle de contrôle et écouter ainsi les discussions concernant des lignes ou des prises particulières. Supprimez cette piste de la version téléchargée sur le portail Custom Voice.
+> Comme vous avez avant tout besoin de l’acteur, vous pouvez effectuer un enregistrement monophonique (monocanal) de ces lignes. Mais s’il s’agit d’un enregistrement en stéréo, vous pouvez utiliser le second canal pour capturer le son provenant de la salle de contrôle et écouter ainsi les discussions concernant des lignes ou des prises particulières. Supprimez cette piste de la version téléchargée sur le portail Custom Voice.
 
 Écoutez attentivement, à l’aide d’un casque, les enregistrements de la voix professionnelle. Vous devez obtenir une diction naturelle et une prononciation claire, sans bruits parasites. N’hésitez pas à demander à l’acteur de répéter un énoncé, si vous estimez que ces critères ne sont pas remplis. 
 
 > [!TIP] 
-> Lorsque vous enregistrez un grand nombre d’énoncés, un énoncé unique peut ne pas avoir d’effet notable sur la voix personnalisée finale. Il est donc parfois préférable de noter simplement les énoncés qui posent problème, puis de les exclure de votre jeu de données pour examiner le résultat final de la voix personnalisée. Vous pourrez toujours retourner en studio afin d’y enregistrer les échantillons manquants.
+> Si vous utilisez un grand nombre d’énoncés, un énoncé unique peut ne pas avoir d’effet notable sur la voix personnalisée finale. Il est donc parfois préférable de noter simplement les énoncés qui posent problème, puis de les exclure de votre jeu de données pour examiner le résultat final de la voix personnalisée. Vous pourrez toujours retourner en studio afin d’y enregistrer les échantillons manquants.
 
 Pour chaque énoncé, notez sur le script le numéro de la prise ou le code temporel. Demandez également à l’ingénieur du son de marquer si possible chaque énoncé dans les métadonnées ou le « cue sheet » de l’enregistrement.
 
-Faites des pauses régulières et offrez à l’acteur à boire pour maintenir une bonne qualité de voix.
+Faites des pauses régulières et proposez une boisson à l’acteur pour maintenir une bonne qualité de voix.
 
 ### <a name="after-the-session"></a>Après la session
 

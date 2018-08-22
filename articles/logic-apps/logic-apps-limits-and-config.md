@@ -7,15 +7,15 @@ author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 644d382b87b0cc7c60cc8917edbaeff34b222718
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b60b25e1692e065276d731d6cad8700373f1c456
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390736"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038333"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -69,6 +69,14 @@ Pour modifier la limite par défaut par une valeur comprise entre 7 jours et 90 
 2. Sous **Options de runtime**, dans la liste **Conservation de l’historique des exécutions en jours**, choisissez **Custom** (Personnalisée). 
 
 3. Entrez le nombre de jours souhaité ou faites glisser le curseur pour sélectionner ce nombre.
+
+<a name="disable-delete"></a>
+
+## <a name="disabling-or-deleting-logic-apps"></a>Désactivation ou suppression des applications logiques
+
+Lorsque vous désactivez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente continuent jusqu’à ce qu’elles soient terminées, ce qui peut prendre du temps.
+
+Lorsque vous supprimez une application logique, aucune nouvelle exécution n’est instanciée. Toutes les exécutions en cours et en attente sont annulées. Si vous avez des milliers d’exécutions, l’annulation peut prendre beaucoup de temps.
 
 <a name="looping-debatching-limits"></a>
 

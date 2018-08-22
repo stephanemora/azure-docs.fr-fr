@@ -13,143 +13,71 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 08/08/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd44971162a79e53b731c5c89316f14e8bb0a1a6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 203c886828fa13433f784d1db9a032b06fab398a
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651957"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715197"
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide d’Azure CLI
+# <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide d’Azure CLI
 
-> [!div class="op_single_selector"]
-> * [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [PowerShell (classique)](virtual-networks-reserved-public-ip.md)
+Vous pouvez créer une machine virtuelle avec une adresse IP publique statique. Une adresse IP publique vous permet de communiquer avec une machine virtuelle à partir d’Internet. Attribuez une adresse IP publique statique, plutôt qu’une adresse dynamique, pour être certain que l’adresse ne changera jamais. Découvrez plus en détail les [adresses IP publiques statiques](virtual-network-ip-addresses-overview-arm.md#allocation-method). Pour changer le type de l’adresse IP publique attribuée à une machine virtuelle existante (de dynamique à statique), ou pour utiliser des adresses IP privées, consultez [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md). Les adresses IP publiques ont un [coût modique](https://azure.microsoft.com/pricing/details/ip-addresses) et le nombre d’adresses IP publiques que vous pouvez utiliser par abonnement est [limité](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-[!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
+## <a name="create-a-virtual-machine"></a>Créer une machine virtuelle
 
-Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Cet article traite de l’utilisation du modèle de déploiement Resource Manager que Microsoft recommande pour la plupart des nouveaux déploiements à la place du modèle de déploiement classique.
+Vous pouvez effectuer les étapes suivantes à partir de votre ordinateur local ou à l’aide d’Azure Cloud Shell. Pour pouvoir utiliser votre ordinateur local, vous devez avoir installé [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour utiliser Azure Cloud Shell, sélectionnez **Essayer** dans l’angle supérieur droit de l’une des zones de commande suivantes. Cloud Shell vous connecte à Azure.
 
-[!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
+1. Si vous utilisez Cloud Shell, passez à l’étape 2. Ouvrez une session de commande et connectez-vous à Azure avec `az login`.
+2. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources dans la région Azure USA Est :
 
-## <a name = "create"></a>Créer la machine virtuelle
+   ```azurecli-interactive
+   az group create --name myResourceGroup --location eastus
+   ```
 
-Les valeurs des variables comprises entre symboles "" dans les étapes suivantes créent des ressources avec ces paramètres à partir du scénario. Modifiez les valeurs, le cas échéant, en fonction de votre environnement.
+3. Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az-vm-create). L’option `--public-ip-address-allocation=static` attribue une adresse IP publique statique à la machine virtuelle. L’exemple suivant crée une machine virtuelle Ubuntu avec une adresse IP statique de base (référence SKU) nommée *myPublicIpAddress* :
 
-1. Installez [Azure CLI 2.0](/cli/azure/install-az-cli2) si vous ne l’avez pas encore fait.
-2. Créez une paire de clés SSH publique et privée pour les machines virtuelles Linux en effectuant les étapes décrites dans l’article [Créer une paire de clés publique et privée SSH pour les machines virtuelles Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-3. Dans un interpréteur de commandes, connectez-vous par le biais de la commande `az login`.
-4. Créez la machine virtuelle en exécutant le script suivant sur un ordinateur Linux ou Mac. L’adresse IP publique Azure, le réseau virtuel, l’interface réseau et les ressources de machine virtuelle doivent se trouver au même emplacement. Bien que les ressources n’aient pas toutes à se trouver dans le même groupe de ressources, c’est le cas dans le script suivant.
+   ```azurecli-interactive
+   az vm create \
+     --resource-group myResourceGroup \
+     --name myVM \
+     --image UbuntuLTS \
+     --admin-username azureuser \
+     --generate-ssh-keys \
+     --public-ip-address myPublicIpAddress \
+     --public-ip-address-allocation static
+   ```
 
-```bash
-RgName="IaaSStory"
-Location="westus"
+   Si l’adresse IP publique doit être une référence SKU standard, ajoutez `--public-ip-sku Standard` à la commande précédente. Découvrez plus en détail les [références SKU d’adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#sku). Si la machine virtuelle doit être ajoutée au pool backend d’un équilibreur de charge Azure Load Balancer public, la référence SKU de l’adresse IP publique de la machine virtuelle doit correspondre à celle de l’équilibreur de charge. Pour plus d’informations, consultez [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-# Create a resource group.
+4. Examinez l’adresse IP publique qui a été affectée et vérifiez qu’elle a été créée en tant qu’adresse statique de base (référence SKU) via [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) :
 
-az group create \
---name $RgName \
---location $Location
+   ```azurecli-interactive
+   az network public-ip show \
+     --resource-group myResourceGroup \
+     --name myPublicIpAddress \
+     --query [ipAddress,publicIpAllocationMethod,sku] \
+     --output table
+   ```
 
-# Create a public IP address resource with a static IP address using the --allocation-method Static option.
-# If you do not specify this option, the address is allocated dynamically. The address is assigned to the
-# resource from a pool of IP adresses unique to each Azure region. The DnsName must be unique within the
-# Azure location it's created in. Download and view the file from https://www.microsoft.com/en-us/download/details.aspx?id=41653#
-# that lists the ranges for each region.
+   Azure a affecté une adresse IP publique parmi les adresses utilisées dans la région dans laquelle vous avez créé la machine virtuelle. Vous pouvez télécharger la liste des plages (préfixes) pour les clouds Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [Gouvernement américain](https://www.microsoft.com/download/details.aspx?id=57063), [Chine](https://www.microsoft.com/download/details.aspx?id=57062), et [Allemagne](https://www.microsoft.com/download/details.aspx?id=57064).
 
-PipName="PIPWEB1"
-DnsName="iaasstoryws1"
-az network public-ip create \
---name $PipName \
---resource-group $RgName \
---location $Location \
---allocation-method Static \
---dns-name $DnsName
+> [!WARNING]
+Ne modifiez pas les paramètres d’adresse IP dans le système d’exploitation de la machine virtuelle. Le système d’exploitation ne reconnaît pas les adresses IP publiques Azure. Même si vous avez la possibilité d’ajouter des paramètres d’adresse IP privée au système d’exploitation, nous vous déconseillons de le faire, à moins que cela soit nécessaire et pas avant d’avoir lu [Ajouter une adresse IP privée à un système d’exploitation](virtual-network-network-interface-addresses.md#private).
 
-# Create a virtual network with one subnet
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
-VnetName="TestVNet"
-VnetPrefix="192.168.0.0/16"
-SubnetName="FrontEnd"
-SubnetPrefix="192.168.1.0/24"
-az network vnet create \
---name $VnetName \
---resource-group $RgName \
---location $Location \
---address-prefix $VnetPrefix \
---subnet-name $SubnetName \
---subnet-prefix $SubnetPrefix
+Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [az group delete](/cli/azure/group#az-group-delete) pour le supprimer, ainsi que toutes les ressources qu’il contient :
 
-# Create a network interface connected to the VNet with a static private IP address and associate the public IP address
-# resource to the NIC.
-
-NicName="NICWEB1"
-PrivateIpAddress="192.168.1.101"
-az network nic create \
---name $NicName \
---resource-group $RgName \
---location $Location \
---subnet $SubnetName \
---vnet-name $VnetName \
---private-ip-address $PrivateIpAddress \
---public-ip-address $PipName
-
-# Create a new VM with the NIC
-
-VmName="WEB1"
-
-# Replace the value for the VmSize variable with a value from the
-# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article.
-VmSize="Standard_DS1"
-
-# Replace the value for the OsImage variable with a value for *urn* from the output returned by entering
-# the `az vm image list` command. 
-
-OsImage="credativ:Debian:8:latest"
-Username='adminuser'
-
-# Replace the following value with the path to your public key file.
-SshKeyValue="~/.ssh/id_rsa.pub"
-
-az vm create \
---name $VmName \
---resource-group $RgName \
---image $OsImage \
---location $Location \
---size $VmSize \
---nics $NicName \
---admin-username $Username \
---ssh-key-value $SshKeyValue
-# If creating a Windows VM, remove the previous line and you'll be prompted for the password you want to configure for the VM.
+```azurecli-interactive
+az group delete --name myResourceGroup --yes
 ```
-
-En plus de créer une machine virtuelle, le script génère :
-- Un disque unique géré par compte Premium par défaut, mais vous pouvez choisir un autre type de disque. Consultez l’article [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour plus d’informations.
-- Des ressources de réseau virtuel, de sous-réseau, de carte réseau et d’adresse IP publique. Vous pouvez également utiliser des ressources *existantes* en matière de réseau virtuel, sous-réseau, carte réseau ou adresse IP publique. Pour savoir comment utiliser des ressources réseau existantes au lieu de créer des ressources supplémentaires, utilisez `az vm create -h`.
-
-## <a name = "validate"></a>Valider la création de la machine virtuelle et l’adresse IP publique
-
-1. Entrez la commande `az resource list --resouce-group IaaSStory --output table` pour afficher la liste des ressources créées par le script. La sortie retournée doit comporter 5 ressources : une interface réseau, un disque, une adresse IP publique, un réseau virtuel et une machine virtuelle.
-2. Entrez la commande `az network public-ip show --name PIPWEB1 --resource-group IaaSStory --output table`. Dans la sortie retournée, la valeur **IpAddress** et la valeur **PublicIpAllocationMethod** sont *Statique*.
-3. Avant d’exécuter la commande suivante, supprimez les <>, remplacez *Username* par le nom que vous avez utilisé pour la variable **Username** du script, et remplacez *ipAddress* par la valeur **ipAddress** de l’étape précédente. Entrez la commande suivante pour vous connecter à la machine virtuelle : `ssh -i ~/.ssh/azure_id_rsa <Username>@<ipAddress>`. 
-
-## <a name= "clean-up"></a>Supprimer la machine virtuelle et les ressources associées
-
-Nous vous recommandons de supprimer les ressources créées durant cet exercice si vous ne les utilisez pas en production. La machine virtuelle, l’adresse IP publique et le disque occasionnent des frais tant que ces ressources sont configurées. Pour supprimer les ressources créées durant cet exercice, procédez comme suit :
-
-1. Exécutez la commande `az resource list --resource-group IaaSStory` pour afficher les ressources du groupe de ressources.
-2. Vérifiez qu’il n’existe aucune autre ressource dans le groupe de ressources que celles créées par le script dans cet article. 
-3. Pour supprimer toutes les ressources créées durant cet exercice, exécutez la commande `az group delete -n IaaSStory`. La commande supprime le groupe de ressources et les ressources qu’il contient.
- 
-## <a name="set-ip-addresses-within-the-operating-system"></a>Définir des adresses IP au sein du système d’exploitation
-
-Vous ne devez jamais assigner manuellement l’adresse IP publique assignée à une machine virtuelle Azure au sein du système d’exploitation de la machine virtuelle. Il est recommandé de ne pas assigner statiquement l’IP privée assignée à la machine virtuelle Azure au sein du système d’exploitation d’une machine virtuelle, sauf si nécessaire, par exemple lorsque [vous assignez plusieurs d’adresses IP à une machine virtuelle Windows](virtual-network-multiple-ip-addresses-cli.md). Si vous définissez manuellement l’adresse IP privée dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure, ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [d’adresse IP privée](virtual-network-network-interface-addresses.md#private).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Tout le trafic réseau peut circuler vers et en provenance de la machine virtuelle créée dans le cadre de cet article. Vous pouvez définir des règles de sécurité entrantes et sortantes au sein d’un groupe de sécurité réseau qui limite le trafic vers et en provenance de l’interface réseau, du sous-réseau ou des deux. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Vue d’ensemble du groupe de sécurité réseau](security-overview.md).
+- En savoir plus sur les [adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) dans Azure
+- En savoir plus sur les [paramètres d’adresse IP publique](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- En savoir plus sur les [adresses IP privées](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) et l’affectation d’une [adresse IP privée statique](virtual-network-network-interface-addresses.md#add-ip-addresses) à une machine virtuelle Azure
+- En savoir plus sur la création de machines virtuelles [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

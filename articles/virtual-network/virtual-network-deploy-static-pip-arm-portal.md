@@ -4,71 +4,86 @@ description: Découvrez comment créer une machine virtuelle avec une adresse IP
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: e9546bcc-f300-428f-b94a-056c5bd29035
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2016
+ms.date: 08/08/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 524293f9a1ded73ee7cb6ba4f53208a9f9c54ffa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9b6db45e38267c70adef3f5a341b8b918b9e78fb
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670982"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714425"
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Créer une machine virtuelle avec une adresse IP publique statique à l’aide du portail Azure
+# <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Créer une machine virtuelle avec une adresse IP publique statique à partir du portail Azure
 
-> [!div class="op_single_selector"]
-> * [Portail Azure](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [interface de ligne de commande Azure](virtual-network-deploy-static-pip-arm-cli.md)
-> * [PowerShell (classique)](virtual-networks-reserved-public-ip.md)
+Vous pouvez créer une machine virtuelle avec une adresse IP publique statique. Une adresse IP publique vous permet de communiquer avec une machine virtuelle à partir d’Internet. Attribuez une adresse IP publique statique, plutôt qu’une adresse dynamique, pour être certain que l’adresse ne changera jamais. Découvrez plus en détail les [adresses IP publiques statiques](virtual-network-ip-addresses-overview-arm.md#allocation-method). Pour changer le type de l’adresse IP publique attribuée à une machine virtuelle existante (de dynamique à statique), ou pour utiliser des adresses IP privées, consultez [Ajouter, modifier ou supprimer des adresses IP](virtual-network-network-interface-addresses.md). Les adresses IP publiques ont un [coût modique](https://azure.microsoft.com/pricing/details/ip-addresses) et le nombre d’adresses IP publiques que vous pouvez utiliser par abonnement est [limité](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-[!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
+## <a name="sign-in-to-azure"></a>Se connecter à Azure
 
-> [!NOTE]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement Resource Manager que Microsoft recommande pour la plupart des nouveaux déploiements à la place du modèle de déploiement classique.
+Connectez-vous au portail Azure sur https://portal.azure.com.
 
-[!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
+## <a name="create-a-virtual-machine"></a>Créer une machine virtuelle
 
-## <a name="create-a-vm-with-a-static-public-ip"></a>Créer une machine virtuelle avec une adresse IP publique statique
+1. Sélectionnez **+ Créer une ressource** en haut à gauche du portail Azure.
+2. Sélectionnez **Calculer**, puis **Machine virtuelle Windows Server 2016** ou le système d’exploitation de votre choix.
+3. Entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis cliquez sur **OK** :
 
-Pour créer une machine virtuelle avec une adresse IP publique statique dans le portail Azure, procédez comme suit :
+    |Paramètre|Valeur|
+    |---|---|
+    |Nom|myVM|
+    |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
+    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Abonnement| Sélectionnez votre abonnement.|
+    |Groupe de ressources| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
+    |Lieu| Sélectionnez **USA Est**.|
 
-1. Dans un navigateur, accédez au [portail Azure](https://portal.azure.com) et, si nécessaire, connectez-vous avec votre compte Azure.
-2. Dans le coin supérieur gauche du portail, cliquez sur **Créer une ressource**>>**Compute**>**Windows Server 2012 R2 Datacenter**.
-3. Dans la liste **Sélectionner un modèle de déploiement**, sélectionnez **Resource Manager**, puis cliquez sur **Créer**.
-4. Dans le volet **Informations de base**, entrez les informations de la machine virtuelle comme suit, puis cliquez sur **OK**.
-   
-    ![Portail Azure - De base](./media/virtual-network-deploy-static-pip-arm-portal/figure1.png)
-5. Dans le volet **Choisir une taille**, cliquez sur **A1 Standard** de la façon suivante, puis cliquez sur **Sélectionner**.
-   
-    ![Portail Azure - Choisir une taille](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. Dans le volet **Paramètres**, cliquez sur **Adresse IP publique** puis, dans le volet **Créer une adresse IP publique**, sous **Affectation**, cliquez sur **Statique** comme suit. Cliquez ensuite sur **OK**.
-   
-    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
-7. Dans le volet **Paramètres**, cliquez sur **OK**.
-8. Examinez le volet **Résumé**, en procédant comme suit, puis cliquez sur **OK**.
-   
-    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure4.png)
-9. Notez la nouvelle vignette dans votre tableau de bord.
-   
-    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure5.png)
-10. Lorsque la machine virtuelle est créée, le volet **Paramètres** s’affiche de la façon suivante :
-    
-    ![Portail Azure - Créer une adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/figure6.png)
+4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
+5. Sous **Paramètres**, sélectionnez **Adresse IP publique**.
+6. Entrez *myPublicIpAddress*, sélectionnez **Statique**, puis **OK**, comme illustré dans l’image suivante :
 
-## <a name="set-ip-addresses-within-the-operating-system"></a>Définir des adresses IP au sein du système d’exploitation
+   ![Sélectionnez statique](./media/virtual-network-deploy-static-pip-arm-portal/select-static.png)
 
-Vous ne devez jamais assigner manuellement l’adresse IP publique assignée à une machine virtuelle Azure au sein du système d’exploitation de la machine virtuelle. Il est recommandé de ne pas assigner statiquement l’IP privée assignée à la machine virtuelle Azure au sein du système d’exploitation d’une machine virtuelle, sauf si nécessaire, par exemple lorsque [vous assignez plusieurs d’adresses IP à une machine virtuelle Windows](virtual-network-multiple-ip-addresses-portal.md). Si vous définissez manuellement l’adresse IP privée dans le système d’exploitation, assurez-vous qu’il s’agit de la même adresse que l’adresse IP privée assignée à [l’interface réseau](virtual-network-network-interface-addresses.md#change-ip-address-settings) Azure, ou vous pouvez perdre la connectivité à la machine virtuelle. En savoir plus sur les paramètres [d’adresse IP privée](virtual-network-network-interface-addresses.md#private).
+   Si l’adresse IP publique doit être une référence SKU standard, sélectionnez **Standard** sous **Référence (SKU)**. Découvrez plus en détail les [références SKU d’adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#sku). Si la machine virtuelle doit être ajoutée au pool backend d’un équilibreur de charge Azure public, la référence SKU de l’adresse IP publique de la machine virtuelle doit correspondre à celle de l’équilibreur de charge. Pour plus d’informations, consultez [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
+
+6. Si nécessaire, sélectionnez un port sous **Sélectionner des ports d’entrée publics**. Le port 3389 est sélectionné pour autoriser l’accès à distance à la machine virtuelle Windows Server depuis Internet. Il est déconseillé d’ouvrir le port 3389 à partir d’Internet pour les charges de travail de production.
+
+   ![Sélectionnez un port](./media/virtual-network-deploy-static-pip-arm-portal/select-port.png)
+
+7. Acceptez les autres valeurs par défaut, puis sélectionnez **OK**.
+8. Dans la page **Résumé**, sélectionnez **Créer**. Le déploiement de la machine virtuelle prend quelques minutes.
+9. Une fois la machine virtuelle déployée, entrez *myPublicIpAddress* dans la zone de recherche située dans la partie supérieure du portail. Quand **myPublicIpAddress** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
+10. Vous pouvoir identifier l’adresse IP publique qui est attribuée et constater qu’elle est attribuée à la machine virtuelle **myVM**, comme illustré dans l’image suivante :
+
+    ![Examinez l’adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png)
+
+    Azure a affecté une adresse IP publique parmi les adresses utilisées dans la région dans laquelle vous avez créée la machine virtuelle. Vous pouvez télécharger la liste des plages (préfixes) pour les clouds Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [Gouvernement américain](https://www.microsoft.com/download/details.aspx?id=57063), [Chine](https://www.microsoft.com/download/details.aspx?id=57062), et [Allemagne](https://www.microsoft.com/download/details.aspx?id=57064).
+
+11. Sélectionnez **Configuration** pour vérifier que l’affectation est **Statique**.
+
+    ![Examinez l’adresse IP publique](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
+
+> [!WARNING]
+Ne modifiez pas les paramètres d’adresse IP dans le système d’exploitation de la machine virtuelle. Le système d’exploitation ne reconnaît pas les adresses IP publiques Azure. Même si vous avez la possibilité d’ajouter des paramètres d’adresse IP privée au système d’exploitation, nous vous déconseillons de le faire, à moins que cela soit nécessaire et pas avant d’avoir lu [Ajouter une adresse IP privée à un système d’exploitation](virtual-network-network-interface-addresses.md#private).
+
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+Quand vous n’avez plus besoin du groupe de ressources, supprimez-le, ainsi que toutes les ressources qu’il contient :
+
+1. Entrez *myResourceGroup* dans le champ **Recherche** en haut du portail. Quand **myResourceGroup** apparaît dans les résultats de la recherche, sélectionnez-le.
+2. Sélectionnez **Supprimer le groupe de ressources**.
+3. Entrez *myResourceGroup* dans **TAPER NOM DU GROUPE DE RESSOURCES :** puis sélectionnez **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Tout le trafic réseau peut circuler vers et en provenance de la machine virtuelle créée dans le cadre de cet article. Vous pouvez définir des règles de sécurité entrantes et sortantes au sein d’un groupe de sécurité réseau qui limite le trafic vers et en provenance de l’interface réseau, du sous-réseau ou des deux. Pour en savoir plus sur les groupes de sécurité réseau, consultez [Vue d’ensemble du groupe de sécurité réseau](security-overview.md).
+- En savoir plus sur les [adresses IP publiques](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) dans Azure
+- En savoir plus sur tous les [paramètres d’adresse IP publique](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- En savoir plus sur les [adresses IP privées](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) et l’affectation d’une [adresse IP privée statique](virtual-network-network-interface-addresses.md#add-ip-addresses) à une machine virtuelle Azure
+- En savoir plus sur la création de machines virtuelles [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

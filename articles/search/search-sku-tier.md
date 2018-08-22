@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f7cf471a69395cef0aef7d5dd2e3c77218bf97a3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210922"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715278"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
@@ -36,14 +36,14 @@ Pour bien sélectionner votre niveau, vous devez comprendre des concepts tels qu
 
 ### <a name="capacity"></a>Capacité
 
-La capacité est structurée sous forme de *réplicas* et de *partitions*. Les réplicas sont des instances du service de recherche, chaque réplica hébergeant une copie avec équilibrage de charge d’un index. Par exemple, un service avec six réplicas a six copies de chaque index chargé dans le service. Les partitions stockent des index et fractionnent automatiquement les données de recherche : deux partitions fractionnent votre index en deux, trois partitions en trois, et ainsi de suite. En termes de capacité, la *taille de partition* est la principale caractéristique qui différencie les niveaux.
+La capacité est structurée sous forme de *réplicas* et de *partitions*. 
+
++ Les réplicas sont des instances du service de recherche, chaque réplica hébergeant une copie avec équilibrage de charge d’un index. Par exemple, un service avec six réplicas a six copies de chaque index chargé dans le service. 
+
++ Les partitions stockent des index et fractionnent automatiquement les données de recherche : deux partitions fractionnent votre index en deux, trois partitions en trois, et ainsi de suite. En termes de capacité, la *taille de partition* est la principale caractéristique qui différencie les niveaux.
 
 > [!NOTE]
 > Tous les niveaux **Standard** prennent en charge des [combinaisons flexibles de réplicas et de partitions](search-capacity-planning.md#chart) afin que vous puissiez [pondérer votre système pour le stockage ou la vitesse](search-performance-optimization.md) en changeant l’équilibrage. Le niveau **De base** offre jusqu’à trois réplicas pour la haute disponibilité, mais une seule partition. Les niveaux **Gratuit** ne fournissent pas de ressources dédiées : les ressources de calcul sont partagées par plusieurs services gratuits.
-
-### <a name="limits"></a>limites
-
-Les services hébergent des ressources, telles que des index, des indexeurs, et ainsi de suite. Chaque niveau impose des [limites de service](search-limits-quotas-capacity.md) quant à la quantité de ressources que vous pouvez créer. Ainsi, le plafond du nombre d’index (et d’autres objets) est la deuxième caractéristique qui différencie les niveaux. À mesure que vous consultez chaque option dans le portail, notez les limites du nombre d’index. D’autres ressources, telles que les indexeurs, sources de données et compétences, sont soumises à des limites d’index.
 
 ### <a name="search-units"></a>Unités de recherche
 
@@ -52,6 +52,10 @@ Le concept de facturation le plus important à comprendre est l’*unité de rec
 Bien que chaque niveau offre une capacité supérieure progressive, vous pouvez mettre une partie de la capacité totale en ligne et conserver le reste en réserve. En termes de facturation, c’est le nombre de partitions et de réplicas que vous mettez en ligne, calculé à l’aide de la formule SU, qui détermine ce que vous payez réellement.
 
 Le taux de facturation est un taux horaire par SU, chaque niveau ayant un taux différent. Consultez la [Tarification](https://azure.microsoft.com/pricing/details/search/)pour connaître les coûts pour chaque niveau.
+
+### <a name="limits"></a>limites
+
+Les services hébergent des ressources, telles que des index, des indexeurs, et ainsi de suite. Chaque niveau impose des [limites de service](search-limits-quotas-capacity.md) quant à la quantité de ressources que vous pouvez créer. Ainsi, le plafond du nombre d’index (et d’autres objets) est la deuxième caractéristique qui différencie les niveaux. À mesure que vous consultez chaque option dans le portail, notez les limites du nombre d’index. D’autres ressources, telles que les indexeurs, sources de données et compétences, sont soumises à des limites d’index.
 
 ## <a name="consumption-patterns"></a>Modèles de consommation
 
@@ -86,17 +90,17 @@ Ce sont généralement les exigences professionnelles qui imposent le nombre d�
 
 Pour déterminer la taille d’un index, vous devez en [créer un](search-create-index-portal.md). La structure des données dans Recherche Azure est principalement un [index inversé](https://en.wikipedia.org/wiki/Inverted_index), qui a des caractéristiques différentes des données sources. Pour un index inversé, la taille et la complexité sont déterminées par le contenu, et pas nécessairement par la quantité de données fournies. Une source de données de grande taille avec une redondance très conséquente peut générer un index plus petit qu’un jeu de données plus petit ayant du contenu très variable.  Par conséquent, il est rarement possible de déduire la taille de l’index d’après celle du jeu de données d’origine.
 
-### <a name="preliminary-estimates-using-the-free-tier"></a>Estimations préliminaires avec le niveau Gratuit
+### <a name="step-1-develop-rough-estimates-using-the-free-tier"></a>Étape 1 : Développer des estimations approximatives avec le niveau Gratuit
 
 Une approche possible pour l’estimation de la capacité consiste à utiliser le niveau **Gratuit**. Souvenez-vous que le niveau **Gratuit** offre jusqu’à trois index, 50 Mo de stockage et deux minutes de temps d’indexation. Il peut être difficile d’effectuer une projection de taille d’index avec ces contraintes, mais l’exemple suivant illustre une approche :
 
-+ [Créez un service gratuit](search-create-service-portal.md)
-+ Préparez un petit jeu de données représentatif (disons cinq mille documents et une taille d’échantillon de dix pour cent).
-+ [Générez un index initial](search-create-index-portal.md) et notez sa taille dans le portail (disons 30 Mo).
++ [Créer un service gratuit](search-create-service-portal.md)
++ Préparer un petit jeu de données représentatif (disons cinq mille documents et une taille d’échantillon de dix pour cent)
++ [Générer un index initial](search-create-index-portal.md) et notez sa taille dans le portail (disons 30 Mo)
 
 En supposant que l’échantillon soit représentatif et constitué de dix pour cent de la source de données complète, un index de 30 Mo devient environ 300 Mo si tous les documents sont indexés. Vous pourriez doubler ce chiffre préliminaire afin de budgéter pour deux index (développement et production), soit un total de 600 Mo de besoins de stockage. Ces exigences étant facilement satisfaites avec le niveau **De base**, vous devez commencer par là.
 
-### <a name="advanced-estimates-using-a-billable-tier"></a>Estimations avancées avec un niveau facturable
+### <a name="step-2-develop-refined-estimates-using-a-billable-tier"></a>Étape 2 : Développer des estimations affinées avec le niveau facturable
 
 Certains clients préfèrent commencer avec des ressources dédiées capables de prendre en charge un échantillonnage et des temps de traitement plus élevés, puis développer des estimations réalistes en ce qui concerne la quantité d’index, la taille et les volumes de requêtes durant le développement. Initialement, un service est provisionné d’après la meilleure hypothèse puis, à mesure que le projet de développement évolue, les équipes savent généralement si le service existant offre trop ou pas assez de capacité pour les charges de production prévues. 
 

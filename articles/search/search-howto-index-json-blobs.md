@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 752df29200a5e020ccf10f511ae2f02c0d72bd48
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5b4cd1c592c4cd965a0b5d9e4fb8eef84a6bea91
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363000"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003279"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
 Cet article explique comment configurer un indexeur d’objets blob Recherche Azure pour extraire le contenu structuré d’objets blob JSON dans Stockage Blob Azure.
@@ -76,7 +76,7 @@ Par défaut, [l’indexeur d’objets blob Azure Search](search-howto-indexing-a
     {
         "article" : {
             "text" : "A hopefully useful article explaining how to parse JSON blobs",
-            "datePublished" : "2016-04-13"
+            "datePublished" : "2016-04-13",
             "tags" : [ "search", "storage", "howto" ]    
         }
     }

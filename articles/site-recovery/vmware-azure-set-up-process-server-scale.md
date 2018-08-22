@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 478b678f514959b8ae9f6492d4920faf894c321d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056607"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004179"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>Configurer des serveurs de processus supplémentaires pour l’évolutivité
 
@@ -34,6 +34,8 @@ Vérifiez la configuration requise pour le dimensionnement, résumée dans le ta
 |4 processeurs virtuels (2 sockets * 2 cœurs \@ 2,5 GHz), 8 Go de mémoire |300 Go |250 Go ou moins |Répliquez 85 machines ou moins. |
 |8 processeurs virtuels (2 sockets * 4 cœurs \@ 2,5 GHz), 12 Go de mémoire |600 Go |250 Go à 1 To |Répliquez entre 85 et 150 machines. |
 |12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz), 24 Go de mémoire |1 To |1 To à 2 To |Répliquez entre 150 et 225 machines. |
+
+Où chaque machine source protégée est configurée avec 3 disques de 100 Go chacune.
 
 ### <a name="prerequisites"></a>Prérequis
 

@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adf2f555e907976f8b8efa863f255aa283098be9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448825"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716142"
 ---
-# <a name="manage-user-access-in-azure-ad-b2c"></a>Gérer les accès utilisateurs dans Azure AD BC2
+# <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gérer l’accès utilisateur dans Azure Active Directory B2C
 
 Cet article explique comment gérer les accès utilisateur à vos applications à l’aide d’Azure Active Directory (Azure AD) B2C. La gestion de l’accès dans votre application inclut :
 
@@ -27,9 +27,6 @@ Cet article explique comment gérer les accès utilisateur à vos applications �
 - Capture de l’acceptation des conditions d’utilisation et de régulation de l’accès.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
->[!Note] 
->Cet article fournit des informations que vous pouvez utiliser dans le cadre de vos obligations en vertu du Règlement général sur la protection des données. Si vous recherchez des informations générales sur le RGPD, consultez la [section RGPD du portail Approbation de services](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="control-minor-access"></a>Contrôle d’accès des mineurs
 
@@ -109,7 +106,7 @@ Les étapes suivantes décrivent comment vous pouvez gérer les conditions d’u
 Vous pouvez capturer l’acceptation des conditions d’utilisation dans les scénarios suivants :
 
 - Un nouvel utilisateur s’inscrit. Les conditions d’utilisation s’affichent et le résultat d’acceptation est stocké.
-- Un utilisateur qui a déjà accepté les conditions d’utilisation actives ou les conditions d’utilisation les plus récentes se connecte. Les conditions d’utilisation ne s’affichent pas.
+- Un utilisateur qui a déjà accepté les conditions d’utilisation actives ou les plus récentes se connecte. Les conditions d’utilisation ne s’affichent pas.
 - Un utilisateur qui n’a pas encore accepté les conditions d’utilisation actives ou les conditions d’utilisation les plus récentes se connecte. Les conditions d’utilisation s’affichent et le résultat d’acceptation est stocké.
 - Un utilisateur qui a déjà accepté une ancienne version des conditions d’utilisation, désormais mises à jour vers la dernière version, se connecte. Les conditions d’utilisation s’affichent et le résultat d’acceptation est stocké.
 

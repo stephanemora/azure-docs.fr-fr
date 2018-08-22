@@ -1,5 +1,5 @@
 ---
-title: Coûts des logiciels Windows des instances réservées Azure | Microsoft Docs
+title: Coûts des logiciels Windows dans les réservations Azure | Microsoft Docs
 description: Découvrez les compteurs de logiciels Windows qui ne sont pas inclus dans les coûts d’instance Azure Reserved VM Instance.
 services: billing
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 6602424e2b2e4a4c2c3c51b5cb4bb1024a39d2e0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 8ff2d126fd491ddc40f6223b6d4ec1fc4505b8fb
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064318"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630109"
 ---
-# <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Coûts des logiciels Windows non inclus dans les instances réservées Azure
+# <a name="windows-software-costs-not-included-with-azure-reservations"></a>Coûts des logiciels Windows non inclus dans les réservations Azure
 
-Si vous n’utilisez pas Azure Hybrid Use Benefit sur vos machines virtuelles d’instance réservée, vous êtes facturé pour les compteurs de logiciels Windows répertoriés dans la section suivante.
+Si vous n’utilisez pas Azure Hybrid Use Benefit sur vos instances de machine virtuelle réservées, vous êtes facturé pour les compteurs de logiciels Windows listés dans la section suivante.
 
-## <a name="windows-software-meters-not-included-in-reserved-instance-cost"></a>Compteurs de logiciels Windows non inclus dans le coût des instances réservées
+## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Compteurs de logiciels Windows non inclus dans le coût des réservations
 
 | ID du compteur | Nom du compteur dans le fichier d’utilisation | Utilisé par la machine virtuelle |
 | ------- | ------------------------| --- |
@@ -53,14 +53,14 @@ Si vous n’utilisez pas Azure Hybrid Use Benefit sur vos machines virtuelles d�
 Vous pouvez obtenir le coût de chacun de ces compteurs via l’API Azure RateCard. Pour en savoir plus sur la façon de se procurer les tarifs d’un compteur Azure, consultez [Obtenir des informations sur les prix et les métadonnées des ressources utilisées dans un abonnement Azure](https://msdn.microsoft.com/library/azure/mt219004).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les instances réservées Azure, consultez les articles suivants :
+Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-- [Présentation des instances de machines virtuelles réservées Azure](billing-save-compute-costs-reservations.md)
+- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gérer des instances réservées dans Azure](billing-manage-reserved-vm-instance.md)
-- [Comprendre comment la remise liée à une instance réservée est appliquée](billing-understand-vm-reservation-charges.md)
-- [Comprendre l’utilisation de l’instance réservée sur votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
-- [Comprendre l’utilisation de l’instance réservée pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
+- [Gérer les réservations dans Azure](billing-manage-reserved-vm-instance.md)
+- [Comprendre comment la remise de réservation est appliquée](billing-understand-vm-reservation-charges.md)
+- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 

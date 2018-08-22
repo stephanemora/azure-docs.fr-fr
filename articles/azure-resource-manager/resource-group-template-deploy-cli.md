@@ -4,26 +4,24 @@ description: Utilisez Azure Resource Manager et Azure CLI pour déployer des res
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2017
+ms.date: 08/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a6b227cee3765593adbda430d8c47312f996c18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c9595b0e6313dc4620b48296fdca6dc2c6ae6413
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723461"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628135"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Déployer des ressources à l’aide de modèles Resource Manager et dAzure CLI
 
-Cet article explique comment utiliser Azure CLI avec les modèles Resource Manager pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion de solutions Azure, consultez [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md).  
+Cet article explique comment utiliser Azure CLI avec les modèles Resource Manager pour déployer vos ressources dans Azure. Si vous n’avez pas une bonne connaissance des concepts de déploiement et de gestion des solutions Azure, consultez [Vue d’ensemble d’Azure Resource Manager](resource-group-overview.md).  
 
 Le modèle Resource Manager que vous déployez peut être un fichier local sur votre ordinateur ou un fichier externe qui se trouve dans un dépôt comme GitHub. Le modèle que vous déployez dans le cadre de cet article est disponible dans la section [Exemple de modèle](#sample-template) ou en tant que [modèle de compte de stockage dans GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
@@ -43,15 +41,13 @@ Un modèle peut inclure des paramètres qui permettent de personnaliser le dépl
 
 L’exemple suivant crée un groupe de ressources et déploie un modèle à partir de votre ordinateur local :
 
-```azurecli
-az login
-
+```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
 az group deployment create \
-    --name ExampleDeployment \
-    --resource-group ExampleGroup \
-    --template-file storage.json \
-    --parameters storageAccountType=Standard_GRS
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters storageAccountType=Standard_GRS
 ```
 
 Le déploiement peut prendre plusieurs minutes. Au terme, vous voyez un message qui inclut le résultat :
@@ -66,15 +62,13 @@ Au lieu de stocker les modèles Resource Manager sur votre ordinateur local, vou
 
 Pour déployer un modèle externe, utilisez le paramètre **template-uri**. Pour déployer l’exemple de modèle à partir de GitHub, utilisez l’URI figurant dans l’exemple.
    
-```azurecli
-az login
-
+```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
 az group deployment create \
-    --name ExampleDeployment \
-    --resource-group ExampleGroup \
-    --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-    --parameters storageAccountType=Standard_GRS
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --parameters storageAccountType=Standard_GRS
 ```
 
 L’exemple précédent nécessite un URI accessible publiquement pour le modèle, ce qui convient pour la plupart des scénarios, sachant que votre modèle ne doit pas inclure de données sensibles. Si vous avez besoin de spécifier des données sensibles (par exemple, un mot de passe d’administrateur), passez cette valeur en tant que paramètre sécurisé. Toutefois, si vous ne souhaitez pas que votre modèle soit accessible au public, vous pouvez le protéger en le stockant dans un conteneur de stockage privé. Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton de signature d’accès partagé (SAS), consultez [Déployer un modèle privé avec un jeton SAS](resource-manager-cli-sas-token.md).
@@ -93,6 +87,34 @@ az group deployment create --resource-group examplegroup \
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Déployer sur plus d’un groupe de ressources ou abonnement
 
 En général, vous déployez toutes les ressources dans votre modèle sur un seul groupe de ressources. Toutefois, il existe des scénarios dans lesquels vous pouvez souhaitez déployer un ensemble de ressources, tout en les plaçant dans différents groupes de ressources ou abonnements. Vous ne pouvez pas déployer sur plus de cinq groupes de ressources dans un déploiement. Pour plus d’informations, voir [Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements](resource-manager-cross-resource-group-deployment.md).
+
+## <a name="redeploy-when-deployment-fails"></a>Redéploiement en cas d’échec du déploiement
+
+Pour les déploiements qui échouent, vous pouvez spécifier le redéploiement automatique d’un déploiement précédent dans votre historique de déploiement. Pour utiliser cette option, vos déploiements doivent avoir des noms uniques afin de pouvoir être identifiés dans l’historique. Si les noms ne sont pas uniques, le déploiement actuellement en échec peut remplacer le déploiement réussi précédemment dans l’historique. Vous pouvez uniquement utiliser cette option avec les déploiements de niveau racine. Les déploiements à partir d’un modèle imbriqué ne sont pas disponibles pour le redéploiement.
+
+Pour redéployer le dernier déploiement réussi, ajoutez le paramètre `--rollback-on-error` comme indicateur.
+
+```azurecli-interactive
+az group deployment create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters storageAccountType=Standard_GRS \
+  --rollback-on-error
+```
+
+Pour redéployer un déploiement spécifique, utilisez le paramètre `--rollback-on-error` et indiquez le nom du déploiement.
+
+```azurecli-interactive
+az group deployment create \
+  --name ExampleDeployment02 \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters storageAccountType=Standard_GRS \
+  --rollback-on-error ExampleDeployment01
+```
+
+Le déploiement spécifié doit avoir réussi.
 
 ## <a name="parameter-files"></a>Fichiers de paramètres
 
@@ -116,23 +138,23 @@ Copiez l’exemple précédent et enregistrez-le dans un fichier nommé `storage
 
 Pour transmettre un fichier de paramètres local, utilisez `@` pour spécifier un fichier local nommé storage.parameters.json.
 
-```azurecli
+```azurecli-interactive
 az group deployment create \
-    --name ExampleDeployment \
-    --resource-group ExampleGroup \
-    --template-file storage.json \
-    --parameters @storage.parameters.json
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
 ```
 
 ## <a name="test-a-template-deployment"></a>Tester le déploiement d’un modèle
 
-Pour tester votre modèle et vos valeurs de paramètres sans réellement déployer toutes les ressources, utilisez [az group deployment validate](/cli/azure/group/deployment#az_group_deployment_validate). 
+Pour tester votre modèle et vos valeurs de paramètres sans réellement déployer toutes les ressources, utilisez [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate). 
 
-```azurecli
+```azurecli-interactive
 az group deployment validate \
-    --resource-group ExampleGroup \
-    --template-file storage.json \
-    --parameters @storage.parameters.json
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
 ```
 
 Si aucune erreur n’est détectée, la commande retourne des informations sur le déploiement de test. En particulier, notez que **error** a la valeur Null.
@@ -160,7 +182,7 @@ Si une erreur est détectée, la commande retourne un message d’erreur. Par ex
 }
 ```
 
-Si votre modèle comporte une erreur de syntaxe, la commande retourne une erreur indiquant qu’il n’a pas pu analyser le modèle. Le message indique le numéro de ligne et la position de l’erreur d’analyse.
+Si votre modèle comporte une erreur de syntaxe, la commande retourne une erreur indiquant que le modèle n’a pas pu être analysé. Le message indique le numéro de ligne et la position de l’erreur d’analyse.
 
 ```azurecli
 {
@@ -173,19 +195,6 @@ Si votre modèle comporte une erreur de syntaxe, la commande retourne une erreur
   },
   "properties": null
 }
-```
-
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
-
-Pour utiliser le mode complet, utilisez le paramètre `mode` :
-
-```azurecli
-az group deployment create \
-    --name ExampleDeployment \
-    --mode Complete \
-    --resource-group ExampleGroup \
-    --template-file storage.json \
-    --parameters storageAccountType=Standard_GRS
 ```
 
 ## <a name="sample-template"></a>Exemple de modèle
@@ -239,7 +248,7 @@ Le modèle suivant est utilisé pour les exemples de cet article. Copiez et enre
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Les exemples de cet article permettent de déployer des ressources dans un groupe de ressources pour votre abonnement par défaut. Pour utiliser un autre abonnement, consultez [Gérer plusieurs abonnements Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
-* Pour accéder à un exemple de script complet qui déploie un modèle, consultez la page [Déploiement d’un modèle Azure Resource Manager](resource-manager-samples-cli-deploy.md).
+* Pour spécifier comment gérer une ressource présente dans le groupe de ressources mais non définie dans le modèle, consultez [Modes de déploiement Azure Resource Manager](deployment-modes.md).
 * Pour comprendre comment définir des paramètres dans votre modèle, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour obtenir des conseils sur la résolution des erreurs courantes de déploiement, consultez la page [Résolution des erreurs courantes de déploiement Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Pour plus d’informations sur le déploiement d’un modèle qui nécessite un jeton SAP, consultez [Déploiement d’un modèle privé avec un jeton SAP](resource-manager-cli-sas-token.md).

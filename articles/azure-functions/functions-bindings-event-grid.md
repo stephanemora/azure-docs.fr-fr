@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5f629ea791a839e1eca25e7487ea395638d136ab
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344628"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715384"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Déclencheur Event Grid pour Azure Functions
 
@@ -279,7 +279,7 @@ Pour plus d’informations sur la création d’abonnements à l’aide du Porta
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Pour créer un abonnement avec [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilisez la commande [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create).
+Pour créer un abonnement avec [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), utilisez la commande [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
 
 La commande a besoin de l’URL de point de terminaison qui appelle la fonction. L’exemple suivant illustre le modèle d’URL :
 
@@ -340,7 +340,7 @@ Pour qu’un déclencheur Event Grid soit testé en local, les requêtes HTTP Ev
 4. [Générez une requête](#generate-a-request) et copiez le corps de la requête à partir de l’application de visionneuse.
 5. [Publiez (POST) manuellement la requête](#manually-post-the-request) sur l’URL localhost de votre fonction de déclenchement Event Grid.
 
-À l’issue des tests, vous pourrez utiliser le même abonnement en production en mettant à jour le point de terminaison. Utilisez la commande Azure CLI [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update).
+À l’issue des tests, vous pourrez utiliser le même abonnement en production en mettant à jour le point de terminaison. Utilisez la commande Azure CLI [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
 
 ### <a name="create-a-viewer-web-app"></a>Créer une application web de visionneuse
 
@@ -406,7 +406,7 @@ Une autre possibilité, pour tester un déclencheur Event Grid en local, consist
 5. [Créez un abonnement Event Grid](#create-a-subscription) qui envoie les événements au point de terminaison ngrok.
 6. [Déclenchez un événement](#trigger-an-event).
 
-À l’issue des tests, vous pourrez utiliser le même abonnement en production en mettant à jour le point de terminaison. Utilisez la commande Azure CLI [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update).
+À l’issue des tests, vous pourrez utiliser le même abonnement en production en mettant à jour le point de terminaison. Utilisez la commande Azure CLI [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update).
 
 ### <a name="create-an-ngrok-endpoint"></a>Créer un point de terminaison ngrok
 
@@ -432,7 +432,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-Vous utiliserez l’URL https://{sous-domaine}.ngrok.io pour votre abonnement Event Grid.
+Vous utiliserez l’URL `https://{subdomain}.ngrok.io` pour votre abonnement Event Grid.
 
 ### <a name="run-the-event-grid-trigger-function"></a>Exécuter la fonction de déclenchement Event Grid
 
@@ -440,12 +440,16 @@ L’URL ngrok ne fait l’objet d’aucun traitement spécial de la part d’Eve
 
 ### <a name="create-a-subscription"></a>Création d’un abonnement
 
-Créez un abonnement Event Grid du type à tester, et donnez-lui votre point de terminaison ngrok suivant ce modèle :
+Créez un abonnement Event Grid du type à tester, et donnez-lui votre point de terminaison ngrok.
 
+Utilisez ce modèle de point de terminaison pour Functions 1.x :
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+Utilisez ce modèle de point de terminaison pour Functions 2.x :
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 Le paramètre `functionName` doit être le nom spécifié dans l’attribut `FunctionName`.
 
 Voici un exemple utilisant Azure CLI :

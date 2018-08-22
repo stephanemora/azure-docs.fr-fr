@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 373a35ea7b93c7717cd251e276be60b14df0920f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4da8ec3bb20f2af2b8172731bbf9f43c302ffa94
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400162"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004747"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Créer votre première fonction avec Java et Eclipse (préversion)
 
@@ -73,7 +73,7 @@ Lorsque vous avez fini de tester votre fonction, terminez le runtime dans la fen
 
 ### <a name="debug-the-function-in-eclipse"></a>Déboguer la fonction dans Eclipse
 
-Dans votre configuration Exécuter en tant que définie à l’étape précédente, remplacez `azure-functions:run` par `mvn azure-functions:run -DenableDebug`, puis exécutez la configuration mise à jour pour démarrer l’application de fonction en mode débogage.
+Dans votre configuration **Exécuter en tant que** définie à l’étape précédente, remplacez `azure-functions:run` par `mvn azure-functions:run -DenableDebug`, puis exécutez la configuration mise à jour pour démarrer l’application de fonction en mode débogage.
 
 Sélectionnez le menu **Exécuter**, puis ouvrez **Déboguer les configurations**. Choisissez **Application Java distante** et créez une configuration. Donnez un nom à votre configuration et renseignez les paramètres. Le port doit être cohérent avec le port de débogage ouvert par l’hôte de fonction, qui correspond par défaut à `5005`. Après la configuration, cliquez sur `Debug` pour démarrer le débogage.
 

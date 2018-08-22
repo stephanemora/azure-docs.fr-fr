@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7fc4fc42893ec839f3ffbe667e9fcfad944115f5
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 06535cd86e32d9e5d083bfde5f1c40e345a88640
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053555"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004617"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-sqlserver-connector.md)
+> * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Version actuelle](connector-sql-server.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers et depuis une base de données SQL Server. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -54,8 +54,8 @@ Les propriétés suivantes sont prises en charge pour le service lié SQL Server
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **SqlServer** | OUI |
-| connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. Reportez-vous à l’exemple suivant, et ajoutez enrich pour inclure plus de propriétés, par exemple AlwaysOn. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
+| Type | La propriété de type doit être définie sur **SqlServer** | Oui |
+| connectionString |Spécifiez les informations connectionString nécessaires pour établir une connexion à la base de données SQL Server à l’aide de l’authentification SQL ou de l’authentification Windows. Consultez l’exemple suivant. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non  |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non  |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
@@ -115,8 +115,8 @@ Pour copier des données vers/depuis une base de données SQL Server, affectez l
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du jeu de données doit être définie sur **SqlServerTable** | OUI |
-| TableName |Nom de la table ou de la vue dans l’instance de base de données SQL Server à laquelle le service lié fait référence. | OUI |
+| Type | La propriété de type du jeu de données doit être définie sur **SqlServerTable** | Oui |
+| TableName |Nom de la table ou de la vue dans l’instance de base de données SQL Server à laquelle le service lié fait référence. | Oui |
 
 **Exemple :**
 
@@ -147,7 +147,7 @@ Pour copier des données à partir de SQL Server, définissez **SqlSource** comm
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **SqlSource** | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **SqlSource** | Oui |
 | SqlReaderQuery |Utiliser la requête SQL personnalisée pour lire les données. Exemple : `select * from MyTable`. |Non  |
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. La dernière instruction SQL doit être une instruction SELECT dans la procédure stockée. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée.<br/>Valeurs autorisées : paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
@@ -251,7 +251,7 @@ Pour copier des données vers SQL Server, définissez **SqlSink** comme type de 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **SqlSink**. | OUI |
+| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **SqlSink**. | Oui |
 | writeBatchSize |Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10000) |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : « 00:30:00 » (30 minutes). |Non  |
 | preCopyScript |Spécifiez une requête SQL que l’activité de copie doit exécuter avant l’écriture des données dans SQL Server. Elle ne sera appelée qu’une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non  |
@@ -444,7 +444,7 @@ Définissez la section SqlSink dans l’activité de copie comme suit.
 }
 ```
 
-Dans votre base de données, définissez la procédure stockée portant le même nom que SqlWriterStoredProcedureName. Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Notez que le nom du paramètre de la procédure stockée doit être le même que le « tableName » défini dans le jeu de données.
+Dans votre base de données, définissez la procédure stockée portant le même nom que SqlWriterStoredProcedureName. Elle gère les données d’entrée à partir de la source que vous avez spécifiée et les fusionne dans la table de sortie. Le nom de paramètre du type de table dans la procédure stockée doit être le même que le « tableName » défini dans le jeu de données.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
@@ -503,7 +503,7 @@ Lors de la copie des données vers/à partir de SQL Server, les mappages suivant
 | smallint |Int16 |
 | smallmoney |Décimal |
 | sql_variant |Objet * |
-| text |String, Char[] |
+| texte |String, Char[] |
 | time |intervalle de temps |
 | timestamp |Byte[] |
 | tinyint |Int16 |

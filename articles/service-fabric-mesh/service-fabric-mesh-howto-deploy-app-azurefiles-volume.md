@@ -1,10 +1,10 @@
 ---
-title: Stocker un état en montant un volume basé sur Azure Files à l’intérieur du conteneur dans une application Service Fabric mesh | Microsoft Docs
-description: Découvrez comment stocker un état en montant un volume basé sur Azure Files à l’intérieur du conteneur dans une application Service Fabric mesh à l’aide d’Azure CLI.
+title: Stocker un état dans une application Service Fabric Mesh en montant un volume basé sur Azure Files à l’intérieur du conteneur | Microsoft Docs
+description: Découvrez comment stocker un état dans une application Service Fabric Mesh en montant un volume basé sur Azure Files dans le conteneur avec Azure CLI.
 services: service-fabric-mesh
 documentationcenter: .net
 author: rwike77
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
@@ -12,26 +12,28 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
+ms.date: 08/09/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 94a4e17e6285893520a2f6482b32a69b1229e2fa
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 3b350deff2883761af6a3a2b3c5c9ef22235bde0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090630"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038098"
 ---
-# <a name="store-state-by-mounting-azure-files-based-volume-in-service-fabric-mesh-application"></a>Stocker un état en montant un volume basé sur Azure Files dans une application Service Fabric mesh
+# <a name="store-state-in-an-azure-service-fabric-mesh-application-by-mounting-an-azure-files-based-volume-inside-the-container"></a>Stocker un état dans une application Service Fabric Mesh en montant un volume basé sur Azure Files à l’intérieur du conteneur
 
-Cet article montre comment stocker un état dans Azure Files en montant un volume à l’intérieur du conteneur d’une application Service Fabric mesh. Dans cet exemple, un compteur d’application a un service ASP.NET Core avec une page web qui affiche la valeur du compteur dans un navigateur. 
+Cet article montre comment stocker un état dans Azure Files en montant un volume à l’intérieur du conteneur d’une application Service Fabric mesh. Dans cet exemple, l’application de compteur dispose d’un service ASP.NET Core, avec une page web qui affiche la valeur du compteur dans un navigateur. 
 
-Le `counterService` lit périodiquement une valeur de compteur dans un fichier, l’incrémente, puis la réécrit dans le fichier. Le fichier est stocké dans un dossier monté sur le volume soutenu par un partage Azure Files. 
+`counterService` lit périodiquement une valeur de compteur dans un fichier, l’incrémente, puis la réécrit dans le fichier. Le fichier est stocké dans un dossier monté sur le volume soutenu par un partage Azure Files.
 
-## <a name="set-up-service-fabric-mesh-cli"></a>Configurer l’interface de ligne de commande Service Fabric Mesh 
-Pour accomplir cette tâche, vous pouvez utiliser le service Azure Cloud Shell ou une installation locale d’Azure CLI. Installez le module d’extension CLI de Service Fabric mesh en suivant les [instructions](service-fabric-mesh-howto-setup-cli.md) ci-après.
+## <a name="prerequisites"></a>Prérequis
+
+Pour accomplir cette tâche, vous pouvez utiliser le service Azure Cloud Shell ou une installation locale d’Azure CLI. Pour utiliser Azure CLI avec cet article, vérifiez que `az --version` retourne au moins `azure-cli (2.0.43)`.  Installez (ou mettez à jour) le module d’extension Service Fabric Mesh CLI en suivant les [instructions](service-fabric-mesh-howto-setup-cli.md) ci-après.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
+
 Connectez-vous à Azure et définissez votre abonnement.
 
 ```azurecli-interactive
@@ -39,11 +41,16 @@ az login
 az account set --subscription "<subscriptionID>"
 ```
 
-## <a name="create-file-share"></a>Créer un partage de fichiers 
-Créez un partage de fichiers Azure en suivant ces [instructions](/azure/storage/files/storage-how-to-create-file-share). Le nom du compte de stockage, la clé du compte de stockage et le nom du partage de fichiers sont référencés respectivement en tant que `<storageAccountName>`, `<storageAccountKey>` et `<fileShareName>` dans les instructions suivantes.
+## <a name="create-a-file-share"></a>Créer un partage de fichiers
 
-## <a name="create-resource-group"></a>Créer un groupe de ressources
-Créez un groupe de ressources dans lequel déployer l’application. Vous pouvez utiliser un groupe de ressources existant et ignorer cette étape. 
+Créez un partage de fichiers Azure en suivant ces [instructions](/azure/storage/files/storage-how-to-create-file-share). Le nom du compte de stockage, la clé du compte de stockage et le nom du partage de fichiers sont référencés respectivement en tant que `<storageAccountName>`, `<storageAccountKey>` et `<fileShareName>` dans les instructions suivantes. Ces valeurs sont disponibles dans votre portail Azure :
+* <storageAccountName> - Sous **Comptes de stockage**, il s’agit du nom du compte de stockage que vous avez utilisé lorsque vous avez créé le partage de fichiers.
+* <storageAccountKey> - Sélectionnez votre compte de stockage sous **Comptes de stockage**, puis sélectionnez **Clés d’accès** et utilisez la valeur sous **key1**.
+* <fileShareName> - Sélectionnez votre compte de stockage sous **Comptes de stockage**, puis sélectionnez **Fichiers**. Le nom à utiliser est le nom du partage de fichiers que vous venez de créer.
+
+## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+
+Créez un groupe de ressources dans lequel déployer l’application. La commande suivante crée un groupe de ressources nommé `myResourceGroup` dans un emplacement situé dans l’Est des États-Unis.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus 
@@ -51,42 +58,40 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
-Créez l’application et les ressources associées à l’aide de la commande suivante, et fournissez les valeurs pour `storageAccountName`, `storageAccountKey` et `fileShareName` de l’étape précédente.
+Créez l’application et les ressources associées au moyen de la commande suivante, et fournissez les valeurs pour `storageAccountName`, `storageAccountKey` et `fileShareName` de l’étape précédente [Créer un partage de fichiers](#create-a-file-share).
 
-Le paramètre `storageAccountKey` dans le modèle est un `securestring`. Il n’apparaîtra pas dans l’état du déploiement et les commandes `az mesh service show`. Assurez-vous qu’il est correctement spécifié dans la commande suivante.
+Le paramètre `storageAccountKey` dans le modèle est une chaîne sécurisée. Il n’apparaîtra pas dans l’état du déploiement et les commandes `az mesh service show`. Assurez-vous qu’il est correctement spécifié dans la commande suivante.
+
+La commande suivante déploie une application Linux à l’aide du [modèle mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). Pour déployer une application Windows, utilisez le [modèle mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). N’oubliez pas que le déploiement d’images de conteneur plus grandes peut prendre plus de temps.
 
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
-La commande précédente déploie une application Linux à l’aide du [modèle mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json). Si vous souhaitez déployer une application Windows, utilisez le [modèle mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.windows.json). Les images conteneur de Windows sont plus grandes que celles de Linux, et leur déploiement peut nécessiter plus de temps.
-
-Dans quelques minutes, votre commande devrait renvoyer :
-
-`counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>` 
+Dans quelques minutes, votre commande devrait retourner le message suivant `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
 
 ## <a name="open-the-application"></a>Ouvrir l’application
-À l’issue du déploiement de l’application, obtenez l’adresse IP publique du point de terminaison de service, et ouvrez-la dans un navigateur. Celui-ci affiche une page web avec la valeur du compteur mise à jour toutes les secondes.
 
-La commande de déploiement renvoie l’adresse IP publique du point de terminaison de service. Si vous le souhaitez, vous pouvez également interroger la ressource réseau pour trouver l’adresse IP publique du point de terminaison de service. 
- 
-Le nom de la ressource réseau pour cette application est `counterAppNetwork`. Extrayez les informations la concernant à l’aide de la commande suivante. 
+La commande de déploiement doit retourner l’adresse IP publique du point de terminaison de service. À l’issue du déploiement de l’application, récupérez l’adresse IP publique du point de terminaison de service et ouvrez-la dans un navigateur. Une page web doit s’afficher avec la valeur du compteur mise à jour toutes les secondes.
+
+Le nom de la ressource réseau pour cette application est `counterAppNetwork`. Vous pouvez afficher des informations sur l’application, telles que sa description, son emplacement, son groupe de ressources, etc. à l’aide de la commande suivante :
 
 ```azurecli-interactive
 az mesh network show --resource-group myResourceGroup --name counterAppNetwork
 ```
 
 ## <a name="verify-that-the-application-is-able-to-use-the-volume"></a>Vérifier que l’application est capable d’utiliser le volume
+
 L’application crée un fichier nommé `counter.txt` dans le partage de fichiers à l’intérieur du dossier `counter/counterService`. Le contenu de ce fichier est la valeur du compteur affiché sur la page web.
 
-Le fichier peut être téléchargé à l’aide de n’importe quel outil permettant de parcourir un partage de fichiers Azure Files. L’[Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/) est un exemple d’un tel outil.
+Le fichier peut être téléchargé à l’aide de n’importe quel outil permettant de parcourir un partage de fichiers Azure Files, tel que l’[Explorateur Stockage Microsoft Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 ## <a name="delete-the-resources"></a>Supprimer les ressources
 
-Pour économiser les ressources limitées affectées au programme en préversion, supprimez les ressources fréquemment. Pour supprimer les ressources liées à cet exemple, supprimez le groupe de ressources dans lequel elles ont été déployées.
+Supprimez régulièrement les ressources que vous n’utilisez plus dans Azure. Pour supprimer les ressources liées à cet exemple, supprimez le groupe de ressources dans lequel elles ont été déployées (ce qui supprime tous les éléments associés au groupe de ressources) avec la commande suivante :
 
 ```azurecli-interactive
-az group delete --resource-group myResourceGroup 
+az group delete --resource-group myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

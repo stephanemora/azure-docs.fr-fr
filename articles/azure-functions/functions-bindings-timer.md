@@ -4,7 +4,7 @@ description: Découvrez comment utiliser des déclencheurs de minuteur dans Azur
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 08/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: 8459c08866fb71e755663aaddd32015af8b0d1df
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6712fb0865284ccc2b84e3c2fcd49972f541f69b
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345240"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004213"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Déclencheur de minuteur pour Azure Functions 
 
@@ -259,6 +259,8 @@ Sinon, vous pouvez créer un paramètre d’application pour votre application d
 ```json
 "schedule": "0 0 10 * * *"
 ``` 
+
+Quand vous utilisez `WEBSITE_TIME_ZONE`, l’heure est ajustée en fonction des changements d’heure du fuseau horaire spécifique (par exemple, pour tenir compte de l’heure d’été). 
 
 ## <a name="timespan"></a>intervalle de temps
 
