@@ -3,7 +3,7 @@ title: Vue d’ensemble du modèle de sécurité et d’authentification Azure E
 description: Présentation du modèle de sécurité et de l'authentification Event Hubs.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: 93841e30-0c5c-4719-9dc1-57a4814342e7
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 5264930dcb802c2a58abc179bdd0041acc9f58d0
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: 0e8dcf9eede744d52e38b742946a59944988f199
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311367"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141086"
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Présentation du modèle de sécurité et de l'authentification Event Hubs
 
@@ -111,11 +111,11 @@ En l'absence d'authentification SAS pour les groupes de consommateurs individuel
 
 Pour plus d’informations sur Event Hubs, consultez les rubriques suivantes :
 
-* [Vue d’ensemble des hubs d’événements]
+* [Vue d’ensemble d’Event Hubs]
 * [Présentation des signatures d’accès partagé]
-* [Exemples d’application complets qui utilisent des concentrateurs d’événements]
+* [Exemples d’applications qui utilisent des Event Hubs]
 
-[Vue d’ensemble des hubs d’événements]: event-hubs-what-is-event-hubs.md
-[Exemples d’application complets qui utilisent des concentrateurs d’événements]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[Vue d’ensemble d’Event Hubs]: event-hubs-what-is-event-hubs.md
+[Exemples d’applications qui utilisent des Event Hubs]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Présentation des signatures d’accès partagé]: ../service-bus-messaging/service-bus-sas.md
 
