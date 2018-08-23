@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ace7f11eeea081077855a409824272b4b55f3c33
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247225"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920551"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Didacticiel : Utiliser une MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Azure SQL
 
@@ -44,7 +44,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
 
-Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pouvez également activer une Managed Service Identity sur une machine virtuelle existante.
+Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pouvez également activer une identité MSI sur une machine virtuelle existante.
 
 1.  Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 2.  Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
@@ -55,9 +55,9 @@ Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pou
 
     ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-managed-service-identity-on-your-vm"></a>Activer une MSI (Managed Service Identity) sur votre machine virtuelle 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Activer une identité MSI (Managed Service Identity) sur votre machine virtuelle 
 
-Une MSI d’une machine virtuelle vous permet d’avoir accès aux jetons d’accès d’Azure AD sans avoir besoin d’entrer des informations d'identification dans votre code. À l’activation de la MSI, Azure crée une identité administrée pour votre machine virtuelle. En arrière-plan, l’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle inscrit votre machine virtuelle auprès d’Azure Active Directory pour créer son identité administrée, et elle configure l’identité sur la machine virtuelle.
+Une MSI d’une machine virtuelle vous permet d’obtenir des jetons d’accès d’Azure AD sans avoir besoin d’entrer des informations d'identification dans votre code. À l’activation de la MSI, Azure crée une identité administrée pour votre machine virtuelle. En arrière-plan, l’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle inscrit votre machine virtuelle auprès d’Azure Active Directory pour créer son identité administrée, et elle configure l’identité sur la machine virtuelle.
 
 1.  Sélectionnez la **machine virtuelle** sur laquelle vous souhaitez activer une Managed Service Identity.  
 2.  Dans la barre de navigation gauche, cliquez sur **Configuration**. 
@@ -147,8 +147,8 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 
 Pour cette nouvelle étape, vous avez besoin de [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Avant de commencer, il peut également être utile de lire les articles suivants pour acquérir une compréhension de l’intégration d’Azure AD :
 
-- [Authentification universelle avec SQL Database et SQL Data Warehouse (prise en charge de SSMS pour MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication.md)
-- [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure.md)
+- [Authentification universelle avec SQL Database et SQL Data Warehouse (prise en charge de SSMS pour MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
+- [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 1.  Exécutez SQL Server Management Studio.
 2.  Dans la boîte de dialogue **Se connecter au serveur**, dans le champ **Nom du serveur**, entrez le nom de votre serveur SQL.

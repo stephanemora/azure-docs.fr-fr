@@ -2,20 +2,20 @@
 title: Article du didacticiel sur les fonctionnalités Azure Machine Learning (préversion) - Interface de ligne de commande | Microsoft Docs
 description: Ce didacticiel décrit toutes les étapes nécessaires pour réaliser une classification Iris de bout en bout à partir de l’interface de ligne de commande.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: jpe316
+ms.author: jordane
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 05238c27a5654ae24c619b52d769abbf90b940e7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41924768"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Didacticiel : Classification Iris à l’aide de l’interface de ligne de commande
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expériences et déployer des modèles à l’échelle du cloud.
@@ -29,7 +29,6 @@ Dans ce didacticiel, vous allez apprendre à utiliser les outils de l’interfac
 > * Déployer un service web pour évaluer de nouvelles données
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Un accès à un abonnement Azure et des autorisations adéquates pour créer des ressources dans cet abonnement. 
   
@@ -253,7 +252,7 @@ $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r 
 À l’aide de l’ID de service web issu de la sortie de l’étape précédente, appelez le service web et testez-le. 
 
 ```azure-cli
-# Get web service usage infomration
+# Get web service usage information 
 $ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:

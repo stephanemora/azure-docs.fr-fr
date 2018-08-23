@@ -18,7 +18,7 @@
 
 ## Proposer la vidéo à la demande
 ### [Portail Azure](media-services-portal-vod-get-started.md)
-### [Kit SDK .NET](media-services-dotnet-get-started.md)
+### [Kit de développement logiciel (SDK) .NET](media-services-dotnet-get-started.md)
 ### [Java](media-services-java-how-to-use.md)
 ### [REST](media-services-rest-get-started.md)
 ## Exécuter la vidéo en flux continu
@@ -230,7 +230,7 @@
 # Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [Azure PowerShell (Gestion des services)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (Gestion des services)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)
 ## Spécifications

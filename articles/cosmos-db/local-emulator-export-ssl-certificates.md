@@ -3,21 +3,20 @@ title: Exporter les certificats de l’émulateur Azure Cosmos DB | Microsoft Do
 description: Lors du développement des langages et des runtimes qui n’utilisent pas le magasin de certificats Windows, vous devrez exporter et gérer les certificats SSL. Cet article vous fournit des instructions pas à pas.
 services: cosmos-db
 keywords: Émulateur Azure Cosmos DB
-author: voellm
+author: David-Noble-at-work
 manager: kfile
 editor: ''
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/06/2017
-ms.author: tvoellm
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 237ab0ed99793f54574c4b81e883acb8c2bc57a9
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.author: danoble
+ms.openlocfilehash: 45a909b910fe45d87833b0f3c6ba652503a1d212
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082099"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41920826"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exporter les certificats de l’émulateur Azure Cosmos DB pour une utilisation avec Java, Python et Node.js
 
@@ -96,7 +95,7 @@ Dans ce tutoriel, vous avez :
 
 > [!div class="checklist"]
 > * Rotation des certificats
-> * Exporté le certificat SSL
+> * Exportation du certificat SSL
 > * Apprentissage de l’utilisation du certificat dans Java, Python et Node.js
 
 Pour plus d’informations sur Azure Cosmos DB, vous pouvez maintenant passer à la section Concepts. 

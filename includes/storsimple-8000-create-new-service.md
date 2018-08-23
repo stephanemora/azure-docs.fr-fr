@@ -1,5 +1,16 @@
 <!--author=alkohli last changed:02/10/2017-->
 
+---
+title: Fichier Include
+description: Fichier Include
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: alkohli
+ms.custom: include file
+---
 
 #### <a name="to-create-a-new-service"></a>Création d’un service
 
@@ -24,7 +35,7 @@
    4. Indiquez un **emplacement** pour votre service. De manière générale, choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. Vous pouvez également prendre en compte les considérations suivantes : 
       
       * Si vous avez des charges de travail existantes dans Azure que vous souhaitez également déployer avec votre périphérique StorSimple, nous vous invitons à utiliser ce centre de données.
-      * Votre service StorSimple Device Manager et le stockage Azure peuvent se trouver dans deux emplacements différents. Dans ce cas, vous devez créer séparément le gestionnaire d’appareil StorSimple et le compte de stockage Azure. Pour créer un compte de stockage Azure, accédez au service Stockage Azure dans le portail Azure et suivez les étapes indiquées dans [Créer un compte Stockage Azure](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account). Une fois que vous avez créé ce compte, ajoutez-le au service StorSimple Device Manager en suivant les étapes indiquées dans [Configurer un nouveau compte de stockage pour le service](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service).
+      * Votre service StorSimple Device Manager et le stockage Azure peuvent se trouver dans deux emplacements différents. Dans ce cas, vous devez créer séparément le gestionnaire d’appareil StorSimple et le compte de stockage Azure. Pour créer un compte de stockage Azure, accédez au service Stockage Azure dans le portail Azure et suivez les étapes indiquées dans [Créer un compte Stockage Azure](../articles/storage/common/storage-quickstart-create-account.md). Une fois que vous avez créé ce compte, ajoutez-le au service StorSimple Device Manager en suivant les étapes indiquées dans [Configurer un nouveau compte de stockage pour le service](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service).
 
    5. Sélectionnez **Créer un nouveau compte de stockage** pour créer automatiquement un compte de stockage avec le service. Spécifiez un nom pour ce compte de stockage. Si vous avez besoin de vos données dans un autre emplacement, désactivez cette case à cocher.
 

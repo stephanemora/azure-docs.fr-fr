@@ -1,98 +1,102 @@
+items:
 - name: Documentation Recherche web Bing
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce que la Recherche web Bing\_?"
-      href: overview.md
+  - name: Qu’est-ce que la Recherche web Bing ?
+    href: overview.md
 - name: Démarrages rapides de l’API REST
-  expanded: true
   items:
-    - name: 'C#'
-      href: quickstarts/csharp.md
-    - name: Go
-      href: quickstarts/go.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Go
+    href: quickstarts/go.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node.js
+    href: quickstarts/nodejs.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: Ruby
+    href: quickstarts/ruby.md
+  expanded: true
 - name: Démarrages rapides du kit de développement logiciel (SDK)
   items:
-    - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
-      href: sdk.md
-    - name: 'Démarrage rapide C# du SDK Recherche web'
-      href: web-search-sdk-quickstart.md
-    - name: Démarrage rapide Node.js du SDK Recherche web
-      href: web-search-sdk-node-quickstart.md
-    - name: Démarrage rapide Python du SDK Recherche web
-      href: web-sdk-python-quickstart.md
-    - name: Démarrage rapide Java du SDK Recherche web
-      href: web-sdk-java-quickstart.md
+  - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
+    href: sdk.md
+  - name: Démarrage rapide C# du SDK Recherche web
+    href: web-search-sdk-quickstart.md
+  - name: Démarrage rapide Node.js du SDK Recherche web
+    href: web-search-sdk-node-quickstart.md
+  - name: Démarrage rapide Python du SDK Recherche web
+    href: web-sdk-python-quickstart.md
+  - name: Démarrage rapide du Kit de développement logiciel (SDK) Java pour Recherche Web
+    href: web-sdk-java-quickstart.md
 - name: Didacticiels
   items:
-    - name: Application web à page unique
-      href: tutorial-bing-web-search-single-page-app.md
-    - name: Application web à page unique (code source)
-      href: tutorial-bing-web-search-single-page-app-source.md
-    - name: Application mobile Recherche visuelle
-      href: computer-vision-web-search-tutorial.md
-    - name: Application mobile Recherche visuelle (solution Visual Studio)
-      href: 'https://azure.microsoft.com/resources/samples/cognitive-services-xamarin-forms-computer-vision-search/'
-      maintainContext: true
+  - name: Application web à page unique
+    href: tutorial-bing-web-search-single-page-app.md
+  - name: Application web à page unique (code source)
+    href: tutorial-bing-web-search-single-page-app-source.md
+  - name: Application mobile Recherche visuelle
+    href: computer-vision-web-search-tutorial.md
 - name: Exemples
   items:
-    - name: Exemples de code
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search'
+  - name: Exemples de code
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Web+Search
 - name: Procédures
   items:
-    - name: Résultats d’utilisation et d’affichage
-      href: UseAndDisplayRequirements.md
-    - name: Filtrer les réponses
-      href: filter-answers.md
-    - name: Résultats du classement
-      href: rank-results.md
-    - name: Gérer la mise en surbrillance des correspondances
-      href: hit-highlighting.md
-    - name: Parcourir les résultats
-      href: paging-webpages.md
-    - name: Redimensionner et rogner les miniatures
-      href: resize-and-crop-thumbnails.md
-    - name: Mettre à niveau de v5 vers v7
-      href: bing-web-upgrade-guide-v5-to-v7.md
+  - name: Résultats d’utilisation et d’affichage
+    href: UseAndDisplayRequirements.md
+  - name: Filtrer les réponses
+    href: filter-answers.md
+  - name: Résultats du classement
+    href: rank-results.md
+  - name: Gérer la mise en surbrillance des correspondances
+    href: hit-highlighting.md
+  - name: Parcourir les résultats
+    href: paging-webpages.md
+  - name: Redimensionner et rogner les miniatures
+    href: resize-and-crop-thumbnails.md
+  - name: Mettre à niveau de v5 vers v7
+    href: bing-web-upgrade-guide-v5-to-v7.md
 - name: Informations de référence
   items:
-    - name: API Recherche web Bing v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference'
-    - name: API Recherche web Bing v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference'
+  - name: API Recherche web Bing v7
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference
+  - name: API Recherche web Bing v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference
 - name: Ressources
   items:
-    - name: Forum Aux Questions
-      href: bing-web-search-resource-faq.md
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/555907-bing-web-search-api'
-    - name: Dépassement de capacité de la pile
-      href: 'https://stackoverflow.com/search?q=bing+web+search'
-    - name: Disponibilité régionale
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Base de connaissances
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
-    - name: Obtenir la clé API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
-    - name: "Essayez\_!"
-      href: 'https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/'
-    - name: Point de terminaison de Recherche web Bing
-      href: web-search-endpoints.md
-    - name: Marchés et pays pris en charge
-      href: supported-countries-markets.md
-    - name: Analytique pour l’API Recherche web Bing
-      href: bing-web-stats.md
+  - name: Forum Aux Questions
+    href: bing-web-search-resource-faq.md
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
+  - name: Dépassement de capacité de la pile
+    href: https://stackoverflow.com/search?q=bing+web+search
+  - name: Disponibilité régionale
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Base de connaissances
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Obtenir la clé API
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api
+  - name: Essayez !
+    href: https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/
+  - name: Point de terminaison de Recherche web Bing
+    href: web-search-endpoints.md
+  - name: Marchés et pays pris en charge
+    href: supported-countries-markets.md
+  - name: Analytique pour l’API Recherche web Bing
+    href: bing-web-stats.md
+ms.openlocfilehash: e4cc75a8d0b55141b864b9295dd832676e62b4cd
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42440198"

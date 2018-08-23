@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/26/2018
 ms.author: v-mamcge
 ms.custom: include file
-ms.openlocfilehash: 5ffc16a4337c928cc166841e660cb0335c4d8b9e
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: b47f66af9c67a295af91dc515e56b87dc647d1a1
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "31432757"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40258672"
 ---
 ## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
-Le moyen le plus simple de créer votre premier compte de stockage Azure est d’utiliser le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez la page [Créer un compte de stockage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+Le moyen le plus simple de créer votre premier compte de stockage Azure est d’utiliser le [portail Azure](https://portal.azure.com). Pour plus d’informations, consultez la page [Créer un compte de stockage](../articles/storage/common/storage-quickstart-create-account.md).
 
 Vous pouvez également créer un compte de stockage Azure à l’aide d’[Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), de l’[interface de ligne de commande Azure](../articles/storage/common/storage-azure-cli.md) ou du [fournisseur de ressources de stockage Azure pour .NET](https://azure.microsoft.com/resources/samples/storage-dotnet-resource-provider-getting-started/).
 

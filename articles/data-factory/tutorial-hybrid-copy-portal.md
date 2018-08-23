@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e007fd5e616b24b3a802b7ded0cd879bb0d7f34b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 994df42557ebd99d159e531f11ffa892be2e9870
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436006"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920997"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
 Dans ce didacticiel, vous allez utiliser l’interface utilisateur d’Azure Data Factory pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale vers un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud.
@@ -75,7 +75,7 @@ Dans le cadre de ce didacticiel, vous utilisez une base de données SQL Server l
 1. Dans l’arborescence, cliquez avec le bouton droit sur la base de données créée, puis sur **Nouvelle requête**.
 
 ### <a name="azure-storage-account"></a>Compte Azure Storage
-Dans ce didacticiel, vous utilisez un compte de stockage Azure à usage général (stockage Blob plus spécifiquement) comme banque de données réceptrice/de destination. Si vous ne possédez pas de compte Stockage Azure à usage général, consultez [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account). Le pipeline de la fabrique de données que vous allez créer dans ce didacticiel copie les données de cette base de données SQL Server locale (source) dans un stockage Blob (récepteur). 
+Dans ce didacticiel, vous utilisez un compte de stockage Azure à usage général (stockage Blob plus spécifiquement) comme banque de données réceptrice/de destination. Si vous ne possédez pas de compte Stockage Azure à usage général, consultez [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md). Le pipeline de la fabrique de données que vous allez créer dans ce didacticiel copie les données de cette base de données SQL Server locale (source) dans un stockage Blob (récepteur). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obtenir le nom de compte de stockage et la clé de compte
 Dans ce didacticiel, vous utilisez le nom et la clé de votre compte de stockage. Pour obtenir le nom et la clé de votre compte de stockage, procédez comme suit : 
@@ -269,15 +269,15 @@ Le nom de la fabrique de données doit être un *nom global unique*. Si le messa
 
 1. Vous devez être revenu à la fenêtre avec le jeu de données récepteur ouvert. Sous l’onglet **Connexion**, procédez comme suit : 
 
-       a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
+    a. Vérifiez que **AzureStorageLinkedService** est sélectionné dans le champ **Service lié**.
 
-       b. For the **folder**/ **Directory** part of **File path**, enter **adftutorial/fromonprem**. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
+    b. Pour la partie **dossier**/ **Répertoire** du **chemin d’accès du fichier**, saisissez **adftutorial/fromonprem**. Si le dossier de sortie n’existe pas dans le conteneur adftutorial, Data Factory crée automatiquement le dossier de sortie.
 
-       c. For the **file name** part of **File path**, select **Add dynamic content**.   
+    c. Pour la partie **nom de fichier** du **chemin d’accès du fichier**, sélectionnez **Ajouter du contenu dynamique**.   
 
     ![valeur de nom de fichier dynamique](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-       d. Add `@CONCAT(pipeline().RunId, '.txt')`, select **Finish**. This will rename the file with PipelineRunID.txt. 
+    d. Ajoutez `@CONCAT(pipeline().RunId, '.txt')`, puis cliquez sur **Terminer**. Cela a pour effet de renommer le fichier avec PipelineRunID.txt. 
 
     ![expression dynamique pour la résolution du nom de fichier](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
 
@@ -305,7 +305,7 @@ Sélectionnez **Déclencher** dans la barre d’outils du pipeline, puis **Décl
 
 ![Déclencher l’exécution du pipeline](./media/tutorial-hybrid-copy-portal/trigger-now.png)
 
-## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline
+## <a name="monitor-the-pipeline-run"></a>Surveiller l’exécution du pipeline.
 
 1. Accédez à l’onglet **Surveiller**. Vous voyez le pipeline que vous avez déclenché manuellement à l’étape précédente. 
 

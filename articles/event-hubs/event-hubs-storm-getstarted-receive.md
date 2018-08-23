@@ -3,7 +3,7 @@ title: Recevoir des événements d’Azure Event Hubs avec Apache Storm | Micros
 description: Prise en main de la réception d’événements des Event Hubs avec Apache Storm
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2018
-ms.author: sethm
-ms.openlocfilehash: 6f558ff0613937d17f2dd7c2c9db6eb2de31ab9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: c70096796bb038c27d18bb3467d7c425dafd5c5b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405668"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140889"
 ---
 # <a name="receive-events-from-event-hubs-using-apache-storm"></a>Recevoir des événements d’Event Hubs avec Apache Storm
 
@@ -131,7 +131,7 @@ Ce didacticiel utilise une installation [HDInsight Storm][HDInsight Storm], four
     }
     ```
     
-    Cette commande « bolt » de Storm enregistre le contenu des événements reçus. Cette fonction peut facilement être étendue pour stocker des tuples dans un service de stockage. [L’exemple HDInsight Storm avec Event Hub] utilise cette même approche pour stocker des données dans le Stockage Azure et Power BI.
+    Cette commande « bolt » de Storm enregistre le contenu des événements reçus. Cette fonction peut facilement être étendue pour stocker des tuples dans un service de stockage. L’[exemple HDInsight Storm avec Event Hub] utilise cette même approche pour stocker des données dans le Stockage Azure et Power BI.
 11. Créez une classe appelée **LogTopology** en utilisant le code suivant :
     
     ```java
@@ -243,12 +243,12 @@ Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble des hubs d’événements][Event Hubs overview]
 * [Créer un concentrateur d’événements](event-hubs-create.md)
-* [FAQ sur les hubs d'événements](event-hubs-faq.md)
+* [FAQ sur les hubs d’événements](event-hubs-faq.md)
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight Storm]: ../hdinsight/storm/apache-storm-overview.md
-[L’exemple HDInsight Storm avec Event Hub]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
+[exemple HDInsight Storm avec Event Hub]: https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/
 
 <!-- Images -->
 
