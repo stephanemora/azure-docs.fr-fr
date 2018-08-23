@@ -7,15 +7,16 @@ manager: douge
 tags: azure-resource-manager
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: a43f893c7ee87ffb02179c06ea5786715547e93a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a74e4e10681f6b91e028067d8985408b0745dcd2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781558"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140277"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-key-vault-connected-service"></a>Qu’est-il arrivé à mon projet ASP.NET (service connecté Key Vault Visual Studio) ?
 
@@ -23,7 +24,7 @@ ms.locfileid: "33781558"
 > - [Prise en main](vs-key-vault-aspnet-get-started.md)
 > - [Que s'est-il passé ?](vs-key-vault-aspnet-what-happened.md)
 
-Cet article identifie les modifications exactes apportées à un projet ASP.NET lors de l’ajout du [Service connecté Key Vault avec Visual Studio](vs-key-vault-add-connected-service.md).
+Cet article identifie les changements exacts apportés à un projet ASP.NET lors de l’ajout du [Service connecté Key Vault avec Visual Studio](vs-key-vault-add-connected-service.md).
 
 Pour plus d’informations sur l’utilisation du service connecté, consultez la page [Bien démarrer](vs-key-vault-aspnet-get-started.md).
 

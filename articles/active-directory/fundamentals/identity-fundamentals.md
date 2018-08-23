@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 797c35bad03c063203e3616740af633b71835a9c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 327cecd129befb56c33d7fcf2d59ee5b58a18549
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39640185"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42023143"
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Principes de base de la gestion des identités Azure
 
@@ -27,7 +27,7 @@ Dans un contexte où les ressources digitales d’entreprise sont de plus en plu
 
 Microsoft sécurise les identités dans le cloud depuis plus de dix ans et désormais, avec [Azure Active Directory (AD)](active-directory-whatis.md), ces mêmes systèmes de protection vous sont proposés. Avec Azure AD, les administrateurs d’entreprise peuvent facilement responsabiliser les utilisateurs et les administrateurs et leur garantir une sécurité et une gouvernance sans égales.
 
-Azure AD Premium est une solution de gestion des identités et des accès dans le cloud dotée de puissantes fonctions de protection. Elle offre une même identité sécurisée pour toutes les applications, une protection des identités (renforcée par le [graphique de sécurité d’analyse décisionnelle Microsoft](https://www.microsoft.com/en-us/security/intelligence)) et Privileged Identity Management. Azure AD Premium n’est pas un outil de surveillance et de création de rapports de plus. Il peut protéger les identités de vos utilisateurs en temps réel et vous permet de créer des stratégies d’accès adaptatives basées sur les risques afin de préserver les données de votre entreprise.
+Azure AD Premium est une solution de gestion des identités et des accès dans le cloud dotée de puissantes fonctions de protection. Elle offre une même identité sécurisée pour toutes les applications, une protection des identités (renforcée par le [graphique de sécurité d’analyse décisionnelle Microsoft](https://www.microsoft.com/security/intelligence)) et Privileged Identity Management. Azure AD Premium n’est pas un outil de surveillance et de création de rapports de plus. Il peut protéger les identités de vos utilisateurs en temps réel et vous permet de créer des stratégies d’accès adaptatives basées sur les risques afin de préserver les données de votre entreprise.
 
 Regardez cette vidéo pour un aperçu rapide de la protection et de la gestion des identités Azure AD :
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]

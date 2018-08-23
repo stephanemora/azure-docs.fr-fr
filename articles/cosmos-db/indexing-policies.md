@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618765"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144833"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
 
@@ -36,6 +36,22 @@ Après avoir lu cet article, vous serez en mesure de répondre aux questions sui
 * Comment puis-je configurer l’indexation afin d’effectuer des requêtes ORDER BY ou de plage ?
 * Comment puis-je apporter des modifications à la stratégie d'indexation d'une collection ?
 * Comment puis-je comparer le stockage et les performances des différentes stratégies d'indexation ?
+
+## <a id="Indexing"></a> Indexation Cosmos DB
+
+L'objectif des index de base de données est de servir les requêtes dans leurs différents formulaires et formes tout en consommant un minimum de ressources (comme le temps processeur ou les E/S) et en fournissant un bon débit et une faible latence. Souvent, le choix des index adéquats pour l'interrogation d'une base de données requiert une planification et une expérimentation importantes. Cette approche constitue un défi pour les bases de données sans schéma, où les données ne sont pas conformes à un schéma strict et évoluent rapidement. 
+
+C’est pourquoi, lorsque nous avons conçu le sous-système d’indexation de Cosmos DB, nous avons fixé les objectifs suivants :
+
+* Indexer les documents sans requérir un schéma : Le sous-système d’indexation ne requiert pas d’informations de schéma ou n’établit pas d’hypothèse sur les schémas des documents.  
+
+* Prendre en charge des requêtes hiérarchiques et relationnelles enrichies et efficaces : l’index prend en charge le langage de requête Cosmos DB de manière efficace, notamment la prise en charge des projections hiérarchiques et relationnelles.  
+
+* Prendre en charge des requêtes cohérentes en dépit de volumes soutenus d’écritures : Dans le cas des charges de travail à débits d’écriture élevés avec des requêtes cohérentes, l’index est mis à jour de manière incrémentielle, efficacement et en ligne, en dépit de volumes soutenus d’écritures. La mise à jour d'index cohérente est cruciale pour servir les requêtes en respectant le niveau de cohérence défini par l'utilisateur pour le service du document.  
+
+* Prendre en charge l’infrastructure multilocataire : Étant donné le modèle basé sur la réservation pour la gouvernance des ressources sur les locataires, les mises à jour d’index sont effectuées dans le budget des ressources système (processeur, mémoire, opérations d’E/S par seconde) allouées par réplica.  
+
+* Efficacité du stockage : Pour des raisons économiques, la surcharge de stockage sur disque de l’index est limitée et prévisible. C’est très important, car Cosmos DB permet au développeur de trouver des compromis en fonction des coûts entre la surcharge d’index et les performances des requêtes.  
 
 ## Personnaliser la stratégie d’indexation d’une collection <a id="CustomizingIndexingPolicy"></a>  
 Vous pouvez personnaliser les compromis entre stockage, performances d’écriture et de requête, et cohérence des requêtes en remplaçant la stratégie d’indexation par défaut sur une collection Azure Cosmos DB. Vous pouvez configurer les aspects suivants :

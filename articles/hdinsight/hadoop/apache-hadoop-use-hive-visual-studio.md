@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
 ms.openlocfilehash: 938605bebe30dd23e73fbf43a37328d9e753a06e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597223"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144378"
 ---
 # <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Exécution de requêtes Hive à l’aide des outils Data Lake pour Visual Studio
 

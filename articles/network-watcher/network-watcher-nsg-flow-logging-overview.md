@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: ae4edb82fa5e192a30d297dae82199bb7efca0c2
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344969"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144040"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -63,7 +63,7 @@ Les flux de journaux incluent les propriétés suivantes :
 Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir, il existe plusieurs enregistrements qui suivent la liste des propriétés décrite dans la section précédente.
 
 > [!NOTE]
-> Les valeurs de la propriété **flowTuples* sont une liste séparée par des virgules.
+> Les valeurs de la propriété **flowTuples* correspondent à une liste de valeurs séparées par des virgules.
  
 ```json
 {

@@ -4,7 +4,7 @@ description: Ce document décrit en détail les tâches post-configuration requi
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: samueld
+manager: mtillman
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9949275b18206ca66f38bab036337a00fdde6ee5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 05cb6d10a7e4269cbe5f9c97ef70cd9eb5a4d68e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916545"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145139"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Tâches post-configuration concernant la jonction Azure AD Hybride
 
@@ -62,7 +62,7 @@ Si votre organisation utilise un service de fédération pour se connecter à Az
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Activer l’authentification unique (SSO) transparente Azure AD pour les appareils Windows de bas niveau
 
-Si votre organisation utilise la synchronisation de hachage du mot de passe ou l’authentification directe pour se connecter à Azure AD, activez l’authentification unique transparente Azure AD avec cette méthode de connexion afin d’authentifier les appareils Windows de bas niveau : https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso. 
+Si votre organisation utilise la synchronisation de hachage du mot de passe ou l’authentification directe pour se connecter à Azure AD, activez l’authentification unique transparente Azure AD avec cette méthode de connexion afin d’authentifier les appareils Windows de bas niveau : https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso. 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Définir la stratégie Azure AD pour les appareils Windows de bas niveau
 
@@ -81,7 +81,7 @@ Si vous utilisez [l’authentification unique transparente](https://aka.ms/hybri
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Installer Microsoft Workplace Join sur les appareils Windows de bas niveau
 
-Ce programme d’installation crée une tâche planifiée sur le système de l’appareil qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche assure la jonction de l’appareil en mode silencieux à Azure AD avec les informations d’identification de l’utilisateur après l’avoir authentifié à l’aide de l’authentification Windows intégrée. Le centre de téléchargement est accessible à l’adresse https://www.microsoft.com/en-us/download/details.aspx?id=53554. 
+Ce programme d’installation crée une tâche planifiée sur le système de l’appareil qui s’exécute dans le contexte de l’utilisateur. La tâche est déclenchée lorsque l’utilisateur se connecte à Windows. La tâche assure la jonction de l’appareil en mode silencieux à Azure AD avec les informations d’identification de l’utilisateur après l’avoir authentifié à l’aide de l’authentification Windows intégrée. Le centre de téléchargement est accessible à l’adresse https://www.microsoft.com/download/details.aspx?id=53554. 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Configurer la stratégie de groupe pour autoriser l’inscription d’appareil
 

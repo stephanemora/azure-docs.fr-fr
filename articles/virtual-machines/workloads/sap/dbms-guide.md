@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2caa9a5137edd4e012adf704c01dc5c470e1bb51
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f6b0ea7479910f7026974e37f8c05099453c0b26
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972442"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143665"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -489,7 +489,8 @@ La réplication locale Azure Storage (localement redondante) fournit plusieurs n
 
 * **Stockage localement redondant Premium (LRS)**: Azure Premium Storage offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles exécutant des charges de travail qui utilisent beaucoup d’E/S. Trois réplicas des données sont créés au sein du même centre de données d’une région Azure. Les copies se trouvent dans des domaines d’erreur et de mise à niveau distincts (pour plus d’informations sur ces concepts, consultez [ce chapitre][planning-guide-3.2] du [Guide de planification][planning-guide]). Dans le cas où une réplica des données devient hors service en raison d’une défaillance de nœud de stockage ou de disque, un nouveau réplica est généré automatiquement.
 * **Stockage localement redondant (LRS)** : trois réplicas des données sont créés au sein du même centre de données d’une région Azure. Les copies se trouvent dans des domaines d’erreur et de mise à niveau distincts (pour plus d’informations sur ces concepts, consultez [ce chapitre][planning-guide-3.2] du [Guide de planification][planning-guide]). Dans le cas où une réplica des données devient hors service en raison d’une défaillance de nœud de stockage ou de disque, un nouveau réplica est généré automatiquement. 
-* **Stockage géo-redondant (GRS)** : dans ce cas, trois réplicas supplémentaires des données sont envoyés par réplication asynchrone dans une autre région Azure située la plupart du temps dans la même région géographique (par exemple, Europe du Nord ou Europe de l’Ouest). Cela crée trois réplicas supplémentaires, donc six au total. Une variante de cette option permet d’utiliser les données stockées dans la région Azure géo-répliquée à des fins de lecture (Stockage géo-redondant avec accès en lecture).
+* 
+  **Stockage géo-redondant (GRS)** : dans ce cas, trois réplicas supplémentaires des données sont envoyés par réplication asynchrone dans une autre région Azure située la plupart du temps dans la même région géographique (par exemple, Europe Nord ou Europe Ouest). Cela crée trois réplicas supplémentaires, donc six au total. Une variante de cette option permet d’utiliser les données stockées dans la région Azure géo-répliquée à des fins de lecture (Stockage géo-redondant avec accès en lecture).
 * **Stockage redondant dans une zone (ZRS)** : dans ce cas, les trois réplicas des données restent dans la même région Azure. Comme l’explique [ce][planning-guide-3.1] chapitre du [Guide de planification][planning-guide], une région Azure peut correspondre à plusieurs centres de données situés à proximité les uns des autres. Avec le stockage localement redondant, les réplicas seraient réparties dans les différents centres de données qui forment une région Azure unique.
 
 Des informations supplémentaires sont disponibles [ici][storage-redundancy].
@@ -1161,7 +1162,7 @@ L’installation et l’utilisation de SRS fonctionnent aussi bien dans une mach
 La fonction ASE HADR (haute disponibilité et récupération d’urgence) via le serveur de réplication SAP n’est PAS prise en charge pour le moment. Elle sera peut-être testée et publiée pour les plateformes Microsoft Azure à l’avenir.
 
 ## <a name="specifics-to-oracle-database-on-windows"></a>Caractéristiques d’Oracle Database sur Windows
-Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Windows Hyper-V et Azure. Pour plus d’informations sur la prise en charge générale de Windows Hyper-V et d’Azure, consultez : <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Windows Hyper-V et Azure. 
 
 Outre la prise en charge générale, le scénario spécifique des applications SAP exploitant les bases de données Oracle est également pris en charge. Les détails sont évoqués dans cette partie du document.
 
@@ -1199,7 +1200,7 @@ Oracle Data Guard est pris en charge à des fins de haute disponibilité et de r
 Tous les autres sujets généraux, notamment les groupes à haute disponibilité Azure ou la surveillance SAP, s’appliquent à Oracle Database, comme décrit dans les trois premiers chapitres de ce document pour le déploiement de machines virtuelles.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Caractéristiques d’Oracle Database sur Oracle Linux
-Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Windows Hyper-V et Azure. Pour plus d’informations sur la prise en charge générale de Windows Hyper-V et d’Azure, consultez : <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Windows Hyper-V et Azure. 
 
 Outre la prise en charge générale, le scénario spécifique des applications SAP exploitant les bases de données Oracle est également pris en charge. Les détails sont évoqués dans cette partie du document.
 

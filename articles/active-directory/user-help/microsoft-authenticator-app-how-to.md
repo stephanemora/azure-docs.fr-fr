@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c8e14091d7a3fb5b925735824b1dd3ce26f034e8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346485"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145151"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Prise en main de l’application Microsoft Authenticator
 
-L’application Microsoft Authenticator empêche tout accès non autorisé aux comptes et arrête les transactions frauduleuses en vous apportant un niveau de sécurité supplémentaire pour votre compte professionnel ou scolaire (par exemple, alain@contoso.com) ou votre compte Microsoft personnel (par exemple, alain@outlook.com). Vous pouvez vous en servir comme deuxième méthode de vérification ou en remplacement de votre mot de passe lorsque vous utilisez la connexion par téléphone. Pour plus d’informations sur la configuration et l’utilisation de la connexion par téléphone sans mot de passe, consultez [Connectez-vous avec votre téléphone, et non votre mot de passe](microsoft-authenticator-app-phone-signin-faq.md).
+L’application Microsoft Authenticator empêche tout accès non autorisé aux comptes et arrête les transactions frauduleuses en vous apportant un niveau de sécurité supplémentaire pour votre compte professionnel ou scolaire (par exemple, alain@contoso.com) ou votre compte Microsoft personnel (par exemple, alain@outlook.com).
 
 Lors de l’utilisation de l’application pour la vérification en deux étapes, elle peut fonctionner de l’une des deux façons suivantes :
 
@@ -111,8 +111,6 @@ Si vous avez choisi d’utiliser des codes de vérification dans l’application
 
 - Si vous avez des questions plus générales concernant l’application, consultez le [Forum aux questions sur l’application Microsoft Authenticator](microsoft-authenticator-app-faq.md)
 
-- Si vous avez des questions sur l’utilisation de la connexion par téléphone, consultez [Connectez-vous avec votre téléphone, et non votre mot de passe](microsoft-authenticator-app-phone-signin-faq.md)
+- Pour plus d’informations sur la vérification en deux étapes, consultez [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
 
-- Pour plus d’informations sur la vérification en deux étapes, consultez [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md)
-
-- Pour plus d’informations sur les informations de sécurité, consultez [Gérer vos informations de sécurité](security-info-manage-settings.md)
+- Pour plus d’informations sur les informations de sécurité, consultez [Gérer vos informations de sécurité](security-info-manage-settings.md).

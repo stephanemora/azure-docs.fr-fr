@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77bb891dd8e7d6a3cb6363b06eaf361d09db594c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422414"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42144382"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -91,10 +91,10 @@ La solution exemple est volontairement simple. Elle vous montre comment utiliser
 Si vous n’avez pas d’abonnement Azure, vous pouvez créer rapidement un compte Azure gratuit. Pour plus d’informations, consultez la page [Créez votre compte gratuit Azure dès aujourd’hui](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="azure-storage-account"></a>Compte Azure Storage
-Vous utilisez un compte de stockage pour stocker les données dans ce didacticiel. Si vous ne possédez pas encore de compte de stockage, consultez [Create a storage account (Créer un compte de stockage)](../../storage/common/storage-create-storage-account.md#create-a-storage-account). L’exemple de solution utilise un stockage d’objets blob.
+Vous utilisez un compte de stockage pour stocker les données dans ce didacticiel. Si vous ne possédez pas encore de compte de stockage, consultez [Create a storage account (Créer un compte de stockage)](../../storage/common/storage-quickstart-create-account.md). L’exemple de solution utilise un stockage d’objets blob.
 
 #### <a name="azure-batch-account"></a>Compte Azure Batch
-Créer un compte de stockage à l’aide du [portail Azure](http://portal.azure.com/). Pour plus d’informations, consultez [Create and manage a Batch account (Créer et gérer un compte Azure Batch)](../../batch/batch-account-create-portal.md). Notez le nom et la clé du compte Azure Batch. Vous pouvez également créer un compte Azure Batch à l’aide de l’applet de commande [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx). Pour savoir comment utiliser cette applet de commande, consultez [Get started with Batch PowerShell cmdlets (Prise en main des applets de commande PowerShell d’Azure Batch)](../../batch/batch-powershell-cmdlets-get-started.md).
+Créer un compte de stockage à l’aide du [portail Azure](http://portal.azure.com/). Pour plus d’informations, consultez [Create and manage a Batch account (Créer et gérer un compte Azure Batch)](../../batch/batch-account-create-portal.md). Notez le nom et la clé du compte Azure Batch. Vous pouvez également créer un compte Azure Batch à l’aide de l’applet de commande [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount). Pour savoir comment utiliser cette applet de commande, consultez [Get started with Batch PowerShell cmdlets (Prise en main des applets de commande PowerShell d’Azure Batch)](../../batch/batch-powershell-cmdlets-get-started.md).
 
 La solution exemple utilise Azure Batch (indirectement via un pipeline Azure Data Factory) pour traiter des données en parallèle sur un pool de nœuds de calcul (une collection gérée de machines virtuelles).
 

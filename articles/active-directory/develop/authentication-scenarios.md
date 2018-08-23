@@ -17,12 +17,12 @@ ms.date: 07/26/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dda0d8e9496eb310f6d2a2791977e9de0eea6503
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: fc6c97906525b2f575a18ce5357eb3e10bfb4887
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578522"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145338"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Scénarios d’authentification pour Azure AD
 
@@ -52,7 +52,7 @@ Voici ce que vous devez savoir sur les divers composants du diagramme ci-dessus�
 * Azure AD est le fournisseur d’identité responsable de la vérification de l’identité des utilisateurs et applications de l’annuaire d’une organisation et, en fin de compte, de l’émission des jetons de sécurité après l’authentification correcte de ces utilisateurs et applications.
 * Pour pouvoir externaliser l’authentification en la confiant à Azure AD, une application doit être inscrite dans Azure AD, qui l’inscrit et l’identifie de manière unique dans l’annuaire.
 * Les développeurs peuvent utiliser les bibliothèques d’authentification open source d’Azure AD pour simplifier l’authentification en gérant les détails du protocole pour vous. Pour plus d’informations, voir [Bibliothèques d’authentification d’Azure Active Directory](active-directory-authentication-libraries.md).
-* Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi. Nous avons des exemples de ce que l’application doit faire dans divers langages et infrastructures sur [ GitHub ](https://github.com/Azure-Samples?q=active-directory). Si vous créez une application web en ASP.NET, voir le [guide sur l’ajout d’infos d’identification pour une application web ASP.NET](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Si vous créez une ressource d’API web en ASP.NET, voir le [guide de prise en main d’API web](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* Une fois qu’un utilisateur a été authentifié, l’application doit valider son jeton de sécurité pour s’assurer que l’authentification a réussi. Nous avons des exemples de ce que l’application doit faire dans divers langages et infrastructures sur [ GitHub ](https://github.com/Azure-Samples?q=active-directory). Si vous créez une application web en ASP.NET, voir le [guide sur l’ajout d’infos d’identification pour une application web ASP.NET](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Si vous créez une ressource d’API web en ASP.NET, voir le [guide de prise en main d’API web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * Le flux de demandes et réponses du processus d’authentification est déterminé par le protocole d’authentification utilisé, par exemple OAuth 2.0, OpenID Connect, WS-Federation ou SAML 2.0. Ces protocoles sont présentés plus en détail dans l’article [Protocoles d’authentification d’Azure Active Directory](active-directory-authentication-protocols.md) et dans les sections ci-dessous.
 
 > [!NOTE]

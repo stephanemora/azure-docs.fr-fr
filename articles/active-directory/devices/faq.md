@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 72035c2f13f5a2a749feabbb26db5500f6c3fc0a
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597151"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144818"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>FAQ sur la gestion des appareils Azure Active Directory
 
@@ -99,12 +99,12 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 **Q : Mes utilisateurs ne peuvent pas rechercher d’imprimantes à partir d’appareils joints à Azure AD. Comment activer l’impression à partir d’appareils joints à Azure AD ?**
 
-**R :** Pour le déploiement d’imprimantes pour les appareils joints à Azure AD, consultez [Impression cloud hybride](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
+**R :** Pour le déploiement d’imprimantes pour les appareils joints à Azure AD, consultez [Impression cloud hybride](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Vous avez besoin d’un serveur Windows Server local pour déployer l’impression cloud hybride. Actuellement, le service d’impression cloud n’est pas disponible. 
 
 ---
 
 **Q : Comment puis-je me connecter à un appareil distant joint à Azure AD ? ** 
- **R :** Pour le savoir, consultez l’article https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc.
+ **R :** Pour le savoir, consultez l’article https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc.
 
 ---
 

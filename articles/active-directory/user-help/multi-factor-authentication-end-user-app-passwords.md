@@ -12,16 +12,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343286"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140283"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gérer les mots de passe d’application pour la vérification en deux étapes
 
-Certaines applications sans navigateur, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cette absence de prise en charge signifie que si vous utilisez la vérification en deux étapes, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.
+Certaines applications sans navigateur, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cela signifie que si vous utilisez la vérification en deux étapes, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.
 
 Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit les points suivants :
 
@@ -38,7 +38,7 @@ Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit le
 
 Vous recevez un mot de passe d’application lors de votre inscription initiale au processus de vérification en deux étapes. Si vous avez besoin de mots de passe supplémentaires, vous pouvez en créer d’autres en fonction de la manière dont vous utilisez la vérification en deux étapes :
 
-- **Vous utilisez la vérification en deux étapes avec votre compte Microsoft Azure.** Créez et supprimez vos mots de passe d’application à l’aide du [Portail Azure](https://portal.azure.com). Pour plus d’informations, consultez l’article [Mots de passe d’application et vérification en deux étapes](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification).
+- **Vous utilisez la vérification en deux étapes avec votre compte Microsoft Azure.** Créez et supprimez vos mots de passe d’application à l’aide du [Portail Azure](https://portal.azure.com). Pour plus d’informations, consultez l’article [Mots de passe d’application et vérification en deux étapes](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
 
 - **Vous utilisez la vérification en deux étapes avec votre compte Microsoft personnel.** Créez et supprimez vos mots de passe d’application à partir de la page [Notion de base sur la sécurité](https://account.microsoft.com/account/) avec votre compte Microsoft. Pour plus d’informations, consultez l’article [Mots de passe d’application et vérification en deux étapes](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
 
@@ -66,7 +66,7 @@ Si vous utilisez la vérification en deux étapes avec votre compte professionne
 
 ### <a name="to-delete-app-passwords-using-the-office-365-portal"></a>Pour supprimer des mots de passe d’application avec le portail Office 365
 
-1. Connectez-vous avec votre compte professionnel ou scolaire.
+1. Connectez-vous à votre compte professionnel ou scolaire.
 
 2. Accédez à https://portal.office.com, sélectionnez l’icône **Paramètres** dans le coin supérieur droit de la page du **Portail Office 365**, puis sélectionnez **Vérification de sécurité supplémentaire**.
 

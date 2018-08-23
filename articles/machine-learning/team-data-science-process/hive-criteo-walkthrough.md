@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 4c368c3f06347b1164731d056a7341bdabb759b4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: b368bf76516b0b6f87ad8ff57ca886a44b71926c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34837342"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42140094"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processus TDSP (Team Data Science Process) en action : utilisation d’un cluster Hadoop Azure HDInsight sur un jeu de données de 1 To
 
@@ -60,11 +60,11 @@ Cette procédure pas à pas aborde deux exemples de problèmes de prédiction :
 2. **Régression**: prédit la probabilité d'un clic effectué sur une annonce à partir de fonctionnalités utilisateur.
 
 ## <a name="setup"></a>Configuration d’un cluster Hadoop HDInsight pour la science des données
-**Remarque** : il s’agit généralement d’une tâche d’** administration **.
+**Remarque** : il s’agit généralement d’une tâche d’**administration**.
 
 Configurez votre environnement de science des données Azure pour créer des solutions d'analyse prédictives avec les clusters HDInsight en trois étapes :
 
-1. [Création d’un compte de stockage](../../storage/common/storage-create-storage-account.md): ce compte de stockage est utilisé pour stocker des données dans Azure Blob Storage. Les données utilisées dans les clusters HDInsight sont stockées ici.
+1. [Création d’un compte de stockage](../../storage/common/storage-quickstart-create-account.md): ce compte de stockage est utilisé pour stocker des données dans Azure Blob Storage. Les données utilisées dans les clusters HDInsight sont stockées ici.
 2. [Personnalisation des clusters Hadoop Azure HDInsight pour la science des données](customize-hadoop-cluster.md): cette étape crée un cluster Hadoop Azure HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Deux étapes importantes (décrites dans cette rubrique) doivent être suivies lors de la personnalisation du cluster HDInsight.
    
    * Vous devez lier le compte de stockage créé à l'étape 1 à votre cluster HDInsight, une fois sa création terminée. Ce compte de stockage est utilisé pour accéder aux données qui peuvent être traitées au sein du cluster.

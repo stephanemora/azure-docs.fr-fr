@@ -3,9 +3,8 @@ title: Comparaison entre Azure App Service, Virtual Machines, Service Fabric et 
 description: Découvrez comment choisir entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services pour l’hébergement d’applications web.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: ggailey777
-manager: erikre
-editor: jimbe
+author: cephalin
+manager: jeconnoc
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
 ms.workload: web
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
-ms.author: glenga
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224953"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42023882"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services
-## <a name="overview"></a>Vue d’ensemble
+
 Azure propose plusieurs manières d’héberger des sites web : [Azure App Service][Azure App Service], [Machines virtuelles][Virtual Machines], [Service Fabric][Service Fabric] et [Services Cloud][Cloud Services]. Cet article vous aidera à comprendre ces différentes possibilités et à faire le bon choix en fonction de votre application web.
 
 Azure App Service est le meilleur choix pour la plupart des applications web. Le déploiement et la gestion sont intégrés à la plateforme, les sites peuvent rapidement gérer des volumes importants de trafic et le gestionnaire d'équilibrage de charge et de trafic assurent une haute disponibilité. Vous pouvez facilement déplacer des sites existants vers Azure App Service avec un [outil de migration en ligne][migrate-tool], utiliser une application open source de la galerie d’applications web ou bien créer un site avec l’infrastructure et les outils de votre choix. La fonctionnalité [WebJobs][WebJobs] simplifie l’ajout du traitement de tâches en arrière-plan à votre application web App Service.

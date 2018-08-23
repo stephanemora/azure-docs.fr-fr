@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869141"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023810"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Créer et acheminer des événements personnalisés avec le portail Azure et Event Grid
 
@@ -41,7 +41,7 @@ Une rubrique de grille d’événement fournit un point de terminaison défini p
 
    ![Étapes de démarrage](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Donnez un nom unique à la rubrique personnalisée. Le nom de la rubrique doit être unique, car elle est représentée par une entrée DNS. N’utilisez pas le nom indiqué dans l’image. Au lieu de cela, créez votre propre nom. Sélectionnez une des [régions prises en charge](overview.md). Fournissez un nom pour le groupe de ressources. Sélectionnez **Créer**.
+1. Donnez un nom unique à la rubrique personnalisée. Le nom de la rubrique doit être unique, car elle est représentée par une entrée DNS. N’utilisez pas le nom indiqué dans l’image. Au lieu de cela, créez votre propre nom. Fournissez un nom pour le groupe de ressources. Sélectionnez **Créer**.
 
    ![Donner des valeurs à la rubrique Event Grid](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
@@ -179,7 +179,7 @@ Sélectionnez le groupe de ressources, puis **Supprimer le groupe de ressources*
 
 Maintenant que vous savez créer des rubriques et des abonnements d’événements personnalisés, vous pouvez en apprendre davantage sur Event Grid et ce qu’il peut vous offrir :
 
-- [Event Grid](overview.md)
+- [À propos d’Event Grid](overview.md)
 - [Acheminer des événements de stockage Blob Azure vers un point de terminaison Web personnalisé ](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [Diffuser en continu des Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 4f3ffb3c769adeabd1edc10ce064653f7b336330
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264993"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144027"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -65,7 +65,7 @@ Pour simplifier les choses, nous recommandons que les utilisateurs qui installen
 Tous les logiciels réseau, périphériques physiques ou autres méthodes limitant la durée maximale pendant laquelle les connexions peuvent rester ouvertes doivent utiliser un seuil d’au moins cinq minutes (300 secondes) pour la connectivité entre le serveur où est installé le client Azure AD Connect et Azure Active Directory. Cette recommandation s’applique également à tous les outils de synchronisation des identités Microsoft précédemment publiés.
 
 **Q : Les domaines avec un nom en une seule partie sont-ils pris en charge ?**  
-Même si cette configuration réseau est fortement déconseillée ([consultez cet article](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), l’utilisation de la synchronisation Azure AD Connect avec un nom de domaine en une seule partie est prise en charge, tant que la configuration réseau du domaine à un seul niveau fonctionne correctement.
+Même si cette configuration réseau est fortement déconseillée ([consultez cet article](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), l’utilisation de la synchronisation Azure AD Connect avec un nom de domaine en une seule partie est prise en charge, tant que la configuration réseau du domaine à un seul niveau fonctionne correctement.
 
 **Q : Les forêts comportant des domaines AD disjoints sont-elles prises en charge ?**  
 Non, Azure AD Connect ne prend pas en charge les forêts locales qui contiennent des espaces de noms disjoints.
@@ -91,8 +91,8 @@ Non. Lorsque le nom du serveur est modifié, le moteur de synchronisation n’es
 **Q : Pourquoi l’attribut userPrincipalName (UPN) dans Azure AD ne correspond-t-il à l’UPN local ?**  
 Pour plus d’informations, consultez les articles suivants :
 
-* [Les noms d’utilisateur dans Office 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire](https://support.microsoft.com/en-us/kb/2523192)
-* [Les modifications ne sont pas synchronisées par l’outil de synchronisation Azure Active Directory une fois que vous avez modifié l’UPN d’un compte utilisateur afin d’utiliser un autre domaine fédéré](https://support.microsoft.com/en-us/kb/2669550)
+* [Les noms d’utilisateur dans Office 365, Azure ou Intune ne correspondent pas à l’UPN local ou à l’ID de connexion secondaire](https://support.microsoft.com/kb/2523192)
+* [Les modifications ne sont pas synchronisées par l’outil de synchronisation Azure Active Directory une fois que vous avez modifié l’UPN d’un compte utilisateur afin d’utiliser un autre domaine fédéré](https://support.microsoft.com/kb/2669550)
 
 Vous pouvez également configurer Azure AD pour permettre au moteur de synchronisation de mettre à jour l’UPN comme décrit dans [Fonctionnalités du service de synchronisation Azure AD Connect](active-directory-aadconnectsyncservice-features.md).
 
@@ -134,11 +134,11 @@ Pour exécuter le script PowerShell, [téléchargez le script PowerShell](https:
 
 Pour effectuer manuellement la mise à niveau, vous devez télécharger et exécuter la dernière version du fichier AADConnect.msi.
  
--  Si votre version actuelle est antérieure à la version 1.1.750.0, [téléchargez la dernière version pour la mise à niveau](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+-  Si votre version actuelle est antérieure à la version 1.1.750.0, [téléchargez la dernière version pour la mise à niveau](https://www.microsoft.com/download/details.aspx?id=47594).
 - Si vous utilisez la version 1.1.750.0 (ou ultérieure) d’Azure AD Connect, aucune action supplémentaire n’est requise. Vous utilisez déjà la version qui contient le correctif pour la mise à niveau automatique. 
 
 **Q : j’ai reçu un e-mail me demandant de mettre à niveau vers la version la plus récente pour réactiver la mise à niveau automatique. J’utilise la version 1.1.654.0. Dois-je effectuer la mise à niveau ?**  
-Oui, vous devez mettre à niveau vers la version 1.1.750.0 ou ultérieure pour réactiver la mise à niveau automatique. [Téléchargez la dernière version pour la mise à niveau](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+Oui, vous devez mettre à niveau vers la version 1.1.750.0 ou ultérieure pour réactiver la mise à niveau automatique. [Téléchargez la dernière version pour la mise à niveau](https://www.microsoft.com/download/details.aspx?id=47594).
 
 **Q : j’ai reçu un e-mail me demandant de mettre à niveau vers la version la plus récente pour réactiver la mise à niveau automatique. Si j’ai utilisé PowerShell pour activer la mise à niveau automatique, dois-je quand même installer la dernière version ?**  
 Oui, vous devez tout de même mettre à niveau vers la version 1.1.750.0 ou ultérieure. L’activation du service de mise à niveau automatique avec PowerShell ne résout pas le problème de mise à niveau automatique repéré dans les versions antérieures à la version 1.1.750.0.
@@ -190,7 +190,7 @@ Si vous avez besoin d’aide pour passer à une version plus récente d’Azure 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 **Q : Comment puis-je obtenir de l’aide avec Azure AD Connect ?**
 
-[Recherche dans la Base de connaissances Microsoft (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Recherche dans la Base de connaissances Microsoft (KB)](https://www.microsoft.com/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
 * Dans la base de connaissances, recherchez des solutions techniques aux problèmes courants couverts par la garantie de réparation et d’assistance, relatifs à la prise en charge d’Azure AD Connect.
 
