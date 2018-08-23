@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 6c288e4492ac56436d40d1e3db98af8eb7b173c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436316"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141080"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
@@ -63,7 +63,7 @@ Cet article explique comment activer l’accès au portail des développeurs pou
     Le volet **Créer** s’affiche à droite. C’est là que vous entrez les informations pertinentes relatives à l’application Azure AD.
 1. Entrez un nom pour l’application.
 1. Pour le type d’application, sélectionnez **Application web/API**.
-1. Pour l’URL de connexion, entrez l’URL de connexion de votre portail des développeurs. Dans cet exemple, l’URL de connexion est https://apimwithaad.portal.azure-api.net/signin.
+1. Pour l’URL de connexion, entrez l’URL de connexion de votre portail des développeurs. Dans cet exemple, l’URL de connexion est `https://apimwithaad.portal.azure-api.net/signin`.
 1. Sélectionnez **Créer** pour créer l’application.
 1. Pour rechercher votre application, sélectionnez **Inscriptions des applications** puis recherchez par nom.
 

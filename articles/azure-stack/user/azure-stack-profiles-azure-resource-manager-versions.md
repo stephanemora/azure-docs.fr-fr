@@ -3,22 +3,22 @@ title: Versions des API du fournisseur de ressources prises en charge par des pr
 description: En savoir plus sur la version d’Azure Resource Manager prise en charge par des profils dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
-ms.author: mabrigg
+ms.date: 08/17/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 1a516c890441c3b703d43f31816b7c37cac364fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9ba954db7003e062444e57bd56f87ff5d279b07f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054379"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41946430"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack
 
@@ -148,7 +148,7 @@ Les API de calcul Azure vous donnent un accès par programme aux machines virtue
 | Types d’événements | 2015-04-01 |
 | Catégories d’événements | 2015-04-01 |
 | Définitions de métriques | 2018-01-01 |
-| Métriques | 2018-01-01 |
+| Mesures | 2018-01-01 |
 | Paramètres de diagnostic | 2017-05-01-preview |
 | Catégories de paramètres de diagnostic | 2017-05-01-preview |
 
@@ -193,27 +193,27 @@ Azure Resource Manager vous permet de déployer et de gérer l’infrastructure 
 | Types de ressources | Versions des API |
 |-----------------------------------------|-------------------|
 | Inscriptions à l’application | 2015-01-01 |
-| Vérifier le nom de la ressource | 2015-012016-09-01 |
+| Vérifier le nom de la ressource | 2016-09-01 |
 | Fournisseurs délégués | 2015-01-01 |
 | Fournisseurs délégués/offres | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
 | Déploiements | 2016-0209-01 |
 | Déploiements/opérations | 2016-0209-01 |
 | Métadonnées d’extensions | 2015-01-01 |
-| Liens | 2015-012016-09-01 |
+| Liens | 2016-09-01 |
 | Emplacements | 2015-01-01 |
 | Offres | 2015-01-01 |
 | Opérations | 2015-01-01 |
 | Fournisseurs | 2015-012017-08-01 |
-| Groupes de ressources | 2015-012016-09-01 |
-| Ressources | 2015-012016-09-01 |
-| Abonnements | 2015-012016-09-01 |
-| Abonnements/emplacement | 2015-012016-09-01 |
-| Abonnements/résultats de l’opération | 2015-012016-09-01 |
+| Groupes de ressources | 2016-09-01 |
+| Ressources | 2016-09-01 |
+| Abonnements | 2016-09-01 |
+| Abonnements/emplacement | 2016-09-01 |
+| Abonnements/résultats de l’opération | 2016-09-01 |
 | Abonnements/fournisseurs | 2015-012017-08-01 |
-| Abonnements/Groupes de ressources | 2015-012016-09-01 |
-| Subscriptions/resourceGroups/resources | 2015-012016-09-01 |
-| Abonnements/ressources | 2015-012016-09-01 |
+| Abonnements/Groupes de ressources | 2016-09-01 |
+| Subscriptions/resourceGroups/resources | 2016-09-01 |
+| Abonnements/ressources | 2016-09-01 |
 | Subscriptions/tagNames | 2016-0609-01 |
 | Subscriptions/tagNames/tagValues | 2016-0609-01 |
 | Locataires | 2015-012017-08-01 |

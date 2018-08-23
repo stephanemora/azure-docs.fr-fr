@@ -6,16 +6,17 @@ author: ghogen
 manager: douge
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 64d1a404eac955f47308f01edd56b3d008e250a0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e591771ee9c9cb12d9ec2ff61ec7f5a76691c8c7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781778"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146495"
 ---
 # <a name="get-started-with-key-vault-connected-service-in-visual-studio-aspnet-core-projects"></a>Bien démarrer avec le service connecté Key Vault dans Visual Studio (projets ASP.NET Core)
 
@@ -29,11 +30,11 @@ Consultez [Qu’est-il arrivé à mon projet ASP.NET Core ?](vs-key-vault-aspnet
 
 ## <a name="after-you-connect"></a>Après la connexion
 
-1. Ajoutez un secret à votre coffre de clés dans Azure. Pour accéder au bon endroit du portail, cliquez sur le lien permettant de gérer les secrets stockés dans le coffre de clés. Si vous avez fermé la page ou le projet, vous pouvez y accéder dans le [portail Azure](https://portal.azure.com). Pour cela, choisissez **Tous les services**, puis, sous **Sécurité**, choisissez **Key Vault** et sélectionnez le coffre de clés que vous venez de créer.
+1. Ajoutez un secret à votre coffre de clés dans Azure. Pour accéder au bon endroit du portail, cliquez sur le lien permettant de gérer les secrets stockés dans le coffre de clés. Si vous avez fermé la page ou le projet, vous pouvez y accéder dans le [portail Azure](https://portal.azure.com). Pour cela, choisissez **Tous les services**, puis, sous **Sécurité**, choisissez **Coffre de clés** et sélectionnez le coffre de clés que vous venez de créer.
 
    ![Accès au portail](media/vs-key-vault-add-connected-service/manage-secrets-link.jpg)
 
-1. Dans la section Key Vault du coffre de clés que vous avez créé, choisissez **Secrets**, puis **Générer/Importer**.
+1. Dans la section Coffre de clés du coffre de clés que vous avez créé, choisissez **Secrets**, puis **Générer/Importer**.
 
    ![Générer/Importer un secret](media/vs-key-vault-add-connected-service/generate-secrets.jpg)
 
@@ -52,7 +53,7 @@ Consultez [Qu’est-il arrivé à mon projet ASP.NET Core ?](vs-key-vault-aspnet
 
 Vous savez désormais que votre application web est capable d’utiliser le coffre de clés pour accéder aux secrets qui sont stockés de manière sécurisée.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le coffre de clés et les ressources qui lui sont associées. Pour supprimer le groupe de ressources à l’aide du portail :
 
@@ -62,4 +63,4 @@ Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette o
 
 # <a name="next-steps"></a>Étapes suivantes
 
-Découvrez le développement Key Vault en lisant le [Guide du développeur Key Vault](key-vault-developers-guide.md)
+Découvrez le développement avec Key Vault en lisant le [Guide du développeur Key Vault](key-vault-developers-guide.md)

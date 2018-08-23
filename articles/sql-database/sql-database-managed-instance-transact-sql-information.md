@@ -7,15 +7,15 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 89544ea72a4356fb8d4f3a192e6fc546eb6b3cff
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f05f6f785ec8466fc6d0ae2c94c975312ef37fa2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092008"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141675"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server 
 
@@ -267,7 +267,7 @@ Les tables externes référençant les fichiers dans HDFS ou le Stockage Blob Az
 
 ### <a name="replication"></a>Réplication 
  
-La réplication est prise en charge sur Managed Instance. Pour plus d’informations sur la réplication, consultez [Réplication SQL Server](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+La réplication est prise en charge sur Managed Instance. Pour plus d’informations sur la réplication, consultez [Réplication SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>L’instruction RESTORE 
  

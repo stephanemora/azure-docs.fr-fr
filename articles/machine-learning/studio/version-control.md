@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: 49d1a228132cc220b30091481bb542623b1e222d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ff30afdcfebe51d914d2f7504ab3bf530309c222
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835863"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141284"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Application Lifecycle Management dans Azure Machine Learning Studio
 Azure Machine Learning Studio est un outil permettant de développer les expériences d’apprentissage automatique qui seront utilisées dans la plate-forme de cloud Azure. Cet outil est similaire au service cloud évolutif et à l’environnement IDE de Visual Studio, tous deux regroupés au sein d’une même plate-forme. Vous pouvez incorporer dans Azure Machine Learning Studio des pratiques de gestion du cycle de vie des applications (ALM, Application Lifecycle Management) standard, notamment le contrôle de version de plusieurs ressources, ainsi que l’exécution et le déploiement automatisés. Cet article traite de certaines de ces options et approches.
@@ -80,7 +80,7 @@ Au fil du temps, vous aurez sans doute plusieurs points de terminaison créés d
 Vous pouvez également créer plusieurs points de terminaison de service web identiques et associer différentes versions du fichier iLearner au point de terminaison pour obtenir des effets similaires. Cet [article](create-models-and-endpoints-with-powershell.md) explique en détail la procédure à suivre.
 
 ### <a name="new-web-service"></a>Nouveau service web
-Si vous créez un service web basé sur Azure Resource Manager, la construction du point de terminaison n’est plus disponible. Au lieu de cela, vous pouvez générer des fichiers WSD (définition de service web), au format JSON, à partir de votre expérience prédictive à l’aide de l’applet de commande PowerShell [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment), ou à l’aide de l’applet de commande PowerShell [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx), à partir d’un service web basé sur Resource Manager et déployé.
+Si vous créez un service web basé sur Azure Resource Manager, la construction du point de terminaison n’est plus disponible. Au lieu de cela, vous pouvez générer des fichiers WSD (définition de service web), au format JSON, à partir de votre expérience prédictive à l’aide de l’applet de commande PowerShell [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment), ou à l’aide de l’applet de commande PowerShell [*Export-AzureRmMlWebservice*](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice?view=azurermps-6.6.0), à partir d’un service web basé sur Resource Manager et déployé.
 
 Si vous avez déjà exporté, puis soumis le fichier WSD à un contrôle de version, vous pouvez également le déployer en tant que nouveau service web dans un plan de service web différent, dans une région Azure différente. Assurez-vous de fournir la configuration de compte de stockage appropriée, ainsi que l’ID du nouveau plan de service web. Pour associer d’autres fichiers iLearner, vous pouvez modifier le fichier WSD et mettre à jour la référence d’emplacement du modèle formé, puis le déployer en tant que nouveau service web.
 

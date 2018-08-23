@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505711"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918202"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Prise en main du coffre de clés Azure
 Cet article vous aide à prendre en main Azure Key Vault avec PowerShell et vous explique en détail :
@@ -28,9 +28,6 @@ Cet article vous aide à prendre en main Azure Key Vault avec PowerShell et vous
 - Comment une application peut utiliser ces clés ou ces secrets.
 
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
-
-> [!NOTE]
-> Cet article n’explique pas comment écrire une application Azure. Vous pouvez utiliser l’[exemple d’application Azure Key Vault](https://www.microsoft.com/download/details.aspx?id=45343) pour suivre les procédures décrites ici.
 
 Pour connaître la marche à suivre avec l’interface de ligne de commande interplateforme, consultez [ce didacticiel équivalent](key-vault-manage-with-cli2.md).
 
@@ -269,7 +266,7 @@ Pour modifier l’autorisation d’une application à utiliser des clés ou des 
 ## <a id="HSM"></a>Utilisation d’un module de sécurité matériel (HSM)
 Pour une meilleure garantie, vous pouvez importer ou générer des clés dans des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Les modules HSM bénéficient d’une validation FIPS 140-2 de niveau 2. Si cette exigence ne s’applique pas à vous, ignorez cette section et accédez à [Supprimer le coffre de clés et les clés et secrets associés](#delete).
 
-Pour créer les clés protégées par HSM, vous devez utiliser le [niveau de service Azure Key Vault Premium qui prend en charge les clés protégées par HSM](https://azure.microsoft.com/pricing/free-trial/). En outre, notez que cette fonctionnalité n’est pas disponible pour Azure en Chine.
+Pour créer les clés protégées par HSM, vous devez utiliser le [niveau de service Azure Key Vault Premium qui prend en charge les clés protégées par HSM](https://azure.microsoft.com/pricing/details/key-vault/). En outre, notez que cette fonctionnalité n’est pas disponible pour Azure en Chine.
 
 Lorsque vous créez le coffre de clés, ajoutez le paramètre **-SKU** :
 

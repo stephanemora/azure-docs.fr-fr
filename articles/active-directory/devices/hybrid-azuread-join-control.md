@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d49b5404f1a2b4ac7fa4cc170ccc010a28bf98a2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622168"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143631"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Guide pratique pour contrôler la jonction Azure Active Directory hybride de vos appareils
 
@@ -116,7 +116,7 @@ Vous devez lier ce paramètre client à l’emplacement de votre choix. Par exem
 
 ## <a name="control-windows-down-level-devices"></a>Contrôler des appareils Windows de bas niveau
 
-Pour inscrire des appareils Windows de bas niveau, vous devez télécharger et installer le package Windows Installer (.msi) à partir du Centre de téléchargement, dans la page [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554).
+Pour inscrire des appareils Windows de bas niveau, vous devez télécharger et installer le package Windows Installer (.msi) à partir du Centre de téléchargement, dans la page [Microsoft Workplace Join for non-Windows 10 computers](https://www.microsoft.com/download/details.aspx?id=53554).
 
 Vous pouvez déployer le package à l’aide d’un système de distribution de logiciels comme System Center Configuration Manager. Le package prend en charge les options d’installation en mode silencieux standard avec le paramètre quiet. [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) Current Branch offre des avantages supplémentaires par rapport aux versions précédentes, comme la possibilité d’effectuer le suivi des inscriptions terminées.
 

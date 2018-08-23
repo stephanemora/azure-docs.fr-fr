@@ -3,7 +3,7 @@ title: Activer un fournisseur de services cloud pour gérer votre abonnement Azu
 description: Active le fournisseur de services pour accéder à un abonnement dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: f0cff8f575b87872c0032854f1916b140d7fd62b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f309b86578f340040927735c067656158f3198fc
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357841"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41946553"
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Activer un fournisseur de services cloud pour gérer votre abonnement Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-Si vous utilisez Azure Stack avec un fournisseur de services cloud, vous pouvez choisir de gérer votre propre abonnement pour accéder aux ressources dans Azure et dans Azure Stack. Vous pouvez également laisser le fournisseur gérer votre abonnement à votre place. Cet article vous montre comment effectuer les opérations suivantes :
+Si vous utilisez Azure Stack avec un fournisseur de services cloud, vous pouvez choisir de gérer votre propre abonnement pour accéder aux ressources dans Azure et dans Azure Stack. Vous pouvez également laisser le fournisseur gérer votre abonnement à votre place. Cet article vous montre comment procéder.
 
  * Autoriser votre fournisseur de services à accéder à votre abonnement.
  * Vérifier que le fournisseur de services peut gérer votre service.

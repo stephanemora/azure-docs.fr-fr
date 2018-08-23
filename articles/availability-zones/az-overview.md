@@ -1,5 +1,5 @@
 ---
-title: Que sont les zones de disponibilité Azure ? | Microsoft Docs
+title: Que sont les zones de disponibilité Azure ? | Microsoft Docs
 description: Pour créer des applications hautement disponibles et résilientes dans Azure, les zones de disponibilité fournissent des emplacements physiquement distincts que vous pouvez utiliser pour exécuter vos ressources.
 services: ''
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: f2890338f69e8ad5e97077dbb227f557b34f1a4b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090283"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140854"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Que sont les zones de disponibilité dans Azure ?
 Les Zones de disponibilité constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des Zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données. Les services de redondance de zones répliquent vos applications et données entre des Zones de disponibilité pour les protéger contre des points uniques de panne. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explique la disponibilité garantie d’Azure dans son ensemble.
@@ -39,11 +39,11 @@ Pour obtenir la continuité complète des activités sur Azure, générez votre 
 
 ## <a name="regions-that-support-availability-zones"></a>Régions prenant en charge les zones de disponibilité
 
-- USA Centre
+- Centre des États-Unis
 - France-Centre
-- Est des États-Unis 2 (préversion)
+- USA Est 2 (préversion)
 - Europe Ouest
-- Asie du Sud-Est (préversion)
+- Asie Sud-Est (préversion)
 
 
 ## <a name="services-that-support-availability-zones"></a>Régions qui prennent en charge les zones de disponibilité
@@ -74,7 +74,7 @@ Il n’existe aucun coût supplémentaire pour les machines virtuelles déployé
 - [Machines virtuelles de l’équilibreur dans des zones à l’aide de Load Balancer Standard avec un serveur frontal redondant dans une zone](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Machines virtuelles de l’équilibreur de charge dans une zone à l’aide de Load Balancer Standard avec un serveur frontal zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md)
-- [Base de données SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [Base de données SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
 - [Géo-reprise d’activité après sinistre Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
 - [Géo-reprise d’activité après sinistre Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
 - [Créer une passerelle de réseau virtuel redondant dans une zone](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

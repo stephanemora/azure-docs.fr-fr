@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: c822f25e25953b8709f481e51d6a63e6a912a60a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f12eb7d74d9c47567c72cddda8d2813f394fb1de
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358810"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41954843"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Mettre à jour Azure App Service sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1804 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.2.
+> Appliquez la mise à jour 1807 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.3.
 >
 >
 
@@ -55,7 +55,7 @@ Au cours de ce processus, la mise à niveau va :
 
 Pour mettre à niveau votre déploiement d’App Service sur Azure Stack, procédez comme suit :
 
-1. Téléchargez le [Programme d’installation App Service](https://aka.ms/appsvcupdate2installer)
+1. Téléchargez le [Programme d’installation App Service](https://aka.ms/appsvcupdate3installer)
 
 2. Exécutez appservice.exe en tant qu’administrateur
 

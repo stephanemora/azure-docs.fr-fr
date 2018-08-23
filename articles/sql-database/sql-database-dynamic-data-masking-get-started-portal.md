@@ -9,16 +9,16 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: ronitr
-ms.openlocfilehash: 9b47345278bd74449c16e4e17ed1748dba489f82
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f7720555a3cfc39ce9e9b5ad2c392bab74b64ca
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645512"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141485"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure
 
-Cet article vous montre comment implémenter [le masquage des données dynamiques](sql-database-dynamic-data-masking-get-started.md) avec le portail Azure. Vous pouvez également implémenter le masquage de données dynamique avec les [applets de commande de base de données Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) ou [l’API REST](https://msdn.microsoft.com/library/dn505719.aspx).
+Cet article vous montre comment implémenter [le masquage des données dynamiques](sql-database-dynamic-data-masking-get-started.md) avec le portail Azure. Vous pouvez également implémenter le masquage de données dynamique avec les [applets de commande de base de données Azure](https://docs.microsoft.com/powershell/module/azurerm.sql/) ou [l’API REST](https://msdn.microsoft.com/library/dn505719.aspx).
 
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configuration du masquage des données dynamiques pour votre base de données à l’aide du portail Azure
@@ -54,4 +54,4 @@ Cet article vous montre comment implémenter [le masquage des données dynamique
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une vue d’ensemble du masquage des données dynamiques, consultez [Masquage des données dynamiques](sql-database-dynamic-data-masking-get-started.md).
-* Vous pouvez également implémenter le masquage de données dynamique avec les [applets de commande de base de données Azure](https://msdn.microsoft.com/library/azure/mt574084.aspx) ou [l’API REST](https://msdn.microsoft.com/library/dn505719.aspx).
+* Vous pouvez également implémenter le masquage de données dynamique avec les [applets de commande de base de données Azure](https://docs.microsoft.com/powershell/module/azurerm.sql/) ou [l’API REST](https://msdn.microsoft.com/library/dn505719.aspx).

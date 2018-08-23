@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345941"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146380"
 ---
 # <a name="what-is-the-access-panel"></a>Présentation du volet d’accès
 
@@ -79,7 +79,7 @@ Pour vous connecter à l’authentification unique avec mot de passe, vous devez
 - Vous pouvez vous connecter à une application directement à l’aide de l’**URL de connexion** de l’application. Lorsque vous utilisez l’URL de l’application, l’extension détecte l’action et vous offre la possibilité de vous connecter à partir de l’extension.
 - Vous pouvez lancer une des vos applications à partir du panneau d’accès à l’aide de la fonctionnalité de *recherche rapide* de l’extension. 
 - L’extension vous présente les trois dernières applications que vous avez lancées dans la section **Récemment utilisé**.
-- Vous pouvez utiliser les URL internes de la société à distance via le [Proxy d’application](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
+- Vous pouvez utiliser les URL internes de la société à distance via le [Proxy d’application](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Les fonctionnalités supplémentaires sont disponibles uniquement pour Edge, Chrome et Firefox.
@@ -97,8 +97,8 @@ Si vous utilisez une URL de Mes applications autre que `https://myapps.microsoft
 5. Sélectionnez **Connectez-vous pour commencer**.
 
 Pour utiliser les URL internes de la société à distance à l’aide de l’extension, procédez comme suit :
-1. [Configurez le proxy d’application](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) sur votre client.
-2. [Publiez l’application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) et l’URL via le proxy d’application.
+1. [Configurez le proxy d’application](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) sur votre client.
+2. [Publiez l’application](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) et l’URL via le proxy d’application.
 3. Installez l’extension et connectez-vous-y en sélectionnant Connectez-vous pour commencer.
 4. Vous pouvez désormais accéder à l’URL interne de la société même à distance.
 

@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.openlocfilehash: 0df7c7680137be9a4b2c7c3cedb46330f4d3e5bd
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39717460"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246516"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Utiliser Visual Studio pour afficher les tâches Azure Stream Analytics
 
@@ -32,7 +32,7 @@ Découvrez comment [Installer Azure Stream Analytics Tools pour Visual Studio](s
 
 Vous pouvez utiliser la vue des tâches pour interagir avec les tâches Azure Stream Analytics à partir de Visual Studio.
 
-### <a name="open-the-job-view"></a>Ouvrir la vue des tâches
+### <a name="open-the-job-view"></a>Ouvrir la vue de la tâche
 
 1. Dans l’**Explorateur de serveurs**, sélectionnez **Tâches Stream Analytics**, puis **Actualiser**. Votre tâche doit apparaître sous **Tâches Stream Analytics**.
 
@@ -44,7 +44,7 @@ Vous pouvez utiliser la vue des tâches pour interagir avec les tâches Azure St
     
    ![Nœud de tâche développé](./media/stream-analytics-vs-tools/stream-analytics-tools-for-vs-job-view-01.png)
 
-### <a name="start-and-stop-jobs"></a>Démarrer et arrêter des tâches
+### <a name="start-and-stop-jobs"></a>Démarrage et arrêt des travaux
 
 Les tâches Azure Stream Analytics peuvent être entièrement gérées à partir de la vue des tâches dans Visual Studio. Utilisez les contrôles pour démarrer, arrêter ou supprimer un travail.
     

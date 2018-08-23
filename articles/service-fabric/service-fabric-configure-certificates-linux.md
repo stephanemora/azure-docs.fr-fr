@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 2d6d387ed12e7261d09669686c0710786a4302dd
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 97f33a1c0c42b534dafd1e4ed378b655b339395a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025183"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146521"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Certificats et sécurité sur des clusters Linux
 
@@ -31,7 +31,7 @@ Service Fabric s’attend généralement à la présence de certificats X.509 da
 
 Pour les clusters Linux, Service Fabric s’attend à ce que les certificats soient présents sous la forme d’un fichier .pem qui contient à la fois le certificat et une clé privée ou d’un fichier .crt qui contient le certificat et d’un fichier .key qui contient la clé privée. Tous les fichiers doivent être au format PEM. 
 
-Si vous installez votre certificat à partir d’Azure Key Vault à l’aide d’un [modèle Resource Manager](./service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template) ou de commandes [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric), le certificat est installé au format correct dans le répertoire */var/lib/sfcerts* sur chaque nœud. Si vous installez un certificat via une autre méthode, vous devez vous assurer qu’il est correctement installé sur les nœuds de cluster.
+Si vous installez votre certificat à partir d’Azure Key Vault à l’aide d’un [modèle Resource Manager](./service-fabric-cluster-creation-create-template.md) ou de commandes [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric), le certificat est installé au format correct dans le répertoire */var/lib/sfcerts* sur chaque nœud. Si vous installez un certificat via une autre méthode, vous devez vous assurer qu’il est correctement installé sur les nœuds de cluster.
 
 ## <a name="certificates-referenced-in-the-application-manifest"></a>Certificats référencés dans le manifeste de l’application
 

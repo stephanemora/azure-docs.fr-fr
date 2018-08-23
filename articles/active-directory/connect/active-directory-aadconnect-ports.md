@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 317c94abdf14d3d88e07e32ab16769bd1f641438
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 55100d14ab7acbff87a726615ad9fa8b1fe9a3c8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591294"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146377"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Ports et protocoles nécessaires à l’identité hybride
 Le document suivant est une référence technique sur les ports et les protocoles nécessaires à l’implémentation d’une solution d’identité hybride. Consultez la figure ci-dessous et reportez-vous au tableau correspondant.
@@ -83,7 +83,7 @@ Les tableaux suivants décrivent les ports et les protocoles nécessaires à la 
 |HTTP|80|Active le trafic HTTP sortant pour valider la sécurité, comme SSL. Également nécessaire pour que la fonctionnalité de mise à jour automatique du connecteur fonctionne correctement.
 |HTTPS|443| Active le trafic HTTPS sortant pour les opérations telles que l’activation et la désactivation de la fonctionnalité, l’inscription des connecteurs, le téléchargement des mises à jour du connecteur et la gestion des demandes de connexion de tous les utilisateurs.
 
-En outre, Azure AD Connect doit être en mesure d’établir des connexions IP directes aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
+En outre, Azure AD Connect doit être en mesure d’établir des connexions IP directes aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>Tableau 6b - synchronisation du hachage de mot de passe avec authentification unique
 
@@ -91,7 +91,7 @@ En outre, Azure AD Connect doit être en mesure d’établir des connexions IP d
 | --- | --- | ---
 |HTTPS|443| Active l’inscription à l’authentification unique (obligatoire uniquement pour le processus d’inscription SSO).
 
-En outre, Azure AD Connect doit être en mesure d’établir des connexions IP directes aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653). Là encore, cette option est uniquement requise pour le processus d’inscription SSO.
+En outre, Azure AD Connect doit être en mesure d’établir des connexions IP directes aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653). Là encore, cette option est uniquement requise pour le processus d’inscription SSO.
 
 ## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>Tableau 7a & 7b - Agent Azure AD Connect Health pour (AD FS/Sync) et Azure AD
 Les tableaux suivants décrivent les points de terminaison, les ports et les protocoles nécessaires à la communication entre les agents Azure AD Connect Health et Azure AD.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 599c016763fde6f1dc8221fffa554cf68e8c498f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 43db9db3842d05fa13c3be92df14b905d2ddfc17
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790387"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42141053"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Utilisation de la prise en charge d’Azure Resource Manager pour l’équilibrage de charge Azure
 
@@ -61,7 +61,7 @@ Exemples de modèles :
 
 Prise en main des applets de commande, des outils de ligne de commande et des API REST Azure Resource Manager
 
-* [cmdlets de mise en réseau Azure](https://msdn.microsoft.com/library/azure/mt163510.aspx) peuvent être utilisées pour créer un équilibrage de charge.
+* [cmdlets de mise en réseau Azure](https://docs.microsoft.com/powershell/module/azurerm.network#networking) peuvent être utilisées pour créer un équilibrage de charge.
 * [Création d’un équilibrage de charge à l’aide d’Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
 * [Utilisation de la CLI Azure avec Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
 * [API REST de l'équilibrage de charge](https://msdn.microsoft.com/library/azure/mt163651.aspx)

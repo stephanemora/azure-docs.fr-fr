@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
 ms.author: labattul
-ms.openlocfilehash: a03b72200f97c54bce188ec6a6ad8a06a43f26ae
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 205a1e399eadd268ffaa390a7ebb4397fda9feff
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40002577"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444651"
 ---
 # <a name="setup-dpdk-in-a-linux-virtual-machine"></a>Configurer DPDK dans une machine virtuelle Linux
 
@@ -52,7 +52,7 @@ Voici les distributions de la galerie Azure qui sont prises en charge :
 
 Consultez [Patches for building an Azure-tuned Linux kernel](https://github.com/microsoft/azure-linux-kernel) pour toute version de noyau Linux non répertoriée ou contactez [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com) pour de plus amples informations. 
 
-## <a name="region-support"></a>Prise en charge des régions
+## <a name="region-support"></a>Prise en charge de la région
 
 Toutes les régions Azure prennent en charge DPDK.
 
@@ -67,14 +67,14 @@ La mise en réseau accélérée doit être activée sur une machine virtuelle Li
 ```bash
 sudo add-apt-repository ppa:canonical-server/dpdk-azure -y
 sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
+sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
 
 ### <a name="ubuntu-1804"></a>Ubuntu 18.04
 
 ```bash
 sudo apt-get update
-sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
+sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev libmnl-dev
 ```
 
 ### <a name="rhel75centos-75"></a>RHEL 7.5/CentOS 7.5
@@ -82,7 +82,7 @@ sudo apt-get install -y librdmacm-dev librdmacm1 build-essential libnuma-dev
 ```bash
 yum -y groupinstall "Infiniband Support"
 sudo dracut --add-drivers "mlx4_en mlx4_ib mlx5_ib" -f
-yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel
+yum install -y gcc kernel-devel-`uname -r` numactl-devel.x86_64 librdmacm-devel libmnl-devel
 ```
 
 ### <a name="sles-15"></a>SLES 15

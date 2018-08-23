@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 74fb9e784122dadd1ad2f6f29a497398eacf7464
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9e49e7cdb9157fea2ae29d015bd84d391c73e71b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412880"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140673"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Services qui prennent en charge l’identité du service administré 
 
@@ -46,4 +46,4 @@ Les services suivants prennent en charge l’authentification Azure AD et ont é
 | Azure SQL | https://database.windows.net/ | Disponible | Octobre 2017 | |
 | Hubs d'événements Azure | https://eventhubs.azure.net | Disponible | Décembre 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Disponible | Décembre 2017 | |
-| Stockage Azure | https://storage.azure.com/ | VERSION PRÉLIMINAIRE | Mai 2018 | |
+| Stockage Azure | https://azure.microsoft.com/services/storage/ | VERSION PRÉLIMINAIRE | Mai 2018 | |

@@ -2,18 +2,18 @@
 title: Package FPGA pour l’accélération matérielle dans Azure Machine Learning
 description: Découvrez les packages python disponibles pour les utilisateurs d’Azure Machine Learning.
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: routlaw
-author: rloutlaw
+ms.author: tedway
+author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: e680ef34be1d5dae2942c432de5e81fe620bbdc4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832976"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143493"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Package Accélération matérielle pour Azure Machine Learning
 
@@ -40,18 +40,18 @@ Le package Accélération matérielle pour Azure Machine Learning est une extens
 
 2. Installez [Anaconda (Python 3.6)](https://conda.io/miniconda.html)
 
-3. Pour télécharger un environnement Anaconda préconfiguré, utilisez la commande suivante à partir de l’invite de commandes Git :
+   Pour télécharger un environnement Anaconda préconfiguré, utilisez la commande suivante à partir de l’invite de commandes Git :
 
     ```
     git clone https://aka.ms/aml-real-time-ai
     ```
-5. Pour créer l’environnement, ouvrez une **invite de commandes Anaconda** et utilisez la commande suivante :
+1. Pour créer l’environnement, ouvrez une **invite de commandes Anaconda** et utilisez la commande suivante :
 
     ```
     conda env create -f aml-real-time-ai/environment.yml
     ```
 
-6. Pour activer l’environnement, utilisez la commande suivante :
+1. Pour activer l’environnement, utilisez la commande suivante :
 
     ```
     conda activate amlrealtimeai

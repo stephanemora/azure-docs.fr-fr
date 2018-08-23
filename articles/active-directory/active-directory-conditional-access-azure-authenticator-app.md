@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 5c34219d01c8670102df40d9157cb0deff74b8e4
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fbd728ec8cd2c8c4cd7ca74ecd84fd4d0d41cbd0
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724283"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146378"
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator pour Android
 Votre administrateur peut vous avoir recommandé d’utiliser Microsoft Azure Authenticator pour vous connecter de façon à accéder à vos ressources de travail. Cette application fournit ces deux options de connexion :
@@ -89,7 +89,7 @@ Après avoir installé l’application Azure Authenticator, vous pouvez égaleme
 ### <a name="sending-log-files-to-report-issues"></a>Envoi de fichiers journaux pour signaler des problèmes
 1. Suivez les instructions du support technique Microsoft pour signaler un incident avec l’application Azure Authentificator, pour obtenir un numéro d’incident et pour envoyer des fichiers journaux avec le numéro d’incident attribué :
 2. Dans le menu contextuel, cliquez sur **Journalisation**.
-3. Si vous avez un incident ouvert avec le support technique Microsoft, notez le numéro de l’incident (vous en aurez besoin à une étape ultérieure). Si vous n’avez pas encore créé un incident de support et que vous voulez obtenir de l’aide, suivez les instructions du [Support technique Microsoft](https://support.microsoft.com/en-us/contactus) pour ouvrir un nouvel incident.
+3. Si vous avez un incident ouvert avec le support technique Microsoft, notez le numéro de l’incident (vous en aurez besoin à une étape ultérieure). Si vous n’avez pas encore créé un incident de support et que vous voulez obtenir de l’aide, suivez les instructions du [Support technique Microsoft](https://support.microsoft.com/contactus) pour ouvrir un nouvel incident.
 4. Dans l’écran de journalisation, cliquez sur **Envoyer maintenant**.
 5. Sélectionnez le fournisseur de messagerie à utiliser.
 6. Si vous disposez déjà d’un incident de support technique Microsoft ouvert, contactez l’ingénieur de support affecté à votre problème pour savoir comment envoyer les données du journal et comment les associer à votre incident. L’ingénieur du support vous fournira les informations nécessaires pour l’adresse de messagerie et la ligne de l’objet du message. Si vous n’avez pas encore créé un incident de support, suivez les instructions du support technique Microsoft pour ouvrir un nouvel incident.

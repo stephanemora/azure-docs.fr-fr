@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sethm
-ms.openlocfilehash: 0a61918108a48f4a9fa3d1c07cc8d41525f1f2a0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a61b7b08d883c1b5a7fde93c249fc8de1473d15d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28928159"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141678"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prérécupérer les messages Azure Service Bus
 
@@ -40,9 +40,9 @@ La prérécupération fonctionne de la même façon avec les API [OnMessage](/do
 
 La prérécupération accélère le flux de messages en faisant en sorte qu’un message soit immédiatement récupérable localement dès ou avant que l’application le demande. Ce gain de débit résulte d’un compromis que l’auteur de l’application doit effectuer de manière explicite :
 
-En mode de réception [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode.receiveanddelete), tous les messages qui sont acquis dans la mémoire tampon de prérécupération ne sont plus disponibles dans la file d’attente et résident uniquement dans la mémoire tampon de prérécupération en mémoire jusqu’à ce qu’ils soient reçus dans l’application par le biais des API **Receive**/**ReceiveAsync** ou **OnMessage**/**OnMessageAsync**. Si l’application s’arrête avant d’avoir reçu les messages, ces derniers sont définitivement perdus.
+En mode de réception [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode), tous les messages qui sont acquis dans la mémoire tampon de prérécupération ne sont plus disponibles dans la file d’attente et résident uniquement dans la mémoire tampon de prérécupération en mémoire jusqu’à ce qu’ils soient reçus dans l’application par le biais des API **Receive**/**ReceiveAsync** ou **OnMessage**/**OnMessageAsync**. Si l’application s’arrête avant d’avoir reçu les messages, ces derniers sont définitivement perdus.
 
-En mode de réception [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode.peeklock), les messages récupérés dans la mémoire tampon de prérécupération sont acquis dans la mémoire tampon à l’état verrouillé et déclenchent l’horloge de délai d’expiration du verrouillage. Si la mémoire tampon de prérécupération présente une taille conséquente, et que le traitement est si long que le verrouillage des messages arrive à expiration pendant que les messages résident dans la mémoire tampon de prérécupération ou même pendant que l’application traite les messages, l’application peut faire face à certains événements déroutants.
+En mode de réception [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock), les messages récupérés dans la mémoire tampon de prérécupération sont acquis dans la mémoire tampon à l’état verrouillé et déclenchent l’horloge de délai d’expiration du verrouillage. Si la mémoire tampon de prérécupération présente une taille conséquente, et que le traitement est si long que le verrouillage des messages arrive à expiration pendant que les messages résident dans la mémoire tampon de prérécupération ou même pendant que l’application traite les messages, l’application peut faire face à certains événements déroutants.
 
 Il est possible que l’application acquière un message dont le verrouillage est arrivé à expiration ou doit l’être prochainement. Dans ce cas, l’application peut commencer à traiter le message, puis se trouver dans l’impossibilité d’achever le traitement en raison de l’expiration d’un verrouillage. L’application peut vérifier la propriété [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) (qui est soumise aux variations d’horloge entre l’horloge du répartiteur et celle de la machine locale). Si le verrouillage d’un message est arrivé à expiration, l’application doit ignorer le message, et aucun appel d’API sur ou avec le message ne doit être effectué. Si le message n’est pas arrivé à expiration, mais que son expiration est imminente, il est possible de renouveler et prolonger le verrouillage avec une autre période de verrouillage par défaut en appelant [message. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
 
@@ -54,7 +54,7 @@ Si vous avez besoin d’un haut débit et que votre processus de traitement des 
 
 Le nombre maximal de prérécupérations et la durée de verrouillage configurés sur la file d’attente ou l’abonnement doivent être équilibrés, de sorte que le délai d’expiration du verrouillage dépasse au moins le temps de traitement des messages prévu cumulé pour la taille maximale de la mémoire tampon de prérécupération, plus un message. Parallèlement, il convient d’éviter que le délai d’expiration du verrouillage soit si long que les messages risquent de dépasser leur valeur [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) maximale lorsqu’ils sont accidentellement abandonnés, ce qui nécessite alors d’attendre l’arrivée à expiration du verrouillage des messages pour que ces derniers puissent faire l’objet d’une nouvelle tentative de remise.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

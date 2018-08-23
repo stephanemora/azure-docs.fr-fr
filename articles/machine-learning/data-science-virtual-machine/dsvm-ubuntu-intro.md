@@ -3,7 +3,8 @@ title: Approvisionner une machine virtuelle de science des données Linux (Ubunt
 description: Configurez et créez une machine virtuelle pour la science des données pour Linux (Ubuntu) sur Azure pour vos besoins d’analyse et d’apprentissage automatique.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
+ms.author: gokuma
 manager: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
@@ -13,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: 19f190c66f7bb4042c640f2cbb82f911746ceb45
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f45bb3b47209bd6b02cea49c23b0a59ad75fc2e2
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422373"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146631"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)
 
@@ -53,7 +53,7 @@ La machine virtuelle pour la science des données pour Linux contient également
 * Outils de Machine Learning
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) : système d’apprentissage automatique rapide prenant en charge des techniques (apprentissage en ligne, hachage, allreduce, réductions, learning2search, actif et interactif)
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/) : outil offrant une implémentation rapide et précise des arborescences optimisées
-  * [Rattle](http://rattle.togaware.com/) : outil graphique qui facilite la prise en main de l’analyse des données et de l’apprentissage automatique dans R
+  * [Rattle](https://togaware.com/rattle/) : outil graphique qui facilite la prise en main de l’analyse des données et de l’apprentissage automatique dans R
   * [LightGBM](https://github.com/Microsoft/LightGBM) : infrastructure d’amélioration progressive rapide, distribuée et hautes performances
 * Kit SDK Azure dans Java, Python, node.js, Ruby, PHP
 * Bibliothèques dans les langages R et Python à utiliser dans Azure Machine Learning et d’autres services Azure
@@ -149,7 +149,7 @@ Une fois connecté à la machine virtuelle à l’aide du client SSH ou du burea
 
 La machine DSVM Ubuntu exécute [JupyterHub](https://github.com/jupyterhub/jupyterhub), un serveur multi-utilisateur Jupyter. Pour vous connecter, accédez à https://your-vm-ip:8000 sur votre ordinateur portable ou votre poste de travail, entrez le nom d’utilisateur et le mot de passe que vous avez utilisés pour créer la machine virtuelle, puis connectez-vous. De nombreux exemples de blocs-notes sont disponibles et peuvent être testés.
 
-JupyterLab, nouvelle génération de blocs-notes Jupyter, et JupyterHub, sont également disponibles. Pour y accéder, connectez-vous à JupyterHub, puis accédez à l’URL https://your-vm-ip:8000/lab. Vous pouvez définir JupyterLab en tant que serveur de bloc-notes par défaut en ajoutant la ligne suivante à /etc/jupyterhub/jupyterhub_config.py :
+JupyterLab, nouvelle génération de blocs-notes Jupyter, et JupyterHub, sont également disponibles. Pour y accéder, connectez-vous à JupyterHub, puis accédez à l’URL https://your-vm-ip:8000/user/your-username/lab. Vous pouvez définir JupyterLab en tant que serveur de bloc-notes par défaut en ajoutant la ligne suivante à /etc/jupyterhub/jupyterhub_config.py :
 
     c.Spawner.default_url = '/lab'
 

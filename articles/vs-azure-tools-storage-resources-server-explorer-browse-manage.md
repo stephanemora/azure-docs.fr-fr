@@ -7,22 +7,23 @@ manager: douge
 assetId: 658dc064-4a4e-414b-ae5a-a977a34c930d
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 74f5508586d073bcccc54894cce6fcde1b83fe18
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112318"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140689"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Consulter et gérer les ressources de stockage à l’aide de l’Explorateur de serveurs
 
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Si vous avez installé Azure Tools pour Microsoft Visual Studio, vous pouvez afficher les données relatives aux objets blob, aux files d’attente et aux tables à partir de vos comptes de stockage Azure. Le nœud Azure **Storage** de l’Explorateur de serveurs affiche les données qui se trouvent dans votre compte d’émulateur de stockage local et dans vos autres comptes de stockage Azure.
 
@@ -259,7 +260,7 @@ Il existe deux façons d’ajouter des comptes de stockage à l’aide de l’Ex
 
    * L’abonnement Azure auquel vous voulez ajouter le compte de stockage
    * Le nom que vous voulez utiliser pour le nouveau compte de stockage
-   * La région ou le groupe d’affinités (comme l’Ouest des États-Unis ou l’Est de l’Asie)
+   * La région ou le groupe d’affinités (comme USA Ouest ou Asie Est)
    * Le type de réplication que vous voulez utiliser pour le compte de stockage, par exemple localement redondant
 
    ![Créer un compte de stockage Azure](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC744166.png)

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/19/2018
+ms.date: 8/17/2018
 ms.author: tomsh
-ms.openlocfilehash: 63f892dfdade3c61c2adf84f86cdcaff1fb1cb5c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 933d0f60b902ae2cb0abcde2ca39a58e59457c6b
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126990"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141302"
 ---
 # <a name="azure-security-white-papers"></a>Livres blancs sur la sécurité Azure
 | | |
@@ -28,8 +28,8 @@ ms.locfileid: "37126990"
 |[Détection avancée des menaces](azure-threat-detection.md)|Vous guide parmi les approches Azure en matière d’évaluation des vulnérabilités des menaces, de diagnostics et d’analyse. Explique comment Microsoft utilise les mécanismes de détection des menaces avancés pour sécuriser la plateforme. Explique également comment Microsoft inclut ces mécanismes dans les services et fonctionnalités publics.|
 |[Chiffrement des données au repos d’Azure](azure-security-encryption-atrest.md)|Se concentre sur la façon dont les données sont protégées au repos sur Azure et sur les divers composants impliqués dans l’implémentation de la protection des données. Passe en revue les avantages et les inconvénients des principales approches de protection de la gestion.|
 |[Journalisation et audit Azure](azure-log-audit.md)|Fournit une introduction à la génération, la collecte et l’analyse des journaux de sécurité à partir des services hébergés sur Azure. Ces journaux peuvent vous aider à obtenir des informations détaillées sur la sécurité dans vos déploiements Azure. |
-|[Sécurité du réseau Azure](azure-network-security.md)|Vous présente la grande variété de contrôles réseau que vous pouvez configurer pour améliorer la sécurité des solutions que vous déployez dans Azure. Les contrôles de sécurité réseau orientés client sont principalement abordés.|
-|[Azure Functions et sécurité de plateforme serverless](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Ce livre blanc téléchargeable présente les avantages de l’informatique serverless tout en fournissant des considérations sur la sécurité et des atténuations dans le contexte d’Azure. | 
+|[Sécurité du réseau Azure](abstract-azure-network-security.md)|Vous présente la grande variété de contrôles réseau que vous pouvez configurer pour améliorer la sécurité des solutions que vous déployez dans Azure. Les contrôles de sécurité réseau orientés client sont principalement abordés.|
+|[Azure Functions et sécurité de plateforme serverless](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Ce livre blanc téléchargeable présente les avantages de l’informatique serverless tout en fournissant des considérations sur la sécurité et des atténuations dans le contexte d’Azure. |
 |[Azure Operational Security](azure-operational-security.md)|Fournit une vue d’ensemble complète au niveau des services et technologies de sécurité opérationnelle orientés client disponibles avec Azure.|
 |[Fonctionnalités techniques de la sécurité Azure](azure-security-technical-capabilities.md)|Se concentre sur les fonctions de sécurité et les fonctionnalités prenant en charge le Stockage Azure, les bases de données Azure SQL, le modèle de machine virtuelle Azure et les outils et l’infrastructure qui gèrent tout cela.|
 |[Guide de sécurité du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Fournit une vue d’ensemble de chaque fonctionnalité de sécurité qui peut être utilisée avec le Stockage Azure. Aborde la sécurité du plan de gestion, la sécurité du plan de données, le chiffrement au repos, le chiffrement en déplacement et l’analyse de stockage.|
@@ -38,6 +38,3 @@ ms.locfileid: "37126990"
 |[Isolation dans le cloud public Azure](azure-isolation.md)|Décrit comment Azure fournit une isolation pour assurer une protection contre les utilisateurs malveillants et non malveillants. Sert de guide pour l’architecture des solutions cloud en proposant diverses options d’isolation aux architectes. Se concentre principalement sur les contrôles de sécurité orientés client, et n’essaie pas de répondre aux considérations relatives aux SLA, aux modèles de tarification et aux pratiques DevOps.|
 |[Overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Présentation de la conformité Azure)|Ce livre blanc téléchargeable traite des offres de conformité Azure, y compris des certifications, attestations, validations, autorisations et évaluations officielles créées par des sociétés d’audit tierces indépendantes, ainsi que des modifications contractuelles, des auto-évaluations et des documents de conseils pour les clients créés par Microsoft. <br/> Chaque description d’offre établit les services Azure orientés client se trouvant dans le champ d’application de l’évaluation et fournit des liens vers des ressources téléchargeables pour aider les clients à gérer leurs obligations en matière de conformité.|
 |[Gestion de la sécurité dans Azure](azure-security-management.md)|Traite des problèmes concernant l’accès à distance des ressources Azure. La nature du cloud exige une gestion des accès à distance, et la sécurité est donc primordiale. Aborde les recommandations générales de sécurité, la configuration du client, les meilleures pratiques et les procédures et principes de fonctionnement. |
-
-
-

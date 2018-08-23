@@ -13,19 +13,19 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627931"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143459"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
 La sécurité de la plupart ou de toutes les ressources professionnelles des organisations actuelles dépend de l’intégrité des comptes privilégiés qui administrent et gèrent les systèmes informatiques. Les personnes malveillantes, comme les pirates informatiques, ciblent souvent des comptes administrateur et d’autres moyens d’accès privilégié pour tenter d’accéder rapidement à des données sensibles et à des systèmes à l’aide d’attaques d’informations d’identification. Pour les services cloud, la prévention et la réponse sont de la responsabilité conjointe du fournisseur de services cloud et du client. Pour plus d’informations sur les dernières menaces sur les points de terminaison et le cloud, consultez le [rapport de renseignements de sécurité Microsoft](https://www.microsoft.com/security/sir/default.aspx). Cet article peut vous aider à créer une feuille de route afin de combler les lacunes de vos plans actuels, des conseils sont fournis ici.
 
 > [!NOTE] 
-> Microsoft s’engage aux plus hauts niveaux de confiance, de transparence, de conformité aux normes et aux réglementations. Découvrez comment l’équipe de réponse aux incidents mondiale de Microsoft permet d’atténuer les effets des attaques contre les services cloud, et comment la sécurité est intégrée dans les produits professionnels et services cloud Microsoft dans le [Centre de gestion de la confidentialité Microsoft - Sécurité](https://www.microsoft.com/en-us/trustcenter/security) et les objectifs de conformité Microsoft dans le [Centre de gestion de la confidentialité Microsoft - Conformité](https://www.microsoft.com/en-us/trustcenter/compliance).
+> Microsoft s’engage aux plus hauts niveaux de confiance, de transparence, de conformité aux normes et aux réglementations. Découvrez comment l’équipe de réponse aux incidents mondiale de Microsoft permet d’atténuer les effets des attaques contre les services cloud, et comment la sécurité est intégrée dans les produits professionnels et services cloud Microsoft dans le [Centre de gestion de la confidentialité Microsoft - Sécurité](https://www.microsoft.com/trustcenter/security) et les objectifs de conformité Microsoft dans le [Centre de gestion de la confidentialité Microsoft - Conformité](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
 
@@ -337,7 +337,7 @@ Outre la gestion de vos comptes d’accès privilégié, nous vous recommandons 
 * N’accordez que l’accès privilégié nécessaire, et supprimez-le ensuite (juste-à-temps).
 * Conservez et passez en revue l’activité d’audit relative aux comptes privilégiés.
 
-Pour plus d’informations sur la création d’une feuille de route de sécurité complète, consultez les [ressources d’architecture informatique cloud de Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Pour plus d’informations sur l’aide que peuvent apporter les services Microsoft sur ces différents points, contactez votre représentant Microsoft ou consultez [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx) (Développer des cyber-défenses critiques pour protéger votre entreprise).
+Pour plus d’informations sur la création d’une feuille de route de sécurité complète, consultez les [ressources d’architecture informatique cloud de Microsoft](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Pour plus d’informations sur l’aide que peuvent apporter les services Microsoft sur ces différents points, contactez votre représentant Microsoft ou consultez [Build critical cyber defenses to protect your enterprise](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx) (Développer des cyber-défenses critiques pour protéger votre entreprise).
 
 Cette dernière étape de la feuille de route d’accès privilégié sécurisé comprend les composants suivants.
 
@@ -440,16 +440,16 @@ Pour plus d’informations sur la façon dont Microsoft Office 365 gère les inc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Centre de gestion de la confidentialité Microsoft - Sécurité produit](https://www.microsoft.com/en-us/trustcenter/security) : fonctionnalités de sécurité des produits et services cloud de Microsoft
+* [Centre de gestion de la confidentialité Microsoft - Sécurité produit](https://www.microsoft.com/trustcenter/security) : fonctionnalités de sécurité des produits et services cloud de Microsoft
 
-* [Centre de gestion de la confidentialité Microsoft - Conformité](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) : ensemble complet des offres de conformité de Microsoft pour les services cloud
+* [Centre de gestion de la confidentialité Microsoft - Conformité](https://www.microsoft.com/trustcenter/compliance/complianceofferings) : ensemble complet des offres de conformité de Microsoft pour les services cloud
 
-* [Conseils sur la réalisation d’une évaluation des risques](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment): gérez les exigences de sécurité et de conformité pour les services cloud de Microsoft
+* [Conseils sur la réalisation d’une évaluation des risques](https://www.microsoft.com/trustcenter/guidance/risk-assessment): gérez les exigences de sécurité et de conformité pour les services cloud de Microsoft
 
 ### <a name="other-ms-online-services"></a>Autres services en ligne MS 
 
-* [Microsoft Intune Security](https://www.microsoft.com/en-us/trustcenter/security/intune-security) : Intune fournit des fonctionnalités de gestion des appareils mobiles, de gestion des applications mobiles et de gestion des ordinateurs à partir du cloud.
+* [Microsoft Intune Security](https://www.microsoft.com/trustcenter/security/intune-security) : Intune fournit des fonctionnalités de gestion des appareils mobiles, de gestion des applications mobiles et de gestion des ordinateurs à partir du cloud.
 
-* [Sécurité de Microsoft Dynamics 365](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) : Dynamics 365 est la solution cloud de Microsoft qui centralise les fonctions de gestion de la relation client (CRM) et de planification des ressources d’entreprise (ERP).
+* [Sécurité de Microsoft Dynamics 365](https://www.microsoft.com/trustcenter/security/dynamics365-security) : Dynamics 365 est la solution cloud de Microsoft qui centralise les fonctions de gestion de la relation client (CRM) et de planification des ressources d’entreprise (ERP).
 
  

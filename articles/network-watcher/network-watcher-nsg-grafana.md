@@ -3,8 +3,8 @@ title: Gérer les journaux de flux des groupes de sécurité réseau avec Networ
 description: Gérez et analysez les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Grafana.
 services: network-watcher
 documentationcenter: na
-author: kumudD
-manager: timlt
+author: mattreatMSFT
+manager: vitinnan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: kumud
-ms.openlocfilehash: 44cf074223c88b8fa539144c0d948e68ae6cbd13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mareat
+ms.openlocfilehash: e375476536e7fe150e3aabcae7cee942deac02d5
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036524"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146509"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gérer les journaux de flux des groupes de sécurité réseau avec Network Watcher et Grafana
 
@@ -63,7 +63,7 @@ Logstash vous permet d’aplatir les journaux de flux au format JSON à un nivea
 
 3. Ajoutez le contenu suivant au fichier : Ajoutez le nom du compte de stockage et la clé d’accès correspondant à votre compte de stockage :
 
-    ```bash
+   ```bash
     input {
       azureblob
       {
@@ -133,9 +133,10 @@ Logstash vous permet d’aplatir les journaux de flux au format JSON à un nivea
         index => "nsg-flow-logs"
       }
     }
-    ```
+   ```
 
-Le fichier de configuration Logstash fourni comporte trois parties : l’entrée, le filtre et la sortie. La section d’entrée désigne la source d’entrée des journaux que Logstash va traiter. Dans ce cas, nous allons utiliser un plug-in d’entrée « azureblob » (installé dans les étapes suivantes) qui nous permettra d’accéder aux fichiers JSON de journalisation du flux des groupes de sécurité réseau qui sont stockés dans le stockage Blob. 
+Le fichier de configuration Logstash fourni comporte trois parties : l’entrée, le filtre et la sortie.
+La section d’entrée désigne la source d’entrée des journaux que Logstash va traiter. Dans ce cas, nous allons utiliser un plug-in d’entrée « azureblob » (installé dans les étapes suivantes) qui nous permettra d’accéder aux fichiers JSON de journalisation du flux des groupes de sécurité réseau qui sont stockés dans le stockage Blob. 
 
 La section de filtre aplatit ensuite chaque fichier journal du flux pour que chaque tuple de flux et les propriétés qui lui sont associées deviennent un événement Logstash à part entière.
 

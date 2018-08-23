@@ -2,25 +2,23 @@
 title: Créer un compte Azure Machine Learning - Expérimentation avec un modèle Azure Resource Manager | Microsoft Docs
 description: Cet article fournit un exemple pour créer un compte Azure Machine Learning - Expérimentation à l’aide d’un modèle Azure Resource Manager.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: jmartens, jasonwhowell, mldocs
+author: hning86
+ms.author: haining
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 65efee0eea5e2595ef8833788281c5ba60ca3a43
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830780"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146517"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configurer le service Azure Machine Learning - Expérimentation
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Un espace de travail, un projet et un compte de service Azure Machine Learning - Expérimentation sont des ressources Azure. Vous pouvez donc les déployer à l’aide de modèles Resource Manager. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, voir [Présentation d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="deploy-a-template"></a>Déploiement d’un modèle

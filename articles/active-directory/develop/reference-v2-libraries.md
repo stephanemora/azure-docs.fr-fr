@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1450cffca7a4cfa57856c75cdcc9e106958ea043
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f3ac6050ca73f96facd621823dc4bad413b139c7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600923"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140685"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliothèques d’authentification Azure Active Directory v2.0
 
@@ -44,7 +44,7 @@ Le point de terminaison Azure AD v2.0 prend en charge deux types de bibliothèqu
 
 ## <a name="library-support"></a>Prise en charge de la bibliothèque
 
-Étant donné que vous pouvez choisir n’importe quelle bibliothèque conforme aux normes lors de l’utilisation du point de terminaison v2.0, il est important de savoir où vous adresser pour la prise en charge. Pour tout problème ou demande de fonctionnalité au niveau du code de la bibliothèque, adressez-vous au propriétaire de la bibliothèque. Pour tout problème ou demande de fonctionnalité au niveau de l’implémentation du protocole côté service, adressez-vous à Microsoft. [Envoyez une demande de nouvelle fonctionnalité](https://feedback.azure.com/forums/169401-azure-active-directory) pour les fonctionnalités supplémentaires que vous aimeriez voir dans le protocole. [Créez une demande de support](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) si vous détectez un problème pour lequel le point de terminaison Azure AD v2.0 n’est pas compatible avec OAuth 2.0 ou OpenID Connect 1.0.
+Étant donné que vous pouvez choisir n’importe quelle bibliothèque conforme aux normes lors de l’utilisation du point de terminaison v2.0, il est important de savoir où vous adresser pour la prise en charge. Pour tout problème ou demande de fonctionnalité au niveau du code de la bibliothèque, adressez-vous au propriétaire de la bibliothèque. Pour tout problème ou demande de fonctionnalité au niveau de l’implémentation du protocole côté service, adressez-vous à Microsoft. [Envoyez une demande de nouvelle fonctionnalité](https://feedback.azure.com/forums/169401-azure-active-directory) pour les fonctionnalités supplémentaires que vous aimeriez voir dans le protocole. [Créez une demande de support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) si vous détectez un problème pour lequel le point de terminaison Azure AD v2.0 n’est pas compatible avec OAuth 2.0 ou OpenID Connect 1.0.
 
 Les bibliothèques sont classées en deux catégories de prise en charge :
 

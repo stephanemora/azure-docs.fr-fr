@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 44781c976afa94ebe3c8df8c7fd70c3e16956916
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870686"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142875"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Supprimer un locataire Azure Active Directory
 Quand un locataire est supprimé, toutes les ressources qu’il contient sont également supprimées. Vous devez préparer le locataire en réduisant ses ressources associées avant de le supprimer. Seul un administrateur général Azure Active Directory (Azure AD) peut supprimer un locataire Azure AD à partir du portail.
@@ -63,7 +63,7 @@ Déprovisionné (30 jours après l’état Désactivé) | Données supprimées (
 
 Vous pouvez placer un abonnement dans un état **Déprovisionné** à supprimer 3 jours après à l’aide du centre d’administration du Microsoft Store pour Entreprises. Cette fonctionnalité est bientôt disponible pour le centre d’administration Office 365.
 
-1. Connectez-vous au [centre d’administration du Microsoft Store pour Entreprises](https://businessstore.microsoft.com/en-us/manage/) avec un compte d’administrateur général du locataire. Si vous essayez de supprimer le locataire « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN de type admin@contoso.onmicrosoft.com.
+1. Connectez-vous au [centre d’administration du Microsoft Store pour Entreprises](https://businessstore.microsoft.com/manage/) avec un compte d’administrateur général du locataire. Si vous essayez de supprimer le locataire « Contoso » qui a le domaine initial par défaut contoso.onmicrosoft.com, connectez-vous avec un UPN de type admin@contoso.onmicrosoft.com.
 
 2. Accédez à l’onglet **Gérer** et sélectionnez **Produits et services**, puis choisissez l’abonnement à annuler. Après avoir cliqué sur **Annuler**, actualisez la page.
   

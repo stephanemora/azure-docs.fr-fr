@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: c3a91509238534bed37cfd169c66f37732546bfb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 06cccaeaea3ff43bd5a4100ef0d4628e8cc77254
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425117"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140859"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Didacticiel : Intégration d’Azure Active Directory avec Envoy
 
@@ -110,7 +110,7 @@ Dans cette section, vous activez l’authentification unique Azure AD dans le po
 
     ![Informations d’authentification unique dans Domaine et URL Envoy](./media/envoy-tutorial/tutorial_envoy_url.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<tenant-name>.Envoy.com`
+    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
     
     > [!NOTE] 
     > Cette valeur n’est pas la valeur réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Pour obtenir cette valeur, contactez [l’équipe du support Envoy](https://envoy.com/contact/).

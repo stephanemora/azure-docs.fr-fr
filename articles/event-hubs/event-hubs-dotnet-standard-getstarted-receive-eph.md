@@ -3,7 +3,7 @@ title: Recevoir des événements d’Azure Event Hubs avec une bibliothèque .Ne
 description: Prise en main de la réception des messages avec EventProcessorHost dans .NET Standard
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
-ms.author: sethm
-ms.openlocfilehash: fd74405c8ca95ca1a5880ab26bf87705bde217de
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127531"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41917700"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Bien démarrer avec la réception de messages à l’aide de l’hôte du processeur d’événements dans .NET Standard
 
@@ -192,9 +192,9 @@ Ajoutez les packages NuGet de la bibliothèque .NET Standard [ **Microsoft.Azure
                 Console.WriteLine("Registering EventProcessor...");
 
                 var eventProcessorHost = new EventProcessorHost(
-                    EhEntityPath,
+                    EventHubName,
                     PartitionReceiver.DefaultConsumerGroupName,
-                    EhConnectionString,
+                    EventHubConnectionString,
                     StorageConnectionString,
                     StorageContainerName);
 

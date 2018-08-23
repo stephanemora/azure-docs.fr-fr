@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 08/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188649"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141478"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Schéma d’événement Azure Event Grid pour Container Registry
 
@@ -97,7 +97,7 @@ Le schéma de l’événement de suppression d’une image est similaire :
 
 Un événement contient les données générales suivantes :
 
-| Propriété | Type | Description |
+| Propriété | type | Description |
 | -------- | ---- | ----------- |
 | rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
@@ -117,8 +117,6 @@ L’objet de données comporte les propriétés suivantes :
 | action | chaîne | Action qui englobe l’événement fourni. |
 | cible | objet | Cible de l’événement. |
 | request | objet | Requête ayant généré l’événement. |
-| actor | objet | Agent ayant lancé l’événement. Dans la plupart des cas, cette valeur peut provenir du contexte d’autorisation de la requête. |
-| source | objet | Nœud de registre ayant généré l’événement. Autrement dit, si l’acteur lance l’événement, la source le génère. |
 
 L’objet cible comporte les propriétés suivantes :
 
@@ -129,7 +127,6 @@ L’objet cible comporte les propriétés suivantes :
 | digest | chaîne | Résumé du contenu, tel que défini par la spécification d’API du Registre V2 HTTP. |
 | length | integer | Nombre d’octets du contenu. Identique au champ Taille. |
 | repository | chaîne | Nom du référentiel. |
-| url | chaîne | URL directe au contenu. |
 | tag | chaîne | Nom de la balise. |
 
 L’objet de requête comporte les propriétés suivantes :
@@ -141,19 +138,6 @@ L’objet de requête comporte les propriétés suivantes :
 | host | chaîne | Nom d’hôte accessible de l’extérieur pour l’instance du registre, tel que spécifié par l’en-tête d’hôte HTTP dans les requêtes entrantes. |
 | method | chaîne | Méthode de requête qui a généré l’événement. |
 | useragent | chaîne | En-tête d’agent utilisateur de la requête. |
-
-L’objet acteur comporte les propriétés suivantes :
-
-| Propriété | type | Description |
-| -------- | ---- | ----------- |
-| Nom | chaîne | Objet ou nom d’utilisateur associé au contexte de requête ayant généré l’événement. |
-
-L’objet source comporte les propriétés suivantes :
-
-| Propriété | type | Description |
-| -------- | ---- | ----------- |
-| addr | chaîne | Adresse IP ou nom d’hôte, et port du nœud de registre ayant généré l’événement. En règle générale, cette valeur est résolue par os.Hostname() avec le port en fonctionnement. |
-| instanceID | chaîne | Instance en cours d’exécution d’une application. Change après chaque redémarrage. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

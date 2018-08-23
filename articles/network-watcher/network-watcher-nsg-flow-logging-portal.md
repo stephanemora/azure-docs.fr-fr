@@ -18,11 +18,11 @@ ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776548"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41917702"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Didacticiel : enregistrer le trafic réseau vers et depuis une machine virtuelle à l’aide du portail Azure
 
@@ -50,7 +50,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Sélectionnez votre abonnement.|
     |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Lieu| Sélectionnez **Est des États-Unis**.|
+    |Lieu| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, acceptez toutes les valeurs par défaut, puis cliquez sur **OK**.
@@ -60,10 +60,10 @@ La création de la machine virtuelle ne nécessite que quelques minutes. Ne pass
 
 ## <a name="enable-network-watcher"></a>Activer Network Watcher
 
-Si vous avez déjà un observateur réseau activé dans la région États-Unis de l’Est, passez à l’étape [Inscription du fournisseur Insights](#register-insights-provider).
+Si vous avez déjà un observateur réseau activé dans la région USA Est, passez à l’étape [Inscription du fournisseur Insights](#register-insights-provider).
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats, sélectionnez-la.
-2. Sélectionnez la zone **Régions** pour la développer, puis sélectionnez **...** à droite de la région **Est des États-Unis**, comme illustré dans l’image suivante :
+2. Sélectionnez la zone **Régions** pour la développer, puis sélectionnez **...** à droite de la région **USA Est**, comme illustré dans l’image suivante :
 
     ![Activer Network Watcher](./media/network-watcher-nsg-flow-logging-portal/enable-network-watcher.png)
 
@@ -89,7 +89,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
     | Paramètre        | Valeur                                                        |
     | ---            | ---   |
     | NOM           | Contenant 3 à 24 caractères et uniquement des chiffres et des lettres minuscules, il doit être unique dans tous les comptes Stockage Azure.                                                               |
-    | Lieu       | Sélectionnez **Est des États-Unis**.                                           |
+    | Lieu       | Sélectionnez **USA Est**.                                           |
     | Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
 
     La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée. Si vous utilisez un compte de stockage existant au lieu d’en créer un, veillez à en sélectionner un pour lequel l’option **Tous les réseaux** (par défaut) est sélectionnée pour **Pare-feux et réseaux virtuels**, sous **PARAMÈTRES** pour le compte de stockage.

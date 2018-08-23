@@ -1,3 +1,20 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: f60c23e34962396d4ea6e030912d1ca3f3e4571b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40260188"
+---
 Il existe deux types de comptes de stockage :
 
 ### <a name="general-purpose-storage-accounts"></a>Comptes de stockage à usage général
@@ -25,5 +42,5 @@ Pour plus d’informations sur les comptes de stockage d’objets blob, voir [St
 
 Pour pouvoir créer un compte de stockage, vous devez posséder un abonnement Azure, c’est-à-dire un plan qui vous donne accès à divers services Azure. Pour la prise en main d’Azure, vous pouvez bénéficier d’un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/). Quand vous décidez d’acheter un plan d’abonnement, vous avez le choix entre plusieurs [options d’achat](https://azure.microsoft.com/pricing/purchase-options/). Si vous êtes [abonné à MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), vous bénéficiez de crédits mensuels gratuits que vous pouvez utiliser avec les services Azure, y compris Azure Storage. Pour plus d’informations sur la tarification des licences en volume, consultez la page [Prix appliqués à Azure Storage ](https://azure.microsoft.com/pricing/details/storage/) .
 
-Pour apprendre à créer un compte de stockage, consultez [Créer un compte de stockage](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) . Un seul abonnement vous permet de créer jusqu’à 200 comptes de stockage uniques. Pour plus d’informations sur les limites du compte de stockage, consultez la page [Objectifs de performance et évolutivité d’Azure Storage](../articles/storage/common/storage-scalability-targets.md) .
+Pour apprendre à créer un compte de stockage, consultez [Créer un compte de stockage](../articles/storage/common/storage-quickstart-create-account.md) . Un seul abonnement vous permet de créer jusqu’à 200 comptes de stockage uniques. Pour plus d’informations sur les limites du compte de stockage, consultez la page [Objectifs de performance et évolutivité d’Azure Storage](../articles/storage/common/storage-scalability-targets.md) .
 

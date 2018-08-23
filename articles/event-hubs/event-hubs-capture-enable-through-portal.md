@@ -3,7 +3,7 @@ title: Activer Azure Event Hubs Capture à l’aide du portail | Microsoft D
 description: Activez la fonctionnalité Event Hubs Capture à l’aide du portail Azure.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 39fbdba404bda9383c9164dd1ecd9cb23bfb5cd7
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: ff80bc2452c9826a5c51c146a957fddc72d2dbc2
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26855009"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918088"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Activer Event Hubs Capture à l’aide du portail Azure
 
@@ -46,7 +46,7 @@ Pour capturer des données vers Azure Data Lake Store, vous créez un compte Dat
 1. Pour créer un compte Data Lake Store, suivez les instructions de [Prise en main d’Azure Data Lake Store avec le portail Azure](../data-lake-store/data-lake-store-get-started-portal.md).
 2. Suivez les instructions de la section [Affecter des autorisations à des concentrateurs d’événements](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs) pour créer un dossier au sein du compte Data Lake Store dans lequel vous souhaitez capturer les données à partir de concentrateurs d’événements, et affecter des autorisations à des concentrateurs d’événements de sorte qu’ils puissent écrire des données dans votre compte Data Lake Store.  
 
-### <a name="create-an-event-hub"></a>Création d'un concentrateur d'événements
+### <a name="create-an-event-hub"></a>Créer un hub d’événements
 
 1. Remarque : le concentrateur d’événements doit se trouver dans le même abonnement Azure que le compte Azure Data Lake Store que vous venez de créer. Pour créer le concentrateur d’événements, cliquez sur le bouton **Activé** dans **Capture** sur la page **Créer un concentrateur d’événements** du portail. 
 2. Sur la page **Créer un concentrateur d’événements** du portail, sélectionnez **Azure Data Lake Store** dans la zone **Fournisseur de capture**.
