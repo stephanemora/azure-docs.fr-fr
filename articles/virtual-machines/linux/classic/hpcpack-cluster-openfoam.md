@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 73ad78fc73a7605f8feaf114ebdfac5023cc91b6
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342419"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140470"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Exécuter OpenFoam avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure
 Cet article vous montre une méthode d’exécution d’OpenFoam dans des machines virtuelles Azure. Ici, vous déployez un cluster Microsoft HPC Pack avec des nœuds de calcul Linux sur Azure, et exécutez une tâche [OpenFoam](http://openfoam.com/) avec Intel MPI. Vous pouvez utiliser des machines virtuelles Azure prenant en charge RDMA pour les nœuds de calcul, de sorte que ceux-ci communiquent sur le réseau RDMA Azure. Les autres options d’exécution d’OpenFoam dans Azure incluent des images commerciales entièrement configurées disponibles sur le Marketplace, notamment [OpenFoam 2.3 sur CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud) d’UberCloud, et l’exécution sur [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -46,7 +46,7 @@ Microsoft HPC Pack fournit des fonctionnalités permettant d’exécuter un éve
   * Après avoir déployé les nœuds Linux, connectez-vous à SSH pour effectuer toutes tâches administratives supplémentaires. Recherchez les détails de connexion SSH pour chaque machine virtuelle Linux dans le portail Azure.  
 * **Intel MPI** : pour exécuter OpenFOAM sur des nœuds de calcul SLES 12 HPC dans Azure, vous devez installer le runtime Intel MPI Library 5 que vous trouverez sur le [site Intel.com](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 est préinstallé sur des images HPC basées sur CentOS.)  Si nécessaire, vous devez ensuite installer Intel MPI sur vos nœuds de calcul Linux. Pour préparer cette étape, après votre inscription auprès d’Intel, suivez le lien vers la page web associée, figurant dans le message de confirmation. Ensuite, copiez le lien de téléchargement du fichier .tgz pour la version appropriée d’Intel MPI. Cet article est basé sur Intel MPI version 5.0.3.048.
 * **OpenFOAM Source Pack** : téléchargez le logiciel OpenFOAM Source Pack pour Linux à partir du [site d’OpenFOAM Foundation](http://openfoam.org/download/2-3-1-source/). Cet article est basé sur la version du Pack Source 2.3.1, disponible en téléchargement en tant que OpenFOAM 2.3.1.tgz. Suivez les instructions présentes plus loin dans cet article pour décompresser et compiler OpenFOAM sur les nœuds de calcul Linux.
-* **EnSight** (facultatif) : pour afficher les résultats de votre simulation OpenFOAM, téléchargez et installez le programme de visualisation et d’analyse [EnSight](https://www.ceisoftware.com/download/) . Les informations de licence et de téléchargement se trouvent sur le site EnSight.
+* **EnSight** (facultatif) : pour afficher les résultats de votre simulation OpenFOAM, téléchargez et installez le programme de visualisation et d’analyse [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) . Les informations de licence et de téléchargement se trouvent sur le site EnSight.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>Configuration de l’approbation mutuelle entre les nœuds de calcul
 L’exécution d’une tâche de nœuds croisés sur plusieurs nœuds Linux requiert une approbation mutuelle entre les nœuds (par **rsh** ou **ssh**). Lorsque vous créez le cluster HPC Pack avec le script de déploiement IaaS Microsoft HPC Pack, le script définit automatiquement l’approbation mutuelle permanente pour le compte administrateur que vous spécifiez. Pour les utilisateurs non administrateurs que vous créez dans le domaine du cluster, vous devez configurer l’approbation mutuelle temporaire entre les nœuds lorsqu’une tâche leur est allouée, puis détruire la relation une fois la tâche terminée. Pour établir l’approbation, pour chaque utilisateur, fournissez une paire de clés RSA au cluster que HPC Pack utilise pour la relation d’approbation.
@@ -362,7 +362,7 @@ Maintenant, vous pouvez envoyer un travail dans HPC Cluster Manager. Vous devez 
 10. Lorsque le travail se termine, recherchez les résultats du travail dans les dossiers sous C:\OpenFoam\sloshingTank3D et les fichiers journaux dans C:\OpenFoam.
 
 ## <a name="view-results-in-ensight"></a>Afficher les résultats dans EnSight
-Vous pouvez également utiliser [EnSight](https://www.ceisoftware.com/) pour visualiser et analyser les résultats du travail OpenFOAM. Pour plus d’informations sur la visualisation et l’animation dans EnSight, consultez le [guide vidéo](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
+Vous pouvez également utiliser [EnSight](http://www.ensight.com/) pour visualiser et analyser les résultats du travail OpenFOAM. Pour plus d’informations sur la visualisation et l’animation dans EnSight, consultez le [guide vidéo](http://www.ensight.com/ensight.com/envideo/).
 
 1. Après avoir installé EnSight sur le nœud principal, démarrez le service.
 2. Ouvrez C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.

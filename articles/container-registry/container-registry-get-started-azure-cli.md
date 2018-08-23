@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: marsma
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 78dc9eceba11ce07deb7fe0d10df1fea9cd74a75
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b17df81dd1d972f3e559140e9f43963e9c8cab2a
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426120"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42023492"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Démarrage rapide : Créer un registre de conteneurs à l’aide de l’interface de ligne de commande Azure
 
@@ -40,9 +40,7 @@ Dans ce démarrage rapide, vous allez créer un registre *De base*. Azure Contai
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
-Créez une instance ACR à l’aide de la commande [az acr create][az-acr-create].
-
-Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Dans l’exemple suivant, nous utilisons le nom *myContainerRegistry007*. Mettez à jour le nom de façon à utiliser une valeur unique.
+Créez une instance ACR à l’aide de la commande [az acr create][az-acr-create]. Le nom du registre doit être unique dans Azure et contenir entre 5 et 50 caractères alphanumériques. Dans l’exemple suivant, nous utilisons le nom *myContainerRegistry007*. Mettez à jour le nom de façon à utiliser une valeur unique.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -117,7 +115,7 @@ L’exemple suivant répertorie les référentiels d’un registre :
 az acr repository list --name <acrName> --output table
 ```
 
-Output:
+Sortie :
 
 ```bash
 Result
@@ -131,7 +129,7 @@ L’exemple suivant répertorie les étiquettes sur le référentiel **aci-hello
 az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
 ```
 
-Sortie :
+Output:
 
 ```bash
 Result

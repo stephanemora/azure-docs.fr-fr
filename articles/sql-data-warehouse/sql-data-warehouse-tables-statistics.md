@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 778da6d244561d87e7070ab244fd92dba043488e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643428"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140476"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Création, mise à jour de statistiques sur des tables dans Azure SQL Data Warehouse
 Recommandations et exemples pour la création et la mise à jour de statistiques d’optimisation des requêtes sur des tables dans Azure SQL Data Warehouse.
@@ -65,7 +65,10 @@ Une meilleure pratique consiste à mettre à jour les statistiques sur les colon
 
 Voici certaines recommandations pour la mise à jour des statistiques :
 
-| **Fréquence des mises à jour des statistiques** | Classique : quotidienne <br></br> Après le chargement ou la transformation de vos données | | **Échantillonnage** | Moins de 1 milliard de lignes, utilisez l’échantillonnage par défaut (20 %) <br></br> Avec des tables contenant plus de 1 milliard de lignes, des statistiques sur une plage de 2 pour cent représentent un taux correct |
+|||
+|-|-|
+| **Fréquence des mises à jour des statistiques**  | Classique : quotidienne <br></br> Après le chargement ou la transformation de données |
+| **Échantillonnage** |  Moins de 1 milliard de lignes, utiliser le taux d’échantillonnage par défaut (20 pour cent) <br></br> Avec des tables contenant plus de 1 milliard de lignes, des statistiques sur une plage de 2 pour cent représentent un taux correct |
 
 L’une des premières questions que vous devez vous poser quand vous dépannez une requête est la suivante : **« Les statistiques sont-elles à jour ? »**
 

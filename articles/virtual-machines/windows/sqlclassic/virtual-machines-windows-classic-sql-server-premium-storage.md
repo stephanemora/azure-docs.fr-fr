@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: 252e4f9fe5ed6b4ff9997fc41c691636e6d002b3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bb9e30489aa8870fe1c71c8c9a8bd557a2dcf2b1
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413536"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42145510"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilisation du stockage Premium Azure avec SQL Server sur des machines virtuelles
 ## <a name="overview"></a>Vue d'ensemble
@@ -645,7 +645,7 @@ Le code suivant exporte les paramètres VNN et le définit pour vous. Pour que l
 
 Dans une étape de migration ultérieure, vous devrez mettre à jour l’écouteur Always On avec une adresse IP mise à jour faisant référence à un équilibreur de charge, ce qui impliquera la suppression et l’ajout d’une ressource d’adresse IP. Après la mise à jour de l'adresse IP, vous devez vérifier que la nouvelle adresse IP a été mise à jour dans la zone DNS et que les clients ont mis à jour leur cache DNS local.
 
-Si vos clients résident dans un segment de réseau différent et référencent un autre serveur DNS, vous devez tenir compte de ce qui se passe au niveau du transfert de la zone DNS pendant la migration, car le délai de reconnexion de l’application est contraint au moins par le temps de transfert de la zone de toute nouvelle adresse IP pour l’écouteur. Si vous êtes pressé par le temps, vous devez étudier et forcer le test d'un transfert de zone incrémentiel avec vos équipes Windows, et également consigner l'enregistrement de l'hôte DNS en choisissant une durée de vie TTL (Time To Live) inférieure pour permettre aux clients de se mettre à jour. Pour plus d’informations, consultez [Transferts de zone incrémentiels](https://technet.microsoft.com/library/cc958973.aspx) et [Start-DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Si vos clients résident dans un segment de réseau différent et référencent un autre serveur DNS, vous devez tenir compte de ce qui se passe au niveau du transfert de la zone DNS pendant la migration, car le délai de reconnexion de l’application est contraint au moins par le temps de transfert de la zone de toute nouvelle adresse IP pour l’écouteur. Si vous êtes pressé par le temps, vous devez étudier et forcer le test d'un transfert de zone incrémentiel avec vos équipes Windows, et également consigner l'enregistrement de l'hôte DNS en choisissant une durée de vie TTL (Time To Live) inférieure pour permettre aux clients de se mettre à jour. Pour plus d’informations, consultez [Transferts de zone incrémentiels](https://technet.microsoft.com/library/cc958973.aspx) et [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
 
 Par défaut, la durée de vie (TTL) d’un enregistrement DNS associé à l’écouteur Always On dans Azure est de 1 200 secondes. Vous pouvez réduire ce paramètre si vous êtes pressé par le temps pendant votre migration afin de permettre aux clients de mettre à jour leurs DNS avec l'adresse IP mise à jour pour l'écouteur. Vous pouvez afficher et modifier la configuration en vidant la configuration du VNN :
 

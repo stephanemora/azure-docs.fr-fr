@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.component: ''
-ms.openlocfilehash: d7275bb0399ae5832e85089e44f4b9a1fe412747
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c6189291a9e944acde751a66cdb58f2052c73999
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262417"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42139850"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide Azure Monitor PowerShell
 Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights.
@@ -27,7 +27,7 @@ Cet article vous présente des exemples de commandes PowerShell qui vous aideron
 Si vous ne l’avez déjà fait, configurez PowerShell pour s’exécuter sur votre ordinateur. Pour plus d’informations, consultez l’article [Guide pratique pour installer et configurer PowerShell](/powershell/azure/overview).
 
 ## <a name="examples-in-this-article"></a>Exemples de cet article
-Les exemples de cet article montrent comment utiliser les applets de commande Azure Monitor. Vous pouvez également consulter la liste complète des applets de commande PowerShell Azure Monitor dans la rubrique [Applets de commande Azure Monitor (Insights)](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx).
+Les exemples de cet article montrent comment utiliser les applets de commande Azure Monitor. Vous pouvez également consulter la liste complète des applets de commande PowerShell Azure Monitor dans la rubrique [Applets de commande Azure Monitor (Insights)](https://docs.microsoft.com/powershell/module/azurerm.insights).
 
 ## <a name="sign-in-and-use-subscriptions"></a>Se connecter et utiliser des abonnements
 Tout d’abord, connectez-vous à votre abonnement Azure.
@@ -143,7 +143,7 @@ Le tableau suivant décrit les paramètres et les valeurs utilisés pour créer 
 | paramètre | value |
 | --- | --- |
 | NOM |simpletestdiskwrite |
-| Emplacement de cette règle d'alerte |Est des États-Unis |
+| Emplacement de cette règle d'alerte |USA Est |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName de l'alerte créée |\PhysicalDisk(_Total)\Disk Writes/sec. Pour savoir comment récupérer le nom exact des métriques, consultez l’applet de commande `Get-MetricDefinitions`. |

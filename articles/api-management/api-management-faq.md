@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 243f0b8206166e3e054dfc423259bd3444d8a2db
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7082edf43e53766d32bd967d0b894f6439eaa492
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589830"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140252"
 ---
 # <a name="azure-api-management-faqs"></a>FAQ sur la gestion des API Azure
 Découvrez les réponses aux questions les plus fréquentes, les modèles et les meilleures pratiques pour la gestion des API Azure.
@@ -78,7 +78,7 @@ Oui, vous pouvez gérer le service Gestion des API par programme en utilisant :
 
 * [L’API REST Gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
 * Le [Kit de développement logiciel (SDK) de la bibliothèque de gestion du service Gestion des API Microsoft Azure](http://aka.ms/apimsdk).
-* Les applets de commande PowerShell de [déploiement du service](https://msdn.microsoft.com/library/mt619282.aspx) et de [gestion du service](https://msdn.microsoft.com/library/mt613507.aspx).
+* Les applets de commande PowerShell de [déploiement du service](https://docs.microsoft.com/powershell/module/wds) et de [gestion du service](https://docs.microsoft.com/powershell/azure/servicemanagement/overview).
 
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Comment ajouter un utilisateur au groupe d’administrateurs ?
 Pour ajouter un utilisateur au groupe d’administrateurs, procédez comme suit :
@@ -87,7 +87,7 @@ Pour ajouter un utilisateur au groupe d’administrateurs, procédez comme suit 
 2. Accédez au groupe de ressources qui contient l’instance de gestion des API que vous souhaitez mettre à jour.
 3. Dans Gestion des API, attribuez le rôle **collaborateur de gestion des API** à l’utilisateur.
 
-Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de commande](https://msdn.microsoft.com/library/mt613507.aspx) Azure PowerShell. Voici comment se connecter en tant qu’administrateur :
+Le collaborateur nouvellement ajouté peut désormais utiliser les [applets de commande](https://docs.microsoft.com/powershell/azure/overview) Azure PowerShell. Voici comment se connecter en tant qu’administrateur :
 
 1. Utilisez l’applet de commande `Connect-AzureRmAccount` pour vous connecter.
 2. Définissez le contexte sur l’abonnement qui contient le service à l’aide de `Set-AzureRmContext -SubscriptionID <subscriptionGUID>`.

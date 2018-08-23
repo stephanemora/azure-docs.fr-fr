@@ -1,24 +1,24 @@
 ---
 title: Niveaux de zoom et grille mosaïque dans Azure Maps | Microsoft Docs
 description: En savoir plus sur les niveaux de zoom et la grille mosaïque dans Azure Maps
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 55441cda7a6fc65ac8103d19510823a7c84a9cbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c6d38dbb7ee292172fe081c2b77a49db61856d5c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599923"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140038"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveaux de zoom et grille mosaïque
 Azure Maps utilise le système de coordonnées de projection Spherical Mercator (EPSG : 3857).
 
-Le monde est divisé en mosaïques carrées. L’affichage en trames comporte 19 niveaux de zoom, numérotés de 0 à 18. L’affichage en vecteurs comporte 21 niveaux de zoom, numérotés de 0 à 20. Au niveau de zoom 0, le monde entier tient dans une seule mosaïque :
+Le monde est divisé en mosaïques carrées. L’affichage en trames comporte 21 niveaux de zoom, numérotés de 0 à 20. L’affichage en vecteurs comporte 23 niveaux de zoom, numérotés de 0 à 22. Au niveau de zoom 0, le monde entier tient dans une seule mosaïque :
 
 ![Mosaïque du monde](./media/zoom-levels-and-tile-grid/world0.png)
 
@@ -29,7 +29,7 @@ Le niveau de zoom 1 utilise quatre mosaïques pour afficher le monde : un carré
 ![Mosaïque du monde en bas à gauche](./media/zoom-levels-and-tile-grid/world1b.png)     ![Mosaïque du monde en bas à droite](./media/zoom-levels-and-tile-grid/world1d.png) 
 
 
-Chaque niveau de zoom suivant divise en quatre les mosaïques du précédent, en créant une grille de 2<sup>zooms</sup> x 2<sup>zooms</sup>. Le niveau de zoom 20 est une grille de 2<sup>20</sup> x 2<sup>20</sup>, ou de 1 048 576 x 1 048 576 mosaïques (109 951 162 778 mosaïques au total).
+Chaque niveau de zoom suivant divise en quatre les mosaïques du précédent, en créant une grille de 2<sup>zooms</sup> x 2<sup>zooms</sup>. Le niveau de zoom 22 est une grille de 2<sup>22</sup> x 2<sup>22</sup> ou de 4 194 304 x 4 194 304 mosaïques (17 592 186 044 416 mosaïques au total).
 
 Le tableau suivant fournit la liste complète de valeurs pour les niveaux de zoom :
 
@@ -56,6 +56,8 @@ Le tableau suivant fournit la liste complète de valeurs pour les niveaux de zoo
 |18|0,6|152.8|
 |19|0.3|76.4|
 |20|0.15|38.2|
+|21|0,075|19.1|
+|22|0,0375|9,55|
 
 Les mosaïques sont appelées selon le niveau de zoom et les coordonnées x et y correspondant à la position de la mosaïque sur la grille pour ce niveau de zoom.
 

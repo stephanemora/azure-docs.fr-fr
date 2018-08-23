@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2018
-ms.author: sethm
-ms.openlocfilehash: f25900ddffd9d8be008abbb3672a3f6a2eabd481
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: e65fc329af0af585caf20c26bd2ef79a1f39d501
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248111"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140480"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métriques Azure Event Hubs dans Azure Monitor (préversion)
 

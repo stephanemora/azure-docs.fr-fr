@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 261c26290a4a7c4b8bb22ada7f97470a6efa7a91
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576319"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140648"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Présentation des modules Azure IoT Edge
 
@@ -33,7 +33,11 @@ Chaque fois qu’une image de module est déployée sur un appareil et démarré
 
 ![Images de modules dans le cloud - instances de modules sur les appareils][1]
 
-Dans l’implémentation, les images de modules existent en tant qu’images de conteneurs dans un référentiel tandis que les instances de modules sont des conteneurs sur des appareils. À mesure que les cas d’usage pour Azure IoT Edge augmentent, de nouveaux types d’instances et d’images de modules seront créés. Par exemple, les appareils limités du point de vue des ressources ne peuvent pas exécuter des conteneurs, et peuvent donc nécessiter des images de modules qui existent en tant que bibliothèques de liens dynamiques et des instances qui sont des fichiers exécutables. 
+Dans l’implémentation, les images de modules existent en tant qu’images de conteneurs dans un référentiel tandis que les instances de modules sont des conteneurs sur des appareils. 
+
+<!--
+As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+-->
 
 ## <a name="module-identities"></a>Identités de modules
 

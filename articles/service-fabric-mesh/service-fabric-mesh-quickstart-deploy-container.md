@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 5359920ab32fab65df0466474aec2d305bcf633c
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091048"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023736"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Démarrage rapide : Déployer Hello World vers Service Fabric Mesh
 
@@ -27,7 +27,7 @@ ms.locfileid: "39091048"
 Si vous ne disposez pas d’un compte Azure, [créez-en un gratuitement](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="set-up-service-fabric-mesh-cli"></a>Configurer l’interface de ligne de commande Service Fabric Mesh 
-Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour procéder à ce démarrage rapide. Installez le module d’extension Azure Service Fabric Mesh CLI en suivant les [instructions](service-fabric-mesh-howto-setup-cli.md) indiquées ci-après.
+Vous pouvez utiliser le service Azure Cloud Shell ou une installation locale de l’interface Azure CLI pour procéder à ce démarrage rapide. Installez le module d’extension CLI de Service Fabric mesh en suivant les [instructions](service-fabric-mesh-howto-setup-cli.md) ci-après.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 Connectez-vous à Azure et définissez votre abonnement.
@@ -38,7 +38,7 @@ az account set --subscription "<subscriptionID>"
 ```
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
-Créez un groupe de ressources pour y déployer l’application. Vous pouvez utiliser un groupe de ressources existant et ignorer cette étape. 
+Créez un groupe de ressources dans lequel déployer l’application. Vous pouvez utiliser un groupe de ressources existant et ignorer cette étape. 
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus 
@@ -50,14 +50,14 @@ Créez votre application dans le groupe de ressources à l’aide de la commande
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
-La commande précédente déploie une application Linux à l’aide d’un [modèle mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Si vous souhaitez déployer une application Windows, utilisez un [modèle mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Les images conteneur de Windows sont plus grandes que celles de Linux, et leur déploiement peut nécessiter plus de temps.
+La commande précédente déploie une application Linux à l’aide du [modèle mesh_rp.linux.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json). Si vous souhaitez déployer une application Windows, utilisez le [modèle mesh_rp.windows.json](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json). Les images conteneur de Windows sont plus grandes que celles de Linux, et leur déploiement peut nécessiter plus de temps.
 
 En quelques minutes, la commande retourne :
 
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>Ouvrir l’application
-À l’issue du déploiement de l’application, copiez l’adresse IP publique du point de terminaison de service à partir de la sortie de l’interface CLI.  Ouvrez l’adresse IP dans un navigateur web. Une page web contenant le logo Azure Service Fabric Mesh s’affiche.
+À l’issue du déploiement de l’application, copiez l’adresse IP publique du point de terminaison de service à partir de la sortie de l’interface CLI. Ouvrez l’adresse IP dans un navigateur web. Une page web contenant le logo Azure Service Fabric Mesh s’affiche.
 
 ## <a name="check-the-application-details"></a>Vérifier les détails de l’application
 Vous pouvez vérifier l’état de l’application à l’aide de la commande `az mesh app show`. Cette commande fournit des informations utiles dont vous pouvez effectuer le suivi.
@@ -86,7 +86,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur la création et le déploiement d’applications Service Fabric Mesh, passez au didacticiel.
+Pour en savoir plus sur la création et le déploiement d’applications Service Fabric mesh, passez au didacticiel.
 > [!div class="nextstepaction"]
 > [Créer et déployer une application web multiservice](service-fabric-mesh-tutorial-create-dotnetcore.md)
 

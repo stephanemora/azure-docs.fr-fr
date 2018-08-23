@@ -2,24 +2,22 @@
 title: Surveillance des applications et des ressources Azure | Microsoft Docs
 description: Vue d’ensemble des services et fonctionnalités Microsoft qui contribuent à une stratégie de surveillance complète de vos services et applications Azure.
 author: bwren
-manager: carmonm
 editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
+services: azure-monitor
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: robb,bwren
-ms.openlocfilehash: 00ec9364a900510aeadcb68b19b57be528fb9c50
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 08/10/2018
+ms.author: bwren
+ms.openlocfilehash: 878765a1f84e0825e86def2b59310732b22aaacc
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30266925"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145535"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Surveillance des applications et des ressources Azure
 
@@ -56,7 +54,7 @@ Les [métriques](../monitoring-and-diagnostics/monitoring-overview-metrics.md) s
 ## <a name="core-monitoring"></a>Analyse principale
 L’analyse principale assure la surveillance essentielle et obligatoire des ressources Azure. Ces services nécessitent une configuration minimale et collectent des données de télémétrie de base utilisées par les services de surveillance Premium.    
 
-### <a name="azure-monitor"></a>Azure Monitor
+### <a name="azure-monitor"></a>Azure Monitor
 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) active l’analyse principale des services Azure en permettant la collecte de [mesures](../monitoring-and-diagnostics/monitoring-overview-metrics.md), de [journaux d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) et de [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Par exemple, le journal d’activité indique quand des ressources sont créées ou modifiées. 
 
 Les métriques fournissent des statistiques sur les performances pour différentes ressources, voire pour le système d’exploitation à l’intérieur d’une machine virtuelle. Vous pouvez afficher ces données avec un des explorateurs dans le portail Azure et créer des alertes en fonction de leurs mesures. Azure Monitor fournit les pipelines de mesures les plus rapides (de 5 minutes à 1 minute), vous devez ainsi l’utiliser pour les notifications et les alertes critiques de temps. 

@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b3d74086ee233da50138aff00d8da78aa0243a75
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9301291381450d20b387db42fbfc715988b6a149
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776496"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140464"
 ---
 # <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Tutoriel : notifications Push localisées vers des appareils iOS à l’aide d’Azure Notification Hubs 
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Dans ce tutoriel, vous effectuez les étapes suivantes :
 > * Envoyer des notifications de modèle localisé à partir de l’appareil
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Dans le tutoriel [Utilisation de Notification Hubs pour envoyer les dernières nouvelles] , vous avez créé une application qui se sert de **balises** pour s'abonner aux notifications relatives à différentes catégories de nouvelles. Cependant, de nombreuses applications sont destinées à plusieurs marchés et doivent donc être localisées. Cela signifie que le contenu des notifications proprement dites doit lui aussi être localisé et envoyé au bon ensemble d’appareils. Ce tutoriel vous montre comment utiliser la fonctionnalité de **modèle** de Notification Hubs pour facilement envoyer des notifications de dernières nouvelles localisées.
 
 > [!NOTE]
@@ -68,7 +68,6 @@ Ensuite, vous allez vous assurer que les appareils s'inscrivent avec un modèle 
 Pour plus d’informations sur les modèles, consultez l’article [Modèles](notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Compléter le tutoriel [Notifications Push à des appareils iOS spécifique](notification-hubs-ios-xplat-segmented-apns-push-notification.md) et rendre le code disponible car ce tutoriel s’appuie directement sur ce code.
 - Visual Studio 2012 ou une version ultérieure est facultative.
@@ -267,10 +266,10 @@ Dans ce tutoriel, vous avez envoyé des notifications localisées à des apparei
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
-[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: /manage/services/notification-hubs/breaking-news-ios
+[Utilisation de Notification Hubs pour envoyer les dernières nouvelles]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
 [Mobile Service]: /develop/mobile/tutorials/get-started
-[Notify users with Notification Hubs: ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
-[Notify users with Notification Hubs: Mobile Services]: /manage/services/notification-hubs/notify-users
+[Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

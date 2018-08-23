@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/01/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6602dc52675344b2e68fefd9eb97d3edcbd1745b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 6ca3128cd265b614dc1a1e4f21074018eacbed89
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413253"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140475"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Démarrage rapide : créer et interroger un entrepôt de données SQL Azure dans le portail Azure
 
@@ -135,7 +135,7 @@ Obtenez le nom complet de votre serveur SQL dans le portail Azure. Vous utiliser
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Se connecter au serveur comme administrateur du serveur
 
-Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) pour établir une connexion à votre serveur Azure SQL.
+Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) pour établir une connexion à votre serveur Azure SQL.
 
 1. Ouvrez SQL Server Management Studio.
 

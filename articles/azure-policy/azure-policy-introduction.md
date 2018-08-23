@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364426"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023944"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -119,19 +119,7 @@ Par exemple, vous pouvez créer une liste d’options de valeur dans une défini
 
 ## <a name="maximum-count-of-policy-objects"></a>Nombre maximal d’objets de stratégie Azure Policy
 
-Il existe un nombre maximal pour chaque type d’objet pour Azure Policy. Une entrée _Scope (Étendue)_ fait référence soit à l’abonnement soit au groupe d’administration.
-
-| Where | Quoi | Nombre maximal |
-|---|---|---|
-| Étendue | Définitions de stratégies | 250 |
-| Étendue | Définitions d’initiative | 100 |
-| Locataire | Définitions d’initiative | 1 000 |
-| Étendue | Affectations d'initiative/de stratégie | 100 |
-| Définition de stratégie | parameters | 20 |
-| Définition d’initiative | Stratégies | 100 |
-| Définition d’initiative | parameters | 100 |
-| Affectations d'initiative/de stratégie | Exclusion (notScopes) | 100 |
-| Règle de stratégie | Éléments conditionnels imbriqués | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## <a name="recommendations-for-managing-policies"></a>Recommandations pour la gestion des stratégies
 
@@ -156,5 +144,5 @@ Maintenant que vous avez une vue d’ensemble d’Azure Policy et des autres con
 - [Affecter une définition de stratégie](assign-policy-definition.md)
 - [Affecter une définition de stratégie avec Azure CLI](assign-policy-definition-cli.md)
 - [Affecter une définition de stratégie avec PowerShell](assign-policy-definition-ps.md)
-- Pour en savoir plus sur les groupes d’administration, consultez [Organize your resources with Azure management groups (Organiser vos ressources avec des groupes d’administration Azure)](../azure-resource-manager/management-groups-overview.md).
+- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../azure-resource-manager/management-groups-overview.md).
 - Regarder [Govern your Azure environment through Azure Policy (Gouvernance de votre environnement Azure à l’aide d’Azure Policy)](https://channel9.msdn.com/events/Build/2018/THR2030) sur Channel 9

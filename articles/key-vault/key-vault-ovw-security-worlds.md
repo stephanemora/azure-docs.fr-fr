@@ -2,22 +2,22 @@
 ms.assetid: ''
 title: Mondes de sécurité Azure Key Vault | Microsoft Docs
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
 ms.date: 07/03/2017
-ms.openlocfilehash: aeab36153d3a4e004d12206bab92cea9b30400ad
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 7fd7357a317d5059d6169de2c1536568a254e016
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27928098"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145308"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Mondes de sécurité Azure Key Vault et limites géographiques
 
 Azure Key Vault est un service mutualisé qui utilise un pool de modules de sécurité matériel (HSM) dans chaque emplacement Azure. 
 
-Tous les modules de sécurité matériel présents dans les emplacements Azure au sein d’une même région géographique partagent la même limite de chiffrement (monde de sécurité Thales). Par exemple, les régions États-Unis de l’Est et États-Unis de l’Ouest partagent le même monde de sécurité car elles appartiennent à l’emplacement géographique États-Unis. De même, tous les emplacements Azure au Japon partagent le même monde de sécurité, tout comme les emplacements Azure en Australie, en Inde, etc. 
+Tous les modules de sécurité matériel présents dans les emplacements Azure au sein d’une même région géographique partagent la même limite de chiffrement (monde de sécurité Thales). Par exemple, les régions USA Est et USA Ouest partagent le même monde de sécurité car elles appartiennent à l’emplacement géographique USA. De même, tous les emplacements Azure au Japon partagent le même monde de sécurité, tout comme les emplacements Azure en Australie, en Inde, etc. 
 
 ## <a name="backup-and-restore-behavior"></a>Comportement de sauvegarde et de restauration
 
@@ -26,7 +26,7 @@ La sauvegarde d’une clé d’un coffre de clés dans un emplacement Azure peut
 - Les deux emplacements Azure appartiennent à la même région géographique
 - Les deux coffres de clés appartiennent au même abonnement Azure
 
-Par exemple, la sauvegarde d’une clé effectuée par un abonnement spécifique dans un coffre de clés en Inde de l’Ouest peut uniquement être restaurée dans un coffre de clés appartenant aux mêmes abonnement et emplacement géographique (Inde de l’Ouest, Centre de l’Inde ou Inde du Sud).
+Par exemple, la sauvegarde d’une clé effectuée par un abonnement spécifique dans un coffre de clés dans la région Inde Ouest peut uniquement être restaurée dans un coffre de clés appartenant aux mêmes abonnement et emplacement géographique (Inde Ouest, Inde Centre ou Inde Sud).
 
 ## <a name="regions-and-products"></a>Régions et produits
 

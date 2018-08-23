@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c43c15131afb5fbf346b0137dac566f5331c65a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f89c97f1220c0e949912a3002021eca20f91441d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776370"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42139851"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>Inscription de l’utilisateur actif aux notifications Push à l’aide d’ASP.NET
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "33776370"
 > 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cette rubrique montre comment demander une inscription aux notifications Push avec Azure Notification Hubs lorsque l’inscription est réalisée par l’API Web ASP.NET. Cette rubrique s'inscrit dans le prolongement du didacticiel [Notification des utilisateurs avec Notification Hubs]. Vous devez avoir suivi les étapes de ce didacticiel permettant de créer le service mobile authentifié. Pour plus d'informations sur les scénarios de notification des utilisateurs, consultez la rubrique [Notification des utilisateurs avec Notification Hubs].
 
 ## <a name="update-your-app"></a>Mise à jour de votre application
@@ -99,7 +99,7 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    La première ligne initialise le singleton **DeviceInfo** . La seconde ligne lance l’inscription aux notifications Push, déjà présente si vous avez préalablement suivi le tutoriel [Bien démarrer avec Notification Hubs].
+    La première ligne initialise le singleton **DeviceInfo** . La seconde ligne lance l’inscription aux notifications Push, déjà présente si vous avez préalablement suivi le tutoriel [Prise en main de Notification Hubs].
 7. Dans PushToUserAppDelegate.m, implémentez la méthode **didRegisterForRemoteNotificationsWithDeviceToken** dans AppDelegate et ajoutez le code suivant :
    
         self.deviceInfo.deviceToken = deviceToken;
@@ -107,7 +107,7 @@ Cette rubrique montre comment demander une inscription aux notifications Push av
     Cela définit le jeton d’appareil de la requête.
    
    > [!NOTE]
-   > À ce stade, il ne doit pas y avoir d’autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée lorsque vous avez suivi le didacticiel [Prise en main de Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/) , vous devez placer l'appel en commentaire ou le supprimer.
+   > À ce stade, il ne doit pas y avoir d’autre code dans cette méthode. S'il existe déjà un appel à la méthode **registerNativeWithDeviceToken** que vous avez ajoutée lorsque vous avez suivi le didacticiel [Prise en main de Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md) , vous devez placer l'appel en commentaire ou le supprimer.
    > 
    > 
 8. Dans le fichier PushToUserAppDelegate.m, ajoutez la méthode de gestionnaire suivante :
@@ -218,6 +218,6 @@ Maintenant que l'application cliente est à jour, retournez au didacticiel [Noti
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[Notification des utilisateurs avec Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
+[Notification des utilisateurs avec Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[Bien démarrer avec Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Prise en main de Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md

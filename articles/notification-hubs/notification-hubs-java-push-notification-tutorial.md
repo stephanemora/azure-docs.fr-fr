@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 88e3ab3cc03cc1e760672120bc5c484af1ba4722
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fe20cf9c9137dc1ca41d3b8e2445bac079fb33fc
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778373"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145111"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Utilisation de Notification Hubs à partir de Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -288,11 +288,11 @@ Cette rubrique vous a montré comment créer un client REST Java simple pour Not
   * [Envoi de notifications multiplateforme aux utilisateurs authentifiés]
 
 [Kit de développement logiciel (SDK) Java]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Prise en main de Notification Hubs]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Envoi des dernières nouvelles]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
-[Envoi de dernières nouvelles localisées]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
-[Envoi de notifications aux utilisateurs authentifiés]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
-[Envoi de notifications multiplateforme aux utilisateurs authentifiés]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Prise en main de Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[Envoi des dernières nouvelles]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+[Envoi de dernières nouvelles localisées]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+[Envoi de notifications aux utilisateurs authentifiés]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Envoi de notifications multiplateforme aux utilisateurs authentifiés]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Maven]: http://maven.apache.org/
 

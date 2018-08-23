@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 50fb5eeea5e3d6a2f991e92ae9c188822ddb40b0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 18a9709893533c2c0b606077a126437282f9195e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528730"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42140250"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Machines virtuelles dans un modèle Azure Resource Manager
 
@@ -280,7 +280,7 @@ Pour définir cette propriété, l’interface réseau doit exister. Vous avez d
 Plusieurs éléments de profil sont utilisés lors de la définition d’une ressource de machine virtuelle. Certains sont obligatoires, et d’autres facultatifs. Par exemple, les éléments hardwareProfile, osProfile, storageProfile et networkProfile sont requis, mais diagnosticsProfile est facultatif. Ces profils définissent des paramètres tels que :
    
 - [taille](sizes.md)
-- [nom](/architecture/best-practices/naming-conventions) et informations d’identification
+- [nom](/azure/architecture/best-practices/naming-conventions) et informations d’identification
 - disque et [paramètres du système d’exploitation](cli-ps-findimage.md)
 - [interface réseau](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - diagnostics de démarrage

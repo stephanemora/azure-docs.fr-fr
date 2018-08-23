@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 02/15/2018
 ms.author: jroth
-ms.openlocfilehash: 228d2852d9554d378dc663e74460da7ab80d4b24
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bebb153d5ff840a0eed7d6afffccd03a5236592d
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602720"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42023735"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Démarrage rapide : créer une machine virtuelle Windows SQL Server avec Azure PowerShell
 
@@ -83,7 +83,7 @@ Ce démarrage rapide requiert le module Azure PowerShell version 3.6 ou ultérie
 
    # Create a virtual network
    $Vnet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
-      -Name VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
+      -Name $VnetName -AddressPrefix 192.168.0.0/16 -Subnet $SubnetConfig
 
    # Create a public IP address and specify a DNS name
    $Pip = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
@@ -180,7 +180,7 @@ Pour obtenir les fonctionnalités d’intégration au portail et de machine virt
 
 Vous êtes désormais connecté localement à SQL Server. Si vous souhaitez vous connecter à distance, il vous faut [configurer la connectivité](virtual-machines-windows-sql-connect.md) à partir du portail ou manuellement.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous n’avez pas besoin que la machine virtuelle fonctionne en permanence, vous pouvez éviter les dépenses inutiles en l’arrêtant lorsque vous ne vous en servez pas. La commande suivante arrête la machine virtuelle, tout en la laissant disponible pour une utilisation future.
 

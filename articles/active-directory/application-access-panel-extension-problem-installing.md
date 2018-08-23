@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 00dade0926f9f2601757ac637e21737027f24c45
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 642f07be0eb58e4d10630bc4482d26bd00e08a94
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332607"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140273"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Installer l’extension de navigateur du volet d’accès
 
@@ -87,8 +87,8 @@ Vous pouvez également télécharger l’extension pour Chrome et Edge directeme
        Les trois dernières applications que vous avez utilisées sont affichées dans la liste de raccourcis **Récemment utilisé**.
        
 * Pour utiliser à distance les URL internes de la société, suivez les étapes ci-dessous :
-    1. [Configurez le proxy d’application](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) sur votre client.
-    2. [Publiez l’application](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) et l’URL via le proxy d’application.
+    1. [Configurez le proxy d’application](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) sur votre client.
+    2. [Publiez l’application](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) et l’URL via le proxy d’application.
     3. Installez l’extension et connectez-vous-y en sélectionnant Connectez-vous pour commencer.
     4. Vous pouvez à présent accéder à l’URL interne de la société, même à distance.
 

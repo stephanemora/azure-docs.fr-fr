@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70d5c777f98a1e09125c7ef42ba597009bde084b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c13da6ff7c864ffa365dbad33d6eb0cf2e35fa42
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194332"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146163"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ressources de certificats dans Azure Automation
 
@@ -83,7 +83,7 @@ New-AzureRmAutomationCertificate -AutomationAccountName "MyAutomationAccount" -N
 
 ## <a name="using-a-certificate"></a>Utilisation d’un certificat
 
-Pour utiliser un certificat, vous devez utiliser l’activité **Get-AutomationCertificate**. Vous ne pouvez pas utiliser l’applet de commande [Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx) dans la mesure où elle retourne des informations sur la ressource de certificat, mais pas le certificat lui-même.
+Pour utiliser un certificat, vous devez utiliser l’activité **Get-AutomationCertificate**. Vous ne pouvez pas utiliser l’applet de commande [Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-6.6.0) dans la mesure où elle retourne des informations sur la ressource de certificat, mais pas le certificat lui-même.
 
 ### <a name="textual-runbook-sample"></a>Exemple de Runbook textuel
 

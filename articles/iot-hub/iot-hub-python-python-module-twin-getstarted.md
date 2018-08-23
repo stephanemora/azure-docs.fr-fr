@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 7ef4d00f34cdf35c670099baa6c3bc655d94afb4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5a4d9debfcc48279bbb56df076a77a5c8b44e231
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034436"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144010"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Bien démarrer avec le jumeau de module et l’identité de module IoT Hub en utilisant un backend Python et un appareil Python
 
@@ -38,7 +38,6 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Votre IoT Hub est maintenant créé et vous connaissez le nom d’hôte et la chaîne de connexion à IoT Hub dont vous avez besoin pour terminer ce qu’il reste du didacticiel.
 
-<a id="DeviceIdentity_csharp"></a>
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Créer une identité d’appareil et une identité de module dans IoT Hub
 
 Dans cette section, vous allez créer une application Python qui crée une identité d’appareil et une identité de module dans le registre des identités de votre hub IoT. Un appareil ou un module ne peut pas se connecter à IoT Hub, à moins de posséder une entrée dans le registre des identités. Reportez-vous à la section Registre d’identité du [Guide du développeur IoT Hub][lnk-devguide-identity] pour plus d’informations. En exécutant cette application console, une clé et un ID uniques sont générés pour chaque appareil et module. Votre appareil et le module utilisent ces valeurs pour s’identifier lorsqu’ils envoient des messages d’appareil-à-cloud à IoT Hub. Les ID sont sensibles à la casse.
@@ -80,8 +79,6 @@ Cette application crée une identité d’appareil avec l’ID **myFirstDevice**
 > [!NOTE]
 > Le registre des identités IoT Hub stocke uniquement les identités des appareils et des modules pour permettre un accès sécurisé à IoT Hub. Le registre des identités stocke les ID et les clés d’appareil à utiliser en tant qu’informations d’identification de sécurité. Il stocke également un indicateur activé/désactivé pour chaque appareil pouvant être utilisé pour désactiver l’accès de cet appareil. Si votre application a besoin de stocker d’autres métadonnées spécifiques aux appareils, elle doit utiliser un magasin spécifique aux applications. Il n’y a aucun indicateur d’activation/désactivation pour les identités de module. Pour plus d’informations, reportez-vous au [Guide du développeur IoT Hub][lnk-devguide-identity].
 
-
-<a id="D2C_csharp"></a>
 ## <a name="update-the-module-twin-using-python-device-sdk"></a>Mettre à jour le jumeau de module à l’aide du SDK d’appareil Python
 
 Dans cette section, vous allez créer sur votre appareil simulé une application Python qui met à jour les propriétés signalées du jumeau de module.

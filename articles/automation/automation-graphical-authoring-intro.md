@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437873"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140058"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Création de graphiques dans Azure Automation
 
@@ -332,7 +332,7 @@ Chaque paramètre d'entrée est défini par les propriétés figurant dans le ta
 
 ### <a name="runbook-output"></a>Sortie de Runbook
 
-Les données créées par toute activité qui ne dispose pas d'un lien sortant sont enregistrées dans la [sortie du Runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). La sortie est enregistrée avec la tâche du Runbook et est disponible pour un Runbook parent lorsque le Runbook est utilisé en tant qu'enfant.
+Les données créées par toute activité qui ne dispose pas d'un lien sortant sont enregistrées dans la [sortie du Runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). La sortie est enregistrée avec la tâche du Runbook et est disponible pour un Runbook parent lorsque le Runbook est utilisé en tant qu'enfant.
 
 ## <a name="powershell-expressions"></a>Expressions PowerShell
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: 7ab755972760d5f262e00ca4aaf284c8d2847460
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 70efdf1fb2c1b8411e922f16fdf401d1bf428d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528280"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145736"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Utilisation du stockage de files d'attente à partir de PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -416,7 +416,7 @@ Maintenant que vous connaissez les bases du stockage des files d’attente Azure
 * Visitez les [informations de référence sur l’API pour la bibliothèque de client PHP Stockage Azure](http://azure.github.io/azure-storage-php/)
 * Consultez l’[exemple de file d’attente avancée](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
-Pour plus d’informations, consultez également le [Centre pour développeurs PHP](/develop/php/).
+Pour plus d’informations, consultez également le [Centre pour développeurs PHP](https://azure.microsoft.com/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php

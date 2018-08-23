@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "34630423"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145753"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C
 
@@ -147,7 +147,7 @@ Si vous utilisez TPM, suivez les instructions de [« Créer et approvisionner un
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service DPS.
+2. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre instance Device Provisioning Service.
    - Inscription individuelle X **.** 509 : dans le panneau de résumé du service d’approvisionnement, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, chargez le certificat de nœud terminal comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
    - Inscription de groupe X **.** 509 : dans le panneau de résumé du service d’approvisionnement, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions de groupe** et cliquez sur le bouton **Ajouter** dans la partie supérieure. Sélectionnez **X**.**509** en tant que *mécanisme* d’attestation d’identité, entrez un nom de groupe et un nom de certification, chargez le certificat d’autorité de certification/intermédiaire comme requis par le panneau. Cela fait, cliquez sur le bouton **Enregistrer**. 
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1d11b7d8f008c8ba000530e0486562882bfe3db3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bc03bbf63427061c8d9f9e96ebcd9dce84f9fccf
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193891"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140651"
 ---
 # <a name="runbook-input-parameters"></a>Paramètres d’entrée de Runbook
 
@@ -80,7 +80,7 @@ Pour configurer un Runbook graphique avec des paramètres d’entrée, nous allo
 
 [**Authentifier des Runbooks avec un compte d’identification Azure**](automation-sec-configure-azure-runas-account.md) pour s’authentifier avec Azure.
 
-[**Get-AzureRmVm**](https://msdn.microsoft.com/library/mt603718.aspx) pour récupérer les propriétés d’une machine virtuelle.
+[**Get-AzureRmVm**](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvm) pour récupérer les propriétés d’une machine virtuelle.
 
 Vous pouvez utiliser l’activité [**Write-Output**](https://technet.microsoft.com/library/hh849921.aspx) pour renvoyer les noms de machines virtuelles. L’activité **Get-AzureRmVm** accepte deux paramètres : le **nom de machine virtuelle** et le **nom du groupe de ressources**. Étant donné que ces paramètres peuvent nécessiter des valeurs différentes chaque fois que vous démarrez le Runbook, vous pouvez ajouter des paramètres d’entrée à votre Runbook. Voici les étapes pour ajouter des paramètres d’entrée :
 
@@ -147,7 +147,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>Démarrer un Runbook publié à l’aide d’applets de commande PowerShell et affecter des paramètres
 
-* **Applets de commande d’Azure Resource Manager :** vous pouvez démarrer un Runbook Automation créé dans un groupe de ressources à l’aide de l’applet de commande [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx).
+* **Applets de commande d’Azure Resource Manager :** vous pouvez démarrer un Runbook Automation créé dans un groupe de ressources à l’aide de l’applet de commande [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook).
   
   **Exemple :**
   
@@ -156,7 +156,7 @@ Dans l'étiquette située sous la zone d'entrée, vous pouvez voir les attributs
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Cmdlets du modèle de déploiement Azure Classic :** vous pouvez démarrer un runbook Automation créé dans un groupe de ressources par défaut à l’aide de [Start-AzureAutomationRunbook](https://msdn.microsoft.com/library/dn690259.aspx).
+* **Cmdlets du modèle de déploiement Azure Classic :** vous pouvez démarrer un runbook Automation créé dans un groupe de ressources par défaut à l’aide de [Start-AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
   **Exemple :**
   

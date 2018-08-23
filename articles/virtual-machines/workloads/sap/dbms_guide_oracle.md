@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bda1c4074db123294ffde39e5c4cd5494474ca38
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2daa624dd7912d09f01e5bab5dc6de9cc14a771c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075385"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42145734"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Déploiement SGBD de machines virtuelles Oracle Azure pour charge de travail SAP
 
@@ -311,9 +311,9 @@ ms.locfileid: "39075385"
 
 
 ## <a name="specifics-to-oracle-database"></a>Caractéristiques d’Oracle Database
-Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Azure. Pour plus d’informations sur la prise en charge générale de Windows Hyper-V et d’Azure, consultez : <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Azure. Pour plus d’informations sur la prise en charge générale de Windows Hyper-V et d’Azure, consultez : <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
-Outre la prise en charge générale, le scénario spécifique des applications SAP exploitant les bases de données Oracle est également pris en charge. Les détails sont évoqués dans le document. Condition préalable à ce document, vous devez avoir lu le document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP) et d’autres guides de la [documentation sur la charge de travail SAP sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
+Outre la prise en charge générale, le scénario spécifique des applications SAP exploitant les bases de données Oracle est également pris en charge. Les détails sont évoqués dans le document. Condition préalable à ce document, vous devez avoir lu le document [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md) et d’autres guides de la [documentation sur la charge de travail SAP sur Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
 Les versions Oracle et les versions de systèmes d’exploitation correspondantes prises en charge pour l’exécution de SAP sur Oracle dans des machines virtuelles Azure sont répertoriées dans la note SAP [2039619].
 
@@ -378,13 +378,13 @@ Oracle Data Guard est pris en charge à des fins de haute disponibilité et de r
 Les aspects de la récupération d'urgence pour les bases de données Oracle dans Azure sont présentés dans l’article [Récupération d'urgence d’une base de données Oracle Database 12c dans un environnement Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
 ### <a name="accelerated-networking"></a>Mise en réseau accélérée
-Pour les déploiements Oracle sur Windows, il est fortement recommandé d’utiliser la fonctionnalité Azure de mise en réseau accélérée, comme décrit dans le document [Mise en réseau accélérée Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Consultez aussi les recommandations dans [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considérations relatives au déploiement SGBD de machines virtuelles Azure pour la charge de travail SAP). 
+Pour les déploiements Oracle sur Windows, il est fortement recommandé d’utiliser la fonctionnalité Azure de mise en réseau accélérée, comme décrit dans le document [Mise en réseau accélérée Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Consultez aussi les recommandations dans [Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP](dbms_guide_general.md). 
 
 ### <a name="other"></a>Autres
 Tous les autres sujets généraux, notamment les groupes à haute disponibilité Azure ou la surveillance SAP, s’appliquent à Oracle Database, comme décrit dans [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) (Considérations relatives au déploiement SGBD de machines virtuelles Azure pour la charge de travail SAP) pour le déploiement de machines virtuelles.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Caractéristiques d’Oracle Database sur Oracle Linux
-Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Azure, avec Oracle Linux comme système d'exploitation invité. Pour plus d’informations sur la prise en charge générale de Windows Hyper-V et d’Azure, consultez : <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Les logiciels Oracle sont pris en charge par Oracle pour s’exécuter dans Microsoft Azure, avec Oracle Linux comme système d'exploitation invité. Pour plus d’informations sur la prise en charge générale de Windows Hyper-V et d’Azure, consultez : <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Outre la prise en charge générale, le scénario spécifique des applications SAP exploitant les bases de données Oracle est également pris en charge. Les détails sont évoqués dans cette partie du document.
 

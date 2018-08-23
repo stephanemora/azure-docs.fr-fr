@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3de8711c2e99459ccf5d85dcb12d6ff2d38b700d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 05da900e9ddf4cbb99df5c6d62ddb569059e2c4b
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192970"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42139840"
 ---
 # <a name="managing-azure-automation-data"></a>Gestion des données Azure Automation
 Cet article contient plusieurs rubriques concernant la gestion d’un environnement Azure Automation.
@@ -34,7 +34,7 @@ Le tableau suivant récapitule la stratégie de rétention pour les différentes
 | Runbooks |Supprimés définitivement 90 jours après suppression de la ressource par un utilisateur ou 90 jours après la suppression par un utilisateur du compte qui contient la ressource. |
 | Tâches |Effacés et supprimés définitivement 90 jours après la dernière modification. Cela peut avoir lieu après la fin du travail, son arrêt ou sa suspension. |
 | Configurations de nœud/fichiers MOF |L’ancienne configuration de nœud est supprimée définitivement 90 jours après la génération d'une nouvelle configuration de nœud. |
-| Nœuds DSC |Supprimés définitivement 90 jours après l’annulation de l’enregistrement du nœud dans le compte Automation à l'aide du portail Azure ou de l’applet de commande Windows PowerShell [Unregister-AzureRMAutomationDscNode](https://msdn.microsoft.com/library/mt603500.aspx) . Les nœuds sont également supprimés définitivement 90 jours après la suppression du compte comprenant le nœud par un utilisateur. |
+| Nœuds DSC |Supprimés définitivement 90 jours après l’annulation de l’enregistrement du nœud dans le compte Automation à l'aide du portail Azure ou de l’applet de commande Windows PowerShell [Unregister-AzureRMAutomationDscNode](https://docs.microsoft.com/powershell/module/azurerm.automation/unregister-azurermautomationdscnode) . Les nœuds sont également supprimés définitivement 90 jours après la suppression du compte comprenant le nœud par un utilisateur. |
 | Rapports sur le nœud |Supprimés définitivement 90 jours après la création d'un nouveau rapport pour le nœud en question. |
 
 La stratégie de rétention s’applique à tous les utilisateurs et ne peut actuellement pas être personnalisée.
@@ -45,7 +45,7 @@ Toutefois, si vous souhaitez conserver les données pendant une période plus lo
 Lorsque vous supprimez un compte Automation dans Microsoft Azure, tous les objets du compte sont supprimés, notamment les Runbooks, les modules, les configurations, les paramètres, les tâches et les éléments multimédia. Il est impossible de récupérer les objets une fois que le compte a été supprimé.  Vous pouvez utiliser les informations suivantes pour sauvegarder le contenu de votre compte Automation avant de le supprimer. 
 
 ### <a name="runbooks"></a>Runbooks
-Vous pouvez exporter vos Runbooks vers vos fichiers de script en utilisant soit le portail Azure, soit l’applet de commande [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) dans Windows PowerShell.  Ces fichiers de script peuvent être importés dans un autre compte Automation, comme indiqué dans l’article [Création ou importation d'un Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+Vous pouvez exporter vos Runbooks vers vos fichiers de script en utilisant soit le portail Azure, soit l’applet de commande [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) dans Windows PowerShell.  Ces fichiers de script peuvent être importés dans un autre compte Automation, comme indiqué dans l’article [Création ou importation d'un Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### <a name="integration-modules"></a>Modules d'intégration
 Vous ne pouvez pas exporter les modules d'intégration depuis Azure Automation.  Vous devez vous assurer qu'ils sont disponibles à l'extérieur du compte Automation.
@@ -53,14 +53,14 @@ Vous ne pouvez pas exporter les modules d'intégration depuis Azure Automation.
 ### <a name="assets"></a>Éléments multimédias
 Vous ne pouvez pas exporter d’ [éléments](https://msdn.microsoft.com/library/dn939988.aspx) depuis Azure Automation.  À l'aide du portail Azure, vous devez noter les détails des variables, des informations d'identification, des certificats, des connexions et des planifications.  Vous devez ensuite créer manuellement les ressources qui seront utilisées par les Runbooks que vous importerez dans une autre Automation.
 
-Vous pouvez utiliser les [applets de commande Azure](https://msdn.microsoft.com/library/dn690262.aspx) pour récupérer les détails des éléments non chiffrés et les enregistrer pour vous y reporter ultérieurement ou créer des éléments équivalents dans un autre compte Automation.
+Vous pouvez utiliser les [applets de commande Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) pour récupérer les détails des éléments non chiffrés et les enregistrer pour vous y reporter ultérieurement ou créer des éléments équivalents dans un autre compte Automation.
 
 Il est impossible de récupérer la valeur des variables chiffrées ou du champ du mot de passe des informations d'identification en utilisant les applets de commande.  Si vous ne connaissez pas ces valeurs, vous pouvez les récupérer à partir d’un Runbook en utilisant les activités [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) et [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx).
 
 Vous ne pouvez pas exporter de certificats depuis Azure Automation.  Vous devez vous assurer que tous les certificats sont disponibles en dehors d'Azure.
 
 ### <a name="dsc-configurations"></a>Configurations DSC
-Vous pouvez exporter vos configurations vers vos fichiers de script en utilisant soit le portail Azure, soit l'applet de commande [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) dans Windows PowerShell. Ces configurations peuvent être importées et utilisées dans un autre compte Automation.
+Vous pouvez exporter vos configurations vers vos fichiers de script en utilisant soit le portail Azure, soit l'applet de commande [Export-AzureRmAutomationDscConfiguration](https://docs.microsoft.com/powershell/module/azurerm.automation/export-azurermautomationdscconfiguration) dans Windows PowerShell. Ces configurations peuvent être importées et utilisées dans un autre compte Automation.
 
 ## <a name="geo-replication-in-azure-automation"></a>Géo-réplication dans Azure Automation
 La géo-réplication, fonction standard dans les comptes Azure Automation, sauvegarde les données de compte dans une région géographique différente à des fins de redondance. Vous pouvez choisir une région primaire quand vous configurez votre compte ; une région secondaire lui est ensuite automatiquement affectée. Les données secondaires, copiées à partir de la région primaire, sont mises à jour en permanence en cas de perte de données.  
@@ -69,11 +69,11 @@ Le tableau suivant montre les paires de régions primaires et secondaires dispon
 
 | Primaire | Secondaire |
 | --- | --- |
-| États-Unis - partie centrale méridionale |Centre-Nord des États-Unis |
-| Est des États-Unis 2 |Centre des États-Unis |
-| Europe de l'Ouest |Europe du Nord |
-| Asie du Sud-Est |Asie de l'Est |
-| Est du Japon |Ouest du Japon |
+| USA Centre Sud |USA Centre Nord |
+| USA Est 2 |USA Centre |
+| Europe Ouest |Europe Nord |
+| Asie Sud-Est |Asie Est |
+| Japon Est |Japon Ouest |
 
 Dans l’éventualité peu probable que les données d’une région primaire soient perdues, Microsoft tente de les récupérer. Si les données primaires sont irrécupérables, un basculement géographique est effectué et les clients concernés en sont informés via leur abonnement.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049467"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038345"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -41,7 +41,7 @@ Voici quelques conditions préalables pour toute POC avec Azure AD Premium.
 
 | Conditions préalables | Ressources |
 | --- | --- |
-| Locataire Azure AD défini avec un abonnement Azure valide | [Obtention d’un client Azure Active Directory](active-directory-howto-tenant.md)<br/>**Remarque :** si vous disposez déjà d’un environnement avec licences Azure AD Premium, vous pouvez obtenir un abonnement gratuit sur https://aka.ms/accessaad. <br/>Pour en savoir plus : https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ et https://technet.microsoft.com/library/dn832618.aspx |
+| Locataire Azure AD défini avec un abonnement Azure valide | [Obtention d’un client Azure Active Directory](develop/quickstart-create-new-tenant.md)<br/>**Remarque :** si vous disposez déjà d’un environnement avec licences Azure AD Premium, vous pouvez obtenir un abonnement gratuit sur https://aka.ms/accessaad. <br/>Pour en savoir plus : https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ et https://technet.microsoft.com/library/dn832618.aspx |
 | Domaines définis et vérifiés | [Ajouter un nom de domaine personnalisé à Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Remarque :** certaines charges de travail telles que Power BI peuvent avoir approvisionné un locataire Azure AD en arrière-plan. Pour voir si un domaine donné est associé à un client, accédez à https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Si vous obtenez une réponse correcte, cela signifie que le domaine est déjà affecté à un locataire, et une prise de contrôle peut être requise. Dans ce cas, contactez Microsoft pour obtenir des instructions supplémentaires. En savoir plus sur les options de prise de contrôle : [Qu’est-ce qu’une inscription libre-service à Azure ?](users-groups-roles/directory-self-service-signup.md) |
 | Essai Azure AD Premium ou EMS activé | [Azure Active Directory Premium gratuit pendant un mois](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Vous avez affecté des licences Azure AD Premium ou EMS à des utilisateurs POC | [License yourself and your users in Azure Active Directory (Accorder une licence à vos utilisateurs et à vous-même dans Azure Active Directory)](active-directory-licensing-get-started-azure-portal.md) |
@@ -58,7 +58,7 @@ Temps approximatif d’accomplissement : une heure pour moins de 1 000 utilis
 | --- | --- |
 | Serveur pour exécuter Azure AD Connect | [Conditions préalables pour Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 | Utilisateurs POC cibles, dans le même domaine et faisant partie d’un groupe de sécurité, et unité d’organisation | [Installation personnalisée d’Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) |
-| Les fonctionnalités Azure AD Connect requises pour la POC sont identifiées | [Connecter Active Directory à Azure Active Directory - Configuration des fonctionnalités de synchronisation](./connect/active-directory-aadconnect.md#configure-sync-features) |
+| Les fonctionnalités Azure AD Connect requises pour la POC sont identifiées | [Connecter Active Directory à Azure Active Directory - Configuration de fonctionnalités de synchronisation](./connect/active-directory-aadconnect.md#configure-sync-features) |
 | Vous disposez des informations d’identification nécessaires pour les environnements locaux et cloud  | [Autorisations et comptes Azure AD Connect](./connect/active-directory-aadconnect-accounts-permissions.md) |
 
 ### <a name="steps"></a>Étapes
@@ -66,7 +66,7 @@ Temps approximatif d’accomplissement : une heure pour moins de 1 000 utilis
 | Étape | Ressources |
 | --- | --- |
 | Téléchargez la dernière version d’Azure AD Connect | [Téléchargez Microsoft Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) |
-| Installez Azure AD Connect de la manière la plus simple : Express <br/>1. Filtrez les données en fonction de l’unité d’organisation cible afin de réduire le cycle de synchronisation<br/>2. Choisissez le jeu d’utilisateurs cible dans le groupe local<br/>3. Déployez les fonctionnalités requises par les autres thèmes POC | [Azure AD Connect : Installation personnalisée : Filtrage domaine et unité organisationnelle](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect : Installation personnalisée : Filtrage de synchronisation basé sur les groupes](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect : Intégration de vos identités locales avec Azure Active Directory : Configuration des fonctionnalités de synchronisation](./connect/active-directory-aadconnect.md#configure-sync-features) |
+| Installez Azure AD Connect de la manière la plus simple : Express <br/>1. Filtrez les données en fonction de l’unité d’organisation cible afin de réduire le cycle de synchronisation<br/>2. Choisissez le jeu d’utilisateurs cible dans le groupe local<br/>3. Déployez les fonctionnalités requises par les autres thèmes POC | [Azure AD Connect : Installation personnalisée : Filtrage domaine et unité organisationnelle](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect : Installation personnalisée : Filtrage de synchronisation basé sur les groupes](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect : Intégration de vos identités locales avec Azure Active Directory : Configuration de fonctionnalités de synchronisation](./connect/active-directory-aadconnect.md#configure-sync-features) |
 | Ouvrez l’interface utilisateur Azure AD Connect et observez les profils d’exécution terminés (importation, synchronisation et exportation) | [Planificateur Azure AD Connect Sync](./connect/active-directory-aadconnectsync-feature-scheduler.md) |
 | Ouvrez le [portail de gestion Azure AD](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/), accédez au panneau Tous les utilisateurs et ajoutez la colonne Source d’autorité. Les utilisateurs s’affichent avec l’indication de leur origine : Windows Server AD. | [Portail de gestion Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) |
 
@@ -159,7 +159,7 @@ Temps approximatif d’accomplissement : 60 minutes
 | Patientez quelques minutes pour que la configuration se termine.  En attendant, vous pouvez vérifier les rapports d’approvisionnement |  |
 | Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test ayant accès | [Présentation du volet d’accès](user-help/active-directory-saas-access-panel-introduction.md) |
 | Cliquez sur la mosaïque de l’application qui vient d’être créée. Confirmez l’accès |  |
-| Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md) |
+| Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>Considérations
 
@@ -185,13 +185,13 @@ Temps approximatif d’accomplissement : 15 minutes
 | --- | --- |
 | Installez l’extension de navigateur | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)|
 | Affectez l’application au groupe identifié dans les conditions préalables | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) |
 | Connectez-vous à https://myapps.microsoft.com/ en tant qu’utilisateur de test ayant accès |  |
 | Cliquez sur la mosaïque de l’application qui vient d’être créée. | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Fournissez les informations d’identification de l’application | [Présentation du volet d’accès : Authentification unique avec mot de passe sans approvisionnement d’identité](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Fermez le navigateur et reconnectez-vous. Cette fois-ci, l’utilisateur doit avoir un accès transparent à l’application. |  |
-| Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md) |
+| Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>Considérations
 
@@ -220,10 +220,10 @@ Temps approximatif d’accomplissement : 30 minutes
 | --- | --- |
 | Installez l’extension de navigateur | [Extension du volet d’accès pour IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Extension du volet d’accès pour Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Extension du volet d’accès pour Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configurez l’application à partir de la galerie | [Nouveautés en matière de gestion des applications d’entreprise dans Azure Active Directory : Galerie d’applications innovante et améliorée](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configurez l’authentification unique par mot de passe | [Gestion de l’authentification unique pour les applications d’entreprise dans le nouveau portail Azure : Authentification par mot de passe](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)|
 | Affectez l’application au groupe identifié dans les conditions préalables lorsque vous leur affectez des informations d’identification | [Assign a user or group to an enterprise app in Azure Active Directory (Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory)](manage-apps/assign-user-or-group-access-portal.md) |
 | Connectez-vous en tant qu’utilisateurs différents en mesure d’accéder à l’application par le biais d’un **même compte partagé.**  |  |
-| Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](active-directory-reporting-retention.md) |
+| Si vous le souhaitez, vous pouvez vérifier les rapports d’utilisation de l’application. Il existe un temps de latence : vous devez patienter quelques instants avant de voir le trafic dans les rapports. | [Rapports d’activité de connexion dans le portail Azure Active Directory : Utilisation des applications gérées](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Stratégies de rétention des rapports Azure Active Directory](reports-monitoring/reference-reports-data-retention.md) |
 
 
 ### <a name="considerations"></a>Considérations
@@ -452,9 +452,9 @@ Temps approximatif d’accomplissement : 10 minutes
 | Étape | Ressources |
 | --- | --- |
 | Accédez au panneau Accès conditionnel du portail de gestion Azure AD | [Portail de gestion Azure AD : Accès conditionnel](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| Créez une stratégie d’accès conditionnel :<br/>- Ciblez les utilisateurs POC sous Utilisateurs et groupes<br/>- Ciblez l’application POC sous Applications cloud<br/>- Ciblez tous les emplacements, à l’exception des emplacements approuvés, sous Conditions > Emplacements **Remarque :** les adresses IP de confiance sont configurées dans le [portail MFA](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Demandez l’authentification MFA sous Autoriser | [Prise en main de l’accès conditionnel dans Azure Active Directory : Configuration de la stratégie](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| Accédez à l’application à partir de l’intérieur du réseau d’entreprise | [Prise en main de l’accès conditionnel dans Azure Active Directory : Test de la stratégie](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| Accédez à l’application à partir du réseau public | [Prise en main de l’accès conditionnel dans Azure Active Directory : Test de la stratégie](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| Créez une stratégie d’accès conditionnel :<br/>- Ciblez les utilisateurs POC sous Utilisateurs et groupes<br/>- Ciblez l’application POC sous Applications cloud<br/>- Ciblez tous les emplacements, à l’exception des emplacements approuvés, sous Conditions > Emplacements **Remarque :** les adresses IP de confiance sont configurées dans le [portail MFA](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>- Demandez l’authentification MFA sous Autoriser | [Créer votre stratégie d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) |
+| Accédez à l’application à partir de l’intérieur du réseau d’entreprise | [Tester votre stratégie d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
+| Accédez à l’application à partir du réseau public | [Tester votre stratégie d’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
 
 ### <a name="considerations"></a>Considérations
 
@@ -500,17 +500,17 @@ Temps approximatif d’accomplissement : 20 minutes
 | Conditions préalables | Ressources |
 | --- | --- |
 | Appareil avec navigateur Tor téléchargé et installé | [Téléchargez le navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Accédez à l’utilisateur POC pour procéder à la connexion | [Manuel d’Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md) |
+| Accédez à l’utilisateur POC pour procéder à la connexion | [Manuel d’Azure Active Directory Identity Protection](identity-protection/playbook.md) |
 
 ### <a name="steps"></a>Étapes
 
 | Étape | Ressources |
 | --- | --- |
 | Ouvrez le navigateur Tor | [Téléchargez le navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Connectez-vous à https://myapps.microsoft.com avec le compte d’utilisateur de la preuve de concept | [Manuel d’Azure Active Directory Identity Protection : Simulation des événements à risque](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Connectez-vous à https://myapps.microsoft.com avec le compte d’utilisateur de la preuve de concept | [Manuel d’Azure Active Directory Identity Protection : Simulation des événements à risque](identity-protection/playbook.md#simulating-risk-events) |
 | Patientez entre 5 et 7 minutes |  |
 | Connectez-vous à https://portal.azure.com en tant qu’administrateur général et ouvrez le panneau Protection d’identité | https://aka.ms/aadipgetstarted |
-| Ouvrez le panneau Événements à risque. Une entrée doit s’afficher sous Connexions depuis des adresses IP anonymes  | [Manuel d’Azure Active Directory Identity Protection : Simulation des événements à risque](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Ouvrez le panneau Événements à risque. Une entrée doit s’afficher sous Connexions depuis des adresses IP anonymes  | [Manuel d’Azure Active Directory Identity Protection : Simulation des événements à risque](identity-protection/playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Considérations
 
@@ -534,14 +534,14 @@ Temps approximatif d’accomplissement : 10 minutes
 | Étape | Ressources |
 | --- | --- |
 | Connectez-vous à https://portal.azure.com en tant qu’administrateur général et ouvrez le panneau Protection d’identité | https://aka.ms/aadipgetstarted |
-| Activez une stratégie en matière de risque à la connexion de la manière suivante :<br/>- Affectée à : utilisateur POC<br/>- Conditions : Risque à la connexion moyen ou élevé (une connexion à partir d’un emplacement anonyme est associée à un niveau de risque moyen)<br/>- Contrôles : demandez l’authentification MFA | [Manuel d’Azure Active Directory Identity Protection : Risque à la connexion](active-directory-identityprotection-playbook.md) |
+| Activez une stratégie en matière de risque à la connexion de la manière suivante :<br/>- Affectée à : utilisateur POC<br/>- Conditions : Risque à la connexion moyen ou élevé (une connexion à partir d’un emplacement anonyme est associée à un niveau de risque moyen)<br/>- Contrôles : demandez l’authentification MFA | [Manuel d’Azure Active Directory Identity Protection : Risque à la connexion](identity-protection/playbook.md) |
 | Ouvrez le navigateur Tor | [Téléchargez le navigateur Tor](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Connectez-vous à https://myapps.microsoft.com avec le compte d’utilisateur de la preuve de concept |  |
-| Notez la demande MFA | [Expériences de connexion avec Azure AD Identity Protection : Récupération de connexion à risque](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+| Notez la demande MFA | [Expériences de connexion avec Azure AD Identity Protection : Récupération de connexion à risque](identity-protection/flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Considérations
 
-Cette fonctionnalité fait partie d’Azure AD Premium P2 et/ou EMS E5. Pour en savoir plus sur les événements à risque, consultez [Événements à risque dans Azure Active Directory](active-directory-reporting-risk-events.md)
+Cette fonctionnalité fait partie d’Azure AD Premium P2 et/ou EMS E5. Pour en savoir plus sur les événements à risque, consultez [Événements à risque dans Azure Active Directory](reports-monitoring/concept-risk-events.md)
 
 ## <a name="configuring-certificate-based-authentication"></a>Configurer l’authentification par certificat
 

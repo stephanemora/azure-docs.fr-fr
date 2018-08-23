@@ -11,17 +11,17 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: e61c96d754c240df89607db0cf84dca0e0ccd17e
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: de5c9810b234a93643321d1ba299a66a3ae965a3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347314"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022978"
 ---
 # <a name="two-step-verification-overview"></a>Aperçu de la vérification en deux étapes
 
 >[!Important]
->Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory).
+>Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Vous avez reçu un e-mail d’une personne du service informatique ou de votre patron, qui vous indique qu’une vérification de sécurité supplémentaire a été ajoutée à votre compte. Qu’est-ce que cela signifie ? Cela signifie que votre organisation effectue des étapes supplémentaires pour s’assurer que vous êtes bien celui que vous prétendez être lorsque vous vous connectez. Cette vérification supplémentaire, également appelée vérification en deux étapes, s’effectue via une combinaison de votre nom d’utilisateur, de votre mot de passe et d’un appareil mobile ou d’un téléphone.
 
