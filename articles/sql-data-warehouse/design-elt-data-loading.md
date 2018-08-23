@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ceb8cfd8efea66dbf17b8c522316b9a010e437d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 33e4a405547fcdd797ddfdf6aba6c6c1c126b742
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799445"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42142292"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Conception de processus ELT pour Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Pour formater les fichiers texte :
 ## <a name="load-to-a-staging-table"></a>Charger dans une table de mise en lots
 Pour transférer des données dans l’entrepôt de données, il est conseillé de commencer par charger les données dans une table de mise en lots. En utilisant une table de mise en lots, vous pouvez gérer les erreurs sans interférer avec les tables de production. Vous évitez ainsi d’exécuter des opérations de restauration sur la table de production. Une table de mise en lots vous donne également la possibilité d’utiliser SQL Data Warehouse pour exécuter des transformations avant d’insérer les données dans des tables de production.
 
-Pour effectuer des chargements avec T-SQL, exécutez l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md). Cette commande permet d’insérer les résultats d’une instruction SELECT dans une nouvelle table. Lorsque l’instruction effectue une sélection à partir d’une table externe, elle importe les données externes. 
+Pour effectuer des chargements avec T-SQL, exécutez l’instruction T-SQL [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse). Cette commande permet d’insérer les résultats d’une instruction SELECT dans une nouvelle table. Lorsque l’instruction effectue une sélection à partir d’une table externe, elle importe les données externes. 
 
 Dans l’exemple suivant, ext.Date est une table externe. Toutes les lignes sont importées dans une nouvelle table appelée dbo.Date.
 

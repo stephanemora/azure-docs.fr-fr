@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8bf904b2029790d64a806fcf4a7e4860579a5a2f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: a24ccd456df533542e7cbd2315fc1050cd82afbf
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39204848"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41929894"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Démarrage rapide pour l’API de traduction de conversation Microsoft Translator Speech avec Python 
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ Pour exécuter ce code, vous devez disposer de [Python 3.x](https://www.python.o
 
 Vous devez installer le [package websocket-client](https://pypi.python.org/pypi/websocket-client) pour Python.
 
-Vous devez disposer d’un fichier .wav nommé « speak.wav » dans le même dossier que le fichier exécutable que vous compilez à partir du code ci-dessous. Ce fichier .wav doit être au format PCM standard 16 bits, 16kHz, monocanal. Vous pouvez obtenir un fichier .wav de ce type auprès de [l’API Synthèse vocale](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Vous devez disposer d’un fichier .wav nommé « speak.wav » dans le même dossier que le fichier exécutable que vous compilez à partir du code ci-dessous. Ce fichier .wav doit être au format PCM standard 16 bits, 16kHz, monocanal. 
 
 Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API de traduction de conversation Microsoft Translator Speech**. Vous devez disposer d’une clé d’abonnement payant à partir de votre [tableau de bord Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -132,4 +132,4 @@ Si l’opération réussit, un fichier nommé « speak2.wav » est créé. Le fi
 ## <a name="see-also"></a>Voir aussi 
 
 [API de traduction de conversation Microsoft Translator Speech](../overview.md)
-[Informations de référence sur l’API](http://docs.microsofttranslator.com/speech-translate.html)
+[Informations de référence sur l’API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

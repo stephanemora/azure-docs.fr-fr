@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da7d3898e1385119c8241efc89c68a6a60c29994
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a64c27b9634e2da6b0c46c5233b9ed5c61aea282
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619088"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42142074"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1017,7 +1017,7 @@ Pour charger une machine virtuelle ou un VHD existants à partir du réseau loca
 * Utilisez *sysprep* sur Windows ou *waagent -deprovision* sur Linux afin de généraliser votre machine virtuelle. Voir [Informations techniques de référence de Sysprep](https://technet.microsoft.com/library/cc766049.aspx) pour Windows ou [Comment capturer une machine virtuelle Linux à utiliser en tant que modèle Resource Manager][capture-image-linux-step-2-create-vm-image] pour Linux
 * Chargez le disque dur virtuel avec Powershell ou l’interface de ligne de commande Azure
 * (Facultatif) Créez une image de disque managé à partir du VHD avec Powershell, l’interface de ligne de commande Azure ou le portail Azure
-* Déployez la machine virtuelle avec un gabarit JSON en référençant le VHD image comme indiqué dans [cet exemple de gabarit JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json)ou en utilisant l’image de disque managé comme indiqué dans [cet exemple de gabarit JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
+* Déployez la machine virtuelle avec un gabarit JSON en référençant le VHD image comme indiqué dans [cet exemple de gabarit JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json)ou en utilisant l’image de disque managé comme indiqué dans [cet exemple de gabarit JSON](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Téléchargement de VHD ou de disques managés au niveau local
 IaaS permet bien plus que le chargement de disques durs virtuels et de systèmes SAP. Vous pouvez également déplacer les systèmes SAP de nouveau en local à partir d’Azure.

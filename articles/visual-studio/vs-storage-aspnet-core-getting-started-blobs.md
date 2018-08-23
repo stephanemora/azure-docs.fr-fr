@@ -8,17 +8,18 @@ manager: wpickett
 editor: ''
 ms.service: storage
 ms.workload: web
+ms.custom: vs-azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
-ms.openlocfilehash: 42390effd6a2d2a8afe9350e0a77d3c0a17b6129
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 82c5fb0f3f3e8edad948b82f77c9c336636f3077
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720227"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442739"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Prendre en main Stockage Blob Azure et les services connectés de Visual Studio (ASP.NET Core)
 
@@ -69,7 +70,7 @@ Cette section explique les étapes à effectuer pour configurer l’environnemen
 1. Dans la boîte de dialogue **Stockage Azure**, sélectionnez le compte de stockage Azure à utiliser dans le cadre de ce didacticiel. Pour créer un compte de stockage Azure, sélectionnez **Créer un compte de stockage** et remplissez le formulaire. Après avoir sélectionné un compte de stockage existant ou en avoir créé un, sélectionnez **Ajouter**. Visual Studio installe le package NuGet pour le Stockage Azure et une chaîne de connexion de stockage pour **appsettings.json**.
 
 > [!TIP]
-> Pour apprendre à créer un compte de stockage avec le [portail Azure](https://portal.azure.com), consultez [Créez un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+> Pour apprendre à créer un compte de stockage avec le [portail Azure](https://portal.azure.com), consultez [Créez un compte de stockage](../storage/common/storage-quickstart-create-account.md).
 >
 > Il est également possible de créer un compte de stockage Azure avec [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md) ou [Azure Cloud Shell](../cloud-shell/overview.md).
 

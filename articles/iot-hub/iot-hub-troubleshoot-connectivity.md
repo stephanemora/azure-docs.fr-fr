@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 91e435c60a342768093b3bc869a78fa61df8782f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5bd66e3cb3902665aab9245a524a2bec6f57dc8c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446562"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141881"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Détecter et résoudre les problèmes de déconnexion avec Azure IoT Hub
 
@@ -77,7 +77,7 @@ Lorsque les alertes et les journaux de diagnostic relatifs aux appareils connect
     | 404104 DeviceConnectionClosedRemotely | La connexion a été fermée par l’appareil pour une raison inconnue d’IoT Hub. Cette erreur est généralement causée par une expiration du délai de connexion MQTT/AMQP ou par une perte de connectivité Internet. | Assurez-vous que l’appareil peut se connecter à IoT Hub en [testant la connexion](tutorial-connectivity.md). Si la connexion est correcte, mais que l’appareil se déconnecte par intermittence, veillez à implémenter la logique de persistance de connexion d’appareil appropriée pour le protocole que vous avez choisi (MQTT/AMPQ). |
     | 401003 IoTHubUnauthorized | IoT Hub n’est pas parvenu à authentifier la connexion. | Assurez-vous que le jeton de signature d’accès partagé ou un autre jeton de sécurité que vous utilisez ne sont pas arrivés à expiration. Les [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md) génèrent automatiquement des jetons sans nécessiter de configuration spécifique. |
     | 409002 LinkCreationConflict | Il existe plusieurs connexions pour le même appareil. Lorsqu’une nouvelle demande de connexion émane d’un appareil, IoT Hub ferme la connexion précédente en générant cette erreur. | Dans la plupart des cas, un appareil détecte une déconnexion et tente de rétablir la connexion, mais IoT Hub ne le considère pas comme étant déconnecté. Il ferme la connexion précédente et journalise l’erreur. Cette erreur est généralement l’effet secondaire d’un autre problème temporaire, donc recherchez d’autres erreurs dans les journaux pour résoudre le problème. Sinon, veillez à émettre une nouvelle demande de connexion uniquement en cas d’abandon de la connexion précédente. |
-    | 500001 ServerError | IoT Hub a rencontré un problème côté serveur. Ce problème est très probablement temporaire. Bien que l’équipe IoT Hub s’efforce continuellement de respecter les termes du [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/iot-hub/), de petits sous-ensembles de nœuds IoT Hub rencontrent parfois des erreurs temporaires. Lorsque votre appareil tente de se connecter à un nœud présentant un problème, vous recevez cette erreur. | Pour résoudre l’erreur temporaire, émettez une nouvelle tentative à partir de l’appareil. Pour [gérer automatiquement les nouvelles tentatives](iot-hub-reliability-features-in-sdks.md#connection-and-retry), vérifiez que vous utilisez la dernière version des [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md).<br><br>Pour connaître les meilleures pratiques en matière de gestion des erreurs temporaires et de nouvelles tentatives, consultez l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults.md).  <br><br>Si le problème persiste après plusieurs tentatives, consultez le service [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) et la page [Historique des états d’Azure](https://azure.microsoft.com/status/history/) pour déterminer si IoT Hub présente un problème connu. S’il n’existe aucun problème connu et que le problème persiste, [contactez le support](https://azure.microsoft.com/support/options/) pour un examen approfondi. |
+    | 500001 ServerError | IoT Hub a rencontré un problème côté serveur. Ce problème est très probablement temporaire. Bien que l’équipe IoT Hub s’efforce continuellement de respecter les termes du [Contrat de niveau de service (SLA)](https://azure.microsoft.com/support/legal/sla/iot-hub/), de petits sous-ensembles de nœuds IoT Hub rencontrent parfois des erreurs temporaires. Lorsque votre appareil tente de se connecter à un nœud présentant un problème, vous recevez cette erreur. | Pour résoudre l’erreur temporaire, émettez une nouvelle tentative à partir de l’appareil. Pour [gérer automatiquement les nouvelles tentatives](iot-hub-reliability-features-in-sdks.md#connection-and-retry), vérifiez que vous utilisez la dernière version des [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md).<br><br>Pour connaître les meilleures pratiques en matière de gestion des erreurs temporaires et de nouvelles tentatives, consultez l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).  <br><br>Si le problème persiste après plusieurs tentatives, consultez le service [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) et la page [Historique des états d’Azure](https://azure.microsoft.com/status/history/) pour déterminer si IoT Hub présente un problème connu. S’il n’existe aucun problème connu et que le problème persiste, [contactez le support](https://azure.microsoft.com/support/options/) pour un examen approfondi. |
     | 500008 GenericTimeout | IoT Hub n’est pas parvenu à effectuer la demande de connexion avant l’expiration du délai de connexion. Comme dans le cas de l’erreur 500001 ServerError, il s’agit probablement d’un problème temporaire. | Exécutez la procédure de résolution de l’erreur 500001 ServerError pour déterminer la cause racine et corriger ce problème.|
 
 ## <a name="other-steps-to-try"></a>Autres mesures de résolution possibles
@@ -92,7 +92,7 @@ Pour contribuer à améliorer la documentation à l’intention de tous les util
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la résolution des problèmes temporaires, consultez [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults.md).
+* Pour en savoir plus sur la résolution des problèmes temporaires, consultez [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).
 * Pour explorer davantage le SDK Azure IoT et la gestion des nouvelles tentatives, consultez [Guide pratique pour gérer la connectivité et la messagerie fiable à l’aide des kits Azure IoT Hub device SDK](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
 
 <!-- Images -->

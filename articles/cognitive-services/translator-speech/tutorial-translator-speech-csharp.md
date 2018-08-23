@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e82c5c5ccfa6b7de8a9ec111140dad1a40ad44f6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 010ad8b5ceeaf046c8d361ff352e6058154a482d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368445"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41929908"
 ---
 # <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Didacticiel : application Microsoft Translator WPF dans C#
 
@@ -357,7 +357,7 @@ private void Connect()
 }
 ```
 
-Une partie importante de `Connect()` concerne la création d’une instance `SpeechClientOptions` (voir `SpeechClientOptions.cs`) devant contenir les options de traduction. Les options incluent les informations nécessaires pour se connecter au service (par exemple, la clé d’authentification et le nom d’hôte) et les fonctionnalités utilisées pour la traduction. Ici les champs sont mappés aux champs d’en-tête et aux paramètres HTTP exposés par [l’API de traduction de conversation Translator Speech](http://docs.microsofttranslator.com/speech-translate.html).
+Une partie importante de `Connect()` concerne la création d’une instance `SpeechClientOptions` (voir `SpeechClientOptions.cs`) devant contenir les options de traduction. Les options incluent les informations nécessaires pour se connecter au service (par exemple, la clé d’authentification et le nom d’hôte) et les fonctionnalités utilisées pour la traduction. Ici les champs sont mappés aux champs d’en-tête et aux paramètres HTTP exposés par [l’API de traduction de conversation Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference).
 
 `Connect()` crée et initialise également le périphérique d’entrée audio (variable `sampleProvider`) qui sert de source pour le texte vocal devant être converti. Ce périphérique est soit un périphérique d’entrée matériel, par exemple un microphone, soit un fichier contenant des données audio WAVE.
 
@@ -431,4 +431,4 @@ Les données binaires sont de l’audio (sortie vocale) envoyé par le service l
 Cet exemple de code est une application riche en fonctionnalités illustrant l’utilisation de l’API Translator Speech. Aussi, un certain nombre d’éléments mobiles doivent être compris. Vous avez passé en revue les parties les plus importantes. Pour le reste, il peut être utile de définir quelques points d’arrêt dans Visual Studio et de suivre les étapes du processus de traduction. Lorsque vous comprenez l’exemple d’application, vous êtes prêt à utiliser le service Translator Speech dans vos propres applications.
 
 > [!div class="nextstepaction"]
-> [Référence de l’API Microsoft Translator Speech](http://docs.microsofttranslator.com/speech-translate.html)
+> [Référence de l’API Microsoft Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

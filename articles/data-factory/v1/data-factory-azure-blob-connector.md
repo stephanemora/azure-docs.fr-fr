@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ec3c87c39cd8b8d1dafa8ad062776171c602135b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2efc20d5a2248fed69f38880a9e75a6ccb2403dd
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047058"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146912"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Échanger des données avec le Stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](data-factory-azure-blob-connector.md)
-> * [Version 2 (version actuelle)](../connector-azure-blob-storage.md)
+> * [Version 1](data-factory-azure-blob-connector.md)
+> * [Version 2 (version actuelle)](../connector-azure-blob-storage.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Connecteur Stockage Blob Azure dans V2](../connector-azure-blob-storage.md).
@@ -32,7 +32,7 @@ ms.locfileid: "37047058"
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour échanger des données avec le Stockage Blob Azure. Il s’appuie sur l’article [Activités de déplacement des données](data-factory-data-movement-activities.md), qui présente une vue d’ensemble du déplacement de données avec l’activité de copie.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez copier et coller les données à partir de tout magasin de données source pris en charge vers le Stockage Blob Azure, ou entre ce dernier et tout magasin de données récepteur pris en charge. Le tableau ci-dessous contient la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie. Par exemple, vous pouvez déplacer des données **depuis** une base de données SQL Server ou une base de données Azure SQL Database **vers** un stockage Blob Azure. Et vous pouvez copier des données **depuis** un stockage Blob Azure **vers** un entrepôt Azure SQL Data Warehouse ou une collection Azure Cosmos DB. 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
@@ -83,7 +83,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| folderPath |Chemin d'accès au conteneur et au dossier dans le stockage des objets Blobs. Exemple : monconteneurblob\mondossierblob\ |OUI |
+| folderPath |Chemin d'accès au conteneur et au dossier dans le stockage des objets Blobs. Exemple : monconteneurblob\mondossierblob\ |Oui |
 | fileName |Le nom de l’objet Blob. fileName est facultatif et sensible à la casse.<br/><br/>Si vous spécifiez un nom de fichier, l’activité (y compris la copie) fonctionne sur l’objet Blob spécifique.<br/><br/>Lorsque fileName n’est pas spécifié, la copie inclut tous les objets Blob dans le paramètre folderPath du jeu de données d’entrée.<br/><br/>Lorsque **fileName** n'est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, le nom du fichier généré aura ce format dans l'exemple suivant : Data.<Guid>.txt (par exemple : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Non  |
 | partitionedBy |partitionedBy est une propriété facultative. Vous pouvez l'utiliser pour spécifier un folderPath dynamique et le nom de fichier pour les données de série chronologique. Par exemple, folderPath peut être paramétré pour toutes les heures de données. Consultez [Utilisation de la section propriété partitionedBy](#using-partitionedBy-property) pour obtenir plus d’informations et des exemples. |Non  |
 | format | Les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Text](data-factory-supported-file-and-compression-formats.md#text-format), [format Json](data-factory-supported-file-and-compression-formats.md#json-format), [format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). <br><br> Si vous souhaitez **copier des fichiers en l’état** entre des magasins de fichiers (copie binaire), ignorez la section Format dans les deux définitions de jeu de données d’entrée et de sortie. |Non  |
@@ -174,7 +174,7 @@ Cette section décrit le comportement résultant de l’opération de copie pour
 Examinons comment copier rapidement des données vers/depuis un stockage Blob Azure. Dans cette procédure pas à pas, les banques de données source et de destination sont du type stockage Blob Azure. Le pipeline de cette procédure pas à pas copie des données entre les dossiers d’un même conteneur d’objets blob. Cette procédure pas à pas est volontairement simple pour vous montrer les paramètres ou les propriétés lorsque vous utilisez le Stockage Blob en tant que source ou récepteur. 
 
 ### <a name="prerequisites"></a>Prérequis
-1. Créez un **compte de stockage Azure** à usage général si vous n’en avez pas encore un. Vous utilisez le stockage d’objets blob comme banque de données **source** et de **destination** dans cette procédure pas à pas. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) pour découvrir comment en créer un.
+1. Créez un **compte de stockage Azure** à usage général si vous n’en avez pas encore un. Vous utilisez le stockage d’objets blob comme banque de données **source** et de **destination** dans cette procédure pas à pas. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) pour découvrir comment en créer un.
 2. Créez un conteneur d’objets blob nommé **adfblobconnector** dans le compte de stockage. 
 4. Créez un dossier nommé **input** dans le conteneur **adfblobconnector**.
 5. Créez un fichier nommé **emp.txt** avec le contenu suivant et chargez-le dans le dossier **input** à l’aide d’outils tels [qu’Azure Storage Explorer (Explorateur du Stockage Azure)](https://azurestorageexplorer.codeplex.com/).

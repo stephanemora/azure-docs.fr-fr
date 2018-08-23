@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: be4cc79d16b9a22124f16878b11ca04a916f98ae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368825"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41931330"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Appeler le point de terminaison Recherche personnalisée Bing (C#)
 
@@ -119,10 +119,12 @@ Pour exécuter cet exemple, suivez ces étapes :
     }
     ```
 6. Créez l’application à l’aide de la commande suivante. Notez le chemin de la dll qui est référencé par la sortie de commande.
+
     <pre>
     dotnet build 
     </pre>
 7. Exécutez l’application à l’aide de la commande suivante en remplaçant **PATH TO OUTPUT** par le chemin référencé par l’étape de génération.
+
     <pre>    
     dotnet **PATH TO OUTPUT**
     </pre>
@@ -130,4 +132,4 @@ Pour exécuter cet exemple, suivez ces étapes :
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurer votre expérience d’interface utilisateur hébergée](./hosted-ui.md)
 - [Utiliser des marqueurs d’ornement pour mettre en surbrillance du texte](./hit-highlighting.md)
-- [Paginer des pages Web](./page-webpages.md)
+- [Paginer des pages web](./page-webpages.md)

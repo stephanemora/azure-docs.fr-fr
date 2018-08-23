@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 5855396fc87b7d8de17be65a66af40963c59fc71
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8d5d4ab85d8441998fd384e01f85d1d427d68cc2
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687934"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42142094"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Bien démarrer avec le jumeau de module et l’identité de module IoT Hub en utilisant un backend .NET et un appareil .NET
 
@@ -38,11 +38,9 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 Votre IoT Hub est maintenant créé et vous connaissez le nom d’hôte et la chaîne de connexion à IoT Hub dont vous avez besoin pour terminer ce qu’il reste du didacticiel.
 
-<a id="DeviceIdentity_csharp"></a>
 [!INCLUDE [iot-hub-get-started-create-module-identity-csharp](../../includes/iot-hub-get-started-create-module-identity-csharp.md)]
 
 
-<a id="D2C_csharp"></a>
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>Mettre à jour le jumeau de module à l’aide du SDK d’appareil .NET
 
 Dans cette section, vous allez créer sur votre appareil simulé une application de console .NET qui met à jour les propriétés déclarées du jumeau de module.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6a7f31cf541bc1cccd3a5d565a0d3a223ccd3aee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5fb4034d49982d600fe5b0de17d0b198e3ee653e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045165"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246521"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Charger 1 To dans Azure SQL Data Warehouse en moins de 15 minutes avec Azure Data Factory
 > [!NOTE]
@@ -47,7 +47,7 @@ Cet article fournit des instructions détaillées pour déplacer les données da
 >
 
 ## <a name="prerequisites"></a>Prérequis
-* Stockage Blob Azure : cette expérience utilise le Stockage Blob Azure (GRS) pour stocker un jeu de données de test TPC-H.  Si vous ne possédez pas de compte de stockage Azure, découvrez [comment créer un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Stockage Blob Azure : cette expérience utilise le Stockage Blob Azure (GRS) pour stocker un jeu de données de test TPC-H.  Si vous ne possédez pas de compte de stockage Azure, découvrez [comment créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md).
 * Données [TPC-H](http://www.tpc.org/tpch/) : nous allons utiliser TPC-H comme jeu de données de test.  Pour ce faire, vous devez utiliser `dbgen` dans le kit d’outils TPC-H, qui vous permet de générer le jeu de données.  Vous pouvez télécharger le code source pour `dbgen` depuis [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) et le compiler vous-même, ou vous pouvez télécharger le fichier binaire compilé à partir de [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools).  Exécutez dbgen.exe avec les commandes suivantes pour générer le fichier plat de 1 To pour la table `lineitem` répartie entre 10 fichiers :
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -128,7 +128,7 @@ Une fois les étapes requises terminées, nous sommes désormais prêts à confi
    6. Cliquez sur **Créer**.
 4. Une fois la création terminée, le panneau **Data Factory** s’affiche comme sur l’image suivante :
 
-   ![Page d'accueil Data Factory](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
+   ![Page d’accueil Data Factory](media/data-factory-load-sql-data-warehouse/data-factory-home-page-copy-data.png)
 5. Dans la page d’accueil Fabrique de données, cliquez sur la vignette **Copier les données** pour lancer l’**Assistant de copie**.
 
    > [!NOTE]

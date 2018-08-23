@@ -1,23 +1,26 @@
 ---
-title: "Données de télémétrie Application Insights dans Visual Studio CodeLens | Microsoft Docs"
-description: "Accédez rapidement à vos données de télémétrie des requêtes et des exceptions Application Insights à l’aide de CodeLens dans Visual Studio."
+title: Données de télémétrie Application Insights dans Visual Studio CodeLens | Microsoft Docs
+description: Accédez rapidement à vos données de télémétrie des requêtes et des exceptions Application Insights à l’aide de CodeLens dans Visual Studio.
 services: application-insights
 documentationcenter: .net
-author: numberbycolors
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
-ms.workload: tbd
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/17/2017
+ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 418c391f896ac60f509b963f0aff70ad699fc43b
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 7df49258895aa0dfa5c8cc592914ba6998a97cb8
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442108"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Données de télémétrie Application Insights dans Visual Studio CodeLens
 Les méthodes indiquées dans le code de votre application web peuvent être annotées avec des données de télémétrie sur les exceptions runtime et les temps de réponse des requêtes. Si vous installez [Azure Application Insights](app-insights-overview.md) dans votre application, les données de télémétrie s’affichent dans Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) ; il s’agit des notes en haut de chaque fonction où vous avez l’habitude de voir des informations utiles telles que le nombre d’emplacements dans lesquels la fonction est référencée ou la dernière personne à l’avoir modifiée.

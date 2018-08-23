@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 07f739243b80230fbf4914535ea65183c3590937
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020439"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617415"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Création de votre première application Java Service Fabric Reliable Actors
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Installez aussi l’[interface de ligne de commande (CLI) de Service Fabric](ser
 Service Fabric fournit des outils de génération de modèles automatique qui vous aideront à créer une application Java Service Fabric à partir d’un terminal à l’aide du générateur de modèle Yeoman.  Si Yeoman n’est pas déjà installé, consultez [Prise en main de Service Fabric avec Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) pour obtenir des instructions sur la configuration de Yeoman. Exécutez la commande suivante pour installer le générateur de modèles Yeoman Service Fabric pour Java.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## <a name="basic-concepts"></a>Concepts de base
@@ -127,7 +127,7 @@ public interface HelloWorldActor extends Actor {
 ```
 
 ### <a name="actor-service"></a>Service d’acteur
-Il contient votre implémentation d’acteur et le code d’inscription de l’acteur. La classe d’acteur implémente l’interface d’acteur. Il s’agit de l’endroit dans lequel votre acteur effectue son travail.
+Il contient votre implémentation d’acteur et le code d’inscription de l’acteur. La classe d’acteur implémente l’interface d’acteur. Il s’agit de l’endroit dans quelquel votre acteur effectue son travail.
 
 `HelloWorldActor/src/reliableactor/HelloWorldActorImpl`:
 
@@ -186,7 +186,7 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
-## <a name="build-the-application"></a>Création de l'application
+## <a name="build-the-application"></a>Créer l’application
 Les modèles Yeoman Service Fabric incluent un script de build pour [Gradle](https://gradle.org/), que vous pouvez utiliser pour générer l’application à partir du terminal.
 Les dépendances Java Service Fabric ont été extraites de Maven. Pour générer et travailler sur les applications Java Service Fabric, assurez-vous d’avoir installé JDK et Gradle. S’ils ne sont pas installés, consultez [Prise en main de Service Fabric avec Linux](service-fabric-get-started-linux.md#set-up-java-development) pour obtenir des instructions sur l’installation de JDK et Gradle.
 

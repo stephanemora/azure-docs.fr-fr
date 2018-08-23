@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 08/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2018
-ms.locfileid: "27621859"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41946518"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Surveiller les mises à jour dans Azure Stack à l'aide du point de terminaison privilégié
 
@@ -32,12 +32,11 @@ Les nouvelles applets de commande PowerShell suivantes pour la gestion des mises
 | Applet de commande  | Description  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | Renvoie l’état de la mise à jour en cours, terminée ou qui a échoué. Fournit l’état de haut niveau de l’opération de mise à jour ainsi qu'un document XML qui décrit l’étape actuelle et l’état correspondant. |
-| `Get-AzureStackUpdateVerboseLog` | Renvoie les journaux détaillés générés par la mise à jour. |
 | `Resume-AzureStackUpdate` | Reprend une mise à jour ayant échoué au point où elle a échoué. Dans certains scénarios, vous devrez peut-être prendre des mesures d’atténuation des risques avant de reprendre la mise à jour.         |
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Vérifier que les applets de commande sont disponibles
-Comme les applets de commande sont nouvelles dans le package de mise à jour 1710 d’Azure Stack, le processus de mise à jour 1710 a besoin d'atteindre un certain point avant que la fonctionnalité de surveillance soit disponible. En règle générale, les applets de commande sont disponibles si l’état dans le portail d’administration indique que la mise à jour 1710 se trouve à l'étape **Redémarrer les hôtes de stockage**. Plus précisément, la mise à jour de l’applet de commande survient durant **l'étape : exécution de l’étape 2.6 - Mettre à jour la liste verte PrivilegedEndpoint**.
+Comme les applets de commande sont nouvelles dans le package de mise à jour 1710 d’Azure Stack, le processus de mise à jour 1710 a besoin d'atteindre un certain point avant que la fonctionnalité de surveillance soit disponible. En règle générale, les applets de commande sont disponibles si l’état dans le portail d’administration indique que la mise à jour 1710 se trouve à l'étape **Redémarrer les hôtes de stockage**. Plus précisément, la mise à jour de l’applet de commande survient durant **l'étape : exécution de l’étape 2.6 - Mettre à jour la liste blanche PrivilegedEndpoint**.
 
 Vous pouvez également déterminer si les applets de commande sont disponibles par programmation en interrogeant la liste des commandes à partir du point de terminaison privilégié. Pour cela, exécutez les commandes suivantes à partir de l’hôte de cycle de vie du matériel ou d’une station de travail avec accès privilégié. Assurez-vous également que le point de terminaison privilégié est un hôte approuvé. Pour plus d’informations, consultez l’étape 1 [Accéder au point de terminaison privilégié](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
 
@@ -78,7 +77,6 @@ Vous pouvez également déterminer si les applets de commande sont disponibles p
    CommandType     Name                                               Version    Source                                                  PSComputerName
     -----------     ----                                               -------    ------                                                  --------------
    Function        Get-AzureStackUpdateStatus                         0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
-   Function        Get-AzureStackUpdateVerboseLog                     0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    Function        Resume-AzureStackUpdate                            0.0        Microsoft.Azurestack.UpdateManagement                   Contoso-ercs01
    ``` 
 
@@ -160,29 +158,6 @@ $updateStatus.SelectNodes("//Step[@Status='InProgress']")
     Task          : Task
 ```
 
-### <a name="get-the-verbose-progress-log"></a>Obtenir le journal détaillé de la progression
-
-Vous pouvez enregistrer le journal dans un fichier pour l'examiner. Cela peut vous aider à diagnostiquer un échec de mise à jour.
-
-```powershell
-$log = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateVerboseLog }
-
-$log > ".\UpdateVerboseLog.txt" 
-```
-
-### <a name="actively-view-the-verbose-logging"></a>Afficher activement la journalisation détaillée
-
-Pour afficher activement le journal détaillé pendant une mise à jour et accéder aux entrées les plus récentes, exécutez les commandes suivantes pour faire basculer la session en mode interactif et afficher le journal :
-
-```powershell
-Enter-PSSession -Session $pepSession 
-
-Get-AzureStackUpdateVerboseLog -Wait 
-```
-Le journal est mis à jour toutes les 60 secondes, et le nouveau contenu (si disponible) est enregistré dans la console. 
-
-Lorsque de longs processus sont exécutés en arrière-plan, la sortie de la console peut ne pas s'enregistrer dans la console pendant un certain temps. Pour annuler la sortie interactive, appuyez sur Ctrl+C. 
-
 ### <a name="resume-a-failed-update-operation"></a>Reprendre une opération de mise à jour ayant échoué
 
 Si la mise à jour échoue, vous pouvez la reprendre là où elle s’est arrêtée.
@@ -195,7 +170,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 Le point de terminaison privilégié est disponible sur toutes les machines virtuelles ERCS dans l’environnement Azure Stack. Comme la connexion n’est pas établie vers un point de terminaison hautement disponible, vous risquez de rencontrer des interruptions occasionnelles, des avertissements ou des messages d’erreur. Ces messages peuvent indiquer que la session a été déconnectée ou qu’une erreur de communication avec le service ECE s'est produite. Il s’agit du comportement attendu. Vous pouvez réessayer l’opération dans quelques minutes ou créer une session de point de terminaison privilégié sur l’une des autres machines virtuelles ERCS. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Gestion des mises à jour dans Azure Stack](azure-stack-updates.md) 
 

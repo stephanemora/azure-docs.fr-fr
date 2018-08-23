@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 52024dc414b7f1d420b8196792eeb91bb9a4be6f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6ac3c3d8f2a5ae37f1d32f9781f0cdbec0b293e8
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441112"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42142076"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>Restaurer la clé et le secret du Key Vault pour les machines virtuelles chiffrées à l’aide d’Azure Backup
 Cet article décrit l’utilisation de Sauvegarde de VM Azure pour restaurer des machines virtuelles Azure chiffrées si vos clé et secret n’existent pas dans le Key Vault. Vous pouvez également suivre cette procédure si vous souhaitez conserver une copie distincte de la clé (clé de chiffrement à clé) et du secret (clé de chiffrement BitLocker) pour la machine Virtuelle restaurée.
@@ -113,7 +113,7 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 > [!NOTE]
 > 1. La valeur de $secretname peut être obtenue par référence à la sortie de $rp1.KeyAndSecretDetails.SecretUrl et en utilisant le texte après secrets/, par exemple l’URL du secret de sortie est https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 et le nom secret est B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > 2. La valeur de la balise DiskEncryptionKeyFileName est identique au nom du secret.
-> 3. Vous pouvez obtenir la valeur de DiskEncryptionKeyEncryptionKeyURL à partir du Key Vault après la restauration des clés, et en utilisant l’applet de commande [Get-AzureKeyVaultKey](https://msdn.microsoft.com/library/dn868053.aspx).
+> 3. Vous pouvez obtenir la valeur de DiskEncryptionKeyEncryptionKeyURL à partir du Key Vault après la restauration des clés, et en utilisant l’applet de commande [Get-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/get-azurekeyvaultkey).
 >
 >
 

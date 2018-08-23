@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: fd290420c2c755e07f6949750e3a88bcb64682f3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656905"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141071"
 ---
 # <a name="plan-virtual-networks"></a>Planifier des réseaux virtuels
 
@@ -77,7 +77,7 @@ Vous pouvez filtrer le trafic réseau vers et depuis des ressources dans un rés
 - Si différentes machines virtuelles au sein d’un sous-réseau ont besoin de règles de sécurité différentes, vous pouvez associer l’interface réseau de la machine virtuelle à un ou plusieurs groupes de sécurité d’application. Une règle de sécurité peut spécifier un groupe de sécurité d’application dans sa source, sa destination, ou les deux. Cette règle ne s’applique alors qu’aux interfaces réseau qui sont membres du groupe de sécurité d’application. En savoir plus sur les [groupes de sécurité réseau](security-overview.md) et les [groupes de sécurité d’application](security-overview.md#application-security-groups).
 - Azure crée plusieurs règles de sécurité par défaut dans chaque groupe de sécurité réseau. Une règle par défaut autorise l’ensemble du trafic entre toutes les ressources dans un réseau virtuel. Pour remplacer ce comportement, utilisez des groupes de sécurité réseau, un routage personnaliser pour acheminer le trafic vers une NVA, ou les deux. Il vous est recommandé de vous familiariser avec toutes les [règles de sécurité par défaut](security-overview.md#default-security-rules) d’Azure et de comprendre comment les règles de groupe de sécurité réseau s’appliquent à une ressource.
 
-Vous pouvez consulter des exemples de conception pour l’implémentation d’une zone DMZ entre Azure et Internet à l’aide d’une [NVA](/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) ou de [groupes de sécurité réseau](virtual-networks-dmz-nsg.md).
+Vous pouvez consulter des exemples de conception pour l’implémentation d’une zone DMZ entre Azure et Internet à l’aide d’une [NVA](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) ou de [groupes de sécurité réseau](virtual-networks-dmz-nsg.md).
 
 ### <a name="traffic-routing"></a>Routage du trafic
 
@@ -99,7 +99,7 @@ Lorsque vous utilisez l’[homologation de réseau virtuel](virtual-network-peer
 
 Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure pour connecter un réseau virtuel à votre réseau local à l’aide un [VPN site à site](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ou à l’aide d’une connexion dédiée à Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Vous pouvez combiner l’homologation avec une passerelle VPN pour créer des [réseaux Hub and Spoke](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), dans lesquels les réseaux virtuels Spoke se connectent à un réseau virtuel Hub, et où le Hub se connecte à un réseau local, par exemple.
+Vous pouvez combiner l’homologation avec une passerelle VPN pour créer des [réseaux Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), dans lesquels les réseaux virtuels Spoke se connectent à un réseau virtuel Hub, et où le Hub se connecte à un réseau local, par exemple.
 
 ### <a name="name-resolution"></a>Résolution de noms
 

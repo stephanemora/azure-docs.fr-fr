@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: c4a755d0c13516ce3cb0177cea2ea17e4a3abcbb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8a9409c46cac8397bc449c586374729a4d864036
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390967"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41931333"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -47,15 +47,15 @@ Une URL POST pour notifier la fin de l’indexation. Video Indexer y ajoute deux
 
 Vous pouvez également ajouter davantage de paramètres à l’URL avant de publier l’appel auprès de Video Indexer et ces paramètres figureront dans le rappel. Plus tard, dans votre code, vous pouvez analyser la chaîne de requête et obtenir en rappel tous les paramètres spécifiés dans la chaîne de requête (les données que vous aviez initialement ajoutées à l’URL et les informations fournies par Video Indexer.) 
 
-### <a name="streamingpereset"></a>streamingPereset
+### <a name="streamingpreset"></a>streamingPreset
 
 Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder. Il passe ensuite à l’indexation et à l’analyse de la vidéo. Lorsque Video Indexer a terminé l’analyse, vous recevrez une notification avec l’ID de la vidéo.  
 
-Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Réindexer une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), un des paramètres facultatifs est `streamingPreset`. Si vous définissez `streamingPereset` sur `Default`, `SingleBitrate`, ou `AdaptiveBitrate`, le processus d’encodage est déclenché. Une fois les travaux d’indexation et d’encodage effectués, la vidéo est publiée et vous pouvez donc la diffuser. Le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo doit se trouver dans l’état **En cours d’exécution**.
+Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) ou [Réindexer une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?), un des paramètres facultatifs est `streamingPreset`. Si vous définissez `streamingPreset` sur `Default`, `SingleBitrate`, ou `AdaptiveBitrate`, le processus d’encodage est déclenché. Une fois les travaux d’indexation et d’encodage effectués, la vidéo est publiée et vous pouvez donc la diffuser. Le point de terminaison de streaming à partir duquel vous souhaitez diffuser la vidéo doit se trouver dans l’état **En cours d’exécution**.
 
 Pour exécuter les travaux d’indexation et d’encodage, le [compte Azure Media Services connecté à votre compte Video Indexer](connect-to-azure.md), nécessite des unités réservées. Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Dans la mesure où il s’agit de tâches de calcul intensif, un type d’unité S3 est fortement recommandé. Le nombre d’unités de demande définit le nombre maximal de travaux pouvant s’exécuter en parallèle. La suggestion de base de référence est 10 unités de demande S3. 
 
-Si vous souhaitez uniquement indexer votre vidéo sans l’encoder, définissez `streamingPereset` sur `NoStreaming`.
+Si vous souhaitez uniquement indexer votre vidéo sans l’encoder, définissez `streamingPreset` sur `NoStreaming`.
 
 ## <a name="code-sample"></a>Exemple de code
 

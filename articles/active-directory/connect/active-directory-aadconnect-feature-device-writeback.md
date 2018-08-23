@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa8cdaf1a21a59a5bb695e3be90382f1e33823a2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4ee3d424d5a2f58a87cd83ca3d6e9b131dc0383c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590587"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246539"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect : Activation de l’écriture différée des appareils
 > [!NOTE]
@@ -36,7 +36,7 @@ Cela fournit une sécurité supplémentaire et l’assurance que l’accès aux 
 
 > [!IMPORTANT]
 > <li>Les appareils doivent se trouver dans la même forêt que les utilisateurs. Étant donné que les appareils doivent être réécrits dans une seule forêt, cette fonctionnalité ne prend pas en charge un déploiement à plusieurs forêts d’utilisateurs pour l’instant.</li>
-> <li>Vous ne pouvez ajouter qu’un seul objet de configuration d’enregistrement d’appareil à la forêt Active Directory locale. Cette fonctionnalité n’est pas compatible avec une topologie dans laquelle le domaine Active Directory local est synchronisé à plusieurs annuaires Azure AD.</li>> 
+> <li>Vous ne pouvez ajouter qu’un seul objet de configuration d’enregistrement d’appareil à la forêt Active Directory locale. Cette fonctionnalité n’est pas compatible avec une topologie dans laquelle le domaine Active Directory local est synchronisé à plusieurs annuaires Azure AD.</li>
 
 ## <a name="part-1-install-azure-ad-connect"></a>1re partie : Installer Azure AD Connect
 Installez Azure AD Connect à l’aide de paramètres personnalisés ou Express. Microsoft recommande de commencer par synchroniser correctement tous les utilisateurs et groupes avant d’activer l’écriture différée des appareils.

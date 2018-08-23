@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4b37a073f41295bf800d4e6c34681e0a06799c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450319"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617247"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint sur la sécurité et la conformité d’Azure : Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »
 
@@ -23,7 +23,7 @@ Les blueprints Azure sont constitués de documents de conseils et de modèles d�
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Ce blueprint sur la sécurité et la conformité d’Azure fournit des conseils et des scripts d’automatisation pour mettre en œuvre une architecture d’applications web hébergées sur une [plateforme PaaS (Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) Microsoft Azure permettant de gérer des charges de travail classifiées [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf). Cette classification de sécurité englobe la plupart des informations créées ou traitées par le secteur public. Ceci inclut des opérations et des services métier de routine qui, s’ils étaient perdus, volés ou publiés dans les médias, pourraient pour certains avoir des conséquences néfastes. Le profil typique des menaces pour la classification « OFFICIAL » est très similaires à celui d’une entreprise privée qui fournit des informations et des services ayant une certaine valeur. « UK OFFICIAL » anticipe sur la nécessité de défendre les données ou les services du secteur public du Royaume-Uni contre les menaces ou les compromissions par des attaquants avec des moyens et des ressources limités, comme (mais non limités à) des hactivistes, des groupes de pression pour un problème spécifique, des journalistes d’investigation, des hackers individuels compétents, et la majorité des personnes et des groupes commettant des délits.
+Ce blueprint sur la sécurité et la conformité d’Azure fournit des conseils et des scripts d’automatisation pour mettre en œuvre une architecture d’applications web hébergées sur une [plateforme PaaS (Platform as a Service)](https://azure.microsoft.com/overview/what-is-paas/) Microsoft Azure permettant de gérer des charges de travail classifiées [UK OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Cette classification de sécurité englobe la plupart des informations créées ou traitées par le secteur public. Ceci inclut des opérations et des services métier de routine qui, s’ils étaient perdus, volés ou publiés dans les médias, pourraient pour certains avoir des conséquences néfastes. Le profil typique des menaces pour la classification « OFFICIAL » est très similaires à celui d’une entreprise privée qui fournit des informations et des services ayant une certaine valeur. « UK OFFICIAL » anticipe sur la nécessité de défendre les données ou les services du secteur public du Royaume-Uni contre les menaces ou les compromissions par des attaquants avec des moyens et des ressources limités, comme (mais non limités à) des hactivistes, des groupes de pression pour un problème spécifique, des journalistes d’investigation, des hackers individuels compétents, et la majorité des personnes et des groupes commettant des délits.
 
 Ce blueprint a été revu par le NCSC (National Cyber Security Centre) du Royaume-Uni et s’aligne sur les 14 principes de sécurité cloud du NCSC.
 

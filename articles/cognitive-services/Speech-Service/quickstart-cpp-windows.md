@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 59c70d33d537742a5918dc1ba55ab8ac1f84e12c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324569"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929932"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans C++ sur Windows Desktop à l’aide du kit de développement logiciel (SDK) Speech
 
@@ -26,7 +26,7 @@ L’application est basée sur le [package NuGet du kit SDK Microsoft Cognitive 
 ## <a name="prerequisites"></a>Prérequis
 
 * Clé d’abonnement pour le service Speech. Consultez l’article [Try the speech service for free](get-started.md) (Essayer le service Speech gratuitement).
-* Un PC Windows avec un microphone opérationnel.
+* Un PC Windows avec un micro opérationnel.
 * [Microsoft Visual Studio 2017](https://www.visualstudio.com/), Community Edition ou version ultérieure.
 * La charge de travail **Développement Desktop avec C++** dans Visual Studio et le composant **Gestionnaire de package NuGet** dans Visual Studio.
   Vous pouvez activer ces deux éléments dans **Outils** \> **Obtenir des outils et des fonctionnalités**, dans les onglets **Charges de travail** et **Composants individuels**, respectivement :
@@ -55,7 +55,7 @@ En haut à droite, dans le champ **Source du package**, choisissez « Nuget.org 
 Sous l’onglet **Parcourir**, recherchez le package « Microsoft.CognitiveServices.Speech », sélectionnez-le, puis cochez les cases **Projet** et **helloworld** à droite. Sélectionnez ensuite **Installer** pour l’installer dans le projet helloworld.
 
 > [!NOTE]
-> La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `0.5.0`.
+> La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `0.6.0`.
 
 ![Installer le package NuGet Microsoft.CognitiveServices.Speech](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
 
@@ -73,7 +73,7 @@ Dans l’écran de licence qui s’affiche, acceptez la licence :
 
 1. Remplacez la chaîne `YourServiceRegion` par la [région](regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
 
-1. Enregistrez des modifications dans le projet.
+1. Enregistrez les modifications apportées au projet.
 
 ## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
 

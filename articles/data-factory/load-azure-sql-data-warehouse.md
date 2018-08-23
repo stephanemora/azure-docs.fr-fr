@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4322f1837c9b7fffba180f7106911d010a9ad8aa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8525dd443e80bb7d67bc48cc007ab1632ee3e611
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448534"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142123"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Charger des données dans Azure SQL Data Warehouse à l’aide d’Azure Data Factory
 
@@ -40,7 +40,7 @@ Cet article explique comment utiliser l’outil de copie de données Data Factor
 * Abonnement Azure : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * Azure SQL Data Warehouse : l’entrepôt de données conserve les données copiées à partir de la base de données SQL. Si vous n’avez pas d’entrepôt de données Azure SQL Data Warehouse, consultez les instructions dans [Créer un entrepôt de données SQL](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Base de données SQL Azure : ce didacticiel copie les données à partir d’une base de données SQL avec l’exemple de données Adventure Works LT. Vous pouvez créer une base de données SQL en suivant les instructions dans [Création d’une base de données SQL Azure](../sql-database/sql-database-get-started-portal.md). 
-* Compte de stockage Azure : le stockage Azure est utilisé comme objet blob _intermédiaire_ dans l’opération de copie en bloc. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Compte de stockage Azure : le stockage Azure est utilisé comme objet blob _intermédiaire_ dans l’opération de copie en bloc. Si vous ne possédez pas de compte de stockage Azure, consultez les instructions dans [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 

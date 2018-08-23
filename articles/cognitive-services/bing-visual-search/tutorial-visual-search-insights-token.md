@@ -9,12 +9,12 @@ ms.component: bing-visual-search
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 578fa90f504920030b488d2b8fa3a2d0232cccce
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 8f6e7f7e88ae78fe7e8a9be4adefd689dd26d0f9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753582"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41929765"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Tutoriel : résultats et jeton ImageInsightsToken du Kit de développement logiciel (SDK) de Recherche visuelle Bing
 Le Kit de développement logiciel (SDK) de Recherche visuelle comprend une option pour rechercher des images en ligne à partir d’une recherche précédente renvoyant un `ImageInsightsToken`.  Cet exemple obtient un `ImageInsightsToken` et utilise le jeton dans une recherche ultérieure.  Le code envoie le `ImageInsightsToken` à Bing, puis retourne des résultats qui incluent les URL de recherche Bing et les URL des images similaires disponibles en ligne.
@@ -283,4 +283,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-[Réponse de recherche visuelle](https://review.docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview?branch=pr-en-us-44614#the-response)
+[Réponse de recherche visuelle](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

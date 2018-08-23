@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3416802aea12e84cf827070ff3a50d73725d5ee3
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 7805b238d42201b791e038964985f784fcf8d4ce
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390484"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142117"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C : migration utilisateur
 Quand vous migrez votre fournisseur d’identité vers Azure Active Directory B2C (Azure AD B2C), il se peut que vous deviez également migrer les comptes d’utilisateur. Cet article explique comment migrer des comptes d’utilisateur existants de n’importe quel fournisseur d’identité vers Azure AD B2C. L’article n’a pas vocation à être normatif, mais plutôt à décrire quelques scénarios. Le développeur est responsable du choix de l’approche adaptée.
@@ -363,7 +363,7 @@ Vous pouvez afficher et surveiller les informations de journalisation en temps q
 Une fois que vous avez [pris en main les stratégies personnalisées][B2C-GetStartedCustom], nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée. Des [exemples de fichiers de stratégie][UserMigrationSample] sont à votre disposition pour référence.
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
-[AD-Powershell]: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2
+[AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
 [AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
 [B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration
 [B2C-GetStarted]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started

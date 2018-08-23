@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7427af3e814752801c4738675f7cd2263843f9b8
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020543"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617084"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -41,27 +41,19 @@ Service Fabric fournit des outils de génération de modèles automatique qui vo
 
 1. Installer nodejs et NPM sur votre machine
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4 (prise en charge de la préversion de Service Fabric)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. Installer le générateur de modèles [Yeoman](http://yeoman.io/) sur votre machine à partir de NPM
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
 3. Installer le générateur d’applications Service Fabric Yeoman C# à partir de NPM
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
 ## <a name="create-the-application"></a>Création de l'application
@@ -78,7 +70,7 @@ Une application Service Fabric peut contenir un ou plusieurs services, chacun ay
 >
 >
 
-## <a name="build-the-application"></a>Création de l'application
+## <a name="build-the-application"></a>Créer l’application
 Les modèles Yeoman Service Fabric incluent un script de build que vous pouvez utiliser pour générer l’application à partir du terminal (après avoir accédé au dossier l’application).
 
   ```sh
@@ -138,7 +130,7 @@ Les projets d’acteur n’effectuent aucune opération automatiquement. Ils ont
 
 Pour ajouter un autre service à une application déjà créée à l’aide de `yo`, procédez comme suit :
 1. Accédez au répertoire à la racine de l’application existante.  Par exemple, `cd ~/YeomanSamples/MyApplication`, si `MyApplication` est l’application créée par Yeoman.
-2. Exécutez `yo azuresfcsharp:AddService`.
+2. Exécutez `yo azuresfcsharp:AddService`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

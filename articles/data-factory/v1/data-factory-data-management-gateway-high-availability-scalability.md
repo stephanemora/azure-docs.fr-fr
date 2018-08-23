@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113338"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142101"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -33,7 +33,7 @@ Cet article vous aide à configurer la solution de haute disponibilité et scala
 
 >**Cette fonctionnalité en version préliminaire est officiellement prise en charge sur les versions 2.12.xxxx.x et ultérieures de la passerelle de gestion des données**. Assurez-vous que vous utilisez la version 2.12.xxxx.x ou une version supérieure. Téléchargez [ici](https://www.microsoft.com/download/details.aspx?id=39717) la dernière version de la passerelle de gestion des données.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez associer des passerelles de gestion des données installées sur plusieurs ordinateurs locaux à une seule passerelle logique du portail. Ces ordinateurs sont appelés **nœuds**. Vous pouvez associer jusqu’à **quatre nœuds** à une passerelle logique. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique :  
 
 - Les performances du déplacement des données entre les magasins de données locaux et dans le cloud sont améliorées.  
@@ -169,7 +169,7 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
 - Les certificats utilisant des caractères génériques sont pris en charge. Si votre nom de domaine complet est **node1.domain.contoso.com**, vous pouvez utiliser ***.domain.contoso.com** comme nom du sujet du certificat.
 - Les certificats SAN ne sont pas recommandés, car seul le dernier élément des Autres noms de l’objet sera utilisé et tous les autres seront ignorés en raison d’une limitation actuelle. Par exemple, si vous avez un certificat SAN dont les noms SAN sont **node1.domain.contoso.com** et **node2.domain.contoso.com**, vous ne pouvez utiliser ce certificat que sur l’ordinateur dont le FQDN est **node2.domain.contoso.com**.
 - Prise en charge de toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.
-- Les certificat utilisant des clés CNG ne sont pas pris en charge. Non-prise en charge des certificats qui utilisent des clés CNG.
+- Les certificat utilisant des clés CNG ne sont pas pris en charge.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>Forum aux questions : quand faut-il ne pas activer ce chiffrement ?
 L’activation du chiffrement peut ajouter certains coûts à votre infrastructure (possession d’un certificat public). Par conséquent, vous pouvez ignorer l’activation du chiffrement dans les cas ci-dessous :

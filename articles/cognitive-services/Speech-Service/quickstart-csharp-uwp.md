@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: d1245b07ac0de680c13542b9af86b25bdf517c21
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 551439d28bcd7c64faf7ac6ac7388145456f7a53
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576132"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41937526"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans une application UWP à l’aide du kit de développement logiciel (SDK) Speech
 
@@ -67,7 +67,7 @@ L’application est créée avec le [package NuGet du kit SDK Microsoft Cognitiv
 1. La ligne de sortie suivante s’affiche dans la console du gestionnaire de package.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 0.6.0' to helloworld
    ```
 
 ## <a name="add-the-sample-code"></a>Ajouter l’exemple de code

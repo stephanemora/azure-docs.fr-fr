@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: 7b41d3af5fbbbef90676fe37056b69d89c4f6c48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ab6936d62aac5502d70239bacfbfd15bd6b793ab
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580204"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141101"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -76,10 +76,10 @@ Les développeurs peuvent prendre ce défi et l’ajouter à une nouvelle demand
 
 ## <a name="scenarios"></a>Scénarios
 
-### <a name="prerequisites"></a>Conditions préalables
+### <a name="prerequisites"></a>Prérequis
 
 
-L’accès conditionnel Azure AD est une fonctionnalité inclue dans [Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis#choose-an-edition). Pour en savoir plus sur les conditions requises de licence, consultez le [Rapport d’utilisation sans licence](../active-directory-conditional-access-unlicensed-usage-report.md). Les développeurs peuvent joindre le [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), qui inclut un abonnement gratuit à la suite Enterprise Mobility, qui comprend Azure AD Premium.
+L’accès conditionnel Azure AD est une fonctionnalité inclue dans [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis#choose-an-edition). Pour en savoir plus sur les conditions requises de licence, consultez le [Rapport d’utilisation sans licence](../active-directory-conditional-access-unlicensed-usage-report.md). Les développeurs peuvent joindre le [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), qui inclut un abonnement gratuit à la suite Enterprise Mobility, qui comprend Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Considérations pour des scénarios spécifiques
 

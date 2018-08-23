@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297833"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143636"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Configurer des comptes de stockage pour Cost Management
 
@@ -27,7 +27,7 @@ Vous pouvez enregistrer des rapports Cost Management dans le portail Cloudyn, da
 
 Vous devez disposer d’un compte de stockage Azure ou d’un compartiment de stockage Amazon.
 
-Si vous n’avez pas de compte de stockage Azure, vous devez en créer un. Pour plus d’informations sur la création d’un compte de stockage Azure, consultez la section [Créer un compte de stockage](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Si vous n’avez pas de compte de stockage Azure, vous devez en créer un. Pour plus d’informations sur la création d’un compte de stockage Azure, consultez la section [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md).
 
 Si vous ne possédez pas de compartiment de service de stockage simple AWS (S3), vous devez en créer un. Pour en savoir plus sur la création d’un compartiment S3, consultez la section [Create a Bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html) (Créer un compartiment).
 

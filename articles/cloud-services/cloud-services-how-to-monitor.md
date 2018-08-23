@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 725a705f746bbf5e32fcc410ba4153ac29e3fc3d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9fbe59c40fe55218429a3b479ddbbec7220c66a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003851"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141113"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduction à la surveillance des services cloud
 
@@ -58,7 +58,7 @@ Lorsque chaque rôle est créé, Visual Studio lui ajoute l’extension Azure Di
 
 ## <a name="setup-diagnostics-extension"></a>Configurer l’extension de diagnostic
 
-Pour commencer, si vous ne disposez pas d'un compte de stockage **classique**, [créez-en un](../storage/common/storage-create-storage-account.md#create-a-storage-account). Assurez-vous que le compte de stockage est créé avec le **modèle de déploiement classique** spécifié.
+Pour commencer, si vous ne disposez pas d'un compte de stockage **classique**, [créez-en un](../storage/common/storage-quickstart-create-account.md). Assurez-vous que le compte de stockage est créé avec le **modèle de déploiement classique** spécifié.
 
 Ensuite, accédez à la ressource **Compte de stockage (classique)**. Sélectionnez **Paramètres** > **Clés d’accès** et copiez la valeur de **Chaîne de connexion principale**. Vous avez besoin de cette valeur pour le service cloud. 
 

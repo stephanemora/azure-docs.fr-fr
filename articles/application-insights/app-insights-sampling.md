@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
-ms.author: mbullwin; vitalyg
-ms.openlocfilehash: 53753a3202362c73356e8e39bfca9d813f6387e0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: vitalyg
+ms.author: mbullwin
+ms.openlocfilehash: 3c706b88ec9e67a607a75733833c67e62eebb724
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869901"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42142083"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -326,9 +327,12 @@ Si les conditions d’utilisation des autres formes d’échantillonnage ne s’
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>Comment savoir si l’échantillonnage est utilisé ?
 Pour découvrir le taux d’échantillonnage réel, indépendamment de l’endroit où il a été appliqué, utilisez une [requête Analytics](app-insights-analytics.md) telle que celle-ci :
 
-    requests | where timestamp > ago(1d)
-    | summarize 100/avg(itemCount) by bin(timestamp, 1h) 
-    | render areachart 
+```
+union * 
+| where timestamp > ago(1d)
+| summarize 100/avg(itemCount) by bin(timestamp, 1h), itemType
+| render timechart 
+```
 
 Pour chaque enregistrement conservé, `itemCount` indique le nombre d’enregistrements d’origine qu’il représente, soit 1 + le nombre d’enregistrements précédents ignorés. 
 

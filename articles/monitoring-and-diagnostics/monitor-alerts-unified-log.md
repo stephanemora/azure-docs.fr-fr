@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fd1fb978fb47c69b2eb672bc27baee73dfdd0a29
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440427"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142779"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Alertes de journal dans Azure Monitor - Alertes 
 Cet article fournit des détails sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les nouvelles [Alertes Azure](monitoring-overview-unified-alerts.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes.
@@ -87,7 +87,7 @@ L’alerte exécute alors la requête toutes les 5 minutes, avec 30 minutes de d
 #### <a name="example"></a>Exemples
 Prenons le scénario suivant : vous souhaitez créer une alerte si le taux d’utilisation du processeur d’un ordinateur dépasse 90 % à trois reprises en l’espace de 30 minutes.  Il conviendrait de créer une règle d’alerte paramétrée comme suit :  
 
-- **Requête :** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5 m), Computer<br>
+- **Requête :** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 - **Période :** 30 minutes<br>
 - **Fréquence des alertes :** 5 minutes<br>
 - **Valeur agrégée :** supérieure à 90<br>

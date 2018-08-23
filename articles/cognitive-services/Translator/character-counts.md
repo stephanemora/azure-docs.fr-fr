@@ -9,19 +9,17 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: v-jansko
-ms.openlocfilehash: ebe3e3606a0413730e1fbfd704a6403f77275f89
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1b4987509c17e4064d7c54608395e272efa8de3b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368644"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41929979"
 ---
 # <a name="how-the-microsoft-translator-text-api-counts-characters"></a>Comment l’API de traduction de texte Microsoft Translator Text compte les caractères
 
 Microsoft Translator compte chaque caractère de l’entrée. Nous parlons de caractères dans le sens de caractères Unicode, pas dans le sens d’octets. Les substituts Unicode comptent comme deux caractères. Un espace blanc et une balise sont considérés comme des caractères. La longueur de la réponse n’a pas d’importance.
 
 Les appels aux méthodes Detect et BreakSentence ne sont pas comptés dans l’utilisation de caractères. Toutefois, nous nous attendons à ce que la quantité d’appels aux méthodes Detect et BreakSentence soit raisonnable par rapport à l’utilisation des autres fonctions comptées. Microsoft se réserve le droit de commencer à compter les appels aux méthodes Detect et BreakSentence. 
-
-Translate propose la détection automatique si vous omettez le paramètre de langue de départ. 
 
 Vous trouverez plus d’informations sur les comptes de caractères dans la [FAQ de Translator](https://www.microsoft.com/en-us/translator/faq.aspx).

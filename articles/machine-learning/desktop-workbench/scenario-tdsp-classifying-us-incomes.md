@@ -3,25 +3,25 @@ title: Classification des revenus - Team Data Science Process - Azure Machine Le
 description: Découvrez comment utiliser le modèle Team Data Science Process pour créer un projet dans Azure Machine Learning qui classifie les revenus aux États-Unis.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.author: bradsev
-ms.openlocfilehash: 3b1d2be46b2f142adff966991997891e44e850ec
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832677"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142789"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classification des revenus avec un projet Team Data Science Process (TDSP)
 

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 9efd9470982f0afaa357114828d51df37a7c2890
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520926"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142108"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gérer les droits d’accès aux données du Stockage Azure avec RBAC (préversion)
 
@@ -32,7 +32,7 @@ Le Stockage Azure prend en charge les rôles RBAC intégrés et personnalisés. 
 
 Pour plus d’informations sur la définition des rôles intégrés pour le Stockage Azure, consultez [Comprendre les définitions de rôles](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview).
 
-Vous pouvez également définir des rôles personnalisés à utiliser avec des conteneurs et des files d’attente. Pour plus d’informations, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles.md). 
+Vous pouvez également définir des rôles personnalisés à utiliser avec des conteneurs et des files d’attente. Pour plus d’informations, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
 > [!IMPORTANT]
 > Cette préversion est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont pas disponibles tant que l’intégration d’Azure AD pour le Stockage Azure n’est pas officiellement disponible de manière générale. Si l’intégration d’Azure AD n’est pas encore prise en charge pour votre scénario, continuez à utiliser l’autorisation basée sur une clé partagée ou les jetons SAP dans vos applications. Pour plus d’informations sur la préversion, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 92be187a1c593742feb90409f2b8cc305bf9a6c8
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 8ecb2008b85bb6a7ac35b5f95deaf0fb321ce155
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161649"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142119"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Comment obtenir Azure Multi-Factor Authentication ?
 
@@ -63,7 +63,7 @@ Le tableau suivant fournit la liste des fonctionnalités qui sont disponibles da
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Comment activer Azure Multi-Factor Authentication pour les administrateurs Azure AD
 
-Les utilisateurs avec le rôle d’administrateur général dans les locataires Azure AD peuvent activer la vérification en deux étapes pour leurs comptes d’administrateurs généraux Azure AD sans coût supplémentaire. Si vous utilisez un compte Microsoft, vous pouvez vous inscrire pour l’authentification multifacteur en utilisant les instructions figurant dans l’article relatif au support de compte Microsoft, [À propos de la vérification en deux étapes](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Si vous n’utilisez pas de compte Microsoft, activez l’authentification multifacteur pour les administrateurs généraux en utilisant les instructions figurant dans l’article [Comment exiger la vérification en deux étapes pour un utilisateur ou un groupe](howto-mfa-userstates.md).
+Les utilisateurs avec le rôle d’administrateur général dans les locataires Azure AD peuvent activer la vérification en deux étapes pour leurs comptes d’administrateurs généraux Azure AD sans coût supplémentaire. Si vous utilisez un compte Microsoft, vous pouvez vous inscrire pour l’authentification multifacteur en utilisant les instructions figurant dans l’article relatif au support de compte Microsoft, [À propos de la vérification en deux étapes](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). Si vous n’utilisez pas de compte Microsoft, activez l’authentification multifacteur pour les administrateurs généraux en utilisant les instructions figurant dans l’article [Comment exiger la vérification en deux étapes pour un utilisateur ou un groupe](howto-mfa-userstates.md).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Comment obtenir Azure Multi-Factor Authentication ?
 

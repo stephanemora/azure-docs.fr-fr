@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 8671cba484a779e8d7cd0172df141497bb396a97
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f48872d1853dfd4c40022f42c8e237973ac70fe6
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359031"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41946514"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Mise à jour hors connexion d’Azure App Service sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!IMPORTANT]
-> Appliquez la mise à jour 1802 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service.
+> Appliquez la mise à jour 1807 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack avant de déployer Azure App Service 1.3.
 >
 >
 
@@ -44,7 +44,7 @@ En suivant les instructions de cet article, vous pouvez mettre à niveau le [fou
 
 Pour mettre à niveau le fournisseur de ressources App Service dans un environnement Azure Stack, vous devez effectuer les tâches suivantes :
 
-1. Télécharger le [Programme d’installation App Service](https://aka.ms/appsvcupdate2installer)
+1. Télécharger le [Programme d’installation App Service](https://aka.ms/appsvcupdate3installer)
 2. Créer un package de mise à niveau en mode hors connexion
 3. Exécuter le programme d’installation App Service (appservice.exe) et procéder à la mise à niveau
 

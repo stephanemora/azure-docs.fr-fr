@@ -3,7 +3,7 @@ title: Utiliser l’outil de validation des modèles pour vérifier des modèles
 description: Vérifier des modèles pour un déploiement sur Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 73a0766baee8da782f0192fbc17fb2898a8360ac
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294478"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41946555"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Vérifier vos modèles pour Azure Stack avec l’outil de validation des modèles
 
@@ -28,7 +28,7 @@ ms.locfileid: "35294478"
 
 Vous pouvez utiliser l’outil de validation des modèles pour vérifier si vos [modèles](azure-stack-arm-templates.md) Azure Resource Manager sont prêts à être déployés dans Azure Stack. L’outil de validation des modèles fait partie des outils disponibles avec Azure Stack. Téléchargez les outils Azure Stack en utilisant la procédure décrite dans l’article [Télécharger des outils à partir de GitHub](azure-stack-powershell-download.md).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour valider un modèle, vous devez d’abord générer un fichier des fonctionnalités du cloud, puis exécuter l’outil de validation. Vous utilisez les modules PowerShell suivants à partir des outils Azure Stack :
 
@@ -85,9 +85,9 @@ Le validateur de modèle prend en charge les paramètres suivants.
 
 | Paramètre | Description | Obligatoire |
 | ----- | -----| ----- |
-| TemplatePath | Spécifie le chemin pour rechercher des modèles Azure Resource Manager de manière récursive | OUI | 
+| TemplatePath | Spécifie le chemin pour rechercher des modèles Azure Resource Manager de manière récursive | Oui | 
 | TemplatePattern | Spécifie le nom des fichiers de modèle à faire correspondre | Non  |
-| CapabilitiesPath | Spécifie le chemin du fichier JSON des fonctionnalités du cloud | OUI | 
+| CapabilitiesPath | Spécifie le chemin du fichier JSON des fonctionnalités du cloud | Oui | 
 | IncludeComputeCapabilities | Inclut l’évaluation de ressources IaaS telles que des tailles de machine virtuelle et des extensions de machine virtuelle | Non  |
 | IncludeStorageCapabilities | Inclut l’évaluation de ressources de stockage comme des types de références (SKU) | Non  |
 | Rapport | Spécifie le nom du rapport HTML généré | Non  |

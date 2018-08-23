@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: ff349c480ca14b4242fb7597751b4eb6acb0ee78
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308474"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141295"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Préversion : Appliquer la protection de mot de passe Azure AD pour Windows Server Active Directory
 
@@ -37,7 +37,7 @@ Trois composants logiciels constituent la protection de mot de passe Azure AD :
 ## <a name="requirements"></a>Configuration requise
 
 * Toutes les machines sur lesquelles les composants de protection de mot de passe Azure AD sont installés, notamment les contrôleurs de domaine, doivent exécuter Windows Server 2012 ou une version ultérieure.
-* Le runtime C universel doit être installé sur tous les ordinateurs sur lesquels les composants de protection par mot de passe Azure AD sont installés, notamment les contrôleurs de domaine. Pour cela, téléchargez de préférence tous les correctifs sur l’ordinateur avec Windows Update. Sinon, il est possible d’installer un package de mise à jour propre au système d’exploitation ; voir [Mise à jour du runtime C universel C sous Windows](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows).
+* Le runtime C universel doit être installé sur tous les ordinateurs sur lesquels les composants de protection par mot de passe Azure AD sont installés, notamment les contrôleurs de domaine. Pour cela, téléchargez de préférence tous les correctifs sur l’ordinateur avec Windows Update. Sinon, il est possible d’installer un package de mise à jour propre au système d’exploitation ; voir [Mise à jour du runtime C universel C sous Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows).
 * Une connectivité réseau doit exister entre au moins un contrôleur de domaine dans chaque domaine et au moins un serveur hébergeant le service de proxy de protection de mot de passe Azure AD.
 * Les domaines Active Directory exécutant le logiciel du service d’agent de contrôleur de domaine doivent utiliser DFSR pour la réplication sysvol.
 * Un compte d’administrateur général doit être utilisé pour inscrire le service de proxy de protection de mot de passe Azure AD auprès d’Azure AD.

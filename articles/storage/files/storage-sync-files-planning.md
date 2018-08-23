@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: c230b08089f22dbd0ea46cdff331f1c8b354ef62
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038177"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617190"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -214,7 +214,7 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 
 | Région primaire      | Région jumelée      |
 |---------------------|--------------------|
-| Australie Est      | Sud-Est de l’Australie |
+| Australie Est      | Australie Sud-Est |
 | Australie Sud-Est | Australie Est     |
 | Canada Centre      | Est du Canada        |
 | Est du Canada         | Centre du Canada     |

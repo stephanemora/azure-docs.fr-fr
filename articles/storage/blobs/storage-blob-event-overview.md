@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262682"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141306"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -21,7 +21,7 @@ Les événements de Stockage Azure permettent aux applications de réagir à la 
 
 Les scénarios d’événements de stockage d’objets Blob courants incluent le traitement d’images ou de vidéos, l’indexation pour la recherche ou n’importe quel flux de travail orienté fichier.  Les téléchargements de fichier asynchrones sont parfaitement adaptés aux événements.  Lorsque les modifications sont peu fréquentes, mais que votre scénario requiert une réactivité immédiate, une architecture basée sur des événements peut être particulièrement efficace.
 
-La disponibilité des événements de stockage est liée à la [disponibilité](../../event-grid/overview.md) d’Event Grid, et sera disponible dans d’autres régions en même temps qu’Event Grid. Pour obtenir un exemple rapide, consultez [Router des événements de stockage Blob Azure vers un point de terminaison web personnalisé - CLI](storage-blob-event-quickstart.md) ou [Router des événements de stockage Blob Azure vers un point de terminaison web personnalisé - PowerShell](storage-blob-event-quickstart-powershell.md). 
+Pour obtenir un exemple rapide, consultez [Router des événements de stockage Blob Azure vers un point de terminaison web personnalisé - CLI](storage-blob-event-quickstart.md) ou [Router des événements de stockage Blob Azure vers un point de terminaison web personnalisé - PowerShell](storage-blob-event-quickstart-powershell.md). 
 
 ![Modèle de Event Grid](./media/storage-blob-event-overview/event-grid-functional-model.png)
 

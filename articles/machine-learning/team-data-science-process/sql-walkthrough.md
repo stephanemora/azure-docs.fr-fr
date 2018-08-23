@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: dae8549cb951a463688869454e2f4c71103c1363
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6e58429567e447002b1c9191bb8e50a4351649a9
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226391"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246564"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
@@ -70,7 +70,7 @@ Dans ce didacticiel, nous allons décrire les procédures d’importations de do
 
 Pour configurer votre environnement de science des données Azure :
 
-1. [Créez un compte de stockage](../../storage/common/storage-create-storage-account.md)
+1. [Créez un compte de stockage](../../storage/common/storage-quickstart-create-account.md)
 2. [Création d’un espace de travail Microsoft Azure Machine Learning](../studio/create-workspace.md)
 3. [Approvisionnez une machine virtuelle de science des données](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), qui fournit un serveur SQL Server et un serveur Notebook IPython.
    

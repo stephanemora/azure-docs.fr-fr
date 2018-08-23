@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 8b257a6f4c32b4013ac0478d82dc1f7f32675b9b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a625ee4d8d672ddfd42128a9dd871dcfcc013060
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578158"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929772"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans C# sous .NET Framework sur Windows à l’aide du kit de développement logiciel (SDK) Speech
 
@@ -55,7 +55,7 @@ L’application est créée avec le [package NuGet du kit SDK Microsoft Cognitiv
 1. La ligne de sortie suivante s’affiche dans la console du gestionnaire de package.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 0.6.0' to helloworld
    ```
 
 ## <a name="create-a-platform-configuration-matching-your-pc-architecture"></a>Créer une configuration de plateforme correspondant à l’architecture de votre PC

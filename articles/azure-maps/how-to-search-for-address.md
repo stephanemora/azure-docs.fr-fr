@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fe3bb3a778a42696cd15f9e4265448479bf043a1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990011"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141264"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Rechercher une adresse à l’aide du service Azure Maps Search
 
@@ -164,19 +164,11 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
 
     | Clé | Valeur |
     |-----|------------|
-    | spatialKeys | true |
-
-    Si le paramètre de requête [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse contient les informations de clés géospatiales propriétaires d’un emplacement spécifié.
-
-6. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
-
-    | Clé | Valeur |
-    |-----|------------|
     | returnSpeedLimit | true |
     
     Si le paramètre de requête [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse retourne la vitesse maximale autorisée.
 
-7. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
+6. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 
     | Clé | Valeur |
     |-----|------------|
@@ -184,7 +176,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API Se
 
     Si le paramètre de requête [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) est défini, la réponse retourne le tableau de l’état du trafic routier des géocodes inverses au niveau des rues.
 
-8. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
+7. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 
     | Clé | Valeur |
     |-----|------------|

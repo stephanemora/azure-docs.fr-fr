@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: priyar
-ms.openlocfilehash: 4b633cefa37c11511a8171d5a7f61b03dfaa4466
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6236bf1c4d9ac7ba672939543c16b8d02a79892e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368600"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41937520"
 ---
 # <a name="bing-text-to-speech-api"></a>API Synthèse vocale Bing
 
@@ -62,7 +62,7 @@ Content-Type | application/ssml+xml | Type de contenu d’entrée.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | Format audio de sortie.
 X-Search-AppId | Un GUID (hexadécimal uniquement, sans tiret) | Un ID identifiant de manière unique l’application cliente. Cela peut être l’ID du store pour les applications. Si aucun ID n’est pas disponible, reste la possibilité d’en générer un par utilisateur pour une application.
 X-Search-ClientID | Un GUID (hexadécimal uniquement, sans tiret) | Un ID identifiant de manière unique une instance d’application pour chaque installation.
-User-Agent | Nom de l’application | Le nom de l’application est requis. Il doit utiliser moins de 255 caractères.
+User-Agent. | Nom de l’application | Le nom de l’application est requis. Il doit utiliser moins de 255 caractères.
 Authorization | Jeton d’autorisation |  Consultez la section <a href="#Subscription">Jeton d’autorisation</a>.
 
 ### <a name="InputParam"></a>Paramètres d’entrée
@@ -151,13 +151,13 @@ L’API Synthèse vocale de Microsoft prend en charge le protocole SSML 1.0 tel 
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
-3. Prononciation
+3. Prononcer
 
   ```
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
   ```
 
-4. Modification du volume
+4. Modifier le volume
 
   ```
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
@@ -234,11 +234,10 @@ hr-HR | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft 
 hu-HU | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (hu-HU, Szabolcs) »
 id-ID | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (id-ID, Andika) »
 it-IT | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (it-IT, Cosimo, Apollo) »
+it-IT | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (it-IT, LuciaRUS) »
 ja-JP | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, Ayumi, Apollo) »
 ja-JP | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, Ichiro, Apollo) »
 ja-JP | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, HarukaRUS) »
-ja-JP | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, LuciaRUS) »
-ja-JP | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, EkaterinaRUS) »
 ko-KR | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ko-KR, HeamiRUS) »
 ms-MY | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ms-MY, Rizwan) »
 nb-NO | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (nb-NO, HuldaRUS) »
@@ -250,6 +249,7 @@ pt-PT | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft 
 ro-RO | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ro-RO, Andrei) »
 ru-RU | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ru-RU, Irina, Apollo) »
 ru-RU | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ru-RU, Pavel, Apollo) »
+ru-RU | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (ru-RU, Pavel, Apollo) »
 sk-SK | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (sk-SK, Filip) »
 sl-SI | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (sl-SI, Lado) »
 sv-SE | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (sv-SE, HedvigRUS) »

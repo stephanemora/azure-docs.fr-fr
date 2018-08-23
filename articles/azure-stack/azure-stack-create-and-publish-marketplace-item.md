@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da1619c5dc536ee143a8cc5ed17e995bc2d1eab7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35629988"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41946587"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Créer et publier un article de la Place de marché
 
@@ -102,7 +102,7 @@ ms.locfileid: "35629988"
 
 6. Vous pouvez supprimer un article de Marketplace avec la cmdlet **Remove-AzureRMGalleryItem**. Exemple :
    
-        Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
+        Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    
    > [!NOTE]
    > L’interface utilisateur Marketplace peut présenter une erreur après la suppression d’un élément. Pour résoudre le problème, cliquez sur **Paramètres** sur le portail. Sélectionnez ensuite **Ignorer les modifications** sous **Personnalisation du portail**.

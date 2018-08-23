@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 880632a39332f7d9ad24b0f7aa2301660eb2f9b8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 849253dd4a2e66acc6a509a0515a22309c90e081
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528571"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42142281"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
 
@@ -332,14 +332,14 @@ Stockage Azure fournit les mesures de capacité suivantes dans Azure Monitor.
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| UsedCapacity | Quantité de stockage utilisée par le compte de stockage. Pour les comptes de stockage standard, il s’agit de la somme de la capacité utilisée par les objets blob, tables, fichiers et files d’attente. Pour les comptes de stockage Premium et les comptes de stockage Blob, elle équivaut à BlobCapacity. <br/><br/> Unité : octets <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
+| UsedCapacity | Quantité de stockage utilisée par le compte de stockage. Pour les comptes de stockage standard, il s’agit de la somme de la capacité utilisée par les objets blob, tables, fichiers et files d’attente. Pour les comptes de stockage Premium et les comptes de stockage Blob, elle équivaut à BlobCapacity. <br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Exemple de valeur : 1024 |
 
 ### <a name="blob-storage"></a>Stockage d'objets blob
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
-| BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : octets <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
-| BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
+| BlobCapacity | Total de stockage d’objets blob utilisé dans le compte de stockage. <br/><br/> Unité : octets <br/> Type d’agrégation : total <br/> Exemple de valeur : 1024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
+| BlobCount    | Nombre d’objets blob stockés dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Exemple de valeur : 1024 <br/> Dimension : BlobType ([Définition](#metrics-dimensions)) |
 | ContainerCount    | Nombre de conteneurs dans le compte de stockage. <br/><br/> Unité : nombre <br/> Type d’agrégation : moyenne <br/> Exemple de valeur : 1024 |
 
 ### <a name="table-storage"></a>Stockage de tables
