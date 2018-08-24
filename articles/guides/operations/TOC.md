@@ -1,30 +1,34 @@
-# Bien démarrer avec Azure
-## [Présentation du cloud computing](azure-operations-guide.md#cloud-computing-overview)
-### [Régions Azure](https://azure.microsoft.com/regions/)
-## [Services](azure-operations-guide.md#azure-services)
-### [Documentation des services Azure](https://docs.microsoft.com/azure)
-## [Concepts clés](azure-operations-guide.md#azure-key-concepts)
-### [Présentation du portail Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
-### [Gérer les ressources Azure sur le portail](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)
-### [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps)
-### [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Référence du Kit de développement logiciel (SDK) REST Azure](https://docs.microsoft.com/rest/api/index)
+# Azure pour les opérateurs IT
+## [Prise en main d’Azure](azure-operations-guide.md) 
+## Démarrages rapides
+### Virtual Machines
+#### [Machines virtuelles Windows](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Machines virtuelles Linux](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### Virtual Network
+#### [Créer un réseau virtuel au moyen du portail Azure](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Stockage](https://docs.microsoft.com/azure/storage/)
+### Sécurité
+#### [Utiliser des attributions de rôle pour gérer les ressources](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [Abonnements](azure-operations-guide.md#azure-subscriptions)
+## Didacticiels
+### Virtual Machines
+#### [Créer et gérer une machine virtuelle Windows](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Créer et gérer des machines virtuelles Linux](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Pipeline CI/CD Jenkins](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Équilibrer la charge des machines virtuelles](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Création de modèles Azure Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+## Procédures
 ### [Comment télécharger votre facture Azure et vos données d’utilisation quotidienne](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Obtenez des informations sur votre consommation de ressources](../../billing/billing-usage-rate-card-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Calculatrice de prix en ligne](http://azure.microsoft.com/pricing/calculator)
-### [Définition des alertes de facturation](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
 
 ### [Création de modèles Azure Resource Manager](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Déployer des modèles à l’aide du portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Déployer des modèles à l’aide d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Déployer des modèles à l’aide de l’interface de ligne de commande Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Déployer des modèles à l’aide du portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Déployer des modèles à l’aide d’Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Déployer des modèles à l’aide de l’interface de ligne de commande Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Sécurité (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Utiliser des attributions de rôle pour gérer les ressources](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Utiliser des attributions de rôle pour gérer les ressources](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Machines virtuelles](azure-operations-guide.md#azure-virtual-machines)
 ### [Tailles de machine virtuelle pour Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
@@ -38,7 +42,7 @@
 ### Didacticiels sur les machines virtuelles pour Windows
 #### [Créer/gérer une machine virtuelle](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Créer/gérer des disques](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Automatiser la configuration] (../../Virtual-machines/Windows/Tutorial-automate-VM-Deployment.MD
+#### [Automatiser la configuration](../../virtual-machines/windows/tutorial-automate-vm-deployment.md)
 #### [Créer des images de machine virtuelle](../../virtual-machines/windows/tutorial-custom-images.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Machines virtuelles hautement disponibles](../../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Créer un groupe de machines virtuelles identiques](../../virtual-machines/windows/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
