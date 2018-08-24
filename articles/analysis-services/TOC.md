@@ -1,6 +1,6 @@
 # [Documentation Analysis Services](index.md)
 
-# Vue d'ensemble
+# Vue d’ensemble
 
 ## [Qu’est-ce qu’Analysis Services ?](analysis-services-overview.md)
 
@@ -34,6 +34,7 @@
 ### [Configurer un alias de nom de serveur](analysis-services-server-alias.md)
 ### [Configurer la montée en charge](analysis-services-scale-out.md)
 ### [Installer et configurer une passerelle de données locale](analysis-services-gateway-install.md)
+### [Utiliser la passerelle pour les sources de données sur un réseau virtuel Azure](analysis-services-vnet-gateway.md)
 ### [Gérer un serveur](analysis-services-manage.md)
 ### [Surveiller les indicateurs de performances du serveur](analysis-services-monitor.md)
 ### [Configurer la journalisation de diagnostic](analysis-services-logging.md)

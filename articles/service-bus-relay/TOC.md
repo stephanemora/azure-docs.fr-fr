@@ -1,18 +1,16 @@
 # [Documentation Service Bus Relay](index.md)
 
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Qu’est-ce que Relay ?](relay-what-is-it.md)
 ## [FORUM AUX QUESTIONS](relay-faq.md)
 
 # Démarrages rapides
-## [Créer un espace de noms](relay-create-namespace-portal.md)
 ## [Créer une application hybride locale/dans le cloud](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## les connexions hybrides
 ### [Websockets .NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [HTTP .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 ### [Websockets Node](relay-hybrid-connections-node-get-started.md)
 ### [HTTP Node](relay-hybrid-connections-http-requests-node-get-started.md)
-## [Relais WCF](relay-wcf-dotnet-get-started.md)
 ## [Didacticiel WCF Relay](service-bus-relay-tutorial.md)
 ## [Didacticiel REST pour les relais WCF](service-bus-relay-rest-tutorial.md)
 
@@ -22,6 +20,8 @@
 #### [Migrer à partir des services ACS vers SAP](relay-migrate-acs-sas.md)
 ### [Protocole Connexions hybrides](relay-hybrid-connections-protocol.md)
 ## Développement
+### [Créer un espace de noms](relay-create-namespace-portal.md)
+### [Utiliser WCF Relay pour exposer les services WCF aux clients externes](relay-wcf-dotnet-get-started.md)
 ### [API disponibles](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)

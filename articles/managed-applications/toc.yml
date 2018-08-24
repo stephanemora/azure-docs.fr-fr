@@ -1,98 +1,107 @@
+items:
 - name: Documentation Azure Managed Applications
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
-    - name: À propos des applications managées
-      href: overview.md
+  - name: À propos des applications managées
+    href: overview.md
 - name: Démarrages rapides
-  expanded: true
   items:
-    - name: Créer une application gérée
-      href: managed-apps-quickstart-cli.md
+  - name: Créer une application gérée
+    href: managed-apps-quickstart-cli.md
+  expanded: true
 - name: Didacticiels
   items:
-    - name: Créer des fichiers d’application gérée
-      href: publish-service-catalog-app.md
-    - name: Créer l’application de la Place de marché
-      href: publish-marketplace-app.md
+  - name: Créer des fichiers d’application gérée
+    href: publish-service-catalog-app.md
+  - name: Créer l’application de la Place de marché
+    href: publish-marketplace-app.md
 - name: Exemples
   items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
-    - name: Solutions d’applications managées
-      href: sample-projects.md
+  - name: Azure CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
+  - name: Solutions d’applications managées
+    href: sample-projects.md
 - name: Procédures
   items:
-    - name: Définir l’interface utilisateur
-      href: create-uidefinition-overview.md
-    - name: Mettre à jour les ressources managées
-      href: update-managed-resources.md
-    - name: Utiliser le portail pour publier
-      href: publish-portal.md
-    - name: Utiliser un secret à partir de Key Vault
-      href: key-vault-access.md
+  - name: Créer l’interface du portail
+    href: create-uidefinition-overview.md
+  - name: Tester l’interface du portail
+    href: test-createuidefinition.md
+  - name: Mettre à jour les ressources managées
+    href: update-managed-resources.md
+  - name: Utiliser le portail pour publier
+    href: publish-portal.md
+  - name: Utiliser un secret à partir de Key Vault
+    href: key-vault-access.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
-      href: /cli/azure/managedapp
-    - name: PowerShell
-      href: /powershell/module/azurerm.resources
-    - name: REST
-      href: /rest/api/resources/
-    - name: Fonctions de l’interface utilisateur
-      href: create-uidefinition-functions.md
-    - name: Options de l’interface utilisateur
-      href: create-uidefinition-elements.md
+  - name: Azure CLI
+    href: /cli/azure/managedapp
+  - name: PowerShell
+    href: /powershell/module/azurerm.resources
+  - name: REST
+    href: /rest/api/resources/
+  - name: Fonctions de l’interface utilisateur
+    href: create-uidefinition-functions.md
+  - name: Options de l’interface utilisateur
+    href: create-uidefinition-elements.md
+    items:
+    - name: Courant
       items:
-        - name: Courant
-          items:
-            - name: Liste déroulante
-              href: microsoft-common-dropdown.md
-            - name: Chargement de fichier
-              href: microsoft-common-fileupload.md
-            - name: InfoBox
-              href: microsoft-common-infobox.md
-            - name: Groupe d’options
-              href: microsoft-common-optionsgroup.md
-            - name: Zone de mot de passe
-              href: microsoft-common-passwordbox.md
-            - name: Section
-              href: microsoft-common-section.md
-            - name: TextBlock
-              href: microsoft-common-textblock.md
-            - name: Zone de texte
-              href: microsoft-common-textbox.md
-        - name: Calcul
-          items:
-            - name: Zone de liste modifiable Informations d’identification
-              href: microsoft-compute-credentialscombo.md
-            - name: Sélecteur de taille
-              href: microsoft-compute-sizeselector.md
-            - name: Zone de texte Nom d’utilisateur
-              href: microsoft-compute-usernametextbox.md
-        - name: Réseau
-          items:
-            - name: AvailabilityZoneDropDown
-              href: microsoft-network-availabilityzonedropdown.md
-            - name: Zone de liste modifiable Adresse IP publique
-              href: microsoft-network-publicipaddresscombo.md
-            - name: Zone de liste modifiable Réseau virtuel
-              href: microsoft-network-virtualnetworkcombo.md
-        - name: Stockage
-          items:
-            - name: Zone de liste modifiable Compte de stockage multiple
-              href: microsoft-storage-multistorageaccountcombo.md
-            - name: Sélecteur compte de stockage
-              href: microsoft-storage-storageaccountselector.md
+      - name: Liste déroulante
+        href: microsoft-common-dropdown.md
+      - name: Chargement de fichier
+        href: microsoft-common-fileupload.md
+      - name: InfoBox
+        href: microsoft-common-infobox.md
+      - name: Groupe d’options
+        href: microsoft-common-optionsgroup.md
+      - name: Zone de mot de passe
+        href: microsoft-common-passwordbox.md
+      - name: Section
+        href: microsoft-common-section.md
+      - name: TextBlock
+        href: microsoft-common-textblock.md
+      - name: Zone de texte
+        href: microsoft-common-textbox.md
+    - name: Calcul
+      items:
+      - name: Zone de liste modifiable Informations d’identification
+        href: microsoft-compute-credentialscombo.md
+      - name: Sélecteur de taille
+        href: microsoft-compute-sizeselector.md
+      - name: Zone de texte Nom d’utilisateur
+        href: microsoft-compute-usernametextbox.md
+    - name: Réseau
+      items:
+      - name: AvailabilityZoneDropDown
+        href: microsoft-network-availabilityzonedropdown.md
+      - name: Zone de liste modifiable Adresse IP publique
+        href: microsoft-network-publicipaddresscombo.md
+      - name: Zone de liste modifiable Réseau virtuel
+        href: microsoft-network-virtualnetworkcombo.md
+    - name: Stockage
+      items:
+      - name: Zone de liste modifiable Compte de stockage multiple
+        href: microsoft-storage-multistorageaccountcombo.md
+      - name: Sélecteur compte de stockage
+        href: microsoft-storage-storageaccountselector.md
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
-    - name: Calculatrice de prix
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Dépassement de capacité de la pile
-      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/managed-applications/
+  - name: Calculatrice de prix
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Dépassement de capacité de la pile
+    href: http://stackoverflow.com/questions/tagged/azure-managedapps
+ms.openlocfilehash: c468b30361163d39b94af999c9767cbc491a06ac
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41929601"

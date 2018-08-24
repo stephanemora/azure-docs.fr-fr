@@ -1,6 +1,6 @@
 # [Documentation Mobile Apps](index.md)
 
-# Vue d'ensemble
+# Vue d’ensemble
 ## [Que sont les applications Mobile Apps ?](app-service-mobile-value-prop.md)
 ## [Plans App Service](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
@@ -74,9 +74,9 @@
 #### [Gestion de version de client et de serveur](app-service-mobile-client-and-server-versioning.md)
 
 ### Environnement App Service
-#### [Créer une application web dans un environnement App Service](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Guide pratique pour créer un ILB ASE à l’aide des modèles Azure Resource Manager](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Utilisation d’un équilibreur de charge interne](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Créer une application web dans un environnement App Service](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Créer et utiliser un jeu d’équilibrage de charge interne](../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Créer un environnement App Service à l’aide d’un modèle](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Déployer
 ### [Déploiement de synchronisation dans le cloud](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

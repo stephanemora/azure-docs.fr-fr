@@ -1,161 +1,170 @@
+items:
 - name: Service Azure Kubernetes (AKS)
   href: ./index.yml
 - name: Vue d’ensemble
   items:
-    - name: À propos de AKS
-      href: intro-kubernetes.md
+  - name: À propos de AKS
+    href: intro-kubernetes.md
 - name: Démarrages rapides
-  expanded: true
   items:
-    - name: "Créer un cluster\_AKS - CLI"
-      href: kubernetes-walkthrough.md
-    - name: "Créer un cluster\_AKS - Portail"
-      href: kubernetes-walkthrough-portal.md
+  - name: Créer un cluster AKS - CLI
+    href: kubernetes-walkthrough.md
+  - name: Créer un cluster AKS - Portail
+    href: kubernetes-walkthrough-portal.md
+  expanded: true
 - name: Didacticiels
   items:
-    - name: 1 - Préparer l’application pour AKS
-      href: tutorial-kubernetes-prepare-app.md
-    - name: 2 - Créer un registre de conteneur
-      href: tutorial-kubernetes-prepare-acr.md
-    - name: "3 -Créer un cluster\_Kubernetes"
-      href: tutorial-kubernetes-deploy-cluster.md
-    - name: 4 - Exécuter l’application
-      href: tutorial-kubernetes-deploy-application.md
-    - name: 5 - Mettre à l’échelle l’application
-      href: tutorial-kubernetes-scale.md
-    - name: 6 - Mettre à jour l’application
-      href: tutorial-kubernetes-app-update.md
-    - name: 7 - Mettre à niveau un cluster
-      href: tutorial-kubernetes-upgrade-cluster.md
+  - name: 1 - Préparer l’application pour AKS
+    href: tutorial-kubernetes-prepare-app.md
+  - name: 2 - Créer un registre de conteneur
+    href: tutorial-kubernetes-prepare-acr.md
+  - name: 3 -Créer un cluster Kubernetes
+    href: tutorial-kubernetes-deploy-cluster.md
+  - name: 4 - Exécuter l’application
+    href: tutorial-kubernetes-deploy-application.md
+  - name: 5 - Mettre à l’échelle l’application
+    href: tutorial-kubernetes-scale.md
+  - name: 6 - Mettre à jour l’application
+    href: tutorial-kubernetes-app-update.md
+  - name: 7 - Mettre à niveau un cluster
+    href: tutorial-kubernetes-upgrade-cluster.md
 - name: Concepts
   items:
-    - name: Quotas et limites régionales
-      href: container-service-quotas.md
-    - name: Migrer des services ACS vers AKS
-      href: acs-aks-migration.md
+  - name: Quotas et limites régionales
+    href: container-service-quotas.md
+  - name: Migrer des services ACS vers AKS
+    href: acs-aks-migration.md
 - name: Procédures
   items:
-    - name: Opérations de cluster
-      items:
-        - name: "Créer un cluster\_AKS"
-          href: create-cluster.md
-        - name: Mettre à l’échelle un cluster AKS
-          href: scale-cluster.md
-        - name: Mettre à niveau un cluster AKS
-          href: upgrade-cluster.md
-        - name: Supprimer un cluster AKS
-          href: delete-cluster.md
-        - name: AKS activé pour Azure AD
-          href: aad-integration.md
-        - name: Utiliser Virtual Kubelet
-          href: virtual-kubelet.md
-        - name: Utiliser Cluster AutoScaler
-          href: autoscaler.md
-        - name: Déployer AKS avec Terraform
-          href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
-          maintainContext: true
-    - name: Configurer des volumes de données
-      items:
-        - name: Azure Disk - Dynamic
-          href: azure-disks-dynamic-pv.md
-        - name: Azure Disk - Static
-          href: azure-disk-volume.md
-        - name: Azure Files - Dynamic
-          href: azure-files-dynamic-pv.md
-        - name: Azure Files - Static
-          href: azure-files-volume.md
-    - name: Configurer la mise en réseau
-      items:
-        - name: Vue d’ensemble de la mise en réseau
-          href: networking-overview.md
-        - name: Adresse IP statique
-          href: static-ip.md
-        - name: Équilibreur de charge interne
-          href: internal-lb.md
-        - name: Entrée et TLS
-          href: ingress.md
-        - name: Trafic de sortie
-          href: egress.md
-        - name: Routage d’applications HTTP
-          href: http-application-routing.md
-    - name: Sécurité et authentification
-      items:
-        - name: Créer un principal du service
-          href: kubernetes-service-principal.md
-        - name: S’authentifier avec ACR
-          href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
-    - name: Surveillance et journalisation
-      items:
-        - name: Solution de contrôle d’intégrité du conteneur Azure
-          href: ../monitoring/monitoring-container-health.md
-          maintainContext: true
-        - name: Afficher les journaux du composant principal
-          href: view-master-logs.md
-        - name: Afficher les journaux Kubelet
-          href: kubelet-logs.md
-    - name: Développer et exécuter des applications
-      items:
-        - name: Exécuter des applications avec Helm
-          href: kubernetes-helm.md
-        - name: Développer avec Dev Spaces
-          href: ../dev-spaces/azure-dev-spaces.md
-          maintainContext: true
-        - name: Développer des applications avec Draft
-          href: kubernetes-draft.md
-        - name: Open Service Broker pour Azure
-          href: integrate-azure.md
-        - name: Utiliser OpenFaaS avec AKS
-          href: openfaas.md
-        - name: Exécuter les travaux Spark sur AKS
-          href: spark-job.md
-        - name: Utiliser le GPU sur AKS
-          href: gpu-cluster.md
-    - name: DevOps sur AKS
-      items:
-        - name: Déploiement continu Jenkins
-          href: jenkins-continuous-deployment.md
-        - name: Project Azure DevOps pour AKS
-          href: ../devops-project/azure-devops-project-aks.md
-          maintainContext: true
-    - name: Concepts de base Kubernetes
-      items:
-        - name: Utiliser le tableau de bord Kubernetes
-          href: kubernetes-dashboard.md
-    - name: Résolution des problèmes
-      items:
-        - name: Accès au nœud SSH
-          href: aks-ssh.md
+  - name: Opérations de cluster
+    items:
+    - name: Créer un cluster AKS
+      href: create-cluster.md
+    - name: Mettre à l’échelle un cluster AKS
+      href: scale-cluster.md
+    - name: Mettre à niveau un cluster AKS
+      href: upgrade-cluster.md
+    - name: Supprimer un cluster AKS
+      href: delete-cluster.md
+    - name: AKS activé pour Azure AD
+      href: aad-integration.md
+    - name: Utiliser Virtual Kubelet
+      href: virtual-kubelet.md
+    - name: Utiliser Cluster AutoScaler
+      href: autoscaler.md
+    - name: Déployer AKS avec Terraform
+      href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
+      maintainContext: true
+  - name: Configurer des volumes de données
+    items:
+    - name: Azure Disk - Dynamic
+      href: azure-disks-dynamic-pv.md
+    - name: Azure Disk - Static
+      href: azure-disk-volume.md
+    - name: Azure Files - Dynamic
+      href: azure-files-dynamic-pv.md
+    - name: Azure Files - Static
+      href: azure-files-volume.md
+  - name: Configurer la mise en réseau
+    items:
+    - name: Vue d’ensemble de la mise en réseau
+      href: networking-overview.md
+    - name: Adresse IP statique
+      href: static-ip.md
+    - name: Équilibreur de charge interne
+      href: internal-lb.md
+    - name: Entrée et TLS
+      href: ingress.md
+    - name: Trafic de sortie
+      href: egress.md
+    - name: Routage d’applications HTTP
+      href: http-application-routing.md
+  - name: Sécurité et authentification
+    items:
+    - name: Créer un principal du service
+      href: kubernetes-service-principal.md
+    - name: S’authentifier avec ACR
+      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
+  - name: Surveillance et journalisation
+    items:
+    - name: Solution de contrôle d’intégrité du conteneur Azure
+      href: ../monitoring/monitoring-container-health.md
+      maintainContext: true
+    - name: Afficher les journaux du composant principal
+      href: view-master-logs.md
+    - name: Afficher les journaux Kubelet
+      href: kubelet-logs.md
+  - name: Développer et exécuter des applications
+    items:
+    - name: Exécuter des applications avec Helm
+      href: kubernetes-helm.md
+    - name: Développer avec Dev Spaces
+      href: ../dev-spaces/azure-dev-spaces.md
+      maintainContext: true
+    - name: Développer des applications avec Draft
+      href: kubernetes-draft.md
+    - name: Open Service Broker pour Azure
+      href: integrate-azure.md
+    - name: Utilisation d’OpenFaaS
+      href: openfaas.md
+    - name: Exécuter les travaux Spark
+      href: spark-job.md
+    - name: Utilisation des GPU
+      href: gpu-cluster.md
+  - name: DevOps
+    items:
+    - name: Déploiement continu Jenkins
+      href: jenkins-continuous-deployment.md
+    - name: Azure DevOps Project
+      href: ../devops-project/azure-devops-project-aks.md
+      maintainContext: true
+  - name: Concepts de base Kubernetes
+    items:
+    - name: Utiliser le tableau de bord Kubernetes
+      href: kubernetes-dashboard.md
+  - name: Résolution des problèmes
+    items:
+    - name: Problèmes courants
+      href: troubleshooting.md
+    - name: Accès au nœud SSH
+      href: ssh.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
-      href: /cli/azure/aks
-    - name: REST
-      href: /rest/api/aks
-    - name: PowerShell
-      href: '/powershell/module/azurerm.aks#aks'
-    - name: .NET
-      href: /dotnet/api/overview/azure/containerservice
-    - name: Python
-      href: /python/api/overview/azure/containerservice
-    - name: Java
-      href: /java/api/overview/azure/containerservice
-    - name: Node.js
-      href: /javascript/api/overview/azure/container-service
-    - name: Modèle Resource Manager
-      href: /azure/templates/microsoft.containerservice/managedclusters
+  - name: Azure CLI
+    href: /cli/azure/aks
+  - name: REST
+    href: /rest/api/aks
+  - name: PowerShell
+    href: /powershell/module/azurerm.aks#aks
+  - name: .NET
+    href: /dotnet/api/overview/azure/containerservice
+  - name: Python
+    href: /python/api/overview/azure/containerservice
+  - name: Java
+    href: /java/api/overview/azure/containerservice
+  - name: Node.js
+    href: /javascript/api/overview/azure/container-service
+  - name: Modèle Resource Manager
+    href: /azure/templates/microsoft.containerservice/managedclusters
 - name: Ressources
   items:
-    - name: Disponibilité des régions
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/container-service/'
-    - name: Feuille de route
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Indiquer des commentaires sur le produit
-      href: 'https://github.com/Azure/AKS/issues'
-    - name: Dépassement de capacité de la pile
-      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: vidéos
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'
-    - name: Forum Aux Questions
-      href: faq.md
+  - name: Disponibilité des régions
+    href: https://azure.microsoft.com/regions/services/
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Feuille de route
+    href: https://azure.microsoft.com/roadmap/
+  - name: Indiquer des commentaires sur le produit
+    href: https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks
+  - name: Dépassement de capacité de la pile
+    href: http://stackoverflow.com/questions/tagged/azure-container-service
+  - name: vidéos
+    href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
+  - name: Forum Aux Questions
+    href: faq.md
+ms.openlocfilehash: be17978b91f1664ea4917f7d9fcb0da5657d4832
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41944100"

@@ -1,11 +1,3 @@
-### YamlMime:OriginYaml
-ms.openlocfilehash: a3d1862f3604c53af106bf90040d2380421a004d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595856"
-metadata: {}
 items:
 - name: Documentation Azure Cosmos DB
   href: index.yml
@@ -14,7 +6,6 @@ items:
   - name: À propos d’Azure Cosmos DB
     href: introduction.md
 - name: Démarrages rapides
-  expanded: true
   items:
   - name: SQL
     items:
@@ -78,6 +69,7 @@ items:
       href: create-cassandra-dotnet.md
     - name: Python
       href: create-cassandra-python.md
+  expanded: true
 - name: Concepts
   items:
   - name: Diffusion mondiale
@@ -107,7 +99,6 @@ items:
     - name: Applications de réseaux sociaux
       href: social-media-apps.md
 - name: Multimodèle
-  expanded: true
   items:
   - name: Documents API SQL
     items:
@@ -247,6 +238,10 @@ items:
           href: odbc-driver.md
         - name: UtiliserSpring Boot Starter avec les API SQL
           href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
+      - name: Créer des solutions
+        items:
+        - name: Analyse des données de vente au détail
+          href: changefeed-ecommerce-solution.md
     - name: Informations de référence
       items:
       - name: Java asynchrone
@@ -335,6 +330,8 @@ items:
         href: mongodb-readpreference.md
       - name: Indexation
         href: mongodb-indexing.md
+      - name: Durée de vie  - MongoDB
+        href: mongodb-time-to-live.md
       - name: Visualiser vos données avec Power BI
         href: powerbi-visualize.md
     - name: Ressources
@@ -357,6 +354,8 @@ items:
       items:
       - name: Partitionnement dans Graph
         href: graph-partitioning.md
+      - name: Importer des données de graphique avec BulkExecutor
+        href: bulk-executor-graph-dotnet.md
     - name: Ressources
       items:
       - name: Extension de Visual Studio Code
@@ -427,6 +426,7 @@ items:
         href: tutorial-develop-cassandra-java.md
       - name: 2 - Importer
         href: cassandra-import-data.md
+  expanded: true
 - name: Procédures
   items:
   - name: gérer
@@ -441,7 +441,7 @@ items:
       href: manage-account.md
     - name: Débit
       href: set-throughput.md
-    - name: Faire expirer les données automatiquement
+    - name: Durée de vie
       href: time-to-live.md
     - name: Journalisation de diagnostic
       href: logging.md
@@ -493,3 +493,9 @@ items:
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: Livres blancs
     href: whitepapers.md
+ms.openlocfilehash: 431962982c9480fddd1b5450a9505a0052158980
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929661"

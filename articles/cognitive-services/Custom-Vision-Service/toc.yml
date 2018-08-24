@@ -1,71 +1,80 @@
+items:
 - name: Documentation du service Vision personnalisée
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce que le service Vision personnalisée\_?"
-      href: home.md
+  - name: Qu’est-ce que le service Vision personnalisée ?
+    href: home.md
 - name: Procédures
   items:
-    - name: Commencer à utiliser le service Vision personnalisée
+  - name: Commencer à utiliser le service Vision personnalisée
+    items:
+    - name: Créer un classifieur
+      href: getting-started-build-a-classifier.md
+    - name: Tester votre modèle
+      href: test-your-model.md
+    - name: Améliorer votre classifieur
+      href: getting-started-improving-your-classifier.md
+    - name: Utiliser l’API de prédiction
+      href: use-prediction-api.md
+    - name: Exporter votre modèle sur votre mobile
+      href: export-your-model.md
+    - name: Utiliser le modèle ONNX avec Windows ML
+      href: custom-vision-onnx-windows-ml.md
+    - name: Exécuter le modèle TensorFlow dans Python
+      href: export-model-python.md
+    - name: Former un modèle à l’aide de l’API REST
+      href: rest-api-tutorial.md
+  - name: Créer des applications
+    items:
+    - name: Classification d’image
       items:
-        - name: Créer un classifieur
-          href: getting-started-build-a-classifier.md
-        - name: Tester votre modèle
-          href: test-your-model.md
-        - name: Améliorer votre classifieur
-          href: getting-started-improving-your-classifier.md
-        - name: Utiliser l’API de prédiction
-          href: use-prediction-api.md
-        - name: Exporter votre modèle sur votre mobile
-          href: export-your-model.md
-        - name: Utiliser le modèle ONNX avec Windows ML
-          href: custom-vision-onnx-windows-ml.md
-        - name: Exécuter le modèle TensorFlow dans Python
-          href: export-model-python.md
-    - name: Créer des applications
+      - name: Didacticiel C#
+        href: csharp-tutorial.md
+      - name: Didacticiel Python
+        href: python-tutorial.md
+    - name: Détection d’objets
       items:
-        - name: Classification d’image
-          items:
-            - name: 'Didacticiel C#'
-              href: csharp-tutorial.md
-            - name: Didacticiel Python
-              href: python-tutorial.md
-        - name: Détection d’objets
-          items:
-            - name: 'Didacticiel C#'
-              href: csharp-tutorial-od.md
-            - name: Didacticiel Python
-              href: python-tutorial-od.md
+      - name: Didacticiel C#
+        href: csharp-tutorial-od.md
+      - name: Didacticiel Python
+        href: python-tutorial-od.md
 - name: Informations de référence
   items:
-    - name: API de formation Vision personnalisée
-      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
-    - name: API de prédiction Vision personnalisée
-      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
-    - name: Glossaire
-      href: glossary-of-terms.md
-    - name: Kits de développement logiciel (SDK)
-      items:
-        - name: Windows
-          href: 'http://github.com/Microsoft/Cognitive-CustomVision-Windows'
-        - name: Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
-        - name: Go
-          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices'
+  - name: API de formation Vision personnalisée
+    href: https://go.microsoft.com/fwlink/?linkid=865446
+  - name: API de prédiction Vision personnalisée
+    href: https://go.microsoft.com/fwlink/?linkid=865445
+  - name: Glossaire
+    href: glossary-of-terms.md
+  - name: Kits de développement logiciel (SDK)
+    items:
+    - name: Windows
+      href: http://github.com/Microsoft/Cognitive-CustomVision-Windows
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+    - name: Go
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
 - name: Ressources
   items:
-    - name: Exemples
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/'
-    - name: Exporter ou supprimer des données de compte
-      href: ./export-delete-data.md
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598141-custom-vision-service'
-    - name: Dépassement de capacité de la pile
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: Disponibilité régionale
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Limites et quotas
-      href: limits-and-quotas.md
+  - name: Exemples
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/
+  - name: Exporter ou supprimer des données de compte
+    href: ./export-delete-data.md
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
+  - name: Dépassement de capacité de la pile
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Disponibilité régionale
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Limites et quotas
+    href: limits-and-quotas.md
+ms.openlocfilehash: 1ab6bbc1e6f5d600d38d65628798f27f33db17a7
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42440150"

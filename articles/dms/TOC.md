@@ -1,4 +1,4 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [À propos de Database Migration Service](dms-overview.md)
 
 # Démarrages rapides
@@ -9,7 +9,8 @@
 ## [Migration de SQL Server vers une instance gérée Azure SQL Database](tutorial-sql-server-to-managed-instance.md)
 
 # Procédures
-## [Utiliser PowerShell pour la migration de SQL Server](howto-sql-server-to-azure-sql-powershell.md)
+## [Utiliser PowerShell pour la migration de SQL Server vers Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
+## [Utiliser PowerShell pour la migration de SQL Server vers Azure SQL DB MI](howto-sql-server-to-azure-sql-mi-powershell.md)
 
 # Ressources
 ## [Commentaires User Voice](https://feedback.azure.com/forums/906100-azure-database-migration-service)

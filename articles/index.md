@@ -6,12 +6,12 @@ description: Découvrez comment créer et gérer des applications performantes �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 79b7301f2a9ef56956e6968f322b420a7622b172
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8aff1d1c499ff9b53ca2adf47553b07c7ae71c45
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627421"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929059"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1646,7 +1646,7 @@ Azure DevOps Project </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/ddd/">
+                                            <a href="/azure/app-service-mobile">
                                                 <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
                                                 <p>Azure mobile app</p>
                                             </a>
@@ -2358,6 +2358,25 @@ Azure DevOps Project </a>
                                                 <div class="cardText">
                                                     <h3>Stockage Fichier</h3>
                                                     <p>Partages de fichiers utilisant le protocole SMB 3.0 standard</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en-us/azure/databox/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/service-icon-small.png" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Box</h3>
+                                                    <p>Transfert économique et sécurisé de grandes quantités de données en cas de disponibilité limitée du réseau</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5814,22 +5833,23 @@ Outils Java </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
+                                                    <img src="media/index/azure-resource-manager.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Outils SQL </h3>
+Azure Resource Manager </h3>
                                                 <p>
-                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio : <sup>PRÉVERSION</sup></a>
+                                                    <a href="https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy">Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
-                                                </p>                                            <p>
-                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
+                                                    <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code">Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/tools/overview-sql-tools">Voir tous les outils SQL</a>
+                                                    <a href="https://azure.microsoft.com/resources/templates/">Exemples de modèles</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/templates/">Référence</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -5901,20 +5921,22 @@ Outils et Kit de développement logiciel (SDK) Service Fabric </h3>
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
-                                                    <img src="media/index/database-migration.svg" alt="" />
+                                                    <img src="https://docs.microsoft.com/media/common/i_tools.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-Outils de migration de base de données </h3>
+Outils SQL </h3>
                                                 <p>
-                                                    <a href="https://aka.ms/dma">Data Migration Assistant (DMA)</a>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio : <sup>PRÉVERSION</sup></a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://aka.ms/ssma">Assistant Migration SQL Server (SSMA)</a>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://aka.ms/dea-tool">Assistant Expérimentation de base de données</a>
+                                                    <a href="/sql/tools/overview-sql-tools">Voir tous les outils SQL</a>
                                                 </p>
                                             </div>
                                         </div>

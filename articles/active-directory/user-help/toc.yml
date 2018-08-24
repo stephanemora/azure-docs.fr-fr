@@ -1,72 +1,77 @@
+items:
 - name: Documentation associée à l’aide utilisateur
   href: index.md
 - name: Aide relative à la vérification en deux étapes
   items:
-    - name: Vue d’ensemble
-      href: user-help-two-step-verification-overview.md
-    - name: Configurer mon compte
-      href: multi-factor-authentication-end-user-first-time.md
-    - name: Gérer vos paramètres
-      href: multi-factor-authentication-end-user-manage-settings.md
-    - name: Obtenir de l’aide
-      href: multi-factor-authentication-end-user-troubleshoot.md
-    - name: Gérer les mots de passe d’application
-      href: multi-factor-authentication-end-user-app-passwords.md
-    - name: Comment se connecter
-      href: user-help-sign-in.md?toc=./toc.json
+  - name: Vue d’ensemble
+    href: user-help-two-step-verification-overview.md
+  - name: Configurer mon compte
+    href: multi-factor-authentication-end-user-first-time.md
+  - name: Gérer vos paramètres
+    href: multi-factor-authentication-end-user-manage-settings.md
+  - name: Obtenir de l’aide
+    href: multi-factor-authentication-end-user-troubleshoot.md
+  - name: Gérer les mots de passe d’application
+    href: multi-factor-authentication-end-user-app-passwords.md
+  - name: Comment se connecter
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Aide relative à la réinitialisation du mot de passe
   items:
-    - name: Vue d’ensemble
-      href: user-help-password-reset-overview.md
-    - name: Se connecter pour réinitialiser un mot de passe
-      href: active-directory-passwords-reset-register.md
-    - name: Réinitialiser votre mot de passe
-      href: user-help-reset-password.md
+  - name: Vue d’ensemble
+    href: user-help-password-reset-overview.md
+  - name: Se connecter pour réinitialiser un mot de passe
+    href: active-directory-passwords-reset-register.md
+  - name: Réinitialiser votre mot de passe
+    href: user-help-reset-password.md
 - name: Aide relative aux informations de sécurité (préversion)
   items:
-    - name: Vue d’ensemble
-      href: user-help-security-info-overview.md
-    - name: Configurer une application d’authentification
-      href: security-info-setup-auth-app.md
-    - name: Configurer la messagerie texte
-      href: security-info-setup-text-msg.md
-    - name: Configurer les appels téléphoniques
-      href: security-info-setup-phone-number.md
-    - name: Configurer la messagerie
-      href: security-info-setup-email.md
-    - name: Régler les questions de sécurité
-      href: security-info-setup-questions.md
-    - name: Gérer les mots de passe d’application
-      href: security-info-app-passwords.md
-    - name: Gérer vos informations de sécurité
-      href: security-info-manage-settings.md
-    - name: Comment se connecter
-      href: user-help-sign-in.md?toc=./toc.json
+  - name: Vue d’ensemble
+    href: user-help-security-info-overview.md
+  - name: Configurer une application d’authentification
+    href: security-info-setup-auth-app.md
+  - name: Configurer la messagerie texte
+    href: security-info-setup-text-msg.md
+  - name: Configurer les appels téléphoniques
+    href: security-info-setup-phone-number.md
+  - name: Configurer la messagerie
+    href: security-info-setup-email.md
+  - name: Régler les questions de sécurité
+    href: security-info-setup-questions.md
+  - name: Gérer les mots de passe d’application
+    href: security-info-app-passwords.md
+  - name: Gérer vos informations de sécurité
+    href: security-info-manage-settings.md
+  - name: Comment se connecter
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Aide relative à l’application Microsoft Authenticator
   items:
-    - name: Vue d’ensemble
-      href: user-help-auth-app-overview.md
-    - name: Prise en main
-      href: microsoft-authenticator-app-how-to.md
-    - name: 'Connectez-vous avec votre téléphone, et non votre mot de passe'
-      href: microsoft-authenticator-app-phone-signin-faq.md
-    - name: Sauvegarde et récupération
-      href: microsoft-authenticator-app-backup-and-recovery.md
-    - name: Forum Aux Questions
-      href: microsoft-authenticator-app-faq.md
+  - name: Vue d’ensemble
+    href: user-help-auth-app-overview.md
+  - name: Prise en main
+    href: microsoft-authenticator-app-how-to.md
+  - name: Sauvegarde et récupération
+    href: microsoft-authenticator-app-backup-and-recovery.md
+  - name: Forum Aux Questions
+    href: microsoft-authenticator-app-faq.md
 - name: Aide du portail MyApps
   items:
-    - name: Vue d’ensemble
-      href: user-help-my-apps-overview.md
-    - name: "Qu’est-ce que le portail MyApps\_?"
-      href: active-directory-saas-access-panel-introduction.md
-    - name: Problèmes de dépannage
-      href: active-directory-saas-access-panel-user-help.md
+  - name: Vue d’ensemble
+    href: user-help-my-apps-overview.md
+  - name: Qu’est-ce que le portail MyApps ?
+    href: active-directory-saas-access-panel-introduction.md
+  - name: Problèmes de dépannage
+    href: active-directory-saas-access-panel-user-help.md
 - name: Aide relative à la gestion des appareils
   items:
-    - name: Vue d’ensemble
-      href: user-help-device-mgmt-overview.md
-    - name: Joindre vos appareils
-      href: device-management-azuread-joined-devices-setup.md
-    - name: Inscrire vos appareils Windows 10
-      href: device-management-azuread-registered-devices-windows10-setup.md
+  - name: Vue d’ensemble
+    href: user-help-device-mgmt-overview.md
+  - name: Joindre votre appareil de travail
+    href: user-help-join-device-on-network.md
+  - name: Inscrire votre appareil personnel pour le travail
+    href: user-help-register-device-on-network.md
+ms.openlocfilehash: 48a980e7b3d9b8a3faa7917ae1f41c7f0cc6d9bc
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41927047"
