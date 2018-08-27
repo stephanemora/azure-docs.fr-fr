@@ -82,7 +82,7 @@ Les limitations suivantes s'appliquent aux règles CORS :
 * La longueur d'un en-tête autorisé, d'un en-tête exposé ou d'une origine autorisée ne doit pas dépasser 256 caractères.
 * Les en-têtes autorisés et les en-têtes exposés peuvent être :
   * des en-têtes littéraux, où le nom exact de l’en-tête est spécifié, tel que **x-ms-meta-processed**. Il ne peut pas y avoir plus de 64 en-têtes littéraux spécifiés sur la demande ;
-  * des en-têtes préfixés, où un préfixe de l’en-tête est spécifié, tel que **x-ms-meta-data***. Le fait de spécifier un préfixe de cette façon autorise ou expose tout en-tête qui commence par le préfixe donné. Il ne peut pas y avoir plus de deux en-têtes préfixés spécifiés sur la demande.
+  * des en-têtes préfixés, où un préfixe de l’en-tête est spécifié, tel que **x-ms-meta-data**\*. Le fait de spécifier un préfixe de cette façon autorise ou expose tout en-tête qui commence par le préfixe donné. Il ne peut pas y avoir plus de deux en-têtes préfixés spécifiés sur la demande.
 * Les méthodes (ou verbes HTTP) spécifiées dans l’élément **AllowedMethods** doivent respecter les méthodes prises en charge par les API de service de stockage Azure. Les méthodes prises en charge sont DELETE, GET, HEAD, MERGE, POST, OPTIONS et PUT.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>Présentation de la logique d'évaluation des règles CORS

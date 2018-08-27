@@ -91,9 +91,7 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | USA Ouest 2 | 13.66.226.202  | |
 ||||
 
-
-  \*
-  **REMARQUE :***USA Est* a également l’adresse IP tertiaire `52.167.104.0`.
+\* **REMARQUE :** *USA Est* a également l’adresse IP tertiaire `52.167.104.0`.
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modifier la stratégie de connexion Azure SQL Database
 
