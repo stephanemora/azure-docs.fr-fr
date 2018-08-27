@@ -1,7 +1,7 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [À propos de la mise en réseau Azure](networking-overview.md)
 ## Architecture
-### [Centres de données virtuels](networking-virtual-datacenter.md)
+### [Centres de données virtuels](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [Routage asymétrique avec plusieurs chemins d’accès réseau](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Conceptions de réseau sécurisé](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Topologie hub-and-spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)

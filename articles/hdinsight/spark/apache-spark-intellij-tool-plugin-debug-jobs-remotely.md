@@ -54,7 +54,7 @@ Nous vous recommandons également de créer dans Azure HDInsight un cluster Apac
 1. À partir de l’interface utilisateur Ambari, sélectionnez **Hosts** (Hôtes).
 
     ![Sélectionner Hosts (Hôtes) dans Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-hosts.png)
-1. Vous obtenez une liste de nœuds principaux, de nœuds worker et de nœuds zookeeper. Les nœuds principaux ont le préfixe **hn***. Sélectionnez le premier nœud principal.
+1. Vous obtenez une liste de nœuds principaux, de nœuds worker et de nœuds zookeeper. Les nœuds principaux ont le préfixe **hn**\*. Sélectionnez le premier nœud principal.
 
     ![Rechercher le nœud principal dans Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/cluster-headnodes.png)
 1. Dans le volet **Résumé** en bas de la page qui s’ouvre, copiez **l’adresse IP** du nœud principal et le **nom d’hôte**.

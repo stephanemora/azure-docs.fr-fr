@@ -103,8 +103,8 @@ Pour les versions de système d’exploitation Windows de niveau inférieur des 
 
 ---
 
-**Q : Comment puis-je me connecter à un appareil distant joint à Azure AD ? ** 
- **R :** Pour le savoir, consultez l’article https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc.
+**Q : Comment puis-je me connecter à un appareil distant joint à Azure AD?**
+**R :** Pour le savoir, consultez l’article https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc.
 
 ---
 
