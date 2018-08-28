@@ -3,26 +3,28 @@ title: Azure Event Hubs pour Apache Kafka | Microsoft Docs
 description: Vue d’ensemble et introduction à Azure Event Hubs prenant en charge Kafka
 services: event-hubs
 documentationcenter: .net
-author: djrosanova
+author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: darosa
-ms.openlocfilehash: 8388a8988dec2629c5ab309f32b72ae45a157a02
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 08/16/2018
+ms.author: bahariri
+ms.openlocfilehash: 16c101068be48ba1435ef230b29c679fcef17d08
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281458"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143823"
 ---
-# <a name="azure-event-hubs-for-apache-kafka"></a>Azure Event Hubs pour Apache Kafka
+# <a name="azure-event-hubs-for-apache-kafka-preview"></a>Azure Event Hubs pour Apache Kafka (préversion)
 
-Event Hubs fournit un point de terminaison Kafka qui peut être utilisé par vos applications Kafka pour éviter d’exécuter votre propre cluster Kafka. Event Hubs prend en charge [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) et les versions clientes plus récentes, et fonctionne avec vos applications Kafka, notamment MirrorMaker. Modifiez votre chaîne de connexion et démarrez le streaming d’événements à partir de vos applications qui utilisent le protocole Kafka dans Event Hubs.
+Event Hubs fournit un point de terminaison Kafka qui peut être utilisé par vos applications Kafka pour éviter d’exécuter votre propre cluster Kafka. Event Hubs prend en charge [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) et les versions clientes plus récentes, et fonctionne avec vos applications Kafka, notamment MirrorMaker. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Qu’apporte Event Hubs à Kafka ?
 
-La fonctionnalité Event Hubs pour Kafka fournit une tête de protocole sur Azure Event Hubs qui est compatible d’un point de vue binaire avec Kafka versions 1.0 et ultérieures pour lire et écrire dans des rubriques Kafka. Sur le plan conceptuel, Kafka et Event Hubs sont presque identiques : ce sont tous les deux des journaux partitionnés générés pour le streaming de données. Le tableau suivant mappe les concepts entre Kafka et Event Hubs.
+La fonctionnalité Event Hubs pour Kafka fournit une tête de protocole sur Azure Event Hubs qui est compatible d’un point de vue binaire avec Kafka versions 1.0 et ultérieures pour lire et écrire dans des rubriques Kafka. Vous pouvez démarrer à l’aide du point de terminaison Kafka à partir de vos applications avec une modification de configuration minimale, mais aucune modification de code. Vous mettez à jour la chaîne de connexion dans les configurations pour pointer vers le point de terminaison Kafka exposé par votre hub d’événements au lieu de pointer vers votre cluster Kafka. Vous pouvez ensuite commencer à diffuser des événements en continu à partir de vos applications qui utilisent le protocole Kafka dans Event Hubs. 
+
+Sur le plan conceptuel, Kafka et Event Hubs sont presque identiques : ce sont tous les deux des journaux partitionnés générés pour le streaming de données. Le tableau suivant mappe les concepts entre Kafka et Event Hubs.
 
 ### <a name="kafka-and-event-hub-conceptual-mapping"></a>Mappage des concepts Kafka et Event Hubs
 
@@ -36,7 +38,7 @@ La fonctionnalité Event Hubs pour Kafka fournit une tête de protocole sur Azur
 
 ### <a name="key-differences-between-kafka-and-event-hubs"></a>Principales différences entre Kafka et Event Hubs
 
-[Apache Kafka](https://kafka.apache.org/) est un logiciel que vous pouvez exécuter où vous voulez, tandis qu’Event Hubs est un service cloud similaire au stockage Blob Azure. Il n’existe aucun serveur ni réseau à gérer, ni aucun répartiteur à configurer. Vous créez un espace de noms, qui est un nom de domaine complet dans lequel figurent vos rubriques, puis vous créez des hubs d’événements ou rubriques dans cet espace de noms. Pour plus d’informations sur les espaces de noms et Event Hubs, consultez [Qu’est-ce qu’Event Hubs ?](event-hubs-what-is-event-hubs.md). En tant que service cloud, Event Hubs utilise une seule adresse IP virtuelle stable comme point de terminaison, les clients n’ont donc pas besoin de connaître les répartiteurs ou machines dans un cluster. 
+[Apache Kafka](https://kafka.apache.org/) est un logiciel que vous pouvez exécuter où vous voulez, tandis qu’Event Hubs est un service cloud similaire au stockage Blob Azure. Il n’existe aucun serveur ni réseau à gérer, ni aucun répartiteur à configurer. Vous créez un espace de noms, qui est un nom de domaine complet dans lequel figurent vos rubriques, puis vous créez des hubs d’événements ou rubriques dans cet espace de noms. Pour plus d’informations sur les espaces de noms et Event Hubs, consultez [Fonctionnalités Event Hubs](event-hubs-features.md#namespace). En tant que service cloud, Event Hubs utilise une seule adresse IP virtuelle stable comme point de terminaison, les clients n’ont donc pas besoin de connaître les répartiteurs ou machines dans un cluster. 
 
 La mise à l’échelle dans Event Hubs est contrôlée par le nombre d’unités de débit que vous achetez, chacune d’elles vous donnant droit à 1 Mo par seconde ou 1 000 événements par seconde d’entrée. Par défaut, Event Hubs augmente le nombre d’unités de débit (scale up) quand vous atteignez votre limite avec la fonctionnalité [d’augmentation automatique](event-hubs-auto-inflate.md) ; celle-ci fonctionne également avec la fonctionnalité Event Hubs pour Kafka. 
 

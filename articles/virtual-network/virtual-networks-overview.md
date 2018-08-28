@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 8/8/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 179db61777fe60ae53d7fee553c8124d7a9f7abf
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781178"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42022896"
 ---
 # <a name="what-is-azure-virtual-network"></a>Présentation du réseau virtuel Azure
 
@@ -37,7 +37,10 @@ Vous pouvez implémenter plusieurs réseaux virtuels au sein de chaque [abonneme
 
 ## <a name="communicate-with-the-internet"></a>Communiquer avec Internet
 
-Toutes les ressources d’un réseau virtuel peuvent communiquer en sortie vers Internet, par défaut. Vous pouvez effectuer des communications entrantes vers une ressource en lui assignant une adresse IP publique. Pour en savoir plus, consultez [Adresses IP publiques](virtual-network-public-ip-address.md).
+Toutes les ressources d’un réseau virtuel peuvent communiquer en sortie vers Internet, par défaut. Vous pouvez effectuer des communications entrantes vers une ressource en lui assignant une adresse IP publique ou un équilibreur de charge publique. Vous pouvez également utiliser l’adresse IP publique ou l’équilibreur de charge public pour gérer vos connexions sortantes.  Pour en savoir plus sur les connexions sortantes dans Azure, consultez [Connexions sortantes](../load-balancer/load-balancer-outbound-connections.md)., [Adresses IP publiques](virtual-network-public-ip-address.md) et [Équilibreur de charge](../load-balancer/load-balancer-overview.md).
+
+>[!NOTE]
+>Lorsque vous utilisez un [équilibreur de charge standard](../load-balancer/load-balancer-standard-overview.md) interne, une connectivité sortante n’est pas disponible jusqu'à ce que vous définissiez le fonctionnement des [connexions sortantes](../load-balancer/load-balancer-outbound-connections.md) pour travailler avec une adresse IP publique au niveau de l’instance ou un équilibreur de charge public.
 
 ## <a name="communicate-between-azure-resources"></a>Communiquer entre les ressources Azure
 

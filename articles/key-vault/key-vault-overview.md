@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: a55c99764cf9d77ab3ee269e3f5b0c2a13ec1ac7
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115318"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42022683"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
@@ -29,13 +29,12 @@ Vous disposez de mots de passe, de chaînes de connexion et d’autres informati
 
 Key Vault vous offre la possibilité de créer plusieurs conteneurs sécurisés, désignés sous le terme de coffres. Ces coffres sont secondés par des modules de sécurité matériels (HSM). Les coffres contribuent à réduire les risques de perte accidentelle des informations de sécurité en centralisant le stockage des secrets d’application. En outre, les coffres de clés contrôlent et journalisent l’accès à l’ensemble de leur contenu. Azure Key Vault peut traiter les requêtes et le renouvellement de certificats TLS et vous offre ainsi les fonctionnalités requises pour l’obtention d’une solution robuste en matière de gestion du cycle de vie des certificats.
 
- La solution Azure Key Vault a été conçue pour prendre en charge les clés et les secrets d’application. Elle n’est pas destinée à faire office de magasin des mots de passe utilisateur.
-
+ Azure Key Vault a été conçu pour prendre en charge tous les types de secrets. Par cela, nous voulons dire que Key Vault peut être utilisé pour stocker des mots de passe, des informations d’identification de base de données, des clés API et des certificats, qui peuvent être protégés par un logiciel ou par HSM
 ## <a name="why-use-azure-key-vault"></a>Pourquoi utiliser Azure Key Vault ?
 
 ### <a name="centralize-application-secrets"></a>Centraliser les secrets d’application
 
-La centralisation du stockage des secrets d’application dans Azure Key Vault vous permet de contrôler la distribution de ces secrets. Cette fonctionnalité réduit considérablement les risques de fuite accidentelle des secrets. Grâce à Key Vault, les développeurs d’applications n’ont plus besoin de stocker les informations de sécurité dans leur application. Ceci vous épargne l’obligation d’intégrer ces informations dans le code. Considérons l’exemple d’une application ayant besoin de se connecter à une base de données. Dans ce cas, plutôt que d’inclure la chaîne de connexion dans les codes de l’application, stockez-la simplement en toute sécurité dans Key Vault.
+La centralisation du stockage des secrets d’application dans Azure Key Vault vous permet de contrôler la distribution de ces secrets. Key Vault réduit considérablement les risques de fuite accidentelle des secrets. Grâce à Key Vault, les développeurs d’applications n’ont plus besoin de stocker les informations de sécurité dans leur application. Ceci vous épargne l’obligation d’intégrer ces informations dans le code. Considérons l’exemple d’une application ayant besoin de se connecter à une base de données. Dans ce cas, plutôt que d’inclure la chaîne de connexion dans les codes de l’application, stockez-la simplement en toute sécurité dans Key Vault.
 
 Vos applications peuvent accéder de façon sécurisée aux informations qui leur sont nécessaires en utilisant des URI qui leur permettent de récupérer des versions spécifiques d’un secret après le stockage de la clé ou du secret des applications dans Azure Key Vault. Cette opération s’effectue sans nécessiter l’écriture de code personnalisé pour protéger les informations secrètes.
 
@@ -65,9 +64,9 @@ Vous pouvez contrôler vos journaux et les sécuriser en limitant l’accès, ai
 
 Lorsque vous stockez vos données les plus précieuses, vous devez prendre différentes mesures. Les informations de sécurité doivent être sécurisées, suivre un cycle de vie spécifique et se révéler hautement disponibles. Azure Key Vault simplifie une grande partie de ces obligations en assurant les opérations suivantes :
 
-- Suppression de la nécessité de connaissances en interne relatives aux modules HSM.
+- Suppression de la nécessité de connaissances en interne des modules HSM
 - Montée en puissance dans un délai très court pour répondre aux pics d’utilisation de votre organisation.
-- Réplication du contenu de votre coffre de clés au sein d’une région et vers une région secondaire. Cette opération garantit la haute disponibilité et élimine l’obligation pour l’administrateur de déclencher le basculement.
+- Réplication du contenu de votre coffre de clés au sein d’une région et vers une région secondaire. Key Vault garantit la haute disponibilité et élimine l’obligation pour l’administrateur de déclencher le basculement.
 - Fourniture des options d’administration Azure standard par le biais du Portail, de l’interface de ligne de commande Azure et de PowerShell.
 - Automatisation de certaines tâches sur les certificats que vous achetez auprès d’une autorité de certification publique, comme l’inscription et le renouvellement.
 

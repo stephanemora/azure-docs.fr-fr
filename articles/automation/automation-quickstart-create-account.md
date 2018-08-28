@@ -4,17 +4,17 @@ description: Apprendre à créer un compte Azure Automation et exécuter un runb
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/13/2017
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3accd62415cd7d3a8210b7a05aa1edfd7a380edc
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055152"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616594"
 ---
 # <a name="create-an-azure-automation-account"></a>Créer un compte Azure Automation
 
@@ -22,21 +22,21 @@ Les comptes Azure Automation peuvent être créés via Azure. Cette méthode fou
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à Azure à l’adresse https://portal.azure.com.
+Se connecter à Azure à https://portal.azure.com
 
 ## <a name="create-automation-account"></a>Créer un compte Automation
 
 1. Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche d’Azure.
 
-1. Sélectionnez **Surveillance + gestion**, puis sélectionnez **Automation**.
+1. Sélectionnez **Outils de gestion**, puis sélectionnez **Automation**.
 
-1. Saisissez les informations du compte. Pour **Créer un compte d’identification Azure**, choisissez **Oui** afin que les artefacts simplifiant l’authentification à Azure soient automatiquement activés. Lorsque vous avez terminé, cliquez sur **Créer** pour démarrer le déploiement du compte Automation.
+1. Saisissez les informations du compte. Pour **Créer un compte d’identification Azure**, choisissez **Oui** afin que les artefacts simplifiant l’authentification à Azure soient automatiquement activés. Il est important de noter que lorsque vous créez un compte Automation, le nom n’est pas modifiable une fois choisi. Lorsque vous avez terminé, cliquez sur **Créer** pour démarrer le déploiement du compte Automation.
 
     ![Saisir les informations relatives à votre compte Automation dans la page](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
-1. Le compte Automation est épinglé au tableau de bord Azure. Une fois le déploiement terminé, la vue d’ensemble du compte Automation s’ouvre automatiquement.
+1. Une fois le déploiement terminé, cliquez sur ** **Tous les Services**, sélectionnez **Comptes Automation** puis sélectionnez le compte Automation que vous avez créé.
 
     ![Vue d’ensemble du compte Automation](./media/automation-quickstart-create-account/automation-account-overview.png)
 
@@ -58,7 +58,7 @@ Exécutez l’un des runbooks de didacticiel.
 
 1. Lorsque **l’état du travail** passe à **En cours d’exécution**, cliquez sur **Sortie** ou **Tous les journaux** pour afficher la sortie du travail de runbook. Pour ce runbook de didacticiel, la sortie est une liste de vos ressources Azure.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le compte Automation et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources pour le compte Automation, puis cliquez sur **Supprimer**.
 

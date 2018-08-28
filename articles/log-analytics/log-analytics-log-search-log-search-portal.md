@@ -11,22 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 8468186d545d7aae484b037f3962b01b0ed4cd2e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127548"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143827"
 ---
-# <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Créer des recherches dans les journaux dans Azure Log Analytics à l’aide du portail Recherche dans les journaux
-
-> [!NOTE]
-> Cet article décrit le portail Recherche dans les journaux dans Azure Log Analytics avec le nouveau langage de requête.  Pour en savoir plus sur le nouveau langage et connaître la procédure de mise à niveau de votre espace de travail, consultez [Mettre à niveau votre espace de travail Azure Log Analytics avec la nouvelle recherche dans les journaux](log-analytics-log-search-upgrade.md).  
->
-> Si votre espace de travail n’a pas été mis à niveau avec le nouveau langage de requête, consultez [Rechercher des données avec les recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour plus d’informations sur la version actuelle du portail Recherche dans les journaux.
+# <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Créer des Recherches dans les journaux dans Azure Log Analytics à l’aide du portail Recherche dans les journaux
 
 Cet article contient un didacticiel qui explique comment créer des recherches dans les journaux et analyser les données stockées dans votre espace de travail Log Analytics à l’aide du portail Recherche dans les journaux.  Le didacticiel comprend des requêtes simples qui retournent différents types de données et une description des résultats des analyses.  Il est axé sur les fonctionnalités du portail Recherche dans les journaux qui permettent de modifier la requête, plutôt que de la modifier directement.  Pour plus d’informations sur la modification directe de la requête, consultez les [informations de référence sur le langage de requête](https://go.microsoft.com/fwlink/?linkid=856079).
 

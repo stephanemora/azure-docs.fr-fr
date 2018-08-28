@@ -1,5 +1,5 @@
 ---
-title: Configurer le service Device Provisioning avec Azure CLI | Microsoft Docs
+title: Configurer un service Device Provisioning avec Azure CLI | Microsoft Docs
 description: 'Démarrage rapide d’Azure : Configurer le service Azure IoT Hub Device Provisioning avec Azure CLI'
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cf2e108aa7cab6be2996cb535d27d597e462617c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c9e3bbbc4fbe8a9aade3364d6cbe9e93b5798595
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626537"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42023059"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Configurer le service IoT Hub Device Provisioning avec Azure CLI
 
@@ -94,7 +94,7 @@ echo $hubConnectionString
 
 Liez le hub IoT et votre service d’approvisionnement avec la commande [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create). 
 
-L’exemple suivant lie un hub IoT nommé *my-sample-hub* à l’emplacement *westus* et un service d’approvisionnement des appareils nommé *my-sample-dps*. Il se sert de la chaîne de connexion pour *my-sample-hub* stockée dans la variable *hubConnectionString* dans l’étape précédente.
+L’exemple suivant lie un hub IoT nommé *my-sample-hub* à l’emplacement *westus* et un service Device Provisioning nommé *my-sample-dps*. Il se sert de la chaîne de connexion pour *my-sample-hub* stockée dans la variable *hubConnectionString* dans l’étape précédente.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus

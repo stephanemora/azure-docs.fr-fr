@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576965"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918085"
 ---
 # <a name="secure-your-key-vault"></a>Sécuriser votre coffre de clés
 Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement (tels que les certificats, les chaînes de connexion et les mots de passe) de vos applications cloud. Comme il s’agit de données sensibles et stratégiques, il est préférable de sécuriser l’accès à vos coffres de clés afin que seuls les applications et les utilisateurs autorisés puissent accéder à ces derniers. Cet article propose une vue d’ensemble du modèle d’accès à un coffre de clés, explique l’authentification et l’autorisation, et détaille la procédure de sécurisation de l’accès au coffre de clés pour vos applications cloud à l’aide d’un exemple.
@@ -87,7 +87,7 @@ Vous pouvez accorder l’accès aux utilisateurs, groupes et applications d’un
 ## <a name="data-plane-access-control"></a>Contrôle d’accès au plan de données
 Le plan de données d’un coffre de clés concerne les opérations qui affectent les objets d’un coffre de clés, telles que les clés, les secrets et les certificats.  Cela inclut les opérations liées aux clés (création, importation, mise à jour, énumération, sauvegarde et restauration de clés, par exemple), les opérations de chiffrement (signature, vérification, chiffrement, déchiffrement, encapsulage, désencapsulage, etc.), ainsi que la définition de balises et d’autres attributs pour les clés. De même, pour les secrets, le plan de données comprend les opérations get, set, list et delete.
 
-L’accès au plan de données est octroyé en définissant des stratégies d’accès pour un coffre de clés. Un utilisateur, un groupe ou une application doit posséder des autorisations de collaborateur (RBAC) pour le plan de gestion d’un coffre de clés afin de pouvoir définir des stratégies d’accès pour ce coffre de clés. Un utilisateur, un groupe ou une application peut se voir autorisée à effectuer des opérations spécifiques pour les clés ou les secrets d’un coffre de clés. Un coffre de clés prend en charge jusqu’à 16 entrées de stratégie d’accès. Créez un groupe de sécurité Azure Active Directory et ajoutez des utilisateurs à ce groupe afin d’accorder l’accès au plan de données à plusieurs utilisateurs pour un coffre de clés.
+L’accès au plan de données est octroyé en définissant des stratégies d’accès pour un coffre de clés. Un utilisateur, un groupe ou une application doit posséder des autorisations de collaborateur (RBAC) pour le plan de gestion d’un coffre de clés afin de pouvoir définir des stratégies d’accès pour ce coffre de clés. Un utilisateur, un groupe ou une application peut se voir autorisée à effectuer des opérations spécifiques pour les clés ou les secrets d’un coffre de clés. Un coffre de clés prend en charge jusqu’à 1 024 entrées de stratégie d’accès. Créez un groupe de sécurité Azure Active Directory et ajoutez des utilisateurs à ce groupe afin d’accorder l’accès au plan de données à plusieurs utilisateurs pour un coffre de clés.
 
 ### <a name="key-vault-access-policies"></a>Stratégies d’accès à un coffre de clés
 Les stratégies d’accès à un coffre de clés accordent des autorisations s’appliquant soit aux clés, soit aux secrets, soit aux certificats. Par exemple, vous pouvez donner accès aux clés à un utilisateur, mais aucune autorisation pour les secrets. Toutefois, les autorisations d’accès aux clés, aux secrets ou aux certificats concernent le niveau du coffre. En d’autres termes, la stratégie d’accès à un coffre de clés ne prend pas en charge les autorisations de niveau objet. Vous pouvez utiliser le [portail Azure](https://portal.azure.com/), les [outils de la CLI Azure](../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) ou les [API REST de gestion de coffre de clés](https://msdn.microsoft.com/library/azure/mt620024.aspx) pour définir des stratégies d’accès pour un coffre de clés.

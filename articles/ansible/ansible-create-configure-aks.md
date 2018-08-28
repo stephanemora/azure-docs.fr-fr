@@ -4,30 +4,37 @@ description: Découvrez comment utiliser Ansible pour créer et gérer un cluste
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, conteneur, Kubernetes
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 6d7c5f961256e0ae1831bd76353cadd761f4b8ac
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/21/2018
+ms.openlocfilehash: de692b29902145e44a055680d662c16ed90c56c2
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011987"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617173"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Créer et configurer des clusters Azure Kubernetes Service dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer votre service Azure Kubernetes Service (AKS). Cet article vous montre comment utiliser Ansible pour créer et configurer un cluster Azure Kubernetes Service.
 
 ## <a name="prerequisites"></a>Prérequis
 - **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
-- **Configurer Ansible** - [Créer des informations d’identification Azure et configurer Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible et les modules du SDK Python Azure** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
 - **Principal du service Azure** : lors de la [création du principal du service](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal), notez les valeurs suivantes : **appId**, **displayName**, **mot de passe** et **locataire**.
+
+- **Configurer Azure Cloud Shell** ou **Installer et configurer Ansible sur une machine virtuelle Linux**
+
+  **Configurer Azure Cloud Shell**
+
+  1. **Configurer Azure Cloud Shell** : si vous ne connaissez pas encore Azure Cloud Shell, l’article [Démarrage rapide de Bash dans Azure Cloud Shell](/azure/cloud-shell/quickstart) vous indique comment démarrer et configurer Cloud Shell. 
+
+  **--OU--**
+
+  **Installer et configurer Ansible sur une machine virtuelle Linux**
+
+  1. **Installer Ansible** : installer Ansible sur une [plateforme Linux prise en charge](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine).
+
+  1. **Configurer Ansible** - [Créer des informations d’identification Azure et configurer Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
 
 > [!Note]
 > Ansible 2.6 est nécessaire pour exécuter les exemples de playbooks suivants dans ce tutoriel. 
@@ -157,7 +164,44 @@ La sortie suivante montre que le cluster AKS a été correctement créé :
   PLAY RECAP ******************************************************************************
   localhost                  : ok=2    changed=1    unreachable=0    failed=0
   ```
+## <a name="delete-a-managed-aks-cluster"></a>Supprimer un cluster AKS managé
 
+La section suivante avec l’exemple de playbook Ansible illustre comment supprimer un cluster AKS :
+
+  ```yaml
+  - name: Delete a managed Azure Container Services (AKS) cluster
+    hosts: localhost
+    connection: local
+    vars:
+      resource_group: myResourceGroup
+      aks_name: myAKSCluster
+    tasks:
+    - name: 
+      azure_rm_aks:
+        name: "{{ aks_name }}"
+        resource_group: "{{ resource_group }}"
+        state: absent
+   ```
+
+Pour supprimer le cluster Azure Kubernetes Service avec Ansible, enregistrez le playbook précédent en tant que *azure_delete_aks.yml*, puis exécutez le playbook comme suit :
+
+  ```bash
+  ansible-playbook azure_delete_aks.yml
+  ```
+
+La sortie suivante montre que le cluster AKS a été correctement supprimé :
+  ```bash
+PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
+
+TASK [Gathering Facts] ********************************************************************
+ok: [localhost]
+
+TASK [azure_rm_aks] *********************************************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0
+  ```
+  
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
-> [Tutoriel : Mettre à l’échelle une application dans Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-scale)
+> [Tutoriel : Mettre à l’échelle une application dans Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-scale)

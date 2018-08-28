@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: cfe1db25dd5ddcd4439d853eecd5e0f93fa9ee0d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 26fa131f70466154b95b68ca87513f464b79dd4e
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991662"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40183935"
 ---
 > [!IMPORTANT]
-> Pare-feu Azure est actuellement une préversion publique gérée que vous devez activer explicitement à l’aide de la commande PowerShell `Register-AzureRmProviderFeature`.
+> Le service Pare-feu Azure est actuellement disponible en préversion publique gérée. Vous l’activez explicitement à l’aide de la commande PowerShell `Register-AzureRmProviderFeature`.
 >
-> Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Il est possible que certaines fonctionnalités ne soient pas prises en charge, disposent de capacités limitées ou ne soient pas accessibles à tous les emplacements Azure. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

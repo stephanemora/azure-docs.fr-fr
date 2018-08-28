@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aaed3dd5a2a7b32d24aa8b19dab870c28e6f58ec
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216180"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42154779"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire
 
@@ -114,8 +114,9 @@ En savoir plus sur les [rôles intégrés Azure RBAC](../role-based-access-contr
 2. Dans **Source**, sélectionnez **Azure**.
 3. Dans **Emplacement source**, sélectionnez la région Azure source où vos machines virtuelles s’exécutent actuellement.
 4. Sélectionnez le **Modèle de déploiement de machines virtuelles Azure** de vos machines : **Resource Manager** ou **Classique**.
-5. Sélectionnez le **Groupe de ressources source** pour les machines virtuelles Resource Manager, ou **service cloud** pour les machines virtuelles classiques.
-6. Cliquez sur **OK** pour enregistrer les paramètres.
+5. Sélectionnez l’**abonnement source** à partir duquel les machines virtuelles sont exécutées. Il peut s’agir de n’importe quel abonnement au sein du même locataire Azure Active Directory où se trouve votre coffre Recovery services.
+6. Sélectionnez le **Groupe de ressources source** pour les machines virtuelles Resource Manager, ou **service cloud** pour les machines virtuelles classiques.
+7. Cliquez sur **OK** pour enregistrer les paramètres.
 
 ### <a name="select-the-vms"></a>Sélectionner les machines virtuelles
 
@@ -134,9 +135,11 @@ Site Recovery crée les paramètres par défaut et la stratégie de réplication
   ![Configurer les paramètres](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
+- **Abonnement cible** : l’abonnement cible utilisé pour la récupération d’urgence. Par défaut, l’abonnement cible sera identique à l’abonnement source. Cliquez sur « Personnaliser » pour sélectionner un abonnement cible différent au sein du même locataire Azure Active Directory.
+
 - **Emplacement cible** : région cible utilisée pour la récupération d’urgence. Il est recommandé que l’emplacement cible corresponde à l’emplacement du coffre Site Recovery.
 
-- **Groupe de ressources cible** : groupe de ressources dans la région cible qui héberge les machines virtuelles Azure après le basculement. Par défaut, Site Recovery crée un groupe de ressources dans la région cible avec un suffixe « asr ». L’emplacement du groupe de ressources cible peut être n’importe quelle région à l’exception de la région dans laquelle vos machines virtuelles sources sont hébergées. 
+- **Groupe de ressources cible** : groupe de ressources dans la région cible qui héberge les machines virtuelles Azure après le basculement. Par défaut, Site Recovery crée un groupe de ressources dans la région cible avec un suffixe « asr ». L’emplacement du groupe de ressources cible peut être n’importe quelle région à l’exception de la région dans laquelle vos machines virtuelles sources sont hébergées.
 
 - **Réseau virtuel cible** : réseau dans la région cible où se trouvent les machines virtuelles après le basculement.
   Par défaut, Site Recovery crée un réseau virtuel (et des sous-réseaux) dans la région cible avec un suffixe « asr ».

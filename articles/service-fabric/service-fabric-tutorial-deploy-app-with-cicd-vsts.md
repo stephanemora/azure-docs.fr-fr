@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f3cc4f518278cca915e40bd691c6a7674219916e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2122b6d9c385e1137d0fc6df5229975359fa20d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109390"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41918069"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutoriel : Déployer une application avec l’intégration et le déploiement continus sur un cluster Service Fabric
 
@@ -50,7 +50,7 @@ Avant de commencer ce tutoriel :
 * [Installez Visual Studio 2017](https://www.visualstudio.com/) et les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 * [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md)
 * Créez un cluster Service Fabric Windows sur Azure, par exemple en suivant [ce tutoriel](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Créez un compte [Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+* Créez un compte [Team Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 
 ## <a name="download-the-voting-sample-application"></a>Télécharger l’exemple d’application de vote
 
@@ -94,7 +94,13 @@ Une définition de mise en production Team Services décrit un flux de travail q
 
 Ouvrez un navigateur web et accédez à votre nouveau projet d’équipe à l’adresse : [https://&lt;moncompte&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Sélectionnez l’onglet **Générer et publier**, **Builds**, puis **+ Nouvelle définition**.  Dans **Sélectionner un modèle**, sélectionnez le modèle **Azure Service Fabric Application** et cliquez sur **Appliquer**.
+Sélectionnez l’onglet **Build et mise en production**, **Builds**, puis **Nouveau pipeline**.
+
+![Nouveau pipeline][new-pipeline]
+
+Sélectionnez la source **VSTS Git**, le projet d’équipe **Voting**, le référentiel **Voting** et la branche par défaut **maître** pour les builds manuelles et planifiées.  Cliquez ensuite sur **Continuer**.
+
+Dans **Sélectionner un modèle**, sélectionnez le modèle **Application Azure Service Fabric**, puis cliquez sur **Appliquer**.
 
 ![Choisir le modèle de build][select-build-template]
 
@@ -102,7 +108,9 @@ Dans **Tâches**, entrez « Hébergée VS2017 » pour **File d’attente d’age
 
 ![Sélectionner les tâches][save-and-queue]
 
-Sous **Déclencheurs**, activez l’intégration continue en définissant **Déclencher l’état**.  Sélectionnez **Enregistrer et mettre en file d’attente** pour lancer une build manuellement.
+Sous **Déclencheurs**, activez l’intégration continue en cochant la case **Activer l’intégration continue**. Dans la zone **Filtres de branche**, cliquez sur **+ Ajouter**, et la zone **Spécification de branche** est alors définie par défaut sur la valeur **maître**. Sélectionnez **Enregistrer et mettre en file d’attente** pour lancer une build manuellement.
+
+Dans la boîte de dialogue **Enregistrer le pipeline de build et la file d’attente de builds**, cliquez sur **Enregistrer et mettre en file d’attente**.
 
 ![Sélectionnez les déclencheurs][save-and-queue2]
 
@@ -110,7 +118,7 @@ Les builds sont également déclenchées par envoi (push) ou par archivage. Pour
 
 ### <a name="create-a-release-definition"></a>Création d’une définition de version
 
-Sélectionnez l’onglet **Générer et publier**, **Mises en production**, puis **+ Nouvelle définition**.  Sous **Sélectionner un modèle**, sélectionnez le modèle **Déploiement Azure Service Fabric** dans la liste, puis **Appliquer**.
+Sélectionnez l’onglet **Build et mise en production**, **Mises en production**, puis **+ Nouveau pipeline**.  Sous **Sélectionner un modèle**, sélectionnez le modèle **Déploiement Azure Service Fabric** dans la liste, puis **Appliquer**.
 
 ![Choisissez le modèle de template][select-release-template]
 
@@ -134,7 +142,9 @@ Activez un déclencheur de déploiement continu afin qu’une version soit cré�
 
 ![Activez le déclencheur][enable-trigger]
 
-Sélectionnez **+Mise en production** -> **Créer une mise en production** -> **Créer** pour créer manuellement une mise en production.  Vérifiez que le déploiement a réussi et que l’application est en cours d’exécution dans le cluster.  Ouvrez un navigateur web et accédez à [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Notez la version de l’application. Dans cet exemple, il s’agit de la version 1.0.0.20170616.3.
+Sélectionnez **+ Mise en production** -> **Créer une mise en production** -> **Créer** pour créer manuellement une mise en production. Vous pouvez surveiller la progression de la mise en production dans l’onglet **Mises en production**.
+
+Vérifiez que le déploiement a réussi et que l’application est en cours d’exécution dans le cluster.  Ouvrez un navigateur web et accédez à [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Notez la version de l’application. Dans cet exemple, il s’agit de la version 1.0.0.20170616.3.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Valider et envoyer les modifications, déclencher une mise en production
 
@@ -188,6 +198,7 @@ Passez au tutoriel suivant :
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
+[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

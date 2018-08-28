@@ -1,6 +1,6 @@
 ---
-title: Créer une application web ASP.NET Core dans Azure | Microsoft Docs
-description: Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web ASP.NET par défaut.
+title: Créer une application web C# ASP.NET Core dans Azure | Microsoft Docs
+description: Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web C# ASP.NET par défaut.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 06/11/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 91f6fd077146e94833a5527f03ac710352e4fd9c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 811f4df807292b9d539084a049cc643dbee07a7e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432053"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Créer une application web ASP.NET Core dans Azure
 
@@ -37,16 +38,11 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="prerequisites"></a>Prérequis
 
+Pour suivre ce tutoriel :
 
-Pour suivre ce didacticiel :
+Installer <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> avec la charge de travail **Développement ASP.NET et web**.
 
-* Installez <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> avec les charges de travail suivantes :
-    - **Développement web et ASP.NET**
-    - **Développement Azure**
-
-    ![Développement web et ASP.NET et Développement Azure (sous Web et cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-Si vous avez déjà installé Visual Studio, ajoutez les charges de travail dans Visual Studio en cliquant sur **Outils** > **Obtenir des outils et des fonctionnalités**.
+Si vous avez déjà installé Visual Studio, ajoutez la charge de travail dans Visual Studio en cliquant sur **Outils** > **Obtenir des outils et des fonctionnalités**.
 
 ## <a name="create-an-aspnet-core-web-app"></a>Créez une application web ASP.NET Core
 
@@ -63,10 +59,6 @@ Vous pouvez déployer n’importe quel type d’application web ASP.NET Core dan
 Sélectionnez **OK**.
 
 ![Boîte de dialogue New ASP.NET Project](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
-
-Une fois le projet ASP.NET Core créé, la page d’accueil ASP.NET Core s’affiche et fournit de nombreux liens vers des ressources pour vous aider à commencer. 
-
-![Page d’accueil](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 Dans le menu, sélectionnez **Déboguer > Exécuter sans débogage** pour exécuter l’application web localement.
 
@@ -86,11 +78,10 @@ Cette opération affiche la boîte de dialogue **Créer App Service**, qui vous 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Dans la boîte de dialogue **Créer App Service**, sélectionnez **Ajouter un compte**, puis connectez-vous à votre abonnement Azure. Si vous êtes déjà connecté, sélectionnez le compte qui contient l’abonnement souhaité dans la liste déroulante.
+Dans la boîte de dialogue **Créer App Service**, cliquez sur **Ajouter un compte** puis connectez-vous à votre abonnement Azure. Si vous êtes déjà connecté, sélectionnez le compte qui contient l’abonnement souhaité dans la liste déroulante.
 
 > [!NOTE]
 > Si vous êtes déjà connecté, ne sélectionnez pas encore **Créer**.
->
 >
    
 ![Connexion à Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
@@ -116,7 +107,7 @@ Dans la boîte de dialogue **Configurer le plan App Service**, utilisez les para
 | Paramètre | Valeur suggérée | Description |
 |-|-|-|
 |Plan App Service| myAppServicePlan | Nom du plan App Service. |
-| Lieu | Europe de l'Ouest | Centre de données dans lequel l’application web est hébergée. |
+| Lieu | Europe Ouest | Centre de données dans lequel l’application web est hébergée. |
 | Taille | Gratuit | Le [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) détermine les fonctionnalités d’hébergement. |
 
 Sélectionnez **OK**.
@@ -152,7 +143,8 @@ Recherchez la balise HTML `<div id="myCarousel" class="carousel slide" data-ride
 
 Pour effectuer un redéploiement dans Azure, cliquez avec le bouton droit sur le projet **myFirstAzureWebApp** dans **l’Explorateur de solutions**, puis sélectionnez **Publier**.
 
-Dans la page de publication, sélectionnez **Publier**.
+Dans la page Résumé de la publication, sélectionnez **Publier**.
+![Page Résumé de la publication Visual Studio](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
 
 Une fois la publication terminée, Visual Studio lance un navigateur en accédant à l’URL de l’application web.
 

@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide Azure - Configurer une application web Azure pour définir et récupérer un secret depuis Key Vault | Microsoft Docs
-description: Ce guide de démarrage rapide vous explique comment configurer une application ASP.NET Core pour définir et récupérer un secret depuis Key Vault.
+title: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web Node | Microsoft Docs'
+description: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web Node'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 0188d06e5c58287e1040f6a15456d3ffe291b04a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480200"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022973"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET
 
@@ -28,7 +28,10 @@ Dans ce guide de démarrage rapide, vous allez passer en revue les étapes néce
 > * [Activation d’identités de service administrées (MSI)](../active-directory/managed-service-identity/overview.md).
 > * Octroi des autorisations requises à l’application web pour lire des données venant de Key Vault.
 
-Avant d’aller plus loin, lisez les [concepts de base](key-vault-whatis.md#basic-concepts), particulièrement [Managed Service Identity](../active-directory/managed-service-identity/overview.md).
+Avant d’aller plus loin, veuillez lire les [concepts de base](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+Pour comprendre pourquoi le didacticiel ci-dessous est la meilleure pratique, il est nécessaire de comprendre certains concepts. Key Vault est un référentiel central pour stocker les secrets par programmation. Mais pour cela, les applications / utilisateurs doivent d’abord s’authentifier sur Key Vault, et donc présenter un secret. Pour suivre les meilleures pratiques de sécurité, ce premier secret doit faire l’objet d’une rotation périodique. Mais avec [Managed Service Identity](../active-directory/managed-service-identity/overview.md), les applications qui s’exécutent dans Azure bénéficient d’une identité gérée automatiquement par Azure. Cela permet de résoudre le **problème d’introduction de secrets** où les utilisateurs / applications peuvent suivre les meilleures pratiques et n’ont pas à se soucier de la rotation du premier secret
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -165,6 +168,8 @@ Ensuite, exécutez cette commande en utilisant le nom de votre coffre de clés K
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
 
 ```
+
+**Maintenant lorsque vous exécutez l’application, vous devriez voir votre valeur secrète récupérée**
 
 ## <a name="next-steps"></a>Étapes suivantes
 

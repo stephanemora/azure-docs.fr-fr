@@ -1,8 +1,8 @@
 ---
-title: Démarrage rapide Azure - Traiter les flux d’événements avec PowerShell | Microsoft Docs
-description: Ce guide de démarrage rapide explique comment envoyer et recevoir des événements Azure Event Hubs en utilisant PowerShell et une application exemple .NET.
+title: Démarrage rapide Azure - Créer un Event Hub à l’aide de PowerShell | Microsoft Docs
+description: Ce démarrage rapide décrit la création d’un Event Hub à l’aide de Azure PowerShell puis l’envoi et la réception des événements à l’aide du Kit de développement .NET Standard.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 9216372038db7a6f97cfc8034f715b34de08d83c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: a8a29484af7c95e9cffa1c7048c0f7b8d642c868
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132299"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022937"
 ---
-# <a name="quickstart-process-event-streams-using-powershell-and-net-standard"></a>Démarrage rapide Azure : Traiter les flux d’événements avec PowerShell et .NET Standard
+# <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Démarrage rapide : créer un Event Hub à l’aide de Azure PowerShell
 
 Azure Event Hubs est une plateforme de flux de données très scalable et un service d’ingestion capable de recevoir et de traiter des millions d’événements par seconde. Ce guide de démarrage rapide montre comment créer un hub d’événements avec Azure PowerShell, puis comment envoyer et recevoir depuis et vers un hub d’événements à l’aide du kit SDK .NET Standard.
 
-Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure. Si vous n’en avez pas, créez un [Créer un compte gratuit][] avant de commencer.
+Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit][] avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -156,7 +156,7 @@ Dans cet article, vous avez créé un espace de noms Event Hubs et d’autres re
 > [!div class="nextstepaction"]
 > [Visualiser les anomalies de données sur les flux de données Event Hubs](event-hubs-tutorial-visualize-anomalies.md)
 
-[Créer un compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[créez un compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

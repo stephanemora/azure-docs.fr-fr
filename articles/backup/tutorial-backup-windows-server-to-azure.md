@@ -7,15 +7,15 @@ manager: shivamg
 keywords: sauvegarde serveur windows ; sauvegarder windows server ; sauvegarde et récupération d’urgence
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
+ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609016"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616187"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Sauvegarder Windows Server dans Azure
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser Sauvegarde Azure pour protéger votre serveur Windows contr
 > * Effectuer une hoc sauvegarde ad-hoc
 
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur http://portal.azure.com.
 
@@ -41,16 +41,16 @@ Avant que vous puissiez sauvegarder Windows Server, vous devez créer un emplace
 
    ![ouvrir le coffre Recovery Services](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2.  Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter**.
+2. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter**.
 
    ![fournir des informations pour le coffre](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  Dans le menu **Coffre Recovery Services**,
+3. Dans le menu **Coffre Recovery Services**,
 
     - tapez *myRecoveryServicesVault* dans **Nom**.
     - L’ID d’abonnement actuel apparaît dans **Abonnement**.
     - Pour **Groupe de ressources**, sélectionnez **Utiliser existant** et choisissez *myResourceGroup*. Si *myResourceGroup* n’existe pas, sélectionnez **Créer un nouveau** et tapez *myResourceGroup*. 
-    - Dans le menu déroulant **Emplacement**, choisissez *Europe de l’Ouest*.
+    - Dans le menu déroulant **Emplacement**, choisissez *Europe Ouest*.
     - Cliquez sur **Créer** pour créer votre coffre Recovery Services.
  
 Une fois votre archivage créé, il apparaît dans la liste des archivages de Recovery Services.
@@ -59,27 +59,28 @@ Une fois votre archivage créé, il apparaît dans la liste des archivages de Re
 
 L’agent Microsoft Azure Recovery Services (MARS) crée une association entre Windows Server et votre coffre Recovery Services. La procédure suivante explique comment télécharger l’agent sur votre serveur.
 
-1.  Dans la liste des coffres Recovery Services, sélectionnez **myRecoveryServicesVault** pour ouvrir son tableau de bord.
+1. Dans la liste des coffres Recovery Services, sélectionnez **myRecoveryServicesVault** pour ouvrir son tableau de bord.
 
    ![fournir des informations pour le coffre](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.  Dans le menu du tableau de bord du coffre, cliquez sur **Sauvegarder**.
+2. Dans le menu du tableau de bord du coffre, cliquez sur **Sauvegarder**.
 
-3.  Dans le menu **Objectif de sauvegarde** :
+3. Dans le menu **Objectif de sauvegarde** :
 
-    - pour **Où s'exécute votre charge de travail ?**, sélectionnez **Local**, 
-    - pour **Que voulez-vous sauvegarder ?**, sélectionnez **Fichiers et dossiers** et **État système** 
+   * pour **Où s'exécute votre charge de travail ?**, sélectionnez **Local**, 
+   * pour **Que voulez-vous sauvegarder ?**, sélectionnez **Fichiers et dossiers** et **État système**
 
-    ![fournir des informations pour le coffre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
-    
-4.  Cliquez sur **Préparer l’infrastructure** pour ouvrir le menu **Préparer l’infrastructure**.
-5.  Dans le menu **Préparer l’infrastructure**, cliquez sur **Télécharger l’agent pour Windows Server ou pour le client Windows** pour télécharger *MARSAgentInstaller.exe*. 
+   ![fournir des informations pour le coffre](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+
+4. Cliquez sur **Préparer l’infrastructure** pour ouvrir le menu **Préparer l’infrastructure**.
+
+5. Dans le menu **Préparer l’infrastructure**, cliquez sur **Télécharger l’agent pour Windows Server ou pour le client Windows** pour télécharger *MARSAgentInstaller.exe*. 
 
     ![Télécharger l’agent pour Windows Server ou Windows Client](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     Le programme d’installation ouvre un autre navigateur et télécharge **MARSAgentInstaller.exe**.
  
-6.  Avant d’exécuter le fichier téléchargé, cliquez sur le bouton **Télécharger** dans le panneau Préparer l’infrastructure pour télécharger et enregistrer le fichier **Informations d’identification du coffre**. Ce fichier est requis pour la connexion de l’agent MARS avec le coffre Recovery Services.
+6. Avant d’exécuter le fichier téléchargé, cliquez sur le bouton **Télécharger** dans le panneau Préparer l’infrastructure et enregistrez le fichier **Informations d’identification du coffre**. Les informations d'identification sont nécessaires pour la connexion de l’agent MARS avec le coffre Recovery Services.
 
     ![Télécharger l’agent pour Windows Server ou Windows Client](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
@@ -115,13 +116,17 @@ Vous utilisez l’agent Microsoft Azure Recovery Services pour planifier quand l
 
 5. Cliquez sur **Suivant**.
 
-6. Dans la page **Spécifier la planification de sauvegarde (état du système)**, spécifiez les heures du jour ou de la semaine auxquelles les sauvegardes doivent être déclenchées pour l’état du système, puis cliquez sur **Suivant**. 
+6. Dans la page **Spécifier la planification de sauvegarde (état du système)**, spécifiez les heures du jour ou de la semaine auxquelles les sauvegardes doivent être déclenchées pour l’état du système, puis cliquez sur **Suivant**.
 
-7.  Dans la page **Sélectionner la stratégie de rétention (état du système)**, définissez la stratégie de rétention pour la copie de l’état du système, puis cliquez sur **Suivant**.
+7. Dans la page **Sélectionner la stratégie de rétention (état du système)**, définissez la stratégie de rétention pour la copie de l’état du système, puis cliquez sur **Suivant**.
+
 8. De même, sélectionnez la planification de sauvegarde et la stratégie de rétention pour les fichiers et dossiers sélectionnés. 
-8.  Dans la page **Choisir un type de sauvegarde initiale**, laissez l’option **Automatiquement sur le réseau** sélectionnée, puis cliquez sur **Suivant**.
-9.  Dans la page **Confirmation**, passez en revue les informations, puis cliquez sur **Terminer**.
-10. Lorsque l’Assistant a terminé la création de la planification de la sauvegarde, cliquez sur **Fermer**.
+
+9. Dans la page **Choisir un type de sauvegarde initiale**, sélectionnez **Automatiquement sur le réseau**, puis cliquez sur **Suivant**.
+
+10. Dans la page **Confirmation**, passez en revue les informations, cliquez sur **Terminer**.
+
+11. Lorsque l’Assistant a terminé la création de la planification de la sauvegarde, cliquez sur **Fermer**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Effectuer une hoc sauvegarde ad-hoc
 

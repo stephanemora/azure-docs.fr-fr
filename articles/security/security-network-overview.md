@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 08/17/2018
 ms.author: terrylan
-ms.openlocfilehash: 7533f9db25da8e69d3fcfa76a61a06af2f1bc78c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345955"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144341"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
@@ -57,6 +57,9 @@ Azure prend en charge plusieurs types de contrôle d’accès réseau, tels que 
 ### <a name="network-layer-control"></a>Contrôle de la couche réseau
 
 Tout déploiement sécurisé requiert certaines mesures de contrôle d’accès réseau. L’objectif du contrôle d’accès réseau est de restreindre les communications des machines virtuelles aux systèmes nécessaires. Les autres tentatives de communication sont bloquées.
+
+>[!NOTE]
+Les pare-feux de stockage sont détaillés dans l’article [Vue d’ensemble des fonctionnalités de sécurité du stockage Azure](security-storage-overview.md)
 
 #### <a name="network-security-rules-nsgs"></a>Règles de sécurité réseau (NSG)
 
@@ -323,7 +326,6 @@ Vous pouvez également utiliser [Microsoft Power BI](https://powerbi.microsoft.c
 En savoir plus :
 
 * [Log Analytics pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## <a name="azure-ddos-protection"></a>Protection DDoS dans Azure
 

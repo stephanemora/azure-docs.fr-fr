@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: b89f1aad46621d35728934ea068a5893ba674094
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: ab2a05c55ee248d8a74f70d36b06277db3a0f38a
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29124797"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42144013"
 ---
 # <a name="use-service-management-from-python"></a>Utiliser la gestion des services de Python
 Ce guide vous explique comment effectuer des tâches courantes de gestion des services par programme à partir de Python. La classe **ServiceManagementService** du [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python) prend en charge l’accès par programme à une grande partie des fonctionnalités liées à la gestion des services disponibles dans le [portail Azure][management-portal]. Vous pouvez utiliser cette fonctionnalité pour créer, mettre à jour et supprimer des services cloud, des déploiements, des services de gestion de données et des machines virtuelles. Ces fonctionnalités peuvent être utiles pour la création d'applications nécessitant un accès par programme à la gestion des services.
@@ -103,20 +103,20 @@ Pour répertorier les emplacements disponibles pour les services d’hébergemen
 
 Quand vous créez un service cloud ou un service de stockage, vous devez fournir un emplacement valide. La méthode **list\_locations** renvoie toujours une liste à jour des emplacements disponibles actuellement. Lors de la rédaction de cet article, les emplacements disponibles étaient les suivants :
 
-* Europe de l'Ouest
-* Europe du Nord
-* Asie du Sud-Est
-* Est de l'Asie
-* Centre des États-Unis
-* Centre-Nord des États-Unis
-* États-Unis - partie centrale méridionale
-* États-Unis de l’Ouest
-* Est des États-Unis
-* Est du Japon
-* Ouest du Japon
-* Sud du Brésil
-* Est de l’Australie
-* Sud-est de l’Australie
+* Europe Ouest
+* Europe Nord
+* Asie Sud-Est
+* Asie Est
+* USA Centre
+* USA Centre Nord
+* USA Centre Sud
+* USA Ouest
+* USA Est
+* Japon Est
+* Japon Ouest
+* Brésil Sud
+* Australie Est
+* Australie Sud-Est
 
 ## <a name="CreateCloudService"> </a>Créer un service cloud
 Lorsque vous créez une application et l’exécutez dans Azure, l’ensemble formé par le code et la configuration dans Azure est appelé [service cloud][cloud service]. (on l’appelle également *service hébergé* dans les versions antérieures d’Azure). Vous pouvez utiliser la méthode **create\_hosted\_service** pour créer un service hébergé. Créez le service en fournissant un nom de service hébergé (qui doit être unique dans Azure), une étiquette (automatiquement codée en base64), une description et un emplacement.
@@ -402,7 +402,7 @@ Pour en savoir plus sur la capture d’une machine virtuelle Windows dans le mod
 ## <a name="What's Next"> </a>Étapes suivantes
 Vous connaissez désormais les principes de base de la gestion des services. Vous pouvez maintenant accéder à la [documentation complète de référence sur l’API du Kit de développement logiciel (SDK) Azure pour Python](http://azure-sdk-for-python.readthedocs.org/) et effectuer facilement des tâches complexes pour gérer votre application Python.
 
-Pour plus d’informations, consultez le [Centre pour développeurs Python](/develop/python/).
+Pour plus d’informations, consultez le [Centre pour développeurs Python](https://azure.microsoft.com/develop/python/).
 
 [What is service management?]: #WhatIs
 [Concepts]: #Concepts

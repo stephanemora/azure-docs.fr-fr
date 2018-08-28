@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185667"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917568"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Didacticiel : Créer, déboguer et déployer une application web multiservice dans Service Fabric Mesh
 
@@ -56,11 +56,11 @@ Avant de commencer ce tutoriel :
 
 * L’application de ce didacticiel doit, pour l’instant, être générée en utilisant les paramètres régionaux anglais.
 
-## <a name="create-a-service-fabric-mesh-project"></a>Créer un projet de maillage Service Fabric
+## <a name="create-a-service-fabric-mesh-project"></a>Créer un projet Service Fabric mesh
 
 Exécutez Visual Studio et sélectionnez **Fichier** > **Nouveau** > **Projet...**.
 
-Dans le champ **Recherche** situé en haut de la boîte de dialogue **Nouveau projet**, saisissez `mesh`. Sélectionnez le modèle **Application de maillage Service Fabric**. (Si vous ne voyez pas le modèle, assurez-vous que vous avez installé le kit de développement logiciel de maillage et la préversion des outils Visual Studio comme décrit dans la section [Configurer votre environnement de développement](service-fabric-mesh-howto-setup-developer-environment-sdk.md).  
+Dans le champ **Recherche** situé en haut de la boîte de dialogue **Nouveau projet**, saisissez `mesh`. Sélectionnez le modèle **Application Service Fabric mesh**. (Si vous ne voyez pas le modèle, assurez-vous que vous avez installé le kit de développement logiciel de maillage et la préversion des outils Visual Studio comme décrit dans la section [Configurer votre environnement de développement](service-fabric-mesh-howto-setup-developer-environment-sdk.md).  
 
 Dans le champ **Nom**, saisissez `todolistapp` et dans le champ **Emplacement**, indiquez le chemin d’accès du dossier dans lequel vous souhaitez enregistrer les fichiers du projet.
 
@@ -314,7 +314,8 @@ Remplacez le contenu de l’intégralité du fichier par le code HTML suivant qu
 </div>
 ```
 
-Ouvrez le code pour la page d’index dans **l’Explorateur de solutions** en ouvrant **Index.cshtml**, puis **Index.cshtml.cs**. En haut du fichier **Index.cshtml.cs**, ajoutez `using System.Net.Http;`.
+Ouvrez le code pour la page d’index dans **l’Explorateur de solutions** en ouvrant **Index.cshtml**, puis **Index.cshtml.cs**.
+En haut du fichier **Index.cshtml.cs**, ajoutez `using System.Net.Http;`.
 
 Remplacez le contenu du champ `public class IndexModel` avec :
 
@@ -336,7 +337,7 @@ public class IndexModel : PageModel
         }
     }
 
-    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+    private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
     private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 }
 ```
@@ -346,7 +347,7 @@ public class IndexModel : PageModel
 L’URL pour le service back-end est nécessaire pour communiquer avec ce service. Pour les besoins de ce didacticiel, l’exemple de code suivant (qui est défini ci-dessus dans le cadre du modèle IndexModel) lit les variables d’environnement pour composer l’URL :
 
 ```csharp
-private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ServiceName")}";
+private static string backendDNSName = $"{Environment.GetEnvironmentVariable("ToDoServiceName")}";
 private static Uri backendUrl = new Uri($"http://{backendDNSName}:{Environment.GetEnvironmentVariable("ApiHostPort")}/api/todo");
 ```
 

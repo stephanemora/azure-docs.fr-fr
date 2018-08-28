@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: 74907693270e6cd340d3b34585a80077aa87f0f7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: bb3b3061c15a661caff778ca5c0ec48b0434c718
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055452"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144217"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Tutoriel : Configurer Cisco Spark pour l’attribution automatique d’utilisateurs
 
@@ -34,7 +34,7 @@ L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Cisc
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
-*   Un locataire Azure AD
+*   un locataire Azure AD ;
 *   Un locataire Cisco Spark
 *   Un compte d’utilisateur dans Cisco Spark avec des autorisations d’administrateur
 
@@ -171,6 +171,10 @@ Cette section vous guide tout au long des étapes de configuration du service de
 Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement Azure AD sur Cisco Spark.
 
 Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../active-directory-saas-provisioning-reporting.md).
+
+## <a name="connector-limitations"></a>Limitations du connecteur
+
+* Cisco Spark se trouve actuellement dans la phase des premiers essais sur le terrain (EFT) de Cisco. Pour plus d’informations, veuillez contacter le [Support technique Cisco](https://www.webex.co.in/support/support-overview.html). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 25349d48d88b64568fef0f5a6bac5950da15196b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298635"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144806"
 ---
 # <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Vue d’ensemble : scénarios B2B et communication avec Enterprise Integration Pack
 
@@ -37,7 +37,7 @@ D’un point de vue architectural, Enterprise Integration Pack est basé sur des
 
 ## <a name="how-to-get-started-with-enterprise-integration"></a>Comment prendre en main Enterprise Integration Pack ?
 
-Vous pouvez créer et gérer des applications B2B à l’aide d’Enterprise Integration Pack via le concepteur Logic Apps du **portail Azure**. Vous pouvez également gérer vos applications logiques avec [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Rubriques PowerShell sur les applications logiques").
+Vous pouvez créer et gérer des applications B2B à l’aide d’Enterprise Integration Pack via le concepteur Logic Apps du **portail Azure**. Vous pouvez également gérer vos applications logiques avec [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "PowerShell d’applications logiques").
 
 Voici les étapes de niveau supérieur permettant de créer des applications dans le portail Azure :
 

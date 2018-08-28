@@ -11,22 +11,24 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0d47b89a468aade8cec51ec04709ed99bfd4684c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857942"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144021"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Guide d’activation de la virtualisation imbriquée dans une machine virtuelle Azure
 
-La virtualisation imbriquée est prise en charge dans les séries Dv3 et Ev3 de machines virtuelles Azure. Cette fonctionnalité offre une grande souplesse pour la prise en charge de scénarios comme les environnements de développement, de test, de formation et de démonstration. 
+La virtualisation imbriquée est prise en charge dans plusieurs familles de machine virtuelle Azure. Cette fonctionnalité offre une grande souplesse pour la prise en charge de scénarios comme les environnements de développement, de test, de formation et de démonstration.   
 
-Toutes les machines virtuelles des gammes Dv3 et Ev3 prennent en charge la virtualisation imbriquée sans configuration supplémentaire.  Cet article parcourt l’activation de Hyper-V sur une machine virtuelle Azure et la configuration de la connectivité Internet pour cette machine virtuelle invitée.
+Cet article parcourt l’activation de Hyper-V sur une machine virtuelle Azure et la configuration de la connectivité Internet pour cette machine virtuelle invitée.
 
-## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Créer une machine virtuelle Azure de série Dv3 ou Ev3
+## <a name="create-a-nesting-capable-azure-vm"></a>Créer une machine virtuelle Azure prenant en charge l’imbrication
 
-Créez une nouvelle machine virtuelle Azure Windows Server 2016 et choisissez une taille entre les séries Dv3 et Ev3. Veillez à choisir une taille suffisante pour prendre en charge les demandes d’une machine virtuelle invitée. Dans cet exemple, nous utilisons une machine virtuelle Azure de taille D3_v3. 
+Créer une machine virtuelle Azure Windows Server 2016.  Pour référence, toutes les machines virtuelles v3 prennent en charge la virtualisation imbriquée. Pour obtenir la liste complète des tailles de machine virtuelle prenant en charge l’imbrication, consultez l’[article sur l’unité Compute Azure](acu.md).
+
+Veillez à choisir une taille de machine virtuelle suffisante pour prendre en charge les demandes d’une machine virtuelle invitée. Dans cet exemple, nous utilisons une machine virtuelle Azure de taille D3_v3. 
 
 Vous pouvez afficher la disponibilité régionale de machines virtuelles des séries Dv3 et Ev3 [ici](https://azure.microsoft.com/regions/services/).
 

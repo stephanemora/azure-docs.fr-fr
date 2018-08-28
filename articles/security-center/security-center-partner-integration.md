@@ -12,14 +12,14 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: b0e674eb161af41a848f0456a033d615293a9947
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 117fc5cb6583c4e3eed0c9506bda470400941f61
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622787"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920991"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Intégrer des solutions de sécurité dans Azure Security Center
 Ce document vous aide à gérer les solutions de sécurité déjà connectées à Azure Security Center et à en ajouter de nouvelles.
@@ -38,7 +38,11 @@ Actuellement, les solutions de sécurité intégrées comprennent :
 - Pare-feu de nouvelle génération ([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) et [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - Évaluation des vulnérabilités ([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) et [Rapid7](https://www.rapid7.com/products/insightvm/))
 
-L’expérience d’intégration protection de point de terminaison peut varier en fonction de la solution. Le tableau suivant contient plus de détails sur l’expérience de chaque solution :
+> [!NOTE]
+> Security Center n’installe pas Microsoft Monitoring Agent sur les appliances virtuelles de partenaire, car la plupart des fournisseurs de sécurité n’autorisent pas l’exécution d’agents externes sur leur appliance.
+>
+>
+
 
 | Protection du point de terminaison               | Plateformes                             | Installation du centre de sécurité | Détection du centre de sécurité |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
@@ -68,9 +72,9 @@ Les solutions de sécurité Azure déployées à partir de Security Center sont 
 
 2. Dans le **menu Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
 
-  ![Vue d’ensemble de Security Center](./media/security-center-partner-integration/overview.png)
+3. Dans le menu de Security Center, sélectionnez **Solutions de sécurité**.
 
-3. Sous **Vue d’ensemble**, sélectionnez **Solutions de sécurité**.
+  ![Vue d’ensemble de Security Center](./media/security-center-partner-integration/overview.png)
 
 Sous **Solutions de sécurité**, vous pouvez consulter des informations sur le fonctionnement des solutions de sécurité Azure intégrées et effectuer des tâches de gestion de base. Vous pouvez également connecter d’autres types de sources de données de sécurité, telles que des journaux de pare-feu et des alertes Azure AD Identity Protection au format CEF.
 

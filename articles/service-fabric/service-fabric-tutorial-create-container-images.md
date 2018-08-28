@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a2814ff299d1bfb003b6133e2b75b47a312f8728
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 15fcea6ca8f9c66ee4907018a11481b6c714b81a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114038"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616281"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutoriel : Créer des images conteneurs sur un cluster Service Fabric Linux
 
@@ -68,6 +68,8 @@ Dans le répertoire **azure-vote**, exécutez la commande suivante pour créer l
 ```bash
 docker build -t azure-vote-front .
 ```
+> [!Note]
+> Si vous obtenez un refus d’autorisation, suivez [cette](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user) documentation sur l’utilisation de Docker sans sudo.
 
 Cette commande peut prendre un certain temps, car toutes les dépendances nécessaires doivent être extraites du Hub Docker. Une fois terminé, utilisez la commande [docker images](https://docs.docker.com/engine/reference/commandline/images/) pour afficher les images créées.
 

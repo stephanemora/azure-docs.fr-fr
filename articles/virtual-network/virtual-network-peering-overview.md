@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257869"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917694"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -77,7 +77,12 @@ Vous pouvez aussi résoudre les problèmes de connectivité à une machine virtu
 
 ## <a name="requirements-and-constraints"></a>Exigences et contraintes
 
-Pour en savoir plus sur les exigences et contraintes, consultez [Créer, modifier ou supprimer une homologation de réseau virtuel](virtual-network-manage-peering.md#requirements-and-constraints). Pour en savoir plus sur les limites concernant le nombre d’homologations que vous pouvez créer pour un réseau virtuel, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+Lorsque des réseaux virtuels sont homologués à l’échelle mondiale, les contraintes ci-après s’appliquent :
+- Les réseaux virtuels peuvent se trouver dans n’importe quelle région de clouds publics Azure, mais pas dans les clouds nationaux Azure.
+- Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne Azure dans le réseau virtuel homologué à l’échelle mondiale. L’équilibreur de charge et les ressources qui communiquent avec lui doivent se trouver dans la même région.
+- Vous ne pouvez pas utiliser de passerelles distantes ni autoriser de transit via une passerelle. Pour utiliser des passerelles distantes ou autoriser un transit par passerelle, les réseaux virtuels homologués doivent appartenir à la même région.
+
+Pour en savoir plus sur les exigences et les contraintes, consultez la section correspondante de l’article [Créer, modifier ou supprimer une homologation de réseau virtuel](virtual-network-manage-peering.md#requirements-and-constraints). Pour en savoir plus sur les limites concernant le nombre d’homologations que vous pouvez créer pour un réseau virtuel, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
 ## <a name="permissions"></a>Autorisations
 
@@ -102,3 +107,4 @@ Le transit par passerelle est une propriété d’homologation qui permet à un 
 
 * Découvrez comment créer une [topologie de réseau Hub and Spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * En savoir plus sur tous les [paramètres d’homologation de réseaux virtuels et comment les modifier](virtual-network-manage-peering.md)
+* Découvrez les réponses aux questions courantes concernant VNet Peering et Global VNet Peering par le biais de notre [Forum Aux Questions sur l’homologation de réseaux virtuels](virtual-networks-faq.md#vnet-peering).

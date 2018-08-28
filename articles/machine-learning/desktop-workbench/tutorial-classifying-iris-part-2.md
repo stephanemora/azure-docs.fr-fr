@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722777"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918617"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Didacticiel 2 : Classifier Iris - Générer un modèle
 Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée qui permet aux scientifiques des données professionnels de préparer des données, développer des expériences et déployer des modèles à l’échelle du cloud.
@@ -442,7 +442,7 @@ Pour exécuter votre script dans un conteneur Docker sur une machine Linux dista
    >L’adresse IP peut également être un FQDN (nom de domaine complet) adressable publiquement, tel que `vm-name.southcentralus.cloudapp.azure.com`. Il est conseillé d’ajouter un FQDN (nom de domaine complet) à votre DSVM et de l’utiliser au lieu d’une adresse IP. Cette pratique est utile, car vous pourriez désactiver la machine virtuelle à un moment donné pour réaliser des économies. De plus, la prochaine fois que vous démarrez la machine virtuelle, l’adresse IP peut avoir changé.
 
    >[!NOTE]
-   >En plus du nom d’utilisateur et du mot de passe, vous pouvez aussi spécifier une clé privée et la phrase secrète correspondante (s’il y en a une) avec l’option `--private-key-file` et l’option (non obligatoire) `--private-key-passphrase`.
+   >En plus du nom d’utilisateur et du mot de passe, vous pouvez aussi spécifier une clé privée et la phrase secrète correspondante (s’il y en a une) avec l’option `--private-key-file` et l’option (non obligatoire) `--private-key-passphrase`. Si vous souhaitez utiliser la clé privée que vous avez utilisée lors de la création de DSVM, vous devez spécifier l’option `--use-azureml-ssh-key`.
 
    Ensuite, préparez la cible de calcul **myvm** en exécutant cette commande.
    

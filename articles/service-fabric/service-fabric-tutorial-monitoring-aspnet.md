@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8a98b12a42dff186c9226df39ce02c71cbc40c7e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 30dd3f4a467f19efd2edc7ca26305ee2e7ff05a5
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113321"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920305"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>Tutoriel : surveiller et diagnostiquer une application ASP.NET Core dans Service Fabric
 
@@ -100,7 +100,7 @@ Voici les étapes de configuration du package NuGet :
 3. Recherchez `Microsoft.ApplicationInsights.ServiceFabric.Native` et cliquez sur le package NuGet approprié.
 
 >[!NOTE]
->Vous devrez peut-être installer le package Microsoft.ServiceFabric.Diagnistics.Internal de la même manière s’il n’est pas préinstallé avant d’installer le package Application Insights
+>Vous devrez peut-être installer le package Microsoft.ServiceFabric.Diagnostics.Internal de la même manière s’il n’est pas préinstallé avant d’installer le package Application Insights.
 
 4. Sur la droite, cliquez sur les deux cases à cocher en regard des deux services dans l’application, **VotingWeb** et **VotingData** et cliquez sur **Installer**.
     ![NuGet du Kit de développement AI](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
@@ -113,7 +113,8 @@ Voici les étapes de configuration du package NuGet :
     using Microsoft.ApplicationInsights.ServiceFabric;
     ```
 
-    2. Dans l’instruction imbriquée *retourner* de *CreateServiceInstanceListeners()* ou *CreateServiceReplicaListeners()*, sous *ConfigureServices* > *services*, entre les deux services Singleton déclarés, ajoutez : `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))` ; cela ajoutera le *contexte de service* à vos données de télémétrie, afin de vous aider à mieux comprendre la source de votre télémétrie dans Application Insights. Votre instruction *return* imbriquée dans *VotingWeb.cs* doit ressembler à ceci :
+    2. Dans l’instruction *return* imbriquée de *CreateServiceInstanceListeners()* ou *CreateServiceReplicaListeners()*, sous *ConfigureServices* > *services*, entre les deux services Singleton déclarés, ajoutez : `.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`.
+    Cette opération ajoute le *Contexte de service* à vos données de télémétrie, ce qui vous permet de mieux comprendre la source de votre télémétrie dans Application Insights. Votre instruction *return* imbriquée dans *VotingWeb.cs* doit ressembler à ceci :
 
     ```csharp
     return new WebHostBuilder()

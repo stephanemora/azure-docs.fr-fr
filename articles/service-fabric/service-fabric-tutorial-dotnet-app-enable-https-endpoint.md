@@ -1,6 +1,6 @@
 ---
-title: Ajouter un point de terminaison HTTPS à une application Service Fabric dans Azure | Microsoft Docs
-description: Dans ce tutoriel, vous allez apprendre à ajouter un point de terminaison HTTPS à un service web frontal ASP.NET Core et déployer l’application sur un cluster.
+title: Ajouter un point de terminaison HTTPS à une application Service Fabric dans Azure à l’aide de Kestrel| Microsoft Docs
+description: Dans le cadre de ce didacticiel, vous allez apprendre à ajouter un point de terminaison HTTPS à un service web frontal ASP.NET Core à l’aide de Kestrel et à déployer l’application sur un cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 309a43d3383658029f4fe7f90f869888bac67bb1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 70bbeabe2c2b14e8e0dcccac9ffa63f2e19230a2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130048"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41918462"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Tutoriel : ajouter un point de terminaison HTTPS à un service frontal API Web ASP.NET Core
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Didacticiel : Ajouter un point de terminaison HTTPS à un service frontal API Web ASP.NET Core à l’aide de Kestrel
 
 Ce tutoriel est le troisième de la série.  Vous allez apprendre à activer HTTPS dans un service ASP.NET Core s’exécutant sur Service Fabric. À l’issue de cette procédure, vous disposerez d’une application de vote avec un service web frontal ASP.NET Core HTTPS écoutant le port 443. Si vous ne souhaitez pas créer l’application de vote manuellement en suivant les instructions de l’article [Créer une application .NET Service Fabric](service-fabric-tutorial-deploy-app-to-party-cluster.md), vous pouvez [télécharger le code source](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) pour obtenir l’application terminée.
 
@@ -46,9 +46,9 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer ce didacticiel :
+Avant de commencer ce tutoriel :
 
-* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Installez Visual Studio 2017](https://www.visualstudio.com/) versions 15.5 ou ultérieures avec les charges de travail **Développement Azure** et **Développement web et ASP.NET**.
 * [Installez le Kit de développement logiciel (SDK) Service Fabric](service-fabric-get-started.md).
 

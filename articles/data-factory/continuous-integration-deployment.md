@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448439"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143831"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Intégration et déploiement continus dans Azure Data Factory
 
@@ -47,6 +47,10 @@ Cette action ouvre le portail Azure, dans lequel vous pouvez importer le modèle
 Sélectionnez **Charger le fichier** pour sélectionner le modèle Resource Manager exporté et entrez toutes les valeurs de configuration (par exemple, les services liés).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Chaînes de connexion**. Vous pouvez trouver les informations requises pour créer des chaînes de connexion dans les articles à propos des connecteurs individuels. Par exemple, pour Azure SQL Database, consultez [Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory](connector-azure-sql-database.md). Pour vérifier la chaîne de connexion appropriée, pour un service lié par exemple, vous pouvez également ouvrir le mode Code pour la ressource dans l’interface utilisateur de Data Factory. Toutefois, en mode Code, la partie de la chaîne de connexion relative au mot de passe ou à la clé de compte est supprimée. Pour ouvrir le mode Code, sélectionnez l’icône en surbrillance dans la capture d’écran suivante.
+
+![Ouvrez le mode Code pour afficher la chaîne de connexion](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Cycle de vie de l’intégration continue
 Voici le cycle de vie complet d’intégration et de déploiement continus que vous pouvez utiliser après avoir activé l’intégration du GIT VSTS dans l’interface utilisateur de la fabrique de données :
@@ -174,11 +178,7 @@ Le déploiement peut échouer si vous tentez de mettre à jour les déclencheurs
 
 Vous pouvez suivre des étapes similaires et utiliser un code similaire (avec la fonction `Start-AzureRmDataFactoryV2Trigger`) pour redémarrer les déclencheurs après le déploiement.
 
-## <a name="sample-template-and-script"></a>Exemple de modèle et de script
-Voici deux exemples que vous pouvez utiliser pour prendre en main l’intégration et le déploiement continus pour la fabrique de données :
-
--   Un exemple de modèle de déploiement que vous pouvez importer dans VSTS.
--   Un exemple de script pour arrêter les déclencheurs avant le déploiement et les redémarrer après. Le script inclut également le code pour supprimer les ressources qui ont été retirées.
+## <a name="sample-deployment-template"></a>Exemple de modèle de déploiement
 
 Voici un exemple de modèle de déploiement que vous pouvez importer dans VSTS.
 
@@ -718,7 +718,9 @@ Voici un exemple de modèle de déploiement que vous pouvez importer dans VSTS.
 }
 ```
 
-Voici un exemple de script pour arrêter les déclencheurs avant le déploiement et les redémarrer après :
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Exemple de script pour arrêter et redémarrer les déclencheurs et le nettoyage
+
+Voici un exemple de script pour arrêter les déclencheurs avant le déploiement et les redémarrer après. Le script inclut également le code pour supprimer les ressources qui ont été retirées.
 
 ```powershell
 param

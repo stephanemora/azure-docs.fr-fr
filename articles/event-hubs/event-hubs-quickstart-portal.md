@@ -1,27 +1,27 @@
 ---
-title: Démarrage rapide Azure - Traiter les flux d’événements avec le portail Azure | Microsoft Docs
-description: Dans ce guide de démarrage rapide, vous allez apprendre à traiter les flux d’événements à l’aide du portail Azure.
+title: 'Démarrage rapide Azure : créer un Event Hub avec le portail Azure | Microsoft Docs'
+description: Dans ce démarrage rapide, vous allez apprendre à créer un Event Hub Azure à l’aide du portail Azure et à envoyer et recevoir des événements à l’aide du Kit de développement .NET Standard.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: da48294962dc5af5f9d623c84f9bbff1d49be03e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 2c2c02d7f06fdca2f92dd9e2324b10b2a712b81f
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132292"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022827"
 ---
-# <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>Démarrage rapide Azure : Traiter les flux d’événements avec le portail Azure et .NET
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Démarrage rapide : créer un Event Hub à l’aide du portail Azure
 
 Azure Event Hubs est une plateforme de flux de données très scalable et un service d’ingestion capable de recevoir et de traiter des millions d’événements par seconde. Ce guide de démarrage rapide montre comment créer un hub d’événements avec le [portail Azure](https://portal.azure.com), puis comment envoyer et recevoir depuis et vers un hub d’événements à l’aide du kit SDK .NET Standard.
 
-Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure. Si vous n’en avez pas, créez un [Créer un compte gratuit][] avant de commencer.
+Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit][] avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -173,7 +173,7 @@ Dans cet article, vous avez créé un espace de noms Event Hubs et d’autres re
 > [!div class="nextstepaction"]
 > [Visualiser les anomalies de données sur les flux de données Event Hubs](event-hubs-tutorial-visualize-anomalies.md)
 
-[Créer un compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[créez un compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Portail Azure]: https://portal.azure.com/
 [1]: ./media/event-hubs-quickstart-portal/resource-groups1.png
 [2]: ./media/event-hubs-quickstart-portal/resource-groups2.png

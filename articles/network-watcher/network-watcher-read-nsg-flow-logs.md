@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 492a0a63198fe2013cfeac0459fc6da8521a5e6e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056798"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143646"
 ---
 # <a name="read-nsg-flow-logs"></a>Lire des journaux de flux NSG
 
@@ -28,7 +28,7 @@ Les journaux de flux de groupe de sécurité réseau sont stockés dans un compt
 
 ## <a name="scenario"></a>Scénario
 
-Dans le scénario suivant, vous disposez d’un exemple de journal de flux stocké dans un compte de stockage. nous parcourons comment vous pouvez lire sélectivement les derniers événements dans les journaux de flux de groupe de sécurité réseau. Dans cet article, nous allons utiliser PowerShell, toutefois, les concepts abordés dans l’article ne sont pas limités au langage de programmation et sont applicables à tous les langages pris en charge par les API de stockage Azure
+Dans le scénario suivant, vous disposez d’un exemple de journal de flux stocké dans un compte de stockage. Vous découvrirez comment lire de manière sélective les derniers événements dans les journaux de flux de groupe de sécurité réseau. Vous utilisez PowerShell dans cet article, toutefois, les concepts abordés dans l’article ne sont pas limités au langage de programmation et sont applicables à tous les langages pris en charge par les API de stockage Azure.
 
 ## <a name="setup"></a>Paramétrage
 
@@ -98,7 +98,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Lire l’objet blob de blocs
 
-Ensuite, nous avons besoin de lire la variable `$blocklist` pour récupérer les données. Dans cet exemple que nous itérons dans la liste de blocs, lisez les octets de chaque bloc et estimez-les dans un tableau. Nous utilisons la méthode [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) pour récupérer les données.
+Ensuite, vous avez besoin de lire la variable `$blocklist` pour récupérer les données. Dans cet exemple que nous itérons dans la liste de blocs, lisez les octets de chaque bloc et estimez-les dans un tableau. Utilisez la méthode [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) pour récupérer les données.
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -132,7 +132,7 @@ $valuearray += $value
 }
 ```
 
-Maintenant le tableau `$valuearray` contient la valeur de chaîne de chaque bloc. Pour vérifier l’entrée, enregistrez le deuxième à la dernière valeur du tableau en exécutant `$valuearray[$valuearray.Length-2]`. Nous ne souhaitons pas que la dernière valeur soit simplement le crochet fermant.
+Maintenant le tableau `$valuearray` contient la valeur de chaîne de chaque bloc. Pour vérifier l’entrée, enregistrez le deuxième à la dernière valeur du tableau en exécutant `$valuearray[$valuearray.Length-2]`. Vous n’avez pas besoin de la dernière valeur car il s’agit du crochet fermant.
 
 Les résultats de cette valeur sont affichés dans l’exemple suivant :
 
@@ -157,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 Ce scénario est un exemple montrant comment lire les entrées dans les journaux de flux de groupe de sécurité réseau sans avoir à analyser l’ensemble du journal. Vous pouvez lire les nouvelles entrées dans le journal comme elles sont écrites à l’aide de l’ID de bloc ou en effectuant le suivi de la longueur des blocs stockés dans l’objet blob de blocs. Cela vous permet de lire uniquement les nouvelles entrées.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

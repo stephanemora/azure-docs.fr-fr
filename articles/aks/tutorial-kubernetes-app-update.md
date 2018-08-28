@@ -1,54 +1,52 @@
 ---
-title: Didacticiel Kubernetes sur Azure - Mettre à jour l’application
-description: Didacticiel AKS - Mettre à jour une application
+title: Didacticiel Kubernetes sur Azure - Mettre à jour une application
+description: Dans le cadre de ce didacticiel Azure Kubernetes Service (AKS), vous allez apprendre à mettre à jour un déploiement d’application existant vers ACS avec une nouvelle version du code d’application.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/24/2018
+ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2fcb2f5041b97b7e267f55340bf0cb0b8d2f457b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b2dd52fec112b879e072d3ac5598dd7978e68cbc
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449381"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41917686"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Didacticiel : mettre à jour une application dans Azure Kubernetes Service (AKS)
 
 Après avoir déployé une application dans Kubernetes, vous pouvez la mettre à jour en spécifiant une nouvelle image conteneur ou une nouvelle version de l’image. Cette mise à jour se fait alors étape par étape, afin que seulement une partie du déploiement soit mise à jour simultanément. Cette mise à jour progressive permet à l’application de poursuivre son exécution pendant la mise à jour. Elle fournit également un mécanisme de restauration en cas d’échec du déploiement.
 
-Dans ce didacticiel (le sixième d’une série de sept), l’exemple de l’application Azure Vote est mis à jour. Les tâches que vous effectuez sont les suivantes :
+Dans ce didacticiel (le sixième d’une série de sept), l’exemple de l’application Azure Vote est mis à jour. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Mise à jour du code de l’application frontale
 > * Création d’une image conteneur mise à jour
-> * Envoi (push) de l’image conteneur à Azure Container Registry
+> * Envoi de l’image conteneur à Azure Container Registry
 > * Déploiement de l’image conteneur mise à jour
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans les didacticiels précédents, une application a été empaquetée dans une image conteneur, l’image a été chargée dans Azure Container Registry et un cluster Kubernetes a été créé. L’application a ensuite été exécutée sur le cluster Kubernetes.
+Dans les didacticiels précédents, une application a été empaquetée dans une image conteneur, l’image a été chargée dans Azure Container Registry (ACR) et un cluster Kubernetes a été créé. L’application a ensuite été exécutée sur le cluster Kubernetes.
 
-Un référentiel d’application a également été cloné, ce qui inclut le code source de l’application et un fichier Docker Compose précréé utilisé dans ce didacticiel. Vérifiez que vous avez cloné le référentiel et que vous avez modifié des répertoires dans le répertoire cloné. Vous trouverez à l’intérieur un répertoire nommé `azure-vote` et un fichier nommé `docker-compose.yaml`.
+Un référentiel d’application a également été cloné, ce qui inclut le code source de l’application et un fichier Docker Compose préalablement créé utilisé dans ce didacticiel. Vérifiez que vous avez cloné le référentiel et que vous avez modifié des répertoires dans le répertoire cloné. Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur][aks-tutorial-prepare-app].
 
-Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Didacticiel 1 – Créer des images conteneur][aks-tutorial-prepare-app].
+Ce didacticiel nécessite l’exécution de l’interface de ligne de commande Azure (Azure CLI) version 2.0.44 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
-## <a name="update-application"></a>Mettre à jour l’application
+## <a name="update-an-application"></a>Mettre à jour une application
 
-Pour ce didacticiel, une modification est apportée à l’application et l’application mise à jour est déployée sur le cluster Kubernetes.
-
-Le code source de l’application se trouve à l’intérieur du répertoire `azure-vote`. Ouvrez le fichier `config_file.cfg` avec un éditeur de code ou de texte. Dans cet exemple, on utilise `vi` .
+Apportons une modification à l’exemple d’application, puis mettons à jour la version déjà déployée dans votre cluster AKS. Le code source de l’exemple d’application figure dans le répertoire *azure-vote*. Ouvrez le fichier *config_file.cfg* avec un éditeur tel que `vi` :
 
 ```console
 vi azure-vote/azure-vote/config_file.cfg
 ```
 
-Modifiez les valeurs de `VOTE1VALUE` et `VOTE2VALUE`, puis enregistrez le fichier.
+Redéfinissez les valeurs de *VOTE1VALUE* et *VOTE2VALUE* sur d’autres couleurs. L’exemple ci-après présente les valeurs de couleur mise à jour :
 
-```console
+```
 # UI Configurations
 TITLE = 'Azure Voting App'
 VOTE1VALUE = 'Blue'
@@ -58,53 +56,49 @@ SHOWHOST = 'false'
 
 Enregistrez et fermez le fichier.
 
-## <a name="update-container-image"></a>Créer une image conteneur
+## <a name="update-the-container-image"></a>Mettre à jour l’image conteneur
 
-Utilisez [docker-compose][docker-compose] pour recréer l’image frontale et exécuter l’application mise à jour. L’argument `--build` est utilisé pour indiquer à Docker Compose de recréer l’image d’application.
+Pour recréer l’image frontale et tester l’application mise à jour, utilisez [docker-compose][docker-compose]. L’argument `--build` est utilisé pour indiquer à Docker Compose de recréer l’image d’application :
 
 ```console
 docker-compose up --build -d
 ```
 
-## <a name="test-application-locally"></a>Tester l’application localement
+## <a name="test-the-application-locally"></a>Tester localement l’application
 
-Accédez à http://localhost:8080 pour voir l’application mise à jour.
+Pour vous assurer que l’image conteneur mise à jour intègre vos modifications, ouvrez un navigateur web local et accédez à l’adresse http://localhost:8080.
 
 ![Image du cluster Kubernetes sur Azure](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
-## <a name="tag-and-push-images"></a>Marquer et envoyer des images
+Les valeurs de couleur mises à jour fournies dans le fichier *config_file.cfg* apparaissent dans votre application en cours d’exécution.
 
-Marquez l’image `azure-vote-front` avec le loginServer du registre de conteneurs.
+## <a name="tag-and-push-the-image"></a>Marquer et envoyer l’image
 
-Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](/cli/azure/acr#az-acr-list).
+Pour utiliser correctement l’image mise à jour, balisez l’image *azure-vote-front* avec le nom du serveur de connexion de votre registre ACR. Obtenez le nom du serveur de connexion à l’aide de la commande [az acr list](/cli/azure/acr#az_acr_list) :
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Utilisez [docker tag][docker-tag] pour ajouter une balise à l’image. Remplacez `<acrLoginServer>` par le nom de votre serveur de connexion Azure Container Registry ou par votre nom d’hôte de registre public. Notez également que la version de l’image est mise à jour à `v2`.
+Utilisez [docker tag][docker-tag] pour ajouter une balise à l’image. Remplacez `<acrLoginServer>` par le nom de votre serveur de connexion ACR ou par votre nom d’hôte du registre public, puis mettez à jour la version de l’image vers *:v2*, comme suit :
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Utilisez [docker push][docker-push] pour charger l’image dans le Registre. Remplacez `<acrLoginServer>` par votre nom de serveur de connexion Azure Container Registry. Si vous rencontrez des problèmes en exécutant un push vers votre registre ACR, vérifiez que vous avez exécuté la commande [az acr login] [ az-acr-login].
+À présent, utilisez [docker push][docker-push] pour charger l’image dans votre registre. Remplacez `<acrLoginServer>` par le nom de votre serveur de connexion ACR. Si vous rencontrez des problèmes en exécutant un push vers votre registre ACR, vérifiez que vous avez exécuté la commande [az acr login] [ az-acr-login].
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
 ```
 
-## <a name="deploy-update-application"></a>Déployer l’application mise à jour
+## <a name="deploy-the-updated-application"></a>Déployer l’application mise à jour
 
-Pour garantir une disponibilité maximale, vous devez exécuter plusieurs instances du pod d’application. Vérifiez cette configuration avec la commande [kubectl get pod][kubectl-get].
-
-```
-kubectl get pod
-```
-
-Sortie :
+Pour garantir une disponibilité maximale, vous devez exécuter plusieurs instances du pod d’application. Vérifiez le nombre d’instances frontales en cours d’exécution avec la commande [kubectl get pods][kubectl-get] :
 
 ```
+$ kubectl get pods
+
 NAME                               READY     STATUS    RESTARTS   AGE
 azure-vote-back-217588096-5w632    1/1       Running   0          10m
 azure-vote-front-233282510-b5pkz   1/1       Running   0          10m
@@ -112,28 +106,29 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-Si vous n’avez qu’un POD exécutant l’image azure-vote-front, mettez à l’échelle le déploiement `azure-vote-front`.
+Si vous ne disposez pas de plusieurs pods frontaux, mettez à l’échelle le déploiement *azure-vote-front* comme suit :
 
-
-```azurecli
+```console
 kubectl scale --replicas=3 deployment/azure-vote-front
 ```
 
-Pour mettre à jour l’application, utilisez la commande [kubectl set][kubectl-set]. Mettez à jour `<acrLoginServer>` avec le nom du serveur de connexion ou le nom d’hôte de votre registre de conteneurs.
+Pour mettre à jour l’application, utilisez la commande [kubectl set][kubectl-set]. Mettez à jour `<acrLoginServer>` avec le nom du serveur de connexion ou le nom d’hôte de votre registre de conteneurs, puis spécifiez la version d’application *v2* :
 
-```azurecli
+```console
 kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/azure-vote-front:v2
 ```
 
 Pour surveiller le déploiement, utilisez la commande [kubectl get pod][kubectl-get]. À mesure que l’application mise à jour est déployée, vos pods sont terminés et recréés avec la nouvelle image conteneur.
 
-```azurecli
-kubectl get pod
+```console
+kubectl get pods
 ```
 
-Sortie :
+L’exemple de sortie ci-après présente la terminaison des pods et les nouvelles instances en cours d’exécution à mesure que le déploiement progresse :
 
 ```
+$ kubectl get pods
+
 NAME                               READY     STATUS        RESTARTS   AGE
 azure-vote-back-2978095810-gq9g0   1/1       Running       0          5m
 azure-vote-front-1297194256-tpjlg  1/1       Running       0          1m
@@ -141,29 +136,29 @@ azure-vote-front-1297194256-tptnx  1/1       Running       0          5m
 azure-vote-front-1297194256-zktw9  1/1       Terminating   0          1m
 ```
 
-## <a name="test-updated-application"></a>Tester l’application mise à jour
+## <a name="test-the-updated-application"></a>Tester l’application mise à jour
 
-Obtenez l’adresse IP externe du service `azure-vote-front`.
+Pour visualiser l’application mise à jour, commencez par obtenir l’adresse IP externe du service `azure-vote-front` :
 
-```azurecli
+```console
 kubectl get service azure-vote-front
 ```
 
-Accédez à l’adresse IP pour voir l’application mise à jour.
+À présent, ouvrez un navigateur web local et accédez à l’adresse IP.
 
 ![Image du cluster Kubernetes sur Azure](media/container-service-kubernetes-tutorials/vote-app-updated-external.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, nous avons mis à jour une application et nous avons déployé cette mise à jour sur un cluster Kubernetes. Les tâches suivantes ont été accomplies :
+Dans ce didacticiel, nous avons mis à jour une application et nous avons déployé cette mise à jour sur un cluster Kubernetes. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Mise à jour du code de l’application frontale
 > * Création d’une image conteneur mise à jour
-> * Envoi (push) de l’image conteneur à Azure Container Registry
-> * Déploiement de l’application mise à jour
+> * Envoi de l’image conteneur à Azure Container Registry
+> * Déploiement de l’image conteneur mise à jour
 
-Passez au didacticiel suivant pour en savoir plus sur la mise à niveau de Kubernetes vers une nouvelle version.
+Passez au didacticiel suivant pour découvrir comment mettre à niveau un cluster AKS vers une nouvelle version de Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Mettre à niveau Kubernetes][aks-tutorial-upgrade]
@@ -178,4 +173,5 @@ Passez au didacticiel suivant pour en savoir plus sur la mise à niveau de Kuber
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login
+[az-acr-login]: /cli/azure/acr#az_acr_login
+[azure-cli-install]: /cli/azure/install-azure-cli

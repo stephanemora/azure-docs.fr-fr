@@ -9,13 +9,13 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: get-started-article
-ms.date: 05/02/2018
-ms.openlocfilehash: 0acaace474d62f18b9b6ca4aaae324405a2f43db
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 08/13/2018
+ms.openlocfilehash: 852840fc29589292e7a74390026b78b15f81e721
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735791"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918095"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Développer des scripts U-SQL à l’aide des outils Data Lake pour Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -52,16 +52,20 @@ Ce didacticiel nécessite que Data Lake Tools pour Visual Studio soit installé.
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Se connecter à un compte Azure Data Lake Analytics
 
 1. Ouvrez Visual Studio.
-2. Ouvrez l’Explorateur de serveurs en sélectionnant **Afficher** > **Explorateur de serveurs**.
-3. Cliquez avec le bouton droit sur **Azure**. Puis, sélectionnez **Se connecter à un abonnement Microsoft Azure**, puis suivez les instructions.
-4. Dans l’Explorateur de serveurs, sélectionnez **Azure** > **Data Lake Analytics**. Une liste des comptes Data Lake Analytics s’affiche.
 
+2. Ouvrez l’Explorateur de serveurs en sélectionnant **Afficher** > **Explorateur de serveurs**.
+
+3. Cliquez avec le bouton droit sur **Azure**. Puis, sélectionnez **Se connecter à un abonnement Microsoft Azure**, puis suivez les instructions.
+
+4. Dans l’Explorateur de serveurs, sélectionnez **Azure** > **Data Lake Analytics**. Une liste des comptes Data Lake Analytics s’affiche.
 
 ## <a name="write-your-first-u-sql-script"></a>Rédiger son premier script U-SQL
 
 Le texte suivant est un script U-SQL simple. Il définit un petit jeu de données et l’écrit dans le Data Lake Store par défaut sous la forme d’un fichier appelé `/data.csv`.
 
 ```
+USE DATABASE master;
+USE SCHEMA dbo;
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -74,7 +78,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-### <a name="submit-a-data-lake-analytics-job"></a>Envoyer le travail Analytique Data Lake
+## <a name="submit-a-data-lake-analytics-job"></a>Envoyer le travail Analytique Data Lake
 
 1. Sélectionnez **Fichier** > **Nouveau** > **Projet**.
 
@@ -87,31 +91,35 @@ OUTPUT @a
     ![Soumettre un projet U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
 5. Dans le coin supérieur gauche de la fenêtre **Script.usql**, sélectionnez **Envoyer**.
-6. Vérifiez le **compte Analytics**, puis sélectionnez **Envoyer**. Les résultats de l’envoi sont disponibles dans la fenêtre Résultats de Data Lake Tools pour Visual Studio à l’issue de l’envoi.
 
-    ![Soumettre un projet U-SQL Visual Studio](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-7. Cliquez sur le bouton **Actualiser** pour afficher le dernier état du travail et actualiser l’écran. Si le travail réussit, celui-ci affiche le **Graphique des travaux**, les **Opérations sur les métadonnées**, l’**Historique de l’état** et les **Diagnostics** :
+6. Une fois que le travail a été envoyé, l’onglet **Vue du travail** s’affiche pour vous présenter la progression du travail. Cliquez sur le bouton **Actualiser** pour afficher le dernier état du travail et actualiser l’écran.
 
     ![Graphique des performances du travail U-SQL Visual Studio Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
    * **Résumé du travail** montre le résumé du travail.   
-   * **Détails du travail** montre des informations plus spécifiques sur le travail, y compris le script, les ressources et les vertex.
    * **Graphique des travaux** permet de visualiser la progression du travail.
    * **Opérations sur les métadonnées** indique toutes les actions qui ont été effectuées sur le catalogue U-SQL.
    * **Données** indique toutes les entrées et sorties.
+   * **Historique de l’état** affiche la chronologie et les détails d’état.
+   * **Analyse des unités d’allocation** indique le nombre d’unités d’allocation utilisées dans le travail et explore des simulations de différentes stratégies d’allocation d’unités d’allocation.
    * **Diagnostics** fournit une analyse avancée pour l’optimisation des performances et de l’exécution des travaux.
 
-### <a name="to-check-job-state"></a>Pour vérifier l’état des travaux
+## <a name="check-job-status"></a>Vérifier l’état du travail
 
-1. Dans l’Explorateur de serveurs, sélectionnez **Azure** > **Data Lake Analytics**. 
+1. Dans l’Explorateur de serveurs, sélectionnez **Azure** > **Data Lake Analytics**.
+
 2. Développez le nom du compte Data Lake Analytics.
+
 3. Double-cliquez sur **Travaux**.
+
 4. Sélectionnez le travail que vous avez déjà envoyé.
 
-### <a name="to-see-the-output-of-a-job"></a>Pour voir le résultat d’un travail
+## <a name="see-the-job-output"></a>Visualiser la sortie du travail
 
 1. Dans l’Explorateur de serveurs, accédez au travail que vous avez envoyé.
+
 2. Cliquez sur l'onglet **Données** .
+
 3. Dans l’onglet **Sorties du travail**, sélectionnez le fichier `"/data.csv"`.
 
 ## <a name="next-steps"></a>Étapes suivantes

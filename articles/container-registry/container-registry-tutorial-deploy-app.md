@@ -6,15 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2018
+ms.date: 08/20/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25e3fdfe72fc2a6ffec1bcee23cd9f1edc783838
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582299"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920992"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Didacticiel : Déployer une application web à partir d’Azure Container Registry
 
@@ -38,24 +38,26 @@ Lorsque vous déployez une application web à partir d’une image de conteneur 
 
 ## <a name="deploy-a-web-app-for-containers-instance"></a>Déployer une application web pour une instance de conteneurs
 
-Cette étape explique comment créer une instance Web App pour conteneurs dans la région *Ouest des États-Unis*.
+Cette étape explique comment créer une instance Web App pour conteneurs dans la région *USA Ouest*.
 
 Connectez-vous au [portail Azure](https://portal.azure.com), puis accédez au registre que vous avez créé dans le didacticiel précédent.
 
-Sélectionnez **Dépôts** > **acr-helloworld**, cliquez avec le bouton droit sur la balise **v1** sous **Balises**, puis sélectionnez **Déployer sur l’application web**.
+Sélectionnez **Dépôts** > **acr-helloworld**, cliquez avec le bouton droit sur la balise **v1** sous **Balises**, puis sélectionnez **Déployer sur l’application web** :
 
 ![Déployer vers le service d’application dans le portail Azure][deploy-app-portal-01]
 
-Sous **Web App pour conteneurs**, spécifiez les valeurs suivantes pour chaque paramètre :
+Si l’option « Déployer sur l’application web » est désactivée, vous n’avez peut-être pas activé l’utilisateur administrateur de registre comme indiqué dans [Créer un registre de conteneurs](container-registry-tutorial-prepare-registry.md#create-a-container-registry) dans le premier didacticiel. Vous pouvez activer l’utilisateur administrateur dans **Paramètres** > **Clés d’accès** dans le portail Azure.
+
+Sous **Web App pour conteneurs** qui s’affiche lorsque vous sélectionnez « Déployer sur l’application web », spécifiez les valeurs suivantes pour chaque paramètre :
 
 | Paramètre | Valeur |
 |---|---|
 | **Nom du site** | Nom global unique de l’application web. Dans cet exemple, nous utilisons le format `<acrName>-westus` pour identifier facilement le registre et la région à partir de laquelle l’application web est déployée. |
 | **Groupe de ressources** | **Utiliser l’existant** > `myResourceGroup` |
-| **Plan/emplacement du service d’application** | Créez un plan nommé `plan-westus` dans la région **Ouest des États-Unis**. |
+| **Plan/emplacement du service d’application** | Créez un plan nommé `plan-westus` dans la région **USA Ouest**. |
 | **Image** | `acr-helloworld:v1`
 
-Sélectionnez **Créer** pour approvisionner l’application web dans la région *Ouest des États-Unis*.
+Sélectionnez **Créer** pour approvisionner l’application web dans la région *USA Ouest*.
 
 ![Application web sur une configuration Linux dans le portail Azure][deploy-app-portal-02]
 
@@ -75,16 +77,16 @@ Une fois l’image Docker déployée à partir de votre registre de conteneurs g
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Déployer une deuxième instance Web App pour conteneurs
 
-Suivez la procédure décrite dans la section précédente pour déployer une deuxième application web dans la région *Est des États-Unis*. Sous **Web App pour conteneurs**, spécifiez les valeurs suivantes :
+Suivez la procédure décrite dans la section précédente pour déployer une deuxième application web dans la région *USA Est*. Sous **Web App pour conteneurs**, spécifiez les valeurs suivantes :
 
 | Paramètre | Valeur |
 |---|---|
 | **Nom du site** | Nom global unique de l’application web. Dans cet exemple, nous utilisons le format `<acrName>-eastus` pour identifier facilement le registre et la région à partir de laquelle l’application web est déployée. |
 | **Groupe de ressources** | **Utiliser l’existant** > `myResourceGroup` |
-| **Plan/emplacement du service d’application** | Créez un plan nommé `plan-eastus` dans la région **Est des États-Unis**. |
+| **Plan/emplacement du service d’application** | Créez un plan nommé `plan-eastus` dans la région **USA Est**. |
 | **Image** | `acr-helloworld:v1`
 
-Sélectionnez **Créer** pour approvisionner l’application web dans la région *Est des États-Unis*.
+Sélectionnez **Créer** pour approvisionner l’application web dans la région *USA Est*.
 
 ![Application web sur une configuration Linux dans le portail Azure][deploy-app-portal-06]
 

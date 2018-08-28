@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2018
+ms.date: 08/17/2018
 ms.author: charwen,cherylmc,rambala
-ms.openlocfilehash: 80d2f65f516d7f1190f276fa9f2c62206bd31e67
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 0e69a85f320a0a8d77bd07fc0dedb77eb99efb36
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262870"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920303"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Configurer la coexistence de connexions de site à site et ExpressRoute
 > [!div class="op_single_selector"]
@@ -183,14 +183,7 @@ Cette procédure vous guide dans la création d’un réseau virtuel et de conne
   ```
 
 ## <a name="add"></a>Pour configurer des connexions coexistantes pour un réseau virtuel existant
-Si vous disposez déjà d’un réseau virtuel, vérifiez la taille du sous-réseau de passerelle. Si le sous-réseau de la passerelle est /28 ou /29, vous devez tout d’abord supprimer la passerelle de réseau virtuel et augmenter la taille du sous-réseau de la passerelle. Les étapes décrites dans cette section vous indiquent la marche à suivre.
-
-Si le sous-réseau de la passerelle est /27 ou plus et si le réseau virtuel est connecté via ExpressRoute, vous pouvez ignorer les étapes ci-dessous et passer à [« Étape 4 : créer une passerelle VPN de site à site »](#vpngw) dans la section précédente. 
-
-> [!NOTE]
-> Lorsque vous supprimez la passerelle existante, votre site local perdra la connexion à votre réseau virtuel lorsque vous effectuerez cette configuration. 
-> 
-> 
+Si vous disposez d’un réseau virtuel qui n’a qu’une seule passerelle de réseau virtuel (disons une passerelle VPN de site à site) et que vous souhaitez ajouter une autre passerelle d’un autre type (par exemple, une passerelle ExpressRoute), vérifiez la taille de sous-réseau de passerelle. Si le sous-réseau de passerelle est /27 ou plus, vous pouvez ignorer les étapes ci-dessous et suivre les étapes décrites dans la section précédente pour ajouter une passerelle VPN de site à site ou une passerelle ExpressRoute. Si le sous-réseau de la passerelle est /28 ou /29, vous devez tout d’abord supprimer la passerelle de réseau virtuel et augmenter la taille du sous-réseau de la passerelle. Les étapes décrites dans cette section vous indiquent la marche à suivre.
 
 1. Vous aurez besoin d’installer la dernière version des applets de commande PowerShell Azure. Pour plus d’informations sur l’installation des cmdlets, voir [Installation et configuration d’Azure PowerShell](/powershell/azure/overview). Les cmdlets que vous utilisez pour cette configuration peuvent être légèrement différentes de celles que vous connaissez. Utilisez les applets de commande spécifiées dans ces instructions. 
 2. Supprimez la passerelle VPN ExpressRoute ou de site à site existante.
@@ -220,7 +213,7 @@ Si le sous-réseau de la passerelle est /27 ou plus et si le réseau virtuel est
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. À ce stade, vous disposez d’un réseau virtuel sans passerelle. Pour créer de nouvelles passerelles et finaliser vos connexions, vous pouvez passer à l’[Étape 4 : Créer une passerelle VPN de site à site](#vpngw), dans les étapes qui précèdent.
+5. À ce stade, vous disposez d’un réseau virtuel sans passerelle. Pour créer de nouvelles passerelles et établir des connexions, suivez les étapes de la section précédente.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Pour ajouter une configuration point à site à la passerelle VPN
 Vous pouvez suivre les étapes ci-dessous pour ajouter une configuration point à site à votre passerelle VPN dans une configuration de coexistence.

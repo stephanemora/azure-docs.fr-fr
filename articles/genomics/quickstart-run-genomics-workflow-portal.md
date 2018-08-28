@@ -10,12 +10,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 1436ad54eb13052aa87ccfd5adc371c8d7d5a100
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403788"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42022593"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Démarrage rapide : Exécuter un workflow via le service Microsoft Genomics
 
@@ -41,7 +41,7 @@ Configurez votre compte Genomics avec les informations suivantes, tel que repré
  |Nom du compte         | MyGenomicsAccount     |Choisissez un identifiant de compte unique. Pour connaître les noms valides, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
  |Abonnement         | Votre nom d’abonnement|Il s’agit de l’unité de facturation de vos services Azure. Pour plus de détails sur votre abonnement, consultez la section [Abonnements](https://account.azure.com/Subscriptions) |      
  |Groupe de ressources       | myResourceGroup       |  Les groupes de ressources vous permettent de rassembler plusieurs ressources Azure (compte de stockage, compte Genomics, etc.) dans un groupe unique, pour une gestion simplifiée. Pour plus d’informations, consultez [Groupes de ressources] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Pour connaître les noms valides de groupes de ressources, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
- |Lieu                   | Ouest des États-Unis 2                    |    Le service est disponible dans l’Ouest des États-Unis 2, dans l’Europe de l’Ouest et dans l’Asie du Sud-Est. |
+ |Lieu                   | USA Ouest 2                    |    Le service est disponible dans les régions USA Ouest 2, Europe Ouest et Asie Sud-Est. |
 
 
 
@@ -57,7 +57,9 @@ Les utilisateurs doivent installer Python et le client Microsoft Genomics Python
 
 ### <a name="install-python"></a>Installation de Python
 
-Le client Microsoft Genomics Python est compatible avec Python 2.7. Nous vous recommandons d’utiliser la version 2.7.12 ou une version ultérieure ; la version suggérée est l’instance 2.7.14. Accédez au téléchargement [ici](https://www.python.org/downloads/). 
+Le client Microsoft Genomics Python est compatible avec Python 2.7. 12 ou une version 2.7.xx ultérieure ; la version 2.7.15 est la dernière version au moment d’écrire cet article ; 2.7.14 est la version suggérée. Accédez au téléchargement [ici](https://www.python.org/downloads/). 
+
+Remarque : Python 3.x n’est pas compatible avec Python 2.7.xx.  MSGen est une application Python 2.7. Lorsque vous exécutez MSGen, assurez-vous que votre environnement Python actif utilise une version 2.7.xx de Python. Vous pouvez obtenir des erreurs si vous tentez d’utiliser MSGen avec une version 3.x de Python.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>Installer le client Microsoft Genomics
@@ -124,7 +126,7 @@ Configurez votre compte Stockage avec les informations suivantes, tel que repré
  |Niveau d’accès                  | À chaud                   | Un niveau d’accès chaud indique que le compte de stockage sera sollicité plus fréquemment.    |
  |Abonnement         | Votre abonnement Azure |Pour plus d’informations sur votre abonnement, consultez [Abonnements](https://account.azure.com/Subscriptions). |      
  |Groupe de ressources       | myResourceGroup       |  Vous pouvez sélectionner le même groupe de ressources en tant que compte Genomics. Pour connaître les noms valides de groupes de ressources, consultez la page [Règles d’affectation des noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
- |Lieu                  | Ouest des États-Unis 2                  | Utilisez l’emplacement de votre compte Genomics, afin de réduire les frais de sortie ainsi que la latence. Le service Genomics est disponible dans l’Ouest des États-Unis 2, dans l’Europe de l’Ouest et dans l’Asie du Sud-Est.    |
+ |Lieu                  | USA Ouest 2                  | Utilisez l’emplacement de votre compte Genomics, afin de réduire les frais de sortie ainsi que la latence. Le service Genomics est disponible dans les régions USA Ouest 2, Europe Ouest et Asie Sud-Est.    |
  |Réseaux virtuels                | Désactivé                   | La valeur par défaut est désactivée. Pour plus d’informations, consultez la section [Réseau virtuel Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).    |
 
 

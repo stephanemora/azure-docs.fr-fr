@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfb6fb512ecb7d57cf411a31b2e04726bfc4b743
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a628e28e9e6bd603fb2a3789c3281bc2181c91fe
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263400"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42144202"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Autorisations et comptes Azure AD Connect
 
@@ -37,7 +37,7 @@ Azure AD Connect utilise 3 comptes pour synchroniser les informations provenant
 
 - **Compte de connecteur Azure AD**. Utilisé pour écrire des informations dans Azure AD
 
-En plus de ces trois comptes utilisés pour exécuter Azure AD Connect, vous avez également besoin de comptes supplémentaires pour installer Azure AD Connect.  Ces comptes sont les suivants :
+En plus de ces trois comptes utilisés pour exécuter Azure AD Connect, vous avez également besoin de comptes supplémentaires pour installer Azure AD Connect.  Ces règles sont les suivantes :
 
 - **Compte d’administrateur d’entreprise AD DS**. Utilisé pour installer Azure AD Connect
 - **Compte d’administrateur général Azure AD**. Utilisé pour créer le compte de connecteur Azure AD et configurer Azure AD.
@@ -121,7 +121,7 @@ Les autorisations dont vous avez besoin dépendent des fonctionnalités facultat
 
 | Fonctionnalité | Autorisations |
 | --- | --- |
-| Fonctionnalité msDS-ConsistencyGuid |Autorisations en écriture sur l’attribut msDS-ConsistencyGuid documentées dans [Principes de conception Azure AD Connect - Utilisation de msDS-ConsistencyGuid en tant que sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
+| Fonctionnalité de ms-DS-ConsistencyGuid |Autorisations en écriture pour l’attribut ms-DS-ConsistencyGuid documentées dans [Principes de conception Azure AD Connect - Utilisation de ms-DS-ConsistencyGuid en tant que sourceAnchor](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Synchronisation de hachage de mot de passe |<li>Répliquer les changements d’annuaires</li>  <li>Répliquer les changements d’annuaire Tout |
 | Déploiement Exchange hybride |Autorisations d’écriture sur les attributs documentés dans [Écriture différée d’Exchange hybride](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) pour les utilisateurs, les groupes et les contacts. |
 | Dossier public de messagerie Exchange |Autorisations de lecture sur les attributs documentées dans [Dossier public de messagerie Exchange](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) pour les dossiers publics. | 

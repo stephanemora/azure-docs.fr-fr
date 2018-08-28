@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e90d20053a8ccfcafc7648d81c61e9313ec57ab
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 998bc7cb7e3289a85a9ffc315f7c1f5e568a75cb
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523357"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41917933"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning
 
@@ -149,7 +149,7 @@ La dernière étape consiste à écrire une application d’inscription qui util
 
 1. Dans le portail Azure, sélectionnez le panneau **Vue d’ensemble** de votre service Device Provisioning Service et copiez la valeur de **_Étendue de l’ID_**. *L’étendue de l’ID* est générée par le service et garantit l’unicité. Elle est immuable et sert à identifier les ID d’inscription.
 
-    ![Extraire des informations du point de terminaison DPS à partir du panneau du portail](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
+    ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/tutorial-set-up-device/extract-dps-endpoints.png) 
 
 1. Dans *l’Explorateur de solutions* de Visual Studio sur votre machine, accédez au dossier **Provision\_Exemples**. Sélectionnez l’exemple de projet nommé **prov\_dev\_client\_sample** et ouvrez le fichier source **prov\_dev\_client\_sample.c**.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 7b7f9c079a1fc9d74fed4cc4d94d37f336ca5dc7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916738"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143995"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mapper des réseaux virtuels dans différentes régions Azure
 
@@ -36,14 +36,14 @@ Pour mapper un réseau virtuel Azure qui se trouve dans une région Azure (rése
 ![Fenêtre Mappages réseau - Créer un mappage réseau](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
 
-Dans l’exemple suivant, la machine virtuelle est en cours d’exécution dans la région Asie orientale. La machine virtuelle est en cours de réplication pour la région Asie du Sud-Est.
+Dans l’exemple suivant, la machine virtuelle est en cours d’exécution dans la région Asie Est. La machine virtuelle est en cours de réplication pour la région Asie Sud-Est.
 
-Pour créer un mappage réseau de la région Asie orientale vers la région Asie du Sud-Est, sélectionnez l’emplacement du réseau source et l’emplacement du réseau cible. Ensuite, sélectionnez **OK**.
+Pour créer un mappage réseau de la région Asie Est vers la région Asie Sud-Est, sélectionnez l’emplacement du réseau source et l’emplacement du réseau cible. Ensuite, sélectionnez **OK**.
 
 ![Ajouter la fenêtre de mappage réseau - Sélectionner les emplacements source et cible pour le réseau source](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
 
-Répétez la procédure précédente pour créer un mappage réseau de la région Asie du Sud-Est vers la région Asie orientale.
+Répétez la procédure précédente pour créer un mappage réseau de la région Asie Sud-Est vers la région Asie Est.
 
 ![Volet Ajouter mappage réseau - Sélectionner les emplacements source et cible pour le réseau cible](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
@@ -88,16 +88,36 @@ Si l’interface réseau de la machine virtuelle source utilise le protocole DHC
 ### <a name="static-ip-address"></a>Adresse IP statique
 Si l’interface réseau de la machine virtuelle source utilise une adresse IP statique, l’interface réseau de la machine virtuelle cible est également configurée pour utiliser une adresse IP statique. Les sections suivantes décrivent la façon dont une adresse IP statique est définie.
 
-#### <a name="same-address-space"></a>Même espace d’adressage
+### <a name="ip-assignment-behavior-during-failover"></a>Comportement de l’affectation des adresses IP pendant le basculement
+#### <a name="1-same-address-space"></a>1. Même espace d’adressage
 
 Si les sous-réseaux source et cible ont le même espace d’adressage, l’adresse IP de l’interface réseau de la machine virtuelle source est définie comme adresse IP cible. S’il n’existe pas d’adresse IP identique, l’adresse IP suivante est définie comme adresse IP cible.
 
-#### <a name="different-address-spaces"></a>Espaces d’adressage différents
+#### <a name="2-different-address-spaces"></a>2. Espaces d’adressage différents
 
 Si les sous-réseaux source et cible ont un espace d’adressage différent, l’adresse IP suivante disponible sur le sous-réseau cible est définie comme adresse IP cible.
 
-Pour modifier l’adresse IP cible sur chacune des interfaces réseau, accédez aux paramètres **Calcul et Réseau** de la machine virtuelle.
 
+### <a name="ip-assignment-behavior-during-test-failover"></a>Comportement de l’affectation des adresses IP pendant le test de basculement
+#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1. Si le réseau cible choisi est le réseau virtuel de production
+- L’adresse IP de récupération (adresse IP cible) sera une adresse IP statique, mais **ce ne sera pas la même adresse IP** que celle réservée pour le basculement.
+- L’adresse IP attribuée sera la prochaine adresse IP disponible à partir de la fin de la plage d’adresses du sous-réseau.
+- Par exemple, si l’adresse IP statique de la machine virtuelle source est configurée pour être : 10.0.0.19 et si le test de basculement a été tenté avec le réseau de production configuré : ***dr-PROD-nw***, avec une plage de sous-réseau de 10.0.0.0/24. </br>
+La machine virtuelle basculée serait affectée avec : la prochaine adresse IP disponible à partir de la fin de la plage d’adresses de sous-réseau, soit : 10.0.0.254 </br>
+
+**Remarque :** le terme **réseau virtuel de production** est appelé « réseau cible » mappé lors de la configuration de la récupération d’urgence.
+####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Si le réseau cible choisi n’est pas le réseau virtuel de production, mais dispose de la même plage de sous-réseau en tant que réseau de production 
+
+- L’adresse IP de récupération (adresse IP cible) sera une adresse IP statique avec la **même adresse IP** (c’est-à-dire, l’adresse IP statique configurée) que celle réservée pour le basculement. À condition que la même adresse IP soit disponible.
+- Si l’adresse IP statique configurée est déjà affectée à une autre machine virtuelle/périphérique, l’adresse IP de récupération sera la prochaine adresse IP disponible à partir de la fin de la plage d’adresses du sous-réseau.
+- Par exemple, si l’adresse IP statique de la machine virtuelle source est configurée pour être : 10.0.0.19 et si le test de basculement a été tenté avec un réseau test : ***dr-NON-PROD-nw***, avec une plage de sous-réseau identique au réseau de production : 10.0.0.0/24. </br>
+  L’adresse IP statique suivante serait assignée à la machine virtuelle basculée </br>
+    - adresse IP statique configuré : 10.0.0.19 si l’adresse IP est disponible.
+    - Prochaine adresse IP disponible : 10.0.0.254 si l’adresse IP 10.0.0.19 est déjà en cours d’utilisation.
+
+
+Pour modifier l’adresse IP cible sur chacune des interfaces réseau, accédez aux paramètres **Calcul et Réseau** de la machine virtuelle.</br>
+À titre de meilleure pratique, il est toujours recommandé de choisir un réseau de test pour effectuer le test de basculement.
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Vérifiez [Aide à la mise en réseau pour la réplication des machines virtuelles Azure](site-recovery-azure-to-azure-networking-guidance.md).

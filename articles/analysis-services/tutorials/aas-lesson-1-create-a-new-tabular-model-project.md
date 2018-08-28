@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17abcc7dea2f695b4678b30fe7448b0bcbb11590
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b9d3e9df62ffd31a6a01ea427fec8d5a3d168bfa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441485"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144233"
 ---
 # <a name="create-a-tabular-model-project"></a>Créer un projet de modèle tabulaire
 
-Dans cette leçon, vous utilisez Visual Studio avec SQL Server Data Tools (SSDT) pour créer un projet de modèle tabulaire au niveau de compatibilité 1400. Une fois votre nouveau projet créé, vous pouvez commencer à ajouter des données et à créer votre modèle. Cette leçon vous présente brièvement l’environnement de création de modèle tabulaire dans Visual Studio.  
+Dans cette leçon, vous utilisez Visual Studio avec des projets Analysis Services ou SQL Server Data Tools (SSDT) pour créer un projet de modèle tabulaire au niveau de compatibilité 1400. Une fois votre nouveau projet créé, vous pouvez commencer à ajouter des données et à créer votre modèle. Cette leçon vous présente brièvement l’environnement de création de modèle tabulaire dans Visual Studio.  
   
 Durée estimée pour suivre cette leçon : **10 minutes**  
   
@@ -49,7 +49,7 @@ Cette rubrique est la première leçon d’un didacticiel de création de modèl
     Si SQL Server 2017/Azure Analysis Services (1400) ne s’affiche pas dans la zone de liste Niveau de compatibilité, vous n’utilisez pas la dernière version de SQL Server Data Tools. Pour obtenir la version la plus récente, consultez [Installer SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
       
   
-## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Présentation de l’environnement de création de modèles tabulaires dans SSDT  
+## <a name="understanding-the-visual-studio-tabular-model-authoring-environment"></a>Présentation de l’environnement de création de modèles tabulaires dans Visual Studio  
 Maintenant que vous avez créé un projet de modèle tabulaire, prenons un moment pour explorer l’environnement de création de modèles tabulaires dans Visual Studio.  
   
 Une fois votre projet créé, il s’ouvre dans Visual Studio. Sur le côté droit, dans l’**Explorateur de modèles tabulaires**, une arborescence des objets de votre modèle s’affiche. Étant donné que vous n’avez pas encore importé de données, les dossiers sont vides. Vous pouvez cliquer avec le bouton droit sur un dossier objet pour effectuer des actions, comme avec la barre de menus. À mesure que vous parcourez ce didacticiel, vous utilisez l’Explorateur de modèles tabulaires pour naviguer parmi les différents objets de votre projet de modèle.
@@ -68,7 +68,7 @@ Quand vous créez un projet de modèle, certaines propriétés du modèle sont a
 
 Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet **AW Internet Sales**, puis cliquez sur **Propriétés**. La boîte de dialogue **Pages de propriétés de AW Internet Sales** s’affiche. Vous allez définir certaines de ces propriétés ultérieurement lors du déploiement de votre modèle.  
   
-Quand vous avez installé SSDT, plusieurs nouveaux éléments de menu ont été ajoutés à l’environnement Visual Studio. Cliquez sur le menu **Modéliser**. Vous pouvez alors importer des données, actualiser les données de l’espace de travail, parcourir votre modèle dans Excel, créer des perspectives et des rôles, sélectionner la vue du modèle et définir les options de calcul. Cliquez sur le menu **Table**. À ce stade vous pouvez créer et gérer les relations, spécifier les paramètres de la table de dates, créer des partitions et modifier les propriétés de la table. Si vous cliquez sur le menu **Colonne**, vous pouvez ajouter et supprimer des colonnes dans une table, figer des colonnes et spécifier l’ordre de tri. SSDT ajoute également des boutons à la barre. La fonctionnalité Somme automatique est la plus utile pour créer une mesure d’agrégation standard pour une colonne sélectionnée. D’autres boutons de la barre d’outils permettent d’accéder rapidement aux commandes et fonctionnalités fréquemment utilisées.  
+Quand vous avez installé des projets Analysis Services ou SSDT, plusieurs nouveaux éléments de menu ont été ajoutés à l’environnement Visual Studio. Cliquez sur le menu **Modéliser**. Vous pouvez alors importer des données, actualiser les données de l’espace de travail, parcourir votre modèle dans Excel, créer des perspectives et des rôles, sélectionner la vue du modèle et définir les options de calcul. Cliquez sur le menu **Table**. À ce stade vous pouvez créer et gérer les relations, spécifier les paramètres de la table de dates, créer des partitions et modifier les propriétés de la table. Si vous cliquez sur le menu **Colonne**, vous pouvez ajouter et supprimer des colonnes dans une table, figer des colonnes et spécifier l’ordre de tri. Visual Studio ajoute également des boutons à la barre. La fonctionnalité Somme automatique est la plus utile pour créer une mesure d’agrégation standard pour une colonne sélectionnée. D’autres boutons de la barre d’outils permettent d’accéder rapidement aux commandes et fonctionnalités fréquemment utilisées.  
   
 Recherchez dans certaines des boîtes de dialogue et certains des emplacements les fonctionnalités spécifiques à la création de modèles tabulaires. Bien que certains éléments ne soient pas encore actifs, vous pouvez vous faire une idée claire de l’environnement de création de modèles tabulaires.  
   

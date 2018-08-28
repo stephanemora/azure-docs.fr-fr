@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216964"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41924763"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gérer les mises à jour Windows à l’aide d’Azure Automation
 
@@ -126,9 +126,6 @@ Pour personnaliser l’objet de l’e-mail d’alerte, sous **Créer une règle*
 
 Ensuite, planifiez un déploiement qui suit votre fenêtre de planification et de maintenance des versions pour installer les mises à jour. Vous pouvez choisir les types de mises à jour à inclure dans le déploiement. Par exemple, vous pouvez inclure des mises à jour critiques ou de sécurité et exclure des correctifs cumulatifs.
 
-> [!WARNING]
-> Lorsque les mises à jour nécessitent un redémarrage, la machine virtuelle est automatiquement redémarrée.
-
 Pour planifier un nouveau déploiement de mises à jour pour la machine virtuelle, accédez à **Gestion des mises à jour**, puis cliquez sur **Planifier le déploiement de la mise à jour**.
 
 Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suivantes :
@@ -136,6 +133,8 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 * **Nom** : entrez un nom unique pour le déploiement de mises à jour.
 
 * **Système d’exploitation** : sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
+
+* **Machines to update** (Ordinateurs à mettre à jour) : sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Ordinateurs**, l’état de préparation d’ordinateur est indiqué dans la colonne **UPDATE AGENT READINESS**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Groupes d’ordinateurs dans Log Analytics)
 
 * **Classification de mise à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Pour ce didacticiel, conservez tous les types sélectionnés.
 
@@ -154,9 +153,17 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
 * **Fenêtre de maintenance (en minutes)** : conservez la valeur par défaut. Vous pouvez définir la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
+* **Reboot options** (Options de redémarrage) : ce paramètre détermine comment les redémarrages doivent être traités. Options disponibles :
+  * Reboot if required (Redémarrer si nécessaire) (par défaut)
+  * Toujours redémarrer
+  * Never reboot (Ne jamais redémarrer)
+  * Only reboot (Redémarrer uniquement), les mises à jour ne seront pas installées
+
+Lorsque vous avez terminé de configurer la planification, sélectionnez **Créer**.
+
 ![Volet Paramètres de planification des mises à jour](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-Lorsque vous avez terminé de configurer la planification, sélectionnez **Créer**. Vous revenez au tableau de bord d’état. Sélectionnez **Déploiements des mises à jour planifiés** pour afficher la planification de déploiement que vous avez créée.
+Vous revenez au tableau de bord d’état. Sélectionnez **Déploiements des mises à jour planifiés** pour afficher la planification de déploiement que vous avez créée.
 
 ## <a name="view-results-of-an-update-deployment"></a>Afficher les résultats d’un déploiement de mises à jour
 
@@ -186,7 +193,7 @@ Une fois que votre déploiement de mises à jour a réussi, un e-mail similaire 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Intégrer une machine virtuelle pour la gestion des mises à jour

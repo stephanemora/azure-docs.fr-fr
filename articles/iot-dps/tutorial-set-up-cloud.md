@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c2c80790fa3e7c20408346fbebf60c39879a94df
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145534"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918912"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurer les ressources de cloud pour l’approvisionnement d’appareils avec le service IoT Hub Device Provisioning
 
@@ -48,7 +48,7 @@ Suivez ces étapes pour créer une instance du service Device Provisioning.
    | **Groupe de ressources** | myResourceGroup | Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
    | **Lieu** | Emplacement valide | Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/). |   
 
-   ![Saisie des informations de base sur votre service DPS dans le portail](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![Entrer les informations de base sur votre service Device Provisioning dans le portail](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. Cliquez sur **Créer**. Après quelques instants, l’instance de service Device Provisioning est créée et la page **Vue d’ensemble** s’affiche.
 6. Sur la page **Vue d’ensemble** de la nouvelle instance de service, copiez la valeur de l’**étendue de l’ID** pour une utilisation ultérieure. Cette valeur permet d’identifier les ID d’enregistrement et de garantir leur unicité.
@@ -71,7 +71,7 @@ L’étape suivante consiste à lier le service Device Provisioning et le hub Io
     * **Hub IoT :** choisissez le nom du hub IoT que vous souhaitez lier avec cette instance de service Device Provisioning.
     * **Stratégie d’accès :** sélectionnez **iothubowner** comme informations d’identification pour établir le lien avec le hub IoT.
 
-   ![Lier le nom du hub à lier au service DPS dans le portail](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+   ![Lier le nom du hub à lier au service Device Provisionning dans le portail](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Définir la stratégie d’allocation sur le service Device Provisioning
 

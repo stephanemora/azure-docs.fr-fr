@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 08/17/2018
 ms.author: terrylan
-ms.openlocfilehash: 9558f1ec0d8ccd83da764a0967fa83d93e1e6a02
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4ed4e73348db8cfffb6e79afaa9d196e242d7488
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365361"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143814"
 ---
 # <a name="azure-storage-security-overview"></a>Présentation de la sécurité du Stockage Azure
+
 Le service Stockage Azure est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et la scalabilité pour répondre aux besoins des clients. Le Stockage Azure fournit un ensemble complet de fonctionnalités de sécurité. Vous pouvez :
 
 * Sécurisez le compte de stockage à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’Azure Active Directory.
@@ -36,6 +37,7 @@ Pour une étude plus détaillée de la sécurité dans le Stockage Azure, consul
 Cet article fournit une vue d’ensemble des fonctionnalités de sécurité Azure pouvant être utilisées avec le Stockage Azure. Les liens vers les articles fournissent des informations complémentaires sur chaque fonctionnalité.
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+
 Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle. Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle RBAC approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles RBAC intégrés](../role-based-access-control/built-in-roles.md), comme Collaborateur de compte de stockage, pour affecter des privilèges aux utilisateurs.
 
 En savoir plus :
@@ -43,6 +45,7 @@ En savoir plus :
 * [Contrôle d’accès en fonction du rôle Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>Accès délégué aux objets de stockage
+
 Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage. La SAP vous permet d’octroyer à un client des autorisations d’accès limité à des objets de votre compte de stockage pendant une période donnée et avec un ensemble défini d’autorisations. Vous pouvez accorder ces autorisations limitées sans partager les clés d’accès de votre compte. 
 
 La SAP est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour obtenir un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d’accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur appropriés.
@@ -53,6 +56,7 @@ En savoir plus :
 * [Créer et utiliser une signature d’accès partagé avec le Stockage Blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>Chiffrement en transit
+
 Le chiffrement en transit est un mécanisme de protection des données transmises sur des réseaux. Le Stockage Azure vous permet de sécuriser les données à l’aide de diverses fonctionnalités :
 
 * Le [chiffrement au niveau du transport](../storage/common/storage-security-guide.md#encryption-in-transit) (HTTPS, par exemple) lorsque vous transférez des données vers ou à partir de Stockage Azure.
@@ -65,6 +69,7 @@ En savoir plus sur le chiffrement côté client :
 * [Cloud security controls series: Encrypting Data in Transit (Série consacrée aux contrôles de sécurité dans le cloud : chiffrement des données en transit)](http://blogs.microsoft.com/cybertrust/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
 
 ## <a name="encryption-at-rest"></a>Chiffrement au repos
+
 Pour de nombreuses organisations, le [chiffrement des données au repos](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) est une étape obligatoire du processus de gestion de la confidentialité, de la conformité et de la souveraineté des données. Trois fonctionnalités Azure fournissent un chiffrement des données au repos :
 
 * [Storage Service Encryption](../storage/common/storage-security-guide.md#encryption-at-rest) vous permet de demander que le service de stockage chiffre automatiquement les données lors de leur écriture dans le Stockage Azure.
@@ -77,18 +82,28 @@ En savoir plus sur Storage Service Encryption :
 * [Azure Storage Service Encryption pour les données au repos](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure Disk Encryption
+
 Azure Disk Encryption pour les machines virtuelles vous permet de satisfaire les exigences de sécurité et de conformité de l’organisation. Elle chiffre vos disques de machines virtuelles (y compris les disques d’amorçage et de données) à l’aide de clés et de stratégies que vous contrôlez dans [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 Azure Disk Encryption pour les machines virtuelles est compatible avec les systèmes d’exploitation Linux et Windows. Cette fonctionnalité utilise également le coffre de clés pour vous aider à protéger, gérer et contrôler l’utilisation de vos clés de chiffrement de disque. Toutes les données contenues dans les disques de vos machines virtuelles sont chiffrées au repos à l’aide d’une technologie de chiffrement standard dans vos comptes de Stockage Azure. La solution Disk Encryption pour Windows est basée sur le [chiffrement de lecteur Microsoft BitLocker](https://technet.microsoft.com/library/cc732774.aspx) et la solution Linux est basée sur le chiffrement [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
-En savoir plus :
+En savoir plus
 
 * [Azure Disk Encryption pour des machines virtuelles IaaS Windows et Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
+## <a name="azure-storage-firewalls-and-virtual-networks"></a>Pare-feux du stockage Azure et réseaux virtuels
+
+Le stockage Azure vous permet d’activer les règles de pare-feu pour vos comptes de stockage. Une fois activé, elles bloquent les demandes de données entrantes, y compris les demandes provenant d’autres services Azure. Vous pouvez configurer des exceptions pour autoriser le trafic. Les règles de pare-feu peuvent être activées sur des comptes de stockage existants ou lors de la création.
+
+Vous devriez utiliser cette fonctionnalité pour sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.
+
+Pour plus d’informations sur les pare-feux et les réseaux virtuels de stockage Azure, consultez l’article [Configurer des pare-feux et des réseaux virtuels du stockage Azure](../storage/common/storage-network-security.md)
+
 ## <a name="azure-key-vault"></a>Azure Key Vault
+
 Azure Disk Encryption utilise [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), ce qui vous permet de contrôler et de gérer les clés et les secrets de chiffrement de disque dans votre abonnement Key Vault. Elle garantit également que toutes les données sur les disques de vos machines virtuelles sont chiffrées au repos dans le stockage Azure. Nous vous recommandons d’utiliser Key Vault pour auditer les clés et l’utilisation de la stratégie.
 
-En savoir plus :
+En savoir plus
 
 * [Qu’est-ce qu’Azure Key Vault ?](../key-vault/key-vault-whatis.md)
 * [Bien démarrer avec Azure Key Vault](../key-vault/key-vault-get-started.md)

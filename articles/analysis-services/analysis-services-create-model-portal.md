@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17ff6ebed615971b4157831431d9e2395ca68b48
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441673"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144025"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Créer un modèle dans le portail Azure
 
@@ -23,9 +23,10 @@ N’oubliez pas que le concepteur Web est en **aperçu**. Les fonctionnalités d
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-- Un serveur Azure Analysis Services au niveau Standard ou Développeur. Les modèles créés à l’aide du concepteur web sont en mode DirectQuery, uniquement pris en charge par ces niveaux.
+- Votre serveur Azure Analysis Services doit être au niveau Standard ou Développeur. Les modèles créés à l’aide du concepteur web sont en mode DirectQuery, uniquement pris en charge par ces niveaux.
 - Un fichier Azure SQL Database, Azure SQL Data Warehouse ou Power BI Desktop (.pbix) comme source de données. Les modèles créés à partir de fichiers Power BI Desktop prennent en charge Azure SQL Database et Azure SQL Data Warehouse.
 - Un compte et un mot de passe SQL Server pour se connecter aux sources de données Azure SQL Database ou Azure SQL Data Warehouse.
+- Vous devez disposer des privilèges Administrateur de serveur pour créer un nouveau modèle. Les privilèges Administrateur de base de données sont requis pour modifier et interroger un modèle à l’aide du concepteur.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 

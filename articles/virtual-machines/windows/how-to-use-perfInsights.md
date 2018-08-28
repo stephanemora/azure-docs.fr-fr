@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946264"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144005"
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
 
@@ -64,7 +64,7 @@ Ce scénario exécute le test d’évaluation [Diskspd](https://github.com/Micro
 > Ce scénario peut affecter le système et ne doit pas être exécuté sur un système de production en direct. Si nécessaire, exécutez ce scénario dans une fenêtre de maintenance dédiée pour éviter tout problème. Une charge de travail accrue qui est provoquée par un test d’évaluation ou un suivi peut nuire aux performances de votre machine virtuelle.
 >
 
-### <a name="slow-vm-analysis"></a>Analyse lente de machine virtuelle
+### <a name="performance-analysis"></a>Analyse des performances
 
 Ce scénario exécute un suivi du [compteur de performances](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) en utilisant les compteurs spécifiés dans le fichier RuleEngineConfig.json. Si la machine virtuelle est identifiée en tant que serveur qui exécute SQL Server, elle exécute un suivi du compteur de performances. Il le fait en utilisant les compteurs trouvés dans le fichier RuleEngineConfig.json. Ce scénario inclut également des données de diagnostics de performances.
 
@@ -77,7 +77,7 @@ Ce scénario exécute une capture du compteur de performances spéciale ainsi qu
 | E/S par seconde         | Requêtes de données/s             |
 |              | Requêtes de lecture/s             |
 |              | Requêtes d’écriture/s            |
-| Latency      | Requête de données/s (moyenne)         |
+| Latence      | Requête de données/s (moyenne)         |
 |              | Lecture/s (moyenne)                 |
 |              | Écriture/s (moyenne)                |
 | Taille d’E/S      | Avg. Octets/requête de données       |
@@ -90,9 +90,9 @@ Ce scénario exécute une capture du compteur de performances spéciale ainsi qu
 |              | Avg. Longueur de la file d’attente d’écriture       |
 |              | Avg. Longueur de la file d’attente de données        |
 
-### <a name="advanced-slow-vm-analysis"></a>Analyse lente avancée de machine virtuelle
+### <a name="advanced-performance-analysis"></a>Analyse avancée des performances
 
-Lorsque vous exécutez une analyse lente avancée de machine virtuelle, vous sélectionnez des traces à s’exécuter en parallèle. Vous pouvez toutes les exécuter (compteur de performances, Xperf, réseau et StorPort) si vous le souhaitez.  
+Lorsque vous exécutez une analyse avancée des performances, vous sélectionnez des traces à exécuter en parallèle. Vous pouvez toutes les exécuter (compteur de performances, Xperf, réseau et StorPort) si vous le souhaitez.  
 
 > [!Note]
 > Ce scénario peut affecter le système et ne doit pas être exécuté sur un système de production en direct. Si nécessaire, exécutez ce scénario dans une fenêtre de maintenance dédiée pour éviter tout problème. Une charge de travail accrue qui est provoquée par un test d’évaluation ou un suivi peut nuire aux performances de votre machine virtuelle.
@@ -104,28 +104,28 @@ Les informations portant sur la configuration de la machine virtuelle Windows, d
 
 |Données collectées                              |  |  | Scénarios de performances |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Analyse rapide des performances | Benchmarking | Analyse lente de machine virtuelle | Analyse Azure Files | Analyse lente avancée de machine virtuelle |
-| Informations tirées des journaux d’événements       | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Informations système                | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Mappage de volume                        | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Mappage de disque                          | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Tâches en cours d’exécution                     | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Compteurs de fiabilité de stockage      | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Informations sur le stockage               | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Sortie Fsutil                     | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Informations du pilote de filtre                | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Sortie Netstat                    | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Configuration réseau             | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Configuration du pare-feu            | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Configuration de SQL Server          | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Suivis des diagnostics de performances *  | OUI                        | OUI                                | OUI                      | OUI                  | OUI                  |
-| Suivi du compteur de performances **      |                            |                                    | OUI                      |                      | OUI                  |
-| Suivi du compteur SMB **              |                            |                                    |                          | OUI                  |                      |
-| Suivi du compteur SQL Server **       |                            |                                    | OUI                      |                      | OUI                  |
-| Suivi XPerf                       |                            |                                    |                          |                      | OUI                  |
-| Suivi StorPort                    |                            |                                    |                          |                      | OUI                  |
-| Suivi réseau                     |                            |                                    |                          | OUI                  | OUI                  |
-| Suivi d’évaluation Diskspd ***       |                            | OUI                                |                          |                      |                      |
+|                               | Analyse rapide des performances | Benchmarking | Analyse des performances | Analyse Azure Files | Analyse avancée des performances |
+| Informations tirées des journaux d’événements       | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Informations système                | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Mappage de volume                        | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Mappage de disque                          | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Tâches en cours d’exécution                     | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Compteurs de fiabilité de stockage      | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Informations sur le stockage               | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Sortie Fsutil                     | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Informations du pilote de filtre                | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Sortie Netstat                    | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Configuration réseau             | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Configuration du pare-feu            | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Configuration de SQL Server          | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Suivis des diagnostics de performances *  | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
+| Suivi du compteur de performances **      |                            |                                    | Oui                      |                      | Oui                  |
+| Suivi du compteur SMB **              |                            |                                    |                          | Oui                  |                      |
+| Suivi du compteur SQL Server **       |                            |                                    | Oui                      |                      | Oui                  |
+| Suivi XPerf                       |                            |                                    |                          |                      | Oui                  |
+| Suivi StorPort                    |                            |                                    |                          |                      | Oui                  |
+| Suivi réseau                     |                            |                                    |                          | Oui                  | Oui                  |
+| Suivi d’évaluation Diskspd ***       |                            | Oui                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Suivi des diagnostics de performances (*)
@@ -138,7 +138,7 @@ Exécute un moteur basé sur des règles en arrière-plan afin de collecter des 
 - Règle HighMemoryUsage : détecte les périodes d’utilisation élevée de la mémoire et montre les principaux utilisateurs de la mémoire pendant ces périodes.
 
 > [!NOTE] 
-> Actuellement, les versions Windows incluant .NET Framework 3.5 ou versions ultérieures sont prises en charge.
+> Actuellement, les versions Windows incluant .NET Framework 4.5 ou versions ultérieures sont prises en charge.
 
 ### <a name="performance-counter-trace-"></a>Suivi du compteur de performances (\*\*)
 
@@ -171,9 +171,9 @@ Tests de charge de travail d’E/S Diskspd (disque de système d’exploitation 
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Problèmes possibles lorsque vous exécutez l’outil sur des machines virtuelles de production
 
--  Pour les scénarios d’évaluation ou d’analyse lente avancée de machine virtuelle configurés pour utiliser XPerf ou DiskSpd, l’outil peut nuire aux performances de la machine virtuelle. Ces scénarios ne doivent pas être exécutés dans un environnement de production.
+-  Pour les scénarios d’évaluation ou d’« Analyse avancée de performances » configurés pour utiliser XPerf ou DiskSpd, l’outil peut nuire aux performances de la machine virtuelle. Ces scénarios ne doivent pas être exécutés dans un environnement de production.
 
--  Pour les scénarios d’évaluation ou d’analyse lente avancée de machine virtuelle configurés pour utiliser DiskSpd, assurez-vous qu’aucune autre activité d’arrière-plan n’interfère avec la charge de travail d’E/S.
+-  Pour les scénarios d’évaluation ou d’« Analyse avancée de performances » configurés pour utiliser DiskSpd, assurez-vous qu’aucune autre activité d’arrière-plan n’interfère avec la charge de travail d’E/S.
 
 -  Par défaut, l’outil utilise le disque de stockage temporaire pour collecter les données. Si le suivi est activé sur une durée plus longue, la quantité de données collectées peut être pertinente. Cela peut réduire la disponibilité de l’espace sur le disque temporaire, et donc affecter toute application s’appuyant sur ce disque.
 
@@ -212,7 +212,7 @@ Pour exécuter l’outil PerfInsights, suivez ces étapes :
     PerfInsights /run <ScenarioName> [AdditionalOptions]
     ```
 
-    Vous pouvez utiliser l’exemple ci-dessous pour exécuter le scénario de machine virtuelle lente pendant 5 minutes :
+    Vous pouvez utiliser l’exemple ci-dessous pour exécuter le scénario d’analyse de performances pendant 5 minutes :
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
@@ -224,7 +224,7 @@ Pour exécuter l’outil PerfInsights, suivez ces étapes :
     PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    Vous pouvez utiliser l’exemple suivant pour exécuter le scénario lent de machine virtuelle pendant 5 minutes et charger le fichier zip de résultat dans le compte de stockage :
+    Vous pouvez utiliser l’exemple suivant pour exécuter le scénario d’analyse de performances pendant 5 minutes et charger le fichier zip de résultat dans le compte de stockage :
     
     ```
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 59dc2dad103de60cb7d4b6a44a6d6f7271368391
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444937"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42144795"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales. Pour en savoir plus sur la passerelle, consultez la page [Passerelle de données locale](analysis-services-gateway.md).
@@ -38,6 +38,7 @@ Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs 
 * Installez la passerelle sur un ordinateur qui reste activé et qui ne se met pas en veille.
 * N’installez pas la passerelle sur un ordinateur sans fil connecté à votre réseau. Les performances peuvent être réduites.
 * Connectez-vous à Azure avec le compte Azure AD du même [locataire](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que l’abonnement dans lequel vous inscrivez la passerelle. Les comptes Azure B2B (invité) ne sont pas pris en charge lors de l’installation et de l’inscription d’une passerelle.
+* Si les sources de données se trouvent sur un réseau virtuel (VNet) Azure, vous devez configurer la propriété de serveur [AlwaysUseGateway](analysis-services-vnet-gateway.md).
 * La passerelle (unifiée) décrite ici n’est pas prise en charge dans Azure Government, Azure Allemagne et les régions souveraines de Azure Chine. Utilisez la **passerelle locale dédiée pour Azure Analysis Services**, installée à partir du **Démarrage rapide** de votre serveur dans le portail. 
 
 
@@ -114,4 +115,5 @@ Vous avez terminé. Si vous devez ouvrir des ports ou effectuer des opérations 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Gérer Analysis Services](analysis-services-manage.md)   
-* [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)
+* [Obtenir les données d’Azure Analysis Services](analysis-services-connect.md)   
+* [Utiliser la passerelle pour les sources de données sur un réseau virtuel Azure](analysis-services-vnet-gateway.md)

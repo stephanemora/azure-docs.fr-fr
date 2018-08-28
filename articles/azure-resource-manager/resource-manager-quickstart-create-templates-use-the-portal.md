@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5bb5ed45363216bb1bcd39f85157a3eed68c2f9
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: fcae6d656f6e309b0fdcd60db743d3bebf3cd5a9
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126848"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617036"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure
 
@@ -78,7 +78,9 @@ Dans cette section, vous créez un compte de stockage à l’aide du portail Azu
 
 ## <a name="edit-and-deploy-the-template"></a>Modifier et déployer le modèle
 
-Dans cette section, vous ouvrez le modèle enregistré à partir de la bibliothèque de modèles, modifiez le modèle au sein du portail et déployez le modèle modifié. Pour modifier un modèle plus complexe, envisagez d’utiliser Visual Studio Code, qui offre plus de fonctionnalités d’édition.
+Dans cette section, vous ouvrez le modèle enregistré à partir de la bibliothèque de modèles, modifiez le modèle au sein du portail et déployez le modèle modifié. Pour modifier un modèle plus complexe, envisagez d’utiliser [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), qui offre plus de fonctionnalités d’édition.
+
+Azure requiert que chaque service Azure ait un nom unique. Le déploiement échoue si vous entrez un nom de compte de stockage déjà existant. Pour éviter ce problème, vous pouvez utiliser un appel de fonction modèle uniquestring() pour générer un nom de compte de stockage unique.
 
 1. Dans le portail Azure, sélectionnez **Tous les services** dans le menu de gauche, entrez **modèle** dans la zone de filtre, puis sélectionnez **Modèle (PRÉVERSION)**.
 
@@ -162,7 +164,7 @@ Dans cette section, vous ouvrez le modèle enregistré à partir de la biblioth�
 8. Sélectionnez **Déployer**.
 9. Saisissez les valeurs suivantes :
 
-    - **Abonnement** : sélectionnez votre abonnement Azure.
+    - **Abonnement** : sélectionnez votre abonnement Azure.
     - **Groupe de ressources** : attribuez un nom unique à votre groupe de ressources.
     - **Emplacement** : sélectionnez un emplacement pour le groupe de ressources.
     - **Emplacement** : sélectionnez un emplacement pour le compte de stockage.  Vous pouvez utiliser le même emplacement que celui de votre groupe de ressources.
@@ -177,6 +179,14 @@ Dans cette section, vous ouvrez le modèle enregistré à partir de la biblioth�
 
 10. Sélectionnez **Achat**.
 11. Sélectionnez l’icône représentant une cloche (notifications) en haut de l’écran pour afficher l’état du déploiement.
+
+    ![Notification de déploiement de modèles Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
+
+12. Sélectionnez **Accédez au groupe de ressources** à partir du volet de notification. Vous devriez voir un écran semblable à :
+
+    ![Groupe de ressources de déploiement de modèles Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
+
+    L’état du déploiement vous montre qu’il a réussi, et il n’y a qu’un seul compte de stockage dans le groupe de ressources. Le nom de compte de stockage est une chaîne unique générée par le modèle. Pour en savoir plus sur l’utilisation des comptes de stockage Azure, consultez [Démarrage rapide : charger, télécharger et répertorier des objets blob à l’aide du portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 

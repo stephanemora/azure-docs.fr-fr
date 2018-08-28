@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2016
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a5ca615d984d07513b12399b6f7e7901490f2e41
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298829"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42143991"
 ---
 # <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Décoder des messages AS2 pour Azure Logic Apps avec Enterprise Integration Pack 
 
@@ -67,6 +67,7 @@ Voici les éléments dont vous avez besoin :
 
     ![Sélectionnez le corps et les en-têtes à partir des sorties de requête.](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
+
 ## <a name="as2-decoder-details"></a>Détails sur le décodeur AS2
 
 Le connecteur Decode AS2 effectue les tâches suivantes : 
@@ -75,6 +76,7 @@ Le connecteur Decode AS2 effectue les tâches suivantes :
 * Vérifie la signature (si configuré)
 * Déchiffre les messages (si configuré)
 * Compresse le message (si configuré)
+* Vérifiez et interdisez les doublons d’ID de message (si configuré)
 * Rapproche un MDN reçu avec le message sortant d’origine
 * Met à jour et met en corrélation les enregistrements dans la base de données de non-répudiation
 * Écrit les enregistrements pour le rapport d’état AS2
@@ -82,6 +84,13 @@ Le connecteur Decode AS2 effectue les tâches suivantes :
 * Détermine si un MDN est requis et si le MDN doit être synchrone ou asynchrone d’après la configuration dans l’accord AS2
 * Génère un MDN synchrone ou asynchrone (basé sur les configurations de l’accord)
 * Définit les propriétés et les jetons de corrélation sur le MDN
+
+
+  > [!NOTE]
+  > Si vous utilisez Azure Key Vault pour gérer les certificats, assurez-vous de configurer les clés pour autoriser l’opération **Déchiffrer**.
+  > Sinon, le décodage AS2 risque d’échouer.
+  >
+  > ![KeyVault déchiffre](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Testez cet exemple
 

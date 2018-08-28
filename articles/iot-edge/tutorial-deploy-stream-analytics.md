@@ -4,17 +4,17 @@ description: Dans ce tutoriel, vous déployez Azure Stream Analytics en tant que
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/25/2018
+ms.date: 08/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afbdf2171c1fc1eef95514526a509d171e262d4a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 66d55c07493a540e36a08d48d6abbdc3d082b9b9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435680"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41920697"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Stream Analytics en tant que module IoT Edge - (prévision)
 
@@ -33,6 +33,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Connecter le nouveau travail Azure Stream Analytics à d’autres modules IoT Edge.
 > * Déployer le travail Azure Stream Analytics sur un appareil IoT Edge depuis le portail Azure.
 
+<center>
+![Schéma de l’architecture du didacticiel](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+</center>
+
 >[!NOTE]
 >Les modules Azure Stream Analytics pour IoT Edge sont en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -43,7 +47,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Un appareil Azure IoT Edge :
 
 * Vous pouvez utiliser votre ordinateur de développement ou une machine virtuelle comme un appareil Edge, en suivant les étapes décrites dans le Guide de démarrage rapide pour [Linux](quickstart-linux.md) ou pour les [Appareils Windows](quickstart.md).
-* Le module Azure Machine Learning ne prend pas en charge les processeurs ARM.
 
 Ressources cloud :
 
@@ -52,57 +55,72 @@ Ressources cloud :
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Créer un travail Azure Stream Analytics
 
-Dans cette section, vous créez un travail Azure Stream Analytics pour extraire des données de votre IoT Hub, demander les données de télémétries envoyées depuis votre appareil, puis envoyer les résultats à un conteneur de stockage Azure Blob. Pour plus d’informations, consultez la section « Vue d’ensemble » de la [documentation Stream Analytics][azure-stream]. 
+Dans cette section, vous créez un travail Azure Stream Analytics pour extraire des données de votre IoT Hub, demander les données de télémétries envoyées depuis votre appareil, puis envoyer les résultats à un conteneur de stockage Azure Blob. 
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Il vous faut un compte de Stockage Azure pour votre travail Azure Stream Analytics afin de servir de point de terminaison pour la sortie. L’exemple dans cette section utilise un type de stockage Blob. Pour plus d’informations, consultez la section « Objets blob » de la [documentation sur le stockage Azure][azure-storage].
+Lorsque vous créez un travail Azure Stream Analytics pour s’exécuter sur un appareil IoT Edge, il doit être stocké de manière à pouvoir être appelé à partir de l’appareil. Vous pouvez utiliser un compte de stockage Azure existant ou en créer un nouveau maintenant. 
 
-1. Dans le portail Azure, accédez à **Créer une ressource**, entrez **Compte de stockage** dans la zone de recherche, puis sélectionnez **Compte de stockage : blob, fichier, table, file d’attente**.
+1. Dans le portail Azure, accédez à **Créer une ressource** > **Stockage** > **Compte de stockage - blob, fichier, table, file d’attente**. 
 
-1. Dans le volet **Créer un compte de stockage**, entrez un nom pour votre compte de stockage, sélectionnez le même emplacement que celui où votre IoT Hub est stocké, sélectionnez le même groupe de ressources que celui de votre IoT Hub, puis sélectionnez **Créer**. Notez le nom. Il sera utile plus tard.
+1. Fournissez les valeurs suivantes pour créer votre compte de stockage :
 
-    ![Créez un compte de stockage.][1]
+   | Champ | Valeur |
+   | ----- | ----- |
+   | NOM | Fournissez un nom unique pour votre compte de stockage. | 
+   | Lieu | Choisissez un emplacement proche de vous. |
+   | Abonnement | Choisissez le même abonnement que votre IoT Hub. |
+   | Groupe de ressources | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez pendant les démarrages rapides et les didacticiels IoT Edge. Par exemple, **IoTEdgeResources**. |
 
+1. Conservez les valeurs par défaut pour les autres champs et sélectionnez **Créer**. 
 
-### <a name="create-a-stream-analytics-job"></a>Création d’un travail Stream Analytics
+### <a name="create-a-new-job"></a>Créer un travail
 
-1. Dans le portail Azure, accédez à **Créer une ressource** > **Internet des objets** et sélectionnez **Travail Stream Analytics**.
+1. Dans le portail Azure, accédez à **Créer une ressource** > **Internet des objets** > **Travail Stream Analytics**.
 
-1. Dans le volet **Nouveau travail Stream Analytics**, procédez comme suit :
+1. Fournissez les valeurs suivantes pour créer votre travail :
 
-   1. Dans la zone **Nom du travail**, entrez un nom pour le travail.
-   
-   1. Utilisez le même **groupe de ressources** et **emplacement** que votre hub IoT. 
-
-      > [!NOTE]
-      > Actuellement, les travaux Azure Stream Analytics sur IoT Edge ne sont pas pris en charge dans la région USA Ouest 2. 
-
-   1. Sous **Environnement d’hébergement**, sélectionnez **Edge**.
-    
+   | Champ | Valeur |
+   | ----- | ----- |
+   | Nom du travail | Fournissez un nom pour votre travail. Par exemple, **IoTEdgeJob** | 
+   | Abonnement | Choisissez le même abonnement que votre IoT Hub. |
+   | Groupe de ressources | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez pendant les démarrages rapides et les didacticiels IoT Edge. Par exemple, **IoTEdgeResources**. |
+   | Lieu | Choisissez un emplacement proche de vous. | 
+   | Environnement d’hébergement | Sélectionnez **Edge**. |
+ 
 1. Sélectionnez **Créer**.
 
-1. Dans le travail créé, sous **Topologie du travail**, ouvrez **Entrées**.
+### <a name="configure-your-job"></a>Configurer votre travail
+
+Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous pouvez le configurer avec une entrée, une sortie et une requête à exécuter sur les données qui le traverse. 
+
+À l’aide des trois éléments d’entrée, de sortie et de requête, cette section crée un travail qui reçoit des données de température de l’appareil IoT Edge. Il analyse ces données dans une fenêtre de 30 secondes consécutives. Si la température moyenne de cette fenêtre dépasse 70 degrés, une alerte est envoyée à l’appareil IoT Edge. Vous allez spécifier exactement d’où les données proviennent et où elles passent dans la section suivante lorsque vous déployez le travail.  
+
+1. Accédez à votre travail Stream Analytics dans le portail Azure. 
+
+1. Sous **Topologie de la tâche**, sélectionnez **Entrées** puis **Ajouter une entrée de flux**.
 
    ![Entrée Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-1. Sélectionnez **Ajouter une entrée de flux**, puis sélectionnez **Edge Hub**.
+1. Choisissez **Edge Hub** dans la liste déroulante.
 
 1. Dans le volet **Nouvelle entrée**, saisissez **température** comme alias d’entrée. 
 
-1. Sélectionnez **Enregistrer**.
+1. Conservez les valeurs par défaut pour les autres champs et sélectionnez **Enregistrer**.
 
-1. Sous **Topologie du travail**, ouvrez **Sorties**.
+1. Sous **Topologie de la tâche**, ouvrez **Sorties**, puis sélectionnez **Ajouter**.
 
    ![Sortie Azure Stream Analytics](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-1. Sélectionnez **Ajouter**, puis sélectionnez **Edge Hub**.
+1. Choisissez **Edge Hub** dans la liste déroulante.
 
 1. Dans le volet **Nouvelle sortie**, saisissez **alerte** comme alias de sortie. 
 
-1. Sélectionnez **Enregistrer**.
+1. Conservez les valeurs par défaut pour les autres champs et sélectionnez **Enregistrer**.
 
-1. Sous **Topologie de travail**, sélectionnez **Requête**, puis remplacez le texte par défaut par la requête suivante qui crée une alerte si la température moyenne de la machine lors d’une fenêtre de 30 secondes atteint 70 degrés :
+1. Sous **Topologie de la tâche**, sélectionnez **Requête**.
+
+1. Remplacez le texte par défaut par la requête suivante. Le code SQL envoie une commande de réinitialisation à la sortie d’alerte si la température moyenne de la machine dans une fenêtre de 30 secondes atteint 70 degrés. La commande de réinitialisation a été préprogrammée dans le capteur comme une action qui peut être effectuée. 
 
     ```sql
     SELECT  
@@ -117,6 +135,10 @@ Il vous faut un compte de Stockage Azure pour votre travail Azure Stream Analyti
 
 1. Sélectionnez **Enregistrer**.
 
+### <a name="configure-iot-edge-settings"></a>Configurer les paramètres IoT Edge
+
+Pour préparer votre travail Stream Analytics à déployer sur un appareil IoT Edge, vous devez associer le travail à un conteneur dans un compte de stockage. Lorsque vous passez au déploiement de votre travail, la définition du travail est exportée vers le conteneur de stockage. 
+
 1. Sous **Configurer**, sélectionnez **Paramètres IoT Edge**.
 
 1. Sélectionnez votre **Compte de stockage** dans la liste déroulante.
@@ -125,22 +147,24 @@ Il vous faut un compte de Stockage Azure pour votre travail Azure Stream Analyti
 
 1. Sélectionnez **Enregistrer**. 
 
-
 ## <a name="deploy-the-job"></a>Déployer la tâche
 
-Vous êtes désormais prêt à déployer le travail Azure Stream Analytics sur votre appareil IoT Edge.
+Vous êtes désormais prêt à déployer le travail Azure Stream Analytics sur votre appareil IoT Edge. 
+
+Dans cette section, vous utilisez l’Assistant **Définir des modules** dans le portail Azure pour créer un *manifeste de déploiement*. Un manifeste de déploiement est un fichier JSON qui décrit tous les modules qui seront déployés sur un appareil, les registres de conteneurs qui stockent les images de modules, comment les modules doivent être gérés et comment les modules peuvent communiquer entre eux. Votre appareil IoT Edge récupère son manifeste de déploiement d’IoT Hub, puis utilise les informations qu’il contient pour déployer et configurer tous les modules assignés. 
+
+Pour ce didacticiel, vous déployez deux modules. Le premier est **tempSensor**, un module qui simule un capteur de température et d’humidité. Le second est votre travail Stream Analytics. Le module de capteur fournit le flux de données que votre requête de travail analysera. 
 
 1. Dans le portail Azure, dans votre Hub IoT, accédez à **IoT Edge** et ouvrez la page de détails de votre appareil IoT Edge.
 
 1. Sélectionnez **Définir des modules**.  
 
-   Si vous aviez déployé le module tempSensor sur cet appareil, il peut se remplir automatiquement. Sinon, ajoutez le module en procédant comme suit :
+1. Si vous aviez déployé le module tempSensor sur cet appareil, il peut se remplir automatiquement. Sinon, ajoutez le module en procédant comme suit :
 
    1. Cliquez sur **Ajouter** et sélectionnez **Module IoT Edge**.
    1. Pour le nom, tapez **tempSensor**.
    1. Pour l’URI de l’image, entrez **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**. 
-   1. Laissez les autres paramètres inchangés.
-   1. Sélectionnez **Enregistrer**.
+   1. Laissez les autres paramètres inchangés et sélectionnez **Enregistrer**.
 
 1. Ajoutez votre travail Azure Stream Analytics Edge en suivant les étapes :
 
@@ -148,9 +172,17 @@ Vous êtes désormais prêt à déployer le travail Azure Stream Analytics sur v
    1. Sélectionnez votre abonnement et le travail Azure Stream Analytics Edge que vous avez créé. 
    1. Sélectionnez **Enregistrer**.
 
-1. Sélectionnez **Suivant**.
+1. Lorsque votre travail Stream Analytics est publié sur le conteneur de stockage que vous avez créé, cliquez sur le nom du module pour voir comment un module Stream Analytics est structuré. 
 
-1. Remplacez le code par défaut dans **Itinéraires** par le code suivant : Remplacez _{moduleName}_ par le nom de votre module Azure Stream Analytics. Le module doit avoir le même nom que le travail à partir duquel il a été créé. 
+   L’URI d’image pointe vers une image Azure Stream Analytics standard. La même image est utilisée pour chaque travail déployé sur un appareil IoT Edge. 
+
+   Le jumeau de module est configuré avec une propriété souhaitée nommée **ASAJobInfo**. La valeur de cette propriété pointe vers la définition du travail dans votre conteneur de stockage. Cette propriété correspond à la configuration de l’image Stream Analytics avec les informations de votre travail spécifique. 
+
+1. Fermez la page du module.
+
+1. Notez le nom de votre module Stream Analytics car vous aurez besoin dans l’étape suivante, puis sélectionnez **Suivant** pour continuer.
+
+1. Remplacez le code par défaut dans **Itinéraires** par le code suivant : Remplacez les trois instances de _{moduleName}_ par le nom de votre module Azure Stream Analytics. 
 
     ```json
     {
@@ -162,6 +194,8 @@ Vous êtes désormais prêt à déployer le travail Azure Stream Analytics sur v
         }
     }
     ```
+
+   Les itinéraires que vous déclarez ici définissent le flux de données via l’appareil IoT Edge. Les données de télémétrie de tempSensor sont envoyées à IoT Hub et à l’entrée **temperature** qui a été configurée dans le travail Stream Analytics. Les messages de sortie d’**alerte** sont envoyés à IoT Hub et au module tempSensor pour déclencher la commande de réinitialisation. 
 
 1. Sélectionnez **Suivant**.
 
@@ -197,35 +231,14 @@ Vous devriez voir la température de l’ordinateur augmenter progressivement ju
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
+Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations que vous avez créées afin de les réutiliser. Vous pouvez également continuer à utiliser le même appareil IoT Edge comme appareil de test. 
 
-Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations déjà créées afin de les réutiliser.
+Sinon, vous pouvez supprimer les ressources Azure et les configurations locales que vous avez créées dans cet article pour éviter les frais. 
+ 
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Sinon, vous pouvez supprimer les ressources Azure et les configurations locales créées dans cet article pour éviter des frais. 
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-> [!IMPORTANT]
-> La suppression de ressources et de groupe de ressources Azure est irréversible. Une fois supprimés, le groupe de ressources et toutes les ressources qu’il contient sont supprimés définitivement. Veillez à ne pas supprimer accidentellement des ressources ou un groupe de ressources incorrects. Si vous avez créé l’IoT Hub à l’intérieur d’un groupe de ressources existant qui concerne des ressources que vous souhaitez conserver, supprimer uniquement la ressource de l’ IoT Hub au lieu de supprimer le groupe de ressources.
->
-
-Pour supprimer l’IoT Hub uniquement, exécutez la commande suivante en utilisant le nom de votre hub et le nom du groupe de ressources :
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-Pour supprimer un groupe de ressources entier par nom :
-
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) et cliquez sur **Groupes de ressources**.
-
-1. Dans la zone de texte **Filtrer par nom...**, saisissez le nom du groupe de ressources contenant votre IoT Hub. 
-
-1. À droite de votre groupe de ressources dans la liste des résultats, cliquez sur **...**, puis sur **Supprimer le groupe de ressources**.
-
-<!--
-   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
--->
-1. Il vous sera demandé de confirmer la suppression du groupe de ressources. Saisissez de nouveau le nom de votre groupe de ressources pour confirmer, puis cliquez sur **Supprimer**. Après quelques instants, le groupe de ressources et toutes les ressources qu’il contient sont supprimés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -235,7 +248,6 @@ Dans ce didacticiel, vous avez configuré un travail Azure Stream Analytics pour
 > [Déployer un modèle Azure Machine Learning en tant que module][lnk-ml-tutorial]
 
 <!-- Images. -->
-[1]: ./media/tutorial-deploy-stream-analytics/storage.png
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png
 [5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
 [6]: ./media/tutorial-deploy-stream-analytics/set_module.png

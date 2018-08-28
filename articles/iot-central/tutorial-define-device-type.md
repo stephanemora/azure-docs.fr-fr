@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869567"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41919516"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : définir un nouveau type d’appareil dans votre application Azure IoT Central
 
@@ -135,7 +135,7 @@ La procédure ci-après vous explique comment créer un modèle d’appareil **C
     | Paramètre              | Valeur         |
     | -------------------- | -----------   |
     | Nom d’affichage         | Température   |
-    | Nom du champ           | temperature   |
+    | Nom du champ           | température   |
     | Units                | F             |
     | Min                  | 60            |
     | max                  | 110           |
@@ -175,7 +175,7 @@ La mesure de type Event (Événement) vous permet de définir des données ponct
     | -------------------- | -----------       |
     | Nom d’affichage         | Erreur du moteur du ventilateur   |
     | Nom du champ           | fanmotorerr       |
-    | Niveau de gravité             | Error             |
+    | Severity             | Error             |
 
     Pour enregistrer la définition de l’événement, choisissez **Enregistrer** :
 
@@ -342,8 +342,8 @@ Vous utilisez les _commandes_ pour permettre à un opérateur d’exécuter des 
     | Nom d’affichage         | Commande echo    |
     | Nom du champ           | echo            |
     | Délai d’expiration par défaut      | 30              |
-    | Nom d’affichage         | Texte affiché    |
-    | Type d’affichage         | text            |  
+    | Type d’affichage         | texte            |
+    | Description          | Commande d’appareil  |  
 
 Vous pouvez ajouter des entrées supplémentaires à la commande en cliquant sur **+** pour les entrées.
 

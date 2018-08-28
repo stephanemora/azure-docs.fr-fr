@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/04/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 41cd2f1081cbe8d8fca9d6afa77b87f9aa1017d3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302937"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616513"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Diffuser en continu des Big Data dans un entrepôt de données
 
-Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications à partir d’applications et de services. L’[Exemple Event Hubs Capture et Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) montre comment utiliser Azure Event Hubs Capture avec Azure Event Grid pour migrer en toute transparence des données d’un hub d’événements vers un entrepôt SQL Data Warehouse.
+Azure [Event Grid](overview.md) est un service de routage des événements intelligent qui vous permet de réagir aux notifications à partir d’applications et de services. Par exemple, ce service peut déclencher le traitement par une fonction Azure des données Event Hubs capturées dans un Stockage Blob Azure ou dans un référentiel Data Lake Storage, ainsi que la migration des données vers d’autres référentiels de données. Cet [exemple Event Hubs Capture et Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) indique comment utiliser Event Hubs Capture avec Event Grid pour migrer en toute transparence les données Event Hubs du stockage blob vers un service SQL Data Warehouse.
 
 ![Vue d’ensemble de l’application](media/event-grid-event-hubs-integration/overview.png)
 
@@ -67,7 +67,6 @@ Event Grid distribue des données d’événement pour les abonnés. L’exemple
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour suivre ce didacticiel, vous avez besoin de :
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -76,7 +75,7 @@ Pour suivre ce didacticiel, vous avez besoin de :
 
 ## <a name="deploy-the-infrastructure"></a>Déployer l’infrastructure
 
-Pour simplifier cet article, vous pouvez déployer l’infrastructure requise avec un modèle Resource Manager. Pour afficher les ressources déployées, référez-vous au [modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json). Utilisez l’une des [régions prises en charge](overview.md) comme emplacement du groupe de ressources.
+Pour simplifier cet article, vous pouvez déployer l’infrastructure requise avec un modèle Resource Manager. Pour afficher les ressources déployées, référez-vous au [modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json).
 
 Pour l’interface de ligne de commande Azure, consultez :
 

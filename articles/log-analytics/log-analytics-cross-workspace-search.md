@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e7ca3bcb3c3322c0eba12d7f9eb2ee2bc7b7600c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 75116e0ba50c3f195d528d33822af0c446acd5fe
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049845"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144041"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Effectuer des recherches dans des journaux inter-ressources dans Log Analytics  
 
 Avant, avec Azure Log Analytics, vous pouviez analyser les données uniquement dans l’espace de travail actif, ce qui limitait votre capacité à interroger plusieurs espaces de travail définis dans votre abonnement.  De plus, vos recherches ne pouvaient porter que sur les éléments de télémétrie recueillis par votre application web avec Application Insights directement dans Application Insights ou à partir de Visual Studio.  Cela compliquait aussi l’analyse simultanée des données opérationnelles et d’application en mode natif.   
 
-Maintenant, vous pouvez interroger non seulement plusieurs espaces de travail Log Analytics, mais également des données d’une application Application Insights spécifique dans le même groupe de ressources, un autre groupe de ressources ou un autre abonnement. Cela vous donne une vue de vos données à l’échelle du système.  Ce type de requête est possible seulement sur le [Portail avancé](log-analytics-log-search-portals.md#advanced-analytics-portal), pas sur le portail Azure. Le nombre de ressources (espaces de travail Log Analytics et applications Application Insights) que vous pouvez inclure dans une seule requête est limité à 100. 
+Maintenant, vous pouvez interroger non seulement plusieurs espaces de travail Log Analytics, mais également des données d’une application Application Insights spécifique dans le même groupe de ressources, un autre groupe de ressources ou un autre abonnement. Cela vous donne une vue de vos données à l’échelle du système.  Ce type de requête est possible seulement sur la [page Log Analytics (préversion) ](log-analytics-log-search-portals.md#log-analytics-page-preview), pas sur le portail Azure. Le nombre de ressources (espaces de travail Log Analytics et applications Application Insights) que vous pouvez inclure dans une seule requête est limité à 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Interrogation de plusieurs espaces de travail Log Analytics à partir d’Application Insights
 Pour référencer un autre espace de travail dans votre requête, utilisez l’identificateur [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()). Pour une application Application Insights, utilisez l’identificateur [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  

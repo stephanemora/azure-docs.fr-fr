@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 864c269da61bcea885249021a44fe0259ca83e90
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c1c884e05d357db7e23574dbd31f206d6c3fe23c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935162"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918329"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Utiliser des révisions pour apporter des modifications sans rupture en toute sécurité
-Quand votre API est prête et commence à être utilisée par les développeurs, vous devez généralement veiller à ne pas interrompre les appelants de votre API quand vous apportez des modifications à cette dernière. Il est également utile d’informer les développeurs des modifications apportées. Les **révisions** le permettent dans Gestion des API Azure. Pour plus d’informations, consultez [Versions et révisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) et [Gestion des versions d’API avec la Gestion des API Azure](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
+Une fois que votre API est prête et commence à être utilisée par les développeurs, vous devez finir par lui apporter des modifications sans interrompre les appelants de l’API. Il est également utile d’informer les développeurs des modifications apportées. Les **révisions** le permettent dans Gestion des API Azure. Pour plus d’informations, consultez [Versions et révisions](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) et [Gestion des versions d’API avec la Gestion des API Azure](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -36,14 +36,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 + Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Suivez également le didacticiel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 ## <a name="add-a-new-revision"></a>Ajouter une révision
 
 1. Sélectionnez la page **API**.
-2. Sélectionnez **API de conférence** dans la liste des API (ou une autre API à laquelle vous souhaitez ajouter des révisions).
+2. Dans la liste des API, sélectionnez **API de conférence de démonstration** (ou une autre API à laquelle vous souhaitez ajouter des révisions).
 3. Cliquez sur l’onglet **Révisions** dans le menu situé en haut de la page.
 4. Sélectionnez **+ Ajouter une révision**
 
@@ -61,33 +60,34 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="make-non-breaking-changes-to-your-revision"></a>Apporter des modifications sans rupture à une révision
 
-1. Sélectionnez **API de conférence de démonstration** dans la liste des API.
+1. Dans la liste des API, sélectionnez **API de conférence de démonstration**.
 2. Sélectionnez l’onglet **Conception** situé près du haut de l’écran.
-3. Notez que le **sélecteur de révision** (juste au-dessus de l’onglet Conception) affiche la révision actuelle en tant que **Revision 2**.
+3. Notez que dans le **sélecteur de révision** (juste au-dessus de l’onglet Conception), **Revision 2** est sélectionné.
 
     > [!TIP]
     > Utilisez le sélecteur de révision pour basculer entre les révisions sur lesquelles vous souhaitez travailler.
 
 4. Sélectionnez **+ Ajouter une opération**.
-5. Définissez votre opération sur **POST**, puis attribuez au nom et au nom complet de l’opération la valeur **test**.
+5. Définissez votre opération sur **POST**, puis attribuez au nom, au nom d’affichage et à l’URL de l’opération la valeur **test**.
 6. **Enregistrez** votre nouvelle opération.
 7. Nous avons modifié **Revision 2**. Utilisez le **sélecteur de révision** situé près du haut de la page pour revenir à **Revision 1**.
 8. Notez que votre nouvelle opération n’apparaît pas dans **Revision 1**. 
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Rendre cette révision actuelle et ajouter une entrée au journal des modifications
+
 1. Sélectionnez l’onglet **Révisions** dans le menu situé en haut de la page.
 
     ![Menu de révision sur l’écran de révision.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
-1. Ouvrez le menu contextuel (**...**) pour **Revision 2**.
-2. Sélectionnez **Rendre actuel**. Cochez **Publier sur le journal des modifications public de cette API**, si vous souhaitez publier les remarques relatives à cette modification.
-3. Sélectionnez **Publier sur le journal des modifications public de cette API**
-4. Indiquez une description de votre modification que les développeurs peuvent voir, par exemple, **Test de révisions. Nouvelle opération « test » ajoutée.**
+2. Ouvrez le menu contextuel (**...**) pour **Revision 2**.
+3. Sélectionnez **Rendre actuel**.
+4. Cochez **Publier sur le journal des modifications public de cette API**, si vous souhaitez publier les remarques relatives à cette modification. Fournissez une description de votre modification destinée aux développeurs, par exemple : **Test de révisions. Nouvelle opération « test » ajoutée.**
 5. **Revision 2** est maintenant la révision actuelle.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Parcourir le portail des développeurs pour voir les modifications et le journal des modifications
-1. Dans le Portail Azure, sélectionnez **APIs**.
+
+1. Dans le Portail Azure, sélectionnez **API**.
 2. Sélectionnez **Portail des développeurs** dans le menu supérieur.
-3. Sélectionnez **API**, puis **API Conference**.
+3. Sélectionnez **API**, puis **API de conférence de démonstration**.
 4. Notez que votre nouvelle opération **test** est désormais disponible.
 5. Sélectionnez **Historique des modifications de l’API** sous le nom de l’API.
 6. Notez que l’entrée du journal des modifications apparaît dans cette liste.
@@ -96,7 +96,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Ajouter une révision
@@ -104,7 +104,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Rendre cette révision actuelle et ajouter une entrée au journal des modifications
 > * Parcourir le portail des développeurs pour voir les modifications et le journal des modifications
 
-Passez au didacticiel suivant :
+Passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Publier plusieurs versions de votre API](api-management-get-started-publish-versions.md)

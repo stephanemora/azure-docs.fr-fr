@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: get-started-article
 ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bef88f09f182b1bb450ee0e045985ed59d5b5648
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641320"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919523"
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -36,7 +36,12 @@ Dans un espace de noms, vous pouvez utiliser une ou plusieurs instances de trois
 * Les *rubriques* fournissent des communications unidirectionnelles à l’aide d’*abonnements*. Une seule rubrique peut avoir plusieurs abonnements. À l’instar d’une file d’attente, une rubrique agit comme un intermédiaire, mais chaque abonnement peut utiliser un filtre pour recevoir uniquement les messages correspondant à un critère spécifique.
 * Les *relais* permettent la communication bidirectionnelle. À l’inverse des files d’attente et des rubriques, le relais ne stocke pas les messages en transit ; il ne s’agit pas d’un intermédiaire. Il ne fait que les transférer vers l’application de destination.
 
-Lorsque vous créez une file d'attente, une rubrique ou un relais, vous lui donnez un nom. Ce nom, combiné à celui de votre espace de noms, donne un identificateur unique à l’objet. Les applications peuvent fournir ce nom à Service Bus, puis utiliser cette file d’attente, cette rubrique ou ce relais pour communiquer entre elles. 
+Lorsque vous créez une file d'attente, une rubrique ou un relais, vous lui donnez un nom. Ce nom, combiné à celui de votre espace de noms, donne un identificateur unique à l’objet. Les applications peuvent fournir ce nom à Service Bus, puis utiliser cette file d’attente, cette rubrique ou ce relais pour communiquer entre elles.
+
+ >**Exemple :**   
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;queue-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;topic-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;relay-name&gt;*  
 
 Pour utiliser ces objets dans le scénario de relais, les applications Windows peuvent utiliser Windows Communication Foundation (WCF). Ce service est appelé [Relais WCF](../service-bus-relay/relay-what-is-it.md). Pour les files d’attente et les rubriques, les applications Windows peuvent utiliser des API de messagerie définie par Service Bus. Pour faciliter l’utilisation de ces objets à partir d’applications non-Windows, Microsoft fournit des Kits de développement logiciel (SDK) pour Java, Node.js et d’autres langages. Vous pouvez également accéder aux files d’attente et aux rubriques à l’aide des [API REST](/rest/api/servicebus/) sur HTTP(s). 
 

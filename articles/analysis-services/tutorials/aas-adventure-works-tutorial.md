@@ -8,22 +8,21 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b6e642c86c5e618cae2d46aad84a61b3f4866ae
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a53bcbe90f39999a838c84807ca834a1e6cd1813
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446144"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144322"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Didacticiel Adventure Works
 
-Ce didacticiel fournit des leçons sur la façon de créer et de déployer un modèle tabulaire au niveau de compatibilité 1400 à l’aide de Visual Studio avec [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
+Ce didacticiel fournit des leçons sur la façon de créer et de déployer un modèle tabulaire au niveau de compatibilité 1400 à l’aide des [projets Analysis Services](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects) ou de [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) dans Visual Studio.  
 Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce didacticiel est la façon la plus rapide d’apprendre à créer et à déployer un modèle tabulaire de base en utilisant Visual Studio. Une fois les conditions préalables satisfaites, cela vous prendra environ deux ou trois heures.  
   
 ## <a name="what-you-learn"></a>Contenu   
   
--   Comment créer un projet de modèle tabulaire au **niveau de compatibilité 1400** dans Visual Studio avec SSDT.
+-   Comment créer un projet de modèle tabulaire au **niveau de compatibilité 1400** dans Visual Studio.
   
 -   Comment importer des données à partir d’une base de données relationnelle dans une base de données d’espace de travail d’un projet de modèle tabulaire.  
   
@@ -37,7 +36,7 @@ Si vous découvrez Analysis Services et la modélisation tabulaire, suivre ce di
   
 -   Comment sécuriser des objets et données de modèle en créant des rôles avec des membres utilisateurs.  
   
--   Comment déployer un modèle tabulaire sur un serveur **Azure Analysis Services** ou un **serveur SQL Server Analysis Services 2017** à l’aide de SSDT.  
+-   Comment déployer un modèle tabulaire sur un serveur **Azure Analysis Services** ou un serveur **SQL Server 2017 Analysis Services** à l’aide de Visual Studio.  
   
 ## <a name="prerequisites"></a>Prérequis  
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :  

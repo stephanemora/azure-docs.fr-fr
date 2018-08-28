@@ -6,14 +6,14 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/15/2017
+ms.date: 8/10/2018
 ms.author: markgal
-ms.openlocfilehash: b6195feb25a7206d7c453e31f0ac312e070b3113
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b755d7ca1ec72b075ecaa4b32a35f5009a938b
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606169"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42144787"
 ---
 # <a name="recovery-services-vaults-overview"></a>Vue d’ensemble des coffres Recovery Services
 
@@ -38,11 +38,17 @@ Les coffres Recovery Services sont basés sur le modèle Azure Resource Manager 
 - **Restauration instantanée de machines virtuelles IaaS** : les coffres Recovery Services vous permettent de restaurer des fichiers et dossiers d’une machine virtuelle IaaS sans restaurer la machine virtuelle entière, ce qui permet d’accélérer les temps de restauration. La restauration instantanée de machines virtuelles IaaS est disponible pour les machines virtuelles Windows et Linux. [En savoir plus](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>Gestion des coffres Recovery Services dans le portail
-La création et la gestion de coffres Recovery Services dans le portail Azure sont faciles car le service de sauvegarde est intégré dans le menu Paramètres d’Azure. Cette intégration signifie que vous pouvez créer ou gérer un coffre Recovery Services *dans le contexte du service cible*. Par exemple, pour afficher les points de récupération pour une machine virtuelle, sélectionnez celle-ci, puis cliquez sur **Sauvegarde** dans le menu Paramètres. Les informations de sauvegarde spécifiques de cette machine virtuelle s’affichent. Dans l’exemple suivant, **ContosoVM** est le nom de la machine virtuelle. **ContosoVM-demovault** est le nom du coffre Recovery Services. Vous n’avez pas besoin de mémoriser le nom du coffre Recovery Services qui stocke les points de récupération, car vous pouvez accéder à ces informations à partir de la machine virtuelle.  
+La création et la gestion de coffres Recovery Services dans le portail Azure sont faciles car le service de sauvegarde est intégré à d’autres services Azure. Cette intégration signifie que vous pouvez créer ou gérer un coffre Recovery Services *dans le contexte du service cible*. Par exemple, pour afficher les points de récupération pour une machine virtuelle, sélectionnez celle-ci, puis cliquez sur **Sauvegarde** dans le menu Opérations. 
 
-![coffre recovery services, détails, machine virtuelle](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
+![coffre recovery services, détails, machine virtuelle](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
 
-Si plusieurs serveurs sont protégés à l’aide du même coffre Recovery Services, il peut être plus logique d’examiner celui-ci. Vous pouvez rechercher tous les coffres de Recovery Services dans l’abonnement, puis choisir dans la liste.
+Si la machine virtuelle n’a pas de sauvegarde configurée, vous serez invité à configurer une sauvegarde. Si la sauvegarde a été configurée, vous verrez des informations de sauvegarde sur la machine virtuelle, notamment une liste de points de restauration.  
+
+![coffre recovery services, détails, machine virtuelle](./media/backup-azure-recovery-services-vault-overview/vm-recovery-point-list.png)
+
+Dans l’exemple précédent, **ContosoVM** est le nom de la machine virtuelle. **ContosoVM-demovault** est le nom du coffre Recovery Services. Vous n’avez pas besoin de mémoriser le nom du coffre Recovery Services qui stocke les points de récupération, car vous pouvez accéder à ces informations à partir de la machine virtuelle.  
+
+Si un coffre Recovery Services protèges plusieurs serveurs, il peut être plus logique d’examiner celui-ci. Vous pouvez rechercher tous les coffres de Recovery Services dans l’abonnement, puis choisir dans la liste.
 
 Les sections suivantes contiennent des liens vers des articles qui expliquent comment utiliser un coffre Recovery Services dans le cadre de chaque type d’activité.
 

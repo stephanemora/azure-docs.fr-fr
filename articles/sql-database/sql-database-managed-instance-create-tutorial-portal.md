@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a019b21c130bebfe27925e90d7f7843d92654e01
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850608"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918762"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Créer une option Azure SQL Database Managed Instance dans le portail Azure
 
@@ -33,15 +33,17 @@ Ce didacticiel montre comment créer une Azure SQL Database Managed Instance (pr
 > * Connexion à la machine virtuelle
 > * Installer SSMS et se connecter à l’option Managed Instance
 
+> [!Note]
+> Ce didacticiel explique comment configurer le réseau, les sous-réseaux, l’instance et la machine virtuelle à l’aide du portail Azure, ce qui peut être un processus plus long. Si vous avez besoin d’un didacticiel de démarrage rapide plus rapide dans lequel le réseau et la machine virtuelle utilisés pour accéder à l’instance sont créés d’un seul clic sur le bouton « Déployer sur Azure », vous pouvez consulter un [didacticiel de prise en main](sql-database-managed-instance-get-started.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 > [!IMPORTANT]
 > Pour obtenir une liste de régions dans lesquelles Managed Instance est actuellement disponible, consultez [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
+Connectez-vous au [Portail Azure](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
 ## <a name="whitelist-your-subscription"></a>Ajouter votre abonnement à une liste verte
 
@@ -160,7 +162,7 @@ Les étapes suivantes vous montrent comment créer votre option Managed Instance
 2. Recherchez **Managed Instance**, puis sélectionnez **Azure SQL Database Managed Instance (preview)** (Azure SQL Database Managed Instance (préversion)).
 3. Cliquez sur **Créer**.
 
-   ![créer l’option managed instance](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Créer une instance gérée](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
 4. Sélectionnez votre abonnement et vérifiez que les conditions d’utilisation de la préversion sont définies sur l’état **Accepté**.
 
@@ -302,7 +304,7 @@ Les étapes suivantes vous montrent comment télécharger et installer SSMS, pui
 8. À l’invite, cliquez sur **Installer** pour commencer.
 9. Une fois l’installation terminée, cliquez sur **Fermer**.
 10. Ouvrez SSMS.
-11. Dans la boîte de dialogue **Connexion au serveur**, entrez le **nom d’hôte* de votre option Managed Instance dans la zone **Nom du serveur**, sélectionnez **Authentification SQL Server**, indiquez votre identifiant et mot de passe, puis cliquez sur **Se connecter**.
+11. Dans la boîte de dialogue **Connexion au serveur**, entrez le **nom d’hôte** de votre instance gérée dans la zone **Nom du serveur**, sélectionnez **Authentification SQL Server**, indiquez votre identifiant et mot de passe, puis cliquez sur **Se connecter**.
 
     ![connecter ssms](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 

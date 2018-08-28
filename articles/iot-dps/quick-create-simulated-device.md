@@ -1,5 +1,5 @@
 ---
-title: Ce démarrage rapide montre comment approvisionner un appareil TPM simulé auprès du service Azure IoT Hub à l’aide de C | Microsoft Docs
+title: Approvisionner un appareil TPM simulé vers Azure IoT Hub à l’aide de C | Microsoft Docs
 description: Dans ce démarrage rapide, vous créez et approvisionnez un appareil TPM simulé auprès du service Azure IoT Hub Device Provisioning à l’aide du kit de développement logiciel (SDK) C d’appareils
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15c0ce5a545b0bd6b2d1f320b50e9990f8278296
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4e03268db32b4be6900234abe58e7a308110520a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091463"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023429"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Démarrage rapide: Approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel (SDK) C Azure IoT
 
@@ -38,7 +38,7 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, consul
 
 Dans cette section, vous allez préparer un environnement de développement pour générer le [kit de développement logiciel (SDK) C Azure IoT](https://github.com/Azure/azure-iot-sdk-c) et l’exemple de simulateur d’appareil [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview).
 
-1. Téléchargez la dernière version du [système de génération de CMake](https://cmake.org/download/). Depuis ce même site, recherchez le hachage cryptographique pour la version de la distribution binaire que vous avez choisi. Vérifiez le binaire téléchargé à l’aide de la valeur de hachage cryptographique correspondante. L’exemple suivant utilise Windows PowerShell pour vérifier le hachage cryptographique pour la version 3.11.4 de la distribution MSI x64 :
+1. Téléchargez la dernière version du [système de génération de CMake](https://cmake.org/download/). Depuis ce même site, recherchez le hachage de chiffrement pour la version de la distribution binaire que vous avez choisie. Vérifiez le binaire téléchargé à l’aide de la valeur de hachage de chiffrement correspondante. L’exemple suivant utilise Windows PowerShell pour vérifier le hachage de chiffrement pour la version 3.11.4 de la distribution MSI x64 :
 
     ```PowerShell
     PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
@@ -46,14 +46,14 @@ Dans cette section, vous allez préparer un environnement de développement pour
     True
     ```
 
-    Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement vérifié, installez le système de génération de CMake.
+    Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
 
-2. Ouvrez une invite de commandes ou un interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le référentiel GitHub du [kit de développement logiciel (SDK) C Azure IoT](https://github.com/Azure/azure-iot-sdk-c) :
+2. Ouvrez une invite de commandes ou l’interpréteur de commandes Git Bash. Exécutez la commande suivante pour cloner le référentiel GitHub du [Kit de développement logiciel (SDK) Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) :
     
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    La taille de ce référentiel est actuellement d’environ 220 Mo. Attendez-vous à ce que cette opération prenne plusieurs minutes.
+    Pour le moment, ce référentiel a une taille d’environ 220 Mo. Attendez-vous à ce que cette opération prenne plusieurs minutes.
 
 
 3. Créez un sous-répertoire `cmake` dans le répertoire racine du référentiel Git et accédez à ce dossier. 
@@ -111,9 +111,9 @@ Dans cette section, vous allez générer et exécuter un exemple qui lit la pair
 
 1. Lancez Visual Studio et ouvrez le nouveau fichier de solution nommé `azure_iot_sdks.sln`. Ce fichier solution se trouve dans le dossier `cmake` que vous avez créé précédemment à la racine du référentiel Git azure-iot-sdk-c.
 
-2. Dans le menu de Visual Studio, sélectionnez **Génération** > **Générer la solution** pour générer tous les projets dans la solution.
+2. Dans le menu Visual Studio, sélectionnez **Génération** > **Générer la solution** pour générer tous les projets dans la solution.
 
-3. Dans la fenêtre *Explorateur de solutions* de Visual Studio, accédez au dossier **Approvisionner\_Outils**. Cliquez avec le bouton droit sur le projet **tpm_device_provision** et sélectionnez **Définir comme projet de démarrage**. 
+3. Dans la fenêtre *Explorateur de solutions* de Visual Studio, accédez au dossier **Provision\_Tools**. Cliquez avec le bouton droit sur le projet **tpm_device_provision** et sélectionnez **Définir comme projet de démarrage**. 
 
 4. Dans le menu Visual Studio, sélectionnez **Déboguer** > **Exécuter sans débogage** pour exécuter la solution. L’application lit et affiche un **_ID d’inscription_** et une **_paire de clés de type EK_**. Copiez ces valeurs. Ils seront utilisés dans la section suivante pour l’inscription d’appareil. 
 
@@ -147,9 +147,9 @@ Dans cette section, vous allez configurer des exemples de code pour utiliser le 
 
 1. Dans le portail Azure, sélectionnez l’onglet **Vue d’ensemble** de votre service Device Provisioning et copiez la valeur **_Étendue de l’ID_**.
 
-    ![Extraire des informations du point de terminaison DPS à partir du portail](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Extraire des informations de point de terminaison de service Device Provisioning dans le portail](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
-2. Dans la fenêtre *Explorateur de solutions* de Visual Studio, accédez au dossier **Approvisionner\_Exemples**. Développez l’exemple de projet nommé **prov\_dev\_client\_sample**. Développez **Fichiers sources**, puis ouvrez **prov\_dev\_client\_sample.c**.
+2. Dans la fenêtre *Explorateur de solutions* de Visual Studio, accédez au dossier **Provision\_Samples**. Développez l’exemple de projet nommé **prov\_dev\_client\_sample**. Développez **Fichiers sources**, puis ouvrez **prov\_dev\_client\_sample.c**.
 
 3. Au début du fichier, vous trouverez les instructions `#define` pour chaque protocole d’appareil comme indiqué ci-dessous. Assurez-vous que seulement `SAMPLE_AMQP` ne soit pas commenté.
 
@@ -212,7 +212,7 @@ Si vous envisagez de continuer à manipuler et explorer l’exemple de client d�
 1. Fermez la fenêtre de sortie de l’exemple de client d’appareil sur votre machine.
 2. Fermez la fenêtre du simulateur TPM sur votre machine.
 3. Dans le menu de gauche du portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre service Device Provisioning. Ouvrez **Gérer les inscriptions** pour votre service, puis cliquez sur l’onglet **Inscriptions individuelles**. Sélectionnez l’*ID D’INSCRIPTION* de l’appareil inscrit dans ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure. 
-4. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Ouvrez **Appareils IoT** pour votre hub, sélectionnez l’*ID D’APPAREIL* de l’appareil inscrit dans ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure.
+4. À partir du menu de gauche, dans le portail Azure, cliquez sur **Toutes les ressources**, puis sélectionnez votre IoT Hub. Ouvrez **Appareils IoT** pour votre hub, sélectionnez *l’ID D’APPAREIL* de l’appareil que vous avez inscrit dans ce démarrage rapide, puis cliquez sur le bouton **Supprimer** dans la partie supérieure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

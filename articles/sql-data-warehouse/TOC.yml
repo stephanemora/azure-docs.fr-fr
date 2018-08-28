@@ -5,8 +5,18 @@ items:
   items:
   - name: À propos de SQL Data Warehouse
     href: sql-data-warehouse-overview-what-is.md
+  - name: Architecture de SQL Data Warehouse
+    href: massively-parallel-processing-mpp-architecture.md
+  - name: Data Warehouse Units
+    href: what-is-a-data-warehouse-unit-dwu-cdwu.md
   - name: Aide-mémoire
     href: cheat-sheet.md
+  - name: Meilleures pratiques
+    href: sql-data-warehouse-best-practices.md
+  - name: Limites de capacité
+    href: sql-data-warehouse-service-capacity-limits.md
+  - name: Forum Aux Questions
+    href: sql-data-warehouse-overview-faq.md
 - name: Notes de publication
   items:
   - name: Août 2018
@@ -27,13 +37,13 @@ items:
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
-  - name: Suspension et reprise du calcul
+  - name: Suspension et reprise
     items:
     - name: Portail
       href: pause-and-resume-compute-portal.md
     - name: PowerShell
       href: pause-and-resume-compute-powershell.md
-  - name: Mise à l’échelle des ressources de calcul
+  - name: Scale
     items:
     - name: Portail
       href: quickstart-scale-compute-portal.md
@@ -78,18 +88,6 @@ items:
     items:
     - name: Vue d’ensemble
       href: sql-data-warehouse-overview-develop.md
-    - name: Composants de Data Warehouse
-      href: sql-data-warehouse-overview-workload.md
-    - name: Meilleures pratiques
-      href: sql-data-warehouse-best-practices.md
-    - name: Architecture MPP
-      href: massively-parallel-processing-mpp-architecture.md
-    - name: Data Warehouse Units
-      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-    - name: Limites de capacité
-      href: sql-data-warehouse-service-capacity-limits.md
-    - name: Forum Aux Questions
-      href: sql-data-warehouse-overview-faq.md
     - name: Tables
       items:
       - name: Vue d’ensemble
@@ -112,14 +110,6 @@ items:
         href: sql-data-warehouse-tables-statistics.md
       - name: Temporaire
         href: sql-data-warehouse-tables-temporary.md
-    - name: Requêtes
-      items:
-      - name: SQL dynamique
-        href: sql-data-warehouse-develop-dynamic-sql.md
-      - name: Options de regroupement
-        href: sql-data-warehouse-develop-group-by-options.md
-      - name: Étiquettes
-        href: sql-data-warehouse-develop-label.md
     - name: Éléments de langage T-SQL
       items:
       - name: Boucles
@@ -136,6 +126,14 @@ items:
         href: sql-data-warehouse-develop-variable-assignment.md
       - name: Views
         href: sql-data-warehouse-develop-views.md
+  - name: Interrogation
+    items:
+    - name: SQL dynamique
+      href: sql-data-warehouse-develop-dynamic-sql.md
+    - name: Options de regroupement
+      href: sql-data-warehouse-develop-group-by-options.md
+    - name: Étiquettes
+      href: sql-data-warehouse-develop-label.md
   - name: Gestion des charges de travail
     items:
     - name: Classes de ressources et gestion des charges de travail
@@ -178,7 +176,7 @@ items:
       href: sql-data-warehouse-encryption-tde-tsql.md
     - name: Détection de menaces
       href: sql-data-warehouse-security-threat-detection.md
-  - name: Charger les données
+  - name: Charger des données
     items:
     - name: Données sur les taxis de New York
       href: load-data-from-azure-blob-storage-using-polybase.md
@@ -208,11 +206,11 @@ items:
       href: sql-data-warehouse-query-visual-studio.md
     - name: Installer Visual Studio
       href: sql-data-warehouse-install-visual-studio.md
-  - name: Affiner la charge de travail
+  - name: Gérer la charge de travail
     items:
     - name: Analyser votre charge de travail
       href: analyze-your-workload.md
-  - name: Gérer et surveiller
+  - name: Surveiller et régler
     items:
     - name: Restaurer - portail
       href: sql-data-warehouse-restore-database-portal.md
@@ -278,9 +276,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: Gestion des données
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: 8ae5810cabf2154d6c91c2d520479beb29f925bd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdda7231ea4703b33c8547e493cbd47b68cf9aab
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41928384"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915123"

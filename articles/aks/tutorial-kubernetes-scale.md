@@ -1,49 +1,47 @@
 ---
 title: Didacticiel Kubernetes sur Azure – Mise à l’échelle d’une application
-description: Didacticiel ACS - Mise à l’échelle d’une application
+description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous découvrez comment mettre à l’échelle des nœuds et pods dans Kubernetes, et comment implémenter la mise à l’échelle automatique de pod horizontal.
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
-ms.author: danlep
+ms.date: 08/14/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 61654ae972965800909544554cc93dae511e1ff1
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 5ffe7b4c7830500e5eeeeb61c57730d9a0d9df47
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480270"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919898"
 ---
-# <a name="tutorial-scale-application-in-azure-kubernetes-service-aks"></a>Didacticiel : mettre à l’échelle une application dans Azure Kubernetes Service (AKS)
+# <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : mettre à l’échelle des applications dans Azure Kubernetes Service (AKS)
 
-Si vous avez suivi les didacticiels, vous disposez d’un cluster Kubernetes opérationnel dans ACS, et avez déployé l’application Azure Voting.
-
-Dans ce didacticiel (issu d’une série de sept didacticiels), vous allez augmenter le nombre de pods dans l’application et essayer la mise à l’échelle automatique des pods. Vous allez également apprendre à mettre à l’échelle le nombre de nœuds de machine virtuelle Azure afin de modifier la capacité du cluster pour l’hébergement des charges de travail. Les tâches accomplies sont les suivantes :
+Si vous avez suivi les didacticiels, vous disposez d’un cluster Kubernetes opérationnel dans ACS, et avez déployé l’application Azure Voting. Dans ce didacticiel (issu d’une série de sept didacticiels), vous allez augmenter le nombre de pods dans l’application et essayer la mise à l’échelle automatique des pods. Vous allez également apprendre à mettre à l’échelle le nombre de nœuds de machine virtuelle Azure afin de modifier la capacité du cluster pour l’hébergement des charges de travail. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Mettre à l’échelle les nœuds Azure Kubernetes
-> * Mise à l’échelle manuelle des pods Kubernetes
-> * Configuration de la mise à l’échelle automatique des pods qui exécutent le front-end de l’application
+> * Mettre à l’échelle les nœuds Kubernetes
+> * Mettre à l’échelle manuellement des pods Kubernetes qui exécutent votre application
+> * Configurer la mise à l’échelle automatique des pods qui exécutent le serveur frontal d’applications
 
 Dans les didacticiels suivants, une nouvelle version de l’application Azure Vote est installée.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dans les didacticiels précédents, une application a été empaquetée dans une image conteneur, l’image a été chargée dans Azure Container Registry et un cluster Kubernetes a été créé. L’application a ensuite été exécutée sur le cluster Kubernetes.
+Dans les didacticiels précédents, une application a été empaquetée dans une image conteneur, l’image a été chargée dans Azure Container Registry et un cluster Kubernetes a été créé. L’application a ensuite été exécutée sur le cluster Kubernetes. Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Tutoriel 1 – Créer des images conteneur][aks-tutorial-prepare-app].
 
-Si vous n’avez pas accompli ces étapes et que vous souhaitez suivre cette procédure, revenez au [Tutoriel 1 – Créer des images conteneur][aks-tutorial-prepare-app].
+Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.38 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli-install].
 
 ## <a name="manually-scale-pods"></a>Mettre à l’échelle des pods manuellement
 
-Jusqu’à maintenant, le front-end Azure Vote et l’instance de Redis ont été déployés, chacun avec un réplica unique. À des fins de vérification, exécutez la commande [kubectl get][kubectl-get].
+Lorsque le serveur frontal Azure Vote et l’instance Redis ont été déployés dans des didacticiels précédents, un seul réplica a été créé. Pour afficher le nombre et l’état de pods dans votre cluster, utilisez la commande [kubectl get][kubectl-get] comme suit :
 
-```azurecli
+```console
 kubectl get pods
 ```
 
-Output:
+L’exemple de sortie suivant montre un pod de serveur frontal et un pod de serveur principal :
 
 ```
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -51,22 +49,18 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Modifiez manuellement le nombre de pods dans le déploiement `azure-vote-front` à l’aide de la commande [kubectl scale][kubectl-scale]. Cet exemple augmente le nombre à 5.
+Pour modifier manuellement le nombre de pods dans le déploiement *azure-vote-front*, utilisez la commande [kubectl scale][kubectl-scale]. L’exemple suivant augmente le nombre de pods de serveur frontal à *5* :
 
-```azurecli
+```console
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-Exécutez [kubectl get pods][kubectl-get] pour vérifier que Kubernetes crée les pods. Au bout d’une minute environ, les pods supplémentaires sont en cours d’exécution :
+Exécutez à nouveau la commande [kubectl get pods][kubectl-get] pour vérifier que Kubernetes crée les pods supplémentaires. Au bout d’une minute environ, les pods supplémentaires sont disponibles dans votre cluster :
 
-```azurecli
-kubectl get pods
-```
+```console
+$ kubectl get pods
 
-Output:
-
-```
-NAME                                READY     STATUS    RESTARTS   AGE
+                                    READY     STATUS    RESTARTS   AGE
 azure-vote-back-2606967446-nmpcf    1/1       Running   0          15m
 azure-vote-front-3309479140-2hfh0   1/1       Running   0          3m
 azure-vote-front-3309479140-bzt05   1/1       Running   0          3m
@@ -86,7 +80,7 @@ kubectl create -f metrics-server/deploy/1.8+/
 
 Pour utiliser la mise à l’échelle automatique, vos pods doivent avoir des demandes et limites de processeur définies. Dans le déploiement `azure-vote-front`, le conteneur frontal demande 0,25 processeur, avec une limite de 0,5 processeur. Les paramètres s’apparentent aux suivants :
 
-```YAML
+```yaml
 resources:
   requests:
      cpu: 250m
@@ -94,26 +88,22 @@ resources:
      cpu: 500m
 ```
 
-L’exemple suivant utilise la commande [kubectl autoscale][kubectl-autoscale] pour mettre automatiquement à l’échelle le nombre de pods dans le déploiement `azure-vote-front`. Ici, si l’utilisation du processeur dépasse 50 %, le nombre de pods augmente jusqu’à un maximum de 10.
+L’exemple suivant utilise la commande [kubectl autoscale][kubectl-autoscale] pour mettre automatiquement à l’échelle le nombre de pods dans le déploiement *azure-vote-front*. Si l’utilisation du processeur dépasse 50 %, la mise à l’échelle automatique augment le nombre de pods jusqu’à un maximum de 10 instances :
 
-```azurecli
+```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
 
-Pour voir l’état de la mise à l’échelle automatique, exécutez la commande suivante :
-
-```azurecli
-kubectl get hpa
-```
-
-Output:
+Pour voir l’état de la mise à l’échelle automatique, utilisez la commande `kubectl get hpa` comme suit :
 
 ```
+$ kubectl get hpa
+
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
 azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        3          2m
 ```
 
-Au bout de quelques minutes, avec une charge minimale sur l’application Azure Vote, le nombre de réplicas de pods descend automatiquement à 3.
+Au bout de quelques minutes, avec une charge minimale sur l’application Azure Vote, le nombre de réplicas de pods descend automatiquement à trois. Vous pouvez utiliser à nouveau `kubectl get pods` pour voir les pods inutiles en cours de suppression.
 
 ## <a name="manually-scale-aks-nodes"></a>Mettre manuellement à l’échelle les nœuds AKS
 
@@ -145,14 +135,14 @@ Le résultat ressemble à ce qui suit :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez utilisé différentes fonctionnalités de mise à l’échelle dans votre cluster Kubernetes. Les tâches traitées ont inclus :
+Dans ce didacticiel, vous avez utilisé différentes fonctionnalités de mise à l’échelle dans votre cluster Kubernetes. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Mise à l’échelle manuelle des pods Kubernetes
-> * Configuration de la mise à l’échelle automatique des pods qui exécutent le front-end de l’application
-> * Mettre à l’échelle les nœuds Azure Kubernetes
+> * Mettre à l’échelle les nœuds Kubernetes
+> * Mettre à l’échelle manuellement des pods Kubernetes qui exécutent votre application
+> * Configurer la mise à l’échelle automatique des pods qui exécutent le serveur frontal d’applications
 
-Passez au didacticiel suivant pour en savoir plus sur la mise à jour d’une application dans Kubernetes.
+Passez au didacticiel suivant pour savoir comment mettre à jour une application dans Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Mettre à jour une application dans Kubernetes][aks-tutorial-update-app]
@@ -168,3 +158,5 @@ Passez au didacticiel suivant pour en savoir plus sur la mise à jour d’une ap
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
+[az-aks-scale]: /cli/azure/aks#az-aks-scale
+[azure-cli-install]: /cli/azure/install-azure-cli

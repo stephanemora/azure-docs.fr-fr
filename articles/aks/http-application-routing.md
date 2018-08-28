@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 93b9075831db356607438288a7c153dde2f8b210
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238520"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42144031"
 ---
 # <a name="http-application-routing"></a>Routage d’applications HTTP
 
@@ -33,13 +33,19 @@ Le module complémentaire déploie deux composants : un [contrôleur d’entrée
 Le module complémentaire de routage des applications HTTP peut être activé via le l’interface CLI Azure lors du déploiement d’un cluster AKS. Pour ce faire, utilisez la commande [az aks create][az-aks-create] avec l’argument `--enable-addons`.
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --enable-addons http_application_routing
+az aks create --resource-group myResourceGroup --name myAKSCluster --enable-addons http_application_routing
 ```
 
-Une fois le cluster déployé, utilisez la commande [az aks show][az-aks-show] pour récupérer le nom de la zone DNS. Ce nom est nécessaire pour déployer des applications sur le cluster AKS.
+Vous pouvez également activer le routage HTTP sur un cluster AKS existant en utilisant la commande [az aks enable-addons][az-aks-enable-addons]. Pour activer le routage HTTP sur un cluster existant, ajoutez le paramètre `--addons` et spécifiez *http_application_routing* comme indiqué dans l’exemple suivant :
 
 ```azurecli
-$ az aks show --resource-group myAKSCluster --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
+az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
+```
+
+Une fois le cluster déployé ou mis à jour, utilisez la commande [az aks show][az-aks-show] pour récupérer le nom de la zone DNS. Ce nom est nécessaire pour déployer des applications sur le cluster AKS.
+
+```azurecli
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
 
 Result
 -----------------------------------------------------
@@ -155,7 +161,7 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 La solution de routage HTTP peut être supprimée à l’aide d’Azure CLI. Pour ce faire, exécutez la commande suivante, en substituant votre cluster AKS et le nom du groupe de ressources.
 
 ```azurecli
-az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
@@ -232,6 +238,7 @@ Pour plus d’informations sur l’installation d’un contrôleur d’entrée s
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
 [ingress-https]: ./ingress.md
+[az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 
 
 <!-- LINKS - external -->

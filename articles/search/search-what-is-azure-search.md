@@ -6,17 +6,22 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 4874e42139e277400c866a7fc4c7094faeae136d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e4d01fdb4c11277af68127e4671a36ad7e2c74d2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002202"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42023057"
 ---
 # <a name="what-is-azure-search"></a>Présentation de Recherche Azure
-La Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise.
+La Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise. L’exécution d’une requête est effectué sur un index défini par l’utilisateur.
+
++ Générer un corpus de recherche contenant uniquement des données, provenant de plusieurs plateformes et types de contenu. 
++ Tirez parti de l’indexation équipée d’une intelligence artificielle afin d’extraire le texte et les fonctionnalités à partir de fichiers image, ou bien pout extraire des entités et des expressions clés à partir de texte brut.
++ Créez des expériences de recherche intuitives avec des filtres et une navigation par facette, des synonymes, une saisie semi-automatique et une analyse de texte pour des termes de recherche corrigés automatiquement par « voulez-vous dire ».
++ Ajouter la recherche géographique pour « trouver près de moi », des analyseurs de langage pour une recherche dans un texte intégral dans une langue autre que l’anglais et une logique de notation pour un classement de la recherche.
 
 Cette fonctionnalité est exposée par le biais d’une [API REST](/rest/api/searchservice/) ou d’un [SDK.NET](search-howto-dotnet-sdk.md) simple, qui masque la complexité inhérente de la récupération d’informations. En plus des API, le portail Azure offre la prise en charge de l’administration et de la gestion de contenu, avec des outils de prototypage et d’interrogation de vos index. Étant donné que le service s’exécute dans le cloud, infrastructure et la disponibilité sont gérées par Microsoft.
 
@@ -51,7 +56,7 @@ Avant de pouvoir charger du contenu qui peut faire l’objet de recherches, vous
 
 Il est possible de créer un schéma dans le portail Azure ou par programmation à l’aide du [Kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md) ou de [l’API REST](/rest/api/searchservice/).
 
-### <a name="step-3-index-data"></a>Étape 3 : indexer les données
+### <a name="step-3-load-data"></a>Étape 3 : Charger des données
 Une fois que vous avez défini un index, vous êtes prêt à charger du contenu. Vous pouvez utiliser un modèle push ou pull.
 
 Le modèle push extrait des données auprès de sources de données externes. Ce modèle est pris en charge grâce aux *indexeurs* qui simplifient et automatisent certains aspects de l’ingestion de données, comme la connexion aux données, leur lecture et leur sérialisation. Des [indexeurs](/rest/api/searchservice/Indexer-operations) sont disponibles pour Azure Cosmos DB, Azure SQL Database, Stockage Blob Azure et SQL Server hébergé dans une machine virtuelle Azure. Vous pouvez configurer un indexeur pour une actualisation de données à la demande ou planifiée.
@@ -61,7 +66,7 @@ Le modèle d’émission est fourni via le Kit de développement logiciel (SDK) 
 ### <a name="step-4-search"></a>Étape 4 : lancer la recherche
 Après avoir rempli une index, vous pouvez [émettre des requêtes de recherche](/rest/api/searchservice/Search-Documents) à destination du point de terminaison du service en utilisant des requêtes HTTP simples avec l’API REST ou le SDK .NET.
 
-## <a name="how-azure-search-compares"></a>Comparaison des performances de Recherche Azure
+## <a name="how-it-compares"></a>Comparaison
 
 Les clients souhaitent souvent comparer les performances de Recherche Azure par rapport à d’autres solutions de recherche. Le tableau suivant récapitule ces différences clés.
 
@@ -104,13 +109,16 @@ Vous pouvez aussi [activer les avantages de l’abonnement MSDN](https://azure.m
 
 ## <a name="how-to-get-started"></a>Pour commencer
 
-1. Créez un service dans le [niveau Gratuit](search-create-service-portal.md).
+1. Créez un [service gratuit](search-create-service-portal.md). Tous les démarrages rapides et les didacticiels peuvent être effectués sur le service gratuit.
 
-2. Parcourez un ou plusieurs des didacticiels suivants. 
+2. Passez au travers du [didacticiel sur l’utilisation d’outils intégrés pour l’indexation et les requêtes](search-get-started-portal.md). Découvrez les concepts importants et familiarisez-vous avec les informations fournies par le portail.
 
-  + [Utilisation du kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md) illustre les principales étapes liées au code managé.  
-  + [Getting started with Azure Search using the REST API ](https://github.com/Azure-Samples/search-rest-api-getting-started) (Prise en main de Recherche Azure à l’aide de l’API REST) présente les mêmes étapes avec l’API REST.  
-  + [Créez votre premier index dans le portail](search-get-started-portal.md) à l’aide des fonctionnalités intégrées d’indexation et de prototypage.   
+3. Allez plus loin avec le code en utilisant l’API REST ou .NET :
+
+  + [Utilisation du kit de développement logiciel (SDK) .NET](search-howto-dotnet-sdk.md) illustre le flux de travail lié au code managé.  
+  + [Getting started with Azure Search using the REST API ](https://github.com/Azure-Samples/search-rest-api-getting-started) (Prise en main de Recherche Azure à l’aide de l’API REST) présente les mêmes étapes avec l’API REST. Vous pouvez également utiliser ce démarrage rapide pour appeler des API REST à partir de Postman ou Fiddler : [Explorer les API REST Azure Search](search-fiddler.md).
+
+## <a name="watch-this-video"></a>Regardez cette vidéo
 
 Les moteurs de recherche servent généralement à récupérer les informations sur les applications mobiles, sur le web et dans les magasins de données d’entreprise. Avec la Recherche Azure, vous disposez d’outils permettant de créer une expérience de recherche semblable à celle des grands sites web commerciaux.
 
@@ -122,5 +130,3 @@ Dans cette vidéo de 9 minutes du responsable de programme Liam Cavanagh, déco
 + Entre 3 et 4 minutes : approvisionnement du service. 
 + Entre 4 et 6 minutes : utilisation de l’Assistant Importation de données pour créer un index à l’aide du jeu de données intégrées sur l’immobilier.
 + Entre 6 et 9 minutes : présentation de l’Explorateur de recherche et de différentes requêtes.
-
-

@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 423995aecc6e5f29464ad140349ba27f89c75b5d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 141e8f2a01c057f613b7668e64a0ec9503fcfb39
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068741"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022983"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Créer et acheminer des événements de stockage d’objets blob avec le portail Azure et Event Grid
 
@@ -27,8 +27,6 @@ Une fois que vous avez fini, vous voyez que les données d’événement ont ét
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Pour utiliser des événements de stockage Blob, vous avez besoin d’un [compte de stockage d’objets blob](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou d’un [compte de stockage v2 à usage général](../storage/common/storage-account-options.md#general-purpose-v2-accounts). Les comptes **v2 à usage général (GPv2)** sont des comptes de stockage qui prennent en charge toutes les fonctionnalités pour tous les services de stockage, notamment Objets BLOB, Fichiers, Files d’attente et Tables. Un **compte de stockage d’objets blob** est un compte de stockage spécialisé pour le stockage des données non structurées en tant qu’objets blob dans Stockage Azure. Les comptes de stockage d’objets blob sont comme vos comptes de stockage à usage général existants et offrent les excellents niveaux de durabilité, disponibilité, évolutivité et performances dont vous bénéficiez aujourd’hui. Ils assurent notamment la cohérence d’API à 100 % pour les objets blob de blocs et d’ajout. Pour les applications qui requièrent uniquement le stockage d’objets blob de blocs ou d’objets blob d’ajout, nous recommandons d’utiliser des comptes de stockage d’objets blob. 
-
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Pour créer un stockage d’objets blob, sélectionnez **Créer une ressource**. 
@@ -39,7 +37,7 @@ Pour utiliser des événements de stockage Blob, vous avez besoin d’un [compte
 
    ![Sélectionner Stockage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Indiquez des valeurs pour le stockage d’objets blob, notamment un nom unique pour le compte. Sélectionnez **Stockage d’objets blob** comme type de compte. Sélectionnez l’un des [emplacements](overview.md) prenant en charge Event Grid. Après avoir défini les valeurs, sélectionnez **Créer**.
+1. Pour les événements, vous devez créer un [compte de stockage d’objets blob](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou un [compte de stockage v2 à usage général](../storage/common/storage-account-options.md#general-purpose-v2-accounts). Pour les applications qui requièrent uniquement le stockage d’objets blob de blocs ou d’objets blob d’ajout, nous recommandons d’utiliser des comptes de stockage d’objets blob. Fournissez des valeurs pour le compte d’objets blob ou de stockage V2. Attribuez un nom unique au compte. Après avoir défini les valeurs, sélectionnez **Créer**.
 
    ![Étapes de démarrage](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

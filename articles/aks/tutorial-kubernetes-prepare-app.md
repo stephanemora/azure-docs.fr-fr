@@ -1,49 +1,49 @@
 ---
 title: Didacticiel Kubernetes sur Azure - Préparer une application
-description: Didacticiel ACS - Préparer une application
+description: Dans ce didacticiel Azure Kubernetes Service (AKS), vous découvrez comment préparer et créer une application à plusieurs conteneurs avec Docker Compose que vous pouvez ensuite déployer sur AKS.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3e500ec0c7acbf8d8e10756c944516cd7e589610
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7bf3b5f8eb066428b382b9b2e742b919595bdffc
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101008"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920290"
 ---
-# <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>Didacticiel : Préparer une application pour Azure Kubernetes Service (AKS)
+# <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Didacticiel : préparer une application pour Azure Kubernetes Service (AKS)
 
-Dans ce didacticiel (le premier d’une série de sept), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les étapes effectuées sont les suivantes :
+Dans ce didacticiel (le premier d’une série de sept), vous allez préparer une application à plusieurs conteneurs à son utilisation dans Kubernetes. Les outils de développement existants tels que Docker Compose servent à créer et tester en local une application. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Clonage de la source de l’application à partir de GitHub
-> * Création d’une image conteneur à partir de la source de l’application
-> * Test de l’application dans un environnement Docker local
+> * Cloner un exemple de source de l’application à partir de GitHub
+> * Créer une image conteneur à partir de l’exemple de source de l’application
+> * Test l’application à plusieurs conteneurs dans un environnement Docker local
 
-Une fois ces étapes effectuées, l’application suivante est accessible dans votre environnement de développement local.
+Une fois ces étapes effectuées, l’application suivante s’exécute dans votre environnement de développement local :
 
 ![Image du cluster Kubernetes sur Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-Dans les didacticiels suivants, l’image conteneur est chargée dans Azure Container Registry, puis exécutée dans un cluster ACS.
+Dans les didacticiels suivants, l’image conteneur est chargée dans Azure Container Registry, puis déployée dans un cluster AKS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Ce didacticiel suppose une compréhension élémentaire des concepts Docker principaux tels que les conteneurs, les images de conteneur et les commandes Docker de base. Si besoin, consultez [Bien démarrer avec Docker][docker-get-started] pour apprendre les principes de base des conteneurs.
+Ce didacticiel présuppose une compréhension de base des concepts Docker essentiels, tels que les conteneurs, les images de conteneur et les commandes `docker`. Pour apprendre les principes de base des conteneurs, consultez [Bien démarrer avec Docker][docker-get-started].
 
-Pour terminer ce didacticiel, il vous faut un environnement de développement Docker. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
+Pour suivre ce didacticiel, il vous faut un environnement de développement Docker local. Docker fournit des packages qui le configurent sur un système [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 
-Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer chaque étape de ce didacticiel. Par conséquent, nous recommandons d’utiliser un environnement de développement Docker complet.
+Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer chaque étape de ces didacticiels. Par conséquent, nous recommandons d’utiliser un environnement de développement Docker complet.
 
 ## <a name="get-application-code"></a>Obtenir le code d’application
 
 L’exemple d’application utilisé dans ce didacticiel est une application de votes de base. L’application est constituée d’un composant web frontal et d’une instance Redis principale. Le composant web est empaqueté dans une image conteneur personnalisée. L’instance Redis utilise une image non modifiée de Docker Hub.
 
-Utilisez git pour télécharger une copie de l’application dans votre environnement de développement.
+Utilisez [git][] pour cloner l’exemple d’application dans votre environnement de développement :
 
 ```console
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
@@ -59,38 +59,30 @@ Dans le répertoire se trouvent le code source de l’application, un fichier Do
 
 ## <a name="create-container-images"></a>Créer des images de conteneur
 
-Vous pouvez utiliser [Docker Compose][docker-compose] pour automatiser la génération à partir des images conteneur, ainsi que le déploiement des applications à plusieurs conteneurs.
+Vous pouvez utiliser [Docker Compose][docker-compose] pour automatiser la création d’images de conteneur et le déploiement d’applications à plusieurs conteneurs.
 
-Exécutez le fichier `docker-compose.yaml` pour créer l’image conteneur, téléchargez l’image Redis, puis démarrez l’application.
+Utilisez l’exemple de fichier `docker-compose.yaml` pour créer l’image conteneur, téléchargez l’image Redis, puis démarrez l’application :
 
 ```console
 docker-compose up -d
 ```
 
-Une fois terminé, utilisez la commande [docker images][docker-images] pour afficher les images créées.
-
-```console
-docker images
-```
-
-Notez que les trois images ont été téléchargées ou créées. L’image `azure-vote-front` contient l’application et utilise l’image `nginx-flask` comme base. L’image `redis` est utilisée pour démarrer une instance Redis.
+Une fois terminé, utilisez la commande [docker images][docker-images] pour afficher les images créées. Trois images ont été téléchargées ou créées. L’image *azure-vote-front* contient l’application de serveur frontal et utilise l’image `nginx-flask` comme base. L’image `redis` est utilisée pour démarrer une instance Redis.
 
 ```
+$ docker images
+
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
 azure-vote-front             latest     9cc914e25834        40 seconds ago      694MB
 redis                        latest     a1b99da73d05        7 days ago          106MB
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Exécutez la commande [docker ps][docker-ps] pour voir les conteneurs en cours d’exécution.
-
-```console
-docker ps
-```
-
-Output:
+Exécutez la commande [docker ps][docker-ps] pour voir les conteneurs en cours d’exécution :
 
 ```
+$ docker ps
+
 CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES
 82411933e8f9        azure-vote-front  "/usr/bin/supervisord"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:8080->80/tcp   azure-vote-front
 b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
@@ -98,38 +90,32 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Tester l’application localement
 
-Accédez à http://localhost:8080 pour afficher l’application en cours d’exécution.
+Pour voir l’application en cours d’exécution, entrez http://localhost:8080 dans un navigateur web local. L’exemple d’application est chargée, comme indiqué dans l’exemple suivant :
 
 ![Image du cluster Kubernetes sur Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Maintenant que la fonctionnalité de l’application a été validée, les conteneurs en cours d’exécution peuvent être arrêtés et supprimés. Ne supprimez pas les images de conteneur. L’image `azure-vote-front` est chargée sur une instance Azure Container Registry dans le didacticiel suivant.
+Maintenant que la fonctionnalité de l’application a été validée, les conteneurs en cours d’exécution peuvent être arrêtés et supprimés. Ne supprimez pas les images de conteneur. Dans le didacticiel suivant, l’image *azure-vote-front* est chargée dans une instance Azure Container Registry
 
-Exécutez le code suivant pour arrêter les conteneurs en cours d’exécution.
-
-```console
-docker-compose stop
-```
-
-Supprimez les conteneurs et les ressources arrêtés avec la commande suivante.
+Arrêtez et supprimez les instances de conteneur et les ressources avec la commande [docker-compose down][docker-compose-down] :
 
 ```console
 docker-compose down
 ```
 
-Une fois terminé, vous disposez de deux images conteneur contenant l’application Azure Vote.
+Lorsque l’application locale a été supprimée, vous disposez d’une image Docker qui contient l’application Azure Vote, *azure-front-front*, à utiliser avec le didacticiel suivant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Les étapes suivantes ont été effectuées :
+Dans ce didacticiel, une application a été testée et les images de conteneur créées pour l’application. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Le clonage de la source de l’application à partir de GitHub
-> * La création d’une image conteneur à partir de la source de l’application
-> * Le test de l’application dans un environnement Docker local
+> * Cloner un exemple de source de l’application à partir de GitHub
+> * Créer une image conteneur à partir de l’exemple de source de l’application
+> * Test l’application à plusieurs conteneurs dans un environnement Docker local
 
-Passez au didacticiel suivant pour en savoir plus sur le stockage d’images de conteneur dans un registre Azure Container Registry.
+Passez au didacticiel suivant pour savoir comment stocker des images de conteneur dans Azure Container Registry.
 
 > [!div class="nextstepaction"]
 > [Envoyer des images à Azure Container Registry][aks-tutorial-prepare-acr]
@@ -142,6 +128,8 @@ Passez au didacticiel suivant pour en savoir plus sur le stockage d’images de 
 [docker-get-started]: https://docs.docker.com/get-started/
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
 [docker-ps]: https://docs.docker.com/engine/reference/commandline/ps/
+[docker-compose-down]: https://docs.docker.com/compose/reference/down
+[git]: https://git-scm.com/downloads
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
