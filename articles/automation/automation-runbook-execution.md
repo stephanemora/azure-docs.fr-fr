@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3dfe16cc09f0453aef8adf8bf87a00aebd2054bc
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214633"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141055"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -88,7 +88,7 @@ Vous pouvez utiliser les étapes suivantes pour afficher les tâches d'un Runboo
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Récupération de l'état d'une tâche à l'aide de Windows PowerShell
 
-Vous pouvez utiliser [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) pour récupérer les tâches créées pour un Runbook et les détails d’une tâche particulière. Si vous démarrez un Runbook avec Windows PowerShell à l’aide de [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), il retourne la tâche résultante. Utilisez [Get-AzureRmAutomationJobOutput](https://msdn.microsoft.com/library/mt619440.aspx) pour obtenir la sortie d’une tâche.
+Vous pouvez utiliser [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) pour récupérer les tâches créées pour un Runbook et les détails d’une tâche particulière. Si vous démarrez un Runbook avec Windows PowerShell à l’aide de [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), il retourne la tâche résultante. Utilisez [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) pour obtenir la sortie d’une tâche.
 
 Les exemples de commandes suivants récupèrent le dernier travail d’un exemple de runbook et affichent son état, les valeurs fournies pour les paramètres du runbook ainsi que la sortie du travail.
 

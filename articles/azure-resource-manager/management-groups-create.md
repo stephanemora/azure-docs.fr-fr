@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
+ms.date: 08/21/2018
 ms.author: rithorn
-ms.openlocfilehash: 13eea4f2b5125d7ab25b05a9e20021ebc6a2e0c6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 114c3c03b49468b6130243bbf9f881a5de42740f
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435371"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146002"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Créer des groupes d’administration pour la gestion et l’organisation des ressources
 
@@ -27,7 +27,7 @@ La création du premier groupe d’administration dans l’annuaire peut nécess
 
 ## <a name="create-a-management-group"></a>Créer un groupe d’administration
 
-Vous pouvez créer un groupe d’administration en utilisant le portail, PowerShell ou Azure CLI.
+Vous pouvez créer un groupe d’administration en utilisant le portail, PowerShell ou Azure CLI. Actuellement, vous ne pouvez pas utiliser les modèles Resource Manager pour créer des groupes d’administration.
 
 ### <a name="create-in-portal"></a>Créer dans le portail
 

@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/16/2018
 ms.author: byvinyal
-ms.openlocfilehash: 570eee6cc849c474cfeacf5a9ba1798f64f27183
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b6e713c0da11a3d2c8cfbf388b84940a4542e95
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188071"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42139858"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir une plus grande partie de la plateforme.
@@ -35,7 +35,8 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 
 > [!NOTE]
 > Il est important de souligner que les quotas de ressources dans les groupes de ressources Azure sont accessibles par région par le biais de votre abonnement et non par abonnement, comme les quotas de gestion des services. Nous allons utiliser des quotas de processeurs virtuels pour l’exemple. Si vous avez besoin de demander une augmentation des quotas de prise en charge des processeurs virtuels, vous devez déterminer le nombre de processeurs virtuels souhaités et les régions concernées, puis effectuer une demande spécifique de quotas de processeurs virtuels de groupes de ressources Azure pour la quantité et les régions nécessaires. Si vous avez besoin de 30 processeurs virtuels dans la région Europe de l’Ouest pour y exécuter votre application, vous devez donc demander spécifiquement 30 processeurs virtuels dans cette région. Le quota de processeurs virtuels ne sera pas augmenté dans les autres régions. Seule la région Europe de l’Ouest disposera du quota de 30 processeurs virtuels.
-> <!-- --> Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes de ressources Azure pour votre charge de travail dans une région, puis de demander ce volume dans chaque région dans laquelle vous envisagez d’effectuer un déploiement. Pour vous aider à découvrir vos quotas actuels pour des régions spécifiques, consultez la page [Dépannage de problèmes de déploiement](resource-manager-common-deployment-errors.md)
+> <!-- -->
+> Par conséquent, il peut s’avérer utile de décider de vos quotas de groupes de ressources Azure pour votre charge de travail dans une région, puis de demander ce volume dans chaque région dans laquelle vous envisagez d’effectuer un déploiement. Pour vous aider à découvrir vos quotas actuels pour des régions spécifiques, consultez la page [Dépannage de problèmes de déploiement](resource-manager-common-deployment-errors.md)
 >
 >
 
@@ -51,6 +52,7 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 * [Base de données Azure pour PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Policy](#azure-policy-limits)
 * [Cache Redis Azure](#azure-redis-cache-limits)
 * [Sauvegarde](#backup-limits)
 * [Batch](#batch-limits)
@@ -293,6 +295,9 @@ Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la t
 
 ### <a name="azure-maps-limits"></a>Limites d’Azure Maps
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
+### <a name="azure-policy-limits"></a>Limites d’Azure Policy
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>Limites du système StorSimple
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

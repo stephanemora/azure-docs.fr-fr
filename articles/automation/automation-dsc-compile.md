@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6f4f3939b1e8fc50c1a942498d7f90d6e0db0633
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 03b22e3a4c2c0b8eb87ee0b61edba3c6f0923170
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003092"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443813"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilation de configurations DSC dans Azure Automation State Configuration
 
@@ -55,7 +55,9 @@ Vous pouvez utiliser [`Start-AzureRmAutomationDscCompilationJob`](/powershell/mo
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 ```
 
-`Start-AzureRmAutomationDscCompilationJob` renvoie un objet de tâche de compilation que vous pouvez utiliser pour suivre son état. Vous pouvez ensuite utiliser cet objet de tâche de compilation avec [`Get-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) pour déterminer l’état de la tâche de compilation, et [`Get-AzureRmAutomationDscCompilationJobOutput`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) pour afficher ses flux (sortie). L’exemple de code suivant démarre la compilation de la configuration **SampleConfig** , attend qu’elle soit terminée, puis affiche ses flux.
+`Start-AzureRmAutomationDscCompilationJob` renvoie un objet de tâche de compilation que vous pouvez utiliser pour suivre son état. Vous pouvez ensuite utiliser cet objet de tâche de compilation avec [`Get-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob)
+pour déterminer l’état de la tâche de compilation, et [`Get-AzureRmAutomationDscCompilationJobOutput`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput)
+pour afficher ses flux (sortie). L’exemple de code suivant démarre la compilation de la configuration **SampleConfig** , attend qu’elle soit terminée, puis affiche ses flux.
 
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
@@ -222,7 +224,7 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ConfigurationDataSample' -ConfigurationData $ConfigData
 ```
 
-## <a name="assets"></a>Ressources
+## <a name="assets"></a>Éléments multimédias
 
 Les références de ressources sont les mêmes dans Azure Automation State Configuration et les runbooks. Consultez les liens suivants pour plus d’informations :
 
@@ -233,8 +235,7 @@ Les références de ressources sont les mêmes dans Azure Automation State Confi
 
 ### <a name="credential-assets"></a>Ressources d’informations d’identification
 
-Les configurations DSC dans Azure Automation peuvent référencer des ressources d’informations d’identification Automation avec `Get-AzureRmAutomationCredential`. Si une configuration a un paramètre de type **PSCredential**, vous pouvez utiliser l’applet de commande `Get-AutomationRmAutomationCredential` en passant le nom de la chaîne d’une ressource d’informations d’identification Azure Automation à l’applet de commande pour récupérer les informations d’identification. Vous pouvez ensuite utiliser cet objet pour le paramètre nécessitant l’objet **PSCredential**. En arrière-plan, la ressource d’informations d’identification Azure Automation portant le même nom est récupérée et transmise à la configuration.
-L’exemple ci-dessous montre ceci en action.
+Les configurations DSC dans Azure Automation peuvent référencer des ressources d’informations d’identification Automation avec `Get-AzureRmAutomationCredential`. Si une configuration a un paramètre de type **PSCredential**, vous pouvez utiliser l’applet de commande `Get-AutomationRmAutomationCredential` en passant le nom de la chaîne d’une ressource d’informations d’identification Azure Automation à l’applet de commande pour récupérer les informations d’identification. Vous pouvez ensuite utiliser cet objet pour le paramètre nécessitant l’objet **PSCredential**. En arrière-plan, la ressource d’informations d’identification Azure Automation portant le même nom est récupérée et transmise à la configuration. L’exemple ci-dessous montre ceci en action.
 
 Conserver les informations d’identification en sûreté dans les configurations de nœud (documents de configuration MOF) nécessite le chiffrement des informations d’identification dans le fichier MOF de configuration de nœud. Cependant, actuellement, vous devez indiquer à la configuration de l’état souhaité PowerShell que vous êtes d’accord pour que les informations d’identification soient extraites en texte brut lors de la génération du fichier MOF de configuration de nœud, parce que la configuration de l’état souhaité PowerShell ne sait pas qu’Azure Automation va chiffrer l’intégralité du fichier MOF après sa génération via une tâche de compilation.
 
@@ -246,7 +247,7 @@ L’exemple suivant montre une configuration de l’état souhaité qui utilise 
 Configuration CredentialSample
 {
     Import-DscResource -ModuleName PSDesiredStateConfiguration
-    $Cred = Get-AutomationRmAutomationCredential -ResourceGroupName 'ResourceGroup01' -AutomationAccountName 'ContosoAutomationAccount' -Name 'SomeCredentialAsset'
+    $Cred = Get-AutomationPSCredential 'SomeCredentialAsset'
 
     Node $AllNodes.NodeName
     {
@@ -317,8 +318,8 @@ Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour commencer, consultez [Bien démarrer avec Azure Automation State Configuration](automation-dsc-getting-started.md)
-- Pour savoir comment compiler des configurations DSC pour les affecter à des nœuds cibles, consultez [Compilation de configurations dans Azure Automation State Configuration](automation-dsc-compile.md).
-- Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Applets de commande Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation).
-- Pour obtenir des informations sur les prix, consultez [Prix associés à Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/).
-- Pour voir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, consultez [Déploiement continu à l’aide d’Azure Automation State Configuration et de Chocolatey](automation-dsc-cd-chocolatey.md).
+- Pour commencer, consultez [Prise en main d’Azure Automation State Configuration](automation-dsc-getting-started.md)
+- Pour savoir comment compiler des configurations DSC pour les affecter à des nœuds cibles, consultez [Compilation de configurations dans Azure Automation State Configuration](automation-dsc-compile.md)
+- Pour obtenir des informations de référence sur les applets de commande PowerShell, consultez [Applets de commande d’Azure Automation State Configuration](/powershell/module/azurerm.automation/#automation)
+- Pour obtenir des informations sur les prix, consultez [Tarification d’Azure Automation State Configuration](https://azure.microsoft.com/pricing/details/automation/)
+- Pour voir un exemple d’utilisation d’Azure Automation State Configuration dans un pipeline de déploiement continu, consultez [Déploiement continu à l’aide d’Azure Automation State Configuration et de Chocolatey](automation-dsc-cd-chocolatey.md)

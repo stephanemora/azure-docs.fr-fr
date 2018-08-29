@@ -1,6 +1,6 @@
 ---
-title: Guide Bien démarrer avec les opérateurs informatiques Azure | Microsoft Docs
-description: Guide Bien démarrer avec les opérateurs informatiques Azure
+title: Guide de prise en main pour les opérateurs informatiques Azure | Microsoft Docs
+description: Guide de prise en main pour les opérateurs informatiques Azure
 services: ''
 documentationcenter: ''
 author: themichaelbender-ms
@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/21/2018
 ms.author: mibender
-ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072332"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141116"
 ---
-# <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Présentation du cloud computing et de Microsoft Azure
+# <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
 Ce guide présente les principaux concepts associés au déploiement et à la gestion d’une infrastructure Microsoft Azure. Si vous débutez dans le cloud computing ou ne connaissez pas encore Azure, ce guide vous aide à vous familiariser rapidement avec les concepts, le déploiement et les détails de gestion. De nombreuses sections de ce guide présentent des activités, comme le déploiement d’une machine virtuelle, qu’elles accompagnent de liens vers des articles techniques approfondis et détaillés.
 
@@ -53,27 +53,33 @@ Aux petites entreprises, Azure propose un point d’entrée à bas coût, avec u
 
 Pour plus d’informations sur les régions Azure disponibles, consultez [Régions Azure](https://azure.microsoft.com/regions/).
 
-### <a name="cloud-computing-is-classified-into-three-categories-saas-paas-and-iaas"></a>Le cloud computing est classé en trois catégories : SaaS, PaaS et IaaS.
+### <a name="cloud-computing-model"></a>Modèle de cloud computing
 
-#### <a name="saas-software-as-a-service"></a>SaaS : Software as a Service
-
-SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s’appuie généralement sur une architecture multilocataire, où une seule version de l’application est utilisée pour tous les clients. Il peut être monté en charge parallèle sur plusieurs instances pour garantir des performances optimales dans tous les emplacements. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel.
-
-Microsoft Office 365 constitue un bon exemple pour illustrer une offre SaaS. Les abonnés payent un abonnement mensuel ou annuel pour obtenir Microsoft Exchange, Microsoft OneDrive et le reste de la suite Microsoft Office en tant que service. Les abonnés bénéficient toujours de la version la plus récente et n’ont pas besoin de gérer le serveur Exchange. Par rapport à l’installation et à la mise à jour annuelle d’Office, cette solution est moins onéreuse et demande moins d’efforts.
-
-#### <a name="paas-platform-as-a-service"></a>PaaS : Platform as a Service
-
-Avec PaaS, vous déployez votre application dans un environnement qui est fourni par le prestataire de services cloud. Le fournisseur s’occupe de toute la gestion de l’infrastructure pour vous permettre de vous consacrer au développement d’applications.
-
-Azure fournit plusieurs offres de calcul PaaS, notamment le composant Web Apps d’Azure App Service et d’Azure Cloud Services (rôles web et de travail). Dans un cas comme dans l’autre, les développeurs ont à leur disposition plusieurs moyens de déployer leur application sans avoir à se préoccuper de l’infrastructure qui les prend en charge. Les développeurs n’ont aucun besoin de créer des machines virtuelles, ni d’utiliser le protocole RDP (Remote Desktop Protocol) pour se connecter à chacune d’elles, ni même d’installer l’application. Ils appuient simplement sur un bouton (ou peu s’en faut) et les outils fournis par Microsoft approvisionnent les machines virtuelles, puis déploient et installent l’application sur celles-ci.
+Azure utilise un modèle de cloud computing basé sur les catégories de service fournies aux clients. Les trois catégories de service incluent l’IaaS (infrastructure as a service), le PaaS (platform as a service) et le SaaS (software as a service). Les fournisseurs partagent tout ou partie de la responsabilité pour les composants dans la pile informatique dans chacune de ces catégories. Jetons un œil à chacune des catégories pour le cloud computing.
+![Comparaison de pile de cloud computing](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS : Infrastructure as a Service
 
-Un fournisseur de cloud IaaS exécute et gère toutes les ressources de calcul physiques ainsi que les logiciels nécessaires à la virtualisation de l’ordinateur. Un client de ce service déploie les machines virtuelles dans ces centres de données hébergés. Même si les machines virtuelles sont situées dans un centre de données hors site, le consommateur IaaS garde le contrôle sur leur configuration et leur gestion.
+Un fournisseur de cloud IaaS exécute et gère toutes les ressources de calcul physiques ainsi que les logiciels nécessaires à la virtualisation de l’ordinateur. Un client de ce service déploie les machines virtuelles dans ces centres de données hébergés. Même si les machines virtuelles sont situées dans un centre de données hors site, le consommateur IaaS garde le contrôle sur la configuration et la gestion du système d’exploitation laissant l’infrastructure sous-jacente au fournisseur de cloud.
 
 Azure comprend plusieurs solutions IaaS, notamment les machines virtuelles, les groupes de machines virtuelles identiques et l’infrastructure de réseau associée. Le choix des machines virtuelles est largement plébiscité lorsqu’il s’agit au départ de faire migrer des services sur Azure, car il permet un modèle de migration « lift-and-shift » qui se résume à un simple déplacement. Vous pouvez configurer une machine virtuelle, comme l’infrastructure exécutant vos services dans votre centre de données, et ensuite migrer vos logiciels sur la nouvelle machine virtuelle. Des mises à jour de configuration peuvent s’avérer nécessaires, telles que les URL vers d’autres services ou stockages, mais vous pouvez migrer beaucoup d’applications de cette façon-là.
 
 Les groupes de machines virtuelles identiques reposent sur des machines virtuelles Microsoft Azure et offrent un moyen facile de déployer des clusters de machines virtuelles identiques. Les groupes de machines virtuelles identiques prennent également en charge la mise à l’échelle automatique afin de pouvoir déployer les nouvelles machines virtuelles automatiquement à la demande. Les groupes de machines virtuelles identiques offrent une plateforme idéale pour héberger les clusters de calcul de microservice plus importants, tels que Azure Service Fabric et Azure Container Service.
+
+#### <a name="paas-platform-as-a-service"></a>PaaS : Platform as a Service
+
+Avec PaaS, vous déployez votre application dans un environnement qui est fourni par le prestataire de services cloud. Le fournisseur s’occupe de toute la gestion de l’infrastructure pour vous permettre de vous consacrer au développement d’applications et à la gestion de données.
+
+Azure fournit plusieurs offres de calcul PaaS, notamment le composant Web Apps d’Azure App Service et d’Azure Cloud Services (rôles web et de travail). Dans un cas comme dans l’autre, les développeurs ont à leur disposition plusieurs moyens de déployer leur application sans avoir à se préoccuper de l’infrastructure qui les prend en charge. Les développeurs n’ont aucun besoin de créer des machines virtuelles, ni d’utiliser le protocole RDP (Remote Desktop Protocol) pour se connecter à chacune d’elles, ni même d’installer l’application. Ils appuient simplement sur un bouton (ou peu s’en faut) et les outils fournis par Microsoft approvisionnent les machines virtuelles, puis déploient et installent l’application sur celles-ci.
+
+#### <a name="saas-software-as-a-service"></a>SaaS : Software as a Service
+
+SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s’appuie généralement sur une architecture multilocataire, où une seule version de l’application est utilisée pour tous les clients. Il peut être monté en charge parallèle sur plusieurs instances pour garantir des performances optimales dans tous les emplacements. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Les éditeurs de logiciels SaaS sont responsables de tous les composants de la pile logicielle afin de vous faire gérer uniquement les services fournis.
+
+Microsoft Office 365 constitue un bon exemple pour illustrer une offre SaaS. Les abonnés payent un abonnement mensuel ou annuel pour obtenir Microsoft Exchange, Microsoft OneDrive et le reste de la suite Microsoft Office en tant que service. Les abonnés bénéficient toujours de la version la plus récente et n’ont pas besoin de gérer le serveur Exchange. Par rapport à l’installation et à la mise à jour annuelle d’Office, cette solution est moins onéreuse et demande moins d’efforts.
+
+
+
 
 ## <a name="azure-services"></a>Services Azure
 
@@ -175,6 +181,9 @@ L’interface de ligne de commande Azure est un outil que vous pouvez utiliser p
 
 **API REST** Azure repose sur un ensemble d’API REST prenant en charge l’interface utilisateur du portail Azure. La plupart de ces API REST sont également prises en charge pour vous permettre de configurer et de gérer par programmation vos ressources et applications Azure à partir de n’importe quel appareil connecté à Internet. Pour plus d’informations, consultez [Informations de référence sur les API REST Azure](https://docs.microsoft.com/rest/api/index).
 
+### <a name="azure-cloud-shell"></a>Azure Cloud Shell
+
+Les administrateurs peuvent accéder à Azure PowerShell et Azure CLI par l’intermédiaire d’une expérience appelée Azure Cloud Shell et accessible via le navigateur. Cette interface interactive fournit un outil flexible pour que les administrateurs Linux et Windows utilisent leur interface de ligne de commande de choix, Bash ou PowerShell. Azure Cloud Shell est accessible via le portail, comme une interface web autonome à [shell.azure.com](https://shell.azure.com), ou à partir de plusieurs autres points d’accès. Pour plus d’informations, voir la [présentation d’Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 ## <a name="azure-subscriptions"></a>Abonnements Azure
 
 Un abonnement est un regroupement logique de services Azure, associé à un compte Azure. Un seul compte Azure peut contenir plusieurs abonnements. La facturation des services Azure est effectuée par abonnement. Les abonnements Azure sont dotés d’un administrateur de compte ayant un contrôle total sur l’abonnement et d’un administrateur de service ayant le contrôle sur tous les services de l’abonnement. En plus des administrateurs, les comptes individuels peuvent bénéficier d’un contrôle détaillé des ressources Azure par le biais de RBAC.
@@ -355,6 +364,7 @@ L’accès à une machine virtuelle depuis Internet nécessite que l’interface
 
 Vous gérez l’accès à la machine virtuelle sur l’adresse IP publique à l’aide d’une ressource de groupe de sécurité réseau. Un groupe de sécurité réseau (NSG, Network Security Group) agit comme un pare-feu et autorise ou refuse le trafic via l’interface réseau ou le sous-réseau sur un ensemble de ports définis. Par exemple, pour créer une session Bureau à distance avec une machine virtuelle Azure, vous devez configurer le NSG de manière à autoriser le trafic entrant sur le port 3389. Pour plus d’informations, consultez [Ouverture de ports sur une machine virtuelle dans Azure à l’aide du portail Azure](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
+
 Enfin, comme c’est le cas pour la gestion de tout système informatique, vous devez assurer la sécurité d’une machine virtuelle Azure au niveau du système d’exploitation, à l’aide des informations d’identification de sécurité et des pare-feu logiciels.
 
 ## <a name="azure-storage"></a>Stockage Azure
@@ -415,7 +425,7 @@ Il existe plusieurs options de déploiement pour un compte de stockage.
 
 **Portail**
 
-Le déploiement d’un compte de stockage par le portail Azure ne nécessite qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau compte de stockage dans un groupe de ressources existant ou nouveau. Dès que vous avez créé le compte de stockage, vous pouvez créer un conteneur d’objets blob ou un partage de fichiers à l’aide du portail. Vous pouvez créer des entités de Stockage Table et Stockage File d’attente par programmation. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../../storage/common/storage-create-storage-account.md#create-a-storage-account) .
+Le déploiement d’un compte de stockage par le portail Azure ne nécessite qu’un abonnement Azure actif et l’accès à un navigateur web. Vous pouvez déployer un nouveau compte de stockage dans un groupe de ressources existant ou nouveau. Dès que vous avez créé le compte de stockage, vous pouvez créer un conteneur d’objets blob ou un partage de fichiers à l’aide du portail. Vous pouvez créer des entités de Stockage Table et Stockage File d’attente par programmation. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../../storage/common/storage-quickstart-create-account.md) .
 
 En plus du déploiement d’un compte de stockage à partir du portail Azure, vous pouvez déployer un modèle Azure Resource Manager à partir de ce même portail. Toutes les ressources sont alors déployées et configurées, comme défini dans le modèle, notamment les comptes de stockage. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

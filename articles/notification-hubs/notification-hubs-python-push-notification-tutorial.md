@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 32953bacb8fdb135d5f3e0e9324218d2a71b0818
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777016"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141278"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Utilisation de Notification Hubs à partir de Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Vous pouvez accéder à toutes les fonctionnalités Notification Hubs à partir d'un serveur principal Java/PHP/Python/Ruby en utilisant l'interface REST Notification Hub, comme décrit dans la rubrique MSDN [API REST Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
+Vous pouvez accéder à toutes les fonctionnalités Notification Hubs à partir d'un serveur principal Java/PHP/Python/Ruby en utilisant l'interface REST Notification Hub, comme décrit dans l’article MSDN [API REST Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
 
 > [!NOTE]
 > Ceci est un exemple d’implémentation de référence pour l’implémentation des envois de notifications dans Python. Il ne s’agit pas du Kit de développement logiciel (SDK) de Notification Hub Python officiellement pris en charge.
@@ -33,7 +33,7 @@ Vous pouvez accéder à toutes les fonctionnalités Notification Hubs à partir 
 > 
 > 
 
-Cet article vous montre comment :
+Cet article vous montre comment procéder.
 
 * créer un client REST pour les fonctionnalités de Notification Hubs dans Python ;
 * envoyer des notifications à l’aide de l’interface de Python vers les API REST Notification Hub ; 
@@ -62,7 +62,7 @@ Pour envoyer une notification toast de Windows :
     hub.send_windows_notification(wns_payload)
 
 ## <a name="implementation"></a>Implémentation
-Si ce n'est déjà fait, suivez le [tutoriel de prise en main] jusqu'à la dernière section, dans laquelle vous devrez implémenter le serveur principal.
+Si ce n’est déjà fait, suivez le [tutoriel de prise en main] jusqu’à la dernière section, dans laquelle vous devrez implémenter le serveur principal.
 
 Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Cette section décrit l’implémentation Python des principales étapes requises pour accéder aux points de terminaison REST de Notification Hubs et envoyer des notifications :
 
@@ -261,7 +261,7 @@ Avec cette classe, écrivez les méthodes d'envoi des notifications à l'intéri
 Ces méthodes envoient une demande POST HTTP au point de terminaison /messages de votre hub de notification, avec le corps et les en-têtes corrects pour envoyer la notification.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Utilisation de la propriété debug pour activer la journalisation détaillée
-L’activation de la propriété debug lors de l’initialisation du hub de notification permet de rédiger des informations de journalisation détaillées sur le vidage des requêtes et réponses HTTP, ainsi que le résultat détaillé de l’envoi des messages de notification. La [propriété TestSend Notification Hubs](http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx) retourne des informations détaillées sur le résultat de l'envoi de notification. Pour l’utiliser, réalisez une initialisation à l’aide du code suivant :
+L’activation de la propriété debug lors de l’initialisation du hub de notification permet de rédiger des informations de journalisation détaillées sur le vidage des requêtes et réponses HTTP, ainsi que le résultat détaillé de l’envoi des messages de notification. La [propriété TestSend Notification Hubs](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) retourne des informations détaillées sur le résultat de l'envoi de notification. Pour l’utiliser, réalisez une initialisation à l’aide du code suivant :
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 

@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec l’API Reconnaissance vocale de Microsoft à l’aide des bibliothèques clientes | Microsoft Docs
+title: Bien démarrer avec l’API Reconnaissance vocale de Microsoft à l’aide des bibliothèques clientes de la Reconnaissance vocale Bing | Microsoft Docs
 description: Les bibliothèques clientes du service Microsoft Speech dans Microsoft Cognitive Services permettent de développer des applications qui convertissent du contenu vocal en texte.
 services: cognitive-services
 author: zhouwangzw
@@ -9,28 +9,31 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: 5abe5bc48c2bd73d0facf33e41a8076df2972153
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f4b6a97260c6dc176600af8844001e4de819ff7c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368373"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42357508"
 ---
-# <a name="get-started-with-speech-service-client-libraries"></a>Bien démarrer avec les bibliothèques clientes du service Speech
+# <a name="get-started-with-bing-speech-service-client-libraries"></a>Bien démarrer avec les bibliothèques clientes du service Reconnaissance vocale Bing
 
-En plus d’effectuer des requêtes HTTP directes via une API REST, le service Speech fournit aux développeurs des bibliothèques clientes Speech dans différentes langues. Les bibliothèques clientes Speech :
+En plus d’effectuer des requêtes HTTP directes via une API REST, le service Reconnaissance vocale Bing fournit aux développeurs des bibliothèques clientes Speech dans différentes langues. Les bibliothèques clientes Speech :
 
 - Prennent en charge des fonctionnalités de reconnaissance vocale plus avancées, telles que les résultats intermédiaires en temps réel, le flux audio de longue durée (jusqu’à 10 minutes) et la reconnaissance continue.
 - Fournissent une API simple et idiomatique dans la langue de votre choix.
 - Masquent les détails de communication de bas niveau.
 
-Les bibliothèques clientes Speech suivantes sont disponibles :
+Les bibliothèques clientes Reconnaissance vocale Bing suivantes sont disponibles :
 
 - [Bibliothèque de bureau C#](GetStartedCSharpDesktop.md)
 - [Bibliothèque de services C#](GetStartedCSharpServiceLibrary.md)
 - [Bibliothèque JavaScript](GetStartedJSWebsockets.md)
 - [Bibliothèque Java pour Android](GetStartedJavaAndroid.md)
 - [Bibliothèque Objective-C pour iOS](Get-Started-ObjectiveC-iOS.md)
+
+> [!NOTE] 
+En mai 2018, nous avons également publié le nouveau [service Speech](/speech-service/overview.md) en préversion publique. Nous vous encourageons à l’[essayer gratuitement](/speech-service/get-started.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

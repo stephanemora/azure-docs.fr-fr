@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413101"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140241"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Fonctionnement : réinitialisation de mot de passe en libre-service Azure AD
 
@@ -94,6 +94,9 @@ Lorsque vous utilisez une application mobile, comme l’application Microsoft Au
 | Fonctionnalités d’application mobile disponibles | Code | Code ou notification |
 
 Les utilisateurs n’auront pas la possibilité d’inscrire leur application mobile lors de l’inscription pour la réinitialisation de mot de passe en libre-service depuis [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). En revanche, les utilisateurs peuvent inscrire leur application mobile sur [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou dans la nouvelle préversion d’inscription des informations de sécurité sur [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
+
+> [!WARNING]
+> Vous devez activer la fonction [Inscription convergée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure (préversion publique)](concept-registration-mfa-sspr-converged.md) pour permettre aux utilisateurs de bénéficier de la nouvelle expérience sur [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Changer les méthodes d’authentification
 

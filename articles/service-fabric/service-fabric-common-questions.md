@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971534"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146612"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -27,7 +27,7 @@ Les utilisateurs posent fréquemment des questions sur l’utilisation et les fo
 
 ## <a name="cluster-setup-and-management"></a>Création et gestion de clusters
 
-### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Comment restaurer mon certificat de cluster Service Fabric ?
+### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Comment restaurer mon certificat de cluster Service Fabric ?
 
 Restaurer une mise à niveau pour votre application nécessite de détecter les échecs d’intégrité avant que le quorum du cluster Service Fabric ne valide la modification. Les modifications validées peuvent uniquement être restaurées par progression. Le recours à un ingénieur en charge de la remontée d’information via le support technique peut être nécessaire pour récupérer votre cluster, si un changement de certificat cassant non surveillé a été introduit.  La [mise à niveau des applications de Service Fabric](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) applique des [paramètres de mise à niveau d’application](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), et garantit une mise à niveau sans temps d’arrêt.  En suivant notre mode de surveillance recommandé pour la mise à niveau des applications, la progression automatique via les domaines de mise à jour est basée sur la réussite des vérifications d’intégrité. Une restauration automatique a lieu en cas d’échec de la mise à jour d’un service par défaut.
  
@@ -119,6 +119,12 @@ Oui.  Pour plus d’informations, consultez [Créer un cluster avec des disques 
 | FabricRM.exe |
 | FileStoreService.exe |
  
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Comment mon application peut-elle s’authentifier auprès de Key Vault pour obtenir des secrets ?
+Les procédés suivants permettent à votre application d’obtenir des informations d’identification pour s’authentifier auprès de Key Vault :
+
+R. Au cours de votre travail de génération/compression d’applications, vous pouvez extraire un certificat et l’utiliser dans le package de données de votre application SF en vue de l’authentification auprès de Key Vault.
+B. Pour les hôtes MSI d’un groupe de machines virtuelles identiques, vous pouvez développer un élément PowerShell SetupEntryPoint simple pour votre application SF afin d’obtenir [un jeton d’accès à partir du point de terminaison MSI](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token), puis [récupérer vos secrets à partir de Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0).
+
 ## <a name="application-design"></a>Conception des applications
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Quel est le meilleur moyen d’interroger des données sur plusieurs partitions d’une collection fiable ?

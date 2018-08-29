@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 09/08/2018
 ms.author: shvija
-ms.openlocfilehash: abc85c322f7b8ee63c06639ae8845a5f07266b50
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c41612b46102dc8fef67887c164ff6e48a8cf6c6
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007294"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145970"
 ---
 # <a name="event-hubs-features-overview"></a>Vue d’ensemble des fonctionnalités des concentrateurs d’événements
 
@@ -94,7 +94,10 @@ Toute entité qui lit des données d’événement à partir d’un concentrateu
 
 Le mécanisme de publication/d’abonnement des concentrateurs d’événements est activé à l’aide de *groupes de consommateurs*. Un groupe de consommateurs est une vue (état, position ou décalage) d’un concentrateur d’événements dans sa totalité. Les groupes de consommateurs permettent à plusieurs applications consommatrices d'avoir chacune une vue distincte du flux d'événements et de lire le flux indépendamment à leur propre rythme et avec leurs propres décalages.
 
-Dans une architecture de traitement de flux, chaque application en aval équivaut à un groupe de consommateurs. Si vous souhaitez écrire des données d'événement dans le stockage à long terme, alors cette application d'enregistreur de stockage est un groupe de consommateurs. Le traitement des événements complexes est ensuite effectué par un autre groupe de consommateurs distinct. Vous ne pouvez accéder aux partitions que par le biais d'un groupe de consommateurs. Il peut y avoir au maximum 5 lecteurs simultanés sur une partition par groupe de consommateurs. Toutefois **il est recommandé de n’avoir qu’un seul récepteur actif sur une partition par groupe de consommateurs**. Il existe toujours un groupe de consommateurs par défaut dans un concentrateur d’événements, et vous pouvez créer jusqu’à 20 groupes de consommateurs pour un concentrateur d’événements de niveau standard.
+Dans une architecture de traitement de flux, chaque application en aval équivaut à un groupe de consommateurs. Si vous souhaitez écrire des données d'événement dans le stockage à long terme, alors cette application d'enregistreur de stockage est un groupe de consommateurs. Le traitement des événements complexes est ensuite effectué par un autre groupe de consommateurs distinct. Vous ne pouvez accéder aux partitions que par le biais d'un groupe de consommateurs. Il existe toujours un groupe de consommateurs par défaut dans un concentrateur d’événements, et vous pouvez créer jusqu’à 20 groupes de consommateurs pour un concentrateur d’événements de niveau standard.
+
+Il peut y avoir au maximum 5 lecteurs simultanés sur une partition par groupe de consommateurs. Toutefois **il est recommandé de n’avoir qu’un seul récepteur actif sur une partition par groupe de consommateurs**. Dans une partition unique, chaque lecteur reçoit tous les messages. Si vous avez plusieurs lecteurs sur la même partition, vous traitez des messages en double. Vous devez gérer cela dans votre code, ce qui peut poser problème. Toutefois, il s’agit une approche valide dans certains scénarios.
+
 
 Voici quelques exemples de la convention URI de groupe consommateurs :
 

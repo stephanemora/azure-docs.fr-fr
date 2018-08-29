@@ -9,18 +9,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 21f63ebcca4b766f8df8c7b2390c4f44ff4dc7b1
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099717"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42144809"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
 
 Le flux de modification Azure Cosmos DB est un mécanisme permettant d’obtenir un flux d’enregistrements continu et incrémentiel à partir d’un conteneur Azure Cosmos DB à mesure que ces enregistrements sont créés ou modifiés. La prise en charge du flux de modification consiste à identifier les modifications apportées au conteneur. Il renvoie ensuite la liste chronologique de documents qui ont été modifiés, dans l’ordre dans lequel ils ont été modifiés. Pour plus d’informations sur le flux de modification, consultez l’article [Utilisation du support de flux de modification](change-feed.md). 
 
-Cet article explique comment une société de vente au détail peut utiliser le flux de modification pour comprendre les modèles utilisateur, pour effectuer l’Analytique données en temps réel et pour visualiser ces données. Vous allez analyser différents événements tels que la consultation d’un article par un utilisateur, l’ajout d’un article à un panier ou l’achat d’un article. Lorsque l’un de ces événements survient, un enregistrement est créé, puis consigné par le flux de modification. Le flux de modification déclenche ensuite une série d’étapes aboutissant à la visualisation de métriques qui analysent les performances et l’activité de la société. Les métriques que vous pouvez visualiser comprennent notamment les recettes, le nombre de visiteurs uniques du site, les articles les plus populaires et le prix moyen des articles qui sont consultés par rapport aux articles ajoutés à un panier et aux articles achetés. Ces exemples de métriques peuvent aider une société d’e-commerce à évaluer la popularité de son site, à développer ses stratégies publicitaires et de tarification et à prendre des décisions concernant le stock dans lequel elle doit investir.
+Cet article explique comment une société d’e-commerce peut utiliser le flux de modification pour comprendre les modèles utilisateur, pour effectuer l’analyse des données en temps réel et pour visualiser ces données. Vous allez analyser différents événements tels que la consultation d’un article par un utilisateur, l’ajout d’un article à un panier ou l’achat d’un article. Lorsque l’un de ces événements survient, un enregistrement est créé, puis consigné par le flux de modification. Le flux de modification déclenche ensuite une série d’étapes aboutissant à la visualisation de métriques qui analysent les performances et l’activité de la société. Les métriques que vous pouvez visualiser comprennent notamment les recettes, le nombre de visiteurs uniques du site, les articles les plus populaires et le prix moyen des articles qui sont consultés par rapport aux articles ajoutés à un panier et aux articles achetés. Ces exemples de métriques peuvent aider une société d’e-commerce à évaluer la popularité de son site, à développer ses stratégies publicitaires et de tarification et à prendre des décisions concernant le stock dans lequel elle doit investir.
 
 Si vous souhaitez découvrir une vidéo concernant la solution avant de commencer, regardez la vidéo suivante :
 
@@ -315,7 +315,7 @@ Power BI est une suite d’outils d’analyse métier permettant d’analyser de
    * Pour la requête Revenue, il serait logique de créer un graphique en courbes dont l’axe correspond au temps et dont la valeur correspond au cumul des prix. La fenêtre de temps à afficher doit être la plus étendue possible afin de fournir le maximum d’informations.  
    * Pour la requête Unique Visitors, il serait pertinent d’opter pour une visualisation du nombre de visiteurs uniques sous forme de carte.
 
-   Voici à quoi ressemble notre tableau de bord contenant ces graphiques :
+   Voici un exemple de tableau de bord contenant ces graphiques :
 
    ![Visualisations](./media/changefeed-ecommerce-solution/visualizations.png)
 

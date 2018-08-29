@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 44f4dc3a9c876e383a6e4df8ef5f467f2b93eaa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205482"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146166"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Mise à niveau d’applications Service Fabric à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "34205482"
 
 L'approche de la mise à niveau la plus fréquemment utilisée et recommandée est la mise à niveau propagée surveillée.  Azure Service Fabric surveille l’intégrité de l’application en cours de mise à niveau sur la base d’un ensemble de stratégies de contrôle d’intégrité. Une fois qu’un domaine de mise à jour a été mis à niveau, Service Fabric évalue l’intégrité de l’application et passe au domaine de mise à jour suivant ou fait échouer la mise à niveau, en fonction des stratégies de contrôle d’intégrité.
 
-Une mise à niveau surveillée des applications peut être effectuée à l'aide des API managées ou natives, PowerShell ou REST. Pour obtenir des instructions sur l’exécution d’une mise à niveau à l’aide de Visual Studio, consultez [Mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md).
+Une mise à niveau surveillée des applications peut être effectuée à l’aide des API managées ou natives, de PowerShell, REST, Java, ou de l’interface de ligne de commande Azure. Pour obtenir des instructions sur l’exécution d’une mise à niveau à l’aide de Visual Studio, consultez [Mise à niveau de votre application à l’aide de Visual Studio](service-fabric-application-upgrade-tutorial.md).
 
 Grâce à la mise à niveau propagée surveillée de Service Fabric, l’administrateur d’une application peut configurer la stratégie d’évaluation d’intégrité que Service Fabric utilise pour déterminer si l’application est saine. En outre, l’administrateur peut configurer l’action à entreprendre en cas d’échec de l’évaluation d’intégrité (par exemple, effectuer une restauration automatique). Cette section présente une procédure pas à pas de mise à niveau surveillée pour l’un des exemples du Kit de développement logiciel (SDK) à l’aide de PowerShell. La vidéo Microsoft Virtual Academy suivante vous guide également lors de la mise à niveau de l’application : <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=OrHJH66yC_6406218965">
 <img src="./media/service-fabric-application-upgrade-tutorial-powershell/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">

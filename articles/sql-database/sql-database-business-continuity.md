@@ -12,43 +12,60 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263144"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444146"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
+
+Azure SQL Database est une implémentation du dernier moteur de base de données SQL Server stable, configurée et optimisée pour un environnement de cloud Azure. Elle offre une [haute disponibilité](sql-database-high-availability.md) et une résilience aux erreurs susceptibles d’affecter votre processus d’entreprise. La **continuité d’activité** dans Azure SQL Database fait référence aux mécanismes, stratégies et procédures qui permettent aux entreprises de continuer à fonctionner en cas d’interruption affectant notamment leur infrastructure informatique.  Dans la plupart des cas, Azure SQL Database gère les événements d’interruption qui peuvent se produire dans l’environnement de cloud et préservent l’exécution de vos processus d’entreprise. Toutefois, certains de ces événements ne peuvent être gérés par SQL Database, notamment dans les cas suivants :
+ - Un utilisateur a accidentellement supprimé ou mis à jour une ligne dans une table.
+ - Un attaquant a réussi à supprimer des données ou une base de données.
+ - Un tremblement de terre a provoqué une panne d’alimentation et désactivé temporairement le centre de données.
+ 
+Azure SQL Database n’a aucun contrôle sur ces situations. Par conséquent, vous devez utiliser les fonctionnalités de continuité d’activité de SQL Database, qui vous permettent de récupérer vos données et de préserver l’exécution de vos applications.
 
 Cette vue d’ensemble décrit les fonctionnalités de la base de données SQL Azure en matière de continuité d’activité et de récupération d’urgence. Découvrez les options, les recommandations et les didacticiels pour la récupération à partir d’événements d’interruption qui pourraient entraîner une perte de données ou l’indisponibilité de votre base de données et de votre application. Connaissez la procédure à suivre lorsqu’un utilisateur ou qu’une erreur d’application affecte l’intégrité des données, lorsqu’une région Azure subit une panne ou que votre application nécessite une maintenance.
 
 ## <a name="sql-database-features-that-you-can-use-to-provide-business-continuity"></a>Fonctionnalités de la base de données SQL que vous pouvez utiliser pour garantir une continuité d’activité
 
-La base de données SQL fournit plusieurs fonctionnalités de continuité d’activité, notamment des sauvegardes automatisées et une réplication facultative de la base de données. Chacune de ces fonctionnalités possède des caractéristiques spécifiques concernant le temps de récupération estimé (ERT) et le risque de perte de données pour les transactions récentes. Une fois que vous avez compris ces options, vous pouvez choisir celles qui vous conviennent et, dans la plupart des scénarios, les utiliser ensemble dans différents scénarios. Lorsque vous élaborez votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption : votre objectif de délai de récupération (RTO). Vous devez également comprendre la quantité maximale des récentes mises à jour de données (intervalle) que l’application peut accepter de perdre lors de la récupération après l’événement d’interruption, il s’agit de votre objectif de point de récupération (RPO).
+Du point de vue de la base de données, il existe quatre scénarios d’interruption potentiels :
+- **Des défaillances matérielles ou logicielles locales** telles qu’une panne de lecteur de disque affectent le nœud de base de données.
+- **Une suppression ou une altération des données** se produit, généralement à la suite d’une bogue d’application ou d’une erreur humaine.  Ces défaillances sont intrinsèquement spécifiques à l’application et ne peuvent pas toujours être détectées ou résolues par l’infrastructure de façon automatique.
+- **Une panne de centre de données** se produit, à la suite d’une catastrophe naturelle, par exemple.  Ce scénario nécessite un certain degré de redondance géographique permettant le basculement d’application vers un autre centre de données.
+- **Des erreurs de mise à niveau ou de maintenance** se sont produites. Ces problèmes imprévus qui se produisent au cours des mises à niveau ou opérations de maintenance planifiées relatives à une application ou une base de données peuvent nécessiter une restauration rapide à un état antérieur de la base de données.
+
+SQL Database fournit plusieurs fonctionnalités de continuité d’activité, notamment des sauvegardes automatisées et une réplication facultative de la base de données, permettant d’atténuer les problèmes posés par ces scénarios. Tout d’abord, vous devez comprendre comment [l’architecture haute disponibilité](sql-database-high-availability.md) de SQL Database assure une disponibilité de 99,99 % et une résilience à certains événements d’interruption pouvant affecter votre processus d’entreprise.
+Ensuite, vous pouvez en apprendre davantage sur les mécanismes supplémentaires que vous pouvez utiliser en vue d’une récupération à la suite d’événements d’interruption ne pouvant pas être gérées par l’architecture haute disponibilité de SQL Database, par exemple :
+ - Les [tables temporelles](sql-database-temporal-tables.md) vous permettent de restaurer des versions de ligne à partir de n’importe quel point dans le temps.
+ - Les [sauvegardes automatisées intégrées](sql-database-automated-backups.md) et la [limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) vous permettent de restaurer l’ensemble de la base de données selon un moment donné au cours des 35 derniers jours.
+ - Vous pouvez [restaurer une base de données supprimée](sql-database-recovery-using-backups.md#deleted-database-restore) au point où sa suppression s’est produite si le **serveur logique n’a pas été supprimé**.
+ - La [rétention des sauvegardes à long terme](sql-database-long-term-retention.md) vous permet de conserver les sauvegardes sur une période allant jusqu’à 10 ans.
+ - La [géoréplication](sql-database-geo-replication-overview.md) permet à l’application d’effectuer rapidement une récupération d’urgence en cas de panne à l’échelle du centre de données.
+
+Chacune de ces fonctionnalités possède des caractéristiques spécifiques concernant le temps de récupération estimé (ERT) et le risque de perte de données pour les transactions récentes. Une fois que vous avez compris ces options, vous pouvez choisir celles qui vous conviennent et, dans la plupart des scénarios, les utiliser ensemble dans différents scénarios. Au moment d’élaborer votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption. Il s’agit de l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également comprendre sur quelle période maximale l’application peut accepter de perdre les mises à jour de données récentes (intervalle de temps) lors de la récupération après l’événement d’interruption. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective).
 
 Le tableau suivant compare le temps de récupération estimé et l’objectif de point de récupération de chaque niveau de service, pour les trois scénarios les plus courants.
 
 | Fonctionnalité | De base | standard | Premium  | Usage général | Critique pour l’entreprise
 | --- | --- | --- | --- |--- |--- |
-| Limite de restauration dans le temps à partir de la sauvegarde |Tout point de restauration dans un délai de 7 jours |Tout point de restauration dans un délai de 35 jours |Tout point de restauration dans un délai de 35 jours |N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|
-| Géo-restauration à partir de sauvegardes répliquées géographiquement |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
+| Limite de restauration dans le temps à partir de la sauvegarde |Tout point de restauration dans un délai de sept jours |Tout point de restauration dans un délai de 35 jours |Tout point de restauration dans un délai de 35 jours |N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|
+| Géo-restauration à partir de sauvegardes répliquées géographiquement |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
 | Restauration à partir d’une conservation SQL à long terme |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem.|ERT < 12 h, RPO < 1 sem.|
-| Géo-réplication active |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s |ERT < 30s, RPO < 5s|ERT < 30s, RPO < 5s|
+| Géoréplication active |ERT < 30s, RPO < 5s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
 
-### <a name="use-point-in-time-restore-to-recover-a-database"></a>Utiliser une limite de restauration dans le temps pour récupérer une base de données
+## <a name="recover-a-database-to-the-existing-server"></a>Récupération d’une base de données sur le serveur existant
 
-SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures), et de sauvegardes de journaux de transactions (toutes les cinq à dix minutes) pour protéger votre entreprise contre la perte de données. Si vous utilisez le [modèle d’achat DTU](sql-database-service-tiers-dtu.md), alors ces sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour les bases de données associées aux niveaux de service Standard et Premium, et pendant 7 jours pour les bases de données dont le niveau de service est De base. Si la période de rétention de votre niveau de service ne répond pas aux besoins de votre entreprise, vous pouvez augmenter la période de rétention en [modifiant le niveau de service](sql-database-single-database-scale.md). Si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), la rétention des sauvegardes est configurable pendant un maximum de 35 jours dans les niveaux de service Usage général et Critique pour l’entreprise. Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md).
+SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures) et de sauvegardes de fichiers journaux (toutes les 5 à 10 minutes) pour protéger votre entreprise contre la perte de données. Les sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour tous les niveaux de service à l’exception des niveaux de service DTU De base avec lesquels les sauvegardes sont stockées pendant 7 jours. Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md). Vous pouvez restaurer une base de données existante à partir des sauvegardes automatisées à un point antérieur dans le temps en tant que nouvelle base de données sur le même serveur logique à l’aide du portail Azure, de PowerShell ou de l’API REST. Pour plus d’informations, consultez [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-Si la période maximale de rétention qui est associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de rétention à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Sauvegardes automatisées](sql-database-automated-backups.md) et [Rétention des sauvegardes à long terme](sql-database-long-term-retention.md).
+Si la période maximale de rétention qui est associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de rétention à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
 
 Vous pouvez utiliser ces sauvegardes automatiques pour récupérer une base de données après divers événements d’interruption, à la fois dans votre propre centre de données et dans un autre centre de données. Lorsque vous utilisez des sauvegardes automatiques, le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures. La récupération d’une base de données très volumineuse ou active peut prendre un certain temps. Pour plus d’informations sur le temps de récupération, voir [Temps de récupération de la base de données](sql-database-recovery-using-backups.md#recovery-time). Lorsque vous effectuez une récupération vers une autre région de données, le risque de perte de données est limité à 1 heure par le stockage géo-redondant des sauvegardes de bases de données différentielle (toutes les heures).
 
-> [!IMPORTANT]
-> Pour effectuer une récupération à l’aide de sauvegardes automatisées, vous devez être membre du rôle Contributeur de SQL Server ou être le propriétaire de l’abonnement (voir [RBAC : rôles intégrés](../role-based-access-control/built-in-roles.md)). Vous pouvez effectuer une récupération en utilisant le portail Azure, PowerShell ou l’API REST. Vous ne pouvez pas utiliser Transact-SQL.
->
-
-Utilisez des sauvegardes automatisées comme mécanisme de continuité d’activité et de récupération si votre application :
+Utilisez des sauvegardes automatisées et une [limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) comme mécanisme de continuité d’activité et de récupération si votre application :
 
 * N'est pas essentielle.
 * N’a pas de contrat SLA contraignant, une interruption de service de 24 heures ou plus n’entraîne pas la responsabilité financière.
@@ -57,60 +74,32 @@ Utilisez des sauvegardes automatisées comme mécanisme de continuité d’activ
 
 Si vous avez besoin d’une récupération plus rapide, utilisez une [géo-réplication active](sql-database-geo-replication-overview.md) (abordée plus loin). Si vous devez être en mesure de récupérer des données remontant à plus de 35 jours, utilisez la [rétention de sauvegardes à long terme](sql-database-long-term-retention.md). 
 
-### <a name="use-active-geo-replication-and-auto-failover-groups-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Utiliser la géo-réplication active et les groupes de basculement automatique pour réduire le délai de récupération et les pertes de données associées à la récupération
+## <a name="recover-a-database-to-another-region"></a>Récupération d’une base de données sur une autre région
+<!-- Explain this scenario -->
 
-Outre l’utilisation de sauvegardes de base de données pour récupérer une base de données lorsqu’une interruption de service se produit, vous pouvez utiliser la [géo-réplication active](sql-database-geo-replication-overview.md) pour configurer une base de données contenant jusqu’à quatre bases de données secondaires accessibles en lecture dans les régions de votre choix. Ces bases de données secondaires sont synchronisées avec la base de données primaire à l’aide d’un mécanisme de réplication asynchrone. Cette fonctionnalité sert à vous protéger contre l’interruption de service en cas de panne du centre de données ou de mise à niveau de l’application. La géo-réplication active peut également fournir de meilleures performances pour les requêtes en lecture seule adressées à des utilisateurs géographiquement dispersés.
+Bien que le fait soit rare, un centre de données Azure peut subir une panne. En cas de panne, il entraîne une interruption de service qui peut durer de quelques minutes à plusieurs heures.
 
-Pour activer le basculement automatique et transparent, vous devez organiser vos bases de données géo-répliquées dans des groupes à l’aide de la fonctionnalité de [groupe de basculement automatique](sql-database-geo-replication-overview.md) de SQL Database.
+* Vous pouvez attendre que votre base de données redevienne disponible une fois la panne réparée au niveau du centre de données. Cette méthode fonctionne pour les applications qui peuvent se permettre d’avoir la base de données déconnectée. C’est le cas, par exemple, d’un projet de développement ou d’une version d’évaluation gratuite sur lesquels vous n’avez pas à travailler en permanence. Lorsqu’un centre de données subit une panne, vous ne savez pas combien de temps cette panne peut durer. Cette méthode fonctionne donc uniquement si vous n’avez pas à travailler sur votre base de données pendant un certain temps.
+* Vous pouvez également restaurer une base de données sur n’importe quel serveur d’une région Azure quelconque à l’aide des [sauvegardes de base de données géo-redondantes](sql-database-recovery-using-backups.md#geo-restore) (ou géorestaurations). La géorestauration utilise une sauvegarde géoredondante en tant que source et peut être mise à profit pour récupérer une base de données même si la base de données ou le centre de données est inaccessible en raison d’une défaillance.
+* Enfin, vous pouvez rapidement promouvoir une base de données secondaire sur une autre région de données afin qu’elle devienne la base de données primaire (opération également appelée basculement) et configurer les applications de sorte qu’elles se connectent à la base de données promue comme primaire si vous utilisez la géoréplication active. Quelques pertes de données peuvent survenir pour les transactions récentes en raison de la nature de la réplication asynchrone. Avec les groupes de basculement automatique, vous pouvez personnaliser la stratégie de basculement de manière à minimiser la perte potentielle de données. Dans tous les cas, les utilisateurs sont confrontés à quelques interruptions de service minimes et doivent se reconnecter. Un basculement ne prend que quelques secondes, tandis qu’une récupération de base de données à partir de sauvegardes nécessite des heures.
 
-Si la base de données primaire se déconnecte de manière inattendue ou si vous devez la mettre hors ligne pour des activités de maintenance, vous pouvez rapidement promouvoir un serveur secondaire en serveur principal (opération également appelée basculement) et configurer les applications pour une connexion au serveur principal promu. Si votre application se connecte aux bases de données à l’aide de l’écouteur du groupe de basculement, vous n’avez pas besoin de modifier la configuration de chaîne de connexion SQL après le basculement. Le basculement planifié évite toute perte de données. Avec un basculement non planifié, quelques pertes de données peuvent survenir pour les transactions très récentes en raison de la nature de la réplication asynchrone. Avec les groupes de basculement automatique, vous pouvez personnaliser la stratégie de basculement de manière à minimiser la perte potentielle de données. Après un basculement, vous pouvez effectuer une restauration automatique ultérieurement, en fonction d’un plan ou lorsque le centre de données redevient disponible. Dans tous les cas, les utilisateurs sont confrontés à quelques interruptions de service minimes et doivent se reconnecter.
+Afin d’effectuer un basculement vers une autre région, vous pouvez utiliser la [géoréplication active](sql-database-geo-replication-overview.md) pour configurer une base de données contenant jusqu’à quatre bases de données secondaires accessibles en lecture dans les régions de votre choix. Ces bases de données secondaires sont synchronisées avec la base de données primaire à l’aide d’un mécanisme de réplication asynchrone. 
+
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
+
 
 > [!IMPORTANT]
 > Pour utiliser la géo-réplication active et les groupes de basculement automatique, vous devez être le propriétaire de l’abonnement ou disposer d’autorisations administratives dans SQL Server. Vous pouvez configurer et effectuer un basculement à l’aide du portail Azure, de PowerShell ou de l’API REST, en utilisant les autorisations d’abonnement Azure ou à l’aide de Transact-SQL en utilisant des autorisations dans SQL Server.
 > 
 
-Utilisez la géo-réplication active et les groupes de basculement automatique si votre application répond à l’un des critères suivants :
+Cette fonctionnalité sert à vous protéger contre l’interruption de service en cas de panne du centre de données ou de mise à niveau de l’application. Pour activer le basculement automatique et transparent, vous devez organiser vos bases de données géo-répliquées dans des groupes à l’aide de la fonctionnalité de [groupe de basculement automatique](sql-database-geo-replication-overview.md) de SQL Database. Utilisez la géo-réplication active et les groupes de basculement automatique si votre application répond à l’un des critères suivants :
 
 * Est essentielle.
 * A un contrat de niveau de service (SLA) qui n’autorise pas plus de 24 heures d’interruption de service.
 * Toute interruption de service peut engager la responsabilité financière.
 * Affiche un taux élevé de données modifiées et la perte d’une heure de données n’est pas acceptable.
 * Le coût supplémentaire lié à l'utilisation de la géoréplication est plus faible que la responsabilité financière potentielle et la perte d'activité associée.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
->
-
-## <a name="recover-a-database-after-a-user-or-application-error"></a>Récupérer une base de données après une erreur d’utilisateur ou d’application
-
-Personne n’est parfait. Un utilisateur peut supprimer par inadvertance des données, un tableau important voire une base de données tout entière. Ou bien, une erreur d’application peut accidentellement remplacer des données correctes par des données incorrectes.
-
-Dans ce scénario, voici les options de récupération dont vous disposez.
-
-### <a name="perform-a-point-in-time-restore"></a>Effectuer une limite de restauration dans le temps
-Vous pouvez utiliser les sauvegardes automatisées pour récupérer une copie de votre base de données à un point clairement identifié dans le temps, à condition que ce point figure dans la période de rétention de la base de données. Une fois la base de données restaurée, vous pouvez remplacer la base de données d’origine par la base de données restaurée ou copier les informations nécessaires des données restaurées vers la base de données d’origine. Si la base de données utilise la géo-réplication active, nous vous recommandons de copier les données requises de la copie restaurée vers la base de données d’origine. Si vous remplacez la base de données d’origine par la base de données restaurée, vous devez reconfigurer et resynchroniser la géo-réplication active (ce qui peut prendre un certain temps avec des bases de données volumineuses). Bien que cette opération restaure une base de données à la dernière limite de restauration dans le temps disponible, la restauration de la base de données géo-secondaire à n’importe quelle limite de restauration dans le temps n’est pas actuellement prise en charge.
-
-Pour plus d’informations et obtenir la procédure détaillée de restauration d’une base de données à un point dans le temps à l’aide du portail Azure ou de PowerShell, voir [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore). Vous ne pouvez pas effectuer une récupération à l’aide de Transact-SQL.
-
-### <a name="restore-a-deleted-database"></a>restauration d’une base de données supprimée.
-Si la base de données est supprimée mais pas le serveur logique, vous pouvez restaurer cette base de données au point où sa suppression s’est produite. Cette opération restaure une sauvegarde de la base de données sur le même serveur SQL logique d’où elle a été supprimée. Vous pouvez la restaurer en utilisant son nom d’origine, ou attribuer un nouveau nom à la base de données restaurée.
-
-Pour plus d’informations et obtenir la procédure détaillée de restauration d’une base de données supprimée à l’aide du portail Azure ou de PowerShell, voir [Restauration d’une base de données supprimée](sql-database-recovery-using-backups.md#deleted-database-restore). Vous ne pouvez pas restaurer à l’aide de Transact-SQL.
-
-> [!IMPORTANT]
-> Si le serveur logique est supprimé, vous ne pouvez pas récupérer une base de données supprimée.
-
-
-### <a name="restore-backups-from-long-term-retention"></a>Restaurer des sauvegardes à partir d’une rétention à long terme
-
-Si la perte de données s’est produite en dehors de la période de conservation actuelle pour des sauvegardes automatisées, et si votre base de données est configurée pour une conservation à long terme avec Stockage Blob Azure, vous pouvez restaurer à partir d’une sauvegarde complète dans Stockage Blob Azure vers une nouvelle base de données. À ce stade, vous pouvez remplacer la base de données d’origine par la base de données restaurée ou copier les données nécessaires à partir de la base de données restaurée vers la base de données d’origine. Si vous avez besoin de récupérer une version de votre base de données qui est antérieure à une mise à niveau d’application majeure, ou de répondre à une demande dans le cadre d’un audit ou d’un ordre lié à la réglementation, vous pouvez créer une base de données en utilisant une sauvegarde complète enregistrée dans Stockage Blob Azure.  Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
-
-## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Récupérer une base de données vers une autre région suite à une panne du centre de données régional Azure
-<!-- Explain this scenario -->
-
-Bien que le fait soit rare, un centre de données Azure peut subir une panne. En cas de panne, il entraîne une interruption de service qui peut durer de quelques minutes à plusieurs heures.
-
-* Vous pouvez attendre que votre base de données redevienne disponible une fois la panne réparée au niveau du centre de données. Cette méthode fonctionne pour les applications qui peuvent se permettre d’avoir la base de données déconnectée. C’est le cas, par exemple, d’un projet de développement ou d’une version d’évaluation gratuite sur lesquels vous n’avez pas à travailler en permanence. Lorsqu’un centre de données subit une panne, vous ne savez pas combien de temps cette panne peut durer. Cette méthode fonctionne donc uniquement si vous n’avez pas à travailler sur votre base de données pendant un certain temps.
-* Une autre solution consiste à basculer vers une autre région de données si vous utilisez la géo-réplication active ou de restaurer une base de données à l’aide de sauvegardes de bases de données géo-redondantes (restauration géographique). Un basculement ne prend que quelques secondes, tandis qu’une récupération de base de données à partir de sauvegardes nécessite des heures.
 
 Lorsque vous prenez une décision, le délai de la récupération et la quantité de données perdues dépendent de la façon dont vous décidez d’utiliser ces fonctionnalités de continuité d’activité dans votre application. En effet, vous pouvez choisir d’utiliser une combinaison de sauvegardes de bases de données et de géo-réplication active en fonction des besoins de votre application. Pour plus d’informations sur la conception d’applications pour des bases de données autonomes et des pools élastiques à l’aide de ces fonctionnalités de continuité d’activité, consultez [Conception d’applications pour la récupération d’urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 

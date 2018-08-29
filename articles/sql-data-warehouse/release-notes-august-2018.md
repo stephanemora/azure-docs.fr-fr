@@ -7,17 +7,17 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/06/2018
+ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 1f3b17f3163c29f9b9e1e47e14ccdbc1e37e1010
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 27030256b88f429d080c7a7ce69ed3c83eca337c
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632649"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145313"
 ---
-# <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Nouveautés dans Azure SQL Data Warehouse Août 2018
+# <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Nouveautés dans Azure SQL Data Warehouse Août 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en août 2018.
 
 ## <a name="automatic-intelligent-insights"></a>Intelligent Insights automatique
@@ -26,6 +26,15 @@ Microsoft a introduit [Intelligent Insights automatique](https://azure.microsoft
 Vous pouvez afficher les suggestions dans le portail Azure Advisor : ![Suggestions du portail Azure Advisor pour Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/4e205b6d-df04-48db-8eec-d591f2592cf4.png)
 
 Vous pouvez explorer en profondeur chaque catégorie pour voir les suggestions d’une alerte particulière : ![Détails des suggestions du portail Azure Advisor pour Azure SQL Data Warehouse](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/3c42426e-6969-46e3-9025-c34c0755a302.png)
+
+
+## <a name="bug-fixes"></a>Résolution des bogues
+
+| Intitulé | Description |
+|:---|:---|
+| **Échecs de requêtes potentiels lorsque le nombre de fragments dépasse la limite maximale autorisée** |Lorsque la limite maximale d’1 million de fragments de fichier a été dépassée, une exception non prise en charge a contraint le moteur SQL à vider la base de données et toutes les requêtes ont échoué. Ce correctif permet de résoudre le problème en gérant de manière appropriée l’exception et en retournant une erreur sans provoquer l’échec des requêtes. |
+| **Augmentation de la valeur ExternalMoveReadersPerNode par défaut pour améliorer les performances de chargement** |Ce problème est survenu suite à une erreur de synchronisation de la propriété ExternalMoveReadersPerNode avec le paramètre de structure de service. Cette régression a entraîné une dégradation des performances de chargement de deuxième génération. Le correctif rétablit les performances de chargement de deuxième génération avec des paramètres de conception optimisés.|
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un entrepôt SQL Data Warehouse][create a SQL Data Warehouse]. Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure][Azure glossary] lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources de SQL Data Warehouse.  

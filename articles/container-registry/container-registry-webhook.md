@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/02/2017
+ms.date: 08/20/2017
 ms.author: marsma
-ms.openlocfilehash: e85b69e452f4d76dfdf974698fa7d3b5cdbc0c30
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c424e81b13c3c60e975d3721693b1f80e00cfdd7
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426086"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139881"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilisation de webhooks Azure Container Registry
 
@@ -95,4 +95,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+### <a name="webhook-schema-reference"></a>Référence de schéma de webhook
+
+Pour plus d’informations sur le format et les propriétés des charges utiles d’événement JSON émises par Azure Container Registry, consultez la référence de schéma de webhook :
+
 [Référence de schéma de webhook Azure Container Registry](container-registry-webhook-reference.md)
+
+### <a name="event-grid-events"></a>Événements Event Grid
+
+Outre les événements de webhook du registre natif abordés dans cet article, Azure Container Registry peut émettre des événements vers Event Grid :
+
+[Démarrage rapide : Envoyer des événements de registre de conteneurs à Event Grid](container-registry-event-grid-quickstart.md)

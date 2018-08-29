@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 4f4c5870bb1bdd804aa4b2da8c46c0698b897798
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526179"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146165"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -204,6 +204,12 @@ Les différences suivantes s’appliquent au stockage de tables dans l’émulat
 Le stockage de files d’attente dans l’émulateur ne présente aucune différence spécifique.
 
 ## <a name="storage-emulator-release-notes"></a>Notes de publication de l’émulateur de stockage
+
+### <a name="version-57"></a>Version 5.7
+Correction d’un bogue générant une erreur en cas d’activation de la journalisation.
+
+### <a name="version-56"></a>Version 5.6
+* L’émulateur de stockage prend maintenant en charge la version 2018-03-28 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.
 
 ### <a name="version-55"></a>Version 5.5
 * L’émulateur de stockage prend maintenant en charge la version 2017-11-09 des services de stockage sur les points de terminaison des services BLOB, de File d’attente et de Table.

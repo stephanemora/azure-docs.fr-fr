@@ -5,15 +5,15 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/08/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 44bfdd192f846b710e378b1f00799eda304cec1e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f5fa68488fa8130ad49da37c91b7f4c04376edb3
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522762"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42440677"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
@@ -46,15 +46,47 @@ Azure File Sync prend en charge n’importe quel mode d’accès à Azure dispon
 ## <a name="proxy"></a>Proxy
 Azure File Sync prend en charge les paramètres de proxy au niveau des ordinateurs et relatifs à l’application.
 
-Les configurations de proxy au niveau des ordinateurs sont transparentes pour l’agent Azure File Sync, car l’ensemble du trafic du serveur est acheminé à travers ce proxy.
-
-Les paramètre de proxy spécifiques à l’application permettent de configurer un proxy spécifiquement pour le trafic d’Azure File Sync. Les paramètres de proxy spécifiques à l’application sont pris en charge sur l’agent version 3.0.12.0 ou ultérieure, et peuvent être configurés pendant l’installation de l’agent ou à l’aide de l’applet de commande PowerShell Set-StorageSyncProxyConfiguration.
+**Les paramètre de proxy spécifiques à l’application** permettent de configurer un proxy spécifiquement pour le trafic d’Azure File Sync. Les paramètres de proxy spécifiques à l’application sont pris en charge sur l’agent version 3.0.12.0 ou ultérieure, et peuvent être configurés pendant l’installation de l’agent ou à l’aide de l’applet de commande PowerShell Set-StorageSyncProxyConfiguration.
 
 Commandes PowerShell pour configurer les paramètres de proxy spécifiques à l’application :
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
+**Les configurations de proxy au niveau des machines** sont transparentes pour l’agent Azure File Sync, car l’ensemble du trafic du serveur est acheminé à travers ce proxy.
+
+Pour configurer les paramètres de proxy à l’échelle de la machine, suivez les étapes ci-dessous : 
+
+1. Configurer les paramètres de proxy pour les applications .NET 
+
+  - Modifiez ces deux fichiers :  
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+
+  - Ajoutez la section < system.net > dans les fichiers machine.config (sous la section < system.serviceModel >).  Remplacez 127.0.01:8888 par l’adresse IP et le port du serveur proxy. 
+  ```
+      <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+          <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+      </system.net>
+  ```
+
+2. Définir les paramètres de proxy WinHTTP 
+
+  - Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges ou de PowerShell pour afficher les paramètres de proxy existant :   
+
+    netsh winhttp show proxy
+
+  - Exécutez la commande suivante à partir d’une invite de commandes avec élévation de privilèges ou de PowerShell pour définir le paramètre de proxy (remplacez 127.0.01:8888 par l’adresse IP et le port du serveur proxy) :  
+
+    netsh winhttp set proxy 127.0.0.1:8888
+
+3. Redémarrez le service Agent de synchronisation de stockage en exécutant la commande suivante à partir d’une invite de commandes avec élévation de privilèges ou de PowerShell : 
+
+      net stop filesyncsvc
+
+      Remarque : Le service Agent de synchronisation de stockage (filesyncsvc) démarrera automatiquement une fois arrêté.
 
 ## <a name="firewall"></a>Pare-feu
 Comme mentionné plus haut, le port 443 doit être ouvert en sortie. Selon les stratégies en place dans votre centre de données, votre succursale ou votre région, il se peut que vous souhaitiez ou deviez restreindre le trafic sur ce port à des domaines spécifiques.
@@ -76,7 +108,22 @@ Si &ast;.one.microsoft.com est trop vaste, vous pouvez limiter les communication
 
 Pour des raisons de récupération d’urgence et de continuité d’activité (BCDR) vous avez peut-être spécifié des partages de vos fichiers Azure dans un compte de stockage globalement redondant (GRS). Si tel est le cas, vos partages de fichiers Azure basculeront vers la région jumelée en cas de panne régionale durable. Azure File Sync utilise les même paires régionales en tant que stockage. Par conséquent, si vous utilisez des comptes de stockage GRS, vous devez activer des URL supplémentaires pour permettre à votre serveur de communiquer avec la région jumelée pour Azure File Sync. Le tableau ci-dessous appelle cela « Région Jumelée ». De plus, il existe une URL du profil de gestionnaire de trafic qui doit être activée également. Ainsi, le trafic réseau peut être à nouveau routé en toute transparence vers la région jumelée en cas de basculement et est appelé « URL de détection » dans le tableau ci-dessous.
 
-| Région | URL de point de terminaison principal | Région jumelée | URL de détection | |---|---|| --------|| ---------------------------------------| | Australie Est | https://kailani-aue.one.microsoft.com | Australie Sud-Est | https://kailani-aue.one.microsoft.com | | Australie Sud-Est | https://kailani-aus.one.microsoft.com | Australie Est | https://tm-kailani-aus.one.microsoft.com | | Canada Centre | https://kailani-cac.one.microsoft.com | Canada Est | https://tm-kailani-cac.one.microsoft.com | | Canada Est | https://kailani-cae.one.microsoft.com | Canada Centre | https://tm-kailani.cae.one.microsoft.com | | USA Centre | https://kailani-cus.one.microsoft.com | USA Est 2 | https://tm-kailani-cus.one.microsoft.com | | Asie Est | https://kailani11.one.microsoft.com | Asie Sud-est | https://tm-kailani11.one.microsoft.com | | USA Est | https://kailani1.one.microsoft.com |USA Ouest | https://tm-kailani1.one.microsoft.com | | USA Est 2 | https://kailani-ess.one.microsoft.com | USA Centre | https://tm-kailani-ess.one.microsoft.com | | Europe Nord | https://kailani7.one.microsoft.com | Europe Ouest | https://tm-kailani7.one.microsoft.com | | Asie Sud-Est | https://kailani10.one.microsoft.com | Asie Est | https://tm-kailani10.one.microsoft.com | | Royaume-Uni Sud | https://kailani-uks.one.microsoft.com | Royaume-Uni Ouest | https://tm-kailani-uks.one.microsoft.com | | Royaume-Uni Ouest | https://kailani-ukw.one.microsoft.com | Royaume-Uni Sud | https://tm-kailani-ukw.one.microsoft.com | | Europe Ouest | https://kailani6.one.microsoft.com | Europe Nord | https://tm-kailani6.one.microsoft.com | | USA Ouest | https://kailani.one.microsoft.com | USA Est | https://tm-kailani.one.microsoft.com |
+| Région | URL de point de terminaison principal | Région jumelée | URL de détection |
+|--------|---------------------------------------|--------|---------------------------------------|
+| Australie Est | https://kailani-aue.one.microsoft.com | Australie Sud-Est | https://kailani-aue.one.microsoft.com |
+| Australie Sud-Est | https://kailani-aus.one.microsoft.com | Australie Est | https://tm-kailani-aus.one.microsoft.com |
+| Canada Centre | https://kailani-cac.one.microsoft.com | Est du Canada | https://tm-kailani-cac.one.microsoft.com |
+| Est du Canada | https://kailani-cae.one.microsoft.com | Centre du Canada | https://tm-kailani.cae.one.microsoft.com |
+| USA Centre | https://kailani-cus.one.microsoft.com | USA Est 2 | https://tm-kailani-cus.one.microsoft.com |
+| Asie Est | https://kailani11.one.microsoft.com | Asie Sud-Est | https://tm-kailani11.one.microsoft.com |
+| USA Est | https://kailani1.one.microsoft.com | USA Ouest | https://tm-kailani1.one.microsoft.com |
+| USA Est 2 | https://kailani-ess.one.microsoft.com | USA Centre | https://tm-kailani-ess.one.microsoft.com |
+| Europe Nord | https://kailani7.one.microsoft.com | Europe Ouest | https://tm-kailani7.one.microsoft.com |
+| Asie Sud-Est | https://kailani10.one.microsoft.com | Asie Est | https://tm-kailani10.one.microsoft.com |
+| Sud du Royaume-Uni | https://kailani-uks.one.microsoft.com | Ouest du Royaume-Uni | https://tm-kailani-uks.one.microsoft.com |
+| Ouest du Royaume-Uni | https://kailani-ukw.one.microsoft.com | Sud du Royaume-Uni | https://tm-kailani-ukw.one.microsoft.com |
+| Europe Ouest | https://kailani6.one.microsoft.com | Europe Nord | https://tm-kailani6.one.microsoft.com |
+| USA Ouest | https://kailani.one.microsoft.com | USA Est | https://tm-kailani.one.microsoft.com |
 
 - Si vous utilisez des comptes de stockage localement redondants (LRS) ou des comptes de stockage de redondants dans une zone (ZRS), vous devez uniquement activer l’URL répertoriée sous « URL de point de terminaison principal ».
 

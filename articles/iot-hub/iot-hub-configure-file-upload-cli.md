@@ -1,38 +1,40 @@
 ---
-title: Configurer le téléchargement de fichiers vers IoT Hub à l’aide d’Azure CLI (az.py) | Microsoft Docs
-description: Découvrez comment configurer les téléchargements de fichiers vers Azure IoT Hub à l’aide de l’interface Azure CLI 2.0 (az.py).
+title: Configurer le chargement de fichiers vers IoT Hub à l’aide d’Azure CLI | Microsoft Docs
+description: Découvrez comment configurer le chargement des fichiers vers Azure IoT Hub à l’aide de l’interface Azure CLI multiplateforme.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 0eac620d44967827f7703da9cf409703a123ab07
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6cd0b657c8d0352c41e0da538396b166d633306a
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450599"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141497"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>Configurer les chargements de fichiers IoT Hub à l’aide d’Azure CLI
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-Pour utiliser la [fonctionnalité de chargement de fichiers dans IoT Hub][lnk-upload], vous devez d’abord associer un compte Stockage Azure à votre IoT Hub. Vous pouvez utiliser un compte de stockage existant ou en créer un nouveau.
+Pour [charger des fichiers à partir d’un appareil](iot-hub-devguide-file-upload.md), vous devez d’abord associer un compte de stockage Azure à votre hub IoT. Vous pouvez utiliser un compte de stockage existant ou en créer un nouveau.
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit][lnk-free-trial] en quelques minutes.
-* [Azure CLI 2.0][lnk-CLI-install].
-* Un IoT Hub Azure. Si vous n’avez pas de IoT Hub, vous pouvez utiliser la `az iot hub create` [commande][lnk-cli-create-iothub] afin d’en créer un ou utiliser le portail pour [Créer un IoT Hub][lnk-portal-hub].
-* Un compte de stockage Azure. Si vous n’avez pas de compte de Stockage Azure, vous pouvez utiliser [Azure CLI 2.0 - Gérer les comptes de stockage][lnk-manage-storage] afin d’en créer un ou utiliser le portail pour [créer un compte de stockage][lnk-portal-storage].
+* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
+
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+* Un IoT Hub Azure. Si vous n’avez pas de hub IoT, vous pouvez utiliser la [commande `az iot hub create`](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) pour en créer un, ou vous pouvez [Créer un IoT Hub à l’aide du portail](iot-hub-create-through-portal.md).
+
+* Un compte de stockage Azure. Si vous n’avez pas de compte de stockage Azure, vous pouvez utiliser [Azure CLI - Gérer les comptes de stockage](../storage/common/storage-azure-cli.md#manage-storage-accounts) afin d’en créer un ou utiliser le portail pour [créer un compte de stockage](../storage/common/storage-create-storage-account.md).
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Se connecter à votre compte Azure et le définir
 
-Connectez-vous à votre compte Azure et sélectionnez votre abonnement.
+Vous connecter à votre compte Azure et sélectionner votre abonnement.
 
-1. Dans l’invite de commande, exécutez la [commande login][lnk-login-command]:
+1. Dans l’invite de commande, exécutez la [commande login](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) :
 
     ```azurecli
     az login
@@ -40,13 +42,13 @@ Connectez-vous à votre compte Azure et sélectionnez votre abonnement.
 
     Suivez les instructions pour vous authentifier à l’aide du code et vous connecter à votre compte Azure via un navigateur web.
 
-1. Si vous possédez plusieurs abonnements Azure, la connexion à Azure vous donne accès à tous les abonnements Azure associés à vos informations d’identification. Utilisez la [commande suivante pour répertorier les comptes Azure][lnk-az-account-command] que vous pouvez utiliser :
+2. Si vous possédez plusieurs abonnements Azure, la connexion à Azure vous donne accès à tous les abonnements Azure associés à vos informations d’identification. Utilisez la [commande pour répertorier les comptes Azure](https://docs.microsoft.com/cli/azure/account) ci-dessous :
 
     ```azurecli
     az account list
     ```
 
-    Utilisez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser afin d'exécuter les commandes pour créer votre IoT Hub. Vous pouvez utiliser le nom de l’abonnement ou l’ID de la sortie de la commande précédente :
+    Utilisez la commande suivante pour sélectionner l’abonnement que vous souhaitez utiliser afin d’exécuter les commandes pour créer votre hub IoT. Vous pouvez utiliser le nom de l’abonnement ou l’ID de la sortie de la commande précédente :
 
     ```azurecli
     az account set --subscription {your subscription name or id}
@@ -59,12 +61,13 @@ Les étapes suivantes supposent que vous avez créé votre compte de stockage à
 Pour configurer les chargements de fichiers en provenance de vos appareils, vous avez besoin de la chaîne de connexion d’un compte de stockage Azure. Le compte de stockage doit être situé dans le même abonnement que votre IoT Hub. Vous avez également besoin du nom d’un conteneur d’objets blob dans le compte de stockage. Utilisez la commande suivante pour récupérer vos clés de compte de stockage :
 
 ```azurecli
-az storage account show-connection-string --name {your storage account name} --resource-group {your storage account resource group}
+az storage account show-connection-string --name {your storage account name} \
+  --resource-group {your storage account resource group}
 ```
 
 Notez le nom de la valeur **connectionString**. Vous en aurez besoin dans les étapes suivantes.
 
-Vous pouvez utiliser un conteneur d’objets blob existant pour les chargements de fichiers ou en créer un nouveau :
+Pour le chargement des fichiers, vous pouvez soit utiliser un conteneur d’objets blob existant, soit en créer un nouveau :
 
 * Pour répertorier les conteneurs d’objets blob existants dans votre compte de stockage, utilisez la commande suivante :
 
@@ -75,49 +78,50 @@ Vous pouvez utiliser un conteneur d’objets blob existant pour les chargements 
 * Pour créer un conteneur d’objet blob dans votre compte de stockage, utilisez la commande suivante :
 
     ```azurecli
-    az storage container create --name {container name} --connection-string "{your storage account connection string}"
+    az storage container create --name {container name} \
+      --connection-string "{your storage account connection string}"
     ```
 
 ## <a name="file-upload"></a>Chargement de fichiers
 
-Vous pouvez désormais configurer votre IoT Hub pour activer la [fonctionnalité de chargement de fichiers][lnk-upload] à l’aide des détails de votre compte de stockage.
+Vous pouvez désormais configurer votre hub IoT pour activer la [fonctionnalité de chargement des fichiers vers le hub IoT](iot-hub-devguide-file-upload.md) à l’aide des informations de votre compte de stockage.
 
 La configuration requiert les valeurs suivantes :
 
-**Conteneur de stockage** : Un conteneur d’objets blob dans un compte de stockage Azure de votre abonnement Azure actuel à associer à votre IoT Hub. Vous avez extrait les informations de compte de stockage nécessaires dans la section précédente. IoT Hub génère automatiquement des URI SAS avec des autorisations d’écriture pour ce conteneur d’objets blob pour les appareils à utiliser lorsqu’ils chargent des fichiers.
+* **Conteneur de stockage** : Un conteneur d’objets blob dans un compte de stockage Azure de votre abonnement Azure actuel à associer à votre IoT Hub. Vous avez extrait les informations de compte de stockage nécessaires dans la section précédente. IoT Hub génère automatiquement des URI SAS avec des autorisations d’écriture pour ce conteneur d’objets blob pour les appareils à utiliser lorsqu’ils chargent des fichiers.
 
-**Recevoir des notifications pour les fichiers chargés** : activez ou désactivez les notifications de chargement de fichiers.
+* **Recevoir des notifications pour les fichiers chargés** : activez ou désactivez les notifications de chargement de fichiers.
 
-**SAS TTL**: ce paramètre est la durée de vie des URI de signature d’accès partagé renvoyés à l’appareil par IoT Hub. Défini sur 1 heure par défaut.
+* **SAS TTL**: ce paramètre est la durée de vie des URI de signature d’accès partagé renvoyés à l’appareil par IoT Hub. Défini sur 1 heure par défaut.
 
-**Durée de vie par défaut des paramètres de notification de fichiers**: la durée de vie d’une notification de chargement avant son expiration. Défini sur 1 jour par défaut.
+* **Durée de vie par défaut des paramètres de notification de fichiers**: la durée de vie d’une notification de chargement avant son expiration. Défini sur 1 jour par défaut.
 
-**Nombre maximal de remises de notifications de fichier**: le nombre de tentatives de remise d’une notification de chargement de fichier par l’IoT Hub. Défini sur 10 par défaut.
+* **Nombre maximal de remises de notifications de fichier**: le nombre de tentatives de remise d’une notification de chargement de fichier par l’IoT Hub. Défini sur 10 par défaut.
 
 Utilisez les commandes Azure CLI suivantes pour configurer les paramètres de chargement sur votre IoT Hub :
 
-Dans un shell bash, utilisez :
+<!--Robinsh this is out of date, add cloud powershell -->
+
+Dans un shell Bash, utilisez :
 
 ```azurecli
-az iot hub update --name {your iot hub name} --set properties.storageEndpoints.'$default'.connectionString="{your storage account connection string}"
-az iot hub update --name {your iot hub name} --set properties.storageEndpoints.'$default'.containerName="{your storage container name}"
-az iot hub update --name {your iot hub name} --set properties.storageEndpoints.'$default'.sasTtlAsIso8601=PT1H0M0S
+az iot hub update --name {your iot hub name} \
+  --set properties.storageEndpoints.'$default'.connectionString="{your storage account connection string}"
 
-az iot hub update --name {your iot hub name} --set properties.enableFileUploadNotifications=true
-az iot hub update --name {your iot hub name} --set properties.messagingEndpoints.fileNotifications.maxDeliveryCount=10
-az iot hub update --name {your iot hub name} --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
-```
+az iot hub update --name {your iot hub name} \
+  --set properties.storageEndpoints.'$default'.containerName="{your storage container name}"
 
-À une invite de commandes Windows, utilisez :
+az iot hub update --name {your iot hub name} \
+  --set properties.storageEndpoints.'$default'.sasTtlAsIso8601=PT1H0M0S
 
-```azurecli
-az iot hub update --name {your iot hub name} --set "properties.storageEndpoints.$default.connectionString="{your storage account connection string}""
-az iot hub update --name {your iot hub name} --set "properties.storageEndpoints.$default.containerName="{your storage container name}""
-az iot hub update --name {your iot hub name} --set "properties.storageEndpoints.$default.sasTtlAsIso8601=PT1H0M0S"
+az iot hub update --name {your iot hub name} \
+  --set properties.enableFileUploadNotifications=true
 
-az iot hub update --name {your iot hub name} --set properties.enableFileUploadNotifications=true
-az iot hub update --name {your iot hub name} --set properties.messagingEndpoints.fileNotifications.maxDeliveryCount=10
-az iot hub update --name {your iot hub name} --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
+az iot hub update --name {your iot hub name} \
+  --set properties.messagingEndpoints.fileNotifications.maxDeliveryCount=10
+
+az iot hub update --name {your iot hub name} \
+  --set properties.messagingEndpoints.fileNotifications.ttlAsIso8601=PT1H0M0S
 ```
 
 Vous pouvez consulter le fichier de configuration de téléchargement sur votre IoT Hub à l’aide de la commande suivante :
@@ -128,44 +132,16 @@ az iot hub show --name {your iot hub name}
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les fonctionnalités de chargement de fichiers d’IoT Hub, consultez [Chargements de fichiers avec IoT Hub][lnk-upload].
+Pour plus d’informations sur les fonctionnalités de chargement des fichiers dans IoT Hub, consultez [Charger des fichiers à partir d’un appareil](iot-hub-devguide-file-upload.md).
 
 Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
-* [Gérer en bloc des appareils IoT][lnk-bulk]
-* [Métriques d’IoT Hub][lnk-metrics]
-* [Surveillance des opérations][lnk-monitor]
+* [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
+* [Métriques IoT Hub](iot-hub-metrics.md)
+* [Surveillance des opérations](iot-hub-operations-monitoring.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur d’IoT Hub][lnk-devguide]
-* [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
-* [Sécuriser votre solution IoT de bout en bout][lnk-securing]
-
-[13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png
-[14]: ./media/iot-hub-configure-file-upload/file-upload-container-selection.png
-[15]: ./media/iot-hub-configure-file-upload/file-upload-selected-container.png
-
-[lnk-upload]: iot-hub-devguide-file-upload.md
-
-[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-securing]: /azure/iot-fundamentals/iot-security-ground-up
-
-
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
-[lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
-[lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account
-[lnk-az-register-command]: https://docs.microsoft.com/cli/azure/provider
-[lnk-az-addcomponent-command]: https://docs.microsoft.com/cli/azure/component
-[lnk-az-resource-command]: https://docs.microsoft.com/cli/azure/resource
-[lnk-az-iot-command]: https://docs.microsoft.com/cli/azure/iot
-[lnk-iot-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-manage-storage]:../storage/common/storage-azure-cli.md#manage-storage-accounts
-[lnk-portal-storage]:../storage/common/storage-create-storage-account.md
-[lnk-cli-create-iothub]: https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create
+* [Guide du développeur d’IoT Hub](iot-hub-devguide.md)
+* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Sécuriser votre solution IoT de bout en bout](../iot-fundamentals/iot-security-ground-up.md)

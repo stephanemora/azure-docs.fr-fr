@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 443cb2786c12bddd87535a7267d66c0332473b1b
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113715"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42146148"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -42,6 +42,12 @@ ms.locfileid: "37113715"
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="v2-builds"></a>Builds V2
+
+### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
+* Ajout de la propriété publique ChangeFeedEventHost.HostName pour compatibilité avec v1.
+
+### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
+* Condition de concurrence qui se produit pendant un fractionnement de partition. La condition de concurrence peut conduire à l’acquisition d’un bail et à sa perte immédiate pendant le fractionnement de partition, entraînant une contention. Le problème de condition de concurrence est résolu avec cette version.
 
 ### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * Kit SDK GA

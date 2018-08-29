@@ -1,34 +1,32 @@
 ---
 title: Connexions et utilisateurs Azure SQL | Microsoft Docs
-description: Découvrez la gestion de la sécurité SQL Database, en particulier la façon de gérer la sécurité d’accès et de connexion aux bases de données par le biais du compte du principal au niveau du serveur.
+description: Apprenez-en davantage sur la gestion de la sécurité SQL Database et SQL Data Warehouse, en particulier sur la façon de gérer la sécurité d’accès et de connexion aux bases de données par le biais du compte du principal au niveau du serveur.
 keywords: sécurité sql database, gestion de la sécurité de base de données, sécurité de connexion,sécurité de base de données, accès aux bases de données
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 08/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 8529256313d8e3cb3b7155bb1b79764c17274397
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649803"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145537"
 ---
-# <a name="controlling-and-granting-database-access"></a>Contrôle et octroi de l’accès à la base de données
+# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse
 
-Une fois que les règles de pare-feu ont été configurées, les utilisateurs peuvent se connecter à une base de données SQL en tant qu’un des comptes d’administrateur, que propriétaire ou qu’utilisateur de base de données dans la base de données.  
+Une fois que les règles de pare-feu ont été configurées, vous pouvez vous connecter à Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) en tant qu’un des comptes d’administrateur, en tant que propriétaire ou en tant qu’utilisateur de base de données dans la base de données.  
 
 >  [!NOTE]  
->  Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. 
->
+>  Cette rubrique s’applique au serveur SQL Azure, ainsi qu’aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. 
 
 > [!TIP]
 > Pour obtenir un didacticiel, consultez [Sécuriser votre base de données Azure SQL Database](sql-database-security-tutorial.md).
->
-
 
 ## <a name="unrestricted-administrative-accounts"></a>Comptes d’administration non restreints
 Il existe deux comptes d’administration (**Administrateur de serveur** et **Administrateur Active Directory**) qui agissent en tant qu’administrateurs. Pour identifier ces comptes d’administrateur de votre serveur SQL, ouvrez le portail Azure et accédez aux propriétés de votre serveur SQL.
@@ -38,14 +36,14 @@ Il existe deux comptes d’administration (**Administrateur de serveur** et **Ad
 - **Administrateur de serveur**   
 Lorsque vous créez un serveur SQL Azure, vous devez désigner une **connexion d’administrateur de serveur**. Le serveur SQL crée ce compte comme une connexion dans la base de données MASTER. Ce compte se connecte à l’aide de l’authentification SQL Server (nom d’utilisateur et mot de passe). Un seul de ces comptes peut exister.   
 - **Administrateur Azure Active Directory**   
-Un compte Azure Active Directory individuel ou de groupe de sécurité peut également être configuré en tant qu’administrateur. La configuration d’un administrateur Azure AD est facultative, mais un administrateur Azure AD doit être configuré si vous voulez utiliser les comptes Azure AD pour vous connecter à SQL Database. Pour plus d’informations sur la configuration de l’accès à Azure Active Directory, voir [Connexion à SQL Database ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md) et [Prise en charge de SSMS pour Azure AD MFA avec SQL Database et SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
+Un compte Azure Active Directory individuel ou de groupe de sécurité peut également être configuré en tant qu’administrateur. La configuration d’un administrateur Azure AD est facultative, mais un administrateur Azure AD **doit** être configuré si vous voulez utiliser les comptes Azure AD pour vous connecter à SQL Database. Pour plus d’informations sur la configuration de l’accès à Azure Active Directory, voir [Connexion à SQL Database ou SQL Data Warehouse avec l’authentification Azure Active Directory](sql-database-aad-authentication.md) et [Prise en charge de SSMS pour Azure AD MFA avec SQL Database et SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).
  
 
 Les comptes d’**administrateur de serveur** et d’**administrateur Azure AD** présentent les caractéristiques suivantes :
 - Ce sont les seuls comptes pouvant se connecter automatiquement à n’importe quelle base de données SQL sur le serveur. (Pour se connecter à une base de données utilisateur, vous devez disposer d’un compte de propriétaire de la base de données ou d’un compte d’utilisateur dans la base de données utilisateur.)
 - Ces comptes accèdent aux bases de données utilisateur en tant qu’`dbo` utilisateur et possèdent toutes les autorisations dans les bases de données utilisateur. (Le propriétaire d’une base de données utilisateur accède également à la base de données en tant qu’utilisateur `dbo`.) 
 - Ces comptes n’ont pas accès à la base de données `master` en tant qu’utilisateur `dbo` et ils ont des autorisations limitées dans MASTER. 
-- Ces comptes ne sont pas membres du rôle de serveur fixe SQL standard `sysadmin`, qui n’est pas disponible dans la base de données SQL.  
+- Ces comptes **ne sont pas** membres du rôle serveur fixe SQL standard `sysadmin`, qui n’est pas disponible dans la base de données SQL.  
 - Ces comptes peuvent créer, modifier et supprimer des bases de données, des connexions, des utilisateurs de MASTER et des règles de pare-feu au niveau du serveur.
 - Ces comptes peuvent ajouter et supprimer des membres aux rôles `dbmanager` et `loginmanager`.
 - Ces comptes peuvent afficher la table système `sys.sql_logins`.
@@ -89,7 +87,7 @@ L’un de ces rôles d’administration est le rôle **dbmanager**. Les membres 
    
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
-   CREATE USER Tran WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
+   CREATE USER Ann WITH PASSWORD = '<strong_password>'; -- To create a SQL Database contained database user
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 

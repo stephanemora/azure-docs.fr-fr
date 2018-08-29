@@ -3,8 +3,8 @@ title: Compression des fichiers dans Azure CDN pour améliorer les performances�
 description: Découvrez comment améliorer la vitesse de transfert de fichiers et les performances de chargement de page en compressant vos fichiers dans Azure CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/15/2018
+ms.author: magattus
+ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260394"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140666"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Compression des fichiers dans Azure CDN pour améliorer les performances
 La compression de fichiers est une méthode simple et efficace qui vise à améliorer la vitesse de transfert des fichiers et à accroître les performances de chargement des pages en réduisant la taille des fichiers avant leur envoi à partir du serveur. La compression de fichiers peut réduire les coûts de bande passante et offre à vos utilisateurs davantage de réactivité.
@@ -65,6 +65,10 @@ Les niveaux Standard et Premium de CDN fournissent les mêmes fonctionnalités, 
    
    > [!TIP]
    > Bien que cela soit possible, il n’est pas recommandé d’appliquer la compression aux formats compressés. Par exemple, ZIP, MP3, MP4 ou JPG.
+   > 
+   
+   > [!NOTE]
+   > La modification de la liste par défaut des types MIME n’est actuellement pas prise en charge dans Azure CDN Standard fourni par Microsoft.
    > 
  
 5. Une fois vos modifications effectuées, sélectionnez **Enregistrer**.

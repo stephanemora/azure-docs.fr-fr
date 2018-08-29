@@ -1,6 +1,6 @@
 ---
 title: Points de terminaison de sécurité du service de provisionnement d’appareils IoT | Microsoft Docs
-description: Concepts - Comment contrôler l’accès au service de provisionnement d’appareils IoT pour les applications backend. Inclut des informations sur les jetons de sécurité.
+description: 'Concepts : Comment contrôler l’accès au service de provisionnement des appareils IoT pour les applications principales. Inclut des informations sur les jetons de sécurité.'
 author: wesmc7777
 manager: timlt
 ms.service: iot-dps
@@ -8,25 +8,25 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: b4776ef3589d994fff692e450d252c491c20f7b2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522864"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42144816"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Contrôler l’accès au service de provisionnement d’appareils Azure IoT Hub
 
-Cet article décrit les options permettant de sécuriser votre service de provisionnement d’appareils IoT. Le service de provisionnement utilise des *autorisations* pour accorder l’accès à chaque point de terminaison. Les autorisations limitent l’accès à une instance de service en fonction des fonctionnalités.
+Cet article décrit les options permettant de sécuriser votre service de provisionnement des appareils IoT. Le service de provisionnement utilise des *autorisations* pour accorder l’accès à chaque point de terminaison. Les autorisations limitent l’accès à une instance de service en fonction des fonctionnalités.
 
 Cet article aborde les points suivants :
 
-* Les différentes autorisations que vous pouvez accorder à une application backend pour lui permettre d’accéder à votre service de provisionnement.
+* Les différentes autorisations que vous pouvez accorder à une application principale pour lui permettre d’accéder à votre service de provisionnement.
 * Le processus d’authentification et les jetons qu’il utilise pour vérifier les autorisations.
 
 ### <a name="when-to-use"></a>Quand utiliser
 
-Vous devez disposer des autorisations appropriées pour accéder à l’un des points de terminaison de service de provisionnement. Par exemple, une application backend doit ajouter un jeton contenant des informations d’identification de sécurité à chaque message qu’elle envoie au service.
+Vous devez disposer des autorisations appropriées pour accéder à l’un des points de terminaison de service de provisionnement. Par exemple, une application principale doit ajouter un jeton contenant des informations d’identification de sécurité à chaque message qu’elle envoie au service.
 
 ## <a name="access-control-and-permissions"></a>Contrôle d’accès et autorisations
 
@@ -34,7 +34,7 @@ Vous pouvez accorder des [autorisations](#device-provisioning-service-permission
 
 * **Stratégies d’autorisation d’accès partagé**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison d’[autorisations](#device-provisioning-service-permissions). Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal], ou par programmation à l’aide des [API REST du service de provisionnement d’appareils][lnk-resource-provider-apis]. Tout service de provisionnement créé comporte la stratégie par défaut suivante :
 
-  * **provisioningserviceowner** : stratégie avec toutes les autorisations.
+   **provisioningserviceowner** : stratégie avec toutes les autorisations.
 
 > [!NOTE]
 > Pour plus d’informations, consultez la page [Autorisations](#device-provisioning-service-permissions).
@@ -51,12 +51,16 @@ Pour plus d’informations sur la façon de construire et d’utiliser les jeton
 HTTP est le seul protocole pris en charge. Il implémente l’authentification en incluant un jeton valide dans l’en-tête de demande d’**autorisation**.
 
 #### <a name="example"></a>Exemples
-`SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
+```csharp
+SharedAccessSignature sr = 
+   mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
+```
 
 > [!NOTE]
 > Les [SDK du service de provisionnement d’appareils Azure IoT][lnk-sdks] génèrent automatiquement des jetons durant la connexion au service.
 
 ## <a name="security-tokens"></a>Jetons de sécurité
+
 Le service de provisionnement d’appareils utilise des jetons de sécurité pour authentifier les services et éviter l’envoi de clés. En outre, la validité et la portée des jetons sont limitées dans le temps. Les [SDK du service de provisionnement d’appareils Azure IoT][lnk-sdks] génèrent automatiquement des jetons sans nécessiter de configuration particulière. Certains scénarios nécessitent toutefois que vous génériez et utilisiez directement des jetons de sécurité. Ces scénarios incluent l’utilisation directe du protocole HTTP.
 
 ### <a name="security-token-structure"></a>Structure du jeton de sécurité
@@ -131,7 +135,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > Dans la mesure où la validité temporelle du jeton est vérifiée sur les machines du service de provisionnement d’appareils IoT, la dérive de l’horloge de la machine qui génère le jeton doit être minimale.
 
-
 ### <a name="use-security-tokens-from-service-components"></a>Utilisation de jetons de sécurité de composants du service
 
 Les composants de service peuvent uniquement créer des jetons de sécurité utilisant des stratégies d’accès partagé pour accorder les autorisations adaptées, comme expliqué précédemment.
@@ -150,9 +153,9 @@ Par exemple, un service généré à l’aide d’une stratégie d’accès part
 * URI de ressource : `{mydps}.azure-devices-provisioning.net`,
 * clé de signature : une des clés de la stratégie `enrollmentread` ,
 * nom de la stratégie : `enrollmentread`,
-* n’importe quelle heure d’expiration.
+* n’importe quel délai d’expiration time.backn
 
-![Créer une stratégie d’accès partagé pour votre instance de service de provisionnement d’appareils sur le portail][img-add-shared-access-policy]
+![Créer une stratégie d’accès partagé pour votre instance de service de provisionnement des appareils sur le portail][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -170,7 +173,7 @@ Le résultat, qui revient à accorder l’accès en lecture à tous les dossiers
 
 Les rubriques de référence suivantes fournissent des informations supplémentaires sur le contrôle de l’accès à votre service de provisionnement d’appareils IoT.
 
-## <a name="device-provisioning-service-permissions"></a>Autorisations liées au service de provisionnement d’appareils
+### <a name="device-provisioning-service-permissions"></a>Autorisations liées au service de provisionnement d’appareils
 
 Le tableau suivant répertorie les autorisations qui vous permettent de contrôler l’accès à votre service de provisionnement d’appareils IoT.
 

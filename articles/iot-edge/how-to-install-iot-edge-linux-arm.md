@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
-ms.openlocfilehash: e814785af7041ba762f7c383a0cfdc434fce9dce
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 7720e0471c6d8f2ba20f28753773829a28f93c7a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213870"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141483"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)
 
@@ -111,6 +111,9 @@ Après avoir entré les informations de provisionnement dans la configuration, r
 ```cmd/sh
 sudo systemctl restart iotedge
 ```
+
+>[!TIP]
+>Vous avez besoin de privilèges élevés pour exécuter les commandes `iotedge`. Une fois que vous vous déconnectez de votre machine et que vous vous reconnectez pour la première fois après avoir installé le runtime IoT Edge, vos autorisations sont automatiquement mises à jour. En attendant, utilisez **sudo** devant les commandes. 
 
 ## <a name="verify-successful-installation"></a>Vérifier la réussite de l’installation
 

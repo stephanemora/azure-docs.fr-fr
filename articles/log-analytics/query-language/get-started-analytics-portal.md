@@ -1,6 +1,6 @@
 ---
-title: Bien démarrer avec le portail Analytics dans Azure Log Analytics | Microsoft Docs
-description: Cet article fournit un tutoriel qui explique comment écrire des requêtes dans Log Analytics à l’aide du portail Analytics.
+title: Prise en main de la page Log Analytics dans le portail Azure | Microsoft Docs
+description: Cet article explique comment écrire des requêtes à partir de la page Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6f6916b27aa251bc0a0c25be060378c11faab607
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632288"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42139890"
 ---
-# <a name="get-started-with-the-analytics-portal"></a>Bien démarrer avec le portail Analytics
+# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Prise en main de la page Log Analytics dans le portail Azure
 
-Dans ce tutoriel, vous allez apprendre à écrire des requêtes Azure Log Analytics à l’aide du portail Analytics. Au terme du tutoriel, vous saurez :
+Dans ce didacticiel, vous allez apprendre à écrire des requêtes Log Analytics à partir de la page Log Analytics du portail Azure (actuellement en préversion). Au terme du tutoriel, vous saurez :
 
 - Écrire des requêtes simples
 - Comprendre le schéma de vos données
@@ -35,12 +35,12 @@ Dans ce tutoriel, vous allez apprendre à écrire des requêtes Azure Log Analyt
 - Exporter et partager des requêtes
 
 
-## <a name="meet-the-analytics-portal"></a>Découvrir le portail Analytics
-Le portail Analytics est un outil web utilisé pour écrire et exécuter des requêtes Azure Log Analytics. 
+## <a name="meet-the-log-analytics-page"></a>Découvrir la page Log Analytics 
+La page Log Analytics est un outil web utilisé pour écrire et exécuter des requêtes Azure Log Analytics. Ouvrez la page en sélectionnant **Journaux (préversion)** dans le menu Log Analytics. Une nouvelle requête vide s’affiche.
 
 ![page d'accueil](media/get-started-analytics-portal/homepage.png)
 
-La page d’accueil offre un accès aisé à des ressources utiles, telles que les requêtes enregistrées et récentes, et à des exemples. Ouvrez un nouvel onglet pour commencer à écrire vos propres requêtes.
+
 
 ## <a name="basic-queries"></a>Requêtes de base
 Les requêtes peuvent être utilisées pour rechercher des termes, identifier des tendances, analyser des modèles et fournissent de nombreux autres insights basés sur vos données. Démarrez avec une requête de base :
@@ -83,7 +83,7 @@ Commencez par récupérer tout le contenu de la table _Event_.
 Event
 ```
 
-Le portail Analytics définit automatiquement l’étendue des résultats par :
+La page Log Analytics définit automatiquement l’étendue des résultats par :
 
 - Intervalle de temps : par défaut, les requêtes sont limitées aux dernières 24 heures.
 - Nombre de résultats : les résultats sont limités à un maximum de 10 000 enregistrements.
@@ -121,7 +121,7 @@ La table de résultats inclut souvent un grand nombre de colonnes. Peut-être co
 
 
 ## <a name="select-a-time-range"></a>Sélectionner un intervalle de temps
-Par défaut, le portail Analytics applique l’intervalle de temps correspondant aux _dernières 24 heures_. Pour utiliser un autre intervalle, sélectionnez une autre valeur par le biais du sélecteur d’heure, puis cliquez sur **Exécuter**. Outre les valeurs prédéfinies, vous pouvez utiliser l’option _intervalle de temps personnalisé_ pour sélectionner un intervalle absolu pour votre requête.
+Par défaut, la page Log Analytics applique l’intervalle de temps correspondant aux _dernières 24 heures_. Pour utiliser un autre intervalle, sélectionnez une autre valeur par le biais du sélecteur d’heure, puis cliquez sur **Exécuter**. Outre les valeurs prédéfinies, vous pouvez utiliser l’option _intervalle de temps personnalisé_ pour sélectionner un intervalle absolu pour votre requête.
 
 ![Sélecteur d’heure](media/get-started-analytics-portal/time-picker.png)
 
@@ -131,7 +131,7 @@ Si la requête contient explicitement un filtre pour _TimeGenerated_, le titre d
 
 
 ## <a name="charts"></a>Graphiques
-Outre dans une table, les résultats des requêtes peuvent être présentés sous forme visuelle. Utilisez la requête suivante en guise d’exemple :
+Les résultats des requêtes peuvent être présentés sous la forme d’une table, mais également sous forme graphique. Utilisez la requête suivante en guise d’exemple :
 
 ```OQL
 Event 
@@ -183,7 +183,7 @@ L’icône Explorateur de requêtes se trouve dans la zone supérieure droite. I
 ![Explorateur de requêtes](media/get-started-analytics-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exporter et partager en tant que lien
-Le portail Analytics prend en charge plusieurs méthodes d’exportation :
+La page Log Analytics prend en charge plusieurs méthodes d’exportation :
 
 - Excel : enregistrer les résultats dans un fichier CSV.
 - Power BI : exporter les résultats dans Power BI. Pour plus d’informations, consultez [Importation de données Azure Log Analytics dans Power BI](../log-analytics-powerbi.md).

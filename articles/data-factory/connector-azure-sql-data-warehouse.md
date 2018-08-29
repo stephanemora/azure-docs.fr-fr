@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a9adc8e9b7bcf69cce6b8ecf00e44477c1b0da3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430737"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442237"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -71,6 +71,9 @@ Pour en savoir plus sur les autres types d’authentification, consultez les sec
 - [Authentification SQL](#sql-authentication)
 - Authentification du jeton d’application Azure AD : [principal de service](#service-principal-authentication)
 - Authentification du jeton d’application Azure AD : [Managed Service Identity](#managed-service-identity-authentication)
+
+>[!TIP]
+>Si vous rencontrez une erreur avec le code d’erreur « UserErrorFailedToConnectToSqlServer » et un message tel que « La limite de session pour la base de données est XXX et a été atteinte. », ajoutez `Pooling=false` à votre chaîne de connexion, puis réessayez.
 
 ### <a name="sql-authentication"></a>Authentification SQL
 
@@ -397,7 +400,7 @@ SQL Data Warehouse PolyBase prend directement en charge les objets Blob Azure et
 
 Si les critères ne sont pas remplis, Azure Data Factory contrôle les paramètres et rétablit automatiquement le mécanisme BULKINSERT pour le déplacement des données.
 
-1. Le **service lié source** est de type **AzureStorage** ou **AzureDataLakeStore** avec authentification du principal de service.
+1. Le type **service source liée** est le stockage Blob Azure (**AzureBLobStorage**/**AzureStorage**) avec l’authentification par clé de compte ou Azure Data Lake Stockage Gen1 (**AzureDataLakeStore**) avec une authentification de principal de service.
 1. Le **jeu de données d’entrée** est de type **AzureBlob** ou **AzureDataLakeStoreFile**. Le format sous les propriétés `type` est de type **OrcFormat**, **ParquetFormat** ou **TextFormat** avec les configurations suivantes :
 
    1. `rowDelimiter` doit être **\n**.

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/21/2018
 ms.author: jeedes
-ms.openlocfilehash: f30b2356b9d3d8ecf7afcdd8ad039a1f02c47550
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cd1e4b376b634a3e3c7fa2c87723aff05f431a25
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438237"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146533"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutoriel : Intégration d’Azure Active Directory avec SharePoint (local)
 
@@ -99,11 +99,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
     ![Boîte de dialogue Authentification unique](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_samlbase.png)
 
-1. Dans la section **Domaine et URL SharePoint (local)**, effectuez les étapes suivantes :
+3. Dans la section **Domaine et URL SharePoint (local)**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL de SharePoint (local)](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_url1.png)
 
@@ -111,26 +111,32 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     b. Dans la zone de texte **Identificateur**, tapez l’URL : `urn:sharepoint:federation`
 
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+4. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_certificate.png)
 
-1. Cliquez sur le bouton **Enregistrer** .
+    > [!Note]
+    > Notez le chemin d’accès dans lequel vous avez téléchargé le fichier de certificat. En effet, vous devrez l’utiliser ultérieurement dans le script PowerShell pour la configuration.
+
+5. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media\sharepoint-on-premises-tutorial/tutorial_general_400.png)
 
-1. Dans la section **Configuration de SharePoint (local)**, cliquez sur **Configurer SharePoint (local)** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
+6. Dans la section **Configuration de SharePoint (local)**, cliquez sur **Configurer SharePoint (local)** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’ID d’entité SAML** à partir de la **section Référence rapide**. Sous **URL du service d’authentification unique**, indiquez une valeur respectant le format suivant : `https://login.microsoftonline.com/_my_directory_id_/wsfed` 
+
+    > [!Note]
+    > _my_directory_id_ est l’ID de locataire de l’abonnement Azure AD.
 
     ![Configuration de SharePoint (local)](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_configure.png)
 
     > [!NOTE]
     > L’application SharePoint (local) utilise un jeton SAML 1.1. Azure Active Directory attend donc une demande WS Fed en provenance de SharePoint Server, et après l’authentification il émet le jeton SAML 1.1.
 
-1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise SharePoint (local) en tant qu’administrateur.
+7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise SharePoint (local) en tant qu’administrateur.
 
-1. **Configurer un nouveau fournisseur d’identité approuvé dans SharePoint Server 2016**
+8. **Configurer un nouveau fournisseur d’identité approuvé dans SharePoint Server 2016**
 
-    Connectez-vous au serveur SharePoint Server 2016, puis ouvrez SharePoint 2016 Management Shell. Renseignez les valeurs de $realm, $wsfedurl et $filepath à partir du portail Azure et exécutez les commandes suivantes pour configurer un nouveau fournisseur d’identité approuvé.
+    Connectez-vous au serveur SharePoint Server 2016, puis ouvrez SharePoint 2016 Management Shell. Renseignez les valeurs de $realm (valeur de l’identificateur figurant dans la section SharePoint on-premises Domain and URLs (Domaine et URL SharePoint en local)), $wsfedurl (URL du service d’authentification unique) et $filepath (chemin d’accès dans lequel vous avez téléchargé le fichier de certificat) à partir du Portail Azure, puis exécutez les commandes suivantes pour configurer un nouveau fournisseur d’identité approuvé.
 
     > [!TIP]
     > Si vous ne connaissez pas PowerShell ou que vous souhaitez en savoir plus sur son fonctionnement, consultez [SharePoint PowerShell](https://docs.microsoft.com/en-us/powershell/sharepoint/overview?view=sharepoint-ps). 
@@ -138,7 +144,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     ```
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
     $wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
-    $filepath="<Full path to SAML signing certificate file which you have copied from the Azure portal>"
+    $filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
     $cert = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($filepath)
     New-SPTrustedRootAuthority -Name "AzureAD" -Certificate $cert
     $map = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name" -IncomingClaimTypeDisplayName "name" -LocalClaimType "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
@@ -161,6 +167,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     e. Cliquez sur **OK**.
 
     ![Configuration de votre fournisseur d’authentification](./media\sharepoint-on-premises-tutorial/fig10-configauthprovider.png)
+
+    > [!NOTE]
+    > Certains utilisateurs externes, dont l’UPN est altéré (par exemple, `MYEMAIL_outlook.com#ext#@TENANT.onmicrosoft.com`) ne pourront pas utiliser cette intégration de l’authentification unique. Les clients pourront bientôt configurer la gestion de l’UPN selon le type d’utilisateur sur l’application. Par la suite, tous vos utilisateurs invités devraient être en mesure d’utiliser l’authentification unique de façon transparente en tant qu’employés de l’organisation.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -200,27 +209,27 @@ Les utilisateurs qui se connectent à Azure AD et accèdent à SharePoint doiven
 
 1. Dans l’Administration centrale, cliquez sur **Gestion des applications**.
 
-1. Dans la page **Gestion des applications**, dans la section **Applications Web**, cliquez sur **Gérer les applications web**.
+2. Dans la page **Gestion des applications**, dans la section **Applications Web**, cliquez sur **Gérer les applications web**.
 
-1. Cliquez sur l’application web appropriée, puis cliquez sur **Stratégie utilisateur**.
+3. Cliquez sur l’application web appropriée, puis cliquez sur **Stratégie utilisateur**.
 
-1. Dans Stratégie pour l’application web, cliquez sur **Ajouter des utilisateurs**.
+4. Dans Stratégie pour l’application web, cliquez sur **Ajouter des utilisateurs**.
 
     ![Recherche d’un utilisateur en fonction de sa revendication de nom](./media\sharepoint-on-premises-tutorial/fig11-searchbynameclaim.png)
 
-1. Dans la boîte de dialogue **Ajouter des utilisateurs**, cliquez sur la zone appropriée dans **Zones**, puis sur **Suivant**.
+5. Dans la boîte de dialogue **Ajouter des utilisateurs**, cliquez sur la zone appropriée dans **Zones**, puis sur **Suivant**.
 
-1. Dans la boîte de dialogue **Stratégie pour l’application web**, dans la section **Choisir les utilisateurs**, cliquez sur l’icône **Parcourir**.
+6. Dans la boîte de dialogue **Stratégie pour l’application web**, dans la section **Choisir les utilisateurs**, cliquez sur l’icône **Parcourir**.
 
-1. Dans la zone de texte **Rechercher**, tapez la valeur du **nom d’utilisateur principal (UPN)** pour lequel vous avez configuré l’application locale SharePoint dans Azure AD, puis cliquez sur **Rechercher**. </br>Par exemple : *brittasimon@contoso.com*.
+7. Dans la zone de texte **Rechercher**, tapez la valeur du **nom d’utilisateur principal (UPN)** pour lequel vous avez configuré l’application locale SharePoint dans Azure AD, puis cliquez sur **Rechercher**. </br>Par exemple : *brittasimon@contoso.com*.
 
-1. Sous l’en-tête AzureAD dans la liste, sélectionnez la propriété de nom, cliquez sur **Ajouter**, puis sur **OK** pour fermer la boîte de dialogue.
+8. Sous l’en-tête AzureAD dans la liste, sélectionnez la propriété de nom, cliquez sur **Ajouter**, puis sur **OK** pour fermer la boîte de dialogue.
 
-1. Dans Autorisations, cliquez sur **Contrôle total**.
+9. Dans Autorisations, cliquez sur **Contrôle total**.
 
     ![Octroi du contrôle total à un utilisateur de revendications](./media\sharepoint-on-premises-tutorial/fig12-grantfullcontrol.png)
 
-1. Cliquez sur **Terminer**, puis sur **OK**.
+10. Cliquez sur **Terminer**, puis sur **OK**.
 
 ### <a name="configuring-one-trusted-identity-provider-for-multiple-web-applications"></a>Configuration d’un fournisseur d’identité approuvé pour plusieurs applications web
 
@@ -228,22 +237,22 @@ La configuration peut s’appliquer à une application web. Toutefois, si vous p
 
 1. Dans le portail Azure, ouvrez l’annuaire Azure AD. Cliquez sur **Inscriptions des applications**, puis cliquez sur **Afficher toutes les applications**. Cliquez sur l’application que vous avez créée précédemment (intégration SAML de SharePoint).
 
-1. Cliquez sur **Settings**.
+2. Cliquez sur **Settings**.
 
-1. Dans le panneau Paramètres, cliquez sur **URL de réponse**. 
+3. Dans le panneau Paramètres, cliquez sur **URL de réponse**. 
 
-1. Entrez l’URL de l’application web supplémentaire en y ajoutant `/_trust/default.aspx` (comme dans `https://sales.contoso.local/_trust/default.aspx`), puis cliquez sur **Enregistrer**.
+4. Entrez l’URL de l’application web supplémentaire en y ajoutant `/_trust/default.aspx` (comme dans `https://sales.contoso.local/_trust/default.aspx`), puis cliquez sur **Enregistrer**.
 
-1. Sur le serveur SharePoint, ouvrez **SharePoint 2016 Management Shell**, puis exécutez les commandes suivantes, en utilisant le nom de l’émetteur de jeton d’identité approuvé que vous avez utilisé précédemment.
+5. Sur le serveur SharePoint, ouvrez **SharePoint 2016 Management Shell**, puis exécutez les commandes suivantes, en utilisant le nom de l’émetteur de jeton d’identité approuvé que vous avez utilisé précédemment.
 
     ```
     $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
-1. Sur le site Administration centrale, accédez à l’application web et activez le fournisseur d’identité approuvé existant. N’oubliez pas de configurer l’URL de la page de connexion comme une page de connexion personnalisée `/_trust/`.
+6. Sur le site Administration centrale, accédez à l’application web et activez le fournisseur d’identité approuvé existant. N’oubliez pas de configurer l’URL de la page de connexion comme une page de connexion personnalisée `/_trust/`.
 
-1. Sur le site Administration centrale, cliquez sur l’application web et choisissez **Stratégie utilisateur**. Ajoutez un utilisateur disposant des autorisations nécessaires, comme indiqué précédemment dans cet article.
+7. Sur le site Administration centrale, cliquez sur l’application web et choisissez **Stratégie utilisateur**. Ajoutez un utilisateur disposant des autorisations nécessaires, comme indiqué précédemment dans cet article.
 
 ### <a name="fixing-people-picker"></a>Correction du sélecteur de personnes
 
@@ -267,23 +276,23 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
     ![Affecter des utilisateurs][201]
 
-1. Dans la liste des applications, sélectionnez **SharePoint (local)**.
+2. Dans la liste des applications, sélectionnez **SharePoint (local)**.
 
     ![Lien SharePoint dans la liste des applications](./media\sharepoint-on-premises-tutorial/tutorial_sharepointonpremises_app.png)
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 

@@ -3,7 +3,7 @@ title: Surveiller et gérer la création de certificats
 description: Scénarios illustrant un éventail d’options permettant de créer un certificat, de surveiller le processus de création du certificat et d’interagir avec ce dernier avec Key Vault.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 0d0995aa-b60d-4811-be12-ba0a45390197
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: e1ea77304fa59b67e0e28a4c7e0b13633eeeff6f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: bryanla
+ms.openlocfilehash: 80f350b9b83438ee04540527cce0ea6821d148ca
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011890"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145107"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Surveiller et gérer la création de certificats
 S’applique à : Azure  
@@ -46,7 +46,7 @@ Scénarios/Opérations décrits dans cet article :
 |------------|-----------------|  
 |POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
-Les exemples suivants nécessitent qu’un objet nommé « mydigicert » soit déjà disponible dans votre coffre de clés, le fournisseur de l’émetteur étant DigiCert. Pour plus d’informations sur l’utilisation des émetteurs, consultez [Certificate issuers](/rest/api/keyvault/certificate-issuers.md) (Émetteurs de certificats).  
+Les exemples suivants nécessitent qu’un objet nommé « mydigicert » soit déjà disponible dans votre coffre de clés, le fournisseur de l’émetteur étant DigiCert. L’émetteur du certificat est une entité représentée dans Azure Key Vault (KV) en tant que ressource CertificateIssuer. Il fournit des informations sur la source d’un certificat KV, ainsi que le nom de l’émetteur, le fournisseur, les informations d’identification et d’autres détails administratifs.  
 
 ### <a name="request"></a>Requête  
 
@@ -429,7 +429,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 |Nom de l'élément|Obligatoire|type|Version|Description|  
 |------------------|--------------|----------|-------------|-----------------|  
-|x5c|OUI|array|\<présentation de la version>|Chaîne d’approbation X509 en tant que table de chaînes en base 64.|  
+|x5c|Oui|array|\<présentation de la version>|Chaîne d’approbation X509 en tant que table de chaînes en base 64.|  
 
 ### <a name="response"></a>response  
 

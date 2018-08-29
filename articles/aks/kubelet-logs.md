@@ -1,40 +1,38 @@
 ---
-title: Accéder aux journaux kubelet à partir d’Azure Kubernetes Service (AKS)
-description: Accéder aux journaux kubelet à partir de nœuds serveur Azure Kubernetes Service (AKS)
+title: Consulter les journaux kubelet dans Azure Kubernetes Service (AKS)
+description: Comment afficher des informations de dépannage dans les journaux kubelet à partir des nœuds Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 08/21/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 6fadc502812ea0d983b86c94914d86fcb21a54cd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: aeab24685f3663ba2c50205344d33db3d34676c2
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100162"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441946"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Accéder aux journaux kubelet à partir de nœuds de cluster Azure Kubernetes Service (AKS)
 
-Il vous arrivera parfois de récupérer les journaux de kubelet à partir d’un nœud Azure Kubernetes Service (AKS) à des fins de dépannage. Ce document explique en détail l’une des options possibles pour récupérer ces journaux.
+Il vous arrivera parfois de récupérer les journaux de *kubelet* à partir d’un nœud Azure Kubernetes Service (AKS) à des fins de dépannage. Cet article vous montre comment vous pouvez utiliser `journalctl` pour afficher les journaux *kubelet*.
 
 ## <a name="create-an-ssh-connection"></a>Créer une connexion SSH
 
-Commencez par créer une connexion SSH avec le nœud duquel vous avez besoin de récupérer les journaux de kubelet. Cette opération est détaillée dans le document [SSH dans les nœuds de cluster Azure Kubernetes Service (AKS)][aks-ssh].
+Commencez par créer une connexion SSH avec le nœud duquel vous avez besoin de voir les journaux de *kubelet*. Cette opération est détaillée dans le document [SSH dans les nœuds de cluster Azure Kubernetes Service (AKS)][aks-ssh].
 
 ## <a name="get-kubelet-logs"></a>Obtenir des journaux kubelet
 
-Une fois connecté au nœud, exécutez la commande suivante pour récupérer les journaux kubelet.
-
-```azurecli-interactive
-journalctl -u kubelet -o cat
-```
-
-Exemple de sortie :
+Une fois connecté au nœud, exécutez la commande suivante pour récupérer les journaux *kubelet* :
 
 ```console
+sudo journalctl -u kubelet -o cat
+```
+
+L’exemple de sortie suivant indique que les données de journal *kubelet* :
+
+```
 I0508 12:26:17.905042    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 I0508 12:26:27.943494    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 I0508 12:26:28.920125    8672 server.go:796] GET /stats/summary: (10.370874ms) 200 [[Ruby] 10.244.0.2:52292]
@@ -58,5 +56,10 @@ I0508 12:28:48.321952    8672 kubelet_node_status.go:497] Using Node Hostname fr
 I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 ```
 
+## <a name="next-steps"></a>Étapes suivantes
+
+Si vous avez besoin d’informations de dépannage supplémentaires à partir du maître Kubernetes, consultez [Afficher les journaux de nœud principal Kubernetes dans AKS][aks-master-logs].
+
 <!-- LINKS - internal -->
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
+[aks-master-logs]: view-master-logs.md

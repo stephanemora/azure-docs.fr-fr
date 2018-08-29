@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 8c8ee30a603d439c0fadd0c1569813762bdf4351
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205295"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141503"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gérer des applications et services en tant que ressources Azure Resource Manager
 
@@ -263,6 +263,8 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
 
 Si votre cluster est déjà disponible et que des applications que vous souhaitez gérer en tant que ressources Resource Manager y sont déjà déployées, au lieu de supprimer les applications et de les redéployer, vous pouvez utiliser un appel PUT avec les mêmes API pour que les applications soient reconnues en tant que ressources Resource Manager. 
 
+> [!NOTE]
+> Pour permettre à une mise à niveau de cluster d’ignorer les applications non saines, le client peut spécifier « maxPercentUnhealthyApplications: 100 » dans la section « upgradeDescription/healthPolicy ». Les descriptions détaillées de tous les paramètres se trouvent dans la [documentation sur les stratégies de mise à niveau de cluster pour les API REST des structures fabric de service](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

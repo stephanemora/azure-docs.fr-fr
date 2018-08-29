@@ -3,7 +3,7 @@ title: Prise en main des certificats Key Vault
 description: Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: bryanla
+ms.openlocfilehash: f2becc5d746c3079e8f686748f33f10cd4a8d8c8
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109482"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145309"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -51,14 +51,14 @@ Les certificats sont composés de trois ressources reliées entre elles en tant 
 
 **Étape 3** : un administrateur Contoso, ainsi qu’un employé Contoso (utilisateur Key Vault) qui possède des certificats, dépendant de l’autorité de certification, peuvent obtenir un certificat auprès de l’administrateur ou directement à partir du compte avec l’autorité de certification.  
 
--   Commencez par ajouter des informations d’identification dans un coffre de clés en créant une ressource [émettrice de certificat](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers). 
+-   Commencez par ajouter des informations d’identification dans un coffre de clés en [configurant une ressource émettrice de certificat](/rest/api/keyvault/setcertificateissuer). L’émetteur de certificat est une entité représentée dans Azure Key Vault (KV) en tant que ressource CertificateIssuer. Il fournit des informations sur la source d’un certificat KV, ainsi que le nom de l’émetteur, le fournisseur, les informations d’identification et d’autres détails administratifs.
     -   P. MyDigiCertIssuer  
         -   Fournisseur  
         -   Informations d’identification : informations d’identification du compte d’autorité de certification. Chaque autorité de certification possède ses propres données spécifiques.  
 
      Pour plus d’informations sur la création de comptes avec des fournisseurs d’autorités de certification, consultez le billet associé sur le [blog Key Vault](http://aka.ms/kvcertsblog).  
 
-**Étape 3.1** : configurez un [contact de certificat](https://docs.microsoft.com/rest/api/keyvault/certificate-contacts) pour les notifications. Il s’agit du contact de l’utilisateur Key Vault. Key Vault n’applique pas cette étape.  
+**Étape 3.1** : configurez un [contact de certificat](/rest/api/keyvault/setcertificatecontacts) pour les notifications. Il s’agit du contact de l’utilisateur Key Vault. Key Vault n’applique pas cette étape.  
 
 Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opération unique.  
 
@@ -121,5 +121,5 @@ Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opéra
   (5) : votre application termine la création du certificat par le biais d’une fusion avec le certificat X509 provenant de votre autorité de certification.
 
 ## <a name="see-also"></a>Voir aussi
-- [Opérations de certificat](/rest/api/keyvault/certificate-operations)
+
 - [Présentation des clés, des secrets et des certificats](about-keys-secrets-and-certificates.md)

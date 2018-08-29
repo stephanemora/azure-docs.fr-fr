@@ -11,22 +11,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2017
+ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989751"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145740"
 ---
 # <a name="import-data-into-analytics"></a>Importer des données dans Analytics
 
 Importez des données tabulaires dans [Analytics](app-insights-analytics.md) pour les associer à la télémétrie [Application Insights](app-insights-overview.md) à partir de votre application ou pour les analyser comme un flux distinct. Analytics est un langage de requête puissant et bien adapté à l’analyse de gros volumes de flux horodatés de télémétrie.
-
 Vous pouvez importer des données dans Analytics à l’aide de votre propre schéma. Il n’est pas nécessaire d’utiliser les schémas Application Insights standard tels qu’une requête ou une trace.
 
 Vous pouvez importer des fichiers JSON ou DSV (valeurs séparées par des délimiteurs : virgule, point-virgule ou tabulation).
+
+> [!IMPORTANT]
+> Cet article a été **déconseillé**. La méthode recommandée pour obtenir des données dans Log Analytics consiste à utiliser [l’API du collecteur de données Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api).
 
 L’importation de données dans Analytics peut être utile dans les trois situations suivantes :
 

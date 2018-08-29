@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 041866cd1c290bc576577771abcae31db747095e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 51fa689030c4a8ce4e900ecd600cdd0524aa13d9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796846"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140459"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mappages de champs dans les indexeurs de la Recherche Azure
 Lorsque vous utilisez des indexeurs Azure Search, vous pouvez parfois vous retrouver dans des situations où vos données d'entrée ne correspondent pas tout à fait au schéma de votre index cible. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour transformer vos données au format souhaité.
@@ -106,7 +106,7 @@ Vous disposez d’un indexeur d’objets blob qui indexe les objets blob avec le
     "targetFieldName" : "IndexKey",
     "mappingFunction" : { "name" : "base64Encode", "parameters" : { "useHttpServerUtilityUrlTokenEncode" : false } }
   }]
-```
+ ```
 
 Si vous n’avez pas besoin de rechercher des documents par clés ni même de décoder le contenu encodé, vous pouvez omettre `parameters` pour la fonction de mappage, qui attribue par défaut à `useHttpServerUtilityUrlTokenEncode` la valeur `true`. Sinon, consultez la section [Détails de base64](#base64details) pour décider de quels paramètres utiliser.
 
@@ -136,9 +136,9 @@ Si vous ne spécifiez pas `parameters`, la valeur par défaut de `useHttpServerU
 ### <a name="details-of-base64-encoding-and-decoding"></a>Détails de l’encodage et du décodage base64
 Recherche Azure prend en charge deux encodages base64 : l’encodage de jetons d’URL HttpServerUtility et l’encodage base64 sécurisé pour les URL sans remplissage. Si vous voulez encoder une clé de document pour la recherche, encoder une valeur à faire décoder par l’indexeur ou décoder un champ encodé par l’indexeur, vous devez utiliser le même encodage que les fonctions de mappage.
 
-Si vous utilisez le .NET Framework, vous pouvez définir `useHttpServerUtilityUrlTokenEncode` et `useHttpServerUtilityUrlTokenDecode` sur `true` pour encoder et décoder, respectivement. Dès lors, `base64Encode` se comporte comme [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) et `base64Decode` comme [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Si les paramètres `useHttpServerUtilityUrlTokenEncode` ou `useHttpServerUtilityUrlTokenDecode` de codage et de décodage, respectivement, sont définis sur `true`, `base64Encode` se comporte comme [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) et `base64Decode` se comporte comme [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Si vous n’utilisez pas le .NET Framework, vous devez attribuer à `useHttpServerUtilityUrlTokenEncode` et `useHttpServerUtilityUrlTokenDecode` la valeur `false`. Selon la bibliothèque que vous utilisez, les fonctions utilitaires d’encodage et de décodage base64 peuvent être différentes de Recherche Azure.
+Si vous n’utilisez pas le composant .NET Framework complet (par exemple, vous utilisez .NET Core ou un autre environnement de programmation) pour produire les valeurs de clé afin d’émuler le comportement de Recherche Azure, vous devez définir `useHttpServerUtilityUrlTokenEncode` et `useHttpServerUtilityUrlTokenDecode` sur `false`. Selon la bibliothèque que vous utilisez, les fonctions utilitaires d’encodage et de décodage base64 peuvent être différentes de Recherche Azure.
 
 Le tableau suivant compare les différents encodages base64 de la chaîne `00>00?00`. Pour déterminer quel traitement supplémentaire s’avère nécessaire (le cas échéant) pour vos fonctions base64, appliquez votre fonction d’encodage de bibliothèque à la chaîne `00>00?00` et comparez le résultat obtenu au résultat attendu `MDA-MDA_MDA`.
 

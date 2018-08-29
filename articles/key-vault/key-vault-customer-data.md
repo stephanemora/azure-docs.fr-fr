@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235531"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141474"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Fonctionnalités des données client d’Azure Key Vault
 
@@ -48,7 +48,7 @@ La suppression réversible vous permet de récupérer les données supprimées p
 
 ## <a name="exporting-customer-data"></a>Exportation des données client
 
-Les mêmes API REST, la même expérience du portail et les mêmes SDK utilisés pour créer des coffres, des clés, des secrets, des certificats et des comptes de stockage gérés vous permettent également de visualiser et d’exporter ces objets.
+Les mêmes API REST, expérience du portail et Kits de développement logiciel (SDK) que ceux utilisés pour créer des coffres, des clés, des secrets, des certificats et des comptes de stockage gérés vous permettent également de visualiser et d’exporter ces objets.
 
 La journalisation des accès d’Azure Key Vault est une fonctionnalité facultative qui peut être activée de façon à générer des journaux pour chaque appel d’API REST. Ces journaux sont transférés vers un compte de stockage de votre abonnement où vous appliquez la stratégie de conservation qui répond aux exigences de votre organisation.
 
@@ -60,14 +60,10 @@ Les journaux de diagnostic d’Azure Key Vault contenant des données personnell
 
 - [Vue d’ensemble de la suppression réversible d’Azure Key Vault](key-vault-soft-delete-cli.md)
 
-- [Coffres](https://docs.microsoft.com/rest/api/keyvault/vaults)
-
 - [Opérations sur les clés d’Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Opérations sur les secrets d’Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
 - [Certificats et stratégies d’Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [Émetteurs de certificat](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Opérations sur les comptes de stockage d’Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

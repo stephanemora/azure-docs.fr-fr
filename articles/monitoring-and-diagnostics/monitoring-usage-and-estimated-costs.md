@@ -5,18 +5,24 @@ author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/31/2018
+ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.component: ''
-ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 35e7d36043defd236252f86facf4b9e2ed945d67
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264280"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145328"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Surveillance de l’utilisation et de l’estimation des coûts
+
+> [!NOTE]
+> Cet article explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctions de surveillance Azure en fonction des différents modèles de tarification.  Pour plus d’informations, consultez les articles suivants.
+> - L’article [Gérer les coûts en contrôlant le volume et la conservation des données dans Log Analytics](../log-analytics/log-analytics-manage-cost-storage.md) explique comment contrôler ses coûts en modifiant la durée de conservation des données.
+> - L’article [Analyser l’utilisation des données dans Log Analytics](../log-analytics/log-analytics-usage.md) décrit comment analyser votre utilisation des données et donner des informations à ce sujet.
+> - L’article [Gérer la tarification et le volume de données dans Application Insights](../application-insights/app-insights-pricing.md) décrit comment analyser l’utilisation des données dans Application Insights.
 
 Dans le hub Monitor du portail Azure, la page **Utilisation et estimation des coûts** explique l’utilisation des principales fonctionnalités de surveillance comme les [alertes, mesures, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) et [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Pour les clients ayant souscrit aux plans de tarification avant avril 2018, cela inclut également l’utilisation de Log Analytics acheté via l’offre Insights et Analytics.
 
@@ -60,7 +66,7 @@ La page affiche également un autre ensemble de compteurs qui correspondent au n
 
 Le nouveau modèle de tarification n’a pas d’allocations de données incluses en fonction des nœuds. Par conséquent, ces compteurs d’ingestion des données sont combinés dans un nouveau compteur d’ingestion des données commun appelé **Services partagés\Ingestion des données**. 
 
-Une autre modification est apportée aux données ingérées dans Log Analytics ou Application Insights dans des régions avec des coûts plus élevés. Les données de ces régions avec des coûts élevés seront affichées dans les nouveaux compteurs régionaux. Un exemple est **Data Ingestion (US West Central)** (Ingestion des données (États-Unis Centre-Ouest)).
+Une autre modification est apportée aux données ingérées dans Log Analytics ou Application Insights dans des régions avec des coûts plus élevés. Les données de ces régions avec des coûts élevés seront affichées dans les nouveaux compteurs régionaux. Un exemple est **Data Ingestion (US West Central)** (Ingestion des données (USA Centre-Ouest)).
 
 > [!NOTE]
 > L’estimation des coûts par abonnement ne tient pas compte des droits par nœud au niveau du compte de l’abonnement Operations Management Suite (OMS). Pour une explication plus détaillée du nouveau modèle de tarification dans ce scénario, consultez votre responsable de compte.

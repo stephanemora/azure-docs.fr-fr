@@ -3,7 +3,7 @@ title: Implémenter une récupération d’urgence à l’aide d’une sauvegard
 description: Apprenez à utiliser la sauvegarde et la restauration pour effectuer une récupération d'urgence dans Gestion des API Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283091"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146880"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -39,8 +39,6 @@ Ce guide montre comment authentifier des demandes Azure Resource Manager et comm
 
 > [!IMPORTANT]
 > L'API REST pour la sauvegarde et la restauration utilise Azure Resource Manager et dispose d'un autre mécanisme d'authentification que pour les API REST pour la gestion de vos entités de gestion des API. Les étapes de cette section décrivent comment authentifier les requêtes Azure Resource Manager. Pour plus d’informations, consultez [Demandes d'authentification Azure Resource Manager](http://msdn.microsoft.com/library/azure/dn790557.aspx).
->
->
 
 Toutes les tâches que vous effectuez sur les ressources à l’aide d’Azure Resource Manager doivent être authentifiées avec Azure Active Directory en effectuant les étapes suivantes :
 
@@ -209,15 +207,16 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 > Vous pouvez aussi effectuer les opérations de sauvegarde et de restauration avec les commandes Powershell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement*, respectivement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les blogs Microsoft suivants pour les deux procédures pas à pas différent du processus de sauvegarde et de restauration.
+
+Consultez les ressources suivantes pour accéder à différentes procédures pas à pas relatives au processus de sauvegarde et de restauration.
 
 * [Répliquer des comptes de gestion des API Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
-* [Gestion des API Azure : sauvegarde et restauration de la configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * L’approche détaillée par Stuart ne correspond pas à l’aide officielle mais est intéressante.
+* [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps) (Automatiser la sauvegarde et la restauration avec Gestion des API avec Logic Apps)
+* [Gestion des API Azure : sauvegarde et restauration de la configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+  *L’approche détaillée par Stuart ne correspond pas à l’aide officielle mais est intéressante.*
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

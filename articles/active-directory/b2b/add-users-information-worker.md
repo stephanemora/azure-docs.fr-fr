@@ -1,39 +1,111 @@
 ---
 title: Ajouter des utilisateurs de collaboration B2B en tant que travailleurs de l’information - Azure Active Directory | Microsoft Docs
-description: B2B Collaboration permet aux professionnels de l’information d’ajouter des utilisateurs de leur organisation pour accéder à Azure AD | Microsoft Docs
+description: La collaboration B2B permet aux professionnels de l’information et aux propriétaires d’application d’ajouter des utilisateurs invités pour accéder à Azure AD | Microsoft Docs
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
-ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.date: 08/08/2018
+ms.author: mimart
+author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: a5f985e1872a196fcd29845ae0c8d924c81673a6
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.reviewer: mal
+ms.openlocfilehash: 904f6b571c063dd760cfd2604a72a505112fe57a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259526"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42139845"
 ---
-# <a name="how-do-information-workers-add-b2b-collaboration-users-to-azure-active-directory"></a>Comment les professionnels de l’information ajoutent-ils des utilisateurs B2B Collaboration à Azure Active Directory ?
+# <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Comment procéder pour inviter des utilisateurs invités à accéder à une application ?
 
-Les professionnels de l’information peuvent utiliser le [panneau d’accès aux applications](http://myapps.microsoft.com) pour ajouter des utilisateurs B2B Collaboration à des groupes et applications dont ils sont administrateurs.
+Une fois qu’un utilisateur invité a été ajouté au répertoire dans Azure AD, un propriétaire d’application peut lui envoyer un lien direct vers l’application qu’il souhaite partager. Les administrateurs Azure AD peuvent également configurer la gestion en libre-service afin que les propriétaires d’application puissent gérer leurs propres utilisateurs invités, même si ces derniers n’ont pas encore été ajoutés au répertoire. Lorsqu’une application est configurée pour être utilisée en libre-service, le propriétaire de l’application utilise le Panneau d’accès pour inviter un utilisateur invité ou ajouter un utilisateur invité à un groupe ayant accès à l’application. La gestion des applications en libre-service nécessite que l’administrateur procède à une configuration initiale. Voici un résumé des étapes de configuration (pour obtenir des instructions plus détaillées, consultez la section [Conditions préalables](#prerequisites) ci après) :
 
-Après avoir ajouté un utilisateur invité dans l’annuaire, le professionnel de l’information peut envoyer à l’utilisateur invité un lien direct vers une application partagée, ou l’utilisateur invité peut cliquer sur l’URL d’échange dans l’e-mail d’invitation. Pour plus d’informations sur le processus d’utilisation, consultez [Utilisation d’une invitation B2B Collaboration](redemption-experience.md).
+ - Activer la gestion des groupes en libre-service pour votre abonné
+ - Créer un groupe à affecter à l’application et convertir l’utilisateur en propriétaire
+ - Configurer l’application pour le libre-service et affecter le groupe à l’application
 
-## <a name="information-workers-adding-b2b-collaboration-users-to-an-application"></a>Professionnels de l’information ajoutant des utilisateurs B2B Collaboration à une application
-Assignez des utilisateurs B2B Collaboration à une application en tant que professionnels de l’information dans une organisation partenaire, comme indiqué dans la vidéo suivante :
+## <a name="invite-a-guest-user-to-an-app-from-the-access-panel"></a>Inviter un utilisateur invité à une application depuis le Panneau d’accès
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/information-worker-assign-to-apps/Player]
+Après avoir configuré une application pour le libre-service, les propriétaires d’application peuvent utiliser leur propre Panneau d’accès pour inviter un utilisateur invité à l’application qu’ils souhaitent partager. L’utilisateur invité ne doit pas nécessairement être ajouté à Azure AD à l’avance. 
 
-## <a name="information-workers-adding-b2b-collaboration-users-to-a-group"></a>Professionnels de l’information ajoutant des utilisateurs B2B Collaboration à un groupe
+1. Ouvrez votre Panneau d’accès en accédant à `https://myapps.microsoft.com`.
+2. Sélectionnez l’application, sélectionnez les points de suspension (**...** ), puis **Gérer l’application**.
+ 
+   ![Panneau d’accès - Gérer l’application](media/add-users-iw/access-panel-manage-app.png)
+ 
+3. En haut de la liste des utilisateurs, sélectionnez **+**.
+   
+   ![Panneau d’accès - Ajouter un utilisateur](media/add-users-iw/access-panel-manage-app-add-user.png)
+   
+4. Dans la zone de recherche **Ajouter des membres**, saisissez l’adresse e-mail de l’utilisateur invité. Vous pouvez éventuellement inclure un message d’accueil.
+   
+   ![Panneau d’accès - Invitation](media/add-users-iw/access-panel-invitation.png)
+   
+5. Sélectionnez **Ajouter** pour envoyer une invitation à l’utilisateur invité. Après avoir envoyé l’invitation, le compte d’utilisateur est automatiquement ajouté au répertoire en tant qu’invité.
 
-Les professionnels de l’information peuvent, de manière similaire, ajouter des utilisateurs B2B Collaboration à un groupe attribué qui est activé pour la gestion de groupes en libre-service.
+## <a name="invite-someone-to-join-a-group-that-has-access-to-the-app"></a>Inviter une personne à rejoindre un groupe ayant accès à l’application
+Après avoir configuré une application pour le libre-service, les propriétaires d’application peuvent inviter des utilisateurs invités à rejoindre les groupes qu’ils gèrent ayant accès aux applications qu’ils souhaitent partager. Il n’est pas nécessaire que les utilisateurs invités figurent déjà dans le répertoire. Le propriétaire de l’application suit ces étapes pour inviter un utilisateur invité à rejoindre le groupe afin qu’il puisse accéder à l’application.
+
+1. Assurez-vous d’être propriétaire du groupe en libre-service ayant accès à l’application que vous souhaitez partager.
+2. Ouvrez votre Panneau d’accès en accédant à `https://myapps.microsoft.com`.
+3. Sélectionnez l’application **Groupes**.
+   
+   ![Panneau d’accès - Application Groupes](media/add-users-iw/access-panel-groups.png)
+   
+4. Sous **Groupes dont je suis propriétaire**, sélectionnez le groupe qui a accès à l’application que vous souhaitez partager.
+   
+   ![Panneau d’accès - Groupes dont je suis propriétaire](media/add-users-iw/access-panel-groups-i-own.png)
+   
+5. En haut de la liste des membres du groupe, sélectionnez **+**.
+   
+   ![Panneau d’accès - Groupes, ajouter un membre](media/add-users-iw/access-panel-groups-add-member.png)
+   
+6. Dans la zone de recherche **Ajouter des membres**, saisissez l’adresse e-mail de l’utilisateur invité. Vous pouvez éventuellement inclure un message d’accueil.
+   
+   ![Panneau d’accès - Invitation à rejoindre un groupe](media/add-users-iw/access-panel-invitation.png)
+   
+7. Sélectionnez **Ajouter** pour envoyer automatiquement l’invitation à l’utilisateur invité. Après avoir envoyé l’invitation, le compte d’utilisateur est automatiquement ajouté au répertoire en tant qu’invité.
+
+
+## <a name="prerequisites"></a>Prérequis
+
+La gestion des applications en libre-service nécessite qu’un administrateur général et un administrateur Azure AD procèdent à une configuration initiale. Dans le cadre de cette configuration, vous allez configurer l’application pour le libre-service et affecter un groupe à l’application que le propriétaire de l’application peut gérer. Vous pouvez également configurer le groupe de manière à autoriser n’importe qui à demander à le rejoindre, mais en exigeant l’approbation du propriétaire. (En savoir plus sur la [gestion des groupes en libre-service](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management).) 
+
 > [!NOTE]
-> Vous ne pouvez pas ajouter d'utilisateurs B2B Collaboration à un groupe dynamique ou à un groupe synchronisé sur un Active Directory local.
+> Vous ne pouvez pas ajouter d'utilisateurs invités à un groupe dynamique ou à un groupe synchronisé sur un Active Directory local.
 
+### <a name="enable-self-service-group-management-for-your-tenant"></a>Activer la gestion de groupes en libre-service pour votre abonné
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général.
+2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
+3. Sélectionnez **Groupes**.
+4. Sous **Paramètres**, sélectionnez **Général**.
+5. Sous **Gestion de groupes en libre-service**, en regard de **Les propriétaires peuvent gérer les demandes d'appartenance au groupe dans le panneau d'accès**, sélectionnez **Oui**.
+6. Sélectionnez **Enregistrer**.
+
+### <a name="create-a-group-to-assign-to-the-app-and-make-the-user-an-owner"></a>Créer un groupe à affecter à l’application et convertir l’utilisateur en propriétaire
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général ou administrateur Azure AD.
+2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
+3. Sélectionnez **Groupes**.
+4. Sélectionnez **Nouveau groupe**.
+5. Sous **Type de groupe**, sélectionnez **Sécurité**.
+6. Saisissez un **nom de groupe** et une **description**.
+7. Sous **Type d’appartenance**, sélectionnez **Affecté**.
+8. Sélectionnez **Créer** et fermez la page **Groupe**.
+9. Sur la page **Groupes - Tous les groupes**, ouvrez le groupe. 
+10. Sous **Gérer**, sélectionnez **Propriétaires** > **Ajouter des propriétaires**. Recherchez l’utilisateur qui doit gérer l’accès à l’application. Sélectionnez-le, puis cliquez sur **Sélectionner**.
+
+### <a name="configure-the-app-for-self-service-and-assign-the-group-to-the-app"></a>Configurer l’application pour le libre-service et affecter le groupe à l’application
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur général ou administrateur Azure AD.
+2. Dans le volet de navigation, sélectionnez **Azure Active Directory**.
+3. Sous **Gérer**, sélectionnez **Applications d’entreprise** > **Toutes les applications**.
+4. Dans la liste des applications, recherchez l’application et ouvrez-la.
+5. Sous **Gérer**, sélectionnez **Authentification unique** et configurez l’application pour l’authentification unique. (Pour en savoir plus, consultez [Gérer l’authentification unique pour les applications d’entreprise](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal).)
+6. Sous **Gérer**, sélectionnez **Libre-service** et configurez l’accès à l’application en libre-service. (Pour en savoir plus, consultez [Utiliser l’accès aux applications en libre-service](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).) 
+    > [!NOTE]
+    > Pour le paramètre **À quel groupe les utilisateurs attribués doivent-ils être ajoutés ?**, sélectionnez le groupe que vous avez créé dans la section précédente.
+7. Sous **Gérer**, sélectionnez **Utilisateurs et groupes** et vérifiez que le groupe en libre-service que vous avez créé apparaît dans la liste.
+8. Pour ajouter l’application au panneau d’accès du propriétaire du groupe, sélectionnez **Ajouter un utilisateur** > **Utilisateurs et groupes**. Recherchez le propriétaire du groupe, sélectionnez l’utilisateur, cliquez sur **Sélectionner**, puis cliquez sur **Attribuer** pour l’ajouter à l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

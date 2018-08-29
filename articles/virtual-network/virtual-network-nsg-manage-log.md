@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5635998eb72f08ddc665793e77008890b2cdb05d
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114021"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143639"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Journalisation des diagnostics pour un groupe de sécurité réseau
 
@@ -140,7 +140,7 @@ Les données au format JSON sont écrites pour les catégories de journal suivan
 
 ### <a name="event"></a>Événement
 
-Le journal des événements contient des informations sur les règles de groupe de sécurité réseau qui sont appliquées aux machines virtuelles, en fonction de l’adresse MAC. Les exemples de données suivants sont enregistrés pour chaque événement :
+Le journal des événements contient des informations sur les règles de groupe de sécurité réseau qui sont appliquées aux machines virtuelles, en fonction de l’adresse MAC. Les données suivantes sont enregistrées pour chaque événement. Dans l’exemple suivant, les données sont enregistrées pour une machine virtuelle avec l’adresse IP 192.168.1.4 et l’adresse MAC 00-0D-3A-92-6A-7C :
 
 ```json
 {
@@ -154,16 +154,16 @@ Le journal des événements contient des informations sur les règles de groupe 
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"[SECURITY RULE NAME]",
-        "direction":"In",
-        "priority":1000,
-        "type":"allow",
+        "ruleName":"[SECURITY-RULE-NAME]",
+        "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+        "priority":[PRIORITY-SPECIFIED-IN-RULE],
+        "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "conditions":{
-            "protocols":"6",
-            "destinationPortRange":"[PORT RANGE]",
-            "sourcePortRange":"0-65535",
-            "sourceIP":"0.0.0.0/0",
-            "destinationIP":"0.0.0.0/0"
+            "protocols":"[PROTOCOLS-SPECIFIED-IN-RULE]",
+            "destinationPortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+            "sourcePortRange":"[PORT-RANGE-SPECIFIED-IN-RULE]",
+            "sourceIP":"[SOURCE-IP-OR-RANGE-SPECIFIED-IN-RULE]",
+            "destinationIP":"[DESTINATION-IP-OR-RANGE-SPECIFIED-IN-RULE]"
             }
         }
 }
@@ -171,7 +171,7 @@ Le journal des événements contient des informations sur les règles de groupe 
 
 ### <a name="rule-counter"></a>Compteur de règles
 
-Le journal du compteur de règles contient des informations sur chacune des règles appliquées aux ressources. L’exemple de données suivant est enregistré chaque fois qu’une règle est appliquée :
+Le journal du compteur de règles contient des informations sur chacune des règles appliquées aux ressources. Les données de l’exemple suivant sont enregistrées chaque fois qu’une règle est appliquée. Dans l’exemple suivant, les données sont enregistrées pour une machine virtuelle avec l’adresse IP 192.168.1.4 et l’adresse MAC 00-0D-3A-92-6A-7C :
 
 ```json
 {
@@ -185,9 +185,9 @@ Le journal du compteur de règles contient des informations sur chacune des règ
         "subnetPrefix":"192.168.1.0/24",
         "macAddress":"00-0D-3A-92-6A-7C",
         "primaryIPv4Address":"192.168.1.4",
-        "ruleName":"[SECURITY RULE NAME]",
-        "direction":"In",
-        "type":"allow",
+        "ruleName":"[SECURITY-RULE-NAME]",
+        "direction":"[DIRECTION-SPECIFIED-IN-RULE]",
+        "type":"[ALLOW-OR-DENY-AS-SPECIFIED-IN-RULE]",
         "matchedConnections":125
         }
 }

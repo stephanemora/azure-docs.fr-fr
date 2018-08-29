@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1a4be7b5caba751f0f90e865d8ef23e5e9c899d6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37890705"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42140040"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Résoudre les problèmes liés à Azure Load Balancer
 
@@ -87,7 +87,7 @@ Si une machine virtuelle d’un pool principal est répertoriée comme saine et 
 * Une machine virtuelle du pool principal de l’équilibreur de charge n’écoute pas sur le port de données 
 * Un groupe de sécurité réseau bloque le port sur la machine virtuelle du pool principal de l’équilibreur de charge  
 * Accès à l’équilibreur de charge à partir des mêmes machine virtuelle et carte d’interface réseau 
-* Accès à l’adresse IP virtuelle de l’équilibreur de charge Internet à partir de la machine virtuelle du pool principal de l’équilibreur de charge 
+* Accès au serveur frontal Load Balancer Internet à partir de la machine virtuelle du pool principal Load Balancer 
 
 ### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>Cause 1 : une machine virtuelle du pool principal de l’équilibreur de charge n’écoute pas sur le port de données 
 Si une machine virtuelle ne répond pas au trafic de données, il se peut que le port cible ne soit pas ouvert sur la machine virtuelle participant ou que la machine virtuelle n’écoute pas sur ce port. 
@@ -119,10 +119,11 @@ Si l’application hébergée sur la machine virtuelle principale d’un équili
 * Configurez des machines virtuelles du pool principal distinctes par application. 
 * Configurez l’application dans les machines virtuelles à double carte d’interface réseau afin que chaque application utilise sa propre interface réseau et adresse IP. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>Cause 4 : accès à l’adresse IP virtuelle de l’équilibreur de charge interne à partir de la machine virtuelle participante du pool principal de l’équilibreur de charge
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Cause 4 : Accès au serveur frontal Load Balancer interne à partir de la machine virtuelle du pool principal Load Balancer
 
-Si une adresse IP virtuelle de l’équilibreur de charge interne est configurée dans un réseau virtuel et que l’une des machines virtuelles principales participantes essaie d’y accéder, cela entraîne une défaillance. Ce scénario n’est pas pris en charge.
-**Résolution** : évaluez Application Gateway ou d’autres proxys (par exemple, nginx ou haproxy) pour prendre en charge ce type de scénario. Pour plus d’informations sur Application Gateway, consultez la page [Vue d’ensemble de la passerelle Application Gateway](../application-gateway/application-gateway-introduction.md).
+Si un serveur Load Balancer interne est configuré au sein d’un réseau virtuel, et si l’une des machines virtuelles principales participantes essaie d’accéder au serveur frontal Load Balancer interne, des défaillances peuvent se produire lorsque le flux est mappé à la machine virtuelle d’origine. Ce scénario n’est pas pris en charge. Vérifiez les [limites](load-balancer-overview.md#limitations) pour en savoir plus.
+
+**Résolution** Il existe plusieurs façons pour débloquer ce scénario, notamment l’utilisation d’un proxy. Évaluez Application Gateway ou d’autres proxies tiers (par exemple, nginx ou haproxy). Pour plus d’informations sur Application Gateway, consultez la page [Vue d’ensemble de la passerelle Application Gateway](../application-gateway/application-gateway-introduction.md).
 
 ## <a name="additional-network-captures"></a>Captures de réseau supplémentaires
 Si vous décidez d’ouvrir un dossier de support, collectez les informations suivantes pour accélérer la résolution du problème. Choisissez une machine virtuelle principale unique pour effectuer les tests suivants :

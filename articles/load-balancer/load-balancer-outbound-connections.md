@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2018
+ms.date: 08/15/2018
 ms.author: kumud
-ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824997"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146171"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -220,7 +220,7 @@ Des [ports préalloués](#preallocatedports) sont affectés en fonction de la ta
 
 Par exemple, 2 machines virtuelles du pool principal auraient 1 024 ports SNAT disponibles par configuration IP, pour un total de 2 048 ports SNAT pris en charge pour le déploiement.  Si le déploiement devait être augmenté de 50 machines virtuelles, même si le nombre de ports préalloués demeure constant par machine virtuelle, un total de 51 200 (50 x 1 024) ports SNAT peut être utilisé par le déploiement.  Si vous souhaitez monter votre déploiement en charge, vérifiez le nombre de [ports préalloués](#preallocatedports) par niveau pour vous assurer que vous configurez votre montée en charge sur la valeur maximale pour le niveau respectif.  Dans l’exemple précédent, si vous aviez choisi de monter en charge à 51 instances et non à 50, vous auriez atteint le niveau suivant et disposeriez d’un nombre moins important de ports SNAT par machine virtuelle, au total.
 
-À l’inverse, une montée en charge vers le niveau immédiatement supérieur de taille de pool principal est de nature à provoquer la sortie des connexions, si l’opération nécessite une réallocation des ports alloués.  Si vous ne voulez pas que cela se produise, vous devez configurer votre déploiement en fonction de la taille de niveau considérée.  Sinon, assurez-vous que votre application peut détecter et effectuer autant de tentatives que nécessaire.  Les conservations de connexion active TCP peuvent contribuer à détecter un dysfonctionnement des ports SNAT suite à une réallocation.
+Si vous effectuez une montée en charge vers le niveau immédiatement supérieur de taille de pool principal et que l’opération nécessite une réallocation des ports alloués, certaines de vos connexions peuvent expirer.  Si vous utilisez uniquement certains de vos ports SNAT, une telle montée en charge n’affectera pas vos connexions.  La moitié des ports existants seront réaffectés à chaque fois que vous passerez au niveau de pool principal suivant.  Si vous ne voulez pas que cela se produise, vous devez configurer votre déploiement en fonction de la taille de niveau considérée.  Sinon, assurez-vous que votre application peut détecter et effectuer autant de tentatives que nécessaire.  Les conservations de connexion active TCP peuvent contribuer à détecter un dysfonctionnement des ports SNAT suite à une réallocation.
 
 ### <a name="idletimeout"></a>Utiliser des conservations de connexion active pour réinitialiser le délai d’inactivité en sortie
 
@@ -244,7 +244,7 @@ Si un groupe de sécurité réseau bloque les demandes d’analyse d’intégrit
 
 ## <a name="limitations"></a>Limites
 - DisableOutboundSnat n’est pas disponible en tant qu’option lors de la configuration d’une règle d’équilibrage de charge dans le portail.  Utilisez les outils REST, modèle ou client à la place.
-- Les rôles de travail web sans réseau virtuel et d’autres services de plateforme Microsoft peuvent être accessibles alors que seul un équilibreur de charge Standard interne est utilisé, en raison d’un effet secondaire du fonctionnement des services pré-réseau virtuel et des autres services de plateforme. Vous ne devez pas compter sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente peut changer sans préavis. Vous devez toujours supposer que vous devez créer explicitement des connectivités sortantes si cela est souhaitable lors de l’utilisation d’un équilibreur de charge interne standard uniquement. Le scénario [SNAT par défaut](#defaultsnat) 3 décrit dans cet article n’est pas disponible.
+- Les rôles de travail web sans un réseau virtuel et d’autres services Microsoft peuvent être accessibles lorsque seul un équilibreur de charge standard interne est utilisé en raison d’un effet secondaire du fonctionnement des services de pre-réseau virtuel et des services d’autres plateformes. Vous ne devez pas compter sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente peut changer sans préavis. Vous devez toujours supposer que vous devez créer explicitement des connectivités sortantes si cela est souhaitable lors de l’utilisation d’un équilibreur de charge interne standard uniquement. Le scénario [SNAT par défaut](#defaultsnat) 3 décrit dans cet article n’est pas disponible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

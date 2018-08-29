@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/14/2018
 ms.author: raynew
-ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171981"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42146155"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice de prise en charge pour la réplication d’Hyper-V vers Azure
 
@@ -25,7 +25,7 @@ Cet article résume les composants pris en charge ainsi que les paramètres conc
 
 **Scénario** | **Détails**
 --- | ---
-Hyper-V avec Virtual Machine Manager | Vous pouvez effectuer la récupération d’urgence vers Azure pour les machines virtuelles s’exécutant sur des hôtes Hyper-V managés dans l’infrastructure System Center Virtual Machine Manager.<br/><br/> Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell.<br/><br/> Lorsque les hôtes Hyper-V sont managés par Virtual Machine Manager, vous pouvez également effectuer la récupération d’urgence vers un site secondaire local. Pour plus d’informations sur ce scénario, consultez [ce didacticiel](tutorial-vmm-to-vmm.md).
+Hyper-V avec Virtual Machine Manager | Vous pouvez effectuer la récupération d’urgence vers Azure pour les machines virtuelles s’exécutant sur des hôtes Hyper-V managés dans l’infrastructure System Center Virtual Machine Manager.<br/><br/> Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell.<br/><br/> Lorsque les hôtes Hyper-V sont managés par Virtual Machine Manager, vous pouvez également effectuer la récupération d’urgence vers un site secondaire local. Pour plus d’informations sur ce scénario, consultez [ce didacticiel](hyper-v-vmm-disaster-recovery.md).
 Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d’urgence vers Azure pour les machines virtuelles s’exécutant sur les hôtes Hyper-V qui ne sont pas gérés par Virtual Machine Manager.<br/><br/> Vous pouvez déployer ce scénario dans le portail Azure ou à l’aide de PowerShell.
 
 
@@ -44,8 +44,8 @@ Le tableau suivant récapitule la prise en charge des machines virtuelles. Site 
 
  **Composant** | **Détails**
 --- | ---
-Configuration des machines virtuelles | Les machines virtuelles qui répliquent vers Azure doivent répondre aux [conditions requises par Azure](#failed-over-azure-vm-requirements).
-Système d’exploitation invité | N’importe quel système d’exploitation invité pris en charge par Azure.<br/><br/> Windows Server 2016 Nano Server n’est pas pris en charge.
+Configuration des machines virtuelles | Les machines virtuelles qui répliquent vers Azure doivent répondre aux [conditions requises par Azure](#azure-vm-requirements).
+Système d’exploitation invité | N’importe quel système d’exploitation invité [pris en charge par Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases).<br/><br/> Windows Server 2016 Nano Server n’est pas pris en charge.
 
 
 ## <a name="vmdisk-management"></a>Gestion des machines virtuelles/disques
@@ -112,8 +112,9 @@ SMB 3.0 | Non  | Non
 RDM | N/D | N/D
 Disque > 1 To | Oui, jusqu’à 4,095 Go | Oui, jusqu’à 4,095 Go
 Disque : secteur logique et physique de 4 K | Non pris en charge : 1re génération, 2e génération | Non pris en charge : 1re génération, 2e génération
-Disque : secteur logique de 4 K et physique de 512 octets | OUI |  OUI
-Volume avec disque à bandes > 1 To<br/><br/> Gestion des volumes logiques (LVM) | OUI | OUI
+Disque : secteur logique de 4 K et physique de 512 octets | OUI |  Oui
+Gestion des volumes logiques (LVM). LVM est pris en charge uniquement sur des disques de données. Azure ne fournit qu’un seul disque de système d’exploitation. | Oui | OUI
+Volume avec disque à bandes > 1 To | Oui | OUI
 Espaces de stockage | OUI | OUI
 Ajout/suppression de disque à chaud | Non  | Non 
 Exclure le disque | OUI | OUI

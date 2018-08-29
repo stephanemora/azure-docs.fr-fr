@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a9aa4680d91a4ab95933ae636c4467217fd162b2
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: e2e8da3d2dec2c74bbd1c0ca0f52b7eaba5c024e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39277977"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42358302"
 ---
 | Ressource | Cible | Limite inconditionnelle |
 |----------|--------------|------------|
@@ -27,5 +27,6 @@ ms.locfileid: "39277977"
 | Objets du système de fichiers (répertoires et fichiers) par groupe de synchronisation | 25 millions d’objets | Non  |
 | Nombre maximal d’objets de système de fichiers (répertoires et fichiers) dans un répertoire | 200 000 objets | Oui |
 | Longueur maximale du nom de l’objet (répertoires et fichiers) | 255 caractères | Oui |
+| Taille maximale du descripteur de sécurité d’objet (répertoires et fichiers) | 4 Kio | Oui |
 | Taille du fichier | 100 Gio | Non  |
 | Taille minimale d’un fichier à hiérarchiser | 64 Kio | Oui |

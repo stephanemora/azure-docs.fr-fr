@@ -1,175 +1,198 @@
 ---
 title: Traiter des messages EDI par lots (groupe ou collection de messages) - Azure Logic Apps | Microsoft Docs
 description: Envoyer des messages EDI à traiter par lots dans les applications logiques
-keywords: lot, traitement par lots, encodage par lots
-author: divswa
-manager: jeconnoc
-editor: ''
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+manager: jeconnoc
 ms.topic: article
-ms.date: 09/21/2017
-ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: fb15688968cb29039fc669ed6b8685ba64df9e81
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 08/19/2018
+ms.reviewer: estfan, LADocs
+ms.openlocfilehash: 77965e20e7d42d12b34bcb2f7cc6c8680ba34b3a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432131"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145996"
 ---
-# <a name="send-x12-messages-in-batch-to-trading-partners"></a>Envoyer des messages X12 par lots à des partenaires commerciaux
+# <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Envoyer des messages EDI par lots aux partenaires commerciaux avec Azure Logic Apps
 
-Dans les scénarios d’entreprise à entreprise (B2B), les partenaires échangent souvent des messages par groupes ou par lots. Pour envoyer des messages par groupes ou par lots à vos partenaires commerciaux, vous pouvez créer un lot contenant plusieurs éléments, puis utiliser l’opération de traitement par lots X12 pour traiter ces éléments en tant que lot.
+Dans les scénarios d’entreprise à entreprise (B2B), les partenaires échangent souvent des messages par groupes ou par *lots*. Lorsque vous générez une solution de traitement par lot avec Logic Apps, vous pouvez envoyer des messages aux partenaires commerciaux et traiter ces messages par lot. Cet article explique comment traiter des messages EDI par lot (sur la base de l’exemple X12) en créant des applications logiques d’envoi et de réception par lot. 
 
+Le traitement par lot des messages X12 fonctionne de la même manière que le traitement par lot d’autres messages. Vous devez utiliser un déclencheur de lot qui collecte les messages dans un lot et une action de traitement par lot qui envoie des messages au lot. En outre, le traitement par lot X12 prévoit une étape d’encodage avant d’envoyer les messages au partenaire commercial ou à une autre destination. Pour plus d’informations sur le déclencheur et l’opération de traitement par lots, consultez [Traiter par lots des messages](../logic-apps/logic-apps-batch-process-send-receive-messages.md).
 
-Le traitement par lots des messages X12 utilise, à l’instar d’autres messages, un déclencheur et une opération de traitement par lots. De plus, avec X12, le lot passe par une étape d’encodage X12 avant d’être envoyé au partenaire ou vers une autre destination. Pour plus d’informations sur le déclencheur et l’opération de traitement par lots, consultez [Traiter par lots des messages](logic-apps-batch-process-send-receive-messages.md).
+Dans cet article, vous allez concevoir une solution de traitement par lots en créant deux applications logiques dans le même abonnement et la même région Azure, en suivant cet ordre précis :
 
-Cette rubrique explique comment vous pouvez traiter des messages X12 sous forme de lot en effectuant les tâches suivantes :
-* [Créer une application logique destinée à recevoir des éléments et créer un lot](#receiver). Cette application logique « réceptrice » exécute les actions suivantes :
- 
-   * Elle spécifie le nom du lot et les critères de déclenchement à remplir avant le traitement des éléments sous forme de lot.
+* Une application logique [« réceptrice de lots »](#receiver), qui accepte et collecte les messages dans un lot jusqu’à ce que vos critères précisés soient remplis pour mettre en production et traiter ces messages. Dans ce scénario, le récepteur de lots encode également les messages dans le lot au moyen de l’accord X12 spécifié ou des identités partenaires.
 
-   * Elle traite ou encode les éléments du lot par le biais de l’accord X12 spécifié ou des identités des partenaires.
+  Assurez-vous de commencer par la création du récepteur de lots, afin de pouvoir sélectionner ensuite la destination des lots lors de la création de l’expéditeur de lots.
 
-* [Créer une application logique qui envoie les éléments vers un lot](#sender). Cette application logique « expéditrice » spécifie l’emplacement où envoyer les éléments à traiter par lots, qui doit se trouver dans une application logique réceptrice existante.
+* Une application logique [« expéditrice de lots »](#sender), qui envoie les messages au récepteur de lots précédemment créé. 
 
+Assurez-vous que votre récepteur et votre expéditeur de lots partagent le même abonnement *et* la même région Azure. Si ce n’est pas le cas, vous ne pouvez pas sélectionner le récepteur de lots lorsque vous créez l’expéditeur de lots, car ils ne sont pas visibles entre eux.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cet exemple, vous avez besoin de ce qui suit :
 
-* Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Sinon, vous pouvez souscrire à un [abonnement de type paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
+* Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Vous pouvez aussi [souscrire un abonnement avec paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) déjà défini et associé à votre abonnement Azure
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Au moins deux [partenaires](logic-apps-enterprise-integration-partners.md) que vous avez déjà définis dans votre compte d’intégration. Assurez-vous que chaque partenaire utilise le qualificateur X12 (Code alphanumérique standard) dans les propriétés du partenaire en tant qu’identité d’entreprise.
+* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) existant associé à votre abonnement Azure et lié à vos applications logiques
 
-* Un [contrat X12](logic-apps-enterprise-integration-x12.md) déjà défini dans votre compte d’intégration
+* Au moins deux [partenaires](../logic-apps/logic-apps-enterprise-integration-partners.md) existants dans votre compte d’intégration. Chaque partenaire doit utiliser le qualificateur X12 (Code alphanumérique standard) en tant qu’identité d’entreprise dans les propriétés du partenaire.
+
+* Un [accord X12](../logic-apps/logic-apps-enterprise-integration-x12.md) existant dans votre compte d’intégration
+
+* Pour utiliser Visual Studio plutôt que le portail Azure, veillez à [configurer Visual Studio pour travailler avec Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="receiver"></a>
 
-## <a name="create-a-logic-app-that-receives-x12-messages-and-creates-a-batch"></a>Créer une application logique destinée à recevoir des éléments X12 et créer un lot
+## <a name="create-x12-batch-receiver"></a>Créer un récepteur de lots X12
 
-Avant de pouvoir envoyer des messages vers un lot, vous devez d’abord créer une application logique « réceptrice » à l’aide du déclencheur **Lot**. De cette façon, vous pouvez sélectionner cette application logique réceptrice lorsque vous créez l’application logique expéditrice. Pour l’application réceptrice, vous devez spécifier le nom du lot, les critères de déclenchement, l’accord X12 et d’autres paramètres. 
+Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister en tant que destination vers laquelle envoyer ces messages. Ainsi, vous devez commencer par créer l’application logique « réceptrice de lots », qui démarre avec le déclencheur **Lot**. De cette façon, lorsque vous créez l’application logique « expéditrice de lots », vous pouvez sélectionner l’application logique réceptrice de lots. Le récepteur de lots continue à collecter les messages jusqu’à ce que vos critères spécifiés soient remplis pour mettre en production et traiter ces messages. Alors que les récepteurs de lots n’ont pas besoin de connaître les expéditeurs de lots, les expéditeurs de lots, eux, doivent connaître la destination vers laquelle envoyer les messages. 
 
+Pour ce récepteur de lots, vous devez spécifier le mode et le nom du lot, les critères de mise en production, l’accord X12 et d’autres paramètres. 
 
-1. Dans le [portail Azure](https://portal.azure.com), créez une application logique et nommez-la « BatchX12Messages ».
+1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, créez une application logique et nommez-la « BatchX12Messages ».
 
-1. Dans le Concepteur d'applications logiques, ajoutez le déclencheur **Lot** qui démarre le flux de travail de votre application logique. Dans la zone de recherche, entrez « lot » comme filtre. Sélectionnez le déclencheur **Lot – Traiter les messages par lots**.
+2. [Liez votre application logique à votre compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
+
+3. Dans le Concepteur d'applications logiques, ajoutez le déclencheur **Lot** qui démarre le flux de travail de votre application logique. Dans la zone de recherche, entrez « lot » comme filtre. Sélectionnez ce déclencheur : **Traiter les messages par lots**
 
    ![Ajout du déclencheur Lot](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
-1. Fournissez un nom pour le lot, puis spécifiez des critères pour son déclenchement, par exemple :
+4. Définissez les propriétés du récepteur de lots : 
 
-   * **Nom du lot** : nom utilisé pour identifier le lot (« TestBatch » dans cet exemple).
+   | Propriété | Valeur | Notes | 
+   |----------|-------|-------|
+   | **Mode Batch** | En ligne |  |  
+   | **Nom du lot** | TestBatch | Disponible uniquement avec le mode Batch **Inline** | 
+   | **Critères de mise en production** | Sur la base du nombre de messages, sur la base de la planification | Disponible uniquement avec le mode Batch **Inline** | 
+   | **Nombre de messages** | 10 | Disponible uniquement avec le critère de mise en production **Sur la base du nombre de messages** | 
+   | **Intervalle** | 10 | Disponible uniquement avec le critère de mise en production **Sur la base de la planification** | 
+   | **Fréquence** | minute | Disponible uniquement avec le critère de mise en production **Sur la base de la planification** | 
+   ||| 
 
-   * **Critères de déclenchement** : critères de déclenchement du lot, liés au nombre de messages, à la planification ou aux deux.
-   
-     ![Détails à fournir concernant le déclencheur Lot](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+   ![Détails à fournir concernant le déclencheur Lot](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
 
-   * **Nombre de messages** : nombre de messages devant être contenus dans un lot avant le déclenchement du traitement (« 5 » dans cet exemple).
+   > [!NOTE]
+   > Cet exemple ne configure pas de partition pour le lot, chaque lot utilise donc la même clé de partition. Pour en savoir plus sur les partitions, consultez [Traiter les messages par lots](../logic-apps/logic-apps-batch-process-send-receive-messages.md#batch-sender).
 
-     ![Détails à fournir concernant le déclencheur Lot](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
+5. Nous allons maintenant ajouter une action qui encode chaque lot : 
 
-   * **Planification** : planification du déclenchement du traitement du lot, « toutes les 10 minutes » dans cet exemple.
+   1. Sous le déclencheur Lot, sélectionnez **Nouvelle étape**.
 
-     ![Détails à fournir concernant le déclencheur Lot](./media/logic-apps-scenario-EDI-send-batch-messages/receive-batch-schedule-based.png)
+   2. Dans la zone de recherche, entrez « lot X12 » en tant que filtre et sélectionnez cette action (quelle que soit la version) : **Encodage par lots <*version*> - X12** 
 
+      ![Sélection de l’action d’encodage par lots X12](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
-1. Ajoutez une autre action qui encode les messages groupés ou par lots et crée un message traité par lot X12. 
+   3. Si vous n’êtes pas déjà connecté à votre compte d’intégration, connectez-vous maintenant. Indiquez un nom pour votre connexion, sélectionnez le compte d’intégration, puis choisissez **Créer**.
 
-   a. Sélectionnez **+ Nouvelle étape** > **Ajouter une action**.
+      ![Établir la connexion entre l’encodeur par lots et le compte d’intégration](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encoder-connect-integration-account.png)
 
-   b. Dans la zone de recherche, entrez « X12 batch » en tant que filtre et sélectionnez une action pour **X12 - Batch Encode** (encodage par lots X12). Comme pour le connecteur d’encodage X12, il existe plusieurs variantes de l’action d’encodage par lots. Vous pouvez sélectionner l’une d’elles.
+   4. Définissez ces propriétés pour votre action d’encodeur par lots :
 
-   ![Sélection de l’action d’encodage par lots X12](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
-   
-1. Définissez les propriétés de l’action que vous venez d’ajouter.
+      | Propriété | Description |
+      |----------|-------------|
+      | **Nom de l’accord X12** | Ouvrez la liste, puis sélectionnez votre accord. <p>Si votre liste est vide, assurez-vous d’avoir bien [associé votre application logique au compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account) détenant l’accord qui vous intéresse. | 
+      | **BatchName** | Cliquez dans cette zone. Lorsque la liste de contenu dynamique s’affiche, sélectionnez le jeton **Nom du lot**. | 
+      | **PartitionName** | Cliquez dans cette zone. Lorsque la liste de contenu dynamique s’affiche, sélectionnez le jeton **Nom de la partition**. | 
+      | **Éléments** | Fermez la zone d’informations sur l’élément, puis cliquez dans cette zone. Lorsque la liste de contenu dynamique s’affiche, sélectionnez le jeton **Éléments traités par lots**. | 
+      ||| 
 
-   * Dans la zone **Nom de l’accord X12**, sélectionnez l’accord approprié dans la liste déroulante. Si la liste est vide, assurez-vous que vous avez bien créé une connexion à votre compte d’intégration.
+      ![Détails de l’action d’encodage par lots](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
 
-   * Dans la zone **BatchName**, sélectionnez le champ **Nom du lot** dans la liste de contenu dynamique.
-   
-   * Dans la zone **PartitionName**, sélectionnez le champ **Nom de la partition** dans la liste de contenu dynamique.
+      Pour la zone **Éléments** :
 
-   * Dans la zone **Éléments**, sélectionnez les **éléments traités par lots** dans la liste de contenu dynamique.
+      ![Éléments de l’action d’encodage par lots](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-items.png)
 
-   ![Détails de l’action d’encodage par lots](./media/logic-apps-scenario-EDI-send-batch-messages/batch-encode-action-details.png)
+6. Enregistrez votre application logique. 
 
-1. À des fins de test, ajoutez une action HTTP pour envoyer le message traité par lot au [service RequestBin](https://requestbin.fullcontact.com/). 
+7. Si vous utilisez Visual Studio, veillez à [déployer votre application logique réceptrice de lots sur Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Sinon, vous ne pouvez pas sélectionner le récepteur de lots lorsque vous créez l’expéditeur de lots.
 
-   1. Dans la zone de recherche, entrez « HTTP » en tant que filtre. Sélectionnez cette action : **HTTP - HTTP**
+### <a name="test-your-logic-app"></a>Tester votre application logique
+
+Pour vérifier que votre récepteur de lots fonctionne comme prévu, vous pouvez ajouter une action HTTP à des fins de test et envoyer un message par lot au [service Request Bin](https://requestbin.fullcontact.com/). 
+
+1. Sous l’action d’encodage X12, choisissez **Nouvelle étape**. 
+
+2. Dans la zone de recherche, entrez « http » en tant que filtre. Sélectionnez cette action : **HTTP - HTTP**
     
-      ![Sélection de l’action HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receive-add-http-action.png)
+   ![Sélection de l’action HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
-   1. Dans la liste **Méthode**, sélectionnez **POST**. Dans la zone **Uri**, générez un URI pour votre RequestBin et entrez cet URI. Dans la zone **Corps**, dans la liste dynamique qui s’ouvre, sélectionnez le champ **Corps** dans la section **Encodage Batch par nom de contrat**. Si le champ **Corps** n’apparaît pas, cliquez sur **Voir plus** en regard du titre de section **Encodage Batch par nom de contrat**.
+3. Définissez les propriétés de l’action HTTP :
 
-      ![Saisie des détails de l’action HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receive-add-http-action-details.png)
+   | Propriété | Description | 
+   |----------|-------------|
+   | **Méthode** | Dans cette liste, sélectionnez **POST**. | 
+   | **Uri** | Générez un URI pour votre RequestBin, puis saisissez-le dans cette zone. | 
+   | **Corps** | Cliquez dans cette zone. Lorsque la liste de contenu dynamique s’affiche, sélectionnez le jeton **Corps**, qui apparaît dans la section **Encodage Batch par nom de contrat**. <p>Si le jeton **Corps** n’apparaît pas, en regard de **Encodage Batch par nom de contrat**, sélectionnez **Afficher plus**. | 
+   ||| 
 
-1.  Maintenant que vous avez créé l’application logique réceptrice, enregistrez-la.
+   ![Saisie des détails de l’action HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action-details.png)
 
-    ![Enregistrer votre application logique](./media/logic-apps-scenario-EDI-send-batch-messages/save-batch-receiver-logic-app.png)
+4. Enregistrez votre application logique. 
 
-    > [!IMPORTANT]
-    > Une partition a une limite de 5 000 messages ou 80 Mo. Si l’une des conditions est remplie, le lot peut être libéré, même si la condition définie par l’utilisateur n’est pas remplie.
+   Votre application logique réceptrice de lots ressemble à l’exemple suivant : 
+
+   ![Enregistrer votre application logique réceptrice de lots](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-finished.png)
 
 <a name="sender"></a>
 
-## <a name="create-a-logic-app-that-sends-x12-messages-to-a-batch"></a>Créer une application logique qui envoie des messages X12 vers un lot
+## <a name="create-x12-batch-sender"></a>Créer l’expéditeur de lots X12
 
-À présent, créez une ou plusieurs applications logiques qui envoient des éléments vers le lot défini par l’application logique réceptrice. Pour l’application expéditrice, vous spécifiez l’application logique réceptrice, le nom du lot, le contenu du message et tout autre paramètre nécessaire. Vous pouvez éventuellement fournir une clé de partition unique pour diviser le lot en sous-ensembles dont le but est de collecter les éléments associés à cette clé.
+À présent, créez une ou plusieurs applications logiques qui envoient des messages vers l’application logique réceptrice de lots. Dans chaque expéditeur de lots, vous spécifiez l’application logique réceptrice de lots avec le nom du lot, le contenu du message et tout autre paramètre nécessaire. Vous pouvez éventuellement fournir une clé de partition unique pour diviser le lot en sous-ensembles afin de collecter les messages. 
 
-Les applications logiques expéditrices doivent savoir où envoyer les éléments. Les applications logiques réceptrices, quant à elles, n’ont rien à savoir sur les applications expéditrices.
+* En vous assurant d’avoir [créé votre récepteur de lots](#receiver) avant de créer votre expéditeur de lots, vous pouvez sélectionner le récepteur existant comme destinataire de lots. Alors que les récepteurs de lots n’ont pas besoin de connaître les expéditeurs de lots, les expéditeurs de lots, eux, doivent savoir où envoyer les messages. 
 
+* Vérifiez que vos récepteur et expéditeur de lots partagent la même région *et* le même abonnement Azure. Si ce n’est pas le cas, vous ne pouvez pas sélectionner le récepteur de lots lorsque vous créez l’expéditeur de lots, car ils ne sont pas visibles entre eux.
 
-1. Créez une autre application logique et nommez-la « X12MessageSender ». Ajoutez le déclencheur suivant à votre application logique : **Request / Response - Request** 
+1. Créer une autre application logique nommée « SendX12MessagesToBatch » 
+
+2. Dans la zone de recherche, saisissez le filtre « when a http request ». Sélectionnez ce déclencheur : **Lors de la réception d’une requête HTTP** 
    
    ![Ajout du déclencheur Request](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
-1. Ajoutez une nouvelle étape pour envoyer des messages vers un lot.
+3. Ajoutez une action pour envoyer des messages vers un lot.
 
-   1. Sélectionnez **+ Nouvelle étape** > **Ajouter une action**.
+   1. Sous l’action de requête HTTP, choisissez **Nouvelle étape**.
 
-   1. Dans la zone de recherche, entrez « lot » comme filtre. 
+   2. Dans la zone de recherche, entrez « lot » comme filtre. 
+   Sélectionnez la liste **Actions**, puis sélectionnez l’action suivante : **Choisir un workflow Logic Apps avec déclencheur de lot - Envoyer les messages au lot**.
 
-1. Sélectionnez l’action **Envoyer les messages au lot - Choisir un workflow Logic Apps avec déclencheur de lot**.
+      ![Sélection de « Choisir un workflow Logic Apps avec déclencheur de lot »](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
-   ![Sélection de l’option « Envoyer les messages au lot »](./media/logic-apps-scenario-EDI-send-batch-messages/send-messages-batch-action.png)
+   3. Sélectionnez à présent l’application logique « BatchX12Messages » créée précédemment.
 
-1. Sélectionnez à présent l’application logique « BatchX12Messages » créée précédemment, qui s’affiche désormais en tant qu’action.
+      ![Sélection de l’application logique « BatchReceiver »](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   ![Sélection de l’application logique « BatchReceiver »](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-select-batch-receiver.png)
+   4. Sélectionnez cette action : **Traiter_les_messages_par_lots - <*votre-récepteur-de-lots*>**
 
-   > [!NOTE]
-   > La liste affiche également toutes les autres applications logiques qui sont associées à un déclencheur de lot.
+      ![Sélection de l’action « Batch_messages »](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
-1. Définissez les propriétés du lot.
+4. Définissez les propriétés de l’expéditeur de lots.
 
-   * **Nom du lot** : nom défini par l’application logique réceptrice, (« TestBatch » dans cet exemple) qui est validé lors de l’exécution.
-
-     > [!IMPORTANT]
-     > Veillez à ne pas modifier le nom du lot, car il doit correspondre au nom de lot spécifié par l’application logique réceptrice.
-     > Si vous modifiez son nom, l’application logique expéditrice échouera.
-
-   * **Contenu du message** : contenu du message que vous souhaitez envoyer vers le lot
+   | Propriété | Description | 
+   |----------|-------------| 
+   | **Nom du lot** | Nom défini par l’application logique réceptrice (« TestBatch » dans cet exemple) <p>**Important** : le nom du lot est validé lors de l’exécution et doit correspondre au nom spécifié par l’application logique réceptrice. Si vous modifiez ce nom, l’expéditeur de lots échoue. | 
+   | **Contenu du message** | Contenu du message que vous souhaitez envoyer (jeton **Corps** dans cet exemple) | 
+   ||| 
    
-   ![Définition des propriétés du lot](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-select-batch-properties.png)
+   ![Définition des propriétés du lot](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-set-batch-properties.png)
 
-1. Enregistrez votre application logique. Votre application logique expéditrice doit désormais ressembler à ceci :
+5. Enregistrez votre application logique. 
 
-   ![Enregistrement de l’application logique](./media/logic-apps-scenario-EDI-send-batch-messages/send-batch-finished.png)
+   Votre application logique expéditrice de lots ressemble à l’exemple suivant :
+
+   ![Enregistrement de votre application logique expéditrice de lots](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-finished.png)
 
 ## <a name="test-your-logic-apps"></a>Tester les applications logiques
 
-Pour tester votre solution de traitement par lots, publiez des messages X12 dans votre application logique expéditrice à partir de [Postman](https://www.getpostman.com/postman) ou d’un outil similaire. Vous devriez bientôt commencer à recevoir des messages X12, soit sous la forme d’un lot de cinq éléments, soit toutes les 10 minutes, dans votre RequestBin, tous avec la même clé de partition.
+Pour tester votre solution de traitement par lots, publiez des messages X12 dans votre application logique expéditrice de lots à partir de [Postman](https://www.getpostman.com/postman) ou d’un outil similaire. Vous allez bientôt commencer à recevoir des messages X12 dans votre RequestBin, soit toutes les 10 minutes, soit sous la forme de lots de 10, tous avec la même clé de partition.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Traiter par lots des messages](logic-apps-batch-process-send-receive-messages.md) 
-* [Créer une application sans serveur dans Visual Studio avec Azure Logic Apps et Azure Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
-* [Gestion des exceptions et journalisation des erreurs pour les applications logiques](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Traiter par lots des messages](../logic-apps/logic-apps-batch-process-send-receive-messages.md) 

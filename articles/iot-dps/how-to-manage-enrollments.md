@@ -1,6 +1,6 @@
 ---
 title: Gérer les inscriptions d’appareils avec le portail Azure | Microsoft Docs
-description: Guide pratique pour gérer les inscriptions d’appareil avec votre service Device Provisioning dans le portail Azure
+description: Guide pratique de gestion des inscriptions d’appareil avec votre service de provisionnement des appareils sur le Portail Azure
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/05/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 5282ee0858c1226b2b743f42203e7b4af9eac6e6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0970131c4b674fd864ad574b0f749cd6d7f6f2a2
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524123"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145332"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Guide pratique pour gérer les inscriptions d’appareils avec le portail Azure
 

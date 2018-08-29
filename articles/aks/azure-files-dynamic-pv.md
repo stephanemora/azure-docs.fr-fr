@@ -3,18 +3,16 @@ title: Utiliser Azure Files avec AKS
 description: Utiliser des disques Azure avec AKS
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 08/15/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: bac80e354a4d629bfbfc8207b9fed7c69c765839
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ea77244d4b2e078c5eda716e94a97291350228f5
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429265"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145748"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Volumes persistants avec les fichiers Azure
 
@@ -22,33 +20,32 @@ Un volume persistant est un élément de stockage créé pour une utilisation da
 
 Pour plus d’informations sur les volumes persistants Kubernetes, y compris sur leur création statique, consultez la [documentation Kubernetes sur les volumes persistants][kubernetes-volumes].
 
-## <a name="create-storage-account"></a>Créer un compte de stockage
+## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Lors de la création dynamique d’un partage de fichiers Azure en tant que volume Kubernetes, il est possible d’utiliser un compte de stockage tant que celui-ci figure dans le **nœud** AKS du groupe de ressources. C’est celui contenant le préfixe `MC_` qui a été créé par le provisionnement des ressources pour le cluster AKS. Obtenez le nom du groupe de ressources avec la commande [az resource show][az-resource-show].
+Lors de la création dynamique d’un partage de fichiers Azure en tant que volume Kubernetes, il est possible d’utiliser un compte de stockage tant que celui-ci figure dans le **nœud** AKS du groupe de ressources. Ce groupe est celui contenant le préfixe *MC_* qui a été créé par le provisionnement des ressources pour le cluster AKS. Obtenez le nom du groupe de ressources avec la commande [az aks show][az-aks-show].
 
-```azurecli-interactive
-$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
+```azurecli
+$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Utilisez la commande [az storage account create][az-storage-account-create] pour créer le compte de stockage.
 
-Mettez à jour `--resource-group` avec le nom du groupe de ressources collecté à la dernière étape et `--name` avec le nom de votre choix.
+Mettez à jour `--resource-group` avec le nom du groupe de ressources collecté à la dernière étape et `--name` avec le nom de votre choix. Fournissez votre propre nom de compte de stockage unique :
 
-```azurecli-interactive
-az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+```azurecli
+az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --sku Standard_LRS
 ```
 
-> Actuellement, Azure Files fonctionne uniquement avec le stockage standard. Si vous utilisez le stockage Premium, le provisionnement de votre volume échoue.
+> [!NOTE]
+> Actuellement, Azure Files ne fonctionne qu’avec le stockage Standard. Si vous utilisez le stockage Premium, le provisionnement du volume échoue.
 
-## <a name="create-storage-class"></a>Créer la classe de stockage
+## <a name="create-a-storage-class"></a>Créer une classe de stockage
 
-Une classe de stockage permet de définir la façon dont un partage de fichiers Azure est créé. Un compte de stockage peut être spécifié dans la classe. Si aucun compte de stockage n’est spécifié, un `skuName` et un `location` doivent être spécifiés, et tous les comptes de stockage du groupe de ressources associé sont évalués pour rechercher une correspondance.
+Une classe de stockage permet de définir la façon dont un partage de fichiers Azure est créé. Il est possible de spécifier un compte de stockage dans la classe. Si aucun compte de stockage n’est spécifié, un *skuName* et un *emplacement* doivent être spécifiés, et tous les comptes de stockage du groupe de ressources associé sont évalués pour rechercher une correspondance. Pour plus d’informations sur les classes de stockage Kubernetes pour Azure Files, consultez [Classes de stockage Kubernetes][kubernetes-storage-classes].
 
-Pour plus d’informations sur les classes de stockage Kubernetes pour les fichiers Azure, consultez [Classes de stockage Kubernetes][kubernetes-storage-classes].
-
-Créez un fichier nommé `azure-file-sc.yaml` et copiez-y le manifeste suivant. Remplacez `storageAccount` par le nom de votre compte de stockage cible. Pour plus d’informations sur `mountOptions`, consultez la section [Options de montage].
+Créez un fichier nommé `azure-file-sc.yaml` et copiez-le dans l’exemple de manifeste suivant. Mettez à jour la valeur *storageAccount* avec le nom de votre compte de stockage créé à l’étape précédente. Pour plus d’informations sur *mountOptions*, consultez la section [Options de montage][mount-options].
 
 ```yaml
 kind: StorageClass
@@ -63,21 +60,57 @@ mountOptions:
   - gid=1000
 parameters:
   skuName: Standard_LRS
+  storageAccount: mystorageaccount
 ```
 
-Créez la classe de stockage avec la commande [kubectl apply][kubectl-apply].
+Créez la classe de stockage avec la commande [kubectl apply][kubectl-apply] :
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-file-sc.yaml
 ```
 
-## <a name="create-persistent-volume-claim"></a>Créer une revendication de volume persistant
+## <a name="create-a-cluster-role-and-binding"></a>Créer un rôle de cluster et une liaison
 
-Une revendication de volume persistant utilise l’objet de classe de stockage pour provisionner dynamiquement un partage de fichiers Azure.
+Les clusters AKS utilisent le contrôle d’accès en fonction du rôle (RBAC) de Kubernetes pour limiter les actions pouvant être effectuées. Les *rôles*définissent les permissions à accorder, et les *liaisons*les appliquent aux utilisateurs souhaités. Ces affectations peuvent s’appliquer à un espace de noms donné ou à l’ensemble du cluster. Pour plus d’informations, consultez [Utilisation de l’autorisation RBAC][kubernetes-rbac].
 
-Le code YAML ci-après permet de créer une revendication de volume persistant d’une taille de `5GB` avec un accès `ReadWriteMany`. Pour plus d’informations sur les modes d’accès, consultez la [documentation Kubernetes sur les volumes persistants][access-modes].
+Pour permettre à la plateforme Azure de créer les ressources de stockage nécessaires, créez un rôle *clusterrole* et une liaison *clusterrolebinding*. Créez un fichier nommé `azure-pvc-roles.yaml`, et copiez-y le code YAML suivant :
 
-Créez un fichier nommé `azure-file-pvc.yaml` et copiez-y le YAML suivant. Vérifiez que `storageClassName` correspond à la classe de stockage créée à la dernière étape.
+```yaml
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRole
+metadata:
+  name: system:azure-cloud-provider
+rules:
+- apiGroups: ['']
+  resources: ['secrets']
+  verbs:     ['get','create']
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: system:azure-cloud-provider
+roleRef:
+  kind: ClusterRole
+  apiGroup: rbac.authorization.k8s.io
+  name: system:azure-cloud-provider
+subjects:
+- kind: ServiceAccount
+  name: persistent-volume-binder
+  namespace: kube-system
+```
+
+Assignez les permissions avec la commande [kubectl apply][kubectl-apply] :
+
+```console
+kubectl apply -f azure-pvc-roles.yaml
+```
+
+## <a name="create-a-persistent-volume-claim"></a>Créer une revendication de volume persistant
+
+Une revendication de volume persistant utilise l’objet de classe de stockage pour provisionner dynamiquement un partage de fichiers Azure. Le code YAML suivant permet de créer une revendication de volume persistant d’une taille de *5GB* avec un accès *ReadWriteMany*. Pour plus d’informations sur les modes d’accès, consultez la [documentation Kubernetes sur les volumes persistants][access-modes].
+
+Maintenant, créez un fichier nommé `azure-file-pvc.yaml`, et copiez-y le code YAML suivant. Vérifiez que *storageClassName* correspond à la classe de stockage créée à la dernière étape :
 
 ```yaml
 apiVersion: v1
@@ -93,19 +126,26 @@ spec:
       storage: 5Gi
 ```
 
-Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply].
+Créez la revendication de volume persistant avec la commande [kubectl apply][kubectl-apply] :
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-file-pvc.yaml
 ```
 
-Une fois que c’est terminé, le partage de fichiers est créé. Un secret Kubernetes incluant des informations d’identification et des informations de connexion est également créé.
+Une fois que c’est terminé, le partage de fichiers est créé. Un secret Kubernetes incluant des informations d’identification et des informations de connexion est également créé. Vous pouvez utiliser la commande [kubectl get][kubectl-get] pour afficher l’état de la revendication de volume persistant :
 
-## <a name="using-the-persistent-volume"></a>Utilisation du volume persistant
+```
+$ kubectl get pvc azurefile
 
-Le code YAML ci-après crée un pod qui utilise la revendication de volume persistant `azurefile` pour monter le partage de fichiers Azure dans le chemin `/mnt/azure`.
+NAME        STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+azurefile   Bound     pvc-8436e62e-a0d9-11e5-8521-5a8664dc0477   5Gi        RWX            azurefile      5m
+```
 
-Créez un fichier nommé `azure-pvc-files.yaml` et copiez-y le code YAML suivant. Vérifiez que `claimName` correspond à la revendication de volume persistant créée à la dernière étape.
+## <a name="use-the-persistent-volume"></a>Utiliser le volume persistant
+
+Le code YAML ci-après crée un pod qui utilise la revendication de volume persistant *azurefile* pour monter le partage de fichiers Azure dans le chemin */mnt/azure*.
+
+Créez un fichier nommé `azure-pvc-files.yaml` et copiez-y le code YAML suivant. Vérifiez que *claimName* correspond à la revendication de volume persistant créée à la dernière étape.
 
 ```yaml
 kind: Pod
@@ -127,15 +167,36 @@ spec:
 
 Créez le pod avec la commande [kubectl apply][kubectl-apply].
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-pvc-files.yaml
 ```
 
-Vous disposez maintenant d’un pod en cours d’exécution avec le disque Azure monté dans le répertoire `/mnt/azure`. Cette configuration peut s’afficher lors de l’inspection de votre pod par le biais de `kubectl describe pod mypod`.
+Vous disposez maintenant d’un pod en cours d’exécution avec le disque Azure monté dans le répertoire */mnt/azure*. Cette configuration peut s’afficher lors de l’inspection de votre pod par le biais de `kubectl describe pod mypod`. La sortie de l’exemple condensé suivant montre le volume monté dans le conteneur :
+
+```
+Containers:
+  myfrontend:
+    Container ID:   docker://053bc9c0df72232d755aa040bfba8b533fa696b123876108dec400e364d2523e
+    Image:          nginx
+    Image ID:       docker-pullable://nginx@sha256:d85914d547a6c92faa39ce7058bd7529baacab7e0cd4255442b04577c4d1f424
+    State:          Running
+      Started:      Wed, 15 Aug 2018 22:22:27 +0000
+    Ready:          True
+    Mounts:
+      /mnt/azure from volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from default-token-8rv4z (ro)
+[...]
+Volumes:
+  volume:
+    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:  azurefile2
+    ReadOnly:   false
+[...]
+```
 
 ## <a name="mount-options"></a>Options de montage
 
-Les valeurs par défaut fileMode et dirMode diffèrent d’une version Kubernetes à l’autre, comme détaillé dans le tableau suivant.
+Les valeurs par défaut *fileMode* et *dirMode* diffèrent d’une version Kubernetes à l’autre, comme détaillé dans le tableau suivant.
 
 | version | value |
 | ---- | ---- |
@@ -145,7 +206,7 @@ Les valeurs par défaut fileMode et dirMode diffèrent d’une version Kubernete
 | V1.9.0 | 0700 |
 | v1.9.1 ou version supérieure | 0755 |
 
-Si vous utilisez un cluster de la version 1.8.5 ou d’une version ultérieure et que vous créez le volume persistant de manière dynamique avec une classe de stockage, les options de montage peuvent être spécifiées sur l’objet de classe de stockage. L’exemple suivant définit `0777`.
+Si vous utilisez un cluster de la version 1.8.5 ou d’une version ultérieure et que vous créez le volume persistant de manière dynamique avec une classe de stockage, les options de montage peuvent être spécifiées sur l’objet de classe de stockage. L’exemple suivant définit *0777* :
 
 ```yaml
 kind: StorageClass
@@ -162,7 +223,7 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Si vous utilisez un cluster de la version 1.8.5 ou d’une version ultérieure et que vous créez l’objet de volume persistant de manière statique, les options de montage doivent être spécifiées sur l’objet `PersistentVolume`. Pour plus d’informations sur la création statique d’un volume persistant, consultez la [documentation relative aux volumes persistants statiques][pv-static].
+Si vous utilisez un cluster de la version 1.8.5 ou d’une version ultérieure et que vous créez l’objet de volume persistant de manière statique, les options de montage doivent être spécifiées sur l’objet *PersistentVolume*. Pour plus d’informations sur la création statique d’un volume persistant, consultez la [documentation relative aux volumes persistants statiques][pv-static].
 
 ```yaml
 apiVersion: v1
@@ -185,7 +246,7 @@ spec:
   - gid=1000
   ```
 
-Si vous utilisez un cluster de version 1.8.0 - 1.8.4, un contexte de sécurité peut être spécifié avec la définition de la valeur `runAsUser` sur `0`. Pour plus d’informations sur le contexte de sécurité Pod, consultez [Configurer un contexte de sécurité][kubernetes-security-context].
+Si vous utilisez un cluster de version 1.8.0 - 1.8.4, un contexte de sécurité peut être spécifié avec la définition de la valeur *runAsUser* sur *0*. Pour plus d’informations sur le contexte de sécurité Pod, consultez [Configurer un contexte de sécurité][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -197,18 +258,20 @@ Apprenez-en davantage sur les volumes persistants Kubernetes utilisant Azure Fil
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
-[kubectl-describe]: https://kubernetes-v1-4.github.io/docs/user-guide/kubectl/kubectl_describe/
+[kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-files]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_file/README.md
 [kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
+[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-list]: /cli/azure/group#az-group-list
-[az-resource-show]: /cli/azure/resource#az-resource-show
+[az-resource-show]: /cli/azure/aks#az-aks-show
 [az-storage-account-create]: /cli/azure/storage/account#az-storage-account-create
 [az-storage-create]: /cli/azure/storage/account#az-storage-account-create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: bc6f25c7a8a779d949fbd09f9a9a9a37ec83f56a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206531"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141301"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionnement des services fiables Service Fabric
 Cet article présente les concepts de base pour le partitionnement des services fiables d’Azure Service Fabric. Le code source utilisé dans cet article est également disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -363,6 +363,9 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
     ![Capture d’écran du navigateur](./media/service-fabric-concepts-partitioning/samplerunning.png)
 
 Le code source complet de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
+
+## <a name="reliable-services-and-actor-forking-subprocesses"></a>Sous-processus de duplication Reliable Services et Actor
+Service Fabric ne prend pas en charge les sous-processus de duplication de Reliable Services et Reliable Actors. Un exemple de la raison de cette absence de prise en charge est le fait que [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) ne peut pas être utilisé pour inscrire un sous-processus non pris en charge et les jetons d’annulation sont uniquement envoyés à des processus enregistrés ; engendrant toutes sortes de problèmes, telles que les échecs de mise à niveau, lorsque les sous-processus ne ferment pas une fois le jeton d’annulation reçu par le processus parent. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur les concepts propres à Service Fabric, consultez les articles suivants :

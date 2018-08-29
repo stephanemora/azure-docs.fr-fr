@@ -11,16 +11,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018
+ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 4dc4ddb2d11cf792bfa6288eadce8eb03470ae1d
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099718"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146369"
 ---
-# <a name="migrate-data-from-storsimple-5000-7000-series"></a>Migrer des données de la gamme StorSimple 5000-7000 
+# <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrer des données d’un appareil StorSimple 5000-7000 vers Azure File Sync
 
 La migration des données désigne le processus de déplacement des données d’un emplacement de stockage à un autre. Cela implique de réaliser une copie exacte des données actuelles d’une organisation d’un appareil à l’autre (de préférence sans interrompre ou désactiver les applications actives), puis de rediriger toutes les activités d’entrées/de sorties vers le nouvel appareil. 
 
@@ -67,17 +67,17 @@ La migration des données de la gamme StorSimple 5000-7000 vers AFS est un proce
 
 Procédez comme suit pour migrer le partage de fichiers Windows configuré sur les volumes StorSimple vers un partage Azure File Sync. 
 1.  Effectuez ces étapes sur le même hôte Windows Server que celui où les volumes StorSimple sont montés ou utilisez un autre système. 
-    - [Préparez Windows Server pour une utilisation avec Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Installez l’agent Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Déployez le service de synchronisation de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Inscrivez Windows Server au service de synchronisation de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Créez un groupe de synchronisation et un point de terminaison du cloud](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal. Des groupes de synchronisation doivent être créés pour chaque partage de fichiers Windows à migrer depuis l’hôte.
-    - [Créez un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). Pour le chemin d’accès, spécifiez celui du volume StorSimple qui contient vos données de partage de fichiers. Par exemple, si le volume StorSimple est le lecteur `J`, et si vos données se trouvent dans `J:/<myafsshare>`, ajoutez ce chemin d’accès en tant que point de terminaison de serveur. Laissez l’élément **Hiérarchisation** défini sur **Désactivée**.
+    - [Préparez Windows Server pour une utilisation avec Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync).
+    - [Installez l’agent Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent).
+    - [Déployez le service de synchronisation de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
+    - [Inscrivez Windows Server au service de synchronisation de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
+    - [Créez un groupe de synchronisation et un point de terminaison cloud](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). Des groupes de synchronisation doivent être créés pour chaque partage de fichiers Windows à migrer depuis l’hôte.
+    - [Créez un point de terminaison de serveur](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Pour le chemin d’accès, spécifiez celui du volume StorSimple qui contient vos données de partage de fichiers. Par exemple, si le volume StorSimple est le lecteur `J`, et si vos données se trouvent dans `J:/<myafsshare>`, ajoutez ce chemin d’accès en tant que point de terminaison de serveur. Laissez l’élément **Hiérarchisation** défini sur **Désactivée**.
 2.  Attendez la fin de la synchronisation du serveur de fichiers. Pour chaque serveur dans un groupe de synchronisation donné, vérifiez que :
     - Les horodatages de la dernière tentative de synchronisation pour le chargement téléchargement sont récents.
     - L’état est affiché en vert pour le chargement et le téléchargement.
-    - L’activité de synchronisation présente très peu ou pas de fichiers restant à synchroniser.
-    - Il y a 0 fichier non synchronisé pour le chargement et le téléchargement.
+    - Le champ **Activité de synchronisation** indique un nombre minime ou nul de fichiers restant à synchroniser.
+    - Le champ **Fichiers non synchronisés** présente la valeur 0 pour le chargement et pour le téléchargement.
     Pour savoir quand la synchronisation du serveur est terminée, consultez [Résoudre les problèmes de synchronisation de fichiers Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other). La synchronisation peut prendre entre plusieurs heures et plusieurs jours en fonction de la taille de vos données et de la bande passante. Une fois la synchronisation terminée, toutes vos données se trouvent en sécurité dans le partage de fichiers Azure. 
 3.  Accédez aux partages sur les volumes StorSimple. Sélectionnez un partage, cliquez avec le bouton droit et choisissez **Propriétés**. Notez que les autorisations de partage se trouvent sous **Sécurité**. Ces autorisations devront être appliquées manuellement au nouveau partage lors d’une étape ultérieure.
 4.  Les étapes suivantes varient en fonction de si vous utilisez le même hôte Windows Server ou un hôte différent.

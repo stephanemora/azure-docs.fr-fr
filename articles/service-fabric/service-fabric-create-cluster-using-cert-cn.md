@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8725dd1931b120b0369d0810fa49108a00c71e8e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c4c60cccb890c883e9e57c9f146cc93aae99f224
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211063"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146384"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Déployer un cluster Service Fabric utilisant un nom commun de certificat au lieu d’une empreinte
 Deux certificats ne peuvent pas avoir la même empreinte, ce qui complique la gestion ou le renouvellement des certificats de cluster. Toutefois, plusieurs certificats peuvent avoir le même nom commun ou objet.  Un cluster utilisant des noms communs de certificat facilite grandement la gestion des certificats. Cet article décrit le déploiement d’un cluster Service Fabric pour utiliser le nom commun d’un certificat à la place de son empreinte.
@@ -116,7 +116,15 @@ Ouvrez le fichier *azuredeploy.json* dans un éditeur de texte et effectuez troi
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. Dans la ressource **Microsoft.Compute/virtualMachineScaleSets**, mettez à jour l’extension de machine virtuelle pour utiliser le nom commun dans les paramètres du certificat au lieu de l’empreinte.  Dans **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**, ajoutez `"commonNames": ["[parameters('certificateCommonName')]"],` et supprimez `"thumbprint": "[parameters('certificateThumbprint')]",`.
+3. Dans la ressource **Microsoft.Compute/virtualMachineScaleSets**, mettez à jour l’extension de machine virtuelle pour utiliser le nom commun dans les paramètres du certificat au lieu de l’empreinte.  Dans **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**, ajoutez 
+    ```json
+       "commonNames": [
+        "[parameters('certificateCommonName')]"
+       ],
+    ```
+
+    et supprimez `"thumbprint": "[parameters('certificateThumbprint')]",`.
+
     ```json
     "virtualMachineProfile": {
       "extensionProfile": {
@@ -139,7 +147,9 @@ Ouvrez le fichier *azuredeploy.json* dans un éditeur de texte et effectuez troi
                 "enableParallelJobs": true,
                 "nicPrefixOverride": "[variables('subnet0Prefix')]",
                 "certificate": {
-                  "commonNames": ["[parameters('certificateCommonName')]"],
+                  "commonNames": [
+                     "[parameters('certificateCommonName')]"
+                  ],
                   "x509StoreName": "[parameters('certificateStoreValue')]"
                 }
               },
@@ -197,5 +207,6 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParame
 * Découvrez plus en détail la [sécurité des clusters](service-fabric-cluster-security.md).
 * Découvrez comment [renouveler un certificat de cluster](service-fabric-cluster-rollover-cert-cn.md).
 * [Mettre à jour et gérer les certificats de cluster](service-fabric-cluster-security-update-certs-azure.md)
+* Simplifiez la gestion des certificats en apprenant à [modifier un cluster pour qu’il passe de l’utilisation d’une empreinte de certificat à l’utilisation d’un nom commun](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

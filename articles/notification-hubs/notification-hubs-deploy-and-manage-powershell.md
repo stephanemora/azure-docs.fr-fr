@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c2297f072786bdc1e80255dee278d640b0c0d26d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5a134e14768e0576c501232b6aedb1f836bc05b1
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629512"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42145635"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Déploiement et gestion des concentrateurs de notification à l'aide de PowerShell
 ## <a name="overview"></a>Vue d’ensemble
-Cet article vous montre comment utiliser Création et gestion d’Azure Notification Hubs à l'aide de PowerShell. Les tâches d'automatisation courantes suivantes figurent dans cette rubrique.
+Cet article vous montre comment utiliser Création et gestion d’Azure Notification Hubs à l'aide de PowerShell. Les tâches d’automatisation courantes suivantes figurent dans cet article.
 
 * Création d’un concentrateur de notification
 * Définition des informations d’identification
@@ -91,8 +91,8 @@ Dans cette partie du script, nous allons créer quatre variables locales supplé
 
 1. `$Namespace` : définissez cette variable sur le nom de l’espace de noms dans lequel vous souhaitez créer un hub de notification.
 2. `$Path` : définissez cette variable de chemin d’accès sur le nom du nouveau hub de notification.  Par exemple, « MonConcentrateur ».    
-3. `$WnsPackageSid` : définissez cette variable sur le SID de package de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-4. `$WnsSecretkey`: définissez cette variable sur la clé secrète de votre application Windows à partir du [Centre de développement Windows](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+3. `$WnsPackageSid` : définissez cette variable sur le SID de package de votre application Windows à partir du [Centre de développement Windows](https://developer.microsoft.com/en-us/windows).
+4. `$WnsSecretkey`: définissez cette variable sur la clé secrète de votre application Windows à partir du [Centre de développement Windows](https://developer.microsoft.com/en-us/windows).
 
 Ces variables sont utilisées pour la connexion à votre espace de noms et la création d’un nouveau hub de notification configuré pour gérer les notifications Windows Notification Services (WNS) avec les informations d’identification WNS pour une application Windows. Pour plus d’informations sur l’obtention du SID du package et de la clé secrète, consultez le didacticiel [Prise en main de Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) . 
 

@@ -3,7 +3,7 @@ title: Analyser les journaux de flux des groupes de sécurité réseau Azure - G
 description: Découvrez comment gérer et analyser les journaux de flux des groupes de sécurité réseau dans Azure à l’aide de Network Watcher et de Graylog.
 services: network-watcher
 documentationcenter: na
-author: mareat
+author: mattreatMSFT
 manager: vitinnan
 editor: ''
 tags: azure-resource-manager
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 87d7c39a9340a82813f4df971c03a10be56e8f94
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26639283"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141310"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gérer et analyser les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Graylog
 
@@ -51,30 +51,30 @@ Cet exemple utilise la configuration minimale de Graylog (c’est-à-dire une se
 
 Vous pouvez installer Graylog de bien des façons, selon votre plateforme et vos préférences. Pour obtenir une liste complète des méthodes d’installation possibles, reportez-vous à la [documentation](http://docs.graylog.org/en/2.2/pages/installation.html) officielle de Graylog. L’application serveur Graylog s’exécute sur les distributions Linux et implique les prérequis suivants :
 
--   Java SE 8 ou version ultérieure d’Oracle – [Documentation d’installation Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
--   Elastic Search 2.x (2.1.0 ou version ultérieure) - [Documentation d’installation Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
--   MongoDB 2.4 ou version ultérieure – [Documentation d’installation MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/)
+-  Java SE 8 ou version ultérieure d’Oracle – [Documentation d’installation Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
+-  Elastic Search 2.x (2.1.0 ou version ultérieure) - [Documentation d’installation Elasticsearch](https://www.elastic.co/guide/en/elasticsearch/reference/2.4/_installation.html)
+-  MongoDB 2.4 ou version ultérieure – [Documentation d’installation MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/)
 
 ### <a name="install-logstash"></a>Installer Logstash
 
 Logstash vous permet d’aplatir à un niveau de tuple de flux les journaux de flux au format JSON. L’aplanissement des journaux de flux facilite l’organisation et la recherche des journaux dans Graylog.
 
-1.  Pour installer Logstash, exécutez les commandes suivantes :
+1. Pour installer Logstash, exécutez les commandes suivantes :
 
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
-    sudo dpkg -i logstash-5.2.0.deb
-    ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
+   sudo dpkg -i logstash-5.2.0.deb
+   ```
 
-2.  Configurez Logstash pour analyser les journaux de flux et les envoyer à Graylog. Créez un fichier logstash.conf :
+2. Configurez Logstash pour analyser les journaux de flux et les envoyer à Graylog. Créez un fichier logstash.conf :
 
-    ```bash
-    sudo touch /etc/logstash/conf.d/logstash.conf
-    ```
+   ```bash
+   sudo touch /etc/logstash/conf.d/logstash.conf
+   ```
 
-3.  Ajoutez le contenu suivant au fichier. Changez les valeurs mises en évidence pour refléter les détails de votre compte de stockage :
+3. Ajoutez le contenu suivant au fichier. Changez les valeurs mises en évidence pour refléter les détails de votre compte de stockage :
 
-    ```
+   ```
     input {
         azureblob
         {
@@ -147,7 +147,7 @@ Logstash vous permet d’aplatir à un niveau de tuple de flux les journaux de f
         }
     }
     ```
-Le fichier de configuration Logstash fourni comporte trois parties : l’entrée, le filtre et la sortie. La section d’entrée désigne la source d’entrée des journaux que Logstash va traiter. Dans ce cas, nous allons utiliser un plug-in d’entrée d’objets blob Azure (installé aux étapes suivantes) qui nous permet d’accéder aux fichiers JSON de journalisation des flux des groupes de sécurité réseau qui sont stockés dans le stockage Blob.
+Le fichier de configuration Logstash fourni comporte trois parties : l’entrée, le filtre et la sortie. La section d’entrée désigne la source d’entrée des journaux que Logstash va traiter. Dans ce cas, vous allez utiliser un plug-in d’entrée d’objets blob Azure (installé aux étapes suivantes) qui nous permet d’accéder aux fichiers JSON de journalisation des flux des groupes de sécurité réseau qui sont stockés dans le stockage Blob.
 
 La section de filtre aplatit ensuite chaque fichier journal du flux pour que chaque tuple de flux et les propriétés qui lui sont associées deviennent un événement Logstash à part entière.
 
@@ -171,30 +171,28 @@ Pour obtenir plus d’informations sur ce plug-in, reportez-vous à la [document
 
 ### <a name="set-up-connection-from-logstash-to-graylog"></a>Configurer la connexion de Logstash à Graylog
 
-Une connexion aux journaux de flux étant établie à l’aide de Logstash, et la configuration du serveur Graylog étant effectuée, il ne nous reste plus qu’à configurer Graylog pour qu’il accepte les fichiers journaux entrants.
+Une connexion aux journaux de flux étant établie à l’aide de Logstash, et la configuration du serveur Graylog étant effectuée, il ne vous reste plus qu’à configurer Graylog pour qu’il accepte les fichiers journaux entrants.
 
-1.  Accédez à l’interface web de votre serveur Graylog au moyen de l’URL que vous avez configurée à cet effet. Vous pouvez accéder à l’interface en indiquant à votre navigateur l’emplacement `http://<graylog-server-ip>:9000/`
+1. Accédez à l’interface web de votre serveur Graylog au moyen de l’URL que vous avez configurée à cet effet. Vous pouvez accéder à l’interface en indiquant à votre navigateur l’emplacement `http://<graylog-server-ip>:9000/`
 
-2.  Pour accéder à la page de configuration, à droite dans la barre de navigation supérieure, sélectionnez le menu déroulant **System** (Système), puis cliquez sur **Inputs** (Entrées).
-    Vous pouvez également accéder à l’emplacement suivant `http://<graylog-server-ip>:9000/system/inputs`
+2. Pour accéder à la page de configuration, à droite dans la barre de navigation supérieure, sélectionnez le menu déroulant **System** (Système), puis cliquez sur **Inputs** (Entrées).
+   Vous pouvez également accéder à l’emplacement suivant `http://<graylog-server-ip>:9000/system/inputs`
 
-    ![Prise en main](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
+   ![Prise en main](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
-3.  Pour lancer la nouvelle entrée, dans la zone de liste déroulante **Select input** (Sélectionner une entrée), sélectionnez *GELF UDP*, puis remplissez le formulaire. GELF est l’acronyme de « Graylog Extended Log Format » et signifie « format de journal étendu Graylog ». Le format GELF est développé par Graylog. Pour plus d’informations sur ses avantages, consultez la [documentation](http://docs.graylog.org/en/2.2/pages/gelf.html) Graylog.
+3. Pour lancer la nouvelle entrée, dans la zone de liste déroulante **Select input** (Sélectionner une entrée), sélectionnez *GELF UDP*, puis remplissez le formulaire. GELF est l’acronyme de « Graylog Extended Log Format » et signifie « format de journal étendu Graylog ». Le format GELF est développé par Graylog. Pour plus d’informations sur ses avantages, consultez la [documentation](http://docs.graylog.org/en/2.2/pages/gelf.html) Graylog.
 
-    Veillez à lier l’entrée à l’adresse IP sur laquelle vous avez configurée votre serveur Graylog. L’adresse IP doit correspondre au champ **host** (hôte) de la sortie UDP du fichier de configuration Logstash. Le port par défaut doit être *12201*. Vérifiez que le port correspond au champ **port** dans la sortie UDP désignée dans le fichier de configuration Logstash.
+   Veillez à lier l’entrée à l’adresse IP sur laquelle vous avez configurée votre serveur Graylog. L’adresse IP doit correspondre au champ **host** (hôte) de la sortie UDP du fichier de configuration Logstash. Le port par défaut doit être *12201*. Vérifiez que le port correspond au champ **port** dans la sortie UDP désignée dans le fichier de configuration Logstash.
 
-    ![Entrées](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![Entrées](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
-    Dès que vous avez lancé l’entrée, celle-ci doit apparaître sous la section **Local inputs** (Entrées locales), comme illustré dans l’image suivante :
+   Dès que vous avez lancé l’entrée, celle-ci doit apparaître sous la section **Local inputs** (Entrées locales), comme illustré dans l’image suivante :
 
-    ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
-    Pour approfondir votre connaissance des entrées de message Graylog, reportez-vous à la [documentation](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
+   Pour approfondir votre connaissance des entrées de message Graylog, reportez-vous à la [documentation](http://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
-4.  Une fois ces configurations effectuées, vous pouvez démarrer Logstash et commencer la lecture dans les journaux de flux au moyen de la commande suivante :
-
-    `sudo systemctl start logstash.service`
+4. Une fois ces configurations effectuées, vous pouvez démarrer Logstash et commencer la lecture dans les journaux de flux au moyen de la commande suivante : `sudo systemctl start logstash.service`.
 
 ### <a name="search-through-graylog-messages"></a>Effectuer des recherches dans les messages Graylog
 
@@ -208,16 +206,15 @@ En cliquant sur le lien bleu « %{Message} », vous développez chaque message
 
 Par défaut, tous les champs de message sont inclus dans la recherche si vous ne sélectionnez pas un champ particulier à rechercher. Si vous souhaitez rechercher des messages spécifiques (comme des tuples de flux à partir d’une adresse IP source particulière), vous pouvez utiliser le langage de requête de recherche Graylog tel qu’il est [documenté](http://docs.graylog.org/en/2.2/pages/queries.html).
 
-
 ## <a name="analyze-network-security-group-flow-logs-using-graylog"></a>Analyser les journaux de flux des groupes de sécurité réseau avec Graylog
 
-À présent que Graylog est configuré et s’exécute, nous pouvons utiliser certaines de ses fonctionnalités pour mieux comprendre les données de nos journaux de flux. L’une d’elles consiste à se servir des tableaux de bord pour créer des vues spécifiques de nos données.
+À présent que Graylog est configuré et s’exécute, vous pouvez utiliser certaines de ses fonctionnalités pour mieux comprendre les données de vos journaux de flux. L’une d’elles consiste à se servir des tableaux de bord pour créer des vues spécifiques de vos données.
 
 ### <a name="create-a-dashboard"></a>Création d’un tableau de bord
 
-1.  Dans la barre de navigation supérieure, sélectionnez **Dashboards** (Tableaux de bord) ou accédez à `http://<graylog-server-ip>:9000/dashboards/`.
+1. Dans la barre de navigation supérieure, sélectionnez **Dashboards** (Tableaux de bord) ou accédez à `http://<graylog-server-ip>:9000/dashboards/`.
 
-2.  À partir de là, cliquez sur le bouton vert **Create dashboard** (Créer un tableau de bord) et renseignez la forme abrégée avec le titre et la description de votre tableau de bord. Cliquez sur le bouton **Save** (Enregistrer) pour créer le tableau de bord. Vous voyez un tableau de bord similaire à l’image suivante :
+2. À partir de là, cliquez sur le bouton vert **Create dashboard** (Créer un tableau de bord) et renseignez la forme abrégée avec le titre et la description de votre tableau de bord. Cliquez sur le bouton **Save** (Enregistrer) pour créer le tableau de bord. Vous voyez un tableau de bord similaire à l’image suivante :
 
     ![Tableaux de bord](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
@@ -225,21 +222,21 @@ Par défaut, tous les champs de message sont inclus dans la recherche si vous ne
 
 Vous pouvez cliquer sur le titre du tableau de bord pour afficher celui-ci, bien qu’il soit vide pour l’instant, car nous n’avons pas ajouté de widget. Un type de widget, utile et facile à ajouter au tableau de bord, sont les graphiques **Quick Values** (Valeurs rapides) qui affichent une liste des valeurs du champ sélectionné, et leur répartition.
 
-1.  Revenez aux résultats de la recherche de l’entrée UDP qui reçoit les journaux de flux en sélectionnant **Search** (Rechercher) dans la barre de navigation supérieure.
+1. Revenez aux résultats de la recherche de l’entrée UDP qui reçoit les journaux de flux en sélectionnant **Search** (Rechercher) dans la barre de navigation supérieure.
 
-2.  À gauche, en dessous du volet **Search result** (Résultat de la recherche), affichez l’onglet **Fields** (champs) qui répertorie les différents champs de chaque message de tuple de flux entrant.
+2. À gauche, en dessous du volet **Résultat de la recherche**, affichez l’onglet **Champs** qui répertorie les différents champs de chaque message de tuple de flux entrant.
 
-3.  Sélectionnez le paramètre souhaité dans lequel visualiser (dans cet exemple nous avons sélectionné l’adresse IP source). Pour afficher la liste de widgets possibles, cliquez sur la flèche déroulante bleue à gauche du champ, puis sélectionnez **Quick values** (Valeurs rapides) pour générer le widget. Vous devez obtenir un graphique similaire à l’illustration suivante :
+3. Sélectionnez le paramètre souhaité dans lequel visualiser (dans cet exemple l’adresse IP source est sélectionnée). Pour afficher la liste de widgets possibles, cliquez sur la flèche déroulante bleue à gauche du champ, puis sélectionnez **Quick values** (Valeurs rapides) pour générer le widget. Vous devez obtenir un graphique similaire à l’illustration suivante :
 
-    ![IP Source](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
+   ![IP Source](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
 
-4.  À partir de là, vous pouvez sélectionner le bouton **Add to dashboard** (Ajouter au tableau de bord), situé dans le coin supérieur droit du widget, et sélectionner le tableau de bord correspondant à ajouter.
+4. À partir de là, vous pouvez sélectionner le bouton **Add to dashboard** (Ajouter au tableau de bord), situé dans le coin supérieur droit du widget, et sélectionner le tableau de bord correspondant à ajouter.
 
-5.  Revenez au tableau de bord pour voir le widget que vous venez d’ajouter.
+5. Revenez au tableau de bord pour voir le widget que vous venez d’ajouter.
 
-    Vous pouvez ajouter bien d’autres widgets à votre tableau de bord, tels que des histogrammes et des compteurs, pour suivre les métriques importants, comme l’exemple du tableau de bord illustré dans l’image suivante :
+   Vous pouvez ajouter bien d’autres widgets à votre tableau de bord, tels que des histogrammes et des compteurs, pour suivre les métriques importants, comme l’exemple du tableau de bord illustré dans l’image suivante :
 
-    ![Tableau de bord des journaux de flux](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
+   ![Tableau de bord des journaux de flux](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
 
     Pour obtenir davantage d’explications sur les tableaux de bord et les autres types de widgets, reportez-vous à la [documentation](http://docs.graylog.org/en/2.2/pages/dashboards.html) de Graylog.
 

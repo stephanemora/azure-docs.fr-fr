@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162012"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42146146"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
 
@@ -54,11 +54,10 @@ Chaque fois qu’un utilisateur réinitialise ou modifie son mot de passe Azure 
 
 ## <a name="license-requirements"></a>Conditions de licence :
 
-Les avantages de la liste globale de mots de passe interdits s’appliquent à tous les utilisateurs d’Azure Active Directory (Azure AD).
-
-La liste personnalisée de mots de passe interdits requiert des licences Azure AD Basic.
-
-La protection de mot de passe Azure AD pour Windows Server Active Directory requiert des licences Azure AD Premium. 
+|   | Protection de mot de passe Azure AD avec liste globale de mots de passe interdits | Protection de mot de passe Azure AD avec liste personnalisée de mots de passe interdits|
+| --- | --- | --- |
+| Utilisateurs du cloud uniquement | Azure AD Gratuit | Azure AD Standard |
+| Utilisateurs synchronisés à partir de Windows Server Active Directory en local | Azure AD Premium P1 ou P2 | Azure AD Premium P1 ou P2 |
 
 Vous trouverez des informations de licence supplémentaires, notamment les prix, sur le [site de tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 

@@ -10,18 +10,24 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 77f95ef6fb04673d79b01694d1d6f84d2c694e96
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 08179ae21465a57161cc6f18c12a3d9a21449359
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038207"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146527"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Vue d’ensemble : géoréplication active et groupes de basculement automatique
+
+La géoréplication active est une fonctionnalité Azure SQL Database qui vous permet de créer des réplicas lisibles de votre base de données dans le même centre de données (région) ou dans un centre de données distinct.
+
+![Géoréplication](./media/sql-database-geo-replication-failover-portal/geo-replication.png )
+
 La géoréplication active est conçue comme une solution de continuité d’activité qui permet à l’application d’effectuer une reprise d’activité rapide en cas de panne à l’échelle du centre de données. Si la géoréplication est activée, l’application peut lancer le basculement vers une base de données secondaire dans une autre région Azure. Jusqu’à quatre bases de données secondaires sont prises en charge dans des régions identiques ou différentes, et les bases de données secondaires peuvent également servir pour les requêtes d’accès en lecture seule. Le basculement doit être lancé manuellement par l’application ou l’utilisateur. Après le basculement, la nouvelle base de données primaire présente un point de terminaison de connexion différent. 
 
 > [!NOTE]
 > La géo-réplication active est disponible pour toutes les bases de données de tous les niveaux de service, dans toutes les régions.
+> La géoréplication active n’est pas disponible dans Managed Instance.
 >  
 
 Les groupes de basculement automatique sont une extension de la géoréplication active. Ils sont conçus pour gérer le basculement de plusieurs bases de données géorépliquées en même temps à l’aide d’un basculement lancé par l’application ou en déléguant la réalisation du basculement au service SQL Database selon des critères définis par l’utilisateur. Cette dernière option vous permet de récupérer automatiquement plusieurs bases de données associées dans une région secondaire après une défaillance grave ou un autre événement non planifié qui entraîne une perte totale ou partielle de la disponibilité du service SQL Database dans la région primaire. En outre, vous pouvez utiliser les bases de données secondaires accessibles en lecture pour décharger les charges de travail de requêtes en lecture seule. Comme les groupes de basculement automatique impliquent de nombreuses bases de données, celles-ci doivent être configurées sur le serveur primaire. Les serveurs primaire et secondaire pour les bases de données dans le groupe de basculement doivent faire partie du même abonnement. Les groupes de basculement automatique prennent en charge la réplication de toutes les bases de données du groupe vers un seul serveur secondaire situé dans une autre région,

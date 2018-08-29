@@ -1,20 +1,8 @@
+---Titre des données : Héberger une application Contoso localement en migrant vers des VM Azure et Azure SQL Database Managed Instance | Description de Microsoft Docs : Découvrez comment Contoso réhéberge une application localement sur des VM Azure et à l’aide d’Azure SQL Database Managed Instance.
+services : site-recovery auteur : rayne-wiselman responsable : carmonm ms.service : site-recovery ms.topic : conceptual ms.date : 13/08/2018 ms.author : raynew
+
 ---
-title: Réhéberger une application locale Contoso en migrant vers des machines virtuelles Azure et Azure SQL Database Managed Instance | Microsoft Docs
-description: Découvrez comment Contoso réhéberge une application locale sur des machines virtuelles Azure et Azure SQL Database Managed Instance.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/12/2018
-ms.author: raynew
-ms.openlocfilehash: 3e3f8dffbaa7109423aacdbfbaa658bada8bb84a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215337"
----
+
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migration de Contoso : réhéberger une application locale sur une machine virtuelle Azure et SQL Database Managed Instance
 
 Dans cet article, Contoso migre sa machine virtuelle frontend d’application SmartHotel vers une machine virtuelle Azure à l’aide du service Azure Site Recovery. Contoso migre également la base de données d’application vers Azure SQL Database Managed Instance.
@@ -27,18 +15,18 @@ Cet article fait partie d’une série décrivant comment la société fictive C
 
 Article | Détails | Statut
 --- | --- | ---
-[Article 1 : Vue d’ensemble](contoso-migration-overview.md) | Vue d’ensemble de la stratégie de migration de Contoso, de la série d’articles et des exemples d’application utilisés dans la série. | Disponible
+[Article 1 : vue d’ensemble](contoso-migration-overview.md) | Vue d’ensemble de la stratégie de migration de Contoso, de la série d’articles et des exemples d’application utilisés dans la série. | Disponible
 [Article 2 : Déployer une infrastructure Azure](contoso-migration-infrastructure.md) | Contoso prépare son infrastructure locale et son infrastructure Azure pour la migration. La même infrastructure est utilisée pour tous les articles de migration de la série. | Disponible
-[Article 3 : Évaluer les ressources locales à migrer vers Azure](contoso-migration-assessment.md) | Contoso évalue son application locale SmartHotel à deux niveaux s’exécutant sur VMware. Contoso évalue les machines virtuelles d’application à l’aide du service [Azure Migrate](migrate-overview.md). Contoso évalue la base de données SQL Server d’application à l’aide de l’[Assistant Migration de données](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponible
-Article 4 : Réhéberger une application sur une machine virtuelle Azure et SQL Database Managed Instance | Contoso exécute une migration lift-and-shift vers Azure pour son application SmartHotel locale. Contoso migre la machine virtuelle frontend d’application à l’aide d’[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migre la base de données d’application vers Azure SQL Database Managed Instance à l’aide d’[Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Cet article
+[Article 3 : Évaluer les ressources locales à migrer vers Azure](contoso-migration-assessment.md) | Contoso évalue son application locale SmartHotel à deux niveaux s’exécutant sur VMware. Contoso évalue les machines virtuelles d’application à l’aide du service [Azure Migrate](migrate-overview.md). Contoso évalue la base de données SQL Server d’application à l’aide de [l’Assistant Migration de données](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponible
+Article 4 : Réhéberger une application sur une machine virtuelle Azure et SQL Database Managed Instance | Contoso exécute une migration lift-and-shift vers Azure pour son application SmartHotel locale. Contoso migre la machine virtuelle frontend d’application avec [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migre la base de données d’application vers Azure SQL Database Managed Instance avec [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Cet article
 [Article 5 : Réhéberger une application sur des machines virtuelles Azure](contoso-migration-rehost-vm.md) | Contoso migre ses machines virtuelles d’application SmartHotel vers des machines virtuelles Azure en utilisant le service Site Recovery. | Disponible
-[Article 6 : Réhéberger une application sur des machines virtuelles Azure et dans un groupe de disponibilité SQL Server AlwaysOn](contoso-migration-rehost-vm-sql-ag.md) | Contoso migre l’application SmartHotel. Contoso utilise Site Recovery pour migrer les machines virtuelles d’application. Ils utilisent Database Migration Service pour migrer la base de données d’application vers un cluster SQL Server protégé par un groupe de disponibilité AlwaysOn. | Disponible
-[Article 7 : Réhéberger une application Linux sur des machines virtuelles Azure](contoso-migration-rehost-linux-vm.md) | Contoso effectue une migration lift-and-shift de son application osTicket Linux sur des machines virtuelles Azure à l’aide de Site Recovery. | Disponible
-[Article 8 : Réhéberger une application Linux sur des machines virtuelles Azure et Azure Database pour MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migre son application osTicket Linux vers des machines virtuelles Azure à l’aide de Site Recovery. Ils migrent la base de données d’application vers Azure Database pour MySQL à l’aide de MySQL Workbench. | Disponible
-[Article 9 : Refactoriser une application vers une application web Azure et Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migre son application SmartHotel vers une application web Azure, et migre la base de données d’application vers une instance d’Azure SQL Server. | Disponible
-[Article 10 : Refactoriser une application Linux vers une application web Azure et Azure Database pour MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migre son application osTicket Linux vers une application web Azure sur plusieurs sites. L’application web est intégrée à GitHub pour la livraison continue. Contoso migre la base de données d’application vers une instance d’Azure Database pour MySQL. | Disponible
-[Article 11 : Refactoriser Team Foundation Server sur Visual Studio Team Services](contoso-migration-tfs-vsts.md) | Contoso migre son déploiement local de Team Foundation Server vers Visual Studio Team Services dans Azure. | Disponible
-[Article 12 : Réarchitecturer une application dans des conteneurs Azure et Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migre son application SmartHotel vers Azure, puis réarchitecture l’application. Contoso réarchitecture la couche web d’application en tant que conteneur Windows, et réarchitecture la base de données d’application à l’aide d’Azure SQL Database. | Disponible
+[Article 6 : Réhéberger une application sur des machines virtuelles Azure et dans un groupe de disponibilité SQL Server AlwaysOn](contoso-migration-rehost-vm-sql-ag.md) | Contoso migre l’application SmartHotel. Contoso utilise Site Recovery pour migrer les machines virtuelles d’application. La société utilise Database Migration Service pour migrer la base de données d’application vers un cluster SQL Server protégé par un groupe de disponibilité AlwaysOn. | Disponible
+[Article 7 : ré-héberger une application Linux sur des machines virtuelles Azure](contoso-migration-rehost-linux-vm.md) | Contoso effectue une migration lift-and-shift de son application osTicket Linux sur des machines virtuelles Azure à l’aide de Site Recovery. | Disponible
+[Article 8 : Réhéberger une application Linux sur des machines virtuelles Azure et Azure Database pour MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migre son application osTicket Linux vers des machines virtuelles Azure à l’aide de Site Recovery. La société migre la base de données d’application vers Azure Database pour MySQL à l’aide de MySQL Workbench. | Disponible
+[Article 9 : Refactoriser une application vers une application web Azure et Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migre son application SmartHotel vers une application web Azure, et migre la base de données d’application vers une instance d’Azure SQL Server. | Disponible
+[Article 10 : Refactoriser une application Linux vers une application web Azure et Azure Database pour MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migre son application osTicket Linux vers une application web Azure sur plusieurs sites. L’application web est intégrée à GitHub pour la livraison continue. Contoso migre la base de données d’application vers une instance d’Azure Database pour MySQL. | Disponible
+[Article 11 : Refactoriser Team Foundation Server sur Visual Studio Team Services](contoso-migration-tfs-vsts.md) | Contoso migre son déploiement local de Team Foundation Server vers Visual Studio Team Services dans Azure. | Disponible
+[Article 12 : Réarchitecturer une application dans des conteneurs Azure et Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migre son application SmartHotel vers Azure, puis réarchitecture l’application. Contoso réarchitecture la couche web d’application en tant que conteneur Windows, et réarchitecture la base de données d’application à l’aide d’Azure SQL Database. | Disponible
 [Article 13 : Regénérer une application dans Azure](contoso-migration-rebuild.md) | Contoso regénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment Azure App Service, Azure Kubernetes Service, Azure Functions, Azure Cognitive Services et Azure Cosmos DB. | Disponible
 
 Vous pouvez télécharger l’exemple d’application SmartHotel qui est utilisé dans cet article à partir de [GitHub](https://github.com/Microsoft/SmartHotel360).
@@ -46,26 +34,26 @@ Vous pouvez télécharger l’exemple d’application SmartHotel qui est utilis�
 ## <a name="on-premises-architecture"></a>Architecture locale
 
 
-Le diagramme suivant montre l’infrastructure locale actuelle de Contoso :
+Le diagramme suivant montre l’infrastructure locale actuelle de Contoso :
 
 ![Architecture actuelle de Contoso](./media/contoso-migration-rehost-vm-sql-managed-instance/contoso-architecture.png)  
 
 - Contoso dispose d’un centre de données principal. Le centre de données principal se trouve dans la ville de New York dans l’Est des États-Unis.
 - Contoso a trois branches locales supplémentaires aux États-Unis.
-- Le centre de données principal est connecté à Internet par le biais d’une connexion Ethernet Fiber Metro (500 Mbits/s).
+- Le centre de données principal est connecté à Internet par le biais d’une connexion Ethernet Fiber Metro (500 Mbits/s).
 - Chaque branche est connectée localement à Internet par le biais de connexions de qualité professionnelle, avec des tunnels VPN IPsec vers le centre de données principal. Cette configuration permet au réseau entier d’être connecté en permanence, et elle optimise la connectivité Internet.
-- Le centre de données principal est entièrement virtualisé avec VMware. Contoso dispose de deux hôtes de virtualisation ESXi 6.5 gérés par vCenter Server 6.5.
+- Le centre de données principal est entièrement virtualisé avec VMware. Contoso dispose de deux hôtes de virtualisation ESXi 6.5 gérés par vCenter Server 6.5.
 - Contoso utilise Active Directory pour la gestion d’identité. Contoso utilise des serveurs DNS sur le réseau interne.
 - Les contrôleurs de domaine dans le centre de données s’exécutent sur des machines virtuelles VMware. Les contrôleurs de domaine au niveau des branches locales s’exécutent sur des serveurs physiques.
 
 ## <a name="business-drivers"></a>Axes stratégiques
 
-L’équipe informatique de Contoso a travaillé en étroite collaboration avec ses partenaires commerciaux pour comprendre le résultat que l’entreprise souhaite obtenir avec cette migration :
+L’équipe informatique de Contoso a travaillé en étroite collaboration avec ses partenaires commerciaux pour comprendre le résultat que l’entreprise souhaite obtenir avec cette migration :
 
 - **Répondre à la croissance de l’entreprise** : Contoso se développe. Il en découle une pression accrue sur l’infrastructure et les systèmes locaux et de l’entreprise.
 - **Augmenter l’efficacité** : Contoso doit supprimer les procédures inutiles et rationaliser les processus pour ses développeurs et ses utilisateurs. L’entreprise a besoin d’une informatique rapide et doit éviter les pertes de temps ou d’argent afin de répondre plus rapidement aux exigences des clients.
 - **Augmenter l’agilité** : l’informatique de Contoso doit être plus réactive aux besoins de l’entreprise. Elle doit être en mesure de réagir plus rapidement que l’évolution du marché pour réussir dans une économie mondiale. L’informatique chez Contoso ne doit pas devenir une entrave à l’activité.
-- **Mise à l’échelle** : à mesure que l’entreprise croît, l’informatique de Contoso doit fournir des systèmes capables de croître au même rythme.
+- **Mise à l’échelle** : à mesure que l’entreprise croît, l’informatique de Contoso doit fournir des systèmes capables de croître au même rythme.
 
 ## <a name="migration-goals"></a>Objectifs de la migration
 
@@ -92,9 +80,9 @@ Dans ce scénario :
 
 ### <a name="azure-services"></a>Services Azure
 
-Service | Description | Coût
+de diffusion en continu | Description | Coût
 --- | --- | ---
-[Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) | Database Migration Service (DMS) autorise une migration fluide à partir de plusieurs sources de base de données vers des plateformes de données Azure, avec un temps d’arrêt minimal. | Apprenez-en davantage sur les [régions prises en charge](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) et sur la [tarification de Database Migration Service](https://azure.microsoft.com/pricing/details/database-migration/).
+[Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) | Database Migration Service autorise une migration fluide à partir de plusieurs sources de base de données vers des plateformes de données Azure, avec un temps d’arrêt minimal. | Apprenez-en davantage sur les [régions prises en charge](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) et sur la [tarification de Database Migration Service](https://azure.microsoft.com/pricing/details/database-migration/).
 [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | Managed Instance est un service de base de données managé qui représente une instance de SQL Server entièrement managée dans le cloud Azure. Il utilise le même code que la dernière version du moteur de base de données SQL Server et offre les dernières fonctionnalités, améliorations en termes de performances et correctifs de sécurité. | L’utilisation de SQL Database Managed Instance exécuté dans Azure entraîne des frais basés sur la capacité. Apprenez-en davantage sur la [tarification de Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Le service Site Recovery orchestre et gère la migration et la reprise d’activité pour les machines virtuelles Azure, les machines virtuelles locales et les serveurs physiques.  | Lors de la réplication vers Azure, des frais sur le Stockage Azure sont facturés.  Des machines virtuelles Azure sont créées en cas de basculement et entraînent des frais. Apprenez-en davantage sur les [frais et la tarification de Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
@@ -112,12 +100,12 @@ Contoso migre les niveaux web et données de son application SmartHotel vers Azu
 
 Contoso et les autres utilisateurs doivent respecter les prérequis suivants pour ce scénario :
 
-Conditions requises | Détails
+Configuration requise | Détails
 --- | ---
 **S’inscrire à la préversion de Managed Instance** | Vous devez être inscrit pour tester la préversion publique limitée de SQL Database Managed Instance. Vous avez besoin d’un abonnement Azure pour vous [inscrire](https://portal.azure.com#create/Microsoft.SQLManagedInstance). La confirmation d’inscription prend quelques jours. Veillez donc à vous inscrire avant de commencer le déploiement de ce scénario.
 **Abonnement Azure** | Vous devez avoir déjà créé un abonnement quand vous effectuez l’évaluation dans le premier article de cette série. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> Si vous utilisez un abonnement existant et que vous n’êtes pas l’administrateur de l’abonnement, vous devez collaborer avec l’administrateur pour qu’il vous donne les autorisations Propriétaire ou Contributeur.<br/><br/> Si vous avez besoin d’autorisations plus précises, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès à Site Recovery](../site-recovery/site-recovery-role-based-linked-access-control.md). 
 **Site Recovery (local)** | Votre instance locale de vCenter Server doit exécuter la version 5.5, 6.0 ou 6.5<br/><br/> Un hôte ESXi qui exécute la version 5.5, 6.0 ou 6.5<br/><br/> Une ou plusieurs machines virtuelles VMware exécutées sur l’hôte ESXi.<br/><br/> Les machines virtuelles doivent répondre aux [exigences Azure](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Configuration [réseau](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) et [stockage](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) prise en charge.
-**Database Migration Service** | Pour Database Management Service, vous avez besoin d’un [périphérique VPN local compatible](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Vous devez être en mesure de configurer le périphérique VPN local. Il doit avoir une adresse IPv4 publique externe. L’adresse ne peut pas se trouver derrière un périphérique NAT.<br/><br/> Veillez à disposer de l’accès à votre base de données SQL Server locale.<br/><br/> Le Pare-feu Windows doit pouvoir accéder au moteur de base de données source. Découvrez comment [configurer le Pare-feu Windows pour accéder au moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> S’il y a un pare-feu devant votre machine de base de données, ajoutez des règles pour autoriser l’accès à la base de données, et aux fichiers par le biais du port SMB 445.<br/><br/> Les informations d’identification utilisées pour se connecter à l’instance source SQL Server et à l’instance cible Managed Instance doivent appartenir à des membres du rôle serveur sysadmin.<br/><br/> Il vous faut un partage réseau dans votre base de données locale que Database Migration Service peut utiliser pour sauvegarder la base de données source.<br/><br/> Vérifiez que le compte de service qui exécute l’instance source de SQL Server dispose d’autorisations d’écriture sur le partage réseau.<br/><br/> Notez l’utilisateur Windows (et son mot de passe) qui dispose d’autorisations complètes sur le partage réseau. Database Migration Service emprunte ces informations d’identifications utilisateur pour charger les fichiers de sauvegarde sur le conteneur Stockage Azure.<br/><br/> Le processus d’installation SQL Server Express définit le protocole TCP/IP sur **Désactivé** par défaut. Veillez à l’activer.
+**Database Migration Service** | Pour Database Migration Service, vous avez besoin d’un [périphérique VPN local compatible](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> Vous devez être en mesure de configurer l’appareil VPN local. Il doit avoir une adresse IPv4 publique externe. L’adresse ne peut pas se trouver derrière un périphérique NAT.<br/><br/> Veillez à disposer de l’accès à votre base de données SQL Server locale.<br/><br/> Le Pare-feu Windows doit pouvoir accéder au moteur de base de données source. Découvrez comment [configurer le Pare-feu Windows pour accéder au moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> S’il y a un pare-feu devant votre machine de base de données, ajoutez des règles pour autoriser l’accès à la base de données, et aux fichiers par le biais du port SMB 445.<br/><br/> Les informations d’identification utilisées pour se connecter à l’instance source SQL Server et à l’instance cible Managed Instance doivent appartenir à des membres du rôle serveur sysadmin.<br/><br/> Il vous faut un partage réseau dans votre base de données locale que Database Migration Service peut utiliser pour sauvegarder la base de données source.<br/><br/> Vérifiez que le compte de service qui exécute l’instance source de SQL Server dispose d’autorisations d’écriture sur le partage réseau.<br/><br/> Notez l’utilisateur Windows (et son mot de passe) qui dispose d’autorisations complètes sur le partage réseau. Database Migration Service emprunte ces informations d’identifications pour charger les fichiers de sauvegarde sur le conteneur de stockage Azure.<br/><br/> Le processus d’installation SQL Server Express définit le protocole TCP/IP sur **Désactivé** par défaut. Veillez à l’activer.
 
 ## <a name="scenario-steps"></a>Étapes du scénario
 
@@ -125,11 +113,11 @@ Voici comment Contoso prévoie de configurer le déploiement :
 
 > [!div class="checklist"]
 > * **Étape 1 : Configurer SQL Database Managed Instance** : Contoso doit créer au préalable une instance gérée vers laquelle la base de données SQL Server locale migrera.
-> * **Étape 2 : Préparer Database Migration Service** : Contoso doit inscrire le fournisseur de migration de base de données, créer une instance, puis créer un projet Database Migration Service. Contoso doit également configurer un URI (Uniform Resource Identifier) avec signature d’accès partagé (SAP) pour Database Migration Service. Un URI SAP fournit un accès délégué aux ressources du compte de stockage Contoso. Ainsi, Contoso peut accorder des autorisations limitées aux objets de stockage. Contoso configure un URI SAP pour que Database Migration Service puisse accéder au conteneur du compte de stockage sur lequel le service charge les fichiers de sauvegarde SQL Server.
+> * **Étape 2 : Préparer Database Migration Service** : Contoso doit inscrire le fournisseur de migration de base de données, créer une instance, puis créer un projet Database Migration Service. Contoso doit également configurer un URI (Uniform Resource Identifier) avec signature d’accès partagé (SAP) pour Database Migration Service. Un URI SAP fournit un accès délégué aux ressources du compte de stockage Contoso. Ainsi, Contoso peut accorder des autorisations limitées aux objets de stockage. Contoso configure un URI SAP pour que Database Migration Service puisse accéder au conteneur du compte de stockage sur lequel le service charge les fichiers de sauvegarde SQL Server.
 > * **Étape 3 : Préparer Azure pour Site Recovery** : Contoso doit créer un compte de stockage afin de conserver les données répliquées pour Site Recovery. Ils doivent également créer un coffre Azure Recovery Services.
 > * **Étape 4 : Préparer une machine virtuelle VMware locale pour Site Recovery** : Contoso doit préparer des comptes pour la découverte de machines virtuelles et l’installation d’agents, afin d’établir une connexion aux machines virtuelles Azure après basculement.
 > * **Étape 5 : Répliquer les machines virtuelles** : pour la réplication, Contoso configure les environnements source et cible de Site Recovery ainsi qu’une stratégie de réplication, et commence la réplication des machines virtuelles vers Stockage Azure.
-> * **Étape 6 : Migrer la base de données à l’aide de Database Migration Service** : Contoso migre la base de données.
+> * **Étape 6 : Migrer la base de données à l’aide de Database Migration Service** : Contoso migre la base de données.
 > * **Étape 7 : Migrer les machines virtuelles à l’aide de Site Recovery** : Contoso exécute un test de basculement pour vérifier que tout fonctionne. Ensuite, Contoso exécute un basculement complet pour migrer les machines virtuelles vers Azure.
 
 ## <a name="step-1-prepare-a-sql-database-managed-instance"></a>Étape 1 : Préparer SQL Database Managed Instance
@@ -162,7 +150,7 @@ Contoso configure le réseau virtuel comme suit :
     - Peering de **VNET-SQLMI-EUS2** avec **VNET-HUB-EUS2** (réseau virtuel hub pour la région USA Est 2).
     - Peering de **VNET-SQLMI-EUS2** avec **VNET-PROD-EUS2** (réseau de production).
 
-    ![Peering de réseau](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
+    ![Appairage de réseau](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
 7. Contoso définit des paramètres DNS personnalisés. Le système DNS pointe tout d’abord sur les contrôleurs de domaine Azure de Contoso. Azure DNS est secondaire. Les contrôleurs de domaine Azure de Contoso se situent comme suit :
 
@@ -180,7 +168,7 @@ Contoso configure le réseau virtuel comme suit :
 - Découvrez comment [configurer le peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering).
 - Découvrez comment [mettre à jour les paramètres DNS d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
-### <a name="set-up-routing"></a>Configurer le routage
+### <a name="set-up-routing"></a>Configuration du routage
 
 Managed Instance est placé sur un réseau privé virtuel. Contoso a besoin d’une table de routage pour que le réseau virtuel communique avec le service de gestion Azure. Si le réseau virtuel ne peut pas communiquer avec le service qui le gère, le réseau virtuel devient inaccessible.
 
@@ -209,7 +197,7 @@ Contoso prend en compte ces facteurs :
 
 Découvrez comment [configurer des itinéraires pour une instance gérée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route).
 
-### <a name="create-a-managed-instance"></a>Créer une instance gérée
+### <a name="create-a-managed-instance"></a>Créer une option Managed Instance
 
 À présent, Contoso peut provisionner SQL Database Managed Instance :
 
@@ -229,18 +217,18 @@ Découvrez comment [configurer des itinéraires pour une instance gérée](https
 
 Découvrez comment [provisionner une instance gérée](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
-## <a name="step-2-prepare-the-database-management-service"></a>Étape 2 : Préparer Database Migration Service
+## <a name="step-2-prepare-the-database-migration-service"></a>Étape 2 : Préparer Database Migration Service
 
-Pour préparer Database Migration Service, Contoso doit effectuer quelques opérations :
+Pour préparer Database Migration Service, Contoso doit effectuer quelques opérations :
 
 - Inscrire le fournisseur Database Migration Service dans Azure.
 - Fournir à Database Migration Service l’accès à Stockage Azure pour charger les fichiers de sauvegarde utilisés pour migrer une base de données. Pour fournir l’accès à Stockage Azure, Contoso crée un conteneur Stockage Blob Azure. Contoso génère un URI SAP pour le conteneur de stockage d’objets blob. 
-- Ils créent un projet Database Migration Service.
+- Créer un projet Azure Database Migration Service.
 
 Ensuite, Contoso effectue les étapes suivantes :
 
 1. Contoso inscrit le fournisseur de migration de base de données sous son abonnement.
-    ![Database Migration Service - S’inscrire](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
+    ![Database Migration Service - Registre](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
 
 2. Contoso crée un conteneur de stockage d’objets blob. Contoso génère un URI SAP afin que Database Migration Service puisse y accéder.
 
@@ -262,13 +250,13 @@ Ensuite, Contoso effectue les étapes suivantes :
 - Découvrez comment [créer et utiliser une signature d’accès partagé](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 
-## <a name="step-3-prepare-azure-for-the-site-recovery-service"></a>Étape 3 : Préparer Azure pour le service Site Recovery
+## <a name="step-3-prepare-azure-for-the-site-recovery-service"></a>Étape 3 : préparer Azure pour le service Site Recovery
 
 Plusieurs éléments Azure sont nécessaires afin que Contoso puisse configurer Site Recovery pour la migration de ses machines virtuelles de couche web (**WEBMV**) :
 
 - Un réseau virtuel où se trouvent les ressources basculées
 - Un compte de stockage pour accueillir les données répliquées 
-- Un coffre Recovery Services dans Azure
+- Un coffre Recovery Services dans Azure.
 
 Contoso configure Site Recovery comme suit :
 
@@ -286,7 +274,7 @@ Contoso configure Site Recovery comme suit :
 Découvrez comment [configurer Azure pour Site Recovery](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure).
 
 
-## <a name="step-4-prepare-on-premises-vmware-for-site-recovery"></a>Étape 4 : Préparer VMware en local pour Site Recovery
+## <a name="step-4-prepare-on-premises-vmware-for-site-recovery"></a>Étape 4 : préparer VMware en local pour Site Recovery
 
 Afin de préparer VMware pour Site Recovery, Contoso doit effectuer ces tâches :
 
@@ -299,13 +287,13 @@ Afin de préparer VMware pour Site Recovery, Contoso doit effectuer ces tâches�
 
 Site Recovery doit pouvoir accéder aux serveurs VMware pour :
 
-- Détecter automatiquement les machines virtuelles. Un compte en lecture seule est au minimum nécessaire.
+- Détectez automatiquement les machines virtuelles. Un compte en lecture seule est au minimum nécessaire.
 - Orchestrer la réplication, le basculement et la restauration automatique. Contoso a besoin d’un compte qui peut exécuter des opérations telles que la création et la suppression de disques, ainsi que l’allumage de machines virtuelles.
 
 Contoso configure le compte en effectuant ces tâches :
 
-1. Création d’un rôle au niveau du vCenter
-2. Attribution des autorisations requises à ce rôle
+1. Crée un rôle au niveau du vCenter.
+2. Attribue les autorisations requises à ce rôle.
 
 *Besoin de plus d’aide ?*
 
@@ -394,7 +382,7 @@ Pour configurer l’environnement source
 
     ![Configurer vCenter Server](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz2.png)
 
-7. Une fois l’inscription terminée, dans le portail Azure, Contoso revérifie que le serveur de configuration et le serveur VMware sont répertoriés dans la page **Source** dans le coffre. La découverte peut prendre 15 minutes ou plus. 
+7. Une fois l’inscription terminée, dans le portail Azure, Contoso revérifie que le serveur de configuration et le serveur VMware sont répertoriés dans la page **Source** dans le coffre. La détection peut prendre 15 minutes ou plus. 
 8. Site Recovery se connecte aux serveurs VMware en utilisant les paramètres spécifiés. Site Recovery découvre les machines virtuelles.
 
 ### <a name="set-up-the-target"></a>Configurer la cible
@@ -451,11 +439,11 @@ Maintenant, Contoso peut commencer à répliquer la machine virtuelle WebVM.
 
 La procédure pas à pas complète de ces étapes est décrite dans [Activer la réplication](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
-## <a name="step-6-migrate-the-database-by-using-the-database-management-service"></a>Étape 6 : Migrer la base de données à l’aide de Database Migration Service
+## <a name="step-6-migrate-the-database-by-using-the-database-migration-service"></a>Étape 6 : Migrer la base de données à l’aide de Database Migration Service
 
 Contoso doit créer un projet Database Migration Service, puis migrer la base de données.
 
-### <a name="create-a-database-management-service-project"></a>Créer un projet Database Migration Service
+### <a name="create-a-database-migration-service-project"></a>Créer un projet Database Migration Service
 
 1. Contoso crée un projet Database Migration Service. Contoso sélectionne le type de serveur source **SQL Server**. Contoso sélectionne **Azure SQL Database Managed Instance** comme cible.
 
@@ -559,7 +547,7 @@ Contoso doit à présent effectuer les tâches de nettoyage suivantes :
 
 - Supprimer la machine virtuelle WEBVM de l’inventaire vCenter Server
 - Supprimer la machine virtuelle SQLVM de l’inventaire vCenter Server
-- Supprimer les machines virtuelles WEBVM et SQLVM des travaux de sauvegarde locaux
+- Supprimer les machines virtuelles WEBVM et SQLVM des travaux de sauvegarde locaux.
 - Mettre à jour la documentation interne afin qu’elle indique le nouvel emplacement et l’adresse IP de WEBVM
 - Supprime SQLVM de la documentation interne. En guise d’alternative, Contoso peut réviser la documentation afin de signaler que SQLVM a été supprimée et ne figure plus dans l’inventaire des machines virtuelles
 - Passer en revue toutes les ressources qui interagissent avec les machines virtuelles qui ont été mises hors service Mettre à jour les paramètres ou la documentation appropriés afin de refléter la nouvelle configuration

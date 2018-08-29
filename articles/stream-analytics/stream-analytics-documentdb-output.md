@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: ff2071a703b0b5e94cd68122a878b51e9d97669a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112749"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146896"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Sortie Azure Stream Analytics dans Azure Cosmos DB  
 Stream Analytics peut cibler [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) pour la sortie JSON, ce qui permet d’archiver des données et d’exécuter des requêtes à faible latence sur des données JSON non structurées. Ce document traite certaines meilleures pratiques recommandées pour l’implémentation de cette configuration.
@@ -40,6 +40,8 @@ Stream Analytics utilise une approche optimiste de type upsert, c’est-à-dire 
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Partitionnement des données dans Cosmos DB
 Les conteneurs Azure Cosmos DB [illimités](../cosmos-db/partition-data.md) constituent l’approche recommandée pour le partitionnement des données, car Azure Cosmos DB met automatiquement à l’échelle les partitions en fonction de votre charge de travail. Pendant une opération d’écriture dans des conteneurs illimités, Stream Analytics utilise autant d’enregistreurs parallèles que d’étapes de requête précédentes ou de schémas de partitionnement d’entrée.
+> [!Note]
+> À ce stade, Azure Stream Analytics prend uniquement en charge un nombre illimité de collections avec des clés de partition au niveau supérieur. Par exemple, la clé de partition `/region` est prise en charge. Les clés de partition imbriquées (par exemple, `/region/name`) ne sont pas prises en charge. 
 
 Pour les collections Azure Cosmos DB fixes arrivées à saturation, Stream Analytics n’offre pas de possibilité de montée en puissance ou en parallèle. Elles ont une limite maximale de 10 Go et un débit de 10 000 RU/s.  Pour migrer les données d’un conteneur fixe vers un conteneur illimité (par exemple avec au moins 1 000 RU/s et une clé de partition), vous devez utiliser [l’outil de migration de données](../cosmos-db/import-data.md) ou la [bibliothèque de flux de modification](../cosmos-db/change-feed.md).
 

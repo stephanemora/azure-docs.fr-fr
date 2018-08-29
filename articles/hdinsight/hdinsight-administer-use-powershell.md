@@ -1,30 +1,25 @@
 ---
-title: Gestion des clusters Hadoop dans HDInsight avec PowerShell - Azure | Microsoft Docs
+title: Gérer les clusters Hadoop dans HDInsight avec PowerShell - Azure
 description: Découvrez comment effectuer des tâches d'administration pour les clusters Hadoop dans HDInsight au moyen d'Azure PowerShell.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
-ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 656ad3673835bb30499931d20fe715e85418b1c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: b23662ccda090b4d8a4cbb5eae3029affd075c33
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200824"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139854"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell permet de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Azure. Dans cet article, vous allez apprendre à gérer des clusters Hadoop dans Azure HDInsight à l’aide d’Azure PowerShell. Pour la liste des applets de commande PowerShell pour HDInsight, consultez la rubrique [Référence des applets de commande HDInsight][hdinsight-powershell-reference].
+Azure PowerShell permet de contrôler et d’automatiser le déploiement et la gestion de vos charges de travail dans Azure. Dans cet article, vous allez apprendre à gérer des clusters Hadoop dans Azure HDInsight à l’aide d’Azure PowerShell. Pour obtenir la liste des cmdlets PowerShell HDInsight, consultez la rubrique [Référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx).
 
 **Composants requis**
 
@@ -32,7 +27,7 @@ Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="install-azure-powershell"></a>Installation d'Azure PowerShell
+## <a name="install-azure-powershell"></a>Installation d’Azure PowerShell
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Si vous avez installé Azure PowerShell version 0.9x, vous devez le désinstaller avant d’installer une version plus récente.
@@ -236,7 +231,7 @@ Consultez [Utilisation d’Oozie avec Hadoop pour définir et exécuter un workf
 Consultez la rubrique [Téléchargement de données vers HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Voir aussi
-* [Documentation de référence des applets de commande HDInsight][hdinsight-powershell-reference]
+* [Documentation de référence des cmdlets HDInsight](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [Administration de HDInsight à l’aide du portail Azure][hdinsight-admin-portal]
 * [Administration de HDInsight à l’aide de l’interface de ligne de commande][hdinsight-admin-cli]
 * [Création de clusters HDInsight][hdinsight-provision]

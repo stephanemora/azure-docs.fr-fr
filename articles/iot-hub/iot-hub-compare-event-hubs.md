@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 9ad95071de07777e38533ecec9e8558841d8b1ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 830052341c4f0e3488c8e63da59cbef1f72e158a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633959"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42146351"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Connexion des appareils IoT à Azure : IoT Hub et Event Hubs
 
@@ -21,34 +21,29 @@ Azure propose des services spécialement développés pour divers types de conne
 
 Azure IoT Hub est la passerelle cloud qui connecte des appareils IoT pour collecter les données afin de stimuler perspectives et automatisation. En outre, IoT Hub inclut des fonctionnalités qui enrichissent la relation entre vos appareils et vos systèmes principaux. Les fonctionnalités de communication bidirectionnelle impliquent que si vous recevez des données provenant d’appareils, vous pouvez également renvoyer des commandes et stratégies vers les appareils pour mettre à jour des propriétés ou appeler des actions de gestion des appareils.  Cette connectivité cloud-à-appareil optimise également la fonctionnalité importante de fourniture d’intelligence du cloud à vos périphériques de périmètre à l’aide d’Azure IoT Edge. L’identité unique au niveau des appareils du service IoT Hub permet de mieux sécuriser votre solution IoT contre des attaques potentielles. 
 
-[Azure Event Hubs][Azure Event Hubs] est le service de diffusion en continu du Big Data d’Azure. Il est conçu pour les scénarios de diffusion en continu de données haut débit dans lesquels les clients peuvent envoyer des milliards de requêtes quotidiennes. Le service Event Hubs utilise un modèle de consommateur partitionné pour augmenter la taille des instances de votre flux de données. Il est intégré au service Big Data et analytique d’Azure comprenant Databricks, Stream Analytics, ADLS et HDInsight. Avec des fonctionnalités comme Event Hubs Capture et Majoration automatique, ce service est conçu pour prendre en charge vos solutions et applications du Big Data. En outre, IoT Hub s’appuie sur le chemin d’accès au flux de données de télémétrie d’Event Hubs. Votre solution IoT bénéficie également de la puissance considérable d’Event Hubs.
+[Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) est le service de diffusion en continu du Big Data d’Azure. Il est conçu pour les scénarios de diffusion en continu de données haut débit dans lesquels les clients peuvent envoyer des milliards de requêtes quotidiennes. Le service Event Hubs utilise un modèle de consommateur partitionné pour augmenter la taille des instances de votre flux de données. Il est intégré au service Big Data et analytique d’Azure comprenant Databricks, Stream Analytics, ADLS et HDInsight. Avec des fonctionnalités comme Event Hubs Capture et Majoration automatique, ce service est conçu pour prendre en charge vos solutions et applications du Big Data. En outre, IoT Hub s’appuie sur le chemin d’accès au flux de données de télémétrie d’Event Hubs. Votre solution IoT bénéficie également de la puissance considérable d’Event Hubs.
 
 En résumé, si les deux solutions sont conçues pour l’ingestion des données à une très grande échelle, seul le service IoT Hub fournit des fonctionnalités enrichies propres à IoT conçues pour vous permettre d’optimiser la valeur commerciale de la connexion de vos appareils IoT au cloud Azure.  Si vous en êtes au tout début de votre migration vers l’IoT, commencer par IoT Hub pour prendre en charge vos scénarios d’ingestion des données vous permettra de disposer d’un accès instantané aux fonctionnalités IoT complètes pour satisfaire à vos besoins commerciaux et techniques.
 
-La table suivante fournit des détails sur le mode de comparaison entre les deux niveaux de IoT Hub et Event Hubs lorsque vous procédez à une évaluation par rapport aux capacités IoT. Pour plus d’informations sur les niveaux de base et Standard d’IoT Hub, consultez [Comment choisir le bon niveau IoT Hub][lnk-scaling].
+La table suivante fournit des détails sur le mode de comparaison entre les deux niveaux de IoT Hub et Event Hubs lorsque vous procédez à une évaluation par rapport aux capacités IoT. Pour plus d’informations sur les niveaux de base et standard d’IoT Hub, consultez l’article [Choisir le niveau IoT Hub correspondant à votre solution](iot-hub-scaling.md).
 
 | Fonctionnalité IoT | Niveau standard IoT Hub | Niveau de base IoT Hub | Event Hubs |
 | --- | --- | --- | --- |
-| Messages d’appareil-à-cloud | ![Vérification][1] | ![Vérification][1] | ![Vérification][1] |
-| Protocoles : HTTPS, AMQP, AMQP sur WebSockets | ![Vérification][1] | ![Vérification][1] | ![Vérification][1] |
-| Protocoles : MQTT, MQTT sur WebSockets | ![Vérification][1] | ![Vérification][1] |  |
-| Identité par appareil | ![Vérification][1] | ![Vérification][1] |  |
-| Fichier téléchargé à partir d’appareils | ![Vérification][1] | ![Vérification][1] |  |
-| Service Device Provisioning | ![Vérification][1] | ![Vérification][1] |  |
-| Messages de cloud-à-appareil | ![Vérification][1] |  |  |
-| Gestion des jumeaux d'appareils et des appareils | ![Vérification][1] |  |  |
-| IoT Edge | ![Vérification][1] |  |  |
+| Messages d’appareil-à-cloud | ![Vérification][checkmark] | ![Vérification][checkmark] | ![Vérification][checkmark] |
+| Protocoles : HTTPS, AMQP, AMQP sur WebSockets | ![Vérification][checkmark] | ![Vérification][checkmark] | ![Vérification][checkmark] |
+| Protocoles : MQTT, MQTT sur WebSockets | ![Vérification][checkmark] | ![Vérification][checkmark] |  |
+| Identité par appareil | ![Vérification][checkmark] | ![Vérification][checkmark] |  |
+| Fichier téléchargé à partir d’appareils | ![Vérification][checkmark] | ![Vérification][checkmark] |  |
+| Service Device Provisioning | ![Vérification][checkmark] | ![Vérification][checkmark] |  |
+| Messages de cloud-à-appareil | ![Vérification][checkmark] |  |  |
+| Gestion des jumeaux d'appareils et des appareils | ![Vérification][checkmark] |  |  |
+| IoT Edge | ![Vérification][checkmark] |  |  |
 
 Même si le seul cas d’usage est l’ingestion de données appareil-à-cloud, nous recommandons fortement l’utilisation d’IoT Hub car il fournit un service conçu pour la connectivité des appareils IoT. 
 
 ### <a name="next-steps"></a>Étapes suivantes
 
-Pour explorer davantage les capacités de IoT Hub, consultez le [guide du développeur IoT Hub][lnk-devguide]
+Pour explorer davantage les capacités d’IoT Hub, consultez le [Guide du développeur IoT Hub](iot-hub-devguide.md).
 
-
-[Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-devguide]: iot-hub-devguide.md
-
-<!--Image references-->
-[1]: ./media/iot-hub-compare-event-hubs/ic195031.png
+<!-- This one reference link is used over and over. --robinsh -->
+[checkmark]: ./media/iot-hub-compare-event-hubs/ic195031.png

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343550"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144840"
 ---
 # <a name="getting-compliance-data"></a>Obtention de données de conformité
 
@@ -26,6 +26,9 @@ Il existe plusieurs façons d’accéder aux informations de conformité génér
 - À l’aide de scripts de [ligne de commande](#command_line)
 
 Avant d’examiner les méthodes de rapport sur la conformité, voyons à quel moment les informations de conformité sont mises à jour et passons en revue la fréquence et les événements qui déclenchent un cycle d’évaluation.
+
+> [!WARNING]
+> Si l’état de conformité est signalé comme **« n/a »**, vérifiez que le fournisseur de ressources **Microsoft.PolicyInsights** est inscrit et que l’utilisateur dispose d’autorisations de contrôle d’accès en fonction du rôle appropriées, comme décrit [ici](azure-policy-introduction.md#rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Déclencheurs d’évaluation
 

@@ -13,23 +13,28 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: f6671e05c53b8be2e06eb969adc8a4d5736aff37
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 674c3b5cbd3b4253833a785b32e2bc4b0f1928da
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284438"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140698"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilisation d’Akka Streams avec Event Hubs pour Apache Kafka
-
-Un des principaux avantages de l’utilisation d’Apache Kafka est l’écosystème d’infrastructures auquel il peut se connecter. Les Event Hubs prenant en charge Kafka associent la flexibilité de Kafka à l’évolutivité, à la cohérence et à la prise en charge de l’écosystème Azure.
-
 Ce tutoriel vous montre comment connecter Akka Streams à des hubs d’évenements prenant en charge Kafka sans modifier vos protocoles clients ni exécuter vos propres clusters. Azure Event Hubs pour Kafka prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
+
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
+> [!div class="checklist"]
+> * Créer un espace de noms Event Hubs
+> * Cloner l’exemple de projet
+> * Exécuter le producteur de Flink 
+> * Exécuter le consommateur de Flink
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce tutoriel, vérifiez que les conditions préalables ci-dessous sont bien remplies :
 
+* Lisez l’article [Event Hubs pour Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 * [Java Development Kit (JDK) 1.8+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * Sur Ubuntu, exécutez `apt-get install default-jdk` pour installer le JDK.
@@ -52,7 +57,7 @@ git clone https://github.com/Azure/azure-event-hubs.git
 cd azure-event-hubs/samples/kafka/akka
 ```
 
-## <a name="akka-streams-producer"></a>Producteur de flux Akka
+## <a name="run-akka-streams-producer"></a>Exécuter le producteur d’Akka Streams
 
 À l’aide de l’exemple du producteur de flux Akka fourni, envoyez des messages au service Event Hubs.
 
@@ -89,7 +94,7 @@ mvn exec:java -Dexec.mainClass="AkkaTestProducer"
 
 le producteur va maintenant commencer à envoyer des événement à l’Event Hub prenant en charge Kafka au niveau de la rubrique `test` et imprimer les événements dans stdout.
 
-## <a name="akka-streams-consumer"></a>Consommateur de flux Akka
+## <a name="run-akka-streams-consumer"></a>Exécuter le consommateur d’Akka Streams
 
 À l’aide de l’exemple de contrôle serveur consommateur fourni, recevez des messages à partir des Event Hubs prenant en charge Kafka.
 
@@ -132,6 +137,15 @@ Si l’Event Hub prenant en charge Kafka a des événements (par exemple, si vot
 Consultez le [Guide Kafka de flux Akka](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) pour plus d’informations sur les flux Akka.
 
 ## <a name="next-steps"></a>Étapes suivantes
+Dans le cadre de ce didacticiel, vous avez appris à connecter Akka Streams à des Event Hubs prenant en charge Kafka sans modifier vos protocoles clients ni exécuter vos propres clusters. Azure Event Hubs pour Kafka prend en charge [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html). Dans ce didacticiel, vous avez effectué les opérations suivantes : 
+
+> [!div class="checklist"]
+> * Créer un espace de noms Event Hubs
+> * Cloner l’exemple de projet
+> * Exécuter le producteur de Flink 
+> * Exécuter le consommateur de Flink
+
+Pour plus d’informations sur Event Hubs et sur Event Hubs pour Kafka, consultez les articles suivants :  
 
 * [En savoir plus sur Event Hubs](event-hubs-what-is-event-hubs.md)
 * [En savoir plus sur Event Hubs pour Kafka](event-hubs-for-kafka-ecosystem-overview.md)

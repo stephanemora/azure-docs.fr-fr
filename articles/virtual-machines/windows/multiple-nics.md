@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d29676b107885350785ceb1c17eb3010cc0907d2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 47f02c008a0498492af3503d90fda8ff6e2eefa8
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928343"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140676"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Créer et gérer une machine virtuelle Windows équipée de plusieurs cartes d’interface réseau
-Les machines virtuelles (VM) dans Azure peuvent être équipées de plusieurs cartes d’interface réseau (NIC) virtuelles. Un scénario courant consiste à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article explique comment créer une machine virtuelle équipée de plusieurs cartes d’interface réseau. Il explique également comment ajouter ou supprimer des cartes d’interface réseau d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.
+Les machines virtuelles (VM) dans Azure peuvent être équipées de plusieurs cartes d’interface réseau (NIC) virtuelles. Un scénario courant consiste à disposer de sous-réseaux différents pour les connectivités frontale et principale. Vous pouvez associer plusieurs cartes d’interface réseau d’une machine virtuelle à différents sous-réseaux, mais ces sous-réseaux doivent tous résider dans le même réseau virtuel. Cet article explique comment créer une machine virtuelle équipée de plusieurs cartes d’interface réseau. Il explique également comment ajouter ou supprimer des cartes d’interface réseau d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.
 
 ## <a name="prerequisites"></a>Prérequis
 Vérifiez que vous disposez de la [dernière version d’Azure PowerShell installée et configurée](/powershell/azure/overview).

@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 3734c30dad0735164d4501d1d63d8ffe301396a3
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 63ea7e384f9bc5713a41f6c5537ec5548810e5d9
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249112"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140281"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Didacticiel Power BI pour Azure Cosmos DB : visualiser les données à l’aide du connecteur Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) est un service en ligne qui vous permet de créer et partager des tableaux de bord et des rapports à partir de données véritablement significatives pour vous et votre organisation.  Power BI Desktop est un outil de création de rapports dédié qui vous permet de récupérer des données à partir de diverses sources, de les fusionner et de les transformer, de créer de puissants rapports et visualisations, puis de publier ces rapports sur Power BI.  Grâce à la dernière version de Power BI Desktop, vous pouvez maintenant vous connecter à votre compte Azure Cosmos DB via le connecteur Azure Cosmos DB pour Power BI.   
@@ -42,8 +42,8 @@ Avant de suivre les instructions de ce didacticiel Power BI, assurez-vous de dis
 * [La dernière version de Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * Accédez à notre compte de démonstration ou aux données de votre compte Cosmos DB.
   * Le compte de démonstration comprend les données relatives au volcan présentées dans ce didacticiel. Ce compte de démonstration n’est lié à aucun contrat de niveau de service et est réservé uniquement à des fins de démonstration.  Nous nous réservons le droit d’apporter à tout moment des modifications à ce compte de démonstration sans préavis et sans raison, y compris sans toutefois s’y limiter, à résilier le compte, à modifier la clé d’accès, à restreindre l’accès, à modifier et supprimer les données.
-    * URL : https://analytics.documents.azure.com
-    * Clé en lecture seule : MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR + YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw ==
+    * URL : `https://analytics.documents.azure.com`
+    * Clé en lecture seule : `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`
   * Sinon, créez votre propre compte ; pour cela, consultez [Azure Cosmos DB : Développer une application web API DocumentDB avec .NET et le portail Azure](https://azure.microsoft.com/documentation/articles/create-account/). Ensuite, pour obtenir des exemples de données relatives aux volcans semblables à celles utilisées dans ce didacticiel (mais qui ne contiennent pas les blocs GeoJSON), consultez le [site NOAA](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) puis importez les données à l’aide de [l’outil de migration de données Azure Cosmos DB](import-data.md).
 
 Pour partager vos rapports dans PowerBI.com, vous devez disposer d’un compte sous PowerBI.com.  Pour en savoir plus Power BI gratuit et Power BI Pro, visitez [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).

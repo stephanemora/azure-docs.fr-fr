@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: d900a778aa003357fb85d3e8ec8e40dee64f0f9c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 77c7d9a549b10a56faaf6226062d0e6212ce19c0
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131852"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145987"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Créer des vues personnalisées à l’aide du Concepteur de vues dans Log Analytics
 Grâce au Concepteur de vues d’[Azure Log Analytics](log-analytics-overview.md), vous pouvez créer plusieurs vues personnalisées dans le portail Azure qui peuvent vous aider à visualiser les données dans votre espace de travail Log Analytics. Cet article fournit une présentation du Concepteur de vues et des procédures de création et de modification des vues personnalisées.
@@ -55,7 +55,7 @@ Les options sont décrites dans le tableau suivant :
 | Option | Description |
 |:--|:--|
 | Actualiser   | Actualise la vue avec les données les plus récentes. | 
-| Analytics | Ouvre le [portail Analytique avancée](log-analytics-log-search-portals.md#advanced-analytics-portal) pour analyser des données avec des recherches dans les journaux. |
+| Analytics | Ouvre le [portail Analytique avancée](log-analytics-log-search-portals.md) pour analyser des données avec des requêtes de journal. |
 | Modifier       | Ouvre la vue dans le Concepteur de vues pour modifier son contenu et sa configuration.  |
 | Cloner      | Crée une vue et l’ouvre dans le Concepteur de vues. Le nom de la nouvelle vue est identique à celui de la vue d’origine, avec le mot *Copy* ajouté à la fin. |
 | Plage de dates | Définissez un filtre de date et d’heure pour les données incluses dans la vue. |

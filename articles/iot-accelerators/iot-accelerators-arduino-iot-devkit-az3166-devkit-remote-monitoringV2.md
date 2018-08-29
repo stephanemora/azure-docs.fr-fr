@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: e900b952ab9bb2054b9e4174670894027cdd2618
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 88ce34125009665d346cf034f5d02ba7e21f48fc
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969450"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141313"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>Connecter MXChip IoT DevKit AZ3166 à l’accélérateur de solution de surveillance à distance IoT
 
@@ -139,12 +139,6 @@ Après quelques secondes, votre MX Chip physique va modifier la couleur de la LE
 
 ![DEL MX Chip](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-devkit-led.png)
 
-
-## <a name="change-device-id"></a>Modifier l’ID de l’appareil
-
-Vous pouvez modifier l’ID de l’appareil dans IoT Hub en suivant [ce guide](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
-
-
 ## <a name="problems-and-feedback"></a>Problèmes et commentaires
 
 Si vous rencontrez des problèmes, consultez les [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) si ou contactez-nous via les canaux ci-dessous :
@@ -158,3 +152,4 @@ Maintenant que vous avez appris à connecter un appareil DevKit à vos accélér
 
 * [Vue d’ensemble des accélérateurs de solution IoT](https://docs.microsoft.com/azure/iot-suite/)
 * [Connecter un appareil DevKit IoT MXChip à votre application Microsoft IoT Central](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Kit de développement IoT](https://microsoft.github.io/azure-iot-developer-kit/)

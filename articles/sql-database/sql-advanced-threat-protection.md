@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 5/17/2018
 ms.author: ronitr
 ms.reviewer: carlrab
-ms.openlocfilehash: da21a0b66d86b4cc3e2dc59bdd972d4e24d7e5ec
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 8881f66a73a2368696ee16cc0f9bb0b16d2f6d7e
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305649"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42140034"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Protection avancée contre les menaces pour Azure SQL Database
 
-Protection avancée contre les menaces SQL est un package unifié de fonctionnalités de sécurité SQL avancées. Il inclut des fonctionnalités permettant de découvrir et de classifier les données sensibles, de gérer les vulnérabilités de votre base de données et de détecter les activités anormales pouvant indiquer une menace ciblant votre base de données. Il vous permet d’activer et de gérer ces fonctionnalités à partir d’un seul et même emplacement. 
+Protection avancée contre les menaces SQL est un package unifié de fonctionnalités de sécurité SQL avancées. Il inclut des fonctionnalités permettant de découvrir et de classifier les données sensibles, de présenter et de corriger les vulnérabilités de votre base de données et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données. Il vous permet d’activer et de gérer ces fonctionnalités à partir d’un seul et même emplacement. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Protection avancée contre les menaces SQL fournit un ensemble de fonctionnalités de sécurité SQL avancées, dont Découverte et classification des données, Évaluation des vulnérabilités et Détection de menaces. 
 

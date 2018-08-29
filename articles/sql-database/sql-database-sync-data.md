@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 8fe77522297dc6020cf98f4532aea9f580d8bdb9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ba1fdcf64592bdfe23195e781a21d7a2db693325
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004809"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141285"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
@@ -178,7 +178,10 @@ Pas directement. Vous pouvez effectuer une synchronisation entre les bases de do
 Oui. Vous pouvez synchroniser entre des SQL Databases qui appartiennent à des groupes de ressources appartenant à différents abonnements.
 -   Si les abonnements appartiennent au même locataire et que disposez d’autorisations sur tous les abonnements, vous pouvez configurer le groupe de synchronisation dans le portail Azure.
 -   Sinon, vous devez utiliser PowerShell pour ajouter les membres de synchronisation appartenant à différents abonnements.
-   
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>Puis-je utiliser Data Syn pour synchroniser entre des SQL Databases qui appartiennent à différents clouds (comme Azure Public Cloud et Azure - Chine) ?
+Oui. Vous pouvez synchroniser des bases de données SQL qui appartiennent à différents clouds, vous devez utiliser PowerShell pour ajouter les membres de synchronisation appartenant aux différents abonnements.
+
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>Puis-je utiliser Data Sync pour envoyer des données de ma base de données de production vers une base de données vide, et ensuite les synchroniser ?
 
 Oui. Créez manuellement le schéma dans la nouvelle base de données en créant le script à partir de la base de données d’origine. Après avoir créé le schéma, ajoutez les tables à un groupe de synchronisation pour copier les données et les garder synchronisées.

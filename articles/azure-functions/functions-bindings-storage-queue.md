@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 04502e80cea096ce384f97559bc7bad95ee2bcd8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e034d6c57c619ea74003f531d3309f7da17210b0
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344097"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140699"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Liaisons de stockage File d’attente Azure pour Azure Functions
 
@@ -54,6 +54,7 @@ Consultez l’exemple propre à un langage particulier :
 * [C#](#trigger---c-example)
 * [Script C# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---Java-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
@@ -166,6 +167,22 @@ module.exports = function (context) {
 ```
 
 La section [utilisation](#trigger---usage) explique `myQueueItem`, qui est nommé par la propriété `name` dans function.json.  La [section sur les métadonnées de message](#trigger---message-metadata) détaille toutes les autres variables indiquées.
+
+### <a name="trigger---java-example"></a>Déclencheur - exemple Java
+
+L’exemple Java ci-après présente une fonction de déclencheur de file d’attente de stockage qui enregistre le message déclenché placé dans la file d’attente `myqueuename`.
+ 
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
  
@@ -299,6 +316,7 @@ Consultez l’exemple propre à un langage particulier :
 * [C#](#output---c-example)
 * [Script C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
@@ -428,6 +446,25 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>Sortie - exemple Java
+
+ L’exemple ci-après présente une fonction Java qui crée un message de file d’attente en cas de déclenchement par une requête HTTP.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+ ```
+
+Dans la [bibliothèque runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres dont la valeur serait écrite dans Stockage File d’attente.  Le paramètre doit être de type `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
+
 
 ## <a name="output---attributes"></a>Sortie - attributs
  

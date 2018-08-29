@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 08/10/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 8bf7f18f8051f1647a86bbe9c0be638045781a72
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cb4c9f91c7a116e6171a8e94030b6bb40fdb38ea
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989909"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141475"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Configurer les revendications de rôle émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory
 
@@ -67,6 +67,9 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
     c. Sélectionnez les autorisations suivantes dans la liste (si vous ne l’avez pas déjà fait) et sélectionnez **Modifier les autorisations**.
 
       ![Liste des autorisations et bouton « Modifier les autorisations »](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+
+    > [!Note]
+    > Les rôles Administrateur d’application et Administrateur Cloud App ne sont pas appropriés pour ce scénario, puisque nous avons besoin d’autorisations d’administrateur général pour effectuer des opérations d’écriture et de lecture dans le répertoire.
 
     d. Acceptez le consentement. Vous êtes à nouveau connecté au système.
 

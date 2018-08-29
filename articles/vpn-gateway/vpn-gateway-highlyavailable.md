@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 3708a2f7c445a161f02416cf8427b1707e1db8f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c510bb060d5c0dc866c3802fab751c1cbeff3745
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23126307"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42141466"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels
 Cet article fournit une vue d’ensemble des options de configuration haute disponibilité dont vous pouvez tirer parti pour la connectivité entre vos réseaux locaux et la connectivité entre deux réseaux virtuels en utilisant des passerelles VPN Azure.
@@ -44,7 +44,7 @@ Vous pouvez utiliser plusieurs périphériques VPN de votre réseau local pour v
 
 Cette configuration offre plusieurs tunnels actifs reliant la même passerelle VPN Azure à vos périphériques locaux dans le même emplacement. Elle comporte certaines exigences et contraintes :
 
-1. Vous devez créer plusieurs connexions VPN S2S entre vos périphériques VPN et Azure. Lorsque vous connectez plusieurs périphériques VPN du même réseau local vers Azure, vous devez créer une passerelle réseau locale pour chaque périphérique VPN et une connexion entre votre passerelle VPN Azure et la passerelle réseau locale.
+1. Vous devez créer plusieurs connexions VPN S2S entre vos périphériques VPN et Azure. Lorsque vous connectez plusieurs périphériques VPN du même réseau local vers Azure, vous devez créer une passerelle réseau locale pour chaque périphérique VPN et une connexion entre votre passerelle VPN Azure et chaque passerelle réseau locale.
 2. Les passerelles réseau locales correspondant à vos périphériques VPN doivent avoir des adresses IP publiques uniques dans la propriété « GatewayIpAddress ».
 3. Cette configuration requiert le protocole BGP. Pour chaque passerelle réseau locale qui représente un périphérique VPN, une adresse IP d’homologue BGP unique doit être spécifiée dans la propriété « BgpPeerIpAddress ».
 4. Les champs de propriété AddressPrefix de chaque passerelle réseau locale ne doivent pas se chevaucher. Vous devez spécifier le paramètre « BgpPeerIpAddress » au format CIDR /32 dans le champ AddressPrefix, par exemple, 10.200.200.254/32.

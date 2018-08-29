@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: a9f684eccefab3e43d9b2b7a364b245a53519f76
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 3c4aa6d91d5f8c1e28cb52f6846f6ac9feeb4edd
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389678"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42146349"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Créer, lister ou supprimer une identité attribuée à l’utilisateur à l’aide d’Azure PowerShell
 
@@ -34,16 +34,15 @@ Dans cet article, vous allez découvrir comment créer, lister et supprimer une 
 - Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter [la différence entre les identité affectées par le système et celles affectées par l’utilisateur](overview.md#how-does-it-work)**.
 - Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
 - Installez [la dernière version d’Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) si ce n’est déjà fait.
-- Si vous choisissez d’installer et d’utiliser PowerShell localement, vous devez exécuter le module Azure PowerShell version 5.7.0 ou ultérieure pour les besoins de ce tutoriel. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+- Si vous choisissez d’installer et d’utiliser PowerShell en local, ce didacticiel nécessite le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). 
+- Si vous exécutez PowerShell en local, vous devez également effectuer les opérations suivantes : 
+    - Exécutez `Login-AzureRmAccount` pour créer une connexion avec Azure.
+    - Installez la [dernière version de PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+    - Exécutez `Install-Module -Name PowerShellGet -AllowPrerelease` pour obtenir la préversion du module `PowerShellGet` (vous devrez peut-être utiliser la commande `Exit` pour quitter la session PowerShell actuelle après avoir exécuté cette commande pour installer le module `AzureRM.ManagedServiceIdentity`).
+    - Exécutez `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` pour installer la préversion du module `AzureRM.ManagedServiceIdentity` afin d’effectuer les opérations d’identité affectée par l’utilisateur dans cet article.
 - Pour effectuer les opérations de gestion dans cet article, votre compte doit disposer des attributions des rôles suivants :
     - [Contributeur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-contributor), pour créer, lire (lister), mettre à jour et supprimer une identité affectée par l’utilisateur.
     - [Opérateur d’identité managée](/azure/role-based-access-control/built-in-roles#managed-identity-operator) pour lire (lister) les propriétés d’une identité affectée par l’utilisateur.
-
-> [!NOTE]
-> Bien que les identités affectées à l’utilisateur soient toujours en préversion vous devez tout d’abord installer manuellement le module AzureRM.ManagedServiceIdentity à l’aide de la commande suivante. 
-```azurepowershell-interactive
-Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease
-```
 
 ## <a name="create-a-user-assigned-identity"></a>Créer une identité attribuée à l’utilisateur
 
@@ -69,7 +68,7 @@ Dans la réponse, les identités utilisateurs ont une valeur `"Microsoft.Managed
 
 Pour supprimer une identité utilisateur, utilisez la commande [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity).  Le paramètre `-ResourceGroupName` spécifie le groupe de ressources où l’identité attribuée à l’utilisateur a été créée, et le paramètre `-Name` spécifie son nom. Remplacez les valeurs des paramètres `<RESOURCE GROUP>` et `<USER ASSIGNED IDENTITY NAME>` par vos propres valeurs :
 
- ```azurecli-interactive
+ ```azurepowershell-interactive
 Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 > [!NOTE]
@@ -78,6 +77,3 @@ Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USE
 ## <a name="related-content"></a>Contenu connexe
 
 Pour obtenir une liste complète et plus d’informations sur les commandes MSI Azure PowerShell, consultez [AzureRM.ManagedServiceIdentity](/powershell/module/azurerm.managedserviceidentity#managed_service_identity).
-
-
- 

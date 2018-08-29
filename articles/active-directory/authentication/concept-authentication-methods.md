@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622250"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42140287"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
@@ -137,6 +137,8 @@ L’application Microsoft Authenticator peut aider à empêcher tout accès non 
 > Lorsque deux méthodes sont requises, les utilisateurs seront en mesure d’effectuer la réinitialisation avec **SOIT** une notification, **SOIT** un code de vérification en plus de n’importe quelle autre méthode activée.
 >
 
+Si vous activez l’utilisation de la notification par le biais de l’application mobile et du code de vérification de l’application mobile, les utilisateurs qui inscrivent l’application Microsoft Authenticator à l’aide d’une notification peuvent utiliser aussi bien la notification que le code pour vérifier leur identité.
+
 ### <a name="verification-code-from-mobile-app"></a>Code de vérification de l’application mobile
 
 L'application Microsoft Authenticator ou une autre application tierce peut être utilisée comme jeton logiciel pour générer un code de vérification OATH. Après avoir saisi votre nom d’utilisateur et votre mot de passe, vous entrez le code fourni par l’application dans l’écran de connexion. Le code de vérification fournit un deuxième formulaire d’authentification.
@@ -199,6 +201,6 @@ Si votre organisation est fédérée (SSO) avec Azure AD et si vous vous apprê
 
 [Activer Azure Multi-Factor Authentication pour votre organisation](howto-mfa-getstarted.md)
 
-[Activer l’inscription convergée pour l’authentification multifacteur Azure et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)
+[Activer l’inscription convergée pour Azure Multi-Factor Authentication et la réinitialisation de mot de passe en libre-service Azure AD](concept-registration-mfa-sspr-converged.md)
 
 [Documentation relative à la configuration de la méthode d’authentification de l’utilisateur final](https://aka.ms/securityinfoguide)

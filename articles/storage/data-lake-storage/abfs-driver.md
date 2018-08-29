@@ -4,18 +4,17 @@ description: Pilote ABFS pour Hadoop FileSystem
 services: storage
 keywords: ''
 author: jamesbak
-manager: jahogg
 ms.topic: article
 ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: e92c4efba29f1c40f6d4cb155974ca3a896796e5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: dedf398064dd0a49e5691e952ea7c9b6d16e34fd
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114331"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42140238"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Pilote ABFS (Azure Blob File System) : pilote de stockage Azure dédié pour Hadoop
 
@@ -23,9 +22,7 @@ ms.locfileid: "37114331"
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Fonctionnalité préalable : pilote Windows Azure Storage Blob
 
-Au départ, c’est le [pilote WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) (Windows Azure Storage Blob) qui prenait en charge Azure Storage Blob. Il avait pour tâche complexe de mapper la sémantique du système de fichiers (conformément à l’interface Hadoop FileSystem) à celle de l’interface de style « magasin d’objets » exposée par Stockage Blob Azure. Ce pilote continue à prendre en charge ce modèle et fournit un accès très performant aux données stockées dans les objets blob. Il est toutefois difficile de le tenir à jour, car la quantité de code nécessaire au mappage est très importante. Par ailleurs, quand certaines opérations comme [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) et [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) sont appliquées à des répertoires, le pilote doit effectuer un grand nombre d’opérations (les magasins d’objet ne prenant pas en charge les répertoires), ce qui aboutit souvent à une dégradation des performances.
-
-Pour remédier aux insuffisances inhérentes à la conception de WASB, le nouveau service Azure Data Lake Storage a donc été implémenté pour pouvoir être pris en charge par le nouveau pilote ABFS.
+Au départ, c’est le [pilote WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) (Windows Azure Storage Blob) qui prenait en charge Azure Storage Blob. Il avait pour tâche complexe de mapper la sémantique du système de fichiers (conformément à l’interface Hadoop FileSystem) à celle de l’interface de style « magasin d’objets » exposée par Stockage Blob Azure. Ce pilote continue à prendre en charge ce modèle et fournit un accès très performant aux données stockées dans les objets blob. Il est toutefois difficile de le tenir à jour, car la quantité de code nécessaire au mappage est très importante. Par ailleurs, quand certaines opérations comme [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) et [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) sont appliquées à des répertoires, le pilote doit effectuer un grand nombre d’opérations (les magasins d’objet ne prenant pas en charge les répertoires), ce qui aboutit souvent à une dégradation des performances. Le nouveau service Azure Data Lake Storage a été conçu pour surmonter les lacunes inhérentes à WASB.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Pilote Azure Blob File System
 
@@ -48,7 +45,11 @@ En interne, le pilote ABFS traduit la ou les ressources spécifiées dans l’UR
 
 ### <a name="authentication"></a>Authentification
 
-Le pilote ABFS prend actuellement en charge l’authentification Shared Key. L’application Hadoop peut donc accéder de manière sécurisée aux ressources contenues dans Data Lake Storage Gen2. La clé est chiffrée et stockée dans la configuration Hadoop.
+Le pilote ABFS prend en charge deux types d’authentification. L’application Hadoop peut donc accéder de manière sécurisée aux ressources contenues dans un compte compatible avec Azure Data Lake Storage Gen2. Vous trouverez des informations complètes sur les schémas d’authentification disponibles dans le [guide de sécurité de Stockage Azure](../common/storage-security-guide.md). Il s'agit de :
+
+- **Clé partagée :** celle-ci permet aux utilisateurs d’accéder à toutes les ressources contenues dans le compte. La clé est chiffrée et stockée dans la configuration Hadoop.
+
+- **Jeton du porteur OAuth Azure Active Directory :** les jetons de porteur Azure AD sont obtenus et mis à jour par le pilote à l’aide de l’identité de l’utilisateur final ou d’un principal de service configuré. Avec ce modèle d’authentification, l’accès est autorisé appel par appel à l’aide de l’identité associée au jeton fourni et vérifiée par rapport à la liste de contrôle d’accès POSIX attribuée.
 
 ### <a name="configuration"></a>Configuration
 

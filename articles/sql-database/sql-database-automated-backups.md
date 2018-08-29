@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8798d0f17918ecce473afe8dc21b3f60bf0fa4b1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ac548d90d5a5ed931dc199b6fed52c7cd8f25239
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620128"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140296"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>En savoir plus sur les sauvegardes automatiques SQL Database
 
@@ -26,7 +26,7 @@ SQL Database crée automatiquement des sauvegardes de base de données et utilis
 
 ## <a name="what-is-a-sql-database-backup"></a>Qu’est-ce qu’une sauvegarde SQL Database ?
 
-SQL Database utilise la technologie SQL Server pour créer des sauvegardes [complètes](https://msdn.microsoft.com/library/ms186289.aspx), [différentielles](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) et du [journal des transactions](https://msdn.microsoft.com/library/ms191429.aspx) dans le cadre de la limite de restauration dans le temps. Les sauvegardes du journal des transactions se produisent généralement toutes les 5 à 10 minutes, et les sauvegardes différentielles toutes les 12 heures, la fréquence variant selon le niveau de performance et l’activité de base de données. Les sauvegardes du journal des transactions, avec les sauvegardes complètes et différentielles, vous permettent de restaurer une base de données à un point spécifique sur le même serveur qui héberge la base de données. Quand vous restaurez une base de données, le service identifie les sauvegardes nécessitant une restauration (complète, différentielle ou journal des transactions).
+SQL Database utilise la technologie SQL Server pour créer des sauvegardes [complètes](https://msdn.microsoft.com/library/ms186289.aspx), [différentielles](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) et du [journal des transactions](https://msdn.microsoft.com/library/ms191429.aspx) dans le cadre de la limite de restauration dans le temps. Les sauvegardes du journal des transactions se produisent généralement toutes les 5 à 10 minutes, et les sauvegardes différentielles toutes les 12 heures, la fréquence variant selon le niveau de performance et l’activité de base de données. Les sauvegardes du journal des transactions, avec les sauvegardes complètes et différentielles, vous permettent de restaurer une base de données à un point spécifique sur le même serveur qui héberge la base de données. Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Quand vous restaurez une base de données, le service identifie les sauvegardes nécessitant une restauration (complète, différentielle ou journal des transactions).
 
 
 Vous pouvez utiliser ces sauvegardes aux fins suivantes :
@@ -51,12 +51,14 @@ Si vous souhaitez conserver les sauvegardes plus longtemps que la période de co
 > [!IMPORTANT]
 > Si vous supprimez le serveur Azure SQL Server qui héberge les bases de données SQL, tous les pools élastiques et bases de données qui appartiennent au serveur sont également supprimés, sans pouvoir être restaurés. Vous ne pouvez pas restaurer un serveur supprimé. Mais si vous avez configuré la conservation à long terme, les sauvegardes des bases de données avec conservation à long terme ne seront pas supprimées et peuvent être restaurées.
 
-### <a name="pitr-retention-for-dtu-based-service-tiers"></a>Conservation PITR pour les niveaux de service basés sur des unités de transaction de base de données
+### <a name="pitr-retention-period"></a>Période de rétention de la récupération jusqu’à une date et heure
 La période de conservation par défaut pour une base de données créée à l’aide du modèle d’achat DTU varie selon le niveau de service :
 
 * Niveau de service De base : 1 jour.
 * Niveau de service Standard : 5 semaines.
 * Niveau de service Premium : 5 semaines.
+
+Si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), la rétention des sauvegardes est configurable pendant un maximum de 35 jours. 
 
 Si vous réduisez la période de conservation PITR, toutes les sauvegardes antérieures à la nouvelle période de conservation ne seront plus disponibles. 
 

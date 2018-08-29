@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 38926cc42b44e61bd83f6b1e33946a9026cda06d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: f5596f4c9bc827852c730d18856753e87de3c59c
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989399"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42141273"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Guide pratique sur la gestion de votre compte et de vos clés Azure Maps
 
@@ -51,4 +51,5 @@ Vous pouvez supprimer un compte à partir du portail Azure. Accédez à la page 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment utiliser l’[API de gestion de Maps](https://docs.microsoft.com/rest/api/maps-management/accounts) pour créer, mettre à jour et supprimer des comptes Maps. 
+* Découvrez comment utiliser des API de recherche Azure Maps dans [comment rechercher une adresse](./how-to-search-for-address.md).
+* Découvrez comment utiliser le [contrôle de carte JavaScript](./how-to-use-map-control.md) de Azure Maps.

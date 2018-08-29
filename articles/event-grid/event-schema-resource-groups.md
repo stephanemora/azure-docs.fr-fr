@@ -3,17 +3,16 @@ title: Schéma d’événements de groupe de ressources Azure Event Grid
 description: Décrit les propriétés fournies pour les événements de groupe de ressources avec Azure Event Grid.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 407d9fd5b6f4d554af37b60edf12422f8816ac00
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 22629ba553cc58435f99ed0fed97be252b24b409
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495320"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141292"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Schéma d’événements Azure Event Grid pour les groupes de ressources
 
@@ -27,7 +26,9 @@ Quand vous vous abonnez aux événements d’un groupe de ressources, votre poin
 
 Pour gérer les événements par programmation, vous pouvez les trier selon la valeur `operationName`. Par exemple, votre point de terminaison d’événement peut traiter uniquement les événements pour les opérations correspondant à `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write`.
 
-L’objet de l’événement est l’ID de la ressource cible de l’opération. Pour filtrer les événements pour une ressource, fournissez cet ID de ressource lors de la création de l’abonnement aux événements. Pour obtenir des exemples de scripts, consultez [S’abonner et filtrer pour un groupe de ressources avec PowerShell](scripts/event-grid-powershell-resource-group-filter.md) ou [S’abonner et filtrer pour un groupe de ressources avec Azure CLI](scripts/event-grid-cli-resource-group-filter.md). Pour filtrer selon un type de ressource, utilisez une valeur au format suivant : `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+L’objet de l’événement est l’ID de la ressource cible de l’opération. Pour filtrer les événements pour une ressource, fournissez cet ID de ressource lors de la création de l’abonnement aux événements.  Pour filtrer selon un type de ressource, utilisez une valeur au format suivant : `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+Pour obtenir la liste des exemples de scripts et des didacticiels, consultez [Source d’événement de groupe de ressources](event-sources.md#resource-groups).
 
 ## <a name="available-event-types"></a>Types d’événement disponibles
 

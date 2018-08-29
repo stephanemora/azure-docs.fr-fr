@@ -4,7 +4,7 @@ description: Apprenez à coder et à tester des fonctions Azure à partir de l�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cb336d6742aab10e1fd8305fd52f1376bb4f2598
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618612"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143670"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -131,13 +131,13 @@ Dans la fenêtre du terminal ou à partir d’une invite de commandes, exécutez
 func init MyFunctionProj
 ```
 
+Lorsque vous fournissez un nom de projet, un nouveau dossier portant ce nom est créé et initialisé. Sinon, le dossier actif est initialisé.  
 Dans la version 2.x, lorsque vous exécutez la commande, vous devez choisir un runtime pour votre projet. Si vous envisagez de développer des fonctions JavaScript, choisissez **nœud** :
 
 ```output
 Select a worker runtime:
 dotnet
 node
-java
 ```
 
 Utilisez les touches de direction haut/bas pour choisir un langage, puis appuyez sur Entrée. Le résultat ressemble à l’exemple suivant pour un projet JavaScript :
@@ -298,19 +298,24 @@ Pour exécuter un projet Functions, exécutez l’hôte Functions. L’hôte act
 ```bash
 func host start
 ```
+La commande `host` est requise uniquement dans la version 1.x.
 
 `func host start` prend en charge les options suivantes :
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
-|**`--port -p`** | Port local à écouter. Valeur par défaut : 7071. |
-| **`--debug <type>`** | Démarrage de l’hôte avec le port de débogage ouvert afin que vous puissiez associer le processus **func.exe** à partir de [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) ou [Visual Studio 2017](functions-dotnet-class-library.md). Les options *\<type\>* sont `VSCode` et `VS`.  |
 | **`--cors`** | Liste séparée par des virgules d’origines CORS, sans espaces. |
-| **`--nodeDebugPort -n`** | Port du débogueur de nœud à utiliser. Valeur par défaut : une valeur issue de launch.json ou 5858. |
-| **`--debugLevel -d`** | Niveau de trace de la console (off, verbose, info, warning ou error). Valeur par défaut : info.|
+| **`--debug <type>`** | Démarrage de l’hôte avec le port de débogage ouvert afin que vous puissiez associer le processus **func.exe** à partir de [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) ou [Visual Studio 2017](functions-dotnet-class-library.md). Les options *\<type\>* sont `VSCode` et `VS`.  |
+| **`--port -p`** | Port local à écouter. Valeur par défaut : 7071. |
 | **`--timeout -t`** | Délai d’expiration pour le démarrage de l’hôte Functions, en secondes. Valeur par défaut : 20 secondes.|
 | **`--useHttps`** | Liaison avec `https://localhost:{port}` plutôt que `http://localhost:{port}`. Par défaut, cette option crée un certificat de confiance sur votre ordinateur.|
-| **`--pause-on-error`** | Marquage d’une pause pour des entrées supplémentaires avant de quitter le processus. Utilisation lors du lancement de Core Tools dans Visual Studio ou VS Code.|
+| **`--build`** | Générez le projet actif avant l’exécution. Projets version 2.x et C# uniquement. |
+| **`--cert`** | Le chemin d’accès vers un fichier .pfx qui contient une clé privée. Utilisé uniquement avec `--useHttps`. Version 2.x uniquement. | 
+| **`--password`** | Le mot de passe ou un fichier qui contient le mot de passe pour un fichier .pfx. Utilisé uniquement avec `--cert`. Version 2.x uniquement. |
+| **`--language-worker`** | Arguments pour configurer le travailleur de langage. Version 2.x uniquement. |
+| **`--nodeDebugPort -n`** | Port du débogueur de nœud à utiliser. Valeur par défaut : une valeur issue de launch.json ou 5858. Version 1.x uniquement. |
+
+Pour un projet de bibliothèque de classes C# (.csproj), vous devez inclure l’option `--build` pour générer le fichier .dll de bibliothèque.
 
 Quand l’hôte Functions démarre, il génère l’URL des fonctions déclenchées par HTTP :
 
@@ -438,5 +443,5 @@ Pour enregistrer un bogue ou une demande de fonctionnalité, [créez un problèm
 <!-- LINKS -->
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
-[portail Azure]: https://portal.azure.com 
+[Portail Azure]: https://portal.azure.com 
 [Node.JS]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: aa723fb765d4432d9bcdd56e4b520bf00660f84c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d89abfd0ec2ae5de8366a12bb38d9358aa8ab76d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444847"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140257"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 Joignez le runtime d’intégration (IR) Azure-SSIS à un réseau virtuel Azure dans les scénarios suivants : 
@@ -86,11 +86,11 @@ Les étapes suivantes sont recommandées :
 Pour plus d’informations, consultez [Résolution de noms utilisant votre propre serveur DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 ### <a name="nsg"></a> Groupe de sécurité réseau
-Si vous avez besoin d’implémenter un groupe de sécurité réseau (NSG) sur un réseau virtuel joint par votre runtime d’intégration Azure-SSIS, autorisez le trafic entrant et sortant par le biais des ports suivants : 
+Si vous avez besoin d’implémenter un groupe de sécurité réseau (NSG) pour le sous-réseau utilisé par votre runtime d’intégration Azure-SSIS, autorisez le trafic entrant et sortant par le biais des ports suivants : 
 
 | Direction | Protocole de transfert | Source | Plage de ports sources | Destination | Plage de ports de destination | Commentaires |
 |---|---|---|---|---|---|---|
-| Trafic entrant | TCP | Internet | * | VirtualNetwork | 29876, 29877 (si vous joignez le runtime d’intégration à un réseau virtuel Azure Resource Manager) <br/><br/>10100, 20100, 30100 (si vous joignez le runtime d’intégration à un réseau virtuel classique)| Le service Data Factory utilise ces ports pour communiquer avec les nœuds de votre runtime d’intégration Azure SSIS sur le réseau virtuel. <br/><br/> Que vous spécifiiez ou non un groupe de sécurité réseau, Data Factory configure toujours un groupe de sécurité réseau au niveau des cartes d’interface réseau (NIC) connectées aux machines virtuelles qui hébergent le runtime d'intégration Azure-SSIS. Seul le trafic entrant provenant d’adresses IP Data Factory est autorisé. Même si vous ouvrez ces ports pour le trafic Internet, le trafic provenant d’adresses IP qui ne sont pas des adresses IP Data Factory est bloqué au niveau de la carte réseau. |
+| Trafic entrant | TCP | Internet | * | VirtualNetwork | 29876, 29877 (si vous joignez le runtime d’intégration à un réseau virtuel Azure Resource Manager) <br/><br/>10100, 20100, 30100 (si vous joignez le runtime d’intégration à un réseau virtuel classique)| Le service Data Factory utilise ces ports pour communiquer avec les nœuds de votre runtime d’intégration Azure SSIS sur le réseau virtuel. <br/><br/> Que vous créiez ou non un groupe de sécurité réseau au niveau du sous-réseau, Data Factory configure toujours un groupe de sécurité réseau au niveau des cartes d’interface réseau (NIC) connectées aux machines virtuelles qui hébergent le runtime d’intégration Azure-SSIS. Ce groupe de sécurité réseau au niveau de la carte réseau n’autorise que le trafic entrant provenant d’adresses IP Data Factory sur les ports spécifiés. Même si vous ouvrez ces ports pour le trafic Internet au niveau du sous-réseau, le trafic provenant d’adresses IP qui ne sont pas des adresses IP Data Factory est bloqué au niveau de la carte réseau. |
 | Règle de trafic sortant | TCP | VirtualNetwork | * | Internet | 443 | Les nœuds de votre runtime d’intégration Azure SSIS sur le réseau virtuel utilisent ce port pour accéder aux services Azure comme Stockage Azure et Azure Event Hubs. |
 | Règle de trafic sortant | TCP | VirtualNetwork | * | Internet ou SQL | 1433, 11000-11999, 14000-14999 | Les nœuds de votre runtime d’intégration Azure SSIS sur le réseau virtuel utilisent ces ports pour accéder à la base de données SSISDB hébergée par le serveur Azure SQL Database (ne s’applique pas à la base de données SSISDB hébergée par Managed Instance (préversion)). |
 ||||||||

@@ -2,18 +2,18 @@
 title: Bonnes pratiques pour Azure SQL Data Sync | Microsoft Docs
 description: Découvrez les bonnes pratiques pour configurer et exécuter Azure SQL Data Sync.
 services: sql-database
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620798"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146895"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Bonnes pratiques pour SQL Data Sync 
 
@@ -75,17 +75,16 @@ Cette section présente les limitations du provisionnement dans SQL Data Sync.
 
 #### <a name="autoprovisioning-limitations"></a>Limitations du provisionnement automatique
 
-Voici les limitations du provisionnement automatique offert par SQL Data Sync :
+Voici les limitations du provisionnement automatique de SQL Data Sync :
 
--   Sélectionnez uniquement les colonnes créées dans la table de destination.  
-    Les colonnes qui ne font pas partie du groupe de synchronisation ne sont pas provisionnées dans les tables de destination.
--   Des index sont créés uniquement pour les colonnes sélectionnées.  
-    Si l’index de la table source a des colonnes qui ne font pas partie du groupe de synchronisation, ces index ne sont pas provisionnés dans les tables de destination.  
+-   Sélectionnez uniquement les colonnes créées dans la table de destination. Les colonnes qui ne font pas partie du groupe de synchronisation ne sont pas provisionnées dans les tables de destination.
+-   Des index sont créés uniquement pour les colonnes sélectionnées. Si l’index de la table source a des colonnes qui ne font pas partie du groupe de synchronisation, ces index ne sont pas provisionnés dans les tables de destination.  
 -   Les index sur des colonnes de type XML ne sont pas provisionnés.  
 -   Les contraintes CHECK ne sont pas provisionnées.  
 -   Les déclencheurs existants sur les tables sources ne sont pas provisionnés.  
 -   Les vues et procédures stockées ne sont pas créées sur la base de données de destination.
 -   Les actions ON UPDATE CASCADE and ON DELETE CASCADE sur les contraintes de clé étrangère ne sont pas recréées dans les tables de destination.
+-   Si vous avez des colonnes de type décimal ou numérique avec une précision supérieure à 28, SQL Data Sync peut être l’objet d’un dépassement de capacité en matière de conversion au cours de la synchronisation. Nous vous recommandons de limiter la précision des colonnes de type décimal ou numérique à 28 ou moins.
 
 #### <a name="recommendations"></a>Recommandations
 

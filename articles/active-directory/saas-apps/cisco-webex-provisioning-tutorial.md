@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
-ms.openlocfilehash: fdaf77e3d8a1858372298fb0d67ca05c2717adf6
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 76a83ef4f647dcf7d79218cb281f1f976b292870
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36324164"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145729"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Tutoriel : configurer Cisco Webex pour le provisionnement automatique d’utilisateurs
 
@@ -171,6 +171,10 @@ Cette section vous guide tout au long des étapes de configuration du service de
 Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité du provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement Azure AD sur Cisco Webex.
 
 Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../active-directory-saas-provisioning-reporting.md).
+
+## <a name="connector-limitations"></a>Limitations du connecteur
+
+* Cisco Webex se trouve actuellement dans la phase des premiers essais sur le terrain (EFT) de Cisco. Pour plus d’informations, veuillez contacter [l’équipe de support technique de Cisco](https://www.webex.co.in/support/support-overview.html). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

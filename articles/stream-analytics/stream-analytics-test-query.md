@@ -10,12 +10,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 3dc9091934f3db8ededc13f74d2f302eccace4d6
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312988"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145311"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Tester une requête Stream Analytics avec des exemples de données
 
@@ -29,9 +29,7 @@ ms.locfileid: "32312988"
 
 3. Dans la page de la tâche Stream Analytics, sous le titre **Topologie de la tâche**, sélectionnez **Requête** pour ouvrir la fenêtre Éditeur de requête. 
 
-4. Pour tester votre requête avec un exemple de données d’entrée, cliquez avec le bouton droit sur l’une de vos entrées.  Ensuite, sélectionnez **Charger un exemple de données du fichier**.
-
-   Les données doivent obligatoirement être au format JSON. Si vos données sont dans un autre format tel que CSV, vous devez les convertir au format JSON avant de les charger. Vous pouvez utiliser n’importe quel outil de conversion Open Source comme le [convertisseur CSV à JSON](http://www.convertcsv.com/csv-to-json.htm) pour convertir vos données au format JSON.
+4. Pour tester votre requête avec un exemple de données d’entrée, cliquez avec le bouton droit sur l’une de vos entrées.  Ensuite, sélectionnez **Charger un exemple de données du fichier**. Les données doivent être sérialisées au format JSON, CSV ou AVRO.
 
     ![Test des requêtes dans l’éditeur de requête Stream Analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 29f346b2a42f8d12e26bd59fbab86d763d3f29f0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944711"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139855"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Agent Network Watcher pour Windows
 
@@ -29,10 +29,9 @@ ms.locfileid: "33944711"
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) est un service d’analyse, de diagnostic et d’analytique des performances réseau permettant de surveiller les réseaux Azure. L’extension de machine virtuelle Agent Network Watcher est obligatoire pour capturer le trafic réseau à la demande et pour assurer la prise en charge d’autres fonctionnalités avancées sur les machines virtuelles Azure.
 
 
-Ce document présente les plateformes et options de déploiement prises en charge pour l’extension de machine virtuelle Agent Network Watcher pour Windows. L’installation de l’agent n’est pas perturbante et ne nécessite pas de redémarrage de la machine virtuelle.
+Ce document présente les plateformes et options de déploiement prises en charge pour l’extension de machine virtuelle Agent Network Watcher pour Windows. L’installation de l’agent n’est pas perturbante et ne nécessite pas de redémarrage de la machine virtuelle. Vous pouvez déployer l’extension dans les machines virtuelles que vous déployez. Si la machine virtuelle est déployée par un service Azure, consultez la documentation relative au service pour déterminer si elle autorise l’installation d’extensions dans la machine virtuelle.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 ### <a name="operating-system"></a>Système d’exploitation
 

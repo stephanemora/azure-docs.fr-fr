@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 961126f62c3e8fbb947b9d1b34ac157bf37a8cba
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480935"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146617"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Liaisons Azure Event Hubs pour Azure Functions
 
@@ -79,6 +79,7 @@ Consultez l’exemple propre à un langage particulier :
 * [Script C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
@@ -312,6 +313,34 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
+### <a name="trigger---java-example"></a>Déclencheur - exemple Java
+
+L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction Java](functions-reference-java.md) qui utilise la liaison. La fonction consigne le corps du message du déclencheur Event Hub.
+
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "msg",
+  "direction": "in",
+  "eventHubName": "myeventhubname",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
+```java
+@FunctionName("ehprocessor")
+public void eventHubProcessor(
+  @EventHubTrigger(name = "msg",
+                  eventHubName = "myeventhubname",
+                  connection = "myconnvarname") String message,
+       final ExecutionContext context ) 
+       {
+          context.getLogger().info(message);
+ }
+ ```
+
+ Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `EventHubTrigger` sur les paramètres dont la valeur proviendrait d’Event Hub. Les paramètres ayant ces annotations entraînent l’exécution de la fonction quand un événement se produit.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de Optional<T>. 
+
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs).
@@ -381,6 +410,7 @@ Consultez l’exemple propre à un langage particulier :
 * [Script C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
@@ -530,6 +560,21 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>Sortie : exemple Java
+
+L’exemple suivant illustre une fonction Java qui écrit un message contenant l’heure actuelle à l’attention d’un Event Hub.
+
+```java
+@}FunctionName("sendTime")
+@EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
+public String sendTime(
+   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
+     return LocalDateTime.now().toString();
+ }
+ ```
+
+Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@EventHubOutput` sur les paramètres dont la valeur serait publiée à l’attention d’Event Hub.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne un POJO ou n’importe quel type Java natif. 
 
 ## <a name="output---attributes"></a>Sortie - attributs
 

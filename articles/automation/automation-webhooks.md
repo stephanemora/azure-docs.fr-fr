@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 241fd1f9168ce6bfb8a4dfe97bbb1ef45ddf3f74
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345705"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42139852"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Démarrage d’un runbook Azure Automation avec un webhook
 
@@ -34,7 +34,7 @@ Le tableau suivant décrit les propriétés que vous devez configurer pour un we
 | Date d'expiration |Comme un certificat, chaque webhook possède une date d'expiration à partir de laquelle il ne peut plus être utilisé. Cette date d’expiration peut être modifiée après la création du webhook. |
 | activé |Un webhook est activé par défaut lorsqu'il est créé. Si vous le définissez sur Disabled, aucun client n’est en mesure de l'utiliser. Vous pouvez définir la propriété **Enabled** lorsque vous créez le webhook ou à tout moment après qu'il a été créé. |
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
 Un webhook peut définir les valeurs des paramètres du Runbook qui sont utilisées lorsque le Runbook est démarré par ce webhook. Le webhook doit inclure les valeurs de tous les paramètres obligatoires du Runbook et peut inclure les valeurs des paramètres optionnels. Une valeur de paramètre configurée pour un Webhook peut être modifiée même après la création du Webhook. Plusieurs webhooks liés à un même Runbook peuvent utiliser différentes valeurs de paramètres.
 
@@ -72,7 +72,7 @@ Vous pouvez alors transmettre la valeur JSON suivante dans l'interface utilisate
 ![Démarrage du paramètre WebhookData à partir de l'interface utilisateur](media/automation-webhooks/Start-WebhookData-parameter-from-UI.png)
 
 > [!NOTE]
-> Les valeurs de tous les paramètres d'entrée sont enregistrées avec la tâche du Runbook. Cela signifie qu'une entrée fournie par le client dans la requête webhook sera enregistrée et accessible à toute personne ayant accès à la tâche Automation.  Pour cette raison, soyez prudent lorsque vous incluez des informations sensibles dans les appels du webhook.
+> Les valeurs de tous les paramètres d'entrée sont enregistrés avec la tâche du Runbook. Cela signifie qu'une entrée fournie par le client dans la requête webhook sera enregistrée et accessible à toute personne ayant accès à la tâche Automation.  Pour cette raison, soyez prudent lorsque vous incluez des informations sensibles dans les appels du webhook.
 
 ## <a name="security"></a>Sécurité
 
@@ -90,7 +90,7 @@ Utilisez la procédure suivante pour créer un webhook lié à un Runbook dans l
 2. Cliquez sur **Webhook** en haut de la page pour ouvrir la page **Ajouter un Webhook**.
 3. Cliquez sur **Créer un Webhook** pour ouvrir la page **Créer un Webhook**.
 4. Spécifiez un **Nom** et une **Date d’expiration** pour le webhook, ainsi que s’il doit être activé. Pour plus d'informations sur ces propriétés, consultez [Détails d'un webhook](#details-of-a-webhook) .
-5. Cliquez sur l'icône de copie et appuyez sur Ctrl + C pour copier l'URL du webhook. Puis enregistrez-la dans un endroit sûr. **Une fois que vous avez créé le webhook, vous ne pouvez pas récupérer l’URL à nouveau.**
+5. Cliquez sur l'icône de copie et appuyez sur Ctrl + C pour copier l'URL du webhook. Puis enregistrez-la dans un endroit sûr. **Une fois que vous avez créé le webhook,vous ne pouvez pas récupérer l’URL à nouveau.**
 
    ![URL du webhook](media/automation-webhooks/copy-webhook-url.png)
 
@@ -114,17 +114,17 @@ Le client reçoit l'un des codes de réponse suivants à la requête POST.
 | 404 |Introuvable |La requête a été refusée pour l'une des raisons suivantes : <ul> <li>Le webhook est introuvable.</li> <li>Le Runbook est introuvable.</li> <li>Le compte est introuvable.</li>  </ul> |
 | 500 |Erreur interne du serveur |L'URL est valide, mais une erreur s'est produite. Soumettez à nouveau la demande. |
 
-En supposant que la requête aboutisse, la réponse webhook contient l'ID de travail au format JSON comme suit. Elle contient un ID de tâche unique, mais le format JSON permet des améliorations ultérieures potentielles.
+En supposant que la requête aboutisse, la réponse webhook contient l’ID de travail au format JSON comme suit. Elle contient un ID de travail unique, mais le format JSON permet des améliorations ultérieures potentielles.
 
 ```json
 {"JobIds":["<JobId>"]}
 ```
 
-Le client ne peut pas déterminer l'issue du travail du Runbook ou de son état d'achèvement à partir du webhook. Il peut déterminer ces informations à l’aide de l’ID de travail avec une autre méthode telle que [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) ou [API d’Azure Automation](/rest/api/automation/job).
+Le client ne peut pas déterminer l'issue du travail du Runbook ou de son état d'achèvement à partir du webhook. Il peut déterminer ces informations à l’aide de l’ID de travail avec une autre méthode telle que [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) ou l’[API Azure Automation](/rest/api/automation/job).
 
 ## <a name="sample-runbook"></a>Exemple de runbook
 
-L’exemple suivant de runbook accepte les données du webhook et démarre les machines virtuelles spécifiées dans le corps de la requête. Pour tester ce runbook, dans votre compte Automation sous **Runbooks**, cliquez sur **+ Ajouter un runbook**. Si vous ne savez pas comment créer un runbook, consultez [Création d’un runbook](automation-quickstart-create-runbook.md).
+L’exemple de runbook suivant accepte les données du webhook et démarre les machines virtuelles spécifiées dans le corps de la demande. Pour tester ce runbook, dans votre compte Automation sous **Runbooks**, cliquez sur **+ Ajouter un runbook**. Si vous ne savez pas comment créer un runbook, consultez [Création d’un runbook](automation-quickstart-create-runbook.md).
 
 ```powershell
 param
@@ -201,7 +201,7 @@ L’exemple suivant montre le corps de la requête qui est disponible pour le Ru
 ]
 ```
 
-L'illustration suivante montre la requête envoyée à partir de Windows PowerShell et sa réponse. L'ID de travail est extrait de la réponse et converti en une chaîne.
+L'illustration suivante montre la requête envoyée à partir de Windows PowerShell et sa réponse. L’ID de travail est extrait de la réponse et converti en une chaîne.
 
 ![Bouton Webhooks](media/automation-webhooks/webhook-request-response.png)
 

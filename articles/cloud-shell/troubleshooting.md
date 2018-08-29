@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 0056364883d5a4a350e5b35374e1fc3abd0c7bea
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619404"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140868"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Résolution des problèmes et limitations d’Azure Cloud Shell
 
@@ -31,6 +31,11 @@ Les solutions connues pour la résolution des problèmes d’Azure Cloud Shell s
 
 - **Détails** : Cloud Shell utilise un websocket ouvert pour passer les entrées/sorties à votre navigateur. Firefox a des stratégies prédéfinies qui peuvent fermer le websocket prématurément et causer des délais d’expiration anticipés dans Cloud Shell.
 - **Résolution** : ouvrez Firefox et accédez à « about:config » dans la barre d’URL. Recherchez « network.websocket.timeout.ping.request » et remplacez la valeur 0 par 10.
+
+### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Désactiver Cloud Shell dans un environnement réseau verrouillé
+
+- **Détails** : les administrateurs peuvent être amenés à désactiver l’accès à Cloud Shell pour les utilisateurs. Cloud Shell utilise l’accès au domaine `ux.console.azure.com`, qui peut être refusé, ce qui interrompt tout accès aux points d’entrée de Cloud Shell, y compris portal.azure.com, shell.azure.com, l’extension de compte Azure Visual Studio Code et docs.microsoft.com.
+- **Résolution** : limitez l’accès de `ux.console.azure.com` à votre environnement par le biais des paramètres réseau. L’icône Cloud Shell reste présente sur portal.azure.com, mais ne permettra pas la connexion au service.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Boîte de dialogue de stockage - Erreur : 403 RequestDisallowedByPolicy
 

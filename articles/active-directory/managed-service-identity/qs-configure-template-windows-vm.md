@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 79b499f8063e5c15f76d89182955cbd90fb1039f
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4b25c82de4d2d3f4300fbb688c75be74ce63fe40
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629308"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42146372"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Configurer une identité du service administré de machine virtuelle à l’aide d’un modèle
 
@@ -57,23 +57,15 @@ Dans cette section, vous allez activer et désactiver une identité attribuée a
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient l’ordinateur virtuel.
 
-2. Après le chargement du modèle dans un éditeur, localisez la ressource d’intérêt `Microsoft.Compute/virtualMachines` dans la section `resources`. La vôtre peut différer légèrement de la capture d’écran suivante, selon l’éditeur que vous utilisez et si vous modifiez un modèle pour un déploiement nouveau ou existant.
-
-   >[!NOTE] 
-   > Cet exemple suppose que des variables telles que `vmName`, `storageAccountName` et `nicName` ont été définies dans le modèle.
-   >
-
-   ![Capture d’écran de modèle - localiser une machine virtuelle](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
-
-3. Pour activer l’identité attribuée au système, ajoutez la propriété `"identity"` au même niveau que la propriété `"type": "Microsoft.Compute/virtualMachines"`. Utilisez la syntaxe suivante :
+2. Pour activer l’identité affectée par le système, chargez le modèle dans un éditeur, recherchez la ressource `Microsoft.Compute/virtualMachines` qui vous intéresse dans la section `resources`, puis ajoutez la propriété `"identity"` au même niveau que la propriété `"type": "Microsoft.Compute/virtualMachines"`. Utilisez la syntaxe suivante :
 
    ```JSON
    "identity": { 
-       "type": "systemAssigned"
+       "type": "SystemAssigned"
    },
    ```
 
-4. (Facultatif) Ajouter l’extension Managed Service Identity pour machine virtuelle en tant qu’élément `resources`. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.  Utilisez la syntaxe suivante :
+3. (Facultatif) Ajouter l’extension Managed Service Identity pour machine virtuelle en tant qu’élément `resources`. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons.  Utilisez la syntaxe suivante :
 
    >[!NOTE] 
    > L’exemple suivant suppose qu’une extension de la machine virtuelle Windows (`ManagedIdentityExtensionForWindows`) est en cours de déploiement. À la place, vous pouvez également configurer pour Linux à l’aide de `ManagedIdentityExtensionForLinux`, pour les éléments `"name"` et `"type"`.
@@ -83,7 +75,7 @@ Dans cette section, vous allez activer et désactiver une identité attribuée a
    { 
        "type": "Microsoft.Compute/virtualMachines/extensions",
        "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-       "apiVersion": "2016-03-30",
+       "apiVersion": "2018-06-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
            "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -101,9 +93,40 @@ Dans cette section, vous allez activer et désactiver une identité attribuée a
    }
    ```
 
-5. Lorsque vous avez terminé, votre modèle doit ressembler au suivant :
+4. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
 
-   ![Capture d’écran de modèle après mise à jour](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ```JSON
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "SystemAssigned",
+                },
+            },
+            {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "apiVersion": "2018-06-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+                }
+            }
+        }
+    ]
+   ```
 
 ### <a name="assign-a-role-the-vms-system-assigned-identity"></a>Attribuer un rôle à l’identité affectée par le système de la machine virtuelle
 
@@ -155,18 +178,28 @@ Si vous avez une machine virtuelle qui ne nécessite plus d’identité MSI :
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient l’ordinateur virtuel.
 
-2. Chargez le modèle dans un [éditeur](#azure-resource-manager-templates) et localisez la ressource `Microsoft.Compute/virtualMachines` qui vous intéresse dans la section `resources`. Si votre machine virtuelle dispose uniquement de l’identité affectée par le système, vous pouvez la désactiver en remplaçant le type d’identité par `None`.  Si votre machine virtuelle a des identités affectées par le système et l’utilisateur, supprimez `SystemAssigned` dans le type d’identité et conservez `UserAssigned` avec le tableau `identityIds` des identités affectées par l’utilisateur.  L’exemple suivant montre comment supprimer une identité affectée par le système sur une machine virtuelle sans identité affectée par l’utilisateur :
+2. Chargez le modèle dans un [éditeur](#azure-resource-manager-templates) et localisez la ressource `Microsoft.Compute/virtualMachines` qui vous intéresse dans la section `resources`. Si votre machine virtuelle dispose uniquement de l’identité affectée par le système, vous pouvez la désactiver en remplaçant le type d’identité par `None`.  
    
-   ```JSON
-    {
-      "apiVersion": "2017-12-01",
-      "type": "Microsoft.Compute/virtualMachines",
-      "name": "[parameters('vmName')]",
-      "location": "[resourceGroup().location]",
-      "identity": { 
-          "type": "None"
-    }
-   ```
+   **API Microsoft.Compute/virtualMachines version 2018-06-01**
+
+   Si votre machine virtuelle comporte des identités affectées par le système et par l’utilisateur, supprimez `SystemAssigned` du type d’identité et conservez `UserAssigned` avec les valeurs du dictionnaire `userAssignedIdentities`.
+
+   **API Microsoft.Compute/virtualMachines version 2018-06-01 et versions antérieures**
+   
+   Si votre `apiVersion` présente la valeur `2017-12-01` et que votre machine virtuelle comporte des identités affectées par le système et par l’utilisateur, supprimez `SystemAssigned` du type d’identité et conservez `UserAssigned` avec le tableau `identityIds` des identités affectées par l’utilisateur.  
+   
+L’exemple suivant montre comment supprimer une identité affectée par le système sur une machine virtuelle sans identité affectée par l’utilisateur :
+
+```JSON
+{
+    "apiVersion": "2018-06-01",
+    "type": "Microsoft.Compute/virtualMachines",
+    "name": "[parameters('vmName')]",
+    "location": "[resourceGroup().location]",
+    "identity": { 
+        "type": "None"
+}
+```
 
 ## <a name="user-assigned-identity"></a>Identité attribuée par l’utilisateur
 
@@ -178,30 +211,52 @@ Dans cette section, vous allez attribuer une identité attribuée à l’utilisa
  ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Attribuer une identité attribuée à l’utilisateur à une machine virtuelle Azure
 
 1. Sous l’élément `resources`, ajoutez l’entrée suivante pour attribuer une identité attribuée à l’utilisateur à votre machine virtuelle.  Veillez à remplacer `<USERASSIGNEDIDENTITY>` par le nom de l’identité attribuée à l’utilisateur que vous avez créée.
+
+   **API Microsoft.Compute/virtualMachines version 2018-06-01**
+
+   Si votre `apiVersion` présente la valeur `2018-06-01`, vos identités affectées par l’utilisateur sont stockées dans le format de dictionnaire `userAssignedIdentities`, et la valeur `<USERASSIGNEDIDENTITYNAME>` doit être stockée dans une variable définie dans la section `variables` de votre modèle.
+
+   ```json
+   {
+       "apiVersion": "2018-06-01",
+       "type": "Microsoft.Compute/virtualMachines",
+       "name": "[variables('vmName')]",
+       "location": "[resourceGroup().location]",
+       "identity": {
+           "type": "userAssigned",
+           "userAssignedIdentities": {
+               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+           }
+        }
+   }
+   ```
    
-   > [!Important]
-   > La valeur `<USERASSIGNEDIDENTITYNAME>` indiquée dans l’exemple suivant doit être stockée dans une variable.  En outre, pour l’implémentation actuellement prise en charge de l’affectation d’identités attribuées par l’utilisateur à une machine virtuelle dans un modèle Resource Manager, la version d’API doit correspondre à celle de l’exemple suivant.
+   **API Microsoft.Compute/virtualMachines version 2017-12-01 et versions antérieures**
     
-    ```json
-    {
-        "apiVersion": "2017-12-01",
-        "type": "Microsoft.Compute/virtualMachines",
-        "name": "[variables('vmName')]",
-        "location": "[resourceGroup().location]",
-        "identity": {
-            "type": "userAssigned",
-            "identityIds": [
-                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
-            ]
-        },
-    ```
+   Si votre `apiVersion` présente la valeur `2017-12-01`, vos identités affectées par l’utilisateur sont stockées dans le tableau `identityIds`, et la valeur `<USERASSIGNEDIDENTITYNAME>` doit être stockée dans une variable définie dans la section `variables` de votre modèle.
     
+   ```json
+   {
+       "apiVersion": "2017-12-01",
+       "type": "Microsoft.Compute/virtualMachines",
+       "name": "[variables('vmName')]",
+       "location": "[resourceGroup().location]",
+       "identity": {
+           "type": "userAssigned",
+           "identityIds": [
+               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+           ]
+       }
+   }
+   ```
+       
+
 2. (Facultatif) Ensuite, sous l’élément `resources`, ajoutez l’entrée suivante pour attribuer l’extension d’identité gérée à votre machine virtuelle. Cette étape est facultative, car vous pouvez également utiliser le point de terminaison d’identité IMDS (Instance Metadata Service) Azure pour récupérer des jetons. Utilisez la syntaxe suivante :
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
         "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForWindows')]",
-        "apiVersion": "2015-05-01-preview",
+        "apiVersion": "2018-06-01",
         "location": "[resourceGroup().location]",
         "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -218,9 +273,83 @@ Dans cette section, vous allez attribuer une identité attribuée à l’utilisa
     }
     ```
     
-3.  Quand vous avez terminé, votre modèle doit ressembler au suivant :
+3. Lorsque vous avez terminé, les sections ci-après doivent être ajoutées à la section `resource` de votre modèle et doivent ressembler à ce qui suit :
+   
+   **API Microsoft.Compute/virtualMachines version 2018-06-01**    
 
-      ![Capture d’écran de l’identité attribuée à l’utilisateur](./media/qs-configure-template-windows-vm/qs-configure-template-windows-vm-ua-final.PNG)
+   ```JSON
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "userAssigned",
+                "userAssignedIdentities": {
+                   "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+                }
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "apiVersion": "2018-06-01-preview",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+            }
+        }
+       }
+    ]
+   ```
+   **API Microsoft.Compute/virtualMachines version 2017-12-01 et versions antérieures**
+   
+   ```JSON
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2017-12-01",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[variables('vmName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "userAssigned",
+                "identityIds": [
+                   "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'),'/ManagedIdentityExtensionForLinux')]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.ManagedIdentity",
+                "type": "ManagedIdentityExtensionForWindows",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "port": 50342
+            }
+        }
+       }
+    ]
+   ```
+    
 
 ### <a name="remove-user-assigned-identity-from-an-azure-vm"></a>Supprimer d’une machine virtuelle Azure l’identité affectée par l’utilisateur
 
@@ -228,15 +357,13 @@ Si vous avez une machine virtuelle qui ne nécessite plus d’identité MSI :
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient l’ordinateur virtuel.
 
-2. Chargez le modèle dans un [éditeur](#azure-resource-manager-templates) et localisez la ressource `Microsoft.Compute/virtualMachines` qui vous intéresse dans la section `resources`. Si votre machine virtuelle dispose uniquement de l’identité affectée par l’utilisateur, vous pouvez la désactiver en remplaçant le type d’identité par `None`.  Si votre machine virtuelle dispose à la fois des identités affectées par le système et par l’utilisateur, et que vous voulez conserver l’identité affectée par le système, supprimez `UserAssigned` dans le type d’identité avec le tableau `identityIds` des identités affectées par l’utilisateur.
-    
-   Pour supprimer d’une machine virtuelle une seule identité affectée par l’utilisateur, supprimez-la du tableau `identityIds`.
-   
+2. Chargez le modèle dans un [éditeur](#azure-resource-manager-templates) et localisez la ressource `Microsoft.Compute/virtualMachines` qui vous intéresse dans la section `resources`. Si votre machine virtuelle dispose uniquement de l’identité affectée par l’utilisateur, vous pouvez la désactiver en remplaçant le type d’identité par `None`.
+ 
    L’exemple suivant montre comment supprimer d’une machine virtuelle toutes les identités affectées par l’utilisateur et sans identité affectée par le système :
    
-   ```JSON
+   ```json
     {
-      "apiVersion": "2017-12-01",
+      "apiVersion": "2018-06-01",
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('vmName')]",
       "location": "[resourceGroup().location]",
@@ -244,7 +371,19 @@ Si vous avez une machine virtuelle qui ne nécessite plus d’identité MSI :
           "type": "None"
     }
    ```
+   
+   **API Microsoft.Compute/virtualMachines version 2018-06-01 et versions antérieures**
+    
+   Pour supprimer d’une machine virtuelle une seule identité affectée par l’utilisateur, supprimez-la du dictionnaire `useraAssignedIdentities`.
 
+   Si vous disposez d’une identité affectée par le système, conservez-la dans la valeur `type` sous la valeur `identity`.
+ 
+   **API Microsoft.Compute/virtualMachines version 2017-12-01**
+
+   Pour supprimer d’une machine virtuelle une seule identité affectée par l’utilisateur, supprimez-la du tableau `identityIds`.
+
+   Si vous disposez d’une identité affectée par le système, conservez-la dans la valeur `type` sous la valeur `identity`.
+   
 ## <a name="related-content"></a>Contenu connexe
 
 - Pour élargir votre connaissance sur Managed Service Identity, lisez la [Vue d’ensemble de Managed Service Identity](overview.md).

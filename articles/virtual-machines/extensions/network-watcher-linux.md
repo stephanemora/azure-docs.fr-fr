@@ -15,23 +15,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: db508e2311602a66a2c252ffaa842f8bfb4f670b
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 22b18f77b3d997cdba7b60b53f1968b516701cc1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076069"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140474"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Agent Network Watcher pour Linux
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [Azure Network Watcher](/azure/network-watcher/) est un service d’analyse, de diagnostic et d’analytique des performances réseau permettant de surveiller les réseaux Azure. L’extension de machine virtuelle de l’agent Network Watcher est obligatoire pour utiliser certaines fonctionnalités Network Watcher sur les machines virtuelles Azure, par exemple la capture du trafic réseau à la demande, et d’autres fonctionnalités avancées.
 
-Cet article présente les plateformes et options de déploiement qui sont prises en charge pour l’extension de machine virtuelle de l’agent Network Watcher pour Linux. L’installation de l’agent n’est pas perturbante et ne nécessite pas de redémarrage de la machine virtuelle.
+Cet article présente les plateformes et options de déploiement qui sont prises en charge pour l’extension de machine virtuelle de l’agent Network Watcher pour Linux. L’installation de l’agent n’est pas perturbante et ne nécessite pas de redémarrage de la machine virtuelle. Vous pouvez déployer l’extension dans les machines virtuelles que vous déployez. Si la machine virtuelle est déployée par un service Azure, consultez la documentation relative au service pour déterminer si elle autorise l’installation d’extensions dans la machine virtuelle.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 ### <a name="operating-system"></a>Système d’exploitation
 

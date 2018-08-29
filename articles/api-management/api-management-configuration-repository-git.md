@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857529"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146362"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 
@@ -107,7 +107,7 @@ Pour construire la commande git, utilisez le mot de passe codé, avec votre nom 
 git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 ```
 
-Une fois le dépôt cloné, vous pouvez l’afficher et l’utiliser dans votre système de fichiers local. Pour plus d’informations, consultez [Référence de la structure des fichiers et des dossiers du dépôt Git local](#file-and-folder-structure-reference-of-local-git-repository).
+Une fois le référentiel cloné, vous pouvez l’afficher et l’utiliser dans votre système de fichiers local. Pour plus d’informations, consultez [Référence de la structure des fichiers et des dossiers du dépôt Git local](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Pour mettre à jour votre dépôt local avec la dernière configuration de l’instance du service
 
@@ -166,7 +166,7 @@ Chaque dossier peut contenir un ou plusieurs fichiers et, dans certains cas, un 
 | xml |Policy statements |
 | css |Feuilles de style pour la personnalisation du portail des développeurs |
 
-Ces fichiers peuvent être créés, supprimés, modifiés et gérés dans votre système de fichiers local, et les modifications peuvent être déployées sur votre instance du service Gestion des API.
+Ces fichiers peuvent être créés, supprimés, modifiés et gérés dans votre système de fichiers local, et les modifications peuvent être redéployées sur votre instance du service Gestion des API.
 
 > [!NOTE]
 > Les entités suivantes ne se trouvent pas dans le dépôt Git et ne peuvent pas être configurées à l’aide de Git.
@@ -217,11 +217,11 @@ Les quatre paramètres qui suivent (`DelegationEnabled`, `DelegationUrl`, `Deleg
 Le dernier paramètre, `$ref-policy`, correspond au fichier d’instructions de stratégie globale pour l’instance de service.
 
 ### <a name="apis-folder"></a>Dossier apis
-Le dossier `apis` contient un dossier pour chaque API dans l’instance de service qui renferme les éléments suivants.
+Le dossier `apis` contient un dossier pour chaque API dans l’instance de service, qui renferme les éléments suivants.
 
 * `apis\<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) avec `export=true` au format `application/json`.
 * `apis\<api name>\api.description.html` : cet élément décrit l’API et correspond à la propriété `description` de [l’entité API](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` : ce dossier contient des fichiers `<operation name>.description.html` correspondant aux opérations dans l’API. Chaque fichier contient la description d’une opération unique dans l’API, qui correspond à la propriété `description` de l’ [entité opération](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) dans l’API REST.
+* `apis\<api name>\operations\` : ce dossier contient des fichiers `<operation name>.description.html` correspondant aux opérations dans l’API. Chaque fichier contient la description d’une opération unique dans l’API, qui correspond à la propriété `description` de [l’entité Operation](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) dans l’API REST.
 
 ### <a name="groups-folder"></a>Dossier groups
 Le dossier `groups` contient un dossier pour chaque groupe défini dans l’instance de service.
@@ -259,8 +259,8 @@ Le dossier `templates` contient la configuration des [modèles d’e-mail](api-m
 Pour plus d’informations sur d’autres méthodes pour gérer votre instance de service, consultez les sources suivantes :
 
 * Gérer votre instance de service à l’aide des applets de commande PowerShell suivante :
-  * [Référence sur les applets de commande PowerShell de déploiement des services](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [Référence sur les applets de commande PowerShell de gestion des services](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [Référence sur les applets de commande PowerShell de déploiement des services](https://docs.microsoft.com/powershell/module/wds)
+  * [Référence sur les applets de commande PowerShell de gestion des services](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Gérer votre instance de service à l’aide de l’API REST
   * [Référence de l’API REST Gestion des API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

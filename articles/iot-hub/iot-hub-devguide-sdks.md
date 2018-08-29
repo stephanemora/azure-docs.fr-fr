@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: dobett
-ms.openlocfilehash: 718bf82a921ec3b70939b7a70205a4c650702dd0
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: ad1ce768ea5be2356f141d10a53ea0166546a2b7
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823348"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42145718"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendre et utiliser les kits Azure IoT Hub SDK
 
@@ -66,6 +66,7 @@ Kit Azure IoT Hub device SDK pour iOS :
 
 ### <a name="os-platform-and-hardware-compatibility"></a>Compatibilité des plateformes de système d’exploitation et du matériel
 
+Les plateformes supportées pour les kits de développement logiciel se trouvent dans ce [document](iot-hub-device-sdk-platform-support.md).
 Pour plus d’informations sur la compatibilité des kits SDK avec un matériel particulier, consultez le [catalogue d’appareils Azure Certified pour IoT][lnk-certified] ou un référentiel spécifique.
 
 ## <a name="azure-iot-service-sdks"></a>Kits Azure IoT service SDK
@@ -103,7 +104,12 @@ Kit Azure IoT Hub service SDK pour iOS :
 > Consultez les fichiers lisez-moi dans les dépôts GitHub pour plus d’informations sur l’utilisation du langage et des gestionnaires de packages spécifiques à la plateforme pour installer les fichiers binaires et dépendances sur votre ordinateur de développement.
 
 
+
 ## <a name="next-steps"></a>Étapes suivantes
+
+Les kits de développement logiciel IoT d’Azure fournissent également un ensemble d’outils pour faciliter le développement :
+* [iothub-diagnostic](https://github.com/Azure/iothub-diagnostics) : outil de ligne de commande multiplateforme permettant de diagnostiquer les problèmes liés à la connexion avec IoT Hub.
+* [device-explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) : application de bureau Windows permettant de se connecter à son IoT Hub.
 
 Les autres rubriques de référence de ce Guide du développeur IoT Hub comprennent :
 
@@ -112,6 +118,7 @@ Les autres rubriques de référence de ce Guide du développeur IoT Hub comprenn
 * [Quotas et limitation][lnk-devguide-quotas]
 * [Prise en charge de MQTT au niveau d’IoT Hub][lnk-devguide-mqtt]
 * [Informations de référence sur l’API REST d’IoT Hub][lnk-rest-ref]
+* [Prise en charge des plateformes par le kit de développement logiciel Azure IoT](iot-hub-device-sdk-platform-support.md)
 
 <!-- Links and images -->
 

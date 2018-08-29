@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a116b7a048ff95ca601a65633cdc63f98fefee9d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5800cb1bf0badce6e1d0c53c3164f7d2bd2d8b1b
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34075287"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41954852"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>Télécharger les outils Azure Stack à partir de GitHub
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-**AzureStack-Tools** est un dépôt GitHub qui héberge des modules PowerShell permettant de gérer et déployer des ressources sur Azure Stack. Si vous prévoyez d’établir la connectivité VPN, vous pouvez télécharger ces modules PowerShell avec le Kit de développement Azure Stack ou sur un client externe Windows. Pour obtenir ces outils, clonez le référentiel GitHub ou téléchargez le dossier **AzureStack-Tools** en exécutant le script suivant :
+**AzureStack-Tools** est un [référentiel GitHub](https://github.com/Azure/AzureStack-Tools) qui héberge des modules PowerShell permettant de gérer et déployer des ressources sur Azure Stack. Si vous prévoyez d’établir la connectivité VPN, vous pouvez télécharger ces modules PowerShell avec le Kit de développement Azure Stack ou sur un client externe Windows. Pour obtenir ces outils, clonez le référentiel GitHub ou téléchargez le dossier **AzureStack-Tools** en exécutant le script suivant :
 
 ```PowerShell
 # Change directory to the root directory. 

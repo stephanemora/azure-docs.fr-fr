@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d3b2f8860f5b8ddd2cc53d8805b7eace788e73a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff22ad4f8abae019591150dd9a8ea2cd4ca4e5d9
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230537"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145329"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Didacticiel : configurer GitHub pour l’approvisionnement automatique d’utilisateurs
 
@@ -80,7 +80,7 @@ Cette section explique comment connecter votre Azure AD à l’API d’approvisi
 
     ![Boîte de dialogue d’autorisation](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. Dans le portail Azure, entrez **URL cliente** et cliquez sur **Connexion test** pour vous assurer qu’Azure AD peut se connecter à votre application GitHub. Si la connexion échoue, vérifiez que votre compte GitHub dispose des autorisations administratives et que **l’URL de locataire** est correctement entrée. Ensuite, recommencez l’étape « Autoriser » (vous pouvez constituer **l’URL de locataire** par règle : « https://api.github.com/scim/v2/organizations/ + <nom_organisation>», et rechercher votre organisation sous votre compte GitHub : **Paramètres** > **Organisations**).
+7. Dans le portail Azure, entrez **URL cliente** et cliquez sur **Connexion test** pour vous assurer qu’Azure AD peut se connecter à votre application GitHub. Si la connexion échoue, vérifiez que votre compte GitHub dispose des autorisations administratives et que l’**URL de locataire** est correctement entrée. Ensuite, recommencez l’étape « Autoriser » (vous pouvez constituer l’**URL de locataire** par règle : `https://api.github.com/scim/v2/<Organizations_name>`, et rechercher votre organisation sous votre compte GitHub : **Paramètres** > **Organisations**).
 
     ![Boîte de dialogue d’autorisation](./media/github-provisioning-tutorial/GitHub3.png)
 

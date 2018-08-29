@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 0bd14e85496da8c6c12ecb98b7c8f1730a16e640
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a5a0634e371e4a762b3877b0c3e45682924a27d
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524564"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42144834"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -84,6 +84,7 @@ Consultez l’exemple propre à un langage particulier :
 * [C#](#trigger---c-example)
 * [Script C# (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---javascript-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
@@ -181,6 +182,45 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>Déclencheur - exemple Java
+
+L’exemple suivant montre une liaison de déclencheur d’objet blob dans un fichier *function.json* et un [code Java](functions-reference-java.md) qui utilise la liaison. La fonction écrit un journal lorsqu’un objet blob est ajouté ou mis à jour dans le conteneur `myblob`.
+
+Voici le fichier *function.json* :
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "file",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "myblob/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+Voici le code Java :
+
+```java
+ @FunctionName("blobprocessor")
+ public void run(
+    @BlobTrigger(name = "file",
+                  dataType = "binary",
+                  path = "myblob/filepath",
+                  connection = "myconnvarname") byte[] content,
+    @BindingName("name") String filename,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info("Name: " + name + " Size: " + content.length + " bytes");
+ }
+
+```
+
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
@@ -391,6 +431,7 @@ Consultez l’exemple propre à un langage particulier :
 * [C#](#input---c-example)
 * [Script C# (.csx)](#input---c-script-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### <a name="input---c-example"></a>Entrée - exemple C#
 
@@ -505,6 +546,23 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="input---java-example"></a>Entrée - exemple Java
+
+L’exemple suivant est une fonction Java qui utilise un déclencheur de file d’attente et une liaison d’entrée d’objet blob. Le message en file d’attente contient le nom du blob et la fonction journalise la taille du blob.
+
+```java
+@FunctionName("getBlobSize")
+@StorageAccount("AzureWebJobsStorage")
+public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-items") String filename,
+                    @BlobInput(name = "file", dataType = "binary", path = "samples-workitems/{queueTrigger") byte[] content,
+       final ExecutionContext context) {
+      context.getLogger().info("The size of \"" + filename + "\" is: " + content.length + " bytes");
+ }
+ ```
+
+  Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@BlobInput` sur les paramètres dont la valeur proviendrait d’un objet blob.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de `Optional<T>`. 
+
+
 ## <a name="input---attributes"></a>Entrée - attributs
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
@@ -587,6 +645,7 @@ Consultez l’exemple propre à un langage particulier :
 * [C#](#output---c-example)
 * [Script C# (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
@@ -718,6 +777,24 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>Sortie - exemple Java
+
+L’exemple suivant montre des liaisons d’entrée et de sortie d’objets blob dans une fonction Java. La fonction effectue une copie d’un objet blob de texte. La fonction est déclenchée par un message de file d’attente qui contient le nom de l’objet blob à copier. Le nouvel objet blob est nommé {originalblobname}-Copy
+
+```java
+@FunctionName("copyTextBlob")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "target", path = "samples-workitems/{queueTrigger}-Copy")
+public String blobCopy(
+    @QueueTrigger(name = "filename", queueName = "myqueue-items") String filename,
+    @BlobInput(name = "source", path = "samples-workitems/{queueTrigger}") String content ) {
+      return content;
+ }
+ ```
+
+ Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@BlobOutput` sur les paramètres de fonction dont la valeur serait écrite dans un objet du stockage Blob.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
+
 
 ## <a name="output---attributes"></a>Sortie - attributs
 

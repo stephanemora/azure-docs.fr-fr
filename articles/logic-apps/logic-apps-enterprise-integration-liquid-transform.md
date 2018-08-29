@@ -1,54 +1,50 @@
 ---
 title: Convertir des données JSON avec des transformations Liquid - Azure Logic Apps | Microsoft Docs
-description: Créez des transformations ou des mappages pour des transformations JSON avancées à l’aide de Logic Apps et du modèle Liquid.
+description: Créer des transformations ou des mappages pour des transformations JSON avancées à l’aide de Logic Apps et du modèle Liquid
 services: logic-apps
-documentationcenter: ''
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+manager: jeconnoc
+ms.reviewer: estfan, LADocs
+ms.suite: integration
 ms.topic: article
-ms.date: 12/05/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 42a102c9b2663380a93d56cc5f8fb82abaa83b74
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/16/2018
+ms.openlocfilehash: 140c92d260ac6423127e478e304cbebcf9c42124
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299509"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140479"
 ---
-# <a name="perform-advanced-json-transformations-with-a-liquid-template"></a>Effectuer des transformations JSON avancées avec un modèle Liquid
+# <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Effectuez des transformations JSON avancées avec des modèles Liquid dans Azure Logic Apps
 
-Azure Logic Apps prend en charge les transformations JSON de base par le biais d’actions d’opérations de données natives telles que **Compose** ou **Parse JSON**. Pour les transformations JSON avancées, vous pouvez utiliser des modèles Liquid avec vos applications logiques. 
-[Liquid](https://shopify.github.io/liquid/) est un langage de modèle open source qui permet de créer des applications web flexibles.
- 
-Dans cet article, vous allez découvrir comment utiliser un mappage ou un modèle Liquid qui prend en charge des transformations JSON plus complexes (itérations, flux de contrôle, variables, et ainsi de suite). Avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez définir le mappage JSON à JSON avec un mappage Liquid et le stocker dans votre compte d’intégration.
+Vous pouvez effectuer des transformations JSON de base dans vos applications logiques par le biais d’actions d’opérations de données natives telles que **Compose** ou **Parse JSON**. Pour effectuer des transformations JSON avancées, vous pouvez créer des modèles ou des mappages avec [Liquid](https://shopify.github.io/liquid/), qui est un langage de modèle open source destiné aux applications web flexibles. Les modèles Liquid vous permettent de déterminer comment transformer des sorties JSON et soutenir des transformations JSON plus complexes (itérations, flux de contrôle, variables, etc.). 
+
+Par conséquent, avant de pouvoir effectuer une transformation Liquid dans votre application logique, vous devez définir le mappage JSON à JSON avec un modèle Liquid et le stocker dans votre compte d’intégration. Cet article vous montre comment créer et utiliser ce modèle ou ce mappage Liquid. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Sinon, vous pouvez souscrire à un [abonnement de type paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
+* Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Vous pouvez aussi [souscrire un abonnement avec paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Un [compte d’intégration](logic-apps-enterprise-integration-create-integration-account.md) de base
+* Un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) de base
 
+## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Créer un mappage ou un modèle Liquid pour votre compte d’intégration
 
-## <a name="create-a-liquid-template-or-map-for-your-integration-account"></a>Créer un mappage ou un modèle Liquid pour votre compte d’intégration
+1. Pour cet exemple, créez l’exemple de modèle Liquid décrit à cette étape.
+Si vous souhaitez utiliser des filtres dans votre modèle Liquid, assurez-vous que ces filtres commencent par une majuscule. En savoir plus sur les [filtres Liquid](https://shopify.github.io/liquid/basics/introduction/#filters). 
 
-1. Créez l’exemple de modèle Liquid pour cet exemple. Le modèle Liquid définit comment transformer l’entrée JSON décrite ici :
-
-   ``` json
+   ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
-      {
-        "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
-        "firstNameUpperCase": "{{content.firstName | Upcase}}",
-        "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
-        "devices" : [
-        {%- for device in deviceList -%}
+   
+   {
+      "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
+      "firstNameUpperCase": "{{content.firstName | Upcase}}",
+      "phoneAreaCode": "{{content.phone | Slice: 1, 3}}",
+      "devices" : [
+         {%- for device in deviceList -%}
             {%- if forloop.Last == true -%}
             "{{device}}"
             {%- else -%}
@@ -56,42 +52,39 @@ Dans cet article, vous allez découvrir comment utiliser un mappage ou un modèl
             {%- endif -%}
         {%- endfor -%}
         ]
-      }
+   }
    ```
-   > [!NOTE]
-   > Si votre modèle Liquid utilise des [filtres](https://shopify.github.io/liquid/basics/introduction/#filters), ceux-ci doivent commencer par une majuscule. 
 
-2. Connectez-vous au [Portail Azure](https://portal.azure.com).
-
-3. Dans le menu Azure principal, accédez à **Toutes les ressources**. 
-
-4. Dans la zone de recherche, recherchez et sélectionnez votre compte d’intégration.
+2. Connectez-vous au [Portail Azure](https://portal.azure.com). Dans le menu principal Azure, sélectionnez **Toutes les ressources**. Dans la zone de recherche, recherchez et sélectionnez votre compte d’intégration.
 
    ![Sélectionner le compte d’intégration](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
-5.  Sur la vignette du compte d’intégration, sélectionnez **Mappages**.
+3.  Sous **Composants**, sélectionnez **Mappages**.
 
-   ![Sélectionner Mappages](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
+    ![Sélectionner Mappages](./media/logic-apps-enterprise-integration-liquid-transform/add-maps.png)
 
-6. Choisissez **Ajouter** et indiquez les informations suivantes pour votre mappage :
+4. Choisissez **Ajouter** et indiquez les informations suivantes pour votre mappage :
 
-   * **Nom** : Nom de votre mappage (« JsontoJsonTemplate » dans cet exemple).
-   * **Type de mappage** : Type de votre mappage. Pour une transformation JSON à JSON, vous devez sélectionner **liquid**.
-   * **Mappage** : Fichier de modèle ou de mappage Liquid existant à utiliser pour la transformation (« SimpleJsonToJsonTemplate.liquid » dans cet exemple). Pour trouver ce fichier, vous pouvez utiliser le sélecteur de fichiers.
+   | Propriété | Valeur | Description | 
+   |----------|-------|-------------|
+   | **Name** | JsonToJsonTemplate | Nom de votre mappage (« JsontoJsonTemplate » dans cet exemple) | 
+   | **Type de mappage** | **liquid** | Type de votre mappage. Pour une transformation JSON à JSON, vous devez sélectionner **liquid**. | 
+   | **Map** | « SimpleJsonToJsonTemplate.liquid » | Fichier de modèle ou de mappage Liquid existant à utiliser pour la transformation (« SimpleJsonToJsonTemplate.liquid » dans cet exemple). Pour trouver ce fichier, vous pouvez utiliser le sélecteur de fichiers. |
+   ||| 
 
    ![Ajouter un modèle Liquid](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
     
 ## <a name="add-the-liquid-action-for-json-transformation"></a>Ajouter l’action Liquid pour la transformation JSON
 
-1. [Créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. Dans le portail Azure, procédez comme suit pour [créer une application logique vierge](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Ajoutez le [déclencheur de requête](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) à votre application logique.
+2. Dans le Concepteur d’application logique, ajoutez le [déclencheur Requête](../connectors/connectors-native-reqres.md#use-the-http-request-trigger) à votre application logique.
 
-3. Choisissez **+ Nouvelle étape > Ajouter une action**. Dans la zone de recherche, entrez *liquid*, puis sélectionnez **Liquid - Transformer de JSON en JSON**.
+3. Sous le déclencheur, choisissez **Nouvelle étape**. Dans la zone de recherche, entrez « liquid » comme filtre, puis sélectionnez l’action suivante : **Transformer de JSON en JSON - Liquid**
 
    ![Rechercher et sélectionner l’action Liquid](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 
-4. Dans la zone **Contenu**, sélectionnez **Corps** à partir de la liste de contenu dynamique ou de paramètres qu is’affiche.
+4. Cliquez dans la zone **Contenu** pour afficher la liste du contenu dynamique, puis sélectionnez le jeton **Corps**.
   
    ![Sélectionner le corps](./media/logic-apps-enterprise-integration-liquid-transform/select-body.png)
  
@@ -99,13 +92,14 @@ Dans cet article, vous allez découvrir comment utiliser un mappage ou un modèl
 
    ![Sélectionner le mappage](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
-   Si la liste est vide, votre application logique n’est probablement pas liée à votre compte d’intégration. 
+   Si la liste de mappages est vide, votre application logique n’est probablement pas liée à votre compte d’intégration. 
    Pour lier votre application logique au compte d’intégration associé au modèle ou au mappage Liquid, effectuez les étapes suivantes :
 
    1. Dans le menu de votre application logique, sélectionnez **Paramètres de flux de travail**.
+
    2. Dans la liste **Sélectionner un compte d’intégration**, sélectionnez votre compte d’intégration et choisissez **Enregistrer**.
 
-   ![Lier une application logique à un compte d’intégration](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
+     ![Lier une application logique à un compte d’intégration](./media/logic-apps-enterprise-integration-liquid-transform/link-integration-account.png)
 
 ## <a name="test-your-logic-app"></a>Tester votre application logique
 

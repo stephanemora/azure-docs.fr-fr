@@ -2,25 +2,22 @@
 title: Publier des applications avec le proxy d’application Azure AD | Microsoft Docs
 description: Publiez des applications locales dans le cloud avec le proxy d’application Azure AD dans le portail Azure.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 1224642bb7e6fc0c51b3f839a78449132db5b4bb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 973a6201a227e6c2e295e6e5ea2f40c302572504
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364255"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42141318"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Publier des applications avec le Proxy d’application Azure AD
 
@@ -72,6 +69,7 @@ Suivez ces étapes pour publier vos applications avec le proxy d’application. 
    ![Configuration de votre application](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Si nécessaire, configurez des paramètres supplémentaires. Pour la plupart des applications, vous devez conserver ces paramètres dans leur état par défaut. 
    - **Expiration de l’application principale** : définissez cette valeur sur **Long** uniquement si l’authentification et la connexion de votre application sont lentes. 
+   - **Utiliser un cookie HTTP-only** : définissez cette valeur sur **Oui** pour que les cookies de proxy d’application incluent un indicateur HTTPOnly dans l’en-tête de réponse HTTP.
    - **Traduire l’URL dans les en-têtes** : conservez la valeur **Oui**, sauf si votre application a demandé l’en-tête d’hôte d’origine dans la requête d’authentification.
    - **Translate URLs in Application Body** (Traduire les URL dans le corps de l’application) : conservez la valeur **Non**, sauf si vous avez codé en dur des liens HTML vers d’autres applications locales et si vous n’utilisez pas les domaines personnalisés. Pour plus d’informations, consultez [Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD](application-proxy-configure-hard-coded-link-translation.md).
    

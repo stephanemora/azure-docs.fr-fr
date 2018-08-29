@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: e04d1072acee635235b0a5bd8465ca38c861017b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d3b01e75a9b34ce4e38138816935bdae2e0ea778
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523521"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145146"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Problèmes courants dans Stream Analytics et étapes de dépannage
 
@@ -38,7 +38,9 @@ Pour plus d’informations, activez les journaux de diagnostics pour afficher le
 
 3. Pour obtenir les données JSON dont le format est incorrect, exécutez le code CheckMalformedEvents.cs. Cet exemple est disponible dans le [référentiel des exemples GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Ce code lit l’ID de la partition et le décalage, puis imprime les données situées dans ce décalage. 
 
-4. Une fois que vous avez lu les données, vous pouvez analyser et corriger le format de sérialisation. 
+4. Une fois que vous avez lu les données, vous pouvez analyser et corriger le format de sérialisation.
+
+5. Vous pouvez également [lire les événements à partir d’un IoT Hub avec l’Explorateur Service Bus](https://code.msdn.microsoft.com/How-to-read-events-from-an-1641eb1b).
 
 ## <a name="delayed-output"></a>Sortie retardée
 

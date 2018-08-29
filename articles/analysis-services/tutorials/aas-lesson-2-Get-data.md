@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e10f6cdb60a2c03bfb42e46f179546b623d625dd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5803bf2c71b2cf3fe7bb145b4d3d664c60642294
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443764"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140887"
 ---
 # <a name="get-data"></a>Obtention des données
 
@@ -52,11 +52,11 @@ Cette rubrique fait partie d’un didacticiel de modélisation tabulaire, qui do
   
 5.  Dans le navigateur, sélectionnez la base de données **AdventureWorksDW2014**, puis cliquez sur **OK**. Cela crée la connexion à la base de données. 
   
-6.  Dans le navigateur, cochez la case correspondant aux tables suivantes : **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** et **FactInternetSales**.  
+6.  Dans le navigateur, cochez la case correspondant aux tables suivantes : **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** et **FactInternetSales**. Cliquez ensuite sur **Modifier**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-Après que vous avez cliqué sur OK, l’éditeur de requête s’ouvre. Dans la section suivante, sélectionnez uniquement les données que vous souhaitez importer.
+    L’éditeur de requêtes s’ouvre. Dans la section suivante, sélectionnez uniquement les données que vous souhaitez importer.
 
   
 ## <a name="filter-the-table-data"></a>Filtrer les données de la table  

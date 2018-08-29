@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 04db7655f3f4b63edffcb731d0e92db25f1847b9
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960006"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42146159"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Créer, modifier ou supprimer une table de routage
 
@@ -32,8 +32,8 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
-- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel exige la version 5.7.0 ou une version ultérieure du module Azure PowerShell. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
-- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel exige la version 2.0.31 ou une version ultérieure d’Azure CLI. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzureRmAccount` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans [Autorisations](#permissions).
 
@@ -43,7 +43,7 @@ Le nombre de tables de routage que vous pouvez créer par abonnement et par empl
 
 1. Dans l’angle supérieur gauche du portail, sélectionnez **+ Créer une ressource**.
 2. Sélectionnez **Mise en réseau**, puis **Table de routage**.
-3. Attribuez un **nom** à la table de routage, sélectionnez votre **abonnement**, créez un **groupe de ressources** ou sélectionnez un groupe de ressources existant, sélectionnez un **emplacement** et cliquez sur **Créer**. L’option **Désactiver la propagation des itinéraires BGP** empêche que les itinéraires locaux ne soient propagés, via BGP, vers les interfaces réseau d’un sous-réseau auquel est associée la table de routage. Si votre réseau virtuel n’est pas connecté à une passerelle réseau Azure (VPN ou ExpressRoute), laissez cette option *désactivée*.
+3. Attribuez un **nom** à la table de routage, sélectionnez votre **abonnement**, créez un **groupe de ressources** ou sélectionnez un groupe de ressources existant, sélectionnez un **emplacement** et cliquez sur **Créer**. Si vous envisagez d’associer la table de routage à un sous-réseau dans un réseau virtuel connecté à votre réseau local via une passerelle VPN et que vous désactivez la **propagation des itinéraires BGP**, vos itinéraires locaux ne sont pas propagés aux interfaces réseau du sous-réseau.
 
 **Commandes**
 

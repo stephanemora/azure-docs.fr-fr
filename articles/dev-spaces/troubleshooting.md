@@ -11,12 +11,12 @@ ms.topic: article
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: douge
-ms.openlocfilehash: 61bc081ca3221c0d588b7b7a2d9482d2fc70c0d5
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038297"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140875"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -78,9 +78,10 @@ azds list-uris
 
 Si une URL est à l’état *En attente*, cela signifie que Dev Spaces attend toujours que l’inscription DNS se termine. Cela peut parfois prend quelques minutes. Dev Spaces ouvre également un tunnel localhost pour chaque service, vous pouvez utiliser pendant l’attente d’inscription DNS.
 
-Si une URL reste à l’état *En attente* pendant plus de 5 minutes, cela peut indiquer un problème lié au contrôleur d’entrée nginx responsable de l’acquisition du point de terminaison public. Vous pouvez utiliser la commande suivante pour supprimer le pod qui exécute le contrôleur nginx. Il sera automatiquement recréé.
+Si une URL reste à l’état *En attente* pendant plus de 5 minutes, cela peut indiquer un problème lié au pod DNS externe créant le point de terminaison public et/ou au pod du contrôleur d’entrée nginx assurant l’acquisition du point de terminaison public. Vous pouvez utiliser les commandes suivantes pour supprimer ces pods. Ils seront automatiquement recréés.
 
 ```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
 ```
 
@@ -139,6 +140,14 @@ Le démarrage du débogueur VS Code peut parfois générer cette erreur. Il s'ag
 1. Fermez et rouvrez VS Code.
 2. Appuyez de nouveau sur F5.
 
+## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>Erreur de débogage « Failed to find debugger extension for type:coreclr » (Impossible de trouver l’extension du débogueur pour type: coreclr)
+L’exécution du débogueur VS Code signale l’erreur : `Failed to find debugger extension for type:coreclr.`
+
+### <a name="reason"></a>Motif
+L’extension VS Code pour C# n’est pas installée sur votre ordinateur de développement. Celle-ci inclut la prise en charge du débogage pour .Net Core (CoreCLR).
+
+### <a name="try"></a>Essayez de procéder comme suit :
+Installez [l’extension VS Code pour C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>Erreur de débogage « Le type de débogage configuré « coreclr » n’est pas prise en charge »
 L’exécution du débogueur VS Code signale l’erreur : `Configured debug type 'coreclr' is not supported.`

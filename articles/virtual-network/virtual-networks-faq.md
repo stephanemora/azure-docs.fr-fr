@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 8dfe313cb82fd0ace7221ea320bb2228be75196c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038308"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140295"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -223,6 +223,9 @@ Oui. En savoir plus sur l’utilisation des éléments suivants :
 
 ## <a name="vnet-peering"></a>Homologation de réseaux virtuels
 
+### <a name="what-is-vnet-peering"></a>En quoi consiste l’appairage VNet ?
+L’appairage VNet (ou appairage de réseau virtuel) permet de connecter des réseaux virtuels. Une connexion d’appairage VNet entre réseaux virtuels vous permet d’acheminer le trafic entre eux de façon privée par le biais d’adresses IPv4. Les machines virtuelles dans les réseaux virtuels appairés peuvent communiquer entre elles comme si elles se trouvaient dans le même réseau. Ces réseaux virtuels peuvent se situer dans la même région ou dans des régions différentes (Global VNet Peering). Il est également possible de créer des connexions d’appairage VNet dans les abonnements Azure.
+
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Puis-je créer une connexion d’homologation pour un réseau virtuel dans une autre région ?
 Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet Peering est disponible dans toutes les régions publiques Azure. Vous ne pouvez pas homologuer globalement de régions publiques Azure dans des clouds nationaux. L’homologation globale n’est pas actuellement disponible dans les clouds nationaux.
 
@@ -231,6 +234,9 @@ Il n’est actuellement pas possible d’établir une homologation de réseau vi
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Ma connexion d’homologation de réseau est à l’état *initiée*, pourquoi ne puis-je pas me connecter ?
 Si votre connexion d’homologation est dans un état Initiée, cela signifie que vous n’avez créé qu’un seul lien. Un lien bidirectionnel doit être créé afin d’établir une connexion avec succès. Par exemple, pour homologuer le réseau virtuel A au réseau virtuel B, un lien doit être créé de VNetA à VNetB et de VNetB à VNetA. La création des deux liens modifie l’état à *Connecté.*
+
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>Ma connexion d’appairage VNet se trouve dans l’état *Déconnectée*, pourquoi ne puis-je pas créer une connexion d’appairage ?
+Si votre connexion d’appairage VNet se trouve dans un état déconnecté, car un des liens créés a été supprimé. Pour rétablir une connexion d’appairage, vous devrez supprimer le lien et le créer de nouveau.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>Puis-je homologuer mon réseau virtuel avec un réseau virtuel dans un autre abonnement ?
 Oui. Vous pouvez homologuer des réseaux virtuels entre des abonnements et régions.

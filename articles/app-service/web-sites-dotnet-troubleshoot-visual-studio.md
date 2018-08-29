@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224107"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145532"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio
 ## <a name="overview"></a>Vue d'ensemble
-Ce didacticiel explique comment utiliser les outils Visual Studio pour déboguer une application web dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) en activant le [Mode débogage](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) à distance ou en consultant les journaux des applications et des serveurs web.
+Ce didacticiel explique comment utiliser les outils Visual Studio pour déboguer une application web dans [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) en activant le [Mode débogage](https://docs.microsoft.com/visualstudio/debugger/) à distance ou en consultant les journaux des applications et des serveurs web.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -134,7 +134,8 @@ public ActionResult About()
     return View();
 }
 ```
-4. [Définissez un point d’arrêt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) sur la ligne `ViewBag.Message`.
+
+4. [Définissez un point d’arrêt](https://docs.microsoft.com/visualstudio/debugger/) sur la ligne `ViewBag.Message`.
 
 5. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis cliquez sur **Publier**.
 
@@ -185,7 +186,7 @@ Le débogage à distance fonctionne uniquement avec les tâches Web en continu. 
 
 2. Dans le projet ContosoAdsWebJob, ouvrez *Functions.cs*.
 
-3. [Définissez un point d’arrêt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) sur la première instruction dans la méthode `GnerateThumbnail`.
+3. [Définissez un point d’arrêt](https://docs.microsoft.com/visualstudio/debugger/) sur la première instruction dans la méthode `GnerateThumbnail`.
 
     ![Définir le point d’arrêt](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -250,7 +251,7 @@ Si votre fonction [a écrit des journaux](https://github.com/Azure/azure-webjobs
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* Si le débogueur ne parcourt pas le code que vous voulez déboguer, vous devez modifier le paramètre « Uniquement mon code ».  Pour plus d'informations, consultez la page [Limiter le pas à pas à Uniquement mon code](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* Si le débogueur ne parcourt pas le code que vous voulez déboguer, vous devez modifier le paramètre « Uniquement mon code ».  Pour plus d’informations, consultez la section [Specify whether to debug only user code using Just My Code in Visual Studio](https://docs.microsoft.com/visualstudio/debugger/just-my-code) (Déterminer s’il faut déboguer uniquement le code utilisateur via l’option Uniquement mon code dans Visual Studio).
 * Lorsque vous activez la fonctionnalité de débogage à distance, un compteur démarre sur le serveur : après 48 heures, la fonctionnalité est automatiquement désactivée. Cette limite de 48 heures a été définie à des fins de sécurité et de performances. Vous pouvez facilement réactiver la fonctionnalité autant de fois que nécessaire. Nous vous recommandons de la désactiver lorsque vous n'utilisez pas le débogage.
 * Vous pouvez manuellement connecter le débogueur à n’importe quel processus, et non au seul processus d’application web (w3wp.exe). Pour plus d'informations sur l'utilisation du mode débogage dans Visual Studio, consultez la page [Débogage dans Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 

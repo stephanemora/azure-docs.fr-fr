@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c65cfec41c2002fd4d4ff27ea74daf0bb4246b5f
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b5adf161c99ebe6d7b8b2d7b0c7b5b73c67bec02
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145595"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146494"
 ---
 # <a name="deploy-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Déployer un contrôleur d’entrée HTTPS dans Azure Kubernetes Service (AKS)
 
@@ -51,6 +51,40 @@ eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none> 
 Aucune règle d’entrée n’a encore été créée. Si vous accédez à l’adresse IP publique, la page 404 par défaut du contrôleur d’entrée NGINX s’affiche, comme illustré dans l’exemple suivant :
 
 ![Backend NGINX par défaut](media/ingress/default-back-end.png)
+
+### <a name="use-an-existing-static-public-ip-address"></a>Utiliser une adresse IP publique statique existante
+
+À l’étape `helm install` précédente, le contrôleur d’entrée NGINX a été créé avec l’affectation d’une nouvelle adresse IP publique dynamique. La fourniture d’une adresse IP publique *statique* existante représente une exigence de configuration courante. Cette approche vous permet d’utiliser des configurations de réseau et des enregistrements DNS existants de manière cohérente. Vous pouvez suivre les étapes facultatives suivantes au lieu d’utiliser la commande `helm install` précédente avec laquelle une adresse IP publique dynamique vous est affectée.
+
+Si vous avez besoin de créer une adresse IP publique statique, commencez par obtenir le nom du groupe de ressources du cluster AKS avec la commande [az aks show][az-aks-show] :
+
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+```
+
+Ensuite, créez une adresse IP publique avec la méthode d’allocation *statique* à l’aide de la commande [az network public-ip create][az-network-public-ip-create]. L’exemple suivant crée une adresse IP publique nommée *myAKSPublicIP* dans le groupe de ressources de cluster AKS obtenu à l’étape précédente :
+
+```azurecli
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
+```
+
+À présent, déployez le graphique *nginx-ingress* avec Helm. Ajoutez le paramètre `--set controller.service.loadBalancerIP` et spécifiez votre propre adresse IP publique créée à l’étape précédente :
+
+```console
+helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
+```
+
+Lorsque le service équilibreur de charge Kubernetes est créé pour le contrôleur d’entrée NGINX, votre adresse IP statique est affectée, comme indiqué dans l’exemple de sortie suivant :
+
+```
+$ kubectl get service -l app=nginx-ingress --namespace kube-system
+
+NAME                                        TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
+dinky-panda-nginx-ingress-controller        LoadBalancer   10.0.232.56   40.121.63.72   80:31978/TCP,443:32037/TCP   3m
+dinky-panda-nginx-ingress-default-backend   ClusterIP      10.0.95.248   <none>         80/TCP                       3m
+```
+
+Cette fois encore, aucune règle d’entrée n’a encore été créée. Par conséquent, la page 404 par défaut du contrôleur d’entrée NGINX s’affiche si vous accédez à l’adresse IP publique. Les étapes suivantes permettent de configurer les règles d’entrée.
 
 ## <a name="configure-a-dns-name"></a>Configurer un nom DNS
 
@@ -119,10 +153,10 @@ spec:
     http01: {}
 ```
 
-Pour créer l’émetteur, utilisez la commande `kubectl create -f cluster-issuer.yaml`.
+Pour créer l’émetteur, utilisez la commande `kubectl apply -f cluster-issuer.yaml`.
 
 ```
-$ kubectl create -f cluster-issuer.yaml
+$ kubectl apply -f cluster-issuer.yaml
 
 clusterissuer.certmanager.k8s.io/letsencrypt-staging created
 ```
@@ -153,10 +187,10 @@ spec:
     kind: ClusterIssuer
 ```
 
-Pour créer la ressource de certificat, utilisez la commande `kubectl create -f certificates.yaml`.
+Pour créer la ressource de certificat, utilisez la commande `kubectl apply -f certificates.yaml`.
 
 ```
-$ kubectl create -f certificates.yaml
+$ kubectl apply -f certificates.yaml
 
 certificate.certmanager.k8s.io/tls-secret created
 ```
@@ -219,10 +253,10 @@ spec:
           servicePort: 80
 ```
 
-Créez la ressource d’entrée avec la commande `kubectl create -f hello-world-ingress.yaml`.
+Créez la ressource d’entrée avec la commande `kubectl apply -f hello-world-ingress.yaml`.
 
 ```
-$ kubectl create -f hello-world-ingress.yaml
+$ kubectl apply -f hello-world-ingress.yaml
 
 ingress.extensions/hello-world-ingress created
 ```
@@ -267,3 +301,5 @@ Cet article a mentionné certains composants qui n’appartiennent pas à AKS. P
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create

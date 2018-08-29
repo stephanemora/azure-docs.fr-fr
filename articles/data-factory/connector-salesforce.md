@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 69e3e308fb5af98dd5763c56503cc28bd4ecfa9e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 19ba4a97b93c01a049f921904d0f5aba4b8c0617
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125246"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442052"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ L’autorisation de l’API doit être activée dans Salesforce. Pour plus d’i
 
 ## <a name="salesforce-request-limits"></a>Limites des requêtes Salesforce
 
-Salesforce prend en charge un nombre limité de requêtes d’API totales et de requêtes d’API simultanées. Notez les points suivants :
+Salesforce prend en charge un nombre limité de requêtes d’API totales et de requêtes d’API simultanées. Notez les points suivants :
 
 - Si le nombre de requêtes simultanées dépasse la limite autorisée, les nouvelles requêtes sont bloquées avec un risque de défaillances aléatoires.
 - Si le nombre total de requêtes dépasse la limite autorisée, le compte Salesforce est bloqué pendant 24 heures.
@@ -65,7 +65,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Salesforce
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non  |
 | username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
 | password |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
-| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité, consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité). Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API).<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
+| securityToken |Spécifiez le jeton de sécurité du compte d’utilisateur. Pour obtenir des instructions sur la réinitialisation et l’obtention d’un jeton de sécurité, consultez l’article [Get security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtenir un jeton de sécurité). Pour en savoir plus sur les jetons de sécurité, consultez l’article [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Sécurité et API).<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour la source, oui pour le récepteur si le service lié à la source n’a pas de runtime d’intégration |
 
 >[!IMPORTANT]
@@ -184,7 +184,7 @@ Pour copier des données à partir de Salesforce, définissez le type de source 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété de type de la source d’activité de copie doit être définie sur **SalesforceSource**. | Oui |
-| query |Utilise la requête personnalisée pour lire des données. Vous pouvez utiliser une requête SQL-92 ou [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Par exemple `select * from MyTable__c`. | Non (si « tableName » est spécifié dans le jeu de données) |
+| query |Utilise la requête personnalisée pour lire des données. Vous pouvez utiliser une requête SQL-92 ou [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Retrouvez d’autres conseils dans la section [Conseils de requête](#query-tips). | Non (si « tableName » est spécifié dans le jeu de données) |
 | readBehavior | Indique si seuls les enregistrements existants doivent être interrogés ou si tous les enregistrements, y compris ceux qui ont été supprimés, doivent être interrogés. Si rien n’est spécifié, le comportement par défaut appliqué est le premier. <br>Valeurs autorisées : **query** (valeur par défaut), **queryAll**.  | Non  |
 
 > [!IMPORTANT]
@@ -282,10 +282,20 @@ Vous pouvez récupérer des données à partir de rapports Salesforce en spécif
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-recycle-bin"></a>Récupérer des enregistrements supprimés dans la Corbeille Salesforce
 
-Pour interroger les enregistrements supprimés de manière réversible dans la Corbeille Salesforce, vous pouvez spécifier **« IsDeleted = 1 »** dans votre requête. Par exemple : 
+Pour interroger les enregistrements supprimés de manière réversible dans la Corbeille Salesforce, vous pouvez spécifier `readBehavior`comme `queryAll`. 
 
-* Pour interroger uniquement les enregistrements supprimés, spécifiez « select \* from MyTable__c **where IsDeleted= 1**. »
-* Pour interroger tous les enregistrements, notamment ceux existants et supprimés, spécifiez « select from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**. »
+### <a name="difference-between-soql-and-sql-query-syntax"></a>Différence entre la syntaxe de requête SOQL et SQL
+
+Lors de la copie des données à partir de Salesforce, vous pouvez utiliser une requête SOQL ou SQL. Notez que ces deux requêtes ont une syntaxe et une prise en charge des fonctionnalités différentes, ne les mélangez pas. Il est recommandé d’utiliser la requête SOQL, prise en charge nativement par Salesforce. Le tableau suivant répertorie les différences principales :
+
+| Syntaxe | Mode SOQL | Mode SQL |
+|:--- |:--- |:--- |
+| Sélection de colonnes | Besoin d’énumérer les champs à copier dans la requête, par exemple `SELECT field1, filed2 FROM objectname` | `SELECT *` est pris en charge en plus de la sélection de colonnes. |
+| Guillemets | Les noms de champ ou d’objet ne peuvent pas être mis entre guillemets. | Les noms de champ ou d’objet peuvent être mis entre guillemets, par exemple `SELECT "id" FROM "Account"` |
+| Format de date/heure |  Reportez-vous aux détails [ici](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) et aux exemples fournis dans la section suivante. | Reportez-vous aux détails [ici](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) et aux exemples fournis dans la section suivante. |
+| Valeurs booléennes | Représentées sous la forme de `False` et `Ture`, par exemple `SELECT … WHERE IsDeleted=True`. | Représenté sous la forme de 0 ou de 1, par exemple `SELECT … WHERE IsDeleted=1`. |
+| Changement de nom de colonne | Non pris en charge. | Pris en charge, par exemple : `SELECT a AS b FROM …`. |
+| Relation | Pris en charge, par exemple `Account_vod__r.nvs_Country__c`. | Non pris en charge. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Récupérer des données à l’aide d’une clause where sur la colonne DateTime
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: 570b820e21df6db70b9cadf33d5a120132be62ed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4a8bc45b253def1130e5a02dfcd6d359f0e74506
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426749"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146648"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infrastructure de mise à jour Red Hat pour machines virtuelles Red Hat Enterprise Linux à la demande dans Azure
  [Infrastructure de mise à jour Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permet aux fournisseurs de cloud, par exemple Azure, de mettre en miroir le contenu du référentiel hébergé par Red Hat, de créer des référentiels personnalisés avec du contenu spécifique à Azure et de rendre ces référentiels accessibles aux machines virtuelles des utilisateurs finaux.
@@ -29,7 +29,7 @@ Les images Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG, paiement à l’
 ## <a name="important-information-about-azure-rhui"></a>Informations importantes concernant Azure RHUI
 * Azure RHUI prend actuellement en charge uniquement la dernière version mineure de chaque famille RHEL (RHEL6 ou RHEL7). Pour mettre à jour une instance de machine virtuelle RHEL connectée à RHUI avec la dernière version secondaire, exécutez `sudo yum update`.
 
-    Par exemple, si vous approvisionnez une machine virtuelle à partir d’une image RHEL 7.2 PAYG et exécutez `sudo yum update`, vous vous retrouvez avec une machine virtuelle RHEL 7.4 (dernière version secondaire dans la famille RHEL7).
+    Par exemple, si vous approvisionnez une machine virtuelle à partir d’une image RHEL 7.2 PAYG et exécutez `sudo yum update`, vous vous retrouvez avec une machine virtuelle RHEL 7.5 (dernière version secondaire dans la famille RHEL7).
 
     Pour éviter ce problème, vous devez créer votre propre image comme décrit dans l’article [Créer et charger une machine virtuelle Red Hat pour Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Vous avez besoin de la connecter à une infrastructure de mise à jour différente ([directement aux serveurs de distribution de contenu Red Hat](https://access.redhat.com/solutions/253273) ou à un [serveur Satellite Red Hat](https://access.redhat.com/products/red-hat-satellite)).
 

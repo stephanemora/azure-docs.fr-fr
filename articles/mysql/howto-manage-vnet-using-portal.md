@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/01/2018
-ms.openlocfilehash: 7520868fd6bd349043ad2c53e62de5db978db8b1
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 08/15/2018
+ms.openlocfilehash: df703f30119e0cb421b21c524f779b4f43a42b3f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267218"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140468"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Création et gestion de point de terminaison de service de réseau virtuel et de règles de réseau virtuel Azure Database pour MySQL à l’aide du portail Azure
-Les règles et points de terminaison de service de réseau virtuel étendent l’espace d’adressage privé d’un réseau virtuel à votre serveur Azure Database pour MySQL. Pour une vue d’ensemble des points de terminaison de service de réseau virtuel Azure Database pour MySQL, y compris les limitations, consultez [Use Virtual Network service endpoints and rules for Azure Database for MySQL](concepts-data-access-and-security-vnet.md) (Utiliser des règles et points de terminaison de service de réseau virtuel pour Azure Database pour MySQL). Les points de terminaison de service de réseau virtuel sont disponibles en préversion publique dans toutes les régions prises en charge pour Azure Database pour MySQL.
+Les règles et points de terminaison de service de réseau virtuel étendent l’espace d’adressage privé d’un réseau virtuel à votre serveur Azure Database pour MySQL. Pour une vue d’ensemble des points de terminaison de service de réseau virtuel Azure Database pour MySQL, y compris les limitations, consultez [Use Virtual Network service endpoints and rules for Azure Database for MySQL](concepts-data-access-and-security-vnet.md) (Utiliser des règles et points de terminaison de service de réseau virtuel pour Azure Database pour MySQL). Les points de terminaison de service de réseau virtuel sont disponibles dans toutes les régions prises en charge pour Azure Database pour MySQL.
 
 > [!NOTE]
 > Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: eee60718bf848154b0097294b3c7eb325e96214b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 20dd9349b9ca5ffb6042156e340019c4483b93e5
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346257"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42145968"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -53,6 +53,7 @@ Consultez l’exemple propre à un langage particulier :
 * [Script C# (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
@@ -177,6 +178,41 @@ module.exports = function(context, myQueueItem) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>Déclencheur : exemple Java
+
+L’exemple suivant montre une liaison de déclencheur Service Bus dans un fichier *function.json* et une [fonction Java](functions-reference-java.md) qui utilise la liaison. La fonction est déclenchée par un message placé dans une file d’attente Service Bus, et la fonction enregistre le message de la file d’attente.
+
+Voici les données de liaison dans le fichier *function.json* :
+
+```json
+{
+"bindings": [
+    {
+    "queueName": "myqueuename",
+    "connection": "MyServiceBusConnection",
+    "name": "msg",
+    "type": "ServiceBusQueueTrigger",
+    "direction": "in"
+    }
+],
+"disabled": false
+}
+```
+
+Voici le code Java :
+
+```java
+@FunctionName("sbprocessor")
+ public void serviceBusProcess(
+    @ServiceBusQueueTrigger(name = "msg",
+                             queueName = "myqueuename",
+                             connection = "myconnvarname") String message,
+   final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
@@ -316,6 +352,7 @@ Consultez l’exemple propre à un langage particulier :
 * [Script C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output--java-example)
 
 ### <a name="output---c-example"></a>Sortie - exemple C#
 
@@ -470,6 +507,25 @@ module.exports = function (context, myTimer) {
     context.done();
 };
 ```
+
+
+### <a name="output---java-example"></a>Sortie : exemple Java
+
+L’exemple suivant montre une fonction Java qui envoie un message à une file d’attente Service Bus `myqueue` lorsqu’elle est déclenchée par une requête HTTP.
+
+```java
+@FunctionName("httpToServiceBusQueue")
+@ServiceBusQueueOutput(name = "message", queueName = "myqueue", connection = "AzureServiceBusConnection")
+public String pushToQueue(
+  @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+  final String message,
+  @HttpOutput(name = "response") final OutputBinding<T>; result ) {
+      result.setValue(message + " has been sent.");
+      return message;
+ }
+ ```
+
+ Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres de fonction dont la valeur serait écrite dans une file d’attente Service Bus.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
 
 ## <a name="output---attributes"></a>Sortie - attributs
 

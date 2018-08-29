@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: afd061b026e30378f5e645d11b84b44b7a516143
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341577"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443388"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Guide pratique pour créer et configurer le runtime d’intégration autohébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Vue d’ensemble du runtime d’intégration](concepts-integration-runtime.md).
@@ -27,17 +27,20 @@ Un runtime d’intégration autohébergé est capable d’exécuter des activit�
 Ce document présente la façon dont vous pouvez créer et configurer le runtime d’intégration autohébergé.
 
 ## <a name="high-level-steps-to-install-self-hosted-ir"></a>Procédure générale pour installer un runtime d’intégration autohébergé
-1.  Créez un runtime d’intégration autohébergé. Voici un exemple PowerShell :
+1. Créez un runtime d’intégration autohébergé. Vous pouvez utiliser l’IU ADF pour la création du runtime d'intégration autohébergé. Voici un exemple PowerShell :
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
-2.  Téléchargez et installez un runtime d’intégration autohébergé (sur l’ordinateur local).
-3.  Récupérez la clé d’authentification et inscrivez le runtime d’intégration autohébergé à l’aide de la clé. Voici un exemple PowerShell :
+2. Téléchargez et installez un runtime d’intégration autohébergé (sur l’ordinateur local).
+3. Récupérez la clé d’authentification et inscrivez le runtime d’intégration autohébergé à l’aide de la clé. Voici un exemple PowerShell :
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
+
+## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automatation"></a>Configuration du runtime d'intégration autohébergé sur une machine virtuelle Azure à l’aide du modèle Azure Resource Manager (automation)
+Vous pouvez automatiser l’installation de runtime d’intégration autohébergé sur une machine virtuelle Azure à l’aide de [ce modèle Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Cela offre un moyen simple d’avoir un runtime d'intégration autohébergé entièrement fonctionnel à l’intérieur d’un réseau virtuel Azure disposant d’une fonctionnalité de haute disponibilité et d’évolutivité (tant que vous définissez au moins 2 nœuds ou plus).
 
 ## <a name="command-flow-and-data-flow"></a>Flux de commandes et flux de données
 Lorsque vous déplacez les données entre des machines locales et cloud, l’activité utilise un runtime d’intégration autohébergé pour transférer les données à partir de la source de données locale vers le cloud et vice versa.
@@ -48,9 +51,9 @@ Voici un flux de données global et un résumé des étapes pour la copie à l�
 
 1. Le développeur des données crée un runtime d’intégration autohébergé dans une fabrique de données Azure à l’aide d’une applet de commande PowerShell. Actuellement, le portail Azure ne prend pas en charge cette fonctionnalité.
 2. Le développeur des données crée un service lié pour un magasin de données sur site en spécifiant l’instance de runtime d’intégration autohébergé qu’il doit utiliser pour se connecter à des magasins de données. Dans le cadre de la configuration du service lié, le développeur des données utilise le Gestionnaire d’informations d’identification (non pris en charge actuellement) pour spécifier les types d’authentification et les informations d’identification. La boîte de dialogue du Gestionnaire d’informations d’identification communique avec le magasin de données pour tester la connexion et le runtime d’intégration autohébergé pour enregistrer les informations d’identification.
-4.  Le nœud du runtime d’intégration autohébergé chiffre les informations d’identification à l’aide de l’interface DPAPI (Windows Data Protection Application Programming Interface) et l’enregistre localement. Si plusieurs nœuds sont définis pour une haute disponibilité, les informations d’identification sont synchronisées sur les autres nœuds. Chaque nœud chiffre ces informations avec DPAPI et les stocke localement. La synchronisation des informations d’identification est une opération transparente pour le développeur des données, et elle est gérée par le runtime d’intégration autohébergé.    
-5.  Le service Data Factory communique avec le runtime d’intégration autohébergé pour la planification et la gestion des tâches via un **canal de contrôle** qui utilise une file d’attente Azure Service Bus partagée. Lorsqu’une tâche de l’activité doit être lancée, Data Factory place en file d’attente la requête ainsi que les informations d’identification (au cas où les informations d’identification ne sont pas déjà stockées sur le runtime d’intégration autohébergé). Le runtime d’intégration autohébergé lance la tâche après interrogation de la file d’attente.
-6.  Le runtime d’intégration autohébergé copie les données d’un magasin sur site vers un stockage cloud, ou vice versa selon la configuration de l'activité de copie dans le pipeline de données. Pour cette étape, le runtime d’intégration autohébergé communique directement avec le service de stockage basé sur le cloud comme Stockage Blob Azure via un canal sécurisé (HTTPS).
+   - Le nœud du runtime d’intégration autohébergé chiffre les informations d’identification à l’aide de l’interface DPAPI (Windows Data Protection Application Programming Interface) et l’enregistre localement. Si plusieurs nœuds sont définis pour une haute disponibilité, les informations d’identification sont synchronisées sur les autres nœuds. Chaque nœud chiffre ces informations avec DPAPI et les stocke localement. La synchronisation des informations d’identification est une opération transparente pour le développeur des données, et elle est gérée par le runtime d’intégration autohébergé.    
+   - Le service Data Factory communique avec le runtime d’intégration autohébergé pour la planification et la gestion des tâches via un **canal de contrôle** qui utilise une file d’attente Azure Service Bus partagée. Lorsqu’une tâche de l’activité doit être lancée, Data Factory place en file d’attente la requête ainsi que les informations d’identification (au cas où les informations d’identification ne sont pas déjà stockées sur le runtime d’intégration autohébergé). Le runtime d’intégration autohébergé lance la tâche après interrogation de la file d’attente.
+   - Le runtime d’intégration autohébergé copie les données d’un magasin sur site vers un stockage cloud, ou vice versa selon la configuration de l'activité de copie dans le pipeline de données. Pour cette étape, le runtime d’intégration autohébergé communique directement avec le service de stockage basé sur le cloud comme Stockage Blob Azure via un canal sécurisé (HTTPS).
 
 ## <a name="considerations-for-using-self-hosted-ir"></a>Considérations relatives à l’utilisation du runtime d’intégration autohébergé
 
@@ -113,7 +116,20 @@ Vous pouvez associer plusieurs nœuds en installant simplement le logiciel du ru
 > [!NOTE]
 > Avant d’ajouter un autre nœud de **haute disponibilité et extensibilité**, vérifiez que l’option **Accès à distance à partir de l'intranet** est **activée** sur le premier nœud (Gestionnaire de configuration Microsoft Integration Runtime -> Paramètres -> Accès à distance à partir de l'intranet). 
 
+### <a name="scale-considerations"></a>Considérations d’échelle
+
+#### <a name="scale-out"></a>Montée en charge
+
+Quand la **mémoire disponible sur le runtime d'intégration autohébergé est faible** et l’**utilisation du processeur est élevée**, l’ajout d’un nouveau nœud permet d’augmenter la taille des instances de la charge sur les ordinateurs. Si des activités échouent en raison d’un délai d’expiration ou de l’état hors connexion d’un nœud du runtime d'intégration autohébergé, il est judicieux d’ajouter un nœud à la passerelle.
+
+#### <a name="scale-up"></a>Monter en puissance
+
+Quand la mémoire disponible et le processeur ne sont pas correctement utilisés, mais que l’exécution de travaux simultanés atteint la limite, vous devez augmenter la taille des instances en augmentant le nombre de travaux simultanés pouvant s’exécuter sur un nœud. Vous pouvez également augmenter la taille des instances quand les activités expirent parce que le runtime d'intégration autohébergé est surchargé. Comme le montre l’image suivante, vous pouvez augmenter la capacité maximale pour un nœud.  
+
+![](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+
 ### <a name="tlsssl-certificate-requirements"></a>Configuration requise des certificats TLS/SSL
+
 Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuriser les communications entre les nœuds de runtime d’intégration :
 
 - Le certificat doit être un certificat X509 v3 approuvé publiquement. Nous vous recommandons d’utiliser des certificats émis par une autorité de certification (tierce) publique.
@@ -121,9 +137,57 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
 - Les certificats utilisant des caractères génériques sont pris en charge. Si votre nom de domaine complet est **node1.domain.contoso.com**, vous pouvez utiliser ***.domain.contoso.com** comme nom du sujet du certificat.
 - Les certificats SAN ne sont pas recommandés, car seul le dernier élément des Autres noms de l’objet sera utilisé et tous les autres seront ignorés en raison d’une limitation actuelle. Par exemple, si vous avez un certificat SAN dont les noms SAN sont **node1.domain.contoso.com** et **node2.domain.contoso.com**, vous ne pouvez utiliser ce certificat que sur l’ordinateur dont le FQDN est **node2.domain.contoso.com**.
 - Prise en charge de toutes les tailles de clé prises en charge par Windows Server 2012 R2 pour les certificats SSL.
-- Les certificat utilisant des clés CNG ne sont pas pris en charge. Non-prise en charge des certificats qui utilisent des clés CNG.
+- Les certificat utilisant des clés CNG ne sont pas pris en charge.  
+
+## <a name="sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories"></a>Partage du runtime d’intégration autohébergé avec plusieurs fabriques de données
+
+Vous pouvez réutiliser une infrastructure existante de runtime d’intégration autohébergé que vous avez déjà configurée dans une fabrique de données. Cela vous permet de créer un **runtime d’intégration autohébergé lié** dans une fabrique de données différente en référençant un runtime d'intégration autohébergé (partagé) déjà existant.
+
+#### <a name="terminologies"></a>**Terminologies**
+
+- **Runtime d'intégration partagé** : le runtime d'intégration autohébergé d’origine exécuté sur une infrastructure physique.  
+- **Runtime d'intégration lié** : le runtime d’intégration qui fait référence à un autre runtime d’intégration partagé. Il s’agit d’un runtime d’intégration logique qui utilise l’infrastructure d’un autre runtime d’intégration autohébergé (partagé).
+
+#### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Étapes de haut niveau pour la création d’un runtime d’intégration autohébergé lié
+
+Dans le runtime d’intégration autohébergé à partager,
+
+1. Accorder l’autorisation à la fabrique de données au sein de laquelle vous souhaitez créer le runtime d’intégration lié. 
+
+   ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+
+2. Notez l’**ID de ressource** du runtime d’intégration autohébergé à partager.
+
+   ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+
+Dans la fabrique de données au sein de laquelle les autorisations ont été accordées,
+
+3. Créer un nouveau runtime d’intégration autohébergé (lié) et saisissez l’**ID de ressource** ci-dessus
+
+   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+
+   ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitations connues du partage de runtime d’intégration autohébergé
+
+1. Le nombre par défaut de runtimes d’intégration lié pouvant être créés sous un seul runtime d’intégration autohébergé est **20**. Si vous en avez besoin de plus, contactez le support. 
+
+2. La fabrique de données au sein de laquelle le runtime d’intégration lié doit être créé doit avoir une identité MSI ([Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Par défaut, les fabriques de données créées dans le portail Ibiza ou les applets de commande PowerShell disposeront d’une identité MSI créée implicitement. Toutefois, dans certains cas lorsque la fabrique de données est créée à l’aide d’un modèle Azure Resources Manager ou du Kit de développement logiciel, la propriété «**identité**» **doit être définie** explicitement pour garantir que Azure Resource Manager crée une fabrique de données contenant une identité MSI. 
+
+3. La version du runtime d’intégration autohébergé doit être supérieure ou égale à 3.8.xxxx.xx. Veuillez [télécharger la dernière version](https://www.microsoft.com/download/details.aspx?id=39717) du runtime d’intégration autohébergé
+
+4. La fabrique de données au sein de laquelle le runtime d’intégration lié doit être créé doit avoir une identité MSI ([Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)). Par défaut, les fabriques de données créées dans le portail Ibiza ou des applets de commande PowerShell disposeront d’une identité MSI ([Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview))
+créée implicitement. Toutefois, les fabriques de données créées avec un modèle Azure Resource Manager (ARM) ou un Kit de développement logiciel exignte que la propriété « Identité » soit définie pour assurer la création d’une identité MSI.
+
+5. La version du kit de développement logiciel ADF.net prenant en charge cette fonctionnalité est la version > = 1.1.0
+
+6. La version de Azure PowerShell prenant en charge cette fonctionnalité est la version > = 6.6.0 (AzureRM.DataFactoryV2 > = 0.5.7)
+
+  > [!NOTE]
+  > Cette fonctionnalité est uniquement disponible dans Azure Data Factory version 2 
 
 ## <a name="system-tray-icons-notifications"></a>Icônes de la barre d’état système/notifications
+
 Si vous déplacez le curseur sur les icônes/messages de notification de la barre d’état système, vous obtenez des informations supplémentaires sur l’état du runtime d’intégration autohébergé.
 
 ![Notifications de la barre d’état système](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
@@ -180,10 +244,10 @@ Le service hôte du runtime d’intégration autohébergé redémarre automatiqu
 
 Une fois le runtime d’intégration autohébergé enregistré avec succès, si vous souhaitez afficher ou mettre à jour les paramètres de proxy, utilisez le Gestionnaire de configuration du Runtime d'intégration.
 
-1.  Lancez le **Gestionnaire de configuration du Runtime d'intégration Microsoft**.
-2.  Basculez vers l’onglet **Paramètres** .
-3.  Cliquez sur le lien **Modifier** dans la section **Serveur proxy HTTP** pour lancer la boîte de dialogue **Définir le proxy HTTP**.
-4.  Après avoir cliqué sur le bouton **Suivant**, vous verrez une boîte de dialogue d’avertissement demandant l’autorisation d’enregistrer les paramètres de proxy et de redémarrer le service hôte du runtime d’intégration.
+1. Lancez le **Gestionnaire de configuration du Runtime d'intégration Microsoft**.
+   - Basculez vers l’onglet **Paramètres** .
+   - Cliquez sur le lien **Modifier** dans la section **Serveur proxy HTTP** pour lancer la boîte de dialogue **Définir le proxy HTTP**.
+   - Après avoir cliqué sur le bouton **Suivant**, vous verrez une boîte de dialogue d’avertissement demandant l’autorisation d’enregistrer les paramètres de proxy et de redémarrer le service hôte du runtime d’intégration.
 
 Vous pouvez afficher et mettre à jour le proxy HTTP à l’aide de l’outil Gestionnaire de Configuration.
 
@@ -229,8 +293,8 @@ Outre ces points, vous devez également vous assurer que Microsoft Azure figure 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Symptômes possibles des erreurs liées au pare-feu et au serveur proxy
 Si vous rencontrez l’une des erreurs suivantes, cela signifie que vous avez probablement mal configuré le serveur proxy ou le pare-feu, et que le runtime d'intégration autohébergé ne peut pas se connecter à Data Factory pour s’authentifier. Reportez-vous à la section précédente pour vous assurer que votre pare-feu et votre serveur proxy sont correctement configurés.
 
-1.  Lorsque vous tentez d’inscrire le runtime d’intégration autohébergé, vous recevez le message d’erreur suivant : Échec d'inscription de ce nœud Runtime d'intégration ! Vérifiez que la clé d’authentification est valide et que le service hôte d’intégration est en cours d’exécution sur cet ordinateur. "
-2.  Lorsque vous ouvrez le Gestionnaire de configuration du Runtime d'intégration, l’état indiqué est « **Déconnecté** » ou « **En cours de connexion** ». Lorsque vous affichez les journaux des événements Windows, sous « Observateur d’événements » > « Journaux des applications et services » > « Runtime d’intégration Microsoft », des messages d’erreur tels que le suivant s’affichent :
+1. Lorsque vous tentez d’inscrire le runtime d’intégration autohébergé, vous recevez le message d’erreur suivant : Échec d'inscription de ce nœud Runtime d'intégration ! Vérifiez que la clé d’authentification est valide et que le service hôte d’intégration est en cours d’exécution sur cet ordinateur. "
+   - Lorsque vous ouvrez le Gestionnaire de configuration du Runtime d'intégration, l’état indiqué est « **Déconnecté** » ou « **En cours de connexion** ». Lorsque vous affichez les journaux des événements Windows, sous « Observateur d’événements » > « Journaux des applications et services » > « Runtime d’intégration Microsoft », des messages d’erreur tels que le suivant s’affichent :
 
     ```
     Unable to connect to the remote server

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 4ff2b56afc4496b6344735b4e3c813b06cee17e3
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144582"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140678"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Avant la mise à niveau d’un cluster, utilisez la commande `az aks get-upgrade
 az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Sortie :
+Output:
 
 ```console
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
@@ -39,7 +39,7 @@ default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.
 Nous avons trois versions disponibles pour la mise à niveau : 1.9.1, 1.9.2 et 1.9.6. Nous pouvons utiliser la commande `az aks upgrade` pour mettre à niveau vers la dernière version disponible.  Pendant le processus de mise à niveau, AKS ajoute un nouveau nœud au cluster, puis soigneusement [isole et draine][kubernetes-drain] un seul nœud à la fois, afin de perturber au minimum les applications en cours d’exécution.
 
 > [!NOTE]
-> Lors de la mise à niveau d’un cluster AKS, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau de 1.8.x à 1.9.x ou de 1.9.x à 1.10.x sont autorisées, par contre celle de 1.8 à 1.10 ne l’est pas.
+> Lors de la mise à niveau d’un cluster AKS, les versions mineures de Kubernetes ne peuvent pas être ignorées. Par exemple, les mises à niveau de 1.8.x à 1.9.x ou de 1.9.x à 1.10.x sont autorisées, par contre celle de 1.8 à 1.10 ne l’est pas. Pour mettre à niveau la version 1.8 vers la version 1.10, vous devez commencer par effectuer une mise à niveau de la version 1.8 vers la version 1.9, puis effectuer une autre mise à niveau de la version 1.9 vers la version 1.10.
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6
@@ -107,7 +107,7 @@ Vérifiez si la mise à niveau a réussi avec la commande `az aks show`.
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-Sortie :
+Output:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

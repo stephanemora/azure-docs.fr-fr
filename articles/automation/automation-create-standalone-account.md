@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 77d766358135f5cdabfe7e9b62e54513c2604ed3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 021ab6cd29634c2e2f17234e188edce2a14449cf
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193564"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141085"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Création d’un compte Azure Automation autonome
 
@@ -68,7 +68,7 @@ Pour créer un compte Azure Automation dans le portail Azure, suivez les étapes
   >
   > ![Avertissement Ajouter un compte Automation](media/automation-create-standalone-account/create-account-without-perms.png)
   >
-1. Dans le panneau **Ajouter un compte Automation**, dans la zone **Nom**, saisissez un nom à attribuer au nouveau compte Automation.
+1. Dans le panneau **Ajouter un compte Automation**, dans la zone **Nom**, saisissez un nom à attribuer au nouveau compte Automation. Ce nom ne peut pas être modifié une fois choisi.
 1. Si vous possédez plus d’un abonnement, dans la zone **Abonnement**, spécifiez l’abonnement à utiliser pour le nouveau compte.
 1. Pour **Groupe de ressources**, saisissez ou sélectionnez un groupe de ressources nouveau ou existant.
 1. Pour **Emplacement**, sélectionnez un emplacement de centre de données Azure.
@@ -86,7 +86,7 @@ Pour créer un compte Azure Automation dans le portail Azure, suivez les étapes
 
 ### <a name="resources-included"></a>Ressources incluses
 
-Une fois le compte Automation créé, plusieurs ressources vous sont automatiquement créées. Suite à cette création, les runbooks peuvent être supprimés en toute sécurité si vous ne souhaitez pas les conserver. Les comptes d’identification peuvent être utilisés pour authentifier votre compte dans un runbook et doivent être conservés sauf si vous en créez un autre ou si vous n’en avez pas besoin. Le tableau ci-dessous récapitule les ressources du compte d’identification.
+Une fois le compte Automation créé, plusieurs ressources vous sont automatiquement créées. Suite à cette création, ces runbooks peuvent être supprimés en toute sécurité si vous ne souhaitez pas les conserver. Les comptes d’identification peuvent être utilisés pour authentifier votre compte dans un runbook et doivent être conservés sauf si vous en créez un autre ou si vous n’en avez pas besoin. Le tableau ci-dessous récapitule les ressources du compte d’identification.
 
 | Ressource | Description |
 | --- | --- |

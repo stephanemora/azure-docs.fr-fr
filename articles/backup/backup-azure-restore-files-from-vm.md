@@ -7,14 +7,14 @@ manager: shivamg
 keywords: récupération au niveau élément ; récupération de fichiers à partir d’une sauvegarde de machine virtuelle Azure ; restaurer des fichiers à partir d’une machine virtuelle Azure
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: fecdb54af58faaf601ab74f89039a47e0d32e650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493379"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616907"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -33,9 +33,13 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
 2. Dans le menu de la machine virtuelle, cliquez sur **Sauvegarder** pour ouvrir le tableau de bord de sauvegarde.
 
-    ![Ouvrir l’élément de sauvegarde du coffre Recovery Services.](./media/backup-azure-restore-files-from-vm/open-vault-from-vm.png)
+    ![Ouvrir l’élément de sauvegarde du coffre Recovery Services.](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. Dans le menu du tableau de bord de sauvegarde, cliquez sur **Récupération de fichiers** pour ouvrir son menu.
+3. Dans le menu du tableau de bord de sauvegarde, cliquez sur **Récupération de fichiers**.
+
+    ![Bouton Récupération de fichiers](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+
+    Le menu **Récupération de fichiers** s’ouvre.
 
     ![Menu de récupération de fichiers](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
@@ -95,7 +99,7 @@ Après avoir identifié les fichiers et les avoir copiés dans un emplacement de
 
 ![Démonter les disques](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
-Une fois les disques démontés, vous recevez un message vous informant que l’opération a bien été effectuée. L’actualisation de la connexion de sorte que vous pouvez supprimer les disques peut prendre quelques minutes.
+Une fois les disques démontés, vous recevez un message. L’actualisation de la connexion de sorte que vous pouvez supprimer les disques peut prendre quelques minutes.
 
 Sous Linux, une fois la connexion au point de récupération interrompue, le système d’exploitation ne supprime pas les chemins d’accès de montage correspondants automatiquement. Les chemins d’accès de montage existent en tant que volumes « orphelins » et ils sont visibles, mais génèrent une erreur lorsque vous accédez aux fichiers ou écrivez dessus. Ils peuvent être supprimés manuellement. Le script, lorsqu’il est exécuté, identifie de tels volumes existants à partir des points de récupération précédents et les nettoie après accord.
 
@@ -213,7 +217,7 @@ Si vous rencontrez des problèmes lors de la récupération de fichiers à parti
 | Sortie du script exécutable : *Exception lors de la connexion à la cible* |Le script n’est pas en mesure d’accéder au point de récupération.    | Vérifiez si l’ordinateur remplit les conditions d’accès précédentes. |  
 | Sortie du script exécutable : *La cible a déjà été connectée via une session iSCSI.* | Le script a déjà été exécuté sur le même ordinateur et les lecteurs ont été connectés. | Les volumes du point de récupération ont déjà été connectés. Ils NE peuvent PAS être montés avec les mêmes lettres de lecteur que celles de la machine virtuelle d’origine. Parcourez tous les volumes disponibles dans l’Explorateur de fichiers pour votre fichier. |
 | Sortie du script exécutable : *Ce script n’est pas valide, car les disques ont été démontés via le portail/ont dépassé la limite de 12 h. Téléchargez un nouveau script à partir du portail.* |    Les disques ont été démontés à partir du portail ou la limite de 12 h a été dépassée | Ce fichier exécutable en particulier n’est plus valide et ne peut pas être exécuté. Si vous souhaitez accéder aux fichiers de ce point de récupération, visitez le portail pour un obtenir un nouveau fichier exécutable.|
-| Sur l’ordinateur sur lequel est exécuté le fichier .exe : les nouveaux volumes ne sont pas démontés après avoir cliqué sur le bouton Démonter | L’initiateur iSCSI de l’ordinateur ne répond pas/actualise sa connexion à la cible et met à jour le cache. |    Attendez quelques minutes après avoir cliqué sur le bouton Démonter. Si les nouveaux volumes ne sont toujours pas démontés, parcourez tous les volumes. Cela force l’initiateur à actualiser la connexion et le volume est démonté avec un message d’erreur indiquant que le disque n’est pas disponible.|
+| Sur l’ordinateur sur lequel est exécuté le fichier .exe : les nouveaux volumes ne sont pas démontés après avoir cliqué sur le bouton Démonter | L’initiateur iSCSI de l’ordinateur ne répond pas, ou n’actualise pas sa connexion à la cible et ne maintient pas le cache. |  Après avoir cliqué sur **Démonter**, patientez quelques minutes. Si les nouveaux volumes ne sont pas démontés, parcourez tous les volumes. Le fait de parcourir tous les volumes force l’initiateur à actualiser la connexion, et le volume est démonté avec un message d’erreur indiquant que le disque n’est pas disponible.|
 | Sortie du script exécutable : Le script est exécuté avec succès, mais le message « New volumes attached » (Nouveaux volumes connectés) ne s’affiche pas dans la sortie du script |    Il s’agit d’une erreur temporaire.    | Les volumes seraient déjà connectés. Ouvrez l’Explorateur pour parcourir les volumes. Si vous utilisez toujours le même ordinateur pour exécuter les scripts, essayez de le redémarrer et la liste devrait s’afficher lors des prochaines exécutions du fichier exécutable. |
 | Pour Linux : impossible d’afficher les volumes souhaités | Le système d’exploitation de la machine sur laquelle est exécuté le script peut ne pas reconnaître le système de fichiers sous-jacent de la machine virtuelle protégée | Vérifiez si le point de récupération est cohérent en cas d’incident ou cohérent avec les fichiers. S’il est cohérent avec les fichiers, exécutez le script sur une autre machine dont le système d’exploitation reconnaît le système de fichiers de la machine virtuelle protégée |
 | Pour Windows : impossible d’afficher les volumes souhaités | Les disques ont peut-être été attachés, mais les volumes n’ont pas été configurés. | À partir de l’écran de gestion de disque, identifiez les disques supplémentaires relatifs au point de récupération. Si l’état de l’un de ces disques est hors connexion, essayez de le mettre en ligne en cliquant avec le bouton droit sur le disque, puis sur « En ligne ».|

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
-ms.openlocfilehash: 463a00823997f1acfb65fdd739a093e556982a61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: f7c7877768e2dc06e73f8c91016edd521151a11c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411948"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42139880"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extension du pilote GPU NVIDIA pour Windows
 
@@ -63,7 +63,8 @@ Le JSON suivant illustre le schéma pour l’extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -77,7 +78,7 @@ Le JSON suivant illustre le schéma pour l’extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | chaîne |
 | Type | NvidiaGpuDriverWindows | chaîne |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.2 | int |
 
 
 ## <a name="deployment"></a>Déploiement
@@ -103,7 +104,8 @@ L’exemple suivant suppose que l’extension est imbriquée dans la ressource d
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.2",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,7 +122,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverWindows" `
     -ExtensionType "NvidiaGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.2 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.2 `
   --settings '{ `
   }'
 ```
@@ -164,7 +166,8 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | L’opération a réussi |
 | 1 | L’opération a réussi. Redémarrage requis. |
-| 4, 10 | Délai d’expiration de l’opération. | Réessayez l’opération.
+| 100 | L’opération n’est pas prise en charge ou n’a pas pu être effectuée. | Causes possibles : la version de PowerShell n’est pas prise en charge, la machine virtuelle n’est pas de série N, le téléchargement des données a échoué. Vérifiez les fichiers journaux pour déterminer la cause de l’erreur. |
+| 240, 840 | Délai d’expiration de l’opération. | Réessayez l’opération. |
 | -1 | Une exception s’est produite. | Vérifiez les fichiers journaux pour déterminer la cause de l’exception. |
 | -5x | Opération interrompue en raison d’un redémarrage en attente. | Redémarrez la machine virtuelle. L’installation se poursuivra après le redémarrage. La désinstallation doit être appelée manuellement. |
 

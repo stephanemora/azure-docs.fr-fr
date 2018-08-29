@@ -5,16 +5,16 @@ description: Les clés de compte de stockage assurent une intégration transpare
 ms.topic: article
 services: key-vault
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
-ms.date: 10/12/2017
-ms.openlocfilehash: 4f42a47a6d934bf0538efccbcf7f057fd28e2c03
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 08/21/2017
+ms.openlocfilehash: 0112d48647c031845bc89ccebfcdd40954c59f14
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179586"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42145161"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Clés de compte de stockage Azure Key Vault
 
@@ -38,8 +38,8 @@ Key Vault exécute plusieurs fonctions de gestion interne à votre place lorsque
     - Azure Key Vault régénère (fait tourner) les clés régulièrement.
     - Les valeurs de clés ne sont jamais retournées en réponse à l’appelant.
     - Azure Key Vault gère les clés des comptes de stockage ainsi que des comptes de stockage Classic.
-- Azure Key Vault permet au propriétaire du coffre / de l’objet (vous) de créer des définitions de SAP (de compte ou de service).
-    - La valeur de la SAP, créée à l’aide de sa définition, est retournée sous forme de secret par le biais du chemin d’accès de l’URI REST. Pour plus d’informations, consultez la page [Opérations du compte de stockage Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations).
+- Azure Key Vault permet au propriétaire du coffre/de l’objet (vous) de créer des définitions de SAP (signatures d’accès partagé, de compte ou de service).
+    - La valeur de la SAP, créée à l’aide de sa définition, est retournée sous forme de secret par le biais du chemin d’accès de l’URI REST. Pour plus d’informations, consultez les opérations de définition de SAP dans [Informations de référence sur l’API REST Azure Key Vault](/rest/api/keyvault).
 
 ## <a name="naming-guidance"></a>Aide pour l’affectation de noms
 
@@ -97,16 +97,18 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 ## <a name="getting-started"></a>Prise en main
 
-### <a name="setup-for-role-based-access-control-rbac-permissions"></a>Configuration des autorisations de contrôle d’accès en fonction des permissions (RBAC)
+### <a name="give-key-vault-access-to-your-storage-account"></a>Octroyer un accès Key Vault à votre compte de stockage 
 
-L’identité de l’application Azure Key Vault a besoin d’autorisations pour *répertorier* et *regénérer* des clés pour un compte de stockage. Configurez-les en suivant les étapes ci-dessous :
+Comme de nombreuses applications, Key Vault est inscrit avec Azure AD pour permettre l’utilisation d’OAuth afin d’accéder aux autres services. Pendant l’inscription, un objet [principal de service](/azure/active-directory/develop/app-objects-and-service-principals) est créé afin de représenter l’identité de l’application au moment de l’exécution. Le principal du service est également utilisé pour autoriser l’identité de l’application à accéder à une autre ressource, par le biais du contrôle d’accès en fonction du rôle.
+
+L’identité de l’application Azure Key Vault a besoin d’autorisations afin de *répertorier* et *regénérer* des clés pour votre compte de stockage. Configurez-les en suivant les étapes ci-dessous :
 
 ```powershell
 # Get the resource ID of the Azure Storage Account you want to manage.
 # Below, we are fetching a storage account using Azure Resource Manager
 $storage = Get-AzureRmStorageAccount -ResourceGroupName "mystorageResourceGroup" -StorageAccountName "mystorage"
 
-# Get ObjectId of Azure Key Vault Identity
+# Get Application ID of Azure Key Vault's service principal
 $servicePrincipal = Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0be7a4093
 
 # Assign Storage Key Operator role to Azure Key Vault Identity
@@ -118,7 +120,7 @@ New-AzureRmRoleAssignment -ObjectId $servicePrincipal.Id -RoleDefinitionName 'St
 
 ## <a name="working-example"></a>Exemple d’utilisation
 
-L’exemple suivant montre la création d’un compte de stockage Azure managé Key Vault et les définitions de signature d’accès partagé (SAP) associées.
+L’exemple suivant montre la création d’un compte de stockage Azure managé Key Vault et des définitions SAP associées.
 
 ### <a name="prerequisite"></a>Configuration requise
 
@@ -205,8 +207,9 @@ Notez que la tentative d’accès avec *$readSasToken* échoue, mais que nous so
 $context1 = New-AzureStorageContext -SasToken $readSasToken -StorageAccountName $storage.StorageAccountName
 $context2 = New-AzureStorageContext -SasToken $writeSasToken -StorageAccountName $storage.StorageAccountName
 
-Set-AzureStorageBlobContent -Container containertest1 -File "abc.txt" -Context $context1
-Set-AzureStorageBlobContent -Container cont1-file "file.txt" -Context $context2
+# Ensure the txt file in command exists in local path mentioned
+Set-AzureStorageBlobContent -Container containertest1 -File "./abc.txt" -Context $context1
+Set-AzureStorageBlobContent -Container cont1-file "./file.txt" -Context $context2
 ```
 
 Vous pouvez accéder au contenu blob de stockage avec le jeton SAP qui a un accès en écriture.
@@ -232,7 +235,7 @@ Key Vault doit vérifier que l’identité a l’autorisation de *régénérer* 
 - Key Vault liste les autorisations de contrôle d’accès en fonction du rôle sur la ressource du compte de stockage.
 - Key Vault valide la réponse par le rapprochement d’actions et d’inactions avec des expressions régulières.
 
-Recherchez des exemples de prise en charge dans la section relative aux [exemples de clés de comptes de stockage gérés de Key Vault](https://github.com/Azure/azure-sdk-for-net/blob/psSdkJson6/src/SDKs/KeyVault/dataPlane/Microsoft.Azure.KeyVault.Samples/samples/HelloKeyVault/Program.cs#L167).
+Recherchez des exemples de prise en charge dans la section relative aux [exemples de clés de comptes de stockage gérés de Key Vault](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=).
 
 Si l’identité n’a pas d’autorisation de *régénération* ou que l’identité interne de Key Vault n’a pas l’autorisation de *répertorier* ou de *régénérer* des éléments, la demande d’intégration échoue en renvoyant un message et un code d’erreur appropriés.
 

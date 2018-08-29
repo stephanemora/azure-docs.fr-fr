@@ -3,7 +3,7 @@ title: Recevoir des événements provenant des hubs d’événements Azure avec 
 description: Suivez ce didacticiel pour recevoir des événements provenant des hubs d’événements Azure avec .NET Framework.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
-ms.author: sethm
-ms.openlocfilehash: 4f74b0f90795362d3e509fdbd33e5f358227f147
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: shvija
+ms.openlocfilehash: 15c2ec0aa8b795a826eae29026b7039491dbb64f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436869"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140902"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Recevoir des événements provenant d’Azure Event Hubs avec .NET Framework
 
@@ -40,7 +40,7 @@ Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Création d’un espace de noms Event Hubs et d’un concentrateur d’événements
 
-La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un concentrateur d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md), puis passez aux étapes suivantes de ce didacticiel.
+La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un concentrateur d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md), puis passez aux étapes suivantes de ce didactiel.
 
 ## <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
@@ -52,7 +52,7 @@ Pour utiliser [l’hôte du processeur d’événements][EventProcessorHost], vo
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
 
-3. Dans le volet **Créer un compte de stockage** , tapez un nom pour votre compte de stockage. Choisissez un abonnement Azure, un groupe de ressources et l’emplacement où créer la ressource. Cliquez ensuite sur **Créer**.
+3. Dans le volet **Créer un compte de stockage** , tapez un nom pour votre compte de stockage. Choisissez un abonnement Azure, un groupe de ressources et un emplacement où créer la ressource. Cliquez ensuite sur **Créer**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
@@ -160,11 +160,11 @@ Pour utiliser [l’hôte du processeur d’événements][EventProcessorHost], vo
 
 7. Exécutez le programme et assurez-vous qu’il n’y a aucune erreur.
   
-Félicitations ! Vous recevez maintenant les messages d’un concentrateur d’événements à l’aide de l’hôte du processeur d’événements.
+Félicitations ! Vous recevez maintenant les messages d’un concentrateur d’événements à l’aide de l’hôte du processeur d’événements.
 
 
 > [!NOTE]
-> Ce didacticiel utilise une seule instance de [EventProcessorHost][EventProcessorHost]. Pour augmenter le débit, il est recommandé d’exécuter plusieurs instances [EventProcessorHost][EventProcessorHost], comme illustré dans l’exemple de [traitement d'événement mis à l'échelle][traitement d'événement mis à l'échelle]. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d’équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup** . Lors de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances de [EventProcessorHost][EventProcessorHost] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d’informations sur ces sujets, consultez les rubriques [Vue d’ensemble d’Event Hubs][Event Hubs overview] et [Guide de programmation Event Hubs][Event Hubs Programming Guide].
+> Ce didacticiel utilise une seule instance de [EventProcessorHost][EventProcessorHost]. Pour augmenter le débit, il est recommandé d’exécuter plusieurs instances [d’EventProcessorHost][EventProcessorHost], comme illustré dans l’exemple de [traitement d’événement mis à l’échelle](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3). Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d’équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup** . Lors de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances de [EventProcessorHost][EventProcessorHost] basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés. Pour plus d’informations sur ces sujets, consultez les rubriques [Vue d’ensemble d’Event Hubs][Event Hubs overview] et [Guide de programmation Event Hubs][Event Hubs Programming Guide].
 > 
 > 
 
@@ -174,7 +174,7 @@ Vous avez conçu une application opérationnelle qui crée un concentrateur d’
 
 * [Présentation de l’hôte du processeur d’événements][Event Processor Host]
 * [Vue d’ensemble des hubs d’événements][Event Hubs overview]
-* [FAQ sur les hubs d'événements](event-hubs-faq.md)
+* [FAQ sur les hubs d’événements](event-hubs-faq.md)
 
 <!-- Images. -->
 [19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png

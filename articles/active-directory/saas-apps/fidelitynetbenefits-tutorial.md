@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2018
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: d11164fafa3c05c8c61c352f4d6be6607fa52ebb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a1308035a8b758a9e2f824de3a78c03103c19931
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425253"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42146143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Didacticiel : Intégration d’Azure Active Directory à Fidelity NetBenefits
 
@@ -50,29 +50,32 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de Fidelity NetBenefits à partir de la galerie
-1. Configuration et test de l’authentification unique Azure AD
+2. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-fidelity-netbenefits-from-the-gallery"></a>Ajout de Fidelity NetBenefits à partir de la galerie
+
 Pour configurer l’intégration de Fidelity NetBenefits à Azure AD, vous devez ajouter Fidelity NetBenefits à partir de la galerie à votre liste d’applications SaaS gérées.
 
 **Pour ajouter Fidelity NetBenefits depuis la galerie, procédez comme suit :**
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
+1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
     ![Bouton Azure Active Directory][1]
 
-1. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
     ![Panneau Applications d’entreprise][2]
-    
-1. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+
+3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application][3]
 
-1. Dans la zone de recherche, tapez **Fidelity NetBenefits**, sélectionnez **Fidelity NetBenefits** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **Fidelity NetBenefits**, sélectionnez **Fidelity NetBenefits** dans le volet des résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![Fidelity NetBenefits dans la liste des résultats](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_addfromgallery.png)
 
@@ -87,10 +90,10 @@ Dans Fidelity NetBenefits, le mappage de **l’utilisateur** doit être effectu�
 Pour configurer et tester l’authentification unique Azure AD avec Fidelity NetBenefits, vous devez suivre les indications des sections suivantes :
 
 1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-1. **[Créer un utilisateur de test Fidelity NetBenefits](#create-a-fidelity-netbenefits-test-user)** pour disposer d’un équivalent à Britta Simon dans Fidelity NetBenefits lié à la représentation Azure AD de l’utilisateur.
-1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-1. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Créer un utilisateur de test Fidelity NetBenefits](#create-a-fidelity-netbenefits-test-user)** pour disposer d’un équivalent à Britta Simon dans Fidelity NetBenefits lié à la représentation Azure AD de l’utilisateur.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
@@ -102,11 +105,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Lien Configurer l’authentification unique][4]
 
-1. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
- 
+2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
+
     ![Boîte de dialogue Authentification unique](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_samlbase.png)
 
-1. Dans la section **Domaine et URL Fidelity NetBenefits**, procédez comme suit :
+3. Dans la section **Domaine et URL Fidelity NetBenefits**, procédez comme suit :
 
     ![Informations d’authentification unique dans Domaine et URL Fidelity NetBenefits](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_url.png)
 
@@ -116,35 +119,28 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     Pour l’environnement de production : `urn:sp:fidelity:geninbndnbparts20`
 
-    b. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant :
+    b. Dans la zone de texte **URL de réponse**, entrez une URL fournie par Fidelity lors de l’implémentation ou contactez votre responsable de service client Fidelity assigné.
 
-    Pour l’environnement de test : `https://loginxq1.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
-
-    Pour l’environnement de production : `https://login.fidelity.com/ftgw/Fas/NBExternal/NBPartSSO/InboundSSO/consumer/sp/ACS.saml2`
- 
-1. L’application Fidelity NetBenefits attend les assertions SAML dans un format spécifique. Nous avons mappé **l’identificateur d’utilisateur** avec **user.userprincipalname**. Vous pouvez le mapper avec **employeeid** ou toute autre revendication utilisée par votre organisation comme **identificateur d’utilisateur**. La capture d’écran suivante montre un exemple.
+4. L’application Fidelity NetBenefits attend les assertions SAML dans un format spécifique. Nous avons mappé **l’identificateur d’utilisateur** avec **user.userprincipalname**. Vous pouvez le mapper avec **employeeid** ou toute autre revendication utilisée par votre organisation comme **identificateur d’utilisateur**. La capture d’écran suivante montre un exemple.
 
     ![Attribut de Fidelity NetBenefits](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_attribute.png)
 
     >[!Note]
-    >Fidelity NetBenefits prend en charge la fédération statique et dynamique. Par statique, nous entendons que l’application n’utilisera pas l’attribution d’utilisateurs juste-à-temps d’après SAML. Par dynamique, nous entendons qu’elle prendra en charge l’attribution d’utilisateurs juste-à-temps. Pour utiliser l’attribution juste-à-temps, les clients doivent ajouter d’autres revendications dans Azure AD comme la date de naissance de l’utilisateur, etc. Ces détails sont fournis par [l’équipe de support de Fidelity NetBenefits](mailto:SSOMaintenance@fmr.com) et doivent activer la fédération dynamique pour votre instance.
-    
-1. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
+    >Fidelity NetBenefits prend en charge la fédération statique et dynamique. Par statique, nous entendons que l’application n’utilisera pas l’attribution d’utilisateurs juste-à-temps d’après SAML. Par dynamique, nous entendons qu’elle prendra en charge l’attribution d’utilisateurs juste-à-temps. Pour l’utiliser, les clients doivent ajouter d’autres revendications dans Azure AD comme la date de naissance de l’utilisateur, etc. Ces détails sont fournis par votre **responsable de service client Fidelity** assigné et doivent activer la fédération dynamique pour votre instance.
 
-    ![Lien Téléchargement de certificat](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_certificate.png) 
+5. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
-1. Cliquez sur le bouton **Enregistrer** .
+    ![Lien Téléchargement de certificat](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_certificate.png)
+
+6. Cliquez sur le bouton **Enregistrer** .
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/fidelitynetbenefits-tutorial/tutorial_general_400.png)
 
-1. Dans la section **Configuration de Fidelity NetBenefits**, cliquez sur **Configurer Fidelity NetBenefits** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
+7. Dans la section **Configuration de Fidelity NetBenefits**, cliquez sur **Configurer Fidelity NetBenefits** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez l’**ID d’entité SAML et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide.**
 
-    ![Configuration de Fidelity NetBenefits](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png) 
+    ![Configuration de Fidelity NetBenefits](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png)
 
-1. Pour configurer l’authentification unique côté **Fidelity NetBenefits**, vous devez envoyer le fichier **XML des métadonnées** téléchargé, **l’URL du service d’authentification unique SAML** et **l’ID d’entité SAML** à [l’équipe de support de Fidelity NetBenefits](mailto:SSOMaintenance@fmr.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
-
-> [!TIP]
-> Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+8. Pour configurer l’authentification unique côté **Fidelity NetBenefits**, vous devez envoyer le fichier **XML des métadonnées** téléchargé, **l’URL du service d’authentification unique SAML** et **l’ID d’entité SAML** à **votre responsable de service client Fidelity assigné**. Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -158,15 +154,15 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Azure Active Directory](./media/fidelitynetbenefits-tutorial/create_aaduser_01.png)
 
-1. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
+2. Pour afficher la liste des utilisateurs, accédez à **Utilisateurs et groupes**, puis cliquez sur **Tous les utilisateurs**.
 
     ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](./media/fidelitynetbenefits-tutorial/create_aaduser_02.png)
 
-1. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
+3. Pour ouvrir la boîte de dialogue **Utilisateur**, cliquez sur **Ajouter** en haut de la boîte de dialogue **Tous les utilisateurs**.
 
     ![Bouton Ajouter](./media/fidelitynetbenefits-tutorial/create_aaduser_03.png)
 
-1. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
+4. Dans la boîte de dialogue **Utilisateur**, procédez comme suit :
 
     ![Boîte de dialogue Utilisateur](./media/fidelitynetbenefits-tutorial/create_aaduser_04.png)
 
@@ -180,53 +176,51 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
   
 ### <a name="create-a-fidelity-netbenefits-test-user"></a>Créer un utilisateur de test Fidelity NetBenefits
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Fidelity NetBenefits. Dans le cadre d’une fédération statique, veuillez collaborer avec [l’équipe de support de Fidelity NetBenefits](mailto:SSOMaintenance@fmr.com) pour créer des utilisateurs dans la plateforme Fidelity NetBenefits. Ces utilisateurs doivent être créés et activés avant d’utiliser l’authentification unique. 
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Fidelity NetBenefits. Dans le cadre d’une fédération statique, veuillez collaborer avec votre **responsable de service client Fidelity** assigné pour créer des utilisateurs dans la plateforme Fidelity NetBenefits. Ces utilisateurs doivent être créés et activés avant d’utiliser l’authentification unique.
 
-Dans le cadre d’une fédération dynamique, les utilisateurs sont créés à l’aide de l’attribution juste-à-temps. Pour l’utiliser, les clients doivent ajouter d’autres revendications dans Azure AD comme la date de naissance de l’utilisateur, etc. Ces détails sont fournis par [l’équipe de support de Fidelity NetBenefits](mailto:SSOMaintenance@fmr.com) et doivent activer la fédération dynamique pour votre instance.
+Dans le cadre d’une fédération dynamique, les utilisateurs sont créés à l’aide de l’attribution juste-à-temps. Pour l’utiliser, les clients doivent ajouter d’autres revendications dans Azure AD comme la date de naissance de l’utilisateur, etc. Ces détails sont fournis par votre **responsable de service client Fidelity** assigné et doivent activer la fédération dynamique pour votre instance.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
 Dans cette section, vous autorisez Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Fidelity NetBenefits.
 
-![Attribuer le rôle utilisateur][200] 
+![Attribuer le rôle utilisateur][200]
 
 **Pour affecter Britta Simon à Fidelity NetBenefits, procédez comme suit :**
 
 1. Dans le portail Azure, ouvrez la vue des applications, accédez à la vue des répertoires, accédez à **Applications d’entreprise**, puis cliquez sur **Toutes les applications**.
 
-    ![Affecter des utilisateurs][201] 
+    ![Affecter des utilisateurs][201]
 
-1. Dans la liste des applications, sélectionnez **Fidelity NetBenefits**.
+2. Dans la liste des applications, sélectionnez **Fidelity NetBenefits**.
 
     ![Lien Fidelity NetBenefits dans la liste des applications](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_app.png)  
 
-1. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
     ![Lien « Utilisateurs et groupes »][202]
 
-1. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
     ![Volet Ajouter une attribution][203]
 
-1. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste des utilisateurs.
 
-1. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
+6. Cliquez sur le bouton **Sélectionner** dans la boîte de dialogue **Utilisateurs et groupes**.
 
-1. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
-    
+7. Cliquez sur le bouton **Affecter** dans la boîte de dialogue **Ajouter une affectation**.
+
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Si vous cliquez sur la mosaïque Fidelity NetBenefits dans le volet d’accès, vous êtes automatiquement connecté à l’application Fidelity NetBenefits.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -241,4 +235,3 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 [201]: ./media/fidelitynetbenefits-tutorial/tutorial_general_201.png
 [202]: ./media/fidelitynetbenefits-tutorial/tutorial_general_202.png
 [203]: ./media/fidelitynetbenefits-tutorial/tutorial_general_203.png
-

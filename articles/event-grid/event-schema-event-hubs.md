@@ -3,21 +3,22 @@ title: Schéma d’événements de hubs d’événements Azure Event Grid
 description: Décrit les propriétés qui sont fournies pour les événements de hubs d’événements avec Azure Event Grid.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6fac70a8837245e6d60a5a61db8a22ab718d4b49
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e301f3895126ed52b8d4c1f046f69dfcedb3563c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302659"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141290"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Schéma des événements Azure Event Grid des hubs d’événements
 
 Cet article fournit les propriétés et le schéma des événements de hubs d’événements. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
+
+Pour obtenir la liste des exemples de scripts et des didacticiels, consultez [Source d’événement Event Hubs](event-sources.md#event-hubs).
 
 ### <a name="available-event-types"></a>Types d’événement disponibles
 

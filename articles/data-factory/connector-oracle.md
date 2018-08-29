@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 5039399ac875add02319e1a745d99344956c7bee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860212"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42312107"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,12 +58,18 @@ Les propriétés prises en charge pour le service lié Oracle sont les suivantes
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Oracle**. | OUI |
-| connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Type de connexion pris en charge** : vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | OUI |
+| Type | La propriété type doit être définie sur **Oracle**. | Oui |
+| connectionString | Spécifie les informations requises pour se connecter à l’instance Oracle Database. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md).<br><br>**Type de connexion pris en charge** : vous pouvez utiliser le **SID Oracle** ou le **nom du service Oracle** pour identifier votre base de données :<br>- Si vous utilisez le SID : `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Si vous utilisez le nom du service : `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 >[!TIP]
 >Si vous recevez un message d’erreur indiquant « ORA-01025: UPI parameter out of range » (ORA-01025 : paramètre UPI en dehors de la plage) et que votre version Oracle est la version 8i, ajoutez `WireProtocolMode=1` à votre chaîne de connexion, puis réessayez.
+
+Pour activer le chiffrement sur la connexion Oracle, deux options s’offrent à vous :
+
+1.  Du côté du serveur Oracle, accédez à Oracle Advanced Security (OAS) et configurez les paramètres de chiffrement, qui prennent en charge les chiffrements Triple DES (3DES) et Advanced Encryption Standard (AES), reportez-vous aux détails [ici](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Le connecteur Oracle ADF négocie automatiquement la méthode de chiffrement pour utiliser celle que vous configurez dans OAS lors de l’établissement de connexion à Oracle.
+
+2.  Côté client, vous pouvez ajouter `EncryptionMethod=1` dans la chaîne de connexion. Cette opération utilise SSL/TLS comme méthode de chiffrement. Pour l’utiliser, vous devez désactiver les paramètres de chiffrement non SSL dans OAS du côté serveur Oracle pour éviter tout conflit de chiffrement.
 
 **Exemple :**
 
@@ -94,8 +100,8 @@ Pour copier des données depuis et vers Oracle, affectez la valeur **OracleTable
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **OracleTable**. | OUI |
-| TableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. | OUI |
+| Type | La propriété type du jeu de données doit être définie sur **OracleTable**. | Oui |
+| TableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. | Oui |
 
 **Exemple :**
 
@@ -126,7 +132,7 @@ Pour copier des données d’Oracle, définissez le type de source dans l’acti
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **OracleSource**. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **OracleSource**. | Oui |
 | oracleReaderQuery | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | Non  |
 
 Si vous ne spécifiez pas « oracleReaderQuery », les colonnes définies dans la section « structure » du jeu de données sont utilisées pour construire une requête (`select column1, column2 from mytable`) à exécuter sur la base de données Oracle. Si la définition du jeu de données ne possède pas de « structure », toutes les colonnes de la table sont sélectionnées.
@@ -169,7 +175,7 @@ Pour copier des données vers Oracle, définissez **OracleSink** comme type de r
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **OracleSink**. | OUI |
+| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **OracleSink**. | Oui |
 | writeBatchSize | Insère des données dans la table SQL lorsque la taille du tampon atteint writeBatchSize<br/>Valeurs autorisées : integer (nombre de lignes). |Non (valeur par défaut : 10 000) |
 | writeBatchTimeout | Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : 00:30:00 (30 minutes). | Non  |
 | preCopyScript | Spécifiez une requête SQL pour l’activité de copie à exécuter avant l’écriture de données dans Oracle à chaque exécution. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. | Non  |

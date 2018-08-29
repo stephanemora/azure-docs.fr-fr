@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e4e3d331665ddb6c45e47ce8b2cf8170ca622690
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 43552ae2d7601a63156ac74104b85a90326ff473
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089789"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140458"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Configuration des journaux des flux de groupe de sécurité réseau avec l’interface de ligne de commande Azure
 
 > [!div class="op_single_selector"]
-> - [portail Azure](network-watcher-nsg-flow-logging-portal.md)
+> - [Portail Azure](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [interface de ligne de commande Azure](network-watcher-nsg-flow-logging-cli.md)
 > - [API REST](network-watcher-nsg-flow-logging-rest.md)
@@ -51,7 +51,9 @@ La commande d’activation des journaux de flux est illustrée dans l’exemple 
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-Le compte de stockage que vous spécifiez ne peut pas avoir de règles réseau configurées qui limitent l’accès réseau pour les services Microsoft ou des réseaux virtuels spécifiques uniquement. Le compte de stockage peut être dans le même abonnement Azure que le groupe de sécurité réseau pour lequel vous activez le journal de flux, ou dans un autre abonnement. Si vous utilisez des abonnements différents, ils doivent tous deux être associés au même locataire Azure Active Directory. Le compte que vous utilisez pour chaque abonnement doit avoir les [autorisations nécessaires](required-rbac-permissions.md).
+Le compte de stockage que vous spécifiez ne peut pas avoir de règles réseau configurées qui limitent l’accès réseau pour les services Microsoft ou des réseaux virtuels spécifiques uniquement. Le compte de stockage peut être dans le même abonnement Azure que le groupe de sécurité réseau pour lequel vous activez le journal de flux, ou dans un autre abonnement. Si vous utilisez des abonnements différents, ils doivent tous deux être associés au même locataire Azure Active Directory. Le compte que vous utilisez pour chaque abonnement doit avoir les [autorisations nécessaires](required-rbac-permissions.md). 
+
+Si le compte de stockage se trouve dans un autre groupe de ressources ou un autre abonnement que le groupe de sécurité réseau, spécifiez l’ID complet du compte de stockage plutôt que son nom. Par exemple, si le compte de stockage figure dans un groupe de ressources nommé *RG-Storage*, au lieu de spécifier *storageAccountName* dans la commande précédente, vous indiqueriez */subscriptions/{SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
 
 ## <a name="disable-network-security-group-flow-logs"></a>Désactiver les journaux des flux de groupe de sécurité réseau
 

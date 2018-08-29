@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2017
+ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c7d8631a8e7b99cca8f84ea1011c361db01e399e
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611369"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42140657"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes
 
@@ -155,7 +155,7 @@ Cette catégorie ne peut pas détecter les erreurs qui surviennent directement p
 
 #### <a name="cloud-to-device-twin-operations"></a>Opérations jumelles cloud à appareil
 
-La catégorie des opérations jumelles cloud-à-appareil effectue le suivi des événements initiés par le service sur des jumeaux d’appareil. Ces opérations peuvent inclure ; obtenir un jumeau, mettre à jour les propriétés signalées et s’abonner aux propriétés souhaitées
+La catégorie des opérations jumelles cloud-à-appareil effectue le suivi des événements initiés par le service sur des jumeaux d’appareil. Ces opérations peuvent inclure : obtenir un jumeau, mettre à jour ou remplacer des balises, et mettre à jour ou remplacer les propriétés souhaitées. 
 
 ```json
 {
@@ -172,7 +172,7 @@ La catégorie des opérations jumelles cloud-à-appareil effectue le suivi des �
 
 #### <a name="device-to-cloud-twin-operations"></a>Opérations jumelles appareil à cloud
 
-La catégorie des opérations jumelles appareil-à-cloud effectue le suivi des événements initiés par l’appareil sur des jumeaux d’appareil. Ces opérations peuvent inclure : obtenir un jumeau, mettre à jour ou remplacer des balises, et mettre à jour ou remplacer les propriétés souhaitées. 
+La catégorie des opérations jumelles appareil-à-cloud effectue le suivi des événements initiés par l’appareil sur des jumeaux d’appareil. Ces opérations peuvent inclure l’obtention d’un jumeau, la mise à jour les propriétés signalées et l’abonnement aux propriétés souhaitées.
 
 ```json
 {
@@ -223,7 +223,7 @@ La catégorie des opérations de travaux génère un rapport sur les demandes de
 
 #### <a name="direct-methods"></a>Méthodes directes
 
-La catégorie des méthodes directes effectue le suivi des interactions demande-réponse envoyées à des appareils individuels. Ces demandes sont lancées dans le cloud. 
+La catégorie des méthodes directes assure le suivi des interactions demande-réponse envoyées à des appareils individuels. Ces demandes sont lancées dans le cloud. 
 
 ```json
 {

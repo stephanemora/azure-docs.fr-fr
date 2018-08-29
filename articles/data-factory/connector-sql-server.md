@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 06535cd86e32d9e5d083bfde5f1c40e345a88640
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 4a0800dccca3a43d49204dfbcc32e7778449ae6e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004617"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442083"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copier des données vers et depuis SQL Server à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -59,6 +59,9 @@ Les propriétés suivantes sont prises en charge pour le service lié SQL Server
 | userName |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non  |
 | password |Spécifiez le mot de passe du compte d’utilisateur que vous avez défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Non  |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
+
+>[!TIP]
+>Si vous rencontrez une erreur avec le code d’erreur « UserErrorFailedToConnectToSqlServer » et un message tel que « La limite de session pour la base de données est XXX et a été atteinte. », ajoutez `Pooling=false` à votre chaîne de connexion, puis réessayez.
 
 **Exemple 1 : utilisation de l’authentification SQL**
 

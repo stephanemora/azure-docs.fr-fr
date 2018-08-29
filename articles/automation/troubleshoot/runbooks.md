@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714483"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146512"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -137,7 +137,43 @@ Cette erreur peut être due à l’utilisation de modules Azure obsolètes.
 
 Cette erreur peut être résolue en mettant à jour vos modules Azure vers la dernière version.
 
-Dans votre compte Automation, cliquez sur **Modules**, puis sur **Mettre à jour les modules Azure**. La mise à jour prend environ 15 minutes, après la réexécution du runbook qui a échoué.
+Dans votre compte Automation, cliquez sur **Modules**, puis sur **Mettre à jour les modules Azure**. La mise à jour prend environ 15 minutes, après la réexécution du runbook qui a échoué. Pour en savoir plus sur la mise à jour de vos modules, consultez [Mettre à jour des modules Azure dans Azure Automation](../automation-update-azure-modules.md).
+
+### <a name="child-runbook-auth-failure"></a>Scénario : le runbook enfant échoue lors du traitement de plusieurs abonnements
+
+#### <a name="issue"></a>Problème
+
+Lors de l’exécution de runbooks enfants avec `Start-AzureRmRunbook`, le runbook enfant ne parvient pas à gérer les ressources Azure.
+
+#### <a name="cause"></a>Cause :
+
+Le runbook enfant n’utilise pas le contexte approprié lors de l’exécution.
+
+#### <a name="resolution"></a>Résolution :
+
+Si vous utilisez plusieurs abonnements, le contexte de l’abonnement peut être perdu durant l’appel des runbooks enfants. Pour que le contexte de l’abonnement soit passé aux runbooks enfants, ajoutez le paramètre `DefaultProfile` à l’applet de commande et passez-lui le contexte.
+
+```azurepowershell-interactive
+# Connect to Azure with RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
+```
 
 ### <a name="not-recognized-as-cmdlet"></a>Scénario : Le runbook échoue en raison d’une applet de commande manquante
 
@@ -189,6 +225,8 @@ Une des solutions suivantes corrige ce problème :
 * Les méthodes recommandées pour travailler dans la limite de mémoire consistent à diviser la charge de travail en plusieurs runbooks, à ne pas traiter trop de données en mémoire, à ne pas écrire de sortie inutile depuis vos runbooks ou à prendre en compte le nombre de points de contrôle que vous écrivez dans vos runbooks de flux de travail PowerShell.  
 
 * Mettez à jour vos modules Azure en suivant les étapes de l’article [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md).  
+
+* Une autre solution consiste à exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md). Les Workers hybrides ne sont pas restreints par les limites de [répartition de charge équilibrée](../automation-runbook-execution.md#fair-share) associées aux bacs à sable Azure.
 
 ### <a name="fails-deserialized-object"></a>Scénario : Le runbook échoue à cause d’un objet désérialisé
 

@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39d98a39fb8692d696adfbedc9bb1a34f8be4d6
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: d4bbf26f6535f50b15068125d911df6a1ca20a72
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358832"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145344"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Nouveautés d’Azure Active Directory
 
-> Abonnez-vous au [![flux](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [RSS](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) pour recevoir des notifications lorsque vous devez revisiter cette page pour obtenir des mises à jour.
+>Soyez averti de la mise à disposition de mises à jour sur cette page en ajoutant cet [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) à votre lecteur de flux ![icône RSS](./media/whats-new/feed-icon-16x16.png).
 
 Azure AD bénéficie d’améliorations en continu. Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
 
@@ -38,6 +38,24 @@ Cette page est mise à jour tous les mois. Donc, consultez-la régulièrement.
 ---
 
 ## <a name="july-2018"></a>Juillet 2018
+
+### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Modifications apportées aux plages d’adresses IP Azure Active Directory
+
+**Type :** modification planifiée  
+**Catégorie de service :** autres  
+**Fonctionnalité de produit :** plateforme
+
+Nous sommes en train d’introduire dans Azure AD des plages d’adresses IP plus vastes. Si vous avez configuré des plages d’adresses IP Azure AD pour vos pare-feu, routeurs ou groupes de sécurité réseau, vous allez donc devoir les mettre à jour. Nous procédons à cette mise à jour afin que vous n’ayez pas à modifier à nouveau les configurations de plage IP de votre pare-feu, routeur ou groupe de sécurité réseau lorsque Azure AD ajoute de nouveaux points de terminaison. 
+
+Le trafic réseau va migrer vers ces nouvelles plages au cours des deux prochains mois. Pour ne pas interrompre le service, vous devez ajouter ces nouvelles valeurs à vos adresses IP avant le 10 septembre 2018 :
+
+- 20.190.128.0/18 
+
+- 40.126.0.0/18 
+
+Nous vous recommandons vivement de ne pas supprimer les anciennes plages d’adresses IP tant que votre trafic réseau n’a pas été entièrement migré vers les nouvelles plages. Pour obtenir des informations sur la migration et savoir quand vous pouvez supprimer les anciennes plages, consultez [URL et plages d’adresses IP Office 365](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
+---
 
 ### <a name="improvements-to-azure-active-directory-email-notifications"></a>Améliorations apportées aux notifications par e-mail Azure Active Directory
 
@@ -795,7 +813,7 @@ Pour en savoir plus sur ce sujet, consultez notre [billet de blog](https://cloud
 
 Pour plus d'informations, consultez les pages suivantes :
 
-- [Configurer l’accès conditionnel basé sur les applications](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Configurer l’accès conditionnel basé sur les applications](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Gérer des stratégies Managed Browser](https://aka.ms/managedbrowser)  
 
@@ -1155,7 +1173,7 @@ Les applications suivantes seront ajoutées d’ici la fin du mois de février :
 Pour plus d'informations, consultez les pages suivantes :
 
 - [Spécification d’application cliente approuvée](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1447,13 +1465,13 @@ Pour plus d’informations, consultez [Accès conditionnel dans Azure Active Dir
 
 Les applications suivantes se trouvent sur la liste des [applications clientes approuvées](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) :
 
-- [Microsoft Kaizala](https://microsoft.com/garage/profiles/kaizala/)
+- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
 
 Pour plus d'informations, consultez les pages suivantes :
 
 - [Spécification d’application cliente approuvée](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1491,9 +1509,9 @@ Pour plus d’informations, consultez [Intégration locale](https://docs.microso
 **Catégorie de service :** Azure AD  
 **Fonctionnalité de produit :** sécurité et protection de l’identité
 
-Vous pouvez désormais restreindre l’accès à Office 365 et à d’autres applications cloud connectées à Azure AD, aux [applications clientes approuvées](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) qui prennent en charge les stratégies de protection des applications Intune par l’[accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Des stratégies de protection des applications Intune sont utilisées pour configurer et protéger les données d’entreprise sur ces applications clientes.
+Vous pouvez désormais restreindre l’accès à Office 365 et à d’autres applications cloud connectées à Azure AD, aux [applications clientes approuvées](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) qui prennent en charge les stratégies de protection des applications Intune par l’[accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Des stratégies de protection des applications Intune sont utilisées pour configurer et protéger les données d’entreprise sur ces applications clientes.
 
-En combinant des stratégies d’accès conditionnel [basées sur les applications](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) et [basées sur les appareils](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications), vous bénéficiez de la flexibilité nécessaire pour protéger les données sur les appareils d’entreprise et personnels.
+En combinant des stratégies d’accès conditionnel [basées sur les applications](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) et [basées sur les appareils](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications), vous bénéficiez de la flexibilité nécessaire pour protéger les données sur les appareils d’entreprise et personnels.
 
 Les conditions et contrôles suivants sont désormais disponibles pour une utilisation avec l’accès conditionnel basé sur les applications :
 
@@ -1510,7 +1528,7 @@ Les conditions et contrôles suivants sont désormais disponibles pour une utili
 
 - Demander une application cliente approuvée
 
-Pour plus d’informations, consultez [Accès conditionnel basé sur les applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
+Pour plus d’informations, consultez [Accès conditionnel basé sur les applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1607,7 +1625,7 @@ Les applications suivantes ont été ajoutées à la liste des [applications cli
 Pour plus d'informations, consultez les pages suivantes :
 
 - [Spécification d’application cliente approuvée](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Accès conditionnel basé sur les applications Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 
 ---

@@ -12,18 +12,20 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8c828bb49548adfdb02ed6fb1611eb405ebf4ff2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: df9c218c275367852885e67ac2649926ba1d31d3
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466258"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141266"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Organisation des ressources Azure à l’aide de balises
 
 [!INCLUDE [resource-manager-governance-tags](../../includes/resource-manager-governance-tags.md)]
+
+Pour appliquer des balises aux ressources, l’utilisateur doit disposer de l’accès en écriture pour ce type de ressource. Pour appliquer des balises à tous les types de ressources, utilisez le rôle [Contributeur](../role-based-access-control/built-in-roles.md#contributor). Pour appliquer des balises à un seul type de ressource, utilisez le rôle Contributeur pour cette ressource. Par exemple, pour appliquer des balises aux machines virtuelles, utilisez le [collaborateur de machine virtuelle](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
@@ -256,7 +258,7 @@ done
 
 [!INCLUDE [resource-manager-tag-resource](../../includes/resource-manager-tag-resources.md)]
 
-## <a name="rest-api"></a>de l’API REST
+## <a name="rest-api"></a>API REST
 
 Le portail Azure et PowerShell utilisent tous deux [l’API REST du Gestionnaire de ressources](https://docs.microsoft.com/rest/api/resources/) en arrière-plan. Si vous avez besoin d’intégrer le balisage dans un autre environnement, vous pouvez récupérer des balises en utilisant **GET** sur l’ID de ressource et mettre à jour le jeu de balises en utilisant un appel **PATCH**.
 

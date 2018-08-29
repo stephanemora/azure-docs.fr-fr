@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd810f6e5a4211f64044a88ae6ca6bb6dc044e28
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bc29fbd0946f0abfe692e2270d145cd2cb292356
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39416112"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146257"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Gestion des appareils avec le portail Azure
 
@@ -46,7 +46,7 @@ Le portail Azure centralise les opérations de gestion de vos appareils. Pour y 
 
 3. Dans la section **Gérer**, cliquez sur **Appareils**.
 
-    ![Configurer les paramètres de l’appareil](./media/device-management-azure-portal/11.png)
+    ![Configurer les paramètres de l’appareil](./media/device-management-azure-portal/74.png)
  
 La page **Appareils** vous permet :
 
@@ -70,13 +70,13 @@ La page Paramètres de l’appareil vous permet de configurer les options suivan
 ![Gérer un appareil Intune](./media/device-management-azure-portal/21.png)
 
 
-- **Les utilisateurs peuvent joindre des appareils à Azure AD** : ce paramètre vous permet de sélectionner les utilisateurs qui peuvent [joindre des appareils](overview.md#azure-ad-joined-devices) à Azure AD. La valeur par défaut est **Tous**.
+- **Les utilisateurs peuvent joindre des appareils à Azure AD** : ce paramètre vous permet de sélectionner les utilisateurs qui peuvent [joindre des appareils](overview.md#azure-ad-joined-devices) à Azure AD. La valeur par défaut est **Tous**. Ce paramètre s’applique uniquement à Azure AD Join sous Windows 10.
 
 - **Administrateurs locaux supplémentaires sur les appareils joints à Azure AD** : vous pouvez sélectionner les utilisateurs qui peuvent disposer de droits d’administrateur local sur un appareil. Les utilisateurs ajoutés ici sont ajoutés au rôle *Administrateurs d’appareils* dans Azure AD. Les administrateurs généraux Azure AD et les propriétaires d’appareils bénéficient de droits d’administrateur local par défaut. Cette option est une fonctionnalité de l’édition Premium disponible dans les produits comme Azure AD Premium ou EMS (Enterprise Mobility Suite). 
 
 - **Les utilisateurs peuvent inscrire leurs appareils sur Azure AD** : vous devez configurer ce paramètre pour permettre [l’inscription](overview.md#azure-ad-registered-devices) des appareils dans Azure AD. Si vous sélectionnez **Aucun**, les appareils ne peuvent pas être inscrits s’ils ne sont pas joints à Azure AD ou s’il ne s’agit pas d’appareils hybrides joints à Azure AD. L’inscription auprès de Microsoft Intune ou de la Gestion des appareils mobiles (MDM) pour Office 365 nécessite l’enregistrement de l’appareil. Si vous avez configuré l’un de ces services, l’option **TOUS** est sélectionnée et l’option **AUCUN** est désactivée.
 
-- **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez demander aux utilisateurs de fournir un second facteur d’authentification pour [joindre](overview.md#azure-ad-joined-devices) leurs appareils à Azure AD. La valeur par défaut est **Non**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les services d’authentification multifacteur Azure, consultez [Bien démarrer avec l’authentification multifacteur Azure](../authentication/concept-mfa-whichversion.md). 
+- **Exiger Multi-factor Auth pour joindre des appareils** : vous pouvez demander aux utilisateurs de fournir un second facteur d’authentification pour [joindre](overview.md#azure-ad-joined-devices) leurs appareils à Azure AD. La valeur par défaut est **Non**. Il est recommandé d’exiger une authentification multifacteur au moment de l’inscription d’un appareil. Avant d’activer l’authentification multifacteur pour ce service, vous devez vérifier que l’authentification multifacteur est configurée pour les utilisateurs qui inscrivent leurs appareils. Pour plus d’informations sur les services d’authentification multifacteur Azure, consultez [Bien démarrer avec l’authentification multifacteur Azure](../authentication/concept-mfa-whichversion.md). Ce paramètre n’affecte pas la fonctionnalité de jonction hybride sous Windows 10 ou Windows 7. Il s’applique uniquement à la fonctionnalité Azure AD Join sous Windows 10 et à l’enregistrement des appareils BYOD sous Windows 10, iOS et Android. 
 
 - **Nombre maximal d’appareils par utilisateur** : ce paramètre permet de sélectionner le nombre maximal d’appareils qu’un utilisateur peut avoir dans Azure AD. Si un utilisateur atteint ce quota, il ne pourra pas ajouter d’autres appareils tant qu’un ou plusieurs appareils existants n’auront pas été supprimés. Le quota d’appareils comptabilise tous les appareils qui sont actuellement joints à Azure AD ou inscrits à Azure AD. La valeur par défaut est de **20** appareils.
 
@@ -163,7 +163,7 @@ Pour supprimer un appareil, vous avez deux options :
 
 **Remarques :**
 
-- Vous devez être administrateur général ou administrateur Intune dans Azure AD pour supprimer un appareil.
+- Il faut être administrateur général ou administrateur Intune dans Azure AD pour pouvoir supprimer un appareil.
 
 - La suppression d’un appareil :
  

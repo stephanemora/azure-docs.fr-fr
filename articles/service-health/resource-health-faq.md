@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 2a0758f5db381f721120cbc1c018a491c018aa8d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 1e22c62c291909bb4079ebaf389cfbd15ae9d8d5
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264232"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42139830"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ Azure Resource Health
 Découvrez les réponses aux questions courantes sur Azure Resource Health.
@@ -62,7 +62,7 @@ Resource Health est un service conçu pour vous aider à diagnostiquer et à ré
 ## <a name="where-do-i-find-resource-health"></a>Où trouver Resource Health ?
 Une fois connecté au portail Azure, vous pouvez accéder à Resource Health de plusieurs manières :
 - Accédez à votre ressource. Dans le volet de navigation de gauche, sélectionnez **Resource Health**.
-- Accédez au panneau Azure Monitor.  Dans le volet de navigation de gauche, sélectionnez **Resource Health**.
+- Accédez au panneau Azure Service Health.  Dans le volet de navigation de gauche, sélectionnez **Resource Health**.
 - Sélectionnez le point d’interrogation dans le coin supérieur droit du portail, puis choisissez **Aide + Support** pour ouvrir le panneau **Aide et support**. Lorsque le panneau s’ouvre, sélectionnez **Resource Health**
 
 Vous pouvez également utiliser l’API Resource Health pour obtenir des informations sur l’intégrité de vos ressources.

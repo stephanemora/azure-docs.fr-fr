@@ -1,32 +1,27 @@
 ---
-title: Utilisation de C# avec MapReduce sur Hadoop dans HDInsight, Azure | Microsoft Docs
+title: Utiliser C# avec MapReduce sur Hadoop dans HDInsight - Azure
 description: Découvrez comment utiliser C# pour créer des solutions MapReduce avec Hadoop dans Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
+author: jasonwhowell
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.service: hdinsight
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 7287972ccf63f33a8cf08065f8d5d30ee1b1afb5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: ef0001d5693d96abc128acf6c052dbedc0983b51
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400875"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146269"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Utilisation de C# avec Diffusion en continu MapReduce sur Hadoop dans HDInsight
 
 Découvrez comment utiliser C# pour créer une solution MapReduce dans HDInsight.
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](../hdinsight-component-versioning.md).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](../hdinsight-component-versioning.md).
 
 Diffusion en continu Hadoop est un utilitaire qui vous permet d’exécuter des tâches MapReduce à l’aide d’un script ou d’un exécutable. Dans cet exemple, .NET est utilisé pour implémenter le mappeur et le raccord de réduction pour une solution de comptage de mots.
 
@@ -46,10 +41,9 @@ Le processus de base utilisé pour la diffusion en continu dans ce document est 
 4. Le raccord de réduction lit les paires clé/valeur séparées par des tabulations, traite les données, puis émet le résultat sous forme de paires clé/valeur séparées par des tabulations sur STDOUT.
 5. La sortie est lue par Hadoop et écrite dans le répertoire de sortie.
 
-Pour plus d’informations sur la diffusion en continu, voir [Hadoop Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html) (Diffusion en continu Hadoop).
+Pour plus d’informations sur la diffusion en continu, consultez l’article [Diffusion en continu Hadoop](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Des connaissances en écriture et en génération de code C# qui cible .NET Framework 4.5. Dans le cadre de ce document, Visual Studio 2017 a été utilisé.
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 9a43774a5327536ae4fa1346ae933739ea629771
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 4b7b1a9dc25b1bfaf72ab67dd0725a4518263ca5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130082"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140877"
 ---
 # <a name="data-sources-in-log-analytics"></a>Sources de données dans Log Analytics
 Log Analytics collecte les données à partir de vos sources connectées et les stocke dans votre espace de travail Log Analytics.  Les données collectées à partir de chacune de ces sources dépendent des sources de données que vous configurez.  Les données dans Log Analytics sont stockées sous forme d’ensemble d’enregistrements.  Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.
@@ -59,7 +59,7 @@ Vous configurez des sources de données à partir du menu **Données** dans **Pa
 ## <a name="data-collection"></a>Collecte des données
 Les configurations des sources de données sont remises en quelques minutes aux agents directement connectés à Log Analytics.  Les données spécifiées sont collectées à partir de l'agent et remises directement à Log Analytics à des intervalles spécifiques à chaque source de données.  Consultez la documentation de chaque source de données pour obtenir ces informations spécifiques.
 
-Pour les agents System Center Operations Manager d’un groupe d'administration connecté, les configurations de sources de données sont traduites en packs d'administration et remises au groupe d'administration toutes les 5 minutes par défaut.  L’agent télécharge le pack d’administration comme tout autre, et collecte les données spécifiées. Selon la source de données, soit les données sont envoyées à un serveur d’administration qui les transfère à Log Analytics, soit l’agent les envoie à Log Analytics sans passer par le serveur d’administration. Pour plus d’informations, consultez [Détails sur la collecte de données](log-analytics-add-solutions.md#data-collection-details).  Vous pouvez consulter les détails de la connexion à Operations Manager et à Log Analytics et de la modification de la fréquence à laquelle la configuration est remise dans la rubrique [Configurer l'intégration avec System Center Operations Manager](log-analytics-om-agents.md).
+Pour les agents System Center Operations Manager d’un groupe d'administration connecté, les configurations de sources de données sont traduites en packs d'administration et remises au groupe d'administration toutes les 5 minutes par défaut.  L’agent télécharge le pack d’administration comme tout autre, et collecte les données spécifiées. Selon la source de données, soit les données sont envoyées à un serveur d’administration qui les transfère à Log Analytics, soit l’agent les envoie à Log Analytics sans passer par le serveur d’administration. Pour plus d’informations, consultez [Détails sur la collecte de données pour les solutions de gestion dans Azure](../monitoring/monitoring-solutions-inventory.md).  Vous pouvez consulter les détails de la connexion à Operations Manager et à Log Analytics et de la modification de la fréquence à laquelle la configuration est remise dans la rubrique [Configurer l'intégration avec System Center Operations Manager](log-analytics-om-agents.md).
 
 Si l’agent ne peut pas se connecter à Log Analytics ou à Operations Manager, il continue à collecter des données qu’il fournira lorsqu’une connexion sera établie.  Les données peuvent être perdues si le volume de données atteint la taille maximale du cache du client ou si l’agent n’est pas en mesure d’établir une connexion dans un délai de 24 heures.
 
@@ -67,6 +67,6 @@ Si l’agent ne peut pas se connecter à Log Analytics ou à Operations Manager,
 Toutes les données collectées par Log Analytics sont stockées dans l’espace de travail en tant qu'enregistrements.  Les enregistrements collectés par différentes sources de données auront leur propre jeu de propriétés et seront identifiés par leur propriété **Type** .  Consultez la documentation de chaque source de données et solution pour plus d'informations sur chaque type d'enregistrement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez les [solutions](log-analytics-add-solutions.md) qui ajoutent des fonctionnalités à Log Analytics et collectent également des données dans l’espace de travail.
+* Découvrez les [solutions](../monitoring/monitoring-solutions.md) qui ajoutent des fonctionnalités à Log Analytics et collectent également des données dans l’espace de travail.
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 * Configurez des [alertes](log-analytics-alerts.md) qui vous informent de façon proactive des données critiques collectées à partir de sources de données et solutions.

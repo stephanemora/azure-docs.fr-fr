@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 08/16/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 1b9807b587b6b52594133e8c792c72b21e8bd4ea
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d27b95f9c7d21f49f547534ca99a44657062abc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503619"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140885"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer une homologation de réseau virtuel
 
-Découvrez comment créer, modifier ou supprimer une homologation de réseau virtuel. L’appairage de réseaux virtuels vous permet de connecter des réseaux virtuels via le réseau principal Azure. Une fois appairés, les réseaux virtuels continuent d’être gérés comme des ressources distinctes. Si vous découvrez l’appairage de réseaux virtuels, vous trouverez plus d’informations à ce sujet dans l’article [Vue d’ensemble de l’appairage de réseaux virtuels](virtual-network-peering-overview.md) ou en suivant un [tutoriel](tutorial-connect-virtual-networks-portal.md).
+Découvrez comment créer, modifier ou supprimer une homologation de réseau virtuel. Le Peering de réseaux virtuels vous permet de connecter des réseaux virtuels situés dans la même région ou dans des régions différentes (on parle alors également de Global VNet Peering) à l’aide du réseau principal Azure. Une fois appairés, les réseaux virtuels continuent d’être gérés comme des ressources distinctes. Si vous découvrez l’appairage de réseaux virtuels, vous trouverez plus d’informations à ce sujet dans l’article [Vue d’ensemble de l’appairage de réseaux virtuels](virtual-network-peering-overview.md) ou en suivant un [tutoriel](tutorial-connect-virtual-networks-portal.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -112,10 +112,10 @@ Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au l
 
 ## <a name="requirements-and-constraints"></a>Exigences et contraintes 
 
-- <a name="cross-region"></a>Vous pouvez appairer des réseaux virtuels dans la même région ou dans différentes régions. Les contraintes suivantes ne s’appliquent pas quand les deux réseaux virtuels sont dans la *même* région, mais elles s’appliquent quand les réseaux virtuels sont appairés à l’échelle mondiale : 
-    - Les réseaux virtuels peuvent se trouver dans n’importe quelle région de clouds publics Azure, mais pas dans les clouds nationaux Azure.
-    - Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP d’un équilibreur de charge interne Azure dans le réseau virtuel homologué. L’équilibreur de charge et les ressources qui communiquent avec lui doivent être dans le même réseau virtuel.
-    - Vous ne pouvez pas utiliser de passerelles distantes ni autoriser de transit via une passerelle. Pour utiliser des passerelles distantes ou autoriser un transit via une passerelle, les deux réseaux virtuels homologués doivent appartenir à la même région. 
+- <a name="cross-region"></a>Vous pouvez appairer des réseaux virtuels dans la même région ou dans différentes régions. Le Peering de réseaux virtuels dans des régions différentes est également appelé *Peering mondial*. 
+- Lors de la création d’un Peering mondial, les réseaux virtuels appairés peuvent se trouver dans n’importe quelle région de clouds publics Azure, mais pas dans les clouds nationaux Azure. Vous pouvez appairer des réseaux virtuels dans la même région dans des clouds nationaux uniquement.
+- Les ressources situées dans un réseau virtuel ne peuvent pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne Azure dans un réseau virtuel appairé à l’échelle mondiale. L’équilibreur de charge et les ressources qui communiquent avec lui doivent être dans un réseau virtuel situé dans la même région. Toutefois, si les réseaux virtuels appairés sont dans la même région, les ressources situées dans l’un ou l’autre de ces réseaux peuvent communiquer avec l’adresse IP frontale d’un équilibreur de charge interne Azure dans un réseau virtuel du Peering.
+- Vous ne pouvez pas utiliser de passerelle distante ou autoriser un transit par passerelle dans des réseaux virtuels appairés à l’échelle mondiale. Pour utiliser des passerelles distantes ou autoriser un transit par passerelle, les réseaux virtuels appairés doivent appartenir à la même région.
 - Les réseaux virtuels peuvent être dans des abonnements identiques ou différents. Pour pouvoir établir des liens de peering entre des réseaux virtuels issus d’abonnements différents, il faut que ces deux abonnements soient associés au même locataire (tenant) Azure Active Directory. Si vous n’avez pas encore de client Active Directory, vous pouvez rapidement en [créer un](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Vous pouvez utiliser une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) pour vous connecter à deux réseaux virtuels situés dans des abonnements différents qui sont associés à des locataires Active Directory différents.
 - Les réseaux virtuels que vous homologuez doivent avoir des espaces d’adressage IP qui ne se chevauchent pas.
 - Il n’est pas possible d’ajouter ou de supprimer des plages d’adresses dans l’espace d’adressage d’un réseau virtuel après que celui-ci a été homologué avec un autre réseau virtuel. Pour ajouter ou supprimer des plages d’adresses, supprimez l’homologation, ajoutez ou supprimez les plages d’adresses, puis recréez l’homologation. Pour ajouter ou supprimer des plages d’adresses dans des réseaux virtuels, voir [Gérer les réseaux virtuels](manage-virtual-network.md).

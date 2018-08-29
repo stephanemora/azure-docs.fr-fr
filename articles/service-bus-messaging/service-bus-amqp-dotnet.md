@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/21/2017
+ms.date: 08/16/2018
 ms.author: sethm
-ms.openlocfilehash: 28b8d7a71f01d8633d020b99fbe6bc5c16f272b4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0013301a33dabc9739eed45a1b801c33b791abb9
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188495"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42140066"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utiliser Service Bus à partir de .NET avec AMQP 1.0
 
@@ -29,7 +29,7 @@ La prise en charge d’AMQP 1.0 est disponible dans la version 2.1 du package Se
 
 Par défaut, la bibliothèque cliente .NET Service Bus communique avec le service Service Bus à l’aide d’un protocole SOAP dédié. Pour utiliser AMQP 1.0 au lieu du protocole par défaut, vous avez besoin d’une configuration explicite sur la chaîne de connexion Service Bus, comme indiqué dans la section suivante. À l'exception de cette modification, le code de l'application reste inchangé lors de l'utilisation d'AMQP 1.0.
 
-Dans la version actuelle, quelques fonctionnalités de l’API ne sont pas prises en charge lors de l’utilisation d’AMQP. Elles sont répertoriées plus bas dans la section [Fonctionnalités non prises en charge, restrictions et différences de comportement](#unsupported-features-restrictions-and-behavioral-differences). Certains paramètres de configuration avancés ont également une signification différente lors de l’utilisation d’AMQP.
+Dans la version actuelle, quelques fonctionnalités de l’API ne sont pas prises en charge lors de l’utilisation d’AMQP. Ces fonctionnalités non prises en charge sont répertoriées dans la section [Différences de comportement](#behavioral-differences). Certains paramètres de configuration avancés ont également une signification différente lors de l’utilisation d’AMQP.
 
 ### <a name="configuration-using-appconfig"></a>Configuration à l’aide d’App.config
 
@@ -117,7 +117,7 @@ Les [API .NET](/dotnet/api/) exposent plusieurs paramètres pour contrôler le c
 Prêt à en savoir plus ? Visitez les liens suivants :
 
 * [Vue d’ensemble du protocole AMQP de Service Bus]
-* [Guide du protocole AMQP 1.0]
+* [Guide du protocole AMQP 1.0]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
@@ -127,5 +127,5 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
-[Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
+[Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
 

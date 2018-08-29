@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: giladm
-ms.openlocfilehash: cc093bebb4b3c39140d6fa5370a78d59168990fa
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6ef9a701f3a228e4c40da94f83310ef2884a3f59
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950803"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42139857"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Découverte et classification des données Azure SQL Database
 Découverte et classification des données (actuellement en préversion) offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l’**étiquetage**  & et la **protection** des données sensibles dans vos bases de données.
@@ -107,6 +107,13 @@ Vous pouvez utiliser T-SQL pour ajouter/supprimer des classifications de colonne
 * Ajouter/mettre à jour la classification d’une ou plusieurs colonnes : [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 * Supprimer la classification d’une ou plusieurs colonnes : [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 * Voir toutes les classifications sur la base de données : [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+Vous pouvez également utiliser des API REST pour gérer par programme les classifications. Les API REST publiées prennent en charge les opérations suivantes :
+* [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crée ou met à jour l’étiquette de sensibilité d’une colonne donnée
+* [Supprimer](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) : supprime l’étiquette de sensibilité d’une colonne donnée
+* [Obtenir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) : obtient l’étiquette de sensibilité d’une colonne donnée
+* [Liste par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) : affiche les étiquettes de sensibilité d’une base de données spécifiée
+
 
 ## <a id="subheading-5"></a>Étapes suivantes
 

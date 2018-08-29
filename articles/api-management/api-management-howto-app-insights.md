@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001801"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42145522"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Guide pratique pour intégrer la Gestion des API Azure avec Azure Application Insights
 
@@ -114,6 +114,12 @@ Lors de tests de charge internes, cette fonctionnalité a provoqué une baisse d
 Pour modifier le nombre de demandes consignées, réglez le paramètre **Échantillonnage** (voir les étapes ci-dessus). Une valeur de 100 % signifie que toutes les demandes sont consignées, tandis que le 0 % indique une absence totale de journalisation. **L’échantillonnage** permet de réduire le volume de télémétrie, ce qui se révèle efficace en prévention d’une dégradation significative des performances tout en conservant les avantages de la journalisation.
 
 Il est également utile d’ignorer la journalisation des en-têtes et du corps des demandes et des réponses pour limiter les problèmes de performances.
+
+## <a name="video"></a>Vidéo
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

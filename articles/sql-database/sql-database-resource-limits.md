@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412108"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42140085"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Présentation des limites de ressources d’Azure SQL Database 
 
@@ -22,15 +22,15 @@ Cet article fournit une présentation des limites de ressources d’Azure SQL Da
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Quel est le nombre maximal de serveurs et de bases de données ?
 
-| Maximale | Valeur |
-| :--- | :--- |
-| Bases de données par serveur | 5 000 |
-| Nombre par défaut de serveurs par abonnement dans n’importe quelle région | 20 |
-| Nombre maximal de serveurs par abonnement dans n’importe quelle région | 200 |
-| Quota DTU/eDTU par serveur | 54 000 |
-| Quota vCore par serveur | 540 |
-| Nombre maximal de pools par serveur | Limité par le nombre de DTU ou de vCores |
-|||
+| Maximale | Serveur logique | Instance gérée |
+| :--- | :--- | :--- |
+| Bases de données par serveur/instance | 5 000 | 100 |
+| Nombre par défaut de serveurs par abonnement dans n’importe quelle région | 20 | N/A |
+| Nombre maximal de serveurs par abonnement dans n’importe quelle région | 200 | N/A | 
+| Quota DTU/eDTU par serveur | 54 000 | N/A |  
+| Quota vCore par serveur/instance | 540 | 80 |
+| Nombre maximal de pools par serveur | Limité par le nombre de DTU ou de vCores | N/A |
+||||
 
 > [!NOTE]
 > Pour augmenter le quota DTU/eDTU ou vCore ou pour obtenir une quantité de serveurs supérieure à la quantité par défaut, vous pouvez envoyer une nouvelle demande de support dans le Portail Azure pour l’abonnement en indiquant le type de problème « Quota ». Le quota DTU/eDTU et le nombre maximal de bases de données par serveur limitent le nombre de pools élastiques par serveur. 

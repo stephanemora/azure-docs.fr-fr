@@ -12,16 +12,20 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 06/21/2018
+ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: a401bc3ed68dc9273ac14cfd357b9c05111dd54c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 221d0d8a78a46cad9f1994e9313b21e2867d9563
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311103"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42140882"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gérer la tarification et le volume de données dans Application Insights
+
+> [!NOTE]
+> Cet article explique comment analyser l’utilisation des données dans Application Insights.  Pour plus d’informations, consultez les articles suivants.
+> - L’article [Monitoring usage and estimated costs](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) (Surveillance de l’utilisation et estimation des coûts) explique comment visualiser l’utilisation et les coûts estimés avec plusieurs fonctionnalités de surveillance Azure en fonction des différents modèles de tarification. Il explique également comment modifier votre modèle de tarification.
 
 La tarification pour [Azure Application Insights][start] est basée sur le volume de données par application. Chaque ressource d’Application Insights est facturée comme un service distinct et s’ajoute à votre facture d’abonnement Azure.
 

@@ -14,29 +14,30 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: alleonar
-ms.openlocfilehash: 046b2e31aaefa5916a42b3652f9e6a8fdceff367
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 71143549916fc7440d5f21bcb03f1f795ddc73ac
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064399"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42145115"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Passer en revue la facturation de l’Accord de Mise en Œuvre Entreprise avec les API REST
 
-Les API de génération de rapports Azure vous aident à passer en revue et à gérer vos coûts Azure.
+Les API de création de rapports Azure vous aident à passer en revue et à gérer vos coûts Azure.
 
-Vous allez découvrir ici comment récupérer la facture actuelle associée à une inscription de compte d’entreprise.
+Dans cet article, vous apprendrez à récupérer les informations de facturation associées aux comptes de facturation, au service ou aux comptes d’inscription Accord Entreprise à l’aide d’API REST Azure. 
 
-Pour récupérer la facture actuelle :
-``` http
-GET https://consumption.azure.com/v2/enrollments/{enrollmentID}/usagedetails
+## <a name="individual-account-billing"></a>Facturation des comptes individuels
+
+Pour obtenir des détails d’utilisation relatifs aux comptes dans un service :
+
+```http
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
 Content-Type: application/json   
 Authorization: Bearer
 ```
 
-## <a name="build-the-request"></a>Générer la demande  
-
-Le paramètre `{enrollmentID}` est obligatoire et doit contenir l’ID d’inscription pour le compte d’entreprise.
+Le paramètre `{billingAccountId}` est requis et doit contenir l’ID du compte.
 
 Les en-têtes suivants sont requis : 
 
@@ -50,53 +51,143 @@ Cet exemple montre un appel synchrone qui retourne des informations détaillées
 
 ## <a name="response"></a>response  
 
-Le code d’état 200 (OK) est retourné pour une réponse correcte, qui contient une liste de coûts détaillés pour votre compte.
+Le code d’état 200 (OK) est retourné pour indiquer une réponse correcte, qui contient une liste de coûts détaillés pour le compte.
 
-``` json
+```json
 {
-    "id": "${id}",
-    "data": [
-        {
-            "cost": ${cost}, 
-            "departmentId": ${departmentID},
-            "subscriptionGuid" : ${subscriptionGuid} 
-            "date": "${date}",
-            "tags": "${tags}",
-            "resourceGroup": "${resourceGroup}"
-        } // ...
-    ],
-    "nextLink": "${nextLinkURL}"
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/BillingAccounts/1234/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
+      "name": "usageDetailsId1",
+      "type": "Microsoft.Consumption/usageDetails",
+      "properties": {
+        ...
+        "usageStart": "2017-02-13T00:00:00Z",
+        "usageEnd": "2017-02-13T23:59:59Z",
+        "instanceName": "shared1",
+        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
+        "currency": "USD",
+        "usageQuantity": 0.00328,
+        "billableQuantity": 0.00328,
+        "pretaxCost": 0.67,
+        "isEstimated": false,
+        ...
+      }
+    }
+  ]
 }
 ```  
 
-Chaque élément dans **data** représente un coût :
+Cet exemple est abrégé. Consultez [Get usage detail for a billing account](/rest/api/consumption/usagedetails/listbybillingaccount) (Obtenir les détails d’utilisation pour un compte de facturation) pour obtenir une description complète de chaque champ de réponse et de la gestion des erreurs.
 
-|Propriété de la réponse|Description|
-|----------------|----------|
-|**cost** | Montant facturé, dans une devise appropriée pour l’emplacement du centre de données. |
-|**subscriptionGuid** | ID global unique pour l’abonnement. | 
-|**departmentId** | ID du service, le cas échéant. |
-|**date** | Date à laquelle le coût a été facturé. |
-|**balises** | Chaîne JSON contenant les étiquettes associées à l’abonnement. |
-|**resourceGroup**|Nom du groupe de ressources contenant l’objet qui a généré le coût. |
-|**nextLink**| Quand elle est définie, spécifie une URL pour la « page » suivante d’informations détaillées. Vide quand la page est la dernière. |  
-||
-  
-Les ID de service, les groupes de ressources, les étiquettes et les champs associés sont définis par l’administrateur du compte d’entreprise.  
+## <a name="department-billing"></a>Facturation de service 
 
-Cet exemple est abrégé ; consultez [Obtenir les détails d’utilisation](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) pour une description complète de chaque champ de la réponse. 
+Obtenez la synthèse des détails d’utilisation relatifs à tous les comptes d’un service. 
 
-Les autres codes d’état indiquent les conditions d’erreur. Dans ces cas, l’objet de réponse explique pourquoi la demande a échoué.
+```http
+GET https://management.azure.com/providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
+Content-Type: application/json   
+Authorization: Bearer
+```
 
-``` json
-{  
-  "error": [  
-    { "code": "Error type." 
-      "message": "Error response describing why the operation failed."  
-    }  
-  ]  
-}  
+Le paramètre `{departmentId}` est requis et doit contenir l’ID du service dans le compte d’inscription.
+
+Les en-têtes suivants sont requis : 
+
+|En-tête de requête|Description|  
+|--------------------|-----------------|  
+|*Content-Type :*|Requis. Défini sur `application/json`.|  
+|*Authorization :*|Requis. Défini sur une `Bearer` [clé d’API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) valide. |  
+
+Cet exemple montre un appel synchrone qui retourne des informations détaillées pour le cycle de facturation actuel. Pour des raisons de performances, les appels synchrones retournent des informations pour le mois dernier.  Vous pouvez également appeler [l’API de façon asynchrone](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) pour retourner des données pour 36 mois.
+
+### <a name="response"></a>response  
+
+Le code d’état 200 (OK) est retourné pour indiquer une réponse correcte, qui contient une liste des informations d’utilisation détaillées et ainsi que les coûts associés à une période de facturation donnée et un ID de facture pour le service.
+
+
+L’exemple suivant montre la sortie de l’API REST pour le service `1234`.
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/Departments/1234/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
+      "name": "usageDetailsId1",
+      "type": "Microsoft.Consumption/usageDetails",
+      "properties": {
+        "billingPeriodId": "/providers/Microsoft.Billing/Departments/1234/providers/Microsoft.Billing/billingPeriods/201702",
+        "invoiceId": "/providers/Microsoft.Billing/Departments/1234/providers/Microsoft.Billing/invoices/201703-123456789",
+        "usageStart": "2017-02-13T00:00:00Z",
+        "usageEnd": "2017-02-13T23:59:59Z",
+        "instanceName": "shared1",
+        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
+        "instanceLocation": "eastasia",
+        "currency": "USD",
+        "usageQuantity": 0.00328,
+        "billableQuantity": 0.00328,
+        "pretaxCost": 0.67,
+        ...
+      }
+    }
+  ]
+}
 ```  
+
+Cet exemple est abrégé. Consultez [Get usage detail for a department](/rest/api/consumption/usagedetails/listbydepartment) (Obtenir les détails d’utilisation pour un service) pour obtenir une description complète de chaque champ de réponse et de la gestion des erreurs.
+
+## <a name="enrollment-account-billing"></a>Facturation du compte d’inscription
+
+Obtenez la synthèse des détails d’utilisation pour le compte d’inscription.
+
+```http
+GET GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
+Content-Type: application/json   
+Authorization: Bearer
+```
+
+Le paramètre `{enrollmentAccountId}` est requis et doit contenir l’ID du compte d’inscription.
+
+Les en-têtes suivants sont requis : 
+
+|En-tête de requête|Description|  
+|--------------------|-----------------|  
+|*Content-Type :*|Requis. Défini sur `application/json`.|  
+|*Authorization :*|Requis. Défini sur une `Bearer` [clé d’API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) valide. |  
+
+Cet exemple montre un appel synchrone qui retourne des informations détaillées pour le cycle de facturation actuel. Pour des raisons de performances, les appels synchrones retournent des informations pour le mois dernier.  Vous pouvez également appeler [l’API de façon asynchrone](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) pour retourner des données pour 36 mois.
+
+### <a name="response"></a>response  
+
+Le code d’état 200 (OK) est retourné pour indiquer une réponse correcte, qui contient une liste des informations d’utilisation détaillées et ainsi que les coûts associés à une période de facturation donnée et un ID de facture pour le service.
+
+L’exemple suivant montre la sortie de l’API REST pour l’inscription d’entreprise `1234`.
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/EnrollmentAccounts/1234/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/usageDetails/usageDetailsId1",
+      "name": "usageDetailsId1",
+      "type": "Microsoft.Consumption/usageDetails",
+      "properties": {
+        "billingPeriodId": "/providers/Microsoft.Billing/EnrollmentAccounts/1234/providers/Microsoft.Billing/billingPeriods/201702",
+        "invoiceId": "/providers/Microsoft.Billing/EnrollmentAccounts/1234/providers/Microsoft.Billing/invoices/201703-123456789",
+        "usageStart": "2017-02-13T00:00:00Z",
+        "usageEnd": "2017-02-13T23:59:59Z",
+        ....
+        "currency": "USD",
+        "usageQuantity": 0.00328,
+        "billableQuantity": 0.00328,
+        "pretaxCost": 0.67,
+        ...
+      }
+    }
+  ]
+}
+``` 
+
+Cet exemple est abrégé. Consultez [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/listbyenrollmentaccount) (Obtenir les détails d’utilisation pour un compte d’inscription) pour obtenir une description complète de chaque champ de réponse et de la gestion des erreurs.
 
 ## <a name="next-steps"></a>Étapes suivantes 
 - Consulter [Présentation des rapports d’entreprise](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

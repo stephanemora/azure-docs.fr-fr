@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 59a00f5605f7664148b65f2ec9a88fbaa9057ccf
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946055"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42141309"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -106,16 +106,16 @@ Le tableau suivant décrit les sources connectées prises en charge par cette so
 
 | Source connectée | Prise en charge | Description |
 | --- | --- | --- |
-| Agents Windows |OUI |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Windows et lance l’installation des mises à jour obligatoires. |
-| Agents Linux |OUI |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les distributions prises en charge. |
-| Groupe d’administration d’Operations Manager |OUI |La gestion des mises à jour collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté. |
+| Agents Windows |Oui |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Windows et lance l’installation des mises à jour obligatoires. |
+| Agents Linux |Oui |La gestion des mises à jour collecte des informations sur les mises à jour système des agents Linux et lance l’installation des mises à jour obligatoires sur les distributions prises en charge. |
+| Groupe d’administration d’Operations Manager |Oui |La gestion des mises à jour collecte des informations sur les mises à jour système des agents dans un groupe d’administration connecté. |
 | Compte de Stockage Azure |Non  |Le stockage Azure n’inclut aucune information sur les mises à jour système. |
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
 
 Une analyse est effectuée deux fois par jour pour chaque ordinateur Windows géré. Les API Windows sont appelées toutes les 15 minutes pour rechercher l’heure de la dernière mise à jour afin de déterminer si l’état a changé. Si l’état a changé, une analyse de conformité est effectuée. Une analyse est effectuée toutes les 3 heures pour chaque ordinateur Linux géré.
 
-L’affichage des données mises à jour des ordinateurs gérés dans le tableau de bord peut prendre entre 30 minutes et 6 heures.
+L’affichage sur le tableau de bord des données mises à jour provenant des ordinateurs gérés peut prendre entre 30 minutes et 6 heures.
 
 ## <a name="schedule-an-update-deployment"></a>Planifier un déploiement de mises à jour
 
@@ -127,7 +127,7 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 
 - **Nom** : entrez un nom unique pour identifier le déploiement de mises à jour.
 - **Système d’exploitation** : sélectionnez **Windows** ou **Linux**.
-- **Machines à mettre à jour** : sélectionnez les machines virtuelles que vous souhaitez mettre à jour. L’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT** colonne. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour.
+- **Machines à mettre à jour** : sélectionnez une recherche enregistrée, un groupe importé, ou sélectionnez des machines, pour choisir les machines que vous souhaitez mettre à jour. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Volet Nouveau déploiement de mises à jour](./media/manage-update-multi/update-select-computers.png)
 
@@ -150,10 +150,16 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
    ![Boîte de dialogue Paramètres de planification](./media/manage-update-multi/update-set-schedule.png)
 - **Fenêtre de maintenance (en minutes)** : spécifiez la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
-Une fois que vous avez terminé la configuration de la planification, cliquez sur le bouton **Créer** pour revenir au tableau de bord des états. Le tableau **Planifié** indique la planification de déploiement que vous avez créée.
+- **Contrôle de redémarrage** : ce paramètre détermine la gestion des redémarrages pour le déploiement des mises à jour.
 
-> [!WARNING]
-> Pour les mises à jour nécessitant un redémarrage, la machine virtuelle redémarre automatiquement.
+   |Option|Description|
+   |---|---|
+   |Redémarrer si nécessaire| **(Valeur par défaut)**  Si nécessaire, un redémarrage est effectué si la fenêtre de maintenance le permet.|
+   |Toujours redémarrer|Un redémarrage est initié, qu’il soit demandé ou non. |
+   |Ne jamais redémarrer|Les redémarrages sont empêchés, qu’ils soient demandés ou non.|
+   |Redémarrer uniquement : les mises à jour ne sont pas installées|Cette option ignore l’installation des mises à jour et initie uniquement un redémarrage.|
+
+Une fois que vous avez terminé la configuration de la planification, cliquez sur le bouton **Créer** pour revenir au tableau de bord des états. Le tableau **Planifié** indique la planification de déploiement que vous avez créée.
 
 ## <a name="view-results-of-an-update-deployment"></a>Afficher les résultats d’un déploiement de mises à jour
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 982a5eabf8c6c3012a9b3e8fdbe2ff32ba439972
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f73a9e59c0add664128b506172182afe566ca670
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113590"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444508"
 ---
 # <a name="reference-architecture-simple-enterprise-integration"></a>Architecture de référence : intégration d’entreprise simple
 
@@ -38,7 +38,7 @@ Elle comporte les composants suivants :
 - **Portail des développeurs Gestion des API Azure**. Chaque instance Gestion des API Azure est fournie avec un accès au [portail des développeurs](https://docs.microsoft.com/azure/api-management/api-management-customize-styles). Le portail des développeurs Gestion des API vous donne accès à la documentation et à des exemples de code. Vous pouvez tester les API dans le portail des développeurs.
 - **Azure Logic Apps**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) est une plateforme serverless utilisée pour créer un workflow et une intégration d’entreprise.
 - **Connecteurs**. Logic Apps utilise des [connecteurs](https://docs.microsoft.com/azure/connectors/apis-list) pour se connecter aux services couramment utilisés. Logic Apps contient déjà des centaines de connecteurs différents, mais vous pouvez aussi créer un connecteur personnalisé.
-- **Adresse IP**. Le service Gestion des API Azure a une [adresse IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) publique fixe et un nom de domaine. Le nom de domaine est un sous-domaine d’azure-api.net, par exemple, contoso.azure-api.net. Logic Apps et Service Bus ont également une adresse IP publique. Toutefois, dans cette architecture, nous limitons l’accès pour appeler des points de terminaison Logic Apps uniquement à l’adresse IP de Gestion des API (à des fins de sécurité). Les appels à Service Bus sont sécurisés par une signature d’accès partagé.
+- **Adresse IP**. Le service Gestion des API Azure a une [adresse IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) publique fixe et un nom de domaine. Le nom de domaine par défaut est un sous-domaine d’azure-api.net, tel que contoso.azure-api.net, mais les [domaines personnalisés](https://docs.microsoft.com/azure/api-management/configure-custom-domain) peuvent également être configurés. Logic Apps et Service Bus ont également une adresse IP publique. Toutefois, dans cette architecture, nous limitons l’accès pour appeler des points de terminaison Logic Apps uniquement à l’adresse IP de Gestion des API (à des fins de sécurité). Les appels à Service Bus sont sécurisés par une signature d’accès partagé (SAP).
 - **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/) est un service d’hébergement pour les domaines DNS. Azure DNS offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS en utilisant les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que pour vos autres services Azure. Pour utiliser un nom de domaine personnalisé tel que contoso.com, créez des enregistrements DNS qui mappent le nom de domaine personnalisé à l’adresse IP. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé dans Gestion des API](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
 - **Azure Active Directory (Azure AD)**. Utilisez [Azure AD](https://docs.microsoft.com/azure/active-directory/) ou un autre fournisseur d’identité pour l’authentification. Azure AD fournit l’authentification pour accéder aux points de terminaison des API en transmettant un [jeton web JSON pour la Gestion des API](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) à valider. Azure AD peut sécuriser l’accès au portail des développeurs Gestion des API (niveaux Standard et Premium uniquement).
 
@@ -68,9 +68,9 @@ Logic Apps fonctionne mieux dans les scénarios qui ne nécessitent pas une faib
 
 ### <a name="region"></a>Région
 
-Provisionnez Gestion des API et Logic Apps dans la même région pour réduire la latence du réseau. Généralement, sélectionnez la région la plus proche de vos utilisateurs.
+Provisionnez Gestion des API et Logic Apps dans la même région pour réduire la latence du réseau. Généralement, choisissez la région la plus proche de vos utilisateurs.
 
-Le groupe de ressources a également une région. La région indique l’endroit où sont stockées les métadonnées de déploiement et à partir d’où s’exécute le modèle de déploiement. Placez le groupe de ressources et ses ressources dans la même région afin d’améliorer la disponibilité lors du déploiement.
+Le groupe de ressources a également une région. Cette région indique l’endroit où sont stockées les métadonnées de déploiement et à partir d’où s’exécute le modèle de déploiement. Placez le groupe de ressources et ses ressources dans la même région afin d’améliorer la disponibilité lors du déploiement.
 
 ## <a name="scalability"></a>Extensibilité
 

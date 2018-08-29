@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 852f514a36ea640f478c5cc5ebbb137ca962703a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f3b6c4f6af14615511400650662fe7a350c172ba
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115349"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42146640"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Guide pratique pour utiliser des GPU dans Azure Machine Learning
 Les processeurs graphiques (GPU) sont largement utilisés pour traiter des tâches exigeant beaucoup de ressources de calcul, notamment lors de l’apprentissage de certains modèles de réseau neuronal profond. L’utilisation de GPU vous permet de réduire considérablement la durée d’apprentissage des modèles. Dans ce document, vous allez apprendre à configurer Azure Machine Learning Workbench pour utiliser une instance [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) dotée de processeurs graphiques en tant que cible d’exécution. 
@@ -25,7 +25,7 @@ Les processeurs graphiques (GPU) sont largement utilisés pour traiter des tâch
 - Pour parcourir ce guide pratique, vous devez d’abord [installer Azure Machine Learning Workbench](../service/quickstart-installation.md).
 - Vous devez avoir accès à des ordinateurs équipés de processeurs graphiques (GPU) NVidia.
     - Vous pouvez exécuter vos scripts directement sur l’ordinateur local (Windows ou MacOS) équipé de GPU.
-    - Vous pouvez également exécuter des scripts dans un conteneur Docker sur un ordinateur équipé de GPU.
+    - Vous pouvez également exécuter des scripts dans un conteneur Docker sur un ordinateur Linux équipé de GPU.
 
 ## <a name="execute-in-local-environment-with-gpus"></a>Exécution dans l’environnement _local_ doté de GPU
 Vous pouvez installer Azure Machine Learning Workbench sur un ordinateur équipé de GPU et effectuer les exécutions dans l’environnement _local_. Il peut s’agir des ordinateurs suivants :
@@ -66,7 +66,7 @@ Azure Machine Learning Workbench prend également en charge l’exécution dans 
 4. Cliquez sur **Créer** pour créer une image DSVM Ubuntu.
 
 5. Renseignez le formulaire **de base** avec les informations requises.
-Quand vous sélectionnez l’emplacement de votre machine virtuelle, notez que les machines virtuelles GPU sont uniquement disponibles dans certaines régions Azure, par exemple, **Sud-Centre des États-Unis**. Consultez [Disponibilité des produits de calcul par région](https://azure.microsoft.com/regions/services/).
+Quand vous sélectionnez l’emplacement de votre machine virtuelle, notez que les machines virtuelles GPU sont uniquement disponibles dans certaines régions Azure, par exemple, **USA Centre Sud**. Consultez [Disponibilité des produits de calcul par région](https://azure.microsoft.com/regions/services/).
 Cliquez sur OK pour enregistrer les informations **de base**.
 
 6. Choisissez la taille de la machine virtuelle. Sélectionnez une des tailles de machines virtuelles dont le préfixe est CN et équipées de processeurs graphiques NVidia.  Cliquez sur **Afficher tout** pour afficher la liste complète, selon vos besoins. Découvrez-en plus sur les [machines virtuelles Azure équipées de GPU](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
@@ -138,7 +138,7 @@ Total memory: 11.17GiB
 Free memory: 11.11GiB
 ```
 
-Félicitations ! Votre script vient d’exploiter la puissance des GPU par le biais d’un conteneur Docker.
+Félicitations ! Votre script vient d’exploiter la puissance des GPU par le biais d’un conteneur Docker.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez un exemple d’utilisation d’un GPU pour accélérer l’apprentissage de réseaux neuronaux profonds dans la galerie Azure Machine Learning.

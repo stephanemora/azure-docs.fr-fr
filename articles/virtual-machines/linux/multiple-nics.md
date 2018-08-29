@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: iainfou
-ms.openlocfilehash: aae71dafd3685e44975049c4287c083abc2330bc
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 77feb52a4ba2013bd6ec0afcd30a20f05227031e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144854"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42145339"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Guide de création d’une machine virtuelle Linux dans Azure avec plusieurs cartes d’interface réseau
 Vous pouvez créer une machine virtuelle dans Azure, à laquelle sont attachées plusieurs interfaces réseau virtuelles (NIC). Un scénario courant consiste à avoir des sous-réseaux différents pour les connectivités frontale et principale, ou un réseau dédié à une solution de surveillance ou de sauvegarde. Cet article décrit comment créer une machine virtuelle avec plusieurs cartes réseau attachées et comment ajouter ou supprimer des cartes réseau à partir d’une machine virtuelle existante. Comme le nombre de cartes réseau prises en charge varie suivant la [taille des machines virtuelles](sizes.md) , pensez à dimensionner la vôtre en conséquence.

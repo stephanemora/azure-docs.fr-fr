@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: e76ffa3256da5acecf55ad37ea3d927510565ffe
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 41246e434f8adade65f39b3471417888f62d7528
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577286"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42146884"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 > [!div class="op_single_selector"]
@@ -204,6 +204,8 @@ Le service en conteneur a besoin d’un point de terminaison pour la communicati
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> Vous pouvez ajouter d’autres points de terminaison à un service en déclarant des éléments EndPoint supplémentaires avec les valeurs de propriétés applicables. Chaque port peut déclarer une valeur de protocole uniquement.
 
 En définissant un point de terminaison, Service Fabric publie le point de terminaison sur le service d’affectation de noms. D’autres services qui s’exécutent dans le cluster peuvent résoudre ce conteneur. Vous pouvez également effectuer la communication de conteneur à conteneur à l’aide du [proxy inversé](service-fabric-reverseproxy.md). Pour établir la communication, vous devez fournir le port d’écoute HTTP associé au proxy inversé et le nom des services avec lesquels vous souhaitez communiquer en tant que variables d’environnement.
 
@@ -247,6 +249,8 @@ Configurez un port de l’hôte utilisé pour communiquer avec le conteneur. La 
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> Vous pouvez ajouter d’autres liaisons de port à un service en déclarant des éléments PortBinding avec les valeurs de propriétés applicables.
 
 ## <a name="configure-container-registry-authentication"></a>Configurer l’authentification au registre de conteneurs Azure
 Configurez l’authentification au registre de conteneurs en ajoutant l’élément `RepositoryCredentials` à l’élément `ContainerHostPolicies` du fichier ApplicationManifest.xml. Ajoutez le compte et le mot de passe pour le registre de conteneurs myregistry.azurecr.io. Cela permet au service de télécharger l’image de conteneur à partir du référentiel.
@@ -598,13 +602,13 @@ Le runtime Service Fabric alloue 20 minutes pour télécharger et extraire les i
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -626,7 +630,7 @@ Avec la version 6.2 du runtime Service Fabric et versions supérieures, vous pou
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 
