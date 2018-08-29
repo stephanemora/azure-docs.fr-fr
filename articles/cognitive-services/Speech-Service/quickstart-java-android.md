@@ -9,19 +9,19 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325123"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929940"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans Java sur Android à l’aide du kit de développement logiciel (SDK) Speech
 
 [!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer une application Java pour Android à l’aide du Kit de développement logiciel (SDK) Cognitive Services Speech pour transcrire de la parole en texte.
-L’application est basée sur le package Maven du kit SDK Microsoft Cognitive Services version 0.5.0 et Android Studio 3.1.
+L’application est basée sur le package Maven du kit SDK Microsoft Cognitive Services version 0.6.0 et Android Studio 3.1.
 
 > [!NOTE]
 > Pour le Kit de développement logiciel (SDK) Speech et l’appareil Roobo, consultez la page [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).
@@ -63,7 +63,7 @@ Après quelques instants, votre nouveau projet Android Studio devrait s’affich
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `0.5.0`.
+La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `0.6.0`.
 
 Le Kit de développement logiciel (SDK) Speech pour Android est empaqueté sous forme de package [AAR (bibliothèque Android)](https://developer.android.com/studio/projects/android-library), qui inclut les bibliothèques nécessaires ainsi que les autorisations Android requises pour son utilisation.
 Il est hébergé dans un référentiel Maven dans https://csspeechstorage.blob.core.windows.net/maven/.
@@ -81,7 +81,7 @@ Dans la fenêtre qui s’affiche, effectuez les modifications suivantes (cliquez
 
   ![](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Dans la fenêtre qui s’affiche, entrez le nom et la version de notre Kit de développement logiciel (SDK) Speech pour Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`, puis cliquez sur **OK**.
+1. Dans la fenêtre qui s’affiche, entrez le nom et la version de notre Kit de développement logiciel (SDK) Speech pour Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`, puis cliquez sur **OK**.
    Le Kit de développement logiciel (SDK) Speech devrait à présent apparaître dans la liste des dépendances, comme indiqué ci-dessous :
 
   ![](media/sdk/qs-java-android-08-dependency-added.png)

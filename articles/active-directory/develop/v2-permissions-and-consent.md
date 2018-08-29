@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b38d90251ab59e537e7d637f45f04c4db87a94ae
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580304"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142135"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Étendues, autorisations et consentement dans le point de terminaison Azure Active Directory v2.0
 Les applications intégrées à Azure Active Directory (Azure AD) suivent un modèle d’autorisation, qui permet aux utilisateurs de contrôler le mode d’accès d’une application à leurs données. L’implémentation v2.0 de ce modèle d’autorisation a été mise à jour, et elle modifie la façon dont une application doit interagir avec Azure AD. Cet article aborde les concepts de base de ce modèle d’autorisation, notamment les étendues, les autorisations et le consentement.
@@ -73,6 +73,19 @@ L’étendue `profile` peut être utilisée avec l’étendue `openid` ainsi que
 Si votre application ne sollicite pas l’étendue `offline_access`, elle ne reçoit pas de jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans le [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md), vous recevez uniquement un jeton d’accès du point de terminaison `/token`. Le jeton d’accès est valide pendant une courte durée : il arrive généralement à expiration en une heure. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Pendant ce réacheminement, en fonction du type d’application, l’utilisateur peut devoir entrer à nouveau ses informations d’identification ou accepter une nouvelle fois les autorisations.
 
 Pour en savoir plus sur la récupération et l’utilisation des jetons d’actualisation, consultez la page de [référence sur les protocoles v2.0](active-directory-v2-protocols.md).
+
+## <a name="accessing-v10-resources"></a>Accès aux ressources de la version 1.0
+Les applications v2.0 peuvent demander des jetons et accepter les applications version 1.0 (telles que l’API Power BI `https://analysis.windows.net/powerbi/api` ou l’API Sharepoint `https://{tenant}.sharepoint.com`).  Pour ce faire, vous pouvez référencer la chaîne d’URI et d’étendue de l’application dans le paramètre `scope`.  Par exemple, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` demande l’autorisation PowerBI `View all Datasets` pour votre application. 
+
+Pour demander plusieurs autorisations, ajoutez l’URI complet avec un espace ou `+`, par exemple `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Ainsi, les deux autorisations `View all Datasets` et `View all Reports` sont demandées.  Notez que comme avec toutes les étendues et autorisations Azure AD, les applications peuvent uniquement effectuer une demande pour une seule ressource à la fois ; ainsi, la demande `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, qui concerne à la fois l’autorisation PowerBI `View all Datasets` et l’autorisation Skype Entreprise `Initiate conversations`, est rejetée car elle porte sur deux ressources différentes.  
+
+### <a name="v10-resources-and-tenancy"></a>Locataires et ressources v1.0
+Les protocoles Azure AD v1.0 et v2.0 utilisent un paramètre `{tenant}` incorporé dans l’URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Quand vous utilisez le point de terminaison v2.0 pour accéder à une ressource d’organisation v1.0, les locataires `common` et `consumers` ne peuvent pas être utilisés, car ces ressources sont uniquement accessibles à l’aide de comptes d’organisation (Azure AD).  Ainsi, quand vous accédez à ces ressources, seul le GUID du locataire ou `organizations` peut être utilisé comme paramètre `{tenant}`.  
+
+Si une application tente d’accéder à une ressource d’organisation v1.0 à l’aide d’un locataire incorrect, une erreur similaire à celle ci-dessous s’affiche. 
+
+`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
+
 
 ## <a name="requesting-individual-user-consent"></a>Demande de consentement d’utilisateur individuel
 Dans une demande d’autorisation [OpenID Connect ou OAuth 2.0](active-directory-v2-protocols.md), une application peut demander les autorisations nécessaires à l’aide du paramètre de requête `scope`. Par exemple, lorsqu’un utilisateur se connecte à une application, cette dernière envoie une requête semblable à l’exemple ci-dessous (avec des sauts de ligne ajoutés pour une meilleure lisibilité) :

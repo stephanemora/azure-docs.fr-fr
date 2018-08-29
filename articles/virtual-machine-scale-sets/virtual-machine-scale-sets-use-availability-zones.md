@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: e19130c5ee418ebaa41f9ee42e217c52cdeec6cb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697940"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42146375"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -45,10 +45,10 @@ Lorsque vous déployez un groupe identique, vous avez également la possibilité
 
 ### <a name="zone-balancing"></a>Équilibrage des zones
 
-Enfin, pour les groupes identiques déployés sur plusieurs zones, vous avez également la possibilité de choisir « best effort zone balance» (meilleur équilibre des zones) ou « strict zone balance » (équilibre des zones strict). Un groupe identique est considéré comme « équilibré » si la différence entre le nombre de machines virtuelles dans chaque zone et le nombre de machines virtuelles dans chaque autre zone du groupe identique n’est pas supérieure à un. Par exemple : 
+Enfin, pour les groupes identiques déployés sur plusieurs zones, vous avez également la possibilité de choisir « best effort zone balance» (meilleur équilibre des zones) ou « strict zone balance » (équilibre des zones strict). Un groupe identique est considéré comme « équilibré » si le nombre de machines virtuelles de chaque zone est égal à celui de toutes les autres zones du groupe identique, à une machine virtuelle près. Par exemple : 
 
-- Un groupe identique composé de 2 machines virtuelles dans la zone 1, de 3 machines virtuelles dans la zone 2 et de 3 machines virtuelles dans la zone 3 est considéré comme étant équilibré.
-- Un groupe identique composé d’1 machine virtuelle dans la zone 1, de 3 machines virtuelles dans la zone 2 et de 3 machines virtuelles dans la zone 3 est considéré comme non équilibré.
+- Un groupe identique composé de 2 machines virtuelles dans la zone 1, de 3 machines virtuelles dans la zone 2 et de 3 machines virtuelles dans la zone 3 est considéré comme étant équilibré. Une seule de ces zones présente un nombre de machines virtuelles différent, et ce nombre n’est inférieur que de 1 à celui des autres zones. 
+- Un groupe identique composé d’1 machine virtuelle dans la zone 1, de 3 machines virtuelles dans la zone 2 et de 3 machines virtuelles dans la zone 3 est considéré comme non équilibré. En effet, la zone 1 comporte 2 machines virtuelles de moins que les zones 2 et 3.
 
 Il est possible que les machines virtuelles du groupe identique soient correctement créées, mais que le déploiement d’extensions sur ces machines virtuelles échoue. Ces machines virtuelles avec des erreurs d’extension sont toujours comptabilisées lorsque l’équilibre d’un groupe identique est évalué. Par exemple, un groupe identique composé de 3 machines virtuelles en zone 1, 3 machines virtuelles en zone 2 et 3 machines virtuelles en zone 3 est considéré comme étant équilibré même si toutes les extensions ont échoué en zone 1 et toutes les extensions ont réussi en zones 2 et 3.
 
@@ -98,7 +98,7 @@ Pour obtenir un exemple complet de groupe identique dans une zone unique et de r
 
 ### <a name="zone-redundant-scale-set"></a>Groupe identique redondant dans une zone
 
-Pour créer un groupe identique redondant dans une zone, vous devez utiliser une adresse IP publique et un équilibreur de charge avec une référence SKU *Standard*. Pour assurer une meilleure redondance, la référence SKU *Standard* crée des ressources réseau redondantes dans une zone. Pour plus d’informations, consultez [Présentation de la référence Standard d’Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md).
+Pour créer un groupe identique redondant dans une zone, vous devez utiliser une adresse IP publique et un équilibreur de charge avec une référence SKU *Standard*. Pour assurer une meilleure redondance, la référence SKU *Standard* crée des ressources réseau redondantes dans une zone. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Pour créer un groupe identique redondant dans une zone, spécifiez des zones multiples à l’aide du paramètre `--zones`. Dans l’exemple suivant, un groupe identique redondant dans une zone, nommé *myScaleSet*, est créé dans les zones *1,2,3* :
 
@@ -119,7 +119,7 @@ Quelques minutes sont nécessaires pour créer et configurer l’ensemble des re
 
 Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge. Ajoutez le paramètre `-Zone` à la commande [New-AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig), puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*).
 
-L’exemple suivant crée un groupe identique Linux dans une zone unique, nommé *myScaleSet* dans la région *Est des États-Unis 2*, zone *1*. Les ressources réseau Azure pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créées. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
+L’exemple suivant crée un groupe identique Linux dans une zone unique, nommé *myScaleSet* dans la région *USA Est 2*, zone *1*. Les ressources réseau Azure pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créées. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
 
 ```powershell
 New-AzureRmVmss `
@@ -136,7 +136,7 @@ New-AzureRmVmss `
 
 ### <a name="zone-redundant-scale-set"></a>Groupe identique redondant dans une zone
 
-Pour créer un groupe identique redondant dans une zone, spécifiez des zones multiples à l’aide du paramètre `-Zone`. Dans l’exemple suivant, un groupe identique redondant dans une zone, nommé *myScaleSet*, est créé dans la région *Est des États-Unis 2*, zones *1, 2, 3*. Les ressources réseau Azure redondantes dans une zone pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créés. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
+Pour créer un groupe identique redondant dans une zone, spécifiez des zones multiples à l’aide du paramètre `-Zone`. Dans l’exemple suivant, un groupe identique redondant dans une zone, nommé *myScaleSet*, est créé dans la région *USA Est 2*, zones *1, 2, 3*. Les ressources réseau Azure redondantes dans une zone pour le réseau virtuel, l’adresse IP publique et l’équilibreur de charge sont automatiquement créés. Lorsque vous y êtes invité, fournissez vos propres informations d’identification d’administration souhaitées pour les instances de machine virtuelle dans le groupe identique :
 
 ```powershell
 New-AzureRmVmss `
@@ -155,7 +155,7 @@ New-AzureRmVmss `
 
 Le processus de création d’un groupe identique qui utilise une zone de disponibilité est identique à celui décrit dans l’article de prise en main pour [Linux](quick-create-template-linux.md) ou [Windows](quick-create-template-windows.md). Pour utiliser les zones de disponibilité, vous devez créer votre groupe identique dans une région Azure prise en charge. Ajoutez la propriété `zones` au type de ressource *Microsoft.Compute/virtualMachineScaleSets* dans votre modèle, puis spécifiez la zone à utiliser (par exemple, zone *1*, *2* ou *3*).
 
-L’exemple suivant crée un groupe identique Linux dans une zone unique, nommé *myScaleSet* dans la région *Est des États-Unis 2*, zone *1* :
+L’exemple suivant crée un groupe identique Linux dans une zone unique, nommé *myScaleSet* dans la région *USA Est 2*, zone *1* :
 
 ```json
 {
@@ -199,7 +199,7 @@ Pour obtenir un exemple complet de groupe identique dans une zone unique et de r
 
 ### <a name="zone-redundant-scale-set"></a>Groupe identique redondant dans une zone
 
-Pour créer un groupe identique redondant dans une zone, spécifiez plusieurs valeurs pour la propriété `zones` du type de ressource *Microsoft.Compute/virtualMachineScaleSets*. Dans l’exemple suivant, un groupe identique redondant dans une zone, nommé *myScaleSet*, est créé dans la région *Est des États-Unis 2*, zones *1,2,3* :
+Pour créer un groupe identique redondant dans une zone, spécifiez plusieurs valeurs pour la propriété `zones` du type de ressource *Microsoft.Compute/virtualMachineScaleSets*. Dans l’exemple suivant, un groupe identique redondant dans une zone, nommé *myScaleSet*, est créé dans la région *USA Est 2*, zones *1,2,3* :
 
 ```json
 {
@@ -215,7 +215,7 @@ Pour créer un groupe identique redondant dans une zone, spécifiez plusieurs va
 }
 ```
 
-Si vous créez une adresse IP publique ou un équilibreur de charge, spécifiez la propriété *"sku": { "name": "Standard" }"* pour créer des ressources réseau redondantes dans une zone. Vous devez également créer un groupe de sécurité réseau et les règles associées pour autoriser tout le trafic. Pour plus d’informations, consultez [Présentation de la référence Standard d’Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md).
+Si vous créez une adresse IP publique ou un équilibreur de charge, spécifiez la propriété *"sku": { "name": "Standard" }"* pour créer des ressources réseau redondantes dans une zone. Vous devez également créer un groupe de sécurité réseau et les règles associées pour autoriser tout le trafic. Pour plus d’informations, consultez les articles [Présentation de Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) et [Référence Standard de Load Balancer et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Pour obtenir un exemple complet de groupe identique redondant dans une zone et de ressources réseau, consultez [cet exemple de modèle Resource Manager](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json).
 
