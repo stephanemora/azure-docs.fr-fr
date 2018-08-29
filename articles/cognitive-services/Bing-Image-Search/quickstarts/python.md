@@ -1,6 +1,6 @@
 ---
-title: Appel et réponse - Guide de démarrage rapide Python pour l’API Recherche d’images Bing dans Azure Cognitive Services | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’images Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : Envoyer des requêtes de recherche à l’aide de l’API REST pour l’API Recherche d’images Bing dans Python'
+description: Dans ce démarrage rapide, vous envoyez des requêtes de recherche à l’API Recherche Bing pour obtenir une liste des images pertinentes à l’aide de Python.
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
@@ -8,16 +8,16 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 3b5d6a961ce4bcde8aaf73f1fbd30689a6c2c2d1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bc527ba39b580935f113f56aa63f7bdd283ba304
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368485"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41936736"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-python"></a>Appel et réponse : votre première requête de la Recherche d’images Bing dans Python
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Démarrage rapide : Envoyer des requêtes de recherche à l’aide de l’API REST et de Python
 
-L’API Recherche d’images Bing offre une expérience similaire à Bing.com/Images, en ce sens qu’elle vous permet d’envoyer une requête de recherche à Bing pour obtenir une liste d’images pertinentes.
+L’API Recherche d’images Bing offre une expérience similaire à celle de Bing.com/Images, en ce sens qu’elle permet d’envoyer une requête de recherche à Bing pour obtenir une liste d’images pertinentes.
 
 Cette procédure pas à pas donne un exemple simple d’appel dans l’API Recherche d’images Bing, et de post-traitement de l’objet JSON en résultant. Pour plus d’informations, consultez la [documentation de la Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
 
@@ -27,7 +27,7 @@ Vous pouvez exécuter cet exemple comme un bloc-notes Jupyter sur [MyBinder](htt
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-walkthrough"></a>Exécution de la procédure pas à pas
 Pour poursuivre la procédure pas à pas, affectez à `subscription_key` votre clé API pour le service API Bing.

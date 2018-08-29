@@ -1,6 +1,6 @@
 ---
 title: Concepts de service du service Azure IoT Hub Device Provisioning | Microsoft Docs
-description: Décrit les concepts d’approvisionnement de service pour les appareils avec le service Device Provisioning et IoT Hub
+description: Décrit les concepts de provisionnement de service spécifiques aux appareils avec le service Device Provisioning et IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 03/30/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2908e08e36f41ebb8a154e7c490e5c6719d911be
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ca2ea3c000e811223ded3022021c2516f547ae66
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628298"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142414"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>Concepts du service IoT Hub Device Provisioning
 
@@ -29,17 +29,20 @@ Le point de terminaison des opérations de service est le point de terminaison d
 
 ## <a name="device-provisioning-endpoint"></a>Point de terminaison d'approvisionnement des appareils
 
-Le point de terminaison de provisionnement des appareils est le seul point de terminaison sur lequel communiquent tous les appareils pour l’approvisionnement automatique. L’URL est la même pour toutes les instances de service d’approvisionnement de façon à éviter d’avoir à réinitialiser les appareils avec les nouvelles informations de connexion dans les scénarios de chaîne d’approvisionnement. L’[étendue de l’ID](#id-scope) garantit l’isolation des locataires.
+Le point de terminaison de provisionnement des appareils est le seul point de terminaison sur lequel communiquent tous les appareils pour l’approvisionnement automatique. L’URL est la même pour toutes les instances de service d’approvisionnement de façon à éviter d’avoir à réinitialiser les appareils avec les nouvelles informations de connexion dans les scénarios de chaîne d’approvisionnement. L’étendue de l’ID garantit l’isolation des locataires.
 
 ## <a name="linked-iot-hubs"></a>Hubs IoT liés
 
-Le service Device Provisioning peut uniquement approvisionner des appareils sur des hubs IoT auxquels il est lié. La liaison d’un hub IoT au service Device Provisioning donne au Registre d’appareils du hub IoT des autorisations en lecture/écriture sur le service. Avec cette liaison, le service Device Provisioning peut inscrire un ID d’appareil et définir la configuration initiale dans l’appareil jumeau. Les hubs IoT liés peuvent se trouver dans n’importe quelle région Azure. Vous pouvez lier des hubs d’autres abonnements à votre service d’approvisionnement.
+Le service Device Provisioning peut uniquement provisionner des appareils sur des hubs IoT auxquels il est lié. La liaison d’un hub IoT à une instance du service Device Provisioning donne au Registre d’appareils du hub IoT des autorisations en lecture/écriture sur le service. Avec cette liaison, le service Device Provisioning peut inscrire un ID d’appareil et définir la configuration initiale dans l’appareil jumeau. Les hubs IoT liés peuvent se trouver dans n’importe quelle région Azure. Vous pouvez lier des hubs d’autres abonnements à votre service d’approvisionnement.
 
 ## <a name="allocation-policy"></a>Stratégie d’allocation
 
 Paramètre au niveau du service qui détermine la façon dont le service Device Provisioning attribue les appareils à un hub IoT. Trois stratégies d’allocation sont prises en charge :
+
 * **Distribution uniformément pondérée** : Les hubs IoT liés sont susceptibles d’avoir des appareils approvisionnés en proportions égales. Paramètre par défaut. Si vous approvisionnez des appareils sur un seul hub IoT, vous pouvez conserver ce paramètre.
+
 * **Latence la plus faible** : Les appareils sont approvisionnés sur le hub IoT ayant la latence la plus faible sur l’appareil. Si plusieurs hubs IoT liés fournissent la même latence la plus faible, le service d’approvisionnement répartit les appareils sur ces hubs
+
 * **Configuration statique par le biais de la liste d’inscriptions** : La spécification du hub IoT souhaité dans la liste d’inscriptions est prioritaire sur la stratégie d’allocation au niveau du service.
 
 ## <a name="enrollment"></a>Inscription
@@ -68,7 +71,7 @@ Une inscription individuelle désigne une entrée pour un seul appareil pouvant 
 
 ## <a name="registration"></a>Inscription
 
-L’inscription désigne l’enregistrement d’un appareil inscrit/approvisionné sur un hub IoT via le service Device Provisioning. Les enregistrements d’inscription sont créés automatiquement. Ils peuvent être supprimés, mais pas mis à jour.
+L’inscription désigne l’enregistrement d’un appareil inscrit ou provisionné sur un hub IoT via le service Device Provisioning. Les enregistrements d’inscription sont créés automatiquement. Ils peuvent être supprimés, mais pas mis à jour.
 
 ## <a name="operations"></a>Opérations
 

@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: c7eaa2aa37b05bd0e125e1841357979af4f6763a
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 6b5796bf4d049579dbdede2251f2ca67cc9c4bfd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326057"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929833"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>À propos du Kit de développement logiciel (SDK) Speech de Cognitive Services
 
@@ -26,38 +26,55 @@ Le Kit de développement logiciel (SDK) Speech de Cognitive Services fournit à 
 
 ## <a name="get-the-sdk"></a>Obtention du Kit de développement logiciel (SDK)
 
-### <a name="get-the-windows-sdk"></a>Obtenir le SDK Windows
+### <a name="windows"></a>Windows
 
-La version Windows du Kit de développement logiciel (SDK) Speech inclut des bibliothèques client C/C++ 32 bits et 64 bits, ainsi que des bibliothèques managées (.NET) pour l’utilisation avec C#. Le Kit de développement logiciel (SDK) peut être installé dans Visual Studio à l’aide de NuGet. Recherchez simplement `Microsoft.CognitiveServices.Speech`.
+Pour Windows, nous prenons en charge les langages suivants :
 
-### <a name="get-the-linux-sdk"></a>Obtenir le SDK Linux
+* C# (UWP et .NET), C++ : vous pouvez référencer et utiliser la dernière version de notre package NuGet du Kit de développement logiciel (SDK) de reconnaissance vocale.
+  Le package inclut des bibliothèques clientes 32 bits et 64 bits, ainsi que des bibliothèques managées (.NET).
+  Le Kit de développement logiciel (SDK) peut être installé dans Visual Studio à l’aide de NuGet. Recherchez simplement `Microsoft.CognitiveServices.Speech`.
 
-Vérifiez que vous disposez du compilateur et des bibliothèques requis en exécutant les commandes shell suivantes :
+* Java : vous pouvez référencer et utiliser la dernière version de notre package Maven du Kit de développement logiciel (SDK) de reconnaissance vocale, qui prend en charge Windows x64.
+  Dans votre projet Maven, ajoutez `https://csspeechstorage.blob.core.windows.net/maven/` comme référentiel supplémentaire, puis référencez `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` comme dépendance. 
+
+### <a name="linux"></a>Linux
+
+> [!NOTE]
+> Actuellement, nous prenons uniquement en charge Ubuntu 16.04 sur un PC (x86 ou x64 pour le développement C++, x64 pour .NET Core et Java).
+
+Vérifiez que le compilateur et les bibliothèques requis sont installés en exécutant les commandes shell suivantes :
 
 ```sh
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ```
 
-> [!NOTE]
-> Ces instructions supposent que vous exécutez Ubuntu 16.04 sur un PC (x86 ou x64). Sur une autre version Ubuntu, ou une autre distribution Linux, adaptez ces étapes à votre environnement.
+* C# : vous pouvez référencer et utiliser la dernière version de notre package NuGet du Kit de développement logiciel (SDK) de reconnaissance vocale.
+  Pour référencer le Kit de développement logiciel (SDK), ajoutez la référence de package suivante à votre projet :
 
-Ensuite, [téléchargez le SDK](https://aka.ms/csspeech/linuxbinary) et décompressez les fichiers dans un répertoire de votre choix. Ce tableau présente la structure de dossiers du Kit de développement logiciel.
+  ```xml
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="0.6.0" />
+  ```
 
-|path|Description|
-|-|-|
-|`license.md`|Licence|
-|`third-party-notices.md`|Mentions tierces|
-|`include`|Les fichiers d’en-tête pour C et C++|
-|`lib/x64`|Bibliothèque x64 native pour la liaison avec votre application|
-|`lib/x86`|Bibliothèque x86 native pour la liaison avec votre application|
+* Java : vous pouvez référencer et utiliser la dernière version de notre package Maven du Kit de développement logiciel (SDK) de reconnaissance vocale.
+  Dans votre projet Maven, ajoutez `https://csspeechstorage.blob.core.windows.net/maven/` comme référentiel supplémentaire, puis référencez `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` comme dépendance. 
 
-Pour créer une application, copiez ou déplacez les fichiers binaires (et les bibliothèques) requis dans votre environnement de développement et incluez-les dans votre processus de génération en fonction de vos besoins.
+* C++ : téléchargez le SDK en tant que [package .tar](https://aka.ms/csspeech/linuxbinary) et décompressez les fichiers dans un répertoire de votre choix. Le tableau suivant montre la structure de dossiers du Kit de développement logiciel.
 
-### <a name="get-the-java-sdk"></a>Obtenir le Kit de développement logiciel (SDK) Java
+  |path|Description|
+  |-|-|
+  |`license.md`|Licence|
+  |`ThirdPartyNotices.md`|Mentions tierces|
+  |`include`|Les fichiers d’en-tête pour C et C++|
+  |`lib/x64`|Bibliothèque x64 native pour la liaison avec votre application|
+  |`lib/x86`|Bibliothèque x86 native pour la liaison avec votre application|
+
+  Pour créer une application, copiez ou déplacez les fichiers binaires (et les bibliothèques) requis dans votre environnement de développement et incluez-les dans votre processus de génération en fonction de vos besoins.
+
+### <a name="android"></a>Android
 
 Le Kit de développement logiciel (SDK) Java pour Android est empaqueté sous forme de package [AAR (bibliothèque Android)](https://developer.android.com/studio/projects/android-library), qui inclut les bibliothèques nécessaires ainsi que les autorisations Android requises pour son utilisation.
-Il est hébergé dans un référentiel Maven dans `https://csspeechstorage.blob.core.windows.net/maven/`, en tant que package `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
+Il est hébergé dans un référentiel Maven dans `https://csspeechstorage.blob.core.windows.net/maven/`, en tant que package `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`.
 Pour utiliser le package dans votre projet Android Studio, effectuez les modifications suivantes :
 
 * Dans le fichier `build.gradle` au niveau du projet, ajoutez le texte suivant à la section `repository` :
@@ -69,7 +86,7 @@ Pour utiliser le package dans votre projet Android Studio, effectuez les modific
 * Dans le fichier `build.gradle` au niveau du module, ajoutez le texte suivant à la section `dependencies` :
 
   ```text
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.6.0'
   ```
 
 Le Kit de développement logiciel (SDK) Java fait aussi partie du [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).

@@ -1,6 +1,6 @@
 ---
-title: Vue d’ensemble du point de terminaison de services de réseau virtuel pour le serveur Azure Database pour MySQL | Microsoft Docs
-description: Décrit le fonctionnement des points de terminaison de service de réseau virtuel pour votre serveur Azure Database pour MySQL.
+title: Présentation des points de terminaison des services de réseau virtuel des serveurs Azure Database pour MySQL | Microsoft Docs
+description: Décrit le fonctionnement des points de terminaison des services de réseau virtuel de votre serveur Azure Database pour MySQL.
 services: mysql
 author: mbolz
 ms.author: mbolz
@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 5/29/2018
-ms.openlocfilehash: 652657c8891f2320c026251ffa32e4787028ee18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/20/2018
+ms.openlocfilehash: f18f52fc409df769d164607a128caaf02ead5e4b
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659553"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143353"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour MySQL
 
@@ -25,7 +25,7 @@ Pour créer une règle de réseau virtuel, il doit d’abord exister un [réseau
 ![Exemple de fonctionnement d’un point de terminaison de service de réseau virtuel](media/concepts-data-access-and-security-vnet/vnet-concept.png)
 
 > [!NOTE]
-> Pour Azure Database pour MySQL, cette fonctionnalité est disponible en préversion publique dans toutes les régions de cloud public Azure où Azure Database pour MySQL est déployé.
+> Cette fonctionnalité est disponible dans toutes les régions Azure où Azure Database pour MySQL est déployé, pour les serveurs à usage général et à mémoire optimisée.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -69,7 +69,7 @@ L’approche des IP statiques peut toutefois devenir difficile à gérer, et ell
 
 Si votre serveur **Microsoft.Sql** était un nœud sur un sous-réseau de votre réseau virtuel, tous les nœuds situés dans le réseau virtuel pourraient communiquer avec le serveur Azure Database pour MySQL. Dans ce cas, vos machines virtuelles pourraient communiquer avec Azure Database pour MySQL sans avoir à utiliser de règles de réseau virtuel ni de règles IP.
 
-Mais depuis mai 2018, le service Azure Database pour MySQL ne figure plus parmi les services pouvant être assignés directement à un sous-réseau.
+Toutefois, depuis août 2018, le service Azure Database pour MySQL ne figure plus parmi les services pouvant être assignés directement à un sous-réseau.
 
 <a name="anch-details-about-vnet-rules-38q" />
 
@@ -117,8 +117,6 @@ Pour Azure Database pour MySQL, la fonctionnalité de règles de réseau virtuel
 
 - Le fait d’activer les points de terminaison de service de réseau virtuel sur Azure Database pour MySQL l’aide du nom de service **Microsoft.Sql** a pour effet d’activer également les points de terminaison pour tous les services Azure Database : Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure SQL Database et Azure SQL Data Warehouse.
 
-- En préversion publique, les opérations de déplacement de réseaux virtuels ne sont pas prises en charge. Pour déplacer une règle de réseau virtuel, vous devez la supprimer et la recréer.
-
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.
 
 - Sur le pare-feu, les plages d’adresses IP s’appliquent aux éléments de mise en réseau suivants, contrairement aux règles de réseau virtuel :
@@ -130,6 +128,12 @@ Pour Azure Database pour MySQL, la fonctionnalité de règles de réseau virtuel
 Si votre réseau est connecté au réseau Azure via l’utilisation [d’ExpressRoute][expressroute-indexmd-744v], chaque circuit est configuré avec deux adresses IP publiques sur Microsoft Edge. Les deux adresses IP sont utilisées pour se connecter aux services Microsoft, comme le stockage Azure, à l’aide de l’homologation publique Azure.
 
 Pour permettre la communication de votre circuit avec Azure Database pour MySQL, vous devez créer des règles de réseau IP pour les adresses IP publiques de vos circuits. Pour rechercher les adresses IP publiques de votre circuit ExpressRoute, ouvrez un ticket de support avec ExpressRoute dans le portail Azure.
+
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Ajout d’une règle de pare-feu de réseau virtuel à votre serveur sans activer les points de terminaison de service Vnet
+
+La simple définition d’une règle de pare-feu ne permet pas de sécuriser le serveur sur un réseau virtuel. Vous devez également **activer** les points de terminaison de service du réseau virtuel pour que la sécurité soit appliquée. Quand vous **activez** les points de terminaison de service, le sous-réseau de votre réseau virtuel est arrêté le temps de passer de l’état **désactivé** à l’état **activé**. Cela est particulièrement vrai dans le contexte de grands réseaux virtuels. Vous pouvez utiliser l’indicateur **IgnoreMissingServiceEndpoint** pour réduire ou éliminer le temps d’arrêt pendant la transition.
+
+Vous pouvez définir l’indicateur **IgnoreMissingServiceEndpoint** à l’aide d’Azure CLI ou du portail.
 
 ## <a name="related-articles"></a>Articles connexes
 - [Réseaux virtuels Azure][vm-virtual-network-overview]

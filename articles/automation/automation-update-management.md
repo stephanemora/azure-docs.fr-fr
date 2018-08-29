@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115671"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141882"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -213,12 +213,14 @@ Pour créer un déploiement de mises à jour, sélectionnez **Planifier le dépl
 
 | Propriété | Description |
 | --- | --- |
-|NOM |Nom unique identifiant le déploiement de mises à jour. |
-|Système d’exploitation| Sélectionnez **Linux** ou **Windows**.|
-|Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée ou choisissez un **ordinateur** dans la liste déroulante, puis sélectionnez des ordinateurs individuels. |
-|Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin. CentOS ne prend pas directement en charge cette fonction.|
-|Mises à jour à exclure|Entrez les mises à jour à exclure. Pour Windows, entrez la version KB sans le préfixe **KB**. Pour Linux, entrez le nom du package ou utilisez un caractère générique.  |
-|Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité (**Une fois** ou **Récurrent**).|| Fenêtre de maintenance |Nombre de minutes défini pour les mises à jour. La valeur ne peut pas être inférieure à 30 minutes ni supérieure à 6 heures. |
+| NOM |Nom unique identifiant le déploiement de mises à jour. |
+|Système d’exploitation| Linux ou Windows|
+| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md). |
+|Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
+|Mises à jour à exclure|Entrez les mises à jour à exclure. Pour Windows, entrez la version KB sans le préfixe « KB ». Pour Linux, entrez le nom du package ou utilisez un caractère générique.  |
+|Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité.|
+| Fenêtre de maintenance |Nombre de minutes défini pour les mises à jour. La valeur ne peut pas être inférieure à 30 minutes ni supérieure à 6 heures. |
+| Contrôle du redémarrage| Détermine comment les redémarrages doivent être gérés.</br>Options disponibles :</br>Redémarrer si nécessaire (par défaut)</br>Toujours redémarrer</br>Ne jamais redémarrer</br>Redémarrer uniquement : les mises à jour ne sont pas installées|
 
 ## <a name="update-classifications"></a>Classifications des mises à jour
 
@@ -510,7 +512,7 @@ Toutefois, Update Management peut quand même signaler que cet ordinateur n’es
 
 Le déploiement de mises à jour par classification ne fonctionne pas directement sur CentOS. Pour SUSE, sélectionner *uniquement* « Autres mises à jour » en tant que classification peut entraîner l’installation de certaines mises à jour de sécurité si les mises à jour de sécurité associées à zypper (gestionnaire de package) ou ses dépendances sont requises en premier. IL s’agit d’une limitation de zypper. Dans certains cas, vous devrez peut-être exécuter à nouveau le déploiement des mises à jour. Pour savoir si cela est nécessaire, consultez le journal de mise à jour.
 
-## <a name="troubleshoot"></a>Résoudre les problèmes
+## <a name="troubleshoot"></a>Résolution des problèmes
 
 Pour savoir comment résoudre les problèmes de Update Management, consultez [Résolution des problèmes de Update Management](troubleshoot/update-management.md).
 

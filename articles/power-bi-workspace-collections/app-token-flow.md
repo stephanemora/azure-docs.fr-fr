@@ -16,12 +16,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4bf92638e15767ea254b33e5804977f0d6ab5476
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412183"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142377"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Authentification et autorisation avec Collections d’espaces de travail Power BI
 
@@ -44,10 +44,10 @@ Les jetons d’application sont un JWT (JSON Web Token) signé par l’une de vo
 
 Votre jeton d’application peut contenir les revendications suivantes :
 
-| Revendication | Description |
+| Revendication | Description |    
 | --- | --- |
 | **ver** |Version de jeton d’application. La version actuelle est 0.2.0. |
-| **aud** |Destinataire du jeton. Pour les collections d’espaces de travail Power BI, utilisez : «https://analysis.windows.net/powerbi/api.» |
+| **aud** |Destinataire du jeton. Pour Collection d’espaces de travail Power BI, utilisez : *https:\//analysis.windows.net/powerbi/api*. |
 | **iss** |Chaîne indiquant l’application qui a émis le jeton. |
 | **type** |Type de jeton d’application en cours de création. Le seul type pris en charge pour l’instant est **embed**. |
 | **wcn** |Nom de collection d’espace de travail pour lequel le jeton est émis. |

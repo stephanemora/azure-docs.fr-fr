@@ -17,16 +17,16 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f5e2051f9c67fa4e37ce0e1213e14e197222f05
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627540"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42143469"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Que sont les conditions dans l’accès conditionnel Azure Active Directory ? 
 
-Vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud avec l’[accès conditionnel Azure Active Directory (Azure AD)](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal). Dans une stratégie d’accès conditionnel, vous définissez la réponse sur la raison du déclenchement de votre stratégie. Ceci est un exemple de réponse : **Faire**. Ceci est un exemple de raison : **Lorsque cela se produit**.
+Vous pouvez contrôler la façon dont les utilisateurs autorisés accèdent à vos applications cloud avec l’[accès conditionnel Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Dans une stratégie d’accès conditionnel, vous définissez la réponse (« Ensuite faire ») sur la raison du déclenchement de votre stratégie (« Quand cela se produit »). 
 
 ![Raison et réponse](./media/conditions/10.png)
 
@@ -64,15 +64,17 @@ Le ciblage d’ensembles spécifiques d’utilisateurs est utile pour le déploi
 
 ## <a name="cloud-apps"></a>Applications cloud 
 
-Une application cloud est un site web ou un service. Les sites web protégés par le proxy d’application Azure AD sont également des applications cloud. Pour une description détaillée des applications cloud prises en charge, consultez [Affectations des applications cloud](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+Une application cloud est un site web ou un service. Les sites web protégés par le proxy d’application Azure AD sont également des applications cloud. Pour une description détaillée des applications cloud prises en charge, consultez [Affectations des applications cloud](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
 
 La condition **Applications de cloud** est obligatoire dans une stratégie d’accès conditionnel. Dans votre stratégie, vous pouvez soit sélectionner **Toutes les applications cloud** soit sélectionner des applications spécifiques.
 
 ![Inclure les applications cloud](./media/conditions/03.png)
 
-- Sélectionnez **Toutes les applications cloud** pour que les stratégies de base s’appliquent à toute l’organisation. Procédez ainsi pour les stratégies qui requièrent l’authentification multifacteur lorsqu’un risque à la connexion est détecté sur une application cloud. Une stratégie appliquée à **toutes les applications cloud** concerne l’accès à tous les services et sites web. Ce paramètre n’est pas limité aux applications cloud de la liste **Sélection des applications**. 
+Sélectionnez :
 
-- Sélectionnez des applications cloud individuelles pour cibler des services spécifiques par stratégie. Par exemple, vous pouvez demander aux utilisateurs d’avoir un [Appareil conforme](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) pour accéder à SharePoint Online. Cette stratégie s’applique aussi à d’autres services lorsqu’ils accèdent à des contenus SharePoint. Microsoft Teams en est un exemple. 
+- **Toutes les applications cloud** pour que les stratégies de base s’appliquent à toute l’organisation. Procédez ainsi pour les stratégies qui requièrent l’authentification multifacteur lorsqu’un risque à la connexion est détecté sur une application cloud. Une stratégie appliquée à **toutes les applications cloud** concerne l’accès à tous les services et sites web. Ce paramètre n’est pas limité aux applications cloud de la liste **Sélection des applications**. 
+
+- Applications cloud individuelles pour cibler des services spécifiques par stratégie. Par exemple, vous pouvez demander aux utilisateurs d’avoir un [Appareil conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) pour accéder à SharePoint Online. Cette stratégie s’applique aussi à d’autres services lorsqu’ils accèdent à des contenus SharePoint. Microsoft Teams en est un exemple. 
 
 Vous pouvez exclure des applications spécifiques d’une stratégie. Toutefois, ces applications sont toujours soumises aux stratégies appliquées aux services auxquels elles accèdent. 
 
@@ -80,18 +82,18 @@ Vous pouvez exclure des applications spécifiques d’une stratégie. Toutefois,
 
 ## <a name="sign-in-risk"></a>Risque à la connexion
 
-Un risque à la connexion est une indication de la probabilité (haute, moyenne ou faible) qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. Azure AD calcule le niveau de risque à la connexion lors de la connexion d’un utilisateur. Le niveau de risque à la connexion calculé peut servir de condition dans une stratégie d’accès conditionnel. 
+Un risque à la connexion est une indication de la probabilité (haute, moyenne ou faible) qu’une tentative de connexion n’émane pas du propriétaire légitime d’un compte d’utilisateur. Azure AD calcule le niveau de risque à la connexion lors de la connexion d’un utilisateur. Vous pouvez utiliser le niveau de risque de connexion calculé en tant que condition dans une stratégie d’accès conditionnel.
 
 ![Niveaux de risque à la connexion](./media/conditions/22.png)
 
-Pour utiliser cette condition, vous devez avoir [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection-enable) activé.
+Pour utiliser cette condition, vous devez avoir [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-enable) activé.
  
 Les cas d’utilisation courants pour cette condition sont des stratégies qui offrent les protections suivantes : 
 
 - Bloquer les utilisateurs présentant un risque élevé. Cette protection empêche les utilisateurs potentiellement illégitimes d’accéder à vos applications cloud. 
 - Exiger une authentification multifacteur pour les utilisateurs présentant un risque moyen. En appliquant l’authentification multifacteur, vous pouvez fournir l’assurance supplémentaire que la connexion est effectuée par le propriétaire légitime d’un compte.
 
-Pour plus d’informations, consultez [Connexions risquées](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
+Pour plus d’informations, consultez [Connexions risquées](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins).  
 
 ## <a name="device-platforms"></a>Plateformes d’appareils
 
@@ -114,7 +116,7 @@ La condition d’état de l’appareil exclut les appareils hybrides joints à A
 
 ![Configurer l’état de l’appareil](./media/conditions/112.png)
 
-Pour bloquer l’accès des appareils non gérés, implémentez un [accès conditionnel en fonction de l’appareil](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+Pour bloquer l’accès des appareils non gérés, implémentez un [accès conditionnel en fonction de l’appareil](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 
 ## <a name="locations"></a>Emplacements
@@ -148,7 +150,7 @@ Pour obtenir la liste des applications clientes utilisables dans une stratégie 
 
 Les cas d’utilisation courants pour cette condition sont des stratégies qui offrent les protections suivantes : 
 
-- Exigez un [appareil conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) pour les applications mobiles et de bureau qui téléchargent de grandes quantités de données sur l’appareil. En même temps, autorisez l’accès au navigateur à partir de n’importe quel appareil.
+- Exigez un [appareil conforme](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) pour les applications mobiles et de bureau qui téléchargent de grandes quantités de données sur l’appareil. En même temps, autorisez l’accès au navigateur à partir de n’importe quel appareil.
 
 - Bloquez l’accès aux applications web, mais autorisez l’accès à partir des applications de bureau et mobiles.
 
@@ -163,7 +165,7 @@ La sélection d’**Exchange ActiveSync** comme condition d’applications clien
  
 ![Appliquer la stratégie uniquement aux plateformes prises en charge](./media/conditions/33.png)
 
-L’application de cette condition uniquement aux plateformes prises en charge équivaut à toutes les plateformes d’appareils dans une [condition de plateforme d’appareil](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
+L’application de cette condition uniquement aux plateformes prises en charge équivaut à toutes les plateformes d’appareils dans une [condition de plateforme d’appareil](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online).
 
 ![Configurer des plateformes d’appareils](./media/conditions/34.png)
 
@@ -172,7 +174,7 @@ L’application de cette condition uniquement aux plateformes prises en charge �
 
 - [Configurer SharePoint Online et Exchange Online pour l’accès conditionnel Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)
  
-- [Accès conditionnel basé sur les applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) 
+- [Accès conditionnel basé sur les applications Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) 
 
 
 ### <a name="legacy-authentication"></a>Authentification héritée  

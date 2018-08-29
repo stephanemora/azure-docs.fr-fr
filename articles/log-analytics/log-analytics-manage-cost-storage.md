@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2018
+ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 1d797df3f03e9b92569d37495310a5c162f5f981
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3586804a8384273e5c0589bef9c586cee162939e
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130926"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141492"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Gérer les coûts en contrôlant le volume et la conservation des données dans Log Analytics
+
+> [!NOTE]
+> Cet article décrit comment contrôler vos coûts dans Log Analytics en définissant la période de rétention des données.  Pour plus d’informations, consultez les articles suivants.
+> - [Analyser l’utilisation des données dans Log Analytics](log-analytics-manage-cost-storage.md) décrit comment analyser votre utilisation des données et donner des informations à ce sujet.
+> - [Surveillance de l’utilisation et de l’estimation des coûts](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) explique comment visualiser l’utilisation et l’estimation des coûts avec plusieurs fonctions de surveillance Azure en fonction des différents modèles de prix. Il explique également comment modifier votre modèle de prix.
+
 Log Analytics est conçu pour la mise à l’échelle et la prise en charge de la collecte, de l’indexation et du stockage de quantités importantes de données quotidiennes provenant de toute source de votre entreprise ou déployées dans Azure.  Si ce peut être un élément moteur pour votre organisation, la rentabilité est au final ce qui importe le plus. À cette fin, il est important de comprendre que le coût d’un espace de travail Log Analytics n’est pas simplement fonction du volume des données collectées, mais qu’il dépend aussi du plan sélectionné et de la durée de stockage des données générées à partir de vos sources connectées.  
 
 Dans cet article, nous allons passer en revue les méthodes permettant de surveiller de façon proactive la croissance du stockage et du volume de données, et définir des limites pour contrôler les coûts associés. 

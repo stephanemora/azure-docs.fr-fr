@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f45f9337a5522f490c268bbdae3ef1a41205175
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859372"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444858"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -59,11 +59,11 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Dynamics**. | OUI |
-| deploymentType | Type de déploiement de l’instance Dynamics. Il doit être **« en ligne »** pour Dynamics en ligne. | OUI |
-| serviceUri | L’URL de service de votre instance Dynamics, par exemple `https://adfdynamics.crm.dynamics.com`. | OUI |
-| authenticationType | Type d’authentification pour se connecter à un serveur Dynamics. Spécifiez **« Office365 »** pour Dynamics en ligne. | OUI |
-| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | OUI |
+| Type | La propriété type doit être définie sur **Dynamics**. | Oui |
+| deploymentType | Type de déploiement de l’instance Dynamics. Il doit être **« en ligne »** pour Dynamics en ligne. | Oui |
+| serviceUri | L’URL de service de votre instance Dynamics, par exemple `https://adfdynamics.crm.dynamics.com`. | Oui |
+| authenticationType | Type d’authentification pour se connecter à un serveur Dynamics. Spécifiez **« Office365 »** pour Dynamics en ligne. | Oui |
+| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | Oui |
 | password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour la source, oui pour le récepteur si le service lié à la source n’a pas de runtime d’intégration |
 
@@ -105,14 +105,14 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Dynamics**. | OUI |
-| deploymentType | Type de déploiement de l’instance Dynamics. Cela doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| OUI |
-| hostName | Nom d’hôte du serveur Dynamics local. | OUI |
+| Type | La propriété type doit être définie sur **Dynamics**. | Oui |
+| deploymentType | Type de déploiement de l’instance Dynamics. Cela doit être **« OnPremisesWithIfd »** pour Dynamics local avec IFD.| Oui |
+| hostName | Nom d’hôte du serveur Dynamics local. | Oui |
 | port | Port du serveur Dynamics local. | Non, la valeur par défaut est 443 |
-| organizationName | Nom d’organisation de l’instance Dynamics. | OUI |
-| authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Ifd »** pour Dynamics local avec IFD. | OUI |
-| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | OUI |
-| password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | OUI |
+| organizationName | Nom d’organisation de l’instance Dynamics. | Oui |
+| authenticationType | Type d’authentification pour se connecter au serveur Dynamics. Spécifiez **« Ifd »** pour Dynamics local avec IFD. | Oui |
+| username | Indiquez le nom d'utilisateur à utiliser pour se connecter à Dynamics. | Oui |
+| password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
 
 >[!IMPORTANT]
@@ -154,7 +154,7 @@ Pour copier des données depuis et vers Dynamics, définissez la propriété de 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du jeu de données doit être définie sur **DynamicsEntity**. |OUI |
+| Type | La propriété de type du jeu de données doit être définie sur **DynamicsEntity**. |Oui |
 | entityName | Nom logique de l’entité à récupérer. | Non pour la source (si « query » est spécifié dans la source de l’activité) ; Oui pour le récepteur |
 
 > [!IMPORTANT]
@@ -207,7 +207,7 @@ Pour copier des données de Dynamics, définissez le type de source dans l’act
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**. | OUI |
+| Type | La propriété de type de la source de l’activité de copie doit être définie sur **DynamicsSource**. | Oui |
 | query | FetchXML est un langage de requête propriétaire qui est utilisé dans Dynamics (en ligne et local). Consultez l’exemple qui suit. Pour en savoir plus, consultez [Build queries with FeachXML](https://msdn.microsoft.com/library/gg328332.aspx) (Générer des requêtes avec FeachXML). | Non (si « entityName » est spécifié dans le jeu de données) |
 
 >[!NOTE]
@@ -271,8 +271,8 @@ Pour copier des données vers Dynamics, définissez le type de récepteur dans l
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**. | OUI |
-| writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »**. | OUI |
+| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **DynamicsSink**. | Oui |
+| writeBehavior | Comportement d’écriture de l’opération.<br/>La valeur autorisée est **« Upsert »**. | Oui |
 | writeBatchSize | Nombre de lignes de données écrites dans Dynamics pour chaque lot. | Non (valeur par défaut : 10) |
 | ignoreNullValues | Indique si les valeurs Null des données d’entrée (à l’exception des champs clés) doivent être ignorées pendant une opération d’écriture.<br/>Les valeurs autorisées sont **true** et **false**.<br>- **True** : ne pas modifier des données dans l’objet de destination lorsque vous effectuez une opération upsert/une opération de mise à jour. Insérer une valeur définie par défaut lorsque vous effectuez une opération insert.<br/>- **False** : ne pas modifier des données dans l’objet de destination lorsque vous effectuez une opération upsert/une opération de mise à jour. Insérer une valeur NULL lorsque vous effectuez une opération insert. | Non (valeur par défaut : false) |
 
@@ -333,7 +333,7 @@ Configurez le type de données Data Factory correspondant dans la structure du j
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | Chaîne | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ (avec un type unique associé) |
+| AttributeType.Lookup | Guid | ✓ | ✓ (avec une seule cible associée) |
 | AttributeType.ManagedProperty | Booléen | ✓ | |
 | AttributeType.Memo | Chaîne | ✓ | ✓ |
 | AttributeType.Money | Décimal | ✓ | ✓ |

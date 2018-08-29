@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: ac8262da05837dcdb4ebddd5029f9b5ece3dbc6f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cc174822af436e7c31eb5ad4bfa419e1fa022f44
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067945"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617367"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Soumettre une demande de paiement d’abonnement Azure par facture
 
@@ -27,7 +27,7 @@ Vous pouvez obtenir un mode de paiement par facture pour votre abonnement Azure 
 
 > [!IMPORTANT]
 > * Le paiement par facture est uniquement disponible pour les comptes professionnels.
-> * Les [services tiers et externes](billing-understand-your-azure-marketplace-charges.md) ne peuvent pas être achetés ou payés par facture. Si votre abonnement contient des ressources provenant de services externes tels que ClearDB ou SendGrid, vous devez les supprimer avant de choisir un paiement par facture. Pour acheter des services externes une fois que vous êtes passé au paiement par facture, vous avez besoin d’un abonnement distinct avec une carte bancaire.
+> * Les [services tiers et externes](billing-understand-your-azure-marketplace-charges.md) ne peuvent pas être achetés ou payés par facture. Si votre abonnement contient des ressources provenant de services externes tels que SendGrid, vous devez les supprimer avant de choisir un paiement par facture. Pour acheter des services externes une fois que vous êtes passé au paiement par facture, vous avez besoin d’un abonnement distinct avec une carte bancaire.
 > * Une fois que vous passez au paiement par facture, vous ne pouvez pas repasser au paiement par carte bancaire.
 
 ## <a name="request-pay-by-invoice"></a>Demander un paiement par facture

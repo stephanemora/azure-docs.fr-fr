@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 08/22/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064170"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616947"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Outils de diagnostics Azure Stack
 
@@ -110,38 +110,40 @@ if($s)
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considérations relatives aux paramètres du kit ASDK et des systèmes intégrés
 
 - Si vous ne spécifiez pas les paramètres **FromDate** et **ToDate**, par défaut les journaux sont collectés pour les quatre dernières heures.
+- Utilisez le paramètre **FilterByNode** pour filtrer les journaux par nom d’ordinateur. Par exemple : ```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
+- Utilisez le paramètre **FilterByLogType** pour filtrer les journaux par type. Vous pouvez choisir de filtrer par fichier, partage ou événement Windows. Par exemple : ```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
 - Vous pouvez utiliser le paramètre **TimeOutInMinutes** pour définir le délai d’expiration pour la collecte des journaux. Il est défini sur 150 (2,5 heures) par défaut.
 - Dans les versions 1805 et ultérieures, la collecte de journaux de fichiers de vidage est désactivée par défaut. Pour l’activer, utilisez le paramètre booléen **IncludeDumpFile**. 
 - Actuellement, vous pouvez utiliser le paramètre **FilterByRole** pour filtrer la collecte de journaux en fonction des rôles suivants :
 
-   |   |   |   |
-   | - | - | - |
-   | ACS                    | DeploymentMachine                | NC                         |
-   | ACSBlob                | DiskRP                           | Réseau                    |
-   | ACSFabric              | Domaine                           | NonPrivilegedAppGateway    |
-   | ACSFrontEnd            | ECE                              | NRP                        |
-   | ACSMetrics             | ExternalDNS                      | OEM                        |
-   | ACSMigrationService    | Structure                           | PXE                        |
-   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
-   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
-   | ACSTableMaster         | FRP                              | SLB                        |   
-   | ACSTableServer         | Galerie                          | SlbVips                    |
-   | ACSWac                 | Passerelle                          | SQL                        |   
-   | ADFS                   | HealthMonitoring                 | SRP                        |
-   | ASAppGateway           | HRP                              | Stockage                    |   
-   | NCAzureBridge          | IBC                              | StorageAccounts            |    
-   | AzurePackConnector     | IdentityProvider                 | StorageController          |  
-   | AzureStackBitlocker    | iDns                             | Locataire                     |
-   | BareMetal              | InfraServiceController           | TraceCollector             |
-   | BRP                    | Infrastructure                   | URP                        |
-   | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
-   | Cloud                  | KeyVaultControlPlane             | VirtualMachines            |
-   | Cluster                | KeyVaultDataPlane                | WAS                        |
-   | Calcul                | KeyVaultInternalControlPlane     | WASBootstrap               |
-   | IPC                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
-   | CRP                    | KeyVaultNamingService            |                            |
-   | DatacenterIntegration  | MonitoringAgent                  |                            |
-   |                        |                                  |                            |
+ |   |   |   |    |
+ | - | - | - | -  |   
+ |ACS|Calcul|InfraServiceController|QueryServiceCoordinator|
+ |ACSBlob|IPC|Infrastructure|QueryServiceWorker|
+ |ACSDownloadService|CRP|KeyVaultAdminResourceProvider|SeedRing|
+ |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
+ |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
+ |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
+ |ACSMigrationService|Domaine|KeyVaultInternalDataPlane|SQL|
+ |ACSMonitoringService|ECE|KeyVaultNamingService|SRP|
+ |ACSSettingsService|EventAdminRP|MDM|Stockage|
+ |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
+ |ACSTableServer|ExternalDNS|MetricsRP|StorageController|
+ |ACSWac|Structure|MetricsServer|Locataire|
+ |ADFS|FabricRing|MetricsStoreService|TraceCollector|
+ |ApplicationController|FabricRingServices|MonAdminRP|URP|
+ |ASAppGateway|FirstTierAggregationService|MonitoringAgent|Usage|
+ |AzureBridge|FRP|MonRP|UsageBridge|
+ |AzureMonitor|Galerie|NC|VirtualMachines|
+ |AzureStackBitlocker|Passerelle|Réseau|WAS|
+ |BareMetal|HealthMonitoring|NonPrivilegedAppGateway|WASBootstrap|
+ |BRP|HintingServiceV2|NRP|WASPUBLIC|
+ |CA|HRP|OboService|WindowsDefender|
+ |CacheService|IBC|OEM|     |
+ |Cloud|IdentityProvider|OnboardRP|     |   
+ |Cluster|iDns|PXE|     |
+ |   |   |   |    |
+
 
 ### <a name="bkmk_gui"></a>Collecter les journaux à l’aide d’une interface graphique utilisateur
 Au lieu de fournir les paramètres obligatoires pour que l’applet de commande Get-AzureStackLog récupère les journaux Azure Stack, vous pouvez également tirer parti des outils Azure Stack open source disponibles dans le dépôt GitHub d’outils Azure Stack principal, à l’adresse http://aka.ms/AzureStackTools.

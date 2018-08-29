@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-deasim
-ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 57648486e515b5438f937c4295b33843583e622e
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011422"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42142289"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Fonctionnalités du moteur de règles Azure CDN
 Cet article comprend les descriptions détaillées des fonctionnalités du [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -333,7 +333,7 @@ Pour dupliquer le comportement de mise en cache de la chaîne de requête « no
 
 L’exemple d’utilisation suivant inclut un exemple de requête et la clé de cache par défaut :
 
-- **Exemple de requête :** http://wpc.0001.&lt;Domaine&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Exemple de requête :** http://wpc.0001.&lt;Domaine&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Clé de cache par défaut :** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Inclure
@@ -497,8 +497,8 @@ Le format pour spécifier les en-têtes de requête et de réponse est défini c
 
 Type d’en-tête|Format|Exemples
 -|-|-
-En-tête de requête|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
-En-tête de réponse|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+En-tête de requête|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
+En-tête de réponse|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informations essentielles :
 

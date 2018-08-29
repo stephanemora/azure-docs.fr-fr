@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 0656cfcc2dcded284be1a337f797681117f3b313
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850135"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142883"
 ---
 # <a name="network-monitoring-solutions"></a>Solutions d’analyse du réseau 
 
@@ -35,7 +35,7 @@ Network Performance Monitor (NPM) est une suite de fonctionnalités conçues pou
 * Les applications multicouches critiques et les microservices
 * Les emplacements des utilisateurs et les applications web (HTTP/HTTPS) 
 
-L’Analyseur de performances, le moniteur ExpressRoute et le moniteur de points de terminaison de service sont des fonctionnalités de surveillance au sein de NPM et sont décrites ci-dessous.
+L’Analyseur de performances, le Moniteur ExpressRoute et le Moniteur de connectivité de service sont des fonctionnalités de surveillance de NPM, qui sont décrites ci-dessous.
 
 ## <a name="performance-monitor"></a>Analyseur de performances
 
@@ -73,9 +73,9 @@ Pour plus d’informations, consultez les articles suivants :
 * [Configurer Network Performance Monitor pour ExpressRoute](../expressroute/how-to-npm.md)
 * [Billet de blog](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Moniteur de points de terminaison de service
+## <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
-Avec le moniteur de point de terminaison de service, vous pouvez désormais tester l’accessibilité des applications et détecter les goulots d’étranglement au niveau des performances en local, sur les réseaux des opérateurs et sur les centres de données de cloud/privé.
+Avec le Moniteur de connectivité de service, vous pouvez désormais tester l’accessibilité des applications et détecter les goulots d’étranglement au niveau des performances en local, sur les réseaux des opérateurs et sur les centres de données cloud et privés.
 
 * Surveiller la connectivité réseau de bout en bout avec les applications
 * Mettre en corrélation la distribution des applications avec les performances réseau, détecter l’emplacement précis des dégradations sur le chemin entre l’utilisateur et l’application

@@ -1,24 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4b7fd390b309500c6d3937fd07dac53d968b4b71
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 9f537ee8fe646a024fb191901b3669b4b5d60d6b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41927145"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43086667"
 documentType: LandingData
 title: Ansible dans la documentation Azure
 metadata:
   title: 'Ansible dans la documentation Azure : didacticiels, exemples, référence et ressources'
-  meta.description: Learn how to use Ansible to automate cloud provisioning, configuration management, and application deployments.
-  services: terraform
-  author: tomarcher
-  manager: routlaw
+  description: Découvrez comment automatiser l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications avec Ansible.
   ms.service: ansible
-  ms.tgt_pltfrm: na
-  ms.devlang: devops
-  ms.topic: landing-page
-  ms.date: 08/15/2018
+  keywords: ansible, azure, devops, didacticiels, exemples, référence
+  author: tomarcher
+  manager: jeconnoc
   ms.author: tarcher
+  ms.topic: landing-page
+  ms.date: 08/27/2018
 abstract:
   description: Utilisez <a href="http://www.ansible.com">Ansible</a> pour automatiser l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications.
 sections:

@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide du Kit de développement logiciel (SDK) Java pour Recherche d’images Bing | Microsoft Docs
-description: Découvrez comment configurer l’application console du Kit de développement logiciel (SDK) pour Recherche d’images Bing.
+title: 'Démarrage rapide : Demander et filtrer des images à l’aide du Kit de développement logiciel (SDK) dans Java'
+description: Dans ce démarrage rapide, vous allez demander et filtrer les images retournées par Recherche d’images Bing, à l’aide de Java.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 0c44bb313328081167a419f3b7d5ce17e49d2c99
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 280a4b67d81b0734ea983c1d7fe1389e59651ccd
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370428"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41936760"
 ---
-# <a name="bing-image-search-sdk-java-quickstart"></a>Démarrage rapide du Kit de développement logiciel (SDK) Java pour Recherche d’images Bing
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-java"></a>Démarrage rapide : Demander et filtrer des images à l’aide du Kit de développement logiciel (SDK) et de Java
 
 Le Kit de développement logiciel (SDK) pour Recherche d’images Bing fournit les fonctionnalités de l’API REST pour les recherches d’actualités et l’analyse des résultats. 
 

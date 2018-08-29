@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036936"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143375"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -391,6 +391,10 @@ Un administrateur doit intervenir et déterminer la raison pour laquelle l’app
 - Résolution d’un bogue lié à la création de tâches RM, suite auquel le contrôle d’intégrité survenant lors de la préparation des tâches de réparation ne s’exécutait pas comme convenu.
 - Transition du mode de démarrage du service Windows POANodeSvc, depuis le démarrage automatique vers le démarrage automatique différé.
 
-### <a name="version-121-latest"></a>Version 1.2.1 (dernière version)
+### <a name="version-121"></a>Version 1.2.1
 
 - Correctif de bogue dans le flux de travail de réduction du cluster. Introduction d’une logique garbage collection pour les tâches de réparation POA appartenant à des nœuds non existants.
+
+### <a name="version-122-latest"></a>Version 1.2.2 (dernière version)
+
+- Divers correctifs de bogues.

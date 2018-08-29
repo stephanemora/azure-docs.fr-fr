@@ -10,12 +10,12 @@ ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: b4935dc95ccf525c0a40b10dcc8c59ec8aba710e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29733857"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41946498"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Intégration au centre de données Azure Stack - DNS
 Pour pouvoir accéder aux points de terminaison Azure Stack (`portal`, `adminportal`, `management`, `adminmanagement`, etc.) en dehors d’Azure Stack, vous devez intégrer les services DNS Azure Stack aux serveurs DNS qui hébergent les zones DNS que vous souhaitez utiliser dans Azure Stack.
@@ -24,7 +24,7 @@ Pour pouvoir accéder aux points de terminaison Azure Stack (`portal`, `adminpor
 Vous devez fournir certaines informations importantes relatives à DNS quand vous déployez Azure Stack.
 
 
-|Champ  |Description  |exemples|
+|Champ  |Description  |Exemples|
 |---------|---------|---------|
 |Région|Emplacement géographique de votre déploiement d’Azure Stack.|`east`|
 |Nom du domaine externe|Nom de la zone à utiliser pour votre déploiement d’Azure Stack.|`cloud.fabrikam.com`|
@@ -115,7 +115,7 @@ D’après les exemples de valeur, les noms de domaine complets des serveurs DNS
 
 Ces informations sont également créées à la fin de tous les déploiements d’Azure Stack dans un fichier nommé `AzureStackStampDeploymentInfo.json`. Ce fichier se trouve dans le dossier `C:\CloudDeployment\logs` de la machine virtuelle de déploiement. Si vous n’êtes pas sûr des valeurs qui ont été utilisées pour votre déploiement d’Azure Stack, vous pouvez les y retrouver.
 
-Si la machine virtuelle de déploiement n’est plus disponible ou n’est pas accessible, vous pouvez obtenir les valeurs en vous connectant au point de terminaison privilégié, puis en exécutant l’applet de commande PowerShell `Get-AzureStackInfo`. Pour plus d’informations sur le point de terminaison privilégié, consulter (insérer le lien vers l’article ici).
+Si la machine virtuelle de déploiement n’est plus disponible ou n’est pas accessible, vous pouvez obtenir les valeurs en vous connectant au point de terminaison privilégié, puis en exécutant l’applet de commande PowerShell `Get-AzureStackInfo`. Pour plus d’informations, voir le [point de terminaison privilégié](azure-stack-privileged-endpoint.md).
 
 ## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Configuration du transfert conditionnel vers Azure Stack
 
@@ -138,6 +138,6 @@ Chaque bureau d’enregistrement a ses propres outils de gestion DNS pour modifi
 
 La plupart des bureaux d’enregistrement DNS requièrent que vous fournissiez au minimum deux serveurs DNS pour effectuer la délégation.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Intégration du pare-feu](azure-stack-firewall.md)

@@ -1,24 +1,24 @@
 ---
-title: Localisation de la prise en charge avec les applications LUIS dans Azure | Microsoft Docs
-description: Découvrez les langues prises en charge par LUIS.
+title: Localisation de la prise en charge - Language Understanding (LUIS) - Azure Cognitive Services | Microsoft Docs
+description: LUIS possède un éventail de fonctionnalités au sein du service. Certaines fonctionnalités partagent la même parité de langage. Assurez-vous que les fonctionnalités qui que vous intéressent sont prises en charge dans la culture de langue que vous ciblez. Une application LUIS est propre à une culture et ne peut pas être modifiée après configuration.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 08/17/2017
 ms.author: diberry
-ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 4fa58843f7e888a8fc1cfbbf76a8131bba6c488a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248415"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929981"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>Compréhension propre à la culture dans les applications LUIS
 
-Une application LUIS est propre à une culture et ne peut pas être modifiée après configuration. 
+LUIS possède un éventail de fonctionnalités au sein du service. Certaines fonctionnalités partagent la même parité de langage. Assurez-vous que les fonctionnalités qui que vous intéressent sont prises en charge dans la culture de langue que vous ciblez. Une application LUIS est propre à une culture et ne peut pas être modifiée après configuration. 
 
 ## <a name="multi-language-luis-apps"></a>Applications LUIS multilingues
 Si vous avez besoin d’une application client LUIS multilingue, comme un chatbot, vous avez plusieurs options. Si LUIS prend en charge toutes les langues, vous développez une application LUIS pour chaque langue. Chaque application LUIS possède un ID d’application unique et un journal de point de terminaison. Si vous avez besoin d’une compréhension pour une langue non prise en charge par LUIS, vous pouvez utiliser l’[API Microsoft Translator](../Translator/translator-info-overview.md) pour traduire l’énoncé dans un langage pris en charge, envoyer l’énoncé au point de terminaison LUIS et recevoir le scores obtenu.
@@ -27,7 +27,7 @@ Si vous avez besoin d’une application client LUIS multilingue, comme un chatb
 LUIS comprend les énoncés dans les langues suivantes :
 
 
-| Langage |Paramètres régionaux  |  Domaine prédéfini | Entité prédéfinie | Suggestions d’expression | **[Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) | 
+| Langage |Paramètres régionaux  |  Domaine prédéfini | Entité prédéfinie | Suggestions d’expression | **[Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment et<br>mots clés)| 
 |--|--|:--:|:--:|:--:|:--:|
 | Anglais (États-Unis) |`en-US` | ✔ | ✔  |✔|✔|
 | Français (Canada) |`fr-CA` |-|   -   |-|✔|

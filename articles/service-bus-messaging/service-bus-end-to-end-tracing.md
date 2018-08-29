@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 847056acd2d97391782dcac1874a2739b7f5825c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27741216"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141999"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Traçage et corrélation distribués par le biais de la messagerie Service Bus
 
@@ -45,8 +45,8 @@ L’instrumentation permet le suivi de tous les appels au service de messagerie 
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) fournit des fonctionnalités riches de monitoring des performances, notamment le suivi automagique des requêtes et des dépendances.
 
 En fonction de votre type de projet, installez le SDK Application Insights :
-- [ASP.NET](../application-insights/app-insights-asp-net.md) version 2.5 (bêta 2) ou ultérieure.
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) version 2.2.0 (bêta 2) ou ultérieure.
+- [ASP.NET](../application-insights/app-insights-asp-net.md) : installez la version 2.5 (bêta 2) ou ultérieure.
+- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) : installez la version 2.2.0 (bêta 2) ou ultérieure.
 Ces liens fournissent des détails sur l’installation du SDK, la création de ressources et la configuration du SDK (le cas échéant). Pour les applications non-ASP.NET, consultez l’article [Azure Application Insights pour les applications console](../application-insights/application-insights-console.md).
 
 Si vous utilisez le [modèle du gestionnaire de messages](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) pour traiter les messages, votre travail est terminé : tous les appels Service Bus effectués par votre service sont automatiquement suivis et mis en corrélation avec d’autres éléments de télémétrie. Sinon, passez en revue l’exemple suivant qui illustre le suivi manuel du traitement des messages.
@@ -225,7 +225,7 @@ Vous pouvez également utiliser `IsEnabled` pour implémenter des stratégies d�
 
 En présence de plusieurs écouteurs `DiagnosticSource` pour la même source, il suffit qu’un seul écouteur accepte l’événement. L’appel de `IsEnabled` n’est donc pas garanti.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Corrélation dans Application Insights](../application-insights/application-insights-correlation.md)

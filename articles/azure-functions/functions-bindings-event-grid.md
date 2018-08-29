@@ -4,7 +4,7 @@ description: Découvrez comment gérer les événements Event Grid dans Azure Fu
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 08/20/2018
 ms.author: glenga
-ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: f0cb698bad42bcfd035451361b9a20d0f0b5bddf
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715384"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142782"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Déclencheur Event Grid pour Azure Functions
 
@@ -53,6 +53,7 @@ Consultez l’exemple de déclencheur Event Grid correspondant au langage souhai
 * [C#](#c-example)
 * [Script C# (.csx)](#c-script-example)
 * [JavaScript](#javascript-example)
+* [Java](#trigger---java-example)
 
 Vous trouverez un exemple de déclencheur HTTP dans la section [Guide pratique pour utiliser un déclencheur HTTP](#use-an-http-trigger-as-an-event-grid-trigger) dans la suite de cet article.
 
@@ -180,6 +181,36 @@ module.exports = function (context, eventGridEvent) {
     context.done();
 };
 ```
+
+### <a name="trigger---java-example"></a>Déclencheur : exemple Java
+
+L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Java ](functions-reference-java.md) qui utilise la liaison et affiche un événement.
+
+```json
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+Voici le code Java :
+
+```java
+@FunctionName("eventGridMonitor")
+  public void logEvent(
+     @EventGridTrigger(name = "event") String content,
+      final ExecutionContext context
+  ) { 
+      context.getLogger().info(content);
+    }
+```
+
+Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `EventGridTrigger` sur les paramètres dont la valeur proviendrait d’EventGrid. Les paramètres ayant ces annotations entraînent l’exécution de la fonction quand un événement se produit.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de `Optional<T>`. 
      
 ## <a name="attributes"></a>Attributs
 
@@ -310,7 +341,7 @@ Vous pouvez obtenir la clé système à l’aide de l’API suivante (HTTP GET)�
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
 ```
 
-Il s’agit d’une API d’administration, qui a donc besoin de votre [clé d’administration](functions-bindings-http-webhook.md#authorization-keys). Ne confondez pas la clé système (permettant d’appeler une fonction de déclenchement Event Grid) avec la clé d’administration (servant à effectuer des tâches d’administration sur l’application de fonction). Veillez à utiliser la clé système pour vous abonner à une rubrique Event Grid.
+Il s’agit d’une API d’administration, qui a donc besoin de la [clé principale](functions-bindings-http-webhook.md#authorization-keys) de votre application de fonction. Ne confondez pas la clé système (permettant d’appeler une fonction de déclenchement Event Grid) avec la clé principale (servant à effectuer des tâches d’administration sur l’application de fonction). Veillez à utiliser la clé système pour vous abonner à une rubrique Event Grid. 
 
 Voici un exemple de réponse fournissant la clé système :
 

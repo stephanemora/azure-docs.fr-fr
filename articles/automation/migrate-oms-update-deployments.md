@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9469a5827765a9b82469ac1eedc66666231d82d6
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116999"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141684"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrer vos déploiements de mises à jour OMS vers Azure
 
@@ -59,12 +59,14 @@ Pour les ordinateurs à mettre à jour, sélectionnez la recherche enregistrée 
 
 | Propriété | Description |
 | --- | --- |
-|Nom |Nom unique identifiant le déploiement de mises à jour. |
+|NOM |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Sélectionnez **Linux** ou **Windows**.|
-|Ordinateurs à mettre à jour |Pour les ordinateurs à mettre à jour, sélectionnez la recherche enregistrée utilisée par le déploiement OMS existant. |
+|Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md). |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin. CentOS ne prend pas directement en charge cette fonction.|
 |Mises à jour à exclure|Entrez les mises à jour à exclure. Pour Windows, entrez la version KB sans le préfixe **KB**. Pour Linux, entrez le nom du package ou utilisez un caractère générique.  |
 |Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité (**Une fois** ou **Récurrent**).|| Fenêtre de maintenance |Nombre de minutes défini pour les mises à jour. La valeur ne peut pas être inférieure à 30 minutes ni supérieure à 6 heures. |
+| Fenêtre de maintenance |Nombre de minutes défini pour les mises à jour. La valeur ne peut pas être inférieure à 30 minutes ni supérieure à 6 heures. |
+| Contrôle du redémarrage| Détermine comment les redémarrages doivent être gérés.</br>Options disponibles :</br>Redémarrer si nécessaire (par défaut)</br>Toujours redémarrer</br>Ne jamais redémarrer</br>Redémarrer uniquement : les mises à jour ne sont pas installées|
 
 Cliquez sur **Déploiements de mise à jour planifiés** pour voir l’état du déploiement de mises à jour nouvellement créé.
 

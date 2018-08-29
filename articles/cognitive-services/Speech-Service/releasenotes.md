@@ -1,22 +1,49 @@
 ---
-title: Documentation du Kit de développement logiciel (SDK) Speech de Cognitive Services
+title: Documentation du Kit de développement logiciel (SDK) Speech de Cognitive Services | Microsoft Docs
 description: Notes de publication - ce qui a changé dans les versions les plus récentes
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f346241e1d10d16eae08e389296f4be9149ec086
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502456"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41929962"
 ---
 # <a name="release-notes"></a>Notes de publication
+
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Kit de développement logiciel (SDK) Speech de Cognitive Services version 0.6.0 : août 2018
+
+**Nouvelles fonctionnalités**
+
+* Les applications UWP générées avec le Kit de développement logiciel (SDK) Speech peuvent désormais passer le Kit de certification des applications Windows (WACK).
+  Consultez notre [Démarrage rapide UWP](quickstart-csharp-uwp.md).
+* Prise en charge de .NET Standard 2.0 sur Linux (Ubuntu 16.04 x64).
+* Expérimental : Prise en charge de Java 8 sur Windows (64 bits) et Linux (Ubuntu 16.04 x64).
+  Consultez le [démarrage rapide de l’environnement d’exécution Java](quickstart-java-jre.md)
+
+**Modifications fonctionnelles**
+
+* Exposition d’informations supplémentaires sur les erreurs de connexion.
+
+**Dernières modifications**
+
+* Sur Java (Android), la fonction `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` ne requiert plus aucun paramètre de chemin d’accès. Le chemin d’accès est désormais automatiquement détecté sur toutes les plateformes prises en charge.
+* L’élément get-accessor de la propriété `EndpointUrl` dans Java et C# a été supprimé.
+
+**Résolution des bogues**
+
+* Dans Java, le résultat de la synthèse audio sur le module de reconnaissance de traduction est maintenant implémenté.
+* Correction d’un bogue, ce qui peut entraîner des threads inactifs et un plus grand nombre de sockets ouverts et inutilisés.
+* Correction d’un problème, dans lequel une reconnaissance longue peut s’arrêter au milieu de la transmission.
+* Correction d’une condition de concurrence lors de l’arrêt du module de reconnaissance.
 
 ## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Kit de développement logiciel (SDK) Speech de Cognitive Services version 0.5.0 : juillet 2018
 

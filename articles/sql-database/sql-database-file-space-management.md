@@ -2,61 +2,60 @@
 title: Gestion de l’espace du fichier de la base de données SQL Azure | Microsoft Docs
 description: Cette page explique comment gérer l’espace de fichier avec Azure SQL Database et fournit des exemples de code pour déterminer si vous devez réduire une base de données, ainsi que pour effectuer une opération de réduction de base de données.
 services: sql-database
-author: CarlRabeler
+author: oslake
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 1ecc0ce08ef42f5f5935bca29e8269be2ea142f0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.date: 08/15/2018
+ms.author: moslake
+ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39416002"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142401"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gérer l’espace du fichier de la base de données SQL Azure
-
-Cet article décrit les différents types d’espace de stockage dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré par le client.
+Cet article décrit les différents types d’espace de stockage dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Dans Azure SQL Database, les métriques de taille de stockage affichées dans le portail Azure et les API suivantes mesurent le nombre de pages de données utilisées pour les bases de données et des pools élastiques :
+Dans Azure SQL Database, la plupart des métriques d’espace de stockage affichées dans le Portail Azure et les API suivantes mesurent le nombre de pages de données utilisées pour les bases de données et pools élastiques :
 - API de métriques basées sur Azure Resource Manager dont l’API [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) PowerShell
 - T-SQL : [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - T-SQL : [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL : [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Il existe des modèles de charges de travail dans lesquels l’allocation d’espace dans les fichiers de données sous-jacents pour des bases de données devient supérieure au nombre de pages de données utilisées dans les fichiers de données. Ce scénario peut se produire lorsque l’espace utilisé augmente, et les données sont ensuite supprimées. L’espace de fichier alloué n’est pas automatiquement récupéré lorsque les données sont supprimées. Dans de tels scénarios, l’espace alloué pour une base de données ou un pool peut dépasser les limites maximales prises en charge définies pour la base de données et, par conséquent, empêcher la croissance des données ou les modifications de niveau de performances, même si l’espace de base de données réellement utilisé est inférieur à la limite maximale d’espace. Pour atténuer ce problème, vous devrez peut-être réduire la base de données pour réduire l’espace alloué mais non utilisé dans la base de données.
+Il existe des modèles de charges de travail dans lesquels l’allocation de fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées.  Ce scénario peut se produire lorsque l’espace utilisé augmente et que les données sont alors supprimées.  En effet, l’espace de fichier alloué n’est pas automatiquement récupéré lorsque les données sont supprimées.  Dans de tels scénarios, l’espace alloué à une base de données ou un pool peut dépasser les limites prises en charge et, par conséquent, empêcher la croissance des données ou les modifications de niveau de performances. Pour résoudre ce problème, il convient de réduire les fichiers de données.
 
-Le service SQL Database ne réduit pas automatiquement les fichiers de la base de données pour récupérer l’espace alloué inutilisé en raison de l’impact potentiel sur les performances de la base de données. Toutefois, vous pouvez réduire le fichier dans une base de données au moment de votre choix en suivant les étapes décrites dans [Récupérer l’espace alloué non utilisé](#reclaim-unused-allocated-space). 
+Le service SQL DB ne réduit pas automatiquement les fichiers de données pour récupérer l’espace alloué inutilisé en raison de l’impact potentiel sur les performances de la base de données.  Toutefois, les clients peuvent réduire les fichiers de données en libre service lorsqu’ils le souhaitent en suivant les étapes décrites à la rubrique [Récupérer l’espace alloué non utilisé](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
-> Contrairement aux fichiers de données, le service SQL Database réduit automatiquement les fichiers journaux dans la mesure où cette opération n’affecte pas les performances de la base de données.
+> Contrairement aux fichiers de données, le service SQL Database réduit automatiquement les fichiers journaux dans la mesure où cette opération n’affecte pas les performances de la base de données. 
 
-## <a name="understanding-the-types-of-storage-space-for-a-database"></a>Présentation des types d’espace de stockage d’une base de données
+## <a name="understanding-types-of-storage-space-for-a-database"></a>Appréhender les types d’espace de stockage d’une base de données
 
-Pour gérer l’espace de fichier, vous devez comprendre les termes suivants liés au stockage de base de données pour une base de données unique et un pool élastique.
+Il est essentiel d’appréhender les quantités d’espace de stockage suivantes pour gérer l’espace de fichier d’une base de données.
 
-|Terme de l’espace de stockage|Définition|Commentaires|
+|Quantité pour une base de données|Définition|Commentaires|
 |---|---|---|
-|**Espace de données utilisé**|La quantité d’espace utilisée pour stocker les données de la base de données dans des pages de 8 Ko.|En général, cet espace utilisé augmente (diminue) lors des insertions (suppressions). Dans certains cas, l’espace utilisé ne change pas lors des insertions ou suppressions selon la quantité et le modèle des données impliquées dans l’opération et dans toute fragmentation éventuelle. Par exemple, la suppression d’une ligne dans chaque page de données ne diminue pas forcément l’espace utilisé.|
-|**Espace alloué**|La quantité d’espace de fichiers formatés mise à disposition pour stocker les données de la base de données|L’espace alloué augmente automatiquement, mais ne diminue jamais après les suppressions. Ce comportement garantit que les insertions ultérieures seront plus rapides, car l’espace n’aura pas besoin d’être reformaté.|
-|**Espace alloué mais non utilisé**|La quantité d’espace de fichier de données inutilisé alloué à la base de données.|Cette quantité est la différence entre la quantité d’espace alloué et d’espace utilisé, et représente la quantité maximale d’espace qui peut être réclamée en réduisant les fichiers de base de données.|
-|**Taille maximale**|La quantité maximale d’espace de données qui peut être utilisée par la base de données.|L’espace de données alloué ne peut pas croître au-delà de la taille maximale des données.|
+|**Espace de données utilisé**|La quantité d’espace utilisée pour stocker les données de la base de données dans des pages de 8 Ko.|En général, l’espace utilisé augmente (diminue) lors des insertions (suppressions). Dans certains cas, l’espace utilisé ne change pas lors des insertions ou suppressions selon la quantité et le modèle des données impliquées dans l’opération et dans toute fragmentation éventuelle. Par exemple, la suppression d’une ligne dans chaque page de données ne diminue pas forcément l’espace utilisé.|
+|**Espace de données alloué**|La quantité d’espace de fichiers formatés mise à disposition pour stocker les données de la base de données.|La quantité d’espace allouée augmente automatiquement, mais ne diminue jamais après les suppressions. Ce comportement garantit que les insertions ultérieures seront plus rapides, car l’espace n’aura pas besoin d’être reformaté.|
+|**Espace de données alloué mais non utilisé**|La différence entre la quantité d’espace de données allouée et la quantité d’espace de données utilisée.|Cette quantité représente la quantité maximale d’espace libre qui peut être récupérée par la réduction des fichiers de données de la base de données.|
+|**Taille maximale des données**|La quantité maximale d’espace qui peut être utilisée pour le stockage des données de la base de données.|La quantité d’espace de données allouée ne peut pas croître au-delà de la taille maximale des données.|
 ||||
 
-Le diagramme suivant illustre la relation entre les types d’espace de stockage.
+Le schéma suivant illustre la relation entre les différents types d’espace de stockage d’une base de données.
 
-![relations et types d’espace de stockage](./media/sql-database-file-space-management/storage-types.png)
+![relations et types d’espace de stockage](./media/sql-database-file-space-management/storage-types.png) 
 
 ## <a name="query-a-database-for-storage-space-information"></a>Interroger une base de données pour des informations relatives à l’espace de stockage
 
-Pour déterminer si vous avez de l’espace de données alloué mais non utilisé dans une base de données individuelle que vous souhaitez récupérer, utilisez les requêtes suivantes :
+Les requêtes suivantes peuvent être utilisées pour déterminer les quantités d’espace de stockage d’une base de données.  
 
 ### <a name="database-data-space-used"></a>Espace de données de base de données utilisé
-Modifiez la requête suivante pour retourner la quantité d’espace de données de base de données utilisée en Mo.
+Modifiez la requête suivante pour retourner la quantité d’espace de données de base de données utilisée.  Le résultat de la requête est exprimé en Mo.
 
 ```sql
 -- Connect to master
@@ -67,8 +66,8 @@ WHERE database_name = 'db1'
 ORDER BY end_time DESC
 ```
 
-### <a name="database-data-allocated-and-allocated-space-unused"></a>Données de base de données allouées et espace alloué non utilisé
-Modifiez la requête suivante pour retourner la quantité de données de base de données utilisée et d’espace alloué non utilisé.
+### <a name="database-data-space-allocated-and-unused-allocated-space"></a>Espace de données alloué et espace alloué non utilisé de la base de données
+Utilisez la requête suivante pour retourner la quantité d’espace de données allouée de la base de données et la quantité d’espace alloué non utilisé.  Le résultat de la requête est exprimé en Mo.
 
 ```sql
 -- Connect to database
@@ -80,8 +79,8 @@ GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
  
-### <a name="database-max-size"></a>Taille maximale de la base de données
-Modifiez la requête suivante pour retourner la taille maximale de la base de données en octets.
+### <a name="database-data-max-size"></a>Taille maximale des données de la base de données
+Modifiez la requête suivante pour retourner la taille maximale des données de la base de données.  Le résultat de la requête est exprimé en octets.
 
 ```sql
 -- Connect to database
@@ -89,12 +88,24 @@ Modifiez la requête suivante pour retourner la taille maximale de la base de do
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
+## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>Appréhender les types d’espace de stockage d’un pool élastique
+
+Il est essentiel d’appréhender les quantités d’espace de stockage suivantes pour gérer l’espace de fichier d’un pool élastique.
+
+|Quantité pour un pool élastique|Définition|Commentaires|
+|---|---|---|
+|**Espace de données utilisé**|L’espace de données total utilisé par toutes les bases de données dans le pool élastique.||
+|**Espace de données alloué**|L’espace de données total alloué par toutes les bases de données dans le pool élastique.||
+|**Espace de données alloué mais non utilisé**|La différence entre la quantité d’espace de données allouée et la quantité d’espace de données utilisée par toutes les bases de données dans le pool élastique.|Cette quantité représente la quantité maximale d’espace alloué au pool élastique qui peut être récupérée par la réduction des fichiers de données de la base de données.|
+|**Taille maximale des données**|La quantité maximale d’espace de données qui peut être utilisée par le pool élastique pour toutes ses bases de données.|L’espace alloué au pool élastique ne doit pas dépasser la taille maximale du pool élastique.  Si cela se produit, l’espace alloué non utilisé peut être récupéré par la réduction des fichiers de données de la base de données.|
+||||
+
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Interroger un pool élastique pour des informations relatives à l’espace de stockage
 
-Pour déterminer si vous avez de l’espace de données alloué mais non utilisé dans un pool élastique et pour chaque base de données mise en pool que vous souhaitez récupérer, utilisez les requêtes suivantes :
+Les requêtes suivantes peuvent être utilisées pour déterminer les quantités d’espace de stockage d’un pool élastique.  
 
 ### <a name="elastic-pool-data-space-used"></a>Espace de données du pool élastique utilisé
-Modifiez la requête suivante pour retourner la quantité d’espace de données du pool élastique utilisée en Mo.
+Modifiez la requête suivante pour retourner la quantité d’espace de données du pool élastique utilisée.  Le résultat de la requête est exprimé en Mo.
 
 ```sql
 -- Connect to master
@@ -105,11 +116,13 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-### <a name="elastic-pool-data-allocated-and-allocated-space-unused"></a>Données du pool élastique allouées et espace alloué non utilisé
+### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espace de données alloué et espace alloué non utilisé du pool élastique
 
-Modifiez le script PowerShell suivant pour retourner une table répertoriant l’espace total et l’espace inutilisé alloués à chaque base de données dans un pool élastique. La table range les bases de données de celles avec la plus grande quantité d’espace alloué inutilisé jusqu’à celles avec la plus basse quantité d’espace alloué inutilisé.  
+Modifiez le script PowerShell suivant pour retourner une table répertoriant l’espace alloué et l’espace alloué non utilisé pour chaque base de données dans un pool élastique. La table trie les bases de données de celle présentant la plus grande quantité d’espace alloué non utilisé jusqu’à celle présentant la plus faible quantité d’espace alloué non utilisé.  Le résultat de la requête est exprimé en Mo.  
 
-Les résultats de requête pour déterminer l’espace alloué à chaque base de données dans le pool peuvent être combinés pour déterminer l’espace de pool élastique alloué. L’espace de pool élastique alloué ne doit pas dépasser la taille maximale du pool élastique.  
+Les résultats de requête permettant de déterminer l’espace alloué à chaque base de données dans le pool peuvent être cumulés pour déterminer l’espace total alloué au pool élastique. L’espace de pool élastique alloué ne doit pas dépasser la taille maximale du pool élastique.  
+
+Le script PowerShell nécessite le module SQL Server PowerShell. Pour l’installer, consultez [Télécharger le module PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017).
 
 ```powershell
 # Resource group name
@@ -132,7 +145,7 @@ $databaseStorageMetrics = @()
 
 # For each database in the elastic pool,
 # get its space allocated in MB and space allocated unused in MB.
-# Requires SQL Server PowerShell module – see here to install.  
+  
 foreach ($database in $databasesInPool)
 {
     $sqlCommand = "SELECT DB_NAME() as DatabaseName, `
@@ -160,9 +173,9 @@ La capture d’écran suivante est un exemple de sortie du script :
 
 ![espace de pool élastique alloué et exemple d’espace alloué non utilisé](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
 
-### <a name="elastic-pool-max-size"></a>Taille maximale du pool élastique
+### <a name="elastic-pool-data-max-size"></a>Taille maximale des données du pool élastique
 
-Utilisez la requête T-SQL suivante pour retourner la taille maximale de la base de données élastique en Mo.
+Modifiez la requête T-SQL suivante pour retourner la taille maximale des données du pool élastique.  Le résultat de la requête est exprimé en Mo.
 
 ```sql
 -- Connect to master
@@ -175,19 +188,14 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Récupérer l’espace alloué non utilisé
 
-Une fois que vous avez déterminé l’espace inutilisé alloué que vous souhaitez récupérer, utilisez la commande suivante pour réduire l’espace de base de données alloué. 
-
-> [!IMPORTANT]
-> Pour les bases de données dans un pool élastique, les bases de données avec le plus d’espace alloué non utilisé doivent être réduites en premier pour récupérer de l’espace de fichier plus rapidement.  
-
-Pour réduire tous les fichiers de données dans la base de données spécifiée, utilisez la commande suivante :
+Une fois les bases de données identifiées pour la récupération de l’espace alloué non utilisé, modifiez la commande suivante pour réduire les fichiers de données pour chaque base de données.
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'<database_name>')
+DBCC SHRINKDATABASE (N'db1')
 ```
 
-Pour plus d’informations sur cette commande, consultez [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).
+Pour plus d’informations sur cette commande, consultez [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
 > [!IMPORTANT] 
 > Envisagez de reconstruire les index de base de données. Une fois les fichiers de données de base de données réduits, les index peuvent se fragmenter et perdre en efficacité au niveau de l’optimisation des performances. Si cela se produit, les index doivent être reconstruits. Pour plus d’informations sur la fragmentation et la reconstruction d’index, consultez [Réorganiser et reconstruire des index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

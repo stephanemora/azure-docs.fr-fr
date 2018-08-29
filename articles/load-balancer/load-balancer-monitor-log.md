@@ -1,6 +1,6 @@
 ---
-title: Surveiller les opérations, les événements et les compteurs pour l’équilibrage de charge | Microsoft Docs
-description: Découvrez comment activer la journalisation des événements d'alerte et de l'état des sondes d'intégrité pour l'équilibreur de charge Azure
+title: Surveiller les opérations, les événements et les compteurs pour une instance publique de Basic Load Balancer| Microsoft Docs
+description: Découvrez comment activer les événements d’alerte, et sonder la journalisation de l’état d’intégrité pour une instance publique de Basic Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c196a24d5cc9e4343762e55b5885c1264c2fcad
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179053"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143022"
 ---
-# <a name="log-analytics-for-azure-load-balancer"></a>Analyse des journaux de l'équilibreur de charge Azure
+# <a name="log-analytics-for-public-basic-load-balancer"></a>Log Analytics pour une instance publique de Basic Load Balancer
 
->[!NOTE] 
->Azure Load Balancer prend en charge deux types différents : Basic et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](load-balancer-standard-overview.md).
+>[!IMPORTANT] 
+>Azure Load Balancer prend en charge deux types différents : Basic et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez [Présentation de Standard Load Balancer](load-balancer-standard-overview.md), qui expose les données de télémétrie par le biais de plusieurs métriques multidimensionnelles dans Azure Monitor.
 
-Vous pouvez utiliser différents types de journaux dans Azure pour gérer les équilibreurs de charge et résoudre les problèmes associés. Certains de ces journaux sont accessibles via le portail. Tous les journaux peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste ci-dessous.
+Vous pouvez utiliser différents types de journaux dans Azure pour gérer les instances de Basic Load Balancer et résoudre les problèmes associés. Certains de ces journaux sont accessibles via le portail. Tous les journaux peuvent être extraits à partir d’un stockage Blob Azure et affichés dans différents outils, comme Excel et PowerBI. Pour en savoir plus sur les différents types de journaux, consultez la liste ci-dessous.
 
 * **Journaux d’audit :** vous pouvez utiliser les [journaux d’audit Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anciennement journaux des opérations) pour afficher toutes les opérations soumises à votre ou vos abonnements Azure, ainsi que leur état. Les journaux d’audit sont activés par défaut et peuvent être affichés dans le portail Azure.
 * **Journaux des événements d’alerte :** vous pouvez utiliser ce journal pour afficher les alertes générées par l’équilibreur de charge. L'état de l'équilibreur de charge est collecté toutes les cinq minutes. Ce journal est écrit uniquement si un événement d'alerte d’équilibreur de charge est généré.
 * **Journaux de sondes d’intégrité :** vous pouvez utiliser ce journal pour afficher les problèmes détectés par votre sonde d’intégrité, tels que le nombre d’instances dans votre pool principal qui ne reçoivent pas les demandes de l’équilibreur de charge en raison d’échecs de sonde d’intégrité. Toute modification de l’état de la sonde d’intégrité est indiquée dans ce journal.
 
 > [!IMPORTANT]
-> L'analyse des journaux s’applique uniquement aux équilibreurs de charge accessibles sur Internet. Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
+> Log Analytics fonctionne uniquement avec les instances publiques de Basic Load Balancer. Les journaux ne sont disponibles que pour les ressources déployées avec le modèle de déploiement de Resource Manager. Vous ne pouvez pas les utiliser pour les ressources utilisant le modèle de déploiement classique. Pour plus d’informations sur les modèles de déploiement, consultez [Présentation du déploiement Resource Manager et du déploiement classique](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Activation de la journalisation
 
@@ -56,7 +56,9 @@ Connectez-vous au [portail Azure](http://portal.azure.com). Si vous ne disposez 
 7. Sous **LOGS**, sélectionnez un compte de stockage existant ou créez-en un nouveau. Utilisez le curseur pour déterminer la durée en jours pendant laquelle les données d’événement sont stockées dans les journaux d’événements. 
 8. Cliquez sur **Enregistrer**.
 
-    ![Portail - Journaux de diagnostics](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+Les diagnostics sont enregistrés dans le Stockage Table du compte de stockage spécifié. Si les journaux ne sont pas enregistrés, c’est qu’aucun journal approprié n’a été généré.
+
+![Portail - Journaux de diagnostics](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
 > Les journaux d’audit ne nécessitent pas de compte de stockage distinct. L’utilisation du stockage pour la journalisation des événements et des sondes d’intégrité occasionnera des frais de service.

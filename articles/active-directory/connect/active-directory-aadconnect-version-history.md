@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2018
+ms.date: 08/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 6c080d44aed7c2b3db54a34f4b711db66681cbe9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390151"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143503"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -41,7 +41,7 @@ Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?
 
 ### <a name="release-status"></a>État de la version
 
-20/7/2018 : publié pour la mise à niveau automatique. La publication pour le téléchargement suivra prochainement.
+21/8/2018 : publié pour le téléchargement et la mise à niveau automatique. 
 
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 
@@ -67,7 +67,7 @@ Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?
 - Correction d’un bogue provoquant des problèmes lorsque l’utilisateur avance ou recule dans l’Assistant
 - Correction d’un bogue pour éviter une erreur se produisant en raison d’une remise multi-thread incorrecte dans l’Assistant
 - Quand la page de filtrage de la synchronisation de groupe rencontre une erreur LDAP pendant la résolution des groupes de sécurité, Azure AD Connect retourne désormais l’exception avec une parfaite régularité.  La cause principale de l’exception de référence est toujours inconnue et sera traitée par un autre bogue.
--  Correction d’un bogue dans lequel les autorisations pour les clés STK et NGC (attribut msDS-KeyCredentialLink sur les objets User/Device pour WHfB) n’ont pas été définies correctement.     
+-  Correction d’un bogue dans lequel les autorisations pour les clés STK et NGC (attribut ms-DS-KeyCredentialLink sur les objets User/Device pour WHfB) n’ont pas été définies correctement.     
 - Correction d’un bogue où 'Set-ADSyncRestrictedPermissions' n’a pas été appelé correctement
 -  Ajout de la prise en charge de l’octroi d’autorisations sur la réécriture de groupe dans l’Assistant d’installation d’AADConnect.
 - Lorsque vous changiez de méthode de connexion et que vous passiez de la synchronisation du hachage de mot de passe à AD FS, la synchronisation du hachage de mot de passe n’était pas désactivée.
@@ -88,14 +88,14 @@ Améliorations et nouvelles fonctionnalités
 
 - Cette version inclut la préversion publique de l’intégration de PingFederate dans Azure AD Connect. Avec cette version, les clients peuvent configurer facilement et de manière fiable leur environnement Azure Active Directory pour tirer parti de PingFederate en tant que fournisseur de fédération. Pour en savoir plus sur l’utilisation de cette nouvelle fonctionnalité, voir notre [documentation en ligne](active-directory-aadconnect-user-signin.md#federation-with-pingfederate). 
 - Nous avons mis à jour l’utilitaire de dépannage de l’Assistant Azure AD Connect : à présent, il analyse davantage de scénarios d’erreur, notamment les boîtes aux lettres liées et les groupes dynamiques AD. Pour en savoir plus sur l’utilitaire de dépannage, [voir ici](active-directory-aadconnect-troubleshoot-objectsync.md).
-- La configuration de l’Écriture différée des appareils est désormais gérée uniquement dans l’Assistant Azure AD Connect.
+- La configuration de la réécriture d’appareil est désormais gérée uniquement dans l’Assistant Azure AD Connect.
 - Un nouveau module PowerShell nommé ADSyncTools.psm1 a été ajouté. Il permet notamment de résoudre des problèmes de connectivité SQL. Pour en savoir plus sur le module ADSyncTools, [voir ici](active-directory-aadconnect-tshoot-sql-connectivity.md). 
 - Une nouvelle tâche supplémentaire, « Configurer les options de l’appareil », a été ajoutée. Vous pouvez l’utiliser pour configurer les deux opérations suivantes : 
     -   **Joindre Hybrid Azure AD** : si votre environnement comporte une empreinte locale AD et que vous souhaitez également profiter des fonctionnalités proposées par Azure Active Directory, vous pouvez implémenter des appareils joints Azure AD hybrides. Il s’agit d’appareils qui sont à la fois, joints à votre service Active Directory local et à Azure Active Directory.
     -   **Réécriture d’appareil** : la réécriture d’appareil est utilisée pour activer l’accès conditionnel basé sur l’appareil à des appareils protégés par AD FS (2012 R2 ou version ultérieure).
 
    >[!NOTE] 
-   > - L’option permettant d’activer l’écriture différée des appareils sera grisée dans Personnalisation des options de synchronisation. 
+   > - L’option permettant d’activer la réécriture d’appareil sera grisée dans Personnalisation des options de synchronisation. 
    > -  Le module PowerShell pour ADPrep est déconseillé avec cette version.
 
 
@@ -196,7 +196,7 @@ Il existait un problème dans la logique de nouvelle tentative de configuration 
 * Données d’intégrité Azure AD : l’administrateur doit accéder au portail de contrôle d’intégrité pour contrôler ses paramètres d’intégrité.
    Une fois que la stratégie du service a été modifiée, les agents la lisent et la mettent en œuvre.
 
-* Ajout d’actions de configuration d’écriture différée sur les appareils et d’une barre de progression pour l’initialisation de la page.
+* Ajout d’actions de configuration de réécriture d’appareil et d’une barre de progression pour l’initialisation de la page.
 
 * Amélioration des diagnostics généraux avec un rapport HTML et une collecte de données complète dans un rapport au format ZIP/HTML.
 
@@ -362,7 +362,7 @@ Statut : 19 octobre 2017
 
 ### <a name="ad-fs-management"></a>Gestion AD FS
 #### <a name="fixed-issue"></a>Problème résolu
-* Résolution d’un problème lié à l’utilisation de la fonctionnalité [msDS-ConsistencyGuid en tant que sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor). Ce problème affectait les clients ayant sélectionné *Fédération avec AD FS* comme méthode d’authentification utilisateur. Lorsque vous exécutiez la tâche *Configurer l’ancre source* dans l’Assistant, Azure AD Connect se mettait à utiliser *ms-DS-ConsistencyGuid en tant qu’attribut de source pour immutableId. Avec ce correctif, Azure AD Connect tente désormais de mettre à jour les règles de revendication pour ImmutableId dans AD FS. Auparavant, cette étape échouait, car Azure AD Connect ne disposait pas des informations d’identification administrateur nécessaires pour configurer AD FS. Avec ce correctif, Azure AD Connect invite désormais l’utilisateur à entrer les informations d’identification d’administrateur pour AD FS lorsque vous exécutez la tâche *Configurer l’ancre source*.
+* Résolution d’un problème lié à l’utilisation de la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor). Ce problème affectait les clients ayant sélectionné *Fédération avec AD FS* comme méthode d’authentification utilisateur. Lorsque vous exécutiez la tâche *Configurer l’ancre source* dans l’Assistant, Azure AD Connect se mettait à utiliser *ms-DS-ConsistencyGuid en tant qu’attribut de source pour immutableId. Avec ce correctif, Azure AD Connect tente désormais de mettre à jour les règles de revendication pour ImmutableId dans AD FS. Auparavant, cette étape échouait, car Azure AD Connect ne disposait pas des informations d’identification administrateur nécessaires pour configurer AD FS. Avec ce correctif, Azure AD Connect invite désormais l’utilisateur à entrer les informations d’identification d’administrateur pour AD FS lorsque vous exécutez la tâche *Configurer l’ancre source*.
 
 
 
@@ -377,7 +377,7 @@ Statut : 5 septembre 2017
 * Il existe un problème connu avec la mise à niveau d’Azure AD Connect qui affecte les clients ayant activé l’[authentification unique transparente](active-directory-aadconnect-sso.md). Après la mise à niveau d’Azure AD Connect, la fonctionnalité apparaît comme étant désactivée dans l’Assistant, même si elle reste activée. Un correctif pour ce problème sera fourni dans une version ultérieure. Vous pouvez résoudre ce problème d’affichage manuellement en activant l’authentification unique transparente dans l’Assistant.
 
 #### <a name="fixed-issues"></a>Problèmes résolus
-* Correction d’un problème qui empêchait Azure AD Connect de mettre à jour les règles de revendications dans les services AD FS locaux tout en activant la fonctionnalité [msDS-ConsistencyGuid en tant que Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor). Le problème se produit si vous essayez d’activer la fonctionnalité pour un déploiement Azure AD Connect existant pour lequel les services AD FS sont configurés en tant que méthode de connexion. Le problème se produit parce que l’Assistant ne demande pas les informations d’identification AD FS avant d’essayer de mettre à jour les règles de revendications dans AD FS.
+* Correction d’un problème qui empêchait Azure AD Connect de mettre à jour les règles de revendications dans les services AD FS locaux tout en activant la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor). Le problème se produit si vous essayez d’activer la fonctionnalité pour un déploiement Azure AD Connect existant pour lequel les services AD FS sont configurés en tant que méthode de connexion. Le problème se produit parce que l’Assistant ne demande pas les informations d’identification AD FS avant d’essayer de mettre à jour les règles de revendications dans AD FS.
 * Correction d’un problème qui provoque l’échec de l’installation d’Azure AD Connect si l’authentification NTLM est désactivée dans la forêt AD locale. Ce problème est dû au fait que l’Assistant Azure AD Connect ne fournit pas les informations d’identification complètes lors de la création des contextes de sécurité nécessaires pour l’authentification Kerberos. Cela provoque l’échec de l’authentification Kerberos et l’utilisation de l’authentification NTLM par l’Assistant Azure AD Connect.
 
 ### <a name="azure-ad-connect-sync"></a>Synchronisation d’Azure AD Connect
@@ -388,7 +388,7 @@ Statut : 5 septembre 2017
 * Correction d’un problème qui peut entraîner le fonctionnement incorrect du serveur Azure AD Connect après la mise à niveau automatique. Ce problème affecte les serveurs Azure AD Connect avec la version 1.1.443.0 (ou antérieure). Pour plus d’informations sur ce problème, consultez l’article [Azure AD Connect is not working correctly after an automatic upgrade (Azure AD Connect ne fonctionne pas correctement après une mise à niveau automatique)](https://support.microsoft.com/help/4038479/azure-ad-connect-is-not-working-correctly-after-an-automatic-upgrade).
 * Correction d’un problème qui peut entraîner une nouvelle tentative de mise à niveau automatique toutes les cinq minutes quand des erreurs sont rencontrées. Avec le correctif, la mise à niveau automatique effectue une nouvelle tentative avec interruption exponentielle quand des erreurs sont rencontrées.
 * Correction d’un problème où l’événement de synchronisation du mot de passe 611 est affiché de manière incorrecte dans les journaux des événements d’application Windows avec la mention **Informationnel** au lieu de **Erreur**. L’événement 611 est généré chaque fois que la synchronisation du mot de passe rencontre un problème. 
-* Correction d’un problème dans l’Assistant Azure AD Connect qui autorise l’activation de la fonctionnalité d’écriture différée de groupe sans sélectionner d’unité d’organisation requise pour l’écriture différée de groupe.
+* Correction d’un problème dans l’Assistant Azure AD Connect qui autorise l’activation de la fonctionnalité de réécriture de groupe sans sélectionner d’unité d’organisation requise pour la réécriture de groupe.
 
 #### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 * Ajout d’une tâche de résolution des problèmes à l’Assistant Azure AD Connect sous Tâches supplémentaires. Les clients peuvent utiliser cette tâche pour résoudre les problèmes liés à la synchronisation du mot de passe et pour recueillir des diagnostics généraux. À l’avenir, la tâche de résolution des problèmes sera étendue pour inclure d’autres problèmes liés à la synchronisation d’annuaires.
@@ -427,7 +427,7 @@ Statut : 5 septembre 2017
 
   * Le problème se produit lors de la mise à niveau d’Azure AD Connect, ou lorsque l’option de tâche de *mise à jour de la configuration de synchronisation* de l’assistant Azure AD Connect est utilisée pour mettre à jour la configuration de la synchronisation Azure AD Connect.
   
-  * Cette règle de synchronisation s’applique aux clients qui ont activé la fonctionnalité [msDS-ConsistencyGuid en tant que sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). Cette fonctionnalité a été introduite dans la version 1.1.524.0 et les versions ultérieures. Lorsque la règle de synchronisation est supprimée, Azure AD Connect ne peut plus remplir l’attribut ms-DS-ConsistencyGuid local avec la valeur de l’attribut ObjectGuid. Cela n’empêche pas la configuration de nouveaux utilisateurs dans Azure AD.
+  * Cette règle de synchronisation s’applique aux clients qui ont activé la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). Cette fonctionnalité a été introduite dans la version 1.1.524.0 et les versions ultérieures. Lorsque la règle de synchronisation est supprimée, Azure AD Connect ne peut plus remplir l’attribut ms-DS-ConsistencyGuid local avec la valeur de l’attribut ObjectGuid. Cela n’empêche pas la configuration de nouveaux utilisateurs dans Azure AD.
   
   * Le correctif garantit que la règle de synchronisation ne sera plus supprimée pendant la mise à niveau, ou au cours de la modification de la configuration, tant que la fonctionnalité est activée. Il garantit également que la règle de synchronisation est ajoutée après la mise à niveau vers cette version d’Azure AD Connect pour les clients existants ayant été affectés par ce problème.
 
@@ -444,14 +444,14 @@ Statut : 5 septembre 2017
 #### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 
 * La[fonctionnalité de mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) a été développée pour prendre en charge des clients présentant les configurations suivantes :
-  * Vous avez activé la fonctionnalité Écriture différée des appareils.
-  * Vous avez activé la fonctionnalité Écriture différée de groupe.
+  * Vous avez activé la fonctionnalité Réécriture d’appareil.
+  * Vous avez activé la fonctionnalité Réécriture de groupe.
   * L’installation n’est pas une configuration rapide ou une mise à niveau DirSync.
   * Vous avez plus de 100 000 objets dans le métaverse.
   * Vous vous connectez à plusieurs forêts. L’installation rapide se connecte à une seule forêt.
   * Le compte de connecteur AD n’est plus le compte MSOL_ par défaut.
   * Le serveur est défini sur le mode de transit.
-  * Vous avez activé la fonctionnalité Écriture différée d’utilisateur.
+  * Vous avez activé la fonctionnalité Réécriture d’utilisateur.
   
   >[!NOTE]
   >L’extension de la portée de la fonctionnalité de mise à niveau automatique affecte les clients utilisant Azure AD Connect build 1.1.105.0 et les versions ultérieures. Si vous ne voulez pas que votre serveur Azure AD Connect soit mis à niveau automatiquement, vous devez exécuter la cmdlet suivante sur votre serveur Azure AD Connect : `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Pour en savoir plus sur l’activation/la désactivation de la mise à niveau automatique, reportez-vous à l’article [Azure AD Connect : Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md).
@@ -463,7 +463,7 @@ Statut : 5 septembre 2017
 
 #### <a name="fixed-issue"></a>Problème résolu
 
-* Correction d’un problème qui provoquait la suppression de la règle de synchronisation prête à l’emploi « Out to AD - user ImmutableId » lors de la mise à jour de la configuration de filtrage basé sur une unité d’organisation. Cette règle de synchronisation est requise pour la fonctionnalité [msDS-ConsistencyGuid en tant que sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* Correction d’un problème qui provoquait la suppression de la règle de synchronisation prête à l’emploi « Out to AD - user ImmutableId » lors de la mise à jour de la configuration de filtrage basé sur une unité d’organisation. Cette règle de synchronisation est requise pour la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 
 * Correction d’un problème durant lequel [l’écran Filtrage par domaine ou unité d’organisation](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) de l’Assistant Azure AD Connect affiche l’option *Synchroniser tous les domaines et toutes les unités d’organisation* comme étant sélectionnée, même si le filtrage basé sur une unité d’organisation est activé.
 
@@ -472,14 +472,14 @@ Statut : 5 septembre 2017
 #### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 
 * La[fonctionnalité de mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md) a été développée pour prendre en charge des clients présentant les configurations suivantes :
-  * Vous avez activé la fonctionnalité Écriture différée des appareils.
-  * Vous avez activé la fonctionnalité Écriture différée de groupe.
+  * Vous avez activé la fonctionnalité Réécriture d’appareil.
+  * Vous avez activé la fonctionnalité Réécriture de groupe.
   * L’installation n’est pas une configuration rapide ou une mise à niveau DirSync.
   * Vous avez plus de 100 000 objets dans le métaverse.
   * Vous vous connectez à plusieurs forêts. L’installation rapide se connecte à une seule forêt.
   * Le compte de connecteur AD n’est plus le compte MSOL_ par défaut.
   * Le serveur est défini sur le mode de transit.
-  * Vous avez activé la fonctionnalité Écriture différée d’utilisateur.
+  * Vous avez activé la fonctionnalité Réécriture d’utilisateur.
   
   >[!NOTE]
   >L’extension de la portée de la fonctionnalité de mise à niveau automatique affecte les clients utilisant Azure AD Connect build 1.1.105.0 et les versions ultérieures. Si vous ne voulez pas que votre serveur Azure AD Connect soit mis à niveau automatiquement, vous devez exécuter la cmdlet suivante sur votre serveur Azure AD Connect : `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Pour en savoir plus sur l’activation/la désactivation de la mise à niveau automatique, reportez-vous à l’article [Azure AD Connect : Mise à niveau automatique](active-directory-aadconnect-feature-automatic-upgrade.md).
@@ -529,14 +529,14 @@ Le problème qui se pose est le suivant : l’option **Synchroniser tous les do
 
 * Correction d’un problème lié à la réécriture du mot de passe, qui permet à un administrateur Azure Active Directory de réinitialiser le mot de passe d’un compte d’utilisateur privilégié Active Directory local. Le problème se produit lorsqu’Azure AD Connect se voit accorder l’autorisation de réinitialiser le mot de passe à la place du compte privilégié. Le problème est résolu dans cette version d’Azure AD Connect, car l’administrateur d’Azure AD n’est plus autorisé à réinitialiser le mot de passe d’un compte d’utilisateur privilégié AD local, sauf s’il est le propriétaire de ce compte. Pour en savoir plus, voir [Avis de sécurité Microsoft 4033453](https://technet.microsoft.com/library/security/4033453).
 
-* Correction d’un problème lié à la fonctionnalité [msDS-ConsistencyGuid en tant que sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor), à cause duquel Azure AD Connect ne peut écrire de données en différé dans un attribut msDS-ConsistencyGuid local. Le problème se produit lorsqu’il y a plusieurs forêts AD locales ajoutées à Azure AD Connect et que *l’option Les identités utilisateurs existent sur plusieurs annuaires* est sélectionnée. Lorsqu’une configuration de ce type est utilisée, les règles de synchronisation résultantes ne remplissent pas l’attribut sourceAnchorBinary dans le métaverse. L’attribut sourceAnchorBinary est utilisé en tant qu’attribut source pour l’attribut msDS-ConsistencyGuid. Par conséquent, l’écriture différée vers l’attribut ms-DSConsistencyGuid n’a pas lieu. Afin de résoudre le problème, les règles de synchronisation suivantes ont été mises à jour pour faire en sorte que l’attribut sourceAnchorBinary du métaverse soit toujours rempli :
+* Correction d’un problème lié à la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor), où Azure AD Connect ne réécrivait pas dans l’attribut ms-DS-ConsistencyGuid AD local. Le problème se produit lorsqu’il y a plusieurs forêts AD locales ajoutées à Azure AD Connect et que *l’option Les identités utilisateurs existent sur plusieurs annuaires* est sélectionnée. Lorsqu’une configuration de ce type est utilisée, les règles de synchronisation résultantes ne remplissent pas l’attribut sourceAnchorBinary dans le métaverse. L’attribut sourceAnchorBinary est utilisé en tant qu’attribut source pour l’attribut ms-DS-ConsistencyGuid. Par conséquent, la réécriture dans l’attribut ms-DSConsistencyGuid n’a pas lieu. Afin de résoudre le problème, les règles de synchronisation suivantes ont été mises à jour pour faire en sorte que l’attribut sourceAnchorBinary du métaverse soit toujours rempli :
   * In from AD - InetOrgPerson AccountEnabled.xml
   * In from AD - InetOrgPerson Common.xml
   * In from AD - User AccountEnabled.xml
   * In from AD - User Common.xml
   * In from AD - User Join SOAInAAD.xml
 
-* Auparavant, même si la fonctionnalité [msDS-ConsistencyGuid en tant que sourceAnchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) était désactivée, la règle de synchronisation « Out to AD – User ImmutableId » était encore ajoutée à Azure AD Connect. L’effet est sans gravité et n’entraîne pas l’écriture différée de l’attribut msDS-ConsistencyGuid. Pour éviter toute confusion, nous avons ajouté une logique pour vous assurer que la règle de synchronisation n’est ajoutée que lorsque la fonctionnalité est activée.
+* Auparavant, même si la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) était désactivée, la règle de synchronisation « Out to AD – User ImmutableId » était encore ajoutée à Azure AD Connect. L’effet est sans gravité et n’entraîne pas la réécriture de l’attribut ms-DS-ConsistencyGuid. Pour éviter toute confusion, nous avons ajouté une logique pour vous assurer que la règle de synchronisation n’est ajoutée que lorsque la fonctionnalité est activée.
 
 * Correction d’un problème qui provoquait l’échec de la synchronisation du hachage de mot de passe avec l’événement d’erreur 611. Ce problème se produit après qu’un ou plusieurs contrôleurs de domaine ont été supprimés de l’instance AD locale. À la fin de chaque cycle de synchronisation de mot de passe, le cookie de synchronisation émis par l’instance AD locale contient les ID d’appel des contrôleurs de domaine supprimés, avec 0 comme valeur USN (numéro de séquence de mise à jour). Le Gestionnaire de synchronisation des mots de passe ne parvient pas à conserver le cookie de synchronisation contenant la valeur USN de 0 et échoue avec l’événement d’erreur 611. Lors du prochain cycle de synchronisation, le Gestionnaire de synchronisation des mots de passe réutilise le dernier cookie de synchronisation persistant qui ne contient aucune valeur USN égale à 0. Cela entraîne la resynchronisation des mêmes modifications apportées aux mots de passe. Grâce à ce correctif, le Gestionnaire de synchronisation des mots de passe conserve correctement le cookie de synchronisation.
 
@@ -544,14 +544,14 @@ Le problème qui se pose est le suivant : l’option **Synchroniser tous les do
 
 #### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités
 
-* Auparavant, la fonctionnalité [msDS-ConsistencyGuid en tant que Source Anchor](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) n’était disponible que pour les nouveaux déploiements. Désormais, elle est disponible pour les déploiements existants. Plus précisément :
+* Auparavant, la fonctionnalité [ms-DS-ConsistencyGuid en tant qu’ancre source](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) n’était disponible que pour les nouveaux déploiements. Désormais, elle est disponible pour les déploiements existants. Plus précisément :
   * Pour accéder à cette fonctionnalité, démarrez l’assistant Azure AD Connect, puis choisissez l’option *Mettre à jour sourceAnchor*.
   * Cette option n’est visible que pour les déploiements existants qui utilisent objectGuid comme attribut sourceAnchor.
-  * Lorsque vous configurez l’option, l’assistant vérifie l’état de l’attribut msDS-ConsistencyGuid dans votre annuaire Active Directory local. Si l’attribut n’est configuré sur aucun objet utilisateur dans l’annuaire, l’assistant utilise msDS-ConsistencyGuid en tant qu’attribut sourceAnchor. Si l’attribut est configuré sur un ou plusieurs objets utilisateur dans l’annuaire, l’assistant détermine que l’attribut est utilisé par d’autres applications, qu’il n’est pas approprié en tant qu’attribut sourceAnchor et n’autorise pas le processus de modification de sourceAnchor à se poursuivre. Si vous êtes certain qu’attribut n’est pas utilisé par des applications existantes, contactez le Support technique pour plus d’informations sur la manière de supprimer l’erreur.
+  * Quand vous configurez l’option, l’assistant vérifie l’état de l’attribut ms-DS-ConsistencyGuid dans votre annuaire Active Directory local. Si l’attribut n’est configuré sur aucun objet utilisateur dans l’annuaire, l’assistant utilise ms-DS-ConsistencyGuid en tant qu’attribut Ancre source. Si l’attribut est configuré sur un ou plusieurs objets utilisateur dans l’annuaire, l’assistant détermine que l’attribut est utilisé par d’autres applications, qu’il n’est pas approprié en tant qu’attribut sourceAnchor et n’autorise pas le processus de modification de sourceAnchor à se poursuivre. Si vous êtes certain qu’attribut n’est pas utilisé par des applications existantes, contactez le Support technique pour plus d’informations sur la manière de supprimer l’erreur.
 
 * Pour l’attribut **userCertificate** sur les objets périphériques, Azure AD Connect recherche désormais des valeurs de certificats requises pour [connecter des appareils joints au domaine à Azure AD pour Windows 10 ](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) et exclut le reste avant de se synchroniser avec Azure AD. La règle de synchronisation prête à l’emploi « Out to AAD - Device Join SOAInAD » a été mise à jour pour permettre ce comportement.
 
-* Azure AD Connect prend désormais en charge l’écriture différée de l’attribut **cloudPublicDelegates** d’Exchange Online vers un attribut AD local **publicDelegates**. Cela permet à une boîte aux lettres Exchange Online d’obtenir des droits SendOnBehalfTo sur les boîtes aux lettres Exchange locales des utilisateurs. Une nouvelle règle de synchronisation prête à l’emploi « Out to AD - User Exchange hybride PublicDelegates writeback » a été ajoutée pour prendre en charge cette fonctionnalité. Cette règle n’est ajoutée à Azure AD Connect que lorsque la fonctionnalité Exchange hybride est activée.
+* Azure AD Connect prend désormais en charge la réécriture de l’attribut **cloudPublicDelegates** d’Exchange Online vers un attribut AD local **publicDelegates**. Cela permet à une boîte aux lettres Exchange Online d’obtenir des droits SendOnBehalfTo sur les boîtes aux lettres Exchange locales des utilisateurs. Une nouvelle règle de synchronisation prête à l’emploi « Out to AD - User Exchange hybride PublicDelegates writeback » a été ajoutée pour prendre en charge cette fonctionnalité. Cette règle n’est ajoutée à Azure AD Connect que lorsque la fonctionnalité Exchange hybride est activée.
 
 *   Azure AD Connect prend désormais en charge la synchronisation de l’attribut **altRecipient** d’Azure AD. Afin de prendre en charge cette modification, les règles de synchronisation prêtes à l’emploi suivantes ont été mises à jour pour inclure le flux d’attributs requis :
   * Entrant depuis AD – Utilisateur Exchange
@@ -650,7 +650,7 @@ Synchronisation d’Azure AD Connect
 * Correction d’un problème entraînant l’échec du démarrage du processus de synchronisation de mot de passe avec l’ID d’événement 6900 et l’erreur *« Un élément avec la même clé a déjà été ajouté »*. Ce problème se produit si vous mettez à jour la configuration du filtrage de l’unité d’organisation afin d’inclure la partition de configuration Active Directory. Pour résoudre ce problème, le processus de synchronisation de mot de passe synchronise désormais les changements de mot de passe uniquement à partir de partitions de domaine Active Directory. Les partitions autres que de domaine, telles que les partitions de configuration sont ignorées.
 * Lors d’une installation rapide, Azure AD Connect crée un compte AD DS local que le connecteur Active Directory utilise pour communiquer avec l’AD DS local. Auparavant, le compte était créé avec l’indicateur PASSWD_NOTREQD défini sur l’attribut de contrôle de compte d’utilisateur (user-Account-Control), et un mot de passe aléatoire était défini sur le compte. Désormais, Azure AD Connect supprime explicitement l’indicateur PASSWD_NOTREQD une fois le mot de passe défini sur le compte.
 * Correction d’un problème qui entraînait l’échec de la mise à niveau de DirSync avec l’erreur *« a deadlock occurred in sql server which trying to acquire an application lock »* (un blocage s’est produit dans sql server qui tente d’acquérir un verrou d’application) lorsque l’attribut mailNickname figure dans le schéma AD local, mais n’est pas limité à la classe d’objets utilisateur AD.
-* Correction d’un problème qui avait pour effet de désactiver automatiquement la fonctionnalité d’écriture différée d’appareil quand un administrateur mettait à jour la configuration de la synchronisation Azure AD Connect à l’aide de l’Assistant Azure AD Connect. Ce problème résultait du fait que l’Assistant vérifiait les prérequis de la configuration existante de la réécriture d’appareil dans la version locale d’AD ; or cette vérification échouait. La solution consiste à ignorer la vérification si l’écriture différée d’appareil est déjà activée.
+* Correction d’un problème qui avait pour effet de désactiver automatiquement la fonctionnalité de réécriture d’appareil quand un administrateur mettait à jour la configuration de la synchronisation Azure AD Connect à l’aide de l’Assistant Azure AD Connect. Ce problème résultait du fait que l’Assistant vérifiait les prérequis de la configuration existante de la réécriture d’appareil dans la version locale d’AD ; or cette vérification échouait. La solution consiste à ignorer la vérification si la réécriture d’appareil est déjà activée.
 * Pour configurer le filtrage de l’unité d’organisation, vous pouvez utiliser l’Assistant Azure AD Connect ou Synchronization Service Manager. Auparavant, si vous utilisiez l’Assistant Azure AD Connect pour configurer le filtrage de l’unité d’organisation, les nouvelles unités d’organisation créées par la suite étaient incluses dans la synchronisation d’annuaires. Si vous ne souhaitiez pas que les nouvelles unités d’organisation soient incluses, vous deviez configurer le filtrage de l’unité d’organisation à l’aide de Synchronization Service Manager. Désormais, vous pouvez obtenir le même comportement en utilisant l’Assistant Azure AD Connect.
 * Correction du problème qui avait pour effet que des procédures stockées requises par Azure AD Connect étaient créées sous le schéma de l’administrateur effectuant l’installation, plutôt que sous le schéma dbo.
 * Résolution du problème qui avait pour effet que l’attribut TrackingId retourné par Azure AD était omis dans les journaux des événements du serveur AAD Connect. Le problème se produisait quand Azure AD Connect recevait un message de redirection d’Azure AD et qu’Azure AD Connect ne parvenait pas à se connecter au point de terminaison fourni. Le TrackingId est utilisé par les ingénieurs du Support pour établir une corrélation avec les journaux côté service lors du dépannage.
@@ -667,7 +667,7 @@ Synchronisation d’Azure AD Connect
   * Ajout de **preferredDataLocation** au schéma Metaverse et au schéma du connecteur AAD. Les clients désireux de mettre à jour les attributs dans Azure AD peuvent implémenter des règles de synchronisation personnalisées à cette fin. 
   * Ajout de **userType** au schéma Metaverse et au schéma du connecteur AAD. Les clients désireux de mettre à jour les attributs dans Azure AD peuvent implémenter des règles de synchronisation personnalisées à cette fin.
 
-* Azure AD Connect permet désormais l’utilisation de l’attribut ConsistencyGuid en tant qu’attribut sourceAnchor pour les objets Active Directory locaux. En outre, Azure AD Connect remplit l’attribut ConsistencyGuid avec la valeur de l’attribut objectGuid s’il est vide. Cette fonctionnalité s’applique uniquement au nouveau déploiement. Pour en savoir plus sur cette fonctionnalité, voir la section de l’article [Principes de conception Azure AD Connect - Utilisation de msDS-ConsistencyGuid en tant que sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* Azure AD Connect permet désormais l’utilisation de l’attribut ConsistencyGuid en tant qu’attribut sourceAnchor pour les objets Active Directory locaux. En outre, Azure AD Connect remplit l’attribut ConsistencyGuid avec la valeur de l’attribut objectGuid s’il est vide. Cette fonctionnalité s’applique uniquement au nouveau déploiement. Pour en savoir plus sur cette fonctionnalité, consultez la section de l’article [Principes de conception Azure AD Connect - Utilisation de ms-DS-ConsistencyGuid en tant qu’ancre source](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 * Une nouvelle applet de commande de dépannage Invoke-ADSyncDiagnostics a été ajoutée pour faciliter le diagnostic des problèmes de synchronisation de hachage de mot de passe. Pour en savoir sur l’utilisation de la cmdlet, reportez-vous à l’article [Résolution des problèmes de synchronisation du hachage de mot de passe avec la synchronisation Azure AD Connect](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Azure AD Connect prend désormais en charge la synchronisation d’objets Dossier public à extension messagerie à partir d’un AD local sur Azure AD. Vous pouvez activer la fonctionnalité à l’aide de l’Assistant Azure AD Connect accessible sous Fonctionnalités facultatives. Pour en savoir plus sur cette fonctionnalité, consultez l’article relatif à la [prise en charge du blocage du périmètre basé sur l’annuaire par Office 365 pour les dossiers publics activés par courrier en local](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect nécessite la synchronisation d’un compte AD DS à partir de l’instance AD locale. Auparavant, lorsque vous installiez Azure AD Connect à l’aide du mode Express, vous pouviez fournir les informations d’identification d’un compte d’administrateur d’entreprise, et Azure AD Connect créait le compte AD DS requis. Toutefois, vous deviez fournir le compte AD DS pour une installation personnalisée et pour l’ajout de forêts à un déploiement existant. Désormais, vous pouvez également fournir les informations d’identification d’un compte d’administrateur d’entreprise au cours d’une installation personnalisée et laisser Azure AD Connect créer le compte AD DS requis.
@@ -841,9 +841,9 @@ Publication : août 2016
 * L’Assistant Azure AD Connect ne parvient pas à authentifier le compte Azure AD fourni si le mot de passe du compte contient un trop grand nombre de caractères spéciaux. Un message d’erreur du type « Impossible de valider les informations d’identification. Une erreur inattendue s’est produite. » est renvoyé.
 * La désinstallation du serveur intermédiaire désactive la synchronisation de mot de passe dans le client Azure AD et provoque l’échec de la synchronisation de mot de passe avec le serveur actif.
 * La synchronisation du mot de passe échoue dans de rares cas lorsqu’aucun hachage de mot de passe n’est stocké sur l’utilisateur.
-* Lorsque le serveur Azure AD Connect est activé pour le mode intermédiaire, l’écriture différée de mot de passe n’est pas temporairement désactivée.
-* L’assistant Azure AD Connect n’affiche pas la configuration réelle de synchronisation de mot de passe et d’écriture différée de mot de passe lorsque le serveur est en mode intermédiaire. Il les affiche toujours comme étant désactivées.
-* Les modifications apportées à la synchronisation de mot de passe et à l’écriture différée de mot de passe ne sont pas conservées par l’Assistant Azure AD lorsque le serveur est en mode intermédiaire.
+* Lorsque le serveur Azure AD Connect est activé pour le mode intermédiaire, la réécriture de mot de passe n’est pas temporairement désactivée.
+* L’assistant Azure AD Connect n’affiche pas la configuration réelle de synchronisation de mot de passe et de réécriture de mot de passe lorsque le serveur est en mode intermédiaire. Il les affiche toujours comme étant désactivées.
+* Les modifications apportées à la synchronisation de mot de passe et à la réécriture de mot de passe ne sont pas conservées par l’Assistant Azure AD lorsque le serveur est en mode intermédiaire.
 
 **Améliorations :**
 
@@ -920,7 +920,7 @@ Publication : février 2016
 
 **Fonctionnalités promues de version préliminaire à disponibilité générale :**
 
-* [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md).
+* [Réécriture d’appareil](active-directory-aadconnect-feature-device-writeback.md).
 * [Extensions d’annuaire](active-directory-aadconnectsync-feature-directory-extensions.md).
 
 **Nouvelles fonctionnalités préliminaires :**
@@ -971,9 +971,9 @@ Publication : novembre 2015
   * La file d'attente des nouvelles tentatives de mot de passe est infinie et la limite de 5 000 objets supprimés a été supprimée.
 * Impossible de se connecter à Active Directory avec le niveau fonctionnel de forêt Windows Server 2016.
 * Impossible de modifier le groupe utilisé pour le filtrage de groupes après l’installation initiale.
-* Aucun profil utilisateur n’est plus créé sur le serveur Azure AD Connect pour chaque utilisateur effectuant une modification de mot de passe avec l’écriture différée du mot de passe activée.
+* Aucun profil utilisateur n’est plus créé sur le serveur Azure AD Connect pour chaque utilisateur effectuant une modification de mot de passe avec la réécriture de mot de passe activée.
 * Impossible d’utiliser des entiers longs dans des règles de synchronisation.
-* La case à cocher « Écriture différée des appareils » reste désactivée s’il existe des contrôleurs de domaine inaccessibles.
+* La case à cocher « Réécriture d’appareil » reste désactivée s’il existe des contrôleurs de domaine inaccessibles.
 
 ## <a name="1086670"></a>1.0.8667.0
 Publication : août 2015
@@ -992,13 +992,13 @@ Publication : août 2015
 * Si le compte utilisé sur le connecteur Active Directory est modifié en dehors de l’Assistant, l’Assistant échoue lors des exécutions suivantes.
 * L’installation d’Azure AD Connect sur un contrôleur de domaine échoue parfois.
 * Impossible d’activer et de désactiver le « Mode de préproduction » si des attributs d’extension ont été ajoutés.
-* L’écriture différée de mot de passe échoue dans certaines configurations en raison d’un mot de passe incorrect sur le connecteur Active Directory.
+* La réécriture de mot de passe échoue dans certaines configurations en raison d’un mot de passe incorrect sur le connecteur Active Directory.
 * Impossible de mettre à niveau DirSync si un nom unique (DN) est utilisé lors du filtrage des attributs.
 * Utilisation du processeur excessive lors de la réinitialisation du mot de passe.
 
 **Fonctionnalités préliminaires supprimées :**
 
-* La fonctionnalité préliminaire [Écriture différée d’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback) a été temporairement supprimée suite aux commentaires des clients de la version préliminaire. Nous la rajouterons une fois que nous aurons traité ces commentaires.
+* La fonctionnalité préliminaire [Réécriture d’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback) a été temporairement supprimée suite aux commentaires des clients de la préversion. Nous la rajouterons une fois que nous aurons traité ces commentaires.
 
 ## <a name="1086410"></a>1.0.8641.0
 Publication : juin 2015
@@ -1017,9 +1017,9 @@ Changement de nom d’Azure AD Sync en Azure AD Connect.
 
 **Nouvelles fonctionnalités préliminaires :**
 
-* [Écriture différée de l’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback)
-* [Écriture différée de groupe](active-directory-aadconnect-feature-preview.md#group-writeback)
-* [Écriture différée des appareils](active-directory-aadconnect-feature-device-writeback.md)
+* [Réécriture d’utilisateur](active-directory-aadconnect-feature-preview.md#user-writeback)
+* [Réécriture de groupe](active-directory-aadconnect-feature-preview.md#group-writeback)
+* [Réécriture d’appareil](active-directory-aadconnect-feature-device-writeback.md)
 * [Extensions d’annuaire](active-directory-aadconnect-feature-preview.md)
 
 ## <a name="104940501"></a>1.0.494.0501
@@ -1031,7 +1031,7 @@ Publication : mai 2015
 
 **Problèmes résolus :**
 
-* L’écriture différée de mot de passe à partir d’Azure AD échoue en raison d’une erreur de connectivité Azure Service Bus.
+* La réécriture de mot de passe à partir d’Azure AD échoue en raison d’une erreur de connectivité Azure Service Bus.
 
 ## <a name="104910413"></a>1.0.491.0413
 Publication : avril 2015
@@ -1070,7 +1070,7 @@ Publication : décembre 2014
 **Nouvelles fonctionnalités :**
 
 * Il est maintenant possible d’effectuer la synchronisation de mot de passe avec le filtrage basé sur les attributs. Pour plus d’informations, consultez [Synchronisation de mot de passe avec filtrage](active-directory-aadconnectsync-configure-filtering.md).
-* L’attribut msDS-ExternalDirectoryObjectID est écrit en différé dans Active Directory. Cette fonctionnalité prend en charge les applications Office 365. Elle utilise OAuth2 pour accéder aux boîtes aux lettres en ligne et en local dans un déploiement d’Exchange hybride.
+* L’attribut ms-DS-ExternalDirectoryObjectID est réécrit dans Active Directory. Cette fonctionnalité prend en charge les applications Office 365. Elle utilise OAuth2 pour accéder aux boîtes aux lettres en ligne et en local dans un déploiement d’Exchange hybride.
 
 **Problèmes de mise à niveau résolus :**
 

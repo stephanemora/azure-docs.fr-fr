@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216720"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143379"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -481,7 +481,13 @@ Pour tester la connectivité, connectez-vous à une autre machine virtuelle sur 
 >Si nécessaire, vous pouvez [télécharger SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Limites
-Sur les machines virtuelles Azure, Microsoft Distributed Transaction Coordinator (DTC) n’est pas pris en charge sur les instances de cluster de basculement car le port RPC n’est pas pris en charge par l’équilibrage de charge.
+
+La solution Machines virtuelles Azure prend en charge Microsoft Distributed Transaction Coordinator (MSDTC) sur Windows Server 2019, avec un stockage sur les volumes partagés en cluster (CSV) et un [équilibreur de charge standard](../../../load-balancer/load-balancer-standard-overview.md).
+
+Concernant les machines virtuelles Azure, MSDTC n’est pas pris en charge sur Windows Server 2016 ou versions antérieures, car :
+
+- La ressource MSDTC en cluster n’est pas configurable pour utiliser le stockage partagé. Avec Windows Server 2016, si vous créez une ressource MSDTC, celle-ci n’affiche pas le stockage partagé qui est disponible pour l’utilisation, et cela même si le stockage est présent. Ce problème a été résolu dans Windows Server 2019.
+- L’équilibreur de charge de base ne gère pas les ports RPC.
 
 ## <a name="see-also"></a>Voir aussi
 

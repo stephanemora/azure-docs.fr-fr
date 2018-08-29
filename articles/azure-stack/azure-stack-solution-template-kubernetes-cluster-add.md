@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: ed2d55b8346acb79563a882bbaf2f46110dcf1bb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bff0140d173fc3393ac56ec3d709c3c067842a2a
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442715"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41946443"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Ajouter un cluster Kubernetes sur la Place de marché Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!note]  
-> Le Kubernetes ACS (Azure Container Service) sur Azure Stack est disponible en préversion privée. Pour obtenir l’accès à l’élément Kubernetes sur la Place de marché afin de pouvoir suivre les instructions données dans cet article, [envoyez une demande d’accès](https://aka.ms/azsk8).
+> Le Kubernetes AKS (Azure Kubernetes Services) sur Azure Stack est disponible en préversion privée. Pour obtenir l’accès à l’élément Kubernetes sur la Place de marché afin de pouvoir suivre les instructions données dans cet article, [envoyez une demande d’accès](https://aka.ms/azsk8).
 
 Vous pouvez créer une offre de cluster Kubernetes et la mettre à disposition des utilisateurs en tant qu’élément de la Place de marché. Les utilisateurs peuvent alors déployer Kubernetes en une seule opération coordonnée.
 

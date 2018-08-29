@@ -1,95 +1,144 @@
 ---
-title: Création d’une application sans serveur dans Visual Studio | Documents Microsoft
-description: Prenez en main votre première application sans serveur avec ce guide sur la création, le déploiement et la gestion de l’application dans Visual Studio.
-keywords: ''
+title: Créer des applications serverless avec Visual Studio | Microsoft Docs
+description: Créer, déployer et gérer votre première application serverless avec Azure Logic Apps et Azure Functions dans Visual Studio
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.reviewer: jehollan, LADocs
+ms.suite: integration
+ms.custom: vs-azure
 ms.topic: article
-ms.date: 03/30/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 75f2be44aa8cc239257d6d2a7dad448e9dbab4b4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/01/2018
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
+ms.openlocfilehash: ed56e5f2a4a0d9e3a5e8d8c80e0fd20dbfb098bb
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300454"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444784"
 ---
-# <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Création d’une application dans Visual Studio à l’aide de Logic Apps et Functions
+# <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Créer votre première application serverless avec Azure Logic Apps et Azure Functions - Visual Studio
 
-Les outils et fonctionnalités sans serveur dans Azure permettent un développement rapide et le déploiement d’applications cloud.  Ce document se concentre sur la prise en main de la création d’une application sans serveur dans Visual Studio.  [Vous trouverez dans cet article](logic-apps-serverless-overview.md) une vue d’ensemble de la création d’une application sans serveur dans Azure.
+Vous pouvez développer et déployer rapidement des applications cloud à l’aide des fonctionnalités et outils serverless dans Azure, comme [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et [Azure Functions](../azure-functions/functions-overview.md). Cet article explique comment démarrer la création d’une application serverless, celle-ci utilise une application logique qui effectue un appel à une fonction Azure, dans Visual Studio. Pour en savoir plus sur les solutions serverless dans Azure, consultez [Azure Serverless avec Functions et Logic Apps](../logic-apps/logic-apps-serverless-overview.md).
 
-## <a name="getting-everything-ready"></a>Tout préparer
+## <a name="prerequisites"></a>Prérequis
 
-Voici les conditions préalables nécessaires à la création d’une application sans serveur à partir de Visual Studio :
+Pour créer une application serverless dans Visual Studio, vous avez besoin des éléments suivants :
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) ou Visual Studio 2015 : Communauté, Professionnel ou Entreprise
-* [Outils Logic Apps pour Visual Studio](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551)
-* [Dernier kit de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) (2.9.1 ou supérieur)
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
+
+* [Visual Studio 2017](https://www.visualstudio.com/vs/) ou Visual Studio 2015 : Community, Professional ou Enterprise
+
+* [Microsoft Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 ou version ultérieure)
+
 * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
-* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) pour déboguer les fonctions localement
-* Accès au web lors de l’utilisation du concepteur d’application logique intégré
 
-## <a name="getting-started-with-a-deployment-template"></a>Prise en main avec un modèle de déploiement
+* [Outils Azure Logic Apps pour Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551) ou [Visual Studio 2015](https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio)
 
-La gestion des ressources dans Azure est effectuée au sein d’un groupe de ressources.  Un groupe de ressources est un regroupement logique de ressources.  Les groupes de ressources permettent le déploiement et la gestion d’une collecte de ressources.  Pour une application sans serveur dans Azure, notre groupe de ressources comprend Azure Logic Apps et Azure Functions.  Avec le projet de groupe de ressources dans Visual Studio, nous pouvons développer, gérer et déployer l’application complète en tant que ressource unique.
+  Vous pouvez télécharger et installer les outils Azure Logic Apps directement à partir de Visual Studio Marketplace ou [en apprendre davantage sur l’installation de cette extension dans Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
+  Veillez à redémarrer Visual Studio après l’installation. 
 
-### <a name="create-a-resource-group-project-in-visual-studio"></a>Création d’un projet de groupe de ressources dans Visual Studio
+* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools) pour déboguer Functions localement
 
-1. Dans Visual Studio, cliquez sur l’option **Nouveau projet** pour en ajouter un.
-1. Dans la catégorie **Cloud**, sélectionnez l’option permettant de créer un projet **Groupe de ressources** Azure.  
- * Si la catégorie ou le projet n’apparaissent pas dans la liste, assurez-vous que le Kit de développement logiciel Azure est installé pour Visual Studio.
-1. Nommez le projet et choisissez un emplacement, puis sélectionnez **Ok** afin de créer des invites Visual Studio pour sélectionner un modèle.  Vous pouvez sélectionner l’option permettant de démarrer à partir de l’espace vide, démarrer avec une application logique ou une autre ressource.  Toutefois, dans ce cas nous utilisons un modèle de démarrage rapide Azure pour commencer avec une application sans serveur.
-1. Sélectionnez l’option pour afficher les modèles de **Démarrage rapide Azure** ![Sélectionner les modèles de démarrage rapide Azure][1]
-1. Sélectionnez le modèle de démarrage rapide sans serveur : **101-logic-app-and-function-app** et cliquez sur **Ok**
+* Accès au web lors de l’utilisation du concepteur d’application logique intégré à Visual Studio
 
-Le modèle de démarrage rapide crée un modèle de déploiement dans votre projet de groupe de ressources.  Le modèle comprend une application logique simple qui appelle une fonction Azure et renvoie le résultat.  Si vous ouvrez le fichier `azuredeploy.json` dans l’explorateur de solutions, vous pouvez voir les ressources de l’application sans serveur.
+  Le Concepteur requiert une connexion Internet pour créer des ressources dans Azure et pour lire les propriétés et les données à partir de connecteurs dans votre application logique. 
+  Par exemple, si vous utilisez le connecteur Dynamics CRM Online, le Concepteur recherche les propriétés par défaut et personnalisées disponibles dans votre instance CRM.
 
-## <a name="deploying-the-serverless-application"></a>Déploiement de l’application sans serveur
+## <a name="create-resource-group-project"></a>Créer un projet de groupe de ressources
 
-Pour pouvoir ouvrir le concepteur visuel d’application logique dans Visual Studio, un groupe de ressources Azure doit être pré-déployé.  Le concepteur peut ainsi créer et utiliser des connexions aux services et aux ressources dans l’application logique.  Pour commencer, nous devons simplement déployer la solution créée.
+Pour commencer, créez un [projet de groupe de ressources Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) pour votre application serverless. Dans Azure, vous créez des ressources au sein d’un groupe de ressources, en fait dans une collection logique que vous utilisez pour organiser, gérer et déployer des ressources pour une application entière, en tant que composant unique. Pour une application serverless dans Azure, votre groupe de ressources comprend des ressources Azure Logic Apps et Azure Functions. En savoir plus sur [les ressources et groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md).
 
-1. Cliquez avec le bouton droit de la souris sur le projet dans Visual Studio, sélectionnez **Déployer** et créez un **nouveau** déploiement. ![Sélectionner un nouveau déploiement de ressources][2]
-1. Sélectionnez un abonnement Azure et un groupe de ressources valides
-1. Sélectionnez l’option permettant de **Déployer** la solution.
-1. Entrez le nom de l’application logique et de l’application Azure Function.  Le nom de la fonction Azure Function doit être unique à l’échelle mondiale.
+1. Démarrez Visual Studio et connectez-vous avec votre compte Azure. 
 
-La solution sans serveur est déployée dans le groupe de ressources spécifié.  Si vous examinez la **sortie** dans Visual Studio, vous pouvez voir l’état du déploiement.
+1. Dans le menu **Fichier**, sélectionnez **Nouveau** > **Projet**. 
 
-## <a name="editing-the-logic-app-in-visual-studio"></a>Modification de l’application logique dans Visual Studio
+   ![Création de projet dans Visual Studio](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-Une fois que la solution a été déployée dans un groupe de ressources, le concepteur visuel peut modifier et apporter des modifications à l’application logique.
+1. Sous **Installé**, sélectionnez **Visual C#** ou **Visual Basic**. Sélectionnez **Cloud** > **Groupe de ressources Azure**.
 
-1. Avec le bouton droit de la souris, cliquez sur le fichier `azuredeploy.json` dans l’explorateur de solutions et sélectionnez **Ouvrir avec le concepteur de Logic Apps**.
-1. Sélectionnez le **groupe de ressources** et l’**emplacement** dans lesquels la solution a été déployée, puis cliquez sur **OK**.
+   Si la catégorie **Cloud** ou le projet **Groupe de ressources Azure** n’existe pas, vérifiez que vous avez installé le kit SDK Azure pour Visual Studio.
 
-Le concepteur visuel d’application logique doit désormais être visible dans Visual Studio.  Vous pouvez continuer à ajouter des étapes, modifier le flux de travail et enregistrer les modifications.  Vous pouvez également créer des applications logiques à partir de Visual Studio.  Si vous cliquez avec le bouton droit de la souris sur les **Ressources** dans le navigateur de modèle, vous pouvez choisir d’ajouter une **application logique** au projet.  Les applications logiques vides sont chargées dans le concepteur visuel sans avoir été pré-déployées dans un groupe de ressources.
+1. Attribuez un nom et un emplacement au projet, puis choisissez **OK**. 
 
-### <a name="managing-and-viewing-run-history-for-a-deployed-logic-app"></a>Gestion et affichage de l’historique d’exécution d’une application logique déployée
+   Visual Studio vous invite à sélectionner un modèle. 
+   Vous pouvez démarrer avec un modèle Logic App vide, ou un autre modèle, mais cet exemple utilise un modèle de démarrage rapide Azure pour créer une application serverless comprenant une application logique et un appel à une fonction Azure.
 
-Vous pouvez également gérer et afficher l’historique d’exécution des applications logiques déployées dans Azure.  Si vous ouvrez l’outil **Cloud Explorer** dans Visual Studio, vous pouvez cliquer avec le bouton droit de la souris sur n’importe quelle application logique et choisir de modifier, désactiver, afficher les propriétés ou afficher l’historique d’exécution.  En cliquant sur Modifier, vous pouvez également télécharger une application logique publiée dans un projet de groupe de ressources Visual Studio.  Ainsi, même si vous avez démarré la création de votre application logique dans le portail Azure, vous pouvez toujours l’importer et la gérer dans Visual Studio.
+   Pour créer seulement une application logique dans Visual Studio, sélectionnez le modèle d’**application logique**. Ce modèle crée une application logique vide qui s’ouvre dans le concepteur d’application logique, sans que vous ayez besoin de déployer au préalable votre solution dans un groupe de ressources Azure.
 
-## <a name="developing-an-azure-function-in-visual-studio"></a>Développement d’une fonction Azure Function dans Visual Studio
+1. Dans la zone **Afficher les modèles à partir de cet emplacement**, sélectionnez **Démarrage rapide Azure (github/Azure/azure-quickstart-templates)**. 
 
-Le modèle de déploiement déploie toutes les fonctions Azure Function de la solution pour le référentiel git indiqué dans les variables `azuredeploy.json`.  Si vous créez un projet de fonction au sein de la solution, archivez-le dans le contrôle de code source (GitHub, Visual Studio Team Services, etc.) et mettez à jour la variable `repo` ; le modèle déploiera la fonction Azure Function.
+1. Dans la zone de recherche, entrez « logic-app » comme filtre, puis sélectionnez le modèle de démarrage rapide serverless suivant et choisissez **OK** : **101-logic-app-and-function-app**
 
-### <a name="creating-an-azure-function-project"></a>Création d’un projet Azure Function
+   ![Sélection du modèle de démarrage rapide Azure](./media/logic-apps-serverless-get-started-vs/select-template.png)
 
-Si vous utilisez JavaScript, Python, F#, Bash, Batch ou PowerShell, suivez les [étapes qui se trouvent dans l’interface CLI de fonctions](../azure-functions/functions-run-local.md) pour créer un projet.  Si vous développez une fonction dans C#, vous pouvez utiliser une [bibliothèque de classes C#](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/) dans la solution actuelle pour la fonction Azure Function.
+   Visual Studio crée et ouvre une solution pour votre projet de groupe de ressources. 
+   Le modèle de démarrage rapide que vous avez sélectionné crée un modèle de déploiement nommé `azuredeploy.json` dans votre projet de groupe de ressources. 
+   Ce modèle de déploiement inclut la définition d’une application logique simple qui se déclenche sur une requête HTTP, appelle une fonction Azure et retourne le résultat sous la forme d’une réponse HTTP. 
+   
+   ![Nouvelle solution serverless](./media/logic-apps-serverless-get-started-vs/create-serverless-solution.png)
+
+1. Vous devez ensuite déployer votre solution sur Azure avant de pouvoir ouvrir le modèle de déploiement et passer en revue les ressources de votre application serverless. 
+
+## <a name="deploy-your-solution"></a>Déployer votre solution
+
+Avant de pouvoir ouvrir votre application logique avec le concepteur d’application logique dans Visual Studio, vous devez disposer d’un groupe de ressources Azure déjà déployé dans Azure. Le concepteur peut alors créer des connexions aux services et aux ressources dans votre application logique. Pour cette tâche, déployez votre solution depuis Visual Studio sur le portail Azure.
+
+1. Dans l’Explorateur de solutions, ouvrez le menu contextuel de votre projet de ressources et sélectionnez **Déployer** > **Nouveau**.
+
+   ![Création du déploiement pour le groupe de ressources](./media/logic-apps-serverless-get-started-vs/deploy.png)
+
+1. Si cela n’est pas déjà fait, sélectionnez votre abonnement Azure et le groupe de ressources vers lequel vous voulez déployer. Choisissez **Déployer**.
+
+   ![Paramètres de déploiement](./media/logic-apps-serverless-get-started-vs/deploy-to-resource-group.png)
+
+1. Si le champ **Modifier les paramètres** s’affiche, indiquez le nom de la ressource à utiliser pour votre application logique et votre application de fonction Azure au moment du déploiement, puis enregistrez vos paramètres. Veillez à utiliser un nom global unique pour votre application de fonction.
+
+   ![Attribution du nom de l’application logique et de celui de l’application de fonction](./media/logic-apps-serverless-get-started-vs/logic-function-app-name-parameters.png)
+
+   Lorsque Visual Studio commence le déploiement vers votre groupe de ressources spécifié, l’état de déploiement de votre solution s’affiche dans la fenêtre Visual Studio **Sortie**. 
+   À l’issue du déploiement, votre application logique est en ligne dans le portail Azure.
+
+## <a name="edit-logic-app-in-visual-studio"></a>Modifier l’application logique dans Visual Studio
+
+Maintenant que votre solution est déployée dans votre groupe de ressources, ouvrez votre application logique avec le concepteur d’application logique, afin de modifier et de transformer votre application logique.
+
+1. Dans l’Explorateur de solutions, ouvrez le menu contextuel du fichier `azuredeploy.json` et sélectionnez **Ouvrir avec le concepteur d’application logique**.
+
+   ![Ouverture de « azuredeploy.json » dans le concepteur d’application logique](./media/logic-apps-serverless-get-started-vs/open-logic-app-designer.png)
+
+1. Lorsque la boîte de dialogue **Propriétés de l’application logique** s’affiche, et s’il n’est pas déjà sélectionné, dans la zone **Abonnement**, sélectionnez votre abonnement Azure. Sous **Groupe de ressources**, sélectionnez le groupe de ressources et l’emplacement où vous avez déployé votre solution, puis choisissez **OK**.
+
+   ![Propriétés de l’application logique](./media/logic-apps-serverless-get-started-vs/logic-app-properties.png)
+
+   Une fois le concepteur d’application logique ouvert, vous pouvez continuer à ajouter des étapes ou à modifier le flux de travail, et enregistrer vos mises à jour.
+
+   ![Application logique ouverte dans le concepteur d’application logique](./media/logic-apps-serverless-get-started-vs/opened-logic-app.png)
+
+## <a name="create-azure-functions-project"></a>Créer un projet Azure Functions
+
+Si vous voulez créer votre projet Functions pour qu’il fonctionne avec JavaScript, Python, F#, PowerShell, Batch ou Bash, suivez les étapes décrites dans l’article [Utiliser Azure Functions Core Tools](../azure-functions/functions-run-local.md). Pour développer votre fonction Azure avec C# à l’intérieur de votre solution, vous pouvez utiliser une bibliothèque de classes C# en suivant les étapes décrites dans l’article [Publier une bibliothèque de classes .NET comme application de fonction](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/16/publishing-a-net-class-library-as-a-function-app/).
+
+## <a name="deploy-functions-from-visual-studio"></a>Déployer des fonctions depuis Visual Studio
+
+Votre modèle de déploiement met en œuvre toutes les fonctions Azure qui existent dans votre solution à partir du dépôt Git spécifié par les variables du fichier `azuredeploy.json`. Si vous créez votre projet Functions dans votre solution, vous pouvez vérifier ce projet dans le contrôle de code source Git, par exemple GitHub ou Visual Studio Team Services, puis mettre à jour la variable `repo` afin que le modèle déploie votre fonction Azure.
+
+## <a name="manage-logic-apps-and-view-run-history"></a>Gérer les applications logiques et afficher l’historique des exécutions
+
+Pour les applications logiques déjà déployées dans Azure, vous pouvez toujours modifier, gérer, afficher l’historique des exécutions et désactiver ces applications à partir de Visual Studio. 
+
+1. Dans le menu **Affichage** de Visual Studio, ouvrez **Cloud Explorer**. 
+
+1. Sous **Tous les abonnements**, sélectionnez l’abonnement Azure associé aux applications logiques que vous souhaitez gérer, puis choisissez **Appliquer**.
+
+1. Dans la zone **Logic Apps**, sélectionnez votre application logique. À partir du menu contextuel de l’application, sélectionnez **Ouvrir avec l’éditeur d’application logique**. 
+
+Vous pouvez à présent télécharger l’application logique déjà publiée dans votre projet de groupe de ressources. En effet, même si vous avez démarré une application logique dans le portail Azure, vous avez toujours la possibilité de l’importer pour la gérer dans Visual Studio. Pour plus d’informations, consultez [Gérer des applications logiques avec Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrir comment créer un tableau de bord social sans serveur](logic-apps-scenario-social-serverless.md)
-* [Gestion d’une application logique à partir de Visual Studio Cloud Explorer](manage-logic-apps-with-visual-studio.md)
+* [Créer un tableau de bord de réseau social serverless](logic-apps-scenario-social-serverless.md)
+* [Gérer des applications logiques avec Visual Studio](manage-logic-apps-with-visual-studio.md)
 * [Langage de définition de flux de travail d’application logique](logic-apps-workflow-definition-language.md)
-
-<!-- Image references -->
-[1]: ./media/logic-apps-serverless-get-started-vs/select-template.png
-[2]: ./media/logic-apps-serverless-get-started-vs/deploy.png

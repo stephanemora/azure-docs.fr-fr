@@ -3,17 +3,16 @@ title: Schéma d’événement d’abonnement Azure Event Grid
 description: Décrit les propriétés fournies pour les événements d’abonnement avec Azure Event Grid.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6eb5cd9a086522bfe5125189f87a2498dda0ef7e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 18f2a64a4354fbd99f1a471c21cc35cbf5df6619
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493572"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141500"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Schéma d’événement Azure Event Grid pour les abonnements
 
@@ -25,9 +24,11 @@ Les événements de ressource sont créés pour les opérations PUT, PATCH et DE
 
 Lorsque vous vous abonnez aux événements d’un abonnement Azure, votre point de terminaison reçoit tous les événements pour cet abonnement. Les événements peuvent inclure des événements que vous souhaitez visualiser, comme la mise à jour d’une machine virtuelle, mais également des événements qui ne sont peut-être pas importants pour vous, comme l’écriture d’une nouvelle entrée dans l’historique de déploiement. Vous pouvez recevoir tous les événements à votre point de terminaison et écrire du code qui traite les événements que vous souhaitez gérer ou définir un filtre lors de la création de l’abonnement aux événements.
 
-Pour gérer les événements par programmation, vous pouvez trier les événements en examinant la valeur `operationName`. Par exemple, votre point de terminaison d’événement peut traiter uniquement les événements pour les opérations correspondant à `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write`.
+Pour gérer les événements par programmation, vous pouvez les trier selon la valeur `operationName`. Par exemple, votre point de terminaison d’événement peut traiter uniquement les événements pour les opérations correspondant à `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write`.
 
-L’objet de l’événement est l’ID de la ressource cible de l’opération. Pour filtrer les événements pour une ressource, fournissez cet ID de ressource lors de la création de l’abonnement aux événements. Pour obtenir des exemples de scripts, consultez [Subscribe and filter for resource group - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) (S’abonner et filtrer pour un groupe de ressources avec PowerShell) ou [Subscribe and filter for resource group - Azure CLI](scripts/event-grid-cli-resource-group-filter.md) (S’abonner et filtrer pour un groupe de ressources avec Azure CLI). Pour filtrer selon un type de ressource, utilisez une valeur au format suivant : `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+L’objet de l’événement est l’ID de la ressource cible de l’opération. Pour filtrer les événements pour une ressource, fournissez cet ID de ressource lors de la création de l’abonnement aux événements. Pour filtrer selon un type de ressource, utilisez une valeur au format suivant : `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+Pour obtenir la liste des exemples de scripts et des tutoriels, consultez [Source d’événement des abonnements Azure](event-sources.md#azure-subscriptions).
 
 ## <a name="available-event-types"></a>Types d’événement disponibles
 
@@ -192,7 +193,7 @@ L’objet de données comporte les propriétés suivantes :
 | autorisation | objet | Autorisation demandée pour l’opération. |
 | réclamations | objet | Propriétés des revendications. Pour en savoir plus, consultez la [Spécification JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | chaîne | ID d’opération pour le dépannage. |
-| httpRequest | objet | Détails de l’opération. Cet objet est inclus uniquement lors de la mise à jour ou de la suppression d’une ressource. |
+| httpRequest | objet | Détails de l’opération. Cet objet est inclus uniquement lors de la mise à jour ou de la suppression d’une ressource existante. |
 | resourceProvider | chaîne | Fournisseur de ressources qui effectue l’opération. |
 | resourceUri | chaîne | URI de la ressource dans l’opération. |
 | operationName | chaîne | Opération effectuée. |

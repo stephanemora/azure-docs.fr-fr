@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 997269efc017a024f2abbcb6561c951d7957af86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9bd3f60800976967e1fc1e5f163a6ae3ea525f2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594327"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42141672"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Dépanner un objet qui bloque la synchronisation avec Azure AD
 
 Si un objet ne se synchronise pas comme attendu avec Azure AD, cela peut être causé par plusieurs raisons. Si vous avez reçu un message d’erreur d’Azure AD ou que vous voyez l’erreur dans Azure AD Connect Health, lisez [Résolution des erreurs d’exportation](active-directory-aadconnect-troubleshoot-sync-errors.md) à la place. Mais si vous essayez de résoudre un problème pour un objet qui n’est pas dans Azure AD, cette rubrique est pour vous. Elle décrit comment rechercher des erreurs dans le composant de synchronisation Azure AD Connect local.
 
 >[!IMPORTANT]
->Dans le cas d’un déploiement d’Azure Active Directory (Azure AD) Connect version <verison> ou ultérieure, utilisez la [tâche de résolution des problèmes](active-directory-aadconnect-troubleshoot-objectsync.md) disponible dans l’Assistant pour résoudre les problèmes de synchronisation d’objets. 
+>Dans le cas d’un déploiement d’Azure Active Directory (Azure AD) Connect version 1.1.749.0 ou ultérieure, utilisez la [tâche de résolution des problèmes](active-directory-aadconnect-troubleshoot-objectsync.md) disponible dans l’Assistant pour résoudre les problèmes de synchronisation d’objets. 
 
 Pour rechercher les erreurs, vous allez examiner différents endroits dans l’ordre suivant :
 

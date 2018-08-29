@@ -3,7 +3,7 @@ title: Sauvegarde d’Azure Stack | Microsoft Docs
 description: Effectuez une sauvegarde à la demande sur Azure Stack avec la sauvegarde en place.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 9565DDFB-2CDB-40CD-8964-697DA2FFF70A
@@ -12,63 +12,79 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/08/2017
-ms.author: mabrigg
+ms.date: 08/01/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: c9e7ffae1b988d0940d10acdb1b387a25e0466ec
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 578bb864f56b788db77d1201533e73d3b9616669
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242884"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41954841"
 ---
 # <a name="back-up-azure-stack"></a>Sauvegarde d’Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Effectuez une sauvegarde à la demande sur Azure Stack avec la sauvegarde en place. Pour obtenir des instructions sur la configuration de l’environnement PowerShell, consultez [Installer PowerShell pour Azure Stack](azure-stack-powershell-install.md). Pour vous connecter à Azure Stack, consultez [Configurer l’environnement de l’opérateur et se connecter à Azure Stack](azure-stack-powershell-configure-admin.md).
+Effectuez une sauvegarde à la demande sur Azure Stack avec la sauvegarde en place. Pour obtenir des instructions sur la configuration de l’environnement PowerShell, consultez [Installer PowerShell pour Azure Stack](azure-stack-powershell-install.md). Pour vous connecter à Azure Stack, consultez [Utilisation du portail administrateur dans Azure Stack](azure-stack-manage-portals.md).
 
 ## <a name="start-azure-stack-backup"></a>Démarrer la sauvegarde d’Azure Stack
 
-Utilisez Start-AzSBackup pour lancer une nouvelle sauvegarde avec la variable - AsJob afin de suivre la progression. 
+### <a name="start-a-new-backup-without-job-progress-tracking"></a>Démarrer une nouvelle sauvegarde sans suivi de la progression du travail
+Utilisez Start-AzSBackup pour démarrer une nouvelle sauvegarde immédiatement sans aucun suivi de la progression du travail.
 
 ```powershell
-    $backupjob = Start-AzsBackup -Force -AsJob
-    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+   Start-AzsBackup -Force
 ```
 
-## <a name="confirm-backup-completed-via-powershell"></a>Confirmer la sauvegarde effectuée via PowerShell
+### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>Démarrer une sauvegarde Azure Stack avec suivi de la progression du travail
+Utilisez Start-AzSBackup pour lancer une nouvelle sauvegarde avec la variable -AsJob afin de suivre la progression du travail de sauvegarde.
 
 ```powershell
+    $backupjob = Start-AzsBackup -Force -AsJob 
+    "Start time: " + $backupjob.PSBeginTime;While($backupjob.State -eq "Running"){("Job is currently: " `
+    + $backupjob.State+" ;Duration: " + (New-TimeSpan -Start ($backupjob.PSBeginTime) `
+    -End (Get-Date)).Minutes);Start-Sleep -Seconds 30};$backupjob.Output
+
     if($backupjob.State -eq "Completed"){Get-AzsBackup | where {$_.BackupId -eq $backupjob.Output.BackupId}}
 ```
 
-- Le résultat doit ressembler à la sortie suivante :
+## <a name="confirm-backup-has-completed"></a>Confirmer la fin de la sauvegarde
 
-  ```powershell
-      BackupDataVersion : 1.0.1
-      BackupId          : <backup ID>
-      RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
-      Status            : Succeeded
-      CreatedDateTime   : 7/6/2018 6:46:24 AM
-      TimeTakenToCreate : PT20M32.364138S
-      DeploymentID      : <deployment ID>
-      StampVersion      : 1.1807.0.41
-      OemVersion        : 
-      Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
-      Name              : local/<local name>
-      Type              : Microsoft.Backup.Admin/backupLocations/backups
-      Location          : local
-      Tags              : {}
-  ```
+### <a name="confirm-backup-has-completed-using-powershell"></a>Confirmer la fin de la sauvegarde à l’aide de PowerShell
+Utilisez les commandes PowerShell suivantes pour vérifier que la sauvegarde s’est terminée avec succès :
 
-## <a name="confirm-backup-completed-in-the-administration-portal"></a>Confirmer la sauvegarde dans le portail d’administration
+```powershell
+   Get-AzsBackup
+```
 
-1. Ouvrez le portail d’administration Azure Stack sur [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+Le résultat doit ressembler à la sortie suivante :
+
+```powershell
+    BackupDataVersion : 1.0.1
+    BackupId          : <backup ID>
+    RoleStatus        : {NRP, SRP, CRP, KeyVaultInternalControlPlane...}
+    Status            : Succeeded
+    CreatedDateTime   : 7/6/2018 6:46:24 AM
+    TimeTakenToCreate : PT20M32.364138S
+    DeploymentID      : <deployment ID>
+    StampVersion      : 1.1807.0.41
+    OemVersion        : 
+    Id                : /subscriptions/<subscription ID>/resourceGroups/System.local/providers/Microsoft.Backup.Admin/backupLocations/local/backups/<backup ID>
+    Name              : local/<local name>
+    Type              : Microsoft.Backup.Admin/backupLocations/backups
+    Location          : local
+    Tags              : {}
+```
+
+### <a name="confirm-backup-has-completed-in-the-administration-portal"></a>Confirmer la sauvegarde dans le portail d’administration
+Utilisez le portail d’administration Azure Stack pour vérifier que la sauvegarde s’est terminée avec succès en suivant ces étapes :
+
+1. Ouvrez le [portail d’administration Azure Stack](azure-stack-manage-portals.md).
 2. Sélectionnez **Plus de services** > **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.
 3. Recherchez le **nom** et la **date d’exécution** de la sauvegarde dans la liste des **sauvegardes disponibles**.
 4. Vérifiez que l’**état** indique une **réussite**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur le flux de travail de récupération à partir d’un événement de perte de données. Voir [Récupérer des données suites à une perte catastrophique](azure-stack-backup-recover-data.md).
+En savoir plus sur le flux de travail de récupération à partir d’un événement de perte de données. Voir [Récupérer des données suites à une perte catastrophique](azure-stack-backup-recover-data.md).

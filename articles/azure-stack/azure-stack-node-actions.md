@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 08/14/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 3ecc8885a30a11472fe93bbda60c39131c6b3bd7
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801413"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41947956"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Mettre à l’échelle des actions de nœud d’unité dans Azure Stack
 
@@ -70,9 +70,8 @@ Vous pouvez également effectuer des actions de nœud d’unité d’échelle à
 
 Lorsque vous affichez des informations relatives à un nœud d’unité d’échelle, vous pouvez également effectuer des actions de nœud telles que :
 
-- La mise sous et hors tension
-- Le vidage, la reprise
-- La réparation
+- Vidage et reprise
+- Réparation
 
 L’état de fonctionnement du nœud détermine les options disponibles.
 
@@ -154,4 +153,4 @@ Pour exécuter l’action de réparation via PowerShell :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le module administrateur Azure Stack Fabric, consultez [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).
+Pour en savoir plus sur le module administrateur Azure Stack Fabric, consultez [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0).

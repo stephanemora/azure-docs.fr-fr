@@ -9,12 +9,12 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2e4100fd7d8e85a6b103c31000176aaaeb3d7151
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317677"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41936734"
 ---
 # <a name="anomaly-detection-c-application"></a>Détection d’anomalies dans une application C#
 
@@ -48,7 +48,7 @@ Appuyez sur Ctrl+Maj+B ou cliquez sur Générer dans le menu du ruban, puis sél
 
 1. Une fois la génération terminée, appuyez sur **F5** ou cliquez sur **Démarrer** dans le menu du ruban pour exécuter l’exemple.
 2. Localisez la fenêtre d’interface utilisateur Détection d’anomalies avec la zone d’édition de texte « {your_subscription_key} ».
-3. Remplacez le fichier request.json, qui contient les exemples de données, par vos propres données, puis cliquez sur « Envoyer ». Microsoft reçoit les données que vous chargez et les utilise pour y détecter des points d’anomalies. Les données que vous avez mises à jour ne sont pas rendues persistantes dans le serveur de Microsoft. Pour détecter à nouveau le point d’anomalie, vous devez recharger les données.
+3. Remplacez le fichier request.json, qui contient les exemples de données, par vos propres données, puis cliquez sur « Envoyer ». Microsoft reçoit les données que vous chargez et les utilise pour y détecter des points d’anomalies. Les données que vous chargez ne sont pas rendues persistantes dans le serveur de Microsoft. Pour détecter à nouveau le point d’anomalie, vous devez recharger les données.
 4. Si les données sont correctes, vous trouverez le résultat de la détection d’anomalies dans le champ « Réponse ». Si une erreur se produit, les informations sur l’erreur s’afficheront également Réponse.
 
 <a name="Review"></a>
@@ -77,7 +77,8 @@ En examinant l’utilisation de l’API Restful dans l’exemple d’application
             // ----------------------------------------------------------------------
 
 ```
-**Request(...)**  Le code ci-dessous montre comment utiliser le HttlClient pour soumettre votre clé d’abonnement et des points de données au point de terminaison de l’API Détection d'anomalies.
+### <a name="request"></a>**Requête**
+L’extrait de code ci-dessous montre comment utiliser le HttpClient pour soumettre votre clé d’abonnement et des points de données au point de terminaison de l’API Détection d'anomalies.
 
 ```csharp
     public async Task<string> Request(string baseAddress, string endpoint, string subscriptionKey, string requestData)

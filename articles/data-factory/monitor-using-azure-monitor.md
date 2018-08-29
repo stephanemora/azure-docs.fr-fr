@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495296"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616842"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.
@@ -26,7 +26,7 @@ Les applications cloud sont complexes, et se composent de nombreux éléments mo
 Azure Monitor fournit des métriques de niveau de base d’infrastructure et des journaux pour la plupart des services Microsoft Azure. Pour plus d’informations, consultez [Vue d’ensemble de la surveillance](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Les journaux de diagnostic Azure sont des journaux émis par une ressource qui fournissent des informations riches et fréquentes sur le fonctionnement de cette ressource. Data Factory génère les journaux de diagnostic dans Azure Monitor.
 
 ## <a name="persist-data-factory-data"></a>Conserver les données de Data Factory
-La fabrique de données stocke uniquement les données d’exécution du pipeline pendant 45 jours. Si vous voulez conserver les données d’exécution du pipeline pour plus de 45 jours, avec Azure Monitor, vous pouvez non seulement router les journaux de diagnostic pour analyse, mais aussi les conserver dans un compte de stockage : ainsi, vous disposez des informations de la fabrique pour une durée choisie.
+La fabrique de données stocke uniquement les données d’exécution du pipeline pendant 45 jours. Si vous voulez conserver les données d’exécution du pipeline pendant plus de 45 jours, Azure Monitor vous permet non seulement de router les journaux de diagnostic pour analyse, mais également de les conserver dans un compte de stockage, pour que vous puissiez disposer des informations de la fabrique pendant la durée de votre choix.
 
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 
@@ -398,6 +398,70 @@ ADFV2 émet les métriques suivantes :
 | TriggerFailedRuns    | Métriques d’exécutions de déclencheur ayant échoué     | Count    | Total                | Nombre total d’exécutions de déclencheur ayant échoué en une minute      |
 
 Pour accéder aux métriques, suivez les instructions de l’article suivant : https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+
+## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Analyser les métriques Data Factory avec Azure Monitor
+
+Vous pouvez utiliser l’intégration d’Azure Data Factory à Azure Monitor pour acheminer des données vers Azure Monitor. Cette intégration est utile dans les scénarios suivants :
+
+1.  Vous souhaitez écrire des requêtes complexes sur un ensemble varié de métriques publiées par Data Factory sur Azure Monitor. Vous pouvez également créer des alertes personnalisées pour ces requêtes via Azure Monitor.
+
+2.  Vous souhaitez surveiller l’activité de toutes les fabriques de données. Vous pouvez acheminer les données de plusieurs fabriques de données vers un seul espace de travail Azure Monitor.
+
+Pour voir une présentation et une démonstration de cette fonctionnalité, regardez la vidéo suivante (durée : 7 minutes) :
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+
+### <a name="configure-diagnostic-settings-and-workspace"></a>Configurer les paramètres de diagnostic et l’espace de travail
+
+Activer les paramètres de diagnostic pour votre fabrique de données.
+
+1.  Sélectionnez **Azure Monitor** -> **Paramètres de diagnostics** -> Sélectionner la fabrique de données -> Activer les diagnostics.
+
+    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+2.  Fournissez des paramètres de diagnostic, y compris la configuration de l’espace de travail.
+
+    ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Installer Azure Data Factory Analytics à partir de la Place de marché Azure
+
+![monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+Cliquez sur**Créer**, puis sélectionnez l’espace de travail et les paramètres de l’espace de travail.
+
+![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+
+### <a name="monitor-data-factory-metrics"></a>Surveiller les métriques Data Factory
+
+L’installation de **Azure Data Factory Analytics** crée un ensemble de vues par défaut qui activent les métriques suivantes :
+
+- Exécution d’ADF- 1) Exécution de pipeline par fabrique de données
+
+- Exécution d’ADF- 2) Exécution d’activité par fabrique de données
+
+- Exécution d’ADF- 3) Exécution de déclencheur par fabrique de données
+
+- Erreur d’ADF-1) 10 premières erreurs de pipeline par fabrique de données
+
+- Erreur d’ADF- 2) 10 premières erreurs de pipeline par fabrique de données
+
+- Erreur d’ADF- 3) 10 premières erreurs de pipeline par fabrique de données
+
+- Statistiques d’ADF- 1) Exécution d’activité par type
+
+- Statistiques d’ADF- 2) Exécution de déclencheur par type
+
+- Statistiques d’ADF- 3) Durée maximale d’exécution du pipeline
+
+![monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+![monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+
+Vous pouvez visualiser les métriques ci-dessus, consulter les requêtes derrière ces métriques, modifier les requêtes, créer des alertes, etc.
+
+![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Alertes
 

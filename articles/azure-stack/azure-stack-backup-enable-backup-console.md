@@ -12,14 +12,14 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/16/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 08bce6284b672ae092e2cee3c26140e8c6049a34
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 6231ee760902618afedf64443690be0b02c4d0eb
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242850"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41946569"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Activer la sauvegarde d’Azure Stack à partir du portail d’administration
 Activez le service de sauvegarde d’infrastructure via le portail d’administration afin qu’Azure Stack puisse générer des sauvegardes. Vous pouvez utiliser ces sauvegardes pour restaurer votre environnement avec la récupération cloud en cas [d’erreur irrécupérable](.\azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les utilisateurs ont leurs abonnements restaurés, avec notamment les autorisations d’accès en fonction du rôle et les rôles, les plans d’origine, les offres, le calcul défini précédemment, le stockage et les quotas réseau.
@@ -33,26 +33,60 @@ Les administrateurs et utilisateurs sont responsables de la sauvegarde et de la 
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
-> [!Note]  
-> Avant d’activer la sauvegarde via la console, vous devez configurer le service de sauvegarde. Vous pouvez configurer le service de sauvegarde à l’aide de PowerShell. Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](azure-stack-backup-enable-backup-powershell.md).
+## <a name="enable-or-reconfigure-backup"></a>Activer ou reconfigurer une sauvegarde
 
-## <a name="enable-backup"></a>Activer la sauvegarde
-
-1. Ouvrez le portail d’administration Azure Stack sur [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external).
+1. Ouvrez le [portail d’administration Azure Stack](azure-stack-manage-portals.md).
 2. Sélectionnez **Plus de services** > **Sauvegarde d’infrastructure**. Choisissez **Configuration** dans le panneau **Sauvegarde d’infrastructure**.
-
-    ![Azure Stack - Paramètres du contrôleur de sauvegarde](media\azure-stack-backup\azure-stack-backup-settings.png).
-
 3. Saisissez le chemin d’accès à l’**emplacement de stockage de sauvegarde**. Utilisez une chaîne UNC (Universal Naming Convention) pour le chemin d’un partage de fichiers hébergé sur un appareil distinct. Une chaîne UNC spécifie l’emplacement de ressources telles que des appareils ou des fichiers partagés. Pour le service, vous pouvez utiliser une adresse IP. Pour garantir la disponibilité des données de sauvegarde après un sinistre, l’appareil doit se trouver dans un emplacement distinct.
+
     > [!Note]  
     > Si votre environnement prend en charge la résolution de noms à partir du réseau d’infrastructure Azure Stack vers votre environnement d’entreprise, vous pouvez utiliser un nom de domaine qualifié complet plutôt que l’adresse IP.
+    
 4. Saisissez le **Nom d’utilisateur** à l’aide du domaine et du nom d’utilisateur avec un accès suffisant pour lire et écrire des fichiers. Par exemple : `Contoso\backupshareuser`.
 5. Saisissez le **mot de passe** de l’utilisateur.
-5. Saisissez une nouvelle fois le mot de passe pour le **confirmer**.
-6. Indiquez une clé prépartagée dans la zone **Clé de chiffrement**. Les fichiers de sauvegarde sont chiffrés avec cette clé. Pensez à stocker cette clé à un emplacement sécurisé. Une fois que vous avez défini cette clé pour la première fois ou que vous procédez ultérieurement à une rotation de la clé, vous ne pouvez pas voir cette clé à partir de cette interface. Pour obtenir plus d’instructions en vue de générer une clé prépartagée, suivez les scripts de la rubrique [Activer la sauvegarde d’Azure Stack avec PowerShell](azure-stack-backup-enable-backup-powershell.md).
-7. Sélectionnez **OK** pour enregistrer vos paramètres de contrôleur de sauvegarde.
+6. Saisissez une nouvelle fois le mot de passe pour le **confirmer**.
+7. La **fréquence en heures** détermine la fréquence à laquelle les sauvegardes sont créées. La valeur par défaut est 12. Scheduler prend en charge un maximum de 12 heures et un minimum de 4 heures. 
+8. La **période de rétention en jours** détermine le nombre de jours pendant lesquels les sauvegardes sont conservées sur l’emplacement externe. La valeur par défaut est 7. Scheduler prend en charge un maximum de 14 jours et un minimum de 2 jours. Les sauvegardes antérieures à la période de rétention sont automatiquement supprimées de l’emplacement externe.
 
-Pour exécuter une sauvegarde, vous devez télécharger les outils Azure Stack, puis exécuter la cmdlet PowerShell **Start-AzSBackup** sur votre nœud administration Azure Stack. Pour plus d’informations, voir [Sauvegarde d’Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+    > [!Note]  
+    > Si vous souhaitez archiver les sauvegardes antérieures à la période de rétention, veillez à sauvegarder les fichiers avant que le planificateur supprime les sauvegardes. Si vous réduisez la période de rétention de sauvegarde (par exemple, de 7 à 5 jours), le planificateur supprime toutes les sauvegardes antérieures à la nouvelle période de rétention. Confirmez que vous acceptez la suppression des sauvegardes avant de mettre à jour cette valeur. 
+
+9. Indiquez une clé prépartagée dans la zone **Clé de chiffrement**. Les fichiers de sauvegarde sont chiffrés avec cette clé. Pensez à stocker cette clé à un emplacement sécurisé. Une fois que vous avez défini cette clé pour la première fois ou que vous procédez ultérieurement à une rotation de la clé, vous ne pouvez pas voir la clé à partir de cette interface. Pour créer la clé, exécutez les commandes Azure Stack PowerShell suivantes :
+    ```powershell
+    New-AzsEncryptionKeyBase64
+    ```
+10. Sélectionnez **OK** pour enregistrer vos paramètres de contrôleur de sauvegarde.
+
+    ![Azure Stack - Paramètres du contrôleur de sauvegarde](media\azure-stack-backup\backup-controller-settings.png)
+
+## <a name="start-backup"></a>Démarrer la sauvegarde
+Pour démarrer une sauvegarde, cliquez sur **Sauvegarder maintenant** afin de démarrer une sauvegarde à la demande. Une sauvegarde à la demande ne modifiera pas l’heure de la prochaine sauvegarde planifiée. Une fois la tâche terminée, vous pouvez confirmer les paramètres dans **Éléments principaux** :
+
+![Azure Stack - sauvegarde à la demande](media\azure-stack-backup\scheduled-backup.png).
+
+Vous pouvez également exécuter l’applet de commande PowerShell **Start-AzsBackup** sur votre ordinateur d’administration Azure Stack. Pour plus d’informations, voir [Sauvegarde d’Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+
+## <a name="enable-or-disable-automatic-backups"></a>Activer ou désactiver les sauvegardes automatiques
+Les sauvegardes sont automatiquement planifiées lorsque vous activez la sauvegarde. Vous pouvez vérifier la prochaine sauvegarde planifiée dans **Éléments principaux**. 
+
+![Azure Stack - sauvegarde à la demande](media\azure-stack-backup\on-demand-backup.png)
+
+Si vous devez désactiver les futures sauvegardes planifiées, cliquez sur **Désactiver les sauvegardes automatiques**. La désactivation des sauvegardes automatiques conservera les paramètres de sauvegarde configurés et la planification de sauvegarde. Cette action indique simplement au planificateur d’ignorer les futures sauvegardes. 
+
+![Azure Stack - Désactiver les sauvegardes planifiées](media\azure-stack-backup\disable-auto-backup.png)
+
+Vérifiez que les futures sauvegardes planifiées ont été désactivées dans **Éléments principaux**:
+
+![Azure Stack - confirmer que les sauvegardes ont été désactivées](media\azure-stack-backup\confirm-disable.png)
+
+Cliquez sur **Activer les sauvegardes automatiques** pour informer le planificateur de démarrer les sauvegardes ultérieures à l’heure planifiée. 
+
+![Azure Stack - Activer les sauvegardes planifiées](media\azure-stack-backup\enable-auto-backup.png)
+
+
+> [!Note]  
+> Si vous avez configuré la sauvegarde de l’infrastructure avant la mise à jour vers 1807, les sauvegardes automatiques seront désactivées. Ainsi, les sauvegardes démarrées par Azure Stack n’entrent pas en conflit avec les sauvegardes démarrées par un moteur de planification de tâche externe. Après avoir désactivé un planificateur de tâche externe, cliquez sur **Activer les sauvegardes automatiques**.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

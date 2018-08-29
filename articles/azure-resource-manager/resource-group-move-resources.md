@@ -4,22 +4,20 @@ description: Utilisez Azure Resource Manager ou une API REST pour déplacer d
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503578"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617288"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -113,11 +111,11 @@ Contactez le [support technique](https://portal.azure.com/#blade/Microsoft_Azure
 
 Les services qui permettent le déplacement vers un nouveau groupe de ressources et un nouvel abonnement sont les suivants :
 
+* Analysis Services
 * API Management
 * Applications App Service (applications web) : consultez [Limitations d’App Service](#app-service-limitations)
 * App Service Certificates
 * Application Insights
-* Analysis Services
 * Automatisation
 * Azure Active Directory B2C
 * Azure Cosmos DB
@@ -133,6 +131,8 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Cognitive Services
 * Container Registry
 * Content Moderator
+* Cost Management
+* Insights client
 * Data Catalog
 * Data Factory
 * Data Lake Analytics
@@ -141,12 +141,14 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Event Grid
 * Event Hubs
 * Clusters HDInsight - voir [Limitations de HDInsight](#hdinsight-limitations)
+* Iot Central
 * IoT Hubs
 * Key Vault
 * Équilibreurs de charge - consultez [Limitations de l’équilibreur de charge](#lb-limitations)
 * Log Analytics
 * Logic Apps
 * Machine Learning : les services web Machine Learning Studio peuvent être déplacés uniquement vers un groupe de ressources d’un même abonnement. Les autres ressources Machine Learning peuvent être déplacées entre les abonnements.
+* Identité managée (affectée par l’utilisateur)
 * Media Services
 * Mobile Engagement
 * Notification Hubs
@@ -160,6 +162,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Recherche
 * Service Bus
 * Service Fabric
+* Service Fabric Mesh
 * Service SignalR
 * Stockage
 * Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
@@ -187,7 +190,10 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Azure Databricks
 * Batch AI
 * Certificats : les certificats App Service Certificates peuvent être déplacés, mais les certificats chargés ont des [limitations](#app-service-limitations).
+* Container Instances
 * Service de conteneur
+* Data Box
+* Dev Spaces
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes Service
@@ -196,6 +202,7 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Applications gérées
 * Disques gérés : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
 * Microsoft Genomics
+* NetApp
 * IP publique - consultez [Limitations de l’IP publique](#pip-limitations)
 * Coffre Recovery Services : par ailleurs, ne déplacez pas les ressources de calcul, de réseau et de stockage associées au coffre Recovery Services. Consultez [Limitations de Recovery Services](#recovery-services-limitations).
 * SAP HANA sur Azure
@@ -225,7 +232,7 @@ Les machines virtuelles avec un certificat stocké dans Key Vault peuvent être
 
 ## <a name="virtual-networks-limitations"></a>Limitations de réseaux virtuels
 
-Lors de la migration d’un réseau virtuel, vous devez également migrer ses ressources dépendantes. Par exemple, vous devez migrer les passerelles avec le réseau virtuel.
+Lors de la migration d’un réseau virtuel, vous devez également migrer ses ressources dépendantes. Pour les passerelles VPN, vous devez déplacer les adresses IP, les passerelles de réseau virtuel et toutes les ressources de connexion associées. Les passerelles de réseau locales peuvent se trouver dans un autre groupe de ressources.
 
 Pour déplacer un réseau virtuel homologué, vous devez d’abord désactiver l’homologation du réseau virtuel. Une fois l’homologation désactivée, vous pouvez déplacer le réseau virtuel. Après le déplacement, réactivez l’homologation du réseau virtuel.
 

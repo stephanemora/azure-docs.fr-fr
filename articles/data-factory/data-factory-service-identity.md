@@ -10,27 +10,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050863"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142777"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identité de service Azure Data Factory
 
 Cet article vous aide à comprendre ce qu’est l’identité de service de fabrique de données et comment elle fonctionne.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Lors de la création d’une fabrique de données, une identité du service est créée en même temps que la fabrique. L’identité du service est une application managée qui est inscrite auprès d’Azure Active Directory et qui représente la fabrique de données en question.
 
-L’identité de service de fabrique de données présente des avantages pour les deux fonctionnalités suivantes :
+L’identité de service de Data Factory bénéficie des fonctionnalités suivantes :
 
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md), pour laquelle l’identité de service de fabrique de données est utilisée pour l’authentification auprès d’Azure Key Vault.
-- [Copier des données vers et depuis Azure Data Lake Store](connector-azure-data-lake-store.md), pour laquelle l’identité de service de fabrique de données peut être utilisée comme l’un des types d’authentification pris en charge de Data Lake Store.
+- Connecteurs, notamment [Stockage Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure SQL Database](connector-azure-sql-database.md) et [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 
 ## <a name="generate-service-identity"></a>Générer l’identité du service
 

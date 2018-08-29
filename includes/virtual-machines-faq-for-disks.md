@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935800"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40237543"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -33,11 +33,11 @@ Un disque géré standard créé à partir d’un disque dur virtuel de 80 Go e
 
 Oui. Vous êtes facturé pour chaque transaction. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
-**Pour un disque standard géré, serai-je facturé pour la taille réelle des données sur le disque ou pour la capacité configurée du disque ?**
+**Pour un disque managé standard, serai-je facturé pour la taille réelle des données sur le disque ou pour la capacité provisionnée du disque ?**
 
-Vous êtes facturé en fonction de la capacité configurée du disque. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
+Vous êtes facturé en fonction de la capacité provisionnée du disque. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
-**En quoi la tarification appliquée aux disques gérés Premium est-elle différente de celle associée aux disques non gérés ?**
+**En quoi les tarifs appliqués aux disques managés Premium sont-ils différents de ceux associés aux disques non managés ?**
 
 La tarification de ces 2 types de disques est identique.
 
@@ -67,7 +67,7 @@ Non. Les machines virtuelles d’un groupe à haute disponibilité doivent utili
 
 **Les disques gérés sont-ils l’option par défaut dans le portail Azure ?**
 
-Oui. 
+Oui.
 
 **Est-il possible de créer un disque géré vide ?**
 
@@ -101,7 +101,6 @@ Les clients peuvent prendre une capture instantanée de leurs disques gérés, q
 
 Oui, les disques managés et non managés sont pris en charge. Nous vous recommandons d’utiliser des disques gérés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques gérés.
 
-
 **Si je crée un disque de 128 Go et que j’augmente la taille à 130 Go, serai-je facturé en fonction de la taille de disque supérieure (256 Go) ?**
 
 Oui.
@@ -130,23 +129,24 @@ Non. Vous ne pouvez pas mettre à jour la propriété de nom d’ordinateur. La 
 
 Non.
 
+**Lorsque vous créez un disque à partir d’un objet blob, existe-t-il une relation continue avec cet objet blob source ?**
+
+Non, quand le nouveau disque est créé, il constitue à ce moment-là une copie totalement indépendante de cet objet blob et aucune connexion n’existe entre les deux. Si vous voulez, une fois que vous avez créé le disque, vous pouvez supprimer l’objet blob source sans affecter le disque nouvellement créé en aucune façon.
+
+**Puis-je renommer un disque managé ou non managé après l’avoir créé ?**
+
+Vous ne pouvez pas renommer les disques managés. Par contre, vous pouvez renommer les disques non managés tant qu’ils ne sont pas attachés à une machine virtuelle ou un disque dur virtuel.
+
 ## <a name="standard-ssd-disks-preview"></a>Disques SSD Standard (préversion)
 
 **Qu’est-ce qu’un disque SSD Standard Azure (préversion)**
 Les disques SSD Standard sont des disques standard à semi-conducteur, optimisés en tant que stockage économique pour les charges de travail nécessitant des performances soutenues à des niveaux d’IOPS plus faibles. Dans leur préversion, ils sont disponibles dans un nombre limité de régions, avec une facilité de gestion limitée (disponible via les modèles Resource Manager).
 
-<a id="standard-ssds-azure-regions"></a>**Quelles sont les régions actuellement prises en charge pour les disques SSD Standard (préversion) ?**
-* Europe du Nord
-* France-Centre
-* Est des États-Unis 2
-* Centre des États-Unis
-* Centre du Canada
-* Est de l'Asie
-* Corée du Sud
-* Est de l’Australie
+<a id="standard-ssds-azure-regions"></a>**Quelles sont les régions actuellement prises en charge pour les disques SSD Standard ?**
+Toutes les régions Azure prennent actuellement en charge les disques SSD Standard.
 
 **Comment faire pour créer des disques SSD Standard ?**
-Actuellement, vous pouvez créer des disques SSD Standard à l’aide de modèles Azure Resource Manager. Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
+Vous pouvez créer des disques SSD Standard en utilisant des modèles Azure Resource Manager, le kit SDK, PowerShell ou CLI. Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
 
 * *apiVersion* pour Microsoft.Compute doit être défini sur `2018-04-01` (ou version ultérieure)
 * Pour *managedDisk.storageAccountType*, indiquez `StandardSSD_LRS`.
@@ -171,17 +171,20 @@ Si vous souhaitez un exemple de modèle complet de création d’un disque SSD S
 Oui, vous pouvez. Reportez-vous à [Convertir le stockage Managed Disks Azure de standard en premium, et vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) pour des recommandations générales relatives à la conversion des disques gérés. Et utilisez la valeur suivante pour mettre à jour le type de disque vers un disque SSD standard.
 -AccountType StandardSSD_LRS
 
+**Quel est l’avantage d’utiliser des disques SSD Standard au lieu des disques HDD ?**
+Les disques SSD standard offrent une meilleure latence, cohérence, disponibilité et fiabilité par rapport aux disques HDD. Pour cette raison, les charges de travail des applications s’exécutent beaucoup plus facilement sur les disques SSD Standard. Notez que les disques SSD Premium constituent la solution recommandée pour la plupart des charges de travail de production gourmandes en E/S. 
+
 **Puis-je utiliser des disques SSD Standard en tant que disques non managés ?**
 Non, les disques SSD Standard sont disponibles seulement comme disques managés.
 
 **Les disques SSD standard prennent-ils en charge les « SLA de machine virtuelle à instance unique » ?**
 Non, les disques SSD standard n’ont pas de SLA de machine virtuelle à instance unique. Utiliser des disques SSD Premium pour une instance unique de contrat SLA de machine virtuelle.
 
-## <a name="migrate-to-managed-disks"></a>Migrer vers Managed Disks 
+## <a name="migrate-to-managed-disks"></a>Migrer vers Managed Disks
 
 **Quelles sont les modifications nécessaires dans une configuration de service Sauvegarde Azure préexistante avant/après la migration vers Managed Disks ?**
 
-Aucune modification n’est nécessaire. 
+Aucune modification n’est nécessaire.
 
 **Mes sauvegardes de machines virtuelles créées par le biais du service Sauvegarde Azure avant la migration continueront-elles à fonctionner ?**
 
@@ -189,15 +192,15 @@ Oui, les sauvegardes fonctionnent de manière transparente.
 
 **Quelles sont les modifications nécessaires dans une configuration Azure Disk Encryption préexistante avant/après la migration vers Managed Disks ?**
 
-Aucune modification n’est nécessaire. 
+Aucune modification n’est nécessaire.
 
 **La migration automatisée d’un groupe de machines virtuelles identiques existant à partir de disques non managés vers Managed Disks est-elle prise en charge ?**
 
-Non. Vous pouvez créer un groupe de machines virtuelles identiques à l’aide de l’image de votre ancien groupe de machines virtuelles identiques avec des disques non managés. 
+Non. Vous pouvez créer un groupe de machines virtuelles identiques à l’aide de l’image de votre ancien groupe de machines virtuelles identiques avec des disques non managés.
 
 **Puis-je créer un disque managé à partir d’un instantané d’objet blob de pages antérieur à la migration vers Managed Disks ?**
 
-Non. Vous pouvez exporter un instantané d’objet blob de pages en tant qu’objet blob de pages, puis créer un disque managé à partir de l’objet blob de pages exporté. 
+Non. Vous pouvez exporter un instantané d’objet blob de pages en tant qu’objet blob de pages, puis créer un disque managé à partir de l’objet blob de pages exporté.
 
 **Puis-je basculer mes machines locales protégées par Azure Site Recovery vers une machine virtuelle avec Managed Disks ?**
 
@@ -209,9 +212,9 @@ Oui. La protection Azure Site Recovery vers Azure pour machines virtuelles avec 
 
 **Puis-je convertir des machines virtuelles avec des disques non managés résidant sur des comptes de stockage qui sont ou ont été chiffrés sur des disques managés ?**
 
-OUI
+Oui
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks et Storage Service Encryption 
+## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks et Storage Service Encryption
 
 **Azure Storage Encryption est-il activé par défaut lors de la création d’un disque géré ?**
 
@@ -246,7 +249,7 @@ Oui. Tous les instantanés et les images gérés créés après le 9 juin 2017 s
 
 **Puis-je convertir des machines virtuelles avec des disques non gérés situés sur des comptes de stockage qui sont ou ont été chiffrés sur des disques gérés ?**
 
-OUI
+Oui
 
 **Un disque dur virtuel exporté à partir d’un disque géré ou un instantané seront-ils également chiffrés ?**
 

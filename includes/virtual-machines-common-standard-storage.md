@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 70f80b880fadaeb4d5859524b3ba3b55ececbdda
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806296"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40258492"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Stockage Standard économique et disques de machine virtuelle Azure gérés et non gérés
 
@@ -42,7 +42,7 @@ Pour plus d’informations sur la création d’une machine virtuelle Managed Di
 
 Examinons certaines des fonctionnalités du stockage Standard. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](../articles/storage/common/storage-introduction.md).
 
-**Stockage Standard** : le stockage Standard Azure prend en charge les disques Azure, les objets blob Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Pour utiliser les services de stockage Standard, commencez par [Créer un compte de stockage Azure](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+**Stockage Standard** : le stockage Standard Azure prend en charge les disques Azure, les objets blob Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Pour utiliser les services de stockage Standard, commencez par [Créer un compte de stockage Azure](../articles/storage/common/storage-quickstart-create-account.md).
 
 **Disques SSD Standard** : ces disques offrent des performances plus fiables que les disques HDD Standard et sont actuellement disponibles en préversion. Pour plus d’informations sur la disponibilité dans la région des disques SSD Standard, consultez [Disponibilité dans la région des disques SSD Standard (préversion)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
@@ -119,7 +119,12 @@ Les considérations de facturation suivantes s’appliquent à l’utilisation d
 
 **Données de stockage et taille de disque non gérées :** pour les disques non gérés et les autres données (objets blob, tables, files d’attente et fichiers), vous êtes facturé uniquement pour la quantité d’espace utilisée. Par exemple, si vous avez une machine virtuelle dont les objets blob de pages sont configurés sur 127 Go, mais que la machine virtuelle n’utilise réellement que 10 Go d’espace, vous êtes facturé pour 10 Go d’espace. Nous prenons en charge le stockage Standard jusqu’à 8 191 Go et les disques non gérés Standard jusqu’à 4 095 Go. 
 
-**Disques gérés :** les disques gérés sont facturés selon la taille configurée. Si votre disque est configuré comme un disque de 10 Go et que vous utilisez uniquement 5 Go, vous êtes tout de même facturé pour la taille configurée de 10 Go.
+**Disques managés** : la facturation des disques managés standard dépend du provisionnement de leur taille. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille provisionnée de 200 Gio, vous êtes facturé le prix du type de disque S15.
+
+| **Type de disque managé<br> HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Taille du disque        | 32 Gio  | 64 Gio  | 128 Go | 256 Gio | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 
+
 
 **Captures instantanées** : les captures instantanées des disques Standard sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d'informations sur les captures instantanées, consultez [Création d'un instantané d'objet blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.author: roiyz
-ms.openlocfilehash: d95a1b510411f913a05762494dd48d6a5b6f84fd
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 307bdb5fa7a5d14a77c71d0ea40634a55d8507b6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413669"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143366"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extension du pilote GPU NVIDIA pour Linux
 
@@ -63,7 +63,8 @@ Le JSON suivant illustre le schéma pour l’extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -77,7 +78,7 @@ Le JSON suivant illustre le schéma pour l’extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | chaîne |
 | Type | NvidiaGpuDriverLinux | chaîne |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.1 | int |
 
 
 ## <a name="deployment"></a>Déploiement
@@ -103,7 +104,8 @@ L’exemple suivant suppose que l’extension est imbriquée dans la ressource d
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
+    "autoUpgradeMinorVersion": true,
     "settings": {
     }
   }
@@ -120,7 +122,7 @@ Set-AzureRmVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.1 `
     -SettingString '{ `
     }'
 ```
@@ -133,7 +135,7 @@ az vm extension set `
   --vm-name myVM `
   --name NvidiaGpuDriverLinux `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.1 `
   --settings '{ `
   }'
 ```
@@ -166,6 +168,8 @@ La sortie de l’exécution de l’extension est enregistrée dans le fichier su
 | 1 | Utilisation incorrecte de l’extension. | Contactez le support en fournissant le journal de sortie de l’exécution. |
 | 10 | Les services d’intégration Linux pour Hyper-V et Azure ne sont pas disponibles ou installés. | Vérifiez la sortie de lspci. |
 | 11 | GPU NVIDIA introuvable sur cette taille de machine virtuelle. | Utilisez une [taille de machine virtuelle et un système d’exploitation pris en charge](../linux/n-series-driver-setup.md). |
+| 12 | Offre d’image non prise en charge |
+| 13 | Taille de machine virtuelle non prise en charge | Utilisez une machine virtuelle de série N pour déployer. |
 | 14 | Échec de l’opération | |
 | 21 | Échec de la mise à jour sur Ubuntu | Vérifiez la sortie de « sudo apt-get update ». |
 

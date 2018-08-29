@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 32bdf1080aa6e7c5884747eeecad3f42c7334c3a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173048"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444824"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
 
@@ -34,11 +34,11 @@ Cet article récapitule les composants et les configurations pris en charge lors
 
 ## <a name="resource-support"></a>Prise en charge des ressources
 
-**Type de déplacement de ressources** | **Détails** 
+**Type de déplacement de ressources** | **Détails**
 --- | --- | ---
 **Déplacer le coffre entre plusieurs groupes de ressources** | Non pris en charge<br/><br/> Vous ne pouvez pas déplacer un coffre Recovery Services d’un groupe de ressources à un autre.
 **Déplacer le calcul/le stockage/les ressources réseau entre plusieurs groupes de ressources** | Non pris en charge.<br/><br/> Si vous déplacez une machine virtuelle ou des composants associés tels que le stockage/réseau après sa réplication, vous devez désactiver et réactiver la réplication pour la machine virtuelle.
-**Répliquer des machines virtuelles Azure d’un abonnement à un autre pour la reprise d’activité** | Non pris en charge.
+**Répliquer des machines virtuelles Azure d’un abonnement à un autre pour la reprise d’activité** | Pris en charge à l’intérieur du même locataire Azure Active Directory.
 **Migrer des machines virtuelles entre des abonnements** | Non pris en charge.
 **Migrer des machines virtuelles au sein de la même région** | Non pris en charge.
 
@@ -131,7 +131,7 @@ Chine | Est de la Chine, Nord de la Chine
 
 >[!NOTE]
 >
-> Pour la région Sud du Brésil, vous pouvez uniquement effectuer une réplication et un basculement vers les régions Sud-Centre des États-Unis, Ouest-Centre des États-Unis, Est des États-Unis, Est des États-Unis 2, Ouest des États-Unis, Ouest des États-Unis 2 et Nord-Centre des États-Unis, puis effectuer une restauration automatique.
+> Pour la région Brésil Sud, vous pouvez uniquement effectuer une réplication et un basculement vers les régions USA Centre Sud, USA Centre-Ouest, USA Est, USA Est 2, USA Ouest, USA Ouest 2 et USA Centre Nord, puis effectuer une restauration automatique.
 
 ## <a name="support-for-vmdisk-management"></a>Prise en charge de la gestion des machines virtuelles/disques
 

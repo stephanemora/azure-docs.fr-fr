@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-ms.openlocfilehash: 6b536ba7792e66fe09ba2cc8a631dc5e934faaea
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 0b682b369bf0e0238b3930d89087db535faa8c53
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937973"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42142286"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 
@@ -95,7 +95,7 @@ Le flux d’authentification est identique pour tous les fournisseurs, mais il d
 - Avec le Kit SDK du fournisseur : l’application connecte l’utilisateur manuellement et soumet ensuite le jeton d’authentification à App Service pour validation. C’est généralement le cas avec les applications sans navigateur, qui ne peuvent pas présenter la page de connexion du fournisseur à l’utilisateur. C’est le code de l’application qui gère le processus de connexion, c’est pourquoi il est également appelé _flux dirigé vers le client_ ou _flux client_. Ce cas s’applique aux API REST, à [Azure Functions](../azure-functions/functions-overview.md) et aux clients de navigateur JavaScript, ainsi qu’aux applications web nécessitant plus de souplesse dans le processus de connexion. Il concerne également les applications mobiles natives qui connectent les utilisateurs à l’aide du Kit SDK du fournisseur.
 
 > [!NOTE]
-> Les appels provenant d’une application de navigateur approuvée dans App Service appellent une autre API REST dans App Service ou [Azure Functions](../azure-functions/functions-overview.md) ; l’authentification est possible suivant le flux dirigé vers le serveur. Pour plus d’informations, consultez la page [Authentifier les utilisateurs avec Azure App Service]().
+> Les appels provenant d’une application de navigateur approuvée dans App Service appellent une autre API REST dans App Service ou [Azure Functions](../azure-functions/functions-overview.md) ; l’authentification est possible suivant le flux dirigé vers le serveur. Pour plus d’informations, consultez [Personnaliser les paramètres d’authentification et d’autorisation dans Azure App Service](app-service-authentication-how-to.md).
 >
 
 Le tableau ci-dessous montre les étapes du flux d’authentification.

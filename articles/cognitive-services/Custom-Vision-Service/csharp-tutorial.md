@@ -9,12 +9,12 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 80cb022808748ed2c60dff7c363d6020cb4043a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368833"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617432"
 ---
 # <a name="use-the-custom-vision-service-from-a-c35-application"></a>Utiliser le service Vision personnalisée à partir d’une application C#
 
@@ -22,13 +22,19 @@ Découvrez comment utiliser le service Vision personnalisée à partir d’une a
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Toute édition de Visual Studio 2015 ou 2017 pour Windows.
+* Toute édition de Visual Studio 2017 pour Windows.
 
-* Le [kit SDK Service Vision personnalisée](http://github.com/Microsoft/Cognitive-CustomVision-Windows/). Il comprend l’exemple et les images utilisés dans ce document.
+## <a name="get-the-custom-vision-sdk-and-samples"></a>Obtenir le Kit de développement logiciel (SDK) pour Custom Vision et des exemples
+Pour créer cet exemple, vous devez disposer des Packages NuGet du Kit de développement logiciel (SDK) Custom Vision :
 
-## <a name="get-the-training-and-prediction-keys"></a>Obtenir les clés d’entraînement et de prédiction
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-Pour obtenir les clés utilisées dans cet exemple, visitez la [page web Custom Vision](https://customvision.ai) et sélectionnez l’__icône d’engrenage__ dans le coin supérieur droit. Dans la section __Accounts__ (Comptes), copiez les valeurs à partir des champs __Training Key__ (Clé de formation) et __Prediction Key__ (Clé de prédiction).
+Vous pouvez télécharger les images avec les [exemples en C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+
+## <a name="get-the-training-and-prediction-keys"></a>Obtenir les clés d’apprentissage et de prédiction
+
+Pour obtenir les clés utilisées dans cet exemple, visitez la [page web Custom Vision](https://customvision.ai) et sélectionnez l’__icône d’engrenage__ dans le coin supérieur droit. Dans la section __Accounts__ (Comptes), copiez les valeurs des champs __Training Key__ (Clé de formation) et __Prediction Key__ (Clé de prédiction).
 
 ![Image de l’interface utilisateur des clés](./media/csharp-tutorial/training-prediction-keys.png)
 

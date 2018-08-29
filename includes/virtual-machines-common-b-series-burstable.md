@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 8a7207328f49488b0df8f6e1e0ed86c6f965d32f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307435"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40182642"
 ---
 La famille de machines virtuelles de série B vous permet de choisir la taille de machine virtuelle vous offrant les performances de base nécessaires à votre charge de travail, avec la possibilité d’étendre jusqu’à 100 % les performances d’un processeur virtuel Intel® Broadwell E5-2673 v4 2.3 GHz ou Intel® Haswell 2.4 GHz E5-2673 v3.
 
@@ -59,7 +59,7 @@ Si je prends les 120 crédits cumulés lors des heures creuses et que je soustr
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>Q : La série B prend-elle en charge les disques de données de stockage Premium ?
 **R** : Oui, la série B prend en charge les disques de données de stockage Premium ?   
     
-### <a name="q-why-is-my-remaining-credit-are-set-to-0-after-a-redepoy-or-a-stopstart"></a>Q : Pourquoi mon crédit restant est-il défini sur 0 après un redéploiement ou un arrêt/démarrage ?
+### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>Q : Pourquoi mon crédit restant est-il défini sur 0 après un redéploiement ou un arrêt/démarrage ?
 **R** : Lorsqu’une machine virtuelle est « REDÉPLOYÉE » et qu’elle est déplacée vers un autre nœud, le crédit cumulé est perdu. Si la machine virtuelle est arrêtée/démarrée, mais reste sur le même nœud, la machine virtuelle conserve le crédit cumulé. Lorsque la machine virtuelle redémarre de zéro sur un nœud, elle obtient un crédit initial, de 240 minutes pour  Standard_B8ms.
 
     

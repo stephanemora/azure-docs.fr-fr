@@ -1,5 +1,5 @@
 ---
-title: Service Microsoft Speech | Microsoft Docs
+title: Service Microsoft Bing Speech | Microsoft Docs
 description: Utilisez l’API Microsoft Speech pour ajouter des actions vocales à vos applications, y compris une interaction en temps réel avec les utilisateurs.
 services: cognitive-services
 author: zhouwangzw
@@ -9,19 +9,22 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: c041132e992f07e94e4b6669ec7ce174f7c2d0dd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368392"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41929736"
 ---
-# <a name="microsoft-speech-api-overview"></a>Vue d’ensemble de l’API Microsoft Speech
+# <a name="microsoft-bing-speech-api-overview"></a>Vue d’ensemble de l’API Microsoft Bing Speech
 
-L’API Microsoft Speech basée sur le cloud fournit aux développeurs un moyen simple de créer des fonctionnalités vocales puissantes dans leurs applications, telles que la commande vocale, le dialogue utilisateur via la conversation naturelle, ainsi que la transcription et la dictée. L’API Microsoft Speech prend en charge la conversion par *reconnaissance vocale* et par *synthèse vocale*.
+L’API Microsoft Bing Speech basée sur le cloud fournit aux développeurs un moyen simple de créer des fonctionnalités vocales puissantes dans leurs applications, telles que la commande vocale, le dialogue utilisateur via la conversation naturelle, ainsi que la transcription et la dictée. L’API Microsoft Speech prend en charge la conversion par *reconnaissance vocale* et par *synthèse vocale*.
 
 - L’API **Reconnaissance vocale** convertit la parole en texte qui peut servir d’entrée ou de commandes pour contrôler votre application.
 - L’API **Synthèse vocale** convertit le texte en flux audio qui peuvent être relus à l’utilisateur de votre application.
+
+> [!NOTE] 
+> En mai 2018, nous avons publié le nouveau [service Speech](/speech-service/overview.md) en préversion publique. Nous vous encourageons à l’[essayer gratuitement](/speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Reconnaissance vocale
 
@@ -32,10 +35,10 @@ L’API de reconnaissance vocale Microsoft *transcrit* les flux audio en texte q
 
 | Cas d'utilisation | [API REST](GetStarted/GetStartedREST.md) | [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | OUI | OUI |
-| Convertir un long énoncé (> 15 s) | Non  | OUI |
-| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non  | OUI |
-| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non  | OUI |
+| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | Oui | Oui |
+| Convertir un long énoncé (> 15 s) | Non  | Oui |
+| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non  | Oui |
+| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non  | Oui |
 
 Quelle que soit l’approche choisie par les développeurs (API REST ou bibliothèques clientes), le service Microsoft Speech prend en charge les éléments suivants :
 
@@ -43,7 +46,7 @@ Quelle que soit l’approche choisie par les développeurs (API REST ou biblioth
 - Reconnaissance continue en temps réel. L’API de reconnaissance vocale permet aux utilisateurs de transcrire du contenu audio en texte en temps réel et permet de placer sur des supports les résultats intermédiaires des mots reconnus jusque là. Le service vocal prend également en charge la détection de la fin de l’énoncé. En outre, les utilisateurs peuvent choisir des fonctionnalités de mise en forme supplémentaires, telles que la mise en majuscules et la ponctuation, le masquage des grossièretés et la normalisation du texte.
 - Résultats optimisés de la reconnaissance vocale pour des scénarios *interactifs*, *de conversation* et *de dictée*. Pour les scénarios utilisateur qui nécessitent des modèles linguistiques et acoustiques personnalisés, [Custom Speech Service](../custom-speech-service/cognitive-services-custom-speech-home.md) permet de créer des modèles vocaux adaptés à votre application et vos utilisateurs.
 - De nombreuses langues parlées dans plusieurs dialectes. Pour obtenir la liste complète des langues prises en charge dans chaque mode de reconnaissance, consultez les [langues de reconnaissance](api-reference-rest/supportedlanguages.md).
-- Intégration à la compréhension de la langue. Outre la conversion du contenu audio d’entrée en texte, l’API *Reconnaissance vocale* fournit aux applications une capacité supplémentaire pour comprendre le sens du texte. Elle utilise le [service LUIS (Language Understanding Intelligent Service)](../LUIS/Home.md) pour extraire des intentions et des entités à partir du texte reconnu.
+- Intégration à la compréhension de la langue. Outre la conversion du contenu audio d’entrée en texte, l’API *Reconnaissance vocale* fournit aux applications une capacité supplémentaire pour comprendre le sens du texte. Elle utilise le [service LUIS (Language Understanding Intelligent Service)](../LUIS/what-is-luis.md) pour extraire des intentions et des entités à partir du texte reconnu.
 
 ### <a name="next-steps"></a>Étapes suivantes
 

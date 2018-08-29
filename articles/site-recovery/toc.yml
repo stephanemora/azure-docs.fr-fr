@@ -80,8 +80,6 @@ items:
         href: physical-azure-architecture.md
       - name: Prise en charge mutualisée pour la réplication de VMware vers Azure
         href: vmware-azure-multi-tenant-overview.md
-      - name: À propos du service Mobilité
-        href: vmware-azure-install-mobility-service.md
       - name: Options d’emplacement de la restauration automatique
         href: concepts-types-of-failback.md
     - name: Réplication vers un site secondaire
@@ -190,26 +188,26 @@ items:
       items:
       - name: Répliquer des machines virtuelles VMware sur Microsoft Azure à l’aide de PowerShell
         href: vmware-azure-disaster-recovery-powershell.md
-      - name: Récupération d’urgence des serveurs physiques vers Azure
-        href: physical-azure-disaster-recovery.md
       - name: Configurer l’environnement source pour les machines virtuelles VMware
         href: vmware-azure-set-up-source.md
-      - name: Configurer l’environnement source pour les serveurs physiques
-        href: physical-azure-set-up-source.md
       - name: Déployer le serveur de configuration pour la réplication VMware
         href: vmware-azure-deploy-configuration-server.md
       - name: Configurer l’environnement cible pour les machines virtuelles VMware
         href: vmware-azure-set-up-target.md
-      - name: Configurer l’environnement cible pour les serveurs physiques
-        href: physical-azure-set-up-target.md
       - name: Configurer les paramètres de réplication
         href: vmware-azure-set-up-replication.md
-      - name: Exclure les disques de la réplication
-        href: vmware-azure-exclude-disk.md
       - name: Activer la réplication de machines virtuelles VMware
         href: vmware-azure-enable-replication.md
+      - name: Exclure les disques de la réplication
+        href: vmware-azure-exclude-disk.md
       - name: Architecture mutualisée avec CSP pour les machines virtuelles VMWare
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
+      - name: Configurer l’environnement source pour les serveurs physiques
+        href: physical-azure-set-up-source.md
+      - name: Configurer l’environnement cible pour les serveurs physiques
+        href: physical-azure-set-up-target.md
+      - name: Récupération d’urgence des serveurs physiques vers Azure
+        href: physical-azure-disaster-recovery.md
     - name: Déployer le service Mobilité
       items:
       - name: Présentation du service Mobilité
@@ -218,24 +216,24 @@ items:
         href: vmware-azure-mobility-install-configuration-mgr.md
     - name: Basculement et restauration automatique
       items:
-      - name: Effectuer un exercice de récupération d'urgence vers Azure
-        href: site-recovery-test-failover-to-azure.md
       - name: Configurer des plans de récupération
         href: site-recovery-create-recovery-plans.md
       - name: Ajouter des Runbooks Azure à des plans de récupération
         href: site-recovery-runbook-automation.md
+      - name: Effectuer un exercice de récupération d'urgence vers Azure
+        href: site-recovery-test-failover-to-azure.md
+      - name: Effectuer un basculement vers Azure
+        href: site-recovery-failover.md
+      - name: Reprotéger Azure vers VMware en local
+        href: vmware-azure-reprotect.md
+      - name: Restauration automatique de Microsoft Azure vers VMware
+        href: vmware-azure-failback.md
       - name: Configurer et gérer un serveur de processus de restauration automatique dans Azure
         href: vmware-azure-set-up-process-server-azure.md
       - name: Configurer un serveur cible maître Linux pour la restauration automatique
         href: vmware-azure-install-linux-master-target.md
-      - name: Effectuer un basculement vers Azure
-        href: site-recovery-failover.md
       - name: Exécuter un basculement et une restauration automatique pour les serveurs physiques
         href: physical-to-azure-failover-failback.md
-      - name: Restauration automatique de Microsoft Azure vers VMware
-        href: vmware-azure-failback.md
-      - name: Reprotéger Azure vers VMware en local
-        href: vmware-azure-reprotect.md
     - name: gérer
       items:
       - name: Gérer le serveur de configuration pour la réplication VMware
@@ -390,9 +388,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: cdc1990f71a38e7e0740456ccc8fb82e8ed1b5f9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f0469d554b25565411bb8c484f3d3937bb9a87f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914916"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126068"

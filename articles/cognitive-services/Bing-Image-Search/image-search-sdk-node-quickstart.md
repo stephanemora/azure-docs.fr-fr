@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide du Kit de développement logiciel (SDK) Node pour Recherche d’images | Microsoft Docs
-description: Configuration de l’application console du Kit de développement logiciel (SDK) pour Recherche d’images.
+title: 'Démarrage rapide : Demander et filtrer des images à l’aide du Kit de développement logiciel (SDK) dans Node.js'
+description: Dans ce démarrage rapide, vous allez demander et filtrer les images retournées par Recherche d’images Bing, à l’aide de Node.js.
 titleSuffix: Azure cognitive services
 services: cognitive-services
 author: mikedodaro
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: e4c8303e39accbb7caec15c0ef47d701971ce632
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e88c045b220192a617e6b8caf5d8d53f70a25b5e
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370424"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929815"
 ---
-# <a name="image-search-sdk-node-quickstart"></a>Démarrage rapide du Kit de développement logiciel (SDK) Node pour Recherche d’images
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-nodejs"></a>Démarrage rapide : Demander et filtrer des images à l’aide du Kit de développement logiciel (SDK) et de Node.js
 
 Le Kit de développement logiciel (SDK) pour Recherche d’images Bing fournit les fonctionnalités de l’API REST nécessaires pour rechercher des images et analyser les résultats. 
 
@@ -55,4 +55,4 @@ The code prints `result.value` items to the console without parsing any text. Th
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Exemples du Kit de développement logiciel (SDK) Node.js pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
+[Exemples du SDK Node.js Cognitive Services](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)

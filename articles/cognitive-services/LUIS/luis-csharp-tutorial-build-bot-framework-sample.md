@@ -1,24 +1,24 @@
 ---
-title: Intégrer LUIS dans un bot à l’aide du Kit de développement logiciel (SDK) Bot Builder pour C# dans Azure | Microsoft Docs
-description: Créer un bot intégré avec une application LUIS à l’aide de Bot Framework.
+title: À l’aide de C#, intégrer LUIS dans un bot à l’aide du Kit de développement logiciel (SDK) Bot Builder - Azure Cognitive Services| Microsoft Docs
+description: À l’aide de C#, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot conversationnel utilise le domaine HomeAutomation prédéfini pour implémenter rapidement une solution de bot.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 08/13/2018
 ms.author: diberry
-ms.openlocfilehash: ca893dadfed04c90a4d89087299bf1cc2bf55eb9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225956"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41929917"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Bot d’application web utilisant le modèle LUIS pour C#
 
-Créer un bot conversationnel avec compréhension de langage intégrée.
+À l’aide de C#, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot conversationnel utilise le domaine HomeAutomation prédéfini pour implémenter rapidement une solution de bot. 
 
 ## <a name="prerequisite"></a>Configuration requise
 
@@ -72,7 +72,7 @@ Le bot répond : « Vous vous trouvez dans l’intention Salutations. Vous avez
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>Connecter votre application LUIS au bot
 
-Ouvrez **Paramètres de l’application** et ajoutez l’ID de votre application LUIS dans le champ **LuisAppId**. Si vous avez créé votre application HomeAutomation LUIS dans une région autre que l’Ouest des États-Unis, vous devez également modifier **LuisAPIHostName**. La clé **LuisAPIKey** actuellement configurée est votre clé de création. Elle devient votre clé de point de terminaison lorsque votre trafic dépasse le quota du niveau gratuit. 
+Ouvrez **Paramètres de l’application** et ajoutez l’ID de votre application LUIS dans le champ **LuisAppId**. Si vous avez créé votre application HomeAutomation LUIS dans une région autre que USA Ouest, vous devez également modifier **LuisAPIHostName**. La clé **LuisAPIKey** actuellement configurée est votre clé de création. Elle devient votre clé de point de terminaison lorsque votre trafic dépasse le quota du niveau gratuit. 
 
   ![Mettre à jour l’ID d’application LUIS dans Azure](./media/luis-tutorial-cscharp-web-bot/bot-service-app-settings.png)
 
@@ -148,7 +148,7 @@ Dans le portail Azure, cliquez sur **Test dans le chat web** pour tester le bot.
 > Ce nouvel apprentissage de votre application LUIS est possible sans aucune modification du code du bot. Voir [Ajouter des exemples d’énoncés](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) et [Entraîner et tester votre application LUIS](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Télécharger le bot à déboguer
-Si votre bot ne fonctionne pas, téléchargez le projet sur votre ordinateur local et poursuivez le [débogage](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
+Si votre bot ne fonctionne pas, téléchargez le projet sur votre ordinateur local et poursuivez le [débogage](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
 
 ## <a name="learn-more-about-bot-framework"></a>En savoir plus sur Bot Framework
 En savoir plus sur [Bot Framework](https://dev.botframework.com/) et sur les kits de développement logiciel (SDK) [3.x](https://github.com/Microsoft/BotBuilder) et [4.x](https://github.com/Microsoft/botbuilder-dotnet).

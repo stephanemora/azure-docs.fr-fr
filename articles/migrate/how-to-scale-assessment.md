@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215177"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142102"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Découvrir et évaluer un environnement VMware de grande taille
 
@@ -75,7 +75,7 @@ Si vous avez plusieurs serveurs vCenter Servers dans votre environnement et moin
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Plusieurs serveurs vCenter Servers avec plus de 1 500 machines virtuelles
 
-Si vous avez plusieurs serveurs vCenter Servers avec mois de 1 500 machines virtuelles par serveur vCenter Server, mais plus de 1 500 machines virtuelles sur tous les serveurs vCenter Servers, vous devez créer plusieurs projets de migration (un projet de migration peut accueillir 1 500 machines virtuelles uniquement). Pour ce faire, il vous suffit de créer un projet de migration par serveur vCenter Server et de fractionner les détections. Vous pouvez utiliser un seul collecteur pour détecter chaque serveur vCenter Server (l’un après l’autre). Si vous souhaitez que les détections commencent simultanément, vous pouvez également déployer plusieurs appliances et exécuter les détections en parallèle.
+Si vous avez plusieurs instances de vCenter Server avec moins de 1 500 machines virtuelles sur chacune d’elle, mais plus de 1 500 machines virtuelles sur l’ensemble des instances, vous devez créer plusieurs projets de migration (un projet de migration peut contenir un maximum de 1 500 machines virtuelles). Pour ce faire, il vous suffit de créer un projet de migration par serveur vCenter Server et de fractionner les détections. Vous pouvez utiliser un seul collecteur pour détecter chaque serveur vCenter Server (l’un après l’autre). Si vous souhaitez que les détections commencent simultanément, vous pouvez également déployer plusieurs appliances et exécuter les détections en parallèle.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Plus de 1 500 machines dans un seul serveur vCenter Server
 
@@ -94,7 +94,7 @@ Une fois votre plan défini, vous pouvez commencer le processus de détection de
 Créez un projet Azure Migrate en fonction de vos besoins :
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource**.
-2. Recherchez **Azure Migrate**, puis sélectionnez le service **Azure Migrate (préversion)** dans les résultats de la recherche. Sélectionnez ensuite **Créer**.
+2. Recherchez **Azure Migrate**, puis sélectionnez le service **Azure Migrate** dans les résultats de la recherche. Sélectionnez ensuite **Créer**.
 3. Spécifiez un nom pour le projet, ainsi que l’abonnement Azure associé.
 4. Créez un groupe de ressources.
 5. Spécifiez l’emplacement auquel vous souhaitez créer le projet, puis sélectionnez **Créer**. Notez que vous pouvez toujours évaluer les machines virtuelles si elles sont situées dans un autre emplacement cible. L’emplacement spécifié pour le projet est utilisé pour stocker les métadonnées collectées à partir des machines virtuelles locales.

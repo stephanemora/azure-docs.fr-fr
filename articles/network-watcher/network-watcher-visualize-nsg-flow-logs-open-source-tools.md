@@ -3,8 +3,8 @@ title: Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide
 description: Cette page décrit comment utiliser des outils open source pour visualiser les journaux de flux NSG.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: mattreatMSFT
+manager: vitinnan
 editor: ''
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mareat
+ms.openlocfilehash: aa83ba1f428e70cd78cba2af6d39989179d5b30f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29394168"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42143364"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualiser les journaux de flux NSG d’Azure Network Watcher à l’aide d’outils open source
 
@@ -38,24 +38,23 @@ Dans cet article, nous allons configurer une solution qui vous permet de visuali
 ### <a name="enable-network-security-group-flow-logging"></a>Activer les journaux des flux de groupe de sécurité réseau
 Pour ce scénario, la journalisation des flux de groupe de sécurité réseau doit être activée sur au moins un groupe de sécurité réseau dans votre compte. Pour obtenir des instructions sur l’activation des journaux des flux de groupe de sécurité réseau, consultez l’article suivant [Introduction to flow logging for Network Security Groups](network-watcher-nsg-flow-logging-overview.md) (Introduction à la journalisation des flux pour les groupes de sécurité réseau).
 
-
 ### <a name="set-up-the-elastic-stack"></a>Configurer la Suite Elastic
 En connectant les journaux de flux NSG à la Suite Elastic, nous pouvons générer un tableau de bord Kibana qui nous permet d’effectuer des recherches, de créer des graphiques, d’analyser et d’obtenir des informations à partir de nos journaux.
 
 #### <a name="install-elasticsearch"></a>Installer Elasticsearch
 
 1. La Suite Elastic à partir de la version 5.0 et pour les versions ultérieures requiert Java 8. Exécutez la commande `java -version` pour vérifier la version que vous utilisez. Si Java n’est pas installé sur votre ordinateur, reportez-vous à la documentation sur le [site web d’Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
-1. Téléchargez le package binaire approprié pour votre système :
+2. Téléchargez le package binaire approprié pour votre système :
 
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
-    sudo dpkg -i elasticsearch-5.2.0.deb
-    sudo /etc/init.d/elasticsearch start
-    ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
+   sudo dpkg -i elasticsearch-5.2.0.deb
+   sudo /etc/init.d/elasticsearch start
+   ```
 
-    D’autres méthodes d’installation se trouvent sur la page [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html) (Installation d’Elasticsearch).
+   D’autres méthodes d’installation se trouvent sur la page [Elasticsearch Installation](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html) (Installation d’Elasticsearch).
 
-1. Vérifiez qu’Elasticsearch est en cours d’exécution avec la commande :
+3. Vérifiez qu’Elasticsearch est en cours d’exécution avec la commande :
 
     ```bash
     curl http://127.0.0.1:9200
@@ -78,7 +77,7 @@ En connectant les journaux de flux NSG à la Suite Elastic, nous pouvons génér
     }
     ```
 
-Pour plus d’informations sur l’installation d’Elasticsearch, reportez-vous à la page [Installation](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
+Pour plus d’informations sur l’installation d’Elasticsearch, reportez-vous aux [instructions d’installation](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
 
 ### <a name="install-logstash"></a>Installer Logstash
 
@@ -88,74 +87,74 @@ Pour plus d’informations sur l’installation d’Elasticsearch, reportez-vous
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Ensuite, nous devons configurer Logstash pour accéder aux journaux de flux et les analyser. Créez un fichier logstash.conf à l’aide de :
+2. Ensuite, nous devons configurer Logstash pour accéder aux journaux de flux et les analyser. Créez un fichier logstash.conf à l’aide de :
 
     ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-1. Ajoutez le contenu suivant au fichier :
+3. Ajoutez le contenu suivant au fichier :
 
-  ```
-input {
-   azureblob
-     {
-         storage_account_name => "mystorageaccount"
-         storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
-         container => "insights-logs-networksecuritygroupflowevent"
-         codec => "json"
-         # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
-         # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
-         file_head_bytes => 12
-         file_tail_bytes => 2
-         # Enable / tweak these settings when event is too big for codec to handle.
-         # break_json_down_policy => "with_head_tail"
-         # break_json_batch_count => 2
+   ```
+   input {
+      azureblob
+        {
+            storage_account_name => "mystorageaccount"
+            storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
+            container => "insights-logs-networksecuritygroupflowevent"
+            codec => "json"
+            # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
+            # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
+            file_head_bytes => 12
+            file_tail_bytes => 2
+            # Enable / tweak these settings when event is too big for codec to handle.
+            # break_json_down_policy => "with_head_tail"
+            # break_json_batch_count => 2
+        }
+      }
+
+      filter {
+        split { field => "[records]" }
+        split { field => "[records][properties][flows]"}
+        split { field => "[records][properties][flows][flows]"}
+        split { field => "[records][properties][flows][flows][flowTuples]"}
+
+     mutate{
+      split => { "[records][resourceId]" => "/"}
+      add_field => {"Subscription" => "%{[records][resourceId][2]}"
+                    "ResourceGroup" => "%{[records][resourceId][4]}"
+                    "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
+      convert => {"Subscription" => "string"}
+      convert => {"ResourceGroup" => "string"}
+      convert => {"NetworkSecurityGroup" => "string"}
+      split => { "[records][properties][flows][flows][flowTuples]" => ","}
+      add_field => {
+                  "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
+                  "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
+                  "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
+                  "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
+                  "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
+                  "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
+                  "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
+                  "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                   }
+      convert => {"unixtimestamp" => "integer"}
+      convert => {"srcPort" => "integer"}
+      convert => {"destPort" => "integer"}        
      }
-   }
 
-   filter {
-     split { field => "[records]" }
-     split { field => "[records][properties][flows]"}
-     split { field => "[records][properties][flows][flows]"}
-     split { field => "[records][properties][flows][flows][flowTuples]"}
-
-  mutate{
-   split => { "[records][resourceId]" => "/"}
-   add_field => {"Subscription" => "%{[records][resourceId][2]}"
-                 "ResourceGroup" => "%{[records][resourceId][4]}"
-                 "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
-   convert => {"Subscription" => "string"}
-   convert => {"ResourceGroup" => "string"}
-   convert => {"NetworkSecurityGroup" => "string"}
-   split => { "[records][properties][flows][flows][flowTuples]" => ","}
-   add_field => {
-               "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
-               "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
-               "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
-               "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
-               "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
-               "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
-               "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
-               "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-                }
-   convert => {"unixtimestamp" => "integer"}
-   convert => {"srcPort" => "integer"}
-   convert => {"destPort" => "integer"}        
-  }
-
-  date{
-    match => ["unixtimestamp" , "UNIX"]
-  }
- }
-output {
-  stdout { codec => rubydebug }
-  elasticsearch {
-    hosts => "localhost"
-    index => "nsg-flow-logs"
-  }
-}  
-  ```
+     date{
+       match => ["unixtimestamp" , "UNIX"]
+     }
+    }
+   output {
+     stdout { codec => rubydebug }
+     elasticsearch {
+       hosts => "localhost"
+       index => "nsg-flow-logs"
+     }
+   }  
+   ```
 
 Pour plus d’informations sur l’installation de Logstash, reportez-vous à la [documentation officielle](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 
@@ -173,38 +172,37 @@ Pour démarrer Logstash, exécutez la commande :
 sudo /etc/init.d/logstash start
 ```
 
-Pour plus d’informations sur ce plug-in, reportez-vous à la documentation [ici](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob)
+Pour plus d’informations sur ce plug-in, reportez-vous à la [documentation](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
 ### <a name="install-kibana"></a>Installer Kibana
 
 1. Exécutez les commandes suivantes pour installer Kibana :
 
-  ```bash
-  curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
-  tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
-  ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
+   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
+   ```
 
-1. Pour exécuter Kibana, exécutez les commandes ci-dessous :
+2. Pour exécuter Kibana, exécutez les commandes ci-dessous :
 
-  ```bash
-  cd kibana-5.2.0-linux-x86_64/
-  ./bin/kibana
-  ```
+   ```bash
+   cd kibana-5.2.0-linux-x86_64/
+   ./bin/kibana
+   ```
 
-1. Pour afficher votre interface web Kibana, accédez à `http://localhost:5601`
-1. Dans ce scénario, le modèle d’index utilisé pour les journaux de flux est « nsg-flow-logs ». Vous pouvez modifier le modèle d’index dans la section « sortie » de votre fichier logstash.conf.
-
-1. Si vous souhaitez afficher le tableau de bord Kibana à distance, créez une règle de groupe de sécurité réseau entrante autorisant l’accès au **port 5601**.
+3. Pour afficher votre interface web Kibana, accédez à `http://localhost:5601`
+4. Dans ce scénario, le modèle d’index utilisé pour les journaux de flux est « nsg-flow-logs ». Vous pouvez modifier le modèle d’index dans la section « sortie » de votre fichier logstash.conf.
+5. Si vous souhaitez afficher le tableau de bord Kibana à distance, créez une règle de groupe de sécurité réseau entrante autorisant l’accès au **port 5601**.
 
 ### <a name="create-a-kibana-dashboard"></a>Créer un tableau de bord Kibana
 
-Dans le cadre de cet article, nous proposons un exemple de tableau de bord pour que vous puissiez visualiser les tendances et les informations associées à vos alertes.
+L’image suivante montre un exemple de tableau de bord où sont affichés les tendances et les détails de vos alertes :
 
 ![figure 1][1]
 
-1. Téléchargez le fichier du tableau de bord [ici](https://aka.ms/networkwatchernsgflowlogdashboard), le fichier de visualisation [ici](https://aka.ms/networkwatchernsgflowlogvisualizations)et le fichier de recherche sauvegardée [ici](https://aka.ms/networkwatchernsgflowlogsearch).
+Téléchargez le [fichier du tableau de bord](https://aka.ms/networkwatchernsgflowlogdashboard), le [fichier de visualisation](https://aka.ms/networkwatchernsgflowlogvisualizations) et le [fichier des recherches sauvegardées](https://aka.ms/networkwatchernsgflowlogsearch).
 
-1. Dans l’onglet **Gestion** de Kibana, accédez à **Saved Objects** (Objets enregistrés) et importez les trois fichiers. Puis, à partir de l’onglet **Tableau de bord**, vous pouvez ouvrir et charger l’exemple de tableau de bord.
+Dans l’onglet **Gestion** de Kibana, accédez à **Saved Objects** (Objets enregistrés) et importez les trois fichiers. Puis, à partir de l’onglet **Tableau de bord**, vous pouvez ouvrir et charger l’exemple de tableau de bord.
 
 Vous avez également la possibilité de créer vos propres visualisations et tableaux de bord en fonction des mesures qui vous intéressent. Reportez-vous à la [documentation officielle](https://www.elastic.co/guide/en/kibana/current/visualize.html) de Kibana pour en savoir plus sur la création de visualisation Kibana.
 
@@ -214,27 +212,27 @@ L’exemple de tableau de bord fournit plusieurs visualisations des journaux de 
 
 1. Flux par décision/direction dans le temps : graphiques chronologiques indiquant le nombre de flux sur une période de temps. Vous pouvez modifier l’unité de temps et l’étendue de ces deux visualisations. Le graphique de flux par décision affiche la proportion de décisions d’autorisation ou de refus, tandis que celui du flux par direction affiche la proportion du trafic entrant et sortant. Grâce à ces éléments visuels, vous pouvez examiner les tendances du trafic au fil du temps et identifier les pics ou les modèles inhabituels.
 
-  ![figure 2][2]
+   ![figure 2][2]
 
-1. Flux par port source/de destination : graphiques à secteurs montrant la répartition des flux en fonction de leurs ports respectifs. Grâce à cette vue, vous pouvez visualiser les ports les plus fréquemment utilisés. Si vous cliquez sur un port spécifique dans le graphique à secteurs, le reste du tableau de bord filtre les flux selon ce port.
+2. Flux par port source/de destination : graphiques à secteurs montrant la répartition des flux en fonction de leurs ports respectifs. Grâce à cette vue, vous pouvez visualiser les ports les plus fréquemment utilisés. Si vous cliquez sur un port spécifique dans le graphique à secteurs, le reste du tableau de bord filtre les flux selon ce port.
 
-  ![figure 3][3]
+   ![figure 3][3]
 
-1. Nombre de flux et date du premier journal : mesures indiquant le nombre de flux enregistrés et la date du plus ancien journal capturé.
+3. Nombre de flux et date du premier journal : mesures indiquant le nombre de flux enregistrés et la date du plus ancien journal capturé.
 
-  ![figure 4][4]
+   ![figure 4][4]
 
-1. Flux par groupe de sécurité réseau et par règle : graphique à barres montrant la répartition des flux au sein de chaque groupe de sécurité réseau, ainsi que la répartition des règles au sein de ces derniers. À partir de ces données, vous pouvez identifier le groupe de sécurité réseau et les règles qui ont généré le plus de trafic.
+4. Flux par groupe de sécurité réseau et par règle : graphique à barres montrant la répartition des flux au sein de chaque groupe de sécurité réseau, ainsi que la répartition des règles au sein de ces derniers. À partir de ces données, vous pouvez identifier le groupe de sécurité réseau et les règles qui ont généré le plus de trafic.
 
-  ![figure 5][5]
+   ![figure 5][5]
 
-1. 10 principales adresses IP source/de destination : graphiques à barres indiquant les 10 principales adresses IP source et de destination. Vous pouvez ajuster ces graphiques pour afficher un nombre plus ou moins important d’adresses IP. À partir de ces données, vous pouvez identifier les adresses IP les plus fréquemment utilisées, ainsi que la décision de trafic (autorisation ou refus) prise par rapport à chacune d’entre elles.
+5. 10 principales adresses IP source/de destination : graphiques à barres indiquant les 10 principales adresses IP source et de destination. Vous pouvez ajuster ces graphiques pour afficher un nombre plus ou moins important d’adresses IP. À partir de ces données, vous pouvez identifier les adresses IP les plus fréquemment utilisées, ainsi que la décision de trafic (autorisation ou refus) prise par rapport à chacune d’entre elles.
 
-  ![figure 6][6]
+   ![figure 6][6]
 
-1. Tuples de flux : ce tableau affiche les informations contenues dans chaque tuple du flux, ainsi que ses groupes de sécurité réseau et ses règles correspondants.
+6. Tuples de flux : ce tableau affiche les informations contenues dans chaque tuple du flux, ainsi que ses groupes de sécurité réseau et ses règles correspondants.
 
-  ![figure 7][7]
+   ![figure 7][7]
 
 À l’aide de la barre de requête située en haut du tableau de bord, vous pouvez filtrer le tableau de bord en fonction de n’importe quel paramètre des flux, tel que l’ID d’abonnement, les groupes de ressources, la règle ou toute autre variable d’intérêt. Pour plus d’informations sur les requêtes et les filtres de Kibana, reportez-vous à la [documentation officielle](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html).
 
@@ -242,10 +240,9 @@ L’exemple de tableau de bord fournit plusieurs visualisations des journaux de 
 
 En combinant les journaux des flux de groupe de sécurité réseau avec la Suite Elastic, nous bénéficions d’une solution puissante et personnalisable permettant de visualiser le trafic de notre réseau. Ces tableaux de bord vous permettent d’obtenir et de partager rapidement des analyses sur le trafic de votre réseau, mais aussi de filtrer et d’examiner toute anomalie potentielle. Grâce à Kibana, vous pouvez adapter ces tableaux de bord et créer des visualisations spécifiques pour répondre à tous vos besoins en matière de sécurité, d’audit et de conformité.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez comment visualiser vos journaux de flux NSG avec Power BI en consultant la page [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualiser les journaux de flux NSG avec Power BI)
-
 
 <!--Image references-->
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: wesmc
-ms.openlocfilehash: 883683f6af7943fa4da49095c9a15aefd5cfa719
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 644a7414365ded53acb20bb2f9ae9d086f263765
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27911368"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141875"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Comment configurer la géoréplication pour Cache Redis Azure
 
@@ -35,7 +35,9 @@ Pour configurer la géoréplication entre deux caches, les conditions préalable
 - Si le clustering est activé sur le cache lié principal, il doit également l’être sur le cache lié secondaire, avec le même nombre de partitions que sur le cache lié principal.
 - Les deux caches doivent être créés et en cours d’exécution.
 - La persistance ne doit être activée sur aucun des caches.
-- La géoréplication entre caches figurant dans un même réseau virtuel est prise en charge. La géoréplication entre caches figurant dans des réseaux virtuels différents est également prise en charge pour autant que les deux réseaux soient configurés de telle sorte que leurs ressources soient en mesure de s’atteindre mutuellement via des connexions TCP.
+- La géoréplication entre caches figurant dans un même réseau virtuel est prise en charge. 
+- La fonctionnalité de géoréplication entre caches sur des réseaux virtuels appairés au sein d’une même région est actuellement en préversion. Les deux réseaux virtuels doivent être configurés de manière à ce que les ressources des réseaux virtuels soient en mesure de se contacter mutuellement via des connexions TCP.
+- La géoréplication entre caches sur des réseaux virtuels appairés se trouvant dans des régions différentes n’est pas prise en charge pour le moment, mais le sera bientôt dans la préversion.
 
 Une fois la géoréplication configurée, les restrictions suivantes s’appliquent à votre paire de caches liés :
 
@@ -149,7 +151,7 @@ La réplication n’est pas effectuée selon une planification établie. Elle s�
 
 ### <a name="how-long-does-geo-replication-replication-take"></a>Quelle est la durée de réplication pour la géoréplication ?
 
-La réplication s’effectue en continu de manière incrémentielle et asynchrone. Sa durée est généralement proche de la latence entre les régions. Dans certaines circonstances, le cache secondaire a parfois besoin d’effectuer une synchronisation complète des données à partir du cache principal. Dans ce cas, la durée de la réplication dépend de plusieurs facteurs tels que la charge du cache principal, la bande passante disponible sur la machine du cache, la latence entre les régions, etc. Par exemple, d’après certains tests réalisés, la durée de réplication d’une paire géorépliquée complète de 53 Go entre les régions de l’Est et de l’Ouest des États-Unis se situe entre 5 et 10 minutes.
+La réplication s’effectue en continu de manière incrémentielle et asynchrone. Sa durée est généralement proche de la latence entre les régions. Dans certaines circonstances, le cache secondaire a parfois besoin d’effectuer une synchronisation complète des données à partir du cache principal. Dans ce cas, la durée de la réplication dépend de plusieurs facteurs tels que la charge du cache principal, la bande passante disponible sur la machine du cache, la latence entre les régions, etc. Par exemple, d’après certains tests réalisés, la durée de réplication d’une paire géorépliquée complète de 53 Go entre les régions USA Est et USA Ouest se situe entre 5 et 10 minutes.
 
 ### <a name="is-the-replication-recovery-point-guaranteed"></a>Y a-t-il un point de récupération de la réplication garanti ?
 
@@ -178,7 +180,7 @@ Dans la version initiale de la géoréplication, Cache Redis Azure ne prend pas 
 Actuellement, pour lancer le basculement, vous devez supprimer le lien de géoréplication dans le portail Azure, puis modifier le point de terminaison de connexion dans le client Redis du cache lié principal au cache secondaire (précédemment lié). Une fois les deux caches dissociés, le réplica redevient un cache en lecture-écriture normal, et accepte directement les demandes des clients Redis.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur le [Niveau Premium de Cache Redis Azure](cache-premium-tier-intro.md).
 

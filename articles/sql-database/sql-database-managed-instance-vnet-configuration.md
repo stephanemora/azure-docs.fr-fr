@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 0fea91fb067a6d78ef25cb0ff8014b65a8b6a916
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258098"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246528"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurer un réseau virtuel pour Azure SQL Database Managed Instance
 
@@ -29,7 +29,7 @@ Azure SQL Database Managed Instance (préversion) doit être déployé au sein d
 Planifiez votre déploiement de Managed Instance dans un réseau virtuel en utilisant vos réponses aux questions suivantes : 
 - Envisagez-vous de déployer une seule ou plusieurs options Managed Instance ? 
 
-  Le nombre d’options Managed Instance détermine la taille minimale du sous-réseau à allouer à vos instances gérées. Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour Managed Instance](#create-a-new-virtual-network-for-managed-instances). 
+  Le nombre d’options Managed Instance détermine la taille minimale du sous-réseau à allouer à vos instances gérées. Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour Managed Instance](#determine-the-size-of-subnet-for-managed-instances). 
 - Avez-vous besoin de déployer votre option Managed Instance sur un réseau virtuel existant ou créez-vous un réseau ? 
 
    Si vous envisagez d’utiliser un réseau virtuel existant, vous devez modifier sa configuration pour prendre en compte Managed Instance. Pour plus d’informations, consultez [Modifier un réseau virtuel existant pour Managed Instance](#modify-an-existing-virtual-network-for-managed-instances). 
@@ -63,7 +63,28 @@ Si vous envisagez de déployer plusieurs options Managed Instance à l’intéri
 
 **Exemple** : vous prévoyez d’avoir trois Managed Instances de type Usage général et deux de type Critique pour l’entreprise. Cela signifie que vous avez besoin de 5 + 3 * 2 + 2 * 4 = 19 adresses IP. Comme les plages d’adresses IP sont définies par puissance de 2, vous avez besoin d’une plage de 32 (2 ^ 5) adresses IP. Ainsi, vous devez réserver le sous-réseau avec un masque de sous-réseau de /27. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances"></a>Créer un réseau virtuel pour les options Managed Instance 
+## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Créer un réseau virtuel pour Managed Instance à l’aide du déploiement Azure Resource Manager
+
+Pour créer et configurer le réseau virtuel, le plus simple consiste à utiliser le modèle de déploiement Azure Resource Manager.
+
+1. Connectez-vous au portail Azure.
+
+2. Utilisez le bouton **Déployer dans Azure** pour déployer un réseau virtuel dans le cloud Azure :
+
+  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+
+  Ce bouton ouvre un formulaire que vous pouvez utiliser pour configurer l’environnement réseau où vous pouvez déployer Managed Instance.
+
+  > [!Note]
+  > Ce modèle Azure Resource Manager déploie un réseau virtuel avec deux sous-réseaux. Un sous-réseau appelé **ManagedInstances** est réservé pour les Managed Instances et a une table d’itinéraires préconfigurée, tandis que le second sous-réseau appelé **Default** est utilisé pour les autres ressources qui doivent accéder à Managed Instance (par exemple, les machines virtuelles Azure). Vous pouvez supprimer le sous-réseau **Default** si vous n’en avez pas besoin.
+
+3. Configurez l’environnement réseau. Dans le formulaire suivant, vous pouvez configurer les paramètres de votre environnement réseau :
+
+![Configurer le réseau Azure](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+
+Vous pouvez modifier les noms du réseau virtuel et des sous-réseaux et ajustez les plages d’adresses IP associées à vos ressources réseau. Lorsque vous appuyez sur le bouton « Acheter », ce formulaire crée et configure votre environnement. Si vous n’avez pas besoin de deux sous-réseaux, vous pouvez supprimer celui par défaut. 
+
+## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Créer un réseau virtuel pour les options Managed Instance à l’aide du portail
 
 La création d’un réseau virtuel Azure est un prérequis à celle d’une option Managed Instance. Vous pouvez utiliser le portail Azure, [PowerShell](../virtual-network/quick-create-powershell.md) ou [Azure CLI](../virtual-network/quick-create-cli.md). La section suivante présente les étapes qui font appel au portail Azure. Les informations décrites ici s’appliquent à chacune de ces méthodes.
 
@@ -92,7 +113,7 @@ La création d’un réseau virtuel Azure est un prérequis à celle d’une opt
 
    ![formulaire de création de réseau virtuel](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
-## <a name="create-the-required-route-table-and-associate-it"></a>Créer la table de routage nécessaire et l’associer
+### <a name="create-the-required-route-table-and-associate-it"></a>Créer la table de routage nécessaire et l’associer
 
 1. Connectez-vous au portail Azure.  
 2. Recherchez **Table de routage**, puis cliquez dessus. Cliquez ensuite sur **Créer** depuis la page Table de routage.

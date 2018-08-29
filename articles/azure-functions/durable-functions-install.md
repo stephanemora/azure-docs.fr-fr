@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343194"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42142290"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installer l’extension Fonctions durables et des exemples (Azure Functions)
 
@@ -146,14 +146,14 @@ Visual Studio Code fournit une expérience de développement local qui couvre to
 
 ## <a name="azure-portal"></a>Portail Azure
 
-Si vous préférez, vous pouvez utiliser le portail Azure du développement Fonctions durables.
+Si vous préférez, vous pouvez utiliser le [portail Azure](https://portal.azure.com) du développement Durable Functions.
 
    > [!NOTE]
    > Fonctions durables dans JavaScript n’est pas encore disponible dans le portail.
 
 ### <a name="create-an-orchestrator-function"></a>Créer une fonction d’orchestrateur
 
-1. Créez une nouvelle application de fonction sur le site [functions.azure.com](https://functions.azure.com/signin).
+1. Créez une application de fonction dans le portail, comme indiqué dans le [guide de démarrage rapide consacré à Azure Functions](functions-create-first-azure-function.md#create-a-function-app).
 
 2. Configurez l’application de fonction pour qu’elle [utilise la version du runtime 2.0](set-runtime-version.md).
 
@@ -207,7 +207,7 @@ Si vous préférez, vous pouvez utiliser le portail Azure du développement Fonc
         }
     ```
 
-Félicitations ! Votre première fonction durable est maintenant opérationnelle dans le portail Azure !
+Félicitations ! Votre première fonction durable est maintenant opérationnelle dans le portail Azure !
 
 ## <a name="next-steps"></a>Étapes suivantes
 

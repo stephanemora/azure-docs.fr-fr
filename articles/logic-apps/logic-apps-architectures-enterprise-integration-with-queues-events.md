@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: a86c4c4227795a712dd51ace1fbefe9d2b96518a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9eef382ea264bcf9e59dcc408d14a59355b0369b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116110"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445675"
 ---
 # <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Architecture de référence : Intégration d’entreprise avec files d’attente et événements
 
@@ -42,7 +42,7 @@ Elle comporte les composants suivants :
 - **Connecteurs**. Logic Apps utilise des [connecteurs](https://docs.microsoft.com/azure/connectors/apis-list) pour se connecter aux services couramment utilisés. Logic Apps contient déjà des centaines de connecteurs différents, mais vous pouvez aussi créer un connecteur personnalisé.
 - **Azure Service Bus**. [Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) offre une messagerie sécurisée et fiable, qui peut permettre de découpler des applications et de les intégrer à d’autres systèmes de messagerie.
 - **Azure Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) est une plateforme serverless servant à publier et distribuer des événements d’application.
-- **Adresse IP**. Le service Gestion des API Azure a une [adresse IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) publique fixe et un nom de domaine. Le nom de domaine est un sous-domaine d’azure-api.net, par exemple, contoso.azure-api.net. Logic Apps et Service Bus ont également une adresse IP publique. Toutefois, dans cette architecture, nous limitons l’accès pour appeler des points de terminaison Logic Apps uniquement à l’adresse IP de Gestion des API (à des fins de sécurité). Les appels à Service Bus sont sécurisés par une signature d’accès partagé (SAP).
+- **Adresse IP**. Le service Gestion des API Azure a une [adresse IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) publique fixe et un nom de domaine. Le nom de domaine par défaut est un sous-domaine d’azure-api.net, tel que contoso.azure-api.net, mais les [domaines personnalisés](https://docs.microsoft.com/azure/api-management/configure-custom-domain) peuvent également être configurés. Logic Apps et Service Bus ont également une adresse IP publique. Toutefois, dans cette architecture, nous limitons l’accès pour appeler des points de terminaison Logic Apps uniquement à l’adresse IP de Gestion des API (à des fins de sécurité). Les appels à Service Bus sont sécurisés par une signature d’accès partagé (SAP).
 - **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/) est un service d’hébergement pour les domaines DNS. Azure DNS offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS en utilisant les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que pour vos autres services Azure. Pour utiliser un nom de domaine personnalisé (tel que contoso.com), créez des enregistrements DNS qui mappent le nom de domaine personnalisé à l’adresse IP. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé dans Gestion des API](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
 - **Azure Active Directory (Azure AD)**. Utilisez [Azure AD](https://docs.microsoft.com/azure/active-directory/) ou un autre fournisseur d’identité pour l’authentification. Azure AD fournit l’authentification pour accéder aux points de terminaison des API en transmettant un [jeton web JSON pour la Gestion des API](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) à valider. Azure AD peut sécuriser l’accès au portail des développeurs Gestion des API (niveaux Standard et Premium uniquement).
 
@@ -82,7 +82,7 @@ Provisionnez Gestion des API, Logic Apps et Service Bus dans la même région po
 
 Le groupe de ressources a également une région. Cette région indique l’endroit où sont stockées les métadonnées de déploiement et à partir d’où s’exécute le modèle de déploiement. Placez le groupe de ressources et ses ressources dans la même région afin d’améliorer la disponibilité lors du déploiement.
 
-## <a name="scalability"></a>Scalabilité
+## <a name="scalability"></a>Extensibilité
 
 Le niveau Premium de Service Bus peut augmenter le nombre d’unités de messagerie pour améliorer la scalabilité. Les configurations de niveau Premium peuvent avoir une, deux ou quatre unités de messagerie. Pour plus d’informations sur le dimensionnement de Service Bus, consultez [Bonnes pratiques relatives aux améliorations de performances à l’aide de la messagerie Service Bus](../service-bus-messaging/service-bus-performance-improvements.md).
 

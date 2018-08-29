@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : configurer Workday pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour provisionner et retirer automatiquement des comptes d’utilisateur sur Workday.
 services: active-directory
 author: asmalser-msft
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334324"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445658"
 ---
-# <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : configurer Workday pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Tutoriel : configurer Workday pour l’attribution automatique d’utilisateurs (préversion)
 
-L’objectif de ce didacticiel est de vous présenter les étapes à suivre pour importer des contacts à partir de Workday dans Active Directory et Azure Active Directory, avec écriture différée facultative de certains attributs dans Workday.
+L’objectif de ce tutoriel est de vous présenter les étapes à suivre pour importer des contacts à partir de Workday dans Active Directory et Azure Active Directory, avec réécriture facultative de certains attributs dans Workday.
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -31,15 +31,15 @@ Le [service d’approvisionnement utilisateur Azure Active Directory](../active-
 
 * **Approvisionnement d’utilisateurs dans Active Directory** : synchroniser des ensembles de d’utilisateurs sélectionnés à partir de Workday dans une ou plusieurs forêts Active Directory.
 
-* **Approvisionnement d’utilisateurs « cloud only » dans Azure Active Directory** : les utilisateurs hybrides qui existent dans Active Directory et Azure Active Directory peuvent être approvisionnés dans ce dernier à l’aide de [AAD Connect](../connect/active-directory-aadconnect.md). Toutefois, les utilisateurs « cloud only » peuvent être approvisionnés directement à partir de Workday vers Azure Active Directory à l’aide du service d’approvisionnement de l’utilisateur Azure AD.
+* **Attribution d’utilisateurs cloud uniquement dans Azure Active Directory** : dans les scénarios où Active Directory local n’est pas utilisé, les utilisateurs peuvent être attribués directement à partir de Workday dans Azure Active Directory à l’aide du service d’attribution d’utilisateurs Azure AD. 
 
-* **Écriture différée des adresses e-mails à Workday** : le service d’approvisionnement de l’utilisateur Azure AD peut écrire des attributs utilisateur Azure AD en différé dans Workday, telles que l’adresse e-mail.
+* **Réécriture des adresses e-mail dans Workday** : le service d’attribution d’utilisateurs Azure AD peut réécrire les adresses e-mail des utilisateurs Azure AD dans Workday. 
 
 ### <a name="what-human-resources-scenarios-does-it-cover"></a>Quels sont les scénarios de ressources humaines couverts ?
 
 Les flux de travail d’approvisionnement de l’utilisateur Workday pris en charge par le service d’approvisionnement de l’utilisateur Azure AD autorisent l’automatisation des scénarios de gestion du cycle de vie des identités et des ressources humaines suivants :
 
-* **Nouvelles embauches** : lorsqu’un nouvel employé est ajouté à Workday, un compte d’utilisateur est automatiquement créé dans Active Directory, Azure Active Directory et, éventuellement, Office 365 et [d’autres applications SaaS prises en charge par Azure AD](../active-directory-saas-app-provisioning.md), avec l’écriture différée de l’adresse e-mail pour Workday.
+* **Nouvelles embauches** : lorsqu’un nouvel employé est ajouté à Workday, un compte d’utilisateur est automatiquement créé dans Active Directory, Azure Active Directory et, éventuellement, Office 365 et [d’autres applications SaaS prises en charge par Azure AD](../active-directory-saas-app-provisioning.md), avec la réécriture de l’adresse e-mail pour Workday.
 
 * **Mises à jour du profil et des attributs de l’employé** : lorsqu’un enregistrement d’employé est mis à jour dans Workday (par exemple, le nom, le titre ou le responsable), son compte d’utilisateur est automatiquement mis à jour dans Active Directory, Azure Active Directory et, éventuellement, Office 365 et [d’autres applications SaaS prises en charge par Azure AD](../active-directory-saas-app-provisioning.md).
 
@@ -69,7 +69,7 @@ Avant de commencer l’intégration de Workday, vérifiez les prérequis ci-dess
 
 ### <a name="prerequisites"></a>Prérequis
 
-Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
+Le scénario décrit dans ce tutoriel part du principe que vous disposez des éléments suivants :
 
 * Un abonnement Azure AD Premium P1 valide avec un accès administrateur général
 * Un client de mise en œuvre de Workday à des fins de test et d’intégration
@@ -87,7 +87,7 @@ Azure AD propose un vaste éventail de connecteurs d’attribution pour vous aid
 * Combien de clients Azure Active Directory sont en cours d’utilisation ?
 * Existe-t-il des utilisateurs qui doivent être approvisionnés dans Active Directory et Azure Active Directory (par exemple, les utilisateurs « hybrides ») ?
 * Existe-t-il des utilisateurs qui doivent être approvisionnés dans Azure Active Directory, mais pas dans Active Directory (par exemple, les utilisateurs « cloud only ») ?
-* Les adresses e-mail des utilisateurs doivent-elles être différées dans Workday ?
+* Les adresses e-mail des utilisateurs doivent-elles être réécrites dans Workday ?
 
 Une fois que vous disposez des réponses à ces questions, vous pouvez planifier le déploiement de l’approvisionnement de Workday en suivant les instructions ci-dessous.
 
@@ -110,7 +110,7 @@ Toutefois, lorsque vous travaillez avec Workday et Active Directory, il existe p
 | Workday | Forêt Active Directory | Chaque forêt est traitée comme un système cible distinct |
 | Workday | Client Azure AD | Selon les besoins pour les utilisateurs « cloud only » |
 | Forêt Active Directory | Client Azure AD | Ce flux est maintenant géré par AAD Connect |
-| Client Azure AD | Workday | Pour l’écriture différée des adresses e-mail |
+| Client Azure AD | Workday | Pour la réécriture des adresses e-mail |
 
 Pour faciliter ces flux de travail multiples sur plusieurs systèmes source et cible, Azure AD fournit plusieurs applications de connecteurs d’approvisionnement que vous pouvez ajouter à partir de la galerie d’applications Azure AD :
 
@@ -120,12 +120,12 @@ Pour faciliter ces flux de travail multiples sur plusieurs systèmes source et c
 
 * **Approvisionnement de Workday à Azure AD** : alors que AAD Connect est l’outil qui doit être utilisé pour synchroniser les utilisateurs Active Directory vers Azure Active Directory, cette application peut être utilisée pour faciliter l’approvisionnement d’utilisateurs « cloud only » à partir de Workday vers un client Azure Active Directory unique.
 
-* **Écriture différée Workday** : cette application facilite l’écriture différée des adresses e-mail de l’utilisateur à partir d’Azure Active Directory vers Workday.
+* **Réécriture Workday** : cette application facilite la réécriture des adresses e-mail de l’utilisateur à partir d’Azure Active Directory vers Workday.
 
 > [!TIP]
 > L’application « Workday » standard est utilisée pour configurer l’authentification unique entre Workday et Azure Active Directory. 
 
-L’installation et la configuration de ces applications de connecteurs d’approvisionnement spéciales sont présentées dans les autres sections de ce didacticiel. Les applications que vous choisissez de configurer dépendent des systèmes à approvisionner, du nombre de forêts Active Directory et de clients Azure AD dans votre environnement.
+L’installation et la configuration de ces applications de connecteurs d’approvisionnement spéciales sont présentées dans les autres sections de ce tutoriel. Les applications que vous choisissez de configurer dépendent des systèmes à approvisionner, du nombre de forêts Active Directory et de clients Azure AD dans votre environnement.
 
 ![Vue d'ensemble](./media/workday-inbound-tutorial/WD_Overview.PNG)
 
@@ -281,7 +281,7 @@ Avant de configurer l’attribution d’utilisateurs à une forêt Active Direct
 
    * **Mot de passe administrateur :** entrez le mot de passe du compte système d’intégration Workday
 
-   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à https://wd3-impl-services1.workday.com/ccx/service/contoso4, où contoso4 est remplacé par le nom de votre locataire et wd3-impl est remplacé par la chaîne d’environnement.
+   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, où contoso4 est remplacé par le nom de votre locataire et wd3-impl est remplacé par la chaîne d’environnement.
 
    * **Forêt Active Directory :** le « Nom » de votre forêt Active Directory, tel que retourné par l’applet de commande powershell Get-ADForest. Il s’agit généralement d’une chaîne telle que : *contoso.com*
 
@@ -407,6 +407,9 @@ Après avoir installé l’agent, exécutez les commandes Powershell ci-dessous 
 * Entrée : pour « Nom de répertoire », entrez le nom de la forêt AD, tel qu’entré dans la partie \#2
 * Entrée : nom d’utilisateur administrateur et mot de passe pour la forêt Active Directory
 
+>[!TIP]
+> Si vous recevez un message d’erreur indiquant que la relation entre le domaine principal et le domaine approuvé a échoué, cela signifie que l’ordinateur local est dans un environnement où plusieurs domaines ou forêts Active Directory sont configurés, et qu’au moins une relation d’approbation configurée est défectueuse ou non fonctionnelle. Pour résoudre ce problème, corrigez ou supprimez la relation d’approbation rompue.
+
 **Commande #3**
 
 > Add-ADSyncAgentAzureActiveDirectoryConfiguration
@@ -418,7 +421,6 @@ Après avoir installé l’agent, exécutez les commandes Powershell ci-dessous 
 
 >[!IMPORTANT]
 >Il existe actuellement un problème connu avec les informations d’identification d’administrateur général qui ne fonctionnent pas si l’authentification multifacteur est activée. Pour contourner ce problème, désactivez l’authentification multifacteur pour l’administrateur général.
-
 
 **Commande #4**
 
@@ -537,7 +539,7 @@ Les sections suivantes décrivent la configuration d’une connexion entre Workd
 
    * **Mot de passe administrateur :** entrez le mot de passe du compte système d’intégration Workday
 
-   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à https://wd3-impl-services1.workday.com/ccx/service/contoso4, où contoso4 est remplacé par le nom de votre locataire et wd3-impl est remplacé par la chaîne d’environnement. Si cette URL n’est pas connue, collaborez avec votre partenaire d’intégration Workday ou votre représentant du support technique pour déterminer l’URL appropriée à utiliser.
+   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, où contoso4 est remplacé par le nom de votre locataire et wd3-impl est remplacé par la chaîne d’environnement. Si cette URL n’est pas connue, collaborez avec votre partenaire d’intégration Workday ou votre représentant du support technique pour déterminer l’URL appropriée à utiliser.
 
    * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer par e-mail en cas de défaillance ».
 
@@ -613,8 +615,8 @@ Une fois les parties 1 à 2 terminées, vous pouvez démarrer le service d’app
 
 5. Une fois cette opération terminée, un rapport de synthèse de l’audit est écrit dans l’onglet **Approvisionnement**, comme indiqué ci-dessous.
 
-## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Configuration de l’écriture différée des adresses de messagerie à Workday
-Suivez ces instructions pour configurer l’écriture différée des adresses e-mail des utilisateurs d’Azure Active Directory vers Workday.
+## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Configuration de la réécriture des adresses e-mail sur Workday
+Suivez ces instructions pour configurer la réécriture des adresses e-mail des utilisateurs d’Azure Active Directory vers Workday.
 
 ### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>Partie 1 : ajout de l’application des connecteurs d’approvisionnement et création de la connexion à Workday
 
@@ -628,7 +630,7 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
 4. Sélectionnez **Ajouter une application**, puis sélectionnez la catégorie **Tous**.
 
-5. Recherchez **Écriture différée Workday** et ajoutez cette application à partir de la galerie.
+5. Recherchez **Réécriture Workday** et ajoutez cette application à partir de la galerie.
 
 6. Une fois l’application ajoutée et l’écran de détails de l’application affiché, sélectionnez **Approvisionnement**
 
@@ -640,7 +642,7 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
    * **Mot de passe administrateur :** entrez le mot de passe du compte système d’intégration Workday
 
-   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à https://wd3-impl-services1.workday.com/ccx/service/contoso4, où contoso4 est remplacé par le nom de votre locataire et wd3-impl est remplacé par la chaîne d’environnement (si nécessaire).
+   * **URL du client :**  entrez l’URL du point de terminaison des services web Workday pour votre client. Cela doit ressembler à https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources, où contoso4 est remplacé par le nom de votre locataire et wd3-impl est remplacé par la chaîne d’environnement (si nécessaire).
 
    * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer par e-mail en cas de défaillance ».
 
@@ -652,9 +654,9 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 
 1. Dans l’onglet Approvisionnement sous **Mappages**, cliquez sur **Synchroniser les utilisateurs Azure AD sur Workday**.
 
-2. Dans le champ **Portée d’objet source**, vous pouvez éventuellement filtrer les ensembles d’utilisateurs dans Azure Active Directory dont les adresses e-mail sont différées dans Workday. La portée par défaut est « tous les utilisateurs dans Azure AD ». 
+2. Dans le champ **Portée d’objet source**, vous pouvez éventuellement filtrer les ensembles d’utilisateurs dans Azure Active Directory dont les adresses e-mail sont réécrites dans Workday. La portée par défaut est « tous les utilisateurs dans Azure AD ». 
 
-3. Dans la section **Mappages d’attributs**, vous pouvez définir comment les attributs Workday sont mappés aux attributs Active Directory. Il existe un mappage pour l’adresse e-mail par défaut. Toutefois, l’ID correspondant doit être mis à jour pour faire correspondre les utilisateurs dans Azure AD et leurs entrées correspondantes dans Workday. Une méthode populaire de correspondance consiste à synchroniser l’ID de l’employé Workday avec extensionAttribute1-15 dans Azure AD puis, à utiliser cet attribut dans Azure AD pour faire à nouveau correspondre les utilisateurs dans Workday.
+3. Dans la section **Mappages d’attributs**, mettez à jour l’ID correspondant pour indiquer l’attribut dans Azure Active Directory dans lequel est stocké l’ID d’employé Workday. Une méthode populaire de correspondance consiste à synchroniser l’ID de l’employé Workday avec extensionAttribute1-15 dans Azure AD puis, à utiliser cet attribut dans Azure AD pour faire à nouveau correspondre les utilisateurs dans Workday. 
 
 4. Pour enregistrer vos mappages, cliquez sur **Enregistrer** en haut de la section Mappage d’attributs.
 
@@ -754,7 +756,7 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
 **Pour ajouter votre attribut d’utilisateur Workday personnalisé à votre configuration d’attribution :**
 
-1. Lancez le [Portail Azure](https://portal.azure.com), accédez à la section Attribution de votre application d’attribution Workday, selon la procédure décrite plus haut dans ce didacticiel.
+1. Lancez le [Portail Azure](https://portal.azure.com), accédez à la section Attribution de votre application d’attribution Workday, selon la procédure décrite plus haut dans ce tutoriel.
 
 2. Définissez **État d’attribution** sur **Désactivé**, puis sélectionnez **Enregistrer**. Ainsi, les modifications ne prendront effet que lorsque vous le déciderez.
 
@@ -794,6 +796,10 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
 * Lorsque vous exécutez la commande PowerShell **Add-ADSyncAgentAzureActiveDirectoryConfiguration**, il existe actuellement un problème connu avec les informations d’identification d’administrateur global qui ne fonctionnent pas si elles utilisent un domaine personnalisé (exemple : admin@contoso.com). Pour résoudre ce problème, créez et utilisez un compte d’administrateur global dans Azure AD avec un domaine onmicrosoft.com (exemple : admin@contoso.onmicrosoft.com).
 
+* L’écriture de données dans l’attribut utilisateur thumbnailPhoto dans Active Directory local n’est pas prise en charge.
+
+* Le connecteur « Workday à Azure AD » n’est pas pris en charge sur les locataires Azure AD où AAD Connect est activé.  
+
 * Un problème précédent avec les journaux d’audit n’apparaissant pas dans les locataires Azure AD situés dans l’Union européenne a été résolu. Toutefois, une configuration supplémentaire de l’agent est requise pour les locataires Azure AD dans l’Union européenne. Pour plus d’informations, consultez [Partie 3 : configurer l’agent de synchronisation local](#Part 3: Configure the on-premises synchronization agent)
 
 ## <a name="managing-personal-data"></a>Gestion des données personnelles
@@ -805,3 +811,4 @@ La solution de provisionnement Workday pour Active Directory nécessite l’inst
 * [Découvrez comment consulter les journaux et obtenir des rapports sur l’activité d’approvisionnement](../active-directory-saas-provisioning-reporting.md)
 * [Découvrir comment configurer l’authentification unique entre Workday et Azure Active Directory](workday-tutorial.md)
 * [Découvrir comment intégrer d’autres applications SaaS à Azure Active Directory](tutorial-list.md)
+

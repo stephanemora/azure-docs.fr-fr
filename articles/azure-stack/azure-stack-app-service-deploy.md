@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 22593fc470325fbfb74cfb432207abeea7d96ac2
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9173dfcbb5f73c2292bce7d28c2dae5dbece79cd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343104"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41946461"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Ajouter un fournisseur de ressources App Service à Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "37343104"
 Utilisez les instructions de cet article pour déployer App Service dans Azure Stack.
 
 >[!IMPORTANT]  
->Appliquez la mise à jour 1804 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.2.
+>Appliquez la mise à jour 1807 à votre système intégré Azure Stack ou déployez le dernier Kit de développement Azure Stack (ASDK) avant de déployer Azure App Service 1.3.
 
 Vous pouvez donner à vos utilisateurs la possibilité de créer des applications web et API. Pour permettre aux utilisateurs de créer ces applications, vous devez :
 
@@ -70,7 +70,7 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
     a. Sélectionnez **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
 
      - Si vous utilisez Azure Active Directory (Azure AD), entrez votre compte et mot de passe d’administrateur Azure AD que vous avez indiqués lors du déploiement d’Azure Stack. Sélectionnez **Connexion**.
-     - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis sélectionnez **Se connecter**.
+     - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis sélectionnez **Se connecter**.
 
    b. Dans **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
 
@@ -131,6 +131,18 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
 
     > [!NOTE]
     > Le programme d’installation tente de tester la connectivité au serveur SQL Server avant de continuer. Toutefois, si vous effectuez un déploiement vers un réseau virtuel existant, ce test de connectivité peut échouer. Vous recevez un avertissement et un message d’invite pour continuer. Si les informations du serveur SQL Server sont correctes, continuez le déploiement.
+    >
+    > À compter d’Azure App Service sur Azure Stack 1.3 et versions ultérieures, le programme d’installation vérifie l’autonomie de la base de données est activée au niveau de SQL Server.  Si ce n’est pas le cas, l’exception suivante apparaît :
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Reportez-vous aux [notes de publication pour Azure App Service sur Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) pour plus d’informations.
 
     ![Programme d’installation App Service][11]
 

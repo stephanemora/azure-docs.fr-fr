@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 0f6a0e2fe3aa632137392efe806aaab265eedf10
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435540"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42142106"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Déploiement Git local vers Azure App Service
 
@@ -124,7 +124,7 @@ Sur la page **Configurer**, configurez un nouveau compte VSTS ou spécifiez un c
 
 Sur la page **Test**, choisissez si vous voulez activer les tests de charge, puis cliquez sur **Continuer**.
 
-En fonction du [niveau tarifaire](/pricing/details/app-service/plans/) de votre plan App Service, une page proposant un **déploiement intermédiaire** s’affiche parfois. Choisissez si vous voulez activer des emplacements de déploiement, puis cliquez sur **Continuer**.
+En fonction du [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/plans/) de votre plan App Service, une page proposant un **déploiement intermédiaire** s’affiche parfois. Choisissez si vous voulez activer des emplacements de déploiement, puis cliquez sur **Continuer**.
 
 Sur la page **Synthèse**, vérifiez les options, puis cliquez sur **Terminer**.
 

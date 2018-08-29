@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide du SDK Python Recherche d’images | Microsoft Docs
-description: Configuration de l’application console du SDK pour la recherche d’images.
+title: 'Démarrage rapide : Demander et filtrer des images à l’aide du Kit de développement logiciel (SDK) dans Python'
+description: Dans ce démarrage rapide, vous allez demander et filtrer les images retournées par Recherche d’images Bing, à l’aide de Python.
 titleSuffix: Azure Image Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: e30852439ad8ec2d5ddc667b75167e8b5d35be33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4729f103bb9b50d4ff039907db8eb677f3dc290a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370420"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929930"
 ---
-# <a name="image-search-sdk-python-quickstart"></a>Démarrage rapide du SDK Python Recherche d’images
+ # <a name="quickstart-request-and-filter-images-using-the-sdk-and-python"></a>Démarrage rapide : Demander et filtrer des images à l’aide du Kit de développement logiciel (SDK) et de Python
 
 Le SDK Recherche d’images Bing fournit les fonctionnalités de l’API REST nécessaires pour lancer des requêtes web et analyser les résultats. 
 

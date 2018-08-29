@@ -1,6 +1,6 @@
 ---
-title: Appel et réponse – Démarrage rapide PHP pour l’API Recherche d’images Bing dans Azure Cognitive Services | Microsoft Docs
-description: Cet article contient des informations et des exemples de code pour une prise en main rapide de l’API Recherche d’images Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : Envoyer des requêtes de recherche à l’aide de l’API REST pour l’API Recherche d’images Bing à l’aide de PHP'
+description: Dans ce démarrage rapide, vous envoyez des requêtes de recherche à l’API Recherche Bing pour obtenir une liste des images pertinentes à l’aide de PHP.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,14 +9,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: b3b7e082eeca5fbccb8729ab8abdf7ec933b4197
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d91021c4bd5e0f78e518811f3794055b397c1a39
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369933"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41944428"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-php"></a>Appel et réponse : votre première requête de la Recherche d’images Bing dans PHP
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-php"></a>Démarrage rapide : Envoyer des requêtes de recherche à l’aide de l’API REST et de PHP
 
 L’API Recherche d’images Bing offre une expérience similaire à celle de Bing.com/Images, en ce sens qu’elle permet d’envoyer une requête de recherche à Bing pour obtenir une liste d’images pertinentes.
 
@@ -26,7 +26,7 @@ Cet article comporte une application console simple qui exécute une requête de
 
 Vous devez disposer de [PHP 5.6.x](http://php.net/downloads.php) pour exécuter ce code.
 
-Vous devrez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>Exécution de l'application
 

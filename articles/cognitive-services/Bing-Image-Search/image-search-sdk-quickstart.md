@@ -1,6 +1,6 @@
 ---
-title: Démarrage rapide du Kit de développement logiciel (SDK) C# pour Recherche d’images | Microsoft Docs
-description: Configurer le Kit de développement logiciel (SDK) pour Recherche d’images dans une application console C#.
+title: 'Démarrage rapide : Demander et filtrer des images à l’aide du Kit de développement logiciel (SDK) à l’aide de C#'
+description: Dans ce démarrage rapide, vous allez demander et filtrer les images retournées par Recherche d’images Bing, à l’aide de C#.
 titleSuffix: Azure cognitive services setup Image search SDK C# console application
 services: cognitive-services
 author: mikedodaro
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
-ms.openlocfilehash: f58556f13bb25c3ea2ed9378c0669d649554a8c0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 81375019e53b49b531fde1f81fbcb9a061cc5562
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370425"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41929883"
 ---
-# <a name="image-search-sdk-c-quickstart"></a>Démarrage rapide du Kit de développement logiciel (SDK) C# pour Recherche d’images
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-c"></a>Démarrage rapide : Demander et filtrer des images à l’aide du Kit de développement logiciel (SDK) et de C#
 
 Le Kit de développement logiciel (SDK) pour Recherche d’images Bing fournit les fonctionnalités de l’API REST nécessaires pour rechercher des images et analyser les résultats. 
 

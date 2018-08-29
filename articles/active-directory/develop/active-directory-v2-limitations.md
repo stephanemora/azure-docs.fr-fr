@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/14/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9245e85781482a3aa1e45333d8e8a748983675b6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590747"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246495"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Dois-je utiliser le point de terminaison v2.0 ?
 
@@ -101,6 +101,7 @@ Actuellement, la prise en charge des bibliothèques pour le point de terminaison
 * Si vous créez une application mobile ou de bureau, vous pouvez utiliser l’une de nos bibliothèques d’authentification Microsoft (MSAL). Bien qu’il s’agisse de versions préliminaires, ces bibliothèques sont utilisables dans des applications de production. Pour plus d’informations sur les conditions d’utilisation de la préversion et sur les bibliothèques disponibles, consultez la [documentation de référence sur les bibliothèques d’authentification](reference-v2-libraries.md).
 * Vous pouvez intégrer les plateformes non couvertes par les bibliothèques Microsoft, dans le point de terminaison v2.0 en envoyant et en recevant directement des messages de protocole dans le code de votre application. Les protocoles v2.0 OpenID Connect et OAuth [sont explicitement documentés](active-directory-v2-protocols.md) pour vous aider à effectuer une telle intégration.
 * Pour finir, vous pouvez utiliser les bibliothèques open source Open ID Connect et OAuth pour procéder à l’intégration avec le point de terminaison v2.0. Le protocole v2.0 devrait être compatible avec de nombreuses bibliothèques de protocole open source sans modification majeure. La disponibilité de ces types de bibliothèques varie en fonction de la langue et de la plateforme. Les sites web [Open ID Connect](http://openid.net/connect/) et [OAuth 2.0](http://oauth.net/2/) contiennent une liste à jour des implémentations les plus courantes. Pour plus d’informations, consultez [Azure Active Directory v2.0 et bibliothèques d’authentification](reference-v2-libraries.md), ainsi que la liste des bibliothèques clientes open source et des exemples qui ont été testés avec le point de terminaison v2.0.
+  * Pour référence, le point de terminaison `.well-known` pour le point de terminaison v2.0 commun est `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`.  Remplacez `common` par votre ID de locataire pour obtenir des données spécifiques à votre locataire.  
 
 ## <a name="restrictions-on-protocols"></a>Restrictions sur les protocoles
 
@@ -109,7 +110,6 @@ Le point de terminaison 2.0 ne prend pas en charge SAML ou WS-Federation, mais u
 Les fonctionnalités de protocole suivantes *ne sont pas disponibles* dans le point de terminaison v2.0 :
 
 * Actuellement, la revendication `email` est retournée uniquement si une revendication facultative est configurée, et si scope=email a été spécifié dans la requête. Toutefois, ce comportement va changer avec la mise à jour du point de terminaison v2.0 en vue d’une meilleure conformité aux nomes Open ID Connect et OAuth 2.0.
-* Le point de terminaison OpenID Connect UserInfo n’est pas implémenté sur le point de terminaison v2.0. Toutefois, toutes les données de profil utilisateur que vous êtes susceptible de recevoir sur ce point de terminaison sont disponibles sur le point de terminaison Microsoft Graph `/me` .
 * Le point de terminaison v2.0 ne prend pas en charge l’émission de revendications de rôle ou de groupe dans les jetons d’ID.
 * Le point de terminaison v2.0 ne prend pas en charge l’[octroi des informations de mot de passe du propriétaire de la ressource OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3).
 

@@ -11,42 +11,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/18/2016
+ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: dee3313082fbe75d76bf27105979cf7e869fafad
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294120"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246472"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
 [Power BI](http://www.powerbi.com/) est une suite d’outils métier permettant d’analyser les données et de partager les informations. Chaque périphérique bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](app-insights-overview.md).
 
-Pour exporter des données d’Application Insights vers Power BI, nous vous recommandons trois méthodes. Vous pouvez les utiliser séparément ou ensemble.
+Pour exporter des données d’Application Insights vers Power BI, il existe trois méthodes :
 
-* [**Adaptateur Power BI**](#power-pi-adapter). Configurez un tableau de bord complet des données de télémétrie à partir de votre application. L’ensemble de graphiques est prédéfini, mais vous pouvez ajouter vos propres requêtes à partir d’autres sources.
-* [**Exporter des requêtes Analytics**](#export-analytics-queries). Écrivez une requête et exportez-la vers Power BI. Vous pouvez écrire votre requête à l’aide d’Analytics ou à partir des entonnoirs d’utilisation. Vous pouvez placer cette requête sur un tableau de bord, avec d’autres données.
-* [**Exportation continue et Azure Stream Analytics**](app-insights-export-stream-analytics.md). Cette méthode est utile si vous souhaitez conserver vos données pendant de longues périodes. Dans le cas contraire, utilisez une des autres méthodes, car celle-ci implique davantage de travail de configuration.
+* [**Exporter des requêtes Analytics**](#export-analytics-queries). Ceci est la méthode privilégiée. Écrivez une requête et exportez-la vers Power BI. Vous pouvez placer cette requête sur un tableau de bord, avec d’autres données.
+* [**Exportation continue et Azure Stream Analytics**](app-insights-export-stream-analytics.md). Cette méthode est utile si vous souhaitez stocker vos données pendant de longues périodes. Si vous n’avez pas d’exigence concernant une conservation étendue des données, utilisez la méthode Exporter une requête Analytics. Exportation continue et Stream Analytics : implique un travail supplémentaire de configuration et des frais de stockage supplémentaires.
+* [**Adaptateur Power BI**](#power-pi-adapter). L’ensemble de graphiques est prédéfini, mais vous pouvez ajouter vos propres requêtes à partir d’autres sources.
 
-## <a name="power-bi-adapter"></a>Adaptateur Power BI
-Cette méthode crée un tableau de bord complet des données de télémétrie. Le jeu de données initial est prédéfini, mais vous pouvez y ajouter plus de données.
-
-### <a name="get-the-adapter"></a>Obtenir l’adaptateur
-1. Connectez-vous à [Power BI](https://app.powerbi.com/).
-2. Ouvrez **Obtenir des données**, **Services**, puis **Application Insights**.
-   
-    ![Captures d’écran de l’obtention à partir d’une source de données Application Insights](./media/app-insights-export-power-bi/power-bi-adapter.png)
-3. Fournissez les détails de votre ressource Application Insights.
-   
-    ![Capture d’écran de l’obtention à partir d’une source de données Application Insights](./media/app-insights-export-power-bi/azure-subscription-resource-group-name.png)
-4. Patientez une minute à deux minutes avant l’importation des données.
-   
-    ![Capture d’écran de l’adaptateur Power BI](./media/app-insights-export-power-bi/010.png)
-
-Vous pouvez modifier le tableau de bord en associant des graphiques Application Insights avec ceux d’autres sources et avec des requêtes Analytics. Vous pouvez obtenir plus de graphiques dans la galerie de visualisation. Chaque graphique comporte des paramètres que vous pouvez définir.
-
-Après l’importation initiale, le tableau de bord et les rapports sont mis à jour quotidiennement. Vous pouvez contrôler la planification de l’actualisation du jeu de données.
+> [!NOTE]
+> L’adaptateur Power BI est désormais **déconseillé**. Les graphiques prédéfinis pour cette solution sont renseignés par des requêtes statiques non modifiables. Vous n’avez pas la possibilité de modifier ces requêtes et, en fonction de certaines propriétés de vos données, il est possible que la connexion à Power BI réussisse, mais aucune donnée n’est renseignée. Cela est dû aux critères d’exclusion qui sont définis dans la requête codée en dur. Cette solution peut toujours fonctionner pour certains clients, mais en raison du manque de flexibilité de l’adaptateur, la solution recommandée consiste à utiliser la fonctionnalité [**Exporter une requête Analytics**](#export-analytics-queries).
 
 ## <a name="export-analytics-queries"></a>Exporter des requêtes Analytics
 Cet itinéraire permet d’écrire la requête Analytics souhaitée ou de l’exporter à partir des entonnoirs d’utilisation, puis de l’exporter vers un tableau de bord Power BI. (Vous pouvez ajouter au tableau de bord créé par l’adaptateur).
@@ -83,10 +67,10 @@ Installez [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-a-funnel"></a>Exporter un entonnoir
 1. [Créez votre entonnoir](usage-funnels.md).
-2. Sélectionnez **Power BI**. 
+2. Sélectionnez **Power BI**.
 
    ![Capture d’écran du bouton Power BI](./media/app-insights-export-power-bi/button.png)
-   
+
 3. Dans Power BI Desktop, sélectionnez **Obtenir des données** > **Requête vide**. Ensuite, dans l’éditeur de requête, sous **Afficher**, sélectionnez **Éditeur avancé**.
 
    ![Capture d’écran de Power BI Desktop, avec le bouton Requête vide mis en surbrillance](./media/app-insights-export-power-bi/blankquery.png)
@@ -139,6 +123,35 @@ Si la réduction du jeu de données provenant de la requête Analytics ne vous c
 ## <a name="about-sampling"></a>À propos de l’échantillonnage
 Si votre application envoie beaucoup de données, vous pouvez essayer d’utiliser la fonctionnalité d’échantillonnage adaptatif pour envoyer seulement un pourcentage de vos données de télémétrie. Il en est de même si vous avez défini manuellement l’échantillonnage dans le Kit SDK ou sur ingestion. [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
 
+## <a name="power-bi-adapter-deprecated"></a>Adaptateur Power BI (déconseillé)
+Cette méthode crée un tableau de bord complet des données de télémétrie. Le jeu de données initial est prédéfini, mais vous pouvez y ajouter plus de données.
+
+### <a name="get-the-adapter"></a>Obtenir l’adaptateur
+1. Connectez-vous à [Power BI](https://app.powerbi.com/).
+2. Ouvrez **Obtenir les données** ![capture d’écran de l’icône GetData dans l’angle inférieur gauche](./media/app-insights-export-power-bi/001.png), **Services**.
+
+    ![Captures d’écran de l’obtention à partir d’une source de données Application Insights](./media/app-insights-export-power-bi/002.png)
+
+3. Sélectionnez **Obtenir** sous Application Insights.
+
+   ![Captures d’écran de l’obtention à partir d’une source de données Application Insights](./media/app-insights-export-power-bi/003.png)
+4. Fournissez les détails de votre ressource Application Insights, puis **connectez-vous**.
+
+    ![Capture d’écran de l’obtention à partir d’une source de données Application Insights](./media/app-insights-export-power-bi/005.png)
+
+     Vous trouverez ces informations dans le volet Vue d’ensemble d’Application Insights :
+
+     ![Capture d’écran de l’obtention à partir d’une source de données Application Insights](./media/app-insights-export-power-bi/004.png)
+
+5. Ouvrez l’application Application Insights Power BI nouvellement créée.
+
+6. Patientez une minute à deux minutes avant l’importation des données.
+
+    ![Capture d’écran de l’adaptateur Power BI](./media/app-insights-export-power-bi/010.png)
+
+Vous pouvez modifier le tableau de bord en associant des graphiques Application Insights avec ceux d’autres sources et avec des requêtes Analytics. Vous pouvez obtenir plus de graphiques dans la galerie de visualisation. Chaque graphique comporte des paramètres que vous pouvez définir.
+
+Après l’importation initiale, le tableau de bord et les rapports sont mis à jour quotidiennement. Vous pouvez contrôler la planification de l’actualisation du jeu de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Power BI - En savoir plus](http://www.powerbi.com/learning/)

@@ -4,25 +4,23 @@ description: Décrit comment effectuer le suivi des opérations asynchrones dans
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: f62212f0488e4d1be49b419615b3a16b80033fd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 601f4a899393d8ddd5ea698d4d01ade7141ee91f
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358708"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42143033"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Suivre les opérations asynchrones Azure
-Certaines opérations REST Azure s'exécuteront de façon asynchrone car l’opération ne peut pas être effectuée rapidement. Cette rubrique explique comment effectuer le suivi de l’état des opérations asynchrones via les valeurs retournées dans la réponse.  
+Certaines opérations REST Azure s’exécutent de façon asynchrone, car elles ne peuvent pas être effectuées rapidement. Cet article explique comment effectuer le suivi de l’état des opérations asynchrones via les valeurs retournées dans la réponse.  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>Codes d’état pour les opérations asynchrones
 Initialement, une opération asynchrone retourne un code d’état HTTP de type :
@@ -35,13 +33,13 @@ Lorsque l’opération se termine correctement, elle renvoie :
 * 200 (OK)
 * 204 (Pas de contenu) 
 
-Reportez-vous à la [documentation de l'API REST](/rest/api/) afin d'afficher les réponses pour l’opération que vous exécutez. 
+Reportez-vous à la [documentation de l’API REST](/rest/api/) pour voir les réponses liées à l’opération que vous exécutez.
 
 ## <a name="monitor-status-of-operation"></a>Surveiller l’état de l'opération
 Les opérations REST asynchrones retournent des valeurs d’en-tête, qui vous permettent de déterminer l’état de l’opération. Il existe potentiellement trois valeurs d’en-tête à examiner :
 
 * `Azure-AsyncOperation`- URL pour vérifier l’état de l’opération en cours. Si votre opération renvoie cette valeur, utilisez-la toujours (au lieu de Location) pour suivre l’état de l’opération.
-* `Location`- URL pour déterminer si une opération est terminée. Utilisez cette valeur uniquement lorsque la valeur Azure-AsyncOperation n’est pas retournée.
+* `Location`- URL pour déterminer si une opération est terminée. Utilisez cette valeur uniquement quand la valeur Azure-AsyncOperation n’est pas retournée.
 * `Retry-After`- Le nombre de secondes à attendre avant de vérifier l’état de l’opération asynchrone.
 
 Toutefois, certaines opérations asynchrones ne retournent pas toutes ces valeurs. Par exemple, vous devrez évaluer la valeur d’en-tête Azure-AsyncOperation pour une opération et la valeur d’en-tête Location pour une autre opération. 

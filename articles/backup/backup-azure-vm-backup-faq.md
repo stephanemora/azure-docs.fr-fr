@@ -7,21 +7,21 @@ manager: shreeshd
 keywords: sauvegarde de la machine virtuelle azure, restauration de la machine virtuelle azure, stratégie de sauvegarde
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: d637a98029b33be890b31f32c3080650b251f7a8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 58b0622da2ef617e652c8bb9dacbf7daa2d79966
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606373"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141496"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Questions sur le service de sauvegarde de machine virtuelle Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde de machine virtuelle Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="configure-backup"></a>Configurer une sauvegarde
 ### <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Les coffres Recovery Services prennent-ils en charge les machines virtuelles Azure Classic ou Resource Manager ? <br/>
-Les coffres Recovery Services prennent en charge les deux modèles.  Vous pouvez sauvegarder une machine virtuelle classique (créée dans le portail Classic) ou une machine virtuelle Azure Resource Manager (créée dans le portail Azure) dans un coffre Azure Recovery Services.
+Les coffres Recovery Services prennent en charge les deux modèles.  Vous pouvez sauvegarder une machine virtuelle classique ou une machine virtuelle Resource Manager dans un coffre Recovery Services.
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Quelles configurations ne sont pas prises en charge par la sauvegarde de machine virtuelle Azure ?
 Consultez [Systèmes d’exploitation pris en charge](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) et [Limitations des sauvegardes de machine virtuelle](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
@@ -73,6 +73,9 @@ Dans ce scénario, par défaut, la tâche de restauration de machine virtuelle c
 2. [Convertir les disques restaurés en disques gérés](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
 3. [Créer une machine virtuelle avec des disques gérés](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
 Pour les applets de commande PowerShell, accédez [ici](backup-azure-vms-automation.md#restore-an-azure-vm).
+
+### <a name="can-i-restore-the-vm-if-my-vm-is-deleted"></a>Puis-je restaurer une machine virtuelle après sa suppression ?
+Oui. Le cycle de vie d’une machine virtuelle et celui de son élément de sauvegarde sont différents. Par conséquent, même si vous supprimez la machine virtuelle, vous pouvez accéder à son élément de sauvegarde dans le coffre Recovery Services, et déclencher une restauration à l’aide d’un des points de récupération. 
 
 ## <a name="manage-vm-backups"></a>Gérer les sauvegardes de machine virtuelle
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Que se passe-t-il lorsque je modifie une stratégie de sauvegarde sur des machines virtuelles ?

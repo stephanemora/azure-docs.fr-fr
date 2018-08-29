@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b55bc7f6aab522a6313498b6fdccc88870796224
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213025"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41946410"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Télécharger et extraire le Kit de développement Azure Stack (ASDK)
 Après avoir vérifié que l’ordinateur hôte du Kit de développement répond bien aux exigences de base pour l’installation du kit ASDK, vous devez télécharger puis extraire le package de déploiement du Kit de développement Azure Stack afin d’obtenir le fichier Cloudbuilder.vhdx.
@@ -43,7 +43,7 @@ Après avoir vérifié que l’ordinateur hôte du Kit de développement répond
 2. Lisez et acceptez le contrat de licence de la page **Contrat de licence** de l’Assistant de l’auto-extracteur, plus cliquez sur **Suivant**.
 3. Passez en revue la déclaration de confidentialité de la page **Avis important** de l’Assistant de l’auto-extracteur, puis cliquez sur **Suivant**.
 4. Sélectionnez l’emplacement où les fichiers de configuration Azure Stack doivent être extraits sur la page **Sélectionner l’emplacement de destination** de l’Assistant de l’auto-extracteur, puis cliquez sur **Suivant**. L’emplacement par défaut est *dossier actuel*\Kit de développement Azure Stack. 
-5. Passez en revue le résumé de l’emplacement de la page **Ready to Extract** (Prêt pour l’extraction) de l’Assistant de l’auto-extracteur, puis cliquez sur **Extraire** pour extraire les fichiers CloudBuilder.vhdx (environ 25 Go) et ThirdPartyLicenses.rtf. Ce processus prend un certain temps.
+5. Passez en revue le résumé de l’emplacement de la page **Ready to Extract** (Prêt pour l’extraction) de l’Assistant de l’auto-extracteur, puis cliquez sur **Extraire** pour extraire les fichiers CloudBuilder.vhdx (environ 28 Go) et ThirdPartyLicenses.rtf. Ce processus prend un certain temps.
 6. Copiez ou déplacez le fichier CloudBuilder.vhdx à la racine du lecteur C:\ (C:\CloudBuilder.vhdx) sur l’ordinateur hôte ASDK.
 
 > [!NOTE]

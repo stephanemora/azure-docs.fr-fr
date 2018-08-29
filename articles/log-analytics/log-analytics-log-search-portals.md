@@ -1,5 +1,5 @@
 ---
-title: Portails servant à la création et la modification des requêtes de journal dans Azure Log Analytics | Microsoft Docs
+title: Affichage et analyse de données dans Azure Log Analytics | Microsoft Docs
 description: Cet article décrit les portails que vous pouvez utiliser dans Azure Log Analytics pour créer et modifier les recherches dans les journaux.
 services: log-analytics
 documentationcenter: ''
@@ -11,38 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 08/20/2018
 ms.author: magoedte; bwren
 ms.component: na
-ms.openlocfilehash: e2ea0bf1fb3f1c63f4e6f037e465e8fdfd9a4374
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 386aad94461fa3f2ceafb7564342797eefa2f086
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133350"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246509"
 ---
-# <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Portails servant à la création et la modification des requêtes de journal dans Azure Log Analytics
+# <a name="viewing-and-analyzing-data-in-log-analytics"></a>Affichage et analyse de données dans Log Analytics
+Le portail Azure comporte deux options permettant d’analyser les données stockées dans Log Analystics et de créer des requêtes pour une analyse ad hoc. Les requêtes que vous créez à l’aide de ces portails peuvent être utilisées pour d’autres fonctionnalités telles que des alertes et des tableaux de bord.
 
-Utilisez les recherches dans les journaux à plusieurs emplacements de Log Analytics pour récupérer des données à partir de l’espace de travail.  Toutefois, pour la création et la modification de requêtes, ainsi que le travail interactif avec des données renvoyées, vous disposez des deux options décrites ci-dessous.  
+## <a name="log-analytics-page-preview"></a>Page Log Analytics (préversion)
+Ouvrez la page Log Analytics à partir de l’option **Journaux (préversion)** dans le menu Log Analytics. Il s’agit d’une nouvelle expérience pour utiliser les données de journal et créer des requêtes. Vous pouvez obtenir une introduction à ce portail et inspecter ses fonctionnalités dans la section [Prise en main de la page Log Analytics dans le portail Azure](query-language/get-started-analytics-portal.md).
 
-## <a name="log-search"></a>Recherche dans les journaux 
-La page Recherche dans les journaux est accessible depuis le portail Azure.  Il convient pour la création de requêtes de base pouvant être créées sur une seule ligne.  Il est possible d’utiliser la page Recherche dans les journaux sans ouvrir de portail externe. Vous pouvez en outre l’utiliser pour exécuter diverses fonctions avec recherches dans les journaux, y compris la création de règles d’alerte, la création de groupes d’ordinateurs et l’exportation des résultats de la requête.  
+La page Log Analytics apporte les améliorations suivantes à la [recherche dans les journaux](#log-search).
 
-La page Recherche dans les journaux fournit plusieurs fonctionnalités permettant de modifier la requête sans pour autant devoir connaître entièrement le langage utilisé dans celle-ci.  Vous pouvez obtenir un résumé de ces fonctionnalités dans la section [Créer des recherches dans les journaux dans Azure Log Analytics à l’aide du portail Recherche dans les journaux](log-analytics-log-search-log-search-portal.md).
+* Plusieurs onglets : créez des onglets distincts pour travailler avec plusieurs requêtes.
+* Visualisations enrichies : diverses options de création de graphiques.
+* Amélioration de la saisie semi-automatique Intellisense et de langage.
+* Mise en surbrillance syntaxique : améliore la lisibilité des requêtes. 
+* Explorateur de requêtes : requêtes et fonctions avec enregistrement d’accès.
+* Vie Schéma : examinez la structure de vos données pour faciliter l’écriture des requêtes.
+* Partager : créez des liens vers des requêtes, ou épinglez des requêtes sur n’importe quel tableau de bord Azure partagé.
+* Analyse intelligente : identifie les pics dans vos graphiques et en analyse rapidement la cause.
+* Sélection de colonnes : triez et regroupez les colonnes dans les résultats de la requête.
 
-
-![Page Recherche dans les journaux](media/log-analytics-log-search-portals/log-search-portal.png)
-
-## <a name="advanced-analytics-portal"></a>Portail Analytics avancé
-Le portail d’analytique avancée est un portail dédié qui propose des fonctionnalités avancées non disponibles sur la page Recherche dans les journaux du portail Azure.  Ces fonctionnalités incluent la possibilité de modifier une requête sur plusieurs lignes et d’exécuter de façon sélective du code, des données Intellisense contextuelles et Smart Analytics.  Le portail Analytics avancé est plus approprié pour la conception des requêtes complexes qui sont soit enregistrées sous la forme d’une recherche dans les journaux soit copiées et collées dans d’autres éléments de Log Analytics.  Ouvrez le portail d’analytique avancée à partir du lien figurant dans la page Recherche dans les journaux.
+> [!NOTE]
+> La page Log Analytics affiche les mêmes fonctionnalités que le portail Analytics avancé, un outil externe au portail Azure. Le portail Analytics avancé est toujours disponible, mais les liens et les autres références à celui-ci dans le portail Azure sont remplacés par cette nouvelle page.
 
 ![Portail Analytics avancé](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-En raison de ses fonctionnalités avancées, vous utiliserez généralement le portail Analytics avancé comme votre principal outil de création et modification des requêtes.  Une fois que vous avez la certitude que la requête fonctionne comme prévu, copiez-la et collez-la à un autre emplacement, par exemple dans la page Recherche dans les journaux ou dans le concepteur de vues.  
-
 ### <a name="firewall-requirements"></a>Configuration requise du pare-feu
-Votre navigateur doit pouvoir accéder aux adresses suivantes pour pouvoir utiliser le portail Analytics avancé.  Si votre navigateur accède au portail Azure par le biais d’un pare-feu, vous devez activer l’accès à ces adresses.
+Votre navigateur doit pouvoir accéder aux adresses suivantes pour pouvoir afficher la page Log Analytics et le portail Analytics avancé.  Si votre navigateur accède au portail Azure par le biais d’un pare-feu, vous devez activer l’accès à ces adresses.
 
 | Uri | IP | Ports |
 |:---|:---|:---|
@@ -51,8 +55,15 @@ Votre navigateur doit pouvoir accéder aux adresses suivantes pour pouvoir utili
 | docs.loganalytics.io   | Dynamique | 80,443 |
 
 
+## <a name="log-search"></a>Recherche dans les journaux
+Ouvrez la page Recherche dans les journaux à partir de l’option **Journaux** du menu Log Analytics ou de l’option **Log Analytics** du menu Azure Monitor. Cette option permet d’analyser les données de journal à l’aide de requêtes de base. Elle fournit plusieurs fonctionnalités permettant de modifier les requêtes sans pour autant devoir connaître entièrement le langage utilisé dans celle-ci.  Vous pouvez obtenir un résumé de ces fonctionnalités dans la section [Créer des recherches dans les journaux dans Azure Log Analytics à l’aide du portail Recherche dans les journaux](log-analytics-log-search-log-search-portal.md). 
+
+
+![Page Recherche dans les journaux](media/log-analytics-log-search-portals/log-search-portal.png)
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur la façon de créer des requêtes à l’aide du langage de requête, lisez un didacticiel sur l’utilisation de la page [Recherche dans les journaux](log-analytics-tutorial-viewdata.md).
-- Pour créer des requêtes sophistiquées et les utiliser comme environnement de développement pour vos recherches dans les journaux, consultez le [portail d’analytique avancée](https://go.microsoft.com/fwlink/?linkid=856587).
+- Pour en savoir plus sur la façon de créer des requêtes à l’aide du langage de requête, lisez un didacticiel sur l’utilisation de la page [Recherche dans les journaux](log-analytics-tutorial-viewdata.md)
+- Passez en revue une [leçon utilisant le portail Analytics avancé](query-language/get-started-analytics-portal.md), qui fournit la même expérience que la page Log Analytics.
 

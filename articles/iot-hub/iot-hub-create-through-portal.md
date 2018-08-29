@@ -2,18 +2,17 @@
 title: Utiliser le portail Azure pour créer un IoT Hub | Microsoft Azure
 description: Comment créer, gérer et supprimer des IoT Hubs Azure via le portail Azure. Inclut des informations sur les niveaux de tarification, l’évolutivité, la sécurité et la configuration de la messagerie.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ca0eff415c4ba0e887c3999e7a03e3c4fa1cc156
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b03ae434e93dbab45235fe67c499497e1257064
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635931"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42141495"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Création d’un IoT Hub à l’aide du portail Azure
 
@@ -36,9 +35,10 @@ Vous pouvez trouver le service IoT Hub aux emplacements suivants sur le portail�
 Vous pouvez créer un hub IoT à l'aide des méthodes suivantes :
 
 * L’option **+ Nouveau** ouvre le panneau indiqué dans la capture d’écran suivante. Les étapes de création du hub IoT via cette méthode et via le marketplace sont identiques.
+
 * Sur le marketplace, choisissez **Créer** pour ouvrir le panneau indiqué dans la capture d’écran suivante.
 
-Les sections suivantes décrivent les différentes étapes permettant de créer un hub IoT :
+Les sections suivantes décrivent les différentes étapes permettant de créer un hub IoT :
 
 ### <a name="choose-the-name-of-the-iot-hub"></a>Choisir le nom du hub IoT
 
@@ -58,11 +58,11 @@ Le nombre de messages autorisés par unité par jour dépend du niveau de tarifi
 
 ### <a name="device-to-cloud-partitions-and-resource-group"></a>Les partitions appareil-à-cloud et groupe de ressources
 
-Vous pouvez modifier le nombre de partitions pour un hub IoT. Le nombre de partitions par défaut est 4 ; vous pouvez choisir un nombre différent dans la liste déroulante.
+Vous pouvez modifier le nombre de partitions pour un hub IoT. Le nombre de partitions par défaut est de 4. Toutefois, vous pouvez choisir un autre nombre dans la liste déroulante.
 
 Vous n’avez pas besoin de créer explicitement un groupe de ressources vide. Lorsque vous créez une ressource, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe de ressources existant.
 
-![][5]
+![Capture d’écran montrant comment créer un hub dans le portail Azure](./media/iot-hub-create-through-portal/location1.png)
 
 ### <a name="choose-subscription"></a>Choisir un abonnement
 
@@ -74,15 +74,16 @@ L’option d’emplacement fournit une liste des régions dans lesquelles IoT Hu
 
 ### <a name="create-the-iot-hub"></a>Créer le hub IoT
 
-Lorsque toutes les étapes précédentes sont terminées, vous pouvez créer le hub IoT. Cliquez sur **Créer** pour démarrer le processus principal afin de créer et de déployer le hub IoT avec les options sélectionnées.
+Lorsque toutes les étapes précédentes sont terminées, vous pouvez créer le hub IoT. Cliquez sur **Créer** pour démarrer le processus backend afin de créer et de déployer le hub IoT avec les options sélectionnées.
 
-La création du hub IoT peut prendre quelques minutes, car le déploiement principal doit s’effectuer sur les serveurs d’emplacement appropriés.
+La création du hub IoT peut prendre quelques minutes, car le déploiement backend doit s’effectuer sur les serveurs situés aux emplacements appropriés.
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>Modifier les paramètres du hub IoT
+<!--robinsh these screenshots are out of date -->
 
 Vous pouvez modifier les paramètres d’un hub IoT existant après sa création, dans le panneau IoT Hub.
 
-![][8]
+![Capture d’écran montrant les paramètres pour le hub IoT](./media/iot-hub-create-through-portal/portal-settings.png)
 
 **Stratégies d’accès partagé** : ces stratégies définissent les autorisations pour que les appareils et services se connectent au IoT Hub. Vous pouvez accéder à ces stratégies en cliquant sur **Stratégies d’accès partagé** sous **Général**. Dans ce panneau, vous pouvez soit modifier les stratégies existantes, soit ajouter une nouvelle stratégie.
 
@@ -96,19 +97,20 @@ Vous pouvez modifier les paramètres d’un hub IoT existant après sa création
 
 * Cliquez sur **Créer** pour ajouter la stratégie créée à la liste existante.
 
-![][10]
+   ![Capture d’écran montrant l’ajout d’une stratégie d’accès partagé](./media/iot-hub-create-through-portal/shared-access-policies.png)
 
 ## <a name="endpoints"></a>Points de terminaison
 
 Pour afficher la liste des points de terminaison associés à l’IoT Hub que vous essayez de modifier, cliquez sur **Points de terminaison**. Il existe deux types de points de terminaison : les points de terminaison intégrées à IoT Hub, et ceux que vous avez ajoutés à IoT Hub après sa création.
 
-![][11]
+![Capture d’écran montrant l’ajout d’un point de terminaison](./media/iot-hub-create-through-portal/messaging-settings.png)
 
 ### <a name="built-in-endpoints"></a>Points de terminaison intégrés
 
 Il existe deux catégories de points de terminaison intégrés : les **commentaires de messages cloud-à-appareil** et les **événements**.
 
 * Paramètres **Commentaire de messages cloud-à-appareil** : ce paramètre contient deux configurations secondaires : **Cloud vers appareil TTL** (durée de vie) et **Durée de rétention** (en heures) pour les messages. Lorsque vous créez une instance IoT Hub, ces deux paramètres sont paramétrés par défaut sur une heure. Pour les ajuster, utilisez les curseurs ou saisissez les valeurs de votre choix.
+
 * Paramètres **Événements** : ils présentent plusieurs configurations secondaires, qui sont pour certaines en lecture seule. La liste ci-dessous décrit ces paramètres :
 
   * **Partitions** : une valeur par défaut est définie lors de la création de l’instance IoT Hub. Vous pouvez ici modifier le nombre de partitions.
@@ -126,19 +128,19 @@ Il existe deux catégories de points de terminaison intégrés : les **commenta
 
 Vous pouvez ajouter des points de terminaison personnalisés sur votre IoT Hub par le biais de ce portail. En haut du panneau **Points de terminaison**, cliquez sur **Ajouter** afin d’ouvrir le panneau **Ajouter un point de terminaison**. Saisissez les informations requises, puis cliquez sur **OK**. Votre point de terminaison personnalisé est désormais répertorié dans le panneau principal **Points de terminaison**.
 
-![][13]
+![Capture d’écran montrant la création d’un point de terminaison personnalisé](./media/iot-hub-create-through-portal/endpoint-creation.png)
 
-Pour en savoir plus sur les points de terminaison personnalisés, consultez [Référence - Points de terminaison IoT Hub][lnk-devguide-endpoints].
+Pour plus d’informations sur les points de terminaison personnalisés, consultez [Référence - Points de terminaison IoT Hub]( iot-hub-devguide-endpoints.md).
 
 ## <a name="routes"></a>Itinéraires
 
 Cliquez sur **Itinéraires** pour gérer la façon dont IoT Hub distribue vos messages cloud-à-appareil.
 
-![][14]
+![Capture d’écran montrant l’ajout d’un itinéraire](./media/iot-hub-create-through-portal/routes-list.png)
 
 Pour ajouter des itinéraires à votre IoT Hub, cliquez sur **Ajouter** en haut du panneau **Itinéraires*** , saisissez les informations requises, puis cliquez sur **OK**. Dès lors, votre itinéraire est répertorié dans le panneau principal **Itinéraires**. Pour modifier un itinéraire, cliquez dessus dans la liste des itinéraires. Pour activer un itinéraire, cliquez dessus dans la liste des itinéraires, puis définissez le paramètre **Activer/Désactiver** sur **Désactiver**. Pour enregistrer la modification, cliquez sur **OK** en bas du panneau.
 
-![][15]
+![Capture d’écran montrant la modification d’une nouvelle règle d’acheminement](./media/iot-hub-create-through-portal/route-edit.png)
 
 ## <a name="delete-the-iot-hub"></a>Supprimez IoT Hub
 
@@ -148,31 +150,12 @@ Vous pouvez accéder au concentrateur IoT Hub en cliquant sur **Parcourir**, pui
 
 Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
-* [Gérer en bloc des appareils IoT][lnk-bulk]
-* [Métriques d’IoT Hub][lnk-metrics]
-* [Surveillance des opérations][lnk-monitor]
+* [Gestion en bloc des appareils IoT](iot-hub-bulk-identity-mgmt.md)
+* [Métriques IoT Hub](iot-hub-metrics.md)
+* [Surveillance des opérations](iot-hub-operations-monitoring.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 
-* [Guide du développeur d’IoT Hub][lnk-devguide]
-* [Déploiement d’une IA sur des appareils de périphérie avec Azure IoT Edge][lnk-iotedge]
-* [Sécuriser votre solution IoT de bout en bout][lnk-securing]
-
-[4]: ./media/iot-hub-create-through-portal/create-iothub.png
-[5]: ./media/iot-hub-create-through-portal/location1.png
-[8]: ./media/iot-hub-create-through-portal/portal-settings.png
-[10]: ./media/iot-hub-create-through-portal/shared-access-policies.png
-[11]: ./media/iot-hub-create-through-portal/messaging-settings.png
-[12]: ./media/iot-hub-create-through-portal/pricing-error.png
-[13]: ./media/iot-hub-create-through-portal/endpoint-creation.png
-[14]: ./media/iot-hub-create-through-portal/routes-list.png
-[15]: ./media/iot-hub-create-through-portal/route-edit.png
-
-[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-securing]: iot-hub-security-ground-up.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
+* [Guide du développeur d’IoT Hub](iot-hub-devguide.md)
+* [Déploiement d’une IA sur des appareils de périmètre avec Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Sécuriser votre solution IoT de bout en bout](../iot-fundamentals/iot-security-ground-up.md)

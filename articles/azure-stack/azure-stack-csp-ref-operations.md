@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: bb46881425398618df54288a9d2e6d65bb03dad4
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264808"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41947932"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gérer l’inscription des locataires dans Azure Stack
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur Azure Stack et les profils d’API, consultez [G�
 
 ### <a name="powershell"></a>PowerShell
 
-Utilisez l’applet de commande New-AzureRmResource pour mettre à jour la ressource de l’inscription. Connectez-vous à Azure (`Add-AzureRmAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
+Utilisez la cmdlet New-AzureRmResource pour mettre à jour la ressource de l’inscription. Connectez-vous à Azure (`Add-AzureRmAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
 
 ```powershell
   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
@@ -89,7 +89,7 @@ Obtenez une liste de tous les locataires qui ont été ajoutés à une inscripti
 Utilisez l’applet de commande Get-AzureRmResource pour répertorier tous les locataires inscrits. Connectez-vous à Azure (`Add-AzureRmAccount`) avec le compte utilisé lors de l’inscription initiale. Voici un exemple d’ajout d’un locataire :
 
 ```powershell
-  Get-AzureRmResovurce -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
+  Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>Appel d’API

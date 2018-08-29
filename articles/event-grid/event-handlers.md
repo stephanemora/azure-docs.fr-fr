@@ -3,17 +3,16 @@ title: Gestionnaires d’événements Azure Event Grid
 description: Décrit les gestionnaires d’événements pris en charge pour Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7c012bdf025a352788aec2d2d70bab33d7914577
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 08658c42687626779dea0de7dd724d9431a296da
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849540"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617139"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Gestionnaires d’événements dans Azure Event Grid
 
@@ -27,7 +26,7 @@ Utilisez Azure Automation pour traiter les événements avec des runbooks automa
 
 |Intitulé  |Description  |
 |---------|---------|
-|[Intégrer Azure Automation à Event Grid et Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Créez une machine virtuelle, qui envoie un événement. L’événement déclenche un runbook Automation qui balise la machine virtuelle et déclenche un message qui est envoyé à un canal Microsoft Teams. |
+|[Tutoriel : Intégrer Azure Automation à Event Grid et Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Créez une machine virtuelle, qui envoie un événement. L’événement déclenche un runbook Automation qui balise la machine virtuelle et déclenche un message qui est envoyé à un canal Microsoft Teams. |
 
 ## <a name="azure-functions"></a>Azure Functions
 
@@ -38,17 +37,21 @@ Quand vous utilisez Azure Functions en tant que gestionnaire, utilisez le décle
 |Intitulé  |Description  |
 |---------|---------|
 | [Déclencheur Event Grid pour Azure Functions](../azure-functions/functions-bindings-event-grid.md) | Vue d’ensemble de l’utilisation du déclencheur Event Grid dans Functions. |
-| [Automatiser le redimensionnement des images chargées à l’aide d’Event Grid](resize-images-on-storage-blob-upload-event.md) | Les utilisateurs chargent les images par le biais de l’application web sur le compte de stockage. Quand un objet blob de stockage est créé, Event Grid envoie un événement à l’application de fonction, qui redimensionne l’image chargée. |
-| [Diffuser en continu des Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md) | Quand Event Hubs crée un fichier Capture, Event Grid envoie un événement à une application de fonction. L’application récupère le fichier Capture et migre les données vers un entrepôt de données. |
-| [Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
+| [Tutoriel : Automatiser le redimensionnement des images chargées à l’aide d’Event Grid](resize-images-on-storage-blob-upload-event.md) | Les utilisateurs chargent les images par le biais de l’application web sur le compte de stockage. Quand un objet blob de stockage est créé, Event Grid envoie un événement à l’application de fonction, qui redimensionne l’image chargée. |
+| [Tutoriel : Diffuser en continu des Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md) | Quand Event Hubs crée un fichier Capture, Event Grid envoie un événement à une application de fonction. L’application récupère le fichier Capture et migre les données vers un entrepôt de données. |
+| [Tutoriel : Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
 
 ## <a name="event-hubs"></a>Event Hubs
 
 Utilisez Event Hubs si votre solution reçoit des événements plus vite qu’elle ne peut les traiter. Votre application traite à son propre rythme les événements d’Event Hubs. Vous pouvez mettre à l’échelle votre système de traitement des événements de façon à gérer les événements entrants.
 
+Event Hubs peut servir de source d’événement ou de gestionnaire d’événements. L’article suivant montre comment utiliser Event Hubs comme un gestionnaire.
+
 |Intitulé  |Description  |
 |---------|---------|
-| [Acheminer des événements personnalisés vers Azure Event Hubs avec Azure CLI et Event Grid](custom-event-to-eventhub.md) | Envoie un événement personnalisé à un hub d’événements afin qu’il soit traité par une application. |
+| [Démarrage rapide : Acheminer des événements personnalisés vers Azure Event Hubs avec Azure CLI et Event Grid](custom-event-to-eventhub.md) | Envoie un événement personnalisé à un hub d’événements afin qu’il soit traité par une application. |
+
+Pour obtenir des exemples d’utilisation d’Event Hubs comme une source, consultez [Source Event Hubs](event-sources.md#event-hubs).
 
 ## <a name="hybrid-connections"></a>les connexions hybrides
 
@@ -56,17 +59,17 @@ Utilisez les connexions hybrides Azure Relay pour envoyer des événements aux a
 
 |Intitulé  |Description  |
 |---------|---------|
-| [Envoyer des évènements à une connexion hybride](custom-event-to-hybrid-connection.md) | Envoie un événement personnalisé vers une connexion hybride existante pour son traitement par une application d’écouteur. |
+| [Tutoriel : Envoyer des événements à une connexion hybride](custom-event-to-hybrid-connection.md) | Envoie un événement personnalisé vers une connexion hybride existante pour son traitement par une application d’écouteur. |
 
-## <a name="logic-apps"></a>Logic Apps
+## <a name="logic-apps"></a>Logic Apps
 
 Utilisez Logic Apps pour automatiser les processus métier afin de répondre aux événements.
 
 |Intitulé  |Description  |
 |---------|---------|
-| [Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Une application logique surveille les modifications apportées à une machine virtuelle et envoie des e-mails à ce sujet. |
-| [Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Une application logique envoie un e-mail de notification chaque fois qu’un appareil est ajouté à votre hub IoT. |
-| [Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
+| [Tutoriel : Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Une application logique surveille les modifications apportées à une machine virtuelle et envoie des e-mails à ce sujet. |
+| [Tutoriel : Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Une application logique envoie un e-mail de notification chaque fois qu’un appareil est ajouté à votre hub IoT. |
+| [Tutoriel : Exemples d’intégration d’Azure Service Bus et d’Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid envoie des messages à partir de la rubrique Service Bus à l’application de fonction et à l’application logique. |
 
 ## <a name="queue-storage"></a>Stockage File d’attente
 
@@ -74,7 +77,7 @@ Utilisez le stockage File d’attente pour recevoir des événements qui doivent
 
 |Intitulé  |Description  |
 |---------|---------|
-| [Acheminer des événements personnalisés vers le Stockage File d’attente Azure avec Azure CLI et Event Grid](custom-event-to-queue-storage.md) | Décrit comment envoyer des événements personnalisés à un stockage File d’attente. |
+| [Démarrage rapide : Acheminer des événements personnalisés vers le Stockage File d’attente Azure avec Azure CLI et Event Grid](custom-event-to-queue-storage.md) | Décrit comment envoyer des événements personnalisés à un stockage File d’attente. |
 
 ## <a name="webhooks"></a>WebHooks
 
@@ -82,7 +85,10 @@ Utilisez des webhooks pour les points de terminaison personnalisables qui répon
 
 |Intitulé  |Description  |
 |---------|---------|
-| [Recevoir des événements sur un point de terminaison HTTP](receive-events.md) | Décrit comment valider un point de terminaison HTTP pour recevoir des événements à partir d’un abonnement à des événements et désérialiser des événements. |
+| Démarrage rapide : Créer et acheminer des événements personnalisés avec [Azure CLI](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md) et le [portail](custom-event-quickstart-portal.md). | Montre comment envoyer des événements personnalisés à un webhook. |
+| Démarrage rapide : Acheminer des événements de stockage Blob vers un point de terminaison web avec [Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) et le [portail](blob-event-quickstart-portal.md). | Montre comment envoyer des événements de stockage d’objets blob à un webhook. |
+| [Démarrage rapide : Envoyer des événements de registre de conteneurs](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Montre comment utiliser Azure CLI pour envoyer des événements de registre de conteneurs. |
+| [Vue d’ensemble : Recevoir des événements sur un point de terminaison HTTP](receive-events.md) | Décrit comment valider un point de terminaison HTTP pour recevoir des événements à partir d’un abonnement à des événements et désérialiser des événements. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

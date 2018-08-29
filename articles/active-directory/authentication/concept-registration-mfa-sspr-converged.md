@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492890"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141515"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Inscription convergée pour la réinitialisation de mot de passe en libre-service et l’authentification multifacteur Azure (préversion publique)
 
@@ -55,6 +55,9 @@ Les utilisateurs invités à s’inscrire lors de la connexion verront l’expé
 > Cette expérience s’affiche uniquement lorsqu’un utilisateur est invité à s’inscrire lors de la connexion. Les utilisateurs qui accèdent directement à la nouvelle expérience à l’adresse aka.ms/setupsecurityinfo voient une version différente de l’expérience, qui est décrite plus loin dans cet article.
 
 Les méthodes d’authentification affichées changent selon les méthodes activées dans vos stratégies MFA ou SSPR. L’utilisateur est invité à inscrire le nombre minimal de méthodes d’authentification nécessaires pour être conforme à la stratégie MFA, à la stratégie SSPR, ou aux deux. S’il existe une certaine flexibilité par rapport aux méthodes d’authentification que les utilisateurs peuvent inscrire, ils peuvent sélectionner **Choisir les informations de sécurité** pour choisir d’autres méthodes d’authentification.  
+
+> [!NOTE]
+> Si vous activez l’utilisation de la notification d’application mobile et du code d’application mobile, les utilisateurs qui inscrivent l’application Microsoft Authenticator à l’aide d’une notification peuvent utiliser la notification et le code pour vérifier leur identité.
 
 Contrairement à l’expérience d’inscription MFA précédente, les utilisateurs ne seront pas invités à inscrire un mot de passe d’application durant la nouvelle expérience d’inscription. Au lieu de cela, ils doivent suivre les étapes répertoriées dans notre tutoriel de mots de passe d’applications pour inscrire les mots de passe dans la nouvelle expérience.  
 

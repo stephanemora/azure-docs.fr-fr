@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 316c7212c30e9fe1151cdf5ceabf875439ad4c65
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4570b514bef33c8dfa6d220ee4cd88ad068ba4d0
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368165"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "41929708"
 ---
 # <a name="facebook-content-moderation-with-content-moderator"></a>Modération du contenu Facebook avec Content Moderator
 
@@ -30,7 +30,7 @@ Quand nous aurons terminé, Facebook enverra le contenu publié par les visiteur
 
 La figure suivante illustre les composants de la solution.
 
-![Modération des posts Facebook](images/tutorial-facebook-moderation.png)
+![Modération des publications Facebook](images/tutorial-facebook-moderation.png)
 
 ## <a name="create-a-content-moderator-team"></a>Créer une équipe Content Moderator
 
@@ -61,7 +61,7 @@ Connectez-vous au [portail de gestion Azure](https://portal.azure.com/) pour cr�
 
 > [!NOTE]
 > La valeur **cm:region** doit être le nom de la région (sans espace).
-> Par exemple, **westeurope**, pas West Europe, **westcentralus**, pas West Central US, et ainsi de suite.
+> Par exemple, **westeurope**, pas Europe Ouest, **westcentralus**, pas USA Centre-Ouest, et ainsi de suite.
 >
 
 | Paramètre d'application | Description   | 
@@ -85,7 +85,7 @@ Connectez-vous au [portail de gestion Azure](https://portal.azure.com/) pour cr�
     6. Cliquez sur **Créer**.
     7. Remplacez le contenu du fichier **run.csx** par le contenu de [**FbListener/run.csx**](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FbListener/run.csx).
 
-6. Créez une fonction **HttpTrigger-CSharp** nommée **CMListener**. Cette fonction reçoit des événements de Facebook. Pour la créer, effectuez les étapes suivantes.
+6. Créez une fonction **HttpTrigger-CSharp** nommée **CMListener**. Cette fonction reçoit des événements de Content Moderator. Pour la créer, effectuez les étapes suivantes.
 
     1. Gardez la page [Création de fonctions Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal) ouverte pour référence.
     2. Cliquez sur le **+** (Ajouter) pour créer une nouvelle fonction.

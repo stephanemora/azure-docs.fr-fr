@@ -1,26 +1,23 @@
 ---
 title: Proxy d’application Azure Active Directory et Tableau | Microsoft Docs
-description: Découvrez comment utiliser Proxy d’application Azure Active Directory (Azure AD) pour fournir un accès à distance à votre déploiement de Tableau.  .
+description: Découvrez comment utiliser Proxy d’application Azure Active Directory (Azure AD) pour fournir un accès à distance à votre déploiement de Tableau.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7cace1af527c1c7c80bf0e23f7a88aa9ac9f9d03
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365020"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246468"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Proxy d’application Azure Active Directory et Tableau 
 
@@ -35,19 +32,10 @@ Le scénario décrit dans cet article suppose ce qui suit :
 - Vous avez installé un [connecteur Proxy d’application](application-proxy-enable.md). 
 
  
-
 ## <a name="enabling-application-proxy-for-tableau"></a>Activation de Proxy d’application pour Tableau 
 
-Pour utiliser Proxy d’application pour Tableau, vous avez besoin d’envoyer un e-mail à [aadapfeedback@microsoft.com](mailto:aadapfeedback@microsoft.com) afin de faire activer ce scénario.
-Dans votre e-mail :
+Le Proxy d’application prend en charge le flux OAuth 2.0 Grant, qui est nécessaire pour que Tableau fonctionne correctement. Cela signifie qu’il n’y a plus d’étapes spécifiques nécessaires pour activer cette application, autre que le fait de le configurer en suivant les étapes de publication ci-dessous.
 
--   Utilisez Activer Proxy d’application pour Tableau en tant qu’objet.
--   Ajoutez votre ID de locataire dans le corps.    
-
-Vous obtenez une confirmation quand vous êtes prêt à utiliser l’application. Vous pouvez terminer les configurations en attendant la confirmation.
-
-
- 
 
 ## <a name="publish-your-applications-in-azure"></a>Publier vos applications dans Azure 
 

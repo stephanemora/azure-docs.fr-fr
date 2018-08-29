@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38943868"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40166130"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Afficher les machines virtuelles sur lesquelles une maintenance est planifiée dans le portail
 
@@ -38,6 +38,8 @@ Vous pouvez utiliser le portail Azure et rechercher les machines virtuelles sur 
       | Mise à jour déjà effectuée | Votre machine virtuelle est déjà mise à jour et aucune action supplémentaire n’est nécessaire pour l’instant. | 
       | Réessayer plus tard | Vous avez lancé la maintenance, mais sans succès. Vous pourrez utiliser l’option de maintenance libre-service ultérieurement. | 
       | Réessayer maintenant | Vous pouvez faire une nouvelle tentative de maintenance automatique après un échec. | 
+      | - | Votre machine virtuelle ne fait pas partie d’un cycle de maintenance planifiée. |
+      
 
    **Fenêtre Maintenance - Automatique** : affiche la fenêtre de temps dans laquelle vous pouvez démarrer vous-même la maintenance de vos machines virtuelles.
    

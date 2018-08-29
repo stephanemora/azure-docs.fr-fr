@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 07/31/2018
+ms.date: 08/22/2018
 ms.author: rolyon
-ms.openlocfilehash: edf8eccf8c0a1cba70ac178ac5863a68b26f14a3
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6162ee59689df12e2dace9a0419490979a13d4c5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622073"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616861"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main la fonctionnalité Conditions d’utilisation d’Azure Active Directory.
@@ -122,6 +122,8 @@ Les utilisateurs dans l’étendue voient l’écran suivant au cours de la conn
 L’écran suivant montre comment se présente les conditions d’utilisation sur les appareils mobiles.
 
 ![Événement d’audit](media/active-directory-tou/mobile-tou.png)
+
+Les utilisateurs ne doivent accepter les conditions d’utilisation qu’une seule fois et ils ne les verront plus chaque fois qu’ils se reconnectent.
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>Comment les utilisateurs peuvent consulter leurs conditions d’utilisation
 Vous pouvez consulter et vérifier les conditions d’utilisation qu’ils ont acceptées en procédant comme suit.
