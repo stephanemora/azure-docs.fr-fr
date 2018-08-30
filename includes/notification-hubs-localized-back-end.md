@@ -8,24 +8,25 @@ ms.topic: include
 ms.date: 04/02/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 752feca30fdca663aaf8bd88e6686781b9065682
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 527567ee3f3a939c7358fb6a62271cbe38e16974
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836679"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42915160"
 ---
 Quand vous envoyez des notifications de modèle, vous devez uniquement fournir un ensemble de propriétés. Dans ce scénario, l’ensemble de propriétés contient la version localisée des informations actuelles.
 
-    {
-        "News_English": "World News in English!",
-        "News_French": "World News in French!",
-        "News_Mandarin": "World News in Mandarin!"
-    }
-
-
+```json
+{
+    "News_English": "World News in English!",
+    "News_French": "World News in French!",
+    "News_Mandarin": "World News in Mandarin!"
+}
+```
 
 ### <a name="send-notifications-using-a-c-console-app"></a>Envoyer des notifications à l’aide d’une application de console C#
+
 Cette section explique comment envoyer des notification à l’aide de l’application console. Le code diffuse des notifications aux appareils iOS et Windows Store. Modifiez la méthode `SendTemplateNotificationAsync` dans l’application console que vous avez créée précédemment avec le code suivant :
 
 ```csharp
@@ -66,6 +67,7 @@ private static async void SendTemplateNotificationAsync()
 La méthode SendTemplateNotificationAsync remet l’information localisée à **tous** vos appareils, indépendamment de la plateforme. Votre Notification Hub génère et remet la charge utile native appropriée à tous les appareils abonnés à une balise spécifique.
 
 ### <a name="sending-notification-with-mobile-services"></a>Envoi de notification avec Mobile Services
+
 Dans votre Mobile Service Scheduler, utilisez le script suivant :
 
 ```csharp
@@ -82,4 +84,3 @@ notificationHubService.send('World', notification, function(error) {
     }
 });
 ```
-

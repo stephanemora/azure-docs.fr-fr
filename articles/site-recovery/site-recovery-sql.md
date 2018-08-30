@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: 23cf9430f82be860cb9acbfac42163f9243b2d0f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140048"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188771"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Protéger SQL Server à l’aide de la récupération d’urgence SQL Server et d’Azure Site Recovery
 
@@ -83,7 +83,6 @@ Ce tableau récapitule nos recommandations pour intégrer les technologies BCDR 
 
 * Un déploiement local de SQL Server exécutant une version prise en charge de SQL Server. En général, il est également nécessaire de configurer Active Directory pour votre serveur SQL.
 * La configuration requise pour le scénario que vous souhaitez déployer. En savoir plus sur les conditions de prise en charge pour la [réplication vers Azure](site-recovery-support-matrix-to-azure.md) et [en local](site-recovery-support-matrix.md), ainsi que sur les [conditions préalables au déploiement](site-recovery-prereq.md).
-* Pour configurer la récupération dans Azure, exécutez l’outil [Azure Virtual Machine Readiness Assessment](http://www.microsoft.com/download/details.aspx?id=40898) sur vos machines virtuelles SQL Server pour vous assurer qu’elles sont compatibles avec Azure et Site Recovery.
 
 ## <a name="set-up-active-directory"></a>Configurer Active Directory
 

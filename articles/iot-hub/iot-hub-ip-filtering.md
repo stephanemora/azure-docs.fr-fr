@@ -1,19 +1,18 @@
 ---
 title: Filtres de connexion IP d’Azure Hub IoT | Microsoft Docs
 description: Utilisation de filtres IP pour bloquer les connexions à partir d’adresses IP spécifiques pour votre Azure IoT Hub. Vous pouvez bloquer les connexions à partir d’adresses IP individuelles ou de plages d’adresses IP.
-author: BeatriceOltean
-manager: ''
+author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/23/2017
-ms.author: boltean
-ms.openlocfilehash: fa44fd21eadb910ce90523b46332505c7303751e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: rezas
+ms.openlocfilehash: 864af9cae35912d95f2c0bf0b574a5ca2404a608
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635965"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190639"
 ---
 # <a name="use-ip-filters"></a>Utiliser des filtres IP
 

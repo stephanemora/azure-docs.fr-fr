@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9ba954db7003e062444e57bd56f87ff5d279b07f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41946430"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050647"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack
 
@@ -197,26 +197,26 @@ Azure Resource Manager vous permet de déployer et de gérer l’infrastructure 
 | Fournisseurs délégués | 2015-01-01 |
 | Fournisseurs délégués/offres | 2015-01-01 |
 | DelegatedProviders/offers/estimatePrice | 2015-01-01 |
-| Déploiements | 2016-0209-01 |
-| Déploiements/opérations | 2016-0209-01 |
+| Déploiements | 2016-09-01 |
+| Déploiements/opérations | 2016-09-01 |
 | Métadonnées d’extensions | 2015-01-01 |
 | Liens | 2016-09-01 |
 | Emplacements | 2015-01-01 |
 | Offres | 2015-01-01 |
 | Opérations | 2015-01-01 |
-| Fournisseurs | 2015-012017-08-01 |
+| Fournisseurs | 2017-08-01 |
 | Groupes de ressources | 2016-09-01 |
 | Ressources | 2016-09-01 |
 | Abonnements | 2016-09-01 |
 | Abonnements/emplacement | 2016-09-01 |
 | Abonnements/résultats de l’opération | 2016-09-01 |
-| Abonnements/fournisseurs | 2015-012017-08-01 |
+| Abonnements/fournisseurs | 2017-08-01 |
 | Abonnements/Groupes de ressources | 2016-09-01 |
 | Subscriptions/resourceGroups/resources | 2016-09-01 |
 | Abonnements/ressources | 2016-09-01 |
-| Subscriptions/tagNames | 2016-0609-01 |
-| Subscriptions/tagNames/tagValues | 2016-0609-01 |
-| Locataires | 2015-012017-08-01 |
+| Subscriptions/tagNames | 2016-09-01 |
+| Subscriptions/tagNames/tagValues | 2016-09-01 |
+| Locataires | 2017-08-01 |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage 
 

@@ -1,0 +1,99 @@
+items:
+- name: Documentation Privileged Identity Management
+- name: Vue d’ensemble
+  items:
+  - name: Qu’est-ce qu’Azure AD PIM ?
+    href: pim-configure.md
+- name: Concepts
+  items:
+  - name: Exigences en matière d’abonnement
+    href: subscription-requirements.md
+  - name: Rôles d’annuaire que vous pouvez gérer
+    href: pim-roles.md
+  - name: Sécuriser l’accès privilégié
+    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: Tableaux de bord de vue d’ensemble
+    href: pim-resource-roles-overview-dashboards.md
+  - name: Notifications par e-mail
+    href: pim-email-notifications.md
+  - name: Types d’attributions
+    href: pim-resource-roles-eligible-visibility.md
+  - name: Assistant Sécurité
+    href: pim-security-wizard.md
+- name: Procédures
+  items:
+  - name: Commencer à utiliser PIM
+    href: pim-getting-started.md
+  - name: Activer des rôles
+    items:
+    - name: Activer mes rôles d’annuaire
+      href: pim-how-to-activate-role.md
+    - name: Activer mes rôles de ressources
+      href: pim-resource-roles-activate-your-roles.md
+  - name: Configurer PIM
+    items:
+    - name: Découvrir les ressources Azure
+      href: pim-resource-roles-discover-resources.md
+    - name: Accorder à d’autres l’accès en gestion PIM
+      href: pim-how-to-give-access-to-pim.md
+    - name: Activer la gestion des abonnements
+      href: pim-resource-roles-enable-subscription-management.md
+  - name: Gérer les rôles d’annuaire
+    items:
+    - name: Attribuer des rôles
+      href: pim-how-to-add-role-to-user.md
+    - name: Configurer les paramètres de rôle
+      href: pim-how-to-change-default-settings.md
+    - name: Exiger une authentification multifacteur
+      href: pim-how-to-require-mfa.md
+    - name: Configurer des alertes
+      href: pim-how-to-configure-security-alerts.md
+    - name: Approuver les demandes
+      href: azure-ad-pim-approval-workflow.md
+    - name: Afficher l’historique d'audit
+      href: pim-how-to-use-audit-log.md
+  - name: Gérer les rôles de ressources
+    items:
+    - name: Voir qui a accès
+      href: azure-pim-resource-rbac.md
+    - name: Attribuer des rôles
+      href: pim-resource-roles-assign-roles.md
+    - name: Configurer les paramètres de rôle
+      href: pim-resource-roles-configure-role-settings.md
+    - name: Exiger une authentification multifacteur
+      href: pim-resource-roles-require-mfa.md
+    - name: Configurer des alertes
+      href: pim-resource-roles-configure-alerts.md
+    - name: Approuver les demandes
+      href: pim-resource-roles-approval-workflow.md
+    - name: Étendre ou renouveler des rôles
+      href: pim-resource-roles-renew-extend.md
+    - name: Afficher l’historique d'audit
+      href: pim-resource-roles-use-the-audit-log.md
+    - name: Utiliser des rôles personnalisés
+      href: pim-resource-roles-custom-role-policy.md
+  - name: Revoir l’accès
+    items:
+    - name: Rôles d’annuaire
+      items:
+      - name: Passer en revue mes rôles d’annuaire
+        href: pim-how-to-perform-security-review.md
+      - name: Démarrage d’une révision d’accès
+        href: pim-how-to-start-security-review.md
+      - name: Effectuer une révision d’accès
+        href: pim-how-to-complete-review.md
+    - name: Rôles de ressources
+      items:
+      - name: Passer en revue mes rôles de ressources
+        href: pim-resource-roles-perform-access-review.md
+      - name: Démarrage d’une révision d’accès
+        href: pim-resource-roles-start-access-review.md
+      - name: Effectuer une révision d’accès
+        href: pim-resource-roles-complete-access-review.md
+  expanded: true
+ms.openlocfilehash: 7a8fafb4782a02da5b1fbe189cba8cadf7c22bfe
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191230"

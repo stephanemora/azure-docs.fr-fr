@@ -1,25 +1,19 @@
 ---
-title: "Forum Aux Questions Azure Data Catalog | Microsoft Docs"
-description: "Forum Aux Questions sur Azure Data Catalog, y compris sur les fonctionnalités de détection de source de données, d’annotation et de gestion."
+title: Forum Aux Questions Azure Data Catalog
+description: Forum Aux Questions sur Azure Data Catalog, y compris sur les fonctionnalités de détection de source de données, d’annotation et de gestion.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: 1f69912e654ac243a0c4f30426d17ce4199e498f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: bb9223e2eef11d3378c228f8cd5242e6ebbbc74d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053261"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -41,12 +35,12 @@ Data Catalog est conçu pour les utilisateurs, techniciens ou non, notamment :
 ## <a name="what-is-its-availability-by-region"></a>Quelle est la disponibilité du service par région ?
 Les services Data Catalog sont actuellement disponibles dans les centres de données suivants :
 
-* États-Unis de l’Ouest
-* Est des États-Unis
-* Europe de l'Ouest
-* Europe du Nord
-* Est de l’Australie
-* Asie du Sud-Est
+* USA Ouest
+* USA Est
+* Europe Ouest
+* Europe Nord
+* Australie Est
+* Asie Sud-Est
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>Quelles est la limite en termes de nombre de ressources de données ?
 L’édition gratuite de Data Catalog est limitée à 5 000 ressources de données inscrites.

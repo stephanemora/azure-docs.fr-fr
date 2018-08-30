@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 381ae1fe28abe097defcad53555e27c1f7347f08
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186679"
 documentType: LandingData
 title: Documentation sur les machines virtuelles Windows
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: f5cfe6dca9488a6b718a9495248d9078cfa8ed2d
-  ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 05/14/2018
-  ms.locfileid: "34166490"
 abstract:
   description: Les Machines virtuelles Windows Azure fournissent une infrastructure sécurisée et virtualisée à la demande et à grande échelle avec Windows Server. Découvrez comment créer, configurer, gérer et mettre à l’échelle des machines virtuelles Windows avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
   aside:
@@ -88,21 +88,11 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Gestion de l’infrastructure
-      href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+    - title: Administrateur Azure
+      href: https://go.microsoft.com/fwlink/?linkid=2012827
       image:
         src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - title: Bien démarrer avec les machines virtuelles
-      href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-    - title: Bien démarrer avec la surveillance IaaS
-      href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
+        href: https://go.microsoft.com/fwlink/?linkid=2012827
 - title: Exemples
   items:
   - type: paragraph

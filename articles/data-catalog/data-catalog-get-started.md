@@ -1,25 +1,19 @@
 ---
-title: Prise en main de Data Catalog | Microsoft Docs
-description: "Didacticiel de bout en bout présentant des scénarios et des fonctionnalités d’Azure Data Catalog."
-documentationcenter: 
+title: Prise en main d’Azure Data Catalog
+description: Didacticiel de bout en bout présentant des scénarios et des fonctionnalités d’Azure Data Catalog.
 services: data-catalog
 author: steelanddata
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c65f5c2ca3f162c17d036198c4285f9c965bbd53
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053092"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Prise en main d’Azure Data Catalog
 Azure Data Catalog est un service cloud entièrement géré qui sert de système d’inscription et de découverte des ressources de données d’entreprise. Pour une présentation détaillée, consultez l’article [Qu’est-ce qu’Azure Data Catalog ?](data-catalog-what-is-data-catalog.md).
@@ -40,14 +34,14 @@ Ce didacticiel vous permet de commencer à utiliser Azure Data Catalog. Dans ce 
 ### <a name="azure-subscription"></a>Abonnement Azure
 Pour configurer Azure Data Catalog, vous devez être le propriétaire ou le copropriétaire d'un abonnement Azure.
 
-Les abonnements Azure vous permettent d’organiser l'accès aux ressources du service cloud telles qu’Azure Data Catalog. Ils vous permettent également de contrôler le signalement, la facturation et le paiement des ressources utilisées. Chaque abonnement peut disposer d’une configuration de facturation et de paiement différente. Vous pouvez donc avoir différents abonnements et différents plans par département, projet, bureau régional, etc. Chaque service cloud appartient à un abonnement. Vous devez donc avoir un abonnement avant de configurer Azure Data Catalog. Pour plus d’informations, consultez [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/active-directory-how-subscriptions-associated-directory.md) (Gérer les comptes, les abonnements et les rôles d’administrateur).
+Les abonnements Azure vous permettent d’organiser l'accès aux ressources du service cloud telles qu’Azure Data Catalog. Ils vous permettent également de contrôler le signalement, la facturation et le paiement des ressources utilisées. Chaque abonnement peut disposer d’une configuration de facturation et de paiement différente. Vous pouvez donc avoir différents abonnements et différents plans par département, projet, bureau régional, etc. Chaque service cloud appartient à un abonnement. Vous devez donc avoir un abonnement avant de configurer Azure Data Catalog. Pour plus d’informations, consultez [Manage Accounts, Subscriptions, and Administrative Roles](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) (Gérer les comptes, les abonnements et les rôles d’administrateur).
 
 Si vous n'êtes pas abonné, vous pouvez créer un compte d'essai gratuit en quelques minutes. Pour plus d’informations, consultez la page [Version d’évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/) .
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Pour configurer Azure Data Catalog, vous devez être connecté avec un compte d’utilisateur Azure Active Directory (Azure AD). Vous devez être propriétaire ou copropriétaire d’un abonnement Azure.  
 
-Azure AD permet à votre entreprise de gérer facilement les identités et les accès, à la fois dans le cloud et en local. Vous pouvez utiliser un seul compte professionnel ou scolaire pour vous connecter à n’importe quelle application web locale ou dans le cloud. Azure Data Catalog utilise Azure AD pour authentifier la connexion. Pour plus d’informations, consultez l’article [Qu’est-ce qu’Azure Active Directory ?](../active-directory/active-directory-whatis.md).
+Azure AD permet à votre entreprise de gérer facilement les identités et les accès, à la fois dans le cloud et en local. Vous pouvez utiliser un seul compte professionnel ou scolaire pour vous connecter à n’importe quelle application web locale ou dans le cloud. Azure Data Catalog utilise Azure AD pour authentifier la connexion. Pour plus d’informations, consultez l’article [Qu’est-ce qu’Azure Active Directory ?](../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="azure-active-directory-policy-configuration"></a>Configuration de la stratégie Azure Active Directory
 Il arrive que vous puissiez vous connecter au portail d’Azure Data Catalog, mais que lorsque vous tentez de vous connecter à l’outil de référencement de la source de données, un message d’erreur s’affiche et vous empêche de vous connecter. Cette erreur peut se produire lorsque vous êtes sur le réseau d’entreprise ou lorsque vous vous y connectez.

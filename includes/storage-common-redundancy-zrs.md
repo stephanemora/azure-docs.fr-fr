@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5f7477671e7be4e6e8fd736ab94fa7e7b1e99a6e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400006"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184447"
 ---
 Le stockage redondant dans une zone (ZRS) réplique vos données de façon synchrone sur trois clusters de stockage dans une seule région. Chaque cluster de stockage est physiquement séparé des autres et se trouve dans sa propre zone de disponibilité. Chaque zone de disponibilité, et le cluster ZRS qu’elle contient, est autonome, avec des utilitaires et fonctionnalités de mise en réseau séparés.
 
@@ -28,6 +28,7 @@ Le stockage ZRS prend actuellement en charge les types de comptes de stockage st
 
 Le stockage ZRS est généralement disponible dans les régions suivantes :
 
+- USA Est
 - USA Est 2
 - USA Ouest 2
 - USA Centre

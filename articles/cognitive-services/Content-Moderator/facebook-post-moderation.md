@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 4570b514bef33c8dfa6d220ee4cd88ad068ba4d0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 66caea65c21bb1f8bb6efa9b50c917599bb71e2f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41929708"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093975"
 ---
 # <a name="facebook-content-moderation-with-content-moderator"></a>Modération du contenu Facebook avec Content Moderator
 
@@ -67,7 +67,7 @@ Connectez-vous au [portail de gestion Azure](https://portal.azure.com/) pour cr�
 | Paramètre d'application | Description   | 
 | -------------------- |-------------|
 | cm:TeamId   | Votre ID d’équipe Content Moderator  | 
-| cm:SubscriptionKey | Votre clé d’abonnement Content Moderator - voir [Informations d’identification](/review-tool-user-guide/credentials.md) | 
+| cm:SubscriptionKey | Votre clé d’abonnement Content Moderator - voir [Informations d’identification](review-tool-user-guide/credentials.md) | 
 | cm:Region | Nom de votre région Content Moderator, sans espaces. Voir la remarque précédente. |
 | cm:ImageWorkflow | Nom du flux de travail à exécuter sur les images |
 | cm:TextWorkflow | Nom du flux de travail à exécuter sur le texte |

@@ -1,32 +1,28 @@
 ---
-title: Hue avec Hadoop sur les clusters HDInsight basés sur Linux - Azure | Documents Microsoft
+title: Hue avec Hadoop sur les clusters HDInsight basés sur Linux - Azure
 description: Apprenez comment installer Hue sur les clusters HDInsight et utiliser le tunnel pour acheminer les demandes de Hue. Utilisez Hue pour parcourir le stockage et exécuter Hive ou Pig.
 keywords: hue hadoop
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 829f309fa66bc548b9f74cca8112c244cc88775e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 7e8f4900143372f9030e157cfd71dd7d84eabd80
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403132"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093839"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installation et utilisation de Hue sur des clusters HDInsight Hadoop
 
 Apprenez comment installer Hue sur les clusters HDInsight et utiliser le tunnel pour acheminer les demandes de Hue.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-is-hue"></a>Qu’est-ce que Hue ?
 Hue est un ensemble d’applications web permettant d’interagir avec un cluster Hadoop. Vous pouvez utiliser Hue pour parcourir le stockage associé à un cluster Hadoop (WASB, dans le cas de clusters HDInsight), exécuter les travaux Hive et les scripts Pig, etc. Les composants suivants sont disponibles avec l’installation de Hue sur un cluster HDInsight Hadoop.
@@ -41,7 +37,7 @@ Hue est un ensemble d’applications web permettant d’interagir avec un cluste
 > [!WARNING]
 > Les composants fournis avec le cluster HDInsight bénéficient d’une prise en charge totale, et le support Microsoft vous aidera à identifier et à résoudre les problèmes liés à ces composants.
 >
-> Les composants personnalisés bénéficient d'un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org). Par exemple: [Hadoop](http://hadoop.apache.org/).
+> Les composants personnalisés bénéficient d’un support commercialement raisonnable pour vous aider à résoudre le problème. Cela signifie SOIT que le problème pourra être résolu, SOIT que vous serez invité à affecter les ressources disponibles pour les technologies Open Source. Vous pouvez, par exemple, utiliser de nombreux sites de communauté, comme le [forum MSDN sur HDInsight](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). En outre, les projets Apache ont des sites de projet sur [http://apache.org](http://apache.org), par exemple [Hadoop](http://hadoop.apache.org/).
 >
 >
 
