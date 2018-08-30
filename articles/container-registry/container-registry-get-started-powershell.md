@@ -9,19 +9,18 @@ ms.topic: quickstart
 ms.date: 05/08/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 282cd4bc9256fc483014b53626c02106d0de236a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e6c3330519692eb829803af2582b711be2fb3efe
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885117"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092876"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Démarrage rapide : Créer un registre Azure Container Registry à l’aide de PowerShell
 
 Azure Container Registry est un service de registre de conteneurs Docker géré et privé que vous utilisez pour créer, stocker et dépanner des images conteneurs Docker. Dans ce démarrage rapide, vous apprenez à créer un registre de conteneurs Azure à l’aide de PowerShell. Après avoir créé le registre, vous lui envoyez une image conteneur, puis vous déployez le conteneur à partir du registre dans Azure Container Instances (ACI).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Ce démarrage rapide requiert le module Azure PowerShell version 5.7.0 ou supérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour déterminer la version installée. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -134,7 +133,7 @@ d8fbd47558a8: Pushed
 v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
-Félicitations ! Vous venez d’envoyer votre première image conteneur au registre.
+Félicitations ! Vous venez d’envoyer votre première image conteneur au registre.
 
 ## <a name="deploy-image-to-aci"></a>Déployer l’image dans ACI
 
@@ -220,9 +219,9 @@ Avec le nom de domaine complet, accédez à ce dernier dans votre navigateur :
 
 ![Application Hello world dans le navigateur][qs-psh-01-running-app]
 
-Félicitations ! Vous avez créé un conteneur exécutant une application dans Azure, lequel est déployé directement à partir d’une image conteneur dans le registre de conteneurs Azure privé.
+Félicitations ! Vous avez créé un conteneur exécutant une application dans Azure, lequel est déployé directement à partir d’une image conteneur dans le registre de conteneurs Azure privé.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Une fois que vous avez terminé d’utiliser les ressources créées dans ce démarrage rapide, utilisez la commande [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] pour supprimer le groupe de ressources, le registre de conteneurs et l’instance de conteneur :
 
@@ -253,7 +252,7 @@ Dans ce démarrage rapide, vous avez créé un registre de conteneur Azure Conta
 [Get-AzureRmContainerRegistryCredential]: /powershell/module/azurerm.containerregistry/get-azurermcontainerregistrycredential
 [Get-Module]: /powershell/module/microsoft.powershell.core/get-module
 [New-AzureRmContainerGroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
-[New-AzureRMContainerRegistry]: /powershell/module/containerregistry/New-AzureRMContainerRegistry
+[New-AzureRMContainerRegistry]: /powershell/module/azurerm.containerregistry/New-AzureRMContainerRegistry
 [New-AzureRmResourceGroup]: /powershell/module/azurerm.resources/new-azurermresourcegroup
 [Remove-AzureRmResourceGroup]: /powershell/module/azurerm.resources/remove-azurermresourcegroup
 

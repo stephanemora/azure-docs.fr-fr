@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 2ca1c1518589e60a03570e1c2063381f749ed9aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659314"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885868"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Sécurité dans Azure App Service et Azure Functions
 
@@ -49,7 +49,7 @@ App Service vous permet de sécuriser vos applications avec [HTTPS](https://wiki
 
 Dans App Service, vous pouvez appliquer le protocole HTTPS d’un seul clic pour sécuriser votre application vis-à-vis de toutes les connexions (HTTP) non chiffrées. Les demandes non sécurisées sont écartées avant même qu’elles n’atteignent votre code d’application. Pour plus d’informations, consultez [Appliquer le protocole HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https).
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 n’est plus considéré comme sécurisé par les normes du secteur telles que [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). App Service vous permet de désactiver les protocoles obsolètes en [appliquant le protocole TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112).
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 n’est plus considéré comme sécurisé par les normes du secteur telles que [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). App Service vous permet de désactiver les protocoles obsolètes en [appliquant le protocole TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions).
 
 App Service prend en charge FTP et FTPS pour le déploiement de vos fichiers. Toutefois, FTPS doit être utilisé à la place de FTP, dans la mesure du possible. Quand un de ces protocoles, ou les deux, ne sont pas utilisés, vous devez [les désactiver](app-service-deploy-ftp.md#enforce-ftps).
 

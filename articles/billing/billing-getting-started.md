@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: dc516aa64399447973cefa47e913193adce2f8f5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528263"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919124"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 
@@ -31,6 +31,9 @@ Lorsque vous vous inscrivez à Azure, il y a plusieurs choses que vous pouvez fa
 - Si votre abonnement est une évaluation gratuite, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure dans Open (AIO) ou BizSpark, votre abonnement est automatiquement désactivé lorsque tous vos crédits sont utilisés. En savoir plus sur les [limites de dépense](#spending-limit) pour éviter que votre abonnement ne soit désactivé de façon inattendue.
 
 - Si vous avez souscrit à un [compte Azure gratuit](https://azure.microsoft.com/free/), [vous pouvez utiliser des services Azure populaires gratuitement pendant 12 mois](billing-create-free-services-included-free-account.md). Outre les recommandations répertoriées ci-dessous, consultez [Éviter les frais pour votre compte gratuit](billing-avoid-charges-free-account.md).
+
+> [!div class="nextstepaction"]
+> [Aidez-nous à améliorer les documents de facturation Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Obtenir les coûts estimés avant d’ajouter des services Azure
 

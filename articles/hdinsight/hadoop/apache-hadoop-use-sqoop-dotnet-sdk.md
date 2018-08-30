@@ -1,26 +1,21 @@
 ---
-title: Exécuter des tâches Sqoop avec .NET et HDInsight - Azure | Microsoft Docs
+title: Exécuter des tâches Sqoop avec .NET et HDInsight - Azure
 description: Découvrez comment utiliser le Kit de développement logiciel (SDK) .NET HDInsight pour exécuter l’exportation et l’importation Sqoop entre un cluster Hadoop et une base de données SQL Azure.
 keywords: travail sqoop
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 87bacd13-7775-4b71-91da-161cb6224a96
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 818e4aca63249c7a1543abe146e0691e993e9e80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: ffcc2bff17fbe07c58df032dbb8994edb04ae5d0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200297"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046775"
 ---
 # <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>Exécuter des tâches Sqoop à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -32,7 +27,6 @@ Découvrez comment utiliser le Kit de développement logiciel (SDK) .NET Azure H
 > 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer ce didacticiel, vous devez disposer de l’élément suivant :
 
 * Un cluster Hadoop dans HDInsight. Pour plus d’informations, consultez [Création du cluster et de la base de données SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).

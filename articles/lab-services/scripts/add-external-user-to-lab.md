@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: bd86e44c21ca3c0b9c061f9a5c24bd19c4b207f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0acff1eb4cee441187205b11a7e07cc718072cbf
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636441"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248187"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Utiliser PowerShell pour ajouter un utilisateur externe à un lab dans Azure DevTest Labs
 
@@ -39,7 +39,7 @@ Ce script utilise les commandes suivantes :
 | Commande | Notes |
 |---|---|
 | [Get-AzureRmADUser](/powershell/module/azurerm.resources/get-azurermaduser) | Tente une nouvelle fois d’obtenir l’objet utilisateur à partir d’Azure Active Directory. |
-| [New-AzureRmRoleAssignment](/module/azurerm.resources/new-azurermroleassignment) | Affecte le rôle spécifié au principal spécifié, dans l’étendue spécifiée. |
+| [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) | Affecte le rôle spécifié au principal spécifié, dans l’étendue spécifiée. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,25 +1,20 @@
 ---
-title: Utilisation de Hadoop Pig dans HDInsight | Microsoft Docs
+title: Utiliser Hadoop Pig dans HDInsight
 description: Utilisation de Pig avec Hadoop sur HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: acfeb52b-4b81-4a7d-af77-3e9908407404
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: d030bdaf4c68a7e2ec9d11cdd8a2f55eccfbd67d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: e97763adbe7998ed93e3ba8b87d89ffe8d8de6aa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081165"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045443"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Utilisation de Pig avec Hadoop sur HDInsight
 
@@ -35,7 +30,7 @@ Pig est une plateforme qui permet de créer des programmes pour Hadoop dans un l
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux ou Windows |Windows |
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="why"></a>Pourquoi utiliser Pig ?
 
@@ -104,7 +99,7 @@ HDInsight peut exécuter des tâches Pig Latin de différentes façons. Utilise
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux ou Windows |Windows |
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="pig-and-sql-server-integration-services"></a>Pig et SQL Server Integration Services
 

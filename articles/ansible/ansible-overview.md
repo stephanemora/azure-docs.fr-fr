@@ -4,16 +4,16 @@ description: Présentation de l’utilisation d’Ansible pour automatiser l’a
 ms.service: ansible
 keywords: ansible, azure, devops, présentation, approvisionnement du cloud, gestion de la configuration, déploiement des applications, modules ansible, playbooks ansible
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
 ms.date: 01/19/2018
 ms.topic: article
-ms.openlocfilehash: a7ce3c239a50462a9af137eb958268f72dbf79d1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: e710770131c844598762feebe09ba50dc120de0c
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28209585"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106898"
 ---
 # <a name="ansible-with-azure"></a>Ansible avec Azure
 
@@ -45,6 +45,6 @@ Via sa fonctionnalité [d’inventaire dynamique](http://docs.ansible.com/ansibl
 ## <a name="additional-azure-marketplace-options"></a>Autres options de Place de marché Microsoft Azure
 L’image Place de marché Microsoft Azure [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) par Red Hat aide les organisations à mettre à l’échelle l’automatisation des tâches informatiques et à gérer les déploiements complexes dans les infrastructures physiques, virtuelles et cloud. Ansible Tower comprend des fonctionnalités qui fournissent d’autres niveaux de visibilité, de contrôle, de sécurité et d’efficacité nécessaires aux entreprises d’aujourd’hui. Ansible Tower chiffre les informations d’identification telles que les clés SSH et Azure, afin que vous puissiez déléguer des travaux à des employés moins expérimentés sans prendre le risque d’exposer vos informations d’identification.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - [Installer et configurer Ansible pour gérer des machines virtuelles dans Azure](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 - [Créer une machine virtuelle Linux](/azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)

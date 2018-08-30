@@ -1,25 +1,20 @@
 ---
-title: Personnaliser des clusters HDInsight à l’aide d’actions de script - Azure | Microsoft Docs
+title: Personnaliser des clusters HDInsight à l’aide d’actions de script - Azure
 description: Ajoutez des composants personnalisés à des clusters HDInsight Linux à l’aide des actions de script. Les actions de script sont des scripts Bash qui permettent de personnaliser la configuration du cluster ou d’ajouter d’autres services et utilitaires comme Hue, Solr ou R.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 48e85f53-87c1-474f-b767-ca772238cc13
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 500b6ef33bb70cd5138067d88303b7db9121e867
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: e12379dbb63e57ee12e1cebb1761f0b103d50ef1
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101677"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110525"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personnaliser des clusters HDInsight Linux à l’aide d’actions de script
 
@@ -229,7 +224,7 @@ Pour plus d’informations sur le déploiement d’un modèle, consultez les doc
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Utiliser une action de script lors de la création d’un cluster à partir d’Azure PowerShell
 
-Dans cette section, vous allez utiliser l’applet de commande [Add-AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) pour appeler des scripts afin de personnaliser un cluster. Avant de poursuivre, assurez-vous que vous avez installé et configuré Azure PowerShell. Pour plus d’informations sur la configuration d’une station de travail pour exécuter des applets de commande HDInsight PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
+Dans cette section, vous allez utiliser l’applet de commande [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) pour appeler des scripts afin de personnaliser un cluster. Avant de poursuivre, assurez-vous que vous avez installé et configuré Azure PowerShell. Pour plus d’informations sur la configuration d’une station de travail pour exécuter des applets de commande HDInsight PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview).
 
 Le script suivant indique comment appliquer une action de script lors de la création d’un cluster à l’aide de PowerShell :
 

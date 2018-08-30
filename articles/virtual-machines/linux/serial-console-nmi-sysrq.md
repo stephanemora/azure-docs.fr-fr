@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 110bdcacf7433c1e0ab0cb31e1a04734137f9596
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145638"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885237"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Utiliser la console série pour les appels SysRq et NMI
 
@@ -84,13 +84,17 @@ Dans le guide administrateur SysRq ci-dessus :
 
 ### <a name="distribution-specific-documentation"></a>Documentation propre à la distribution ###
 Pour obtenir la documentation propre à la distribution sur SysRq et les étapes de configuration de Linux permettant de créer un vidage sur incident à la réception d’une commande « Crash » de SysRq, consultez les liens ci-dessous :
+
 #### <a name="ubuntu"></a>Ubuntu ####
  - [Vidage sur incident du noyau](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
 #### <a name="red-hat"></a>Red Hat ####
 - [En quoi consiste la fonctionnalité SysRq et comment l’utiliser ?](https://access.redhat.com/articles/231663)
 - [Collecter des informations à partir d’un serveur RHEL à l’aide de la fonctionnalité SysRq](https://access.redhat.com/solutions/2023)
+
 #### <a name="suse"></a>SUSE ####
 - [Configurer la capture de la sauvegarde du noyau central](https://www.suse.com/support/kb/doc/?id=3374462)
+
 #### <a name="coreos"></a>CoreOS ####
 - [Collecte des journaux d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
@@ -109,16 +113,17 @@ Pour les systèmes Linux qui prennent en charge sysctl pour configurer les param
 
 Pour plus d’informations sur les configurations du noyau Linux, notamment `unknown_nmi_panic`, `panic_on_io_nmi` et `panic_on_unrecovered_nmi`, consultez la [documentation de /proc/sys/kernel/*](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Pour obtenir de la documentation propre à la distribution sur NMI et les étapes de configuration de Linux pour créer un vidage sur incident à la réception d’une NMI, consultez les liens ci-dessous :
  
- ### <a name="ubuntu"></a>Ubuntu 
+### <a name="ubuntu"></a>Ubuntu 
  - [Vidage sur incident du noyau](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
- ### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat 
  - [En quoi consiste une NMI et à quoi peut-elle servir ?](https://access.redhat.com/solutions/4127)
  - [Comment configurer mon système pour qu’il provoque un incident lorsque le commutateur NMI est actionné ?](https://access.redhat.com/solutions/125103)
  - [Guide administrateur de vidage sur incident](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
 ### <a name="suse"></a>SUSE 
 - [Configurer la capture de la sauvegarde du noyau central](https://www.suse.com/support/kb/doc/?id=3374462)
+
 ### <a name="coreos"></a>CoreOS 
 - [Collecte des journaux d’incident](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 

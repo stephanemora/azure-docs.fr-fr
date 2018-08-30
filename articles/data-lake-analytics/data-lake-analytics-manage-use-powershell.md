@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
 ms.author: mahi
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
-ms.openlocfilehash: 94cd8de875baac31ee6cd450707be57a3d1dfdd0
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 14454c20e541a8b4450cd5a55ce5fed4268debc6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341859"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041946"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestion d'Azure Data Lake Analytics à l'aide d'Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -30,7 +29,7 @@ Pour utiliser PowerShell avec Data Lake Analytics, collectez les informations su
 * **Groupe de ressources** : nom du groupe de ressources Azure qui contient votre compte Data Lake Analytics.
 * **Nom du compte Data Lake Analytics** : nom de votre compte Data Lake Analytics.
 * **Nom du compte Data Lake Store par défaut** : chaque compte Data Lake Analytics possède un compte Data Lake Store par défaut.
-* **Emplacement** : emplacement de votre compte Data Lake Analytics, comme « États-Unis de l’Est 2 » ou autres emplacements pris en charge.
+* **Emplacement** : emplacement de votre compte Data Lake Analytics, comme « USA Est 2 » ou autres emplacements pris en charge.
 
 Dans ce didacticiel, les extraits de code PowerShell utilisent ces variables pour stocker ces informations.
 

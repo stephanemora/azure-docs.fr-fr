@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: b6078ac326fe51f4198137eec2de728b6036c271
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 7cb78647b8ae17e066f05acc32668d5c0c8b4ff5
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144224"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127675"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solution Analyse VMware (version préliminaire) dans Log Analytics
 
@@ -153,8 +153,6 @@ Si vous souhaitez voir d’autres données de création de machine virtuelle hô
 
 #### <a name="common-search-queries"></a>Requêtes de recherche courantes
 La solution inclut d’autres requêtes utiles qui peuvent vous aider à gérer vos hôtes ESXi, telles que l’espace de stockage élevé, la latence du stockage et la défaillance de chemin.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![queries](./media/log-analytics-vmware/queries.png)
 

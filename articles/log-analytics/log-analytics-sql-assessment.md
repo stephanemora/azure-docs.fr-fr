@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: e83a722ee58f49c20871faaca6aae7d7a5678361
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2dcbd0cab055e8a2b2128b1f83f5c080a0887b85
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130605"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122518"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Optimisez votre environnement SQL avec la solution SQL Server Health Check dans Log Analytics
 
@@ -174,8 +174,6 @@ Consultez le résumé des évaluations de conformité pour votre infrastructure,
 
 ## <a name="ignore-recommendations"></a>Ignorer les recommandations
 Si vous souhaitez ignorer des recommandations, vous pouvez créer un fichier texte que Log Analytics utilisera pour empêcher les recommandations d’apparaître dans les résultats de votre évaluation.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Pour identifier les recommandations que vous ignorerez
 1. Dans le portail Azure, dans la page des espaces de travail Log Analytics, cliquez sur la vignette **Rechercher dans les journaux** pour votre espace de travail sélectionné.

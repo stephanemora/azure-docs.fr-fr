@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: bc53d245dd814b6f9bb4edab89ddcbf841f16a8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 87df752f62956cffd455358059a3ab7b275b6a5d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38579175"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090494"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,7 +119,7 @@ Azure Data Factory ne permet pas en soi de stocker des données. Il vous permet 
 
 Même si Data Factory est disponible seulement dans certaines régions, le service de déplacement des données intégré à Data Factory est disponible mondialement dans plusieurs régions. Si un magasin de données se trouve derrière un pare-feu, le déplacement des données est assuré au moyen d’un runtime d’intégration auto-hébergé installé dans votre environnement local.
 
-Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Machine Learning, par exemple) s’exécutent hors de la région Europe de l’ouest. Vous pouvez dans ce cas créer et utiliser une instance Azure Data Factory dans l’Est des États-Unis en ou l’Est des États-Unis 2 et l’utiliser pour planifier des tâches sur vos environnements de calcul en Europe de l’ouest. Quelques millisecondes suffisent à Data Factory pour déclencher la tâche dans votre environnement de calcul, mais l’heure d’exécution du travail dans votre environnement informatique ne change pas.
+Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Machine Learning, par exemple) s’exécutent hors de la région Europe Ouest. Vous pouvez dans ce cas créer et utiliser une instance Azure Data Factory dans les régions USA Est ou USA Est 2 et l’utiliser pour planifier des tâches sur vos environnements de calcul dans Europe Ouest. Quelques millisecondes suffisent à Data Factory pour déclencher la tâche dans votre environnement de calcul, mais l’heure d’exécution du travail dans votre environnement informatique ne change pas.
 
 ## <a name="accessibility"></a>Accessibilité
 

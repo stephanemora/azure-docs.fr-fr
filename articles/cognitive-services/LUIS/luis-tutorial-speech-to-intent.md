@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: diberry;
-ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.author: diberry
+ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247713"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124394"
 ---
 # <a name="integrate-speech-service"></a>Intégrer le service de reconnaissance vocale
 Le [service de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS.

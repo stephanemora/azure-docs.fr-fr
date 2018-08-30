@@ -1,26 +1,21 @@
 ---
-title: Présentation d’Apache Hive et HiveQL - Azure HDInsight | Microsoft Docs
+title: Présentation d’Apache Hive et HiveQL - Azure HDInsight
 description: Apache Hive est un système d’entrepôt de données pour Hadoop. Vous pouvez interroger les données stockées dans Hive à l’aide de HiveQL, qui est similaire à Transact-SQL. Dans ce document, découvrez comment utiliser Hive et HiveQL avec Azure HDInsight.
 keywords: hiveql,présentation de hive,hadoop hiveql,utilisation de hive,découvrir hive,présentation de hive
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: e418411cc6b681e304cc1ba66f0c815ad0d4db64
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 446bb23e15d908c8afe189a33e4d8a70faad284a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34069707"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126635"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Présentation d’Apache Hive et HiveQL sur Azure HDInsight
 
@@ -227,7 +222,7 @@ Plusieurs services peuvent être utilisés pour exécuter des requêtes Hive dan
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory permet d’utiliser HDInsight dans le cadre d’un pipeline Data Factory. Pour plus d’informations sur l’utilisation de Hive à partir d’un pipeline, consultez le document [Transformer des données à l’aide d’une activité Hive dans Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md).
+Azure Data Factory permet d’utiliser HDInsight dans le cadre d’un pipeline Data Factory. Pour plus d’informations sur l’utilisation de Hive à partir d’un pipeline, consultez le document [Transformer des données à l’aide d’une activité Hive dans Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md).
 
 ### <a name="hive-jobs-and-sql-server-integration-services"></a>Tâches Hive et SQL Server Integration Services
 

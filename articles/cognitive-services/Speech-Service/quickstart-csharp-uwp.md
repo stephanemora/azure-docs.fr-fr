@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 551439d28bcd7c64faf7ac6ac7388145456f7a53
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b709b2791ae7472689cc2c7ca747f75ce0f1e6bf
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41937526"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126088"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans une application UWP à l’aide du kit de développement logiciel (SDK) Speech
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer une application plateforme Windows universelle (UWP9 à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech pour transcrire de la parole en texte.
 L’application est créée avec le [package NuGet du kit SDK Microsoft Cognitive Services Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017.
@@ -112,7 +112,7 @@ L’application est créée avec le [package NuGet du kit SDK Microsoft Cognitiv
 
     ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Recherchez cet exemple dans le dossier `quickstart/csharp-uwp`.
 
 ## <a name="next-steps"></a>Étapes suivantes

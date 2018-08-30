@@ -1,25 +1,20 @@
 ---
-title: Utiliser les vues Ambari pour travailler avec Hive sur HDInsight (Hadoop) - Azure | Documents Microsoft
+title: Utiliser les vues Ambari pour travailler avec Hive sur HDInsight (Hadoop) - Azure
 description: Découvrez comment utiliser la vue Hive à partir de votre navigateur web pour envoyer des requêtes Hive. La vue Hive fait partie de l’interface utilisateur web Ambari fournie avec votre cluster HDInsight sous Linux.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 6c07e9a45cbfbc5e6ed6787277dcfa1bf4cf4b2b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 43b82070ced57c0654d646fbea5a12aeab7c2a31
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201490"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048519"
 ---
 # <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>Utiliser la vue Ambari Hive avec Hadoop dans HDInsight
 
@@ -32,7 +27,7 @@ Découvrez comment exécuter des requêtes Hive avec la vue Ambari Hive. L’aff
 * Un cluster Hadoop Linux sur HDInsight version 3.4 ou ultérieure.
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un navigateur web
 
@@ -166,7 +161,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Vous pouvez ensuite utiliser la fonction UDF dans votre requête. Par exemple : `SELECT myawesomeudf(name) FROM people;`.
+Vous pouvez ensuite utiliser la fonction UDF dans votre requête. Par exemple : `SELECT myawesomeudf(name) FROM people;`.
 
 Pour plus d’informations sur l’utilisation des fonctions définies par l’utilisateur avec Hive sur HDInsight, consultez les articles suivants :
 

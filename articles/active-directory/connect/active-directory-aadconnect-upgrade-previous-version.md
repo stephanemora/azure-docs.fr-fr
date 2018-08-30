@@ -15,12 +15,12 @@ ms.workload: Identity
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 20c43669b9da24cea4b0b552a86ec7d5a77dc5a7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: b730f80faa031b1866d3c11d8a2c885ec67f965e
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264509"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144318"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect : effectuer une mise à niveau vers la dernière version
 Cette rubrique décrit les différentes méthodes que vous pouvez utiliser pour mettre à niveau votre installation Azure Active Directory (Azure AD) Connect vers la dernière version. Nous vous recommandons d’utiliser systématiquement les dernières versions d’Azure AD Connect. Vous pouvez également suivre les étapes décrites dans la section [Migration « swing »](#swing-migration) lorsque vous appliquez une modification importante à la configuration.
@@ -67,7 +67,7 @@ Ces étapes fonctionnent également pour la migration à partir d’Azure AD Syn
 
 ### <a name="use-a-swing-migration-to-upgrade"></a>Utiliser une migration « swing » pour effectuer la mise à niveau
 1. Si vous utilisez Azure AD Connect sur les deux serveurs et que vous prévoyez uniquement de modifier la configuration, assurez-vous que votre serveur actif et votre serveur intermédiaire utilisent tous deux la même version. Il sera plus facile de comparer ensuite les différences. Si vous effectuez une mise à niveau à partir d’Azure AD Sync, ces serveurs auront des versions différentes. Si vous effectuez une mise à niveau à partir d’une ancienne version d’Azure AD Connect, il est judicieux, mais pas obligatoire, de commencer avec les deux serveurs qui utilisent la même version.
-2. Si vous avez effectué une configuration personnalisée et que votre serveur intermédiaire ne l’a pas, suivez les étapes décrites dans [Déplacer une configuration personnalisée depuis le serveur actif vers le serveur intermédiaire](#move-custom-configuration-from-active-to-staging-server).
+2. Si vous avez effectué une configuration personnalisée et que votre serveur intermédiaire ne l’a pas, suivez les étapes décrites dans [Déplacer une configuration personnalisée depuis le serveur actif vers le serveur intermédiaire](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
 3. Si vous mettez à niveau depuis une version antérieure d’Azure AD Connect, mettez à niveau le serveur intermédiaire vers la dernière version. Si vous migrez à partir d’Azure AD Sync, installez Azure AD Connect sur votre serveur intermédiaire.
 4. Laissez le moteur de synchronisation effectuer une importation et une synchronisation complètes sur votre serveur intermédiaire.
 5. Vérifiez que la nouvelle configuration n’a pas entraîné de modifications inattendues à l’aide de la procédure indiquée sous « Vérifier » dans [Vérifiez la configuration d’un serveur](active-directory-aadconnectsync-operations.md#verify-the-configuration-of-a-server). Si quelque chose n’est pas comme prévu, corrigez le problème, exécutez l’importation et la synchronisation et vérifiez les données jusqu’à ce qu’elles vous conviennent en suivant les étapes.

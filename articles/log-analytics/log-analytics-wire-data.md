@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 1cf67b61d330363690aea1da706e8cce4700ddcd
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 32e76d1593f8bda0ebf745e76373908970aeb181
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618680"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124167"
 ---
 # <a name="wire-data-20-preview-solution-in-log-analytics"></a>Solution Wire Data 2.0 (préversion) dans Log Analytics
 
@@ -386,8 +386,6 @@ Sur la page **Vue d’ensemble** de votre espace de travail Log Analytics dans l
 | Agents qui capturent le trafic réseau | Affiche le nombre d’agents qui capturent le trafic réseau et liste les 10 ordinateurs qui en capturent le plus. Cliquez sur le nombre pour exécuter une recherche de <code>Type:WireData &#124; measure Sum(TotalBytes) by Computer &#124; top 500000</code> dans les journaux. Cliquez sur un ordinateur dans la liste pour exécuter une recherche dans les journaux qui renvoie le nombre total d’octets capturés. |
 | Sous-réseaux locaux | Affiche le nombre de sous-réseaux locaux découverts par les agents.  Cliquez sur le nombre pour exécuter une recherche de <code>Type:WireData &#124; Measure Sum(TotalBytes) by LocalSubnet</code> dans les journaux, qui liste tous les sous-réseaux avec le nombre d’octets envoyés sur chacun d’eux. Cliquez sur un sous-réseau dans la liste pour exécuter une recherche dans les journaux qui renvoie le nombre total d’octets envoyés dessus. |
 | Protocole de niveau application | Affiche le nombre de protocoles de niveau application en cours d’utilisation, découverts par les agents. Cliquez sur le nombre pour exécuter une recherche de <code>Type:WireData &#124; Measure Sum(TotalBytes) by ApplicationProtocol</code> dans les journaux. Cliquez sur un protocole dans la liste pour exécuter une recherche dans les journaux qui renvoie le nombre total d’octets envoyés par son biais. |
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Tableau de bord de Wire Data](./media/log-analytics-wire-data/wire-data-dash.png)
 

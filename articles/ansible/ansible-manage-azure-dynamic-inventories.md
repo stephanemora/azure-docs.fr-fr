@@ -4,16 +4,16 @@ description: Découvrez comment utiliser Ansible pour gérer vos inventaires dyn
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, inventaire dynamique
 author: tomarcher
-manager: routlaw
+manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 5f4793759bfba68c8a01d682b6b13de5cb96a8f6
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2757dea5e73f226efc13b7788ce1ab0702aa2e61
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038224"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104695"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Utiliser Ansible pour gérer vos inventaires dynamiques Azure
 Ansible peut être utilisé pour extraire des informations d’inventaire de diverses sources (y compris les sources cloud comme Azure) dans un *inventaire dynamique*. Dans cet article, vous utilisez [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) pour configurer un inventaire dynamique Azure Ansible dans lequel vous créez deux machines virtuelles, étiquetez l’une d’entre elles et installez Nginx sur la machine virtuelle étiquetée.

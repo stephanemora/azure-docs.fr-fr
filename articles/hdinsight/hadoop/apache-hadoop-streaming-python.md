@@ -1,28 +1,21 @@
 ---
-title: Développer des travaux MapReduce de diffusion en continu Python avec HDInsight - Azure | Documents Microsoft
+title: Développer des travaux MapReduce de streaming Python avec HDInsight - Azure
 description: Découvrez comment utiliser Python dans des travaux MapReduce de diffusion en continu. Hadoop fournit une API de diffusion en continu pour MapReduce pour l’écriture dans des langages autres que Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: b5e19f81c3e869347f21ab3c70a70016196b946d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 8e2d13e0d9e51855bc8945db61c78a2fec736c33
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400512"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041708"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Développer des programmes MapReduce de diffusion en continu Python pour HDInsight
 
@@ -30,11 +23,10 @@ Découvrez comment utiliser Python dans des opérations MapReduce de diffusion e
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Un cluster Hadoop Linux sur HDInsight
 
   > [!IMPORTANT]
-  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Un éditeur de texte
 
@@ -153,7 +145,7 @@ Utilisez le script PowerShell suivant pour charger les fichiers, exécuter la t�
     Avec cette commande, les fichiers du système local sont copiés dans le nœud principal.
 
     > [!NOTE]
-    > Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous êtes invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
+    > Si vous utilisez un mot de passe pour sécuriser votre compte SSH, vous êtes invité à le saisir. Si vous utilisez une clé SSH, vous devrez peut-être utiliser le paramètre `-i` et le chemin d'accès à la clé privée. Par exemple : `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
 
 2. Connectez-vous au cluster à l’aide de SSH :
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d86a8fcd1dc85ccacea91afe36cb39dabe10464
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117159"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128047"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Conserver le résultat d’un travail et d’une tâche dans Azure Storage avec la bibliothèque File Conventions Batch pour .NET 
 
@@ -49,7 +49,7 @@ Si votre scénario diffère de ceux répertoriés ci-dessus, vous devrez peut-ê
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Qu’est-ce qu’un standard de nommage des fichiers Batch dans File Conventions ?
 
-Le [standard de nommage des fichiers Batch dans File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) fournit un schéma d’affectation de noms pour les conteneurs de destination et chemins d’accès d’objets blob dans lesquels vos fichiers de sortie sont rédigés. Les fichiers conservés dans Azure Storage qui adhèrent au standard de nommage de File Conventions sont automatiquement disponibles à la consultation dans le portail Azure. Le portail connait les conventions d’affectation de noms et peut donc afficher les fichiers qui y adhèrent.
+Le [standard de nommage des fichiers Batch dans File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) fournit un schéma d’affectation de noms pour les conteneurs de destination et chemins d’accès d’objets blob dans lesquels vos fichiers de sortie sont rédigés. Les fichiers conservés dans Azure Storage qui adhèrent au standard de nommage de File Conventions sont automatiquement disponibles à la consultation dans le portail Azure. Le portail connait les conventions d’affectation de noms et peut donc afficher les fichiers qui y adhèrent.
 
 La bibliothèque File Conventions pour .NET nomme automatiquement vos conteneurs de stockage et les fichiers de sortie de tâche en respectant le standard de nommage de File Conventions. La bibliothèque File Conventions fournit également des méthodes de requête de fichiers de sortie dans Azure Storage selon l’ID ou usage de la tâche ou du travail.   
 
@@ -201,7 +201,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Afficher les fichiers de sortie dans le portail Azure
 
-Le portail Azure affiche les fichiers de sortie de tâches et les journaux qui sont conservés dans un compte Azure Storage lié à l’aide du [standard de nommage des fichiers Batch dans File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Vous pouvez implémenter ces conventions vous-même dans le langage de votre choix ou utiliser la bibliothèque File Conventions dans vos applications .NET.
+Le portail Azure affiche les fichiers de sortie de tâches et les journaux qui sont conservés dans un compte Azure Storage lié à l’aide du [standard de nommage des fichiers Batch dans File Conventions](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Vous pouvez implémenter ces conventions vous-même dans le langage de votre choix ou utiliser la bibliothèque File Conventions dans vos applications .NET.
 
 Pour activer l’affichage de vos fichiers de sortie dans le portail, vous devez respecter les exigences suivantes :
 

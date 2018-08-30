@@ -3,19 +3,19 @@ title: Se connecter à Azure SQL Data Warehouse | Microsoft Docs
 description: Connectez-vous à Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: b2aff8379667191017830bf441ee101e773d2dfc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0b2d8cec03c54ebd5bd780a2524da61d718a9673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596168"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247856"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Se connecter à Azure SQL Data Warehouse
 Connectez-vous à Azure SQL Data Warehouse.

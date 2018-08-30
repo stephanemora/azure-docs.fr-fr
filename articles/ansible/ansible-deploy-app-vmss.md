@@ -4,29 +4,23 @@ description: Découvrez comment utiliser Ansible pour configurer un groupe de ma
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, machine virtuelle, groupe de machines virtuelles identiques, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: b9c8058606e13c0db4908530e98cddb69d2caf50
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011497"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918084"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Déployer des applications sur des groupes de machines virtuelles identiques dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour déployer vos applications sur Azure. Cet article vous montre comment déployer une application Java sur un groupe de machines virtuelles identiques Azure.  
 
 ## <a name="prerequisites"></a>Prérequis
 - **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
-- **Configurer Ansible** - [Créer des informations d’identification Azure et configurer Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible et les modules du SDK Python Azure** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Groupe de machines virtuelles identiques** : si vous ne disposez pas déjà d’un groupe de machines virtuelles identiques, vous pouvez [créer un groupe de machines virtuelles identiques avec Ansible](ansible-create-configure-vmss.md). 
 - **git** - [git](https://git-scm.com) est utilisé pour télécharger un exemple Java utilisé dans ce tutoriel.
 - **Java SE Development Kit (JDK)** : le JDK est utilisé pour générer l’exemple de projet Java.
@@ -159,7 +153,7 @@ Pour utiliser le type de connexion SSH avec des mots de passe, vous devez instal
   - Pour Ubuntu 16.04, exécutez la commande `apt-get install sshpass`.
   - Pour CentOS 7.4, exécutez la commande `yum install sshpass`.
 
-Vous pouvez voir une erreur comme **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. (L’utilisation d’un mot de passe SSH au lieu d’une clé n’est pas possible, car la vérification de la clé d’hôte est activée et sshpass ne la prend pas en charge.)  Add this host’s fingerprint to your known_hosts file to manage this host.** (Ajoutez l’empreinte numérique de cet hôte à votre fichier known_hosts pour gérer cet hôte.) Si vous voyez cette erreur, vous pouvez désactiver la vérification de la clé d’hôte en ajoutant la ligne suivante au fichier `/etc/ansible/ansible.cfg` ou au fichier `~/.ansible.cfg` :
+Vous pouvez voir une erreur comme **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. (L’utilisation d’un mot de passe SSH au lieu d’une clé n’est pas possible, car la vérification de la clé d’hôte est activée et sshpass ne la prend pas en charge.) Add this host’s fingerprint to your known_hosts file to manage this host.** (Ajoutez l’empreinte numérique de cet hôte à votre fichier known_hosts pour gérer cet hôte.) Si vous voyez cette erreur, vous pouvez désactiver la vérification de la clé d’hôte en ajoutant la ligne suivante au fichier `/etc/ansible/ansible.cfg` ou au fichier `~/.ansible.cfg` :
   ```bash
   [defaults]
   host_key_checking = False

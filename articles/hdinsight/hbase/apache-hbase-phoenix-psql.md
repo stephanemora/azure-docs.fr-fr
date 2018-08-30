@@ -3,18 +3,18 @@ title: 'Chargement en bloc dans Apache Phoenix à l’aide de psql : Azure HDIns
 description: Utilisez l’outil psql pour charger des données de chargement en bloc dans des tables Phoenix.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: dab9465a5319e3e3df46771349373fc6996d0bd2
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4f4caec33414a9bf644e1b1860686247697b3fb4
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600140"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042282"
 ---
 # <a name="bulk-load-data-into-phoenix-using-psql"></a>Charger des données en bloc dans Phoenix à l’aide de psql
 

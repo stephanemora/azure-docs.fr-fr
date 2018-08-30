@@ -1,24 +1,20 @@
 ---
-title: Exécuter des programmes MapReduce personnalisés - Azure HDInsight | Microsoft Docs
+title: Exécuter des programmes MapReduce personnalisés - Azure HDInsight
 description: Quand et comment exécuter des programmes MapReduce personnalisés dans HDInsight.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: ashishth
-ms.openlocfilehash: 94d199642b409a2fd087ec1543651031a907d09f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 80f58157e69ff5a6e707408d795889b5bcd677b7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403030"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045569"
 ---
 # <a name="run-custom-mapreduce-programs"></a>Exécuter des programmes MapReduce personnalisés
 

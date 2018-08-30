@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d8e4108e4c79a0920d7ff193e4751e1c71191488
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f3c68fefc5cff2eafc969d11353e78eac8980e7f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050401"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43096346"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Didacticiel : Créer votre première fabrique de données Azure à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "37050401"
 
 
 > [!NOTE]
-> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Démarrage rapide : Créer une fabrique de données à l’aide d’Azure Data Factory](../quickstart-create-data-factory-powershell.md).
+> Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Démarrage rapide : Créer une fabrique de données à l’aide d’Azure Data Factory](../quickstart-create-data-factory-powershell.md).
 
 Dans cet article, vous utilisez Azure PowerShell pour créer votre première fabrique de données Azure. Pour suivre le didacticiel avec d’autres outils/Kits de développement logiciel (SDK), sélectionnez une des options dans la liste déroulante.
 

@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: a625ee4d8d672ddfd42128a9dd871dcfcc013060
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 20d0f4736d3aa5f23d9061b4482da7a623862344
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929772"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128219"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans C# sous .NET Framework sur Windows à l’aide du kit de développement logiciel (SDK) Speech
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer une application de console C# pour .NET Framework sur Windows à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech pour transcrire de la parole en texte.
 L’application est créée avec le [package NuGet du kit SDK Microsoft Cognitive Services Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017.
@@ -100,7 +100,7 @@ Dans cette section, vous allez ajouter à la configuration une nouvelle platefor
 
     ![Sortie de la console après la réussite de la reconnaissance](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Sortie de la console après la réussite de la reconnaissance")
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Recherchez cet exemple dans le dossier `quickstart/csharp-dotnet-windows`.
 
 ## <a name="next-steps"></a>Étapes suivantes

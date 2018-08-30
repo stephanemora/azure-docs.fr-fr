@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4f3ffb3c769adeabd1edc10ce064653f7b336330
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 963f0ebdddab9fe7519b34153b7fd787da0fe7dd
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144027"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112083"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -190,7 +190,7 @@ Si vous avez besoin d’aide pour passer à une version plus récente d’Azure 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 **Q : Comment puis-je obtenir de l’aide avec Azure AD Connect ?**
 
-[Recherche dans la Base de connaissances Microsoft (KB)](https://www.microsoft.com/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Recherche dans la Base de connaissances Microsoft (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
 
 * Dans la base de connaissances, recherchez des solutions techniques aux problèmes courants couverts par la garantie de réparation et d’assistance, relatifs à la prise en charge d’Azure AD Connect.
 

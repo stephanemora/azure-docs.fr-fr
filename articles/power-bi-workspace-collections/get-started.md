@@ -2,26 +2,20 @@
 title: Prise en main de Power BI Workspace Collections
 description: Power BI Workspace Collections est un service Azure qui permet aux développeurs d’applications d’ajouter des rapports Power BI interactifs dans leurs propres applications.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
+ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: ce8638bab55b18ec4f15ed9fc11f3256659bfbd9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b565955abaae44efe20291a6e46b57a5fec941d1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413025"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046556"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Prise en main de Power BI Workspace Collections
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 06/25/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5c347a024af385e04bfdf3631ddcbaec89df4f40
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 6c648a9cb6b8d8dbfb60f1a5a6ebc386c57460b0
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937362"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887244"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gérer Azure Analysis Services avec PowerShell
 
@@ -48,7 +48,7 @@ Module - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 |Applet de commande|Description| 
 |------------|-----------------| 
 |[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Ajoute un compte authentifié à utiliser pour les demandes d’applet de commande du serveur Azure Analysis Services.| 
-|[Export-AzureAnalysisServicesInstance]()|Exporte un journal à partir d’une instance du serveur Analysis Services dans l’environnement actuellement connecté, spécifié dans la commande Add-AzureAnalysisServicesAccount.|  
+|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Exporte un journal à partir d’une instance du serveur Analysis Services dans l’environnement actuellement connecté, spécifié dans la commande Add-AzureAnalysisServicesAccount.|  
 |[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Redémarre une instance du serveur Analysis Services dans l’environnement actuellement connecté ; spécifié dans la commande Add-AzureAnalysisServicesAccount.|  
 |[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Synchronise une base de données spécifiée sur l’instance donnée du serveur Analysis Services avec toutes les instances de requête avec montée en puissance parallèle au sein de l’environnement actuellement connecté comme spécifié dans la commande Add-AzureAnalysisServicesAccount.|  
 

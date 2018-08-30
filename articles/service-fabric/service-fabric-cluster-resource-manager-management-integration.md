@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3f93ca94d5aa3e95637a53a4c8fe3d9d264dd58c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7a1bab75521730f7e80e5b86112bbb0aed129f88
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208282"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917872"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Intégration de Cluster Resource Manager à la gestion de cluster Service Fabric
 Service Fabric Cluster Resource Manager n’actionne pas les mises à niveau dans Service Fabric, mais il y participe. La première manière dont Cluster Resource Manager aide à la gestion consiste à suivre l’état souhaité du cluster et des services qu’il contient. Cluster Resource Manager envoie des rapports d’intégrité lorsqu’il ne peut pas placer le cluster dans la configuration souhaitée. Par exemple, si la capacité est insuffisante, Cluster Resource Manager envoie des avertissements d’intégrité et des erreurs indiquant le problème. Le fonctionnement des mises à niveau est un autre composant de l’intégration. Cluster Resource Manager modifie légèrement son comportement pendant les mises à niveau.  
@@ -32,7 +32,7 @@ Les violations des contraintes de placement constituent un autre exemple des ave
 Voici un exemple de rapport d’intégrité. Dans ce cas, le rapport d’intégrité concerne l’une des partitions de service du système. Le message d’intégrité indique que les réplicas de cette partition sont temporairement empaquetés dans des domaines de mise à niveau trop peu nombreux.
 
 ```posh
-PS C:\Users\User > Get-WindowsFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
+PS C:\Users\User > Get-ServiceFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
 
 
 PartitionId           : 00000000-0000-0000-0000-000000000001

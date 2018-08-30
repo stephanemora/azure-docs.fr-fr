@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ba84d297420ca5a9b75b4cfa432373d3070e0d01
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145532"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125242"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Dépanner une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio
 ## <a name="overview"></a>Vue d'ensemble
@@ -623,7 +623,7 @@ Vous avez vu en quoi Visual Studio facilite l’affichage de journaux créés p
 ### <a name="azure-web-app-troubleshooting"></a>Dépannage des applications web Microsoft Azure
 Pour en savoir plus sur la résolution des applications web dans le Service d’application Microsoft Azure, consultez les ressources suivantes :
 
-* [Surveillance d’applications Web](/manage/services/web-sites/how-to-monitor-websites/)
+* [Surveillance d’applications Web](web-sites-monitor.md)
 * [Étude des fuites de mémoire dans les applications Web Microsoft Azure avec Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Article sur le blog ALM de Microsoft concernant les fonctionnalités de Visual Studio prévues pour l'analyse de problèmes de mémoire gérés.
 * [Les outils en ligne des applications Web Microsoft Azure que vous devez connaître](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Article de blog par Amit Apple.
 
@@ -674,7 +674,7 @@ catch (Exception ex)
 
 * [Journalisation de suivi de diagnostics de diffusion à partir de l’outil en ligne de commande Azure (et Glimpse)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Apprenez à utiliser l’outil en ligne de commande pour effectuer ce que montre ce didacticiel dans Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) est un outil pour le débogage d'applications ASP.NET.
-* [Utilisation des fonctions de journalisation et de diagnostic des applications web - avec David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) et [Journaux de streaming dans Web Apps - avec David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [Utilisation des fonctions de journalisation et de diagnostic des applications web - avec David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) et [Journaux de streaming dans Web Apps - avec David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   par Scott Hanselman et David Ebbo.
 
 Pour la journalisation d'erreurs, vous pouvez éviter d'avoir à écrire votre propre code de suivi en utilisant un Framework de journalisation Open Source comme [ELMAH](http://nuget.org/packages/elmah/). Pour plus d'informations, consultez les [billets du blog de Scott Hanselman sur ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).

@@ -3,18 +3,18 @@ title: Développement d’une action de script avec HDInsight basé sur Linux -
 description: Découvrez comment utiliser des scripts Bash pour personnaliser des clusters HDInsight basés sur Linux. La fonctionnalité d’action de script de HDInsights vous permet d’exécuter des scripts pendant ou après la création de cluster. Vous pouvez utiliser des scripts pour modifier les paramètres de configuration d’un cluster ou installer un logiciel supplémentaire.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
-ms.openlocfilehash: 35d54970e41a7e1533f3d5adc09fc60dc1bbd68d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0225115fb6c74f736e6a5fba09414dc2ebafd84e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600487"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104821"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 

@@ -1,25 +1,20 @@
 ---
 title: Liens vers des rubriques sur le connecteur personnalisé - Azure Logic Apps | Microsoft Docs
 description: Liens vers des rubriques expliquant comment créer, utiliser, partager et certifier des connecteurs personnalisés
-author: ecfan
-manager: jeconnoc
-editor: ''
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 1/30/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 5d8442b4de4d8e251793f82a204ef7e285cdb94d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 89bbc0be27453ba6a6c61c844b8fd8901eea0e80
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297204"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125617"
 ---
 # <a name="custom-connectors-in-logic-apps"></a>Connecteurs personnalisés dans Logic Apps
 

@@ -1,21 +1,20 @@
 ---
 title: Créer des clusters HBase dans un réseau virtuel - Azure
 description: Prise en main de HBase dans Azure HDInsight Découvrez comment créer des clusters HDInsight HBase sur Azure Virtual Network.
-keywords: ''
 services: hdinsight,virtual-network
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jasonh
-ms.openlocfilehash: 33aba330735c53499a472f7e90d350c4edd54c41
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a3686e99f9bab754cdc9cfc801961ea47560a111
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592905"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43043233"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Création de clusters HBase sur HDInsight dans un réseau virtuel Microsoft Azure
 Découvrez comment créer des clusters Azure HDInsight sur [Azure Virtual Network][1].
@@ -38,8 +37,7 @@ Dans cette section, vous allez créer un cluster HBase basé sur Linux avec un c
 > [!NOTE]
 > Certaines propriétés sont codées en dur dans le modèle. Par exemple : 
 >
-> * 
-  **Emplacement** : USA Est 2
+> * **Emplacement** : USA Est 2
 > * **Version du cluster** : 3.6
 > * **Nombre de nœuds de travail du cluster** : 2
 > * **Compte de stockage par défaut** : une chaîne unique

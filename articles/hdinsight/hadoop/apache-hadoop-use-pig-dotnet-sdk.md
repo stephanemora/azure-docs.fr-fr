@@ -1,25 +1,20 @@
 ---
-title: Exécuter des travaux Apache Pig avec le Kit de développement .NET pour Hadoop - Azure HDInsight | Documents Microsoft
+title: Exécuter des travaux Apache Pig avec le SDK .NET pour Hadoop - Azure HDInsight
 description: Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight.
 services: hdinsight
-documentationcenter: .net
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 986e6fe0e71c4e1361814e22d89fa5121341cc79
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: jasonh
+ms.openlocfilehash: 06d2633556e149f48c9750b5df0408b601bf3da3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771750"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046758"
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Exécution de tâches Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Hadoop dans HDInsight
 
@@ -31,13 +26,12 @@ Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèque
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants.
 
 * Un cluster Azure HDInsight (Hadoop sur HDInsight) Windows ou Linux.
 
   > [!IMPORTANT]
-  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * Visual Studio 2012, 2013, 2015 ou 2017.
 

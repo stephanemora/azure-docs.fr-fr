@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/20/2018
 ms.author: iainfou
-ms.openlocfilehash: 129a39294d52a312c91fc6a4fd009d76e88b4ff7
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7048ab4e08d25fd5181857a4e7592d0bcb7d3b5f
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185220"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885592"
 ---
 # <a name="create-persistent-volumes-with-azure-disks-for-azure-kubernetes-service-aks"></a>Créer des volumes persistants avec des disques Azure pour Azure Kubernetes Service (AKS)
 
@@ -150,7 +150,7 @@ azure-managed-disk   Bound     pvc-faf0f176-8b8d-11e8-923b-deb28c58d242   5Gi   
 Ce nom de volume constitue le nom du disque Azure sous-jacent. Recherchez l’ID de disque à l’aide de [az disk list][az-disk-list] et fournissez votre nom de volume PVC, comme indiqué dans l’exemple suivant :
 
 ```
-$ az disk list --query '[].id|[?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
+$ az disk list --query '[].id | [?contains(@,`pvc-faf0f176-8b8d-11e8-923b-deb28c58d242`)]' -o tsv
 
 /subscriptions/<guid>/resourceGroups/MC_MYRESOURCEGROUP_MYAKSCLUSTER_EASTUS/providers/MicrosoftCompute/disks/kubernetes-dynamic-pvc-faf0f176-8b8d-11e8-923b-deb28c58d242
 ```

@@ -3,24 +3,18 @@ title: Exemple de script Azure PowerShell - Configurer le VPN de point à site a
 description: Configurez le VPN de point à site avec l’authentification du nom d’utilisateur/mot de passe RADIUS. Cet article se base sur PowerShell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
 ms.date: 05/30/2018
-ms.author: anzaman
-ms.openlocfilehash: 445190d86ab5d67132302a274f34a583cd94f937
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: alzam
+ms.openlocfilehash: a9584767ba22bd82ba1ba3703e740329017c52b3
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658510"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885639"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>Créer une passerelle VPN et ajouter une configuration de point à site à l’aide de PowerShell
 
@@ -84,7 +78,7 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
  -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’avez plus besoin des ressources créées, utilisez la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources. Ce faisant, vous supprimez le groupe de ressources et l’ensemble des ressources qu’il contient.
 

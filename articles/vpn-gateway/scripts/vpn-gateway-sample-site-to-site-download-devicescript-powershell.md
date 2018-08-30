@@ -3,24 +3,18 @@ title: Exemple de script Azure PowerShell - Télécharger le modèle de configur
 description: Téléchargez le modèle de configuration de périphérique.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
-ms.date: 04/30/2018
-ms.author: anzaman
-ms.openlocfilehash: 2a1b05de7e7c5a5a99dae990a34c9368c8b8b9a9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 04/17/2018
+ms.author: alzam
+ms.openlocfilehash: 53f7adcfbaaf84f50a6b724ef143b833a5f9bf78
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211250"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887127"
 ---
 # <a name="download-vpn-device-template-using-powershell"></a>Télécharger le modèle de périphérique VPN à l’aide de PowerShell
 
@@ -41,7 +35,7 @@ Get-AzureRmVirtualNetworkGatewayConnectionVpnDeviceConfigScript -Name $Connectio
 -DeviceVendor Juniper -DeviceFamily Juniper_SRX_GA -FirmwareVersion Juniper_SRX_12.x_GA
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’avez plus besoin des ressources créées, utilisez la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources. Ce faisant, vous supprimez le groupe de ressources et l’ensemble des ressources qu’il contient.
 

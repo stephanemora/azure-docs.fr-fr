@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: diberry;
-ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.author: diberry
+ms.openlocfilehash: 8926ce48a8426aa667787f7bbe104e27e1a68669
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222594"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124682"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Comment ajouter des modèles pour améliorer la précision de la prédiction
 Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, utilisez le [concept](luis-concept-patterns.md) des modèles pour améliorer la précision de la prédiction des énoncés qui s’appuient sur un modèle d’ordre des mots et de choix de mot. Les modèles utilisent des [entités](luis-concept-entity-types.md) et leurs rôles pour extraire des données à l’aide de la syntaxe spécifique du modèle. 

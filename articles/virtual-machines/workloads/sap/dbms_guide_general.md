@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdf5685ad8072175bdabf8938ef293bed6f5cc13
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075389"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918799"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -263,7 +263,7 @@ La façon de configurer des groupes à haute disponibilité Azure est expliquée
 
 
 ## <a name="azure-network-considerations"></a>Considérations relatives au réseau Azure 
-Dans les déploiements SAP à grande échelle, il est recommandé d’utiliser le blueprint du [Centre de données virtuel Azure](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) pour leur configuration de réseau virtuel et les autorisations et affectations de rôle aux différentes parties de leur organisation.
+Dans les déploiements SAP à grande échelle, il est recommandé d’utiliser le blueprint du [Centre de données virtuel Azure](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) pour leur configuration de réseau virtuel et les autorisations et affectations de rôle aux différentes parties de leur organisation.
 
 Voici plusieurs pratiques recommandées issues de centaines de déploiements clients :
 

@@ -4,17 +4,17 @@ description: Découvrez comment exporter des journaux d’Application Insight po
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 60d837737b1b196ebc83fac4165905218e0f3034
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 51123fee9a3ab3c79e57af12a64e1c0b05daf79a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621961"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041603"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>Analyser les journaux de télémétrie Application Insights avec Spark sur HDInsight
 
@@ -22,7 +22,7 @@ Apprenez à utiliser Spark sur HDInsight pour analyser les données de télémé
 
 [Visual Studio Application Insights](../../application-insights/app-insights-overview.md) est un service d’analyse qui surveille vos applications web. Vous pouvez exporter les données de télémétrie générées par Application Insights vers Stockage Azure. Une fois les données dans Stockage Azure, vous pouvez utiliser HDInsight pour les analyser.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Une application configurée pour utiliser Application Insights.
 

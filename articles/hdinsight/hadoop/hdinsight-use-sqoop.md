@@ -1,25 +1,20 @@
 ---
-title: Exécuter des tâches Apache Sqoop avec Azure HDInsight (Hadoop) | Microsoft Docs
+title: Exécuter des tâches Apache Sqoop avec Azure HDInsight (Hadoop)
 description: Découvrez comment utiliser Azure PowerShell à partir d'un poste de travail pour exécuter des commandes Sqoop import et export entre un cluster HDInsight et une base de données SQL Azure.
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
+author: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 55f30078918239d77c079041ebd1df0325e77719
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7834c6365753e290c7d9e232f716e4b1d39f3db5
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200773"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042572"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Utilisation de Sqoop avec Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -152,9 +147,9 @@ HDInsight peut exécuter des tâches Sqoop à l’aide de différentes méthodes
 
 | **Utilisez-le** si vous souhaitez... | ... un interpréteur de commandes **interactif** | ... un traitement par **lots** | ...avec ce **système d’exploitation cluster** | ...depuis ce **système d’exploitation cluster** |
 |:--- |:---:|:---:|:--- |:--- |
-| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X ou Windows |
-| [Kit de développement logiciel (SDK) .NET pour Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |✔ |Linux ou Windows |Windows (pour l’instant) |
-| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |✔ |Linux ou Windows |Windows |
+| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux |Linux, Unix, Mac OS X ou Windows |
+| [Kit de développement logiciel (SDK) .NET pour Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |? |Linux ou Windows |Windows (pour l’instant) |
+| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux ou Windows |Windows |
 
 ## <a name="limitations"></a>Limites
 * Exportation en bloc : avec HDInsight sous Linux, le connecteur Sqoop utilisé pour exporter des données vers Microsoft SQL Server ou la base de données SQL Azure ne prend pas en charge les insertions en bloc.

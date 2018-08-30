@@ -3,19 +3,19 @@ title: Optimisation des transactions pour Azure SQL Data Warehouse | Microsoft D
 description: Apprenez comment optimiser les performances de votre code transactionnel dans Azure SQL Data Warehouse tout en limitant les risques de restaurations de longue durée.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/19/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 59467c0cd93141cef56e1c9d2f36b0870a589712
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: eb9c66c23440d2fd55c62de02b6c0070245c6d67
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795532"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247917"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimisation des transactions pour Azure SQL Data Warehouse
 Apprenez comment optimiser les performances de votre code transactionnel dans Azure SQL Data Warehouse tout en limitant les risques de restaurations de longue durée.

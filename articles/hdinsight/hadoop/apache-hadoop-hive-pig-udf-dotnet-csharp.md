@@ -1,37 +1,31 @@
 ---
-title: Utiliser C# avec Hive et Pig sur Hadoop dans HDInsight - Azure | Microsoft Docs
+title: Utiliser C# avec Hive et Pig sur Hadoop dans HDInsight - Azure
 description: Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec la diffusion en continu Hive et Pig dans Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: b776b214b9d46293a3ab97ad226dffd3107f3430
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 9a214aa51bcd4b7aab7a65cf2989edd9e9dd3dc6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404033"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044889"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Hive et Pig dans HDInsight
 
 Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec Apache Hive et Pig sur HDInsight.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows et Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](../hdinsight-component-versioning.md).
+> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows et Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](../hdinsight-component-versioning.md).
 
 Hive et Pig permettent de transmettre des données vers des applications externes pour le traitement. Ce processus est appelé _diffusion en continu (streaming)_. Lorsque vous utilisez une application .NET, les données sont transmises à l’application sur STDIN, et l’application renvoie les résultats sur STDOUT. Pour lire et écrire à partir de STDIN et STDOUT, vous pouvez utiliser `Console.ReadLine()` et `Console.WriteLine()` à partir d’une application console.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Des connaissances en écriture et en génération de code C# qui cible .NET Framework 4.5.
 
@@ -222,7 +216,7 @@ Pour plus d’informations sur la version de .NET Framework et Mono fournie avec
 
 1. Utilisez l’une des méthodes suivantes pour vous connecter à votre cluster HDInsight :
 
-    * Si vous utilisez un cluster HDInsight __sous Linux__, utilisez SSH. Par exemple : `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Pour plus d’informations, consultez la rubrique [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
+    * Si vous utilisez un cluster HDInsight __sous Linux__, utilisez SSH. Par exemple : `ssh sshuser@mycluster-ssh.azurehdinsight.net`. Pour plus d’informations, consultez la rubrique [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)
     
     * Si vous utilisez un cluster HDInsight __sous Windows__, [utilisez le Bureau à distance pour vous connecter au cluster.](../hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
 

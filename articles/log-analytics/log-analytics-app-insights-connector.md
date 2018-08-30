@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 4d2837a99c10f1600eb457e20cd7473f9f931302
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131624"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125985"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Solution de gestion Application Insights Connector (préversion)
 
@@ -42,7 +42,7 @@ Lorsque vous utilisez la solution, vous pouvez :
 
 Contrairement à la plupart des autres solutions Log Analytics, les données ne sont pas collectées pour Application Insights Connector par des agents. Toutes les données utilisées par la solution proviennent directement d’Azure.
 
-| Source connectée | Prise en charge | Description |
+| Source connectée | Pris en charge | Description |
 | --- | --- | --- |
 | [Agents Windows](log-analytics-windows-agent.md) | Non  | La solution ne collecte aucune information à partir d’agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non  | La solution ne collecte aucune information à partir d’agents Linux. |
@@ -89,7 +89,6 @@ Cliquez sur la vignette **Application Insights** pour ouvrir le tableau de bord 
 
 Le tableau de bord comprend les panneaux figurant dans le tableau. Chaque panneau répertorie jusqu'à 10 éléments répondant à ses critères en ce qui concerne l’étendue et l’intervalle de temps spécifiés. Vous pouvez exécuter une recherche dans les journaux qui renvoie tous les enregistrements lorsque vous cliquez sur **Afficher tout** en bas du panneau ou lorsque vous cliquez sur l’en-tête de panneau.
 
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Colonne** | **Description** |
 | --- | --- |
@@ -163,7 +162,7 @@ La solution reçoit les types de données de télémétrie suivants à partir de
 
 - Disponibilité
 - Exceptions
-- Requests
+- Demandes
 - Affichages de pages – Pour que votre espace de travail reçoive des affichages de pages, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views).
 - Événements personnalisés – Pour que votre espace de travail reçoive des événements personnalisés, vous devez configurer vos applications pour recueillir ces informations. Pour plus d’informations, voir [TrackEvent](../application-insights/app-insights-api-custom-events-metrics.md#trackevent).
 
@@ -195,7 +194,7 @@ Un enregistrement associé au *type* *ApplicationInsights* est créé pour chaqu
 | IsAuthenticated | True ou false |
 | OperationID | Les éléments qui affichent le même ID d’opération sont représentés en tant qu’éléments associés dans le portail. Généralement l’ID de requête |
 | ParentOperationID | ID de l’opération parente |
-| Nom d'opération |   |
+| OperationName |   |
 | SessionId | GUID permettant d’identifier de façon unique la session dans laquelle la requête a été créée |
 | SourceSystem | ApplicationInsights |
 

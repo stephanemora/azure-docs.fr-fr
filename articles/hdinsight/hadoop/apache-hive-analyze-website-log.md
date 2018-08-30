@@ -1,31 +1,26 @@
 ---
-title: Utilisation de Hive avec Hadoop pour l’analyse des journaux de site web - Azure HDInsight | Microsoft Docs
+title: Utiliser Hive avec Hadoop pour l’analyse des journaux de site web - Azure HDInsight
 description: Découvrez comment utiliser Hive avec HDInsight pour analyser les journaux de site web. Vous allez utiliser un fichier journal en tant qu'entrée dans une table HDInsight, puis faire appel à HiveQL pour interroger les données.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 6fb7b5c2-8df4-40b1-a9e2-6815080004f9
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53a0560d3bc5a52069d5829b9c3bd353e0c37ef3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 47175ed4bc01a43d1f21cbfc84b8a788f11b7338
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31398155"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048022"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Utiliser Hive avec HDInsight Windows pour analyser les journaux de site web
 Découvrez comment utiliser HiveQL avec HDInsight pour analyser les journaux d'un site web. L’analyse des journaux de site web permet de segmenter votre public en fonction d’activités similaires, de classer les visiteurs d’un site sur la base de données démographiques, d’identifier le contenu qu’ils affichent, les sites web qu’ils ont visités avant, etc.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 Dans cet exemple, vous utilisez un cluster HDInsight pour analyser des fichiers journaux de site web afin d’obtenir des informations sur la fréquence des accès au site web en une journée à partir de sites web externes. Vous générez également un résumé des erreurs de site web rencontrées par les utilisateurs. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -37,7 +32,6 @@ Dans cet exemple, vous utilisez un cluster HDInsight pour analyser des fichiers 
 ![HDI.Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Vous devez avoir approvisionné un cluster Hadoop sur Azure HDInsight. Pour plus d’informations, consultez la rubrique [Provisionner des clusters HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Microsoft Excel 2013 ou Microsoft Excel 2010 doivent être installés.
 * Vous devez disposer d'un [pilote ODBC Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886) pour importer des données à partir de Hive dans Excel.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4ead83dc449f2b32461b0585f276c9f3bfd3f847
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038176"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919100"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Ressources de connexion dans Azure Automation
 
@@ -84,7 +84,7 @@ Vous pouvez utiliser le script pour créer la ressource de connexion, car quand 
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Utilisation d’une connexion dans un Runbook ou une configuration DSC
 
-Vous récupérez une connexion dans un Runbook ou une configuration DSC avec l’applet de commande **Get-AutomationConnection** .  Vous ne pouvez pas utiliser l’activité [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn).  Cette activité récupère les valeurs des différents champs dans la connexion et les retourne sous forme de [table de hachage](http://go.microsoft.com/fwlink/?LinkID=324844) , qui peut ensuite être utilisée avec les commandes appropriées dans le Runbook ou la configuration DSC.
+Vous récupérez une connexion dans un Runbook ou une configuration DSC avec l’applet de commande **Get-AutomationConnection** .  Vous ne pouvez pas utiliser l’activité [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection).  Cette activité récupère les valeurs des différents champs dans la connexion et les retourne sous forme de [table de hachage](http://go.microsoft.com/fwlink/?LinkID=324844) , qui peut ensuite être utilisée avec les commandes appropriées dans le Runbook ou la configuration DSC.
 
 ### <a name="textual-runbook-sample"></a>Exemple de Runbook textuel
 

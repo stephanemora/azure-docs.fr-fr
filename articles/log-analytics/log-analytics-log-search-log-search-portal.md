@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 532df20a7639f42d8ba1c840a5fd19f0ad0e4042
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143827"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246331"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Créer des Recherches dans les journaux dans Azure Log Analytics à l’aide du portail Recherche dans les journaux
 
@@ -38,9 +38,8 @@ Commencez par ouvrir le portail Recherche dans les journaux.
 
 1. Ouvrez le portail Azure.
 2. Accédez à Log Analytics et sélectionnez votre espace de travail.
-3. Sélectionnez **Recherche de journaux**.
+3. Sélectionnez **Journaux**.
 
-![Bouton Recherche dans les journaux](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>Créer une recherche simple
 Le moyen le plus rapide de récupérer des données à utiliser consiste à faire appel à une requête simple qui retourne tous les enregistrements d’une table.  Si vous avez des clients Windows ou Linux connectés à votre espace de travail, vous aurez des données dans la table Event (Windows) ou Syslog (Linux).

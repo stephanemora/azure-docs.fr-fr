@@ -15,15 +15,15 @@ ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605608"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917081"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Valider des certificats PKI Azure Stack
 
-L’outil Azure Stack Readiness Checker décrit dans cet article est accessible [à partir de PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Vous pouvez utiliser cet outil pour vérifier que les [certificats pour infrastructure à clé publique (PKI) générés](azure-stack-get-pki-certs.md) sont adaptés au prédéploiement. Vous devez valider les certificats en gardant suffisamment de temps pour tester et réémettre les certificats si nécessaire.
+L’outil Azure Stack Readiness Checker décrit dans cet article est disponible [à partir de PowerShell Gallery](https://aka.ms/AzsReadinessChecker). Vous pouvez utiliser cet outil pour vérifier que les [certificats pour infrastructure à clé publique (PKI) générés](azure-stack-get-pki-certs.md) sont adaptés au prédéploiement. Vous devez valider les certificats en gardant suffisamment de temps pour tester et réémettre les certificats si nécessaire.
 
 L’outil Readiness Checker effectue les validations de certificat suivantes :
 

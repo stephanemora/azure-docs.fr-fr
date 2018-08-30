@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b15d4980875b805b49f7dc1cdb941e607232f3cb
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e17a9275792e3a7fdbea6e3b95e596eaa15f4359
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258037"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105809"
 ---
 # <a name="using-applications-in-azure-blockchain-workbench"></a>Utilisation d’applications dans Azure Blockchain Workbench
 
@@ -23,9 +23,8 @@ Vous pouvez utiliser Blockchain Workbench pour créer et exécuter des opératio
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Un déploiement Blockchain Workbench. Pour plus de détails sur le déploiement, consultez [Azure Blockchain Workbench deployment](blockchain-workbench-deploy.md) (Déploiement d’Azure Blockchain Workbench).
-* Une application blockchain déployée dans Blockchain Workbench. Voir [Créer une application blockchain dans Azure Blockchain Workbench]()
+* Une application blockchain déployée dans Blockchain Workbench. Voir [Créer une application blockchain dans Azure Blockchain Workbench](blockchain-workbench-create-app.md)
 
 [Ouvrez Blockchain Workbench](blockchain-workbench-deploy.md#blockchain-workbench-web-url) dans votre navigateur.
 

@@ -2,26 +2,20 @@
 title: Questions fréquentes (FAQ) sur les Collections d’espaces de travail Power BI
 description: Questions fréquemment posées sur les Collections d’espaces de travail Power BI.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1475ed4f-fc84-4865-b243-e8a47d8bda59
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 6915538e47207ee9a45f2647a84924d79c7b2851
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e6e2c0b82f306e399454c1672c56e2933e3f1158
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414532"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040863"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Questions fréquentes (FAQ) sur les Collections d’espaces de travail Power BI
 

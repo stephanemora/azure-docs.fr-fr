@@ -1,24 +1,20 @@
 ---
-title: Utiliser un tunnel SSH pour accéder à Azure HDInsight | Microsoft Docs
+title: Utiliser le tunneling SSH pour accéder à Azure HDInsight
 description: Apprenez à utiliser un tunnel SSH pour accéder de façon sécurisée à des ressources Web hébergées sur vos nœuds HDInsight sous Linux.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 797538a6d023e1a4b95680057eb0f72489290f40
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.author: jasonh
+ms.openlocfilehash: 0722a366c374bd69fd9cf97279416a60d7133428
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311520"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107667"
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Utilisation d’un tunnel SSH pour accéder à l’interface Web Ambari, JobHistory, NameNode, Oozie et d’autres interfaces Web
 
@@ -46,7 +42,6 @@ Si vous utilisez des actions de script pour personnaliser votre cluster, tous le
 Le [tunneling Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protocol#Secure_Shell_tunneling) connecte un port de votre ordinateur local à un nœud principal sur HDInsight. Le trafic envoyé au port local est acheminé vers le nœud principal via une connexion SSH. La requête est résolue comme si elle avait été créée sur le nœud principal. La réponse est alors acheminée via le tunnel sur votre station de travail.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un client SSH. La plupart des systèmes d’exploitation fournissent un client SSH accessible via la commande `ssh`. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md).
 

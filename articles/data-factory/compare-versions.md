@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 4821ce5911508cc90c3a784d617a4528ecdeb384
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ca00a414402c1cfdef55cfbde9291688f091bf77
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053294"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095917"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparer Azure Data Factory et Azure Data Factory version 1
 Cet article compare Data Factory et Data Factory version 1. Pour une présentation de Data Factory, consultez [Présentation de Data Factory](introduction.md). Pour une présentation de Data Factory version 1, consultez [Présentation d’Azure Data Factory](v1/data-factory-introduction.md). 
@@ -134,7 +134,7 @@ Les Kits de développement logiciel (SDK) mis à jour dans la version actuelle n
 | Portail Azure | [Oui](quickstart-create-data-factory-portal.md) | [Oui](data-factory-build-your-first-pipeline-using-editor.md) |
 | Azure PowerShell | [Oui](quickstart-create-data-factory-powershell.md) | [Oui](data-factory-build-your-first-pipeline-using-powershell.md) |
 | Kit de développement logiciel (SDK) .NET | [Oui](quickstart-create-data-factory-dot-net.md) | [Oui](data-factory-build-your-first-pipeline-using-vs.md) |
-| de l’API REST | [Oui](quickstart-create-data-factory-rest-api.md) | [Oui](data-factory-build-your-first-pipeline-using-rest-api.md) |
+| API REST | [Oui](quickstart-create-data-factory-rest-api.md) | [Oui](data-factory-build-your-first-pipeline-using-rest-api.md) |
 | Kit de développement logiciel (SDK) Python | [Oui](quickstart-create-data-factory-python.md) | Non  |
 | Modèle Resource Manager | [Oui](quickstart-create-data-factory-resource-manager-template.md) | [Oui](data-factory-build-your-first-pipeline-using-arm.md) | 
 

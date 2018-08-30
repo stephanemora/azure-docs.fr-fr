@@ -3,24 +3,18 @@ title: Exemple de script Azure PowerShell - Création d’une passerelle VPN | 
 description: Créez une passerelle VPN à l’aide de PowerShell.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
 ms.date: 04/17/2018
-ms.author: anzaman
-ms.openlocfilehash: 348d59bab7042469a9a7ee5b384a317f52543994
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: alzam
+ms.openlocfilehash: 82d721393f58d7bd203605b15819a98bcf86830b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792849"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885423"
 ---
 # <a name="create-a-vpn-gateway-with-powershell"></a>Créer une passerelle VPN avec PowerShell
 
@@ -60,7 +54,7 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 -VpnType RouteBased -GatewaySku VpnGw1
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’avez plus besoin des ressources créées, utilisez la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources. Ce faisant, vous supprimez le groupe de ressources et l’ensemble des ressources qu’il contient.
 

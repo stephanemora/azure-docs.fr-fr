@@ -5,17 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
+ms.reviewer: lagayhar
 ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c0a1caca1c7b026965d2a83211c87d49db53c4ca
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991594"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246511"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Démarrer l’analyse de votre application web Java
 
@@ -37,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 Si vous préférez l’infrastructure Spring, consultez le guide [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) (guide de configuration de l’application d’initialiseur Spring Boot afin d’utiliser Application Insights)
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 

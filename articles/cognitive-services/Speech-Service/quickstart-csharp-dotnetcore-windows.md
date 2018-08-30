@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 74fb62ffa707188779bcf827d427c61a0b9a4347
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ee83443c76851506fffbfcaaa12e72790d077cb0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576336"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128500"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans C# sous .NET Core sur Windows à l’aide du kit de développement logiciel (SDK) Speech
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer une application de console C# pour .NET Core sur Windows à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech pour transcrire de la parole en texte.
 L’application est créée avec le [package NuGet du kit SDK Microsoft Cognitive Services Speech](https://aka.ms/csspeech/nuget) et Microsoft Visual Studio 2017.
@@ -79,7 +79,7 @@ L’application est créée avec le [package NuGet du kit SDK Microsoft Cognitiv
 
     ![Sortie de la console après la réussite de la reconnaissance](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Sortie de la console après la réussite de la reconnaissance")
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Recherchez cet exemple dans le dossier `quickstart/csharp-dotnetcore-windows`.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -3,19 +3,19 @@ title: Création d’un ticket de support pour Azure SQL Data Warehouse | Micros
 description: Création d'un ticket de support dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 406281fb3d52cc327166693740cdbaec446e8667
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 12b12ff6a6dc616ec3bb592f54862535b1318e49
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31523045"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247315"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>Création d’un ticket de support pour SQL Data Warehouse
 Si vous rencontrez des problèmes avec SQL Data Warehouse, créez un ticket de support pour que l’équipe de support ingénierie puisse vous aider.

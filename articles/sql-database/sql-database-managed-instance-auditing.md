@@ -8,14 +8,14 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 08/28/2018
 ms.author: giladm
-ms.openlocfilehash: 71929be456de4b798da48bb202969deb71e1c371
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a43ca95717c712c932d29a619b7f1a0671c500bf
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648851"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125439"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
 
@@ -109,8 +109,8 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 7. Créez une spécification de l’audit du serveur ou une spécification de l’audit de la base de données comme vous le feriez pour SQL Server :
-    - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/ sql/t-sql/statements/create-server-audit-specification-transact-sql)
-    - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/ sql/t-sql/statements/create-database-audit-specification-transact-sql)
+    - [CREATE SERVER AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+    - [CREATE DATABASE AUDIT SPECIFICATION (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 8. Activez l’audit du serveur que vous avez créé à l’étape 6 :
 

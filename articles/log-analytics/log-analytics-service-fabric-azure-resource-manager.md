@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
 ms.component: na
-ms.openlocfilehash: 9bc1f7d9eab73a086e664dcc520ecf26befbbf0e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7c86c1006d7139356426c0cfb8fc5e684a4c9be6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432889"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125676"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Évaluer les micro-services et applications Service Fabric avec le portail Azure | Microsoft Docs
 
@@ -80,8 +80,6 @@ En suivant la même procédure que celle mentionnée ci-dessus, indiquez les par
 
 Pour afficher les données de performances de vos nœuds :
 
-
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 - Lancez l’espace de travail Log Analytics à partir du portail Azure.
   ![Service Fabric](./media/log-analytics-service-fabric/6.png)

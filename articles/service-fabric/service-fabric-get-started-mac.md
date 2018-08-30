@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 2ea120ed1c43db5cf843bdd64c32a6c8d9c02bb1
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 618180f9cbd1c65863e3e039bac40d1cc493bc37
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143500"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918498"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurer votre environnement de développement sur Mac OS X
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
 4. Vous pouvez maintenant démarrer rapidement une copie locale de Service Fabric, chaque fois que nécessaire, en exécutant :
 
     ```bash 
-    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
     ```
 
     >[!TIP]
@@ -129,8 +129,6 @@ Pour configurer un conteneur Docker local et y exécuter un cluster Service Fabr
  Voici les limitations connues d’un cluster local qui s’exécute dans un conteneur sous Mac : 
  
  * Le service DNS ne s’exécute pas et n’est pas pris en charge [Problème n° 132](https://github.com/Microsoft/service-fabric/issues/132)
-
- * Les applications conteneurs ne peuvent pas être déployées sur ce cluster local pour l’instant
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configurer la CLI Service Fabric (sfctl) sur votre ordinateur Mac
 

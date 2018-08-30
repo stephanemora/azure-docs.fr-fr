@@ -9,20 +9,20 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6b5796bf4d049579dbdede2251f2ca67cc9c4bfd
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c26aeb1d29c3b2c8b5b43d1a1face818295e9d2f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929833"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122080"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>À propos du Kit de développement logiciel (SDK) Speech de Cognitive Services
 
 Le Kit de développement logiciel (SDK) Speech de Cognitive Services fournit à vos applications un accès natif aux fonctions du service Speech, facilitant le développement de logiciels. Actuellement, le SDK fournit un accès à **Reconnaissance vocale**, **Traduction vocale** et **Reconnaissance de l'intention**.
 
-[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
+[!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="get-the-sdk"></a>Obtention du Kit de développement logiciel (SDK)
 
@@ -91,7 +91,7 @@ Pour utiliser le package dans votre projet Android Studio, effectuez les modific
 
 Le Kit de développement logiciel (SDK) Java fait aussi partie du [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).
 
-[!include[Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

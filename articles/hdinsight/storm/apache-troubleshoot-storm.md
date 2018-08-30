@@ -4,17 +4,17 @@ description: Obtenez les réponses aux questions courantes sur l’utilisation d
 keywords: Azure HDInsight, Storm, FAQ, guide de dépannage, problèmes courants
 services: hdinsight
 ms.service: hdinsight
-author: raviperi
-ms.author: raviperi
-editor: jasonwhowell
+author: jasonwhowell
+ms.author: jasonwhowell
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 313cade8a6d840f41c7912cbea87cc989d5b76fa
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cad9e6ceb22ab66b5a3fe00358eb6b6170a3f29f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620682"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049585"
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Résolution de problèmes Storm à l’aide d’Azure HDInsight
 

@@ -3,18 +3,18 @@ title: Configurer la sauvegarde et la réplication HBase et Phoenix - Azure HDIn
 description: Configurer la sauvegarde et de réplication pour HBase et Phoenix
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: b9557dcd34ad59ae50240b76ae75df4ef3f39a5b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0dfb1cf5ce16e9aa30bb7f9fcc43bd24ccb90d76
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592952"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042217"
 ---
 # <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>Configurer la sauvegarde et de réplication pour HBase et Phoenix sur HDInsight
 

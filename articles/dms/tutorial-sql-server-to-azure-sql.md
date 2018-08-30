@@ -10,16 +10,16 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/13/2018
-ms.openlocfilehash: 9f4ff8684576d90f1958a307d6ab876f0e2515fb
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.date: 08/24/2018
+ms.openlocfilehash: 0cb4a5169036fc0a24a5fc5c86d232bb587a6684
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099371"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886291"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Migrer SQL Server vers Azure SQL Database hors connexion à l’aide de DMS
-Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers [Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/). Dans ce tutoriel, vous allez migrer la base de données **Adventureworks2012** restaurée dans une instance locale de SQL Server 2016 (ou une version ultérieure) vers Azure SQL Database à l’aide d’Azure Database Migration Service.
+Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Dans ce tutoriel, vous allez migrer la base de données **Adventureworks2012** restaurée dans une instance locale de SQL Server 2016 (ou une version ultérieure) vers Azure SQL Database à l’aide d’Azure Database Migration Service.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -215,7 +215,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
     ![Résumé de la migration](media\tutorial-sql-server-to-azure-sql\dms-run-migration2.png)
 
 ## <a name="run-the-migration"></a>Exécuter la migration
-1.  Sélectionnez **Exécuter la migration**.
+- Sélectionnez **Exécuter la migration**.
 
     La fenêtre d’activité de migration s’affiche et l’**état** de l’activité est **En attente**.
 

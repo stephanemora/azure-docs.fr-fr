@@ -1,26 +1,21 @@
 ---
-title: Configuration de cluster pour Hadoop, Spark, Kafka, HBase ou ML Services - Azure HDInsight | Microsoft Docs
+title: Configuration de cluster pour Hadoop, Spark, Kafka, HBase ou ML Services - Azure HDInsight
 description: Configurez des clusters Hadoop, Kafka, Spark, HBase, ML Services ou Storm pour HDInsight depuis un navigateur, Azure CLI, Azure PowerShell, REST ou le kit SDK.
 keywords: configuration de cluster Hadoop, configuration de cluster kafka, configuration de cluster spark, définition d’un cluster dans hadoop
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: eddbd3f171cee9df9ff306368df47501ff9dcfca
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.date: 08/27/2018
+ms.openlocfilehash: 0df38e1bd9c4db1cf988beab31b1c3189da4f0c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051591"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127905"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurer des clusters dans HDInsight avec Hadoop, Spark, Kafka et bien plus encore
 
@@ -37,14 +32,14 @@ Un cluster Hadoop se compose de plusieurs machines virtuelles (nœuds) utilisée
 ## <a name="cluster-setup-methods"></a>Méthodes de configuration du cluster
 La table suivante présente les différentes méthodes que vous pouvez utiliser pour configurer un cluster HDInsight.
 
-| Clusters créés avec | Navigateur web | Ligne de commande | API REST | SDK | 
+| Clusters créés avec | un navigateur Web | Ligne de commande | API REST | Foundation | 
 | --- |:---:|:---:|:---:|:---:|
 | [Portail Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI (version 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
-| [Kit SDK .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
+| [KIT DE DÉVELOPPEMENT LOGICIEL (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
 | [Modèles Microsoft Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 
 ## <a name="quick-create-basic-cluster-setup"></a>Création rapide : configuration du cluster de base
@@ -57,10 +52,10 @@ Suivez les instructions à l’écran pour effectuer une configuration de cluste
 * [Nom de groupe ressources](#resource-group-name)
 * [Types de cluster et configuration](#cluster-types) 
 * [Connexion au cluster et nom d’utilisateur SSH](#cluster-login-and-ssh-username)
-* [Emplacement](#location)
+* [Lieu](#location)
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, reportez-vous à la rubrique [Déclassement de HDInsight 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, reportez-vous à la rubrique [Déclassement de HDInsight 3.3](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
 ## <a name="resource-group-name"></a>Nom de groupe ressources 
@@ -80,7 +75,7 @@ Actuellement, Azure HDInsight propose les types de clusters suivants, chacun ave
 | [Hadoop](hadoop/apache-hadoop-introduction.md) |Requête par lot et analyse des données stockées |
 | [HBase](hbase/apache-hbase-overview.md) |Traitement de grandes quantités de données de NoSQL sans schéma |
 | [Interactive Query](./interactive-query/apache-interactive-query-get-started.md) |Mise en cache pour les requêtes Hive interactives et plus rapides |
-| [Kafka](kafka/apache-kafka-introduction.md) | Plateforme de streaming distribuée qui permet de générer des pipelines de données et des applications de streaming en temps réel |
+| [Kafka](kafka/apache-kafka-introduction.md) | Plateforme de diffusion en continu distribuée qui permet de générer des pipelines de données et des applications de diffusion en continu en temps réel |
 | [ML Services](r-server/r-server-overview.md) |Différentes statistiques Big Data, modélisation prédictive et fonctionnalités Machine Learning |
 | [Spark](spark/apache-spark-overview.md) |Traitement en mémoire, requêtes interactives, traitement du flux de traitement micro-batch |
 | [Storm](storm/apache-storm-overview.md) |Traitement d’événements en temps réel |
@@ -91,7 +86,7 @@ Choisissez la version de HDInsight pour ce cluster. Pour plus d’informations, 
 
 ### <a name="enterprise-security-package"></a>Package de sécurité d’entreprise
 
-Pour les types de cluster Hadoop, Spark et Interactive Query, vous pouvez choisir d’activer le **package de sécurité d’entreprise**. Vous pouvez utiliser ce package pour sécuriser une installation de cluster en utilisant Apache Ranger et en opérant une intégration à Azure Active Directory. Pour plus d’informations, consultez [Package de sécurité d’entreprise dans Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+Pour les types de cluster Hadoop, Spark et Interactive Query, vous pouvez choisir d’activer le **package de sécurité d’entreprise**. Vous pouvez utiliser ce package pour sécuriser une installation de cluster en utilisant Apache Ranger et en opérant une intégration à Azure Active Directory. Pour plus d’informations, consultez [Pack Sécurité Entreprise dans Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
 
 ![hdinsight options de création choisir le package de sécurité d’entreprise](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
 
@@ -145,10 +140,23 @@ Pour améliorer les performances avec Oozie, utilisez un metastore personnalisé
 > [!IMPORTANT]
 > Vous ne pouvez pas réutiliser un metastore Oozie personnalisé. Pour utiliser un metastore Oozie personnalisé, vous devez fournir une base de données SQL Azure vide lors de la création du cluster HDInsight.
 
+
+## <a name="custom-cluster-setup"></a>Configuration du cluster personnalisé
+La configuration du cluster personnalisé s’appuie sur les paramètres de création rapide et ajoute les options suivantes :
+- [Applications HDInsight](#install-hdinsight-applications-on-clusters)
+- [Taille du cluster](#configure-cluster-size)
+- [Actions de script](#advanced-settings-script-actions)
+- [Réseau virtuel](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>Installer des applications HDInsight sur des clusters
+
+Une application HDInsight est une application que les utilisateurs peuvent installer sur un cluster HDInsight sous Linux. Vous pouvez utiliser des applications fournies par Microsoft, des tiers ou que vous développez vous-même. Pour plus d’informations, consultez [Installer des applications Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md).
+
+La plupart des applications HDInsight sont installées sur un nœud de périmètre vide.  Un nœud de périmètre vide est une machine virtuelle Linux avec les mêmes outils client installés et configurés comme dans le nœud principal. Vous pouvez utiliser le nœud de périmètre pour accéder au cluster, tester vos applications clientes et héberger vos applications clientes. Pour plus d’informations, consultez [Utiliser des nœuds de périmètre vides dans HDInsight](hdinsight-apps-use-edge-node.md).
+
 ## <a name="configure-cluster-size"></a>Configurer la taille du cluster
 
 Vous êtes facturé pour l’utilisation du nœud tant que le cluster existe. La facturation démarre une fois le cluster créé et ne s’arrête que lorsque le cluster est supprimé. Les clusters ne peuvent pas être désalloués ou mis en attente.
-
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Nombre de nœuds pour chaque type de cluster
 Chaque type de cluster possède son propre nombre de nœuds, sa terminologie pour les nœuds et la taille de machine virtuelle par défaut. Dans le tableau suivant, les chiffres entre parenthèses correspondent au nombre de nœuds de chaque type.
@@ -196,20 +204,6 @@ Pour connaître la valeur que vous devez utiliser pour spécifier une taille de 
 >
 
 Pour plus d’informations, consultez [Tailles des machines virtuelles](../virtual-machines/windows/sizes.md). Pour plus d’informations sur la tarification des différentes tailles, consultez [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
-
-## <a name="custom-cluster-setup"></a>Configuration du cluster personnalisé
-La configuration du cluster personnalisé s’appuie sur les paramètres de création rapide et ajoute les options suivantes :
-- [Applications HDInsight](#hdinsight-applications)
-- [Taille du cluster](#cluster-size)
-- Paramètres avancés
-  - [Actions de script](#customize-clusters-using-script-action)
-  - [Réseau virtuel](#use-virtual-network)
-
-## <a name="install-hdinsight-applications-on-clusters"></a>Installer des applications HDInsight sur des clusters
-
-Une application HDInsight est une application que les utilisateurs peuvent installer sur un cluster HDInsight sous Linux. Vous pouvez utiliser des applications fournies par Microsoft, des tiers ou que vous développez vous-même. Pour plus d’informations, consultez [Installer des applications Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md).
-
-La plupart des applications HDInsight sont installées sur un nœud de périmètre vide.  Un nœud de périmètre vide est une machine virtuelle Linux avec les mêmes outils client installés et configurés comme dans le nœud principal. Vous pouvez utiliser le nœud de périmètre pour accéder au cluster, tester vos applications clientes et héberger vos applications clientes. Pour plus d’informations, consultez [Utiliser des nœuds de périmètre vides dans HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## <a name="advanced-settings-script-actions"></a>Paramètres avancés : actions de script
 

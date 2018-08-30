@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 9991e0a1fc54e6aa4a99b8bfbd93abdfe974b01b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 64dce26303c0e700da54d371af5cb275b1613d70
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283067"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122101"
 ---
 # <a name="speech-service-rest-apis"></a>API REST du service de reconnaissance vocale
 
@@ -23,7 +23,7 @@ Les API REST du service de reconnaissance vocale unifié sont similaires aux API
 
 Dans l’API de reconnaissance vocale, seuls les points de terminaison utilisés diffèrent du service de reconnaissance vocale précédent API de reconnaissance vocale. Les nouveaux points de terminaison sont affichés dans le tableau ci-dessous. Utilisez celui qui correspond à votre région d’abonnement.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 L’API de reconnaissance vocale est par ailleurs similaire à l’[API REST](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) pour l’API de reconnaissance vocale précédente.
 
@@ -54,7 +54,7 @@ fr-FR  | Français | Masculin   | « Voix de synthèse vocale pour la reconnaiss
 
 Voici les points de terminaison REST pour le service vocal unifié API Synthèse vocale. Utilisez le point de terminaison correspondant à votre région d’abonnement.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 Gardez ces différences à l’esprit lorsque vous vous référez à la [documentation de l’API REST](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) pour l’API Microsoft Speech précédente.
 
@@ -62,7 +62,7 @@ Gardez ces différences à l’esprit lorsque vous vous référez à la [documen
 
 L’envoi d’une requête à l’API REST du service Microsoft Speech nécessite un jeton d’accès. Vous obtenez un jeton en fournissant votre clé d’abonnement à un point de terminaison `issueToken` de service Microsoft Speech régional, affiché dans le tableau ci-dessous. Utilisez le point de terminaison correspondant à votre région d’abonnement.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 Chaque jeton d’accès est valide pour une durée de 10 minutes. Vous pouvez obtenir un nouveau jeton à tout moment ; notamment, si vous le souhaitez, juste avant chaque requête API REST Microsoft Speech. Pour réduire la latence et le trafic réseau, toutefois, nous recommandons d’utiliser le même jeton durant neuf minutes.
 

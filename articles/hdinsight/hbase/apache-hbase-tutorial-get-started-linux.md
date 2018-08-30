@@ -1,25 +1,21 @@
 ---
-title: Prise en main d’un exemple HBase sur HDInsight - Azure | Microsoft Docs
+title: Bien démarrer avec un exemple HBase sur HDInsight - Azure
 description: Suivez cet exemple Apache HBase pour commencer à utiliser Hadoop sur HDInsight. Créez des tables à partir de l’interpréteur de commandes HBase et interrogez-les à l’aide de Hive.
 keywords: commande hbase, exemple hbase
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
-ms.openlocfilehash: a77724bd5ed14bf8eb91bf64a1837ce7106edd06
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: jasonh
+ms.openlocfilehash: e31d42cc8ec117e00d83a076d1690cd37c2fc4ef
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867893"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042409"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Prise en main d’un exemple Apache HBase dans HDInsight
 
@@ -35,7 +31,7 @@ Avant d’essayer cet exemple HBase, vous devez disposer des éléments suivants
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>Créer un cluster HBase
-La procédure suivante utilise un modèle Azure Resource Manager pour créer un cluster HBase et le compte Stockage Azure dépendant par défaut. Pour comprendre les paramètres utilisés dans la procédure et d’autres méthodes de création de cluster, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Pour plus d’informations sur l’utilisation de Data Lake Storage Gen2, consultez [Démarrage rapide : configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+La procédure suivante utilise un modèle Azure Resource Manager pour créer un cluster HBase et le compte Stockage Azure dépendant par défaut. Pour comprendre les paramètres utilisés dans la procédure et d’autres méthodes de création de cluster, consultez [Création de clusters Hadoop basés sur Linux dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md). Pour plus d’informations sur l’utilisation de Data Lake Storage Gen2, consultez [Démarrage rapide : configurer des clusters dans HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Cliquez sur l’image suivante pour ouvrir le modèle dans le portail Azure. Ce modèle se trouve dans les [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
    
@@ -262,7 +258,7 @@ HBase dans HDInsight est livré avec une interface utilisateur web pour la surve
   - tâches
   - attributs logiciels
 
-## <a name="delete-the-cluster"></a>Suppression du cluster
+## <a name="delete-the-cluster"></a>Supprimer le cluster
 Pour éviter toute incohérence, nous vous recommandons de désactiver les tables HBase avant de supprimer le cluster.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]

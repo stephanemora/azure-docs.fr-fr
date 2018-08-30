@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 397a6aaf7dc27adfa0fc0e722b8a2be5cc1d75f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1ffc80994244fc44e3cd23cbb05b14e6f878ddb
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986254"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125800"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>Résoudre les erreurs HTTP de type « 502 Passerelle incorrecte » et « 503 Service indisponible » dans vos applications web Azure
 « 502 Passerelle incorrecte » et « 503 Service indisponible » sont des erreurs courantes dans votre application web hébergée dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous permet de résoudre ces erreurs.
@@ -45,7 +45,7 @@ Le dépannage peut être divisé en trois tâches distinctes, dans un ordre séq
 2. [Collecter les données](#collect)
 3. [Résoudre le problème](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) vous offre différentes options à chaque étape.
+[App Service Web Apps](app-service-web-overview.md) vous offre différentes options à chaque étape.
 
 <a name="observe" />
 
@@ -66,7 +66,7 @@ Parmi les mesures que vous pouvez surveiller pour votre application web, se trou
 
 ![surveiller l’application web pour résoudre les erreurs HTTP de type « 502 Passerelle incorrecte » et « 503 Service indisponible »](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
-Pour plus d’informations, consultez :
+Pour plus d'informations, consultez les pages suivantes :
 
 * [Surveiller les applications web dans Microsoft Azure App Service](web-sites-monitor.md)
 * [Réception de notifications d'alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)

@@ -1,32 +1,27 @@
 ---
-title: Utiliser une action de script pour installer Solr sur un cluster Hadoop - Azure | Documents Microsoft
+title: Utiliser une action de script pour installer Solr sur un cluster Hadoop - Azure
 description: Découvrez comment personnaliser un cluster HDInsight avec Solr à l’aide d’une action de script.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: b1e6f338-8ac1-4b38-bbb5-2f7388b9de3b
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6445bcdc361bcda3beb6abcb6196fecc9c6c0024
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: e0c1f2ecbe86eda5161324bfe84c7cf8f7d31d60
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952873"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110752"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Installer et utiliser Solr sur les clusters HDInsight Windows
 
 Découvrez comment personnaliser un cluster HDInsight basé sur Windows avec Solr à l’aide d’une action de script, et comment utiliser Solr pour explorer des données.
 
 > [!IMPORTANT]
-> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d’informations sur l’utilisation de Solr avec un cluster Linux, consultez [Installation et utilisation de Solr sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-solr-install-linux.md).
+> Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows. HDInsight est uniquement disponible sur Windows pour les versions antérieures à HDInsight 3.4. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement). Pour plus d’informations sur l’utilisation de Solr avec un cluster Linux, consultez [Installation et utilisation de Solr sur des clusters HDInsight Hadoop (Linux)](hdinsight-hadoop-solr-install-linux.md).
 
 
 Vous pouvez installer Solr sur n’importe quel type de cluster (Hadoop, Storm, HBase, Spark) sur Azure HDInsight à l’aide d’une *action de script*. Un exemple de script d’installation de Solr sur un cluster HDInsight est disponible depuis un objet blob en lecture seule du stockage Azure à l’adresse [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1).
@@ -54,7 +49,7 @@ L’exemple de script utilisé dans cette rubrique crée un cluster Solr Windows
     <table border='1'>
         <tr><th>Propriété</th><th>Valeur</th></tr>
         <tr><td>NOM</td>
-            <td>Indiquez un nom pour l'action de script. Par exemple, <b>Installation Solr</b>.</td></tr>
+            <td>Indiquez un nom pour l’action de script. Par exemple, <b>Installation Solr</b>.</td></tr>
         <tr><td>URI du script</td>
             <td>Spécifiez l'URI (Uniform Resource Identifier) du script appelé pour personnaliser le cluster. Par exemple, <i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
         <tr><td>Type de nœud</td>

@@ -1,25 +1,20 @@
 ---
-title: MapReduce avec Hadoop sur HDInsight | Microsoft Docs
+title: MapReduce avec Hadoop sur HDInsight
 description: Apprenez à exécuter des tâches MapReduce sur Hadoop dans des clusters HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7f321501-d62c-4ffc-b5d6-102ecba6dd76
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 131e3065da4ccfb20d63856844a302a94806fd19
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3b9cc70a1adc55850923f2313f17be435257117d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202626"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044867"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>Utilisation de MapReduce sur Hadoop sur HDInsight
 
@@ -32,7 +27,7 @@ Apprenez à exécuter des tâches MapReduce sur des clusters HDInsight. Utilisez
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Envoyer la tâche à distance à l'aide de **Windows PowerShell** |Linux ou Windows |Windows |
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 >
 
 ## <a id="whatis"></a>Qu’est-ce que MapReduce ?
@@ -169,7 +164,7 @@ HDInsight peut exécuter des tâches HiveQL de différentes manières. Utilisez 
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Envoyer la tâche à distance à l'aide de **Windows PowerShell** |Linux ou Windows |Windows |
 
 > [!IMPORTANT]
-> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a id="nextsteps"></a>Étapes suivantes
 

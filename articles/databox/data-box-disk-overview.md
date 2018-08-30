@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/17/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 22211f52f6b9a16f785cacb9364ebe5b74617453
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: f2e1a59584507b52d0a834af1869e3e9f2db5f07
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126624"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127362"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Qu’est-ce qu’Azure Data Box Disk ? (Préversion)
 
@@ -106,11 +106,13 @@ Pendant la période de préversion, Data Box Disk peut transférer des données 
 
 |Région Azure  |Région Azure  |
 |---------|---------|
-|Centre-Ouest des États-Unis     |Centre-Nord des États-Unis         |        
-|Ouest des États-Unis 2     | USA Est          |     
-|USA Ouest     | Est des États-Unis 2           |      
-|États-Unis - partie centrale méridionale   | Europe Ouest       |         
-|USA Centre     | Europe Nord |
+|USA Centre-Ouest     |USA Est        |        
+|Ouest des États-Unis 2     |Est des États-Unis 2          |     
+|USA Ouest     | Europe Ouest        |      
+|USA Centre Sud   |Europe Nord     |         
+|USA Centre     |Est du Canada|
+|USA Centre Nord  |Centre du Canada    |
+
 
 
 
@@ -121,5 +123,5 @@ Pendant la période de préversion, Data Box Disk est disponible gratuitement. C
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consultez les [Conditions requises pour le système Data Box Disk](data-box-disk-system-requirements.md).
-- Prenez connaissance des limites de [Data Box Disk](data-box-disk-limits.md).
+- Prenez connaissance des [limites de Data Box Disk](data-box-disk-limits.md).
 - Déployez rapidement [Azure Data Box Disk](data-box-disk-quickstart-portal.md) sur le portail Azure.

@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 0161a691cbec45a87ade218d1707a2784d7f1cfc
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 97659bf38b6d06464eee37a33e87d0c528cdcd37
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283882"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126936"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Tutoriel : Créer un modèle de langage personnalisé
 
@@ -93,7 +93,7 @@ Lorsque vos données de langage sont prêtes, cliquez sur « Language Models » 
 
 Les paramètres régionaux appropriés doivent être sélectionnés avant d’entreprendre une action. Les paramètres régionaux actuels sont indiqués dans le titre du tableau sur toutes les pages de données, de modèles et de déploiements. Pour changer les paramètres régionaux, cliquez sur le bouton « Change Locale » (Changer les paramètres régionaux) situé sous le titre du tableau. Vous êtes ensuite dirigé vers une page de confirmation des paramètres régionaux. Cliquez sur « OK » pour revenir au tableau.
 
-Dans la page « Create Language Model» (Créer un modèle de langage), entrez un « Nom » et une « Description » pour vous aider à suivre les informations utiles sur ce modèle comme le jeu de données utilisé. Sélectionnez ensuite « Base Language Model » (Modèle de langage de base) dans le menu déroulant. Ce modèle sera le point de départ de votre personnalisation. Deux modèles de langage de base existants peuvent être sélectionnés. Les modèles Search and Dictation (Recherche et Dictée) sont appropriés pour la voix dans une application, comme des commandes, des requêtes de recherche ou la dictée. Le modèle oral est approprié pour la reconnaissance vocale de paroles prononcées dans un style oral. Ce type de voix s’adresse généralement à une autre personne et se retrouve dans les centres d’appel ou les réunions. Un nouveau modèle appelé « Universal » (Universel) est également disponible publiquement. Le modèle Universal a pour but de convenir à tout scénario et de remplacer au final les modèles Search and Dictation (Recherche et Dictée) et Conversational (Conversationnel).
+Dans la page « Create Language Model» (Créer un modèle de langage), entrez un « Nom » et une « Description » pour vous aider à suivre les informations utiles sur ce modèle comme le jeu de données utilisé. Sélectionnez ensuite « Base Language Model » (Modèle de langage de base) dans le menu déroulant. Ce modèle sera le point de départ de votre personnalisation. Deux modèles de langage de base existants peuvent être sélectionnés. Les modèles Search and Dictation (Recherche et Dictée) sont appropriés pour la voix dans une application, comme des commandes, des requêtes de recherche ou la dictée. Le modèle Conversation est adapté à la reconnaissance vocale de type conversationnel. Ce type de voix s’adresse généralement à une autre personne et se retrouve dans les centres d’appel ou les réunions. Un nouveau modèle appelé « Universal » (Universel) est également disponible publiquement. Le modèle Universal a pour but de convenir à tout scénario et de remplacer au final les modèles Search and Dictation (Recherche et Dictée) et Conversational (Conversationnel).
 
 5.  Dans l’exemple ci-dessous, une fois que vous avez spécifié le modèle de langage de base, sélectionnez le jeu de données de langage à utiliser pour la personnalisation avec le menu déroulant « Language Data » (Données de langage)
 

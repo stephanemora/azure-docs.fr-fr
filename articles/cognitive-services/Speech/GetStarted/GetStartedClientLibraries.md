@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: f4b6a97260c6dc176600af8844001e4de819ff7c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6fb490def6807204943a1ce3ba3c53186055102b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42357508"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048455"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Bien démarrer avec les bibliothèques clientes du service Reconnaissance vocale Bing
 
@@ -33,7 +33,7 @@ Les bibliothèques clientes Reconnaissance vocale Bing suivantes sont disponible
 - [Bibliothèque Objective-C pour iOS](Get-Started-ObjectiveC-iOS.md)
 
 > [!NOTE] 
-En mai 2018, nous avons également publié le nouveau [service Speech](/speech-service/overview.md) en préversion publique. Nous vous encourageons à l’[essayer gratuitement](/speech-service/get-started.md). 
+En mai 2018, nous avons également publié le nouveau [service Speech](../../speech-service/index.yml) en préversion publique. Nous vous encourageons à l’[essayer gratuitement](../../speech-service/get-started.md). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

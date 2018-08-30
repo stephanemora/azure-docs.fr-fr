@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 9e49e7cdb9157fea2ae29d015bd84d391c73e71b
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 04247792f8467ecf51a074d1e03bbd6e7c553a02
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140673"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247253"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Services qui prennent en charge l’identité du service administré 
 
@@ -31,7 +31,7 @@ Les services Azure suivants prennent en charge l’identité du service administ
 | Azure App Service | Disponible | Non disponible | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[interface de ligne de commande Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/app-service-managed-service-identity#using-azure-powershell)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[JavaScript](/azure/app-service/app-service-managed-service-identity#token-js)<br>[PowerShell](/azure/app-service/app-service-managed-service-identity#token-powershell)  |
 | Azure Functions | Disponible | Non disponible | [Portail Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[interface de ligne de commande Azure](/azure/app-service/app-service-managed-service-identity#using-the-azure-cli)<br>[Azure PowerShell](/azure/app-service/app-service-managed-service-identity#using-azure-powershell)<br>[Modèle Azure Resource Manager](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol)<br>[.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[JavaScript](/azure/app-service/app-service-managed-service-identity#token-js)<br>[PowerShell](/azure/app-service/app-service-managed-service-identity#token-powershell) |
 | Azure Data Factory V2 | VERSION PRÉLIMINAIRE | Non disponible | [Portail Azure](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[Foundation](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-| Gestion des API Azure | VERSION PRÉLIMINAIRE | Non disponible | [Modèle Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity) | 
+| Gestion des API Azure | Disponible | Non disponible | [Modèle Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity) | 
 
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Services Azure qui prennent en charge l’authentification Azure AD

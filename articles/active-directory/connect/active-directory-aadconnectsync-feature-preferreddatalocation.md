@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5eae173e02c92bd43faaa9533ce29489d40f1389
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6272cc8b2f34211aa6e5b85dbb508ade74cee637
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592923"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247568"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure Active Directory Connect : configurer un emplacement de données par défaut pour les ressources Office 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les fonctionnalités multigéographiques dans Office 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Office 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -45,6 +45,7 @@ Voici les zones géographiques Office 365 disponibles pour les fonctionnalités 
 | Australie | AUS |
 | Canada | CAN |
 | Union européenne | EUR |
+| France | FRA |
 | Inde | IND |
 | Japon | JPN |
 | Corée du Sud | KOR |

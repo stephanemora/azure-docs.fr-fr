@@ -1,25 +1,20 @@
 ---
-title: Soumettre des travaux MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight - Azure | Microsoft Docs
+title: Envoyer des travaux MapReduce à l’aide du SDK .NET HDInsight - Azure
 description: Apprenez à envoyer des travaux MapReduce à Azure HDInsight Hadoop à l’aide du Kit de développement logiciel (SDK) .NET HDInsight.
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: c85e44b0-85fd-4185-ad1c-c34a9fe5ef44
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 2b5c265827c30ec9f62cc902aa348e050aec7ba1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: jasonh
+ms.openlocfilehash: b2a79b73015419dc48a1a731e01ac9c8e1fc27f8
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019602"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041498"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Exécuter des travaux MapReduce avec le Kit de développement logiciel (SDK) .NET HDInsight
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

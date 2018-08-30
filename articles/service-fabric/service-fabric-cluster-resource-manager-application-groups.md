@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 215efc1f0597f5199dd37baf4b109d7e76040aae
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2c641703547c391618d75fabfa181dff0b98f74f
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212991"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918768"
 ---
 # <a name="introduction-to-application-groups"></a>Présentation des groupes d’applications
 Service Fabric Cluster Resource Manager gère habituellement les ressources de cluster en répartissant la charge (représentée par les [métriques](service-fabric-cluster-resource-manager-metrics.md)) uniformément dans le cluster. Service Fabric gère la capacité des nœuds du cluster et le cluster dans son ensemble via la [capacité](service-fabric-cluster-resource-manager-cluster-description.md). Les mesures et la capacité sont idéales pour divers types de charges de travail, mais les modèles qui utilisent beaucoup d’instances d’application Service Fabric différentes imposent parfois des conditions supplémentaires. Par exemple, vous pouvez :
@@ -160,7 +160,7 @@ Pour chaque application pour laquelle une capacité d’application a été déf
 PowerShell :
 
 ``` posh
-Get-ServiceFabricApplicationLoad –ApplicationName fabric:/MyApplication1
+Get-ServiceFabricApplicationLoadInformation –ApplicationName fabric:/MyApplication1
 ```
 
 C#

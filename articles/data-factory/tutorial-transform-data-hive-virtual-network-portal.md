@@ -9,18 +9,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: douglasl
-ms.openlocfilehash: 5959eeea7e5a16170414c7ef8036093ce122681d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 60dc0e88998580732b50cb202fb5d00a7cfcae21
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045668"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106679"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformer des données dans un réseau virtuel Azure à l’aide de l’activité Hive dans Azure Data Factory
-Dans ce didacticiel, vous utilisez le portail Azure pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Hive sur un cluster HDInsight qui se trouve dans un réseau virtuel Azure (VNet). Dans ce didacticiel, vous allez effectuer les étapes suivantes :
+Dans ce didacticiel, vous utilisez le portail Azure pour créer un pipeline Azure Data Factory qui transforme des données à l’aide d’une activité Hive sur un cluster HDInsight qui se trouve dans un réseau virtuel Azure (VNet). Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données. 
@@ -41,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 - **Cluster HDInsight.** Créez un cluster HDInsight et joignez-le au réseau virtuel que vous avez créé à l’étape précédente en suivant cet article : [Étendre HDInsight à l’aide d’un réseau virtuel Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Voici un exemple de configuration de HDInsight dans un réseau virtuel. 
 
     ![HDInsight dans un réseau virtuel](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
-- **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- **Azure PowerShell**. Suivez les instructions de la page [Installation et configuration d’Azure PowerShell](/powershell/azure/install-azurerm-ps).
 - **Une machine virtuelle**. Créez une machine virtuelle Azure et joignez-la au réseau virtuel qui contient votre cluster HDInsight. Pour plus d’informations, reportez-vous à [Créer des machines virtuelles](../virtual-network/quick-create-portal.md#create-virtual-machines). 
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Téléchargez le script Hive sur votre compte de stockage Blob
@@ -86,8 +86,8 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
       - Sélectionnez **Utiliser l’existant**, puis sélectionnez un groupe de ressources existant dans la liste déroulante. 
       - Sélectionnez **Créer**, puis entrez le nom d’un groupe de ressources.   
          
-      Pour plus d'informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
-4. Sélectionnez **V2** comme **version**.
+      Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
+4. Sélectionnez **V2** pour la **version**.
 5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge pour la création de fabriques de données sont affichés dans la liste.
 6. Sélectionnez **Épingler au tableau de bord**.     
 7. Cliquez sur **Créer**.
@@ -96,7 +96,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
     ![mosaïque déploiement de fabrique de données](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. Une fois la création terminée, la page **Data Factory** s’affiche comme sur l’image.
    
-   ![Page d'accueil Data Factory](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
+   ![Page d’accueil Data Factory](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Cliquez sur **Créer et surveiller** pour lancer l’interface utilisateur (IU) de Data Factory dans un onglet séparé.
 11. Dans la page **Prise en main**, basculez vers l’onglet **Modifier** dans le volet gauche comme illustré dans l’image suivante : 
 
@@ -268,7 +268,7 @@ Dans ce didacticiel, vous avez effectué les étapes suivantes :
 > * Surveiller l’exécution du pipeline. 
 > * Vérifier la sortie
 
-Passez au didacticiel suivant pour en savoir plus sur la transformation des données en utilisant un cluster Spark sur Azure :
+Passez au tutoriel suivant pour en savoir plus sur la transformation des données en utilisant un cluster Spark sur Azure :
 
 > [!div class="nextstepaction"]
 >[Création de branche et chaînage du flux de contrôle Data Factory](tutorial-control-flow-portal.md)

@@ -1,22 +1,20 @@
 ---
 title: Surveiller les modifications d’une machine virtuelle - Azure Event Grid et Azure Logic Apps | Microsoft Docs
 description: Vérifier les modifications de configuration dans des machines virtuelles (VM) à l’aide d’Azure Event Grid et Azure Logic Apps
-keywords: applications logiques, grilles d’événements, machine virtuelle, VM
 services: logic-apps
-author: ecfan
-manager: anneta
-ms.assetid: ''
-ms.workload: logic-apps
 ms.service: logic-apps
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303111"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127657"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
 
@@ -41,7 +39,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * envoyer un e-mail en cas de modification de la machine virtuelle.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Un compte de messagerie sur [n’importe quel fournisseur de messagerie pris en charge par Azure Logic Apps](../connectors/apis-list.md), par exemple Outlook Office 365, Outlook.com ou Gmail, pour envoyer les notifications. Ce didacticiel utilise Outlook Office 365.
 
@@ -234,7 +231,7 @@ Vous pouvez surveiller les autres modifications de configuration avec des grille
 * Des disques d’une machine virtuelle ont été ajoutés ou supprimés.
 * Une adresse IP publique est affectée à la carte d’interface réseau (NIC) d’une machine virtuelle.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Ce didacticiel utilise des ressources et effectue des actions qui peuvent entraîner des frais sur votre abonnement Azure. Par conséquent, lorsque vous aurez terminé de suivre ce didacticiel et d’effectuer les tests, veillez à désactiver ou à supprimer les ressources pour lesquelles vous ne souhaitez pas être facturé.
 

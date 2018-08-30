@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b578abfa6fc0a10edc5daab40f8a0eea5e6653d9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c0fdcdbf838a0bc283db05f36b900641016211b7
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115060"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121912"
 ---
 # <a name="persist-job-and-task-output"></a>Conserver les résultats des tâches et des travaux
 
@@ -34,7 +34,7 @@ Cet article décrit différentes possibilités pour conserver la sortie des tâc
 
 ## <a name="about-the-batch-file-conventions-standard"></a>À propos des conventions standard de nommage des fichiers Batch
 
-Batch définit un ensemble facultatif de conventions pour nommer les fichiers de sortie de tâche dans le Stockage Azure. Les conventions standard de nommage des fichiers Batch sont décrites dans ce [document](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). Les conventions standard de nommage des fichiers déterminent les noms du conteneur et du chemin d’objet blob de destination dans le Stockage Azure pour un fichier de sortie donné en fonction des noms du travail et de la tâche.
+Batch définit un ensemble facultatif de conventions pour nommer les fichiers de sortie de tâche dans le Stockage Azure. Les conventions standard de nommage des fichiers Batch sont décrites dans ce [document](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Les conventions standard de nommage des fichiers déterminent les noms du conteneur et du chemin d’objet blob de destination dans le Stockage Azure pour un fichier de sortie donné en fonction des noms du travail et de la tâche.
 
 C’est à vous qu’il appartient d’appliquer ou non les conventions standard de nommage des fichiers pour vos fichiers de données de sortie. Vous pouvez aussi nommer le conteneur et l’objet blob de destination comme vous le souhaitez. Si vous utilisez les conventions standard de nommage des fichiers pour nommer vos fichiers de sortie, ceux-ci sont visibles dans le [portail Azure][portal].
 
@@ -71,13 +71,13 @@ Les sections suivantes décrivent plus en détail chacune de ces approches.
 
 Avec la version 2017-05-01, le service Batch permet de spécifier des fichiers de sortie dans le Stockage Azure pour les données de tâches au moment d’[ajouter une tâche à un travail](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) ou d’[ajouter une collection de tâches à un travail](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
-L’API du service Batch prend en charge la conservation des données de tâches sur un compte Stockage Azure à partir des pools créés avec la configuration de machine virtuelle. Avec l’API du service Batch, vous pouvez conserver les données de tâches sans modifier l’application exécutée par votre tâche. Vous pouvez éventuellement vous conformer aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) pour nommer les fichiers que vous conservez dans le Stockage Azure. 
+L’API du service Batch prend en charge la conservation des données de tâches sur un compte Stockage Azure à partir des pools créés avec la configuration de machine virtuelle. Avec l’API du service Batch, vous pouvez conserver les données de tâches sans modifier l’application exécutée par votre tâche. Vous pouvez éventuellement vous conformer aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) pour nommer les fichiers que vous conservez dans le Stockage Azure. 
 
 Conservez la sortie des tâches à l’aide de l’API du service Batch dans les cas suivants :
 
 - Vous voulez conserver les données des tâches Batch et des tâches du Gestionnaire de travaux dans des pools créés avec la configuration de machine virtuelle.
 - Vous voulez conserver les données dans un conteneur de Stockage Azure avec un nom arbitraire.
-- Vous voulez conserver les données dans un conteneur de Stockage Azure nommé conformément aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
+- Vous voulez conserver les données dans un conteneur de Stockage Azure nommé conformément aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
 > L’API du service Batch ne prend pas en charge la conservation des données des tâches s’exécutant dans des pools créés avec la configuration de service cloud. Pour plus d’informations sur la conservation de la sortie des tâches de pools exécutant la configuration de services cloud, consultez [Conserver les données des travaux et des tâches dans le Stockage Azure avec la bibliothèque Conventions de nommage des fichiers Batch pour .NET](batch-task-output-file-conventions.md).
@@ -88,7 +88,7 @@ Pour plus d’informations sur la conservation de la sortie des tâches avec l�
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>Utiliser la bibliothèque Conventions de nommage des fichiers Batch pour .NET
 
-Les développeurs qui élaborent des solutions Batch avec C# et .NET peuvent utiliser la [bibliothèque Conventions de nommage des fichiers pour .NET][nuget_package] pour conserver les données des tâches dans un compte de Stockage Azure, conformément aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). La bibliothèque Conventions de nommage des fichiers gère le déplacement des fichiers de sortie vers le Stockage Azure, ainsi que le nommage des conteneurs et objets blob de destination d’une façon bien connue.
+Les développeurs qui élaborent des solutions Batch avec C# et .NET peuvent utiliser la [bibliothèque Conventions de nommage des fichiers pour .NET][nuget_package] pour conserver les données des tâches dans un compte de Stockage Azure, conformément aux [conventions standard de nommage des fichiers Batch](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). La bibliothèque Conventions de nommage des fichiers gère le déplacement des fichiers de sortie vers le Stockage Azure, ainsi que le nommage des conteneurs et objets blob de destination d’une façon bien connue.
 
 La bibliothèque Conventions de nommage des fichiers prend en charge l’interrogation des fichiers de sortie par ID ou usage, ce qui permet de les localiser facilement sans avoir besoin d’URI de fichiers complets. 
 
@@ -106,7 +106,7 @@ L’exemple de projet [PersistOutputs][github_persistoutputs] sur GitHub montre 
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>Implémenter les conventions standard de nommage des fichiers Batch
 
-Si vous utilisez un autre langage que .NET, vous pouvez implémenter les [conventions standard de nommage des fichiers](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) dans votre propre application. 
+Si vous utilisez un autre langage que .NET, vous pouvez implémenter les [conventions standard de nommage des fichiers](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) dans votre propre application. 
 
 Vous pouvez souhaiter implémenter les conventions standard de nommage des fichiers par vous-même si vous voulez un schéma de nommage qui a fait ses preuves ou si vous voulez afficher la sortie des tâches dans le portail Azure.
 

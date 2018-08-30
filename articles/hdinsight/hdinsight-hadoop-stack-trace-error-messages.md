@@ -1,25 +1,21 @@
 ---
-title: Messages d’erreur de l’arborescence des appels de procédure Hadoop - Azure HDInsight | Microsoft Docs
+title: Messages d’erreur de l’arborescence des appels de procédure Hadoop - Azure HDInsight
 description: Index des messages d’erreur d’arborescence des appels de procédure Hadoop dans Azure HDInsight. Recherchez l’erreur dans la liste pour afficher des informations de dépannage.
 keywords: arborescence des appels de procédure, messages d’erreur
 services: hdinsight
-documentationcenter: NA
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 310051e5-5e2f-4be2-9780-2e8c0430e52d
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 7b0bb58dcf255ee14dd18de3a3ac7489ae0ed1de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 37b36f45a8648b5a3a4d685e935bf9b8a022a4cb
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200154"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43111350"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Indexe d’articles de résolution des problèmes avec Hadoop dans HDInsight
 Les articles sont organisés par types d’erreur.

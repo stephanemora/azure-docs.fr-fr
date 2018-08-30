@@ -1,25 +1,21 @@
 ---
-title: Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Store - Azure | Microsoft Docs
+title: Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Store - Azure
 description: Découvrez comment utiliser plusieurs clusters HDInsight avec un seul compte Data Lake Store
 keywords: stockage hdinsight, hdfs, données structurées, données non structurées, data lake store
 services: hdinsight,storage
-documentationcenter: ''
-tags: azure-portal
-author: nitinme
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 1d073732b5dd9b9867813d9ffcfad5caa1131d81
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 0e74406d79484483053ca7d4b89b096c3f70e298
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101437"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095122"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Utiliser plusieurs clusters HDInsight avec un compte Azure Data Lake Store
 

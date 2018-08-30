@@ -3,7 +3,7 @@ title: Autoriser les applications à récupérer les secrets d’un coffre de cl
 description: Utiliser un exemple d’application à utiliser avec Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/11/2018
-ms.author: mabrigg
-ms.openlocfilehash: 39bce286c756660cd8755358cf98f2c8d35ce351
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: ed02174247de1a99f3d9a4880fd0afa60f867552
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807378"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050378"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Exemple d’application qui utilise des clés et des secrets stockés dans un coffre de clés
 
@@ -174,6 +174,6 @@ Vous pouvez utiliser l’exemple HelloKeyVault pour :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer une machine virtuelle avec un mot de passe Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
+[Déployer une machine virtuelle avec un mot de passe Key Vault](azure-stack-kv-deploy-vm-with-secret.md)
 
 [Déployer une machine virtuelle avec un certificat Key Vault](azure-stack-kv-push-secret-into-vm.md)

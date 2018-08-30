@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 816cde31e84eeda8110c042f4e0640f12fb4cc53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645988"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247664"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
 
@@ -168,7 +168,6 @@ Observez les éléments suivants dans le script *OnlineReindex.sql* :
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-.
 > * Créer un agent de travail pour exécuter des travaux T-SQL dans plusieurs bases de données
 > * Mettre à jour les données de référence dans toutes les bases de données de locataire
 > * Créer un index sur une table dans toutes les bases de données de locataire

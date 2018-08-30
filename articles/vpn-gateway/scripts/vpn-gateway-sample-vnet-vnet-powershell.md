@@ -3,24 +3,18 @@ title: Exemple de script Azure PowerShell - Configurer un VPN entre des réseaux
 description: Configurez un VPN de site à site.
 services: vpn-gateway
 documentationcenter: vpn-gateway
-author: cherylmc
-manager: jpconnock
-editor: ''
-tags: ''
-ms.assetid: ''
+author: anzaman
 ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
-ms.tgt_pltfrm: ''
-ms.workload: infrastructure
-ms.date: 05/02/2018
-ms.author: anzaman
-ms.openlocfilehash: 8136ed2537b63fbba0bafc2ef00e7a65e176fde8
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 04/30/2018
+ms.author: alzam
+ms.openlocfilehash: d7eb1fa2bf5991c70d7bb1cb813895883bb2014a
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757448"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886694"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 
@@ -132,7 +126,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
  ```
  
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Lorsque vous n’avez plus besoin des ressources créées, utilisez la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources. Ce faisant, vous supprimez les groupes de ressources et l’ensemble des ressources qu’ils contiennent.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 69f11c77d01f546aecdcb5f0560f6f89483ac204
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056400"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123480"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guide de publication de l’offre des applications SaaS
 
@@ -35,7 +35,7 @@ Des applications SaaS sont disponibles dans les deux vitrines Azure. Le tableau 
 | Place de marché Azure | Non  | Oui (Applications SaaS) |   
 
 **Liste :** L’option de publication Liste consiste en une offre de type Me contacter et est utilisée quand une participation de niveau Essai ou Transaction n’est pas possible. L’avantage de cette méthode est qu’elle permet aux éditeurs commercialisant une solution de commencer immédiatement à recevoir des prospects convertibles en transactions pour développer leur activité.  
-**Essai/Transaction :** Le client a la possibilité d’acheter directement votre solution ou de demander une version d’essai de celle-ci. Proposer une version d’essai augmente le niveau d’engagement des clients en leur permettant de découvrir votre solution avant de l’acheter. Avec une expérience d’essai, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc d’obtenir des prospects en plus grand nombre et plus intéressants. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’essai.  
+**Essai/Transaction :** Le client a la possibilité d’acheter directement votre solution ou de demander une version d’essai de celle-ci. Proposer une version d’évaluation augmente le niveau d’engagement des clients en leur permettant de découvrir votre solution avant de l’acheter. Avec une expérience d’évaluation, vous augmentez vos chances d’être mieux référencé dans les vitrines, et donc d’obtenir des prospects en plus grand nombre et plus intéressants. Les versions d’essai doivent fournir un support gratuit, au moins pendant la période d’évaluation.  
 
 | Offre d’applications SaaS | Exigences commerciales | Exigences techniques |  
 | --- | --- | --- |  
@@ -56,7 +56,7 @@ Vous n’avez pas besoin de configurer Azure Active Directory pour répertorier 
 
 ## <a name="saas-trial"></a>Version d’essai SaaS
 
-Vous fournissez une solution ou une application par le biais d’une version d’essai SaaS gratuite. Les offres d’essai gratuit peuvent être proposées sous la forme d’un compte d’essai à durée ou utilisation limitée. 
+Vous fournissez une solution ou une application par le biais d’une version d’évaluation SaaS gratuite. Les offres d’essai gratuit peuvent être proposées sous la forme d’un compte d’essai à durée ou utilisation limitée. 
 
 
 |Configuration requise  |Détails  |
@@ -97,9 +97,9 @@ Une formation gratuite à Azure Active Directory est accessible via le lien suiv
 * [Série de formations sur Microsoft Azure destinées aux professionnels de l’informatique : Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 En outre, Azure Active Directory fournit un site pour vérifier la disponibilité de mises à jour du service :   
-* [Mises à jour du service Azure AD](https://azure.microsoft.com/updates/?product=active-directory)|
+* [Mises à jour du service Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
-## <a name="using-azure-active-directory-to-enable-trials"></a>Utilisation d’Azure Active Directory pour activer les versions d’essai  
+## <a name="using-azure-active-directory-to-enable-trials"></a>Utilisation d’Azure Active Directory pour activer les versions d’évaluation  
 
 Microsoft authentifie tous les utilisateurs de la Place de marché auprès d’Azure AD. Par conséquent, quand un utilisateur authentifié clique sur votre annonce de version d’essai sur la Place de marché et est redirigé vers votre environnement d’essai, vous pouvez approvisionner l’utilisateur directement dans un Essai, sans qu’aucune autre étape de connexion soit nécessaire. Le jeton que votre application reçoit d’Azure AD pendant l’authentification inclut des informations utilisateur utiles que vous pouvez utiliser pour créer un compte utilisateur dans votre application, ce qui vous permet d’automatiser l’expérience d’approvisionnement et d’augmenter la probabilité de conversion. Pour plus d’informations sur le jeton, voir [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
@@ -127,7 +127,7 @@ Si vous découvrez l’authentification unique fédérée Azure AD, procédez co
 **Pour une application à client unique, vous disposez des options suivantes :**  
 * ajouter des utilisateurs à votre annuaire en tant qu’utilisateurs invités en utilisant [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) ;
 * approvisionner manuellement les essais des clients via l’option « Me contacter » ;
-* développer une « version Test Drive » par client.
+* développer une « version d’évaluation » par client.
 * Créer une application de démonstration multilocataire avec authentification unique
 
 ## <a name="saas-subscriptions"></a>Abonnements SaaS

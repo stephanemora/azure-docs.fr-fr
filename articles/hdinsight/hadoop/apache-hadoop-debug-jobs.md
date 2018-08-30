@@ -2,19 +2,19 @@
 title: 'Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur - Azure '
 description: Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: ashishthaps
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 00d09619db11ea0026f5386048f1c10a8f831948
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cd688ec1f5b7b46138a3b601f52b54dd6f3615e3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592779"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046488"
 ---
 # <a name="analyze-hadoop-logs"></a>Analyser les journaux Hadoop
 
@@ -137,8 +137,7 @@ Certains de ces messages d'erreur peuvent également apparaître dans le portail
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported
 * **Description**: impossible de créer un cluster dans la région *nom_région*. Utilisez une région HDInsight valide et relancez la requête.
-* 
-  **Atténuation**: créez le cluster dans une région qui les prend actuellement en charge : Asie Sud-Est, Europe Ouest, Europe Nord, USA Est ou USA Ouest.  
+* **Atténuation**: créez le cluster dans une région qui les prend actuellement en charge : Asie Sud-Est, Europe Ouest, Europe Nord, USA Est ou USA Ouest.  
 
 ### <a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound
 * **Description**: le serveur n’a pas pu trouver l’enregistrement de cluster demandé.  

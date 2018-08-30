@@ -3,21 +3,20 @@ title: Créer des applications serverless avec Visual Studio | Microsoft Docs
 description: Créer, déployer et gérer votre première application serverless avec Azure Logic Apps et Azure Functions dans Visual Studio
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.reviewer: jehollan, LADocs
-ms.suite: integration
+ms.reviewer: klam, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
-ms.openlocfilehash: ed56e5f2a4a0d9e3a5e8d8c80e0fd20dbfb098bb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a69c129d5ae1405462e3a54a24cd2edbad2a86a7
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444784"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126775"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Créer votre première application serverless avec Azure Logic Apps et Azure Functions - Visual Studio
 
@@ -29,7 +28,7 @@ Pour créer une application serverless dans Visual Studio, vous avez besoin des 
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs/) ou Visual Studio 2015 : Community, Professional ou Enterprise
+* [Visual Studio 2017](https://www.visualstudio.com/vs/) ou Visual Studio 2015 : Communauté, Professionnel ou Entreprise
 
 * [Microsoft Azure SDK](https://azure.microsoft.com/downloads/) (2.9.1 ou version ultérieure)
 

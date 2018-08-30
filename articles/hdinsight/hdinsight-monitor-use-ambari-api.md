@@ -3,18 +3,18 @@ title: Surveiller les clusters Hadoop dans HDInsight à l’aide de l’API Amba
 description: Utilisez les API Apache Ambari pour la création, la gestion et la surveillance des clusters Hadoop. Les outils intuitifs pour opérateurs et les API masquent la complexité de Hadoop.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f55ee02ada5bb53d4634d119311fb9230ff15105
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 23da477fc24eaea4a6f987f13ad055022d2ba032
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592820"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108635"
 ---
 # <a name="monitor-hadoop-clusters-in-hdinsight-using-the-ambari-api"></a>Surveillance des clusters Hadoop dans HDInsight à l'aide des API Ambari
 Découvrez comment surveiller les clusters HDInsight à l’aide des API Ambari.

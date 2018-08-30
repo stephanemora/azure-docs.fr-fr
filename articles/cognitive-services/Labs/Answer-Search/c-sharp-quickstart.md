@@ -8,12 +8,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b05b7745bdb5020a4a0912635e040256415b2626
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c8e2a6a7fc3609932a7a1139d7b34553e5f9c291
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369549"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888321"
 ---
 # <a name="project-answer-search-query-in-c"></a>Requête Project Answer Search avec C#
 
@@ -21,7 +21,7 @@ L’exemple C# suivant crée et envoie une requête pour plus d’informations s
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.)
+Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.)
 
 Obtenir une clé d’accès pour l’essai gratuit [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
@@ -53,7 +53,7 @@ namespace Answers_csharp
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "YOUR-SUBSCRIPTION-KEY";
 
-        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search "; 
+        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search"; 
 
         const string searchTerm = "third law of calculus"; 
 
@@ -193,4 +193,4 @@ Pour exécuter l’application :
 4. Exécutez le programme.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Démarrage rapide de Java](java-quickstart.md)
+[Démarrage rapide Java](java-quickstart.md)

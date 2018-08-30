@@ -3,19 +3,18 @@ title: Traiter des messages par lots (groupe ou collection de messages) - Azure 
 description: Envoyer et recevoir des messages sous forme de lots dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
+ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.reviewer: estfan, LADocs
-ms.suite: integration
-ms.openlocfilehash: 5190e5d4191cb4d07b000920dd1be1b53e679350
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ee1df77dc18350a64082cb62c297a53700cad223
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143020"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128743"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Envoyer, recevoir et traiter par lots des messages dans Azure Logic Apps
 
@@ -35,7 +34,7 @@ Assurez-vous que votre récepteur et votre expéditeur de lots partagent le mêm
 
 Pour suivre cet exemple, vous avez besoin de ce qui suit :
 
-* Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Sinon, [souscrivez un abonnement avec paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
+* Un abonnement Azure. Si vous ne disposez d’aucun abonnement, vous pouvez [commencer par créer gratuitement un compte Azure](https://azure.microsoft.com/free/). Vous pouvez aussi [souscrire un abonnement avec paiement à l’utilisation](https://azure.microsoft.com/pricing/purchase-options/).
 
 * Un compte de courrier de n’importe quel [fournisseur de messagerie pris en charge par Azure Logic Apps](../connectors/apis-list.md)
 
@@ -51,7 +50,7 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
 
 1. Dans le [portail Azure](https://portal.azure.com) ou dans Visual Studio, créez une application logique et nommez-la « BatchReceiver ». 
 
-2. Dans le Concepteur d'applications logiques, ajoutez le déclencheur **Lot** qui démarre le flux de travail de votre application logique. Dans la zone de recherche, entrez « lot » comme filtre. Sélectionnez ce déclencheur : **Traiter les messages par lots**.
+2. Dans le Concepteur d'applications logiques, ajoutez le déclencheur **Lot** qui démarre le flux de travail de votre application logique. Dans la zone de recherche, entrez « lot » comme filtre. Sélectionnez ce déclencheur : **Traiter les messages par lots**
 
    ![Ajout d’un déclencheur « Traiter les messages par lots »](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
@@ -73,7 +72,7 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
    Pour cet exemple, ajoutez une action qui envoie un e-mail lorsque le déclencheur de lot est activé. 
    Le déclencheur s’exécute et envoie un e-mail lorsque le lot contient 10 messages, atteint 10 Mo, ou au bout de 10 minutes.
 
-   1. Sous le déclencheur de lot, sélectionnez **Nouvelle étape**.
+   1. Sous le déclencheur Lot, sélectionnez **Nouvelle étape**.
 
    2. Dans la zone de recherche, entrez «  envoyer e-mail » comme filtre.
    Sélectionnez un connecteur de messagerie en fonction de votre fournisseur de messagerie.
@@ -167,7 +166,7 @@ Avant de pouvoir envoyer des messages à un lot, ce lot doit d’abord exister e
 
    | Propriété | Description | 
    |----------|-------------| 
-   | **Nom du lot** | Nom défini par l’application logique réceptrice, « TestBatch » dans cet exemple. <p>**Important** : le nom du lot est validé lors de l’exécution et doit correspondre au nom spécifié par l’application logique réceptrice. Si vous modifiez ce nom, l’expéditeur de lots échoue. | 
+   | **Nom du lot** | Nom défini par l’application logique réceptrice (« TestBatch » dans cet exemple) <p>**Important** : le nom du lot est validé lors de l’exécution et doit correspondre au nom spécifié par l’application logique réceptrice. Si vous modifiez ce nom, l’expéditeur de lots échoue. | 
    | **Contenu du message** | Contenu du message que vous voulez envoyer | 
    ||| 
 
@@ -218,5 +217,5 @@ Votre application logique expéditrice de lots s’exécute toutes les minutes, 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer des définitions d’application logique à l’aide de JSON](../logic-apps/logic-apps-author-definitions.md)
-* [Créer une application serverless dans Visual Studio avec Azure Logic Apps et Azure Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
+* [Créer une application sans serveur dans Visual Studio avec Azure Logic Apps et Azure Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Gestion des exceptions et journalisation des erreurs pour les applications logiques](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

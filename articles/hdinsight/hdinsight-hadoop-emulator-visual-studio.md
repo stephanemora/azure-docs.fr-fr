@@ -3,18 +3,18 @@ title: Data Lake Tools pour Visual Studio avec Hortonworks Sandbox - Azure HDIns
 description: Apprenez à utiliser Data Lake Tools pour Visual Studio avec le bac à sable Hortonworks s’exécutant sur une machine virtuelle locale. Ces outils vous permettent de créer et d’exécuter des travaux Hive et Pig sur le bac à sable, ainsi que d’en afficher le résultat et l’historique.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: 53bd629bcdf272e97c03dfb60c2693158698b837
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: c657048d22ca3bee6b41b7351d8fdc5bacdb44be
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246563"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106292"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utiliser Azure Data Lake Tools pour Visual Studio avec le Bac à sable (sandbox) Hortonworks
 

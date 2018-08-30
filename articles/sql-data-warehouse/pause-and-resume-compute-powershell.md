@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Suspendre et reprendre le calcul dans Azure SQL Data
 description: Utilisez PowerShell pour interrompre le calcul dans Azure SQL Data Warehouse afin de réduire les coûts. Reprenez le calcul dès que vous pourrez à nouveau utiliser l’entrepôt de données.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ef341a1528bf759461abfb7cfc6d878fd8a44cb4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3e2008315a8b1c728ef1dac50002b8322907eb51
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598895"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248002"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Démarrage rapide : suspendre et reprendre le calcul dans Azure SQL Data Warehouse avec PowerShell
 Utilisez PowerShell pour interrompre le calcul dans Azure SQL Data Warehouse afin de réduire les coûts. [Reprenez le calcul](sql-data-warehouse-manage-compute-overview.md) quand vous êtes prêt à utiliser l’entrepôt de données.
@@ -102,18 +102,18 @@ $resultDatabase = $database | Resume-AzureRmSqlDatabase
 $resultDatabase
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Vous êtes facturé pour les Data Warehouse Units et les données stockées dans votre entrepôt de données. Ces ressources de calcul et de stockage sont facturées séparément.
 
 - Si vous souhaitez conserver les données dans le stockage, suspendez le calcul.
-- Si vous voulez éviter des frais ultérieurs, vous pouvez supprimer l’entrepôt de données.
+- Si vous voulez éviter des frais futurs, vous pouvez supprimer l’entrepôt de données.
 
 Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et cliquez sur votre entrepôt de données.
 
-    ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Supprimer les ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 1. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** est visible.  Pour reprendre le calcul, cliquez sur **Démarrer**.
 

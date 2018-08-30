@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447956"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108804"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux sur le Portail Azure
 
@@ -53,7 +53,7 @@ Connectez-vous au portail Azure à l’adresse suivante : http://portal.azure.co
 
 3. Donnez un nom à la machine virtuelle, par exemple, *myVM*, gardez le type de disque *SSD*, puis indiquez un nom d’utilisateur, par exemple, *azureuser*.
 
-4. . Dans **Type d’authentification**, sélectionnez **Clé publique SSH**, puis collez votre clé publique dans la zone de texte. Veillez à supprimer les espaces blancs au début ou à la fin de votre clé publique.
+4. Dans **Type d’authentification**, sélectionnez **Clé publique SSH**, puis collez votre clé publique dans la zone de texte. Veillez à supprimer les espaces blancs au début ou à la fin de votre clé publique.
 
     ![Saisie des informations de base sur votre machine virtuelle dans le panneau du portail](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 
@@ -106,7 +106,7 @@ Une fois NGINX installé et le port 80 ouvert sur la machine virtuelle, le serve
 
 ![Site par défaut NGINX](./media/quick-create-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 

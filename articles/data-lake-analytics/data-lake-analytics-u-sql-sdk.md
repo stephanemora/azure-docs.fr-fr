@@ -5,16 +5,15 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanacai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ae5334dcb93e34569131ab51dca99c310831082d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737069"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052085"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Exécuter et tester U-SQL à l’aide du Kit de développement logiciel (SDK) Azure Data Lake U-SQL
 
@@ -73,7 +72,7 @@ Lors d’une exécution locale du script U-SQL, un répertoire de travail est c
 | | |\_ScopeCodeGenEngine\_.*|Sortie du compilateur|Code natif généré|
 | | |referenced assemblies|Référence d’assembly|Fichiers d’assemblys de référence|
 | | |deployed_resources|Déploiement de ressources|Fichiers de déploiement de ressources|
-| | |xxxxxxxx.xxx[1..n]\_\*.*|Journal d’exécution|Journal des étapes d'exécution|
+| | |xxxxxxxx.xxx[1..n]\_\*.\*|Journal d’exécution|Journal des étapes d'exécution|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Utiliser le Kit de développement logiciel (SDK) depuis la ligne de commande
@@ -210,8 +209,8 @@ Voici les arguments facultatifs **d’execute** :
 
 |Argument|Valeur par défaut|Description|
 |--------|-------------|-----------|
-|-DataRoot | '' |Racine de données pour l’exécution des métadonnées. La valeur par défaut correspond à la variable d’environnement **LOCALRUN_DATAROOT**.|
-|-MessageOut | '' |Videz les messages de la console dans un fichier.|
+|-DataRoot | « |Racine de données pour l’exécution des métadonnées. La valeur par défaut correspond à la variable d’environnement **LOCALRUN_DATAROOT**.|
+|-MessageOut | « |Videz les messages de la console dans un fichier.|
 |-Parallel | « 1 » |Indicateur de lancement des étapes d’exécution locale générées avec le niveau de parallélisme spécifié.|
 |-Verbose | « False » |Indicateur affichant les sorties détaillées du runtime.|
 

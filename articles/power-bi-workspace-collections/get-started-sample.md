@@ -2,26 +2,20 @@
 title: Prise en main d’un exemple
 description: Dans cet article, nous allons vous présenter l’exemple de prise en main relatif aux collections d’espaces de travail Power BI.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414879"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044435"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemple de prise en main des collections d’espaces de travail Power BI
 

@@ -3,19 +3,19 @@ title: Chaînes de connexion pour Azure SQL Data Warehouse | Microsoft Docs
 description: Chaînes de connexion pour SQL Data Warehouse
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 8fce3ba099c871059ffb71a589e4d8cd33d5bcae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: de875731ffd2170f70d8034f0178d61351d86952
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597147"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248019"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Chaînes de connexion pour Azure SQL Data Warehouse
 Vous pouvez vous connecter à SQL Data Warehouse avec plusieurs protocoles d’application différents, comme [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] et [JDBC][JDBC]. Voici quelques exemples de chaînes de connexion pour chaque protocole.  Vous pouvez également utiliser le portail Azure pour créer votre chaîne de connexion.  Pour créer votre chaîne de connexion avec le portail Azure, accédez au panneau de votre base de données, sous *Éléments principaux*, cliquez sur *Afficher les chaînes de connexion de la base de données*.

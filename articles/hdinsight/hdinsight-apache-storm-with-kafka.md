@@ -3,18 +3,18 @@ title: 'Didacticiel : Apache Kafka avec Storm sur HDInsight - Azure '
 description: Découvrez comment créer un pipeline de diffusion en continu à l’aide d’Apache Storm et Apache Kafka sur HDInsight. Dans ce didacticiel, vous utilisez les composants KafkaBolt et KafkaSpout pour transmettre des données à partir de Kafka.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/21/2018
-ms.author: jasonh
-ms.openlocfilehash: a20cf616b119d208c9b2baa0f2cf608aa44c21ad
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7aa8f0b62459c376113bca5a0c58cc7dd3b5280c
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595159"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094887"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Didacticiel : utiliser Apache Storm avec Kafka sur HDInsight
 
