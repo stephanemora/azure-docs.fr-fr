@@ -3,7 +3,7 @@ title: Gérer les disques de machine virtuelle dans Azure Stack | Microsoft Docs
 description: Provisionnez des disques pour des machines virtuelles dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/11/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 6364c0bec8437ba0dfa195c6532b26ec506a2e90
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: fc17ce0ebd13fb7e89405fcf4d6633551f340a27
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807429"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050422"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Provisionner le stockage sur disque de machines virtuelles dans Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "34807429"
 
 Cet article décrit comment provisionner le stockage sur disque de machines virtuelles avec le portail Azure ou avec PowerShell.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure Stack prend en charge l’utilisation de [disques non managés](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) sur les machines virtuelles à la fois comme disque de système d’exploitation et comme disque de données.
 

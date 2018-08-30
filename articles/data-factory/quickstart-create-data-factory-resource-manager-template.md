@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 525a11d0cbb10d4170930fb4df362e0a9ea024e2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a7c11e4bd3ac30c930ec717426c43d4361e32088
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38623504"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43088860"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Didacticiel : créer une fabrique de données Azure à l’aide du modèle Azure Resource Manager
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -385,7 +385,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
-    Voici l’exemple de sortie : 
+    Voici l'exemple de sortie : 
 
     ```json
     TriggerName       : ArmTemplateTestTrigger
@@ -402,7 +402,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
-    Voici l’exemple de sortie : 
+    Voici l'exemple de sortie : 
     
     ```
     Confirm
@@ -416,7 +416,7 @@ Le déclencheur déployé est à l’arrêt. Une des méthodes pour démarrer le
     Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
     
     ```
     TriggerName       : ArmTemplateTestTrigger

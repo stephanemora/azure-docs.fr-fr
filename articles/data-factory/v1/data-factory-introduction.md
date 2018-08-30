@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1b0838bb3d4fa1f47d906294ce42c318d1f4a0cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0cdf10f4898ba103f9b6f65179300a10c9e33cdf
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38623550"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087169"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Présentation d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -123,13 +123,13 @@ Data Factory fait appel aux services liés pour deux raisons :
 ![Diagramme : Data Factory, un service d’intégration de données cloud - Concepts clés](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Régions prises en charge
-Actuellement, vous pouvez créer des fabriques de données aux États-Unis de l’Ouest, aux États-Unis de l’Est et en Europe du Nord. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul.
+Actuellement, vous pouvez créer des fabriques de données dans les régions USA Ouest, USA Est et Europe Nord. Une fabrique de données peut toutefois accéder à des magasins de données et à des services de calcul situés dans d’autres régions Azure pour déplacer des données entre des magasins de données ou pour traiter des données à l’aide des services de calcul.
 
 Azure Data Factory ne permet pas en soi de stocker des données. Il vous permet de créer des flux de travail pilotés par des données pour orchestrer le déplacement des données entre [les magasins de données pris en charge](#data-movement-activities). Il vous permet également de traiter des données à l’aide de [services de calcul](#data-transformation-activities) dans d’autres régions ou dans un environnement local. Il vous permet également de [surveiller et gérer des flux de travail](data-factory-monitor-manage-pipelines.md) au moyen de programmes et à l’aide des mécanismes de l’interface utilisateur.
 
-Data Factory est disponible uniquement dans les régions Europe du Nord, États-Unis de l'Est et États-Unis de l'Ouest. Toutefois, le service qui gère le déplacement des données dans Data Factory est disponible [globalement](data-factory-data-movement-activities.md#global) dans plusieurs régions. Si un magasin de données se trouve derrière un pare-feu, le déplacement des données est assuré au moyen d’une [passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) installée dans votre environnement local.
+Data Factory est disponible uniquement dans les régions Europe Nord, USA Est et USA Ouest. Toutefois, le service qui gère le déplacement des données dans Data Factory est disponible [globalement](data-factory-data-movement-activities.md#global) dans plusieurs régions. Si un magasin de données se trouve derrière un pare-feu, le déplacement des données est assuré au moyen d’une [passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md) installée dans votre environnement local.
 
-Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Machine Learning, par exemple) sont situés hors de la région Europe de l’Ouest. Vous pouvez créer et utiliser une instance de Azure Data Factory en Europe du Nord. Vous pouvez ensuite l’utiliser pour planifier des travaux sur vos environnements Compute en Europe de l’Ouest. Quelques millisecondes suffisent à Data Factory pour déclencher la tâche dans votre environnement de calcul, mais l’heure d’exécution du travail dans votre environnement informatique ne change pas.
+Supposons que vos environnements de calcul (cluster Azure HDInsight et Azure Machine Learning, par exemple) sont situés hors de la région Europe Ouest. Vous pouvez créer et utiliser une instance de Azure Data Factory dans la région Europe Nord. Vous pouvez ensuite l’utiliser pour planifier des travaux sur vos environnements Compute dans la région Europe Ouest. Quelques millisecondes suffisent à Data Factory pour déclencher la tâche dans votre environnement de calcul, mais l’heure d’exécution du travail dans votre environnement informatique ne change pas.
 
 ## <a name="get-started-with-creating-a-pipeline"></a>Prise en main de la création d’un pipeline
 Vous pouvez utiliser un des outils ou API suivants pour créer des pipelines de données dans Azure Data Factory : 
@@ -138,7 +138,7 @@ Vous pouvez utiliser un des outils ou API suivants pour créer des pipelines de 
 - Visual Studio
 - PowerShell
 - API .NET
-- de l’API REST
+- API REST
 - Modèle Azure Resource Manager
 
 Pour découvrir comment créer des fabriques de données avec des pipelines de données, suivez les instructions pas à pas des didacticiels suivants :

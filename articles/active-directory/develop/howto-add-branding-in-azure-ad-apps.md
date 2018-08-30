@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 78a0b9bf7f49cc41c8d78287bcbe54c5c88f0809
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "39597903"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185418"
 ---
 # <a name="branding-guidelines-for-applications"></a>Directives de personnalisation des applications
 
@@ -72,7 +72,7 @@ Pour télécharger le logo Microsoft officiel afin de l’utiliser dans votre ap
 
 | Asset                                | Format PNG | Format SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Logo Microsoft  | ![Logo Microsoft PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.png) | ![Logo Microsoft SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.svg) |
+| Logo Microsoft  | ![Logo Microsoft PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logo Microsoft SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Aide visuelle pour la connexion
 
@@ -84,16 +84,16 @@ C’est l’association du logo Microsoft et des termes « Se connecter avec Mic
 
 Le schéma suivant illustre les lignes rouges recommandées par Microsoft lorsque vous utilisez les éléments multimédias avec votre application. Les lignes rouges s’appliquent au bouton « Se connecter avec Microsoft » ou à sa version abrégée « Se connecter ».
 
-![Lignes rouges Se connecter avec Microsoft](./media/howto-add-branding-in-azure-ad-apps/Sign-in-with-Microsoft-redlines.png)
+![Lignes rouges Se connecter avec Microsoft](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 Pour télécharger les images Microsoft officielles afin de les utiliser dans votre application, cliquez avec le bouton droit de la souris sur celle que vous souhaitez utiliser et enregistrez-la sur votre ordinateur.
 
 | Asset                                | Format PNG | Format SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Se connecter avec Microsoft (thème sombre)  | ![Bouton Se connecter, thème sombre PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.png) | ![Bouton Se connecter avec Microsoft, thème sombre SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.svg) |
-| Se connecter avec Microsoft (thème clair) | ![Bouton Se connecter, thème clair PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.png) | ![Bouton Se connecter avec Microsoft, thème clair SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.svg) |
-| Se connecter (thème sombre)                 | ![Bouton Se connecter, version courte, thème sombre PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.png) | ![Bouton Se connecter, version courte, thème sombre SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.svg) |
-| Se connecter (thème clair)                | ![Bouton Se connecter, version courte, thème clair PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.png) | ![Bouton Se connecter, version courte, thème clair SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.svg) |
+| Se connecter avec Microsoft (thème sombre)  | ![Bouton Se connecter, thème sombre PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Bouton Se connecter avec Microsoft, thème sombre SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Se connecter avec Microsoft (thème clair) | ![Bouton Se connecter, thème clair PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Bouton Se connecter avec Microsoft, thème clair SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Se connecter (thème sombre)                 | ![Bouton Se connecter, version courte, thème sombre PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Bouton Se connecter, version courte, thème sombre SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Se connecter (thème clair)                | ![Bouton Se connecter, version courte, thème clair PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Bouton Se connecter, version courte, thème clair SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 
 ## <a name="branding-dos-and-donts"></a>Choses à faire et à éviter en matière de personnalisation

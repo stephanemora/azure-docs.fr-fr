@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bc88ed342f833123c74bd91db9b838473b5f88aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 991dc661c40f96a1c167821d76c01ea62d62dc52
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38613126"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43089066"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’API .NET
 > [!div class="op_single_selector"]
@@ -403,7 +403,7 @@ Vous devez avoir les quatre valeurs suivantes après ces étapes :
         });
     ```
 
-    Notez les points suivants :
+    Notez les points suivants :
    
     - Dans la section des activités, il existe une seule activité dont le **type** a la valeur **Copy**. Pour plus d’informations sur l’activité de copie, consultez [Activités de déplacement des données](data-factory-data-movement-activities.md). Dans les solutions Data Factory, vous pouvez également utiliser [Activités de transformation des données](data-factory-data-transformation-activities.md).
     - L’entrée de l’activité est définie sur **InputDataset** et sa sortie, sur **OutputDataset**. 
