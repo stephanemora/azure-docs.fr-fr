@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9f761fed46f0730a64a984111da1bae1229cc93d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929940"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127069"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans Java sur Android à l’aide du kit de développement logiciel (SDK) Speech
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer une application Java pour Android à l’aide du Kit de développement logiciel (SDK) Cognitive Services Speech pour transcrire de la parole en texte.
 L’application est basée sur le package Maven du kit SDK Microsoft Cognitive Services version 0.6.0 et Android Studio 3.1.
@@ -61,7 +61,7 @@ Après quelques instants, votre nouveau projet Android Studio devrait s’affich
 
 ## <a name="configure-your-project-for-the-speech-sdk"></a>Configurer votre projet pour le Kit de développement logiciel (SDK) Speech
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `0.6.0`.
 
@@ -154,7 +154,7 @@ Le texte et la version graphique de votre interface utilisateur devraient mainte
 
 Cette capture d’écran termine le Démarrage rapide Android. L’exemple de code de projet complet peut être téléchargé à partir du référentiel d’exemples.
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Recherchez cet exemple dans le dossier `quickstart/java-android`.
 
 ## <a name="next-steps"></a>Étapes suivantes

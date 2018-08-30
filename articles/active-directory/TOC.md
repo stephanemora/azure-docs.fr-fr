@@ -54,6 +54,7 @@
 #### [Ajout d’utilisateurs B2B par des administrateurs](b2b/add-users-administrator.md)
 #### [Ajout d’utilisateurs B2B par des membres de l’équipe informatique](b2b/add-users-information-worker.md)
 #### [API et personnalisation](b2b/customize-invitation-api.md)
+#### [Fédération des services Google](b2b/google-federation.md)
 #### [Code et exemples Azure PowerShell](b2b/code-samples.md)
 #### [Exemple de portail de connexion libre-service](b2b/self-service-portal.md)
 #### [E-mail d’invitation](b2b/invitation-email-elements.md)
@@ -126,31 +127,6 @@
 #### [Réinitialiser ou modifier votre mot de passe](user-help/active-directory-passwords-update-your-own-password.md)
 #### [S’inscrire pour la réinitialisation du mot de passe en libre-service](user-help/active-directory-passwords-reset-register.md)
 
-
-## Gérer des appareils
-### [Vue d’ensemble](devices/overview.md)
-
-### Démarrages rapides
-#### [Configurer les appareils Windows 10 inscrits dans Azure AD](user-help/device-management-azuread-registered-devices-windows10-setup.md)
-#### [Configurer les appareils joints Azure AD](user-help/device-management-azuread-joined-devices-setup.md)
-
-### Didacticiels
-#### [Configurer la jointure hybride Azure AD pour des domaines managés](devices/hybrid-azuread-join-managed-domains.md)
-#### [Configurer la jointure hybride Azure AD pour des domaines fédérés](devices/hybrid-azuread-join-federated-domains.md)
-#### [Configurer des appareils joints à Azure AD hybrides manuellement](devices/hybrid-azuread-join-manual-steps.md)
-#### [Configurer des enregistrements dans Azure AD lors de la première exécution de Windows 10](devices/azuread-joined-devices-frx.md)
-
-### Guides de procédures
-#### [Planifier la jointure d’Azure AD](devices/azureadjoin-plan.md)
-#### [Planifier votre implémentation de la jointure d’Azure AD hybride](devices/hybrid-azuread-join-plan.md)
-#### [Contrôler la jointure d’Azure AD hybride de vos appareils](devices/hybrid-azuread-join-control.md)
-#### [Assigner des administrateurs locaux aux appareils joints Azure AD](devices/assign-local-admin.md)
-#### [Résoudre les problèmes de jointure Azure AD hybride pour les appareils Windows actuels](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Résoudre les problèmes d’appareils Windows hérités joints Azure AD](devices/troubleshoot-hybrid-join-windows-legacy.md)
-
-### Concepts
-#### [Gestion des appareils via le portail Azure](devices/device-management-azure-portal.md)
-#### [FAQ](devices/faq.md)
 
 ## Gérer des applications
 ### [Vue d’ensemble](manage-apps/what-is-application-management.md)

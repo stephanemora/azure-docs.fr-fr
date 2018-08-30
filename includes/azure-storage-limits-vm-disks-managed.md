@@ -4,7 +4,7 @@
 |---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------| 
 | Taille du disque           | 32 Go            | 64 Go            | 128 Go           | 256 Go | 512 Go           | 1024 Go (1 To)   | 2 048 Go (2 To)    | 4 095 Go (4 To)   | 
 | IOPS par disque       | 500              | 500              | 500              | 500 | 500              | 500              | 500             | 500              | 
-| Débit par disque | 60 Mo/s | 60 Mo/s | 60 Mo/s | 60 Mo/s | 60 Mo/s | 60 Mo/s | 60 Mo/s | 50 Mo/s|
+| Débit par disque | 60 Mo/s | 60 Mo/s | 60 Mo/s | 60 Mo/s | 60 Mo/s | 60 Mo/s | 60 Mo/s | 60 Mo/s|
 
 **Disques de machine virtuelle gérés Premium : par limites de disques**
 
