@@ -3,7 +3,7 @@ title: Géorécupération d’urgence Azure Event Hubs | Microsoft Docs
 description: Découvrez comment utiliser les régions géographiques pour le basculement et la récupération d’urgence dans Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: 0192f65f394a3bb6d5cffc90639966b5f913b291
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.date: 08/14/2018
+ms.author: shvija
+ms.openlocfilehash: 89ecfd93c22fe72fee3befd8d4a722eb41d816af
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302111"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747169"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Géorécupération d’urgence Azure Event Hubs
 
@@ -101,7 +101,7 @@ Notez les points suivants pour cette version :
 
 4. La synchronisation des entités peut prendre un certain temps, à raison d’environ 50 à 100 entités par minute.
 
-## <a name="availability-zones-preview"></a>Zones de disponibilité (aperçu)
+## <a name="availability-zones-preview"></a>Zones de disponibilité (préversion)
 
 La référence SKU Event Hubs Standard prend également en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des défaillances au sein d’une région Azure. 
 
@@ -120,7 +120,7 @@ Vous pouvez activer les Zones de disponibilité sur les nouveaux espaces de noms
 Pour plus d’informations sur les concentrateurs d’événements, accédez aux liens suivants :
 
 * Prise en main avec un [didacticiel des concentrateurs d’événements](event-hubs-dotnet-standard-getstarted-send.md)
-* [FAQ sur les hubs d'événements](event-hubs-faq.md)
+* [FAQ sur les hubs d’événements](event-hubs-faq.md)
 * [Exemples d’application complets qui utilisent des concentrateurs d’événements](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
 [1]: ./media/event-hubs-geo-dr/geo1.png

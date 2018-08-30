@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144816"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818508"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Contrôler l’accès au service de provisionnement d’appareils Azure IoT Hub
 
@@ -34,7 +34,7 @@ Vous pouvez accorder des [autorisations](#device-provisioning-service-permission
 
 * **Stratégies d’autorisation d’accès partagé**. Les stratégies d’accès partagé peuvent accorder n’importe quelle combinaison d’[autorisations](#device-provisioning-service-permissions). Vous pouvez définir des stratégies dans le [portail Azure][lnk-management-portal], ou par programmation à l’aide des [API REST du service de provisionnement d’appareils][lnk-resource-provider-apis]. Tout service de provisionnement créé comporte la stratégie par défaut suivante :
 
-   **provisioningserviceowner** : stratégie avec toutes les autorisations.
+* **provisioningserviceowner** : stratégie avec toutes les autorisations.
 
 > [!NOTE]
 > Pour plus d’informations, consultez la page [Autorisations](#device-provisioning-service-permissions).

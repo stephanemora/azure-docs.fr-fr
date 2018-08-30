@@ -3,7 +3,7 @@ title: Intégration d’Apache Spark avec Azure Event Hubs | Microsoft Docs
 description: Intégrer Apache Spark pour activer la diffusion en continu de flux structuré avec Event Hubs
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2018
-ms.author: sethm
-ms.openlocfilehash: 9f1cf75fdea1dd7f5842c2efdaeca663d611065c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/21/2018
+ms.author: shvija
+ms.openlocfilehash: 688daedf29bbd68c7451be66b47ac90e404d4093
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626919"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746658"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Intégration d’Apache Spark avec Azure Event Hubs
 

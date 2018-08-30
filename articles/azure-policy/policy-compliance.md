@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b310daec67f41ba589ce279e4a2dad427adb734
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144840"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818890"
 ---
 # <a name="getting-compliance-data"></a>Obtention de données de conformité
 
@@ -23,7 +23,7 @@ Azure Policy offre, entre autres avantages, un insight et des contrôles sur les
 Il existe plusieurs façons d’accéder aux informations de conformité générées par votre stratégie et vos affectations initiatives :
 
 - À l’aide du [portail Azure](#portal)
-- À l’aide de scripts de [ligne de commande](#command_line)
+- À l’aide de scripts de [ligne de commande](#command-line)
 
 Avant d’examiner les méthodes de rapport sur la conformité, voyons à quel moment les informations de conformité sont mises à jour et passons en revue la fréquence et les événements qui déclenchent un cycle d’évaluation.
 

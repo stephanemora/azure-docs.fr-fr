@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: c6c5e27dad7f80a329edbd8fbcb95647dc4cd15a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cb3cae396016545c5d78a2ff7ccde4a053c4cf1
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626721"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746977"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurer l’accélérateur de solution Usine connectée
 
@@ -282,7 +282,7 @@ Les valeurs de l’OEE/du KPI relatives à la simulation d’Usine connectée so
 * Les valeurs du nœud OPC UA à inclure dans le calcul.
 * Comment la valeur est calculée à partir des valeurs de télémétrie.
 
-L’Usine connectée utilise les formules OEE publiées par l’OEE Foundation : http://oeeindustrystandard.oeefoundation.org.
+L’Usine connectée utilise les formules OEE publiées par l’OEE Foundation : http://www.oeefoundation.org.
 
 Les objets du nœud OPC UA des postes activent le balisage pour une utilisation dans le calcul de l’OEE/du KPI. La propriété **Relevance** indique pour quelle valeur d’OEE/de KPI la valeur du nœud OPC UA doit être utilisée. La propriété **OpCode** définit la manière dont la valeur est incluse dans le calcul.
 

@@ -3,19 +3,19 @@ title: Points de terminaison de service et règles de réseau virtuel dans Azure
 description: Ajoutez un point de terminaison de service Microsoft.EventHub à un réseau virtuel.
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
-ms.author: clemensv
-ms.openlocfilehash: 3746c4b7d1b53d7522f317fd2e349d31ba77f406
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.date: 08/16/2018
+ms.author: shvija
+ms.openlocfilehash: b8c3270149c254898ad3180b92a4ff398f3efb6c
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136336"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745907"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Utiliser des points de terminaison de service de réseau virtuel avec Azure Event Hubs
 

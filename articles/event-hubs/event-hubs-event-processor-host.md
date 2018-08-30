@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 4907004f4bb88cf0fe9fb799cab236ebf98bba7a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: ede76e8161cc15d6a87041ef5ef9525570fec794
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133338"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745879"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Présentation de l’hôte de processeur d’événements Azure Event Hubs
 
@@ -162,5 +162,5 @@ Maintenant que vous vous êtes familiarisé avec l’hôte du processeur d’év
 * Prise en main avec un [didacticiel des concentrateurs d’événements](event-hubs-dotnet-standard-getstarted-send.md)
 * [Guide de programmation de hubs d’événements](event-hubs-programming-guide.md)
 * [Disponibilité et cohérence dans Event Hubs](event-hubs-availability-and-consistency.md)
-* [FAQ sur les hubs d'événements](event-hubs-faq.md)
+* [FAQ sur les hubs d’événements](event-hubs-faq.md)
 * [Exemples Event Hubs sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)

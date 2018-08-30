@@ -3,19 +3,19 @@ title: Filtres de connexion IP Azure Event Hubs | Microsoft Docs
 description: Utilisez le filtrage IP pour bloquer les connexions à Azure Event Hubs à partir d’adresses IP spécifiques.
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
-ms.author: clemensv
-ms.openlocfilehash: 425a5b641fbfd2e52e1294c6317b51ff2a584aa3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 08/26/2018
+ms.author: shvija
+ms.openlocfilehash: 6d96eac3ecd249de3ba0da82eff95c45e45fa02d
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034826"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746193"
 ---
 # <a name="use-ip-filters"></a>Utiliser des filtres IP
 
@@ -32,7 +32,7 @@ Les deux cas d’utilisation importants dans lesquels il est utile de bloquer de
 
 Les règles de filtre IP sont appliquées au niveau de l’espace de noms Event Hubs. Par conséquent, les règles s’appliquent à toutes les connexions de clients utilisant un protocole pris en charge.
 
-Toute tentative de connexion à partir d’une adresse IP qui correspond à une règle IP de rejet dans l’espace de noms Event Hubs est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP.
+Toute tentative de connexion à partir d’une adresse IP qui correspond à une règle IP de rejet dans l’espace de noms Event Hubs est rejetée comme étant non autorisée. La réponse ne mentionne pas la règle IP.
 
 ## <a name="default-setting"></a>Paramètre par défaut
 
@@ -42,7 +42,7 @@ Par défaut, la grille **Filtre IP** du portail pour Event Hubs est vide. Ce pa
 
 Les règles de filtre IP sont appliquées dans l’ordre et la première règle qui correspond à l’adresse IP détermine l’action d’acceptation ou de rejet.
 
-Par exemple, si vous souhaitez accepter les adresses comprises dans la plage 70.37.104.0/24 et rejeter tout le reste, la première règle de la grille doit accepter la plage d’adresses 70.37.104.0/24. La règle suivante doit rejeter toutes les adresses à l’aide de la plage 0.0.0.0/0.
+Par exemple, si vous souhaitez accepter les adresses dans la plage 70.37.104.0/24 et rejeter tout le reste, la première règle de la grille doit accepter la plage d’adresses 70.37.104.0/24. La règle suivante doit rejeter toutes les adresses à l’aide de la plage 0.0.0.0/0.
 
 > [!NOTE]
 > Le rejet d’adresses IP est de nature à empêcher d’autres services Azure (comme Azure Stream Analytics, Machines virtuelles Azure ou Device Explorer dans le portail) d’interagir avec Event Hubs.
@@ -55,7 +55,7 @@ Paramètres de modèle :
 
 - **ipFilterRuleName** doit être une chaîne alphanumérique unique qui ne prend pas en compte la casse et qui ne dépasse pas 128 caractères.
 - **ipFilterAction** correspond à l’action **Rejeter** ou **Accepter** à appliquer pour la règle de filtre IP.
-- **ipMask** est une adresse IPv4 unique ou un bloc d’adresses IP en notation CIDR. Par exemple, dans la notation CIDR, 70.37.104.0/24 représente les 256 adresses IPv4 comprises entre 70.37.104.0 et 70.37.104.255, 24 indiquant le nombre de bits de préfixe significatifs pour la plage.
+- **ipMask** est une adresse IPv4 unique ou un bloc d’adresses IP en notation CIDR. Par exemple, dans la notation CIDR, 70.37.104.0/24 représente les 256 adresses IPv4 comprises entre 70.37.104.0 et 70.37.104.255, 24 indiquant le nombre de bits de préfixe significatifs pour la plage.
 
 ```json
 {  

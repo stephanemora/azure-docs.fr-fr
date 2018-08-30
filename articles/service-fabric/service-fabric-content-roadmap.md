@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 644089cea4dccc79e67b9117187b553eb4616d9f
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358716"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818212"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vous voulez en savoir plus sur Service Fabric ?
 Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables.  Service Fabric dispose d’une grande surface d’exposition et il y a beaucoup d’informations à découvrir.  Cet article fournit une synthèse de Service Fabric et décrit les concepts fondamentaux, les modèles de programmation, le cycle de vie d’application, les tests, les clusters et la surveillance de l’intégrité. Consultez [Vue d’ensemble](service-fabric-overview.md) et [Que sont les microservices ?](service-fabric-overview-microservices.md) pour obtenir une présentation et savoir comment utiliser Service Fabric pour créer des microservices. Cet article ne donne pas la liste complète du contenu, mais fournit un lien vers des articles de présentation et de prise en main pour chaque zone de Service Fabric. 
@@ -146,7 +146,7 @@ Certaines fonctionnalités sont prises en charge sous Windows, mais pas sous Lin
 ### <a name="standalone-clusters"></a>Clusters autonomes
 Service Fabric fournit un package d’installation vous permettant de créer des clusters Service Fabric sur site ou sur n’importe que fournisseur cloud. Les clusters autonomes vous offrent la possibilité d’héberger un cluster où vous le souhaitez. Si vos données sont soumises à des contraintes réglementaires ou de conformité, ou si vous souhaitez que vos données restent locales, vous pouvez héberger votre propre cluster et vos propres applications. Comme les applications Service Fabric peuvent s’exécuter dans plusieurs environnements d’hébergement sans aucune modification, vos connaissances en matière de génération d’applications s’appliquent d’un environnement d’hébergement à un autre. 
 
-[Créer votre premier cluster Service Fabric autonome](service-fabric-get-started-standalone-cluster.md)
+[Créer votre premier cluster Service Fabric autonome](service-fabric-cluster-creation-for-windows-server.md)
 
 Les clusters autonomes Linux ne sont pas encore pris en charge.
 

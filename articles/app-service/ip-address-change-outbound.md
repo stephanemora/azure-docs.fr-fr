@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: 5e17638e030ae2827b0de7dc82ecf75062504112
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: dfc0a13c1804d8ea74c78a61bfa85e9f5bdd1685
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39575928"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819068"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Comment se préparer à un changement d’adresse IP sortante
 
@@ -39,7 +39,7 @@ Les nouvelles adresses IP sortantes sont affichées dans le portail avant leur e
 
 3.  Sélectionnez votre application App Service dans la liste.
 
-4.  Si l’application est une application de fonction, consultez [Function app outbound IP addresses](../azure-functions/ip-addresses.md#function-app-outbound-ip-addresses) (Adresses IP sortantes de l’application de fonction).
+4.  Si l’application est une application de fonction, consultez [Function app outbound IP addresses](../azure-functions/ip-addresses.md#find-outbound-ip-addresses) (Adresses IP sortantes de l’application de fonction).
 
 4.  Sous l’en-tête **Paramètres**, cliquez sur **Propriétés** dans le volet de navigation de gauche, puis recherchez la section intitulée **Adresses IP sortantes**.
 

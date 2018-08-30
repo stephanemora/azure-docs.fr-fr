@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 803e82a294b64452ffd788880097b9d86ac1065b
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144191"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745288"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 Azure Maps est une collection de services géospatiaux qui s’appuient sur des données de mappage actualisées pour vous permettre de donner un contexte géographique précis à vos applications web et mobiles. Elle contient des API REST pour le rendu des cartes, la recherche de points d’intérêt, la génération d’itinéraires vers les points d’intérêt, les conditions de trafic, les fuseaux horaires et les IP pour les services de localisation. Vous pouvez utiliser ces API à l’aide de vos outils habituels pour développer et mettre à l’échelle rapidement des solutions Azure intégrant des informations de localisation. En plus des API REST, elle s’accompagne d’un contrôle JavaScript web, qui garantit un développement simplifié, flexible et portable sur plusieurs supports. 
@@ -98,7 +98,7 @@ Pour plus d’informations sur les API REST pour l’adresse IP du service d’e
 
 Azure Maps est conçu pour la mobilité et peut alimenter des applications multiplateformes. Il utilise un modèle de programmation indépendant du langage et il prend en charge la sortie au format JSON via les [API REST](https://docs.microsoft.com/rest/api/maps/). 
 
-En outre, Azure Maps fournit un [contrôle de carte JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest) pratique avec un modèle de programmation simple, ce qui facilite et accélère le développement des applications web et mobiles. 
+En outre, Azure Maps fournit un [contrôle de carte JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest) pratique avec un modèle de programmation simple, ce qui facilite et accélère le développement des applications web et mobiles. 
 
 
 ## <a name="usage"></a>Usage
