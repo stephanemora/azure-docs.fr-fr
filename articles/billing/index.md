@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: db2c6f9995356abc233e971a2fae5a1ee6233ed1
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 40070acab5f656cab7f3034e3b35c113c0ff6051
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915694"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300809"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentation sur la facturation et la gestion des coûts Azure
 
@@ -136,7 +136,7 @@ Apprenez à comprendre votre facturation Azure, à analyser l’utilisation et l
                     <div class="cardText">
                         <h3>Enregistrer avec les réservations Azure</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">Qu’est-ce qu’une réservation Azure ?</a> <br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Qu’est-ce qu’une réservation Azure ?</a> <br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Acheter une instance de machine virtuelle réservée</a><br/>
                         <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">Acheter une capacité de réserve SQL Database</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">Application de la remise sur les machines virtuelles</a><br/>
