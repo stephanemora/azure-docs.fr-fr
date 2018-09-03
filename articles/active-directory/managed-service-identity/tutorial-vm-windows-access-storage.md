@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0781bf3fe9806c2c8aaa911433c4d6eddcafe04c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056172"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885491"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Didacticiel : utiliser une identité gérée de machine virtuelle Windows pour accéder au stockage Azure
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous montre comment activer une identité gérée pour une machine virtuelle Windows et utiliser cette identité pour accéder au stockage Azure.  Vous allez apprendre à effectuer les actions suivantes :
+Ce didacticiel vous indique comment utiliser une identité affectée par le système pour une machine virtuelle Windows afin d’accéder à Stockage Azure. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Création d'une machine virtuelle Windows dans un nouveau groupe de ressources 
-> * Activer une identité gérée sur une machine virtuelle Windows
 > * Créer un conteneur d’objets blob dans un compte de stockage
 > * Accorder l’accès à votre identité gérée de machine virtuelle Windows à un compte de stockage 
 > * Obtenir un accès et l’utiliser pour appeler le stockage Azure 
@@ -43,31 +41,11 @@ Ce didacticiel vous montre comment activer une identité gérée pour une machin
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+- [Connectez-vous au Portail Azure](https://portal.azure.com).
 
-Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
+- [Créez une machine virtuelle Windows](/azure/virtual-machines/windows/quick-create-portal).
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
-
-Dans cette section, vous créez une machine virtuelle Windows à laquelle une identité gérée est assignée ultérieurement.
-
-1.  Cliquez sur le bouton **+/Créer un service** dans l’angle supérieur gauche du portail Azure.
-2.  Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
-3.  Saisissez les informations de la machine virtuelle. Le **Nom d’utilisateur** et le **Mot de passe** créés ici sont les informations d’identification nécessaires pour vous connecter à la machine virtuelle.
-4.  Choisissez un **Abonnement** approprié pour la machine virtuelle dans la liste déroulante.
-5.  Pour sélectionner un nouveau **Groupe de ressources** dans lequel vous souhaitez créer une machine virtuelle, choisissez **Créer un nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
-6.  Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. Conservez les valeurs par défaut dans le panneau des paramètres et cliquez sur **OK**.
-
-    ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-identity-on-your-vm"></a>Activer une identité gérée sur votre machine virtuelle
-
-L’identité gérée d’une machine virtuelle permet d’obtenir des jetons d’accès d’Azure AD sans avoir à placer des informations d’identification dans votre code. En arrière-plan, l’activation de l’identité gérée sur une machine virtuelle via le portail Azure effectue deux opérations : elle enregistre votre machine virtuelle avec Azure AD pour créer une identité managée et configure l’identité sur la machine virtuelle. 
-
-1. Accédez au groupe de ressources de votre nouvelle machine virtuelle et sélectionnez la machine virtuelle que vous avez créée à l’étape précédente.
-2. Sous la catégorie **Paramètres**, cliquez sur **Configuration**.
-3. Pour activer l’identité gérée, sélectionnez **Oui**.
-4. Cliquez sur **Enregistrer** pour appliquer la configuration. 
+- [Activez l’identité affectée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm).
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage. 
 

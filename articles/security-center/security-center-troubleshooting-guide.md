@@ -3,7 +3,7 @@ title: Guide de résolution des problèmes d’Azure Security Center | Microsoft
 description: Ce document vous aide à résoudre les problèmes dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
-ms.author: yurid
-ms.openlocfilehash: 0cbc0db7e982ad85dd1e3514def8cf13be595f24
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: eebdff338454b1fb50b27d5b3d8c1c37d28f6b6f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779224"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121200"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guide de résolution des problèmes d’Azure Security Center
 Ce guide s’adresse aux informaticiens professionnels, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises utilisent Azure Security Center et qui doivent résoudre des problèmes liés à ce service.
@@ -64,7 +64,7 @@ Il existe deux scénarios d’installation qui peuvent produire des résultats d
 > Pour éviter le comportement expliqué dans le second scénario, veillez à télécharger la dernière version de l’agent.
 >
 
-## <a name="monitoring-agent-health-issues"></a>Problèmes d’intégrité de l’agent de surveillance
+## Problèmes d’intégrité de l’agent de surveillance <a name="mon-agent"></a>
 **L’état de surveillance** définit la raison pour laquelle Security Center ne peut pas surveiller correctement les machines virtuelles et ordinateurs initialisées pour l’approvisionnement automatique. Le tableau suivant présente les valeurs, descriptions et étapes de résolution de **l’état de surveillance**.
 
 | État de surveillance | Description | Étapes de résolution |
@@ -81,7 +81,7 @@ Il existe deux scénarios d’installation qui peuvent produire des résultats d
 | Agent non installé | La collecte de données est désactivée. | Activer la collecte de données dans la stratégie de sécurité ou installer manuellement Microsoft Monitoring Agent. |
 
 
-## <a name="troubleshooting-monitoring-agent-network-requirements"></a>Résolution des problèmes de configuration réseau requise de l’agent de surveillance
+## Résolution des problèmes de configuration réseau requise de l’agent de surveillance <a name="mon-network-req"></a>
 Pour que les agents se connectent et s’inscrivent auprès de Security Center, ils doivent accéder aux ressources réseau, y compris les numéros de port et les URL de domaine.
 
 - Pour les serveurs proxy, vous devez vous assurer que les ressources de serveur proxy appropriées sont configurées dans les paramètres de l’agent. Lisez cet article pour obtenir plus d’informations sur la façon de [modifier les paramètres proxy](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
@@ -91,10 +91,10 @@ Le tableau suivant présente les ressources nécessaires pour la communication.
 
 | Ressource de l'agent | Ports | Ignorer l’inspection HTTPS |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | OUI |
-| *.oms.opinsights.azure.com | 443 | OUI |
-| *.blob.core.windows.net | 443 | OUI |
-| *.azure-automation.net | 443 | OUI |
+| *.ods.opinsights.azure.com | 443 | Oui |
+| *.oms.opinsights.azure.com | 443 | Oui |
+| *.blob.core.windows.net | 443 | Oui |
+| *.azure-automation.net | 443 | Oui |
 
 Si vous rencontrez des problèmes d’intégration avec l’agent, lisez l’article [Comment faire pour résoudre les problèmes d’intégration de Microsoft Operations Management Suite](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
@@ -130,5 +130,5 @@ Dans ce document, vous avez appris à configurer des stratégies de sécurité d
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
-* [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
+* [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions le plus souvent posées à propos de l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.

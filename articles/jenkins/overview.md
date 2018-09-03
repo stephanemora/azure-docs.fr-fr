@@ -1,25 +1,25 @@
 ---
-title: Vue d’ensemble de Jenkins et Azure | Microsoft Docs
+title: Vue d’ensemble de Jenkins et Azure
 description: Hébergez la build Jenkins et déployez le serveur Automation dans Azure et utilisez les ressources de calcul et de stockage Azure pour étendre vos pipelines d’intégration et de livraison continues.
-ms.topic: overview
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, overview
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: ecb4ea7aee005cb539910b2cb25f0b84de7ba510
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: cb4082046e57ac16abd6cdef3d5779525e7cfc82
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281553"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105527"
 ---
 # <a name="azure-and-jenkins"></a>Azure et Jenkins
 
 [Jenkins](https://jenkins.io/) est un serveur Automation open source connu utilisé pour configurer l’intégration et la livraison continues pour vos projets de logiciels. Vous pouvez héberger votre déploiement Jenkins sur Azure ou étendre votre configuration Jenkins existante à l’aide des ressources Azure. Des plug-ins Jenkins sont également disponibles pour simplifier l’intégration/la livraison continues de vos applications vers Azure.
 
-Cet article est une présentation de l’utilisation d’Azure avec Jenkins. Il décrit les principales fonctionnalités Azure disponibles pour les utilisateurs de Jenkins. Pour commencer à utiliser votre propre serveur Jenkins dans Azure, consultez notre [démarrage rapide](install-jenkins-solution-template.md).
+Cet article est une présentation de l’utilisation d’Azure avec Jenkins. Il décrit les principales fonctionnalités Azure disponibles pour les utilisateurs de Jenkins. Pour plus d’informations sur la prise en main de votre propre serveur Jenkins dans Azure, consultez [Créer un serveur Jenkins sur Azure](install-jenkins-solution-template.md).
 
 ## <a name="host-your-jenkins-servers-in-azure"></a>Héberger vos serveurs Jenkins dans Azure
 
@@ -35,7 +35,7 @@ Surveiller et gérer votre déploiement Azure Jenkins à l’aide de [Log Analyt
 
 Ajoutez des agents de build à votre déploiement Jenkins existant pour mettre à l’échelle la capacité de votre build Jenkins à mesure que le nombre de builds et la complexité de vos travaux et pipelines augmentent. Vous pouvez exécuter ces agents de build sur des machines virtuelles Azure à l’aide du [plug-in Agents de machine virtuelle Azure](jenkins-azure-vm-agents.md). Consultez notre [didacticiel](/azure/jenkins/jenkins-azure-vm-agents) pour plus d’informations.
 
-Une fois configuré avec un [principal du service Azure](/azure/azure-resource-manager/resource-group-overview), les travaux et pipelines Jenkins peuvent utiliser ces informations d’identification pour accomplir ce qui suit :
+Une fois configurés avec un [principal du service Azure](/azure/azure-resource-manager/resource-group-overview), les travaux et pipelines Jenkins peuvent utiliser ces informations d’identification pour accomplir ce qui suit :
 
 - Stocker en toute sécurité et archiver des artefacts de build [Stockage Azure](/azure/storage/common/storage-introduction) à l’aide du [plug-in Stockage Azure](https://plugins.jenkins.io/windows-azure-storage). Consultez les [procédures de stockage Jenkins](/azure/storage/common/storage-java-jenkins-continuous-integration-solution) pour en savoir plus.
 - Gérer et configurer des ressources Azure avec l’[interface de ligne de commande Azure](/azure/jenkins/execute-cli-jenkins-pipeline).

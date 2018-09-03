@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7a3e91e8f928f6e7e2df7a26f52bd44b3b3a81b2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 70b7af1701c13e6a5d7644f04e4502f76ef7743a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618952"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187843"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutoriel : Créer une application web Node.js et MongoDB dans Azure
 
@@ -56,7 +56,7 @@ Pour suivre ce tutoriel :
 
 ## <a name="test-local-mongodb"></a>Tester la base de données MongoDB locale
 
-Ouvrez la fenêtre du terminal et `cd` dans le répertoire `bin` de votre installation MongoDB. Vous pouvez utilisez cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
+Ouvrez la fenêtre du terminal et `cd` dans le répertoire `bin` de votre installation MongoDB. Vous pouvez utiliser cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
 
 Exécutez `mongo` dans le terminal pour vous connecter à votre serveur MongoDB local.
 
@@ -117,6 +117,9 @@ L’exemple d’application MEAN.js stocke les données utilisateur dans la base
 Sélectionnez **Admin > Manage Articles** (Administrateur > Gérer les articles) pour ajouter des articles.
 
 Pour arrêter Node.js à tout moment, appuyez sur `Ctrl+C` dans le terminal. 
+
+> [!NOTE]
+> Le [guide de démarrage rapide Node.js](app-service-web-get-started-nodejs.md) mentionne la nécessité d’un fichier web.config au sein du répertoire racine de l’application. Toutefois, dans ce didacticiel, ce fichier web.config sera automatiquement généré par App Service lorsque vous déployez vos fichiers à l’aide du [déploiement Git local](app-service-deploy-local-git.md) au lieu du déploiement de fichier Zip. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

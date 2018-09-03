@@ -1,26 +1,19 @@
 ---
-title: Exécuter l’interface de ligne de commande Azure avec Jenkins | Microsoft Docs
+title: Exécuter Azure CLI avec Jenkins
 description: Découvrez comment utiliser l’interface CLI Azure pour déployer une application web Java vers Azure dans un pipeline Jenkins
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
 ms.service: jenkins
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
+keywords: jenkins, azure, devops, app service, cli
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 6/7/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 1796e9f76e39334c8bbdd03463a0f91e9b47cb17
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7d9565db8fe46ee26fafa7bd021d771e728e9a77
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421302"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43101610"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Déploiement dans Azure App Service avec Jenkins et l’interface CLI Azure
 Pour déployer une application web Java dans Azure, vous pouvez utiliser l’interface CLI Azure dans le [pipeline Jenkins](https://jenkins.io/doc/book/pipeline/). Dans ce didacticiel, vous créez un pipeline CI/CD sur une machine virtuelle Azure et apprenez notamment comment :
@@ -122,7 +115,7 @@ Une fois que la définition de l’application web est prête, l’interface de 
 
 ### <a name="configure-java"></a>Configurer Java 
 
-Définissez la configuration d’exécution Java dont votre application a besoin avec la commande [az appservice web config update](/cli/azure/appservice/web/config#az-appservice-web-config-update).
+Définissez la configuration d’exécution Java dont votre application a besoin avec la commande [az appservice web config update](/cli/azure/webapp/config#az-appservice-web-config-update).
 
 La commande suivante configure l’application web de manière à ce qu’elle s’exécute sur un JDK Java 8 récent et sur [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 

@@ -1,26 +1,19 @@
 ---
 title: Déployer sur Azure Kubernetes Service (AKS) à l’aide de Jenkins et du modèle de déploiement bleu/vert
 description: Découvrez comment déployer sur Azure Kubernetes Service (AKS) à l’aide de Jenkins et du modèle de déploiement bleu/vert.
-services: app-service\web
-documentationcenter: ''
+ms.service: jenkins
+keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, continuous delivery, cd
 author: tomarcher
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 07/23/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.custom: jenkins
-ms.openlocfilehash: 384681ae0ba212b485022ac81743528f96075ec8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.topic: tutorial
+ms.date: 07/23/2018
+ms.openlocfilehash: d3d3ed8aaac16bc0a8cf817f4972ed3b771ed8d0
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716455"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093552"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Déployer sur Azure Kubernetes Service (AKS) à l’aide de Jenkins et du modèle de déploiement bleu/vert
 
@@ -38,7 +31,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
 > * Créer et exécuter un travail Jenkins
 
 ## <a name="prerequisites"></a>Prérequis
-- [Compte GitHub](https://github.com) : Vous avez besoin d’un compte GitHub pour cloner l’exemple de dépôt.
+- [Compte GitHub](https://github.com) : Vous avez besoin d’un compte GitHub pour cloner l’exemple de référentiel.
 - [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : vous utilisez Azure CLI 2.0 pour créer le cluster Kubernetes.
 - [Chocolatey](https://chocolatey.org) : gestionnaire de packages que vous utilisez pour installer kubectl.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) : interface de ligne de commande que vous utilisez pour exécuter des commandes sur des clusters Kubernetes.
@@ -46,13 +39,13 @@ Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
 
 ## <a name="clone-the-sample-app-from-github"></a>Cloner l’exemple d’application de GitHub
 
-Sur le dépôt Microsoft de GitHub, vous trouverez un exemple d’application qui montre comment déployer AKS à l’aide de Jenkins et du modèle bleu/vert. Dans cette section, vous pourrez dupliquer et activer ce dépôt dans votre GitHub, et cloner l’application sur votre système local.
+Sur le dépôt Microsoft de GitHub, vous trouverez un exemple d’application qui montre comment déployer AKS à l’aide de Jenkins et du modèle bleu/vert. Dans cette section, vous pourrez dupliquer et activer ce référentiel dans votre GitHub, et cloner l’application sur votre système local.
 
-1. Accédez au dépôt GitHub pour trouver l’exemple d’application [todo-app-java-on-azure](https://github.com/microsoft/todo-app-java-on-azure.git).
+1. Accédez au référentiel GitHub pour trouver l’exemple d’application [todo-app-java-on-azure](https://github.com/microsoft/todo-app-java-on-azure.git).
 
     ![Capture d’écran de l’exemple d’application sur le dépôt Microsoft GitHub](./media/jenkins-aks-blue-green-deployment/github-sample-msft.png)
 
-1. Dupliquez le dépôt en sélectionnant **Fork** en haut à droite de la page, puis en suivant les instructions permettant de dupliquer et activer le dépôt sur votre compte GitHub.
+1. Dupliquez le référentiel en sélectionnant **Fork** en haut à droite de la page, puis en suivant les instructions permettant de dupliquer et activer le référentiel sur votre compte GitHub.
 
     ![Capture d’écran de l’option GitHub permettant d’effectuer une duplication (fork)](./media/jenkins-aks-blue-green-deployment/github-sample-msft-fork.png)
 
@@ -70,7 +63,7 @@ Sur le dépôt Microsoft de GitHub, vous trouverez un exemple d’application qu
 
 1. Ouvrez un terminal ou une fenêtre Git Bash.
 
-1. Modifiez les répertoires pour indiquer l’emplacement sur lequel vous souhaitez enregistrer la copie locale (clone) du dépôt.
+1. Modifiez les répertoires pour indiquer l’emplacement sur lequel vous souhaitez enregistrer la copie locale (clone) du référentiel.
 
 1. À l’aide de la commande `git clone`, clonez l’URL précédemment copiée.
 
@@ -91,7 +84,7 @@ Dans cette section, vous allez effectuer les étapes suivantes :
 - Créer une instance du service Azure Container Registry.
 
 > [!NOTE]   
-> AKS est actuellement en préversion. Pour plus d’informations sur l’activation de la préversion pour votre abonnement Azure, consultez [Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
+> AKS se trouve actuellement en mode préliminaire. Pour plus d’informations sur l’activation de la préversion pour votre abonnement Azure, consultez [Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
 
 ### <a name="use-the-azure-cli-20-to-create-a-managed-kubernetes-cluster"></a>Créer un cluster Kubernetes managé à l’aide d’Azure CLI 2.0
 Afin de créer un cluster Kubernetes managé avec [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), veillez à utiliser la version 2.0.25 ou ultérieure d’Azure CLI.

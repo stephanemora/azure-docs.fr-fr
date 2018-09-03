@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9322c364832a12e711ee7e1b6ad9722ec82d8468
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450243"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050386"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’Azure ExpressRoute
 
@@ -59,7 +59,7 @@ Pour connecter Azure Stack et Azure à l’aide d’ExpressRoute, vous devez te
 
 ### <a name="expressroute-network-architecture"></a>Architecture réseau ExpressRoute
 
-Le diagramme suivant montre les environnement Azure Stack et Azure une fois que vous avez configuré ExpressRoute à l’aide des exemples de cet article.
+Le diagramme suivant montre les environnements Azure Stack et Azure une fois que vous avez configuré ExpressRoute à l’aide des exemples de cet article.
 
 *Figure 1 : Réseau ExpressRoute*
 
@@ -180,7 +180,7 @@ Après avoir créé la passerelle de réseau virtuel, vous pouvez obtenir son ad
 
 1. Dans le portail utilisateur Azure Stack, sélectionnez **Toutes les ressources**.
 1. Sous **toutes les ressources**, sélectionnez la passerelle de réseau virtuel, **GW1** dans l’exemple.
-1. Sous **Passerelle de réseau virtuel**, sélectionnez **Vue d’ensemble**. à partir de la liste des ressources. Vous pouvez également sélectionner **Propriétés**.
+1. Sous **Passerelle de réseau virtuel**, sélectionnez **Vue d’ensemble** dans la liste des ressources. Vous pouvez également sélectionner **Propriétés**.
 1. L’adresse IP que vous souhaitez noter est répertoriée sous **Adresse IP publique**. Pour l’exemple de configuration, cette adresse est 192.68.102.1.
 
 #### <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
@@ -360,7 +360,7 @@ Répétez ces étapes pour connecter d’autres réseaux virtuels locataires dan
 
 ## <a name="configure-the-router"></a>Configuration du routeur
 
-Vous pouvez utiliser le schéma suivant de la *configuration du routeur ExpressRoute* comme guide pour configurer votre routeur ExpressRoute. Ce schéma représente deux locataires (Tenant 1 et Tenant 2) avec leurs circuits ExpressRoute respectifs. Chaque locataire est connecté à son propre VRF (Virtual Routing and Forwarding) du côté LAN et WAN du routeur ExpressRoute. Cette configuration garantit l’isolation de bout en bout entre les deux clients. Notez les adresses IP utilisées dans les interfaces du routeur pendant que vous suivez l’exemple de configuration.
+Vous pouvez utiliser le schéma suivant de la *configuration du routeur ExpressRoute* comme guide pour configurer votre routeur ExpressRoute. Ce diagramme représente deux locataires (Tenant 1 et Tenant 2) avec leurs circuits ExpressRoute respectifs. Chaque locataire est connecté à son propre VRF (Virtual Routing and Forwarding) du côté LAN et WAN du routeur ExpressRoute. Cette configuration garantit l’isolation de bout en bout entre les deux clients. Notez les adresses IP utilisées dans les interfaces du routeur pendant que vous suivez l’exemple de configuration.
 
 *Figure 4 : Configuration du routeur ExpressRoute*
 
@@ -368,7 +368,7 @@ Vous pouvez utiliser le schéma suivant de la *configuration du routeur ExpressR
 
 Vous pouvez utiliser n’importe quel routeur qui prend en charge le VPN IKEv2 et BGP pour mettre fin à la connexion VPN de site à site établie depuis Azure Stack. Le même routeur est utilisé pour se connecter à Azure via un circuit ExpressRoute.
 
-L’exemple de configuration Cisco Azure Site Recovery 1000 suivant prend en charge l’infrastructure réseau représentée dans le schéma de *configuration du routeur ExpressRoute*.
+L’exemple de configuration du routeur des services d’agrégation Cisco ASR 1000 ci-après prend en charge l’infrastructure réseau représentée dans le diagramme *Configuration du routeur ExpressRoute*.
 
 **Exemple de configuration Cisco ASR 1000**
 
@@ -457,7 +457,7 @@ description S2S VPN Tunnel for Tenant 2
  tunnel protection ipsec profile V4-PROFILE
 !
 interface GigabitEthernet0/0/1
- description PRIMARY Express Route Link to AZURE over Equinix
+ description PRIMARY ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
@@ -476,7 +476,7 @@ description Primary WAN interface of Tenant 2
  ip address 192.168.1.17 255.255.255.252
 !
 interface GigabitEthernet0/0/2
- description BACKUP Express Route Link to AZURE over Equinix
+ description BACKUP ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ceb7d64ddd1923cdd22428df6cbc86676b685b4f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 1e56d3160e42e3f722f3f9ccb8a6de82ac3bfb83
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42147091"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186056"
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>Utilisation de NET (C#) avec Visual Studio pour se connecter à une base de données SQL Azure et l’interroger
 
@@ -55,7 +55,7 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
 3. Sélectionnez **Application console** et entrez *sqltest* pour le nom du projet.
 4. Cliquez sur **OK** pour créer et ouvrir le nouveau projet dans Visual Studio
 4. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **sqltest**, puis cliquez sur **Gérer les packages NuGet**. 
-5. Dans **Parcourir**, recherchez l’élément ```System.Data.SqlClient``` et, une fois trouvé, sélectionnez-le.
+5. Dans l’onglet **Parcourir**, recherchez l’élément ```System.Data.SqlClient``` et, une fois que vous l’avez trouvé, sélectionnez-le.
 6. Sur la page **System.Data.SqlClient**, cliquez sur **Installer**.
 7. Une fois l’installation terminée, passez en revue les modifications, puis cliquez sur **OK** pour fermer la fenêtre **Aperçu**. 
 8. Si une fenêtre **Acceptation de la licence**, cliquez sur **J’accepte**.

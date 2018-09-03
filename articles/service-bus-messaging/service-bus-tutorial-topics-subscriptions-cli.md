@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 42f0781de5412310ecb5326f0384268aba9c53dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81d538c0324f8fa89a7ce86ceaf2b0a2a76b4d51
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651467"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120682"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutoriel : mise à jour de l’inventaire à l’aide de CLI et des rubriques/abonnements
 
@@ -50,7 +50,7 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 Chaque [abonnement à une rubrique](service-bus-messaging-overview.md#topics) peut recevoir une copie de chaque message. Les rubriques sont entièrement compatibles au niveau de la sémantique et du protocole avec les files d’attente Service Bus. Les rubriques Service Bus prennent en charge un large éventail de règles de sélection avec des conditions de filtre et avec des actions facultatives qui permettent de définir ou de modifier les propriétés des messages. Chaque fois qu’une règle correspond, elle génère un message. Pour en savoir plus sur les règles, filtres et actions, consultez ce [lien](topic-filters.md).
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Une fois que l’interface CLI est installée, ouvrez une invite de commandes et exécutez les commandes suivantes pour vous connecter à Azure. Ces étapes ne sont pas nécessaires si vous utilisez Cloud Shell :
 
@@ -155,7 +155,7 @@ Une fois que l’espace de noms et les rubriques/abonnements sont configurés, e
 
    ![sortie du programme](./media/service-bus-tutorial-topics-subscriptions-cli/service-bus-tutorial-topics-subscriptions-cli.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, l’espace de noms et toutes les ressources associées :
 
@@ -163,7 +163,7 @@ Exécutez la commande suivante pour supprimer le groupe de ressources, l’espac
 az group delete --resource-group my-resourcegroup
 ```
 
-## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
 Cette section contient plus de détails sur ce que fait l’exemple de code.
 

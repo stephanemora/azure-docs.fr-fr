@@ -1,19 +1,19 @@
 ---
 title: Déployer sur Azure App Service à l’aide du plug-in Jenkins
 description: Découvrez comment utiliser le plug-in Azure App Service Jenkins pour déployer une application web Java sur Azure dans Jenkins
-ms.topic: article
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, app service
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: f54e4e8f64fe444f264b547d5af475c533c5723f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b364dfb033c3af640892bb305d7df3c916dd3fef
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441678"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095765"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Déployer sur Azure App Service à l’aide du plug-in Jenkins 
 

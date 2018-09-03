@@ -3,7 +3,7 @@ title: Ajouter une API manuellement à l’aide du portail Azure | Microsoft Doc
 description: Ce didacticiel vous montre comment utiliser le service Gestion des API (APIM) pour ajouter une API manuellement.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307446"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247900"
 ---
-# <a name="add-an-api-manually"></a>Ajouter une API manuellement 
+# <a name="add-an-api-manually"></a>Ajouter une API manuellement
 
 Les étapes décrites dans cet article montrent comment utiliser le portail Azure pour ajouter une API manuellement à l’instance de Gestion des API (APIM). Un scénario courant lorsque vous souhaitez créer une API vide et la définir manuellement est lorsque vous souhaitez simuler l’API. Pour plus d’informations sur la simulation d’une API, consultez [Mock API responses](mock-api-responses.md) (Simuler des réponses d’API).
 
@@ -54,17 +54,16 @@ Suivez le guide de démarrage rapide suivant : [Créer une instance du service G
     |**Produits**|« *Illimité* » |Publiez l’API en l’associant à un produit. Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.<br/><br/>Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. <br/>Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.<br/><br/> Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits : **Starter** et **Illimité**.| 
 5. Sélectionnez **Créer**.
 
-À ce stade, vous ne disposez d’aucune opération dans APIM qui correspond aux opérations dans votre API de serveur principal. Si vous appelez une opération qui est exposée via le serveur principal, mais pas via l’APIM, vous obtenez une erreur **404**. 
+À ce stade, vous ne disposez d’aucune opération dans APIM qui correspond aux opérations dans votre API de serveur principal. Si vous appelez une opération qui est exposée via le serveur principal, mais pas via l’APIM, vous obtenez une erreur **404**.
 
 >[!NOTE] 
 > Par défaut, lorsque vous ajoutez une API, même si elle est connectée à un service de serveur principal, APIM n’exposera pas d’opérations tant que vous ne les mettez pas sur liste verte. Pour mettre une opération de votre service de serveur principal sur liste verte, créez une opération APIM qui correspond à l’opération de serveur principal.
->
 
 ## <a name="add-and-test-an-operation"></a>Ajouter et tester une opération
 
 Cette section montre comment ajouter une opération « /get » afin de la mapper sur l’opération « http://httpbin.org/get » du serveur backend.
 
-### <a name="add-the-operation"></a>Ajouter l’opération
+### <a name="add-an-operation"></a>Ajout d’une opération
 
 1. Sélectionnez l’API que vous avez créée à l’étape précédente.
 2. Cliquez sur **+ Ajouter une opération**.
@@ -72,7 +71,7 @@ Cette section montre comment ajouter une opération « /get » afin de la mapp
 4. Entrez « *FetchData* » pour **Nom complet**.
 5. Sélectionnez **Enregistrer**.
 
-### <a name="test-the-operation"></a>Tester l’opération
+### <a name="test-an-operation"></a>Tester une opération
 
 Testez l’opération dans le portail Azure. Vous pouvez également la tester dans le **portail des développeurs**.
 

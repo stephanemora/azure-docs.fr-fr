@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 766e247775e61d7427b658b66948aa6699a7241a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 68c0dec2ff9d5da2d4e4abeab435bdb70c33ba48
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705926"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42810189"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli-20"></a>Tutoriel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI 2.0
 
@@ -36,7 +36,7 @@ Les images personnalisées sont comme des images de la Place de marché, sauf qu
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -130,7 +130,7 @@ az image delete \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous a montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Annuler le déploiement de machines virtuelles et généraliser des machines virtuelles

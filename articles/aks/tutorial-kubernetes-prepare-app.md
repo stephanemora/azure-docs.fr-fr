@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7bf3b5f8eb066428b382b9b2e742b919595bdffc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b2bb187e5ad55b466da0b9b06ffbb047ac539717
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920290"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104997"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Didacticiel : préparer une application pour Azure Kubernetes Service (AKS)
 
@@ -67,7 +67,7 @@ Utilisez l’exemple de fichier `docker-compose.yaml` pour créer l’image cont
 docker-compose up -d
 ```
 
-Une fois terminé, utilisez la commande [docker images][docker-images] pour afficher les images créées. Trois images ont été téléchargées ou créées. L’image *azure-vote-front* contient l’application de serveur frontal et utilise l’image `nginx-flask` comme base. L’image `redis` est utilisée pour démarrer une instance Redis.
+Une fois l’opération terminée, utilisez la commande [docker images][docker-images] pour afficher les images créées. Trois images ont été téléchargées ou créées. L’image *azure-vote-front* contient l’application de serveur frontal et utilise l’image `nginx-flask` comme base. L’image `redis` est utilisée pour démarrer une instance Redis.
 
 ```
 $ docker images
@@ -96,7 +96,7 @@ Pour voir l’application en cours d’exécution, entrez http://localhost:8080 
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Maintenant que la fonctionnalité de l’application a été validée, les conteneurs en cours d’exécution peuvent être arrêtés et supprimés. Ne supprimez pas les images de conteneur. Dans le didacticiel suivant, l’image *azure-vote-front* est chargée dans une instance Azure Container Registry
+Maintenant que la fonctionnalité de l’application a été validée, les conteneurs en cours d’exécution peuvent être arrêtés et supprimés. Ne supprimez pas les images de conteneur. Dans le didacticiel suivant, l’image *azure-vote-front* est chargée dans une instance Azure Container Registry.
 
 Arrêtez et supprimez les instances de conteneur et les ressources avec la commande [docker-compose down][docker-compose-down] :
 

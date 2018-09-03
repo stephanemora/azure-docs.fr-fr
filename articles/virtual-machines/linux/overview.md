@@ -15,27 +15,27 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911316"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42820313"
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
-Microsoft Azure propose une gamme croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, des services mobiles, la mise en réseau, le stockage et le web.&mdash;En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
+Microsoft Azure propose une collection croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, des services mobiles, la mise en réseau, le stockage et le web.&mdash;En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
 
 Si vous êtes familiarisé avec les différentes fonctionnalités d’Amazon AWS, vous pouvez examiner le [document de mappage de définition](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/)Azure vs AWS.
 
 ## <a name="regions"></a>Régions
-Les ressources Microsoft Azure sont réparties sur plusieurs régions géographiques dans le monde.  Une « région » représente plusieurs centres de données au sein d’une seule zone géographique. Azure possède actuellement (novembre 2017) 36 régions généralement disponibles dans le monde avec 6 autres régions prévues. Une liste mise à jour des régions existantes et récemment annoncées est disponible à la page suivante :
+Les ressources Microsoft Azure sont réparties sur plusieurs régions géographiques dans le monde.  Une « région » représente plusieurs centres de données au sein d’une seule zone géographique. Azure possède actuellement (août 2018) 42 régions généralement disponibles dans le monde avec 12 autres régions prévues, soit plus de régions que n’importe quel autre fournisseur cloud. Une liste mise à jour des régions existantes et récemment annoncées est disponible à la page suivante :
 
 * [Régions Azure](https://azure.microsoft.com/regions/)
 
 ## <a name="availability"></a>Disponibilité
 Azure a annoncé un contrat de niveau de service de pointe pour machine virtuelle à instance unique de 99,9 % à condition de déployer la machine virtuelle avec le stockage premium pour tous les disques.  Afin que votre déploiement puisse bénéficier du contrat de niveau de service standard de 99,95 % pour les machines virtuelles, vous devez déployer au moins deux machines virtuelles exécutant votre charge de travail à l’intérieur d’un groupe à haute disponibilité. Un groupe à haute disponibilité assure que vos machines virtuelles sont réparties sur plusieurs domaines d’erreur dans les centres de données Azure et déployées sur des hôtes ayant des fenêtres de maintenance distinctes. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explique la disponibilité garantie d’Azure dans son ensemble.
 
-## <a name="managed-disks"></a>Managed Disks
+## <a name="managed-disks"></a>Managed Disks
 
 Managed Disks se charge de la création et de la gestion du compte de stockage Azure en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez la taille du disque et le niveau de performances (Standard ou Premium) et Azure crée et gère le disque. Lorsque vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé. Si vous créez de nouvelles machines virtuelles, [utilisez Azure CLI 2.0](quick-create-cli.md) ou le portail Azure pour créer des machines virtuelles avec des disques de système d’exploitation et de données gérés. Si vous avez des machines virtuelles qui utilisent des disques non gérés, vous pouvez [convertir vos machines virtuelles pour qu’elles soient sauvegardées avec Managed Disks](convert-unmanaged-to-managed-disks.md).
 
@@ -59,7 +59,7 @@ Pour obtenir une culture DevOps appropriée, toute l’infrastructure doit être
 * [Modèles Azure](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure déploie la prise en charge de [cloud-init](http://cloud-init.io/) sur la plupart des distributions Linux qui le prennent en charge.  Actuellement, les machines virtuelles Ubuntu de Canonical sont déployées avec cloud-init activé par défaut.  Fedora, CentOS et Red Hats RHEL prennent en charge cloud-init, mais les images Azure maintenues par RedHat ne disposent actuellement pas de cloud-init installé.  Pour utiliser cloud-init sur un système d’exploitation de la famille RedHat, vous devez créer une image personnalisée avec cloud-init installé.
+Azure déploie la prise en charge de [cloud-init](http://cloud-init.io/) sur la plupart des distributions Linux qui le prennent en charge.  Actuellement, les machines virtuelles Ubuntu de Canonical sont déployées avec cloud-init activé par défaut.  Fedora, CentOS et Red Hat’s RHEL prennent en charge cloud-init, mais les images Azure maintenues par Red Hat ne disposent actuellement pas de cloud-init installé.  Pour utiliser cloud-init sur un système d’exploitation de la famille Red Hat, vous devez créer une image personnalisée avec cloud-init installé.
 
 * [À l’aide de cloud-init sur les machines virtuelles Linux Azure](using-cloud-init.md)
 
@@ -73,7 +73,7 @@ Microsoft travaille en étroite collaboration avec des partenaires afin de garan
 
 * Linux sur Azure : [Distributions approuvées](endorsed-distros.md)
 * SUSE : [Place de marché Azure - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Redhat - [Place de marché Azure - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Red Hat - [Place de marché Azure - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Place de marché Azure - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Place de marché Azure - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Place de marché Azure - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)
@@ -121,7 +121,7 @@ La machine virtuelle s’exécute maintenant sur Azure et vous êtes prêt à vo
 * [Ouverture de ports sur une machine virtuelle Linux dans Azure](nsg-quickstart.md)
 * [Créer un nom de domaine complet dans le Portail Azure](portal-create-fqdn.md)
 
-## <a name="containers"></a>Conteneurs
+## <a name="containers"></a>Containers
 * [Machines virtuelles et conteneurs dans Azure](containers.md)
 * [Présentation d’Azure Container Service](../../container-service/container-service-intro.md)
 * [Déploiement d’un cluster Azure Container Service](../../container-service/dcos-swarm/container-service-deployment.md)

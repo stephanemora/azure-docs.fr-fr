@@ -1,28 +1,23 @@
 ---
 title: Générer des flux de travail automatisés et planifiés - Azure Logic Apps | Microsoft Docs
-description: Ce didacticiel montre comment créer un flux de travail automatisé, périodique et planifié avec Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: Didacticiel - Comment créer un flux de travail automatisé, périodique et planifié avec Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300767"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124016"
 ---
-# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Contrôler le trafic à l’aide d’une application logique planifiée
+# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Contrôler le trafic à l’aide d’une application logique planifiée
 
 Azure Logic Apps permet d’automatiser les flux de travail qui s’exécutent selon une planification. Ce didacticiel montre comment générer une [application logique](../logic-apps/logic-apps-overview.md) avec un déclencheur basé sur un planificateur qui s’exécute chaque matin et vérifie la durée du trajet, y compris le trafic, entre deux endroits. Si la durée dépasse une limite définie, l’application logique envoie un e-mail contenant la durée du trajet et le temps supplémentaire nécessaire pour atteindre votre destination.
 
@@ -67,7 +62,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
    | **Name** | LA-TravelTime | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
    | **Groupe de ressources** | LA-TravelTime-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. | 
-   | **Lieu** | Est des États-Unis 2 | Région dans laquelle stocker les informations sur votre application logique | 
+   | **Lieu** | USA Est 2 | Région dans laquelle stocker les informations sur votre application logique | 
    | **Log Analytics** | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. | 
    |||| 
 
@@ -327,7 +322,7 @@ Pour créer d’autres applications logiques utilisant le déclencheur **Planifi
 * Supprimez d’anciens objets blob Azure.
 * Ajoutez un message à une file d’attente Stockage Azure.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées. Dans le menu Azure principal, accédez à **Groupes de ressources**, puis sélectionnez le groupe de ressources de votre application logique. Choisissez **Supprimer un groupe de ressources**. Confirmez le nom du groupe de ressources, puis choisissez **Supprimer**.
 

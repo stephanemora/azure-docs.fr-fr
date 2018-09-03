@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 08/29/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4a5e613169bf3173b7585b49803fc7ac7f5186ce
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ec56f9fdf21459857c8115222da921b6681a3ac5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297969"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247234"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Activer des abonnements et des comptes Azure avec Azure Cost Management
 
@@ -94,7 +94,7 @@ Ces messages indiquent que vous avez acheté un Contrat Entreprise Azure via un 
 Voici comment corriger les problèmes :
 
 1. Votre revendeur doit activer le _balisage_ pour votre compte. Consultez les instructions sous [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide) (Guide d’intégration de client indirecte).
-2. Vous générez la clé Azure Enterprise Agreement à utiliser avec Azure Cost Management. Pour connaître les instruction, consultez [Inscrire un Accord Entreprise Azure et afficher les données de coût](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
+2. Vous générez la clé Azure Enterprise Agreement à utiliser avec Azure Cost Management. Pour connaître les instructions, consultez [Inscrire un Accord Entreprise Azure et afficher les données de coût](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
 Afin de pouvoir générer la clé API Azure Enterprise Agreement pour configurer Azure Cost Management, activez l’API de facturation Azure en suivant les instructions sous :
 
@@ -103,7 +103,7 @@ Afin de pouvoir générer la clé API Azure Enterprise Agreement pour configurer
 
 Vous devrez peut-être également accorder aux administrateurs de service, propriétaires de compte et administrateurs d’entreprise l’autorisation _d’afficher les frais_ avec l’API de facturation.
 
-Seul un administrateur de service Azure peut activer la Gestion des coûts. Les autorisations de coadministrateur sont insuffisantes. Vous pouvez toutefois contourner l’exigence de l’administrateur. Vous pouvez demander à votre administrateur Azure Active Directory qu’il vous accorde une autorisation afin d’autoriser le **CloudynAzureCollector** avec un script PowerShell. Le script suivant accorde l’autorisation d’inscrire le principal du service Azure Active Directory **CloudynAzureCollector**.
+Seul un administrateur de service Azure peut activer la Gestion des coûts. Les autorisations de coadministrateur sont insuffisantes. Vous pouvez toutefois contourner l’exigence de l’administrateur. Vous pouvez demander à votre administrateur Azure Active Directory qu’il vous accorde une autorisation afin d’autoriser le **CloudynAzureCollector** avec un script PowerShell. Le script suivant accorde l’autorisation d’inscrire le principal du service Azure Active Directory **CloudynAzureCollector**. Une fois l’opération exécutée avec succès, le navigateur affiche l’URL http://localhost:8080/CloudynJava.
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

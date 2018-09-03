@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: db4d423a09b6b37fd0ba88d466319cb5da4fdedf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 30eb40967b2fd8a6b5e18cf0074a68fb24fd0744
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41920055"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886380"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-service-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Didacticiel : Utiliser une identité MSI (Managed Service Identity) attribuée à l’utilisateur sur une machine virtuelle Windows pour accéder à Azure Resource Manager
 
@@ -30,7 +30,6 @@ Ce tutoriel explique comment créer une identité attribuée à l’utilisateur,
 Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer une machine virtuelle Windows 
 > * Créer une identité attribuée à l’utilisateur
 > * Attribuer votre identité attribuée à l’utilisateur à votre machine virtuelle Windows
 > * Accorder à l’identité attribuée à l’utilisateur l’accès à un groupe de ressources dans Azure Resource Manager 
@@ -39,8 +38,14 @@ Vous allez apprendre à effectuer les actions suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous ne connaissez pas Managed Service Identity, consultez la [section Vue d’ensemble](overview.md). **Veillez à consulter [la différence entre les identités attribuées au système et celles attribuées à l’utilisateur](overview.md#how-does-it-work)**.
-- Si vous n’avez pas encore de compte Azure, [inscrivez-vous à un essai gratuit](https://azure.microsoft.com/free/) avant de continuer.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [Connectez-vous au Portail Azure](https://portal.azure.com).
+
+- [Créez une machine virtuelle Windows](/azure/virtual-machines/windows/quick-create-portal).
+
 - Pour effectuer les étapes de création de ressources et de gestion de rôles nécessaires dans ce tutoriel, votre compte doit bénéficier des autorisations « Propriétaire » avec l’étendue appropriée (votre abonnement ou groupe de ressources). Si vous avez besoin d’aide concernant l’attribution de rôle, consultez [Utiliser le contrôle d’accès en fonction du rôle pour gérer l’accès aux ressources d’un abonnement Azure](/azure/role-based-access-control/role-assignments-portal).
 - Si vous choisissez d’installer et d’utiliser PowerShell en local, ce didacticiel nécessite le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez ` Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). 
 - Si vous exécutez PowerShell en local, vous devez également effectuer les opérations suivantes : 
@@ -48,37 +53,6 @@ Vous allez apprendre à effectuer les actions suivantes :
     - Installez la [dernière version de PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
     - Exécutez `Install-Module -Name PowerShellGet -AllowPrerelease` pour obtenir la préversion du module `PowerShellGet` (vous devrez peut-être utiliser la commande `Exit` pour quitter la session PowerShell actuelle après avoir exécuté cette commande pour installer le module `AzureRM.ManagedServiceIdentity`).
     - Exécutez `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` pour installer la préversion du module `AzureRM.ManagedServiceIdentity` afin d’effectuer les opérations d’identité affectée par l’utilisateur dans cet article.
-
-## <a name="create-resource-group"></a>Créer un groupe de ressources
-
-Dans l’exemple suivant, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *EastUS*.
-
-```azurepowershell-interactive
-New-AzureRmResourceGroup -ResourceGroupName "myResourceGroupVM" -Location "EastUS"
-```
-
-## <a name="create-virtual-machine"></a>Créer une machine virtuelle
-
-Une fois le groupe de ressources créé, créez une machine virtuelle Windows.
-
-Définissez le nom d’utilisateur et le mot de passe pour le compte d’administrateur sur la machine virtuelle avec [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) :
-
-```azurepowershell-interactive
-$cred = Get-Credential
-```
-Créez la machine virtuelle avec [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
-
-```azurepowershell-interactive
-New-AzureRmVm `
-    -ResourceGroupName "myResourceGroupVM" `
-    -Name "myVM" `
-    -Location "East US" `
-    -VirtualNetworkName "myVnet" `
-    -SubnetName "mySubnet" `
-    -SecurityGroupName "myNetworkSecurityGroup" `
-    -PublicIpAddressName "myPublicIpAddress" `
-    -Credential $cred
-```
 
 ## <a name="create-a-user-assigned-identity"></a>Créer une identité attribuée à l’utilisateur
 

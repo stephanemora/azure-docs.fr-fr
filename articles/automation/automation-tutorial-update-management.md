@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 08/29/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41924763"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247366"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gérer les mises à jour Windows à l’aide d’Azure Automation
 
@@ -82,9 +82,19 @@ Cliquez n’importe où sur la mise à jour pour ouvrir le volet **Recherche dan
 
 ## <a name="configure-alerts"></a>Configurer des alertes
 
-Pendant cette étape, vous définissez une alerte pour être tenu informé des mises à jour qui ont été correctement déployées. L’alerte que vous créez repose sur une requête Log Analytics. Vous pouvez écrire une requête personnalisée pour que d’autres alertes couvrent d’autres scénarios. Dans le portail Azure, accédez à **Surveiller**, puis sélectionnez **Créer une alerte**. 
+Dans cette étape, vous allez apprendre à configurer une alerte pour être tenu informé des mises à jour qui ont été correctement déployées via une requête Log Analytics ou grâce au suivi du runbook principal pour la gestion des mises à jour des déploiements qui ont échoué.
 
-Sous **Créer une règle**, sous **1. Définissez la condition de l’alerte**, sélectionner **Sélectionner la cible**. Sous **Filtrer par type de ressource**, sélectionnez **Log Analytics**. Sélectionnez votre espace de travail Log Analytics, puis sélectionnez **Terminé**.
+### <a name="alert-conditions"></a>Conditions d’alerte
+
+Pour chaque type d’alerte, il existe différentes conditions d’alerte qui doivent être définies.
+
+#### <a name="log-analytics-query-alert"></a>Alerte de requête Log Analytics
+
+Vous pouvez créer une alerte basée sur une requête Log Analytics pour les déploiements réussis. Pour les déploiements ayant échoué, vous pouvez utiliser les étapes de l’[Alerte de runbook](#runbook-alert) pour être averti lorsque le runbook principal qui orchestre les déploiements de mises à jour échoue. Vous pouvez écrire une requête personnalisée pour que d’autres alertes couvrent d’autres scénarios.
+
+Dans le portail Azure, accédez à **Surveiller**, puis sélectionnez **Créer une alerte**.
+
+Sous **1. Définir la condition de l’alerte**, cliquez sur **Sélectionner la cible**. Sous **Filtrer par type de ressource**, sélectionnez **Log Analytics**. Sélectionnez votre espace de travail Log Analytics, puis sélectionnez **Terminé**.
 
 ![Créer une alerte](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -104,7 +114,21 @@ Sous **Logique d’alerte**, pour **Seuil**, entrez **1**. Quand vous avez termi
 
 ![Configurer la logique du signal](./media/automation-tutorial-update-management/signal-logic.png)
 
-Sous **2. Définissez les détails de l’alerte**, entrez un nom et une description pour l’alerte. Définissez **Gravité** sur **Informations (gravité 2)** car l’alerte a trait à une exécution réussie.
+#### <a name="runbook-alert"></a>Alerte de runbook
+
+Pour les déploiements ayant échoué, vous devez être averti de l’échec du runbook principal. Dans le portail Azure, accédez au **Moniteur**, puis sélectionnez **Créer une alerte**.
+
+Sous **1. Définir la condition de l’alerte**, cliquez sur **Sélectionner la cible**. Sous **Filtrer par type de ressource**, sélectionnez **Comptes Automation**. Sélectionnez votre compte Automation, puis **Terminé**.
+
+Pour **Nom du runbook**, cliquez sur le signe **\+** et entrez **Patch-MicrosoftOMSComputers** comme nom personnalisé. Pour **État**, choisissez **Échec** ou cliquez sur le signe **\+** pour entrer **Échec**.
+
+![Configurer la logique du signal pour des runbooks](./media/automation-tutorial-update-management/signal-logic-runbook.png)
+
+Sous **Logique d’alerte**, pour **Seuil**, entrez **1**. Quand vous avez terminé, cliquez sur **Terminé**.
+
+### <a name="alert-details"></a>Détails de l’alerte
+
+Sous **2. Définissez les détails de l’alerte**, entrez un nom et une description pour l’alerte. Définissez **Gravité** sur **Informations (gravité 2)** pour une exécution réussie, ou sur **Informations (gravité 1)** pour une exécution ayant échoué.
 
 ![Configurer la logique du signal](./media/automation-tutorial-update-management/define-alert-details.png)
 
@@ -134,7 +158,7 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
 * **Système d’exploitation** : sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
 
-* **Machines to update** (Ordinateurs à mettre à jour) : sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Ordinateurs**, l’état de préparation d’ordinateur est indiqué dans la colonne **UPDATE AGENT READINESS**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Computer groups in Log Analytics](../log-analytics/log-analytics-computer-groups.md) (Groupes d’ordinateurs dans Log Analytics)
+* **Machines to update** (Ordinateurs à mettre à jour) : sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Classification de mise à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Pour ce didacticiel, conservez tous les types sélectionnés.
 
@@ -154,10 +178,10 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 * **Fenêtre de maintenance (en minutes)** : conservez la valeur par défaut. Vous pouvez définir la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
 * **Reboot options** (Options de redémarrage) : ce paramètre détermine comment les redémarrages doivent être traités. Options disponibles :
-  * Reboot if required (Redémarrer si nécessaire) (par défaut)
+  * Redémarrer si nécessaire (par défaut)
   * Toujours redémarrer
-  * Never reboot (Ne jamais redémarrer)
-  * Only reboot (Redémarrer uniquement), les mises à jour ne seront pas installées
+  * Ne jamais redémarrer
+  * Redémarrer uniquement : les mises à jour ne sont pas installées
 
 Lorsque vous avez terminé de configurer la planification, sélectionnez **Créer**.
 

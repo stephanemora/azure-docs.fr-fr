@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "27998047"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815111"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rechercher et diagnostiquer des exceptions runtime avec Azure Application Insights
 
@@ -62,20 +62,17 @@ Application Insights collecte les échecs dans votre application et vous permet 
 
     ![Fenêtre des demandes ayant échoué](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-5. Cliquez sur **Afficher les détails** pour voir les détails de l’opération.  Ceux-ci incluent un diagramme de Gantt présentant deux dépendances en échec dont l’exécution a pris près d’une demie seconde.  Pour plus d’informations sur l’analyse des problèmes de performances, voir le didacticiel [Rechercher et diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights](app-insights-tutorial-performance.md).
+5. Consultez les exemples connexes en cliquant sur le bouton avec le nombre de résultats filtrés. Les exemples « suggérés » disposent d’une télémétrie associée à partir de tous les composants, même si l’échantillonnage a été appliqué à l’un d’eux. Cliquez sur un résultat de recherche pour afficher les détails de l’échec.
 
-    ![Détails des demandes ayant échoué](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
+    ![Exemples de demande ayant échoué](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. Le détail des opérations montre également une exception FormatException qui semble être à l’origine de l’échec.  Cliquez sur l’exception ou sur **Top 3 exception types** (3 principaux types d’exceptions) pour afficher les détails de l’exception.  Vous pouvez voir que celle-ci est due à un code postal non valide.
+6. Les détails de la demande ayant échoué affiche le diagramme de Gantt qui montre qu’il y avait deux échecs de dépendance dans cette transaction, ce qui est également attribué à plus de 50 % de la durée totale de la transaction. Cette expérience présente toutes les données de télémétrie à travers les composants d’une application distribuée qui sont liés à cet ID d’opération. [En savoir plus sur la nouvelle expérience](app-insights-transaction-diagnostics.md). Vous pouvez sélectionner n’importe quels éléments pour afficher ses détails sur le côté droit. 
+
+    ![Détails des requêtes ayant échoué](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
+
+7. Le détail des opérations montre également une exception FormatException qui semble être à l’origine de l’échec.  Vous pouvez voir que celle-ci est due à un code postal non valide. Vous pouvez ouvrir la capture instantanée du débogage pour afficher des informations de débogage au niveau du code dans Visual Studio.
 
     ![Détails de l’exception](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
-
-> [!NOTE]
-Activez [l’expérience de la préversion](app-insights-previews.md) « Unified details: E2E Transaction Diagnostics » pour voir tous les événements, requêtes, dépendances, exceptions, traces, etc. connexes à la télémétrie côté serveur dans un affichage unique en plein écran. 
-
-Avec la préversion activée, vous pouvez voir le temps passé dans les appels de dépendance, ainsi que les échecs ou les exceptions dans une expérience unifiée. Pour les transactions entre composants, le diagramme de Gantt, ainsi que le volet de détails peuvent vous aider à diagnostiquer rapidement le composant, la dépendance ou l’exception d’une cause racine. Vous pouvez développer la section inférieure pour visualiser la séquence horaire de toutes les traces ou tous les événements collectés pour l’opération du composant sélectionné. [En savoir plus sur la nouvelle expérience](app-insights-transaction-diagnostics.md)  
-
-![Diagnostics de transaction](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>Identifier le code défaillant
 Le débogueur d'instantané collecte des captures instantanées des exceptions les plus fréquentes dans votre application pour vous aider à diagnostiquer leur cause racine en production.  Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Vous pouvez ensuite déboguer le code source en téléchargeant l’instantané et en l’ouvrant dans Visual Studio 2017.
@@ -105,16 +102,7 @@ Toutes les données collectées par Application Insights sont stockées dans Azu
 
 9. Cliquez sur **Analyser l’impact** pour ouvrir Application Insights Analytics.  Application Insights Analytics comprend plusieurs requêtes qui fournissent des détails sur les demandes ayant échoué, tels que les utilisateurs, les navigateurs et les régions concernés.<br><br>![Analyse](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
 
-## <a name="add-work-item"></a>Ajouter un élément de travail
-Si vous connectez Application Insights à un système de suivi tel que Visual Studio Team Services ou GitHub, vous pouvez créer un élément de travail directement à partir d’Application Insights.
-
-1. Revenez au panneau **Propriétés d'exception** dans Application Insights.
-2. Cliquez sur **Nouvel élément de travail**.
-3. Le panneau **Nouvel élément de travail** s’ouvre, affichant les détails relatifs à l’exception.  Vous pouvez ajouter des informations avant de l’enregistrer.
-
-    ![Nouvel élément de travail](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
-
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 À présent que vous avez appris à identifier les exceptions runtime, passez au didacticiel suivant pour apprendre à identifier et à diagnostiquer les problèmes de performances.
 
 > [!div class="nextstepaction"]

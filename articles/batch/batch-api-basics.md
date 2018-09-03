@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216306"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746016"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -288,7 +288,7 @@ Si une tâche de démarrage échoue sur un nœud du pool, l’état du nœud est
 Si vous ajoutez ou mettez à jour la tâche de démarrage pour un pool existant, vous devez redémarrer ses nœuds de calcul pour que cette tâche soit appliquée aux nœuds.
 
 >[!NOTE]
-> La taille totale d’une tâche de démarrage doit être inférieure ou égale à 32 768 caractères, y compris les fichiers de ressources et les variables d’environnement. Pour vous assurer que votre tâche de démarrage répond à cette exigence, vous pouvez utiliser l’une des deux approches suivantes :
+> Batch limite la taille totale d’une tâche de démarrage, ce qui inclut les fichiers de ressources et les variables d’environnement. Si vous avez besoin de réduire la taille d’une tâche de démarrage, vous pouvez utiliser une des deux approches :
 >
 > 1. Utilisez des packages d’application pour distribuer des applications ou des données sur chaque nœud de votre pool  Batch. Pour en savoir plus sur les packages d’applications, consultez [Déployer des applications sur les nœuds avec des packages d’applications Batch](batch-application-packages.md).
 > 2. Vous pouvez créer manuellement une archive au format ZIP contenant vos fichiers d’applications. Chargez l’archive ZIP dans le stockage Azure, en tant que blob. Spécifiez cette archive sous la forme d’un fichier de ressources pour votre tâche de démarrage. Avant d’exécuter la ligne de commande pour votre tâche de démarrage, décompressez l’archive à partir de la ligne de commande. 

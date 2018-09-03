@@ -3,7 +3,7 @@ title: Dans ce didacticiel, vous allez créer une machine virtuelle Azure Stack 
 description: Explique comment utiliser le kit de développement Azure Stack pour créer une machine virtuelle à l’aide d’un modèle prédéfini et d’un modèle GitHub personnalisé.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: e772dc41ce2cb77a03b91515cae35ffc48f5dbc3
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5026a7a753ec744d281266b2fb30a70a66a7f9db
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236949"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43050402"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Didacticiel : créer une machine virtuelle à l’aide d’un modèle communautaire
 En tant qu’opérateur ou utilisateur Azure Stack, vous pouvez créer une machine virtuelle à l’aide de [modèles de démarrage rapide GitHub personnalisés](https://github.com/Azure/AzureStack-QuickStart-Templates), plutôt que d’en déployer une manuellement depuis le marketplace Azure Stack.
@@ -101,13 +101,13 @@ Ce modèle installe les composants suivants :
    > La machine virtuelle s’exécute lorsque le déploiement est terminé. 
 
 ## <a name="start-minikube-and-install-an-application"></a>Démarrer minikube et installer une application
-Maintenant que la machine virtuelle Linux a été créée avec succès, vous pouvez vous connecter pour démarrer minikube et installer une application. 
+Maintenant que la machine virtuelle Linux a été correctement créée, vous pouvez vous connecter pour démarrer minikube et installer une application. 
 
 1. Une fois le déploiement terminé, cliquez sur **Connexion** pour afficher l’adresse IP publique qui sera utilisée pour se connecter à la machine virtuelle Linux. 
 
    ![](media/azure-stack-create-vm-template/9.PNG)
 
-2. À partir d’une invite de commandes avec élévation de privilèges, exécutez la commande **mstsc.exe** pour ouvrir la connexion Bureau à distance et vous connecter à l’adresse IP publique de la machine virtuelle Linux obtenue à l’étape précédente. Lorsque vous êtes invité à vous connecter à xRDP, utilisez les informations d’identification que vous avez spécifiées à la création de la machine virtuelle.
+2. À partir d’une invite de commandes avec élévation de privilèges, exécutez la commande **mstsc.exe** pour ouvrir la connexion Bureau à distance et vous connecter à l’adresse IP publique de la machine virtuelle Linux obtenue à l’étape précédente. Lorsque vous êtes invité à vous connecter à xRDP, utilisez les informations d’identification que vous avez spécifiées lors de la création de la machine virtuelle.
 
    ![](media/azure-stack-create-vm-template/10.PNG)
 
@@ -129,7 +129,7 @@ Maintenant que la machine virtuelle Linux a été créée avec succès, vous pou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * En savoir plus sur les modèles de démarrage rapide Azure Stack 
