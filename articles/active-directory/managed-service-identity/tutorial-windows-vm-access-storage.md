@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca2a460658b0de4f91816342d2eabb78ceee89fb
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 12e17977d010b460681f72e62fb72e07ad713a3a
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247371"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887522"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Tutoriel : Utiliser Managed Service Identity sur une machine virtuelle Windows pour accéder au stockage Azure via une clé d’accès
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous montre comment activer une identité MSI (Managed Service Identity) sur une machine virtuelle Windows, puis utiliser cette identité pour accéder aux clés de stockage. Vous pouvez utiliser les clés d’accès de stockage comme d’habitude lors de l’exécution d’opérations de stockage, par exemple lors de l’utilisation du SDK Stockage. Pour ce didacticiel, nous chargeons et téléchargeons des objets blob à l’aide du PowerShell de Stockage Azure. Vous apprendrez à :
+Ce didacticiel vous indique comment utiliser une identité affectée par le système pour une machine virtuelle Windows afin de récupérer les clés d’accès d’un compte de stockage. Vous pouvez utiliser les clés d’accès de stockage comme d’habitude lors de l’exécution d’opérations de stockage, par exemple lors de l’utilisation du SDK Stockage. Pour ce didacticiel, nous chargeons et téléchargeons des objets blob à l’aide du PowerShell de Stockage Azure. Vous apprendrez à :
 
 
 > [!div class="checklist"]
-> * Activer l’identité du service administré sur une machine virtuelle Windows 
+> * Créez un compte de stockage.
 > * Autoriser votre machine virtuelle à accéder aux clés d’accès de stockage dans le Gestionnaire des ressources 
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer les clés d’accès de stockage à partir du Gestionnaire des ressources 
 
@@ -39,33 +39,11 @@ Ce didacticiel vous montre comment activer une identité MSI (Managed Service Id
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+- [Connectez-vous au Portail Azure](https://portal.azure.com).
 
-Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
+- [Créez une machine virtuelle Windows](/azure/virtual-machines/windows/quick-create-portal).
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
-
-Pour ce didacticiel, nous allons créer une machine virtuelle Windows. Vous pouvez également activer une identité MSI sur une machine virtuelle existante.
-
-1.  Cliquez sur le bouton **+/Créer un service** dans l’angle supérieur gauche du portail Azure.
-2.  Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
-3.  Saisissez les informations de la machine virtuelle. Le **Nom d’utilisateur** et le **Mot de passe** créés ici sont les informations d’identification nécessaires pour vous connecter à la machine virtuelle.
-4.  Choisissez un **Abonnement** approprié pour la machine virtuelle dans la liste déroulante.
-5.  Pour sélectionner un nouveau **Groupe de ressources** dans lequel vous souhaitez créer une machine virtuelle, choisissez **Créer un nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
-6.  Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. Conservez les valeurs par défaut dans le panneau des paramètres et cliquez sur **OK**.
-
-    ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Activer une identité MSI (Managed Service Identity) sur votre machine virtuelle
-
-L’identité MSI d’une machine virtuelle vous permet d’obtenir des jetons d’accès d’Azure AD sans avoir à entrer d’informations d’identification dans votre code. En arrière-plan, l’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle inscrit votre machine virtuelle auprès d’Azure Active Directory pour créer son identité administrée, et elle configure l’identité sur la machine virtuelle.
-
-1. Accédez au groupe de ressources de votre nouvelle machine virtuelle et sélectionnez la machine virtuelle que vous avez créée à l’étape précédente.
-2. Dans les paramètres de la machine virtuelle situés sur la gauche, cliquez sur **Configuration**.
-3. Pour enregistrer et activer Managed Service Identity, sélectionnez **Oui**, si vous souhaitez le désactiver, sélectionnez Non.
-4. Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.
-
-    ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Activez l’identité affectée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm).
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage. 
 

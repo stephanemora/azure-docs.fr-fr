@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d94f8d38ef771bd5ab03f4d3cef25233c33e7546
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6759568a678394f7cec4ac9f0bdd99d8ed1db9de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282615"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886788"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutoriel : Détecter des problèmes liés aux appareils connectés à votre solution de surveillance
 
@@ -117,6 +117,18 @@ Pour désactiver temporairement une règle, vous pouvez la désactiver dans la l
 [![Désactiver une règle](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 Vous pouvez activer et désactiver plusieurs règles en même temps en sélectionnant plusieurs règles dans la liste.
+
+## <a name="delete-a-rule"></a>Supprimer une règle
+
+Pour supprimer définitivement une règle, vous pouvez la supprimer de la liste de règles. Sélectionnez la règle à supprimer, puis choisissez **Supprimer**.
+
+[![Suppression de règle](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+
+Après avoir confirmé la suppression de la règle, vous avez la possibilité de supprimer toutes les alertes associées à la règle à partir de la page **Maintenance**.
+
+[![Suppression de règle](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+
+Vous ne pouvez supprimer qu’une règle à la fois.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

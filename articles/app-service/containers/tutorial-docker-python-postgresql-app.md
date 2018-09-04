@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: ce84498ab89891bd7b96cfcc6b0c7ac029c93cbd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9a623156ad2a27abf7fa5e865f8b7452e2c70b3c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423077"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124516"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Créer une application web Docker Python et PostgreSQL dans Azure
 
-Web App pour conteneurs offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel montre comment créer une application web Python orientée données, à l’aide de PostgreSQL en tant que le serveur principal de base de données. Ceci fait, vous disposez d’une application Python Flask s’exécutant dans un conteneur Docker sur [App Service sur Linux](app-service-linux-intro.md).
+Web App pour conteneurs offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce didacticiel montre comment créer une application web Python orientée données, à l’aide de PostgreSQL en tant que serveur principal de base de données. Ceci fait, vous disposez d’une application Python Flask s’exécutant dans un conteneur Docker sur [App Service sur Linux](app-service-linux-intro.md).
 
 ![Application Docker Python Flask dans App Service sur Linux](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -169,7 +169,9 @@ Lorsque le serveur de base de données Azure pour PostgreSQL est créé, l’int
 
 ### <a name="create-a-firewall-rule-for-the-postgresql-server"></a>Créer une règle de pare-feu pour le serveur PostgreSQL
 
-Dans Cloud Shell, exécutez la commande Azure CLI suivante pour autoriser l’accès à la base de données à partir de toutes les adresses IP. Lorsque les adresses IP de début et de fin sont définies sur `0.0.0.0`, le pare-feu est ouvert uniquement pour les autres ressources Azure. 
+Dans Cloud Shell, exécutez la commande Azure CLI suivante pour autoriser l’accès à la base de données à partir de toutes les adresses IP. 
+> [!Note]
+> Il est déconseillé de laisser tous les ports ouverts pour votre base de données ou de rendre votre base de données accessible sur Internet.  Pour sécuriser correctement votre nouvelle base de données en vue d’une utilisation en production, consultez les autres [articles sur la sécurité Azure](https://docs.microsoft.com/azure/security/).  
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
@@ -277,7 +279,7 @@ La base de données contient déjà l’inscription que vous avez créée préc�
 
 ![Application Python Flask basée sur un conteneur Docker s’exécutant localement](./media/tutorial-docker-python-postgresql-app/local-docker.png)
 
-Maintenant que vous vérifié que le conteneur s’exécute localement, supprimez _db.env_. Dans Azure App Service, vous allez utiliser les paramètres d’application pour définir les variables d’environnement.  
+Maintenant que vous avez vérifié que le conteneur s’exécute localement, supprimez _db.env_. Dans Azure App Service, vous allez utiliser les paramètres d’application pour définir les variables d’environnement.  
 
 ### <a name="create-an-azure-container-registry"></a>Création d’un Azure Container Registry
 

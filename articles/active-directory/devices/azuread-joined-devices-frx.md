@@ -12,18 +12,18 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1376f011d056aac33333f6ac31ee2eaadaf3ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415792"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046320"
 ---
-# <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Joindre un nouvel appareil Windows 10 à Azure AD lors de la première utilisation
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Didacticiel : Joindre un nouvel appareil Windows 10 à Azure AD lors de la première utilisation
 
 La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](overview.md).
 
@@ -34,9 +34,13 @@ Si Windows 10 Professionnel ou Windows 10 Entreprise est installé sur un appare
 
 Dans *l’expérience OOBE (out-of-box experience)* de Windows, la jonction à un domaine Active Directory (AD) local n’est pas prise en charge. Si vous souhaitez joindre un ordinateur à un domaine AD, vous devez sélectionner le lien **Configurer Windows à l’aide d’un compte local** pendant la configuration. Vous pouvez ensuite joindre l’ordinateur au domaine par le biais des paramètres de votre ordinateur.
  
+Dans le cadre de ce didacticiel, vous allez apprendre à joindre un appareil à Azure AD lors de la première utilisation :
+ > [!div class="checklist"]
+> * Prérequis
+> * Joindre un appareil
+> * Vérification
 
-
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="prerequisites"></a>Prérequis
 
 Pour joindre un appareil Windows 10, le service d’inscription des appareils doit être configuré pour vous permettre d’inscrire des appareils. En plus d’avoir l’autorisation de joindre des appareils dans votre locataire Azure AD, vous devez avoir moins d’appareils inscrits que le nombre maximal configuré. Pour plus d’informations, consultez [Configurer les paramètres de l’appareil](device-management-azure-portal.md#configure-device-settings).
 

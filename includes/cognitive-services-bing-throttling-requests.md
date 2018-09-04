@@ -1,5 +1,5 @@
-Le service et votre type d’abonnement déterminent le nombre de requêtes que vous pouvez formuler par seconde (RPS). Assurez-vous que votre application inclut la logique nécessaire pour rester dans votre quota. Si vous dépassez votre RPS, la requête échoue avec le code d’état HTTP 429. La réponse inclut également l’en-tête Retry-After, qui contient le nombre de secondes d’attente avant d’envoyer une autre requête.  
-  
-### <a name="denial-of-service-dos-versus-throttling"></a>Déni de service (DOS) et limitation
+Le service et votre type d’abonnement déterminent le nombre de requêtes par seconde (RPS) que vous pouvez formuler. Assurez-vous que votre application inclut la logique permettant de respecter votre quota. Si la limite RPS est atteinte ou dépassée, la requête échoue et un code d’état HTTP 429 est renvoyé. La réponse inclut l’en-tête `Retry-After`, qui indique le délai d’attente que vous devez respecter avant d’envoyer une autre requête.
 
-Le service fait la distinction entre une attaque par déni de service (DOS) et une violation de requêtes par seconde (RPS). Si le service suspecte une attaque par déni de service, la requête réussit (le code d’état HTTP est 200 OK). Toutefois, le corps de la réponse est vide.
+## <a name="denial-of-service-versus-throttling"></a>Déni de service (DOS) et limitation de requêtes
+
+Le service établit une distinction entre une attaque par déni de service et une violation du nombre RPS. Si le service suspecte une attaque par déni de service, la requête réussit (le code d’état HTTP est 200 OK). Toutefois, le corps de la réponse est vide.

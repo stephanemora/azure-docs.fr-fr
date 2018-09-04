@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 20dc414c5cdd309434ba53acf2d7f6716d3edfe5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009924"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143421"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Démarrage rapide : Déployer le disque Azure Data Box via le portail Azure (préversion)
 
@@ -54,7 +54,6 @@ Cette étape prend environ 5 minutes.
 
 Une fois la commande créée, les disques sont préparés pour l’expédition. 
 
-
 ## <a name="unpack"></a>Déballer
 
 Cette étape prend environ 5 minutes.
@@ -64,7 +63,6 @@ Le Data Box Disk est envoyé dans un colis UPS Express. Ouvrez la boîte et vér
 - 1 à 5 disques USB protégés par du film à bulles.
 - Un câble de connexion par disque. 
 - Une étiquette de retour.
- 
 
 ## <a name="connect-and-unlock"></a>Connecter et déverrouiller
 
@@ -75,10 +73,8 @@ Cette étape prend environ 5 minutes.
 
     1. Dans le portail Azure, accédez à **Général > Détails de l’appareil** et obtenez la clé d’accès.
     2. Téléchargez et extrayez l’outil de déverrouillage de Data Box Disk sur l’ordinateur utilisé pour copier les données vers des disques. 
-    3. Exécutez *DataBoxDiskUnlock.exe* et fournissez la clé d’accès. Répétez l’étape pour chaque réinsertion de disque.
+    3. Exécutez *DataBoxDiskUnlock.exe* et fournissez la clé d’accès. Pour toute réinsertion de disque, réexécutez l’outil de déverrouillage et fournissez la clé d’accès. **N’utilisez pas la boîte de dialogue BitLocker ni la clé BitLocker pour déverrouiller le disque.** 
     4. La lettre de lecteur affectée au disque est affichée par l’outil. Notez la lettre de lecteur du disque. Elle est utilisée dans les étapes suivantes.
-
-
 
 ## <a name="copy-data-and-verify"></a>Copier des données et vérifier
 
@@ -92,7 +88,7 @@ Le temps nécessaire à cette opération dépend de la taille de vos données.
     > - Tous les conteneurs et objets blob doivent être conformes aux [conventions d’affectation de noms Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Si ces règles ne sont pas respectées, le chargement des données vers Azure échoue.
     > - Assurez-vous que les fichiers ne dépassent pas ~4,7 Tio pour les objets blob de blocs et ~ 8 Tio pour les objets blob de pages.
 
-2. (Facultatif) Une fois la copie terminée, nous vous recommandons d’exécuter `AzureExpressDiskService.ps1` fourni dans le dossier *AzureImportExport* pour générer des sommes de contrôle pour la validation. Selon la taille des données, cette étape peut prendre un certain temps. 
+2. (Facultatif) Une fois la copie terminée, nous vous recommandons d’exécuter `AzureExpressDiskService.cmd` fourni dans le dossier *AzureImportExport* pour générer des sommes de contrôle pour la validation. Selon la taille des données, cette étape peut prendre un certain temps. 
 3. Débranchez le lecteur. 
 
 
@@ -116,7 +112,6 @@ Le temps nécessaire à cette opération dépend de la taille de vos données.
     1. Vérifiez les journaux d’erreurs pour connaître les échecs éventuels et prendre les mesures appropriées.
     2. Vérifiez que vos données se trouvent dans les comptes de stockage avant de les supprimer de la source.
 
-
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Cette étape dure 2 à 3 minutes.
@@ -131,7 +126,7 @@ Pour effectuer une suppression, vous pouvez annuler la commande Data Box puis la
 
     Pour supprimer la commande, accédez à **Vue d’ensemble** et cliquez sur **Supprimer** à partir de la barre de commandes.
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce démarrage rapide, vous avez déployé le disque Azure Data Box pour faciliter l’importation de vos données dans Azure. Pour en savoir plus sur la gestion du disque Azure Data Box, passez au didacticiel suivant : 
 

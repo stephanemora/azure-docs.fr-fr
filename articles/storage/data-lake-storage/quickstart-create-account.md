@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 18f4d2656ec7f027557d73959531b781be1d8d44
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 1009a7a1d9f354f7a41b0e3a0fbc49d57992bc31
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42024233"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916468"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Démarrage rapide : créer un compte de stockage Azure Data Lake Storage Gen2 (Préversion)
 
@@ -87,7 +87,7 @@ Pour créer un groupe de ressources dans le portail Azure, procédez comme suit 
 Pour créer un compte de stockage à usage général v2 dans le portail Azure, procédez comme suit :
 
 > [!NOTE]
-> L’espace de noms hiérarchique est activé uniquement dans les régions USA Ouest 2 et USA Centre-Ouest. Assurez-vous de spécifier l’un de ces emplacements lors de la création du compte de stockage.
+> L’espace de noms hiérarchique est uniquement activé dans les zones suivantes : Est des États-Unis, Est des États-Unis 2, Ouest des États-Unis, Ouest des États-Unis 2, Ouest-centre des États-Unis, Europe du Nord, Europe de l’ouest, Asie du Sud-est et Est de l’Australie. Assurez-vous de spécifier l’un de ces emplacements lors de la création du compte de stockage.
 
 1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Tous les services**. Faites défiler jusqu’à **Stockage**, puis sélectionnez **Comptes de stockage**. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
 2. Entrez un nom pour votre compte de stockage.
@@ -135,7 +135,7 @@ Ensuite, redémarrez votre interpréteur de commandes.
 Pour créer un groupe de ressources avec PowerShell, utilisez la commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) : 
 
 > [!NOTE]
-> L’espace de noms hiérarchique est activé uniquement dans les régions USA Ouest 2 et USA Centre-Ouest. Assurez-vous de spécifier l’un de ces emplacements lors de la création du compte de stockage.
+> L’espace de noms hiérarchique est uniquement activé dans les zones suivantes : Est des États-Unis, Est des États-Unis 2, Ouest des États-Unis, Ouest des États-Unis 2, Ouest-centre des États-Unis, Europe du Nord, Europe de l’ouest, Asie du Sud-est et Est de l’Australie. Assurez-vous de spécifier l’un de ces emplacements lors de la création du compte de stockage.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -196,7 +196,7 @@ az group create \
 ```
 
 > [!NOTE]
-> L’espace de noms hiérarchique est activé uniquement dans les régions USA Ouest 2 et USA Centre-Ouest. Assurez-vous de spécifier l’un de ces emplacements lors de la création du compte de stockage.
+> L’espace de noms hiérarchique est uniquement activé dans les zones suivantes : Est des États-Unis, Est des États-Unis 2, Ouest des États-Unis, Ouest des États-Unis 2, Ouest-centre des États-Unis, Europe du Nord, Europe de l’ouest, Asie du Sud-est et Est de l’Australie. Assurez-vous de spécifier l’un de ces emplacements lors de la création du compte de stockage.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Créer un compte de stockage à usage général v2
 

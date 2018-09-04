@@ -14,22 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca920a93d754254390a5c5c5a066be3144b47fc7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b6b2985bf72d9ecb2041d51852b5a4230e11d8be
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920551"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886051"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-sql"></a>Didacticiel : Utiliser une MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Azure SQL
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel montre comment utiliser une MSI (Managed Service Identity) pour une machine virtuelle Windows afin d’accéder à un serveur SQL Azure. Les identités MSI sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
+Ce didacticiel vous indique comment utiliser une identité affectée par le système pour une machine virtuelle Windows afin d’accéder à un serveur Azure SQL. Les identités MSI sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Activer une MSI (Managed Service Identity) sur une machine virtuelle Windows 
 > * Accorder à votre machine virtuelle l’accès à un serveur Azure SQL
+> * Créer un groupe dans Azure AD et faire de la MSI de machine virtuelle un membre du groupe
+> * Activer Azure AD Authentication pour le serveur SQL
+> * Créer un utilisateur contenu dans la base de données représentant le groupe Azure AD
 > * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle, et l’utiliser pour interroger un serveur Azure SQL
 
 ## <a name="prerequisites"></a>Prérequis
@@ -38,32 +40,11 @@ Ce didacticiel montre comment utiliser une MSI (Managed Service Identity) pour u
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+- [Connectez-vous au Portail Azure](https://portal.azure.com).
 
-Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
+- [Créez une machine virtuelle Windows](/azure/virtual-machines/windows/quick-create-portal).
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
-
-Pour ce didacticiel, nous allons créer une machine virtuelle Windows.  Vous pouvez également activer une identité MSI sur une machine virtuelle existante.
-
-1.  Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
-2.  Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
-3.  Saisissez les informations de la machine virtuelle. Le **Nom d’utilisateur** et le **Mot de passe** créés ici sont les informations d’identification nécessaires pour vous connecter à la machine virtuelle.
-4.  Choisissez un **Abonnement** approprié pour la machine virtuelle dans la liste déroulante.
-5.  Pour sélectionner un nouveau **Groupe de ressources** dans lequel créer votre machine virtuelle, choisissez **Créer un nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
-6.  Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. Conservez les valeurs par défaut dans la page des paramètres et cliquez sur **OK**.
-
-    ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Activer une identité MSI (Managed Service Identity) sur votre machine virtuelle 
-
-Une MSI d’une machine virtuelle vous permet d’obtenir des jetons d’accès d’Azure AD sans avoir besoin d’entrer des informations d'identification dans votre code. À l’activation de la MSI, Azure crée une identité administrée pour votre machine virtuelle. En arrière-plan, l’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle inscrit votre machine virtuelle auprès d’Azure Active Directory pour créer son identité administrée, et elle configure l’identité sur la machine virtuelle.
-
-1.  Sélectionnez la **machine virtuelle** sur laquelle vous souhaitez activer une Managed Service Identity.  
-2.  Dans la barre de navigation gauche, cliquez sur **Configuration**. 
-3.  **Identité du service administré** s’affiche. Pour enregistrer et activer une Managed Service Identity, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non. 
-4.  Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.  
-    ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+- [Activez l’identité affectée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm).
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Accorder à votre machine virtuelle l’accès à une base de données sur un serveur Azure SQL
 
@@ -78,7 +59,7 @@ Pour accorder à votre machine virtuelle l’accès à une base de données, tro
 > Normalement, vous devriez créer un utilisateur contenu qui mappe directement à la MSI de la machine virtuelle.  À l’heure actuelle, Azure SQL ne permet pas au principal du service Azure AD, qui représente la MSI de machine virtuelle, d’être mappé à un utilisateur contenu.  En guise de solution de contournement prise en charge, vous faites de la MSI de machine virtuelle un membre d’un groupe Azure AD, puis vous créez un utilisateur contenu dans la base de données représentant le groupe.
 
 
-### <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Créer un groupe dans Azure AD et faire de la MSI de machine virtuelle un membre du groupe
+## <a name="create-a-group-in-azure-ad-and-make-the-vm-managed-service-identity-a-member-of-the-group"></a>Créer un groupe dans Azure AD et faire de la MSI de machine virtuelle un membre du groupe
 
 Vous pouvez utiliser un groupe Azure AD existant ou en créer un à l’aide d’Azure AD PowerShell.  
 
@@ -132,7 +113,7 @@ ObjectId                             AppId                                Displa
 b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTestWinVM
 ```
 
-### <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Activer Azure AD Authentication pour le serveur SQL
+## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Activer Azure AD Authentication pour le serveur SQL
 
 À présent que vous avez créé le groupe et ajouté la MSI de machine virtuelle en tant que membre du groupe, vous pouvez [configurer Azure AD Authentication pour le serveur SQL](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) en procédant comme suit :
 
@@ -143,7 +124,7 @@ b83305de-f496-49ca-9427-e77512f6cc64 0b67a6d6-6090-4ab4-b423-d6edda8e5d9f DevTes
 5.  Sélectionnez un compte d’utilisateur Azure AD à désigner comme administrateur du serveur, puis cliquez sur **Sélectionner**.
 6.  Dans la barre de commandes, cliquez sur **Enregistrer**.
 
-### <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Créer un utilisateur contenu dans la base de données représentant le groupe Azure AD
+## <a name="create-a-contained-user-in-the-database-that-represents-the-azure-ad-group"></a>Créer un utilisateur contenu dans la base de données représentant le groupe Azure AD
 
 Pour cette nouvelle étape, vous avez besoin de [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Avant de commencer, il peut également être utile de lire les articles suivants pour acquérir une compréhension de l’intégration d’Azure AD :
 

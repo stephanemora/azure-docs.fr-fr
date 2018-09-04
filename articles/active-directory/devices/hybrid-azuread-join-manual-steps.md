@@ -12,27 +12,38 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630617"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049935"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride 
 
 La fonction de gestion des appareils intégrée à Azure Active Directory (Azure AD) vous permet de vous assurer que vos utilisateurs accèdent à vos ressources à partir d’appareils qui répondent à vos normes de conformité et de sécurité. Pour plus d’informations, consultez [Présentation de la gestion des appareils dans Azure Active Directory](overview.md).
 
-Si vous disposez d’un environnement Active Directory local et que vous souhaitez lier à Azure AD vos appareils joints à un domaine, vous pouvez y parvenir en configurant simplement des appareils hybrides joints à Azure AD. Cet article contient les étapes à suivre pour une telle configuration. 
-
-
 
 > [!TIP]
 > Si l’utilisation d’Azure AD Connect constitue une solution pour vous, consultez [Sélectionner votre scénario](hybrid-azuread-join-plan.md#select-your-scenario). En recourant à Azure AD Connect, vous pouvez simplifier considérablement la configuration de la jonction Azure AD hybride.
+
+
+
+Si vous disposez d’un environnement Active Directory local et que vous souhaitez lier à Azure AD vos appareils joints à un domaine, vous pouvez y parvenir en configurant simplement des appareils hybrides joints à Azure AD. Dans le cadre de ce didacticiel, vous allez apprendre à configurer manuellement une jonction Azure AD hybride pour vos appareils.
+
+> [!div class="checklist"]
+> * Prérequis
+> * Configuration
+> * Configurer le point de connexion de service
+> * Configurer l’émission de revendications
+> * Activer des appareils Windows de bas niveau
+> * Vérifier des appareils joints
+> * Résoudre les problèmes liés à votre implémentation
+ 
 
 
 

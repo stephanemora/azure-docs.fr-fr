@@ -4,17 +4,17 @@ description: Utilisez une stratégie Azure pour appliquer des normes, se conform
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/13/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: b8ac93da2f0dd4099ab1aa2df93e5d979ecdd285
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 68ee6b64baf4284bbd0977e82fc473a58a59874c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049742"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42813422"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Créer et gérer des stratégies pour appliquer la conformité
 
@@ -36,26 +36,26 @@ La première étape de l’application de la conformité avec une stratégie Azu
 
    ![Rechercher une stratégie](media/create-manage-policy/search-policy.png)
 
-2. Sélectionnez **Affectations** du côté gauche de la page Azure Policy. Une affectation est une stratégie qui a été affectée pour être appliquée dans une étendue spécifique.
-3. Sélectionnez **Assigner une stratégie** en haut de la page**Stratégie - Affectations**.
+1. Sélectionnez **Affectations** du côté gauche de la page Azure Policy. Une affectation est une stratégie qui a été affectée pour être appliquée dans une étendue spécifique.
+1. Sélectionnez **Assigner une stratégie** en haut de la page**Stratégie - Affectations**.
 
    ![Affecter une définition de stratégie](media/create-manage-policy/select-assign-policy.png)
 
-4. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur les points de suspension et en sélectionnant un abonnement (obligatoire) et un groupe de ressources (facultatif). Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée.  Cliquez ensuite sur **Sélectionner** dans le bas de la page **Étendue**.
+1. Dans la page **Assigner une stratégie**, sélectionnez **l’étendue** en cliquant sur les points de suspension et en sélectionnant un abonnement (obligatoire) et un groupe de ressources (facultatif). Une étendue détermine les ressources ou le regroupement de ressources sur lequel la stratégie est appliquée.  Cliquez ensuite sur **Sélectionner** dans le bas de la page **Étendue**.
 
    Cet exemple utilise **l’abonnement Contoso**. Votre abonnement sera différent.
 
-5. Si vous voulez exclure un ou plusieurs groupes de ressources (si vous avez défini l’étendue seulement pour l’abonnement), ou des ressources spécifiques au sein d’un groupe de ressources (dans l’une ou l’autre définition d’étendue), vous pouvez configurer des **Exclusions** pour l’affectation de la stratégie. Laissez cette zone vide pour l’instant.
+1. Si vous voulez exclure un ou plusieurs groupes de ressources (si vous avez défini l’étendue seulement pour l’abonnement), ou des ressources spécifiques au sein d’un groupe de ressources (dans l’une ou l’autre définition d’étendue), vous pouvez configurer des **Exclusions** pour l’affectation de la stratégie. Laissez cette zone vide pour l’instant.
 
-6. Sélectionnez le bouton de sélection **Définition de stratégie** pour ouvrir la liste des définitions disponibles. Vous pouvez filtrer le **Type** de définition de stratégie sur *BuiltIn* pour les afficher tous et lire leurs descriptions.
+1. Sélectionnez le bouton de sélection **Définition de stratégie** pour ouvrir la liste des définitions disponibles. Vous pouvez filtrer le **Type** de définition de stratégie sur *BuiltIn* pour les afficher tous et lire leurs descriptions.
 
-7. Sélectionnez **Exiger SQL Server version 12.0**. Si vous ne la trouvez pas immédiatement, tapez **exiger sql server** dans la zone de recherche, puis appuyez sur Entrée ou cliquez en dehors de la zone de recherche. Cliquez sur **Sélectionner** au bas de la page **Définitions disponibles** une fois que vous avez trouvé et sélectionné la définition de stratégie.
+1. Sélectionnez **Exiger SQL Server version 12.0**. Si vous ne la trouvez pas immédiatement, tapez **exiger sql server** dans la zone de recherche, puis appuyez sur Entrée ou cliquez en dehors de la zone de recherche. Cliquez sur **Sélectionner** au bas de la page **Définitions disponibles** une fois que vous avez trouvé et sélectionné la définition de stratégie.
 
    ![Rechercher une stratégie](media/create-manage-policy/select-available-definition.png)
 
-8. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, laissez *Exiger SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.
+1. Le **Nom de l’attribution** est automatiquement rempli avec le nom de stratégie que vous avez sélectionné, mais vous pouvez le modifier. Pour cet exemple, laissez *Exiger SQL Server version 12.0*. Vous pouvez également ajouter une **Description** (facultatif). La description fournit des détails sur cette affectation de stratégie.
 
-9. Cliquez sur **Affecter**.
+1. Cliquez sur **Affecter**.
 
 ## <a name="implement-a-new-custom-policy"></a>Implémenter une nouvelle stratégie personnalisée
 
@@ -65,8 +65,8 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
 
    ![Définition sous Création](media/create-manage-policy/definition-under-authoring.png)
 
-2. Sélectionnez **+ Définition de stratégie** en haut de la page. La page **Définition de stratégie** s’ouvre.
-3. Entrez les informations suivantes :
+1. Sélectionnez **+ Définition de stratégie** en haut de la page. La page **Définition de stratégie** s’ouvre.
+1. Entrez les informations suivantes :
 
    - Le groupe d’administration ou l’abonnement dans lequel la définition de stratégie est enregistrée. Sélectionnez-le à l’aide du bouton de sélection **Emplacement de définition**.
 
@@ -108,7 +108,7 @@ Maintenant que vous avez affecté une définition de stratégie intégrée, vous
 
     Pour consulter d’autres exemples de stratégie Azure, consultez [Modèles pour Azure Policy](json-samples.md).
 
-4. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Enregistrer**.
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Créer une définition de stratégie avec l’API REST
 
@@ -247,7 +247,7 @@ Get-AzureRmPolicyDefinition
 
 Elle renvoie toutes les définitions de stratégie disponibles, y compris les stratégies intégrées. Chaque stratégie est renvoyée au format suivant :
 
-```
+```output
 Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
@@ -319,7 +319,7 @@ Elle renvoie toutes les définitions de stratégie disponibles, y compris les st
 
 ## <a name="create-and-assign-an-initiative-definition"></a>Créer et attribuer une définition d’initiative
 
-Avec une définition d’initiative, vous pouvez regrouper plusieurs définitions de stratégie pour atteindre un objectif global. Vous créez une définition initiative pour vous assurer que les ressources dans l’étendue de la définition restent confirmes aux définitions de stratégie qui composent la définition d’initiative.  Pour plus d’informations sur les définitions d’initiative, consultez [Vue d’ensemble d’Azure Policy](azure-policy-introduction.md).
+Avec une définition d’initiative, vous pouvez regrouper plusieurs définitions de stratégie pour atteindre un objectif global. Vous créez une définition initiative pour vous assurer que les ressources dans l’étendue de la définition restent conformes aux définitions de stratégie qui composent la définition d’initiative.  Pour plus d’informations sur les définitions d’initiative, consultez [Vue d’ensemble d’Azure Policy](azure-policy-introduction.md).
 
 ### <a name="create-an-initiative-definition"></a>Créer une définition d’initiative
 
@@ -327,19 +327,19 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
    ![Sélectionner les définitions](media/create-manage-policy/select-definitions.png)
 
-2. Sélectionnez **+ Définition d’initiative** en haut de la page pour ouvrir la page **Définition d’initiative**.
+1. Sélectionnez **+ Définition d’initiative** en haut de la page pour ouvrir la page **Définition d’initiative**.
 
    ![Définition d’initiative](media/create-manage-policy/initiative-definition.png)
 
-3. Utilisez le bouton de sélection **Emplacement de définition** pour sélectionner un abonnement afin de stocker la définition.
+1. Utilisez le bouton de sélection **Emplacement de définition** pour sélectionner un groupe d'administration ou un abonnement afin de stocker la définition.
 
-4. Entrez le **nom** et la **description** de l’initiative.
+1. Entrez le **nom** et la **description** de l’initiative.
 
    Dans cet exemple, vérifiez que les ressources sont conformes aux définitions de stratégie relatives à la sécurisation. Le nom de l’initiative serait donc **Garantir la sécurité**, et la description **Cette initiative a été créée pour gérer toutes les définitions de stratégie associées à la sécurisation des ressources**.
 
-5. Pour **Catégorie**, choisissez une des options existantes ou créez une catégorie.
+1. Pour **Catégorie**, choisissez une des options existantes ou créez une catégorie.
 
-6. Parcourez la liste des **définitions disponibles** (partie droite de la page **Définition d’initiative**) et sélectionnez les définitions de stratégie à ajouter à cette initiative. Pour l’initiative **Garantir la sécurité**, ajoutez les définitions de stratégie prédéfinies suivantes en cliquant sur **+** en regard des informations correspondantes ou en cliquant sur une ligne de définition de stratégie, puis sur l’option **+ Ajouter** dans la page de détails :
+1. Parcourez la liste des **définitions disponibles** (partie droite de la page **Définition d’initiative**) et sélectionnez les définitions de stratégie à ajouter à cette initiative. Pour l’initiative **Garantir la sécurité**, ajoutez les définitions de stratégie prédéfinies suivantes en cliquant sur **+** en regard des informations correspondantes ou en cliquant sur une ligne de définition de stratégie, puis sur l’option **+ Ajouter** dans la page de détails :
    - Nécessitent SQL Server version 12.0
    - [Preview]: Monitor unprotected web applications in Security Center.
    - [Preview]: Monitor permissive network across in Security Center.
@@ -350,13 +350,20 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
    ![Définitions d’initiative](media/create-manage-policy/initiative-definition-2.png)
 
-7. Cliquez sur **Enregistrer**.
+1. Si une définition de stratégie qui est ajoutée à l’initiative possède des paramètres, ils sont affichés sous le nom de la stratégie dans la zone **STRATÉGIES ET PARAMÈTRES**. La _valeur_ peut être définie sur « Définir une valeur » (codée en dur pour toutes les affectations de cette initiative) ou « Utiliser le paramètre d'initiative » (définie au cours de chaque affectation d’initiative). Si « Définir une valeur » est sélectionné, la liste déroulante à droite de _Valeurs_ permet d’entrer ou sélectionner le(s) valeur(s) souhaitée(s). Si « Utiliser le paramètre d'initiative » est sélectionné, une nouvelle section **Paramètres d’initiative** s’affiche, ce qui vous permet de définir le paramètre qui sera défini au cours de l’affectation d’initiative. Les valeurs autorisées sur ce paramètre d’initiative peuvent restreindre davantage ce qui peut être défini au cours de l’affectation d’initiative.
+
+   ![Paramètres de la définition d’initiative](media/create-manage-policy/initiative-definition-3.png)
+
+   > [!NOTE]
+   > Dans le cas de certains paramètres `strongType`, la liste de valeurs ne peut pas être déterminée automatiquement. Dans ce cas, un bouton de sélection s’affiche à droite de la ligne de paramètre. En cliquant dessus, vous ouvrez la page « Étendue du paramètre (&lt;nom du paramètre&gt;) ». Sur cette page, sélectionnez l’abonnement à utiliser pour fournir les options de valeur. L’étendue de ce paramètre est utilisée uniquement lors de la création de la définition d’initiative et n’a aucun impact sur l’évaluation de la stratégie ou l’étendue de l’initiative lors de l’affectation.
+
+1. Cliquez sur **Enregistrer**.
 
 ### <a name="assign-an-initiative-definition"></a>Attribuer une définition d’initiative
 
 1. Sélectionnez **Définitions** sous **CRÉATION** dans la partie gauche de la page Azure Policy.
-2. Recherchez la définition d’initiative **Garantir la sécurité** que vous avez précédemment créée et sélectionnez-la.
-3. Sélectionnez **Affecter** en haut de la page pour ouvrir la page **Garantir la sécurité : affecter l’initiative**.
+1. Recherchez la définition d’initiative **Garantir la sécurité** que vous avez précédemment créée et sélectionnez-la.
+1. Sélectionnez **Affecter** en haut de la page pour ouvrir la page **Garantir la sécurité : affecter l’initiative**.
 
    ![Attribuer une définition](media/create-manage-policy/assign-definition.png)
 
@@ -364,14 +371,14 @@ Avec une définition d’initiative, vous pouvez regrouper plusieurs définition
 
    ![Clic droit sur une ligne](media/create-manage-policy/select-right-click.png)
 
-4. Renseignez la page **Garantir la sécurité : affecter l’initiative** en entrant les exemples d’informations suivants. Vous pouvez utiliser vos propres informations.
+1. Renseignez la page **Garantir la sécurité : affecter l’initiative** en entrant les exemples d’informations suivants. Vous pouvez utiliser vos propres informations.
 
    - Étendue : l’abonnement dans lequel vous avez enregistré l’initiative est la valeur par défaut.  Vous pouvez modifier l’étendue pour affecter l’initiative à un groupe de ressources à l’emplacement d’enregistrement de l’abonnement.
    - Exclusions : configurez des ressources dans l’étendue de sorte à empêcher que l’affectation d’initiative leur soit appliquée.
    - Nom de la définition d’initiative et de l’affectation : Garantir la sécurité (préremplie en tant que nom de l’initiative affectée).
    - Description : cette affectation d’initiative est adaptée de sorte à appliquer ce groupe de définitions de stratégie.
 
-5. Cliquez sur **Affecter**.
+1. Cliquez sur **Affecter**.
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Exempter une ressource non conforme ou refusée en utilisant l’exclusion
 
@@ -392,15 +399,15 @@ Dans cet exemple, Trent Baker, un des experts en virtualisation de Contoso effec
 ### <a name="update-assignment-with-exclusion"></a>Mettre à jour une affectation avec une exclusion
 
 1. Sélectionnez **Affectations** sous **CRÉATION** dans la partie gauche de la page Azure Policy.
-2. Parcourez toutes les affectations de stratégie, puis ouvrez l’affectation *Nécessiter SQL Server version 12.0*.
-3. Définissez l’**exclusion** en cliquant sur le bouton de sélection et en sélectionnant le groupe de ressources à exclure, *SQLServers_Excluded* dans cet exemple.
+1. Parcourez toutes les affectations de stratégie, puis ouvrez l’affectation *Nécessiter SQL Server version 12.0*.
+1. Définissez l’**exclusion** en cliquant sur le bouton de sélection et en sélectionnant le groupe de ressources à exclure, *SQLServers_Excluded* dans cet exemple.
 
    ![Exclusion d’une demande](media/create-manage-policy/request-exclusion.png)
 
    > [!NOTE]
    > En fonction de la stratégie et de son effet, l’exclusion peut également être octroyée à des ressources spécifiques au sein du groupe de ressources dans l’étendue de l’affectation. Comme un effet **Refuser** a été utilisé dans ce tutoriel, il ne serait pas judicieux de définir l’exclusion sur une ressource spécifique qui existe déjà.
 
-4. Cliquez sur **Sélectionner**, puis sur **Enregistrer**.
+1. Cliquez sur **Sélectionner**, puis sur **Enregistrer**.
 
 Dans cette section, vous avez résolu le refus de tentative de création d’une version interdite de serveur SQL en créant une exclusion sur un seul groupe de ressources.
 
@@ -409,8 +416,8 @@ Dans cette section, vous avez résolu le refus de tentative de création d’une
 Si vous avez fini d’utiliser les ressources de ce tutoriel, effectuez les étapes suivantes pour supprimer les affectations ou définitions créées ci-dessus :
 
 1. Sélectionnez **Définitions** (ou **Affectations** si vous essayez de supprimer une affectation) sous **CRÉATION** dans la partie gauche de la page Azure Policy.
-2. Recherchez la nouvelle définition d’initiative ou de stratégie (ou affectation) à supprimer.
-3. Cliquez avec le bouton droit sur la liste ou cliquez sur le bouton de sélection en fin de définition (ou d’affectation), puis sélectionnez **Supprimer la définition** (ou **Supprimer l’affectation**).
+1. Recherchez la nouvelle définition d’initiative ou de stratégie (ou affectation) à supprimer.
+1. Cliquez avec le bouton droit sur la liste ou cliquez sur le bouton de sélection en fin de définition (ou d’affectation), puis sélectionnez **Supprimer la définition** (ou **Supprimer l’affectation**).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

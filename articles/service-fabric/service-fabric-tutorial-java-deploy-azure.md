@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4614eedd08eabf5c1c2eec6f26e542e20b0875bf
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109672"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040501"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Didacticiel : Déployer une application Java sur un cluster Service Fabric dans Azure
 
@@ -173,7 +173,7 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 
     Votre URL de SAP pour Event Hubs suit la structure : https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Par exemple, https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. Ouvrez le fichier *sfdeploy.parameters.json* de fichier et remplacez le contenu suivant des étapes précédentes
+12. Ouvrez le fichier *sfdeploy.parameters.json* et remplacez le contenu suivant des étapes précédentes. [SAS-URL-STORAGE-ACCOUNT] a été indiqué à l’étape 8. [SAS-URL-EVENT-HUBS] a été indiqué à l’étape 11.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -187,7 +187,12 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
     }
     ```
 
-13. Exécutez la commande ci-dessous pour créer votre cluster Service Fabric
+13. Ouvrez **sfdeploy.parameters.json**. Modifiez les paramètres suivants puis enregistrez le fichier.
+    - **clusterName**. Utilisez uniquement des lettres minuscules et des chiffres.
+    - **adminUserName** (pour une valeur autre que vide)
+    - **adminPassword** (pour une valeur autre que vide)
+
+14. Exécutez la commande ci-dessous pour créer votre cluster Service Fabric
 
     ```bash
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
@@ -206,13 +211,13 @@ Les étapes suivantes créent les ressources nécessaires pour déployer votre a
 2. Pour déployer votre application sur ce cluster, vous devez utiliser SFCTL pour établir une connexion au cluster. SFCTL nécessite un fichier PEM avec la clé publique et la clé privée pour se connecter au cluster. Exécutez la commande suivante pour générer un fichier PEM contenant à la fois la clé publique et la clé privée. 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. Exécutez la commande suivante pour vous connecter au cluster.
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. Pour déployer votre application, accédez au dossier *Voting/Scripts* et exécutez le script **install.sh**.

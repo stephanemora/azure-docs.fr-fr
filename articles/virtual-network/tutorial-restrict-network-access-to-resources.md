@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/14/2018
+ms.date: 08/23/2018
 ms.author: jdial
-ms.openlocfilehash: 2442c177b303600f936e80f6c765e2d4096b1dca
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b951386fbeca883ae61a7f8040893e55467c8e5d
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021717"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42810082"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Didacticiel : Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service réseau virtuel en utilisant le portail Azure
 
@@ -35,13 +35,13 @@ Les points de terminaison de service de réseau virtuel permettent de restreindr
 > * Vérifier l’accès à une ressource à partir d’un sous-réseau
 > * Vérifier que l’accès à une ressource est refusé à partir d’un sous-réseau et d’Internet
 
-Si vous préférez, vous pouvez suivre ce didacticiel en utilisant [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) ou [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
+Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) ou [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure 
+## <a name="log-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur http://portal.azure.com.
+Connectez-vous au portail Azure sur https://portal.azure.com.
 
 ## <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 
@@ -49,19 +49,18 @@ Connectez-vous au portail Azure sur http://portal.azure.com.
 2. Sélectionnez **Mise en réseau**, puis **Réseau virtuel**.
 3. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **Créer** :
 
-    |Paramètre|Valeur|
-    |----|----|
-    |NOM| myVirtualNetwork |
-    |Espace d’adressage| 10.0.0.0/16|
-    |Abonnement| Sélectionnez votre abonnement|
-    |Groupe de ressources | Sélectionnez **Créer** et entrez *myResourceGroup*.|
-    |Lieu| Sélectionnez **Est des États-Unis**. |
-    |Nom du sous-réseau| Public|
-    |Plage d’adresses de sous-réseau| 10.0.0.0/24|
-    |Points de terminaison de service| Désactivé|
+   |Paramètre|Valeur|
+   |----|----|
+   |Nom| myVirtualNetwork |
+   |Espace d’adressage| 10.0.0.0/16|
+   |Abonnement| Sélectionnez votre abonnement|
+   |Groupe de ressources | Sélectionnez **Créer** et entrez *myResourceGroup*.|
+   |Lieu| Sélectionnez **USA Est**. |
+   |Nom du sous-réseau| Public|
+   |Plage d’adresses de sous-réseau| 10.0.0.0/24|
+   |Points de terminaison de service| Désactivé|
 
-    ![Entrer des informations de base sur votre réseau virtuel](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
-
+   ![Entrer des informations de base sur votre réseau virtuel](./media/tutorial-restrict-network-access-to-resources/create-virtual-network.png)
 
 ## <a name="enable-a-service-endpoint"></a>Activer un point de terminaison de service
 
@@ -76,7 +75,7 @@ Les points de terminaison de service sont activés par service, par sous-réseau
 
     |Paramètre|Valeur|
     |----|----|
-    |NOM| Privé |
+    |Nom| Privé |
     |Plage d’adresses| 10.0.1.0/24|
     |Points de terminaison de service| Sélectionnez **Microsoft.Storage** sous **Services**|
 
@@ -96,12 +95,12 @@ Par défaut, toutes les machines virtuelles d’un sous-réseau peuvent communiq
     |NOM| myNsgPrivate |
     |Abonnement| Sélectionnez votre abonnement|
     |Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*.|
-    |Lieu| Sélectionnez **Est des États-Unis**. |
+    |Lieu| Sélectionnez **USA Est**. |
 
 4. Une fois le groupe de sécurité réseau créé, entrez *myNsgPrivate*, dans le champ **Rechercher des ressources, services et documents** en haut du portail. Quand **myNsgPrivate** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 5. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
 6. Sélectionnez **Ajouter**.
-7. Créer une règle qui autorise les communications sortantes vers le service Stockage Azure. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **OK** :
+7. Créer une règle qui autorise les communications sortantes vers le service Stockage Azure. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **Ajouter** :
 
     |Paramètre|Valeur|
     |----|----|
@@ -114,8 +113,8 @@ Par défaut, toutes les machines virtuelles d’un sous-réseau peuvent communiq
     |Action|AUTORISER|
     |Priorité|100|
     |NOM|Allow-Storage-All|
-    
-8. Créer une règle qui refuse les communications sortantes vers Internet. Cette règle qui permet la communication Internet sortante se substitue à une règle par défaut dans tous les groupes de sécurité réseau. Répétez les étapes 6 et 7 en utilisant les valeurs suivantes :
+
+8. Créer une règle de sécurité de trafic sortant qui refuse les communications vers Internet. Cette règle qui permet la communication Internet sortante se substitue à une règle par défaut dans tous les groupes de sécurité réseau. Répétez les étapes 5 à 7 en utilisant les valeurs suivantes :
 
     |Paramètre|Valeur|
     |----|----|
@@ -131,14 +130,13 @@ Par défaut, toutes les machines virtuelles d’un sous-réseau peuvent communiq
 
 9. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic entrant**.
 10. Sélectionnez **Ajouter**.
-11. Créez une règle qui autorise le trafic du protocole RDP (Remote Desktop Protocol) entrant dans le sous-réseau à partir de n’importe quel endroit. La règle remplace une règle de sécurité par défaut qui refuse tout le trafic entrant provenant d’Internet. Les connexions Bureau à distance sont autorisées sur le sous-réseau afin que la connectivité puisse être testée dans une étape ultérieure. Répétez les étapes 6 et 7 en utilisant les valeurs suivantes :
+11. Créez une règle de sécurité de trafic entrant qui autorise le trafic du protocole RDP (Remote Desktop Protocol) vers le sous-réseau en provenance de n’importe quel endroit. La règle remplace une règle de sécurité par défaut qui refuse tout le trafic entrant provenant d’Internet. Les connexions Bureau à distance sont autorisées sur le sous-réseau afin que la connectivité puisse être testée dans une étape ultérieure. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic entrant**, puis **+Ajouter**, entrez les valeurs suivantes et sélectionnez **Ajouter** :
 
     |Paramètre|Valeur|
     |----|----|
     |Source| Quelconque |
     |Plages de ports source| * |
-    |Destination | Sélectionnez **Service Tag** (Identification)|
-    |Identification de destination| Sélectionnez **VirtualNetwork**|
+    |Destination | Sélectionnez **VirtualNetwork**|
     |Plages de ports de destination| 3389 |
     |Protocole|Quelconque|
     |Action|AUTORISER|
@@ -164,18 +162,19 @@ Les étapes nécessaires pour restreindre l’accès réseau aux ressources cré
     |----|----|
     |NOM| Entrez un nom qui n’existe dans aucun autre emplacement Azure. Le nom doit comprendre entre 3 et 24 caractères, correspondant à des chiffres et à des lettres en minuscules.|
     |Type de compte|StorageV2 (usage général v2)|
+    |Lieu| Sélectionnez **USA Est**. |
     |Réplication| Stockage localement redondant (LRS)|
     |Abonnement| Sélectionnez votre abonnement|
     |Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*.|
-    |Lieu| Sélectionnez **Est des États-Unis**. |
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>Créer un partage de fichiers dans le compte de stockage
 
 1. Une fois le compte de stockage créé, entrez le nom du compte de stockage dans le champ **Rechercher des ressources, services et documents** en haut du portail. Lorsque le nom de votre compte de stockage apparaît dans les résultats de la recherche, sélectionnez-le.
 2. Sélectionnez **Fichiers**, comme illustré dans l’image suivante :
 
-    ![Compte de stockage](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
-3. Sélectionnez **+ Partage de fichiers**, sous **File service** (Service de fichiers).
+   ![Compte de stockage](./media/tutorial-restrict-network-access-to-resources/storage-account.png) 
+
+3. Sélectionner **+Partage de fichiers**.
 4. Entrez *my-file-share* sous **Nom**, puis sélectionnez **OK**.
 5. Fermez la zone **File service** (Service de fichiers).
 
@@ -184,8 +183,8 @@ Les étapes nécessaires pour restreindre l’accès réseau aux ressources cré
 Par défaut, les comptes de stockage acceptent les connexions réseau provenant des clients de n’importe quel réseau, y compris Internet. Refusez l’accès réseau à partir d’Internet et tous les autres sous-réseaux de tous les réseaux virtuels, à l’exception du sous-réseau *Private* du réseau virtuel *myVirtualNetwork*.
 
 1. Sous **PARAMÈTRES** pour le compte de stockage, sélectionnez **Firewalls and virtual networks** (Pare-feu et réseaux virtuels).
-2. Sous **Réseaux virtuels**, sélectionnez **Réseaux sélectionnés**.
-3. Sélectionnez **Add existing virtual network** (Ajouter un réseau virtuel existant).
+2. Sélectionnez **Réseaux sélectionnés**.
+3. Sélectionnez **+Ajouter un réseau virtuel existant**.
 4. Sous **Ajouter des réseaux**, sélectionnez les valeurs suivantes puis **Ajouter** :
 
     |Paramètre|Valeur|
@@ -194,7 +193,7 @@ Par défaut, les comptes de stockage acceptent les connexions réseau provenant 
     |Réseaux virtuels|Sélectionnez **myVirtualNetwork** sous **Réseaux virtuels**|
     |Sous-réseaux| Sélectionnez **Private** sous **Sous-réseaux**|
 
-    ![Pare-feu et réseaux virtuels](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png) 
+    ![Pare-feu et réseaux virtuels](./media/tutorial-restrict-network-access-to-resources/storage-firewalls-and-virtual-networks.png)
 
 5. Sélectionnez **Enregistrer**.
 6. Fermez la zone **Firewalls and virtual networks** (Pare-feu et réseaux virtuels).
@@ -214,25 +213,27 @@ Pour tester l’accès réseau à un compte de stockage, déployez une machine v
 2. Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**.
 3. Saisissez ou sélectionnez les informations suivantes, puis sélectionnez **OK** :
 
-    |Paramètre|Valeur|
-    |----|----|
-    |NOM| myVmPublic|
-    |Nom d'utilisateur|Entrez un nom d’utilisateur de votre choix.|
-    |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Abonnement| Sélectionnez votre abonnement.|
-    |Groupe de ressources| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
-    |Lieu| Sélectionnez **Est des États-Unis**.|
+   |Paramètre|Valeur|
+   |----|----|
+   |NOM| myVmPublic|
+   |Nom d'utilisateur|Entrez un nom d’utilisateur de votre choix.|
+   |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+   |Abonnement| Sélectionnez votre abonnement.|
+   |Groupe de ressources| Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.|
+   |Lieu| Sélectionnez **USA Est**.|
 
-    ![Entrer des informations de base sur une machine virtuelle](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
+   ![Entrer des informations de base sur une machine virtuelle](./media/tutorial-restrict-network-access-to-resources/virtual-machine-basics.png)
 4. Sélectionnez une taille de machine virtuelle, puis sélectionnez **Sélectionner**.
 5. Sous **Paramètres**, sélectionnez **Réseau** puis **myVirtualNetwork**. Sélectionnez ensuite **Sous-réseau** puis **Public**, comme montré dans l’image suivante :
 
-    ![Sélectionner un réseau virtuel](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
-6. Dans la page **Résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle. Le déploiement de la machine virtuelle peut prendre quelques minutes, mais vous pouvez passer à l’étape suivante pendant la création de la machine virtuelle.
+   ![Sélectionner un réseau virtuel](./media/tutorial-restrict-network-access-to-resources/virtual-machine-settings.png)
+
+6. Sous **Groupes de sécurité réseau**, sélectionnez **Avancé**. Le portail crée automatiquement pour vous un groupe de sécurité réseau qui autorise le port 3389, qui devra être ouvert pour vous connecter à la machine virtuelle dans une étape ultérieure. Sélectionnez **OK** sur la page **Paramètres**.
+7. Dans la page **Résumé**, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle. Le déploiement de la machine virtuelle peut prendre quelques minutes, mais vous pouvez passer à l’étape suivante pendant la création de la machine virtuelle.
 
 ### <a name="create-the-second-virtual-machine"></a>Créer la deuxième machine virtuelle
 
-Répétez les étapes 1 à 6, mais à l’étape 3, nommez la machine virtuelle *myVmPrivate* et à l’étape 5, sélectionnez le sous-réseau **Private**.
+Répétez les étapes 1 à 7, mais à l’étape 3, nommez la machine virtuelle *myVmPrivate* et à l’étape 5, sélectionnez le sous-réseau **Private**.
 
 Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Ne passez pas à l’étape suivante tant que la création n’est pas terminée et que les paramètres ne sont pas ouverts dans le portail.
 
@@ -240,7 +241,7 @@ Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Ne p
 
 1. Une fois la création de la machine virtuelle *myVmPrivate* terminée, Azure ouvre les paramètres de celle-ci. Connectez-vous à la machine virtuelle en sélectionnant le bouton **Connexion**, comme montré dans l’image suivante :
 
-    ![Connexion à une machine virtuelle](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
+   ![Connexion à une machine virtuelle](./media/tutorial-restrict-network-access-to-resources/connect-to-virtual-machine.png)
 
 2. Après avoir sélectionné le bouton **Connexion**, le fichier .rdp (Remote Desktop Protocol) est créé et téléchargé sur votre ordinateur.  
 3. Ouvrez le fichier .rdp téléchargé. Si vous y êtes invité, sélectionnez **Connexion**. Entrez le nom d’utilisateur et le mot de passe spécifiés lors de la création de la machine virtuelle. Vous devrez peut-être sélectionner **Plus de choix**, puis **Utiliser un autre compte**, pour spécifier les informations d’identification que vous avez entrées lorsque vous avez créé la machine virtuelle. 
@@ -248,29 +249,29 @@ Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Ne p
 5. Un avertissement de certificat peut s’afficher pendant le processus de connexion. Si vous recevez l’avertissement, sélectionnez **Oui** ou **Continuer** pour poursuivre le processus de connexion.
 6. Sur la machine virtuelle *myVmPrivate*, mappez le partage de fichiers Azure au lecteur Z à l’aide de PowerShell. Avant d’exécuter les commandes qui suivent, remplacez `<storage-account-key>` et `<storage-account-name>` par les valeurs que vous avez fournies ou récupérées dans [Créer un compte de stockage](#create-a-storage-account).
 
-    ```powershell
-    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
-    New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
-    ```
-    
-    PowerShell retourne un résultat semblable à l’exemple suivant :
+   ```powershell
+   $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
+   $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
+   New-PSDrive -Name Z -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\my-file-share" -Credential $credential
+   ```
 
-    ```powershell
-    Name           Used (GB)     Free (GB) Provider      Root
-    ----           ---------     --------- --------      ----
-    Z                                      FileSystem    \\vnt.file.core.windows.net\my-f...
-    ```
+   PowerShell retourne un résultat semblable à l’exemple suivant :
 
-    Le partage de fichiers Azure est correctement mappé au lecteur Z.
+   ```powershell
+   Name           Used (GB)     Free (GB) Provider      Root
+   ----           ---------     --------- --------      ----
+   Z                                      FileSystem    \\vnt.file.core.windows.net\my-f...
+   ```
+
+   Le partage de fichiers Azure est correctement mappé au lecteur Z.
 
 7. Vérifiez que la machine virtuelle ne dispose d’aucune connexion sortante à Internet à partir d’une invite de commande :
 
-    ```
-    ping bing.com
-    ```
-    
-    Vous ne recevez aucune réponse, car le groupe de sécurité réseau associé au sous-réseau *Private* n’autorise pas l’accès sortant à Internet.
+   ```
+   ping bing.com
+   ```
+
+   Vous ne recevez aucune réponse, car le groupe de sécurité réseau associé au sous-réseau *Private* n’autorise pas l’accès sortant à Internet.
 
 8. Fermez les sessions Bureau à distance sur la machine virtuelle *myVmPrivate*.
 
@@ -280,7 +281,7 @@ Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Ne p
 2. Quand **myVmPublic** apparaît dans les résultats de la recherche, sélectionnez cette entrée.
 3. Répétez les étapes 1 à 6 de [Vérifier l’accès au compte de stockage](#confirm-access-to-storage-account) pour la machine virtuelle *myVmPublic*.
 
-    L’accès est refusé et vous recevez une erreur `New-PSDrive : Access is denied`. L’accès est refusé car la machine virtuelle *myVmPublic* est déployée sur le sous-réseau *Public*. Le sous-réseau *Public* ne dispose d’aucun point de terminaison de service activé pour le Stockage Azure. Le compte de stockage permet uniquement l’accès à partir du sous-réseau *Private* et non au sous-réseau *Public*.
+   Après un court délai d’attente, vous recevez une erreur `New-PSDrive : Access is denied`. L’accès est refusé car la machine virtuelle *myVmPublic* est déployée sur le sous-réseau *Public*. Le sous-réseau *Public* ne dispose d’aucun point de terminaison de service activé pour le Stockage Azure. Le compte de stockage permet uniquement l’accès à partir du sous-réseau *Private* et non au sous-réseau *Public*.
 
 4. Fermez les sessions Bureau à distance sur la machine virtuelle *myVmPublic*.
 
@@ -289,11 +290,11 @@ Le déploiement de la machine virtuelle ne nécessite que quelques minutes. Ne p
 7. Sélectionnez **Fichiers**.
 8. Vous recevez le message d’erreur indiquée dans l’image suivante :
 
-    ![Erreur d’accès refusé](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
+   ![Erreur d’accès refusé](./media/tutorial-restrict-network-access-to-resources/access-denied-error.png)
 
-    L’accès est refusé, car votre ordinateur ne se trouve pas dans le sous-réseau *Private* du réseau virtuel *MyVirtualNetwork*.
+   L’accès est refusé, car votre ordinateur ne se trouve pas dans le sous-réseau *Private* du réseau virtuel *MyVirtualNetwork*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’avez plus besoin du groupe de ressources, supprimez-le ainsi que toutes les ressources qu’il contient :
 

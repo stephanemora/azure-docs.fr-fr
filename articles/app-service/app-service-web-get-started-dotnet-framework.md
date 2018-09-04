@@ -1,6 +1,6 @@
 ---
-title: Créer une application web ASP.NET Framework dans Azure | Microsoft Docs
-description: Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web ASP.NET par défaut.
+title: Créer une application web C# Framework dans Azure | Microsoft Docs
+description: Découvrez comment exécuter des applications web dans Azure App Service en déployant l’application web C# ASP.NET par défaut.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,35 +12,29 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/30/2017
+ms.date: 08/29/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: f6f443dfe637e68b0e1e13f7c3b9e718ae48a85d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191313"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Créer une application web ASP.NET Framework dans Azure
 
 [Azure Web Apps](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques.  Ce guide de démarrage rapide vous indique comment déployer votre première application web ASP.NET dans Azure Web Apps. Lorsque vous aurez terminé, vous disposerez d’un groupe de ressources constitué d’un plan App Service et d’une application web Azure avec une application web déployée.
 
-Regardez la vidéo pour voir ce démarrage rapide en action et suivez les étapes pour publier votre première application .NET sur Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
+Pour suivre ce tutoriel :
 
-Pour suivre ce didacticiel :
-
-* Installez <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> avec les charges de travail suivantes :
-    - **Développement web et ASP.NET**
-    - **Développement Azure**
-
-    ![Développement web et ASP.NET et Développement Azure (sous Web et cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+Installer <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> avec la charge de travail **Développement ASP.NET et web**.
 
 Si vous avez déjà installé Visual Studio, ajoutez les charges de travail dans Visual Studio en cliquant sur **Outils** > **Obtenir des outils et des fonctionnalités**.
 
@@ -108,7 +102,7 @@ Dans la boîte de dialogue **Configurer le plan App Service**, utilisez les para
 | Paramètre | Valeur suggérée | Description |
 |-|-|-|
 |Plan App Service| myAppServicePlan | Nom du plan App Service. |
-| Lieu | Europe de l'Ouest | Centre de données dans lequel l’application web est hébergée. |
+| Lieu | Europe Ouest | Centre de données dans lequel l’application web est hébergée. |
 | Taille | Gratuit | Le [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) détermine les fonctionnalités d’hébergement. |
 
 Sélectionnez **OK**.
@@ -144,7 +138,8 @@ Recherchez la balise HTML `<div class="jumbotron">` vers le début, puis remplac
 
 Pour effectuer un redéploiement dans Azure, cliquez avec le bouton droit sur le projet **myFirstAzureWebApp** dans **l’Explorateur de solutions**, puis sélectionnez **Publier**.
 
-Dans la page de publication, sélectionnez **Publier**.
+Sur la page de publication, sélectionnez **Publier**.
+![Page Résumé de la publication Visual Studio](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
 
 Une fois la publication terminée, Visual Studio lance un navigateur en accédant à l’URL de l’application web.
 
@@ -163,6 +158,12 @@ Vous voyez apparaître la page Vue d’ensemble de votre application web. Ici, v
 ![Panneau App Service sur le portail Azure](./media/app-service-web-get-started-dotnet-framework/web-app-blade.png)
 
 Le menu de gauche fournit différentes pages vous permettant de configurer votre application. 
+
+## <a name="video"></a>Vidéo
+
+Regardez la vidéo pour voir ce démarrage rapide en action et suivez les étapes pour publier votre première application .NET sur Azure.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 925a1af53438e21282e65418edc9ea365ad6a653
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432437"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124978"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutoriel : Configurer un environnement Jenkins pour activer l’intégration/le déploiement continus pour une application Java sur Service Fabric
 
@@ -53,10 +53,10 @@ Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Ser
 
 1. Extrayez l’image du conteneur Jenkins de Service Fabric : ``docker pull rapatchi/jenkins:v10``. Cette image est fournie avec le plug-in Jenkins de Service Fabric préinstallé.
 
-1. Exécuter l’image conteneur avec l’emplacement où vos certificats se trouvent sur votre ordinateur local monté
+1. Exécutez l’image conteneur avec l’emplacement où se trouvent vos certificats sur votre ordinateur local monté.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. Récupérez l’ID de l’instance d’image du conteneur. Vous pouvez répertorier tous les conteneurs Docker avec la commande ``docker ps –a``
@@ -86,7 +86,7 @@ Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Ser
 
 1. Tout d’abord, si vous n’avez pas de référentiel pour héberger le projet Voting sur Github, créez-en un. Le référentiel est appelé **dev_test** pour le reste de ce tutoriel.
 
-1. Créer un **élément** sur votre tableau de bord Jenkins.
+1. Créez un **élément** sur votre tableau de bord Jenkins à l’emplacement ``http://<HOST-IP>:8080``.
 
 1. Entrez un nom d’élément (par exemple, **MyJob**). Sélectionnez **free-style project** (projet libre), puis cliquez sur **OK**.
 
@@ -123,6 +123,8 @@ Vous pouvez configurer Jenkins à l’intérieur ou en dehors d’un cluster Ser
     > [!NOTE]
     > Le cluster ici peut être identique à celui qui héberge l’application de conteneur Jenkins dans le cas où vous utilisez Service Fabric pour déployer l’image de conteneur Jenkins.
     >
+
+1. Cliquez sur **Enregistrer**.
 
 ## <a name="update-your-existing-application"></a>Mettre à jour votre application existante
 

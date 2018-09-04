@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969132"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42812869"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Rechercher et diagnostiquer les problèmes de performances à l’aide d’Azure Application Insights
 
@@ -29,7 +29,6 @@ Azure Application Insights collecte des données de télémétrie à partir de v
 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour suivre ce didacticiel :
 
@@ -54,27 +53,20 @@ Application Insights collecte des informations sur les performances pour les dif
 
     ![Panneau des performances](media/app-insights-tutorial-performance/performance-blade.png)
 
-3. Le graphique affiche actuellement la durée moyenne de toutes les opérations au fil du temps.  Ajoutez les opérations qui vous intéressent en les épinglant au graphique.  Cela indique qu’il existe des pics qui méritent un examen approfondi.  Isolez cet élément en réduisant la fenêtre de temps du graphique.
+3. Le graphique affiche actuellement la durée moyenne des opérations sélectionnées au fil du temps. Vous pouvez basculer vers le 95e centile pour rechercher les problèmes de performances. Ajoutez les opérations qui vous intéressent en les épinglant au graphique.  Cela indique qu’il existe des pics qui méritent un examen approfondi.  Isolez cet élément en réduisant la fenêtre de temps du graphique.
 
     ![Épingler des opérations](media/app-insights-tutorial-performance/pin-operations.png)
 
-4.  Cliquez sur une opération pour afficher son panneau de performances sur la droite. Cela montre la répartition des durées de différentes requêtes.  En général, les utilisateurs constatent un ralentissement des performances à environ une demi-seconde. Réduisez par conséquent la fenêtre pour les demandes dépassant 500 millisecondes.  
+4.  Le panneau de performances sur la droite affiche la distribution des durées pour différentes requêtes de l’opération sélectionnée.  Réduisez la fenêtre pour démarrer autour du 95e centile. La carte insights des « 3 principales dépendances » peut vous indiquer d’un coup d’œil que les dépendances externes contribuent probablement aux transactions lentes.  Cliquez sur le bouton avec le nombre d’exemples pour afficher la liste des exemples. Vous pouvez ensuite sélectionner un exemple quelconque pour afficher les détails de la transaction.
 
     ![Répartition de la durée](media/app-insights-tutorial-performance/duration-distribution.png)
 
-5.  Dans cet exemple, vous pouvez voir que de nombreuses requêtes prennent une seconde à être traitées. Vous pouvez afficher les détails de cette opération en cliquant sur **Détails de l’opération**.
+5.  Vous pouvez voir d’un coup d’œil que l’appel à la Table Azure Fabrikamaccount contribue le plus à la durée totale de la transaction. Vous pouvez également voir qu’une exception a provoqué son échec. Vous pouvez cliquer sur n’importe quel élément dans la liste pour afficher ses détails sur le côté droit. [En savoir plus sur l’expérience de diagnostic des transactions](app-insights-transaction-diagnostics.md)
 
     ![Détails de l’opération](media/app-insights-tutorial-performance/operation-details.png)
+    
 
-    > [!NOTE]
-    Activez [l’expérience de la préversion](app-insights-previews.md) « Unified details: E2E Transaction Diagnostics » pour voir tous les événements, requêtes, dépendances, exceptions, traces, etc. connexes à la télémétrie côté serveur dans un affichage unique en plein écran. 
-
-    Avec la préversion activée, vous pouvez voir le temps passé dans les appels de dépendance, ainsi que les échecs ou les exceptions dans une expérience unifiée. Pour les transactions entre composants, le diagramme de Gantt, ainsi que le volet de détails peuvent vous aider à diagnostiquer rapidement le composant, la dépendance ou l’exception d’une cause racine. Vous pouvez développer la section inférieure pour visualiser la séquence horaire de toutes les traces ou tous les événements collectés pour l’opération du composant sélectionné. [En savoir plus sur la nouvelle expérience](app-insights-transaction-diagnostics.md)  
-
-    ![Diagnostics de transaction](media/app-insights-tutorial-performance/e2e-transaction-preview.png)
-
-
-6.  Les informations que vous avez collectées jusqu'à présent confirment un ralentissement des performances, mais il est assez facile d’identifier l’origine du problème.  Le **Profileur** vous aide en affichant le code qui s’exécutait pour l’opération et le temps nécessaire à chaque étape. Certaines opérations peuvent ne pas avoir de suivi car le profileur s’exécute périodiquement.  Au fil du temps, d’autres opérations devraient avoir un suivi.  Pour démarrer le profileur pour l’opération, cliquez sur **Suivis du Profileur**.
+6.  Le **Profileur** vous aide à en apprendre davantage sur les diagnostics de niveau de code en affichant le code qui s’exécutait pour l’opération et le temps nécessaire à chaque étape. Certaines opérations peuvent ne pas avoir de suivi car le profileur s’exécute périodiquement.  Au fil du temps, d’autres opérations devraient avoir un suivi.  Pour démarrer le profileur pour l’opération, cliquez sur **Suivis du Profileur**.
 5.  Le suivi affiche les événements individuels pour chaque opération pour vous permettre d’identifier la cause de la durée de l’opération globale.  Cliquez sur un des exemples en haut de la liste, dont la durée est la plus longue.
 6.  Cliquez sur **Afficher le chemin réactif** pour mettre en surbrillance le chemin d’accès spécifique aux événements qui contribuent le plus à la durée totale de l’opération.  Dans cet exemple, vous pouvez remarquer que l’appel le plus lent provient de la méthode *FabrikamFiberAzureStorage.GetStorageTableData*. La partie qui prend le plus de temps est la méthode *CloudTable.CreateIfNotExist*. Si cette ligne de code est exécutée chaque fois que la fonction est appelée, les appels réseau inutiles et les ressources du processeur sont consommées. La meilleure façon de corriger votre code est de placer cette ligne dans une méthode de démarrage qui s’exécutera une seule fois. 
 
@@ -95,7 +87,7 @@ Application Insights Analytics fournit un langage de requête enrichi qui vous p
 
 2. Application Insights Analytics s’ouvre et affiche une requête pour chacune des vues dans le panneau.  Vous pouvez exécuter ces requêtes en tant que telles ou les modifier selon vos besoins.  La première requête indique la durée de cette opération au fil du temps.
 
-    ![Analyse](media/app-insights-tutorial-performance/server-analytics.png)
+    ![Analytics](media/app-insights-tutorial-performance/server-analytics.png)
 
 
 ## <a name="identify-slow-client-operations"></a>Identifier les opérations lentes côté client
@@ -123,7 +115,7 @@ Comme avec les données collectées pour les performances du serveur, Applicatio
 
 2. Application Insights Analytics s’ouvre et affiche une requête pour chacune des vues dans le panneau. La première requête indique la durée de différents affichages de page au fil du temps.
 
-    ![Analyse](media/app-insights-tutorial-performance/client-analytics.png)
+    ![Analytics](media/app-insights-tutorial-performance/client-analytics.png)
 
 3.  Smart Diagnostics est une fonctionnalité d’Application Insights Analytics qui identifie des modèles uniques dans les données.  Lorsque vous cliquez sur le point Smart Diagnostics dans le graphique en courbes, la même requête est exécutée sans les enregistrements qui ont provoqué l’anomalie.  Les détails de ces enregistrements sont affichés dans la section des commentaires de la requête pour vous permettre d’identifier les propriétés de ces affichages de page qui sont à l’origine de la durée excessive.
 

@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 05c30504eb9b4440694f78ee979d4b25f30f65dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237962"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126549"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutoriel : mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements
 
@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Un exemple de ce scénario est une mise à jour d’assortiment d’inventaire pour plusieurs magasins de détail. Dans ce scénario, chaque magasin ou ensemble de magasins, reçoit les messages destinés à mettre à jour leurs assortiments. Ce tutoriel montre comment implémenter ce scénario à l’aide des filtres et des abonnements. Tout d’abord, vous créez une rubrique avec 3 abonnements, ajoutez des règles et des filtres, puis vous envoyez et recevez des messages à partir de la rubrique et des abonnements.
 
-![file d'attente](./media/service-bus-quickstart-powershell/quick-start-queue.png)
+![rubrique](./media/service-bus-tutorial-topics-subscriptions-powershell/about-service-bus-topic.png)
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de commencer.
 
@@ -47,9 +47,9 @@ Pour ce tutoriel, vous devez disposer de la version la plus récente d’Azure P
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Exécutez les commandes suivantes pour vous connecter à Azure. Ces étapes ne sont pas nécessaires si vous exécutez des commandes PowerShell dans Cloud Shell : 
+Pour vous connecter à Azure, exécutez les commandes ci-après. Ces étapes ne sont pas nécessaires si vous exécutez des commandes PowerShell dans Cloud Shell : 
 
 1. Installez le module Service Bus PowerShell :
 
@@ -57,7 +57,7 @@ Exécutez les commandes suivantes pour vous connecter à Azure. Ces étapes ne s
    Install-Module AzureRM.ServiceBus
    ```
 
-2. Exécutez la commande suivante pour vous connecter à Azure :
+2. Exécutez la commande ci-après pour vous connecter à Azure :
 
    ```azurepowershell-interactive
    Login-AzureRmAccount
@@ -70,9 +70,9 @@ Exécutez les commandes suivantes pour vous connecter à Azure. Ces étapes ne s
    Get-AzureRmContext
    ```
 
-## <a name="provision-resources"></a>Provisionner des ressources
+## <a name="provision-resources"></a>Provisionner les ressources
 
-Une fois connecté à Azure, utilisez les commandes suivantes pour provisionner les ressources Service Bus. Veillez à remplacer tous les espaces réservés par les valeurs appropriées :
+Une fois connecté à Azure, utilisez les commandes ci-après pour approvisionner les ressources Service Bus. Veillez à remplacer tous les espaces réservés par les valeurs appropriées :
 
 ```azurepowershell-interactive
 # Create a resource group 
@@ -269,7 +269,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez provisionné des ressources à l’aide d’Azure PowerShell, puis envoyé et reçu des messages à partir d’une rubrique Service Bus et de ses abonnements. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez provisionné des ressources à l’aide d’Azure PowerShell, puis envoyé et reçu des messages à partir d’une rubrique Service Bus et de ses abonnements. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer une rubrique Service Bus et un ou plusieurs abonnements à cette rubrique à l’aide du portail Azure

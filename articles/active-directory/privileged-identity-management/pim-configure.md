@@ -1,6 +1,6 @@
 ---
-title: Configurer Azure AD Privileged Identity Management | Microsoft Docs
-description: Une rubrique qui explique ce qu’est Azure AD Privileged Identity Management et comment utiliser PIM pour renforcer la sécurité de votre cloud.
+title: Qu’est-ce qu’Azure AD Privileged Identity Management ? | Microsoft Docs
+description: Fournit une vue d’ensemble d’Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8ac1dad9413d9e2710722127c2e837223a5b6f7f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618850"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186209"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
@@ -51,6 +51,35 @@ Dans Azure AD, Azure AD Privileged Identity Management peut gérer les utilisat
 ## <a name="just-in-time-administrator-access"></a>Administrateur des accès immédiats
 
 Jusqu’ici, vous pouviez affecter un utilisateur à un rôle d’administrateur via le portail Azure, les autres portails Microsoft Online Services ou les cmdlets Azure AD dans Windows PowerShell. Cet utilisateur devient ainsi un **administrateur permanent**, toujours actif dans le rôle qui lui a été affecté. Azure AD Privileged Identity Management introduit le concept d **’administrateur éligible**. Les administrateurs éligibles doivent être des utilisateurs qui ont besoin d’un accès privilégié de temps à autre, et non pas en permanence. Ce rôle reste inactif jusqu’à ce l’utilisateur ait besoin d’un tel accès ; dans ce cas, il complète un processus d’activation et devient administrateur actif pour une durée prédéterminée. De plus en plus d’organisations choisissent d’utiliser cette approche pour limiter ou éliminer l’« accès administrateur permanent » aux rôles privilégiés.
+
+
+## <a name="terminology"></a>Terminologie
+
+*Utilisateur de rôle éligible* : un utilisateur de rôle éligible est un utilisateur au sein de votre organisation affecté à un rôle Azure AD comme éligible (le rôle requiert une activation).
+
+*Approbateur délégué* : un approbateur délégué est une ou plusieurs personnes ou groupes au sein de votre Azure AD responsables de l’approbation des demandes d’activation de rôles.
+
+## <a name="scenarios"></a>Scénarios
+
+Privileged Identity Management prend en charge les scénarios suivants :
+
+**En tant qu’Administrateur de rôle privilégié, vous pouvez :**
+
+- Activer l’approbation pour des rôles spécifiques
+- Spécifier les utilisateurs et/ou groupes approbateurs pour approuver des demandes
+- Afficher l’historique des demandes et approbations pour tous les rôles privilégiés
+
+**En tant d’approbateur désigné, vous pouvez :**
+
+- Afficher les approbations (demandes) en attente
+- Approuver ou rejeter des demandes d’élévation de rôle (unique et/ou en bloc)
+- Justifier mon approbation/rejet 
+
+**En tant qu’un utilisateur de rôle éligible, vous pouvez :**
+
+- Demander l’activation d’un rôle qui nécessite une approbation
+- Afficher l’état de votre demande d’activation
+- Exécuter la tâche dans Azure AD si l’activation a été approuvée
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>Activer Privileged Identity Management pour votre répertoire
 
@@ -157,4 +186,6 @@ Si votre organisation ne renouvelle pas son abonnement Azure AD Premium P2 ou 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Exigences en matière d’abonnement pour utiliser PIM](subscription-requirements.md)
+- [Rôles d’annuaire Azure AD que vous pouvez gérer à l’aide de PIM](pim-roles.md)
+- [Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

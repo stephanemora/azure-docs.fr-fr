@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922655"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885323"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -33,10 +33,12 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 - Assurez-vous que les machines virtuelles que vous voulez migrer exécutent une version du système d’exploitation prise en charge. Les versions prises en charge incluent : 
-    - Windows Server 2016
-    - Red Hat Enterprise Linux 6.7 (instances virtualisées HVM uniquement) et ne doit avoir que des pilotes Citrix PV ou AWS PV. Les instances exécutant des pilotes Red Hat PV **ne sont pas** prises en charge.
-
-- Le service Mobilité doit être installé sur chaque machine virtuelle que vous souhaitez répliquer. 
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - Version 64 bits de Windows Server 2008 R2 SP1 ou version ultérieure
+  - Red Hat Enterprise Linux 6.7 (instances virtualisées HVM uniquement) avec un pilote Citrix PV ou AWS PV. Les instances exécutant des pilotes RedHat PV *ne sont pas* prises en charge.
+ - Le service Mobilité doit être installé sur chaque machine virtuelle que vous souhaitez répliquer. 
 
     > [!IMPORTANT]
     > Site Recovery installe ce service automatiquement quand vous activez la réplication pour la machine virtuelle. Pour une installation automatique, vous devez préparer un compte sur les instances EC2 qui sera utilisé par Site Recovery pour accéder à la machine virtuelle. Vous pouvez utiliser un compte local ou de domaine. 
@@ -64,7 +66,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 5. Pour **Réplication**, sélectionnez la valeur par défaut **RA-GRS**.
 6. Sélectionnez l’abonnement que vous voulez utiliser pour ce tutoriel.
 7. Pour **Groupe de ressources**, sélectionnez **Créer**. Dans cet exemple, nous utilisons **migrationRG** pour le nom du groupe de ressources.
-8. Pour **Emplacement**, sélectionnez **Europe de l’Ouest**.
+8. Pour **Emplacement**, sélectionnez **Europe Ouest**.
 9. Sélectionnez **Créer** pour créer le compte de stockage.
 
 ### <a name="create-a-vault"></a>Création d'un coffre
@@ -74,7 +76,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 3. Pour le **Nom**, entrez **myVault**.
 4. Dans **Abonnement**, sélectionnez l’abonnement que vous voulez utiliser.
 4. Pour le **Groupe de ressources**, sélectionnez **Existant** puis **migrationRG**.
-5. Pour **Emplacement**, sélectionnez **Europe de l’Ouest**.
+5. Pour **Emplacement**, sélectionnez **Europe Ouest**.
 5. Sélectionnez **Épingler au tableau de bord** pour pouvoir accéder rapidement au nouveau coffre à partir du tableau de bord.
 7. Sélectionnez **Créer** lorsque vous avez terminé.
 
@@ -90,7 +92,7 @@ Quand les machines virtuelles Azure sont créées après la migration (basculeme
 4. Laissez la valeur par défaut pour **Espace d’adressage**.
 5. Dans **Abonnement**, sélectionnez l’abonnement que vous voulez utiliser.
 6. Pour le **Groupe de ressources**, sélectionnez **Existant** puis **migrationRG**.
-7. Pour **Emplacement**, sélectionnez **Europe de l’Ouest**.
+7. Pour **Emplacement**, sélectionnez **Europe Ouest**.
 8. Sous **Sous-réseau**, laissez les valeurs par défaut pour le **Nom** et la **Plage d’adresses IP**.
 9. Laissez l’option **Points de terminaison de Service** désactivée.
 10. Sélectionnez **Créer** lorsque vous avez terminé.

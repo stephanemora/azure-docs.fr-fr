@@ -4,17 +4,17 @@ description: Dans ce didacticiel, vous déployez une fonction Azure en tant que 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 426d9fd81a0cd856378be3bb4f430f310bee53eb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: cf973899a6f56010c47588bdd506418a3d9a7cd8
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41919768"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744040"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Tutoriel : Déployer des fonctions Azure en tant que modules IoT Edge (préversion)
 
@@ -170,7 +170,7 @@ Dans la section précédente, vous avez créé une solution IoT Edge et ajouté 
 
 Dans cette section, vous allez fournir les informations d’identification de votre registre de conteneurs à deux reprises. La première fois, vous spécifiez ces informations pour vous connecter localement à partir de votre ordinateur de développement afin que Visual Studio Code puisse envoyer des images à votre registre. La seconde fois, vous fournissez ces informations dans le fichier **.env** de votre solution IoT Edge, ce qui autorise votre appareil IoT Edge à extraire des images de votre registre. 
 
-1. Ouvrez le terminal intégré VS Code en sélectionnant **Affichage** > **Terminal intégré**. 
+1. Ouvrez le terminal intégré VS Code en sélectionnant **Affichage** > **Terminal**. 
 
 1. Connectez-vous à votre registre de conteneurs en entrant la commande ci-après dans le terminal intégré. Vous pouvez ensuite transmettre votre image de module au registre Azure Container Registry : 
      
@@ -219,7 +219,7 @@ Vous pouvez utiliser le portail Azure pour déployer votre module de fonction su
 
 5. Dans l’Explorateur VS Code, développez la section **Azure IoT Hub Devices** (Appareils Azure IoT Hub). 
 
-6. Cliquez avec le bouton droit sur le nom de votre appareil IoT Edge, puis sélectionnez **Créer un déploiement pour l’appareil IoT Edge**. 
+6. Cliquez avec le bouton droit sur le nom de votre appareil IoT Edge, puis sélectionnez **Créer un déploiement pour un seul appareil**. 
 
 7. Accédez au dossier solution qui contient la fonction **CSharpFunction**. Ouvrez le dossier config, sélectionnez le fichier deployment.json, puis cliquez sur **Sélectionner un manifeste de déploiement Edge**.
 

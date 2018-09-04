@@ -1,26 +1,21 @@
 ---
 title: Générer des flux de travail d’approbation pour traiter les requêtes de liste de diffusion - Azure Logic Apps | Microsoft Docs
-description: Ce didacticiel montre comment créer des flux de travail d’approbation automatisés pour le traitement des abonnements aux listes de diffusion avec Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: Didacticiel - Comment créer des flux de travail d’approbation automatisés pour le traitement des abonnements aux listes de diffusion avec Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: e31be6ac24b7b194ab77856cb7376f9431a79f24
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300672"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122867"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Gérer les requêtes de liste de diffusion avec une application logique
 
@@ -69,7 +64,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
    | **Name** | LA-MailingList | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
    | **Groupe de ressources** | LA-MailingList-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. | 
-   | **Lieu** | Est des États-Unis 2 | Région dans laquelle stocker les informations sur votre application logique | 
+   | **Lieu** | USA Est 2 | Région dans laquelle stocker les informations sur votre application logique | 
    | **Log Analytics** | Off | Maintenez le paramètre de journalisation des diagnostics **Désactivé**. | 
    |||| 
 
@@ -313,7 +308,7 @@ Attendez que la requête s’affiche dans votre boîte de réception.
 
 Félicitations, vous venez de créer et d’exécuter une application logique qui intègre des informations des services Azure et Microsoft et d’autres applications SaaS.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées. Dans le menu Azure principal, accédez à **Groupes de ressources**, puis sélectionnez le groupe de ressources de votre application logique. Choisissez **Supprimer un groupe de ressources**. Confirmez le nom du groupe de ressources, puis choisissez **Supprimer**.
 

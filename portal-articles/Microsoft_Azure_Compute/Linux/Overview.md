@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 0de3fc4cab53564d7d131666e4a8c0ace8a64fb8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a61b5d25d554ea7e39490b0ca64cde3dcb396d6
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073909"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186487"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Documentation sur les machines virtuelles Linux
 
@@ -23,9 +23,9 @@ Les Machines virtuelles Linux Azure fournissent une infrastructure sécurisée e
 
 Découvrez comment déployer un serveur web NGINX au sein d’une machine virtuelle exécutant Ubuntu :
 
-- [portail Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Portail Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-quick-create-powershell?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Interface de ligne de commande Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [interface de ligne de commande Azure](/azure/virtual-machines/virtual-machines-linux-quick-create-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas
 
@@ -46,15 +46,13 @@ Découvrez comment déployer, gérer et mettre à l’échelle des machines virt
 
 ## <a name="free-pluralsight-video-training"></a>Formation vidéo gratuite Pluralsight
 
-- [Gestion de l’infrastructure](https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
-- [Prise en main des machines virtuelles](https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
-- [Prise en main de l’analyse IaaS](https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02")
+- [Administrateur Azure](https://go.microsoft.com/fwlink/?linkid=2012827)
 
 ## <a name="samples"></a>Exemples 
 
 Déployez votre première application dans Azure.
 
-- [Interface de ligne de commande Azure](/azure/virtual-machines/virtual-machines-linux-cli-samples)
+- [interface de ligne de commande Azure](/azure/virtual-machines/virtual-machines-linux-cli-samples)
 - [Azure PowerShell](/azure/virtual-machines/virtual-machines-linux-powershell-samples)
 
 ## <a name="more"></a>En savoir plus

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/21/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: ae2d312feb0fcefab85bcbbd2db7ac46c328213f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937935"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104980"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -78,35 +78,33 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 
 |Région  | Plans pris en charge | Réplicas de requête (plans Standard uniquement) |
 |---------|---------|:---------:|
-|Sud du Brésil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
+|Brésil Sud     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Centre du Canada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
-|Est des États-Unis     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Est des États-Unis 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
-|Centre-Nord des États-Unis     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centre des États-Unis     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|États-Unis - partie centrale méridionale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Centre-Ouest des États-Unis   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|États-Unis de l’Ouest     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
-|Ouest des États-Unis 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
+|USA Est     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|USA Est 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
+|USA Centre Nord     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
+|USA Centre     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|USA Centre Sud     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|USA Centre-Ouest   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|USA Ouest     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
+|Ouest des États-Unis 2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
 
 ### <a name="europe"></a>Europe
 
 |Région  | Plans pris en charge | Réplicas de requête (plans Standard uniquement) |
 |---------|---------|:---------:|
-|Europe du Nord     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|Europe Nord     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Sud du Royaume-Uni   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Europe de l'Ouest     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
+|Europe Ouest     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
 
 ### <a name="asia-pacific"></a>Asie-Pacifique 
 
 |Région  | Plans pris en charge | Réplicas de requête (plans Standard uniquement) |
 |---------|---------|:---------:|
-|Sud-est de l’Australie     | B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Est du Japon  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Asie du Sud-Est     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
-|Inde occidentale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-
-\* Les plans S8 et S9 dans le niveau Standard prennent en charge un réplica de requête.
+|Australie Sud-Est     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Japon Est  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Asie Sud-Est     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
+|Inde Ouest     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Évolutif selon vos besoins
 

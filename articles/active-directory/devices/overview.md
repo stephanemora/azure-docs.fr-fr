@@ -1,5 +1,5 @@
 ---
-title: Présentation de la gestion des appareils dans Azure Active Directory | Microsoft Docs
+title: En quoi consiste la gestion des appareils dans Azure Active Directory ? | Microsoft Docs
 description: Découvrez comment la gestion des appareils peut vous aider à contrôler les appareils qui accèdent aux ressources de votre environnement.
 services: active-directory
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/21/2018
+ms.topic: overview
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 7e71ff5f5da17165d5127f3547d8eb0756411b8c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 456b28c50bd5e7d69c3f16dd3e76a9ced20112f9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597691"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048860"
 ---
-# <a name="introduction-to-device-management-in-azure-active-directory"></a>Présentation de la gestion des appareils dans Azure Active Directory
+# <a name="what-is-device-management-in-azure-active-directory"></a>En quoi consiste la gestion des appareils dans Azure Active Directory ?
 
 Tout d’abord, dans un appareil où mobilité et cloud occupent le premier plan, Azure Active Directory (Azure AD) autorise une authentification unique sur les appareils, applications et services depuis n’importe où. Avec la prolifération des appareils, y compris des appareils Bring Your Own Device (BYOD), les professionnels de l’informatique sont confrontés à deux objectifs contradictoires :
 

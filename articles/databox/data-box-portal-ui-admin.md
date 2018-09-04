@@ -1,5 +1,5 @@
 ---
-title: Guide d’administration du portail Azure Data Box | Microsoft Docs
+title: Guide d’administration du portail Azure Data Box Disk | Microsoft Docs
 description: Décrit comment utiliser le portail Azure pour administrer votre Azure Data Box.
 services: databox
 documentationcenter: NA
@@ -13,16 +13,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: c76d8bc6af808fd1257e44ad296e3e2d65b8695d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7bf88a4e9d7af1033f014939d95783f9430dd84a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238112"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124961"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-preview"></a>Utiliser le portail Azure pour administrer votre Data Box (préversion)
+# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Utiliser le Portail Azure pour administrer votre solution Data Box Disk (préversion)
 
 Les didacticiels de cet article s’appliquent à la solution Microsoft Azure Data Box Disk au cours de la période de préversion. Cet article décrit certains des flux de travail et tâches de gestion complexes qui peuvent être effectués sur Data Box Disk. 
 

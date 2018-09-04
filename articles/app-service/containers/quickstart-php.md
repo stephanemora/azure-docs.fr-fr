@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1cbd29b480c80c93f750b97d47ccb3c09c984942
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5fdf277eb8f99f2d52600140601b413b51bcdfd8
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306784"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885903"
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Créer une application web PHP dans App Service sur Linux
 
@@ -32,7 +32,7 @@ ms.locfileid: "38306784"
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-php/hello-world-in-browser.png)
 
-Vous pouvez suivre les étapes de ce article en utilisant un ordinateur Mac, Windows ou Linux.
+Vous pouvez suivre les étapes de cet article en utilisant un ordinateur Mac, Windows ou Linux.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,7 @@ Pour suivre ce guide de démarrage rapide :
 * <a href="https://git-scm.com/" target="_blank">Installez Git</a>
 * <a href="https://php.net" target="_blank">Installez PHP</a>
 
-## <a name="download-the-sample"></a>Téléchargez l’exemple
+## <a name="download-the-sample"></a>Télécharger l’exemple
 
 Dans une fenêtre de terminal, exécutez les commandes suivantes pour cloner l’exemple d’application sur votre machine locale, puis accédez au répertoire contenant l’exemple de code.
 
@@ -54,7 +54,7 @@ cd php-docs-hello-world
 
 ## <a name="run-the-app-locally"></a>Exécutez l’application localement.
 
-Exécutez l’application localement en ouvrant une fenêtre de terminal et en utilisant la commande `php` pour lancer le serveur web PHP intégré.
+Exécutez l’application localement pour voir à quoi elle devrait ressembler lorsque vous la déploierez sur Azure. Ouvrez une fenêtre de terminal et utilisez la commande `php` pour lancer le serveur web PHP intégré.
 
 ```bash
 php -S localhost:8080

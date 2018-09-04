@@ -1,19 +1,19 @@
 ---
 title: Utiliser Jenkins pour déployer vos applications web dans Azure
 description: Configurez l’intégration continue de GitHub dans Azure App Service pour vos applications web Java à l’aide de Jenkins et Docker.
-ms.topic: tutorial
-ms.author: tarcher
+ms.service: jenkins
+keywords: jenkins, azure, devops, app service, intégration continue, ci, déploiement continu, cd
 author: tomarcher
-manager: jpconnock
-ms.service: devops
-ms.custom: jenkins
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389940"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106795"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurer l’intégration et le déploiement continus d’Azure App Service avec Jenkins
 
@@ -102,7 +102,7 @@ Configurez Jenkins pour recevoir les [webhooks GitHub](https://developer.github.
 ## <a name="configure-the-azure-app-service-jenkins-plug-in"></a>Configurer le plug-in Azure App Service Jenkins
 
 1. Dans la console web Jenkins, sélectionnez le travail **MyJavaApp** que vous avez créé, puis sélectionnez **Configure** (Configurer) dans la page de gauche.
-2. Faites défiler l’écran vers le bas jusqu’à **Post-build Actions** (Actions post-build) et sélectionnez **Add post-build action** (Ajouter une action post-build), puis **Publish an Azure Web App** (Publier une application Azure Web App).
+2. Faites défiler l’écran vers le bas jusqu’à **Post-build Actions** (Actions post-build), sélectionnez **Add post-build action** (Ajouter une action post-build), puis **Publish an Azure Web App** (Publier une application Azure Web App).
 3. Sous **Azure Profile Configuration** (Configuration de profil Azure), sélectionnez **Add** (Ajouter) en regard de **Azure Credentials** (Informations d’identification Azure), puis choisissez **Jenkins**.
 4. Dans la boîte de dialogue **Add Credentials** (Ajouter des informations d’identification), sélectionnez **Microsoft Azure Service Principal** (Principal du service Microsoft Azure) dans la liste déroulante **Kind** (Type).
 5. Créez un principal du service Active Directory à partir d’Azure CLI ou de [Cloud Shell](/azure/cloud-shell/overview).
