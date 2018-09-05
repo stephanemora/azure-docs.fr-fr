@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140486"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190270"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Guide pratique pour planifier l’implémentation de la jointure Azure Active Directory hybride
 
@@ -124,13 +124,14 @@ La jointure Azure AD hybride peut être configurée pour les scénarios suivants
 
 Si votre environnement comporte des domaines managés, la jointure Azure AD hybride prend en charge :
 
-- la synchronisation directe avec authentification unique transparente (SSO) ; 
+- La synchronisation directe avec authentification unique transparente (SSO) 
 
-- la synchronisation de hachage de mot de passe avec authentification unique transparente (SSO). 
+- La synchronisation du hachage de mot de passe avec authentification unique transparente (SSO) 
 
 Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant de configurer la jointure Azure AD hybride. Il simplifie considérablement le processus de configuration. Pour plus d'informations, consultez les pages suivantes :
 
 - [Configurer la jointure hybride Azure Active Directory pour des domaines fédérés](hybrid-azuread-join-federated-domains.md)
+
 
 - [Configurer la jointure hybride Azure Active Directory pour des domaines managés](hybrid-azuread-join-managed-domains.md)
 

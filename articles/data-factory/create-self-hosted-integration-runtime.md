@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443388"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044728"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Guide pratique pour créer et configurer le runtime d’intégration autohébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Vue d’ensemble du runtime d’intégration](concepts-integration-runtime.md).
@@ -156,6 +156,8 @@ Dans le runtime d’intégration autohébergé à partager,
 
    ![](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
 
+   ![](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+
 2. Notez l’**ID de ressource** du runtime d’intégration autohébergé à partager.
 
    ![](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
@@ -167,6 +169,20 @@ Dans la fabrique de données au sein de laquelle les autorisations ont été acc
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
 
    ![](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+
+#### <a name="monitoring"></a>Surveillance 
+
+- **IR partagé**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+
+  ![](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+
+- **IR lié**
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+
+  ![](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
 
 #### <a name="known-limitations-of-self-hosted-ir-sharing"></a>Limitations connues du partage de runtime d’intégration autohébergé
 
@@ -182,6 +198,8 @@ créée implicitement. Toutefois, les fabriques de données créées avec un mod
 5. La version du kit de développement logiciel ADF.net prenant en charge cette fonctionnalité est la version > = 1.1.0
 
 6. La version de Azure PowerShell prenant en charge cette fonctionnalité est la version > = 6.6.0 (AzureRM.DataFactoryV2 > = 0.5.7)
+
+7. Pour accorder l’autorisation, l’utilisateur nécessite le rôle « Propriétaire » ou le rôle « Propriétaire » hérité dans la fabrique de données où se trouve le runtime d’intégration partagé. 
 
   > [!NOTE]
   > Cette fonctionnalité est uniquement disponible dans Azure Data Factory version 2 

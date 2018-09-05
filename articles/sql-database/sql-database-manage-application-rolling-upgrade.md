@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 08/23/2018
 ms.author: sashan
-ms.openlocfilehash: a73284d679b4be1fbae6d5e1688915c98cbf2392
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 37960995c89c2b30d90ac45dcd8cc44d80088398
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649497"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818614"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gestion des mises à niveau propagées d’applications cloud à l’aide d’une géoréplication active de SQL Database
 > [!NOTE]
@@ -31,10 +31,10 @@ Lorsque vous évaluez les options de mise à niveau, vous devez tenir compte des
 * Coût total du processus,  notamment les coûts de redondance et les coûts incrémentiels des composants temporaires utilisés par le processus de mise à niveau. 
 
 ## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Mise à niveau d’applications dont la récupération d’urgence repose sur des sauvegardes de base de données
-Si votre application s’appuie sur des sauvegardes automatiques de la base de données et utilise la géo-restauration pour la récupération d’urgence, elle est généralement déployée dans une seule région Azure. Dans ce cas, la mise à niveau implique la création d’un déploiement de sauvegarde de tous les composants de l’application impliqués dans la mise à niveau. Afin de minimiser l’interruption pour l’utilisateur final, vous devez utiliser Azure Traffic Manager (WATM) avec le profil de basculement.  Le schéma suivant illustre l’environnement d’exploitation avant la mise à niveau. Le point de terminaison <i>contoso-1.azurewebsites.net</i> représente un emplacement de production de l’application qui doit être mise à niveau. Pour offrir la possibilité de restaurer la mise à niveau, vous devez créer un emplacement intermédiaire avec une copie entièrement synchronisée de l’application. Les étapes suivantes permettent de préparer l’application à la mise à niveau :
+Si votre application s’appuie sur des sauvegardes automatiques de la base de données et utilise la géo-restauration pour la récupération d’urgence, elle est généralement déployée dans une seule région Azure. Dans ce cas, la mise à niveau implique la création d’un déploiement de sauvegarde de tous les composants de l’application impliqués dans la mise à niveau. Pour minimiser l’interruption pour l’utilisateur final, vous devez utiliser Azure Traffic Manager (ATM) avec le profil de basculement.  Le schéma suivant illustre l’environnement d’exploitation avant la mise à niveau. Le point de terminaison <i>contoso-1.azurewebsites.net</i> représente un emplacement de production de l’application qui doit être mise à niveau. Pour offrir la possibilité de restaurer la mise à niveau, vous devez créer un emplacement intermédiaire avec une copie entièrement synchronisée de l’application. Les étapes suivantes permettent de préparer l’application à la mise à niveau :
 
 1. Création d’un emplacement intermédiaire pour la mise à niveau. Pour ce faire, créez une base de données secondaire (1) et déployez un site web identique dans la même région Azure. Surveillez la base de données secondaire afin de déterminer si le processus d’amorçage est terminé.
-2. Création d’un profil de basculement dans WATM en utilisant <i>contoso-1.azurewebsites.net</i> comme point de terminaison en ligne et <i>contoso-2.azurewebsites.net</i> comme point de terminaison hors connexion. 
+2. Création d’un profil de basculement dans ATM avec <i>contoso-1.azurewebsites.net</i> comme point de terminaison en ligne et <i>contoso-2.azurewebsites.net</i> comme point de terminaison hors connexion. 
 
 > [!NOTE]
 > Notez que les étapes préparatoires n’auront aucune incidence sur l’application dans l’emplacement de production et que celle-ci pourra fonctionner en mode d’accès complet.
@@ -52,7 +52,7 @@ Une fois les étapes de préparation terminées, l’application est prête pour
 
 Si la mise à niveau s’est correctement déroulée, vous êtes maintenant prêt à basculer les utilisateurs finaux sur la copie intermédiaire de l’application, qui deviendra alors l’emplacement de production de l’application.  Cette opération implique quelques étapes supplémentaires, comme l’illustre le schéma suivant.
 
-1. Basculez le point de terminaison en ligne du profil WATM sur <i>contoso-2.azurewebsites.net</i>, qui pointe vers la version V2 du site web (6). Celui-ci devient à présent l’emplacement de production doté de l’application V2 vers lequel est dirigé le trafic de l’utilisateur final.  
+1. Basculez le point de terminaison en ligne du profil ATM sur <i>contoso-2.azurewebsites.net</i>, qui pointe vers la version V2 du site web (6). Celui-ci devient à présent l’emplacement de production doté de l’application V2 vers lequel est dirigé le trafic de l’utilisateur final.  
 2. Si vous n’avez plus besoin des composants de l’application V1, vous pouvez les supprimer en toute sécurité (7).   
 
 ![Configuration de la géoréplication de SQL Database. Récupération d’urgence cloud.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
@@ -65,7 +65,7 @@ Si la mise à niveau échoue, par exemple en raison d’une erreur dans le scrip
 À ce stade, l’application est entièrement fonctionnelle et les étapes de la mise à niveau peuvent être répétées.
 
 > [!NOTE]
-> La restauration ne nécessite aucune modification du profil WATM, car celui-ci utilise déjà <i>contoso-1.azurewebsites.net</i> comme point de terminaison actif.
+> La restauration ne nécessite aucun changement du profil ATM, car celui-ci pointe déjà vers <i>contoso-1.azurewebsites.net</i> comme point de terminaison actif.
 > 
 > 
 
@@ -79,12 +79,12 @@ Si votre application s’appuie sur la géoréplication pour garantir la continu
 * l’application demeure constamment à l’abri des sinistres pendant le processus de mise à niveau ;
 * les composants géo-redondants de l’application sont mis à niveau parallèlement aux composants actifs.
 
-Pour atteindre ces objectifs, vous allez utiliser Azure Traffic Manager (WATM) à l’aide du profil de basculement avec un point de terminaison actif et trois points de terminaison de sauvegarde.  Le schéma suivant illustre l’environnement d’exploitation avant la mise à niveau. Les sites web <i>contoso-1.azurewebsites.net</i> et <i>dr.azurewebsites.net de contoso</i> représentent un emplacement de production de l’application avec redondance géographique complète. Pour offrir la possibilité de restaurer la mise à niveau, vous devez créer un emplacement intermédiaire avec une copie entièrement synchronisée de l’application. Pour avoir la garantie que l’application sera capable de récupérer rapidement en cas de défaillance irrémédiable pendant le processus de mise à niveau, l’emplacement intermédiaire doit également être géoredondant. Les étapes suivantes permettent de préparer l’application à la mise à niveau :
+Pour atteindre ces objectifs, vous allez utiliser Azure Traffic Manager (ATM) à l’aide du profil de basculement avec un point de terminaison actif et trois points de terminaison de sauvegarde.  Le schéma suivant illustre l’environnement d’exploitation avant la mise à niveau. Les sites web <i>contoso-1.azurewebsites.net</i> et <i>dr.azurewebsites.net de contoso</i> représentent un emplacement de production de l’application avec redondance géographique complète. Pour offrir la possibilité de restaurer la mise à niveau, vous devez créer un emplacement intermédiaire avec une copie entièrement synchronisée de l’application. Pour avoir la garantie que l’application sera capable de récupérer rapidement en cas de défaillance irrémédiable pendant le processus de mise à niveau, l’emplacement intermédiaire doit également être géoredondant. Les étapes suivantes permettent de préparer l’application à la mise à niveau :
 
 1. Création d’un emplacement intermédiaire pour la mise à niveau. Pour cela, vous devez créer une base de données secondaire (1) et déployer une copie identique du site web dans la même région Azure. Surveillez la base de données secondaire afin de déterminer si le processus d’amorçage est terminé.
 2. Création d’une base de données secondaire géo-redondante dans l’emplacement intermédiaire en géo-répliquant la base de données secondaire dans la région de sauvegarde (on parle alors de « géo-réplication chaînée »). Surveillez la base de données de sauvegarde afin de déterminer si le processus d’amorçage est terminé (3).
 3. Création d’une copie de secours du site web dans la région de sauvegarde et liaison de cette copie à la base secondaire géo-redondante (4).  
-4. Ajout des points de terminaison supplémentaires <i>contoso-2.azurewebsites.net</i> et <i>contoso-3.azurewebsites.net</i> au profil de basculement dans WATM en tant que points de terminaison hors connexion (5). 
+4. Ajout des points de terminaison supplémentaires <i>contoso-2.azurewebsites.net</i> et <i>contoso-3.azurewebsites.net</i> au profil de basculement dans ATM sous forme de points de terminaison hors connexion (5). 
 
 > [!NOTE]
 > Notez que les étapes préparatoires n’auront aucune incidence sur l’application dans l’emplacement de production et que celle-ci pourra fonctionner en mode d’accès complet.
@@ -103,7 +103,7 @@ Une fois les étapes de préparation terminées, l’emplacement intermédiaire 
 
 Si la mise à niveau s’est correctement déroulée, vous êtes maintenant prêt à basculer les utilisateurs finaux sur la version V2 de l’application. Le schéma suivant illustre les étapes impliquées dans ce processus.
 
-1. Basculement du point de terminaison actif du profil WATM sur <i>contoso-2.azurewebsites.net</i>, qui pointe désormais vers la version V2 du site web (9). Il devient alors un emplacement de production comprenant l’application V2 et vers lequel est dirigé le trafic utilisateur. 
+1. Basculement du point de terminaison actif du profil ATM sur <i>contoso-2.azurewebsites.net</i>, qui pointe désormais vers la version V2 du site web (9). Il devient alors un emplacement de production comprenant l’application V2 et vers lequel est dirigé le trafic utilisateur. 
 2. Si vous n’avez plus besoin de l’application V1, vous pouvez la supprimer en toute sécurité (10 et 11).  
 
 ![Configuration de la géoréplication de SQL Database. Récupération d’urgence cloud.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
@@ -116,7 +116,7 @@ Si la mise à niveau échoue, par exemple en raison d’une erreur dans le scrip
 À ce stade, l’application est entièrement fonctionnelle et les étapes de la mise à niveau peuvent être répétées.
 
 > [!NOTE]
-> La restauration ne nécessite aucune modification du profil WATM, car celui-ci utilise déjà <i>contoso-1.azurewebsites.net</i> comme point de terminaison actif.
+> La restauration ne nécessite aucun changement du profil ATM, car celui-ci pointe déjà vers <i>contoso-1.azurewebsites.net</i> comme point de terminaison actif.
 > 
 > 
 
@@ -125,7 +125,7 @@ Si la mise à niveau échoue, par exemple en raison d’une erreur dans le scrip
 Le principal **avantage** de cette option est qu’elle vous permet de mettre à niveau l’application et sa copie géo-redondant en parallèle sans compromettre votre continuité d’activité lors de la mise à niveau. L’ **inconvénient** est qu’elle implique une double redondance de chaque composant de l’application, ce qui augmente le coût total de l’opération. Elle implique également un flux de travail plus complexe. 
 
 ## <a name="summary"></a>Résumé
-Les deux méthodes de mise à niveau décrites dans cet article présentent certaines différences en termes de complexité et de coût, mais les deux visent à réduire la durée pendant laquelle l’utilisateur final est limité aux opérations en lecture seule. Cette durée dépend directement de la durée du script de mise à niveau. Elle ne dépend pas la taille de la base de données, du niveau de service que vous avez choisi, de la configuration du site web ou d’autres facteurs que vous ne pouvez pas facilement contrôler. En effet, toutes les étapes de préparation sont dissociées de la procédure de mise à niveau et peuvent être effectuées sans incidence sur l’application de production. L’efficacité du script de mise à niveau est essentiel pour déterminer l’expérience utilisateur au cours des mises à niveau. La meilleure façon de l’améliorer consiste donc à concentrer vos efforts sur la création d’un script de mise à niveau aussi efficace que possible.  
+Les deux méthodes de mise à niveau décrites dans cet article présentent certaines différences en termes de complexité et de coût, mais les deux visent à réduire la durée pendant laquelle l’utilisateur final est limité aux opérations en lecture seule. Cette durée dépend directement de la durée du script de mise à niveau. Elle ne dépend pas la taille de la base de données, du niveau de service que vous avez choisi, de la configuration du site web ou d’autres facteurs que vous ne pouvez pas facilement contrôler. En effet, toutes les étapes de préparation sont dissociées de la procédure de mise à niveau et peuvent être effectuées sans incidence sur l’application de production. L’efficacité du script de mise à niveau est essentielle pour déterminer l’expérience utilisateur au cours des mises à niveau. La meilleure façon de l’améliorer consiste donc à concentrer vos efforts sur la création d’un script de mise à niveau aussi efficace que possible.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).

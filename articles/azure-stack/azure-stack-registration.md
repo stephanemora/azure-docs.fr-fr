@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/24/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: e2411a91174fd0b52227b4cfe8783c8c74c4039e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41946547"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247821"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
@@ -84,13 +84,12 @@ Votre déploiement Azure Stack peut être *connecté* ou *déconnecté*.
 
  - **Connecté**  
  Connecté signifie que vous avez déployé Azure Stack afin qu’il puisse se connecter à Internet et à Azure. Vous disposez soit d’Azure Active Directory (Azure AD) ou d’Active Directory Federation Services (AD FS) pour votre magasin d’identités. Avec un déploiement connecté, vous pouvez choisir entre deux modèles de facturation : paiement à l’utilisation ou selon la capacité.
-    - [Inscrire un déploiement Azure Stack connecté auprès d’Azure à l’aide du modèle de facturation de **paiement à l’utilisation**](#register-a-connected-azure-stack-with-azure-using-the-pay-as-you-use-billing-model)
-    - [Inscrire un déploiement Azure Stack connecté auprès d’Azure à l’aide du modèle de facturation de **capacité**](#register-a-connected-azure-stack-with-azure-using-the-capacity-billing-model)
+    - [Inscrire un déploiement Azure Stack connecté auprès d’Azure à l’aide du modèle de facturation de **paiement à l’utilisation**](#register-connected-with-pay-as-you-go-billing)
+    - [Inscrire un déploiement Azure Stack connecté auprès d’Azure à l’aide du modèle de facturation de **capacité**](#register-connected-with-capacity-billing)
 
  - **Déconnecté**  
  Avec l’option de déploiement déconnecté de Azure, vous pouvez déployer et utiliser Azure Stack sans connexion à internet. Toutefois, avec un déploiement déconnecté, vous êtes limité à un magasin d’identités AD FS et au modèle de facturation basée sur la capacité.
-    - [Inscrire un déploiement Azure Stack déconnecté à l’aide du modèle de facturation de **capacité**](#register-a-disconnected-Azure-Stack-using-the-capacity-billing-model
-)
+    - [Inscrire un déploiement Azure Stack déconnecté à l’aide du modèle de facturation de **capacité**](#register-disconnected-with-capacity-billing)
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Inscrire un déploiement connecté avec facturation de paiement à l’utilisation
 
@@ -218,7 +217,7 @@ Si vous inscrivez Azure Stack dans un environnement déconnecté (sans connectiv
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Pour plus d’informations sur l’applet de commande Get-AzsRegistrationToken, voir [Référence de l’inscription](#registration-reference).
 
@@ -358,7 +357,7 @@ Vous avez maintenant complètement annulé l’inscription dans un scénario dé
 
 ### <a name="disable-or-enable-usage-reporting"></a>Désactiver ou activer les rapports d’utilisation
 
-Pour les environnements Azure Stack qui utilisent un modèle de facturation selon la capacité, désactivez la création de rapports avec le paramètre **EnableUsageReporting** en utilisant l’applet de commande **Set-AzsRegistration** ou  **Get-AzsRegistrationToken**. Azure Stack crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté devront désactiver la création de rapports d’utilisation.
+Pour les environnements Azure Stack qui utilisent un modèle de facturation selon la capacité, désactivez la création de rapports d’utilisation avec le paramètre **UsageReportingEnabled** en utilisant l’applet de commande **Set-AzsRegistration** ou  **Get-AzsRegistrationToken**. Azure Stack crée par défaut des rapports sur les métriques d’utilisation. Les opérateurs qui se basent sur la capacité ou qui gèrent un environnement déconnecté devront désactiver la création de rapports d’utilisation.
 
 #### <a name="with-a-connected-azure-stack"></a>Avec un déploiement Azure Stack connecté
 
@@ -378,7 +377,7 @@ Pour les environnements Azure Stack qui utilisent un modèle de facturation selo
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 

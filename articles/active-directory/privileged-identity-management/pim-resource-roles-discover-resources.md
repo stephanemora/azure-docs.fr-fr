@@ -1,6 +1,6 @@
 ---
-title: Découvrir et gérer les ressources Azure à l’aide de Privileged Identity Management | Microsoft Docs
-description: Décrit comment protéger les ressources Azure à l’aide de PIM.
+title: Découvrir les ressources Azure à gérer dans PIM | Microsoft Docs
+description: Apprenez à découvrir les ressources Azure à gérer dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,21 +13,21 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: c5b26c01028e2a5746132939a2058cacdcad859f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622100"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190656"
 ---
-# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Découvrir et gérer les ressources Azure à l’aide de Privileged Identity Management
+# <a name="discover-azure-resources-to-manage-in-pim"></a>Découvrir les ressources Azure à gérer dans PIM
 
 Découvrez comment découvrir et gérer les ressources Azure quand vous utilisez PIM (Privileged Identity Management) dans Azure AD (Azure Active Directory). Ces informations peuvent être utiles aux organisations qui utilisent déjà PIM pour protéger les ressources de l’administrateur, ainsi qu’aux propriétaires d’abonnements qui souhaitent sécuriser les ressources de production.
 
 Quand vous configurez PIM pour les ressources Azure pour la première fois, vous devez découvrir et sélectionner les ressources à protéger avec PIM. Il n’existe aucune limite quant à la quantité de ressources que vous pouvez gérer avec PIM. Toutefois, nous vous recommandons de commencer avec vos ressources les plus critiques (production).
 
 > [!NOTE]
-> Vous pouvez uniquement rechercher et sélectionner les ressources d’abonnement à gérer à l’aide de PIM. Quand vous gérez un abonnement dans PIM, vous pouvez également gérer les ressources enfants dans l’abonnement.
+> Seules les ressources de groupe d’administration et d’abonnement peuvent être gérées dans PIM. Quand vous gérez un groupe d’administration ou un abonnement dans PIM, vous pouvez également gérer ses ressources enfants.
 
 ## <a name="discover-resources"></a>Découvrir des ressources
 
@@ -64,5 +64,5 @@ Les ressources sélectionnées sont désormais gérées par PIM. Pour fermer l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer des paramètres de rôle](pim-resource-roles-configure-role-settings.md)
-- [Attribuer des rôles dans PIM](pim-resource-roles-assign-roles.md)
+- [Configurer les paramètres des rôles de ressources Azure dans PIM](pim-resource-roles-configure-role-settings.md)
+- [Attribuer des rôles de ressources Azure dans PIM](pim-resource-roles-assign-roles.md)

@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.topic: reference
+ms.date: 06/22/2018
+ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390702"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093616"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence des types d’actions et de déclencheurs pour le langage de définition de workflow dans Azure Logic Apps
 
@@ -158,6 +157,7 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 |---------|------|-------------| 
 | headers | Objet JSON | En-têtes de la réponse | 
 | body | Objet JSON | Corps de la réponse | 
+| Code d’état | Entier  | Code d’état de la réponse | 
 |||| 
 
 *Exemple*
@@ -330,6 +330,7 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 |---------|------|-------------| 
 | headers | Objet JSON | En-têtes de la réponse | 
 | body | Objet JSON | Corps de la réponse | 
+| Code d’état | Entier  | Code d’état de la réponse | 
 |||| 
 
 *Conditions requises pour les requêtes entrantes*
@@ -337,7 +338,7 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 Pour fonctionner correctement avec votre application logique, le point de terminaison doit être conforme à un modèle ou contrat de déclencheur spécifique, et reconnaître ces propriétés :  
   
 | response | Obligatoire | Description | 
-|----------|----------|-------------|  
+|----------|----------|-------------| 
 | Code d’état | Oui | Le code d’état « 200 OK » démarre une exécution. Les autres codes d’état ne démarrent pas d’exécution. | 
 | En-tête Retry-after | Non  | Nombre de secondes au bout duquel l’application logique interroge à nouveau le point de terminaison. | 
 | En-tête Location | Non  | URL à appeler lors du prochain intervalle d’interrogation. Si aucune valeur n’est spécifiée, l’URL d’origine est utilisée. | 
@@ -424,6 +425,7 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 |---------|------|-------------| 
 | headers | Objet JSON | En-têtes de la réponse | 
 | body | Objet JSON | Corps de la réponse | 
+| Code d’état | Entier  | Code d’état de la réponse | 
 |||| 
 
 *Exemple*
@@ -817,7 +819,7 @@ Voici quelques types d’actions couramment utilisés :
 
 | Type d’action | Description | 
 |-------------|-------------| 
-| [**Compose**](#compose-action) | Crée une sortie unique à partir des entrées, qui peuvent avoir différents types. | 
+| [**Composer**](#compose-action) | Crée une sortie unique à partir des entrées, qui peuvent avoir différents types. | 
 | [**Function**](#function-action) | Appelle une fonction Azure. | 
 | [**HTTP**](#http-action) | Appelle un point de terminaison HTTP. | 
 | [**Join**](#join-action) | Crée une chaîne à partir de tous les éléments d’un tableau, et sépare ces éléments avec un caractère délimiteur spécifié. | 
@@ -2552,6 +2554,159 @@ Pour une exécution d’application logique unique, le nombre d’actions qui s�
    "runAfter": {}
 }
 ```
+
+<a name="connector-authentication"></a>
+
+## <a name="authenticate-triggers-or-actions"></a>Authentifier des déclencheurs ou des actions
+
+Les points de terminaison HTTP prennent en charge différents types d’authentification. Vous pouvez configurer l’authentification pour ces actions et déclencheurs HTTP :
+
+* [HTTP](../connectors/connectors-native-http.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [Déclencheur HTTPWebhook](../connectors/connectors-native-webhook.md)
+
+Voici les types d’authentification que vous pouvez configurer :
+
+* [Authentification de base](#basic-authentication)
+* [Authentification par certificat client](#client-certificate-authentication)
+* [Authentification OAuth Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
+
+<a name="basic-authentication"></a>
+
+### <a name="basic-authentication"></a>Authentification de base
+
+Pour ce type d’authentification, votre définition de déclencheur ou d’action peut inclure un objet JSON `authentication` qui a les propriétés suivantes :
+
+| Propriété | Obligatoire | Valeur | Description | 
+|----------|----------|-------|-------------| 
+| **type** | Oui | "Basic" | Type d’authentification à utiliser, en l’occurrence "Basic" | 
+| **nom d’utilisateur** | Oui | "@parameters('userNameParam')" | Paramètre qui passe le nom d’utilisateur nécessaire à l’authentification en vue d’accéder au point de terminaison de service cible |
+| **mot de passe** | Oui | "@parameters('passwordParam')" | Paramètre qui passe le mot de passe nécessaire à l’authentification en vue d’accéder au point de terminaison de service cible |
+||||| 
+
+Par exemple, voici le format pour l’objet `authentication` dans votre définition de déclencheur ou action. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser les informations sensibles](#secure-info). 
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-authentication"></a>Authentification par certificat client
+
+Pour ce type d’authentification, votre définition de déclencheur ou d’action peut inclure un objet JSON `authentication` qui a les propriétés suivantes :
+
+| Propriété | Obligatoire | Valeur | Description | 
+|----------|----------|-------|-------------| 
+| **type** | Oui | "ClientCertificate" | Type d’authentification à utiliser pour les certificats clients SSL (Secure Sockets Layer) | 
+| **pfx** | Oui | <*fichier pfx encodé en base64*> | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
+| **mot de passe** | Oui | "@parameters('passwordParam')" | Paramètre avec le mot de passe pour l’accès au fichier PFX |
+||||| 
+
+Par exemple, voici le format pour l’objet `authentication` dans votre définition de déclencheur ou action. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser les informations sensibles](#secure-info). 
+
+```javascript
+"authentication": {
+   "password": "@parameters('passwordParam')",
+   "pfx": "aGVsbG8g...d29ybGQ=",
+   "type": "ClientCertificate"
+}
+```
+
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Authentification OAuth Azure Active Directory (AD)
+
+Pour ce type d’authentification, votre définition de déclencheur ou d’action peut inclure un objet JSON `authentication` qui a les propriétés suivantes :
+
+| Propriété | Obligatoire | Valeur | Description | 
+|----------|----------|-------|-------------| 
+| **type** | Oui | `ActiveDirectoryOAuth` | Type d’authentification à utiliser, qui est "ActiveDirectoryOAuth" pour Azure AD OAuth | 
+| **authority** | Non  | <*URL de l’autorité émettrice du jeton*> | URL de l’autorité qui fournit le jeton d’authentification |  
+| **client** | Oui | <*ID de locataire*> | Identificateur du locataire Azure AD | 
+| **public ciblé** | Oui | <*ressource à autoriser*> | Ressource que doit utiliser l’autorisation, par exemple, `https://management.core.windows.net/` | 
+| **clientId** | Oui | <*ID client*> | ID client pour l’application demandant l’autorisation | 
+| **credentialType** | Oui | "Secret" ou "Certificate" | Type d’informations d’identification que le client utilise pour la demande d’autorisation. Ces propriété et valeur n’apparaissent pas dans votre définition sous-jacente, mais elles déterminent les paramètres requis pour le type d’informations d’identification. | 
+| **mot de passe** | Oui, uniquement pour le type d’informations d’identification "Certificate" | "@parameters('passwordParam')" | Paramètre avec le mot de passe pour l’accès au fichier PFX | 
+| **pfx** | Oui, uniquement pour le type d’informations d’identification "Certificate" | <*fichier pfx encodé en base64*> | Contenu encodé en base64 à partir d’un fichier Personal Information Exchange (PFX) |
+| **secret** | Oui, uniquement pour le type d’informations d’identification "Secret" | <*secret pour l’authentification*> | Secret encodé en base64 que le client utilise pour la demande d’autorisation |
+||||| 
+
+Par exemple, voici le format pour l’objet `authentication` quand votre définition de déclencheur ou d’action utilise le type d’informations d’identification « Secret ». Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser les informations sensibles](#secure-info). 
+
+```javascript
+"authentication": {
+   "audience": "https://management.core.windows.net/",
+   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "type": "ActiveDirectoryOAuth"
+}
+```
+
+<a name="secure-info"></a>
+
+## <a name="secure-sensitive-information"></a>Sécuriser les informations sensibles
+
+Afin de protéger les informations sensibles que vous utilisez pour l’authentification, telles que les noms d’utilisateur et les mots de passe, dans vos définitions de déclencheur et d’action, vous pouvez utiliser des paramètres et l’expression `@parameters()` afin que ces informations ne soient pas visibles une fois que vous avez enregistré votre application logique. 
+
+Par exemple, supposons que vous utilisez l’authentification « Basic » dans votre définition de déclencheur ou d’action. Voici un exemple d’objet `authentication` qui spécifie un nom d’utilisateur et un mot de passe :
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+Dans la section `parameters` de la définition de votre application logique, définissez les paramètres que vous avez utilisés dans votre définition de déclencheur ou d’action :
+
+```javascript
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "HTTP": {
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
+```
+
+Si vous créez ou utilisez un modèle de déploiement Azure Resource Manager, vous devez également inclure une section `parameters` externe pour votre définition de modèle. Pour plus d’informations sur la sécurisation des paramètres, consultez [Sécuriser l’accès à vos applications logiques](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

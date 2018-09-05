@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: celested
+ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592201"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188238"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Intégration d’applications dans Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -100,7 +100,7 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
   ![Accorder des autorisations pour un consentement administrateur explicite](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
     
   > [!NOTE]
-  > Le fait d’accorder un consentement explicite à l’aide du bouton **Accorder des autorisations** est actuellement nécessaire pour les applications à page unique (SPA) qui utilisent ADAL.js. Sinon, l’application échoue lorsque le jeton d’accès est demandé. 
+  > Pour les applications monopages (SPA) qui utilisent ADAL.js, vous devez accorder un consentement explicite à l’aide du bouton **Accorder des autorisations**. Sinon, l’application échoue lorsque le jeton d’accès est demandé. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configurer une application cliente pour accéder aux API web
 Une application cliente web/confidentielle doit établir des informations d’identification sécurisées afin de pouvoir participer à un flux d’octroi d’autorisations qui requiert une authentification. La méthode d’authentification par défaut prise en charge par le portail Azure est l’ID Client + la clé secrète. Cette section décrit les étapes de configuration requises pour fournir les informations d’identification de votre client avec la clé secrète.
@@ -112,7 +112,7 @@ En outre, avant qu’un client puisse accéder à une API web exposée par une a
 - Autorisations déléguées : votre application cliente doit accéder à l’API web en tant qu’utilisateur connecté, mais avec un accès limité par l’autorisation sélectionnée. Ce type d'autorisation peut être accordé par un utilisateur, à moins que l'autorisation nécessite le consentement de l'administrateur. 
 
   > [!NOTE]
-  > L’ajout d’une autorisation déléguée à une application n’accorde pas automatiquement un consentement aux utilisateurs du client. Les utilisateurs doivent donner manuellement leur consentement pour les autorisations déléguées ajoutées, au moment de l’exécution, à moins que l’administrateur clique sur le bouton **Accorder des autorisations** dans la section **Autorisations requises** de la page de l’application dans le portail Azure. 
+  > L’ajout d’une autorisation déléguée à une application n’accorde pas automatiquement un consentement aux utilisateurs du client. Les utilisateurs doivent donner manuellement leur consentement pour les autorisations déléguées ajoutées lors de l’exécution, à moins que l’administrateur ne donne son consentement au nom de tous les utilisateurs.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Pour ajouter des informations d’identification d’application ou des autorisations pour accéder aux API web
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
@@ -121,13 +121,15 @@ En outre, avant qu’un client puisse accéder à une API web exposée par une a
 
    ![Mettre à jour l’inscription d’une application](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. Vous accédez à la page d’inscription principale de l’application, qui ouvre la page **Paramètres** pour l’application. Pour ajouter une clé secrète aux informations d’identification de votre application web :
+4. Vous accédez à la page d’inscription principale de l’application, qui ouvre la page **Paramètres** pour l’application. Pour ajouter des informations d’identification à votre application web :
   - Cliquez sur la section **Clés** de la page **Paramètres**. 
-  - Ajoutez une description pour votre clé.
-  - Sélectionnez une durée de un ou deux ans.
-  - Cliquez sur **Enregistrer**. La colonne située le plus à droite contient la valeur de clé, après avoir enregistré les modifications de configuration. **Veillez à copier la clé** pour une utilisation dans le code de votre application client, car elle n’est plus accessible après avoir quitté cette page.
-
-  ![Mettre à jour l’inscription d’une application - clés](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - Pour ajouter un certificat :
+    - Sélectionnez **Télécharger la clé publique**.
+    - Sélectionnez le fichier que vous voulez charger. Il doit s’agir d’un fichier de type .cer, .pem ou .crt.
+  - Pour ajouter un mot de passe :
+    - Ajoutez une description pour votre clé.
+    - Sélectionnez une durée.
+    - Cliquez sur **Enregistrer**. La colonne située le plus à droite contient la valeur de clé, après avoir enregistré les modifications de configuration. **Veillez à copier la clé** pour une utilisation dans le code de votre application client, car elle n’est plus accessible après avoir quitté cette page.
 
 5. Pour ajouter des autorisations pour accéder aux API de ressources à partir de votre client
   - Cliquez sur la section **Autorisations requises** de la page **Paramètres**. 
@@ -141,11 +143,6 @@ En outre, avant qu’un client puisse accéder à une API web exposée par une a
   ![Mettre à jour l’inscription d’une application - Autorisations](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Lorsque vous avez terminé, cliquez sur le bouton **Sélectionner** sur la page **Activer l’accès**, puis le bouton **Fait** sur la page **Ajouter un accès API**. Vous êtes redirigé sur la page **Autorisations requises**, où la nouvelle ressource est ajoutée à la liste des API.
-
-  > [!NOTE]
-  > Lorsque vous cliquez sur le bouton **Terminé**, les autorisations sont automatiquement définies pour l’application de votre répertoire en fonction des autorisations pour les autres applications que vous avez configurées. Vous pouvez afficher ces autorisations d’application dans la page **Paramètres** de l’application.
-  > 
-  > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configuration d’une application de ressource pour exposer les API web
 

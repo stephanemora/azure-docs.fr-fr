@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce520c5972bf27c30ecb175d58b6b6071bf804db
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397845"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818290"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Adresses IP dans Azure Functions
 
@@ -39,7 +39,7 @@ Chaque application de fonction a une seule adresse IP entrante. Pour la trouver�
 3. Sélectionnez **Fonctionnalités de la plateforme**.
 4. Sélectionnez **Propriétés** : l’adresse IP entrante apparaît sous **Adresse IP virtuelle**.
 
-## <a name="function-app-outbound-ip-addresses"></a>Adresses IP sortantes de l’application de fonction
+## <a name="find-outbound-ip-addresses"></a>Adresses IP sortantes de l’application de fonction
 
 Chaque application de fonction a différentes adresses IP sortantes disponibles. Toute connexion sortante d’une fonction, par exemple, à une base de données principale, utilise l’une des adresses IP sortantes comme adresse IP d’origine. Il n’est pas possible de savoir à l’avance laquelle sera utilisée. C’est pourquoi le service principal doit ouvrir son pare-feu à toutes les adresses IP sortantes de l’application de fonction.
 

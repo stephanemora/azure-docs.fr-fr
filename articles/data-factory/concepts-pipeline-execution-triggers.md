@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867084"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122431"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -81,10 +81,10 @@ Selon la définition JSON, le pipeline accepte deux paramètres : **sourceBlobCo
 Vous pouvez exécuter manuellement votre pipeline à l’aide d’une des méthodes suivantes :
 - Kit de développement logiciel (SDK) .NET
 - Module Azure PowerShell
-- de l’API REST
+- API REST
 - Kit de développement logiciel (SDK) Python
 
-### <a name="rest-api"></a>de l’API REST
+### <a name="rest-api"></a>API REST
 L’exemple de commande suivant vous montre comment exécuter manuellement votre pipeline à l’aide de l’API REST :  
 
 ```
@@ -278,10 +278,10 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 | Propriété JSON | type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | chaîne | OUI | Aucun | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | objet | OUI | Aucun | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | chaîne | Oui | Aucun | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | objet | Oui | Aucun | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | Non  | 1 | 1 à 1000 | `"interval":10` |
-| **endTime** | chaîne | OUI | Aucun | Une valeur date-heure représentant une heure dans le futur | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | chaîne | Oui | Aucun | Une valeur date-heure représentant une heure dans le futur | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | objet | Non  | Aucun | Un objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>propriété startTime
@@ -324,7 +324,7 @@ Pour obtenir plus d’informations sur les déclencheurs de fenêtre bascule ain
 
 ## <a name="event-based-trigger"></a>Déclencheur basé sur des événements
 
-Les déclencheurs basés sur des événements exécutent des pipelines en réponse aux événements, comme pour l’arrivée ou la suppression d’un fichier, dans le stockage Blob Azure.
+Un déclencheur basé sur des événements exécute des pipelines en réponse aux événements, comme pour l’arrivée ou la suppression d’un fichier, dans Stockage Blob Azure.
 
 Pour plus d’informations sur les déclencheurs basés sur des événements, consultez [Créer un déclencheur qui exécute un pipeline en réponse à un événement](how-to-create-event-trigger.md).
 

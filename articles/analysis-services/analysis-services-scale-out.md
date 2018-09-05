@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4cb7b165311f57fadd63770646907ddfc0378844
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445018"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092092"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -37,19 +37,7 @@ Quand les opérations de traitement sont terminées, une synchronisation doit ê
 
 ## <a name="region-limits"></a>Limites de région
 
-Le nombre de réplicas de requête que vous pouvez configurer est limité par la région de votre serveur. Les limites suivantes s’appliquent :
-
-|Région  |Nombre maximum de réplicas  |
-|---------|---------|
-|Est des États-Unis 2    |    7     |
-|Centre-Ouest des États-Unis     |    7     |
-|Europe de l'Ouest     |    7     |
-|États-Unis de l’Ouest     |     7    |
-|Centre des États-Unis     |     3    |
-|Asie du Sud-Est    |     3    |
-|Toutes les autres régions  |   1    |
-
-
+Le nombre de réplicas de requête que vous pouvez configurer est limité par la région de votre serveur. Pour plus d’informations, consultez [Disponibilité par région](analysis-services-overview.md#availability-by-region).
 
 ## <a name="monitor-qpu-usage"></a>Surveiller l’utilisation des unités de traitement des requêtes
 
@@ -80,7 +68,7 @@ Dans **Vue d’ensemble** > Modèle > **Synchroniser le modèle**.
 
 ![Curseur de montée en charge](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
-### <a name="rest-api"></a>de l’API REST
+### <a name="rest-api"></a>API REST
 Utilisez l’opération de **synchronisation**.
 
 #### <a name="synchronize-a-model"></a>Synchroniser un modèle   

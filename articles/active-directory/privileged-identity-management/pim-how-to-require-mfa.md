@@ -1,6 +1,6 @@
 ---
-title: Exiger l’authentification multifacteur | Microsoft Docs
-description: Découvrez comment exiger l’application de la solution MFA pour les identités dotées de privilèges avec l’extension Azure Active Directory Privileged Identity Management.
+title: Exiger une authentification multifacteur pour les rôles d’annuaire Azure AD dans PIM | Microsoft Docs
+description: Découvrez comment exiger l’authentification multifacteur pour les rôles d’annuaire Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8e1c0fa212b31c05fcc4559f9f8d42b627f0da0e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9777a7d2ed07ea2edf4bea661a5065c808de9f2b
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622845"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188351"
 ---
-# <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Comment exiger l’authentification MFA dans Azure AD Privileged Identity Management
+# <a name="require-multi-factor-authentication-for-azure-ad-directory-roles-in-pim"></a>Exiger une authentification multifacteur pour les rôles d’annuaire Azure AD dans PIM
 Il est vivement recommandé d’exiger l’application de la solution Multi-Factor Authentication (MFA) pour tous vos administrateurs. Cela réduit le risque d'attaque en raison d'un mot de passe compromis.
 
 Vous pouvez exiger que les utilisateurs se soumettent à une authentification MFA lors de leur connexion. Le billet de blog [MFA pour Office 365 et MFA pour Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) compare ce qui est inclus dans Office et les abonnements Azure avec les fonctionnalités contenues dans l'offre Microsoft Azure Multi-Factor Authentication.
@@ -46,5 +46,6 @@ Si les utilisateurs s’authentifient en local, vous pouvez également faire en 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Configurer les paramètres des rôles d’annuaire Azure AD dans PIM](pim-how-to-change-default-settings.md)
+- [Configurer des alertes de sécurité pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-configure-security-alerts.md)

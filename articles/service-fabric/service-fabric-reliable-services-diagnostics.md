@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2018
+ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 51895731efd466a314877e963a5fd2c6d868ec02
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a7ba92d871bb440b7b8c8a12c1e90f9aa10df3be
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110870"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105339"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Fonctionnalité de diagnostic pour Reliable Services avec état
 La classe StatefulServiceBase de Reliable Services avec état dans Azure Service Fabric émet des événements [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) qui peuvent être utilisés pour déboguer le service, fournir des informations sur le fonctionnement du runtime et vous aider lors du dépannage.
@@ -117,7 +117,10 @@ Le runtime Reliable Services émet les événements suivants dans la catégorie 
 
  Nom du compteur | Description |
 | --- | --- |
-| Nombre d’éléments | Nombre de clés dans le magasin.|
+| Nombre d’éléments | Nombre d’éléments dans le magasin.|
+| Taille du disque | Taille totale de disque, en octets, des fichiers de point de contrôle du magasin.|
+| Octets écrits/s dans le fichier de point de contrôle | Nombre d’octets écrits par seconde pour le fichier de point de contrôle le plus récent.|
+| Octets disque transférés/s sur la copie | Nombre d’octets disque lus (sur le réplica principal) ou écrits (sur un réplica secondaire) par seconde lors d’une copie de magasin.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Fournisseurs EventSource dans PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

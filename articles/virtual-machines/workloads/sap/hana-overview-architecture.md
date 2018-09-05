@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9d28b6ea5612a3db539c51d2603c3f12282ca519
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063678"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090414"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Vue d’ensemble et architecture de SAP HANA (grandes instances) sur Azure
 
@@ -132,7 +132,7 @@ Comme avec les machines virtuelles, SAP HANA sur Azure (grandes instances) est p
 
 Tout comme vous avez le choix entre différents types de machines virtuelles avec des machines virtuelles Azure, vous pouvez choisir parmi différentes références SKU de la grande instance HANA adaptées aux divers types de charges de travail de SAP HANA. SAP applique la mémoire aux rapports de socket de processeur pour différentes charges de travail en fonction des générations de processeurs Intel. Le tableau qui suit affiche les types de références SKU proposées.
 
-Le service SAP HANA sur Azure (grandes instances) est disponible dans plusieurs configurations pour les régions Azure des USA Ouest et Est, de l’Australie Est et Sud-Est, de l’Europe Ouest et Nord, du Japon Est et Ouest.
+Le service SAP HANA sur Azure (grandes instances) est disponible dans plusieurs configurations pour les régions Azure USA Ouest, USA Est, Australie Est, Australie Sud-Est, Europe Ouest, Europe Nord, Japon Est et Japon Ouest.
 
 Liste des [Références SKU certifiées SAP HANA des grandes instances HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) telles que :
 
@@ -325,6 +325,10 @@ Cette liste indique la configuration requise pour l’exécution de SAP HANA sur
 Pour consulter la matrice de prise en charge des différentes versions SAP HANA avec les différentes versions Linux, reportez-vous à [Remarque SAP n° 2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
 Pour la matrice de compatibilité des versions de système d’exploitation et de microprogramme/pilote HLI, consultez [Mise à niveau du système d’exploitation pour HLI](os-upgrade-hana-large-instance.md).
+
+
+> [!IMPORTANT] 
+> Pour les unités de Type II, seule la version SLES 12 SP2 du système d’exploitation est actuellement prise en charge. 
 
 
 **Base de données**

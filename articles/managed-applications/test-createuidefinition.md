@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c313538e297c5781b48fcfe9d0d5390f94c97f5
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043361"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747086"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Tester l’interface de portail Azure pour votre application managée
 Après la [création du fichier createUiDefinition.json](create-uidefinition-overview.md) pour votre application gérée Azure, vous devez tester l’expérience utilisateur. Pour simplifier le test, utilisez un script qui charge votre fichier dans le portail. Vous n’avez pas besoin de déployer votre application managée.
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un fichier **createUiDefinition.json**. Si vous n’avez pas ce fichier, copiez l’[exemple de fichier](https://github.com/Azure/azure-quickstart-templates/blob/master/test/template-validation-tests/sample-template/createUIDefinition.json) et enregistrez-le en local.
+* Un fichier **createUiDefinition.json**. Si vous n’avez pas ce fichier, copiez l’[exemple de fichier](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) et enregistrez-le en local.
 
 * Un abonnement Azure. Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -36,16 +36,16 @@ Pour tester votre interface dans le portail, copiez un des scripts suivants sur 
 
 ## <a name="run-script"></a>Exécuter le script
 
-Pour afficher votre fichier d’interface dans le portail, exécutez le script téléchargé. Le script crée un compte de stockage dans votre abonnement Azure et charge votre fichier createUiDefinition.json dans le compte de stockage. Il ouvre ensuite le portail et charge votre fichier à partir du compte de stockage.
+Pour afficher votre fichier d’interface dans le portail, exécutez le script téléchargé. Le script crée un compte de stockage dans votre abonnement Azure et charge votre fichier createUiDefinition.json dans le compte de stockage. Le compte de stockage est créé quand vous exécutez le script pour la première fois, ou si le compte de stockage a été supprimé. Si le compte de stockage existe déjà dans votre abonnement Azure, le script le réutilise. Le script ouvre le portail et charge votre fichier à partir du compte de stockage.
 
-Indiquez un emplacement pour le compte de stockage et spécifiez le dossier contenant votre fichier createUiDefinition.json. Vous ne devez indiquer l’emplacement du compte de stockage que lorsque vous exécutez le script pour la première fois, ou si le compte de stockage a été supprimé.
+Indiquez un emplacement pour le compte de stockage et spécifiez le dossier contenant votre fichier createUiDefinition.json.
 
 Pour PowerShell, utilisez la commande suivante :
 
 ```powershell
 .\SideLoad-CreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
-  -ArtifactsStagingDirectory <path-to-folder-with-createuidefinition>
+  -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
 
 Pour l’interface de ligne de commande Azure, consultez :
@@ -53,7 +53,21 @@ Pour l’interface de ligne de commande Azure, consultez :
 ```azurecli
 ./sideload-createuidef.sh \
   -l southcentralus \
-  -a <path-to-folder-with-createuidefinition>
+  -a .\100-Marketplace-Sample
+```
+
+Si votre fichier createUiDefinition.json se trouve dans le même dossier que le script et que vous avez déjà créé le compte de stockage, vous n’avez pas besoin de fournir ces paramètres.
+
+Pour PowerShell, utilisez la commande suivante :
+
+```powershell
+.\SideLoad-CreateUIDefinition.ps1
+```
+
+Pour l’interface de ligne de commande Azure, consultez :
+
+```azurecli
+./sideload-createuidef.sh
 ```
 
 ## <a name="test-your-interface"></a>Tester votre interface
@@ -73,6 +87,18 @@ Si votre définition d’interface comporte une erreur, vous voyez la descriptio
 Donnez des valeurs aux champs. Lorsque vous avez terminé, vous voyez les valeurs qui sont transmises au modèle.
 
 ![Afficher les valeurs](./media/test-createuidefinition/show-json.png)
+
+Vous pouvez utiliser ces valeurs en tant que fichier de paramètres pour tester votre modèle de déploiement.
+
+## <a name="troubleshooting-the-interface"></a>Résolution des problèmes liés à l’interface
+
+Voici certaines erreurs courantes que vous pouvez voir :
+
+* Le portail ne charge pas votre interface. À la place, il affiche une icône représentant un nuage avec une larme. En règle générale, cette icône apparaît quand votre fichier contient une erreur de syntaxe. Ouvrez le fichier dans Visual Studio Code (ou un autre éditeur JSON doté de la fonctionnalité de validation de schéma) et recherchez les erreurs de syntaxe.
+
+* Le portail se bloque à l’écran récapitulatif. En règle générale, cette interruption se produit quand la section de sortie contient un bogue. Par exemple, vous avez référencé un contrôle inexistant.
+
+* Un paramètre dans la sortie est vide. Le paramètre peut faire référence à une propriété inexistante. Par exemple, la référence au contrôle est valide, mais pas la référence à la propriété.
 
 ## <a name="test-your-solution-files"></a>Tester vos fichiers de solution
 

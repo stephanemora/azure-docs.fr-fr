@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 19a153a5cdc9d5f878494984313baebd12dbcbb5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631161"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43039283"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Prépayer les machines virtuelles avec Azure Reserved VM Instances
 
@@ -30,6 +30,9 @@ Les champs Sous-catégorie du compteur et Produit des données d’utilisation n
 
 Les instances de machines virtuelles réservées sont disponibles pour la plupart des tailles de machine virtuelle, à quelques exceptions près :
 
+- Les machines virtuelles et services cloud classiques ne bénéficient pas de la remise de réservation.
+- Les machines virtuelles Suppressed Core ne bénéficient pas de remises de réservation.
+- Les séries de machines virtuelles suivantes ne bénéficient pas de remises de réservation : série A, série Av2 ou série G.
 - Machines virtuelles en préversion : aucune série ni taille de machine virtuelle en préversion ne peut faire l’objet d’un achat de réservation.
 - Clouds : les réservations ne sont pas disponibles à l’achat dans les régions Azure Gouvernement des États-Unis, Allemagne et Chine.
 - Quota insuffisant : une réservation qui est limitée à un seul abonnement doit avoir un quota de processeurs virtuels disponible dans l’abonnement pour la nouvelle instance réservée. Par exemple, si l’abonnement cible a un quota limite de 10 processeurs virtuels pour la série D, vous ne pouvez pas acheter de réservation pour 11 instances Standard_D1. La vérification du quota pour les réservations inclut les machines virtuelles déjà déployées dans l’abonnement. Par exemple, si l’abonnement a un quota de 10 processeurs virtuels pour la série D et a deux instances Standard_D1 déployées, vous pouvez acheter une réservation pour 10 instances Standard_D1 dans cet abonnement. 
@@ -70,10 +73,10 @@ Pour découvrir comment gérer une réservation, consultez [Gérer les réservat
 Pour plus d’informations sur les réservations Azure, voir les articles suivants :
 
 - [Qu’est-ce qu’une réservation Azure ?](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Manage reservations in Azure](../articles/billing/billing-manage-reserved-vm-instance.md) (Gérer les réservations dans Azure)
-- [Comprendre comment la remise sur réservation est appliquée](../articles/billing/billing-understand-vm-reservation-charges.md)
-- [Comprendre l’usage d’une réservation pour votre abonnement avec paiement à l’utilisation](../articles/billing/billing-understand-reserved-instance-usage.md)
-- [Comprendre l’usage d’une réservation pour votre inscription d’entreprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [Gérer les réservations dans Azure](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Comprendre comment la remise de réservation est appliquée](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../articles/billing/billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [Coûts des logiciels Windows non inclus dans les réservations](../articles/billing/billing-reserved-instance-windows-software-costs.md)
 - [Réservations Azure dans le cadre du programme Fournisseur de solutions Microsoft Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
 

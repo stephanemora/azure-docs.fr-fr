@@ -1,28 +1,23 @@
 ---
-title: Vue d’ensemble d’une application sans serveur dans Azure | Documents Microsoft
-description: Créez des solutions puissantes dans le cloud sans avoir à penser à l’infrastructure.
-keywords: ''
+title: Vue d’ensemble des offres serverless dans Azure | Microsoft Docs
+description: Découvrir la création de solutions puissantes dans le cloud sans se soucier de l’infrastructure
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: klam, estfan, LADocs
+ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 84ff855676215e6b69ec97a1527d14366e763b07
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 97c928c34a18a5d4f3549c348a273df268ee1db0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299924"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123306"
 ---
-# <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Vue d’ensemble d’une application sans serveur dans Azure avec Functions et Logic Apps
+# <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Vue d’ensemble : offres serverless dans Azure avec Azure Logic Apps et Azure Functions
 
 Les applications sans serveur offrent les avantages suivants : augmentation de la vitesse de développement, réduction de code requis et simplicité de mise à l’échelle.  Cet article porte sur les différents attributs des solutions sans serveur et des offres sans serveur dans Azure.
 

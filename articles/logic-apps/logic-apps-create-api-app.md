@@ -1,28 +1,23 @@
 ---
 title: Créer des API Web et des API REST pour Azure Logic Apps | Microsoft Docs
-description: Créez des API Web et des API REST pour appeler vos API, vos services ou vos systèmes à partir de workflows d’applications logiques pour les intégrations système.
-keywords: API Web, API REST, workflows, intégrations système
+description: Créer des API web et des API REST pour appeler vos API, services ou systèmes pour les intégrations système dans Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
+ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172015"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122244"
 ---
-# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Créer des API personnalisées qui peuvent être appelées à partir de workflows d’applications logiques
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Créer des API personnalisées que vous pouvez appeler à partir d’Azure Logic Apps
 
 Bien qu’Azure Logic Apps offre [plus de 100 connecteurs intégrés](../connectors/apis-list.md), que vous pouvez utiliser dans les flux de travail d’application logique, vous voudrez peut-être appeler des API, des systèmes et des services qui ne sont pas disponibles en tant que connecteurs. Vous pouvez créer vos propres API personnalisées, qui fournissent des actions et des déclencheurs utilisables dans des applications logiques. Voici d’autres raisons qui peuvent vous amener à vouloir créer vos propres API de façon à les appeler à partir de workflows d’applications logiques :
 

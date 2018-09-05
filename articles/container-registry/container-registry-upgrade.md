@@ -6,22 +6,26 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 562bd8da54605986e95d8105782ce7ebb9b359ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432386"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189019"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Mettre à niveau un registre de conteneurs Classique
 
-Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service, [appelés références (SKU)](container-registry-skus.md). La version initiale d’ACR proposait une référence unique Classique, à laquelle il manquait plusieurs fonctionnalités inhérentes aux références SKU Basic, Standard et Premium (collectivement appelées registres *managés*). Cet article explique comment migrer votre registre Classique non managé sur une des références SKU managées afin de pouvoir tirer parti de leur jeu de fonctionnalités avancées.
+Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service, [appelés références (SKU)](container-registry-skus.md). La version initiale d’ACR proposait une référence unique Classique, à laquelle il manquait plusieurs fonctionnalités inhérentes aux références SKU Basic, Standard et Premium (collectivement appelées registres *managés*).
+
+La référence SKU Classique est dépréciée et ne sera plus disponible après mars 2019. Cet article explique comment migrer votre registre Classique non managé sur une des références SKU managées afin de pouvoir tirer parti de leur jeu de fonctionnalités avancées.
 
 ## <a name="why-upgrade"></a>Pourquoi procéder à une mise à niveau ?
 
-En raison des capacités limitées des registres Classique non managés, nous vous recommandons de mettre à niveau tous vos registres Classique vers le niveau De base, Standard ou Premium. Ces références (SKU) de niveau supérieur intègrent de manière plus étroite le registre avec les fonctionnalités Azure.
+La référence SKU du registre Classique est **dépréciée** et ne sera plus disponible à partir de **mars 2019**. Tous les registres Classique existants doivent être mis à niveau avant mars 2019.
+
+En raison de la dépréciation planifiée et des capacités limitées des registres Classiques non managés, tous vos registres Classiques doivent passer au niveau De base, Standard ou Premium. Ces références (SKU) de niveau supérieur intègrent de manière plus étroite le registre avec les fonctionnalités Azure.
 
 Les registres managés offrent les fonctionnalités suivantes :
 
@@ -30,7 +34,7 @@ Les registres managés offrent les fonctionnalités suivantes :
 * [Géoréplication](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Notez surtout qu’un registre Classique dépend du compte de stockage qu’Azure approvisionne automatiquement dans votre abonnement Azure quand vous avez créé le registre. En revanche, les références SKU de base, standard et Premium profitent des [fonctionnalités de stockage avancées](container-registry-storage.md) Azure par la gestion pour vous de manière transparente du stockage de vos images. Un compte de stockage distinct n’est pas créé dans votre propre abonnement.
+Le registre Classique dépend du compte de stockage qu’Azure provisionne automatiquement dans votre abonnement Azure quand vous avez créé le registre. En revanche, les références SKU de base, standard et Premium profitent des [fonctionnalités de stockage avancées](container-registry-storage.md) Azure par la gestion pour vous de manière transparente du stockage de vos images. Un compte de stockage distinct n’est pas créé dans votre propre abonnement.
 
 Un stockage de registres managés offre les avantages suivants :
 

@@ -1,49 +1,83 @@
 ---
-title: Ajouter le connecteur Yammer à vos applications logiques Azure | Microsoft Docs
-description: Vue d’ensemble du connecteur Yammer avec les paramètres d’API REST
+title: Se connecter à Yammer à partir d’Azure Logic Apps | Microsoft Docs
+description: Automatiser les tâches et les flux de travail qui supervisent, publient et gèrent les messages, les flux et bien plus encore dans Yammer à l’aide d’Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 63f7b341b456d51cbde523684275a99632a672ed
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 41855d6e562ddbb78df5d1d8794127e1064cc2ca
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296473"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918293"
 ---
-# <a name="get-started-with-the-yammer-connector"></a>Prise en main du connecteur Yammer
-Connectez-vous à Yammer pour accéder aux conversations dans votre réseau d’entreprise. Avec Yammer, vous pouvez effectuer les opérations suivantes :
+# <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Superviser et gérer votre compte Yammer à l’aide d’Azure Logic Apps
 
-* Créer votre flux d’activité en fonction des données que vous obtenez de Yammer. 
-* Utiliser des déclencheurs quand un nouveau message arrive dans un groupe ou un flux que vous suivez.
-* Utiliser des actions pour publier un message, obtenir tous les messages et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un nouveau message apparaît, vous pouvez envoyer un message électronique à l’aide d’Office 365.
+Avec Azure Logic Apps et le connecteur Yammer, vous pouvez créer des tâches et des flux de travail automatisés qui supervisent et gèrent les messages, les flux et bien plus encore dans votre compte Yammer, ainsi que d’autres actions, par exemple :
 
-Commencez par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Superviser l’apparition de nouveaux messages dans les flux et groupes suivis.
+* Obtenir les détails des messages, groupes, réseaux, utilisateurs et bien plus encore.
+* Publier et aimer des messages.
 
-## <a name="create-a-connection-to-yammer"></a>Créer une connexion à Yammer
-Pour utiliser le connecteur Yammer, vous devez créer une **connexion**, puis fournir les détails de ces propriétés : 
+Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre compte Yammer et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions qui effectuent des tâches avec votre compte Yammer. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions Yammer. Par exemple, quand de nouveaux messages s’affichent dans des flux ou des groupes, vous pouvez partager ces messages avec le connecteur Slack. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-| Propriété | Obligatoire | Description |
-| --- | --- | --- |
-| par jeton |OUI |Indiquez les informations d’identification Yammer. |
+## <a name="prerequisites"></a>Prérequis
 
-> [!INCLUDE [Steps to create a connection to Yammer](../../includes/connectors-create-api-yammer.md)]
-> 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
-## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
+* Vos informations d’identification utilisateur et compte Yammer
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/yammer/).
+   Vos informations d’identification autorisent votre application logique à créer une connexion et à accéder à votre compte Yammer.
 
-## <a name="more-connectors"></a>Autres connecteurs
-Revenir à la [liste des API](apis-list.md).
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Yammer. Pour démarrer avec un déclencheur Yammer, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser une action Yammer, démarrez votre application logique avec un autre déclencheur, par exemple, le déclencheur **Périodicité**.
+
+## <a name="connect-to-yammer"></a>Se connecter à Yammer
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
+
+1. Choisissez une procédure : 
+
+   * Pour les applications logiques vides, dans la zone de recherche, entrez « yammer » comme filtre. 
+   Sous la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
+
+     -ou-
+
+   * Pour les applications logiques existantes : 
+   
+     * Sous la dernière étape où vous souhaitez ajouter une action, choisissez **Nouvelle étape**. 
+
+       -ou-
+
+     * Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
+     Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+     
+       Dans la zone de recherche, entrez « yammer » comme filtre. 
+       Sous la liste des actions, sélectionnez l’action souhaitée.
+
+1. Si vous êtes invité à vous connecter à Yammer, faites-le maintenant afin de pouvoir autoriser l’accès.
+
+1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionné et continuez à générer le flux de travail de votre application logique.
+
+## <a name="connector-reference"></a>Référence de connecteur
+
+Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence](/connectors/yammer/) du connecteur.
+
+## <a name="get-support"></a>Obtenir de l’aide
+
+* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524142"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090524"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Tutoriel : Améliorer l’application avec des modèles de rôles
 
@@ -52,7 +52,7 @@ Dans ce tutoriel, l’application Ressources humaines détecte les énoncés sur
 |[Hiérarchique (aucun rôle)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones de **a-2349** à **b-1298**|a-2349, b-1298|
 |Ce tutoriel (avec des rôles)|Transférer Billy Patterson de **Yuma** vers **Denver**.|Yuma, Denver|
 
-Vous ne pouvez pas utiliser l’entité hiérarchique dans le modèle car seuls les parents hiérarchiques sont utilisés dans les parents. Pour retourner les emplacements nommés de l’origine et de la destination, vous devez utiliser un modèle.
+Vous ne pouvez pas utiliser l’entité hiérarchique dans le modèle, car seuls les parents hiérarchiques sont utilisés dans les modèles. Pour retourner les emplacements nommés de l’origine et de la destination, vous devez utiliser un modèle.
 
 ### <a name="simple-entity-for-new-employee-name"></a>Entité simple pour le nom d’un nouvel employé
 Le nom du nouvel employé, Billy Patterson, ne fait pas encore partie de l’entité dans la liste des **employés**. Le nom du nouvel employé est d’abord extrait pour être envoyé vers un système externe afin de créer les informations d’identification de l’entreprise. Une fois les informations d’identification de l’entreprise créées, les informations d’identification des employés sont ajoutées à l’entité dans la liste des **employés**.

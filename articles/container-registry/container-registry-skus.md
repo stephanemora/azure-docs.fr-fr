@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 5d9001bce4f835e4b9b82ba1c30d09f74eebd1d2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5c10c961519614d1560f27c41ba57237085261ba
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442749"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190406"
 ---
 # <a name="azure-container-registry-skus"></a>Références (SKU) Azure Container Registry
 
@@ -24,13 +24,11 @@ Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service,
 | **De base** | Oui | Point d’entrée au coût optimisé pour les développeurs apprenant Azure Container Registry. Les registres De base ont les mêmes fonctionnalités de programmation que les registres Standard et Premium (intégration de l’authentification Azure Active Directory, suppression d’image et webhooks). Toutefois, il existe des contraintes de taille et d’utilisation. |
 | **Standard** | Oui | Les registres standard offrent les mêmes fonctionnalités que la version De base, avec des limites de stockage et un débit d’image accrus. Les registres Standard devraient satisfaire les besoins de la plupart des scénarios de production. |
 | **Premium** | Oui | Les registres Premium fournissent des limites supérieures en matière de contraintes de stockage et d’opérations simultanées, ce qui permet de bénéficier de scénarios à haut volume. En plus de la capacité de débit d’image supérieure, la version Premium ajoute des fonctionnalités telles que la [géoréplication][container-registry-geo-replication] pour la gestion d’un registre parmi plusieurs régions tout en conservant un registre proche du réseau pour chaque déploiement. |
-| Classique | Non  | La référence de registre Classique a permis la publication initiale du service Azure Container Registry dans Azure. Les registres classiques sont secondés par un compte de stockage crée par Azure dans votre abonnement, qui limite la capacité d’ACR à fournir des fonctionnalités de niveau supérieur telles que l’augmentation du débit et la géoréplication. En raison de ses capacités limitées, nous prévoyons de déprécier la référence Classique. |
+| Classique<sup>1</sup> | Non  | La référence SKU a permis la publication initiale du service Azure Container Registry dans Azure. Les registres classiques sont secondés par un compte de stockage crée par Azure dans votre abonnement, qui limite la capacité d’ACR à fournir des fonctionnalités de niveau supérieur telles que l’augmentation du débit et la géoréplication. |
+
+<sup>1</sup> La référence SKU Classique sera **dépréciée** en **mars 2019**. Utilisez les références De base, Standard ou Premium pour tous les nouveaux registres de conteneur.
 
 Le choix d'une référence SKU de niveau supérieur améliore les performances et l’évolutivité. Toutefois, toutes les références SKU managées fournissent les mêmes fonctionnalités de programmation. Avec plusieurs niveaux de service, vous pouvez commencer avec un niveau basique, puis passer aux niveaux Standard et Premium au fur et à mesure que votre l’utilisation du registre augmente.
-
-> [!NOTE]
-> En raison de la dépréciation planifiée de la référence de registre Classique, nous vous recommandons d’utiliser la version De base, Standard ou Premium pour tous les nouveaux registres. Pour plus d’informations sur la conversion de votre registre Classique existant, voir [Mise à niveau d’un registre Classique][container-registry-upgrade].
->
 
 ## <a name="managed-vs-unmanaged"></a>Managé et non managé
 
@@ -41,6 +39,9 @@ Les références SKU de base, Standard et Premium sont collectivement appelées 
 Les registres managés bénéficient du stockage des images entièrement managé par Azure. Autrement dit, le compte de stockage qui stocke vos images n’apparaît pas dans votre abonnement Azure. L’utilisation de l’une des références SKU du registre managée offre plusieurs avantages, présentés en détail dans [Stockage des images conteneur dans Azure Container Registry][container-registry-storage]. Cet article se concentre sur les références SKU de registre managé et leurs fonctionnalités.
 
 ### <a name="unmanaged-classic"></a>Non managé (classique)
+
+> [!IMPORTANT]
+> La référence SKU Classique est dépréciée et ne sera plus disponible après mars 2019. Utilisez les références De base, Standard ou Premium pour tous les nouveaux registres.
 
 Les registres Classiques sont « non managés », dans le sens où le compte de stockage qui soutient un registre Classique se trouve dans *votre* abonnement Azure. Par conséquent, vous êtes responsable de la gestion du compte de stockage rassemblant vos images de conteneur. Avec les registres non managés, vous ne pouvez pas changer de références SKU selon vos besoins (sauf pour effectuer une [mise à niveau][container-registry-upgrade] vers un registre managé), et plusieurs fonctionnalités des registres managés ne sont pas disponibles (par exemple, la suppression d’image conteneur, la [géoréplication][container-registry-geo-replication] et les [webhooks][container-registry-webhook]).
 

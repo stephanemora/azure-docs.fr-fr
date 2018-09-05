@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 14cdb2d3e433da38913ffa29b3b150bdb264278b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1948fb927c00e928a46c347bc6f1a01a43e155df
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658704"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43112137"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Démarrage rapide : installation manuelle d’un système SAP HANA à instance unique sur des machines virtuelles Azure
 ## <a name="introduction"></a>Introduction
@@ -41,7 +41,7 @@ Ce guide suppose également que vous êtes familiarisé avec :
 * Les concepts et les procédures suivants :
    * Planification du déploiement de SAP sur Azure, y compris la planification du réseau virtuel Azure et l’utilisation du stockage Azure. Consultez [SAP NetWeaver sur machines virtuelles Azure – Guide de planification et d’implémentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
    * Principes de déploiement et modalités de déploiement sur des machines virtuelles dans Azure. Consultez [Déploiement de machines virtuelles Azure pour SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide).
-   * Haute disponibilité pour SAP NetWeaver ASC (ABAP SAP Central Services), SCS (SAP Central Services) et ERS (Evaluated Receipt Settlement) sur Azure. Consultez [Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
+   * Haute disponibilité pour SAP NetWeaver ASC (ABAP SAP Central Services), SCS (SAP Central Services) et ERS (Enqueue Replication Server) sur Azure. Consultez [Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
    * Détails sur la façon d’améliorer l’efficacité en tirant parti d’une installation multi-SID d’ASCS/SCS sur Azure. Consultez [Créer une configuration SAP NetWeaver multi-SID](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
    * Principes de l’exécution de SAP NetWeaver basée sur des machines virtuelles pilotées par Linux dans Azure. Consultez [Exécution de SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). Ce guide fournit quelques-uns des paramètres spécifiques à Linux dans les machines virtuelles Azure et explique comment joindre des disques de stockage Azure à des machines virtuelles Linux.
 

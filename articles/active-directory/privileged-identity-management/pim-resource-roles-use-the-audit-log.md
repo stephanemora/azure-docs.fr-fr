@@ -1,6 +1,6 @@
 ---
-title: Auditer les rôles des ressources Azure avec Privileged Identity Management | Microsoft Docs
-description: Explique comment obtenir une vue de toutes les activités de rôle pour une ressource donnée.
+title: Afficher l’historique d’audit pour les rôles de ressources Azure dans PIM | Microsoft Docs
+description: Découvrez comment afficher l’historique d’audit des rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8f328a609d696886ed452589d3cdfb5f45aec62a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c0536423e9640f78149b612ec66b0a07cdcf24bb
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621281"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189309"
 ---
-# <a name="audit-resource-roles-for-azure-resources-by-using-privileged-identity-management"></a>Auditer les rôles des ressources Azure avec Privileged Identity Management 
+# <a name="view-audit-history-for-azure-resource-roles-in-pim"></a>Afficher l’historique d’audit pour les rôles de ressources Azure dans PIM
 
 L’audit d’une ressource vous donne une vue d’ensemble de l’activité des rôles pour la ressource. Vous pouvez filtrer les informations en choisissant une date prédéfinie ou une plage personnalisée.
 ![Filtrer les informations](media/azure-pim-resource-rbac/rbac-resource-audit.png)
@@ -31,7 +31,7 @@ L’audit des ressources offre également un accès rapide aux détails de l’a
 
 ![Plus de détails sur l’activité](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
-# <a name="my-audit"></a>Mon audit
+## <a name="my-audit"></a>Mon audit
 
 Mon audit vous offre une vue de l’activité du rôle personnel d’un utilisateur. Vous pouvez filtrer les informations en choisissant une date prédéfinie ou une plage personnalisée.
 ![Activité du rôle personnel](media/azure-pim-resource-rbac/my-audit-time.png)
@@ -46,3 +46,6 @@ Si vous sélectionnez une activation de rôle, vous pourrez voir les détails de
 
 ![Sélectionner l’activation de rôle](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Afficher l’historique d’audit pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-use-audit-log.md)

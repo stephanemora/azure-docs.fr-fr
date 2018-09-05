@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 08/24/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 46e46cfea621f99e150446fcc75b71feb468fa49
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aedaa729ec51d7b60b2c242239935f7b3e41794f
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052696"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918185"
 ---
 # <a name="provider-resource-usage-api"></a>API Utilisation des ressources de fournisseur
 Le terme *fournisseur* s’applique à l’administrateur de services et à tous les fournisseurs délégués. Les opérateurs et fournisseurs délégués Azure Stack peuvent utiliser l’API d’utilisation du fournisseur pour consulter l’utilisation de leurs locataires directs. Par exemple, comme indiqué dans le diagramme, P0 peut appeler l’API du fournisseur pour obtenir des informations sur l’utilisation directe de P1 et de P2, et P1 peut effectuer un appel pour obtenir des informations relatives à l’utilisation de P3 et P4.
@@ -93,6 +93,8 @@ meterID1",
 
 ## <a name="retrieve-usage-information"></a>Récupérer les informations sur l’utilisation
 
+### <a name="powershell"></a>PowerShell
+
 Pour générer les données d’utilisation, vous devez disposer de ressources en cours d’exécution qui utilisent activement le système, comme une machine virtuelle active ou un compte de stockage contenant des données. Si vous ne savez pas si vous avez des ressources en cours d’exécution dans la Place de marché Azure Stack, déployez une machine virtuelle et consultez le panneau d’analyse de la machine virtuelle pour vous assurer qu’elle est en cours d’exécution. Pour afficher les données d’utilisation, utilisez les cmdlets PowerShell suivantes :
 
 1. [Installer PowerShell pour Azure Stack.](azure-stack-powershell-install.md)
@@ -101,6 +103,22 @@ Pour générer les données d’utilisation, vous devez disposer de ressources e
 ```powershell
 Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
 ```
+### <a name="rest-api"></a>API REST
+
+Vous pouvez collecter des informations d’utilisation pour les abonnements supprimés en appelant le service Microsoft.Commerce.Admin. 
+
+**Pour retourner l’utilisation de tout le locataire pour les utilisateurs actifs :**
+
+| **Méthode** | **URI de la requête** |
+| --- | --- |
+| GET | https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview |
+
+**Pour retourner l’utilisation pour le locataire supprimé ou actif :**
+
+| **Méthode** | **URI de la requête** |
+| --- | --- |
+| GET |https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Informations de référence sur l’API d’utilisation des ressources de locataire](azure-stack-tenant-resource-usage-api.md)

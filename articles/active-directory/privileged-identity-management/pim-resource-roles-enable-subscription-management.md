@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management pour les ressources Azure - Activer la gestion des abonnements | Microsoft Docs
-description: Découvrez comment les administrateurs généraux peuvent gérer les abonnements dans le locataire.
+title: Activer la gestion des abonnements dans votre locataire - Azure | Microsoft Docs
+description: Découvrez comment activer la gestion des abonnements dans votre locataire lorsque vous utilisez Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d7a9c0090d3bfaaf1161b6255c4c0b659c77d692
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89bb6fd48c58b7672b7a2251a172cc169093d368
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620278"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189993"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Activer la gestion des abonnements dans votre locataire
 
@@ -79,14 +79,5 @@ Maintenant que vous disposez d’affectations éligibles pour les abonnements im
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrir des ressources](pim-resource-roles-discover-resources.md)
-
-[Configurer des paramètres de rôle](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [Découvrir les ressources Azure de gestion dans PIM](pim-resource-roles-discover-resources.md)
+- [Configurer les paramètres des rôles de ressources Azure dans PIM](pim-resource-roles-configure-role-settings.md)

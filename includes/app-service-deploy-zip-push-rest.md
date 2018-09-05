@@ -12,7 +12,7 @@ L’exemple suivant utilise l’outil cURL pour déployer un fichier .zip. Rempl
 curl -X POST -u <deployment_user> --data-binary @"<zip_file_path>" https://<app_name>.scm.azurewebsites.net/api/zipdeploy
 ```
 
-Cette demande déclenche le déploiement par envoi (push) à partir du fichier .zip chargé. Vous pouvez examiner les déploiements en cours et passés en utilisant le point de terminaison https://<nom_application>.scm.azurewebsites.net/api/deployments, comme le montre l’exemple cURL suivant. Ici encore, remplacez `<app_name>` par le nom de votre application et `<deployment_user>` par le nom d’utilisateur de vos informations d’identification de déploiement.
+Cette demande déclenche le déploiement par envoi (push) à partir du fichier .zip chargé. Vous pouvez examiner les déploiements en cours et passés en utilisant le point de terminaison `https://<app_name>.scm.azurewebsites.net/api/deployments`, comme le montre l’exemple cURL suivant. Ici encore, remplacez `<app_name>` par le nom de votre application et `<deployment_user>` par le nom d’utilisateur de vos informations d’identification de déploiement.
 
 ```bash
 curl -u <deployment_user> https://<app_name>.scm.azurewebsites.net/api/deployments

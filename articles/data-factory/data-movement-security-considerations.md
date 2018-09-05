@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493968"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745666"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considérations de sécurité relatives au déplacement des données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,11 @@ Tous les transferts de données entre les services de déplacement des données 
 
 > [!NOTE]
 > Toutes les connexions à Azure SQL Database et à Azure SQL Data Warehouse doivent être chiffrées (via SSL/TLS) lorsque les données sont en transit depuis et vers la base de données. Lorsque vous créez un pipeline à l’aide de JSON, ajoutez la propriété de chiffrement et définissez sa valeur sur **true** dans la chaîne de connexion. Pour le stockage Azure, vous pouvez utiliser **HTTPS** dans la chaîne de connexion.
+
+> [!NOTE]
+> Pour activer le chiffrement en transit pendant le déplacement de données depuis Oracle, suivez l’une des options suivantes :
+> 1. Sur le serveur Oracle, accédez à Oracle Advanced Security (OAS) et configurez les paramètres de chiffrement, qui prennent en charge les chiffrements Triple DES (3DES) et Advanced Encryption Standard (AES) ; les détails sont disponibles [ici](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF négocie automatiquement la méthode de chiffrement pour utiliser celle que vous configurez dans OAS durant l’établissement de la connexion à Oracle.
+> 2. Dans ADF, vous pouvez ajouter EncryptionMethod=1 dans la chaîne de connexion (dans le service lié). Cette opération utilise SSL/TLS comme méthode de chiffrement. Pour l’utiliser, vous devez désactiver les paramètres de chiffrement non SSL dans OAS du côté serveur Oracle pour éviter tout conflit de chiffrement.
 
 > [!NOTE]
 > La version du protocole TLS utilisée est 1.2.

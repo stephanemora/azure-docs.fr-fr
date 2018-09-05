@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: adae7ea79ada9247382c88e58f1ba5331007985b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: cb4b7f8851c6c891ca43f6c215ba812a0c784d28
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324491"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108136"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Démarrage rapide de PowerShell dans Azure Cloud Shell (préversion)
 
@@ -258,7 +258,6 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) est disponible dans le Cloud Shell PowerShell.
 Pour vous authentifier auprès des serveurs ou machines virtuelles à l’aide de SSH, générez la paire de clés publique/privée dans le Cloud Shell et publiez la clé publique dans `authorized_keys` sur l’ordinateur distant, tel que `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]

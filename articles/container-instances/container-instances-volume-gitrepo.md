@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 06/15/2018
 ms.author: marsma
-ms.openlocfilehash: e40d841c07534c9c0074c038d1e3c6e435265564
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 34036c5ec9ccd8c502104ce862e4749c59be62b9
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166777"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105202"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Monter un volume GitRepo dans Azure Container Instances
 
@@ -30,7 +30,7 @@ Lorsque vous montez un volume *GitRepo*, vous pouvez définir trois propriétés
 
 | Propriété | Obligatoire | Description |
 | -------- | -------- | ----------- |
-| `repository` | OUI | URL complète incluant `http://` ou `https://` du référentiel Git à cloner.|
+| `repository` | Oui | URL complète incluant `http://` ou `https://` du référentiel Git à cloner.|
 | `directory` | Non  | Répertoire dans lequel le référentiel doit être cloné. Le chemin d’accès ne peut pas contenir ou commencer par « `..` ».  Si vous spécifiez « `.` », le référentiel est cloné dans le répertoire du volume. Autrement, le référentiel Git est cloné dans un sous-répertoire du nom spécifié à l’intérieur du répertoire de volume. |
 | `revision` | Non  | Hachage de validation de la révision à cloner. À défaut de spécification, la révision `HEAD` est clonée. |
 
@@ -69,8 +69,7 @@ Pour monter un volume gitRepo lorsque vous déployez des instances de conteneurs
 
 Par exemple, le modèle Resource Manager suivant crée un groupe de conteneurs consistant en un seul conteneur. Le conteneur clone deux référentiels GitHub spécifiés par les blocs de volume *GitRepo*. Le deuxième volume inclut des propriétés supplémentaires spécifiant un répertoire vers lequel cloner, ainsi que le hachage de validation d’une révision spécifique à cloner.
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
-[!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json --> [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 La structure ainsi obtenue de répertoire des deux référentiels clonés définis dans le modèle précédent est la suivante :
 
@@ -80,6 +79,28 @@ La structure ainsi obtenue de répertoire des deux référentiels clonés défin
 ```
 
 Pour voir un exemple de déploiement d’instance de conteneur avec un modèle Azure Resource Manager, consultez [Déployer des groupes de plusieurs conteneurs dans Azure Container Instances](container-instances-multi-container-group.md).
+
+## <a name="private-git-repo-authentication"></a>Authentification des dépôts Git privés
+
+Pour monter un volume gitRepo pour un dépôt Git privé, spécifiez les informations d’identification dans l’URL du dépôt. En règle générale, les informations d’identification se présentent sous la forme d’un nom d’utilisateur et d’un jeton d’accès personnel (PAT) qui accorde un accès limité au dépôt.
+
+Par exemple, le paramètre `--gitrepo-url` de l’interface de ligne de commande Azure pour un dépôt GitHub privé doit ressembler à ce qui suit (où « gituser » est le nom d’utilisateur GitHub et « abcdef1234fdsa4321abcdef » est le jeton d’accès personnel de l’utilisateur) :
+
+```azurecli
+--gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
+```
+
+Pour un dépôt Git VSTS, spécifiez n’importe quel nom d’utilisateur (vous pouvez utiliser « vstsuser » comme dans l’exemple suivant) en association avec un jeton PAT valide :
+
+```azurecli
+--gitrepo-url https://vstsuser:abcdef1234fdsa4321abcdef@vstsaccountname.visualstudio.com/_git/some-private-repository
+```
+
+Pour plus d’informations sur les jetons d’accès personnel pour GitHub et VSTS, consultez les rubriques suivantes :
+
+GitHub : [Creating a personal access token for the command line][pat-github]
+
+VSTS : [Créer des jetons d’accès personnel pour authentifier l’accès][pat-vsts]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -91,6 +112,8 @@ Découvrez comment monter d’autres types de volumes dans Azure Container Insta
 
 <!-- LINKS - External -->
 [aci-helloworld]: https://github.com/Azure-Samples/aci-helloworld
+[pat-github]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+[pat-vsts]: https://docs.microsoft.com/vsts/organizations/accounts/use-personal-access-tokens-to-authenticate
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

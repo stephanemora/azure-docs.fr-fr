@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529500"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818484"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole SMB standard. Comme Azure Files est entièrement managé, son déploiement dans des scénarios de production est beaucoup plus simple que le déploiement et la gestion d’un serveur de fichiers ou d’un appareil NAS. Cet article aborde les rubriques à prendre en compte lors du déploiement d’un partage de fichiers Azure pour une utilisation en production dans votre organisation.
@@ -81,7 +81,7 @@ Azure Files prend en charge trois options de redondance des données : le stock
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Modèle de croissance des données
-Aujourd’hui, la taille maximale d’un partage de fichiers Azure est de 5 Tio, y compris les instantanés du partage. En raison de cette limitation actuelle, vous devez prendre en compte la croissance attendue des données quand vous déployez un partage de fichiers Azure. Notez qu’un compte de stockage Azure peut stocker plusieurs partages dans la limite de 500 Tio sur tous les partages.
+Aujourd’hui, la taille maximale d’un partage de fichiers Azure est de 5 Tio. En raison de cette limitation actuelle, vous devez prendre en compte la croissance attendue des données quand vous déployez un partage de fichiers Azure. Notez qu’un compte de stockage Azure peut stocker plusieurs partages dans la limite de 500 Tio sur tous les partages.
 
 Vous pouvez synchroniser plusieurs partages de fichiers Azure sur un même serveur de fichiers Windows avec Azure File Sync. Cela vous permet d’inclure dans Azure File Sync les partages de fichiers plus anciens et très volumineux que vous pouvez avoir localement. Consultez [Planification d’un déploiement Azure File Sync](storage-files-planning.md) pour plus d’informations.
 

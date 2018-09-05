@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246552"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091822"
 ---
 # <a name="sql-database-faq"></a>Forum Aux Questions de base de données SQL
 
@@ -155,7 +155,7 @@ Par exemple :
 - Si vous créez une instance Managed Instance dans le niveau Usage général incluant 8 vCores, puis procédez immédiatement à une mise à niveau vers 16 vCores, vous êtes facturé pour 16 vCores pendant la première heure.
 
 > [!NOTE]
-> Pour une durée limitée, jusqu’au 30 juin 2018, les frais de sauvegarde et d’E/S ne sont pas facturés.
+> Pendant une durée limitée, les frais de sauvegarde et d’E/S ne sont pas facturés.
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Comment l’utilisation de la géoréplication active dans un pool élastique apparaît-elle sur ma facture ?
 Contrairement aux bases de données uniques, l’utilisation de la [géoréplication active](sql-database-geo-replication-overview.md) avec des bases de données élastiques n’a pas d’incidence directe sur la facturation.  Vous êtes uniquement facturé pour les ressources provisionnées pour chaque pool (pool principal et pool secondaire)

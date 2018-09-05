@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f825a2a343d9b5ad8f9802042b7aca2ba1544dfb
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42432287"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917400"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Notes de publication d’App Service sur Azure Stack Update 3
 
@@ -178,6 +178,21 @@ Valider
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
+
+### <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
+
+- Les Workers ne peuvent pas atteindre le serveur de fichiers si App Service est déployé dans un réseau virtuel existant et si le serveur de fichiers est uniquement disponible sur le réseau privé.  Cela est aussi évoqué dans la documentation de déploiement d’Azure App Service sur Azure Stack.
+
+Si vous avez choisi de procéder au déploiement dans un réseau virtuel existant et une adresse IP interne pour vous connecter à votre serveur de fichiers, vous devez ajouter une règle de sécurité sortante, qui autorise le trafic SMB entre le sous-réseau Worker et le serveur de fichiers. Pour ce faire, accédez au WorkersNsg dans le portail d’administration, puis ajoutez une règle de sécurité sortante comportant les propriétés suivantes :
+ * Source : Toutes
+ * Plage de ports source : : *
+ * Destination : adresses IP
+ * Plage d’adresses IP de destination : plage d’adresses IP de votre serveur de fichiers
+ * Plage de ports de destination : 445
+ * Protocole : TCP
+ * Action : Autoriser
+ * Priorité : 700
+ * Nom : Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Problèmes connus des administrateurs cloud utilisant Azure App Service sur Azure Stack
 

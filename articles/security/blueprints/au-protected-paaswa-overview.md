@@ -6,14 +6,14 @@ author: meladie
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: a8d2eca785ad166aa4cff26bce876e41770a3427
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246231"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818271"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Blueprint de sécurité et de conformité Azure : application web PaaS pour Australia PROTECTED
 
@@ -28,7 +28,7 @@ La mise en conformité à ASD nécessite que le système soit audité par un aud
 ## <a name="architecture-diagram-and-components"></a>Diagramme et composants de l’architecture
 Cette solution fournit une architecture de référence pour une application web PaaS avec un serveur principal Azure SQL Database. L’application web est hébergée dans un environnement Azure App Service dédié, privé et isolé dans un centre de données Azure. L’environnement équilibre la charge du trafic pour l’application web entre des machines virtuelles gérées par Azure. Toutes les connexions des applications web nécessitent TLS version 1.2 au minimum. Cette architecture inclut également des groupes de sécurité réseau, une passerelle d’application (Azure Application Gateway), un DNS (Azure DNS) et un équilibreur de charge (Azure Load Balancer).
 
-L’architecture peut fournir un environnement hybride sécurisé qui étend un réseau local sur Azure, ce qui rend les charges de travail web accessibles de façon sécurisée par les utilisateurs via le réseau local d’une organisation ou depuis Internet. Pour les solutions locales, le client est comptable et responsable de tous les aspects de la sécurité, de l’exploitation et de la conformité.
+L’architecture peut fournir un environnement hybride sécurisé qui étend un réseau local sur Azure, ce qui permet aux utilisateurs professionnels d’accéder aux charges de travail web de façon sécurisée via le réseau local privé d’une organisation ou depuis Internet. Pour les solutions locales, le client est comptable et responsable de tous les aspects de la sécurité, de l’exploitation et de la conformité.
 
 Les ressources Azure incluses dans cette solution peuvent se connecter à une installation de partage d’emplacement de réseau local ou de centre de données (par exemple CDC à Canberra) avec un VPN IPSec en utilisant une passerelle VPN et via ExpressRoute. La décision d’utiliser un VPN doit se prendre en fonction de la classification des données transmises et du chemin réseau. Les clients qui exécutent des charges de travail critiques à grande échelle avec les exigences du Big Data doivent envisager d’utiliser une architecture réseau hybride avec ExpressRoute pour la connexion d’un réseau privé aux services Azure. Pour plus d’informations sur les mécanismes de connexion à Azure, reportez-vous à la section des [conseils et des recommandations](#guidance-and-recommendations).
 
@@ -36,7 +36,7 @@ La fédération avec Azure Active Directory doit être utilisée pour permettre 
 
 La solution utilise des comptes de stockage Azure que les clients peuvent configurer pour utiliser Storage Service Encryption afin de maintenir la confidentialité des données au repos. Azure stocke trois copies des données dans la région sélectionnée par le client pour assurer la résilience. Les régions Azure sont déployées dans des paires de régions résilientes, et le stockage géoredondant garantit que les données sont répliquées dans la deuxième région avec trois copies également. Ceci empêche qu’un événement dommageable se produisant à l’emplacement principal des données du client entraîne une perte de données.
 
-Pour renforcer la sécurité, toutes les ressources Azure de cette solution sont gérées sous la forme d’un groupe de ressources via Azure Resource Manager. Le contrôle d’accès en fonction du rôle Azure Active Directory est utilisé pour contrôler l’accès aux données déployées et aux clés dans Azure Key Vault. L’intégrité du système est surveillée dans Azure Security Center et Azure Monitor. Les clients configurent ces deux services de surveillance pour la capture de journaux et la centralisation des informations concernant l’intégrité du système dans un tableau de bord facilement consultable. Azure Application Gateway est configuré comme un pare-feu en mode prévention et n’autorise pas le trafic qui n’est pas TLS v1.2 ou ultérieur. La solution utilise Azure Application Service Environment v2 pour isoler la couche web dans un environnement non mutualisé.
+Pour renforcer la sécurité, toutes les ressources Azure de cette solution sont gérées sous la forme d’un groupe de ressources via Azure Resource Manager. Le contrôle d’accès en fonction du rôle Azure Active Directory est utilisé pour contrôler l’accès aux données déployées et aux clés dans Azure Key Vault. L’intégrité du système est surveillée dans Azure Security Center et Azure Monitor. Les clients configurent ces deux services de surveillance pour la capture de journaux et la centralisation des informations concernant l’intégrité du système dans un tableau de bord facilement consultable. Azure Application Gateway est configuré comme un pare-feu en mode prévention et n’autorise pas le trafic qui n’est pas TLS v1.2 ou ultérieur. La solution utilise Azure Application Service Environment v2 pour isoler la couche web dans un environnement non mutualisé.
 
 ![Diagramme de l’architecture de référence d’application web PaaS pour AU-PROTECTED](images/au-protected-paaswa-architecture.png?raw=true "Diagramme de l’architecture de référence d’application web PaaS pour AU-PROTECTED")
 
@@ -68,7 +68,7 @@ Cette solution utilise les services Azure suivants. Pour plus d’informations, 
 - Coffre Recovery Services
 - Application web Azure
 
-Ce blueprint contient des services Azure qui n’ont pas été certifiés par ACSC (Australian Cyber Security Centre) pour une utilisation au niveau de classification « Protected » (Protégé). Microsoft recommande aux clients d’examiner les rapports de sécurité et d’audit publiés à propos de ces services Azure, et d’utiliser leur infrastructure de gestion des risques pour déterminer si le service Azure convient pour leur accréditation interne et l’utilisation au niveau de classification « Protected » (Protégé).
+Ce blueprint contient des services Azure qui n’ont pas été certifiés par ACSC (Australian Cyber Security Centre) pour être utilisés au niveau de classification « Protected » (Protégé). Microsoft recommande aux clients d’examiner les rapports de sécurité et d’audit publiés à propos de ces services Azure, et d’utiliser leur infrastructure de gestion des risques pour déterminer si le service Azure convient pour leur accréditation interne et l’utilisation au niveau de classification « Protected » (Protégé).
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
 La section suivante décrit en détail les éléments nécessaires au déploiement et à l’implémentation.
@@ -95,7 +95,7 @@ L’utilisation d’environnements App Service pour cette architecture permet le
 - Hôte dans un réseau virtuel Azure sécurisé avec des règles de sécurité réseau
 - Environnements App Service configurés avec un certificat d’équilibreur de charge interne auto-signé pour la communication HTTPS. Microsoft préconise l’utilisation d’une autorité de certification approuvée pour renforcer la sécurité.
 - [Mode Équilibrage de charge interne](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (mode 3)
-- Désactivation de [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- Désactivation de [TLS versions 1.0 et 1.1](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Changement du [chiffrement TLS](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Contrôle des [ports réseau de trafic entrant](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
 - [Pare-feu d’applications web – Restreindre les données](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
@@ -128,11 +128,9 @@ Par défaut, Azure chiffre toutes les communications avec les centres de donnée
 
 Pour les données « Protected » (Protégé) en transit depuis des réseaux détenus par le client, l’architecture utilise Internet ou ExpressRoute avec une passerelle VPN configurée pour IPSec.
 
-De plus, toutes les transactions sur Azure via le portail de gestion Azure se font via HTTPS avec TLS 1.2.
-Données au repos
+De plus, toutes les transactions sur Azure via le portail de gestion Azure se font via HTTPS avec TLS v1.2.
 
 ### <a name="data-at-rest"></a>Données au repos
-
 L’architecture protège les données au repos à l’aide d’un chiffrement, d’un audit de base de données et d’autres mesures.
 
 **Stockage Azure** : pour répondre aux exigences de chiffrement des données au repos, l’ensemble du service [Stockage Azure](https://azure.microsoft.com/services/storage/) utilise la fonctionnalité de chiffrement [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Ceci permet de protéger et de sauvegarder les données dans le respect des engagements de l’organisation en matière de sécurité et des exigences de conformité définies par le manuel ISM de l’administration australienne.
@@ -151,7 +149,7 @@ L’architecture protège les données au repos à l’aide d’un chiffrement, 
 ### <a name="identity-management"></a>Gestion des identités
 Les clients peuvent utiliser les services de fédération Active Directory (AD FS) locaux pour la fédération avec [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), qui est le service de gestion des annuaires et des identités cloud multilocataire de Microsoft. [Azure Active Directory Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) intègre vos annuaires locaux à Azure Active Directory. Tous les utilisateurs de cette solution nécessitent des comptes Azure Active Directory, notamment ceux qui accèdent à Azure SQL Database. Avec l’authentification de fédération, les utilisateurs peuvent se connecter à Azure Active Directory et s’authentifier auprès des ressources Azure avec des informations d’identification locales.
 
-En outre, les fonctionnalités d’Azure Active Directory suivantes aident à gérer l’accès aux données dans l’environnement Azure :
+De plus, les fonctionnalités Azure Active Directory suivantes aident à gérer l’accès aux données dans l’environnement Azure :
 - L’authentification auprès de l’application est effectuée à l’aide d’Azure Active Directory. Pour plus d’informations, consultez [Intégration d’applications à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). En outre, le chiffrement des colonnes de base de données utilise Azure Active Directory pour authentifier l’application auprès d’Azure SQL Database. Pour plus d’informations, découvrez comment [protéger des données sensibles dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 - Le [contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permet aux administrateurs de définir des autorisations d’accès affinées pour n’accorder aux utilisateurs que l’accès dont ils ont besoin pour accomplir leur travail. Au lieu d’accorder à tous les utilisateurs des autorisations illimitées sur les ressources Azure, les administrateurs peuvent autoriser seulement certaines actions pour accéder aux données. Par exemple, l’accès aux abonnements est limité à l’administrateur d’abonnements.
 - La solution [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) permet aux clients de minimiser le nombre d’utilisateurs qui ont accès à des informations spécifiques. Les administrateurs peuvent utiliser Azure Active Directory Privileged Identity Management pour découvrir, restreindre et superviser les identités privilégiées et leur accès aux ressources. Cette fonctionnalité permet également d’appliquer un accès administratif juste-à-temps à la demande si nécessaire.
@@ -204,7 +202,7 @@ Les [solutions de gestion](https://docs.microsoft.com/azure/log-analytics/log-an
 
 **Azure Monitor** : [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) permet aux utilisateurs de suivre les performances, d’assurer le maintien de la sécurité et d’identifier les tendances en permettant aux organisations d’auditer, de créer des alertes et d’archiver des données, notamment en lien avec le suivi des appels d’API dans leurs ressources Azure.
 
-Azure Network Watcher : [Azure Network Watcher]9https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) offre des outils permettant de surveiller, diagnostiquer, consulter des métriques, et activer et désactiver des journaux pour les ressources d’un réseau virtuel Azure.  Les entités du Commonwealth doivent implémenter les journaux des flux Network Watcher pour les groupes de sécurité réseau et les machines virtuelles. Ces journaux doivent être stockés dans un compte de stockage dédié où seuls les journaux de sécurité sont stockés, et l’accès au compte de stockage doit être sécurisé avec des contrôles d’accès en fonction du rôle.
+Azure Network Watcher : [Azure Network Watcher]9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) offre des outils permettant de surveiller, diagnostiquer, consulter des métriques, et activer et désactiver des journaux pour les ressources d’un réseau virtuel Azure.  Les entités du Commonwealth doivent implémenter les journaux des flux Network Watcher pour les groupes de sécurité réseau et les machines virtuelles. Ces journaux doivent être stockés dans un compte de stockage dédié où seuls les journaux de sécurité sont stockés, et l’accès au compte de stockage doit être sécurisé avec des contrôles d’accès en fonction du rôle.
 
 ## <a name="threat-model"></a>Modèle de menace
 

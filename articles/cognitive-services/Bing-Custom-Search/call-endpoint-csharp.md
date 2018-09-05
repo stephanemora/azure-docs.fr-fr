@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 32644fe0cf0a6e1666d2d1ee6efb826bf753f001
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41931330"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42814861"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Appeler le point de terminaison Recherche personnalisée Bing (C#)
 
@@ -123,6 +123,7 @@ Pour exécuter cet exemple, suivez ces étapes :
     <pre>
     dotnet build 
     </pre>
+    
 7. Exécutez l’application à l’aide de la commande suivante en remplaçant **PATH TO OUTPUT** par le chemin référencé par l’étape de génération.
 
     <pre>    

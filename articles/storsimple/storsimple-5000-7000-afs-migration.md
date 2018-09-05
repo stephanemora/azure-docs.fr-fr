@@ -11,16 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/15/2018
+ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d54394a8dc74d04f1922a78826b10a4a421d193b
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146369"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42814588"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrer des données d’un appareil StorSimple 5000-7000 vers Azure File Sync
+
+> [!IMPORTANT]
+> La fin du support de la série StorSimple 5000/7000 interviendra le 31 juillet 2019. Nous recommandons aux clients de la série StorSimple 5000/7000 de migrer vers l’une des alternatives décrites dans le document.
 
 La migration des données désigne le processus de déplacement des données d’un emplacement de stockage à un autre. Cela implique de réaliser une copie exacte des données actuelles d’une organisation d’un appareil à l’autre (de préférence sans interrompre ou désactiver les applications actives), puis de rediriger toutes les activités d’entrées/de sorties vers le nouvel appareil. 
 

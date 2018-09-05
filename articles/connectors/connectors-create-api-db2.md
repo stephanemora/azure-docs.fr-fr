@@ -1,282 +1,368 @@
 ---
-title: Se connecter à DB2 - Azure Logic Apps | Microsoft Docs
-description: Gérer les ressources avec les API REST DB2 et Azure Logic Apps
-author: gplarsen
-manager: jeconnoc
-ms.author: plarsen
-ms.date: 09/26/2016
-ms.topic: article
-ms.service: logic-apps
+title: Se connecter à IBM DB2 - Azure Logic Apps | Microsoft Docs
+description: Gérer les ressources avec les API REST IBM DB2 et Azure Logic Apps
 services: logic-apps
-ms.reviewer: klam, estfan
+ms.service: logic-apps
+author: ecfan
+ms.author: estfan
+ms.reviewer: plarsen, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 507bc48b6b775d6a6fb5f855210d33520e187a74
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 354e67183a36f511811d74a0685dea2e23d6c0e2
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295089"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818873"
 ---
-# <a name="get-started-with-the-db2-connector"></a>Prise en main du connecteur DB2
-Le connecteur Microsoft pour DB2 connecte Logic Apps aux ressources stockées dans une base de données IBM DB2. Ce connecteur inclut un client Microsoft permettant de communiquer avec les ordinateurs serveurs DB2 distants via un réseau TCP/IP. Cela inclut les bases de données cloud, telles qu’IBM Bluemix dashDB ou IBM DB2 pour Windows en cours d’exécution dans la virtualisation Azure et les bases de données locales utilisant la passerelle de données locale. Consultez la [liste de prise en charge](connectors-create-api-db2.md#supported-db2-platforms-and-versions) des plates-formes et versions IBM DB2 (dans cette rubrique).
+# <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gérer les ressources IBM DB2 avec Azure Logic Apps
 
-Le connecteur DB2 prend en charge les opérations de bases de données suivantes :
+Avec Azure Logic Apps et le connecteur IBM DB2, vous pouvez créer des flux de travail et des tâches automatisés basés sur les ressources stockées dans votre base de données DB2. Vos flux de travail peuvent se connecter aux ressources dans votre base de données, lire et lister vos tables de base de données, ajouter des lignes, changer des lignes, supprimer des lignes, et bien plus encore. Vous pouvez inclure des actions dans vos applications logiques qui obtiennent des réponses de votre base de données et mettent la sortie à la disposition d’autres actions. 
 
-* énumération des tables de base de données ;
-* lecture d’une ligne à l’aide de l’instruction SELECT ;
-* lecture de toutes les lignes à l’aide de l’instruction SELECT ;
-* ajout d’une ligne à l’aide de l’instruction INSERT ;
-* modification d’une ligne à l’aide de l’instruction UPDATE ;
-* suppression d’une ligne à l’aide de l’instruction DELETE.
+Cet article explique comment vous pouvez créer une application logique qui effectue différentes opérations de base de données. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
 
-Cette rubrique décrit comment utiliser le connecteur dans une application logique pour traiter les opérations de base de données.
+## <a name="supported-platforms-and-versions"></a>Plateformes et versions prises en charge
 
-Pour plus d’informations sur Logic Apps, voir [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Le connecteur DB2 inclut un client Microsoft qui communique avec les serveurs DB2 distants via un réseau TCP/IP. Vous pouvez utiliser ce connecteur pour accéder aux bases de données cloud telles qu’IBM Bluemix dashDB ou IBM DB2 pour Windows s’exécutant dans la virtualisation Azure. Vous pouvez également accéder à des bases de données DB2 locales après avoir [installé et configuré la passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). 
 
-## <a name="available-actions"></a>Actions disponibles
-Le connecteur DB2 prend en charge les actions d’applications logiques suivantes :
+Le connecteur IBM DB2 prend en charge les plateformes et versions IBM DB2 ci-après, ainsi que les produits IBM DB2 compatibles, tels qu’IBM Bluemix dashDB, qui prennent en charge les versions 10 et 11 de SQL Access Manager (SQLAM) DRDA (Distributed Relational Database Architecture) :
 
-* GetTables
-* GetRow
-* GetRows
-* InsertRow
-* UpdateRow
-* DeleteRow
+| Plateforme | Version | 
+|----------|---------|
+| IBM DB2 pour z/OS | 11.1, 10.1 |
+| IBM DB2 pour i | 7.3, 7.2, 7.1 |
+| IBM DB2 pour LUW | 11, 10.5 |
+|||
 
-## <a name="list-tables"></a>Affichage de la liste des tables
-La création d’une application logique pour une opération quelconque implique de nombreuses étapes exécutées par le biais du Portail Microsoft Azure.
+## <a name="supported-database-operations"></a>Opérations de base de données prises en charge
 
-Dans l’application logique, vous pouvez ajouter une action pour répertorier les tables dans une base de données DB2. L’action indique au connecteur de traiter une instruction de schéma DB2, telle que `CALL SYSIBM.SQLTABLES`.
+Le connecteur IBM DB2 prend en charge les opérations de base de données ci-après, qui ont une action correspondante dans le connecteur :
 
-### <a name="create-a-logic-app"></a>Créer une application logique
-1. Dans le **Panneau de démarrage Azure**, sélectionnez **+** (signe plus), **Web + mobile**, puis **Application logique**.
-2. Entrez le **Nom**, tel que `Db2getTables`, **Abonnement**, **Groupe de ressources**, **Emplacement** et **Plan App Service**. Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
+| Opération de base de données | Action dans le connecteur | 
+|--------------------|------------------|
+| énumération des tables de base de données ; | Obtenir des tables | 
+| lecture d’une ligne à l’aide de l’instruction SELECT ; | Obtenir une ligne | 
+| lecture de toutes les lignes à l’aide de l’instruction SELECT ; | Obtenir des lignes | 
+| ajout d’une ligne à l’aide de l’instruction INSERT ; | Insérer une ligne | 
+| Modifier une ligne à l’aide de l’instruction UPDATE | Mettre à jour une ligne | 
+| suppression d’une ligne à l’aide de l’instruction DELETE. | Supprimer la ligne | 
+|||
 
-### <a name="add-a-trigger-and-action"></a>Ajouter un déclencheur et une action
-1. Dans **Concepteur d’applications logiques**, sélectionnez **Blank LogicApp** (Application logique vide) dans la liste **Modèles**.
-2. Dans la liste **déclencheurs**, sélectionnez **Périodicité**. 
-3. Dans le déclencheur **Périodicité**, sélectionnez **Modifier**, sélectionnez la liste déroulante **Fréquence** et sélectionnez **Jour**, puis sélectionnez **Intervalle** et tapez **7**.  
-4. Sélectionnez **+ Nouvelle étape**, puis sélectionnez **Ajouter une action**.
-5. Dans la liste **actions**, tapez `db2` dans la zone de modification **Search for more actions** (Rechercher d’autres actions), puis sélectionnez **DB2 - Get tables (Preview)** (DB2 - Obtenir les tables (version préliminaire)).
+## <a name="prerequisites"></a>Prérequis
+
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+
+* Une base de données IBM DB2, cloud ou locale
+
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* L’application logique à partir de laquelle vous souhaitez accéder à la base de données DB2. Ce connecteur ne fournit que des actions ; ainsi, pour démarrer votre application logique, sélectionnez un déclencheur distinct, par exemple, le déclencheur **Périodicité**.
+Les exemples dans cet article utilisent le déclencheur **Périodicité**.
+
+<a name="add-db2-action"></a>
+
+## <a name="add-db2-action---get-tables"></a>Ajouter une action DB2 : Obtenir les tables
+
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques, si elle n’est pas encore ouverte.
+
+1. Sous le déclencheur, choisissez **Nouvelle étape**.
+
+1. Dans la zone de recherche, entrez « db2 » comme filtre. Pour cet exemple, sous la liste des actions, sélectionnez cette action : **Obtenir les tables (préversion)**
    
-   ![](./media/connectors-create-api-db2/Db2connectorActions.png)  
-6. Dans le volet de configuration **DB2 - Get tables** (DB2 - Obtenir les tables), cochez la **case** pour activer l’option **Connect via on-premises data gateway** (Connecter par le biais de la passerelle de données locale). Vous remarquerez que les paramètres de cloud sont remplacés par les paramètres locaux.
+   ![Action select](./media/connectors-create-api-db2/select-db2-action.png)
+
+   Vous êtes maintenant invité à fournir les détails de connexion de votre base de données DB2. 
+
+1. Suivez la procédure permettant de créer des connexions pour des [bases de données cloud](#cloud-connection) ou celle permettant d’en créer pour des [bases de données locales](#on-premises-connection).
+
+<a name="cloud-connection"></a>
+
+## <a name="connect-to-cloud-db2"></a>Se connecter à des bases de données DB2 cloud
+
+Pour configurer votre connexion, indiquez les détails de connexion ci-après quand vous y êtes invité, choisissez **Créer**, puis enregistrez votre application logique :
+
+| Propriété | Obligatoire | Description | 
+|----------|----------|-------------| 
+| **Se connecter via une passerelle locale** | Non  | Ne concerne que les connexions locales. | 
+| **Nom de connexion** | Oui | Le nom de votre connexion, par exemple, « MyLogicApp-DB2-connection » |
+| **Serveur** | Oui | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server.cloudapp.net:50000 » <p><p>**Remarque** : Cette valeur est une chaîne qui représente une adresse ou un alias TCP/IP, au format IPv4 ou IPv6, suivis d’un caractère deux-points et d’un numéro de port TCP/IP. |
+| **Base de données** | Oui | Nom de votre base de données <p><p>**Remarque** : Cette valeur est une chaîne qui représente un nom de base de données relationnelle DRDA (RDBNAM) : <p>- DB2 pour z/OS accepte une chaîne de 16 octets où la propriété de base de données correspond à un emplacement « IBM DB2 pour z/OS ». <br>- DB2 pour i accepte une chaîne de 18 octets où la propriété de base de données correspond à une base de données relationnelle « IBM DB2 pour i ». <br>- DB2 pour LUW accepte une chaîne de 8 octets. |
+| **Nom d’utilisateur** | Oui | Votre nom d’utilisateur pour la base de données <p><p>**Remarque** : Cette valeur est une chaîne dont la longueur est basée sur la base de données spécifique : <p><p>- DB2 pour z/OS accepte une chaîne de 8 octets. <br>- DB2 pour i accepte une chaîne de 10 octets. <br>- DB2 pour Linux ou UNIX accepte une chaîne de 8 octets. <br>- DB2 pour Windows accepte une chaîne de 30 octets. | 
+| **Mot de passe** | Oui | Votre mot de passe pour la base de données | 
+|||| 
+
+Par exemple : 
+
+![Détails de connexion pour les bases de données cloud](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
+
+<a name="on-premises-connection"></a>
+
+## <a name="connect-to-on-premises-db2"></a>Se connecter à des bases de données DB2 locales
+
+Avant de créer votre connexion, vous devez disposer de votre passerelle de données locale. Sinon, vous ne pouvez pas terminer la configuration de votre connexion. Si votre passerelle est installée, indiquez les détails de connexion ci-après, puis choisissez **Créer**.
+
+| Propriété | Obligatoire | Description | 
+|----------|----------|-------------| 
+| **Se connecter via une passerelle locale** | Oui | S’applique quand vous souhaitez une connexion locale et affiche les propriétés de cette dernière. | 
+| **Nom de connexion** | Oui | Le nom de votre connexion, par exemple, « MyLogicApp-DB2-connection » | 
+| **Serveur** | Oui | L’adresse ou alias (suivi d’un caractère deux-points et du numéro de port) de votre serveur DB2, par exemple, « myDB2server:50000 » <p><p>**Remarque** : Cette valeur est une chaîne qui représente une adresse ou un alias TCP/IP, au format IPv4 ou IPv6, suivis d’un caractère deux-points et d’un numéro de port TCP/IP. | 
+| **Base de données** | Oui | Nom de votre base de données <p><p>**Remarque** : Cette valeur est une chaîne qui représente un nom de base de données relationnelle DRDA (RDBNAM) : <p>- DB2 pour z/OS accepte une chaîne de 16 octets où la propriété de base de données correspond à un emplacement « IBM DB2 pour z/OS ». <br>- DB2 pour i accepte une chaîne de 18 octets où la propriété de base de données correspond à une base de données relationnelle « IBM DB2 pour i ». <br>- DB2 pour LUW accepte une chaîne de 8 octets. | 
+| **Authentification** | Oui | Type d’authentification pour votre connexion, par exemple, « De base » <p><p>**Remarque** : Sélectionnez cette valeur dans la liste, qui comprend De base ou Windows (Kerberos). | 
+| **Nom d’utilisateur** | Oui | Votre nom d’utilisateur pour la base de données <p><p>**Remarque** : Cette valeur est une chaîne dont la longueur est basée sur la base de données spécifique : <p><p>- DB2 pour z/OS accepte une chaîne de 8 octets. <br>- DB2 pour i accepte une chaîne de 10 octets. <br>- DB2 pour Linux ou UNIX accepte une chaîne de 8 octets. <br>- DB2 pour Windows accepte une chaîne de 30 octets. | 
+| **Mot de passe** | Oui | Votre mot de passe pour la base de données | 
+| **Passerelle** | Oui | Nom de votre passerelle de données locale installée <p><p>**Remarque** : Sélectionnez cette valeur dans la liste, qui inclut toutes les passerelles de données installées dans vos groupe de ressources et abonnement Azure. | 
+|||| 
+
+Par exemple : 
+
+![Détails de connexion pour les bases de données locales](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
+
+### <a name="view-output-tables"></a>Afficher les tables de sortie
+
+Pour exécuter votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur. Une fois que l’application logique a terminé de s’exécuter, vous pouvez voir la sortie de l’exécution.
+
+1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. 
+
+1. Sous **Résumé**, dans la section **Historique des exécutions**, sélectionnez l’exécution la plus récente, qui correspond au premier élément dans la liste. 
+
+   ![Afficher l’historique des exécutions](./media/connectors-create-api-db2/run-history.png)
+
+1. Sous **Exécution d’application logique**, vous pouvez maintenant examiner l’état, les entrées et les sorties pour chaque étape de votre application logique. Développez l’action **Obtenir les tables**.
+
+   ![Développer l’action](./media/connectors-create-api-db2/expand-action-step.png)
+
+1. Pour afficher les entrées, choisissez **Afficher les entrées brutes**. 
+
+1. Pour afficher les sorties, choisissez **Afficher les sorties brutes**. 
+
+   Les sorties incluent une liste de tables. 
    
-   * Renseignez la zone **Serveur**sous la forme d’une adresse ou d’un alias suivis d’un caractère deux-points et d’un numéro de port. Par exemple, tapez `ibmserver01:50000`.
-   * Renseignez la zone **Base de données**. Par exemple, tapez `nwind`.
-   * Renseignez la zone **Authentification**. Par exemple, sélectionnez **De base**.
-   * Renseignez la zone **Nom d’utilisateur**. Par exemple, tapez `db2admin`.
-   * Renseignez la zone **Mot de passe**. Par exemple, tapez `Password1`.
-   * Renseignez la zone **Passerelle**. Par exemple, sélectionnez **datagateway01**.
-7. Sélectionnez **Créer**, puis sélectionnez **Enregistrer**. 
+   ![Afficher les tables de sortie](./media/connectors-create-api-db2/db2-connector-get-tables-outputs.png)
+
+## <a name="get-row"></a>Obtenir une ligne
+
+Pour extraire un seul enregistrement d’une table de base de données DB2, utilisez l’action **Obtenir la ligne** dans votre application logique. Cette action exécute une instruction `SELECT WHERE` DB2, par exemple, `SELECT FROM AREA WHERE AREAID = '99999'`.
+
+1. Si vous n’avez jamais utilisé d’actions DB2 dans votre application logique, suivez les étapes de la section [Ajouter une action DB2 : Obtenir les tables](#add-db2-action), mais ajoutez l’action **Obtenir la ligne** à la place, puis revenez ici pour continuer. 
+
+   Une fois que vous avez ajouté l’action **Obtenir la ligne**, voici ce à quoi ressemble votre exemple d’application logique :
+
+   ![Action Obtenir la ligne](./media/connectors-create-api-db2/db2-get-row-action.png)
+
+1. Spécifiez des valeurs pour toutes les propriétés obligatoires (*). Une fois que vous avez sélectionné une table, l’action affiche les propriétés spécifiques aux enregistrements de cette table.
+
+   | Propriété | Obligatoire | Description | 
+   |----------|----------|-------------| 
+   | **Nom de la table** | Oui | Table qui contient l’enregistrement souhaité, par exemple, « AREA » (Zone) ici | 
+   | **ID de zone** | Oui | ID de l’enregistrement souhaité, par exemple, « 99999 » ici | 
+   |||| 
+
+   ![Sélectionner une table](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+
+1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
+
+### <a name="view-output-row"></a>Afficher la ligne de sortie
+
+Pour exécuter votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur. Une fois que l’application logique a terminé de s’exécuter, vous pouvez voir la sortie de l’exécution.
+
+1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. 
+
+1. Sous **Résumé**, dans la section **Historique des exécutions**, sélectionnez l’exécution la plus récente, qui correspond au premier élément dans la liste. 
+
+1. Sous **Exécution d’application logique**, vous pouvez maintenant examiner l’état, les entrées et les sorties pour chaque étape de votre application logique. Développez l’action **Obtenir la ligne**.
+
+1. Pour afficher les entrées, choisissez **Afficher les entrées brutes**. 
+
+1. Pour afficher les sorties, choisissez **Afficher les sorties brutes**. 
+
+   Les sorties incluent la ligne que vous avez spécifiée. 
    
-    ![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
-8. Au niveau du panneau **Db2getTables**, dans la liste **Toutes les exécutions** figurant sous **Résumé**, sélectionnez le premier élément répertorié (dernière exécution).
-9. Dans le panneau **Exécution d’application logique**, sélectionnez **Détails de l’exécution**. Dans la liste **Action**, sélectionnez **Get_tables**. Examinez la zone **État**, qui doit présenter la valeur **Opération réussie**. Sélectionnez le **lien Entrées** pour afficher les entrées. Sélectionnez le **lien Sorties**, et visualisez les sorties, qui doivent inclure une liste de tables.
+   ![Afficher la ligne de sortie](./media/connectors-create-api-db2/db2-connector-get-row-outputs.png)
+
+## <a name="get-rows"></a>Obtenir des lignes
+
+Pour extraire tous les enregistrements d’une table de base de données DB2, utilisez l’action **Obtenir les lignes** dans votre application logique. Cette action exécute une instruction `SELECT` DB2, par exemple, `SELECT * FROM AREA`.
+
+1. Si vous n’avez jamais utilisé d’actions DB2 dans votre application logique, suivez les étapes de la section [Ajouter une action DB2 : Obtenir les tables](#add-db2-action), mais ajoutez l’action **Obtenir les lignes** à la place, puis revenez ici pour continuer. 
+
+   Une fois que vous avez ajouté l’action **Obtenir les lignes**, voici ce à quoi ressemble votre exemple d’application logique :
+
+   ![Action Obtenir les lignes](./media/connectors-create-api-db2/db2-get-rows-action.png)
+
+1. Ouvrez la liste **Nom de la table**, puis sélectionnez la table souhaitée, en l’occurrence « AREA » (Zone) : 
+
+   ![Sélectionner une table](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+
+1. Pour spécifier un filtre ou une requête pour les résultats, choisissez **Afficher les options avancées**.
+
+1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
+
+### <a name="view-output-rows"></a>Afficher les lignes de sortie
+
+Pour exécuter votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur. Une fois que l’application logique a terminé de s’exécuter, vous pouvez voir la sortie de l’exécution.
+
+1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. 
+
+1. Sous **Résumé**, dans la section **Historique des exécutions**, sélectionnez l’exécution la plus récente, qui correspond au premier élément dans la liste. 
+
+1. Sous **Exécution d’application logique**, vous pouvez maintenant examiner l’état, les entrées et les sorties pour chaque étape de votre application logique. Développez l’action **Obtenir les lignes**.
+
+1. Pour afficher les entrées, choisissez **Afficher les entrées brutes**. 
+
+1. Pour afficher les sorties, choisissez **Afficher les sorties brutes**. 
+
+   Les sorties incluent tous les enregistrements de la table spécifiée.
    
-   ![](./media/connectors-create-api-db2/Db2connectorGetTablesLogicAppRunOutputs.png)
+   ![Afficher les lignes de sortie](./media/connectors-create-api-db2/db2-connector-get-rows-outputs.png)
 
-## <a name="create-the-connections"></a>Créer les connexions
-Ce connecteur prend en charge les connexions aux bases de données hébergées en local et dans le cloud à l’aide des propriétés de connexion ci-après. 
+## <a name="insert-row"></a>Insérer une ligne
 
-| Propriété | Description |
-| --- | --- |
-| Serveur |Requis. Accepte une valeur de chaîne qui représente une adresse ou un alias TCP/IP, au format IPv4 ou IPv6, suivis d’un caractère deux-points et d’un numéro de port TCP/IP. |
-| Base de données |Requis. Accepte une valeur de chaîne qui représente un nom de base de données relationnelle DRDA (RDBNAM). DB2 pour z/OS accepte une chaîne de 16 octets (la propriété de base de données correspond à un emplacement IBM DB2 pour z/OS). DB2 pour i5/OS accepte une chaîne de 18 octets (la propriété de base de données correspond à une base de données relationnelle IBM DB2 pour i). DB2 pour LUW accepte une chaîne de 8 octets. |
-| Authentification |facultatif. Accepte la valeur d’élément de liste De base ou Windows (Kerberos). |
-| Nom d’utilisateur |Requis. Accepte une valeur de chaîne. DB2 pour z/OS accepte une chaîne de 8 octets. DB2 pour i accepte une chaîne de 10 octets. DB2 pour Linux ou UNIX accepte une chaîne de 8 octets. DB2 pour Windows accepte une chaîne de 30 octets. |
-| password |Requis. Accepte une valeur de chaîne. |
-| Passerelle |Requis. Accepte une valeur d’élément de liste représentant la passerelle de données locale définie pour Logic Apps dans le groupe de stockage. |
+Pour ajouter un seul enregistrement à une table de base de données DB2, utilisez l’action **Insérer une ligne** dans votre application logique. Cette action exécute une instruction `INSERT` DB2, par exemple, `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
-## <a name="create-the-on-premises-gateway-connection"></a>Créer la connexion de passerelle locale
-Ce connecteur peut accéder à une base de données DB2 locale par le biais de la passerelle locale. Pour plus d’informations, voir les rubriques consacrées aux passerelles. 
+1. Si vous n’avez jamais utilisé d’actions DB2 dans votre application logique, suivez les étapes de la section [Ajouter une action DB2 : Obtenir les tables](#add-db2-action), mais ajoutez l’action **Insérer une ligne** à la place, puis revenez ici pour continuer. 
 
-1. Dans le volet de configuration **Passerelles**, sélectionnez la **case** pour activer l’option **Connect via on-premises data gateway** (Connecter par le biais de la passerelle de données locale). Vous remarquerez que les paramètres de cloud sont remplacés par les paramètres locaux.
-2. Renseignez la zone **Serveur**sous la forme d’une adresse ou d’un alias suivis d’un caractère deux-points et d’un numéro de port. Par exemple, tapez `ibmserver01:50000`.
-3. Renseignez la zone **Base de données**. Par exemple, tapez `nwind`.
-4. Renseignez la zone **Authentification**. Par exemple, sélectionnez **De base**.
-5. Renseignez la zone **Nom d’utilisateur**. Par exemple, tapez `db2admin`.
-6. Renseignez la zone **Mot de passe**. Par exemple, tapez `Password1`.
-7. Renseignez la zone **Passerelle**. Par exemple, sélectionnez **datagateway01**.
-8. Sélectionnez **Créer** pour continuer. 
+   Une fois que vous avez ajouté l’action **Insérer une ligne**, voici ce à quoi ressemble votre exemple d’application logique :
+
+   ![Action Insérer une ligne](./media/connectors-create-api-db2/db2-insert-row-action.png)
+
+1. Spécifiez des valeurs pour toutes les propriétés obligatoires (*). Une fois que vous avez sélectionné une table, l’action affiche les propriétés spécifiques aux enregistrements de cette table. 
+
+   Pour cet exemple, voici les propriétés :
+
+   | Propriété | Obligatoire | Description | 
+   |----------|----------|-------------| 
+   | **Nom de la table** | Oui | Table à laquelle ajouter l’enregistrement, telle que « AREA » (Zone) | 
+   | **ID de zone** | Oui | ID de la zone à ajouter, tel que « 99999 » | 
+   | **Description de la zone** | Oui | Description de la zone à ajouter, par exemple « Area 99999 » (Zone 99999) | 
+   | **ID de région** | Oui | ID de la région à ajouter, tel que « 102 » | 
+   |||| 
+
+   Par exemple : 
+
+   ![Sélectionner une table](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+
+1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
+
+### <a name="view-insert-row-outputs"></a>Afficher les sorties d’une insertion de ligne
+
+Pour exécuter votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur. Une fois que l’application logique a terminé de s’exécuter, vous pouvez voir la sortie de l’exécution.
+
+1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. 
+
+1. Sous **Résumé**, dans la section **Historique des exécutions**, sélectionnez l’exécution la plus récente, qui correspond au premier élément dans la liste. 
+
+1. Sous **Exécution d’application logique**, vous pouvez maintenant examiner l’état, les entrées et les sorties pour chaque étape de votre application logique. Développez l’action **Insérer une ligne**.
+
+1. Pour afficher les entrées, choisissez **Afficher les entrées brutes**. 
+
+1. Pour afficher les sorties, choisissez **Afficher les sorties brutes**. 
+
+   Les sorties incluent l’enregistrement que vous avez ajouté à la table spécifiée.
    
-    ![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
+   ![Afficher la sortie avec la ligne insérée](./media/connectors-create-api-db2/db2-connector-insert-row-outputs.png)
 
-## <a name="create-the-cloud-connection"></a>Créer la connexion cloud
-Ce connecteur peut accéder à une base de données DB2 cloud. 
+## <a name="update-row"></a>Mettre à jour une ligne
 
-1. Dans le volet de configuration **Passerelles**, laissez la **case** décochée pour désactiver l’option **Connect via on-premises data gateway** (Connecter par le biais de la passerelle de données locale). 
-2. Renseignez la zone **Nom de la connexion**. Par exemple, tapez `hisdemo2`.
-3. Renseignez la zone **DB2 server name**(Nom du serveur DB2) sous la forme d’une adresse ou d’un alias suivis d’un caractère deux-points et d’un numéro de port. Par exemple, tapez `hisdemo2.cloudapp.net:50000`.
-4. Renseignez la zone **DB2 database name**(Nom de la base de données DB2). Par exemple, tapez `nwind`.
-5. Renseignez la zone **Nom d’utilisateur**. Par exemple, tapez `db2admin`.
-6. Renseignez la zone **Mot de passe**. Par exemple, tapez `Password1`.
-7. Sélectionnez **Créer** pour continuer. 
+Pour mettre à jour un seul enregistrement dans une table de base de données DB2, utilisez l’action **Mettre à jour la ligne** dans votre application logique. Cette action exécute une instruction `UPDATE` DB2, par exemple, `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`.
+
+1. Si vous n’avez jamais utilisé d’actions DB2 dans votre application logique, suivez les étapes de la section [Ajouter une action DB2 : Obtenir les tables](#add-db2-action), mais ajoutez l’action **Mettre à jour la ligne** à la place, puis revenez ici pour continuer. 
+
+   Une fois que vous avez ajouté l’action **Mettre à jour la ligne**, voici ce à quoi ressemble votre exemple d’application logique :
+
+   ![Action Mettre à jour la ligne](./media/connectors-create-api-db2/db2-update-row-action.png)
+
+1. Spécifiez des valeurs pour toutes les propriétés obligatoires (*). Une fois que vous avez sélectionné une table, l’action affiche les propriétés spécifiques aux enregistrements de cette table. 
+
+   Pour cet exemple, voici les propriétés :
+
+   | Propriété | Obligatoire | Description | 
+   |----------|----------|-------------| 
+   | **Nom de la table** | Oui | Table dans laquelle mettre à jour l’enregistrement, telle que « AREA » (Zone) | 
+   | **ID de ligne** | Oui | ID de l’enregistrement à mettre à jour, tel que « 99999 » | 
+   | **ID de zone** | Oui | Nouvel ID de zone, tel que « 99999 » | 
+   | **Description de la zone** | Oui | Nouvelle description de la zone, telle que « Updated 99999 » (99999 mise à jour) | 
+   | **ID de région** | Oui | Nouvel ID de région, tel que « 102 » | 
+   |||| 
+
+   Par exemple : 
+
+   ![Sélectionner une table](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+
+1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
+
+### <a name="view-update-row-outputs"></a>Afficher les sorties d’une mise à jour de ligne
+
+Pour exécuter votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur. Une fois que l’application logique a terminé de s’exécuter, vous pouvez voir la sortie de l’exécution.
+
+1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. 
+
+1. Sous **Résumé**, dans la section **Historique des exécutions**, sélectionnez l’exécution la plus récente, qui correspond au premier élément dans la liste. 
+
+1. Sous **Exécution d’application logique**, vous pouvez maintenant examiner l’état, les entrées et les sorties pour chaque étape de votre application logique. Développez l’action **Mettre à jour la ligne**.
+
+1. Pour afficher les entrées, choisissez **Afficher les entrées brutes**. 
+
+1. Pour afficher les sorties, choisissez **Afficher les sorties brutes**. 
+
+   Les sorties incluent l’enregistrement que vous avez mis à jour dans la table spécifiée.
    
-    ![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
+   ![Afficher la sortie avec la ligne mise à jour](./media/connectors-create-api-db2/db2-connector-update-row-outputs.png)
 
-## <a name="fetch-all-rows-using-select"></a>Extraire toutes les lignes à l’aide de l’instruction SELECT
-Vous pouvez définir une action d’application logique pour qu’elle extraie toutes les lignes d’une table DB2. Cela indique au connecteur de traiter une instruction SELECT DB2, telle que `SELECT * FROM AREA`.
+## <a name="delete-row"></a>Supprimer la ligne
 
-### <a name="create-a-logic-app"></a>Créer une application logique
-1. Dans le **Panneau de démarrage Azure**, sélectionnez **+** (signe plus), **Web + mobile**, puis **Application logique**.
-2. Entrez le **Nom**, tel que `Db2getRows`, **Abonnement**, **Groupe de ressources**, **Emplacement** et **Plan App Service**. Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
+Pour supprimer un seul enregistrement d’une table de base de données DB2, utilisez l’action **Supprimer la ligne** dans votre application logique. Cette action exécute une instruction `DELETE` DB2, par exemple, `DELETE FROM AREA WHERE AREAID = '99999'`.
 
-### <a name="add-a-trigger-and-action"></a>Ajouter un déclencheur et une action
-1. Dans **Concepteur d’applications logiques**, sélectionnez **Blank LogicApp** (Application logique vide) dans la liste **Modèles**.
-2. Dans la liste **déclencheurs**, sélectionnez **Périodicité**. 
-3. Dans le déclencheur **Périodicité**, sélectionnez **Modifier**, sélectionnez la liste déroulante **Fréquence** et sélectionnez **Jour**, puis sélectionnez **Intervalle** et tapez **7**. 
-4. Sélectionnez **+ Nouvelle étape**, puis sélectionnez **Ajouter une action**.
-5. Dans la liste **actions**, tapez `db2` dans la zone de modification **Search for more actions** (Rechercher d’autres actions), puis sélectionnez **DB2 - Get rows (Preview)** (DB2 - Obtenir les lignes (version préliminaire)).
-6. Dans l’action **Get rows (Preview)** (Obtenir les lignes (version préliminaire)), sélectionnez **Modifier la connexion**.
-7. Dans le volet de configuration **Connexions**, sélectionnez **Créer**. 
+1. Si vous n’avez jamais utilisé d’actions DB2 dans votre application logique, suivez les étapes de la section [Ajouter une action DB2 : Obtenir les tables](#add-db2-action), mais ajoutez l’action **Supprimer la ligne** à la place, puis revenez ici pour continuer. 
+
+   Une fois que vous avez ajouté l’action **Supprimer la ligne**, voici ce à quoi ressemble votre exemple d’application logique :
+
+   ![Action Supprimer la ligne](./media/connectors-create-api-db2/db2-delete-row-action.png)
+
+1. Spécifiez des valeurs pour toutes les propriétés obligatoires (*). Une fois que vous avez sélectionné une table, l’action affiche les propriétés spécifiques aux enregistrements de cette table. 
+
+   Pour cet exemple, voici les propriétés :
+
+   | Propriété | Obligatoire | Description | 
+   |----------|----------|-------------| 
+   | **Nom de la table** | Oui | Table de laquelle supprimer l’enregistrement, telle que « AREA » (Zone) | 
+   | **ID de ligne** | Oui | ID de l’enregistrement à supprimer, tel que « 99999 » | 
+   |||| 
+
+   Par exemple : 
+
+   ![Sélectionner une table](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+
+1. Une fois terminé, dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
+
+### <a name="view-delete-row-outputs"></a>Afficher les sorties d’une suppression de ligne
+
+Pour exécuter votre application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur. Une fois que l’application logique a terminé de s’exécuter, vous pouvez voir la sortie de l’exécution.
+
+1. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. 
+
+1. Sous **Résumé**, dans la section **Historique des exécutions**, sélectionnez l’exécution la plus récente, qui correspond au premier élément dans la liste. 
+
+1. Sous **Exécution d’application logique**, vous pouvez maintenant examiner l’état, les entrées et les sorties pour chaque étape de votre application logique. Développez l’action **Supprimer la ligne**.
+
+1. Pour afficher les entrées, choisissez **Afficher les entrées brutes**. 
+
+1. Pour afficher les sorties, choisissez **Afficher les sorties brutes**. 
+
+   Les sorties n’incluent plus l’enregistrement que vous avez supprimé de la table spécifiée.
    
-    ![](./media/connectors-create-api-db2/Db2connectorNewConnection.png)
-8. Dans le volet de configuration **Passerelles**, laissez la **case** décochée pour désactiver l’option **Connect via on-premises data gateway** (Connecter par le biais de la passerelle de données locale).
-   
-   * Renseignez la zone **Nom de la connexion**. Par exemple, tapez `HISDEMO2`.
-   * Renseignez la zone **DB2 server name**(Nom du serveur DB2) sous la forme d’une adresse ou d’un alias suivis d’un caractère deux-points et d’un numéro de port. Par exemple, tapez `HISDEMO2.cloudapp.net:50000`.
-   * Renseignez la zone **DB2 database name**(Nom de la base de données DB2). Par exemple, tapez `NWIND`.
-   * Renseignez la zone **Nom d’utilisateur**. Par exemple, tapez `db2admin`.
-   * Renseignez la zone **Mot de passe**. Par exemple, tapez `Password1`.
-9. Sélectionnez **Créer** pour continuer.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
-10. Dans la liste **Nom de la table**, sélectionnez la **flèche vers le bas**, puis sélectionnez **AREA**.
-11. Si vous le souhaitez, sélectionnez **Afficher les options avancées** pour spécifier les options de requête.
-12. Sélectionnez **Enregistrer**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowsTableName.png)
-13. Au niveau du panneau **Db2getRows**, dans la liste **Toutes les exécutions** figurant sous **Résumé**, sélectionnez le premier élément répertorié (dernière exécution).
-14. Dans le panneau **Exécution d’application logique**, sélectionnez **Détails de l’exécution**. Dans la liste **Action**, sélectionnez **Get_rows**. Examinez la zone **État**, qui doit présenter la valeur **Opération réussie**. Sélectionnez le **lien Entrées** pour afficher les entrées. Sélectionnez le **lien Sorties**, et visualisez les sorties, qui doivent inclure une liste de lignes.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowsOutputs.png)
+   ![Afficher la sortie sans la ligne supprimée](./media/connectors-create-api-db2/db2-connector-delete-row-outputs.png)
 
-## <a name="add-one-row-using-insert"></a>ajout d’une ligne à l’aide de l’instruction INSERT ;
-Vous pouvez définir une action d’application logique pour qu’elle ajoute une ligne à une table DB2. Cette action indique au connecteur de traiter une instruction INSERT DB2, telle que `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+## <a name="connector-reference"></a>Référence de connecteur
 
-### <a name="create-a-logic-app"></a>Créer une application logique
-1. Dans le **Panneau de démarrage Azure**, sélectionnez **+** (signe plus), **Web + mobile**, puis **Application logique**.
-2. Entrez le **Nom**, tel que `Db2insertRow`, **Abonnement**, **Groupe de ressources**, **Emplacement** et **Plan App Service**. Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
+Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/db2/). 
 
-### <a name="add-a-trigger-and-action"></a>Ajouter un déclencheur et une action
-1. Dans **Concepteur d’applications logiques**, sélectionnez **Blank LogicApp** (Application logique vide) dans la liste **Modèles**.
-2. Dans la liste **déclencheurs**, sélectionnez **Périodicité**. 
-3. Dans le déclencheur **Périodicité**, sélectionnez **Modifier**, sélectionnez la liste déroulante **Fréquence** et sélectionnez **Jour**, puis sélectionnez **Intervalle** et tapez **7**. 
-4. Sélectionnez **+ Nouvelle étape**, puis sélectionnez **Ajouter une action**.
-5. Dans la liste **actions**, tapez **db2** dans la zone de modification **Search for more actions** (Rechercher d’autres actions), puis sélectionnez **DB2 - Insert row (Preview)** (DB2 - Insérer une ligne (version préliminaire)).
-6. Dans l’action **DB2 - Insert row (Preview)** (DB2 - Insérer une ligne (version préliminaire)), sélectionnez **Modifier la connexion**. 
-7. Dans le volet de configuration **Connexions** , sélectionnez une connexion. Par exemple, sélectionnez **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. Dans la liste **Nom de la table**, sélectionnez la **flèche vers le bas**, puis sélectionnez **AREA**.
-9. Entrez des valeurs pour toutes les colonnes requises (signalées par un astérisque rouge). Par exemple, tapez `99999` pour **AREAID**, tapez `Area 99999`, puis tapez la valeur `102` pour **REGIONID**. 
-10. Sélectionnez **Enregistrer**.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorInsertRowValues.png)
-11. Au niveau du panneau **Db2insertRow**, dans la liste **Toutes les exécutions** figurant sous **Résumé**, sélectionnez le premier élément répertorié (dernière exécution).
-12. Dans le panneau **Exécution d’application logique**, sélectionnez **Détails de l’exécution**. Dans la liste **Action**, sélectionnez **Get_rows**. Examinez la zone **État**, qui doit présenter la valeur **Opération réussie**. Sélectionnez le **lien Entrées** pour afficher les entrées. Sélectionnez le **lien Sorties**, et visualisez les sorties, qui doivent inclure la nouvelle ligne.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorInsertRowOutputs.png)
+## <a name="get-support"></a>Obtenir de l’aide
 
-## <a name="fetch-one-row-using-select"></a>Extraire une ligne à l’aide de l’instruction SELECT
-Vous pouvez définir une action d’application logique pour qu’elle extraie une ligne d’une table DB2. Cette action indique au connecteur de traiter une instruction SELECT WHERE DB2, telle que `SELECT FROM AREA WHERE AREAID = '99999'`.
-
-### <a name="create-a-logic-app"></a>Créer une application logique
-1. Dans le **Panneau de démarrage Azure**, sélectionnez **+** (signe plus), **Web + mobile**, puis **Application logique**.
-2. Renseignez les zones **Nom** (par exemple, « **Db2getRow** »), **Abonnement**, **Groupe de ressources**, **Emplacement** et **Plan App Service**. Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
-
-### <a name="add-a-trigger-and-action"></a>Ajouter un déclencheur et une action
-1. Dans **Concepteur d’applications logiques**, sélectionnez **Blank LogicApp** (Application logique vide) dans la liste **Modèles**. 
-2. Dans la liste **déclencheurs**, sélectionnez **Périodicité**. 
-3. Dans le déclencheur **Périodicité**, sélectionnez **Modifier**, sélectionnez la liste déroulante **Fréquence** et sélectionnez **Jour**, puis sélectionnez **Intervalle** et tapez **7**. 
-4. Sélectionnez **+ Nouvelle étape**, puis sélectionnez **Ajouter une action**.
-5. Dans la liste **actions**, tapez **db2** dans la zone de modification **Search for more actions** (Rechercher d’autres actions), puis sélectionnez **DB2 - Get rows (Preview)** (DB2 - Obtenir les lignes (version préliminaire)).
-6. Dans l’action **Get rows (Preview)** (Obtenir les lignes (version préliminaire)), sélectionnez **Modifier la connexion**. 
-7. Dans le volet de configuration **Connexions** , sélectionnez une connexion existante. Par exemple, sélectionnez **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. Dans la liste **Nom de la table**, sélectionnez la **flèche vers le bas**, puis sélectionnez **AREA**.
-9. Entrez des valeurs pour toutes les colonnes requises (signalées par un astérisque rouge). Par exemple, tapez `99999` pour **AREAID**. 
-10. Si vous le souhaitez, sélectionnez **Afficher les options avancées** pour spécifier les options de requête.
-11. Sélectionnez **Enregistrer**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowValues.png)
-12. Au niveau du panneau **Db2getRow**, dans la liste **Toutes les exécutions** figurant sous **Résumé**, sélectionnez le premier élément répertorié (dernière exécution).
-13. Dans le panneau **Exécution d’application logique**, sélectionnez **Détails de l’exécution**. Dans la liste **Action**, sélectionnez **Get_rows**. Examinez la zone **État**, qui doit présenter la valeur **Opération réussie**. Sélectionnez le **lien Entrées** pour afficher les entrées. Sélectionnez le **lien Sorties**, et visualisez les sorties, qui doivent inclure une ligne.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowOutputs.png)
-
-## <a name="change-one-row-using-update"></a>Modifier une ligne à l’aide de l’instruction UPDATE
-Vous pouvez définir une action d’application logique pour qu’elle modifie une ligne d’une table DB2. Cette action indique au connecteur de traiter une instruction UPDATE DB2, telle que `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
-
-### <a name="create-a-logic-app"></a>Créer une application logique
-1. Dans le **Panneau de démarrage Azure**, sélectionnez **+** (signe plus), **Web + mobile**, puis **Application logique**.
-2. Entrez le **Nom**, tel que `Db2updateRow`, **Abonnement**, **Groupe de ressources**, **Emplacement** et **Plan App Service**. Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
-
-### <a name="add-a-trigger-and-action"></a>Ajouter un déclencheur et une action
-1. Dans **Concepteur d’applications logiques**, sélectionnez **Blank LogicApp** (Application logique vide) dans la liste **Modèles**.
-2. Dans la liste **déclencheurs**, sélectionnez **Périodicité**. 
-3. Dans le déclencheur **Périodicité**, sélectionnez **Modifier**, sélectionnez la liste déroulante **Fréquence** et sélectionnez **Jour**, puis sélectionnez **Intervalle** et tapez **7**. 
-4. Sélectionnez **+ Nouvelle étape**, puis sélectionnez **Ajouter une action**.
-5. Dans la liste **actions**, tapez **db2** dans la zone de modification **Search for more actions** (Rechercher d’autres actions), puis sélectionnez **DB2 - Update row (Preview)** (DB2 - Mettre à jour une ligne (version préliminaire)).
-6. Dans l’action **DB2 - Update row (Preview)** (DB2 - Mettre à jour une ligne (version préliminaire)), sélectionnez **Modifier la connexion**. 
-7. Dans le volet de configuration **Connexions** , sélectionnez une connexion existante. Par exemple, sélectionnez **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. Dans la liste **Nom de la table**, sélectionnez la **flèche vers le bas**, puis sélectionnez **AREA**.
-9. Entrez des valeurs pour toutes les colonnes requises (signalées par un astérisque rouge). Par exemple, tapez `99999` pour **AREAID**, tapez `Updated 99999`, puis tapez la valeur `102` pour **REGIONID**. 
-10. Sélectionnez **Enregistrer**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorUpdateRowValues.png)
-11. Au niveau du panneau **Db2updateRow**, dans la liste **Toutes les exécutions** figurant sous **Résumé**, sélectionnez le premier élément répertorié (dernière exécution).
-12. Dans le panneau **Exécution d’application logique**, sélectionnez **Détails de l’exécution**. Dans la liste **Action**, sélectionnez **Get_rows**. Examinez la zone **État**, qui doit présenter la valeur **Opération réussie**. Sélectionnez le **lien Entrées** pour afficher les entrées. Sélectionnez le **lien Sorties**, et visualisez les sorties, qui doivent inclure la nouvelle ligne.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorUpdateRowOutputs.png)
-
-## <a name="remove-one-row-using-delete"></a>suppression d’une ligne à l’aide de l’instruction DELETE.
-Vous pouvez définir une action d’application logique pour qu’elle supprime une ligne d’une table DB2. Cette action indique au connecteur de traiter une instruction DELETE DB2, telle que `DELETE FROM AREA WHERE AREAID = '99999'`.
-
-### <a name="create-a-logic-app"></a>Créer une application logique
-1. Dans le **Panneau de démarrage Azure**, sélectionnez **+** (signe plus), **Web + mobile**, puis **Application logique**.
-2. Entrez le **Nom**, tel que `Db2deleteRow`, **Abonnement**, **Groupe de ressources**, **Emplacement** et **Plan App Service**. Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
-
-### <a name="add-a-trigger-and-action"></a>Ajouter un déclencheur et une action
-1. Dans **Concepteur d’applications logiques**, sélectionnez **Blank LogicApp** (Application logique vide) dans la liste **Modèles**. 
-2. Dans la liste **déclencheurs**, sélectionnez **Périodicité**. 
-3. Dans le déclencheur **Périodicité**, sélectionnez **Modifier**, sélectionnez la liste déroulante **Fréquence** et sélectionnez **Jour**, puis sélectionnez **Intervalle** et tapez **7**. 
-4. Sélectionnez **+ Nouvelle étape**, puis sélectionnez **Ajouter une action**.
-5. Dans la liste **actions**, sélectionnez **db2** dans la zone de modification **Search for more actions** (Rechercher d’autres actions), puis sélectionnez **DB2 - Delete row (Preview)** (DB2 - Supprimer une ligne (version préliminaire)).
-6. Dans l’action **DB2 - Delete row (Preview)** (DB2 - Supprimer une ligne (version préliminaire)), sélectionnez **Modifier la connexion**. 
-7. Dans le volet de configuration **Connexions** , sélectionnez une connexion existante. Par exemple, sélectionnez **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. Dans la liste **Nom de la table**, sélectionnez la **flèche vers le bas**, puis sélectionnez **AREA**.
-9. Entrez des valeurs pour toutes les colonnes requises (signalées par un astérisque rouge). Par exemple, tapez `99999` pour **AREAID**. 
-10. Sélectionnez **Enregistrer**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorDeleteRowValues.png)
-11. Au niveau du panneau **Db2deleteRow**, dans la liste **Toutes les exécutions** figurant sous **Résumé**, sélectionnez le premier élément répertorié (dernière exécution).
-12. Dans le panneau **Exécution d’application logique**, sélectionnez **Détails de l’exécution**. Dans la liste **Action**, sélectionnez **Get_rows**. Examinez la zone **État**, qui doit présenter la valeur **Opération réussie**. Sélectionnez le **lien Entrées** pour afficher les entrées. Sélectionnez le **lien Sorties**, et visualisez les sorties, qui doivent inclure la ligne supprimée.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
-
-## <a name="supported-db2-platforms-and-versions"></a>Plateformes et versions DB2 prises en charge
-Ce connecteur prend en charge les plateformes et versions IBM DB2 suivantes, ainsi que les produits IBM DB2 compatibles (par exemple, IBM Bluemix dashDB) qui prennent en charge les versions 10 et 11 de SQL Access Manager (SQLAM) DRDA (Distributed Relational Database Architecture) :
-
-* IBM DB2 pour z/OS 11.1
-* IBM DB2 pour z/OS 10.1
-* IBM DB2 pour i 7.3
-* IBM DB2 pour i 7.2
-* IBM DB2 pour i 7.1
-* IBM DB2 pour LUW 11
-* IBM DB2 pour LUW 10.5
-
-## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
-
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/db2/). 
+* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md). Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
 
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

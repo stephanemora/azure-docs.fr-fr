@@ -11,26 +11,46 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: a8756e168a8d75cbe705ce2408b6d363f7435b5c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b5c8c18c6d02710646560f29d4bc7b5784f730a2
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295072"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746875"
 ---
-# <a name="get-started-with-the-box-connector"></a>Prise en main du connecteur Box
-Connectez-vous à Box pour créer des fichiers, supprimer des fichiers et bien plus encore. Avec Box, vous pouvez :
+# <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Créer et gérer des fichiers dans Box avec Azure Logic Apps
+
+Cet article explique comment vous pouvez créer et gérer vos fichiers dans Box depuis une application logique avec le connecteur Box. De cette façon, vous pouvez créer des applications logiques qui automatisent les tâches et les flux de travail pour gérer vos fichiers et d’autres actions, par exemple :
 
 * Créer votre flux d'activité en fonction des données que vous obtenez de Box. 
-* Utiliser des déclencheurs quand un fichier est créé ou mis à jour.
-* Utiliser des actions pour copier un fichier, supprimer un fichier et bien plus encore. Ces actions obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, lorsqu'un fichier est modifié dans Box, vous pouvez le sélectionner et l'envoyer par courrier électronique à l'aide d'Office 365.
 
-Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Déclencher un flux de travail et des tâches automatisés quand un fichier est créé ou mis à jour.
 
-## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
+* Exécuter des actions qui copient un fichier, suppriment un fichier et bien plus encore. 
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/box/).
+  Quand ces actions obtiennent une réponse, elles mettent la sortie à la disposition d’autres actions. 
+  Par exemple, quand un fichier est changé dans Box, vous pouvez l’envoyer dans un e-mail à l’aide d’Office 365.
 
-## <a name="more-connectors"></a>Autres connecteurs
-Revenir à la [liste des API](apis-list.md).
+## <a name="prerequisites"></a>Prérequis
 
+* Un [compte Box](https://www.box.com/home)
+
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+
+* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Box. Pour démarrer votre application logique avec un déclencheur Box, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
+
+## <a name="connector-reference"></a>Référence de connecteur
+
+Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/box/). 
+
+## <a name="get-support"></a>Obtenir de l’aide
+
+* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

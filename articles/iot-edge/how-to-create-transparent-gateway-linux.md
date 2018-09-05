@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f54001c26938ea508111542b930b189342303633
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186860"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247681"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Créer un appareil IoT Edge Linux servant de passerelle transparente
 
@@ -80,9 +80,9 @@ Les étapes suivantes vous guident tout au long du processus de création des ce
    >[!NOTE]
    > **N’utilisez pas** un nom identique au nom d’hôte DNS de la passerelle. Cela provoquerait l’échec de la certification cliente sur ces certificats.
 
-      ```cmd
-      ./certGen.sh create_edge_device_certificate "<gateway device name>"
-      ```
+   ```cmd
+   ./certGen.sh create_edge_device_certificate "<gateway device name>"
+   ```
 
    Les sorties de l’exécution des scripts sont les certificats et la clé suivants :
    * `$WRKDIR/certs/new-edge-device.*`
@@ -101,18 +101,24 @@ Les étapes suivantes vous guident tout au long du processus de création des ce
    * Certificat d’autorité de certification d’appareil : `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * Clé privée d’autorité de certification d’appareil : `$WRKDIR/private/new-edge-device.key.pem`
    * Autorité de certification propriétaire : `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+   
+2. Ouvrez le fichier de configuration IoT Edge. Comme il s’agit d’un fichier protégé, vous devrez peut-être utiliser des privilèges élevés pour y accéder.
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-2.  Définissez les propriétés `certificate` dans le fichier yaml de configuration du démon de sécurité sur le chemin où vous avez placé les fichiers de certificat et de clé.
+3.  Définissez les propriétés `certificate` dans le fichier yaml de configuration du démon Iot Edge sur le chemin où vous avez placé les fichiers de certificat et de clé.
 
-```yaml
-certificates:
-  device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
-```
+   ```yaml
+   certificates:
+     device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
+     device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
+     trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
+   ```
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Déployer EdgeHub sur la passerelle
-Une des fonctionnalités clés d’Azure IoT Edge est la capacité de déployer des modules sur vos appareils IoT Edge à partir du cloud. Dans cette section, vous créez un déploiement apparemment vide ; Toutefois Edge Hub est automatiquement ajouté à tous les déploiements, même si aucun autre module n’est présent. Edge Hub étant le seul module dont vous avez besoin sur un appareil Edge pour qu’il fasse office de passerelle transparente, la création d’un déploiement vide est suffisante. 
+Une des fonctionnalités clés d’Azure IoT Edge est la capacité de déployer des modules sur vos appareils IoT Edge à partir du cloud. Dans cette section, vous créez un déploiement apparemment vide ; toutefois, Edge Hub est automatiquement ajouté à tous les déploiements, même si aucun autre module n’est présent. Edge Hub étant le seul module dont vous avez besoin sur un appareil Edge pour qu’il fasse office de passerelle transparente, la création d’un déploiement vide est suffisante. 
 1. Accédez à votre hub IoT dans le portail Azure.
 2. Accédez à **IoT Edge** et sélectionnez l’appareil IoT Edge à utiliser comme passerelle.
 3. Sélectionnez **Définir modules**.

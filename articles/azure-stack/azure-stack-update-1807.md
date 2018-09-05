@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: dba43f0823282bd385dca30402a9b16fa3b99de6
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: afbe3ff2e6be4e03f8de8ac2490922c3ec788733
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41947960"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091378"
 ---
 # <a name="azure-stack-1807-update"></a>Mise à jour 1807 d’Azure Stack
 
@@ -86,7 +86,7 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
 
 - <!-- TBD | ASDK, IS --> Différentes améliorations ont été apportées au processus de mise à jour afin de le rendre plus fiable. Des correctifs ont également été apportés à l’infrastructure sous-jacente afin de réduire le risque d’interruption pour les charges de travail pendant la mise à jour.
 
-- <!--2292271 | ASDK, IS --> Nous avons corrigé un problème qui empêchait l’application d’une limite de quota modifiée aux abonnements existants. Désormais, quand vous augmentez la limite de quota d’une ressource réseau faisant partie d’une offre et d’un plan associés à un abonnement de locataire, la nouvelle limite s’applique aux abonnements préexistants, ainsi qu’aux nouveaux abonnements.
+- <!--2292271 | ASDK, IS --> Nous avons corrigé un problème qui empêchait l’application d’une limite de quota modifiée aux abonnements existants. Désormais, lorsque vous augmentez la limite de quota d’une ressource réseau faisant partie d’une offre et d’un plan associés à un abonnement d’utilisateur, la nouvelle limite s’applique aux abonnements préexistants, ainsi qu’aux nouveaux abonnements.
 
 - <!-- 448955 | IS ASDK --> Il est désormais possible de consulter avec succès les journaux d’activité des systèmes déployés dans un fuseau horaire UTC+N.    
 
@@ -168,6 +168,8 @@ Pour plus d’informations sur ces vulnérabilités, cliquez sur les liens préc
 Les éléments suivants sont des problèmes connus qui apparaissent après l’installation de cette build.
 
 ### <a name="portal"></a>Portail
+- <!-- 2931230 – IS  ASDK --> Les plans ajoutés à un abonnement utilisateur comme plan d’extension ne peuvent pas être supprimés, même quand vous supprimez le plan de l’abonnement utilisateur. Le plan est conservé jusqu’à ce que les abonnements qui référencent le plan d’extension soient aussi supprimés. 
+
 - <!--2760466 – IS  ASDK --> Quand vous installez un nouvel environnement Azure Stack qui exécute cette version, l’alerte qui indique *Activation requise* peut ne pas s’afficher. L’[activation](azure-stack-registration.md) est nécessaire avant que vous puissiez utiliser la syndication de Place de marché.  
 
 - <!-- TBD - IS ASDK --> Les deux types d’abonnements d’administration qui ont été [introduits avec la version 1804](azure-stack-update-1804.md#new-features) ne doivent pas être utilisés. Les types d’abonnements sont **Abonnement de contrôle** et **Abonnement de consommation**. Ces types d’abonnements sont visibles dans les nouveaux environnements Azure Stack depuis la version 1804, mais ils ne sont pas encore prêts à être utilisés. Vous devez continuer à utiliser le type d’abonnement **Fournisseur par défaut**.
@@ -245,7 +247,9 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
 - <!-- 1662991 IS ASDK --> Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic.  
 
-- <!-- 2724961- IS ASDK --> Quand vous inscrivez le fournisseur de ressources **Microsoft.Insight** dans les paramètres d’abonnement et que vous créez une machine virtuelle Windows avec diagnostics du système d’exploitation invité activés, le graphique de pourcentage d’UC dans la page de vue d’ensemble de machine virtuelle ne peut pas afficher les données de métriques. Pour trouver le graphique de pourcentage d’UC de la machine virtuelle, accédez au panneau **Métriques** et affichez toutes les métriques de machines virtuelles Windows invitées prises en charge.
+- <!-- 2724961- IS ASDK --> Quand vous inscrivez le fournisseur de ressources **Microsoft.Insight** dans les paramètres d’abonnement et que vous créez une machine virtuelle Windows en ayant activé les diagnostics du système d’exploitation invité, la page de vue d’ensemble de la machine virtuelle n’affiche pas les données de métriques. 
+
+   Pour trouver les données de métriques, comme le graphique de pourcentage d’UC, accédez au panneau **Métriques** et affichez toutes les métriques d’invité de machine virtuelle Windows prises en charge.
 
 ### <a name="networking"></a>Mise en réseau  
 

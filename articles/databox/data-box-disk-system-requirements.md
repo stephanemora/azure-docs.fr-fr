@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 7138fa70c8b5615ad84196703f3bd76009ba5811
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 2fdd574adf3587f11984bee2a2549d9bcd0c4c0d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011487"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126003"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Configuration système exigée Azure Data Box Disk (Préversion)
 
@@ -40,7 +40,8 @@ Voici une liste des systèmes d’exploitation pris en charge pour le déverroui
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows |7, 8, 10 |
 | Windows PowerShell |4.0 |
-| .NET Framework |4.5 |
+| .NET Framework |4.5.1 |
+| Windows Management Framework |4.0|
 
 > [!NOTE] 
 > La technologie BitLocker doit être activée sur les clients exécutant l’outil de déverrouillage de disque, et qui sont utilisés pour copier les données.
@@ -52,7 +53,7 @@ Voici une liste des types de stockage pris en charge pour le disque Data Box.
 
 | **Compte de stockage** | **Remarques** |
 | --- | --- |
-| Classique | Standard |
+| Classique | standard |
 | Usage général  |Standard ; V1 et V2 sont pris en charge. Les niveaux chaud et froid sont tous les deux pris en charge. |
 
 

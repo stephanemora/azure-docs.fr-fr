@@ -3,19 +3,19 @@ title: Analyser la charge de travail - Azure SQL Data Warehouse | Microsoft Docs
 description: Techniques d’analyse des priorités de requête de votre charge de travail dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795355"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248091"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analyser la charge de travail dans Azure SQL Data Warehouse
 Techniques d’analyse des priorités de requête de votre charge de travail dans Azure SQL Data Warehouse.
@@ -39,8 +39,7 @@ Le tableau ci-dessous présente les mappages d’importance pour chaque groupe d
 | SloDWGroupC07   | 128                      | 12 800                         | 32 000                      | Élevé               |
 | SloDWGroupC08   | 256                      | 25 600                         | 64 000                      | Élevé               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-Le graphique **Allocation et consommation des emplacements de concurrence** montre qu’une DW500 utilise 1, 4, 8 ou 16 emplacements de concurrence pour smallrc, mediumrc, largerc et xlargerc, respectivement. Pour connaître l’importance de chaque classe de ressources, vous pouvez rechercher ces valeurs dans le graphique précédent.
+<!-- where are the allocation and consumption of concurrency slots charts? --> Le graphique **Allocation et consommation des emplacements de concurrence** montre qu’une DW500 utilise 1, 4, 8 ou 16 emplacements de concurrence pour smallrc, mediumrc, largerc et xlargerc, respectivement. Pour connaître l’importance de chaque classe de ressources, vous pouvez rechercher ces valeurs dans le graphique précédent.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Mappage d’importance des DW500 aux classes de ressources
 | classe de ressources | Groupe de charges de travail | Emplacements de concurrence utilisés | Mo / Distribution | importance |

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 604179ec856d21dce51101fdafa5d51eed08f89f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e21357eeb795a26874cddb90b4d3a6303b83ac0
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657211"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189631"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -227,6 +227,7 @@ _**Figure 1 :** Une instance SAP ASCS/SCS et SOFS déployés dans deux clusters_
 > [!IMPORTANT]
 > La configuration doit répondre aux conditions suivantes :
 > * Les instances SAP ASCS/SCS partagent le même cluster WSFC.
+> * Différents partages de fichiers Hôte global SAP appartenant à différents SID SAP doivent partager le même cluster SOFS.
 > * Chaque SID de système de gestion de base de données (SGBD) a son propre cluster WSFC dédié.
 > * Les serveurs d’applications SAP appartenant au système SAP SID utilisent leurs propres machines virtuelles.
 
@@ -402,7 +403,7 @@ _**Figure 6 :** Démarrez l’Assistant « Ajouter un partage de fichiers »_
 <br>
 ![Figure 7 : Sélectionnez « Partage SMB – Rapide »][sap-ha-guide-figure-8018]
 
-_**Figure 7 :** Sélectionnez « Partage SMB – Rapide »_
+_**Figure 7 :** «  Choisissez Partage SMB – Rapide »_
 
 <br>
 ![Figure 8 : Sélectionnez « sapglobalhost2 » et spécifiez le chemin sur Volume2][sap-ha-guide-figure-8019]

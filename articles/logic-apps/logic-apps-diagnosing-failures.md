@@ -1,27 +1,23 @@
 ---
 title: Résoudre les problèmes et diagnostiquer les échecs - Azure Logic Apps | Microsoft Docs
-description: Comprendre comment et pourquoi les applications logiques entraînent des échecs
+description: Découvrir comment résoudre les problèmes et diagnostiquer les échecs de flux de travail dans Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: ''
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: b0bf6cd747860d938f80787d9bef6634a6a22d09
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441530"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123685"
 ---
-# <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Résoudre les problèmes et diagnostiquer les échecs d’applications logiques
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Résoudre les problèmes et diagnostiquer les échecs de flux de travail dans Azure Logic Apps
 
 Votre application logique génère des informations qui peuvent vous aider à diagnostiquer et déboguer ses problèmes. Vous pouvez effectuer le diagnostic d’une application logique en examinant chaque étape dans le flux de travail via le portail Azure. Vous pouvez également ajouter des étapes à un flux de travail pour effectuer un débogage du runtime.
 

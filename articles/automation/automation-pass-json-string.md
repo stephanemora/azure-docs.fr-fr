@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powerShell, runbook, json, azure automation
-ms.openlocfilehash: 1bdeef02621924bbb7af1e676d2b275229761081
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5e1ab8d6bd2de24251851cfc60d270a2fef4090d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42145102"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918816"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Passer un objet JSON dans un runbook Azure Automation
 
@@ -29,7 +29,7 @@ Le runbook PowerShell démarre une machine virtuelle Azure, en obtenant les para
 ## <a name="prerequisites"></a>Prérequis
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou <a href="/pricing/free-account/" target="_blank">[créer un compte gratuit](https://azure.microsoft.com/free/).
+* Abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [activer vos avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou [créer un compte gratuit](https://azure.microsoft.com/free/).
 * [compte Automation](automation-sec-configure-azure-runas-account.md) pour le stockage du Runbook et l’authentification auprès des ressources Azure.  Ce compte doit avoir l’autorisation de démarrer et d’arrêter la machine virtuelle.
 * Une machine virtuelle Azure. Nous arrêtons et démarrons cette machine afin qu’elle ne soit pas une machine virtuelle de production.
 * Azure Powershell installé sur un ordinateur local. Pour plus d'informations sur l’obtention d’Azure PowerShell, consultez la section [Installation et configuration d'Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0).

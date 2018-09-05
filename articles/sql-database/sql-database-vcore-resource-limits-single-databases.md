@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 603a6e2f3ce744d792ad9c9be20622c65a37dda3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 8e7af24133b7e034bb7bc1898609cebbb860b738
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414604"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919076"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites du modèle d’achat par vCore d’Azure SQL Database pour une base de données unique
 
@@ -23,7 +23,7 @@ Cet article détaille les limites de ressources des bases de données uniques Az
 Pour les limites du modèle d’achat DTU, consultez [Limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits.md).
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
 
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>Base de données unique : tailles de stockage et niveaux de performance
@@ -43,8 +43,8 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Taille maximale des données (Go)|1 024|1 024|1536|3 072|4096|4096|
-|Taille maximale du journal|307|307|461|922|1229|1229|
-|Taille de TempDB (Go)|32|64|128|256|384|384|
+|Taille maximale du journal (Go)|307|307|461|922|1229|1229|
+|Taille de TEMPDB (Go)|32|64|128|256|384|384|
 |IOPS cible (64 ko)|500|1 000|2000|4000|7000|7000|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|3200|4 800|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
@@ -65,8 +65,8 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Taille maximale des données (Go)|1 024|1 024|1536|3 072|4096|4096|4096|4096|
-|Taille maximale du journal|307|307|461|614|1229|1229|1229|1229|
-|Taille de TempDB (Go)|64|128|256|384|384|384|384|384|
+|Taille maximale du journal (Go)|307|307|461|614|1229|1229|1229|1229|
+|Taille de TEMPDB (Go)|64|128|256|384|384|384|384|384|
 |IOPS cible (64 ko)|500|1 000|2000|4000|6000|7000|7000|7000|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|2 400|3200|4000|8000|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -88,8 +88,8 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Stockage In-Memory OLTP (Go)|1|2|4|8|20|36|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1 024|1 024|1 024|
-|Taille maximale du journal|307|307|307|307|307|307|
-|Taille de TempDB (Go)|32|64|128|256|384|384|
+|Taille maximale du journal (Go)|307|307|307|307|307|307|
+|Taille de TEMPDB (Go)|32|64|128|256|384|384|
 |IOPS cible (64 ko)|5 000|10000|20000|40000|80000|120 000|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|3200|4 800|
@@ -111,8 +111,8 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |Taille maximale des données (Go)|1 024|1 024|1 024|1 024|2 048|4096|4096|4096|
-|Taille maximale du journal|307|307|307|307|614|1229|1229|1229|
-|Taille de TempDB (Go)|64|128|256|384|384|384|384|384|
+|Taille maximale du journal (Go)|307|307|307|307|614|1229|1229|1229|
+|Taille de TEMPDB (Go)|64|128|256|384|384|384|384|384|
 |IOPS cible (64 ko)|5 000|10000|20000|40000|60000|80000|100000|200000
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|2 400|3200|4000|8000|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|

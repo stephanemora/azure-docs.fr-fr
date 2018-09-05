@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour donner accès à Privileged Identity Management - Azure | Microsoft Docs
-description: Découvrez comment ajouter des rôles à des utilisateurs avec l’extension Azure Active Directory Privileged Identity Management pour qu’ils puissent gérer PIM.
+title: Accorder l’accès à d’autres administrateurs pour la gestion de PIM - Azure | Microsoft Docs
+description: Découvrez comment accorder l’accès à d’autres administrateurs pour gérer Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ade3939057669e7f9979001db4376fe61c2f4ad9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d6b2d9f43ce9bb86f4557c92887689c83beb49fa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623066"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189553"
 ---
-# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Donner accès à la gestion d’Azure AD Privileged Identity Management
+# <a name="grant-access-to-other-administrators-to-manage-pim"></a>Accorder l’accès à d’autres administrateurs pour la gestion de PIM
 L’administrateur global qui active Azure AD Privileged Identity Management (PIM) pour une organisation obtient automatiquement les affectations de rôles et l’accès à PIM. Aucune autre personne ne dispose d’un accès en écriture par défaut, y compris les autres administrateurs généraux. Les autres administrateurs généraux, administrateurs de la sécurité et lecteurs Sécurité ont un accès en lecture seule à Azure AD PIM. Pour donner accès à PIM, le premier utilisateur peut affecter les autres au rôle **Administrateur de rôle privilégié** .
 
 > [!NOTE]
@@ -54,4 +54,5 @@ Avant de supprimer le rôle d’administrateur de rôle privilégié d’un util
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Activer la gestion des abonnements dans votre locataire](pim-resource-roles-enable-subscription-management.md)

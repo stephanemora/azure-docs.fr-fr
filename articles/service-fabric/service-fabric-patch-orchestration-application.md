@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143375"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746895"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
@@ -139,7 +139,7 @@ Les mises à jour automatiques Windows peuvent entraîner une perte de disponibi
 
 L’application et les scripts d’installation peuvent être téléchargés à partir de [Lien de l’archive](https://go.microsoft.com/fwlink/?linkid=869566).
 
-L’application au format sfpkg peut être téléchargée à partir de [lien sfpkg](https://go.microsoft.com/fwlink/?linkid=869567). Cela s’avère utile pour le [déploiement de l’application basée sur Azure Resource Manager](service-fabric-application-arm-resource.md).
+L’application au format sfpkg peut être téléchargée à partir de [lien sfpkg](https://aka.ms/POA/POA_v1.2.2.sfpkg). Cela s’avère utile pour le [déploiement de l’application basée sur Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurer l’application
 
@@ -284,7 +284,7 @@ Si le service de gestion des réparations est introuvable sur le cluster, un rap
 
 Q. **Pourquoi mon cluster présente-t-il un état d’erreur lorsque l’application d’orchestration des correctifs est en cours d’exécution ?**
 
-R. Pendant le processus d’installation, l’application d’orchestration des correctifs désactive ou redémarre des nœuds, ce qui peuvent entraîner une dégradation temporaire de l’intégrité du cluster.
+R. Pendant le processus d’installation, l’application d’orchestration des correctifs désactive ou redémarre des nœuds, ce qui peut entraîner une dégradation temporaire de l’intégrité du cluster.
 
 Selon la stratégie définie pour l’application, une opération de mise à jour corrective peut entraîner la dégradation d’un nœud isolé *ou* d’un domaine de mise à niveau entier.
 
@@ -398,3 +398,5 @@ Un administrateur doit intervenir et déterminer la raison pour laquelle l’app
 ### <a name="version-122-latest"></a>Version 1.2.2 (dernière version)
 
 - Divers correctifs de bogues.
+- Les fichiers binaires sont maintenant signés.
+- Le lien de téléchargement sfpkg pointe désormais vers une version spécifique.

@@ -7,18 +7,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6952e26898e4ff27dd7c2f6780dcb9b8b224460b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 8f365d123a234f367a1415232a714d2c18663b63
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092543"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124068"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Stratégies de récupération d’urgence pour les applications utilisant les pools élastiques de bases de données SQL
-Au fil des années, nous avons constaté que les services cloud n’étaient pas infaillibles et que des catastrophes avaient lieu. SQL Database offre un certain nombre de fonctionnalités pour assurer la continuité des activités de votre application en cas d’incident. Les [pools élastiques](sql-database-elastic-pool.md) et les bases de données uniques prennent en charge le même type de fonctionnalités de récupération d’urgence. Cet article décrit plusieurs stratégies de récupération d’urgence pour les pools élastiques qui tirent parti de ces fonctionnalités de continuité des activités de la base de données SQL.
+Au fil des années, nous avons constaté que les services cloud n’étaient pas infaillibles et que des catastrophes avaient lieu. SQL Database offre un certain nombre de fonctionnalités pour assurer la continuité des activités de votre application en cas d’incident. Les [pools élastiques](sql-database-elastic-pool.md) et les bases de données uniques prennent en charge le même type de fonctionnalités de reprise d’activité après sinistre. Cet article décrit plusieurs stratégies de récupération d’urgence pour les pools élastiques qui tirent parti de ces fonctionnalités de continuité des activités de la base de données SQL.
 
 Cet article utilise le modèle d’application d’éditeur de logiciels indépendant (ISV) SaaS canonique suivant :
 

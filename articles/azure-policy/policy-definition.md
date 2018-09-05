@@ -4,16 +4,16 @@ description: Explique comment Azure Policy utilise une définition de stratégie
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ced8ebad0122973595cdede4497cd200e3090043
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ac561be75306cab6b73b457a7d450bd640aac067
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524105"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818695"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -107,7 +107,7 @@ Dans la propriété de métadonnées, vous pouvez utiliser **strongType** pour f
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-Dans la règle de stratégie, vous référencez des paramètres avec la syntaxe suivante :
+Dans la règle de stratégie, vous référencez des paramètres avec la syntaxe suivante de valeur de déploiement `parameters` :
 
 ```json
 {
@@ -245,6 +245,53 @@ Avec **AuditIfNotExists** et **DeployIfNotExists**, vous pouvez évaluer l’exi
 Pour obtenir un exemple d’audit quand une extension de machine virtuelle n’est pas déployée, consultez [Auditer si une extension n’existe pas](scripts/audit-ext-not-exist.md).
 
 Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les propriétés et des exemples, voir [Présentation des effets des stratégies](policy-effects.md).
+
+### <a name="policy-functions"></a>Fonctions de stratégie
+
+Une partie des [fonctions de modèle Resource Manager](../azure-resource-manager/resource-group-template-functions.md) peut être utilisée dans une règle de stratégie. Les fonctions prises en charge sont les suivantes :
+
+- [parameters](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [abonnement](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+De plus, la fonction `field` est disponible pour les règles de stratégie. Cette fonction est principalement utilisée avec **AuditIfNotExists** et **DeployIfNotExists** pour référencer les champs d’une ressource actuellement évaluée. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](policy-effects.md#deployifnotexists-example).
+
+#### <a name="policy-function-examples"></a>Exemples de fonctions de stratégie
+
+Cet exemple de règle de stratégie utilise la fonction de ressource `resourceGroup` pour obtenir la propriété **name**, combinée au tableau `concat` et à la fonction d’objet, pour créer une condition `like` selon laquelle le nom de ressource commence par le nom du groupe de ressources.
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+Cet exemple de règle de stratégie utilise la fonction de ressource `resourceGroup` pour obtenir la valeur de tableau de propriétés **tags** de la balise **CostCenter** du groupe de ressources, et l’ajouter à la balise **CostCenter** de la nouvelle ressource.
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
 
 ## <a name="aliases"></a>Alias
 

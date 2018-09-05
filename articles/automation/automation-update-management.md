@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141882"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247934"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -35,6 +35,8 @@ Le schéma suivant présente une vue conceptuelle du comportement et du flux de 
 
 ![Flux du processus Update Management](media/automation-update-management/update-mgmt-updateworkflow.png)
 
+Update Management peut être utilisé pour intégrer des machines en mode natif dans plusieurs abonnements du même locataire. Pour gérer les machines d’un autre locataire, vous devez les intégrer en tant que [machines non-Azure](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+
 Une fois qu’un ordinateur effectue une analyse de conformité de mise à jour, l’agent transfère les informations en bloc à Azure Log Analytics. Sur un ordinateur Windows, l’analyse de conformité est effectuée toutes les 12 heures par défaut.
 
 En plus de l’analyse planifiée, l’analyse de conformité de mise à jour est lancée dans les 15 minutes si MMA est redémarré, avant et après l’installation de la mise à jour.
@@ -48,7 +50,7 @@ La solution rapporte l’état de mise à jour de l’ordinateur en fonction de 
 
 Vous pouvez déployer et installer des mises à jour logicielles sur des ordinateurs qui nécessitent les mises à jour en créant un déploiement planifié. Les mises à jour considérées comme *facultatives* ne sont pas incluses dans le déploiement des ordinateurs Windows. Seules les mises à jour nécessaires sont incluses dans le déploiement. 
 
-Le déploiement planifié définit les ordinateurs cibles qui reçoivent les mises à jour applicables, soit en spécifiant explicitement les ordinateurs ou en sélectionnant un [groupe d’ordinateurs](../log-analytics/log-analytics-computer-groups.md) d’après des recherches dans les journaux d’un ensemble spécifique d’ordinateurs. Vous spécifiez également une planification pour approuver et désigner la période pendant laquelle les mises à jour peuvent être installées. 
+Le déploiement planifié définit les ordinateurs cibles qui reçoivent les mises à jour applicables, soit en spécifiant explicitement les ordinateurs ou en sélectionnant un [groupe d’ordinateurs](../log-analytics/log-analytics-computer-groups.md) d’après des recherches dans les journaux d’un ensemble spécifique d’ordinateurs. Vous spécifiez également une planification pour approuver et désigner la période pendant laquelle les mises à jour peuvent être installées.
 
 Les mises à jour sont installées par des Runbooks dans Azure Automation. Vous ne pouvez pas visualiser ces Runbooks, qui ne nécessitent aucune configuration. Lorsqu’un déploiement de mises à jour est créé, il génère une planification qui démarre un Runbook de mises à jour principal au moment indiqué pour les ordinateurs inclus. Ce Runbook principal lance un Runbook enfant sur chaque agent qui effectue l’installation des mises à jour obligatoires.
 
@@ -215,12 +217,12 @@ Pour créer un déploiement de mises à jour, sélectionnez **Planifier le dépl
 | --- | --- |
 | NOM |Nom unique identifiant le déploiement de mises à jour. |
 |Système d’exploitation| Linux ou Windows|
-| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md). |
+| Ordinateurs à mettre à jour |Sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**.</br> Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Classifications des mises à jour|Sélectionnez toutes les classifications des mises à jour dont vous avez besoin.|
-|Mises à jour à exclure|Entrez les mises à jour à exclure. Pour Windows, entrez la version KB sans le préfixe « KB ». Pour Linux, entrez le nom du package ou utilisez un caractère générique.  |
+|Mises à jour à exclure|Entrez les mises à jour à exclure. Pour Windows, entrez la version KB sans le préfixe « KB ». Pour Linux, entrez le nom du package ou utilisez un caractère générique.  |
 |Paramètres de planification|Sélectionnez l’heure de début, puis la périodicité.|
 | Fenêtre de maintenance |Nombre de minutes défini pour les mises à jour. La valeur ne peut pas être inférieure à 30 minutes ni supérieure à 6 heures. |
-| Contrôle du redémarrage| Détermine comment les redémarrages doivent être gérés.</br>Options disponibles :</br>Redémarrer si nécessaire (par défaut)</br>Toujours redémarrer</br>Ne jamais redémarrer</br>Redémarrer uniquement : les mises à jour ne sont pas installées|
+| Contrôle du redémarrage| Détermine la façon dont doivent être gérés les redémarrages. Options disponibles :</br>Redémarrer si nécessaire (par défaut)</br>Toujours redémarrer</br>Ne jamais redémarrer</br>Redémarrer uniquement : les mises à jour ne sont pas installées|
 
 ## <a name="update-classifications"></a>Classifications des mises à jour
 
@@ -310,7 +312,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Requêtes d’évaluation de la machine virtuelle Azure unique (Linux)
 
-Pour certaines versions de Linux, il existe une incompatibilité de [mode Endian](https://en.wikipedia.org/wiki/Endianness) entre la valeur VMUUID qui provient d’Azure Resource Manager et ce qui est stocké dans Log Analytics. La requête suivante recherche une correspondance sur l’un des modes Endian. Remplacez les valeurs VMUUID avec le format big-endian et little-endian du GUID afin de retourner correctement les résultats. Pour trouver le VMUUID à utiliser, exécutez la requête suivante dans Log Analytics : `Update | where Computer == "<machine name>"
+Pour certaines versions de Linux, il existe une incompatibilité de [mode Endian](https://en.wikipedia.org/wiki/Endianness) entre la valeur VMUUID qui provient d’Azure Resource Manager, et ce qui est stocké dans Log Analytics. La requête suivante recherche une correspondance sur l’un des modes Endian. Remplacez les valeurs VMUUID avec le format big-endian et little-endian du GUID afin de retourner correctement les résultats. Pour trouver le VMUUID à utiliser, exécutez la requête suivante dans Log Analytics : `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Récapitulatif des mises à jour manquantes
@@ -510,7 +512,7 @@ Comme Update Management enrichit les mises à jour dans le cloud, certaines mise
 
 Toutefois, Update Management peut quand même signaler que cet ordinateur n’est pas conforme car il contient des informations supplémentaires sur la mise à jour concernée.
 
-Le déploiement de mises à jour par classification ne fonctionne pas directement sur CentOS. Pour SUSE, sélectionner *uniquement* « Autres mises à jour » en tant que classification peut entraîner l’installation de certaines mises à jour de sécurité si les mises à jour de sécurité associées à zypper (gestionnaire de package) ou ses dépendances sont requises en premier. IL s’agit d’une limitation de zypper. Dans certains cas, vous devrez peut-être exécuter à nouveau le déploiement des mises à jour. Pour savoir si cela est nécessaire, consultez le journal de mise à jour.
+Le déploiement de mises à jour par classification ne fonctionne pas directement sur CentOS. Pour SUSE, sélectionner *uniquement* « Autres mises à jour » en tant que classification peut entraîner l’installation de certaines mises à jour de sécurité si les mises à jour de sécurité associées à zypper (gestionnaire de package) ou ses dépendances sont requises en premier. IL s’agit d’une limitation de zypper. Dans certains cas, vous aurez peut-être à réexécuter le déploiement des mises à jour. Pour savoir si cela est nécessaire, consultez le journal des mises à jour.
 
 ## <a name="troubleshoot"></a>Résolution des problèmes
 

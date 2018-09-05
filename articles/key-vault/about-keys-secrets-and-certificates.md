@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: bryanla
-ms.openlocfilehash: 962f9be53ce0b2022e8e5490bdeb04b2eefb4d7c
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f36e0e3ddc605d960ed764252308cbf09578832c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42144804"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126140"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Présentation des clés, des secrets et des certificats
 Azure Key Vault permet aux utilisateurs de stocker et d’utiliser des clés de chiffrement dans l’environnement Microsoft Azure. Key Vault prend en charge plusieurs types de clés et algorithmes, et permet d’utiliser des modules de sécurité matériels (HSM) pour les clés de valeur supérieure. Key Vault permet également aux utilisateurs de stocker des secrets en toute sécurité. Les secrets sont des objets octets de taille limitée sans sémantique spécifique. Key Vault prend également en charge les certificats, qui sont basés sur des clés et secrets, et qui offrent une fonctionnalité de renouvellement automatique.
@@ -174,7 +174,7 @@ Azure Key Vault prend en charge les opérations sur les objets clés suivantes :
 -   **Backup** : permet d’exporter une clé sous une forme protégée.  
 -   **Restore** : permet d’importer une clé précédemment sauvegardée.  
 
-Pour plus d’informations, consultez [Informations de référence sur les opérations clés de l’API REST Key Vault](/rest/api/keyvault).  
+Pour plus d’informations, voir [Informations de référence sur les opérations liées aux clés dans l’API REST Key Vault](/rest/api/keyvault).  
 
 Lorsqu’une clé a été créée dans Azure Key Vault, les opérations de chiffrement suivantes peuvent être exécutées à l’aide de la clé :  
 
@@ -283,7 +283,7 @@ Les autorisations suivantes peuvent être utilisées, par principal, dans l’en
 -   *delete* : supprimer le secret  
 -   *all* : toutes les autorisations  
 
-Pour plus d’informations sur l’utilisation des secrets, consultez [Informations de référence sur les opérations secrètes dans l’API REST Key Vault](/rest/api/keyvault).  
+Pour plus d’informations sur l’utilisation des secrets, voir [Informations de référence sur les opérations liées aux secrets dans l’API REST Key Vault](/rest/api/keyvault).  
 
 ###  <a name="BKMK_SecretTags"></a> Balises de secret  
 Vous pouvez spécifier des métadonnées spécifiques à l’application supplémentaires sous la forme de balises. Azure Key Vault prend en charge jusqu’à 15 balises, chacune d’entre elles pouvant avoir un nom de 256 caractères et une valeur de 256 caractères.  
@@ -443,7 +443,7 @@ Si la stratégie d’un certificat est définie sur le renouvellement automatiqu
 -   *deleteissuers* : permet de supprimer les émetteurs de certificat Key Vault  
 -   *all* : permet d’accorder toutes les autorisations  
 
-Pour plus d’informations, consultez [Informations de référence sur les opérations de certificat dans l’API REST Key Vault](/rest/api/keyvault). 
+Pour plus d’informations, voir [Informations de référence sur les opérations liées aux certificats dans l’API REST Key Vault](/rest/api/keyvault). 
 
 ## <a name="see-also"></a>Voir aussi
 

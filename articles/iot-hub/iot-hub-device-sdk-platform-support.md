@@ -1,6 +1,6 @@
 ---
-title: Prise en charge des plateformes par les Kits de développement logiciel (SDK) d’appareils Azure IoT | Microsoft Docs
-description: Concepts - liste des plateformes prises en charge par les Kits de développement logiciel (SDK) d’appareils Azure IoT
+title: Prise en charge des plateformes des kits Azure IoT device SDK | Microsoft Docs
+description: Concepts - liste des plateformes prises en charge par les kits Azure IoT device SDK
 author: yzhong94
 manager: timlt
 ms.service: iot-hub
@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: cf3c80424c4626b62317bda537f9491cafc8198c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 02d9a326f0209bacca17a9617374105fcbf5ed6a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043390"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189763"
 ---
-# <a name="azure-iot-sdks-platform-support"></a>Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT
+# <a name="azure-iot-sdks-platform-support"></a>Prise en charge des plateformes des kits Azure IoT device SDK
 
 Les [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md) constituent un ensemble de bibliothèques pour interagir avec IoT Hub et le service de provisionnement des appareils avec une vaste pris en charge des langages et des plateformes.  Les Kits de développement logiciel s’exécutent sur la plupart des plateformes courantes et les développeurs peuvent porter le Kit de développement logiciel (SDK) C sur une plateforme spécifique en suivant le [guide de portage](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md). 
 
@@ -24,7 +24,7 @@ Microsoft prend en charge une variété de systèmes d’exploitation/plateforme
     - Fournit un guide d’installation ou des packages le cas échéant
     - Prise en charge complète sur GitHub
 
-En outre, une liste de partenaires a porté notre Kit de développement logiciel (SDK) C sur un plus grand nombre de plateformes et ils gèrent la couche d’abstraction de plateforme (PAL).  Le [Catalogue d’appareils certifiés Azure pour l’IoT](https://catalog.azureiotsolutions.com/) inclut également une liste de plateformes de système d’exploitation sur lesquelles les différents Kits de développement logiciel (SDK) ont été testés.  Les Kits de développement logiciel (SDK) sont également régulièrement créer sur les plateformes suivantes, avec un test et une prise en charge limités :
+En outre, une liste de partenaires a porté notre Kit de développement logiciel (SDK) C sur un plus grand nombre de plateformes et ils gèrent la couche d’abstraction de plateforme (PAL).  Le [Catalogue d’appareils certifiés Azure pour l’IoT](https://catalog.azureiotsolutions.com/) inclut également une liste de plateformes de système d’exploitation sur lesquelles les différents Kits de développement logiciel (SDK) ont été testés.  Les kits SDK s’appuient régulièrement sur les plateformes suivantes, avec un test et une prise en charge limités :
 - MBED2
 - Arduino
 - Windows CE 2013 (déconseillé depuis octobre 2018)
@@ -76,14 +76,15 @@ En outre, une liste de partenaires a porté notre Kit de développement logiciel
 | Windows Server 2016 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>Plateformes prises en charge de partenaires
+Les clients peuvent étendre la prise en charge de la plateforme en portant le SDK Azure IoT C pour créer spécialement la couche d’abstraction de plateforme (PAL) du SDK.  Microsoft travaille avec les partenaires pour fournir la prise en charge étendue.  Une liste de partenaires a porté le SDK C vers plus de plateformes et gèrent la couche PAL.
 | Partenaire             | Appareils                            | Lien                     | Support |
 |---------------------|------------------------------------|--------------------------|---------|
+| Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Modem LTE IoT Qualcomm MDM9206     | [LTE Qualcomm pour le Kit de développement logiciel (SDK) IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
-| ST Microelectronics | Série STM32L4, série STM32F4      | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html)             | [Support](https://www.st.com/content/st_com/en/support/support-home.html) |
-|                     | Série STM32F7                     | [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html)             |         |
-|                     | Kit de découverte STM32L4 pour nœud IoT | [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html)          |         |
-|                     |                                    | [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            |         |
-| Espressif           | ESP32                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  |
+| ST Microelectronics | Série STM32L4 <br/> Série STM32F4 <br/>  Série STM32F7 <br/>  Kit de découverte STM32L4 pour nœud IoT    | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Support](https://www.st.com/content/st_com/en/support/support-home.html)
+| Texas Instruments   | CC3220SF Launchpad <br/> CC3220S Launchpad <br/> MSP432E4 Launchpad      | [Plug-in Azure IoT pour SimpleLink](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [Forum TI E2E](https://e2e.ti.com) <br/> [Forum TI E2E pour CC3220](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [Forum TI E2E pour MSP432E4](https://e2e.ti.com/support/microcontrollers/msp430/) |
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Kits de développement logiciel (SDK) de services et d’appareils](iot-hub-devguide-sdks.md)

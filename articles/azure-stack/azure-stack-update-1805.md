@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: abc96497c95397a6fab72672f1525462301c5cf9
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4db0ce5e877f3054cc41e8940e8d9e672f7632c6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414631"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110346"
 ---
 # <a name="azure-stack-1805-update"></a>Mise à jour 1805 d’Azure Stack
 
@@ -91,6 +91,8 @@ Après l’installation de la version 1805, installez les correctifs logiciels a
 Les éléments suivants sont des problèmes connus qui apparaissent après l’installation de cette build.
 
 ### <a name="portal"></a>Portail  
+- <!-- 2931230 – IS  ASDK --> Les plans ajoutés à un abonnement utilisateur comme plan d’extension ne peuvent pas être supprimés, même quand vous supprimez le plan de l’abonnement utilisateur. Le plan est conservé jusqu’à ce que les abonnements qui référencent le plan d’extension soient aussi supprimés. 
+
 - <!-- TBD - IS ASDK --> Vous ne pouvez pas appliquer les mises à jour de pilote à l’aide d’un package d’extension OEM avec cette version d’Azure Stack.  Il n’existe aucune solution de contournement pour ce problème.
 
 - <!-- 2551834 - IS, ASDK --> Lorsque vous sélectionnez **Vue d’ensemble** pour un compte de stockage sur le portail d’administration ou utilisateur, les informations du volet *Éléments principaux* ne s’affichent pas.  Le volet Éléments principaux affiche des informations sur le compte comme son *groupe de ressources*, son *emplacement* et son *ID d’abonnement*.  D’autres options de la vue d’ensemble sont accessibles, par exemple *Services* et *Surveillance*, ainsi que des options permettant d’*Ouvrir dans Explorer* ou de *Supprimer le compte de stockage*. 

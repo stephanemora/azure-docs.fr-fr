@@ -5,44 +5,44 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 08/26/2018
 ms.author: raynew
-ms.openlocfilehash: 733a93d0fc80d86d28f13a9e1d32108b58893bf0
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3c8ff204ffc604c6b61a217f36c7fc4ba9a5e74b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42146353"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105092"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migration de Contoso : Réarchitecturer une application locale vers un conteneur Azure et Azure SQL Database
 
-Cet article explique comment Contoso migre et réarchitecture son application SmartHotel dans Azure. Ils migrent la machine virtuelle frontend de l’application vers un conteneur Azure Windows, et la base de données de l’application vers une base de données SQL Azure.
+Cet article explique comment Contoso migre et restructure son application SmartHotel dans Azure. Contoso migre la machine virtuelle frontend de l’application vers un conteneur Azure Windows et la base de données de l’application vers une base de données SQL Azure.
 
-Ce document fait partie d’une série d’articles qui montrent comment la société fictive Contoso migre ses ressources locales vers le cloud Microsoft Azure. La série comprend des informations générales et des scénarios qui illustrent comment configurer une infrastructure de migration, évaluer des ressources locales pour la migration et exécuter différents types de migration. Les scénarios croissant en complexité, nous ajouterons des articles au fil du temps.
+Ce document fait partie d’une série d’articles qui montrent comment la société fictive Contoso migre ses ressources locales vers le cloud Microsoft Azure. La série comprend des informations générales et des scénarios qui illustrent comment configurer une infrastructure de migration, évaluer des ressources locales pour la migration et exécuter différents types de migration. Les scénarios augmentent en complexité. Nous ajouterons des articles au fil du temps.
 
 **Article** | **Détails** | **État**
 --- | --- | ---
-[Article 1 : vue d’ensemble](contoso-migration-overview.md) | Fournit une vue d’ensemble de la stratégie de migration de Contoso, de la série d’articles et des exemples d’application que nous utilisons. | Disponible
-[Article 2 : déployer une infrastructure Azure](contoso-migration-infrastructure.md) | Décrit comment Contoso prépare son infrastructure locale et son infrastructure Azure pour la migration. La même infrastructure est utilisée pour tous les articles de migration. | Disponible
-[Article 3 : Évaluer les ressources locales](contoso-migration-assessment.md)  | Montre comment Contoso évalue une application à deux niveaux locale SmartHotel s’exécutant sur VMware. Contoso évalue les machines virtuelles de l’application avec le service [Azure Migrate](migrate-overview.md) et la base de données SQL Server de l’application avec [l’Assistant Migration de données Azure](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Disponible
-[Article 4 : Réhéberger une application sur des machines virtuelles Azure et une instance SQL Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Montre comment Contoso exécute une migration lift-and-shift vers Azure pour l’application SmartHotel. Elle migre la machine virtuelle frontale de l’application à l’aide d’[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), et la base de données de l’application vers une instance SQL Managed Instance à l’aide du [service Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible
-[Article 5 : Réhéberger une application sur des machines virtuelles Azure](contoso-migration-rehost-vm.md) | Montre comment Contoso migre les machines virtuelles de l’application SmartHotel en utilisant uniquement Site Recovery. | Disponible
-[Article 6 : Réhéberger une application sur des machines virtuelles et un groupe de disponibilité AlwaysOn SQL Server (cet article)](contoso-migration-rehost-vm-sql-ag.md) | Montre comment Contoso migre l’application SmartHotel. Elle utilise Site Recovery pour migrer la machine virtuelle de l’application, et Database Migration Service pour migrer la base de données de l’application vers un cluster SQL Server protégé par un groupe de disponibilité AlwaysOn. | Disponible
-[Article 7 : réhéberger une application Linux sur des machines virtuelles Azure](contoso-migration-rehost-linux-vm.md) | Montre comment Contoso effectue une migration lift-and-shift de l’application osTicket Linux sur des machines virtuelles Azure à l’aide de Site Recovery. | Disponible
-[Article 8 : ré-héberger une application Linux sur des machines virtuelles Azure et Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Montre comment Contoso migre l’application osTicket Linux vers des machines virtuelles Azure à l’aide de Site Recovery, et migre la base de données de l’application vers une instance Azure MySQL Server à l’aide de MySQL Workbench. | Disponible
-[Article 9 : Refactoriser une application vers une application web Azure et Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Montre comment Contoso migre l’application SmartHotel vers une application web Azure, et migre la base de données d’application vers une instance de serveur SQL Azure | Disponible
-[Article 10 : Refactoriser une application Linux vers Azure Web Apps et Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Montre comment Contoso migre l’application Linux osTicket vers Azure Web Apps dans plusieurs sites intégrés avec GitHub pour assurer une livraison continue. Elle migre la base de données d’application vers une instance Azure MySQL. | Disponible
-[Article 11 : Refactoriser TFS sur VSTS](contoso-migration-tfs-vsts.md) | Montre comment Contoso migre son déploiement TFS (Team Foundation Server) local vers VSTS (Visual Studio Team Services) dans Azure.
-Article 12 : Réarchitecturer une application sur les conteneurs Azure et Azure SQL Database | Montre comment Contoso migre et réarchitecture son application SmartHotel vers Azure. Elle réarchitecture la couche web d’application en tant que conteneur Windows et la base de données d’application en une base de données Azure SQL Database. | Cet article
-[Article 13 : Regénérer une application dans Azure](contoso-migration-rebuild.md) | Montre comment Contoso regénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment App Services, Azure Kubernetes, Azure Functions, Cognitive Services et Cosmos DB. | Disponible
+[Article 1 : vue d’ensemble](contoso-migration-overview.md) | Vue d’ensemble de la série d’articles, de la stratégie de migration de Contoso et des exemples d’application utilisés dans la série. | Disponible
+[Article 2 : Déployer une infrastructure Azure](contoso-migration-infrastructure.md) | Contoso prépare son infrastructure locale et son infrastructure Azure pour la migration. La même infrastructure est utilisée pour tous les articles de migration de la série. | Disponible
+[Article 3 : Évaluer les ressources locales à migrer vers Azure](contoso-migration-assessment.md)  | Contoso évalue son application locale SmartHotel qui s’exécute sur VMware. Contoso évalue les machines virtuelles de l’application à l’aide du service Azure Migrate et la base de données SQL Server de l’application à l’aide de l’Assistant Migration de données. | Disponible
+[Article 4 : Réhéberger une application sur une machine virtuelle Azure et SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso exécute une migration lift-and-shift vers Azure pour son application SmartHotel locale. Contoso migre la machine virtuelle frontend de l’application à l’aide [d’Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migre la base de données de l’application vers Azure SQL Database Managed Instance à l’aide [d’Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Disponible  
+[Article 5 : Réhéberger une application sur des machines virtuelles Azure](contoso-migration-rehost-vm.md) | Contoso migre les machines virtuelles de son application SmartHotel vers des machines virtuelles Azure à l’aide du service Site Recovery. | Disponible
+[Article 6 : Réhéberger une application sur des machines virtuelles Azure et dans un groupe de disponibilité SQL Server AlwaysOn](contoso-migration-rehost-vm-sql-ag.md) | Contoso migre l’application SmartHotel. Contoso utilise Site Recovery pour migrer les machines virtuelles d’application. La société utilise Database Migration Service pour migrer la base de données d’application vers un cluster SQL Server protégé par un groupe de disponibilité AlwaysOn. | Disponible    
+[Article 7 : ré-héberger une application Linux sur des machines virtuelles Azure](contoso-migration-rehost-linux-vm.md) | Contoso effectue une migration lift-and-shift de l’application osTicket Linux vers des machines virtuelles Azure à l’aide d’Azure Site Recovery | Disponible
+[Article 8 : Réhéberger une application Linux sur des machines virtuelles Azure et Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migre l’application osTicket Linux vers des machines virtuelles Azure à l’aide d’Azure Site Recovery et la base de données de l’application vers une instance Azure MySQL Server à l’aide de MySQL Workbench. | Disponible
+[Article 9 : Refactoriser une application sur Azure Web Apps et Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migre l’application SmartHotel vers une application web Azure et la base de données de l’application vers une instance Azure SQL Server à l’aide de l’Assistant Migration de données | Disponible
+[Article 10 : Refactoriser une application Linux sur Azure Web Apps et Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migre son application Linux osTicket vers une application web Azure dans plusieurs régions Azure à l’aide d’Azure Traffic Manager, intégrée à GitHub pour assurer une livraison continue. Contoso migre la base de données d’application vers une instance d’Azure Database pour MySQL. | Disponible 
+[Article 11 : Refactoriser TFS sur VSTS](contoso-migration-tfs-vsts.md) | Contoso migre son déploiement local de Team Foundation Server vers Visual Studio Team Services dans Azure. | Disponible
+Article 12 : Restructurer une application sur Conteneurs Azure et Azure SQL Database | Contoso migre son application SmartHotel vers Azure. Ensuite, l’entreprise restructure la couche web de l’application comme un conteneur Windows s’exécutant dans Azure Service Fabric, et la base de données avec Azure SQL Database. | Cet article
+[Article 13 : Regénérer une application dans Azure](contoso-migration-rebuild.md) | Contoso regénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services et Azure Cosmos DB. | Disponible    
 
 Dans cet article, Contoso migre Windows à deux niveaux. Application NET SmartHotel s’exécutant sur des machines virtuelles VMware vers Azure. Si vous souhaitez utiliser cette application, elle est disponible en open source et vous pouvez la télécharger à partir de [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Axes stratégiques
 
-L’équipe informatique a travaillé en étroite collaboration avec ses partenaires commerciaux pour comprendre le résultat qu’ils souhaitent obtenir avec cette migration :
+L’équipe informatique a travaillé en étroite collaboration avec des partenaires commerciaux pour comprendre le résultat souhaité avec cette migration :
 
-- **Répondre à la croissance** : Contoso étant en croissance, son infrastructure et ses systèmes locaux subissent une pression.
+- **Répondre à la croissance de l’entreprise** : Contoso étant en croissance, son infrastructure et ses systèmes locaux subissent une pression.
 - **Augmenter l’efficacité** : Contoso doit supprimer les procédures inutiles et rationaliser les processus pour les développeurs et les utilisateurs.  L’entreprise a besoin d’une informatique rapide et doit éviter de perdre du temps ou d’argent en répondant plus rapidement aux exigences des clients.
 - **Augmenter l’agilité** : l’informatique de Contoso doit être plus réactive aux besoins de l’entreprise. Elle doit être en mesure de réagir plus rapidement que l’évolution du marché pour réussir dans une économie mondiale.  L’informatique ne doit pas devenir une entrave à l’activité.
 - **Mise à l’échelle** : à mesure que l’entreprise croît, l’informatique de Contoso doit fournir des systèmes capables de croître au même rythme.
@@ -54,9 +54,10 @@ L’équipe cloud de Contoso a épinglé les objectifs de cette migration. Ces o
 
 **Objectifs** | **Détails**
 --- | --- 
-**Exigences d’application** | L’application dans Azure restera aussi critique qu’aujourd’hui.<br/><br/> Elle doit offrir les mêmes performances qu’actuellement dans VMWare.<br/><br/> Ils souhaitent cesser de prendre en charge Windows Server 2008 R2, sur lequel l’application s’exécute actuellement, et sont disposés à investir dans l’application.<br/><br/> Ils souhaitent passer de SQL Server 2008 R2 à une plateforme de base de données PaaS moderne afin de réduire les besoins de gestion.<br/><br/> Contoso souhaite autant que possible tirer parti de ses investissements en licences SQL Server et en Software Assurance.<br/><br/> Ils veulent être en mesure de faire monter en puissance la couche web d’applications.
-**Limitations** | L’application consiste en une application ASP.NET et un service WCF (Windows Communication Foundation) s’exécutant sur la même machine virtuelle. Ils veulent fractionner cela en deux applications web utilisant Azure App Service. 
-**Exigences Azure** | Ils souhaitent déplacer l’application vers Azure et l’exécuter dans un conteneur pour étendre la durée de vie de l’application. Ils ne souhaitent pas tout reprendre à zéro afin d’implémenter l’application dans Azure. 
+**Exigences d’application** | L’application dans Azure restera aussi critique qu’aujourd’hui.<br/><br/> Elle doit offrir les mêmes performances qu’actuellement dans VMWare.<br/><br/> Contoso ne veut plus prendre en charge Windows Server 2008 R2, sur lequel l’application s’exécute actuellement, et est disposé à investir dans l’application.<br/><br/> Contoso veut passer de SQL Server 2008 R2 à une plateforme de base de données PaaS moderne pour réduire les besoins de gestion.<br/><br/> Contoso souhaite autant que possible tirer parti de son investissement dans les licences SQL Server et dans Software Assurance.<br/><br/> Contoso veut pouvoir faire monter en puissance la couche web de l’application.
+**Limitations** | L’application consiste en une application ASP.NET et un service WCF (Windows Communication Foundation) s’exécutant sur la même machine virtuelle. Contoso veut la fractionner en deux applications web à l’aide d’Azure App Service. 
+**Exigences Azure** | Contoso veut déplacer l’application vers Azure et l’exécuter dans un conteneur pour étendre sa durée de vie. L’entreprise ne veut pas tout reprendre à zéro pour implémenter l’application dans Azure. 
+**DevOps** | Contoso veut passer à un modèle DevOps à l’aide de Visual Studio Team Services (VSTS) pour les builds de code et le pipeline de mise en production.
 
 ## <a name="solution-design"></a>Conception de la solution
 
@@ -73,14 +74,15 @@ Après avoir défini précisément les objectifs et exigences, Contoso conçoit 
 
 ### <a name="proposed-architecture"></a>Architecture proposée
 
-- Pour la couche Base de données de l’application, Contoso a comparé Azure SQL Database à SQL Server en se basant sur [cet article](https://docs.microsoft.com/azure/sql-database/sql-database-features). Ils ont choisi d’utiliser Azure SQL Database pour plusieurs raisons :
+- Pour la couche Base de données de l’application, Contoso a comparé Azure SQL Database à SQL Server en se basant sur [cet article](https://docs.microsoft.com/azure/sql-database/sql-database-features). L’entreprise a choisi d’utiliser Azure SQL Database pour plusieurs raisons :
     - Azure SQL Database est un service managé de base de données relationnelle. Il offre des performances prévisibles à plusieurs niveaux de service, et ne nécessite pratiquement aucune administration. Ses avantages sont une extensibilité dynamique sans aucun temps d’arrêt, une optimisation intelligente intégrée, ainsi qu’une scalabilité et une disponibilité globales.
-    - Ils peuvent tirer parti de l’Assistant Migration de données (DMA) allégé pour évaluer et migrer la base de données locale vers SQL Azure.
-    - Grâce à Software Assurance, ils peuvent échanger leurs licences existantes pour bénéficier de tarifs réduits sur SQL Database, en utilisant Azure Hybrid Benefit pour SQL Server. Cela pourrait leur permettre de réaliser jusqu’à 30 % d’économies.
+    - Contoso tire parti de l’Assistant Migration de données (DMA) allégé pour évaluer et migrer la base de données locale vers SQL Azure.
+    - Grâce à Software Assurance, Contoso peut échanger ses licences existantes contre une réduction de tarif sur SQL Database, en utilisant Azure Hybrid Benefit pour SQL Server. Cela pourrait leur permettre de réaliser jusqu’à 30 % d’économies.
     - Azure SQL Database fournit un certain nombre de fonctionnalités de sécurité, notamment le chiffrement permanent, le masquage dynamique des données, la sécurité au niveau des lignes et la détection des menaces.
-- Pour la couche d’application web, ils ont décidé de la convertir vers le conteneur Windows à l’aide de Visual Studio.
-    - Ils déploieront l’application à l’aide d’Azure Service Fabric et extrairont l’image de conteneur Windows à partir d’Azure Container Registry (ACR).
+- Concernant la couche web de l’application, Contoso a décidé de la convertir en conteneur Windows à l’aide de Visual Studio.
+    - Contoso utilise Azure Service Fabric pour déployer l’application et tire l’image conteneur Windows d’Azure Container Registry (ACR).
     - Un prototype visant à étendre l’application pour qu’elle inclue l’analyse des sentiments sera implémenté en tant que service distinct dans Service Fabric, connecté à Cosmos DB.  Celui-ci lira les informations de Tweets et affichera des données sur l’application.
+- Afin d’implémenter un pipeline DevOps, Contoso utilise VSTS pour la gestion du code source ainsi que des dépôts Git.  Des builds et des mises en production automatiques sont utilisées pour générer du code, et le déployer sur Azure Container Registry et Azure Service Fabric.
 
     ![Architecture du scénario](./media/contoso-migration-rearchitect-container-sql/architecture.png) 
 
@@ -90,17 +92,17 @@ Contoso évalue la conception proposée en dressant une liste des avantages et d
 
 **Considération** | **Détails**
 --- | ---
-**Avantages** | Le code de l’application SmartHotel devra être modifié pour la migration vers Azure Service Fabric. Toutefois, l’effort est minimal, car on utilisera les outils du SDK Service Fabric pour les modifications.<br/><br/> Avec le déplacement vers Service Fabric, Contoso peut commencer à développer rapidement des microservices à ajouter à l’application au fil du temps, sans risque pour la base de code d’origine.<br/><br/> Les conteneurs Windows offrent les mêmes avantages que les conteneurs standard. Ils améliorent la portabilité, la flexibilité et le contrôle.<br/><br/> Ils peuvent tirer parti de leur investissement dans Software Assurance en utilisant Azure Hybrid Benefit tant pour SQL Server que pour Windows Server.<br/><br/> Après la migration, ils n’auront plus besoin de prendre en charge Windows Server 2008 R2. [Plus d’informations](https://support.microsoft.com/lifecycle)<br/><br/> Ils peuvent configurer la couche web de l’application avec plusieurs instances, de façon à ce qu’elle ne soit plus un point de défaillance unique.<br/><br/> Ils ne seront plus dépendants du vieillissement de SQL Server 2008 R2.<br/><br/> Azure SQL Database répond aux exigences techniques de Contoso. Ils ont évalué la base de données locale à l’aide de l’Assistant Migration de données, et découvert qu’elle était compatible.<br/><br/> Azure SQL Database intègre une tolérance de panne que Contoso n’aura pas à configurer. Cela signifie que la couche Données n’est plus un point de basculement unique.
-**Inconvénients** | Les conteneurs sont plus complexes que d’autres options de migration. La courbe d’apprentissage pour les conteneurs pourrait poser problème à Contoso.  Ils introduisent un nouveau niveau de complexité qui apporte beaucoup de valeur en dépit de la courbe.<br/><br/> L’équipe des opérations chez Contoso devra redoubler d’efforts pour comprendre et prendre en charge Azure, les conteneurs et les microservices pour l’application.<br/><br/> En cas d’utilisation de l’Assistant Migration de données au lieu de Database Migration Service pour migrer sa base de données, Contoso n’aura pas d’infrastructure prête pour la migration de bases de données à grande échelle.
+**Avantages** | Le code de l’application SmartHotel devra être modifié pour la migration vers Azure Service Fabric. Toutefois, l’effort est minimal, car on utilisera les outils du SDK Service Fabric pour les modifications.<br/><br/> En passant à Service Fabric, Contoso peut commencer à développer rapidement des microservices à ajouter à l’application au fil du temps, sans risque pour la base de code d’origine.<br/><br/> Les conteneurs Windows offrent les mêmes avantages que les conteneurs standard. Ils améliorent la portabilité, la flexibilité et le contrôle.<br/><br/> Contoso peut tirer parti de son investissement dans Software Assurance en utilisant Azure Hybrid Benefit tant pour SQL Server que pour Windows Server.<br/><br/> Après la migration, l’entreprise n’a plus besoin de prendre en charge Windows Server 2008 R2. [Plus d’informations](https://support.microsoft.com/lifecycle)<br/><br/> Contoso peut configurer la couche web de l’application avec plusieurs instances, pour qu’elle ne constitue plus un point de défaillance unique.<br/><br/> L’entreprise ne dépend plus du vieillissement de SQL Server 2008 R2.<br/><br/> Azure SQL Database répond aux exigences techniques de Contoso. Les administrateurs de Contoso ont évalué la base de données locale à l’aide de l’Assistant Migration de données et découvert qu’elle était compatible.<br/><br/> SQL Database intègre une tolérance de panne que Contoso n’a pas besoin de configurer. Cela signifie que la couche Données n’est plus un point de basculement unique.
+**Inconvénients** | Les conteneurs sont plus complexes que d’autres options de migration. La courbe d’apprentissage pour les conteneurs pourrait poser problème à Contoso.  Ils introduisent un nouveau niveau de complexité qui apporte beaucoup de valeur en dépit de la courbe.<br/><br/> L’équipe des opérations chez Contoso devra redoubler d’efforts pour comprendre et prendre en charge Azure, les conteneurs et les microservices pour l’application.<br/><br/> Si Contoso utilise l’Assistant Migration de données au lieu de Database Migration Service pour migrer la base de données, l’infrastructure obtenue n’est pas adaptée à la migration de bases de données à grande échelle.
 
 
 
 ### <a name="migration-process"></a>Processus de migration
 
 1. Contoso provisionne le cluster Azure Service Fabric pour Windows.
-2. Ils provisionnent une instance SQL Azure et y migrent la base de données SmartHotel.
-3. Ils convertissent la machine virtuelle de couche web en un conteneur Docker à l’aide des outils du SDK Service Fabric.
-4. Ils connectent le cluster Service Fabric et l’ACR, et déploient l’application à l’aide d’Azure Service Fabric.
+2. Contoso provisionne une instance SQL Azure et y migre la base de données SmartHotel.
+3. Contoso convertit la machine virtuelle de couche web en conteneur Docker à l’aide des outils du SDK Service Fabric.
+4. Contoso connecte le cluster Service Fabric et l’ACR, et déploie l’application à l’aide d’Azure Service Fabric.
 
     ![Processus de migration](./media/contoso-migration-rearchitect-container-sql/migration-process.png) 
 
@@ -108,40 +110,45 @@ Contoso évalue la conception proposée en dressant une liste des avantages et d
 
 **Service** | **Description** | **Coût**
 --- | --- | ---
-[Assistant Migration de données Microsoft (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Ils vont utiliser DMA pour évaluer et détecter des problèmes de compatibilité susceptibles d’affecter les fonctionnalités de base de données dans Azure. DMA évalue la parité des fonctionnalités entre SQL sources et cibles, et recommande des améliorations des performances et de la fiabilité. | Cet outil est téléchargeable gratuitement.
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | Service de base de données cloud relationnelle entièrement managé et intelligent. | Coût basé sur les fonctionnalités, le débit et la taille. [Plus d’informations](https://azure.microsoft.com/pricing/details/sql-database/managed/)
-[Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Stockez les images pour tous types de déploiement de conteneur. | Coût basé sur les fonctionnalités, le stockage et la durée d’utilisation. [Plus d’informations](https://azure.microsoft.com/pricing/details/container-registry/)
-[Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Générez et exploitez des applications distribuées, scalables et toujours disponibles. | Coûts basé sur la taille, l’emplacement et la durée des nœuds de calcul. [Plus d’informations](https://azure.microsoft.com/pricing/details/service-fabric/)
+[Assistant Migration de données Microsoft (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Évalue et détecte les problèmes de compatibilité qui peuvent avoir un impact sur les fonctionnalités de base de données dans Azure. DMA évalue la parité des fonctionnalités entre SQL sources et cibles, et recommande des améliorations des performances et de la fiabilité. | Cet outil est téléchargeable gratuitement.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | Fournit un service de base de données cloud relationnelle entièrement managé et intelligent. | Coût basé sur les fonctionnalités, le débit et la taille. [Plus d’informations](https://azure.microsoft.com/pricing/details/sql-database/managed/)
+[Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Stocke les images pour tous types de déploiements de conteneur. | Coût basé sur les fonctionnalités, le stockage et la durée d’utilisation. [Plus d’informations](https://azure.microsoft.com/pricing/details/container-registry/)
+[Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Génère et exploite des applications distribuées, scalables et toujours disponibles | Coûts basé sur la taille, l’emplacement et la durée des nœuds de calcul. [Plus d’informations](https://azure.microsoft.com/pricing/details/service-fabric/)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Voici ce que vous (et Contoso) devez faire dans le cadre de ce scénario :
+Voici ce dont Contoso a besoin pour exécuter ce scénario :
 
 **Configuration requise** | **Détails**
 --- | ---
-**Abonnement Azure** | Vous devez avoir déjà créé un abonnement lorsque vous avez effectué l’évaluation dans le premier article de cette série. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> Si vous utilisez un abonnement existant et que vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous donne les autorisations Propriétaire ou Contributeur.
-**Infrastructure Azure** | [Découvrez comment](contoso-migration-infrastructure.md) Contoso configure une infrastructure Azure.
+**Abonnement Azure** | Contoso a créé des abonnements plus tôt dans cette série d’articles. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> Si vous utilisez un abonnement existant et que vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous donne les autorisations Propriétaire ou Contributeur.
+**Infrastructure Azure** | [Découvrez comment](contoso-migration-infrastructure.md) Contoso a configuré une infrastructure Azure.
 **Prérequis pour développeur** | Contoso a besoin des outils suivants sur une station de travail de développeur :<br/><br/> - [Visual Studio 2017 Community Edition : Version 15.5](https://www.visualstudio.com/)<br/><br/> - Charge de travail .NET activée.<br/><br/> - [Git](https://git-scm.com/)<br/><br/> - [SDK Service Fabric v 3.0 ou ultérieure](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)<br/><br/> - [Docker CE (Windows 10) ou Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/), configurés pour utiliser des conteneurs Windows.
 
 
 
 ## <a name="scenario-steps"></a>Étapes du scénario
 
-Voici comment Contoso exécutera la migration :
+Voici comment Contoso exécute la migration :
 
 > [!div class="checklist"]
 > * **Étape 1 : Provisionner une instance SQL Database dans Azure** : Contoso provisionne une instance SQL dans Azure. Une fois la machine virtuelle web frontend migrée vers un conteneur Azure, l’instance de conteneur avec l’application web frontend pointe vers cette base de données.
-> * **Étape 2 : Provisionner Azure Service Fabric** : ils provisionnent un cluster Service Fabric.
-> * **Étape 4 : Migrer la base de données avec DMA** : ils migrent la base de données de l’application avec l’Assistant Migration de données.
-> * **Étape 5 : Convertir l’application en conteneur** : ils convertissent l’application en conteneur à l’aide de Visual Studio et SDK Tools.
-> * **Étape 6 : Publier l’application**: elles publient l’application dans l’ACR et le cluster Service Fabric.
-> * **Étape 7 : Étendre l’application** : une fois l’application publique, ils l’étendent afin de tirer parti des fonctionnalités Azure, et ils la republient sur Azure.
+> * **Étape 2 : Créer un registre Azure Container Registry (ACR)** : Contoso provisionne un registre de conteneurs d’entreprise pour les images conteneur Docker.
+> * **Étape 3 : Provisionner Azure Service Fabric** : Contoso provisionne un cluster Service Fabric.
+> * **Étape 4 : Gérer les certificats Service Fabric**: Contoso configure des certificats pour l’accès de VSTS au cluster.
+> * **Étape 5 : Migrer la base de données avec DMA** : Contoso migre la base de données de l’application avec l’Assistant Migration de données.
+> * **Étape 6 : Configurer VSTS** : Contoso configure un nouveau projet dans VSTS et importe le code dans le dépôt Git.
+> * **Étape 7 : Convertir l’application** : Contoso convertit l’application en conteneur à l’aide de Visual Studio et SDK Tools.
+> * **Étape 8 : Configurer les builds et la mise en production** : Contoso configure les pipelines de build et de mise en production pour créer et publier l’application sur l’ACR et le cluster Service Fabric.
+> * **Étape 9 : Étendre l’application** : une fois l’application publique, Contoso l’étend pour tirer parti des fonctionnalités Azure et la republie sur Azure à l’aide du pipeline.
 
 
 
 ## <a name="step-1-provision-an-azure-sql-database"></a>Étape 1 : Provisionner Azure SQL Database
 
-1. Ils choisissent de créer une base de données SQL dans Azure. 
+Les administrateurs de Contoso provisionnent une base de données SQL Azure.
+
+1. Ils choisissent de créer une **base de données SQL** dans Azure. 
 
     ![Provisionner SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql1.png)
 
@@ -154,7 +161,7 @@ Voici comment Contoso exécutera la migration :
     ![Provisionner SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql3.png)
 
 4. Ils définissent le niveau tarifaire pour qu’il corresponde à leurs besoins en matière de serveur et de base de données. Et ils choisissent d’économiser de l’argent avec Azure Hybrid Benefit, car ils ont déjà une licence SQL Server.
-5. Pour le dimensionnement, ils utilisent un achat basé sur v-Core, et définissent les limites de leurs exigences attendues.
+5. Pour le dimensionnement, ils achètent en fonction du nombre de v-Core et définissent les limites des exigences attendues.
 
     ![Provisionner SQL](./media/contoso-migration-rearchitect-container-sql/provision-sql4.png)
 
@@ -179,7 +186,7 @@ Voici comment Contoso exécutera la migration :
 Le conteneur Azure est créé à l’aide des fichiers exportés à partir de la machine virtuelle web. Le conteneur est hébergé dans Azure Container Registry (ACR).
 
 
-1. Contoso crée un Container Registry dans le portail Azure.
+1. Les administrateurs de Contoso créent un registre de conteneurs dans le portail Azure.
 
      ![Container Registry](./media/contoso-migration-rearchitect-container-sql/container-registry1.png)
 
@@ -190,7 +197,7 @@ Le conteneur Azure est créé à l’aide des fichiers exportés à partir de la
 
 ## <a name="step-3-provision-azure-service-fabric"></a>Étape 3 : Provisionner Azure Service Fabric
 
-Le conteneur SmartHotel s’exécutera dans le cluster Service Fabric Azure. Contoso crée le cluster Service Fabric comme suit :
+Le conteneur SmartHotel s’exécutera dans le cluster Service Fabric Azure. Les administrateurs de Contoso créent le cluster Service Fabric de la façon suivante :
 
 1. Créer une ressource Service Fabric à partir de la Place de Marché Azure
 
@@ -245,9 +252,51 @@ Le conteneur SmartHotel s’exécutera dans le cluster Service Fabric Azure. Con
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric13.png) 
 
 
-## <a name="step-3-migrate-the-database-with-dma"></a>Étape 3 : Migrer la base de données avec DMA
+## <a name="step-4-manage-service-fabric-certificates"></a>Étape 4 : Gérer les certificats Service Fabric
 
-Contoso va migrer la base de données SmartHotel à l’aide du DMA.
+Contoso a besoin de certificats de cluster pour autoriser l’accès de VSTS au cluster. Les administrateurs de Contoso configurent cela.
+
+1. Ils ouvrent le portail Azure et accèdent au coffre de clés.
+2. Ils ouvrent les certificats et copient l’empreinte du certificat qui a été créé pendant le processus de provisionnement.
+
+    ![Copier l’empreinte](./media/contoso-migration-rearchitect-container-sql/cert1.png)
+ 
+3. Ils la copient dans un fichier texte pour référence ultérieure.
+4. À présent, ils ajoutent un certificat client en guise de certificat client d’administration sur le cluster. VSTS peut alors se connecter au cluster pour déployer des applications dans le pipeline de mise en production. Pour ce faire, ils ouvrent le coffre de clés dans le portail, puis sélectionnent **Certificats** > **Générer/Importer**.
+
+    ![Générer le certificat client](./media/contoso-migration-rearchitect-container-sql/cert2.png)
+
+5. Ils entrent le nom du certificat et fournissent un nom unique X.509 dans **Sujet**.
+
+     ![Nom du certificat](./media/contoso-migration-rearchitect-container-sql/cert3.png)
+
+6. Une fois le certificat créé, ils le téléchargent localement au format PFX.
+
+     ![Télécharger le certificat](./media/contoso-migration-rearchitect-container-sql/cert4.png)
+
+7. À présent, ils reviennent à la liste de certificats dans le coffre de clés et copient l’empreinte du certificat client qui vient d’être créé. Ils l’enregistrent dans le fichier texte.
+
+     ![Empreinte du certificat client](./media/contoso-migration-rearchitect-container-sql/cert5.png)
+
+8. Pour le déploiement de VSTS, ils doivent déterminer la valeur Base64 du certificat. Ils le font sur la station de travail locale du développeur à l’aide de PowerShell. Ils collent la sortie dans un fichier texte pour une utilisation ultérieure.
+
+    ```
+        [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
+    ```
+
+     ![Valeur base64](./media/contoso-migration-rearchitect-container-sql/cert6.png)
+
+9. Enfin, ils ajoutent le nouveau certificat au cluster Service Fabric. Pour ce faire, ils ouvrent le cluster dans le portail et cliquent sur **Sécurité**.
+
+     ![Ajouter un certificat client](./media/contoso-migration-rearchitect-container-sql/cert7.png)
+
+10. Ils cliquent sur **Ajouter** > **Client d’administration** et collent l’empreinte du nouveau certificat client. Ensuite, ils cliquent sur **Ajouter**. Cette opération peut durer jusqu’à 15 minutes.
+
+     ![Ajouter un certificat client](./media/contoso-migration-rearchitect-container-sql/cert8.png)
+
+## <a name="step-5-migrate-the-database-with-dma"></a>Étape 5 : Migrer la base de données avec DMA
+
+Les administrateurs de Contoso peuvent maintenant migrer la base de données SmartHotel à l’aide de DMA.
 
 ### <a name="install-dma"></a>Installer DMA
 
@@ -257,7 +306,7 @@ Contoso va migrer la base de données SmartHotel à l’aide du DMA.
 
 ### <a name="configure-the-firewall"></a>Configurer le pare-feu
 
-Pour se connecter à la base de données SQL Azure, une règle de pare-feu est nécessaire.
+Pour se connecter à Azure SQL Database, les administrateurs de Contoso configurent une règle de pare-feu pour autoriser l’accès.
 
 1. Dans les propriétés de **Pare-feu et réseaux virtuels** de la base de données, ils autorisent l’accès aux services Azure et ajoutent une règle pour l’adresse IP cliente de la machine virtuelle SQL Server locale.
 2. Une règle de pare-feu au niveau du serveur est créée.
@@ -269,6 +318,8 @@ Besoin de plus d’aide ?
 [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#creating-and-managing-firewall-rules) la création et la gestion des règles de pare-feu pour Azure SQL Database.
 
 ### <a name="migrate"></a>Migrer
+
+Les administrateurs de Contoso migrent maintenant la base de données.
 
 1. Dans DMA, créer un projet (**SmartHotelDB**), puis sélectionner **Migration** 
 2. Ils sélectionnent le type de serveur source **SQL Server** et la cible **Azure SQL Database**. 
@@ -308,8 +359,27 @@ Besoin de plus d’aide ?
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-9.png)
 
 
+## <a name="step-6-set-up-vsts"></a>Étape 6 : Configurer VSTS
 
-## <a name="step-4-convert-the-app-to-a-container"></a>Étape 4 : Convertir l’application en conteneur
+Contoso doit générer l’infrastructure et les pipelines DevOps pour l’application.  Pour ce faire, les administrateurs de Contoso créent un projet VSTS, importent leur code, puis les pipelines de build et de mise en production.
+
+1.   Dans le compte VSTS de Contoso, ils créent un projet (**ContosoSmartHotelRearchitect**) et sélectionnent **Git** pour la gestion de version.
+
+    ![Nouveau projet](./media/contoso-migration-rearchitect-container-sql/vsts1.png)
+
+2. Ils importent le dépôt Git qui détient actuellement leur code d’application. Il se trouve dans un [dépôt public](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) que vous pouvez télécharger.
+
+    ![Télécharger le code d’application](./media/contoso-migration-rearchitect-container-sql/vsts2.png)
+
+3. Une fois le code importé, ils connectent Visual Studio au dépôt et clonent le code à l’aide de Team Explorer.
+
+    ![Se connecter au dépôt](./media/contoso-migration-rearchitect-container-sql/vsts3.png)
+
+4. Une fois le dépôt cloné sur l’ordinateur du développeur, ils ouvrent le fichier solution de l’application. L’application web et le service wcf ont chacun un projet distinct dans le fichier.
+
+    ![Fichier solution](./media/contoso-migration-rearchitect-container-sql/vsts4.png)
+
+## <a name="step-7-convert-the-app-to-a-container"></a>Étape 7 : Convertir l’application en conteneur
 
 L’application locale est une application à trois niveaux traditionnelle :
 
@@ -317,74 +387,123 @@ L’application locale est une application à trois niveaux traditionnelle :
 - Elle utilise Entity Framework pour l’intégration aux données dans la base de données SQL, et les expose au moyen d’un service WCF.
 - L’application Web Forms interagit avec le service WCF.
 
-Contoso va convertir l’application en conteneur à l’aide de Visual Studio et de SDK Tools en procédant comme suit :
+Les administrateurs de Contoso convertissent l’application en conteneur à l’aide de Visual Studio et SDK Tools de la façon suivante :
 
-1. Ils clonent le dépôt localement sur un ordinateur de développeur :
 
-    **Clone Git https://github.com/Microsoft/SmartHotel360-internal-booking-apps.git**
-
-    ![Conteneur](./media/contoso-migration-rearchitect-container-sql/container1.png)
-
-2. À l’aide de Visual Studio, ils ouvrent le fichier de solution (SmartHotel.Registration.sln) dans le répertoire **SmartHotel360-internal-booking-apps\src\Registration** du dépôt local.  Deux applications sont affichées. L’application web frontend SmartHotel.Registration.Web et l’application de service WCF SmartHotel.Registration.WCF.
+1. À l’aide de Visual Studio, ils examinent le fichier solution (SmartHotel.Registration.sln) dans le répertoire **SmartHotel360-internal-booking-apps\src\Registration** du dépôt local.  Deux applications sont affichées. L’application web frontend SmartHotel.Registration.Web et l’application de service WCF SmartHotel.Registration.WCF.
 
     ![Conteneur](./media/contoso-migration-rearchitect-container-sql/container2.png)
 
 
-3. Ils cliquent avec le bouton droit sur l’application web > **Ajouter** > **Prise en charge des orchestrateurs de conteneurs**.
-4. Dans **Ajouter la prise en charge des orchestrateurs de conteneurs**, ils sélectionnent **Service Fabric**.
+2. Ils cliquent avec le bouton droit sur l’application web > **Ajouter** > **Prise en charge des orchestrateurs de conteneurs**.
+3. Dans **Ajouter la prise en charge des orchestrateurs de conteneurs**, ils sélectionnent **Service Fabric**.
 
     ![Conteneur](./media/contoso-migration-rearchitect-container-sql/container3.png)
-
-5. Contoso répète le processus pour l’application SmartHotel.Registration.WCF.
-6. Maintenant, Contoso vérifie comment la solution a changé.
+    
+4. Ils répètent le processus pour l’application SmartHotel.Registration.WCF.
+5. Maintenant, ils observent les changements de l’application.
 
     - La nouvelle application est **SmartHotel.RegistrationApplication/**.
     - Elle contient deux services : **SmartHotel.Registration.WCF** et **SmartHotel.Registration.Web**.
 
     ![Conteneur](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
-7. Visual Studio a créé le fichier Docker et extrait les images nécessaires localement sur l’ordinateur du développeur.
+6. Visual Studio a créé le fichier Docker et extrait les images nécessaires localement sur l’ordinateur du développeur.
 
     ![Conteneur](./media/contoso-migration-rearchitect-container-sql/container5.png)
 
-8. Un fichier manifeste (**ServiceManifest.xml**) est créé et ouvert par Visual Studio. Ce fichier indique à Service Fabric comment configurer le conteneur quand il est déployé sur Azure.
+7. Un fichier manifeste (**ServiceManifest.xml**) est créé et ouvert par Visual Studio. Ce fichier indique à Service Fabric comment configurer le conteneur quand il est déployé sur Azure.
 
     ![Conteneur](./media/contoso-migration-rearchitect-container-sql/container6.png)
 
-9. Un autre fichier manifeste (**ApplicationManifest.xml) contient les applications de configuration pour les conteneurs.
+8. Un autre fichier manifeste (**ApplicationManifest.xml) contient les applications de configuration pour les conteneurs.
 
     ![Conteneur](./media/contoso-migration-rearchitect-container-sql/container7.png)
 
-## <a name="step-5-publish-the-app"></a>Étape 5 : Publier l’application
+9. Ils ouvrent le fichier **ApplicationParameters/Cloud.xml** et mettent à jour la chaîne de connexion pour connecter l’application à la base de données SQL Azure. La chaîne de connexion se trouve dans la base de données dans le portail Azure.
 
+    ![Chaîne de connexion](./media/contoso-migration-rearchitect-container-sql/container8.png)
 
-Pour finir, Contoso peut publier l’application sur l’ACR et le cluster Service Fabric.
+10. Ils valident le code mis à jour et le poussent dans VSTS.
 
-> [!NOTE]
-> Certaines modifications liées au cluster Service Fabric ont été apportées à l’application SmartHotel. Vous pouvez télécharger le code d’application d’origine et le code mis à jour à partir de [GitHub](https://github.com/Microsoft/SmartHotel360-internal-booking-apps). Le fichier modifié est **AppliationModern/ApplicationParameters/Cloud.xml**.
+    ![Validation](./media/contoso-migration-rearchitect-container-sql/container9.png)
 
+## <a name="step-8-build-and-release-pipelines-in-vsts"></a>Étape 8 : Pipelines de build et de mise en production dans VSTS
 
-1. Dans Visual Studio, la chaîne de connexion est mise à jour pour connecter l’application à la base de données SQL Azure. Vous trouverez la chaîne de connexion dans la base de données dans le portail Azure.
+Les administrateurs de Contoso configurent maintenant VSTS pour lancer le processus de build et mise en production afin de mettre en place les pratiques DevOps.
 
-    ![Publish](./media/contoso-migration-rearchitect-container-sql/publish1.png)
+1. Dans VSTS, ils cliquent sur **Build et mise en production** > **Nouveau pipeline**.
 
-2. Contoso publie l’application sur Service Fabric à l’aide de Visual Studio. Ils cliquent avec le bouton droit sur l’application Service Fabric > **Publier**.
+    ![Nouveau pipeline](./media/contoso-migration-rearchitect-container-sql/pipeline1.png)
 
-    ![Publish](./media/contoso-migration-rearchitect-container-sql/publish2.png)
+2. Ils sélectionnent **VSTS Git** et le dépôt pertinent.
 
-3. Ils sélectionnent l’abonnement, le point de terminaison de connexion et l’ACR. Ils cliquent ensuite sur **Publier**.
+    ![Git et dépôt](./media/contoso-migration-rearchitect-container-sql/pipeline2.png)
 
-    ![Publish](./media/contoso-migration-rearchitect-container-sql/publish3.png)
+3. Dans **Sélectionner un modèle**, ils sélectionnent Fabric avec prise en charge Docker.
 
-4. Une fois le déploiement terminé, SmartHotel exécutera Service Fabric.
+     ![Fabric et Docker](./media/contoso-migration-rearchitect-container-sql/pipeline3.png)
+    
+4. Ils remplacent l’étiquetage des images par la génération d’image et configurent la tâche pour utiliser l’ACR provisionné.
+
+     ![Registre](./media/contoso-migration-rearchitect-container-sql/pipeline4.png)
+
+5. Dans la tâche **Pousser des images**, ils configurent l’image pour qu’elle soit poussée dans l’ACR et choisissent d’inclure la dernière étiquette.
+6. Dans **Déclencheurs**, ils activent l’intégration continue et ajoutent la branche maître.
+
+    ![Déclencheurs](./media/contoso-migration-rearchitect-container-sql/pipeline5.png)
+
+7. Ils cliquent sur **Enregistrer et mettre en file d’attente** pour lancer une génération.
+8. Une fois la génération terminée, ils passent au pipeline de mise en production. Dans VSTS, ils cliquent sur **Mises en production** > **Nouveau pipeline**.
+
+    ![Pipeline de mise en production](./media/contoso-migration-rearchitect-container-sql/pipeline6.png)    
+
+9. Ils sélectionnent le modèle **Déploiement Azure Service Fabric** et donnent un nom à l’environnement (**SmartHotelSF**).
+
+    ![Environnement](./media/contoso-migration-rearchitect-container-sql/pipeline7.png)
+
+10. Ils fournissent un nom de pipeline (**ContosoSmartHotelRearchitect**). Pour l’environnement, ils cliquent sur **1 phase, 1 tâche** afin de configurer le déploiement Service Fabric.
+
+    ![Phase et tâche](./media/contoso-migration-rearchitect-container-sql/pipeline8.png)
+
+11. À présent, ils cliquent sur **Nouveau** pour ajouter une nouvelle connexion de cluster.
+
+    ![Nouvelle connexion](./media/contoso-migration-rearchitect-container-sql/pipeline9.png)
+
+12. Dans **Ajouter une connexion du service Service Fabric**, ils configurent la connexion et les paramètres d’authentification utilisés par VSTS pour déployer l’application. Le point de terminaison de cluster peut être localisé dans le portail Azure, et ils ajoutent le préfixe **tcp://**.
+13. Les informations de certificat collectées sont entrées dans **Empreinte numérique du certificat de serveur** et **Certificat client**.
+
+    ![Certificat](./media/contoso-migration-rearchitect-container-sql/pipeline10.png)
+
+13. Ils cliquent sur le pipeline > **Ajouter un artefact**.
+
+     ![Artefact](./media/contoso-migration-rearchitect-container-sql/pipeline11.png)
+
+14. Ils sélectionnent le projet et le pipeline de build à l’aide de la dernière version.
+
+     ![Créer](./media/contoso-migration-rearchitect-container-sql/pipeline12.png)
+
+15. Notez que l’éclair sur l’artefact est activé.
+
+     ![État de l’artefact](./media/contoso-migration-rearchitect-container-sql/pipeline13.png)
+
+16. Par ailleurs, notez que le déclencheur de déploiement continu est activé.
+
+   ![Déploiement continu activé](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
+
+17. Ils cliquent sur **Enregistrer** > **Créer une mise en production**.
+
+    ![Libérer](./media/contoso-migration-rearchitect-container-sql/pipeline15.png)
+
+18. Une fois le déploiement terminé, SmartHotel exécutera Service Fabric.
 
     ![Publish](./media/contoso-migration-rearchitect-container-sql/publish4.png)
 
-5. Pour se connecter à l’application, Contoso dirige le trafic vers l’adresse IP publique de l’équilibreur de charge Azure qui se trouve devant ses nœuds Service Fabric.
+19. Pour se connecter à l’application, ils dirigent le trafic vers l’adresse IP publique de l’équilibreur de charge Azure qui se trouve devant les nœuds Service Fabric.
 
     ![Publish](./media/contoso-migration-rearchitect-container-sql/publish5.png)
 
-## <a name="step-6-extend-the-app-and-republish"></a>Étape 6 : Étendre l’application et republier
+## <a name="step-9-extend-the-app-and-republish"></a>Étape 9 : Étendre l’application et republier
 
 Une fois l’application SmartHotel et la base de données en cours d’exécution dans Azure, Contoso souhaite étendre l’application.
 
@@ -394,7 +513,7 @@ Une fois l’application SmartHotel et la base de données en cours d’exécuti
 
 ### <a name="provision-azure-cosmos-db"></a>Provisionner Azure Cosmos DB
 
-Dans un premier temps, Contoso provisionne une base de données Azure Cosmos.
+Dans un premier temps, les administrateurs de Contoso provisionnent une base de données Azure Cosmos.
 
 1. Ils créent une ressource Azure Cosmos DB dans la Place de Marché Azure.
 
@@ -439,7 +558,7 @@ Dans un premier temps, Contoso provisionne une base de données Azure Cosmos.
 
 ### <a name="update-the-sentiment-app"></a>Mettre à jour l’application de sentiments
 
-Cosmos DB étant provisionné, Contoso peut configurer l’application pour qu’elle s’y connecte.
+Cosmos DB étant provisionné, les administrateurs de Contoso peuvent configurer l’application pour qu’elle s’y connecte.
 
 1. Dans Visual Studio, ils ouvrent le fichier ApplicationModern\ApplicationParameters\cloud.xml dans l’Explorateur de solutions.
 
@@ -459,21 +578,15 @@ Cosmos DB étant provisionné, Contoso peut configurer l’application pour qu�
 
 ### <a name="republish-the-app"></a>Republier l’application
 
-Après avoir étendu l’application, Contoso la republie sur Azure.
+Après l’extension de l’application, les administrateurs de Contoso la republient sur Azure à l’aide du pipeline.
 
-1. Dans le portail, ils cliquent avec le bouton droit sur l’application Service Fabric > **Publier**.
+1. Ils valident leur code et le poussent dans VSTS. Cette opération lance les pipelines de build et de mise en production.
 
-    ![Republier](./media/contoso-migration-rearchitect-container-sql/republish1.png)
-
-2. Ils sélectionnent l’abonnement, le point de terminaison de connexion et l’ACR. Ils cliquent ensuite sur **Publier**.
-
-    ![Republier](./media/contoso-migration-rearchitect-container-sql/republish2.png)
-
-4. Une fois le déploiement terminé, SmartHotel exécutera Service Fabric. La console de gestion Service Fabric affiche maintenant trois services.
+2. Une fois la génération et le déploiement terminés, SmartHotel exécute Service Fabric. La console de gestion Service Fabric affiche maintenant trois services.
 
     ![Republier](./media/contoso-migration-rearchitect-container-sql/republish3.png)
 
-5. Contoso peut cliquer sur les services pour vérifier que l’application SentimentIntegration est en cours d’exécution
+3. Ils peuvent maintenant cliquer sur les services pour vérifier que l’application SentimentIntegration est opérationnelle
 
     ![Republier](./media/contoso-migration-rearchitect-container-sql/republish4.png)
 
@@ -493,26 +606,27 @@ Avec les ressources migrées dans Azure, Contoso doit rendre sa nouvelle infrast
 
 ### <a name="security"></a>Sécurité
 
-- Contoso doit vérifier que sa nouvelle base de données **SmartHotel-Registration** est sécurisée. [Plus d’informations](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview)
+- Les administrateurs de Contoso doivent vérifier que leur nouvelle base de données **SmartHotel-Registration** est sécurisée. [Plus d’informations](https://docs.microsoft.com/azure/sql-database/sql-database-security-overview)
 - En particulier, ils doivent mettre à jour le conteneur pour utiliser le protocole SSL avec des certificats.
 - Ils devraient envisager d’utiliser Key Vault pour protéger les secrets de leurs applications Service Fabric. [Plus d’informations](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management)
 
 ### <a name="backups"></a>Sauvegardes
 
 - Contoso doit examiner les exigences de sauvegarde pour Azure SQL Database. [Plus d’informations](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups)
-- Ils devraient envisager d’implémenter des groupes de basculement afin de fournir un basculement régional pour la base de données. [Plus d’informations](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)
+- Les administrateurs de Contoso doivent implémenter des groupes de basculement afin de fournir un basculement régional pour la base de données. [Plus d’informations](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)
 - Ils peuvent tirer parti de la géoréplication pour la référence (SKU) premium d’ACR. [Plus d’informations](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication)
-- Contoso doit envisager de déployer l’application web dans la région principale USA Est 2, ainsi que dans la région USA Centre, quand Web App pour conteneurs devient disponible. Ils pourraient configurer Traffic Manager pour garantir le basculement en cas de pannes régionales.
+- Contoso doit envisager de déployer l’application web dans la région principale USA Est 2, ainsi que dans la région USA Centre, quand Web App pour conteneurs devient disponible. Les administrateurs de Contoso peuvent configurer Traffic Manager pour garantir le basculement en cas de pannes régionales.
+- Cosmos DB effectue des sauvegardes automatiquement. Contoso peut en savoir plus sur ce processus [ici](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore).
 
 ### <a name="licensing-and-cost-optimization"></a>Gestion des licences et optimisation des coûts
 
-- Une fois toutes les ressources déployées, Contoso doit affecter des balises Azure en fonction de la [planification de son infrastructure](contoso-migration-infrastructure.md#set-up-tagging).
+- Une fois toutes les ressources déployées, Contoso doit attribuer des étiquettes Azure en fonction de la [planification de son infrastructure](contoso-migration-infrastructure.md#set-up-tagging).
 - Toutes les licences sont intégrées dans le coût des services PaaS que Contoso consomme. Cela sera déduit de l’Accord Entreprise.
-1. Contoso va activer Azure Cost Management sous licence de Cloudyn, une filiale de Microsoft. Il s’agit d’une solution de gestion des coûts multicloud qui aide à utiliser et à gérer Azure ainsi que d’autres ressources cloud.  [En savoir plus](https://docs.microsoft.com/azure/cost-management/overview) sur Azure Cost Management. 
+- Contoso va activer Azure Cost Management sous licence de Cloudyn, une filiale de Microsoft. Il s’agit d’une solution de gestion des coûts multicloud qui aide à utiliser et à gérer Azure ainsi que d’autres ressources cloud.  [En savoir plus](https://docs.microsoft.com/azure/cost-management/overview) sur Azure Cost Management.
 
 ## <a name="conclusion"></a>Conclusion
 
-Cet article décrit comment Contoso a refactorisé l’application SmartHotel dans Azure en migrant la machine virtuelle frontend de l’application vers Service Fabric. Ils ont migré la base de données d’application vers une base de données Azure SQL.
+Cet article décrit comment Contoso a refactorisé l’application SmartHotel dans Azure en migrant la machine virtuelle frontend de l’application vers Service Fabric. La base de données de l’application a été migrée vers une base de données SQL Azure.
 
 
 

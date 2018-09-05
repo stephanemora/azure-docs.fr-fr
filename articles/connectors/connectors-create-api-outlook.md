@@ -1,47 +1,58 @@
 ---
-title: Connecteur Outlook.com dans Azure Logic Apps | Documents Microsoft
-description: Créez des applications logiques avec Azure App Service. Le connecteur Outlook.com vous permet de gérer votre messagerie, les calendriers et les contacts. Vous pouvez effectuer différentes actions comme envoyer un message, planifier des réunions, ajouter des contacts, etc.
+title: Se connecter à Outlook.com - Azure Logic Apps | Microsoft Docs
+description: Gérer les e-mails, les calendriers et les contacts avec les API REST Outlook.com et Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 1338b7ce8f72a57cb65f9389e630fd7ebd0417b1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 8030ab9d317c1deefaf441008b9022c4a26bb17c
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295582"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746160"
 ---
-# <a name="get-started-with-the-outlookcom-connector"></a>Prise en main du connecteur Outlook.com
-Le connecteur Outlook.com vous permet de gérer votre messagerie, les calendriers et les contacts. Vous pouvez effectuer différentes actions comme envoyer un message, planifier des réunions, ajouter des contacts, etc.
+# <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Gérer les e-mails, les calendriers et les contacts dans Outlook.com avec Azure Logic Apps
 
-Vous pouvez commencer par créer une application logique. Pour cela, consultez [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Cet article explique comment vous pouvez créer et gérer votre compte Outlook.com dans une application logique avec le connecteur Box. De cette façon, vous pouvez créer des applications logiques qui automatisent les tâches et les flux de travail pour votre compte Outlook.com, par exemple :
 
-## <a name="create-a-connection-to-outlookcom"></a>Créer une connexion à Outlook.com
-Pour créer des applications logiques avec Outlook.com, vous devez d’abord créer une **connexion**, puis fournir les détails pour les propriétés suivantes :
+* Envoyer un e-mail. 
+* Planifier des réunions.
+* Rechercher des contacts. 
 
-| Propriété | Obligatoire | Description |
-| --- | --- | --- |
-| par jeton |OUI |Fournir des informations d’identification Outlook.com |
+Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
 
-Après avoir créé la connexion, vous pouvez l’utiliser pour exécuter les actions et écouter les déclencheurs décrits dans cet article.
+## <a name="prerequisites"></a>Prérequis
 
-> [!INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)]
->
+* Un [compte Outlook.com](https://outlook.live.com/owa/)
 
-## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/outlook/).
+* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Outlook.com. Pour démarrer votre application logique avec un déclencheur Outlook, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-## <a name="more-connectors"></a>Autres connecteurs
-Revenir à la [liste des API](apis-list.md).
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## <a name="connect-to-outlookcom"></a>Connexion à Outlook.com
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+[!INCLUDE [Connect to Outlook.com](../../includes/connectors-create-api-outlook.md)]
+
+## <a name="connector-reference"></a>Référence de connecteur
+
+Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/outlook/). 
+
+## <a name="get-support"></a>Obtenir de l’aide
+
+* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

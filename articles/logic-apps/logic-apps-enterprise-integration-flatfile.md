@@ -1,27 +1,23 @@
 ---
-title: Encoder ou décoder des fichiers plats dans Azure Logic Apps | Microsoft Docs
-description: Guide pratique pour utiliser l’encodeur ou le décodeur de fichiers plats dans l’instance Enterprise Integration Pack de vos applications logiques
+title: Encoder ou décoder des fichiers plats - Azure Logic Apps | Microsoft Docs
+description: Encoder ou décoder des fichiers plats pour l’intégration d’entreprise avec Azure Logic Apps et Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.author: LADocs; divswa
-ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038116"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123926"
 ---
-# <a name="overview-of-enterprise-integration-with-flat-files"></a>Vue d’ensemble de l’intégration d’entreprise avec des fichiers plats
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Encoder ou décoder des fichiers plats avec Azure Logic Apps et Enterprise Integration Pack
 
 Par exemple, vous pouvez encoder le contenu XML avant de l’envoyer à un partenaire commercial dans un scénario B2B. Dans une application logique, vous pouvez utiliser le connecteur d’encodage de fichier plat pour effectuer cette opération. L’application logique que vous créez peut obtenir son contenu XML de diverses sources y compris à partir d’un déclencheur de requête HTTP, d’une autre application, voire d’un des nombreux [connecteurs](../connectors/apis-list.md). Pour plus d’informations sur les applications logiques, consultez la [documentation sur les applications logiques](logic-apps-overview.md "En savoir plus sur les applications logiques").  
 

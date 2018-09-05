@@ -3,7 +3,7 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 services: functions
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -12,18 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 08/22/2018
 ms.author: glenga
-ms.openlocfilehash: b5f4ce786371608b276e41f6881dcb1e0a91e303
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 46c1cb0a0cb3104e3705e4a7d4ef0dd894a7c2d7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345053"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819044"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
 Les paramètres d’une application de fonction contiennent les options de configuration globale qui affectent l’ensemble des fonctions de cette application de fonction. Lors d’une exécution locale, ces paramètres sont contenus dans des variables d’environnement. Cet article répertorie les paramètres d’application qui sont disponibles dans les applications de fonction.
+
+[!INCLUDE [Paramètres de l’application de fonctions](../../includes/functions-app-settings.md]
 
 Les fichiers [host.json](functions-host-json.md) et [local.settings.json](functions-run-local.md#local-settings-file) contiennent d’autres options de configuration globale.
 
@@ -127,7 +129,7 @@ Pour les plans de consommation uniquement. Chaîne de connexion du compte de sto
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
 
-## <a name="websitecontentshare"></a>WEBSITE_CONTENTSHARE
+## <a name="websitecontentshare"></a>WEBSITE\_CONTENTSHARE
 
 Pour les plans de consommation uniquement. Chemin d’accès au fichier contenant la configuration et le code de l’application de fonction. Utilisé avec WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. La valeur par défaut est une chaîne unique qui commence par le nom de l’application de fonction. Consultez la section [Créer une application de fonction](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -153,6 +155,19 @@ La valeur par défaut est « 6.5.0 ».
 |Clé|Exemple de valeur|
 |---|------------|
 |WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
+
+## <a name="websiterunfromzip"></a>WEBSITE\_RUN\_FROM\_ZIP
+
+Permet à votre application de fonction de s’exécuter à partir d’un fichier de package monté.
+
+> [!NOTE]
+> Ce paramètre concerne une fonctionnalité d’évaluation.
+
+|Clé|Exemple de valeur|
+|---|------------|
+|WEBSITE\_RUN\_FROM\_ZIP|1|
+
+Les valeurs valides sont soit une URL qui correspond à l’emplacement d’un fichier de package de déploiement, soit `1`. Lorsque la valeur `1` est définie, le package doit se trouver dans le dossier `d:\home\data\SitePackages`. Lorsque vous utilisez le déploiement zip avec ce paramètre, le package est automatiquement chargé vers cet emplacement.  Pour plus d’informations, consultez [Exécuter des fonctions Azure à partir d’un fichier de package](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

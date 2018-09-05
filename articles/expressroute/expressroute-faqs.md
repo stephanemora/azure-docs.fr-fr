@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: f68a4d699d1ad6592fe5481cd69795b06e7d8fca
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2e332b361a1531eb5f6a8a1d3c46c2f258035258
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160867"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818791"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -157,7 +157,7 @@ Si votre fournisseur de services propose ExpressRoute sur les deux sites, vous p
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Puis-je avoir plusieurs circuits ExpressRoute dans le même métro ? Puis-je les lier au même réseau virtuel ?
 
-Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements d’homologation ExpressRoute et que les circuits sont créés à différents emplacements d’homologation, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement d’homologation, vous ne pouvez pas les lier au même réseau virtuel. Chaque nom d’emplacement dans le portail Azure ou dans l’API PowerShell/CLI représente un emplacement appairage. Par exemple, vous pouvez sélectionner les emplacements d’appairage « Singapour » et « Singapour2 » et vous connecter à des circuits de chacun pour le même réseau virtuel. 
+Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements d’homologation ExpressRoute et que les circuits sont créés à différents emplacements d’homologation, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement d’homologation, vous ne pouvez pas les lier au même réseau virtuel. Chaque nom d’emplacement dans le portail Azure ou dans l’API PowerShell/CLI représente un emplacement appairage. Par exemple, vous pouvez sélectionner les emplacements d’appairage « Singapour » et « Singapour2 » et connecter des circuits de chacun au même réseau virtuel. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Comment connecter mes réseaux virtuels à un circuit ExpressRoute ?
 

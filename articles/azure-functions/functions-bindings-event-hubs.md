@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146617"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747042"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Liaisons Azure Event Hubs pour Azure Functions
 
@@ -52,24 +52,24 @@ Quand une fonction de déclenchement Event Hubs est déclenchée, le message qui
 
 ## <a name="trigger---scaling"></a>Déclencheur - mise à l'échelle
 
-Chaque instance d'une fonction déclenchée par un hub d'événements est sauvegardée par 1 instance EventProcessorHost (EPH). Event Hubs garantit que 1 seule instance EPH peut obtenir un bail sur une partition donnée.
+Chaque instance d’une fonction déclenchée par un hub d’événements est sauvegardée par une seule instance [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Event Hubs garantit qu’une seule instance [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) peut obtenir un bail sur une partition donnée.
 
-Par exemple, considérons la configuration et les hypothèses suivantes pour un hub d'événements :
+Prenons, par exemple, le hub d’événements suivant :
 
-1. 10 partitions.
-1. 1 000 événements répartis uniformément sur toutes les partitions => 100 messages dans chaque partition.
+* 10 partitions.
+* 1 000 événements répartis uniformément sur toutes les partitions, avec 100 messages dans chaque partition.
 
-Quand votre fonction est activée pour la première fois, il n'existe qu’une seule instance de la fonction. Appelons cette instance de fonction Function_0. Function_0 aura 1 EPH qui obtiendra un bail sur les 10 partitions. Elle commencera à lire les événements des partitions 0-9. À partir de ce point, l'un des événements suivants se produira :
+Lorsque votre fonction est activée pour la première fois, il n’existe qu’une seule instance de cette fonction. Nous appellerons cette instance de fonction `Function_0`. `Function_0` comprend une seule instance [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) avec un bail sur les dix partitions. Cette instance lit les événements des partitions 0 à 9. À partir de là, l’un des événements suivants se produit :
 
-* **1 seule instance de fonction est nécessaire** : Function_0 est capable de traiter l'ensemble des 1 000 événements avant que la logique de mise à l'échelle d'Azure Functions ne se déclenche. Par conséquent, tous les 1 000 messages sont traités par Function_0.
+* **Les nouvelles instances de fonction ne sont pas nécessaires** : `Function_0` est capable de traiter l’ensemble des 1 000 événements avant que la logique de mise à l’échelle Functions ne se déclenche. Dans ce cas, l’intégralité des 1 000 messages sont traités par `Function_0`.
 
-* **Ajouter 1 instance de fonction supplémentaire** : la logique de mise à l'échelle d'Azure Functions détermine que Function_0 reçoit plus de messages qu'elle ne peut traiter, et une nouvelle instance Function_1 est créée. Event Hubs détecte qu'une nouvelle instance EPH tente de lire des messages. Event Hubs démarre l'équilibrage de charge des partitions sur les instances EPH, par exemple, les partitions 0-4 sont affectées à Function_0 et les partitions 5 à 9 sont affectées à Function_1. 
+* **Une instance de fonction est ajoutée** : la logique de mise à l’échelle Functions détermine que `Function_0` a plus de messages qu’elle ne peut en traiter. Dans ce cas, une nouvelle instance d’application de fonction (`Function_1`) est créée, avec une nouvelle instance [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Event Hubs détecte qu’une nouvelle instance d’hôte tente de lire des messages. Event Hubs équilibre la charge des partitions de ses instances d’hôte. Par exemple, les partitions 0 à 4 peuvent être affectées à `Function_0`, et les partitions 5 à 9 à `Function_1`. 
 
-* **Ajouter N autres instances de fonction** : la logique de mise à l'échelle d'Azure Functions détermine que Function_0 et Function_1 reçoivent plus de messages qu'elles ne peuvent traiter. Une nouvelle mise à l’échelle sera effectuée pour Function_2...N, où N est supérieur aux partitions du hub d’événements. Event Hubs équilibrera les partitions entre les instances Function_0...9.
+* **Un nombre n d’instances de fonction est ajouté** : la logique de mise à l’échelle de Functions détermine que `Function_0` et `Function_1` ont plus de messages qu’elles ne peuvent en traiter. De nouvelles instances d’application de fonction `Function_2`...`Functions_N` sont créées, où `N` est supérieur au nombre de partitions de hub d’événements. Dans notre exemple, Event Hubs équilibre la charge des partitions, en l’occurrence, sur les instances `Function_0`...`Functions_9`. 
 
-La logique actuelle de mise à l'échelle d'Azure Functions est unique car N est supérieur au nombre de partitions. Cela permet de s'assurer qu'il y a toujours des instances EPH disponibles pour verrouiller rapidement les partitions à mesure qu'elles deviennent disponibles à partir d'autres instances. Les utilisateurs ne sont facturés que pour les ressources utilisées lors de l'exécution de l'instance de la fonction. Ils ne sont pas facturés pour ce surprovisionnement.
+Notez ceci lorsque Functions effectue une mise à l’échelle sur `N` instances, qui est un nombre supérieur à celui des partitions du hub d’événements. Ainsi, des instances [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) sont toujours disponibles pour obtenir des verrous sur les partitions, à mesure que celles-ci sont mises à disposition par les autres instances. Vous n’êtes facturé que pour les ressources utilisées lors de l’exécution de l’instance de la fonction. Vous n’êtes pas facturé pour ce surprovisionnement.
 
-Si toutes les exécutions de fonction réussissent sans erreurs, des points de contrôle sont ajoutés au compte de stockage associé. Une fois les points de contrôle correctement créés, tous les 1 000 messages ne devraient plus jamais être récupérés.
+Quand toutes les exécutions de fonction se terminent (avec ou sans erreurs), des points de contrôle sont ajoutés au compte de stockage associé. Une fois les points de contrôle correctement créés, les 1 000 messages ne sont plus jamais récupérés.
 
 ## <a name="trigger---example"></a>Déclencheur - exemple
 

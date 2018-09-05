@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 89270a0bd1914a2486c8cc634563bdded743adaa
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578583"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746471"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Surveiller et résoudre les problèmes liés à Site Recovery
 
@@ -153,13 +153,14 @@ Parallèlement au tableau de bord, vous pouvez surveiller les machines à partir
 3.  Cliquez sur **Colonnes** pour afficher des colonnes supplémentaires, par exemple pour afficher le RPO, les problèmes de configuration cible et les erreurs de réplication.
 4. Cliquez sur **Filtre** pour afficher les informations en fonction de paramètres spécifiques telles que l’intégrité de la réplication, ou une stratégie de réplication particulière.
 5. Cliquez avec le bouton droit sur une machine pour y lancer des opérations telles qu’un test de basculement, ou pour afficher les détails des erreurs qui lui sont associées.
-6. Cliquez sur une machine pour en afficher les détails. Les détails incluent : - **Les informations de réplication** : état et intégrité actuels de la machine.
-        - **RPO** (objectif de point de récupération) : RPO actuel de la machine virtuelle et heure du dernier calcul du RPO.
-        - **Point de récupération** : derniers points de récupération disponibles pour la machine.
-        - **Disponibilité du basculement** : indique si un test de basculement a été exécuté pour la machine, la version de l’agent en cours d’exécution sur la machine (pour les machines exécutant le service Mobilité) et les problèmes de configuration.
-        - **Erreurs** : liste des erreurs de réplication actuellement observées sur la machine, ainsi que les causes/actions possibles.
-        - **Événements** : liste chronologique des événements récents ayant un impact sur la machine. La colonne Détails de l’erreur indique les erreurs actuellement observables sur la machine, tandis que la colonne Événements est un enregistrement historique des problèmes qui ont eu un impact sur la machine.
-        - **Vue d’infrastructure**: affiche l’état de l’infrastructure pour le scénario de réplication des machines vers Azure.
+6. Cliquez sur une machine pour en afficher les détails. Les détails sont les suivants :
+      - **Informations de réplication** : état et intégrité actuels de la machine.
+      - **RPO** (objectif de point de récupération) : RPO actuel de la machine virtuelle et heure du dernier calcul du RPO.
+      - **Points de récupération**: derniers points de récupération disponibles pour la machine.
+      - **Disponibilité du basculement** : indique si un test de basculement a été exécuté pour la machine, la version de l’agent en cours d’exécution sur la machine (pour les machines exécutant le service Mobilité) et les éventuels problèmes de configuration.
+      - **Erreurs** : liste des symptômes d’erreur de réplication actuellement observés sur la machine, ainsi que les causes/actions possibles.
+      - **Événements** : liste chronologique des événements récents ayant un impact sur la machine. La colonne Détails de l’erreur indique les erreurs actuellement observables sur la machine, tandis que la colonne Événements est un enregistrement historique des problèmes qui ont eu un impact sur la machine.
+      - **Vue d’infrastructure** : affiche l’état de l’infrastructure pour le scénario de réplication des machines vers Azure.
 
     ![Vue d’ensemble/détails des éléments répliqués d’Azure Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 

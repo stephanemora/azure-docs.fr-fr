@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: c9d656908d265aeb6143e857b0ea4f635203bdd9
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258726"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818400"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connecter votre application à Azure SQL Database Managed Instance
 
@@ -75,9 +75,23 @@ Ce scénario est illustré dans le diagramme suivant :
 
 Managed Instance est uniquement accessible par le biais d’une adresse IP privée, donc pour y accéder à partir de votre box de développeur, vous devez d’abord établir une connexion entre cette dernière et le réseau virtuel Managed Instance.  
  
-Configurez une connexion point à site à un réseau virtuel à l’aide des articles sur l’authentification par certificat Azure native ([portail Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)).  
+Configurez une connexion point à site à un réseau virtuel à l’aide des articles sur l’authentification par certificat Azure native ([portail Azure](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)). 
+
+## <a name="required-versions-of-drivers-and-tools"></a>Versions exigées de pilotes et d’outils
+
+Les versions minimales suivantes des outils et des pilotes sont recommandées si vous voulez vous connecter à Managed Instance :
+
+| Pilote/outil | Version |
+| --- | --- |
+|.NET Framework | 4.6.1 (ou .NET Core) | 
+|Pilote ODBC    | v17 |
+|Pilote PHP | 5.2.0 |
+|Pilote JDBC    | 6.4.0 |
+|Pilote Node.js | 2.1.1 |
+|Pilote OLEDB   | 18.0.2.0 |
+|SSMS   | 17.8.1 ou [version ultérieure](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur l’option Managed Instance, consultez [Présentation de l’option Managed Instance](sql-database-managed-instance.md).
-- Pour suivre un didacticiel vous expliquant comment créer une option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- Pour suivre un didacticiel vous expliquant comment créer une option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-get-started.md).

@@ -1,27 +1,23 @@
 ---
 title: Encoder des messages AS2 - Azure Logic Apps | Microsoft Docs
-description: Comment utiliser l’encodeur AS2 dans Enterprise Integration Pack pour Azure Logic Apps
+description: Encodez des messages AS avec Azure Logic Apps et Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 332fb9e3-576c-4683-bd10-d177a0ebe9a3
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: b3b57b2505c4185f3a81530cbc9eeb464dcfa518
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 6bb19199929a004ee5668a3a6e057a69c24dd752
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42142277"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122711"
 ---
-# <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Encodez des messages AS2 pour Azure Logic Apps avec Enterprise Integration Pack
+# <a name="encode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Encodez des messages AS2 avec Azure Logic Apps et Enterprise Integration Pack
 
 Utilisez le connecteur Encode AS2 Message pour créer des conditions de transmission de messages à la fois sûres et fiables. Ce connecteur fournit des fonctionnalités de signature numérique, de cryptage et d’accusés de réception par vérification des notifications de messages (Message Disposition Notifications, MDN), ce qui renforce par ailleurs la non-répudiation.
 

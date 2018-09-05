@@ -1,6 +1,6 @@
 ---
-title: Configuration des alertes de sécurité | Microsoft Docs
-description: Découvrez comment configurer des alertes de sécurité pour l’extension Azure Privileged Identity Management.
+title: Configurer des alertes de sécurité pour les rôles d’annuaire Azure AD dans PIM | Microsoft Docs
+description: Découvrez comment configurer des alertes de sécurité pour les rôles d’annuaire Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8df9bc7c332a83e9761ea71dddfbfbfaa3ae5154
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fc39b6ad2dd63d45995b76011f4ebbe0228b4c2d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622151"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190389"
 ---
-# <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Comment configurer les alertes de sécurité dans Azure AD Privileged Identity Management
+# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurer des alertes de sécurité pour les rôles d’annuaire Azure AD dans PIM
 ## <a name="security-alerts"></a>Alertes de sécurité
 Azure Privileged Identity Management (PIM) génère des alertes en cas d’activité suspecte ou non fiable dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur le tableau de bord PIM. Sélectionnez l’alerte pour obtenir un rapport qui répertorie les utilisateurs ou les rôles à l’origine de son déclenchement.
 
@@ -65,4 +65,6 @@ Cette alerte se déclenche si un utilisateur reste un certain temps sans activer
 * **Nombre de jours**: spécifiez, de 0 à 100, le nombre de jours pendant lesquels un utilisateur peut rester sans activer un rôle.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Configurer les paramètres des rôles d’annuaire Azure AD dans PIM](pim-how-to-change-default-settings.md)
+- [Exiger une authentification multifacteur pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-require-mfa.md)

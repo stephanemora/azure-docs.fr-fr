@@ -1,6 +1,6 @@
 ---
-title: Effectuer une révision d’accès dans Privileged Identity Management pour les ressources Azure | Microsoft Docs
-description: Ce document explique comment effectuer une révision d’accès dans PIM pour les ressources Azure, en fonction de leur rôle.
+title: Effectuer une révision d’accès des rôles de ressources Azure dans PIM | Microsoft Docs
+description: Découvrez comment effectuer une révision d’accès des rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336ad1d7eff8eee0f2370e206eb98f20b4efb45b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617222"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189716"
 ---
-# <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>Effectuer une vérification d’accès dans PIM, en fonction du rôle des ressources
+# <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Effectuer une révision d’accès des rôles de ressources Azure dans PIM
 Privileged Identity Management (PIM) pour les ressources Azure simplifie la gestion des accès privilégiés aux ressources dans Azure. 
 
 Si vous avez un rôle d’administrateur, l’administrateur des rôles privilégiés de votre organisation est susceptible de vous demander régulièrement de confirmer que vous avez toujours besoin de ce rôle dans le cadre de votre travail. Vous pouvez recevoir un e-mail contenant un lien ou accéder directement au [portail Azure](https://portal.azure.com). Suivez les étapes décrites dans cet article pour effectuer un auto-examen de vos rôles attribués.
@@ -50,3 +50,7 @@ Procédez comme suit pour rechercher et terminer la révision de l’accès :
 4. Choisissez **Approuver** ou **Refuser**. Vous devrez peut-être motiver votre choix dans la zone **Indiquez une raison**.
 
    ![Capture d’écran de la page Détails de la révision](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Effectuer une révision d’accès des rôles d’annuaire Azure AD dans PIM](pim-how-to-perform-security-review.md)

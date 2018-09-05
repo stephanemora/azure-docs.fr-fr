@@ -12,46 +12,54 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 47a78b71f51e4fe975341b8e9425f47fd8c4d31c
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d2b38a27644eed088f4a204cf989f44346e1654
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503534"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126909"
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI) 2.0
 
 Cet article explique comment commencer à utiliser Azure Key Vault à l'aide d'Azure CLI 2.0. Vous obtenez des informations sur :
+
+- Prérequis
 - Guide pratique pour créer un conteneur renforcé (un coffre) dans Azure
-- Guide pratique pour stocker et gérer les clés de chiffrement et les secrets dans Azure. 
-- Utilisation d’Azure CLI pour créer un coffre.
-- Création d’une clé ou d’un mot de passe que vous pouvez ensuite utiliser avec une application Azure. 
-- Comment une application peut utiliser la clé ou le mot de passe créés.
+- Ajouter une clé, un secret ou un certificat au coffre de clés
+- Inscrire une application auprès d’Azure Active Directory
+- Autoriser une application à utiliser une clé ou un secret
+- Définir des stratégies avancées d’accès au coffre de clés
+- Utiliser des modules de sécurité matériels (HSM)
+- Supprimer le coffre de clés et les clés et secrets associés
+- Commandes diverses de l’interface de ligne de commande multiplateforme Azure
+
 
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
-
 
 > [!NOTE]
 > Cet article n’inclut pas d’instructions sur l’écriture de l’application Azure abordée dans une des étapes, qui montre comment autoriser une application à utiliser une clé ou un secret dans le coffre de clés.
 >
 
 Pour une vue d'ensemble d'Azure Key Vault, consultez [Présentation d’Azure Key Vault](key-vault-whatis.md)
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour utiliser les commandes Azure CLI de cet article, vous devez disposer des éléments suivants :
 
 * Un abonnement à Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/pricing/free-trial).
 * Interface de ligne de commande Azure, version 2.0 ou ultérieure. Pour installer la dernière version, consultez la page [Installer et configurer l’interface de ligne de commande multiplateforme Azure 2.0](/cli/azure/install-azure-cli).
 * Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans cet article. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi inclus.
 
-## <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtention d’aide avec l’interface de ligne de commande interplateforme Azure
+### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtention d’aide avec l’interface de ligne de commande interplateforme Azure
+
 Cet article suppose que vous êtes familiarisé avec l’interface de ligne de commande (Bash, Terminal, invite de commandes).
 
 Le paramètre --help ou -h peut être utilisé pour afficher l'aide relative à des commandes particulières. Le format Azure help [commande] [options] peut également être utilisé. Si vous avez des doutes sur les paramètres exigés par une commande, reportez-vous à l'aide. Les commandes suivantes, par exemple, renvoient les mêmes informations :
 
-```azurecli-interactive
+```azurecli
 az account set --help
 az account set -h
 ```
@@ -61,9 +69,13 @@ Consultez également les articles suivants afin de vous familiariser avec Azure 
 * [Installation de l’interface de ligne de commande Azure](/cli/azure/install-azure-cli)
 * [Prise en main d’Azure CLI 2.0](/cli/azure/get-started-with-azure-cli)
 
-## <a name="connect-to-your-subscriptions"></a>Connexion à vos abonnements
+## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Guide pratique pour créer un conteneur renforcé (un coffre) dans Azure
 
-Pour se connecter de manière interactive, utilisez la commande suivante :
+Les coffres sont des conteneurs sécurisés secondés par des modules de sécurité matériels. Les coffres contribuent à réduire les risques de perte accidentelle des informations de sécurité en centralisant le stockage des secrets d’application. En outre, les coffres de clés contrôlent et journalisent l’accès à l’ensemble de leur contenu. Azure Key Vault peut traiter les requêtes et le renouvellement de certificats TLS et vous offre ainsi les fonctionnalités requises pour l’obtention d’une solution robuste en matière de gestion du cycle de vie des certificats. Dans les étapes suivantes, vous allez créer un coffre.
+
+### <a name="connect-to-your-subscriptions"></a>Connexion à vos abonnements
+
+Utilisez la commande suivante pour vous connecter de manière interactive :
 
 ```azurecli
 az login
@@ -88,7 +100,8 @@ az account set --subscription <subscription name or ID>
 
 Pour plus d’informations sur la configuration de l’interface de ligne de commande multiplateforme Azure, consultez la page [Installation de l’interface de ligne de commande multiplateforme Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-new-resource-group"></a>Création d’un groupe de ressources
+### <a name="create-a-new-resource-group"></a>Création d’un groupe de ressources
+
 Lorsque vous utilisez Azure Resource Manager, toutes les ressources associées sont créées au sein d’un groupe de ressources. Vous pouvez créer un coffre de clés dans un groupe de ressources existant. Si vous souhaitez utiliser un groupe de ressources, vous pouvez en créer un.
 
 ```azurecli
@@ -101,15 +114,15 @@ Le premier paramètre est le nom de groupe de ressources et le deuxième paramè
 az account list-locations
 ``` 
 
-## <a name="register-the-key-vault-resource-provider"></a>Inscription du fournisseur de ressources Key Vault
+### <a name="register-the-key-vault-resource-provider"></a>Inscription du fournisseur de ressources Key Vault
+
  Il est possible que vous receviez le message d’erreur « L’abonnement n’est pas inscrit pour utiliser l’espace de noms 'Microsoft.KeyVault' » lorsque vous essayez de créer un coffre de clés. Si ce message apparaît, assurez-vous que le fournisseur de ressources Key Vault est inscrit dans votre abonnement. Cette opération n’est à effectuer qu’une fois par abonnement.
 
 ```azurecli
 az provider register -n Microsoft.KeyVault
 ```
 
-
-## <a name="create-a-key-vault"></a>Création d’un coffre de clés
+### <a name="create-a-key-vault"></a>Création d’un coffre de clés
 
 Utilisez la commande `az keyvault create` pour créer un coffre de clés. Ce script a trois paramètres obligatoires : un nom de groupe de ressources, un nom de coffre de clés et l’emplacement géographique.
 
@@ -126,7 +139,7 @@ La sortie de cette commande affiche les propriétés du coffre de clés que vous
 
 Votre compte Azure est pour l’instant le seul autorisé à effectuer des opérations sur ce À l’heure actuelle, personne d’autre n’y est autorisé.
 
-## <a name="add-a-key-secret-or-certificate-to-the-key-vault"></a>Ajouter une clé, un secret ou un certificat au coffre de clés
+## <a name="adding-a-key-secret-or-certificate-to-the-key-vault"></a>Ajouter une clé, un secret ou un certificat au coffre de clés
 
 Si vous souhaitez qu’Azure Key Vault crée une clé protégée par logiciel, utilisez la commande `az key create`.
 
@@ -176,7 +189,8 @@ az keyvault secret list --vault-name 'ContosoKeyVault'
 az keyvault certificate list --vault-name 'ContosoKeyVault'
 ```
 
-## <a name="register-an-application-with-azure-active-directory"></a>Inscription d’une application auprès d’Azure Active Directory
+## <a name="registering-an-application-with-azure-active-directory"></a>Inscrire une application auprès d’Azure Active Directory
+
 Cette étape est généralement effectuée par un développeur et sur un ordinateur distinct. Bien que non spécifique à Azure Key Vault, elle est incluse ici par souci d'exhaustivité. Pour terminer l’inscription de l’application, votre compte, le coffre et l’application doivent être dans le même répertoire Azure.
 
 Les applications qui utilisent un coffre de clés doivent s’authentifier à l’aide d’un jeton à partir d’Azure Active Directory.  Le propriétaire de l’application doit d’abord l’inscrire dans Azure Active Directory. À la fin de l’inscription, le propriétaire de l’application obtient les valeurs suivantes :
@@ -195,7 +209,7 @@ az ad sp create-for-rbac -n "MyApp" --password 'Pa$$w0rd' --skip-assignment
 # If you don't specify a password, one will be created for you.
 ```
 
-## <a name="authorize-the-application-to-use-the-key-or-secret"></a>Autorisation de l’application à utiliser la clé ou le secret
+## <a name="authorizing-an-application-to-use-a-key-or-secret"></a>Autoriser une application à utiliser une clé ou un secret
 
 Pour autoriser l’application à accéder à la clé ou au secret dans le coffre, utilisez la commande `az keyvault set-policy` .
 
@@ -211,7 +225,8 @@ Pour autoriser cette même application à lire les secrets de votre coffre, sais
 az keyvault set-policy --name 'ContosoKeyVault' --spn 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed --secret-permissions get
 ```
 
-## <a name="bkmk_KVperCLI"></a>Définissez les stratégies d'accès avancé du coffre de clés 
+## <a name="bkmk_KVperCLI"></a>Définir des stratégies avancées d’accès au coffre de clés
+
 Utilisez [mise à jour du paramètre keyvault az](/cli/azure/keyvault#az-keyvault-update) pour activer des stratégies avancées pour le coffre de clés. 
 
  Activez Key Vault pour le déploiement : autorise les machines virtuelles à récupérer des certificats stockés en tant que secrets dans le coffre.
@@ -230,7 +245,7 @@ Activer Key Vault pour le déploiement d’un modèle : permet au gestionnaire 
  az keyvault update --name 'ContosoKeyVault' --resource-group 'ContosoResourceGroup' --enabled-for-template-deployment 'true'
  ```
 
-## <a name="if-you-want-to-use-a-hardware-security-module-hsm"></a>Si vous souhaitez utiliser un module de sécurité matériel (HSM)
+## <a name="working-with-hardware-security-modules-hsms"></a>Utiliser des modules de sécurité matériels (HSM)
 
 Pour une meilleure garantie, vous pouvez importer ou générer des clés à partir des modules de sécurité matériels (HSM) qui ne franchissent jamais les limites HSM. Les modules HSM bénéficient d’une validation FIPS 140-2 de niveau 2. Si cette exigence ne s’applique pas à vous, ignorez cette section et accédez à [Supprimer le coffre de clés et les clés et secrets associés](#delete-the-key-vault-and-associated-keys-and-secrets).
 
@@ -262,7 +277,7 @@ az keyvault key import --vault-name 'ContosoKeyVaultHSM' --name 'ContosoFirstHSM
 
 Pour plus d’instructions sur la génération de ce package BYOK, consultez la page [Génération et transfert de clés protégées par HSM pour le coffre de clés Azure](key-vault-hsm-protected-keys.md).
 
-## <a name="delete-the-key-vault-and-associated-keys-and-secrets"></a>Supprimer le coffre de clés et les clés et secrets associés
+## <a name="deleting-the-key-vault-and-associated-keys-and-secrets"></a>Supprimer le coffre de clés et les clés et secrets associés
 
 Si vous n’avez plus besoin ni du coffre de clés, ni des clés ou des secrets qu’il contient, vous pouvez le supprimer à l’aide de la commande `az keyvault delete` :
 
@@ -276,7 +291,7 @@ Vous pouvez également supprimer un groupe de ressources Azure, qui inclut le co
 az group delete --name 'ContosoResourceGroup'
 ```
 
-## <a name="other-azure-cross-platform-command-line-interface-commands"></a>Autres interfaces de ligne de commande interplateformes Azure
+## <a name="miscellaneous-azure-cross-platform-command-line-interface-commands"></a>Commandes diverses de l’interface de ligne de commande multiplateforme Azure
 
 Autres commandes pouvant être utiles pour la gestion d’Azure Key Vault.
 
@@ -314,6 +329,6 @@ az keyvault secret delete --vault-name 'ContosoKeyVault' --name 'SQLPassword'
 
 - Pour accéder à une documentation de référence complète sur l’interface Azure CLI pour les commandes Key Vault, consultez le document de [référence sur l’interface de ligne de commande Key Vault](/cli/azure/keyvault).
 
-- Pour les références de programmation, consultez le [guide du développeur de coffre de clés Azure](key-vault-developers-guide.md).
+- Voir les informations de référence sur la programmation dans le [Guide du développeur Azure Key Vault](key-vault-developers-guide.md).
 
 - Pour plus d'informations sur Azure Key Vault et les modules HSM, consultez [Utilisation de clés protégées par HSM avec Azure Key Vault](key-vault-hsm-protected-keys.md).

@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble de l’appliance Collecteur et indique
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308457"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122885"
 ---
 # <a name="collector-appliance"></a>Appliance Collecteur
 
@@ -58,6 +58,30 @@ L’appliance Collecteur doit être connectée à Internet pour pouvoir envoyer 
 
 > [!NOTE]
 > Les serveurs proxy HTTPS ne sont pas pris en charge par le Collecteur.
+
+#### <a name="internet-connectivity-with-intercepting-proxy"></a>Connectivité Internet avec proxy d’interception
+
+Si le serveur proxy que vous utilisez pour vous connecter à Internet est un proxy d’interception, vous devez importer le certificat de proxy dans la machine virtuelle du collecteur. Voici les étapes d’importation du certificat dans la machine virtuelle du collecteur.
+
+1. Dans la machine virtuelle du collecteur, accédez au **Menu Démarrer**, puis recherchez et ouvrez **Gérer les certificats d’ordinateur**.
+2. Dans l’outil Certificats, dans le volet gauche, sous **Certificats - Ordinateur Local**, recherchez **Éditeurs approuvés**. Sous **Éditeurs approuvés**, cliquez sur **Certificats** pour voir la liste des certificats dans le volet de droite.
+
+    ![Outil Certificats](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+3. Copiez votre certificat de proxy sur la machine virtuelle du collecteur. Vous devez peut-être contacter l’équipe d’administration du réseau de votre organisation pour obtenir ce certificat.
+4. Double-cliquez sur le certificat pour l’ouvrir. Cliquez sur **Installer le certificat**. L’Assistant Importation de certificat démarre.
+5. Dans l’Assistant Importation de certificat, pour l’emplacement du magasin, choisissez **Ordinateur local**. Cliquez sur **Suivant**.
+
+    ![Emplacement du magasin de certificats](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+6. Choisissez de **Placer tous les certificats dans le magasin suivant**. Cliquez sur **Parcourir** et sélectionnez **Éditeurs approuvés** dans la liste de certificats qui s’affiche. Cliquez sur **Suivant**.
+
+    ![Magasin de certificats](./media/concepts-intercepting-proxy/certificate-store.png)
+    
+7. Cliquez sur **Terminer**. Le certificat est importé. 
+8. Vous pouvez aussi vérifier que le certificat est importé en ouvrant l’outil Certificats comme dans les étapes 1 et 2 ci-dessus.
+9. Dans l’application de collecteur Azure Migrate, vérifiez que la vérification du prérequis de connectivité internet a réussi.
+
 
 #### <a name="whitelisting-urls-for-internet-connection"></a>Inscription dans la liste verte des URL de connexion Internet
 

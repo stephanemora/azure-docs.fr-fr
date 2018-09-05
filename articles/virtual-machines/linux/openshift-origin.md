@@ -1,6 +1,6 @@
 ---
-title: Déployer OpenShift Origin dans Azure | Microsoft Docs
-description: Déployez OpenShift Origin dans Azure.
+title: Déployer OKD dans Azure | Microsoft Docs
+description: Déployez OKD dans Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f7a668f30d7acb1ea14fe9fd8921066d40a6669b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0d3a9f05802bef7d6dfc99fcfae6668044f214c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29123117"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190302"
 ---
-# <a name="deploy-openshift-origin-in-azure"></a>Déployer OpenShift Origin dans Azure
+# <a name="deploy-okd-in-azure"></a>Déployer OKD dans Azure
 
-Vous pouvez utiliser l’une des deux manières de déployer OpenShift Origin dans Azure :
+Vous pouvez utiliser l’une des deux manières de déployer OKD (anciennement OpenShift Origin) dans Azure :
 
-- Vous pouvez déployer manuellement tous les composants d’infrastructure Azure nécessaires, puis suivre la [documentation](https://docs.openshift.org/3.6/welcome/index.html) d’OpenShift Origin.
-- Vous pouvez également utiliser un [modèle Resource Manager](https://github.com/Microsoft/openshift-origin) existant qui simplifie le déploiement du cluster OpenShift Origin.
+- Vous pouvez déployer manuellement tous les composants d’infrastructure Azure nécessaires, puis suivre la [documentation](https://docs.okd.io/3.10/welcome/index.html) d’OKD.
+- Vous pouvez également utiliser un [modèle Resource Manager](https://github.com/Microsoft/openshift-origin) existant qui simplifie le déploiement du cluster OKD.
 
-## <a name="deploy-by-using-the-openshift-origin-template"></a>Déployer à l’aide du modèle OpenShift Origin
+## <a name="deploy-by-using-the-okd-template"></a>Déployer avec le modèle OKD
 
 Utilisez la valeur `appId` du principal de service créé précédemment pour le paramètre `aadClientId`.
 
@@ -101,7 +101,7 @@ L’exemple suivant crée un fichier de paramètres nommé azuredeploy.parameter
 > [!NOTE] 
 > La commande suivante requiert Azure CLI 2.0.8 ou version ultérieure. Pour vérifier la version d’Azure CLI, exécutez la commande `az --version`. Pour mettre à jour l’interface, consultez [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-L’exemple suivant déploie le cluster OpenShift et toutes les ressources associées dans un groupe de ressources nommé myResourceGroup, avec le nom de déploiement myOpenShiftCluster. Le modèle est référencé directement à partir du dépôt GitHub à l’aide d’un fichier de paramètres locaux nommé azuredeploy.parameters.json.
+L’exemple suivant déploie le cluster OKD et toutes les ressources associées dans un groupe de ressources nommé myResourceGroup, avec le nom de déploiement myOpenShiftCluster. Le modèle est référencé directement à partir du dépôt GitHub à l’aide d’un fichier de paramètres locaux nommé azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -109,7 +109,7 @@ az group deployment create -g myResourceGroup --name myOpenShiftCluster \
       --parameters @./azuredeploy.parameters.json
 ```
 
-La durée du déploiement varie en fonction du nombre total de nœuds déployés, avec un minimum de 25 minutes. L’URL de la console OpenShift et le nom DNS de l’OpenShift master s’affichent sur le terminal à l’issue du déploiement.
+La durée du déploiement varie en fonction du nombre total de nœuds déployés, avec un minimum de 25 minutes. L’URL de la console OKD et le nom DNS du maître OpenShift s’affichent sur le terminal à l’issue du déploiement.
 
 ```json
 {
@@ -118,15 +118,15 @@ La durée du déploiement varie en fonction du nombre total de nœuds déployés
 }
 ```
 
-## <a name="connect-to-the-openshift-cluster"></a>Se connecter au cluster OpenShift
+## <a name="connect-to-the-okd-cluster"></a>Se connecter au cluster OKD
 
-Une fois le déploiement terminé, connectez-vous à la console OpenShift dans un navigateur à l’aide de la valeur `OpenShift Console Uri`. Vous pouvez aussi vous connecter à l’OpenShift master à l’aide de la commande suivante :
+Une fois le déploiement terminé, connectez-vous à la console OKD dans votre navigateur à l’aide de la valeur `OpenShift Console Uri`. Vous pouvez aussi vous connecter au maître OKD à l’aide de la commande suivante :
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, le cluster OpenShift et toutes les ressources associées quand vous n’en avez plus besoin.
 
@@ -134,8 +134,8 @@ Utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour su
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Tâches de post-déploiement](./openshift-post-deployment.md)
 - [Résoudre les problèmes liés au déploiement d’OpenShift](./openshift-troubleshooting.md)
-- [Prise en main d’OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)
+- [Bien démarrer avec OKD](https://docs.okd.io/latest/getting_started/index.html)

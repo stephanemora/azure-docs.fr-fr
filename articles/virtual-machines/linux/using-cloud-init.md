@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: fbb6fc15663570d9b9470fc7d4de3c8eb30de9d9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 0f7660e8534a74eabe32611c4c01ae5587af7cee
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29763143"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188871"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Prise en charge cloud-init pour les machines virtuelles dans Azure
 Cet article décrit la prise en charge existante pour [cloud-init](https://cloudinit.readthedocs.io) destinée à la configuration d’une machine virtuelle ou de groupes de machines virtuelles identiques au moment de l’approvisionnement dans Azure. Ces scripts cloud-init s’exécutent au premier démarrage une fois que les ressources ont été approvisionnées par Azure.  
@@ -32,8 +32,10 @@ Cloud-init fonctionne aussi sur les différentes distributions. Par exemple, vou
 
  Nous travaillons activement avec nos partenaires de distribution Linux afin de mettre des images compatibles cloud-init à disposition sur la Place de marché Azure. Ces images permettront à vos déploiements et configurations cloud-init de fonctionner de manière fluide avec des machines virtuelles et des groupes de machines virtuelles identiques Virtual Machine Scale Sets. Le tableau suivant présente la disponibilité actuelle des images compatibles avec cloud-init sur la plateforme Azure :
 
-| Publisher | Offre | SKU | Version | Compatible avec cloud-init
-|:--- |:--- |:--- |:--- |:--- |:--- |
+| Publisher | Offre | SKU | Version | Compatible avec cloud-init |
+|:--- |:--- |:--- |:--- |:--- |
+|Canonical |UbuntuServer |18.04-LTS |le plus récent |Oui | 
+|Canonical |UbuntuServer |17.10 |le plus récent |Oui | 
 |Canonical |UbuntuServer |16.04-LTS |le plus récent |Oui | 
 |Canonical |UbuntuServer |14.04.5-LTS |le plus récent |Oui |
 |CoreOS |CoreOS |Stable |le plus récent |Oui |
@@ -92,7 +94,7 @@ Une fois la machine virtuelle configurée, cloud-init est exécuté dans l’ens
 
 Pour plus d’informations sur la journalisation de cloud-init, consultez la [documentation cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des exemples cloud-init de modifications de configuration, consultez les documents suivants :
  
 - [Ajouter un utilisateur Linux supplémentaire à une machine virtuelle](cloudinit-add-user.md)

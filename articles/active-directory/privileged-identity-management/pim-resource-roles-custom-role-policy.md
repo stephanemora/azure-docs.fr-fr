@@ -1,6 +1,6 @@
 ---
-title: Utiliser des rôles personnalisés pour cibler les paramètres Privileged Identity Management des ressources Azure | Microsoft Docs
-description: Décrit l’utilisation de rôles personnalisés pour les ressources Azure avec PIM.
+title: Utiliser des rôles personnalisés pour les ressources Azure dans PIM | Microsoft Docs
+description: Découvrez comment utiliser des rôles personnalisés pour des ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 03091b50eb4fb368ae0277344317b261991c4bd1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b01e785ac85c71b2982561e8b5e118775750fc69
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622685"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189871"
 ---
-# <a name="use-custom-roles-to-target-privileged-identity-management-settings"></a>Utiliser des rôles personnalisés pour cibler les paramètres Privileged Identity Management
+# <a name="use-custom-roles-for-azure-resources-in-pim"></a>Utiliser des rôles personnalisés pour les ressources Azure dans PIM
 
 Vous devrez peut-être appliquer des paramètres PIM (Privileged Identity Management) stricts à certains membres d’un rôle, tout en offrant une plus grande autonomie aux autres membres. Envisagez un scénario dans lequel votre société embauche plusieurs associés sous contrat pour aider au développement d’une application qui s’exécute dans un abonnement Azure.
 
@@ -49,4 +49,5 @@ Pour finir, [attribuez des rôles](pim-resource-roles-assign-roles.md) au groupe
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Passer en revue les propriétaires d’abonnements et l’accès](pim-resource-roles-perform-access-review.md)
+- [Configurer les paramètres des rôles de ressources Azure dans PIM](pim-resource-roles-configure-role-settings.md)
+- [Rôles personnalisés dans Azure](../../role-based-access-control/custom-roles.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971264"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746715"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Linux dans votre cluster Service Fabric
 
@@ -121,7 +121,7 @@ Pour Ubuntu, les [mises à niveau sans assistance](https://help.ubuntu.com/commu
 
 L’application et les scripts d’installation peuvent être téléchargés à partir de [Lien de l’archive](https://go.microsoft.com/fwlink/?linkid=867984).
 
-L’application au format sfpkg peut être téléchargée à partir de [lien sfpkg](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Cela s’avère utile pour le [déploiement de l’application basée sur Azure Resource Manager](service-fabric-application-arm-resource.md).
+L’application au format sfpkg peut être téléchargée à partir de [lien sfpkg](https://aka.ms/POA/POA_v2.0.2.sfpkg). Cela s’avère utile pour le [déploiement de l’application basée sur Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Configurer l’application
 
@@ -370,5 +370,8 @@ L’application d’orchestration des correctifs collecte des données de télé
 ### <a name="version-200"></a>Version 2.0.0
 - Version publique
 
-### <a name="version-201-latest"></a>Version 2.0.1 (dernière version)
+### <a name="version-201"></a>Version 2.0.1
 - Application recompilée à l’aide de la dernière version du SDK Service Fabric
+
+### <a name="version-202-latest"></a>Version 2.0.2 (dernière version)
+- Résolution d’un problème lié à un avertissement concernant l’intégrité qui était laissé de côté lors du redémarrage.

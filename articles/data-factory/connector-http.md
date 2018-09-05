@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 08/24/2018
 ms.author: jingwang
-ms.openlocfilehash: a27d90006d31c83b5ebe6cfc4a8d97969743a91e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5afb2fccd5c7b8ca306079941837d854c0b21349
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049856"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091715"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-http-connector.md)
+> * [Version 1](v1/data-factory-http-connector.md)
 > * [Version actuelle](connector-http.md)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis/vers un point de terminaison HTTP. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -54,10 +54,10 @@ Les propriétés prises en charge pour le service lié HTTP sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **FtpServer**. | OUI |
-| url | URL de base du serveur web | OUI |
+| Type | La propriété type doit être définie sur **FtpServer**. | Oui |
+| url | URL de base du serveur web | Oui |
 | enableServerCertificateValidation | Spécifiez si vous souhaitez activer la validation du certificat SSL du serveur lors de la connexion au point de terminaison HTTP. Quand votre serveur HTTPS utilise un certificat auto-signé, définissez cette propriété sur false. | Non, la valeur par défaut est True. |
-| authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonymous** (Anonyme), **Basic** (De base), **Digest**, **Windows**, **ClientCertificate** (Certificat client). <br><br> Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | OUI |
+| authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonymous** (Anonyme), **Basic** (De base), **Digest**, **Windows**, **ClientCertificate** (Certificat client). <br><br> Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser runtime d’intégration Azure ou un runtime d’intégration auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>Utilisation de l’authentification Basic (De base), Digest ou Windows
@@ -66,8 +66,8 @@ Définissez la valeur de la propriété « authenticationType » sur **De base
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| userName | Nom d’utilisateur pour accéder au point de terminaison HTTP. | OUI |
-| password | Mot de passe de l’utilisateur (nom d’utilisateur). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| userName | Nom d’utilisateur pour accéder au point de terminaison HTTP. | Oui |
+| password | Mot de passe de l’utilisateur (nom d’utilisateur). Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 
 **Exemple**
 
@@ -162,13 +162,16 @@ Pour copier des données de HTTP, définissez la propriété type du jeu de donn
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **HttpFile** | OUI |
+| Type | La propriété type du jeu de données doit être définie sur **HttpFile** | Oui |
 | relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL spécifiée dans la définition du service lié est utilisée. | Non  |
 | requestMethod | Méthode HTTP.<br/>Valeurs autorisées : **GET** (par défaut) ou **POST**. | Non  |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non  |
 | RequestBody | Corps de la requête HTTP. | Non  |
 | format | Si vous souhaitez **récupérer des données du point de terminaison HTTP en l'état** sans les analyser, et les copier dans un magasin basé sur un fichier, ignorez la section format dans les définitions de jeu de données d’entrée et de sortie.<br/><br/>Si vous souhaitez analyser le contenu de la réponse HTTP pendant la copie, les types de formats de fichier suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Définissez la propriété **type** située sous Format sur l’une de ces valeurs. Pour en savoir plus, consultez les sections relatives à [format Json](supported-file-formats-and-compression-codecs.md#json-format), [format Texte](supported-file-formats-and-compression-codecs.md#text-format), [format Avro](supported-file-formats-and-compression-codecs.md#avro-format), [format Orc](supported-file-formats-and-compression-codecs.md#orc-format) et [format Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Non  |
 | compression | Spécifiez le type et le niveau de compression pour les données. Pour plus d’informations, voir [Formats de fichier et de codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Les types pris en charge sont : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**.<br/>Les niveaux pris en charge sont **Optimal** et **Fastest**. |Non  |
+
+>[!NOTE]
+>La taille de charge utile de requête HTTP prise en charge est d’environ 500 Ko. Si la taille de charge utile que vous souhaitez passer au point de terminaison web est supérieure, envisagez de la traiter en blocs plus petits.
 
 **Exemple 1 : utilisation de la méthode Get (par défaut)**
 
@@ -219,7 +222,7 @@ Pour copier des données de HTTP, définissez le type de source dans l’activit
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **HttpSource** | OUI |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur **HttpSource** | Oui |
 | httpRequestTimeout | Délai d’expiration (TimeSpan) pour l’obtention d’une réponse par la requête HTTP. Il s’agit du délai d’expiration pour l’obtention d’une réponse, et non du délai d’expiration pour la lecture des données de la réponse.<br/> Valeur par défaut : 00:01:40  | Non  |
 
 **Exemple :**

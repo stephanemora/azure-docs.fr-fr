@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617190"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247393"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -67,18 +67,66 @@ La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Syn
 > [!Important]  
 > La hiérarchisation cloud n’est pas prise en charge pour les points de terminaison de serveur sur les volumes système Windows.
 
-## <a name="azure-file-sync-interoperability"></a>Interopérabilité d’Azure File Sync 
-Cette section traite de l’interopérabilité d’Azure File Sync avec les fonctionnalités et rôles Windows Server, et avec les solutions tierces.
+## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Configuration requise et interopérabilité d’Azure File Sync 
+Cette section traite de la configuration requise et de l’interopérabilité de l’agent Azure File Sync avec les fonctionnalités et rôles Windows Server, ainsi qu’avec des solutions tierces.
 
-### <a name="supported-versions-of-windows-server"></a>Versions de Windows Server prises en charge
-Les versions de Windows Server prises en charge par Azure File Sync sont les suivantes :
+### <a name="evaluation-tool"></a>Outil d’évaluation
+Avant de déployer l’agent Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’outil d’évaluation Azure File Sync. Cet outil est une applet de commande AzureRM PowerShell qui recherche les problèmes potentiels liés à votre système de fichiers et à votre jeu de données, comme des caractères non pris en charge ou une version de système d’exploitation non prise en charge. Notez que ses vérifications couvrent la plupart des fonctionnalités mentionnées ci-dessous, mais pas toutes. Nous vous conseillons de lire attentivement le reste de cette section pour garantir le bon déroulement de votre déploiement. 
 
-| Version | Références prises en charge | Options de déploiement prises en charge |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |
-| Windows Server 2012 R2 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |
+#### <a name="download-instructions"></a>Instructions de téléchargement
+1. Vérifier que la dernière version de PackageManagement et de PowerShellGet sont est installée (cela vous permet d’installer les modules de préversion)
+    
+    ```PowerShell
+        Install-Module -Name PackageManagement -Repository PSGallery -Force
+        Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    ```
+ 
+2. Redémarrer PowerShell
+3. Installer les modules
+    
+    ```PowerShell
+        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+    ```
 
-Nous prévoyons d’ajouter la prise en charge de versions ultérieures de Windows Server quand elles seront disponibles. Nous sommes susceptibles d’ajouter la prise en charge de versions antérieures de Windows Server en réponse aux commentaires des utilisateurs.
+#### <a name="usage"></a>Usage  
+Vous pouvez appeler l’outil d’évaluation de différentes manières : vous pouvez effectuer les vérifications du système, les vérifications du jeu de données, ou les deux. Pour effectuer à la fois les vérifications du système et les vérifications du jeu de données : 
+
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+```
+
+Pour tester uniquement votre jeu de données :
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+```
+ 
+Pour tester uniquement la configuration requise :
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+```
+ 
+Pour afficher les résultats au format CSV :
+```PowerShell
+    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+```
+
+### <a name="system-requirements"></a>Configuration requise
+- Un serveur exécutant Windows Server 2012 R2 ou Windows Server 2016 
+
+    | Version | Références prises en charge | Options de déploiement prises en charge |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |
+    | Windows Server 2012 R2 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |
+
+    Nous prévoyons d’ajouter la prise en charge de versions ultérieures de Windows Server quand elles seront disponibles. Nous sommes susceptibles d’ajouter la prise en charge de versions antérieures de Windows Server en réponse aux commentaires des utilisateurs.
+
+- Un serveur avec un minimum of 2 Go de mémoire
+
+    > [!Important]  
+    > Si le serveur s’exécute sur une machine virtuelle avec la mémoire dynamique activée, la machine virtuelle doit être configurée avec un minimum de 2 048 Mo de mémoire.
+    
+- Un volume connecté localement, formaté avec le système de fichiers NTFS
 
 > [!Important]  
 > Nous vous recommandons de mettre régulièrement à jour tous les serveurs que vous utilisez avec Azure File Sync en installant les dernières mises à jour disponibles sur Windows Update. 

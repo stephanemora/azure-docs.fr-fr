@@ -13,25 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 9d38f6e6d6b9fa47b1cd1497820f7ff887954ad5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156185"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190113"
 ---
 # <a name="app-registration-reference"></a>Informations de référence sur l’inscription des applications
-Ce document fournit le contexte et les descriptions de différentes fonctionnalités figurant dans le portail d’inscription des applications Microsoft [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
+Ce document fournit le contexte et les descriptions de différentes fonctionnalités figurant dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
 
-## <a name="my-applications"></a>Mes applications
+## <a name="my-applications-or-converged-applications"></a>Mes applications ou Applications convergentes
 Cette liste contient toutes les applications inscrites pour une utilisation avec le point de terminaison Azure AD v2.0. Ces applications permettent de connecter des utilisateurs avec à la fois des comptes personnels Microsoft et des comptes professionnels/scolaires Azure Active Directory. Pour en savoir plus sur le point de terminaison Azure AD v2.0, consultez la [présentation de v2.0](active-directory-appmodel-v2-overview.md). Ces applications peuvent également servir à l’intégration au point de terminaison d’authentification de compte Microsoft, `https://login.live.com`.
 
+## <a name="azure-ad-only-applications"></a>Applications Azure AD uniquement
+Cette liste contient toutes les applications inscrites à utiliser avec le point de terminaison Azure AD v1.0. Seuls les utilisateurs disposant de comptes professionnels ou scolaires Azure Active Directory peuvent se connecter à ces applications. Cette liste inclut des applications qui ont été inscrites à l’aide de la fonctionnalité **Inscriptions des applications** du [portail Azure](https://portal.azure.com).
+
 ## <a name="live-sdk-applications"></a>Applications du Kit de développement logiciel (SDK) Live
-Cette liste contient toutes les applications inscrites pour une utilisation uniquement avec un compte Microsoft. Elles ne peuvent pas être utilisées avec Azure Active Directory. Il s’agit de l’emplacement où vous trouverez toutes les applications précédemment inscrites dans le portail des développeurs MSA sur `https://account.live.com/developers/applications`. Toutes les fonctions précédemment effectuées sur `https://account.live.com/developers/applications` peuvent maintenant être exécutées dans ce nouveau portail, `https://apps.dev.microsoft.com`. Si vous avez d’autres questions concernant les applications de votre compte Microsoft, veuillez nous contacter.
+Cette liste contient toutes les applications inscrites pour une utilisation uniquement avec un compte Microsoft. Elles ne peuvent pas être utilisées avec Azure Active Directory. Il s’agit de l’emplacement où vous trouverez toutes les applications précédemment inscrites dans le portail des développeurs MSA sur `https://account.live.com/developers/applications`. Toutes les fonctions précédemment effectuées sur `https://account.live.com/developers/applications` peuvent maintenant être exécutées dans ce nouveau portail, `https://apps.dev.microsoft.com`.
 
 ## <a name="application-secrets"></a>Secrets de l’application
 Les secrets de l’application sont des informations d’identification qui permettent à votre application d’effectuer une [authentification du client](http://tools.ietf.org/html/rfc6749#section-2.3) fiable avec Azure AD. Dans OAuth et OpenID Connect, un secret d’application est généralement désigné sous le nom de `client_secret`. Dans le protocole v2.0, toute application qui reçoit un jeton de sécurité à un emplacement adressable web (à l’aide d’un schéma `https` ) doit utiliser un secret d’application pour s’identifier auprès d’Azure AD lors de l’échange de ce jeton de sécurité. De plus, il sera interdit à tout client natif qui reçoit des jetons sur un appareil d’utiliser un secret d’application pour effectuer l’authentification du client, afin de décourager le stockage de secrets dans des environnements non sécurisés

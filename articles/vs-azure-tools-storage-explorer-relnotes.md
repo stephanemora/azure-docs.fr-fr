@@ -14,44 +14,50 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94ade24f1761700b93ab79d497e273c64c51bddf
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e3efb19010f36a6ef1fa0a191695a0e2c9f39d19
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990895"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190519"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
-Cet article contient les notes de publication de l’Explorateur Stockage Azure 1.2.0, ainsi que celles des versions précédentes.
+Cet article contient les notes de publication de l’Explorateur Stockage Azure 1.4.1, ainsi que celles des versions précédentes.
 
 [L’Explorateur Stockage Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données du Stockage Azure sur Windows, maOS et Linux.
 
-## <a name="version-130"></a>Version 1.3.0
-09/07/2018
+## <a name="version-141"></a>Version 1.4.1
+28/08/2018
 
-### <a name="download-azure-storage-explorer-130"></a>Télécharger l’Explorateur Stockage Azure 1.3.0
-- [Explorateur Stockage Azure 1.3.0 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorateur Stockage Azure 1.3.0 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorateur Stockage Azure 1.3.0 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-141"></a>Télécharger l’Explorateur Stockage Azure 1.4.1
+- [Explorateur Stockage Azure 1.4.1 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur Stockage Azure 1.4.1 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur Stockage Azure 1.4.1 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Correctifs logiciels
+* Au premier lancement, l’Explorateur Stockage ne pouvait pas générer la clé utilisée pour chiffrer les données sensibles. Cela entraînait des problèmes lors de l’utilisation de l’Accès rapide et de l’attachement de ressources. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
+* Si votre compte n’avait pas besoin de l’authentification MFA pour son locataire de base, mais qu’il en avait besoin pour certains autres locataires, l’Explorateur Stockage ne pouvait pas répertorier les abonnements. Désormais, une fois que la connexion a été effectuée avec ce type de compte, l’Explorateur Stockage vous demandera d’entrer à nouveau vos informations d’identification et d’effectuer un authentification MFA. [#74](https://github.com/Microsoft/AzureStorageExplorer/issues/74)
+* L’Explorateur Stockage ne pouvait pas attacher des ressources à partir d’Azure Allemagne et d’Azure US Government. [#572](https://github.com/Microsoft/AzureStorageExplorer/issues/572)
+* Si vous vous connectiez à deux comptes ayant la même adresse e-mail, l’Explorateur Stockage ne parvenait parfois pas à afficher vos ressources dans l’arborescence. [#580](https://github.com/Microsoft/AzureStorageExplorer/issues/580)
+* Sur les ordinateurs Windows plus lents, l’affichage de l’écran de démarrage prendrait parfois beaucoup de temps. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
+* La boîte de dialogue de connexion s’affichait même s’il existait des comptes joints ou des services associés. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
 
 ### <a name="new"></a>Nouveau
-* L’accès aux conteneurs $web utilisés par des sites web statiques est désormais pris en charge. Cela vous permet de charger et gérer facilement les fichiers et dossiers utilisés par votre site web. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
-* La barre d’applications sur macOS a été réorganisée. Les modifications incluent un menu Fichier, certaines modifications de touches de raccourci, et plusieurs nouvelles commandes dans le menu de l’application. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* Le point de terminaison d’autorité pour la connexion à Azure - Gouvernement des États-Unis a été remplacé par https://login.microsoftonline.us/.
-* Accessibilité : quand un lecteur d’écran est actif, la navigation au clavier fonctionne désormais avec les tableaux utilisés pour afficher des éléments sur le côté droit. Vous pouvez utiliser les touches de direction pour naviguer dans les lignes et colonnes, la touche Entrée pour appeler des actions par défaut, la touche du menu contextuel pour ouvrir celui-ci pour un élément, et les touches Maj ou Ctrl pour opérer une sélection multiple. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+* Les attachements de ressources externes, comme pour les émulateurs et les connexions SAS, ont été considérablement améliorés. Vous pouvez désormais :
+   * Personnaliser le nom complet de la ressource que vous attachez. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Effectuer un attachement à plusieurs émulateurs locaux à l’aide de différents ports. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Ajouter des ressources attachées à l’Accès rapide. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* L’Explorateur Stockage prend maintenant en charge la suppression réversible. Vous pouvez :
+   * Configurer une stratégie de suppression réversible en cliquant avec le bouton droit sur le nœud de Conteneurs d’objets blob pour votre compte de stockage.
+   * Afficher les objets blob supprimés de manière réversible dans l’éditeur d’objets blob en sélectionnant « Objets blob actifs et supprimés » dans la liste déroulante en regard de la barre de navigation.
+   * Annuler la suppression d’objets blob supprimés de manière réversible.
 
 ### <a name="fixes"></a>Correctifs
-*  Sur certains ordinateurs, le démarrage des processus enfants prenait beaucoup de temps. Lorsque cela se produisait, le message d’erreur « child process failed to start in a timely manner » (Échec du démarrage en temps opportun du processus enfant) s’affichait. Le temps alloué au démarrage d’un processus enfant a été augmenté de 20 à 90 secondes. Si vous continuez à rencontrer ce problème, veuillez commenter le problème GitHub lié. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
-* Lorsque vous utilisiez une signature d’accès partagé qui n’avait pas d’autorisation de lecture, il n’était pas possible de charger un objet blob volumineux. La logique de chargement a été modifiée pour fonctionner dans ce scénario. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
-* La définition du niveau d’accès public pour un conteneur avait pour effet de supprimer toutes les stratégies d’accès, et inversement. Désormais, le niveau d’accès public et les stratégies d’accès public sont conservés lors de la définition de l’une des deux options. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
-* « AccessTierChangeTime » était tronqué dans la boîte de dialogue de Propriétés. Ce problème a été résolu. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
-* Le préfixe « Explorateur Stockage Microsoft Azure - » était manquant dans la boîte de dialogue Créer un nouvel annuaire. Ce problème a été résolu. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
-* Accessibilité : la navigation à l’aide de VoiceOver dans la boîte de dialogue Ajouter une entité était difficile. Des améliorations ont été apportées. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
-* Accessibilité : la couleur d’arrière-plan du bouton réduire/développer dans les volet Actions et Propriétés était incompatible avec les contrôles d’interface utilisateur similaires dans le thème Contraste noir élevé. La couleur a été modifiée. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
-* Accessibilité : dans le thème Contraste noir élevé, le focus pour le bouton « X » dans la boîte de dialogue Propriétés n’était pas visible. Ce problème a été résolu. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
-* Accessibilité : plusieurs valeurs aria étaient absentes des onglets Actions et Propriétés, ce qui altérait l’expérience de lecteur d’écran. Les valeurs aria manquantes ont été ajoutées. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
-* Accessibilité : les nœuds d’arborescence réduits sur le côté gauche n’avaient pas de valeur développée d’aria false. Ce problème a été résolu. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+* L’action « Configurer les paramètres CORS » n’est plus disponible sur les comptes de stockage Premium, car ces comptes ne prennent pas en charge le mécanisme CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Il existe désormais une propriété Signature d’accès partagé pour les services SAP associés. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* L’action « Définir le niveau accès par défaut » est désormais disponible pour les comptes de stockage d’objets blob et GPv2 qui ont été épinglés à l’Accès rapide. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Parfois, l’Explorateur Stockage ne parvenait pas à afficher les comptes de stockage classiques. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>Problèmes connus
 * Lors vous utilisez des émulateurs, tels que l’émulateur de stockage Azure ou Azurite, vous devez les faire écouter des connexions sur leurs ports par défaut. Autrement, l’Explorateur Stockage n’est pas en mesure de se connecter à ces émulateurs.
@@ -88,6 +94,7 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure�
 
 ## <a name="previous-releases"></a>Versions précédentes
 
+* [Version 1.3.0](#version-130)
 * [Version 1.2.0](#version-120)
 * [Version 1.1.0](#version-110)
 * [Version 1.0.0](#version-100)
@@ -113,6 +120,63 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure�
 * [Version 0.7.20160129.1](#version-07201601291)
 * [Version 0.7.20160105.0](#version-07201601050)
 * [Version 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-130"></a>Version 1.3.0
+09/07/2018
+
+### <a name="new"></a>Nouveau
+* L’accès aux conteneurs $web utilisés par des sites web statiques est désormais pris en charge. Cela vous permet de charger et gérer facilement les fichiers et dossiers utilisés par votre site web. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
+* La barre d’applications sur macOS a été réorganisée. Les modifications incluent un menu Fichier, certaines modifications de touches de raccourci, et plusieurs nouvelles commandes dans le menu de l’application. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
+* Le point de terminaison d’autorité pour la connexion à Azure - Gouvernement des États-Unis a été remplacé par https://login.microsoftonline.us/.
+* Accessibilité : quand un lecteur d’écran est actif, la navigation au clavier fonctionne désormais avec les tableaux utilisés pour afficher des éléments sur le côté droit. Vous pouvez utiliser les touches de direction pour naviguer dans les lignes et colonnes, la touche Entrée pour appeler des actions par défaut, la touche du menu contextuel pour ouvrir celui-ci pour un élément, et les touches Maj ou Ctrl pour opérer une sélection multiple. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+
+### <a name="fixes"></a>Correctifs
+*  Sur certains ordinateurs, le démarrage des processus enfants prenait beaucoup de temps. Lorsque cela se produisait, le message d’erreur « child process failed to start in a timely manner » (Échec du démarrage en temps opportun du processus enfant) s’affichait. Le temps alloué au démarrage d’un processus enfant a été augmenté de 20 à 90 secondes. Si vous continuez à rencontrer ce problème, veuillez commenter le problème GitHub lié. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
+* Lorsque vous utilisiez une signature d’accès partagé qui n’avait pas d’autorisation de lecture, il n’était pas possible de charger un objet blob volumineux. La logique de chargement a été modifiée pour fonctionner dans ce scénario. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
+* La définition du niveau d’accès public pour un conteneur avait pour effet de supprimer toutes les stratégies d’accès, et inversement. Désormais, le niveau d’accès public et les stratégies d’accès public sont conservés lors de la définition de l’une des deux options. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* « AccessTierChangeTime » était tronqué dans la boîte de dialogue de Propriétés. Ce problème a été résolu. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* Le préfixe « Explorateur Stockage Microsoft Azure - » était manquant dans la boîte de dialogue Créer un nouvel annuaire. Ce problème a été résolu. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* Accessibilité : la navigation à l’aide de VoiceOver dans la boîte de dialogue Ajouter une entité était difficile. Des améliorations ont été apportées. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Accessibilité : la couleur d’arrière-plan du bouton réduire/développer dans les volet Actions et Propriétés était incompatible avec les contrôles d’interface utilisateur similaires dans le thème Contraste noir élevé. La couleur a été modifiée. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* Accessibilité : dans le thème Contraste noir élevé, le focus pour le bouton « X » dans la boîte de dialogue Propriétés n’était pas visible. Ce problème a été résolu. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* Accessibilité : plusieurs valeurs aria étaient absentes des onglets Actions et Propriétés, ce qui altérait l’expérience de lecteur d’écran. Les valeurs aria manquantes ont été ajoutées. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* Accessibilité : les nœuds d’arborescence réduits sur le côté gauche n’avaient pas de valeur développée d’aria false. Ce problème a été résolu. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+
+### <a name="known-issues"></a>Problèmes connus
+* Le détachement d’une ressource associée par le biais de l’URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Pour plus d’informations, consultez la rubrique relative à [ce problème](https://github.com/Microsoft/AzureStorageExplorer/issues/537).
+* Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, veuillez apporter vos commentaires sur [ce problème](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
+* Dans de rares cas, le focus de l’arborescence peut être bloqué sur un accès rapide. Pour débloquer le focus, vous pouvez tout actualiser.
+* Le chargement à partir de votre dossier OneDrive ne fonctionne pas en raison d’un bogue dans NodeJS. Le bogue a été résolu, mais pas encore intégré à Electron.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». Cela tient au fait que nous utilisons la solution de contournement du filtre Annuler décrite [ici](https://github.com/Azure/azure-storage-node/issues/317).
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Azure Stack ne prend pas en charge les fonctionnalités suivantes, et toute tentative de les utiliser lors de l’utilisation d’Azure Stack peut entraîner des erreurs inattendues :
+   * Partages de fichiers
+   * Niveaux d’accès
+   * Suppression réversible
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Pour les utilisateurs sur Ubuntu 17.04, l’installation de GConf est nécessaire. Elle peut être effectuée en exécutant les commandes suivantes, puis en redémarrant votre ordinateur :
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-120"></a>Version 1.2.0
 12/06/2018

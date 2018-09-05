@@ -1,5 +1,5 @@
 ---
-title: Notifications par e-mail dans Azure AD Privileged Identity Management | Microsoft Docs
+title: Notifications par e-mail dans PIM - Azure | Microsoft Docs
 description: Explique ce que sont les notifications par e-mail dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 7943b4fb8c2027b50ce04c30d21f1b0a58f98ace
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621580"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190174"
 ---
-# <a name="email-notifications-in-azure-ad-pim"></a>Notifications par e-mail dans Azure AD Privileged Identity Management
+# <a name="email-notifications-in-pim"></a>Notifications par e-mail dans PIM
 
 Lorsque des événements clés se produisent dans Azure AD Privileged Identity Management (PIM), des notifications par e-mail sont envoyées à l’administrateur ou à l’utilisateur concerné. Par exemple, PIM envoie des e-mails pour les événements suivants :
 
@@ -74,5 +74,5 @@ Auparavant, lorsqu’un utilisateur se voyait attribuer un rôle privilégié, l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Comment gérer les paramètres d’activation de rôle dans Azure AD PIM](pim-how-to-change-default-settings.md)
-- [Approbations dans Azure AD PIM](azure-ad-pim-approval-workflow.md)
+- [Configurer les paramètres des rôles d’annuaire Azure AD dans PIM](pim-how-to-change-default-settings.md)
+- [Approuver ou rejeter les demandes de rôles d’annuaire Azure AD dans PIM](azure-ad-pim-approval-workflow.md)

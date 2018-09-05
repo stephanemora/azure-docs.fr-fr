@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433168"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919004"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager
 
@@ -37,10 +37,11 @@ Découvrez les nombreux [avantages de l’utilisation des modèles Resource Mana
 > [!NOTE]
 > Si vous utilisez un modèle Resource Manager comme base pour créer des machines virtuelles de laboratoire, sachez qu’il existe des différences entre la création d’un groupe de machines virtuelles et celle de plusieurs machines virtuelles individuelles. La rubrique [Utiliser un modèle Azure Resource Manager de machine virtuelle](devtest-lab-use-resource-manager-template.md) explique ces différences en détail.
 >
->
 
-## <a name="configure-azure-resource-manager-template-repositories"></a>Configurer les dépôts du modèle Azure Resource Manager
+## <a name="devtest-labs-public-environments"></a>Environnements publics DevTest Labs
+Azure DevTest Labs a un [dépôt public de modèles Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments), que vous pouvez utiliser pour créer des environnements sans devoir vous connecter à une source GitHub externe par vous-même. Ce dépôt inclut des modèles fréquemment utilisés, comme Azure Web Apps, Cluster Service Fabric et l’environnement de batterie de serveurs SharePoint de développement. Cette fonctionnalité est similaire au dépôt public d’artefacts qui est inclus pour chaque lab que vous créez. Le dépôt d’environnements vous permet de vous familiariser rapidement avec des modèles d’environnement préalablement créés avec un nombre minimal de paramètres d’entrée, pour un démarrage en douceur avec les ressources PaaS au sein des labs. Pour plus d’informations, consultez [Configurer et utiliser des environnements publics dans DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
+## <a name="configure-your-own-template-repositories"></a>Configurer vos propres dépôts de modèle
 Dans le cadre des bonnes pratiques liées à l’Infrastructure as Code et à la Configuration as Code, des modèles d’environnement doivent être gérés dans le contrôle de code source. Azure DevTest Labs suit cette pratique et charge tous les modèles Azure Resource Manager directement à partir de vos dépôts GitHub ou VSTS Git. Par conséquent, les modèles Resource Manager peuvent être utilisés tout le long du cycle de publication, de l’environnement de test jusqu’à l’environnement de production.
 
 Découvrez les modèles créés par l’équipe DevTest Labs dans le [dépôt GitHub public](https://github.com/Azure/azure-devtestlab/tree/master/Environments). Dans ce dépôt public, vous pouvez afficher les modèles partagés par d’autres utilisateurs et vous pouvez les utiliser directement ou les personnaliser en fonction de vos besoins. Après avoir créé votre modèle, stockez-le dans ce dépôt pour le partager avec d’autres utilisateurs. Vous pouvez également configurer votre propre dépôt Git avec des modèles pouvant être utilisés pour configurer des environnements dans le cloud. 
@@ -56,12 +57,9 @@ Quelques règles sont à prendre en compte pour organiser vos modèles Azure Res
 - Les métadonnées peuvent être définies pour spécifier le nom d’affichage et la description du modèle. Ces métadonnées doivent être dans un fichier nommé `metadata.json`. Le fichier de métadonnées d’exemple suivant montre comment spécifier le nom d’affichage et la description : 
 
     ```json
-    {
- 
-        "itemDisplayName": "<your template name>",
- 
-        "description": "<description of the template>"
- 
+    { 
+        "itemDisplayName": "<your template name>", 
+        "description": "<description of the template>" 
     }
     ```
 

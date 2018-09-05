@@ -1,17 +1,14 @@
-## <a name="connect-to-outlookcom"></a>Connexion à Outlook.com
-### <a name="prerequisites"></a>Composants requis
-* Un compte Outlook.com
+1. Dans la zone de recherche, entrez « outlook.com » comme filtre. Dans cet exemple, sélectionnez le déclencheur suivant : **À la réception d’un e-mail**
 
-Pour pouvoir utiliser votre compte Outlook.com dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer dans votre application logique sur le portail Azure. 
+   ![Rechercher des actions ou des déclencheurs d’Outlook.com](./media/connectors-create-api-outlook/select-outlook.png)
 
-Pour autoriser votre application logique à se connecter à votre compte Outlook.com, procédez comme suit :
+1. Après avoir sélectionné le déclencheur (ou l’action), vous êtes invité à vous connecter à votre compte Outlook.com, si vous ne l’avez pas déjà fait. Choisissez **Se connecter**.
 
-1. Toutes les applications logiques doivent être démarrées par un déclencheur. Donc, une fois votre application logique créée, le concepteur s’ouvre et affiche la liste des déclencheurs que vous pouvez utiliser pour démarrer votre application logique :
-   
-   ![](./media/connectors-create-api-outlook/office365-outlook-0.png)
-2. Dans la zone de recherche, entrez « outlook ». Remarquez que la liste est filtrée de façon à afficher tous les déclencheurs dont le nom contient « Outlook » : ![](./media/connectors-create-api-outlook/office365-outlook-0-5.png)
-3. Sélectionnez **Office 365 Outlook - En cas de nouveau message**.   
-   Si vous n’avez créé aucune connexion à Outlook auparavant, vous êtes invité à indiquer vos informations d’identification Outlook.com. Ces informations d’identification serviront à autoriser votre application logique à se connecter et à accéder aux données de votre compte Outlook.com : ![](./media/connectors-create-api-outlook/office365-outlook-1.png)
-4. Indiquez vos informations d’identification pour Outlook et connectez-vous : ![](./media/connectors-create-api-outlook/office365-outlook-2.png)  
-   Vous avez terminé. Vous venez de créer une connexion à Outlook. Cette connexion sera disponible dans toutes les applications logiques que vous créerez.
+   ![Connectez-vous à votre compte Outlook.com](./media/connectors-create-api-outlook/sign-in-outlook.png)  
 
+3. Sélectionnez vos informations d’identification de compte Outlook.com.
+
+   ![Sélectionner un compte de connexion](./media/connectors-create-api-outlook/outlook-sign-in.png)  
+
+   Vos informations d’identification sont utilisées pour la connexion et l’accès aux données de votre compte Outlook.com.
+   Vous pouvez réutiliser cette connexion avec n’importe quelle autre application logique dans votre abonnement Azure. 

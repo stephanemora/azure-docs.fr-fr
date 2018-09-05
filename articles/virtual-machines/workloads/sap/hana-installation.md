@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecef13f0ce97c7cec5a6583479911a08a99b0877
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 1d335e135551b7b6faed8ee566acb14b46fd6c81
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110726"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107509"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure
 
@@ -41,6 +41,9 @@ L’installation de SAP HANA relève de votre responsabilité et vous pouvez dé
 > En vertu de la stratégie de SAP, l’installation de SAP HANA doit être effectuée par une personne certifiée pour l’effectuer, à savoir une personne ayant passé l’examen Certified SAP Technology Associate et l’examen de certification SAP HANA Installation, ou par un intégrateur de systèmes (SI) certifié SAP.
 
 Effectuez une nouvelle vérification, en particulier si vous vous préparez à installer HANA 2.0 ([Note de support #2235581 relative à SAP HANA : systèmes d’exploitation pris en charge](https://launchpad.support.sap.com/#/notes/2235581/E)) afin de vous assurer que le système d’exploitation utilisé est pris en charge par la dernière version de SAP HANA que souhaitez installer. Vous comprendrez alors que le nombre de systèmes d’exploitation pris en charge par HANA 2.0 est plus limité que celui des systèmes pris en charge par HANA 1.0. 
+
+> [!IMPORTANT] 
+> Pour les unités de Type II, seule la version SLES 12 SP2 du système d’exploitation est actuellement prise en charge. 
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Premières étapes à suivre après la réception des unités de grandes instances HANA
 
@@ -143,6 +146,9 @@ Consultez [Scénarios HLI pris en charge](hana-supported-scenario.md) pour conna
 
 ## <a name="operating-system"></a>Système d’exploitation
 
+> [!IMPORTANT] 
+> Pour les unités de Type II, seule la version SLES 12 SP2 du système d’exploitation est actuellement prise en charge. 
+
 La taille de l’espace d’échange de l’image du système d’exploitation livré est définie sur 2 Go conformément à la [note de support #1999997 relative à la FAQ : mémoire SAP HANA](https://launchpad.support.sap.com/#/notes/1999997/E). Tout autre paramètre souhaité doit être défini par vous-même, en tant que client.
 
 [SUSE Linux Enterprise Server 12 SP1 for SAP Applications](https://www.suse.com/products/sles-for-sap/hana) est la distribution de Linux installée pour SAP HANA sur Azure (grandes instances). Cette distribution spéciale fournit des fonctionnalités spécifiques à SAP &quot;prêtes à l’emploi&quot; (y compris des paramètres prédéfinis pour une exécution efficace de SAP sur SLES).
@@ -211,7 +217,7 @@ La machine virtuelle déployée était plus petite et a obtenu l’adresse IP 10
 
 Connectez-vous aux unités de grande instance HANA, conservez le fichier /etc/hosts et vérifiez si vous pouvez atteindre la machine virtuelle Azure supposée exécuter le serveur SMT sur le réseau.
 
-Une cette vérification réussie, vous devez vous connecter à la machine virtuelle Azure supposée exécuter le serveur SMT. Si vous utilisez PuTTY pour vous connecter à la machine virtuelle, vous devez exécuter cette séquence de commandes dans la fenêtre de interpréteur de commandes :
+Une cette vérification réussie, vous devez vous connecter à la machine virtuelle Azure supposée exécuter le serveur SMT. Si vous utilisez PuTTY pour vous connecter à la machine virtuelle, vous devez exécuter cette séquence de commandes dans la fenêtre d’interpréteur de commandes :
 
 ```
 cd ~
@@ -267,7 +273,7 @@ Lorsque ce processus s’achève, vous devez passer à la configuration du clien
 
 ### <a name="set-up-the-smt-client-on-hana-large-instance-units"></a>Configurer le client SMT sur des unités de grande instance HANA
 
-Dans ce cas, les clients sont les unités de grande instance HANA. Le programme d’installation du serveur SMT a copié le script clientSetup4SMT.sh sur la machine virtuelle Azure. Copiez ce script sur l’unité de grande instance HANA que vous souhaitez connecter à votre serveur SMT. Démarrez le script avec l’option -h, puis donnez-lui en guise de paramètre le nom de votre serveur SMT. Dans ce exemple, il s’agit de smtserver.
+Dans ce cas, les clients sont les unités de grande instance HANA. Le programme d’installation du serveur SMT a copié le script clientSetup4SMT.sh sur la machine virtuelle Azure. Copiez ce script sur l’unité de grande instance HANA que vous souhaitez connecter à votre serveur SMT. Démarrez le script avec l’option -h, puis donnez-lui en guise de paramètre le nom de votre serveur SMT. Dans cet exemple, il s’agit de smtserver.
 
 ![Configurer un client SMT](./media/hana-installation/image12_configure_client.PNG)
 

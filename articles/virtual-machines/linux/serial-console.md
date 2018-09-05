@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 20bd2d61671d89a5c2a13525ea119595cf0b7c93
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246480"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122403"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console série de machine virtuelle (préversion) 
 
@@ -35,12 +35,20 @@ Pour obtenir la documentation sur la console série pour les machines virtuelles
 ## <a name="prerequisites"></a>Prérequis 
 
 * Vous devez utiliser le modèle de déploiement de gestion des ressources. Les déploiements classiques ne sont pas pris en charge. 
-* L’option [Diagnostics de démarrage](boot-diagnostics.md) doit être activée dans la machine virtuelle. 
-* Le compte qui utilise la console série doit disposer du [rôle Contributeur](../../role-based-access-control/built-in-roles.md) pour la machine virtuelle et pour le compte de stockage avec [diagnostics de démarrage](boot-diagnostics.md). 
+* L’option [Diagnostics de démarrage](boot-diagnostics.md) DOIT être activée sur votre machine virtuelle (voir la capture d’écran ci-dessous).
+
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+    
+* Le compte Azure qui utilise la console série doit disposer du [rôle Contributeur](../../role-based-access-control/built-in-roles.md) pour la machine virtuelle et pour le compte de stockage de [diagnostics de démarrage](boot-diagnostics.md). 
+* La machine virtuelle pour laquelle vous accédez à la console doit également avoir un compte avec mot de passe. Vous pouvez en créer un avec la fonctionnalité [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles (voir la capture d’écran ci-dessous).
+
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
+
 * Pour découvrir les paramètres spécifiques aux distributions Linux, consultez la section [Access the serial console for Linux](#access-serial-console-for-linux) (Accéder à la console série pour Linux)
 
 
-## <a name="open-the-serial-console"></a>Ouvrir la console série
+
+## <a name="get-started-with-serial-console"></a>Bien démarrer avec la console série
 Pour les machines virtuelles, la console série est accessible uniquement via le [portail Azure](https://portal.azure.com). Voici les étapes permettant aux machines virtuelles d’accéder à la console série via le portail : 
 
   1. Ouvrez le portail Azure
@@ -58,30 +66,30 @@ Pour les machines virtuelles, la console série est accessible uniquement via le
 Par défaut, tous les abonnements ont accès à la console série pour toutes les machines virtuelles. Vous pouvez désactiver la console série au niveau de l’abonnement ou au niveau de la machine virtuelle.
 
 ### <a name="subscription-level-disable"></a>Désactiver au niveau de l’abonnement
-La console série peut être désactivée pour un abonnement entier par le biais de [l’appel à l’API REST Disable Console](https://aka.ms/disableserialconsoleapi). Vous pouvez utiliser la fonctionnalité « Essayez » disponible sur la page de documentation de l’API afin de désactiver et d’activer la console série pour un abonnement. Entrez votre `subscriptionId`, « valeur par défaut » dans le champ `default`, puis cliquez sur Exécuter. Les commandes Azure CLI seront disponibles à une date ultérieure. [Essayez l’appel à l’API REST ici](https://aka.ms/disableserialconsoleapi).
+La console série peut être désactivée pour un abonnement entier par le biais de [l’appel à l’API REST Disable Console](https://aka.ms/disableserialconsoleapi). Vous pouvez utiliser la fonctionnalité « Essayez » disponible sur la page de documentation de l’API afin de désactiver et d’activer la console série pour un abonnement. Entrez votre `subscriptionId`, « valeur par défaut » dans le champ `default`, puis cliquez sur Exécuter. Les commandes Azure CLI seront disponibles à une date ultérieure. [Essayez l’appel à l’API REST ici](https://aka.ms/disableserialconsoleapi).
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
 Vous pouvez également utiliser le jeu de commandes ci-dessous dans Cloud Shell (commandes bash indiquées) pour désactiver, activer et afficher l’état de la console série pour un abonnement. 
 
-* Pour obtenir l’état désactivé de la console série pour un abonnement :
-    ```
+* Pour obtenir l’état désactivé de la console série pour un abonnement :
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
 
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
-* Pour désactiver la console série pour un abonnement :
-    ```
+* Pour désactiver la console série pour un abonnement :
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
 
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
-* Pour activer la console série pour un abonnement :
-    ```
+* Pour activer la console série pour un abonnement :
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -139,7 +147,7 @@ Oracle Linux        | Les images Oracle Linux disponibles sur Azure disposent d
 Images Linux personnalisées     | Pour activer la console série pour votre image Linux personnalisée de machine virtuelle, activez l’accès à la console dans /etc/inittab pour exécuter un terminal sur ttyS0. Voici un exemple d’ajout de cet élément dans le fichier inittab : `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Pour plus d’informations sur la création d’images personnalisées, consultez [Création et chargement d’un disque dur virtuel Linux dans Azure](https://aka.ms/createuploadvhd).
 
 ## <a name="errors"></a>Errors
-La plupart des erreurs sont de nature temporaire et peuvent être corrigées par une nouvelle tentative de connexion à la console série. Le tableau ci-dessous présente une liste d’erreurs accompagnées de solutions d’atténuation. 
+La plupart des erreurs sont de nature temporaire et peuvent être corrigées par une nouvelle tentative de connexion à la console série. Le tableau ci-dessous présente une liste d’erreurs accompagnées de mesures de prévention.
 
 Error                            |   Atténuation 
 :---------------------------------|:--------------------------------------------|
@@ -154,7 +162,7 @@ WebSocket est fermé ou n’a pas pu être ouvert. | Vous devrez peut-être auto
 Problème                           |   Atténuation 
 :---------------------------------|:--------------------------------------------|
 Aucune option n’est disponible pour la console série de l’instance de groupe de machines virtuelles identiques |  À ce stade de la préversion, l’accès à la console série n’est pas pris en charge pour les instances de groupe de machines virtuelles identiques.
-L’invite de connexion ne s’affiche pas lorsque vous appuyez sur la touche Entrée après l’affichage de la bannière de connexion | [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+L’invite de connexion ne s’affiche pas lorsque vous appuyez sur la touche Entrée après l’affichage de la bannière de connexion | Consultez la page suivante : [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cela peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de GRUB qui fait que Linux ne parvient pas à se connecter correctement au port série.
 Une réponse « Interdit » s’est produite lors de l’accès au compte de stockage des diagnostics de démarrage de cette machine virtuelle. | Assurez-vous que les diagnostics de démarrage n’ont pas un pare-feu de compte. Un compte de stockage des diagnostics de démarrage accessible est nécessaire au fonctionnement de la console série.
 
 

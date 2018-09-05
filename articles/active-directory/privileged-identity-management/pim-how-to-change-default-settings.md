@@ -1,6 +1,6 @@
 ---
-title: Comment gérer les paramètres d’activation de rôle | Microsoft Docs
-description: Découvrez comment modifier les paramètres par défaut d’identités privilégiées avec l’extension Azure Active Directory Privileged Identity Management.
+title: Configurer les paramètres des rôles d’annuaire Azure AD dans PIM | Microsoft Docs
+description: Découvrez comment configurer les paramètres des rôles d’annuaire Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,33 +10,53 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 06/06/2017
+ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4ca74c001ba379b287c0c9799d90336eb187b2c2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 20a704a0d5b61134a61b5cbf02a1c71dbc7039e1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619598"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189335"
 ---
-# <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>Comment gérer les paramètres d'activation de rôle dans Azure AD Privileged Identity Management
+# <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurer les paramètres des rôles d’annuaire Azure AD dans PIM
+
 Un administrateur de rôle privilégié peut personnaliser Azure AD Privileged Identity Management (PIM) dans son organisation, notamment modifier l’expérience d’un utilisateur qui active une attribution de rôle éligible.
 
-## <a name="manage-the-role-activation-settings"></a>Gérer les paramètres d'activation de rôle
-1. Accédez à la [portail Azure](https://portal.azure.com) et sélectionnez l’application **Azure AD Privileged Identity Management** à partir du tableau de bord.
-2. Sélectionnez **Gérer les rôles privilégiés** > **Paramètres** > **Rôles privilégiés**.
-3. Choisissez le rôle dont vous souhaitez gérer les paramètres.
+## <a name="open-role-settings"></a>Ouvrir les paramètres des rôles
 
-Sur la page des paramètres de chaque rôle, vous pouvez configurer plusieurs paramètres. Ces paramètres affectent uniquement les utilisateurs qui sont des administrateurs éligibles et non des administrateurs permanents.
+1. Ouvrez **Azure AD Privileged Identity Management**.
 
-**Activations**: durée, en heures, pendant laquelle un rôle reste actif avant d’expirer. Cette durée peut être comprise entre 1 et 72 heures.
+1. Cliquez sur **Rôles d’annuaire Azure AD**.
 
-**Notifications**: vous pouvez choisir si le système envoie ou non des messages électroniques aux administrateurs pour leur confirmer qu’ils ont activé un rôle. Cette option peut être utile pour détecter les activations non autorisées ou illégitimes.
+1. Cliquez sur **Settings**.
 
-**Ticket d’incident/demande**: vous pouvez choisir si les administrateurs admissibles doivent ou non inclure un numéro de ticket lorsqu’ils activent leur rôle. Cela peut être utile lorsque vous effectuez des audits d’accès à un rôle.
+    ![Rôles d’annuaire Azure AD - Paramètres](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
-**Authentification multifacteur**: vous pouvez choisir si les utilisateurs doivent ou non vérifier leur identité via l’authentification multifacteur avant de pouvoir activer leurs rôles. Une seule vérification est nécessaire par session, et non chaque fois qu’ils ont activé un rôle. Il existe deux conseils à garder à l’esprit lorsque vous activez l’authentification multifacteur :
+1. Cliquez sur **Rôles**.
+
+1. Cliquez sur le rôle dont vous souhaitez configurer les paramètres.
+
+    ![Rôles d’annuaire Azure AD - Paramètres des rôles](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+
+    Dans la page des paramètres de chaque rôle, vous pouvez configurer plusieurs paramètres. Ces paramètres affectent uniquement les utilisateurs qui sont **éligibles**, et non ceux qui sont **permanents**.
+
+## <a name="activations"></a>Activations
+
+Le curseur **Activations** correspond à la durée maximale (en heures) pendant laquelle un rôle reste actif avant d’expirer. Cette valeur peut être comprise entre 1 et 72 heures.
+
+## <a name="notifications"></a>Notifications
+
+Le bouton **Notifications** vous permet de choisir si le système doit envoyer ou non des e-mails aux administrateurs pour leur confirmer qu’ils ont activé un rôle. Cette option peut être utile pour détecter les activations non autorisées ou illégitimes.
+
+## <a name="incidentrequest-ticket"></a>Ticket d’incident/de demande
+
+Le bouton **Ticket d’incident/demande** vous permet de choisir si les administrateurs éligibles doivent ou non inclure un numéro de ticket lorsqu’ils activent leur rôle. Cela peut être utile lorsque vous effectuez des audits d’accès à un rôle.
+
+## <a name="multi-factor-authentication"></a>Azure Multi-Factor Authentication
+
+Le bouton **Authentification multifacteur** vous permet de choisir si les utilisateurs doivent ou non confirmer leur identité via l’authentification multifacteur avant de pouvoir activer leurs rôles. Une seule vérification est nécessaire par session, et non chaque fois qu’ils ont activé un rôle. Il existe deux conseils à garder à l’esprit lorsque vous activez l’authentification multifacteur :
 
 * Les utilisateurs qui disposent de comptes Microsoft pour leurs adresses de messagerie (généralement @outlook.com mais pas toujours) ne peuvent pas s’inscrire à Azure MFA. Si vous souhaitez attribuer des rôles aux utilisateurs disposant de comptes Microsoft, vous devez les rendre administrateurs permanents ou désactiver l’authentification multifacteur pour ce rôle.
 * Vous ne pouvez pas désactiver l’authentification multifacteur pour les rôles à privilèges élevés pour Azure AD et Office 365. Il s’agit d’une fonctionnalité de sécurité car ces rôles doivent être soigneusement protégés :  
@@ -54,17 +74,38 @@ Sur la page des paramètres de chaque rôle, vous pouvez configurer plusieurs pa
   * Administrateur de boîte aux lettres  
   * Prise en charge de niveau 1 de partenaire  
   * Prise en charge de niveau 2 de partenaire  
-  * Administrateur de rôle privilégié   
+  * Administrateur de rôle privilégié
   * Administrateur de sécurité  
   * Administrateur SharePoint  
   * Administrateur Skype Entreprise  
   * Administrateur de compte d’utilisateur  
 
-Pour plus d’informations sur l’utilisation de la solution MFA avec Privileged Identity Management, voir [Exigence de l’application de la solution MFA](pim-how-to-require-mfa.md).
+Pour plus d’informations sur l’utilisation de l’authentification multifacteur avec PIM, consultez [Exiger une authentification multifacteur pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-require-mfa.md).
+
+## <a name="require-approval"></a>Exiger une approbation
+
+Le bouton **Exiger l’approbation** vous permet de choisir s’il faut exiger une approbation pour activer un rôle.
+
+1. Lorsque vous configurez le bouton sur **Activé**, le volet affiche les options permettant de sélectionner des approbateurs.
+
+    ![Rôles d’annuaire Azure AD - Paramètres - Exiger une approbation](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+
+    Si vous **ne spécifiez pas** d’approbateurs, les administrateurs de rôle privilégié deviennent les approbateurs par défaut. Les administrateurs de rôle privilégié doivent approuver **TOUTES** les demandes d’activation pour ce rôle.
+
+1. Pour spécifier des approbateurs, cliquez sur **Sélectionner des approbateurs**.
+
+    ![Rôles d’annuaire Azure AD - Paramètres - Exiger une approbation](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+
+1. Sélectionnez un ou plusieurs approbateurs, puis cliquez sur **Sélectionner**. Vous pouvez sélectionner des utilisateurs ou des groupes. Il est recommandé de sélectionner au moins deux approbateurs. L’auto-approbation n’est pas autorisée.
+
+    Vos sélections figurent dans la liste des approbateurs sélectionnés.
+
+1. Une fois que vous avez spécifié tous vos paramètres de rôle, cliquez sur **Enregistrer** pour enregistrer vos modifications.
+
 
 <!--PLACEHOLDER: Need an explanation of what the temporary Global Administrator setting is for.-->
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Exiger une authentification multifacteur pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-require-mfa.md)
+- [Configurer des alertes de sécurité pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-configure-security-alerts.md)

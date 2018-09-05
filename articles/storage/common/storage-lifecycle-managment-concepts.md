@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528441"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247780"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gérer le cycle de vie du stockage d'objets blob Azure (préversion)
 
@@ -37,7 +37,7 @@ La stratégie de gestion du cycle de vie est disponible avec le compte à usage 
 La fonctionnalité de gestion du cycle de vie est gratuite dans la version préliminaire. Les clients sont facturés le coût de fonctionnement normal pour les appels d’API [Répertorier les objets blob](https://docs.microsoft.com/rest/api/storageservices/list-blobs) et [Définir le niveau d’objet blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). Pour en savoir plus sur la tarification, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>S’inscrire pour la préversion 
-Pour vous inscrire à la version préliminaire publique, vous devez envoyer une demande afin d’enregistrer cette fonctionnalité dans votre abonnement. Une fois votre demande approuvée (au bout de quelques jours), n’importe quel compte GPv2 ou de stockage d’objets blob existant ou nouveau dans USA Ouest 2 et USA Centre-Ouest verra cette fonctionnalité activée. Lors de la version préliminaire, seul l’objet blob de blocs est pris en charge. Comme pour la plupart des versions préliminaires, cette fonctionnalité ne doit pas être utilisée pour les charges de production avant d’avoir atteint la disponibilité générale.
+Pour vous inscrire à la version préliminaire publique, vous devez envoyer une demande afin d’enregistrer cette fonctionnalité dans votre abonnement. Une fois votre demande approuvée (au bout de quelques jours), cette fonctionnalité sera activée pour tout compte GPv2 ou de stockage d’objets blob existant ou nouveau dans la région USA Ouest 2, USA Centre-Ouest et Europe Ouest. Lors de la version préliminaire, seul l’objet blob de blocs est pris en charge. Comme pour la plupart des versions préliminaires, cette fonctionnalité ne doit pas être utilisée pour les charges de production avant d’avoir atteint la disponibilité générale.
 
 Pour soumettre une requête, exécutez les commandes PowerShell ou CLI suivantes.
 

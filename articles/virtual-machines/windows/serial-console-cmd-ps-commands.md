@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 83b3aa1efdde367577a563b477403c313a51d4fe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a6f8984086771fea4df4851b2a878d480b2050ea
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177477"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918515"
 ---
-# <a name="windows-commands---cmd"></a>Commandes Windows - CMD 
+# <a name="windows-commands---cmd-and-powershell"></a>Commandes Windows - CMD et PowerShell
 
 Cette section présente des exemples de commandes permettant d’effectuer des tâches courantes dans les situations où vous pouvez avoir besoin d’utiliser la console SAC pour accéder à votre machine virtuelle Windows, notamment pour résoudre les échecs de connexion RDP.
 
@@ -91,6 +91,8 @@ or
 `netsh interface set interface name="<interface name>" admin=enabled`
 ### <a name="set-nic-to-use-dhcp"></a>Paramétrer la carte réseau pour utiliser le protocole DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
+
+Pour plus d’informations sur `netsh`, [cliquez ici](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Les machines virtuelles Azure doivent toujours être configurées dans le système d’exploitation invité pour que vous puissiez utiliser le protocole DHCP afin d’obtenir une adresse IP. Le paramètre IP statique Azure utilise toujours le protocole DHCP pour fournir l’adresse IP statique à la machine virtuelle.
 ### <a name="ping"></a>Ping

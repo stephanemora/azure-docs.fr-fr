@@ -1,27 +1,23 @@
 ---
 title: Encoder des messages EDIFACT - Azure Logic Apps | Microsoft Docs
-description: Validation EDI et génération du code XML avec l’encodeur EDIFACT Message dans Enterprise Integration Pack pour Azure Logic Apps
+description: Valider l’EDI et générer le code XML avec l’encodeur de message EDIFACT pour Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 974ac339-d97a-4715-bc92-62d02281e900
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: eaad2561254d858af99f06e576d67c05838e1220
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e1c990030a9fa9ad25950ccb24b36b82a8c69f5c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299890"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122351"
 ---
-# <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Encoder des messages EDIFACT pour Azure Logic Apps avec Enterprise Integration Pack
+# <a name="encode-edifact-messages-for-azure-logic-apps-with-enterprise-integration-pack"></a>Encoder des messages EDIFACT pour Azure Logic Apps avec Enterprise Integration Pack
 
 Avec le connecteur Encode EDIFACT Message, vous pouvez valider l’EDI et les propriétés spécifiques au partenaire, générer un document XML pour chaque document informatisé et demander un accusé de réception technique ou fonctionnel, ou les deux.
 Pour utiliser ce connecteur, vous devez ajouter le connecteur à un déclencheur existant dans votre application logique.

@@ -2,170 +2,198 @@
 title: Se connecter à Dynamics 365 – Azure Logic Apps | Microsoft Docs
 description: Créer et gérer des enregistrements avec les API REST de base de Dynamics 365 (en ligne) et Azure Logic Apps
 author: Mattp123
-manager: jeconnoc
 ms.author: matp
-ms.date: 02/10/2017
-ms.topic: article
 ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.reviewer: estfan, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 6ac45d45ed1df0e89eb27657a064a8c95ad4be79
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b1ff93f1e03e047ad5ac00259c1aa53afda0c76d
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294841"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818938"
 ---
-# <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Se connecter à Dynamics 365 à partir de flux de travail d’application logique
+# <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gérer les enregistrements Dynamics 365 avec Azure Logic Apps
 
-Avec les applications Logic Apps, vous pouvez vous connecter à Dynamics 365 (Online) et créer des flux d’activité utiles qui génèrent des enregistrements, mettent à jour les éléments ou renvoient une liste d’enregistrements. Avec le connecteur Dynamics 365, vous pouvez effectuer les opérations suivantes :
+Avec Azure Logic Apps et le connecteur Dynamics 365, vous pouvez créer des flux de travail et des tâches automatisés basés sur vos enregistrements dans Dynamics 365. Vos flux de travail peuvent créer des enregistrements, mettre à jour des éléments, retourner des enregistrements et bien plus encore, dans votre compte Dynamics 365. Vous pouvez inclure des actions dans vos applications logiques qui obtiennent des réponses de Dynamics 365 et mettent la sortie à la disposition d’autres actions. Par exemple, quand un élément est mis à jour dans Dynamics 365, vous pouvez envoyer un e-mail à l’aide d’Office 365.
 
-* Créer votre flux d’activité en fonction des données que vous obtenez de Dynamics 365 (Online).
-* Utiliser les actions qui obtiennent une réponse, puis mettent la sortie à la disposition d’autres actions. Par exemple, quand un élément est mis à jour dans Dynamics 365 (Online), vous pouvez envoyer un courrier électronique à l’aide d’Office 365.
-
-Cette rubrique vous explique comment créer une application logique qui génère une tâche dans Dynamics 365 lorsqu’un prospect est créé dans Dynamics 365.
+Cet article vous explique comment générer une application logique qui crée une tâche dans Dynamics 365 quand un enregistrement de prospect est créé dans Dynamics 365.
+Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Prérequis
-* Un compte Azure.
-* Un compte Dynamics 365 (Online).
 
-## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>Créer une tâche lorsqu’un prospect est créé dans Dynamics 365
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
-1.  [Connectez-vous à Azure](https://portal.azure.com).
+* Un [compte Dynamics 365](https://dynamics.microsoft.com)
 
-2.  Dans la zone de recherche Azure, tapez `Logic apps` et appuyez sur ENTRÉE.
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-      ![Rechercher Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
+* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Dynamics 365. Pour démarrer votre application logique avec un déclencheur Dynamics 365, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-3.  Sous **Logic Apps**, cliquez sur **Ajouter**.
+## <a name="add-dynamics-365-trigger"></a>Ajouter un déclencheur Dynamics 365
 
-      ![LogicApp - Ajouter](./media/connectors-create-api-crmonline/add-logic-app.png)
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-4.  Pour créer l’application logique, renseignez les champs **Nom**, **Abonnement**, **Groupe de ressources** et **Emplacement**, puis cliquez sur **Créer**.
+Tout d’abord, ajoutez un déclencheur Dynamics 365 qui se déclenche quand un nouveau prospect apparaît dans Dynamics 365.
 
-5.  Sélectionnez la nouvelle application logique. Lorsque vous recevez la notification **Déploiement réussi**, cliquez sur **Actualiser**.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique vide dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
 
-6.  Sous **Outils de développement**, cliquez sur **Concepteur d’application logique**. Dans la liste des modèles, cliquez sur **Application logique vide**.
+1. Dans la zone de recherche, entrez le filtre « Dynamics 365 ». Pour cet exemple, sous la liste des déclencheurs, sélectionnez ce déclencheur : **Lorsqu’un enregistrement est créé**
 
-7.  Dans la zone de recherche, tapez `Dynamics 365`. Dans la liste des déclencheurs Dynamics 365, sélectionnez **Dynamics 365 – Lorsqu'un enregistrement est créé**.
+   ![Sélectionner le déclencheur](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
-8.  Si vous êtes invité à vous connecter à Dynamics 365, faites-le maintenant.
+1. Si vous êtes invité à vous connecter à Dynamics 365, faites-le maintenant.
 
-9.  Entrez les informations suivantes dans les détails du déclencheur :
+1. Fournissez les détails suivants au sujet déclencheur :
 
-  * **Nom de l’organisation**. Sélectionnez l’instance de Dynamics 365 que l’application logique doit écouter.
+   | Propriété | Obligatoire | Description | 
+   |----------|----------|-------------| 
+   | **Nom de l’organisation** | Oui | Nom de l’instance de Dynamics 365 de votre organisation à superviser, par exemple, « Contoso » |
+   | **Nom de l’entité** | Oui | Nom de l’entité à superviser, par exemple, « Leads » (Prospects) | 
+   | **Fréquence** | Oui | Unité de temps, avec intervalles, à utiliser pour vérifier l’existence de mises à jour pour le déclencheur |
+   | **Intervalle** | Oui | Nombre de secondes, de minutes, d’heures, de jours, de semaines ou de mois qui doivent s’écouler avant la recherche suivante |
+   ||| 
 
-  * **Nom de l’entité**. Sélectionnez l’entité que vous souhaitez écouter. Cet événement agit comme un déclencheur pour démarrer l’application logique. 
-  Dans cette procédure pas à pas, **Prospects** est sélectionné.
+   ![Détails du déclencheur](./media/connectors-create-api-crmonline/trigger-details.png)
 
-  * **How often do you want to check for items?** (À quelle fréquence souhaitez-vous rechercher des éléments ?) Ces valeurs définissent la fréquence à laquelle l’application logique recherche des mises à jour pour le déclencheur. Le paramètre par défaut consiste à rechercher des mises à jour toutes les trois minutes.
+## <a name="add-dynamics-365-action"></a>Ajouter une action Dynamics 365
 
-    * **Fréquence**. Sélectionnez les secondes, les minutes, les heures ou les jours.
+Ajoutez maintenant l’action Dynamics 365 qui crée un enregistrement de tâche pour l’enregistrement du nouveau prospect.
 
-    * **Intervalle**. Entrez le nombre de secondes, de minutes, d’heures ou de jours qui doivent s’écouler avant la recherche suivante.
+1. Sous votre déclencheur, choisissez **Nouvelle étape**.
 
-      ![Application logique - Détails sur le déclencheur](./media/connectors-create-api-crmonline/trigger-details.png)
+1. Dans la zone de recherche, entrez le filtre « Dynamics 365 ». Dans la liste des actions, sélectionnez cette action : **Créer un enregistrement**
 
-10. Cliquez sur **Nouvelle étape**, puis sur **Ajouter une action**.
+   ![Action select](./media/connectors-create-api-crmonline/select-action.png)
 
-11. Dans la zone de recherche, tapez `Dynamics 365`. Dans la liste des actions, sélectionnez **Dynamics 365 – Créer un enregistrement**.
+1. Fournissez les détails suivants au sujet de l’action :
 
-12. Entrez les informations suivantes :
+   | Propriété | Obligatoire | Description | 
+   |----------|----------|-------------| 
+   | **Nom de l’organisation** | Oui | Instance de Dynamics 365 où vous souhaitez créer l’enregistrement ; bien que cette instance puisse différer de l’instance de votre déclencheur, elle porte le nom « Contoso » dans cet exemple. |
+   | **Nom de l’entité** | Oui | Entité où vous souhaitez créer l’enregistrement, par exemple, « Tasks » (Tâches) | 
+   | | |
 
-    * **Nom de l’organisation**. Sélectionnez l’instance de Dynamics 365 dans laquelle vous souhaitez que le flux crée l’enregistrement. 
-    Notez qu’il ne s’agit pas nécessairement de la même instance que celle depuis laquelle l’événement est déclenché.
+   ![Détails de l’action](./media/connectors-create-api-crmonline/action-details.png)
 
-    * **Nom de l’entité**. Sélectionnez l’entité dans laquelle vous souhaitez créer un enregistrement lorsque l’événement est déclenché. 
-    Dans cette procédure pas à pas, **Tâches** est sélectionné.
+1. Quand la zone **Objet** s’affiche dans votre action, cliquez dans cette zone afin qu’apparaisse la liste des contenus dynamiques. Dans cette liste, sélectionnez les valeurs de champ à inclure dans l’enregistrement de tâche associé à l’enregistrement du nouveau prospect :
 
-13. Cliquez sur le champ **Objet** qui apparaît. Dans la liste de contenu dynamique qui s’affiche, vous pouvez sélectionner un de ces champs :
+   | Champ | Description | 
+   |-------|-------------| 
+   | **Nom** | Nom de famille du prospect en tant que contact principal dans l’enregistrement |
+   | **Rubrique** | Nom descriptif du prospect dans l’enregistrement | 
+   | | | 
 
-    * **Nom**. Sélectionner ce champ permettra d’insérer le nom du prospect dans le champ Objet de la tâche, lorsque l’enregistrement de la tâche est créé.
-    * **Rubrique**. Sélectionner ce champ permettra d’insérer le champ Rubrique dans le champ Objet de la tâche, lorsque l’enregistrement de la tâche est créé. 
-    Cliquez sur **Rubrique** pour l’ajouter à la zone **Objet**.
+   ![Détails de l’enregistrement de la tâche](./media/connectors-create-api-crmonline/create-record-details.png)
 
-      ![Application logique - Détails Créer un enregistrement](./media/connectors-create-api-crmonline/create-record-details.png)
+1. Dans la barre d’outils du concepteur, choisissez **Enregistrer** pour votre application logique. 
 
-14. Dans la barre d’outils du Concepteur d’application logique, cliquez sur **Enregistrer**.
+1. Pour lancer manuellement l’application logique, sélectionnez **Exécuter** dans la barre d’outils du concepteur.
 
-    ![Barre d’outils du Concepteur d’application logique - Enregistrer](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
+   ![Exécuter une application logique](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
-15. Pour démarrer l’application logique, cliquez sur **Exécuter**.
+1. Créez maintenant un enregistrement de prospect dans Dynamics 365 afin de pouvoir déclencher le flux de travail de votre application logique.
 
-    ![Barre d’outils du Concepteur d’application logique - Enregistrer](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+## <a name="add-filter-or-query"></a>Ajouter un filtre ou une requête
 
-16. Créez maintenant un enregistrement de prospect dans Dynamics 365 pour les ventes et observez votre flux en action !
+Pour spécifier comment filtrer les données dans une action Dynamics 365, choisissez **Afficher les options avancées** dans cette action. Vous pouvez ensuite ajouter une requête de filtre ou de tri.
+Par exemple, vous pouvez utiliser une requête de filtre pour obtenir uniquement les comptes actifs et trier ces enregistrements par nom de compte. Pour accomplir cette tâche, effectuez les étapes suivantes :
 
-## <a name="set-advanced-options-for-a-logic-app-step"></a>Définir les options avancées d’une étape d’application logique
+1. Sous **Requête de filtre**, entrez cette requête de filtre OData : `statuscode eq 1`
 
-Pour spécifier comment filtrer les données dans une étape d’application logique, cliquez sur **Afficher les options avancées** dans cette étape, puis ajoutez un filtre ou une commande par requête.
+2. Sous **Trier par**, quand la liste de contenus dynamiques s’affiche, sélectionnez **Nom du compte**. 
 
-Par exemple, vous pouvez utiliser une requête de filtre pour obtenir uniquement les comptes actifs et trier par nom du compte. Pour effectuer cette tâche, entrez la requête de filtre OData `statuscode eq 1` et sélectionnez **Nom de compte** dans la liste de contenu dynamique. Plus d’informations : [MSDN : $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) et [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+   ![Spécifier un filtre et un ordre de tri](./media/connectors-create-api-crmonline/advanced-options.png)
 
-![Application logique - Options avancées](./media/connectors-create-api-crmonline/advanced-options.png)
+Pour plus d’informations, consultez ces options de requête système de l’API web Dynamics 365 Customer Engagement : 
 
-### <a name="best-practices-when-using-advanced-options"></a>Meilleures pratiques lors de l’utilisation des options avancées
+* [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
+* [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
 
-Lorsque vous ajoutez une valeur à un champ, vous devez faire correspondre le type de champ si vous saisissez une valeur ou sélectionner une valeur dans la liste de contenu dynamique.
+### <a name="best-practices-for-advanced-options"></a>Bonnes pratiques pour les options avancées
 
-Type de champ  |Utilisation  |Comment y accéder  |NOM  |Type de données  
----------|---------|---------|---------|---------
-Champs de texte|Les champs de texte nécessitent une seule ligne de texte ou du contenu dynamique qui est un champ de type texte. Exemples : Catégorie et Sous-catégorie.|Paramètres > Personnalisations > Personnaliser le système > Entités > Tâche > Champs |category |Ligne de texte unique        
-Champs de type entier | Certains champs nécessitent un entier ou un contenu dynamique qui est un champ de type entier. Exemples : Pourcentage achevé et Durée. |Paramètres > Personnalisations > Personnaliser le système > Entités > Tâche > Champs |percentcomplete |Nombre entier         
-Champs de date | Certains champs nécessitent qu’une date soit saisie au format mm/jj/aaaa ou un contenu dynamique qui est un champ de type date. Exemples : Créé le, Date de début, Début réel, Dernière durée de suspension, Fin réelle et Date d’échéance. | Paramètres > Personnalisations > Personnaliser le système > Entités > Tâche > Champs |createdon |Date et heure
-Champs qui nécessitent à la fois un ID d’enregistrement et un type de recherche |Certains champs qui font référence à un autre enregistrement d’entité nécessitent l’ID d’enregistrement et le type de recherche. |Paramètres > Personnalisations > Personnaliser le système > Entités > Compte > Champs  | accountid  | Clé primaire
+Quand vous spécifiez une valeur pour un champ dans une action ou un déclencheur, le type de données de la valeur doit correspondre au type de champ, que vous entriez la valeur manuellement ou la sélectionniez dans la liste de contenus dynamiques.
 
-### <a name="more-examples-of-fields-that-require-both-a-record-id-and-lookup-type"></a>Exemples de champs supplémentaires nécessitant un ID d’enregistrement et un type de recherche
-Pour compléter le tableau précédent, voici des exemples de champs supplémentaires qui ne fonctionnent pas avec les valeurs sélectionnées dans la liste de contenu dynamique. À la place, ces champs nécessitent un ID d’enregistrement et un type de recherche saisis dans les champs de PowerApps.  
-* Propriétaire et Type de propriétaire. Le champ Propriétaire doit être un ID d’enregistrement d’utilisateur ou d’équipe valide. Le champ Type de propriétaire doit être **systemusers** ou **équipes**.
-* Client et Type de client. Le champ Client doit être un ID d’enregistrement de compte ou de contact valide. Le champ Type de propriétaire doit être **comptes** ou **contacts**.
-* Concernant et Type Concernant. Le champ Concernant doit être un ID d’enregistrement valide, tel qu’un ID d’enregistrement de contact ou de compte. Le champ Type Concernant doit être le type de recherche pour l’enregistrement, tel que **comptes** ou **contacts**.
+Ce tableau décrit certains des types de champs et les types de données requis pour leurs valeurs.
 
-L’exemple d’action de création de tâche suivant ajoute un enregistrement de compte qui correspond à l’ID d’enregistrement en l’ajoutant au champ Concernant de la tâche.
+| Type de champ | Type de données requis | Description | 
+|------------|--------------------|-------------|
+| Champs de texte | Ligne de texte unique | Ces champs de texte nécessitent une seule ligne de texte ou du contenu dynamique qui a le type texte. <p><p>*Exemples de champs* : **Description** et **Catégorie** | 
+| Champs de type entier | Nombre entier | Certains champs nécessitent un entier ou un contenu dynamique qui a le type entier. <p><p>*Exemples de champs* : **Pourcentage d’achèvement** et **Durée** | 
+| Champs de date | Date et heure | Certains champs nécessitent une date au format mm/jj/aaaa ou un contenu dynamique qui a le type date. <p><p>*Exemples de champs* : **Créé le**, **Date de début**, **Début réel**, **Fin réelle** et **Date d’échéance** | 
+| Champs nécessitant à la fois un ID d’enregistrement et un type de recherche | Clé primaire | Certains champs qui font référence à un autre enregistrement d’entité nécessitent un ID d’enregistrement et un type de recherche. | 
+||||
 
-![Flux : ID d’enregistrement et type de compte](./media/connectors-create-api-crmonline/recordid-type-account.png)
+Sur la base de ces types de champs, voici des exemples de champs dans les déclencheurs et actions Dynamics 365 qui nécessitent un ID d’enregistrement et le type de recherche. Cette exigence signifie que toute valeur que vous sélectionnez dans la liste dynamique ne fonctionne pas. 
 
-Cet exemple affecte également la tâche à un utilisateur spécifique en fonction de l’ID d’enregistrement d’utilisateur.
+| Champ | Description | 
+|-------|-------------|
+| **Propriétaire** | Doit être un ID d’utilisateur valide ou un ID d’enregistrement d’équipe. | 
+| **Type de propriétaire** | Doit être **systemusers** ou **teams**. | 
+| **Concernant** | Doit être un ID d’enregistrement valide, tel qu’un ID d’enregistrement de contact ou de compte. | 
+| **Type concernant** | Doit être un type de recherche, tel que **accounts** ou **contacts**. | 
+| **Client** | Doit être un ID d’enregistrement valide, tel qu’un ID d’enregistrement de contact ou de compte. | 
+| **Type de client** | Doit être le type de recherche, tel que **accounts** ou **contacts**. | 
+|||
 
-![Flux : ID d’enregistrement et type de compte](./media/connectors-create-api-crmonline/recordid-type-user.png)
+Dans cet exemple, l’action nommée **Créer un enregistrement** crée un enregistrement de tâche : 
 
-Pour rechercher un ID d’enregistrement, consultez la section suivante : *Recherche de l’ID d’enregistrement*
+![Créer un enregistrement de tâche avec des ID d’enregistrement et des types de recherche](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
-## <a name="find-the-record-id"></a>Recherche de l’ID d’enregistrement
+Cette action assigne l’enregistrement de tâche à un ID d’utilisateur ou d’enregistrement d’équipe spécifique, en fonction de l’ID d’enregistrement dans le champ **Propriétaire** et du type de recherche dans le champ **Type de propriétaire** :
 
-1. Ouvrez un enregistrement, comme un enregistrement de compte.
+![ID d’enregistrement et type de recherche pour Propriétaire](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-2. Dans la barre d’outils d’actions, cliquez sur **Ouvrir dans une nouvelle fenêtre** ![enregistrement - fenêtre indépendante](./media/connectors-create-api-crmonline/popout-record.png).
-Vous pouvez également cliquer sur **ENVOYER UN LIEN PAR COURRIER ÉLECTRONIQUE** dans la barre d’outils d’actions pour copier l’URL complète dans votre programme de messagerie par défaut.
+Cette action ajoute également un enregistrement de compte qui est associé à l’ID d’enregistrement ajouté dans le champ **Concernant** et au type de recherche dans le champ **Type concernant** : 
 
-   L’ID d’enregistrement est affiché entre les caractères d’encodage %7b et %7d de l’URL.
+![ID d’enregistrement et type de recherche pour Concernant](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
-   ![Flux : ID d’enregistrement et type de compte](./media/connectors-create-api-crmonline/recordid.png)
+## <a name="find-record-id"></a>Rechercher l’ID d’enregistrement
 
-## <a name="troubleshooting"></a>Résolution de problèmes
-Pour résoudre les problèmes qui peuvent se produire lors d’une étape dans une application logique, affichez les détails de l’état de l’événement.
+Pour rechercher un ID d’enregistrement, effectuez les étapes suivantes : 
 
-1. Dans la zone **Logic Apps**, sélectionnez votre application logique, puis cliquez sur **Vue d’ensemble**. 
+1. Dans Dynamics 365, ouvrez un enregistrement, comme un enregistrement de compte.
 
-   La zone Résumé s’affiche et indique l’état d’exécution de l’application logique. 
+2. Dans la barre d’outils des actions, choisissez une des étapes suivantes :
 
-   ![État d’exécution de l’application logique](./media/connectors-create-api-crmonline/tshoot1.png)
+   * Choisissez **Isoler**. ![Isoler l’enregistrement](./media/connectors-create-api-crmonline/popout-record.png) 
+   * Choisissez **Envoyer un lien par e-mail** afin de pouvoir copier l’URL complète dans votre programme d’e-mail par défaut.
 
-2. Pour afficher plus d’informations sur les exécutions qui ont échoué, cliquez sur l’événement ayant rencontré des problèmes. Pour développer une étape qui a échoué, cliquez sur cette étape.
+   L’ID d’enregistrement apparaît dans l’URL entre les caractères d’encodage `%7b` et `%7d` :
 
-   ![Développer l’étape qui a échoué](./media/connectors-create-api-crmonline/tshoot2.png)
+   ![Rechercher l’ID d’enregistrement](./media/connectors-create-api-crmonline/find-record-ID.png)
 
-   Les détails de l’étape s’affichent et peuvent aider à résoudre la cause du problème.
+## <a name="troubleshoot-failed-runs"></a>Résoudre les problèmes liés aux échecs d’exécution
 
-   ![Détails de l’étape qui a échoué](./media/connectors-create-api-crmonline/tshoot3.png)
+Pour rechercher et examiner les étapes ayant échoué dans votre application logique, vous pouvez afficher l’historique des exécutions de votre application logique, l’état, les entrées, les sorties, etc.
+
+1. Dans le portail Azure, dans le menu principal de votre application logique, choisissez **Vue d’ensemble**. Dans la section **Historique des exécutions**, qui montre tous les états d’exécution pour votre application logique, sélectionnez une exécution ayant échoué pour obtenir plus d’informations.
+
+   ![État d’exécution de l’application logique](./media/connectors-create-api-crmonline/run-history.png)
+
+1. Développez une étape ayant échoué afin de voir plus de détails. 
+
+   ![Développer l’étape qui a échoué](./media/connectors-create-api-crmonline/expand-failed-step.png)
+
+1. Passez en revue les détails de l’étape, tels que les entrées et les sorties, qui peuvent vous aider à déterminer la cause de l’échec.
+
+   ![Étape ayant échoué : entrées et sorties](./media/connectors-create-api-crmonline/expand-failed-step-inputs-outputs.png)
 
 Pour plus d’informations sur la résolution des problèmes relatifs aux applications logiques, consultez [Diagnostic des échecs d’applications logiques](../logic-apps/logic-apps-diagnosing-failures.md).
 
-## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
+## <a name="connector-reference"></a>Référence de connecteur
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/crm/). 
+Pour plus d’informations techniques, telles que les déclencheurs, actions et limites, comme décrit dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/crm/). 
+
+## <a name="get-support"></a>Obtenir de l’aide
+
+* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Explorez les autres connecteurs disponibles dans les applications logiques en consultant notre [liste d’API](apis-list.md).
+
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

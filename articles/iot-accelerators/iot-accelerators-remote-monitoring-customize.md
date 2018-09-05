@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e791051fb82197a770bff05f636159c638e3b9a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 36e63d26bf7ada2d23fa3cd9fddbb5ba90494527
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627849"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126020"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personnaliser l’accélérateur de solution de surveillance à distance
 
@@ -34,6 +34,8 @@ Les étapes suivantes décrivent le processus de configuration d’un environnem
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
+
+    Vous devez uniquement activer l’accès SSH durant le test et le développement. Si vous activez SSH, [vous devez le désactiver à nouveau dès que possible](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
 
 1. Utilisez le portail Azure ou [l’interface CLI az](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour rechercher le nom et l’adresse IP publique de votre machine virtuelle. Par exemple : 
 
@@ -364,8 +366,9 @@ La page **Tableau de bord** affiche les indicateurs de performance clés dans le
 
       ...
     });
+    ```
 
-1. Include the new **warningAlarmsChange** KPI in the state data used to render the UI:
+1. Ajoutez les nouveaux indicateurs de performance clés **warningAlarmsChange** aux données d’état utilisées pour restituer l’interface utilisateur :
 
     ```nodejs
     const {
@@ -462,4 +465,4 @@ Dans cet article, vous avez découvert les ressources disponibles pour personnal
 Pour plus d’informations conceptuelles sur l’accélérateur de solution de surveillance à distance, consultez [Architecture de la surveillance à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
 Pour plus d’informations sur la personnalisation de la solution de surveillance à distance, consultez [Personnaliser et redéployer un microservice](iot-accelerators-microservices-example.md)
-<!-- Next tutorials in the sequence -->
+<!-- Next tutorials in the sequence -->.

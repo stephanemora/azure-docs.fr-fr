@@ -1,6 +1,6 @@
 ---
-title: Assistant Sécurité d’Azure AD Privileged Identity Management
-description: La première fois que vous utilisez l’extension Azure Active Directory Privileged Identity Management, un Assistant Sécurité s’affiche. Cet article décrit les étapes d’utilisation de l’Assistant.
+title: Assistant Sécurité dans PIM - Azure | Microsoft Docs
+description: Décrit l’Assistant Sécurité qui s’affiche quand vous utilisez Azure AD Privileged Identity Management (PIM) pour la première fois.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 02/27/2017
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 19eb2b36b217dc67fabcc3c2c4721fb13b2224ec
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 178a4c5e978075f2a59b22a1cccf462138527964
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617004"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189077"
 ---
-# <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Utilisation de l’Assistant Sécurité d’Azure AD Privileged Identity Management 
+# <a name="security-wizard-in-pim"></a>Assistant Sécurité dans PIM
 Si vous êtes la première personne à exécuter Azure Privileged Identity Management (PIM) pour votre organisation, un Assistant s’affiche. Celui-ci vous aide à comprendre les risques liés à la sécurité des identités privilégiées et comment utiliser PIM pour les limiter. Vous n’avez pas besoin d’apporter des modifications aux affectations de rôle existantes dans l’Assistant. Vous pouvez le faire ultérieurement si vous préférez.
 
 ## <a name="what-to-expect"></a>À quoi s’attendre
@@ -40,5 +40,7 @@ Une fois que vous avez apporté les modifications, l’Assistant ne s’affiche 
 * Si vous souhaitez autoriser plus d’utilisateurs à gérer PIM, consultez la rubrique expliquant [comment affecter un accès à PIM](pim-how-to-give-access-to-pim.md)pour en savoir plus.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Commencer à utiliser PIM](pim-getting-started.md)
+- [Attribuer des rôles d’annuaire Azure AD dans PIM](pim-how-to-add-role-to-user.md)
+- [Accorder l’accès à d’autres administrateurs pour la gestion de PIM](pim-how-to-give-access-to-pim.md)

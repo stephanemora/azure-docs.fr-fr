@@ -1,6 +1,6 @@
 ---
-title: 'Vue d’ensemble : Effectuer une révision d’accès dans Privileged Identity Management pour les ressources Azure | Microsoft Docs'
-description: Ce document explique comment effectuer une révision d’accès dans PIM pour les ressources Azure.
+title: Utiliser un tableau de bord de ressources pour effectuer une révision d’accès - Azure | Microsoft Docs
+description: Explique comment utiliser un tableau de bord de ressources pour effectuer une révision d’accès dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 40fe6a4b0bec2540afee635b16ee3482a182a2df
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 20172cf7413397aedc4b3c32d0f1419531a2588a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621486"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188495"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Utiliser un tableau de bord de ressources pour effectuer une révision d’accès
 
@@ -40,4 +40,6 @@ La représentation graphique des activations de rôle des ressources couvre les 
 
 Sous les graphiques apparaissent le nombre d’utilisateurs et de groupes ayant reçu de nouvelles attributions de rôle au cours des 30 derniers jours ainsi que la liste des rôles triée par nombre total d’attributions (dans l’ordre décroissant).
 
+## <a name="next-steps"></a>Étapes suivantes
 
+- [Démarrer une révision d’accès des rôles de ressources Azure dans PIM](pim-resource-roles-start-access-review.md) 

@@ -1,27 +1,23 @@
 ---
-title: Intégration d’entreprise pour B2B - Azure Logic Apps | Microsoft Docs
-description: Créer des workflows B2B et prendre en charge des scénarios d’intégration d’entreprise pour les applications logiques avec Enterprise Integration Pack
+title: Vue d’ensemble de l’intégration d’entreprise B2B - Azure Logic Apps | Microsoft Docs
+description: Générer des workflows B2B automatisés pour les solutions d’intégration d’entreprise avec Azure Logic Apps et Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b2e2c81914e8c0440b358d59c7f0248db46b6c50
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144806"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124290"
 ---
-# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Vue d’ensemble : scénarios B2B et communication avec Enterprise Integration Pack
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Vue d’ensemble : scénarios d’intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
 Dans le cadre des workflows entreprise-entreprise (B2B) et d’une communication transparente avec Azure Logic Apps, vous pouvez activer des scénarios d’intégration d’entreprise à l’aide d’une solution Microsoft basée sur le cloud : Enterprise Integration Pack. Les entreprises peuvent échanger des messages électroniques, même si elles utilisent des formats et des protocoles différents. Le pack convertit les différents formats dans un format que les systèmes des entreprises peuvent interpréter et traiter. Les entreprises peuvent échanger des messages via des protocoles standard, notamment [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) et [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). Vous pouvez également sécuriser les messages grâce au chiffrement et aux signatures numériques.
 

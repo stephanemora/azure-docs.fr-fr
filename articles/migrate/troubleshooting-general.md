@@ -4,14 +4,14 @@ description: Fournit une vue d'ensemble des problèmes connus dans le service Az
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 896e918f6031f3bc6b925a2ecdfa2a5c82f00e0b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228252"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126359"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -50,6 +50,10 @@ Si vous utilisez un proxy de pare-feu basé sur une URL pour contrôler la conne
 --- | ---
 *. portal.azure.com | Indispensable pour vérifier la connectivité avec le service Azure et valider les problèmes de synchronisation de l’heure.
 *. oneget.org | Indispensable pour télécharger le module vCenter PowerCLI reposant sur powershell.
+
+**Le collecteur ne parvient pas à se connecter à Internet en raison d’un échec de validation du certificat**
+
+Cette erreur est susceptible de se produire si vous utilisez un proxy d’interception pour vous connecter à Internet et que vous n’avez pas importé le certificat de proxy sur la machine virtuelle collecteur. Pour importer le certificat de proxy, suivez les étapes détaillées [ici](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
 **Le collecteur ne peut pas se connecter au projet à l'aide de l'ID du projet et de la clé copiée sur le portail.**
 

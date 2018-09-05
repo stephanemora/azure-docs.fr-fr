@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 305a6c805f14e8d3ef9f77fcd90a78a50e0f770c
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: e7208cb4c2cdef6fc4e639b32fdb2fac242bd3a2
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142386"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104059"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utiliser Virtual Kubelet avec Azure Kubernetes Service (AKS)
 
@@ -206,6 +206,9 @@ Utilisez la commande [az aks remove-connector][aks-remove-connector] pour désin
 ```azurecli-interactive
 az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --connector-name virtual-kubelet
 ```
+
+> [!NOTE]
+> Si vous rencontrez des erreurs lors de la suppression des deux connecteurs de système d’exploitation, ou si vous souhaitez supprimer uniquement le connecteur de système d’exploitation Windows ou Linux, vous pouvez spécifier manuellement le type du système d’exploitation. Ajoutez le paramètre `--os-type` à la commande `az aks remove-connector` précédente, puis spécifiez `Windows` ou `Linux`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

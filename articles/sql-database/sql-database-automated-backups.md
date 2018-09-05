@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ac548d90d5a5ed931dc199b6fed52c7cd8f25239
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ce7c41730bec4e014225fb8c744d029493f5ec2c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140296"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246784"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>En savoir plus sur les sauvegardes automatiques SQL Database
 
@@ -26,7 +26,7 @@ SQL Database crée automatiquement des sauvegardes de base de données et utilis
 
 ## <a name="what-is-a-sql-database-backup"></a>Qu’est-ce qu’une sauvegarde SQL Database ?
 
-SQL Database utilise la technologie SQL Server pour créer des sauvegardes [complètes](https://msdn.microsoft.com/library/ms186289.aspx), [différentielles](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) et du [journal des transactions](https://msdn.microsoft.com/library/ms191429.aspx) dans le cadre de la limite de restauration dans le temps. Les sauvegardes du journal des transactions se produisent généralement toutes les 5 à 10 minutes, et les sauvegardes différentielles toutes les 12 heures, la fréquence variant selon le niveau de performance et l’activité de base de données. Les sauvegardes du journal des transactions, avec les sauvegardes complètes et différentielles, vous permettent de restaurer une base de données à un point spécifique sur le même serveur qui héberge la base de données. Les sauvegardes complètes et différentielles de bases de données sont également répliquées vers un [centre de données jumelé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données . Quand vous restaurez une base de données, le service identifie les sauvegardes nécessitant une restauration (complète, différentielle ou journal des transactions).
+SQL Database utilise la technologie SQL Server pour créer des sauvegardes [complètes](https://msdn.microsoft.com/library/ms186289.aspx), [différentielles](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) et du [journal des transactions](https://msdn.microsoft.com/library/ms191429.aspx) dans le cadre de la limite de restauration dans le temps. Les sauvegardes du journal des transactions se produisent généralement toutes les 5 à 10 minutes, et les sauvegardes différentielles toutes les 12 heures, la fréquence variant selon le niveau de performance et l’activité de base de données. Les sauvegardes du journal des transactions, avec les sauvegardes complètes et différentielles, vous permettent de restaurer une base de données à un point spécifique sur le même serveur qui héberge la base de données. Les sauvegardes sont stockées dans des objets blob de stockage RA-GRS répliqués dans un [centre de données associé](../best-practices-availability-paired-regions.md) pour une protection contre une panne du centre de données. Quand vous restaurez une base de données, le service identifie les sauvegardes nécessitant une restauration (complète, différentielle ou journal des transactions).
 
 
 Vous pouvez utiliser ces sauvegardes aux fins suivantes :

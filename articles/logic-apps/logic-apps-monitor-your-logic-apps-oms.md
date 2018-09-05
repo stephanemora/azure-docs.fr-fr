@@ -1,25 +1,20 @@
 ---
-title: Surveiller et comprendre les exécutions de votre application logique à l’aide de Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Surveillez les exécutions de votre application logique avec Log Analytics pour mieux les comprendre et obtenir des informations détaillées sur le débogage pouvant servir au diagnostic et à la résolution de problèmes.
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
+title: Superviser les exécutions des applications logiques avec Log Analytics - Azure Logic Apps | Microsoft Docs
+description: Obtenir des insights et des données de débogage sur les exécutions de votre application logique avec Log Analytics à des fins de diagnostic et de résolution de problèmes
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: LADocs; divswa
-ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 1aa55728b222c2838026cf5b06175736c5c84194
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294572"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123288"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Surveiller et comprendre les exécutions de votre application logique à l’aide de Log Analytics
 

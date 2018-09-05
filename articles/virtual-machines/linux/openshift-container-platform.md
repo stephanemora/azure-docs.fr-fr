@@ -15,23 +15,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: f1ba6a3d3b9e576d513b55beac4e9365102433e9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: a275df4567053149688694315ff24ac1ad7f711f
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125739"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186912"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Déployer OpenShift Container Platform dans Azure
 
 Vous pouvez utiliser plusieurs méthodes pour déployer OpenShift Container Platform dans Azure :
 
-- Vous pouvez déployer manuellement les composants d’infrastructure Azure nécessaires, puis suivre la [documentation](https://docs.openshift.com/container-platform/3.6/welcome/index.html) d’OpenShift Container Platform.
+- Vous pouvez déployer manuellement les composants d’infrastructure Azure nécessaires, puis suivre la [documentation](https://docs.openshift.com/container-platform/3.10/welcome/index.html) d’OpenShift Container Platform.
 - Vous pouvez également utiliser un [modèle Resource Manager](https://github.com/Microsoft/openshift-container-platform/) existant qui simplifie le déploiement du cluster OpenShift Container Platform.
 - Une autre option consiste à utiliser l’[offre de la Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 Pour toutes les options, vous devez avoir un abonnement Red Hat. Pendant le déploiement, l’instance Red Hat Enterprise Linux est inscrite dans l’abonnement Red Hat et associée à l’ID du pool contenant les droits pour OpenShift Container Platform.
-Assurez-vous d’avoir un nom d’utilisateur, un mot de passe et un ID de pool RHSM (Red Hat Subscription Manager) valides. Vous pouvez vérifier ces informations en vous connectant à https://access.redhat.com.
+Assurez-vous d’avoir un nom d’utilisateur, un mot de passe et un ID de pool RHSM (Red Hat Subscription Manager) valides. Vous pouvez vérifier ces informations en vous connectant au site https://access.redhat.com.
 
 ## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>Déployer à l’aide du modèle Resource Manager d’OpenShift Container Platform
 
@@ -178,7 +178,7 @@ Une fois le déploiement terminé, connectez-vous à la console OpenShift dans u
 $ ssh clusteradmin@myopenshiftmaster.cloudapp.azure.com -p 2200
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, le cluster OpenShift et toutes les ressources associées quand vous n’en avez plus besoin.
 
@@ -186,7 +186,7 @@ Utilisez la commande [az group delete](/cli/azure/group#az_group_delete) pour su
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Tâches de post-déploiement](./openshift-post-deployment.md)
 - [Résoudre les problèmes de déploiement d’OpenShift dans Azure](./openshift-troubleshooting.md)

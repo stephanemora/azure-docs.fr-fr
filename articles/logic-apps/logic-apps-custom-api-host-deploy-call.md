@@ -1,28 +1,23 @@
 ---
 title: Déployer et appeler des API web et des API REST à partir d’Azure Logic Apps | Microsoft Docs
-description: Déployer et appeler vos API web et REST pour les workflows d’intégration système dans Azure Logic Apps
-keywords: API web, API REST, connecteurs, flux de travail, intégration système, authentifier
+description: Déployer et appeler des API web et REST pour les workflows d’intégration système dans Azure Logic Apps
 services: logic-apps
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, stepsic, LADocs
 ms.topic: article
+ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.author: LADocs; stepsic
-ms.openlocfilehash: e808a463beb312df6ee2f8fc4378f72755dcdf33
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0d53c8355fadf53c81676a1fe3c71f8e0b046630
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299001"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126566"
 ---
-# <a name="deploy-and-call-custom-apis-from-logic-app-workflows"></a>Déployer et appeler des API personnalisées à partir de workflows d’application logique
+# <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Déployer et appeler des API personnalisées à partir de workflows dans Azure Logic Apps
 
 Après avoir [créé des API personnalisées](./logic-apps-create-api-app.md) à utiliser dans des workflows d’application logique, vous devez déployer vos API avant de pouvoir les appeler. Vous pouvez déployer vos API en tant [qu’applications web](../app-service/app-service-web-overview.md). Toutefois, envisagez de les déployer sous la forme [d’applications API](../app-service/app-service-web-tutorial-rest-api.md) pour simplifier votre travail lorsque vous générez, hébergez et consommez des API dans le cloud et en local. Vous n’avez pas besoin de modifier le code dans vos API. Il vous suffit de déployer votre code dans une application API. Vous pouvez héberger vos API sur [Azure App Service](../app-service/app-service-web-overview.md), une offre PaaS (Platform-as-a-Service) qui fournit un hébergement d’API simple et hautement évolutif.
 

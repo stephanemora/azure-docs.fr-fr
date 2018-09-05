@@ -1,6 +1,6 @@
 ---
-title: Attribuer des rôles d’annuaire à des utilisateurs à l’aide d’Azure AD PIM | Microsoft Docs
-description: Découvrez comment attribuer des rôles d’annuaire à des utilisateurs à l’aide d’Azure Active Directory Privileged Identity Management et du portail Azure.
+title: Attribuer des rôles d’annuaire Azure AD dans PIM | Microsoft Docs
+description: Découvrez comment attribuer des rôles d’annuaire Azure AD dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
-ms.openlocfilehash: 1aede38cabba7f9811f2b9320bc1e9a9da857f08
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621811"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190154"
 ---
-# <a name="assign-directory-roles-to-users-using-azure-ad-pim"></a>Attribuer des rôles d’annuaire à des utilisateurs à l’aide d’Azure AD PIM
+# <a name="assign-azure-ad-directory-roles-in-pim"></a>Attribuer des rôles d’annuaire Azure AD dans PIM
 
 Avec Azure Active Directory (Azure AD), un administrateur général peut effectuer des attributions de rôles d’annuaire **permanentes**. Ces attributions de rôles peuvent être créées via le [portail Azure](../users-groups-roles/directory-assign-admin-roles.md) ou à l’aide de [commandes PowerShell](/powershell/module/azuread#directory_roles).
 
-Le service Azure AD Privileged Identity Management (PIM) permet également aux administrateurs de rôle privilégié d’établir des attributions de rôles d’annuaire permanentes. En outre, les administrateurs de rôle privilégié peuvent rendre les utilisateurs **éligibles** pour les rôles d’annuaire. Un administrateur éligible peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé. Pour plus d’informations sur les rôles que vous pouvez gérer à l’aide de PIM, consultez l’article [Rôles d’annuaire que vous pouvez gérer à l’aide d’Azure AD PIM](pim-roles.md).
+Le service Azure AD Privileged Identity Management (PIM) permet également aux administrateurs de rôle privilégié d’établir des attributions de rôles d’annuaire permanentes. En outre, les administrateurs de rôle privilégié peuvent rendre les utilisateurs **éligibles** pour les rôles d’annuaire. Un administrateur éligible peut activer le rôle lorsqu’il en a besoin, puis l’autorisation expirera lorsqu’il aura terminé. Pour plus d’informations sur les rôles que vous pouvez gérer à l’aide de PIM, consultez [Rôles d’annuaire Azure AD pouvant être gérés dans PIM](pim-roles.md).
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Rendre un utilisateur éligible pour un rôle
 
@@ -31,15 +31,15 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d’annuai
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-    Pour savoir comment accorder un autre accès utilisateur pour gérer PIM, consultez l’article [Comment accéder à PIM](pim-how-to-give-access-to-pim.md).
+    Pour plus d’informations sur la façon d’accorder l’accès à un autre administrateur pour la gestion de PIM, consultez [Accorder l’accès à d’autres administrateurs pour la gestion de PIM](pim-how-to-give-access-to-pim.md).
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
-    Si vous n’avez pas encore activé PIM dans le portail Azure, accédez à [Prise en main d’Azure AD PIM](pim-getting-started.md).
+    Si vous n’avez pas encore démarré PIM dans le portail Azure, accédez à [commencer à utiliser PIM](pim-getting-started.md).
 
 1. Cliquez sur **Rôles d’annuaire Azure AD**.
 
-1. Cliquez sur **Rôle (préversion)** ou **Membres**.
+1. Cliquez sur **Rôles** ou sur **Membres**.
 
     ![Rôles d’annuaire Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
@@ -55,11 +55,13 @@ Suivez ces étapes pour rendre un utilisateur éligible pour un rôle d’annuai
 
 1. Sous Ajouter des membres managés, cliquez sur **OK** pour ajouter l’utilisateur au rôle.
 
+1. Dans la liste des rôles, cliquez sur le rôle que vous venez d’attribuer pour afficher la liste des membres.
+
      Une fois le rôle attribué, l’utilisateur que vous avez sélectionné apparaît comme **éligible** pour ce rôle dans la liste des membres.
 
     ![Utilisateur éligible pour un rôle](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
-1. Maintenant que l’utilisateur est éligible pour le rôle, indiquez-lui qu’il peut l’activer en suivant les instructions de l’article [Comment activer ou désactiver un rôle](pim-how-to-activate-role.md).
+1. Maintenant que l’utilisateur est éligible pour le rôle, indiquez-lui qu’il peut l’activer en suivant les instructions contenues dans [Activer des rôles d’annuaire Azure AD dans PIM](pim-how-to-activate-role.md).
 
     Les administrateurs éligibles sont invités à s’inscrire au service d’authentification multifacteur (MFA) Azure lors de l’activation. Si un utilisateur ne peut pas s’inscrire à l’authentification multifacteur (MFA) Azure ou utilise un compte Microsoft (généralement @outlook.com), vous devez le rendre permanent dans tous ses rôles.
 
@@ -112,4 +114,6 @@ Suivez ces étapes pour supprimer un utilisateur spécifique d’un rôle d’an
     L’attribution de rôle est supprimée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Configurer les paramètres des rôles d’annuaire Azure AD dans PIM](pim-how-to-change-default-settings.md)
+- [Attribuer des rôles de ressources Azure dans PIM](pim-resource-roles-assign-roles.md)

@@ -1,25 +1,21 @@
 ---
 title: Exemples et scénarios courants - Azure Logic Apps | Microsoft Docs
-description: Découvrez les applications logiques grâce à des exemples, des scénarios, des didacticiels et des procédures pas à pas.
+description: Exemples, scénarios, tutoriels et procédures pas à pas relatifs à Azure Logic Apps
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.service: logic-apps
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 8b340db5f89f93869486bf7541acbc3d580868a3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f35822351a1ff5176548d67c8d94ada02f470421
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300036"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123706"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scénarios, exemples, didacticiels et procédures pas à pas courants relatifs à Azure Logic Apps
 

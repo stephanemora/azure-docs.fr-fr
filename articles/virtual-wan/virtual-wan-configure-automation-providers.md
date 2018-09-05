@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 08/23/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: bac728f286c90550107b27da76a070623577ed82
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114342"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918898"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Configurer l’automatisation du réseau WAN virtuel pour partenaires WAN virtuel (préversion)
 
@@ -23,7 +23,7 @@ Les solutions de connectivité à définition logicielle gèrent généralement 
 
 ##  <a name="access"></a>Contrôle d’accès
 
-Les clients doivent pouvoir configurer un contrôle d'accès approprié pour le réseau WAN virtuel dans l’interface utilisateur de l’appareil. L’utilisation d’un principal de service Azure est recommandée. Un accès basé sur le principal de service fournit au contrôleur de l’appareil une authentification adéquate pour charger des informations de branche.
+Les clients doivent pouvoir configurer un contrôle d'accès approprié pour le réseau WAN virtuel dans l’interface utilisateur de l’appareil. L’utilisation d’un principal de service Azure est recommandée. Un accès basé sur le principal de service fournit au contrôleur de l’appareil une authentification adéquate pour charger des informations de branche. Pour plus d’informations, consultez [Créer un principal de service](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
 
 ##  <a name="site"></a>Charger les informations de branche
 
@@ -49,17 +49,17 @@ Le fichier de configuration de périphérique contient les paramètres à utilis
 * **vpnSiteConfiguration -** Cette section indique les détails de l’appareil configuré comme un site se connectant au réseau virtuel étendu. Cela inclut le nom et l’adresse IP publique de l’appareil de branche.
 * **vpnSiteConnections -** Cette section fournit des informations sur les éléments suivants :
 
-    * **Espace d’adressage** du réseau virtuel du/des hub(s).<br>Exemple :
+    * **Espace d’adressage** du réseau virtuel du/des hub(s).<br>Exemple :
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Espace d’adressage** des réseaux virtuels qui sont connectés au hub.<br>Exemple :
+    * **Espace d’adressage** des réseaux virtuels qui sont connectés au hub.<br>Exemple :
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **Adresses IP** de la passerelle VPN virtuelle. Étant donné que la passerelle VPN a chaque connexion comprenant des 2 tunnels en configuration actif-actif, vous verrez les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, vous voyez « Instance0 » et « Instance1 » pour chaque site.<br>Exemple :
+    * **Adresses IP** de la passerelle VPN virtuelle. Étant donné que la passerelle VPN a chaque connexion comprenant des 2 tunnels en configuration actif-actif, vous verrez les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, vous voyez « Instance0 » et « Instance1 » pour chaque site.<br>Exemple :
 
         ``` 
         "Instance0":"104.45.18.186"

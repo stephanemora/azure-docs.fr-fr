@@ -1,27 +1,23 @@
 ---
 title: Décoder des messages X12 - Azure Logic Apps | Microsoft Docs
-description: Valider l’EDI et générer les acquittements avec le décodeur de messages X12 dans Enterprise Integration Pack pour Azure Logic Apps
+description: Valider l’EDI et générer les acquittements avec le décodeur de messages X12 dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 14e9f0eefb705eea59a00390494871f5668b0a01
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e3d2a458c2cece5e3f01fdb9e3d403b3fb78dd2b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298659"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121643"
 ---
-# <a name="decode-x12-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Décodez des messages X12 pour Azure Logic Apps avec Enterprise Integration Pack
+# <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Décoder des messages X12 dans Azure Logic Apps avec Enterprise Integration Pack
 
 Avec le connecteur de messages Decode X12, vous pouvez valider l’enveloppe en fonction d’un accord de partenariat commercial, valider l’EDI et les propriétés spécifiques du partenaire, fractionner des échanges en documents informatisés ou conserver les échanges entiers et générer des acquittements pour les transactions traitées. Pour utiliser ce connecteur, vous devez ajouter le connecteur à un déclencheur existant dans votre application logique.
 

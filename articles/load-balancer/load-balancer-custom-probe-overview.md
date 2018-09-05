@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 08/28/2018
 ms.author: kumud
-ms.openlocfilehash: 91c7d16296653aea2381793f2e52f2b33b831185
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144206"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190731"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -181,7 +181,12 @@ Si l’ensemble des sondes de l’ensemble des instances d’un pool principal �
 
 ## <a name="probesource"></a>Adresse IP source de sonde
 
-Toutes les sondes d’intégrité de l’équilibreur de charge ont pour source l’adresse IP 168.63.129.16.  Lorsque vous importez vos propres adresses IP dans le Réseau Virtuel Azure, l’adresse IP de cette sonde intègre est garantie unique car elle est réservée pour Microsoft dans le monde entier.  Cette adresse est la même dans toutes les régions et ne change pas. Elle ne doit pas être considérée comme un risque de sécurité, car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse IP. 
+Load Balancer utilise un service de détection distribué pour son modèle de contrôle d’intégrité interne. Chaque hôte où se trouvent des machines virtuelles peut être programmé pour générer des sondes d’intégrité en fonction de la configuration du client. Le trafic de la sonde d’intégrité a directement lieu entre le composant d’infrastructure qui génère la sonde d’intégrité et la machine virtuelle du client. Toutes les sondes d’intégrité de l’équilibreur de charge ont pour source l’adresse IP 168.63.129.16.  Lorsque vous importez vos propres adresses IP dans le Réseau Virtuel Azure, l’adresse IP de cette sonde intègre est garantie unique car elle est réservée pour Microsoft dans le monde entier.  Cette adresse est la même dans toutes les régions et ne change pas. Elle ne doit pas être considérée comme un risque de sécurité, car seule la plateforme Azure interne peut envoyer un message à partir de cette adresse IP. 
+
+En plus des sondes d’intégrité Load Balancer, les opérations suivantes utilisent cette adresse IP :
+
+- Permet à l’agent de machine virtuelle de communiquer avec la plateforme pour signaler qu’il est dans un état « Prêt »
+- Permet la communication avec le serveur virtuel DNS pour fournir la résolution de nom filtré aux clients qui ne définissent pas de serveurs DNS personnalisés.  Ce filtrage permet de s’assurer que les clients peuvent uniquement résoudre les noms d’hôte de leur déploiement.
 
 Pour marquer la sonde d’intégrité de l’équilibreur de charge de votre instance comme étant active, vous **devez** autoriser cette adresse IP tous les [Groupes de sécurité](../virtual-network/security-overview.md) et les stratégies de pare-feu local Azure.
 

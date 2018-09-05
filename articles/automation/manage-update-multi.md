@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141309"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248139"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -154,9 +154,9 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 
    |Option|Description|
    |---|---|
-   |Redémarrer si nécessaire| **(Valeur par défaut)**  Si nécessaire, un redémarrage est effectué si la fenêtre de maintenance le permet.|
+   |Redémarrer si nécessaire| **(Valeur par défaut)** Si nécessaire, un redémarrage est effectué si la fenêtre de maintenance le permet.|
    |Toujours redémarrer|Un redémarrage est initié, qu’il soit demandé ou non. |
-   |Ne jamais redémarrer|Les redémarrages sont empêchés, qu’ils soient demandés ou non.|
+   |Ne jamais redémarrer|Les redémarrages sont empêchés, qu’ils soient nécessaires ou non.|
    |Redémarrer uniquement : les mises à jour ne sont pas installées|Cette option ignore l’installation des mises à jour et initie uniquement un redémarrage.|
 
 Une fois que vous avez terminé la configuration de la planification, cliquez sur le bouton **Créer** pour revenir au tableau de bord des états. Le tableau **Planifié** indique la planification de déploiement que vous avez créée.

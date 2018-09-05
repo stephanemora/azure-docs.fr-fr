@@ -9,20 +9,20 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: mbullwin;sdash
-ms.openlocfilehash: 7a4e4f74c02358fc117e0a66977ee3f0aef5b1dd
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819410"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 
-*Cette expérience est actuellement en préversion et remplace les panneaux de diagnostics existants pour les requêtes côté serveur, les dépendances et les exceptions.*
-
-La préversion introduit une nouvelle expérience de diagnostics unifiés qui met automatiquement en corrélation la télémétrie côté serveur de tous vos composants surveillés Application Insights dans une vue unique. Le fait d’avoir plusieurs ressources avec des clés d’instrumentation distinctes ne pose pas de problème. Application Insights détecte la relation sous-jacente et permet de diagnostiquer facilement le composant d’application, la dépendance ou l’exception à l’origine du ralentissement ou de l’échec de la transaction.
+Les diagnostics unifiés mettent automatiquement en corrélation la télémétrie côté serveur de tous vos composants surveillés Application Insights dans une vue unique. Le fait d’avoir plusieurs ressources avec des clés d’instrumentation distinctes ne pose pas de problème. Application Insights détecte la relation sous-jacente et permet de diagnostiquer facilement le composant d’application, la dépendance ou l’exception à l’origine du ralentissement ou de l’échec de la transaction.
 
 ## <a name="what-is-a-component"></a>Qu’est un composant ?
 
@@ -33,23 +33,12 @@ Les composants sont des parties pouvant être déployées de manière indépenda
 * Les composants peuvent être des clés d’instrumentation Application Insights distinctes (même si les abonnements sont différents) ou des rôles différents rapportant à une clé d’instrumentation Application Insights unique. La nouvelle expérience affiche des détails sur tous les composants, quelle que soit leur configuration.
 
 > [!NOTE]
-> * **Il vous manque les liens des éléments connexes ?** Toutes les données de télémétrie liées à la requête côté serveur, à la dépendance et à l’exception se trouvent dans les sections en [haut](#cross-component-transaction-chart) et en [bas](#all-telemetry-related-to-the-selected-component-operation) à gauche. 
-> * La section du [haut](#cross-component-transaction-chart) met en corrélation la transaction avec tous les composants. Pour de meilleurs résultats, vérifiez que tous les composants sont instrumentés avec les derniers Kits de développement logiciel (SDK) stables d’Application Insights. S’il existe différentes ressources Application Insights, assurez-vous de disposer des autorisations appropriées pour afficher leur télémétrie.
-> * La section en [bas](#all-telemetry-related-to-the-selected-component-operation) à gauche présente **toutes** les données de télémétrie, y compris les traces et les événements liés à la requête provenant du composant sélectionné.
-
-## <a name="enable-transaction-diagnostics-experience"></a>Activer l’expérience de diagnostic des transactions
-Activez « Unified details: E2E Transaction Diagnostics » dans la [liste de préversions](app-insights-previews.md)
-
-![Activer la version préliminaire](media/app-insights-e2eTxn-diagnostics/previews.png)
-
-Cette préversion est actuellement disponible pour les requêtes côté serveur, les dépendances et les exceptions. Vous pouvez accéder à la nouvelle expérience à partir des expériences de triage **Résultats de la recherche**, **Performances** ou **Échec**. La préversion remplace les panneaux d’informations classiques correspondants.
-
-![Exemples de performances](media/app-insights-e2eTxn-diagnostics/performanceSamplesClickThrough.png)
+> * **Il vous manque les liens des éléments connexes ?** Toutes les données de télémétrie associées se trouvent dans les sections situées en [haut](#cross-component-transaction-chart) et en [bas](#all-telemetry-with-this-Operation-Id), du côté gauche. 
 
 ## <a name="transaction-diagnostics-experience"></a>Expériences de diagnostics de transaction
-Cette vue compte trois parties principales : un graphique de transaction entre composants, une liste de séquence horaire de l’ensemble de la télémétrie d’une opération de composant spécifique, et le volet d’informations d’un élément de télémétrie sélectionné sur la gauche.
+Cette vue compte quatre parties principales : une liste de résultats, un graphique de transaction entre composants, une liste de séquence horaire de toutes les données de télémétrie relatives à l’opération, et le volet d’informations de l’élément de télémétrie sélectionné sur la gauche.
 
-![Parties principales](media/app-insights-e2eTxn-diagnostics/3partsCrossComponent.png)
+![Parties principales](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>Graphique des transactions entre composants
 
@@ -58,23 +47,29 @@ Ce graphique fournit une chronologie avec des barres horizontales pendant la dur
 * La ligne supérieure de ce graphique représente le point d’entrée, la requête entrante vers le premier composant appelé dans cette transaction. La durée correspond à la durée d’exécution totale de la transaction.
 * Les appels vers des dépendances externes sont représentés par des lignes non réductibles simples, avec des icônes représentant le type de dépendance.
 * Les appels vers d’autres composants sont représentés par des lignes réductibles. Chaque ligne correspond à une opération spécifique appelée au niveau du composant.
-* Par défaut, la requête, la dépendance ou l’exception que vous avez initialement sélectionnée s’affiche sur le graphique.
+* Par défaut, la requête, la dépendance ou l’exception que vous sélectionnez s’affiche sur la droite.
 * Sélectionnez une ligne pour afficher ses [détails à droite](#details-of-the-selected-telemetry). 
 
 > [!NOTE]
 Les appels vers d’autres composants comptent deux lignes : une ligne représente l’appel sortant (dépendance) à partir du composant appelant, et l’autre ligne correspond à la requête entrante au niveau du composant appelé. L’icône de début et le style distinct des barres de durée permettent de les différencier.
 
-## <a name="all-telemetry-related-to-the-selected-component-operation"></a>Toutes les données de télémétrie liées à l’opération de composant sélectionnée
+## <a name="all-telemetry-with-this-operation-id"></a>Toutes les données de télémétrie avec cet ID d’opération
 
-Une ligne sélectionnée dans le graphique de transaction entre composants est liée à une opération appelée sur un composant spécifique. Cette opération de composant sélectionnée est indiquée dans le titre de la section inférieure. Ouvrez cette section pour afficher une séquence horaire plate de l’ensemble de la télémétrie liée à cette opération spécifique. Vous pouvez sélectionner un élément de télémétrie de cette liste pour afficher les [détails correspondants à droite](#details-of-the-selected-telemetry).
+Cette section montre la liste plate dans une séquence horaire de toutes les données de télémétrie associées à cette transaction. Elle montre également les événements personnalisés, ainsi que les traces qui ne sont pas affichées dans le graphique des transactions. Vous pouvez filtrer cette liste pour n’afficher que les données de télémétrie qui ont été générées par un composant ou un appel donné. Vous pouvez sélectionner un élément de télémétrie de cette liste pour afficher les [détails correspondants à droite](#details-of-the-selected-telemetry).
 
 ![Séquence horaire de l’ensemble de la télémétrie](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>Détails de la télémétrie sélectionnée
 
-Ce volet affiche les détails des éléments sélectionnés dans l’une des deux sections sur la gauche. « Afficher tout » répertorie tous les attributs standard qui sont collectés. Les attributs personnalisés sont répertoriés séparément sous le jeu standard. Cliquez sur « Open profiler traces » (Ouvrir les traces du profileur) ou sur « Open debug snapshot » (Ouvrir l’instantané de débogage) pour les diagnostics au niveau du code dans les volets d’informations correspondants.
+Ce volet réductible affiche les détails de l’élément qui a été sélectionné dans le graphique de transactions ou dans la liste. « Afficher tout » répertorie tous les attributs standard qui sont collectés. Les attributs personnalisés sont répertoriés séparément sous le jeu standard. Cliquez sur « ... » sous la fenêtre de la trace de pile pour afficher l’option permettant de copier la trace. Les options « Ouvrir les traces Profiler » et « Ouvrir l’instantané de débogage » montrent les diagnostics au niveau du code dans les volets d’informations correspondants.
 
 ![Détail de l’exception](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+
+## <a name="search-results"></a>Résultats de la recherche
+
+Ce volet réductible affiche les autres résultats qui correspondent aux critères de filtrage. Cliquez sur un résultat pour mettre à jour les détails des trois sections ci-dessus. Nous avons tenté de trouver les exemples qui sont les plus susceptibles d’avoir des informations disponibles pour tous les composants, même si l’échantillonnage est appliqué dans l’un d’eux. Les exemples suivants tiennent lieu de suggestions.
+
+![Résultats de la recherche](media/app-insights-e2eTxn-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profileur et débogueur de capture instantanée
 
@@ -84,7 +79,7 @@ Si Profiler ne fonctionne pas, contactez **serviceprofilerhelp@microsoft.com**.
 
 Si le Débogueur de capture instantanée ne fonctionne pas, contactez **snapshothelp@microsoft.com**.
 
-![Intégration du débogueur](media/app-insights-e2eTxn-diagnostics/debugSnapshot.png)
+![Intégration de Profiler](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>Forum Aux Questions
 
@@ -98,12 +93,6 @@ Raisons possibles :
 
 Si vous n’avez pas accès et si les composants sont instrumentés avec le dernier Kit de développement logiciel (SDK) Application Insights, prévenez-nous via le canal de commentaires en haut à droite.
 
-*Je dispose uniquement de dépendances externes. Dois-je prendre en compte cette préversion ?*
-
-Oui. La nouvelle expérience unifie l’ensemble de la télémétrie côté serveur associée dans une vue unique. Les panneaux d’informations antérieurs seront remplacés ultérieurement par cette expérience, essayez-la et faites-nous part de vos commentaires. Voici à quoi elle ressemble pour une transaction de composant unique :
-
-![Expérience de composant unique](media/app-insights-e2eTxn-diagnostics/singleComponent.png)
-
 *Je vois des lignes en double pour les dépendances. Est-ce normal ?*
 
 À ce stade, nous présentons l’appel de dépendance sortant séparément de la requête entrante. En règle générale, les deux appels semblent identiques, seule la valeur de durée est différente en raison de l’aller-retour réseau. L’icône de début et le style distinct des barres de durée permettent de les différencier. Cette présentation des données porte-t-elle à confusion ? Faites-nous part de vos commentaires !
@@ -115,13 +104,3 @@ Les chronologies sont ajustées pour les variations d’horloges dans le graphiq
 *Pourquoi la plupart des requêtes d’éléments associés est manquante dans la nouvelle expérience ?*
 
 C’est normal. Tous les éléments associés, sur tous les composants, sont déjà disponibles sur le côté gauche (sections supérieure et inférieure). La nouvelle expérience comporte deux éléments associés non couverts par le côté gauche : l’ensemble de la télémétrie cinq minutes avant et après cet événement et la chronologie utilisateur.
-
-*Pourquoi la nouvelle expérience ne comporte pas la fonctionnalité que j’aimais dans les panneaux antérieurs ?*
-
-Faites-nous part de vos commentaires ! Nous voulons résoudre vos problèmes avant la mise à disposition générale de cette expérience, où les anciennes vues seront déconseillées. Pour le moment, vous pouvez désactiver la préversion pour revenir aux panneaux antérieurs.
-
-## <a name="known-issues"></a>Problèmes connus
-
-* Les exemples d’échecs d’Application Map renvoient vers les panneaux d’informations antérieurs.
-* Les aperçus basés sur un autocluster dans les résultats de la recherche renvoient vers les panneaux d’informations antérieurs.
-* L’intégration d’élément de travail n’est pas disponible dans la nouvelle expérience.

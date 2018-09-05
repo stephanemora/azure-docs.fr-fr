@@ -10,37 +10,37 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: dd6e8f5f46e9fdf6887cc2a0b0c7b15bbd00fabd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 38b59c28096b23a22b216158d9e945a2881a4f41
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626197"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189256"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Réglage automatique dans Azure SQL Database
 
-Le réglage automatique dans Azure SQL Database fournit une optimisation des performances et une stabilisation des charges de travail grâce à un réglage continu des performances qui s’appuie sur l’intelligence artificielle.
+Le réglage automatique dans Azure SQL Database fournit une optimisation des performances et une stabilisation des charges de travail grâce à un réglage continu des performances basé sur l’intelligence artificielle et l’apprentissage automatique.
 
-Le réglage automatique est un service entièrement géré qui utilise l’intelligence intégrée pour surveiller en continu les requêtes exécutées sur une base de données et qui améliore automatiquement leurs performances. Pour cela, il adapte de manière dynamique la base de données à l’évolution des charges de travail et applique des recommandations de réglage. Le réglage automatique apprend horizontalement de toutes les bases de données sur Azure grâce à l’intelligence artificielle et améliore ses actions de réglage de manière dynamique. Plus une base de données SQL Azure s’exécute avec le réglage automatique activée, meilleures sont ses performances.
+Le réglage automatique est un service de performances intelligent entièrement géré qui utilise l’intelligence intégrée pour surveiller en continu les requêtes exécutées sur une base de données, dont il améliore automatiquement les performances. Pour cela, il adapte de manière dynamique la base de données à l’évolution des charges de travail et applique des recommandations de réglage. Le réglage automatique apprend horizontalement de toutes les bases de données sur Azure grâce à l’intelligence artificielle et améliore ses actions de réglage de manière dynamique. Plus une base de données SQL Azure s’exécute avec le réglage automatique activée, meilleures sont ses performances.
 
-Le réglage automatique dans SQL Azure Database est peut-être l’une des fonctionnalités les plus importantes que vous pouvez activer pour fournir des charges de travail stables avec des performances maximales.
+Le réglage automatique dans SQL Azure Database est peut-être l’une des fonctionnalités les plus importantes que vous pouvez activer pour fournir des charges de travail de base de données stables avec des performances maximales.
 
 ## <a name="what-can-automatic-tuning-do-for-you"></a>En quoi peut vous aider le réglage automatique ?
 
 - Réglage automatisé des performances des bases de données SQL Azure
 - Vérification automatisée des gains de performances
 - Restauration automatisée et correction automatique
-- Journal d’historique de réglage
+- Historique des réglages
 - Scripts T-SQL d’action de réglage pour les déploiements manuels
 - Surveillance proactive des performances des charges de travail
 - Capacité de montée en charge sur des centaines de milliers de bases de données
 - Impact positif sur les ressources de DevOps et le coût total de possession
 
-## <a name="safe-reliable-and-proven"></a>Sécurité et fiabilité
+## <a name="safe-reliable-and-proven"></a>Sécurité, fiabilité et efficacité avérée
 
 Les opérations de réglage appliquées aux bases de données SQL Azure sont entièrement sécurisées pour les performances de vos charges de travail les plus intenses. Le système a été conçu avec soin afin de ne pas interférer avec les charges de travail utilisateur. Les recommandations de réglage automatique sont appliquées uniquement pendant les périodes d’utilisation normale. Le système peut également désactiver temporairement les opérations de réglage automatique afin de protéger les performances des charges de travail. Dans ce cas, le message « Désactivé par le système » s’affiche dans le portail Azure. Le réglage automatique concerne les charges de travail avec la priorité de ressources la plus élevée.
 
-Les mécanismes de réglage automatique sont matures et ont été éprouvés sur des centaines de milliers de bases de données exécutées sur Azure. Les opérations de réglage automatique appliquées sont vérifiées automatiquement afin de s’assurer qu’il y a une amélioration positive des performances des charges de travail. Les recommandations de performances ayant un impact négatif sont détectées de manière dynamique et inversées rapidement. Avec le journal d’historique de réglage, vous disposez d’une trace claire montrant les améliorations de réglage apportées à chaque base de données SQL Azure. 
+Les mécanismes de réglage automatique sont matures et ont été éprouvés sur des millions de bases de données exécutées sur Azure. Les opérations de réglage automatique appliquées sont vérifiées automatiquement afin de s’assurer qu’il y a une amélioration positive des performances des charges de travail. Les recommandations de performances ayant un impact négatif sont détectées de manière dynamique et inversées rapidement. Avec l’historique des réglages enregistré, il existe une trace claire montrant les améliorations de réglage apportées à chaque base de données Azure SQL. 
 
 ![Fonctionnement du réglage automatique](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
@@ -64,10 +64,12 @@ Pour obtenir une vue d’ensemble du fonctionnement du réglage automatique et d
 
 Les options de réglage automatique disponibles dans Azure SQL Database sont les suivantes :
  1. **CREATE INDEX** identifie les index qui peuvent améliorer les performances de votre charge de travail, crée des index et vérifie automatiquement que les performances des requêtes sont améliorées.
- 2. **DROP INDEX** identifie les index redondants et en double, ainsi que ceux qui n’ont pas été utilisés depuis très longtemps. Notez que l’option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index.
+ 2. **DROP INDEX** : identifie quotidiennement les index redondants et en double, excepté pour les index uniques, ainsi que les index qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que cette option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index.
  3. **FORCE LAST GOOD PLAN** identifie les requêtes SQL utilisant le plan d’exécution qui est plus lent que le plan correct précédent, ainsi que les requêtes utilisant le dernier plan correct connu au lieu du plan de régression.
 
-Azure SQL Database identifie des recommandations**CREATE INDEX**, **DROP INDEX** et **FORCE LAST GOOD PLAN** qui peuvent optimiser votre base de données, puis les affiche dans le portail Azure. Pour plus d’informations sur l’identification des index à modifier, voir [Rechercher des recommandations d’index dans le portail Azure](sql-database-advisor-portal.md). Vous pouvez appliquer manuellement les recommandations à l’aide du portail ou vous pouvez laisser Azure SQL Database appliquer automatiquement les recommandations, surveiller la charge de travail après le changement et vérifier que la recommandation améliore les performances de votre charge de travail. 
+Le réglage automatique identifie les recommandations**CREATE INDEX**, **DROP INDEX** et **FORCE LAST GOOD PLAN** qui peuvent optimiser les performances de votre base de données, les affiche dans le [portail Azure](sql-database-advisor-portal.md), puis les expose à l’aide de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) et de l’[API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+
+Vous pouvez soit appliquer manuellement les recommandations de réglage à l’aide du portail, soit laisser le réglage automatique les appliquer en toute autonomie pour vous. L’avantage de laisser le système appliquer de manière autonome les recommandations de réglage pour vous est qu’alors, il valide automatiquement qu’il existe un accroissement des performances de la charge de travail. En revanche, si une régression est détectée, il annule automatiquement les recommandations de réglage. Notez qu’en cas de requêtes affectées par des recommandations de réglage qui ne sont pas exécutées fréquemment, la phase de validation peut, par nature, prendre jusqu’à 72 heures. Si vous appliquez manuellement les recommandations de réglage, les mécanismes de validation automatique des performances et d’annulation ne sont pas disponibles.
 
 Vous pouvez activer ou désactiver les options de réglage automatique par base de données ou vous pouvez les configurer sur des serveurs logiques et les appliquer sur chaque base de données qui hérite des paramètres du serveur. Les serveurs logiques peuvent hériter des valeurs Azure par défaut pour les paramètres de réglage automatique. Actuellement, les valeurs Azure par défaut sont FORCE_LAST_GOOD_PLAN activé, CREATE_INDEX activé et DROP_INDEX désactivé.
 
@@ -77,6 +79,7 @@ Une méthode recommandée consiste à configurer les options de réglage automat
 
 - Pour activer le réglage automatique dans Azure SQL Database afin de gérer votre charge de travail, consultez [Activer le réglage automatique](sql-database-automatic-tuning-enable.md).
 - Pour consulter et appliquer manuellement des recommandations de réglage d’automatique, consultez [Rechercher et appliquer des recommandations en matière de performances](sql-database-advisor-portal.md).
+- Pour découvrir comment utiliser T-SQL pour appliquer et afficher les recommandations de réglage automatique, consultez [Gérer le réglage automatique par le biais de T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 - Pour en savoir plus sur la création de notifications par e-mail pour les suggestions de réglage automatique, voir [Notifications par e-mail pour le réglage automatique](sql-database-automatic-tuning-email-notifications.md).
 - Pour en savoir plus sur l’intelligence intégrée utilisée dans le réglage automatique, consultez [Artificial Intelligence tunes Azure SQL Databases (L’intelligence artificielle règle les bases de données SQL Azure)](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Pour en savoir plus sur le fonctionnement du réglage automatique dans Azure SQL Database et SQL Server 2017, consultez [Réglage automatique dans SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/13/2018
+ms.date: 08/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3d4005c38c4c0730da3effbdca0907597b32aed3
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 48e04d3bdd783d1dc04ac5cc77c4183ef5f87865
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617466"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818437"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 > [!div class="op_single_selector"]
@@ -77,20 +77,19 @@ Service Fabric utilise des scripts Windows PowerShell pour créer un cluster de 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ```
+## <a name="install-docker-optional"></a>Installer Docker (facultatif)
+[Service Fabric est un orchestrateur de conteneurs](service-fabric-containers-overview.md) qui permet de déployer des microservices sur un cluster de machines. Pour exécuter des applications de conteneur Windows sur votre cluster de développement local, vous devez d’abord installer Docker pour Windows. Obtenez [Docker CE pour Windows (stable)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Après l’installation et le démarrage de Docker, cliquez avec le bouton droit de la souris sur l’icône de la barre d’état, puis sélectionnez **Switch to Windows containers** (Basculer vers les conteneurs Windows). Cette étape est nécessaire pour exécuter des images Docker basées sur Windows.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez fini de configurer votre environnement de développement, commencez à créer et à exécuter des applications.
 
 * [Créer votre première application Service Fabric dans Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
 * [Découvrez comment déployer et gérer des applications sur votre cluster local](service-fabric-get-started-with-a-local-cluster.md)
-* [Préparer un environnement de développement Linux sur Windows](service-fabric-local-linux-cluster-windows.md)
 * [En savoir plus sur les modèles de programmation : acteurs fiables et services fiables](service-fabric-choose-framework.md)
-* [Periodic backup and restore in Azure Service Fabric (Preview)](service-fabric-backuprestoreservice-quickstart-azurecluster.md) (Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion))
 * [Consulter les exemples de code Service Fabric sur GitHub](https://aka.ms/servicefabricsamples)
 * [Visualiser votre cluster à l’aide de l’outil Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Suivre le parcours d’apprentissage Service Fabric pour une introduction générale à la plate-forme](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 * En savoir plus sur les [options de prise en charge de Service Fabric](service-fabric-support.md)
-* [Automatiser la mise à jour corrective du système d’exploitation sur votre cluster](service-fabric-patch-orchestration-application.md)
 
 [1]: http://azure.microsoft.com/campaigns/service-fabric/ "Page de campagne Service Fabric"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

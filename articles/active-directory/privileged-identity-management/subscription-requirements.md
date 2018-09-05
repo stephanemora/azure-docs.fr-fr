@@ -1,6 +1,6 @@
 ---
-title: Abonnements Privileged Identity Management - Azure| Microsoft Docs
-description: Décrit les exigences en matières d’abonnement et de licences pour gérer utiliser Azure AD Privileged Identity Management dans votre locataire
+title: Exigences relatives aux abonnements pour l’utilisation de PIM - Azure | Microsoft Docs
+description: Décrit les exigences relatives aux abonnements et aux licences pour l’utilisation d’Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.component: pim
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: dbe4efa57a7c4c31b2bdca84665eef8179564a8f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1554895dcba0c09a3a2e19c284a1cd6f0416cfe1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617067"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190608"
 ---
-# <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Exigences en matière d’abonnement d’Azure AD Privileged Identity Management
+# <a name="subscription-requirements-to-use-pim"></a>Exigences relatives aux abonnements pour l’utilisation de PIM
 
 Azure AD Privileged Identity Management est disponible avec l’édition Premium P2 d’Azure AD. Pour plus d’informations sur les autres fonctionnalités de P2 et le comparer à Premium P1, consultez [Éditions d’Azure Active Directory](../active-directory-editions.md).
 
@@ -61,5 +61,5 @@ Lorsqu’un abonnement Azure AD Premium P2 ou EMS E5 arrive à expiration, ou qu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Prise en main d’Azure AD Privileged Identity Management](pim-getting-started.md)
-- [Rôles dans Azure AD Privileged Identity Management](pim-roles.md)
+- [Commencer à utiliser PIM](pim-getting-started.md)
+- [Rôles d’annuaire Azure AD pouvant être gérés dans PIM](pim-roles.md)

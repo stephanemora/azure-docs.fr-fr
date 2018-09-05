@@ -16,17 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 59fe70e4d2a710160751ab8e7a83c9f86310dc24
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597728"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918014"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
 > [!NOTE]
-> Le cache local n’est pas pris en charge dans les applications App Service en conteneur, comme sur [App Service sur Linux](containers/app-service-linux-intro.md).
+> Le cache local n’est pas pris en charge dans les applications Function et dans les applications App Service en conteneur, telles que [App Service sur Linux](containers/app-service-linux-intro.md).
+
 
 Le contenu des applications web Azure est stocké sur Azure Storage et est exposé de manière durable en tant que partage de contenu. Destinée à fonctionner avec de nombreuses applications, cette conception présente les caractéristiques suivantes :  
 

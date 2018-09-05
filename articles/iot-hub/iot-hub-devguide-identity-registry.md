@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 2039b7760704de35c688dda41e3b75425e5ec0e8
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186269"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247643"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -85,10 +85,9 @@ Les données d’appareil qu’une solution IoT donnée stocke dépendent des ex
 
 ## <a name="device-heartbeat"></a>Pulsation des appareils
 
-Le registre des identités IoT Hub contient un champ appelé **connectionState**. Vous ne devez utiliser le champ **connectionState** que pendant le développement et le débogage. Les solutions IoT ne doivent pas interroger le champ au moment de l’exécution. Par exemple, n’interrogez pas le champ **connectionState** pour vérifier si un appareil est connecté avant d’envoyer un message cloud vers appareil ou un SMS.
+Le registre des identités IoT Hub contient un champ appelé **connectionState**. Vous ne devez utiliser le champ **connectionState** que pendant le développement et le débogage. Les solutions IoT ne doivent pas interroger le champ au moment de l’exécution. Par exemple, n’interrogez pas le champ **connectionState** pour vérifier si un appareil est connecté avant d’envoyer un message cloud vers appareil ou un SMS. Nous vous recommandons de vous abonner à [l’événement **Appareil déconnecté**](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) sur Event Grid pour recevoir des alertes et superviser l’état de la connexion de l’appareil. Suivez ce [tutoriel](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) pour apprendre à intégrer les événements IoT Hub à votre solution IoT.
 
-Si votre solution IoT a besoin de savoir si un appareil est connecté, vous devez implémenter le *modèle de pulsation*.
-
+Si votre solution IoT a besoin de savoir si un appareil est connecté, vous pouvez implémenter le *modèle de pulsation*.
 Dans le modèle par pulsations, l’appareil envoie des messages appareil-à-cloud au moins une fois par durée fixe (par exemple, au moins une fois par heure). Ainsi, même si un appareil n’a pas de données à envoyer, il envoie toujours un message appareil-à-cloud vide (généralement avec une propriété qui l’identifie comme pulsation). Côté service, la solution gère un mappage avec la dernière pulsation reçue pour chaque appareil. Si la solution ne reçoit pas de message de pulsation dans le temps imparti de la part de l’appareil, elle suppose qu’il y a un problème avec l’appareil.
 
 Une implémentation plus complexe pourrait inclure les informations de la [surveillance des opérations][lnk-devguide-opmon] pour identifier les appareils qui ne parviennent pas à se connecter ou à communiquer. Quand vous implémentez le modèle par pulsations, veillez à vérifier les [quotas et limitations IoT Hub][lnk-quotas].
@@ -111,7 +110,7 @@ Message de notification pour l’appareil :
 |$iothub-message-source | deviceLifecycleEvents |
 |$content-encoding | utf-8 |
 |opType | **createDeviceIdentity** ou **deleteDeviceIdentity** |
-|hubName | Nom de l’IoT Hub |
+|hubName | Nom du hub IoT |
 |deviceId | ID de l’appareil |
 |operationTimestamp | Horodatage ISO8601 de l’opération |
 |iothub-message-schema | deviceLifecycleNotification |
@@ -147,7 +146,7 @@ $iothub-enqueuedtime |  Heure d’envoi de la notification |
 $iothub-message-source | moduleLifecycleEvents |
 $content-encoding | utf-8 |
 opType | **createModuleIdentity** ou **deleteModuleIdentity** |
-hubName | Nom de l’IoT Hub |
+hubName | Nom du hub IoT |
 moduleId | ID du module |
 operationTimestamp | Horodatage ISO8601 de l’opération |
 iothub-message-schema | moduleLifecycleNotification |
@@ -237,7 +236,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 Pour mettre en pratique certains des concepts décrits dans cet article, consultez le didacticiel IoT Hub suivant :
 
-* [Mise en route d’Azure IoT Hub][lnk-getstarted-tutorial]
+* [Bien démarrer avec Azure IoT Hub][lnk-getstarted-tutorial]
 
 Pour savoir comment utiliser le service d’approvisionnement des appareils IoT Hub afin d’activer l’approvisionnement sans contact et juste-à-temps, consultez : 
 

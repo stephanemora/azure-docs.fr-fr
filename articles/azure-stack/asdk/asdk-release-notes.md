@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 08/27/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: b77772ce69afbc32bfe8a6826fdf8420076074d9
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6016d6fd4dcae699efba49667676373a6586e723
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41946453"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43101643"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notes de publication du Kit de développement Azure Stack  
 Ces notes de publication fournissent des informations sur les améliorations, les correctifs et les problèmes connus relatifs au Kit de développement Azure Stack. Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -76,7 +76,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 
 - <!-- 2448955 | IS ASDK --> Il est désormais possible de consulter avec succès les journaux d’activité des systèmes déployés dans un fuseau horaire UTC+N.    
 
-- <!-- 2319627 |  ASDK, IS --> La vérification préalable des paramètres de configuration de la sauvegarde (chemin d’accès, nom d’utilisateur, mot de passe, clé de cryptage) ne définit plus les paramètres incorrects de la configuration de la sauvegarde. (les paramètres incorrects étaient définis auparavant dans la sauvegarde qui échouait à son déclenchement)
+- <!-- 2319627 |  ASDK, IS --> La vérification préalable des paramètres de configuration de la sauvegarde (chemin d’accès, nom d’utilisateur, mot de passe, clé de cryptage) ne définit plus les paramètres incorrects de la configuration de la sauvegarde. (Les paramètres incorrects étaient définis auparavant dans la sauvegarde, et celle-ci échouait lors de son déclenchement.)
 
 - <!-- 2215948 |  ASDK, IS --> La liste de sauvegarde s’actualise désormais lorsque l’on supprime manuellement la sauvegarde du partage externe.
 
@@ -106,6 +106,8 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 ### <a name="known-issues"></a>Problèmes connus
 
 #### <a name="portal"></a>Portail  
+- <!-- 2931230 – IS  ASDK --> Les plans ajoutés à un abonnement utilisateur comme plan d’extension ne peuvent pas être supprimés, même quand vous supprimez le plan de l’abonnement utilisateur. Le plan est conservé jusqu’à ce que les abonnements qui référencent le plan d’extension soient aussi supprimés. 
+
 - <!--2760466 – IS  ASDK --> Quand vous installez un nouvel environnement Azure Stack qui exécute cette version, l’alerte qui indique *Activation requise* peut ne pas s’afficher. L’[activation](.\.\azure-stack-registration.md) est nécessaire avant que vous puissiez utiliser la syndication de Place de marché. 
 
 - <!-- TBD - IS ASDK --> Les deux types d’abonnements d’administration qui ont été [introduits avec la version 1804](.\.\azure-stack-update-1804.md#new-features) ne doivent pas être utilisés. Les types d’abonnements sont **Abonnement de contrôle** et **Abonnement de consommation**. Ces types d’abonnements sont **Abonnement de contrôle** et **Abonnement de consommation**. Ces types d’abonnements sont visibles dans les nouveaux environnements Azure Stack depuis la version 1804, mais ils ne sont pas encore prêts à être utilisés. Vous devez continuer à utiliser le type d’abonnement **Fournisseur par défaut**.
@@ -171,7 +173,9 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 
 - <!-- 1662991 - IS ASDK --> Les diagnostics de machine virtuelle Linux ne sont pas pris en charge dans Azure Stack. Lorsque vous déployez une machine virtuelle Linux en activant les diagnostics de machine virtuelle, le déploiement échoue. Le déploiement échoue également si vous activez les mesures de base de la machine virtuelle Linux dans les paramètres de diagnostic.
 
-- <!-- 2724961- IS ASDK --> Quand vous inscrivez le fournisseur de ressources **Microsoft.Insight** dans les paramètres d’abonnement et que vous créez une machine virtuelle Windows avec diagnostics du système d’exploitation invité activés, le graphique de pourcentage d’UC dans la page de vue d’ensemble de machine virtuelle ne peut pas afficher les données de métriques. Pour trouver le graphique de pourcentage d’UC de la machine virtuelle, accédez au panneau **Métriques** et affichez toutes les métriques de machines virtuelles Windows invitées prises en charge.
+- <!-- 2724961- IS ASDK --> Quand vous inscrivez le fournisseur de ressources **Microsoft.Insight** dans les paramètres d’abonnement et que vous créez une machine virtuelle Windows en ayant activé les diagnostics du système d’exploitation invité, la page de vue d’ensemble de la machine virtuelle n’affiche pas les données de métriques. 
+
+   Pour trouver les données de métriques, comme le graphique de pourcentage d’UC, accédez au panneau **Métriques** et affichez toutes les métriques d’invité de machine virtuelle Windows prises en charge.
 
 #### <a name="networking"></a>Mise en réseau
 - <!-- 1766332 - IS, ASDK --> Sous **Mise en réseau**, si vous cliquez sur **Créer une passerelle VPN** pour configurer une connexion VPN, l’option **Basé sur des stratégies** s’affiche dans la liste des types de VPN. Ne sélectionnez pas cette option. Seule l’option **Basé sur itinéraires** est prise en charge dans Azure Stack.
@@ -249,6 +253,8 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 ### <a name="known-issues"></a>Problèmes connus
 
 #### <a name="portal"></a>Portail
+- <!-- 2931230 – IS  ASDK --> Les plans ajoutés à un abonnement utilisateur comme plan d’extension ne peuvent pas être supprimés, même quand vous supprimez le plan de l’abonnement utilisateur. Le plan est conservé jusqu’à ce que les abonnements qui référencent le plan d’extension soient aussi supprimés. 
+
 - <!-- 2551834 - IS, ASDK --> Lorsque vous sélectionnez **Vue d’ensemble** pour un compte de stockage sur le portail d’administration ou utilisateur, les informations du volet *Éléments principaux* ne s’affichent pas.  Le volet Éléments principaux affiche des informations sur le compte comme son *groupe de ressources*, son *emplacement* et son *ID d’abonnement*.  D’autres options de la vue d’ensemble sont accessibles, par exemple *Services* et *Surveillance*, ainsi que des options permettant d’*Ouvrir dans Explorer* ou de *Supprimer le compte de stockage*.  
 
   Pour afficher les informations non disponibles, utilisez la cmdlet PowerShell [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0).

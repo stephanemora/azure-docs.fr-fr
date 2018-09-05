@@ -1,26 +1,21 @@
 ---
-title: Mises à jour de schéma du 1er août 2015 (version préliminaire) - Azure Logic Apps | Microsoft Docs
-description: Créer des définitions JSON pour Azure Logic Apps avec la version de schéma 2015-08-01 (version préliminaire)
-author: stepsic-microsoft-com
-manager: jeconnoc
-editor: ''
+title: Mises à jour de schéma du 1er août 2015 (version préliminaire) - Azure Logic Apps | Microsoft Docs
+description: Mise à jour de schéma version 2015-08-01-preview pour les définitions d’application logique dans Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+ms.suite: integration
+author: stepsic-microsoft-com
+ms.author: stepsic
+ms.reviewer: klam, estfan, LADocs
+ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
-ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
-ms.author: stepsic; LADocs
-ms.openlocfilehash: 736a7cf03c7fe1e9fe976c3bcc80393bff2bada5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299866"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122775"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Mises à jour de schéma pour Azure Logic Apps - Version préliminaire du 1er août 2015
 
