@@ -1,5 +1,5 @@
 items:
-- name: Terraform sur la Documentation Azure
+- name: Documentation relative à Terraform sur Azure
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -16,23 +16,33 @@ items:
   expanded: true
 - name: Didacticiels
   items:
-  - name: Créer un cluster Kubernetes avec AKS et Terraform
-    href: terraform-create-k8s-cluster-with-tf-and-aks.md
-  - name: Emplacements de déploiement fournisseur Terraform et Azure
-    href: terraform-slot-walkthru.md
-  - name: Créer une machine virtuelle Terraform avec le paramètre MSI activé
-    href: terraform-vm-msi.md
-  - name: Créer un cluster de machines virtuelles avec des modules Terraform
-    href: terraform-create-vm-cluster-module.md
-  - name: Créer un cluster de machines virtuelles avec Terraform et HCL
-    href: terraform-create-vm-cluster-with-infrastructure.md
-  - name: Provisionner des groupes de machines virtuelles identiques avec infrastructure
-    href: terraform-create-vm-scaleset-network-disks-hcl.md
-  - name: Provisionner des groupes de machines virtuelles identiques d’une image personnalisée Packer
-    href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: App Service
+    items:
+    - name: Emplacements de déploiement fournisseur Terraform et Azure
+      href: terraform-slot-walkthru.md
+  - name: Containers
+    items:
+    - name: Créer un cluster Kubernetes avec AKS et Terraform
+      href: terraform-create-k8s-cluster-with-tf-and-aks.md
+  - name: Infrastructure
+    items:
+    - name: Créer une machine virtuelle Terraform avec le paramètre MSI activé
+      href: terraform-vm-msi.md
+    - name: Créer un cluster de machines virtuelles avec des modules Terraform
+      href: terraform-create-vm-cluster-module.md
+    - name: Créer un cluster de machines virtuelles avec Terraform et HCL
+      href: terraform-create-vm-cluster-with-infrastructure.md
+    - name: Provisionner des groupes de machines virtuelles identiques avec infrastructure
+      href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Provisionner des groupes de machines virtuelles identiques d’une image personnalisée Packer
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Outils
+    items:
+    - name: Installer l’extension Terraform Visual Studio Code
+      href: terraform-vscode-extension.md
 - name: Concepts
   items:
-  - name: Intégration de Cloud Shell
+  - name: Intégration d’Azure Cloud Shell
     href: terraform-cloud-shell.md
 - name: Exemples
   items:
@@ -44,17 +54,15 @@ items:
     href: https://registry.terraform.io/modules/Azure
   - name: Référence de Terraform
     href: http://aka.ms/terraform
-  - name: Extension Azure Terraform VS Code
-    href: terraform-vscode-extension.md
 - name: Ressources
   items:
   - name: Azure et Terraform
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 349348f2230005831c1ad68eb7f48dfaa8f4b78c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e6c4637618d794f96db8ed9ca8eb063a62f704a1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41927930"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663534"

@@ -12,6 +12,8 @@ items:
     href: pim-roles.md
   - name: Sécuriser l’accès privilégié
     href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: Authentification multifacteur et gestion des informations personnelles
+    href: pim-how-to-require-mfa.md
   - name: Tableaux de bord de vue d’ensemble
     href: pim-resource-roles-overview-dashboards.md
   - name: Notifications par e-mail
@@ -42,30 +44,28 @@ items:
     items:
     - name: Attribuer des rôles
       href: pim-how-to-add-role-to-user.md
-    - name: Configurer les paramètres de rôle
-      href: pim-how-to-change-default-settings.md
-    - name: Exiger une authentification multifacteur
-      href: pim-how-to-require-mfa.md
-    - name: Configurer des alertes
-      href: pim-how-to-configure-security-alerts.md
     - name: Approuver les demandes
       href: azure-ad-pim-approval-workflow.md
+    - name: Configurer les paramètres de rôle
+      href: pim-how-to-change-default-settings.md
+    - name: Configurer des alertes
+      href: pim-how-to-configure-security-alerts.md
     - name: Afficher l’historique d'audit
       href: pim-how-to-use-audit-log.md
   - name: Gérer les rôles de ressources
     items:
-    - name: Voir qui a accès
-      href: azure-pim-resource-rbac.md
     - name: Attribuer des rôles
       href: pim-resource-roles-assign-roles.md
-    - name: Configurer les paramètres de rôle
-      href: pim-resource-roles-configure-role-settings.md
-    - name: Configurer des alertes
-      href: pim-resource-roles-configure-alerts.md
     - name: Approuver les demandes
       href: pim-resource-roles-approval-workflow.md
     - name: Étendre ou renouveler des rôles
       href: pim-resource-roles-renew-extend.md
+    - name: Configurer les paramètres de rôle
+      href: pim-resource-roles-configure-role-settings.md
+    - name: Configurer des alertes
+      href: pim-resource-roles-configure-alerts.md
+    - name: Voir qui a accès
+      href: azure-pim-resource-rbac.md
     - name: Afficher l’historique d'audit
       href: pim-resource-roles-use-the-audit-log.md
     - name: Utiliser des rôles personnalisés
@@ -89,9 +89,9 @@ items:
       - name: Effectuer une révision d’accès
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: e545faae657ae3dc0feadca7f4a5eed10db7ff34
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 3f42a0786cfa0d2e6caffccd6e84d5cc21d2d74c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340485"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667776"

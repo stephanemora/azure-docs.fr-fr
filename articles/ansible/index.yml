@@ -1,14 +1,14 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9f537ee8fe646a024fb191901b3669b4b5d60d6b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 11541b0af13de17b20c1be516184d094b1be0961
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086667"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667069"
 documentType: LandingData
-title: Ansible dans la documentation Azure
+title: Documentation relative à Ansible sur Azure
 metadata:
-  title: 'Ansible dans la documentation Azure : didacticiels, exemples, référence et ressources'
+  title: 'Documentation relative à Ansible sur Azure : didacticiels, exemples, référence et ressources'
   description: Découvrez comment automatiser l’approvisionnement du cloud, la gestion de la configuration et le déploiement des applications avec Ansible.
   ms.service: ansible
   keywords: ansible, azure, devops, didacticiels, exemples, référence

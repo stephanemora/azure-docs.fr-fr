@@ -103,6 +103,7 @@
 #### [Acheminer les journaux d’activité dans un hub d’événements Azure](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Archiver les journaux d’activité dans un compte de stockage Azure](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Intégrer les journaux d’activité à Splunk à l’aide d’Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Intégrer les journaux d’activité à SumoLogic à l’aide d’Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### Informations de référence
 #### [Rétention](reports-monitoring/reference-reports-data-retention.md)
@@ -332,6 +333,8 @@
 ### [Gestion de l’accès utilisateur avec les révisions](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Gestion des programmes et des contrôles](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Récupérer les résultats de la révision d’accès](active-directory-azure-ad-controls-retrieve-access-review.md)
+
+## [Conditions d’utilisation](active-directory-tou.md)
 
 ## Sécuriser vos identités
 

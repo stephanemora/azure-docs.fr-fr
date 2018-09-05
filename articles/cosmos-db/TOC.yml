@@ -37,7 +37,7 @@ items:
       href: create-mongodb-golang.md
   - name: Gremlin
     items:
-    - name: Utiliser la console Gremlin
+    - name: Console Gremlin
       href: create-graph-gremlin-console.md
     - name: .NET
       href: create-graph-dotnet.md
@@ -78,6 +78,9 @@ items:
     href: distribute-data-globally.md
   - name: Débit
     href: request-units.md
+    items:
+    - name: Obtenir et définir le débit
+      href: set-throughput.md
   - name: Partitionnement
     href: partition-data.md
   - name: Indexation
@@ -86,11 +89,11 @@ items:
     href: consistency-levels.md
   - name: Multimaître
     href: multi-region-writers.md
+    items:
+    - name: Configuration multimaître
+      href: multi-master-workaround.md
   - name: Modifier le flux
     href: change-feed.md
-    items:
-    - name: Solution e-commerce de flux de modification
-      href: changefeed-ecommerce-solution.md
   - name: Durée de vie
     href: time-to-live.md
   - name: Clés uniques
@@ -104,18 +107,16 @@ items:
       href: secure-access-to-data.md
     - name: Prise en charge de pare-feu
       href: firewall-support.md
-    - name: Configurer un point de terminaison de service de réseau virtuel
+    - name: Configurer le point de terminaison du réseau virtuel
       href: vnet-service-endpoint.md
-    - name: Coffre de clés pour stocker des secrets
+    - name: Prise en charge de Key Vault
       href: access-secrets-from-keyvault.md
 - name: API multi-modèles
   items:
   - name: Documents API SQL
     items:
     - name: Vue d’ensemble
-      items:
-      - name: À propos de l’API SQL
-        href: sql-api-introduction.md
+      href: sql-api-introduction.md
     - name: Didacticiels
       items:
       - name: 1 - Créer un compte
@@ -172,22 +173,16 @@ items:
         href: powershell-samples.md
       - name: Azure CLI
         href: cli-samples.md
-    - name: Concepts
-      items:
-      - name: Données de document de modèle
-        href: modeling-data.md
     - name: Procédures
       items:
-      - name: Utiliser l’exécuteur en bloc - bibliothèque .NET
+      - name: Exécuteur en bloc - bibliothèque .NET
         href: bulk-executor-dot-net.md
-      - name: Utiliser l’exécuteur en bloc - bibliothèque Java
+      - name: Exécuteur en bloc - bibliothèque Java
         href: bulk-executor-java.md
       - name: Écrire des requêtes SQL
         href: sql-api-sql-query.md
       - name: Régler les performances des requêtes
         href: sql-api-sql-query-metrics.md
-      - name: Partitionnement des données SQL
-        href: sql-api-partition-data.md
       - name: Types de données
         items:
         - name: Datetime
@@ -220,16 +215,11 @@ items:
         href: /rest/api/cosmos-db-resource-provider/
       - name: Syntaxe du langage SQL
         href: sql-api-sql-query-reference.md
-    - name: Ressources
-      items:
-      - name: Query Playground
-        href: https://aka.ms/cosmos-db-playground
   - name: Documents API MongoDB
     items:
     - name: Vue d’ensemble
+      href: mongodb-introduction.md
       items:
-      - name: À propos de l’API MongoDB
-        href: mongodb-introduction.md
       - name: Support MongoDB
         href: mongodb-feature-support.md
     - name: Didacticiels
@@ -276,16 +266,11 @@ items:
         href: mongodb-time-to-live.md
       - name: Gérer l’indexation des données
         href: mongodb-indexing.md
-    - name: Ressources
-      items:
-      - name: Extension de Visual Studio Code
-        href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
   - name: Documents API Gremlin
     items:
     - name: Vue d’ensemble
+      href: graph-introduction.md
       items:
-      - name: À propos des API Gremlin
-        href: graph-introduction.md
       - name: Support Gremlin
         href: gremlin-support.md
     - name: Didacticiels
@@ -296,14 +281,10 @@ items:
       items:
       - name: Importer des données graphiques
         href: bulk-executor-graph-dotnet.md
-      - name: Partitionnement des données graphiques
-        href: graph-partitioning.md
   - name: Documents API Cassandra
     items:
     - name: Vue d’ensemble
-      items:
-      - name: À propos de l’API Cassandra
-        href: cassandra-introduction.md
+      href: cassandra-introduction.md
     - name: Didacticiels
       items:
       - name: 1 - Créer un compte
@@ -313,9 +294,7 @@ items:
   - name: Documents API Table
     items:
     - name: Vue d’ensemble
-      items:
-      - name: À propos de l’API Table
-        href: table-introduction.md
+      href: table-introduction.md
     - name: Didacticiels
       items:
       - name: 1 - Créer un compte
@@ -373,10 +352,8 @@ items:
       href: storage-explorer.md
     - name: Gérer l’utilisation de l’explorateur de données
       href: data-explorer.md
-    - name: Gérer les clés et les niveaux de cohérence
+    - name: Gérer votre compte
       href: manage-account.md
-    - name: Obtenir et définir le débit
-      href: set-throughput.md
   - name: Journalisation
     items:
     - name: Journalisation de diagnostic
@@ -407,6 +384,14 @@ items:
       href: performance-tips-async-java.md
     - name: Test de performances - application exemple
       href: performance-testing.md
+  - name: Meilleures pratiques
+    items:
+    - name: Données de document de modèle
+      href: modeling-data.md
+    - name: Partitionnement des données SQL
+      href: sql-api-partition-data.md
+    - name: Partitionnement des données graphiques
+      href: graph-partitioning.md
   - name: Big Data et analytique
     items:
     - name: Architecture lambda
@@ -415,9 +400,11 @@ items:
       href: spark-connector.md
     - name: Spark, Kafka et Azure Cosmos Azure
       href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
+    - name: Solution e-commerce de flux de modification
+      href: changefeed-ecommerce-solution.md
   - name: Intégrer à d’autres services Azure
     items:
-    - name: Déployer un site web dans Azure App Service
+    - name: Azure App Service
       href: create-website.md
     - name: Indexeur de Recherche Azure
       href: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json
@@ -427,7 +414,7 @@ items:
         href: serverless-computing-database.md
       - name: Liaisons de fonction Azure
         href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
-    - name: Déplacer des données avec Azure Data Factory
+    - name: Azure Data Factory
       href: https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json
     - name: Azure Stream Analytics
       href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
@@ -449,8 +436,6 @@ items:
     href: regional-failover.md
   - name: procédures stockées, déclencheurs et fonctions définies par l'utilisateur
     href: programming.md
-  - name: Configuration multimaître
-    href: multi-master-workaround.md
   - name: À propos de la bibliothèque d’exécuteurs en bloc
     href: bulk-executor-overview.md
   - name: Écritures et lectures rentables
@@ -459,8 +444,8 @@ items:
   items:
   - name: Interroger un aide-mémoire
     href: query-cheat-sheet.md
-  - name: 20 jours de conseils
-    href: 20-days-of-tips.md
+  - name: Query Playground
+    href: https://aka.ms/cosmos-db-playground
   - name: Forum Aux Questions
     href: faq.md
   - name: Livres blancs
@@ -478,9 +463,9 @@ items:
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
   - name: Applications de réseaux sociaux
     href: social-media-apps.md
-ms.openlocfilehash: 882b7d69a8282beb2fcbbce0ed788810210236ca
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8837d9bc6cf492a146d96d917d9157e51bffa0f5
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184893"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695980"
