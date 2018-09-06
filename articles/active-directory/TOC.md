@@ -84,7 +84,6 @@
 
 ## [Gérer les groupes et les membres](fundamentals/active-directory-manage-groups.md)
 ### [Gestion des groupes](fundamentals/active-directory-groups-create-azure-portal.md)
-### [Restaurer un groupe Office 365 supprimé](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Gérer les paramètres de groupe](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Gérer les rapports](reports-monitoring/overview-reports.md)
 ### [Activité des connexions](reports-monitoring/concept-sign-ins.md)

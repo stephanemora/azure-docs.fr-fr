@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: 96ea965ac383ae449afffa62c5e9950c6fd4e4da
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: cbfbe02926907ca3ca5b6c13932c8b67862c8456
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411931"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842021"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Créer et gérer des pools élastiques dans Azure SQL Database
 
@@ -104,17 +104,11 @@ Pour créer et gérer des pools élastiques SQL Database et des bases de donnée
 |[Pools élastiques - Obtenir](/rest/api/sql/elasticpools/get)|Obtenir un pool élastique.|
 |[Pools élastiques - Lister par serveur](/rest/api/sql/elasticpools/listbyserver)|Renvoie une liste de pools élastiques dans un serveur.|
 |[Pools élastiques - Mettre à jour](/rest/api/sql/elasticpools/update)|Met à jour un pool élastique existant.|
-|[Pools élastiques recommandés - Obtenir](/rest/api/sql/recommendedelasticpools/get)|Obtient un pool élastique recommandé.|
-|[Pools élastiques recommandés - Lister par serveur](/rest/api/sql/recommendedelasticpools/listbyserver)|Retourne les pools élastiques recommandés.|
-|[Pools élastiques recommandés - Lister par métrique](/rest/api/sql/recommendedelasticpools/listmetrics)|Retourne les métriques des pools élastiques recommandés.|
 |[Activités de pool élastique](/rest/api/sql/elasticpoolactivities)|Retourne les activités de pool élastique.|
 |[Activités de bases de données du pool élastique](/rest/api/sql/elasticpooldatabaseactivities)|Retourne l’activité sur les bases de données à l’intérieur d’un pool élastique.|
 |[Bases de données - Créer ou mettre à jour](/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
 |[Bases de données - Obtenir](/rest/api/sql/databases/get)|Obtient une base de données.|
-|[Bases de données - Obtenir par pool élastique](/rest/api/sql/databases/getbyelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique.|
-|[Bases de données - Obtenir par pool élastique recommandé](/rest/api/sql/databases/getbyrecommendedelasticpool)|Obtient une base de données à l’intérieur d’un pool élastique recommandé.|
 |[Bases de données - Lister par pool élastique](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Bases de données - Lister par pool élastique recommandé](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourne une liste de bases de données à l’intérieur d’un pool élastique recommandé.|
 |[Bases de données - Lister par serveur](/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
 |[Bases de données - Mettre à jour](/rest/api/sql/databases/update)|Met à jour une base de données existante.|
 
