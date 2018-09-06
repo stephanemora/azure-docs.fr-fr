@@ -3,7 +3,7 @@ title: Comprendre les principales différences entre Azure et Azure Stack lorsqu
 description: Ce que vous devez savoir quand vous utilisez des services ou générez des applications pour Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: c81f551d-c13e-47d9-a5c2-eb1ea4806228
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/16/2018
-ms.author: mabrigg
-ms.openlocfilehash: eab208175f7eb3b761ec7266483a7cd5268198e8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: a8d211992f52c9719cad76f16133e23eba24d422
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31512926"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "43775057"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considérations importantes : utilisation de services ou génération d’applications pour Azure Stack
 
 Avant d’utiliser des services ou de générer des applications pour Azure Stack, vous devez comprendre les différences entre Azure Stack et Azure. Cet article présente les points importants à prendre en compte lorsque vous utilisez Azure Stack comme environnement de développement cloud hybride.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure Stack est une plateforme cloud hybride qui vous permet d’utiliser les services Azure à partir du centre de données de votre entreprise ou de votre fournisseur de services. Vous pouvez créer une application dans Azure Stack et la déployer ensuite dans Azure Stack, Azure ou votre cloud hybride Azure.
 

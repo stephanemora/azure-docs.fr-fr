@@ -3,23 +3,23 @@ title: Gestion des configurations - Outil Microsoft de modélisation des menaces
 description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 254c68c45a06022588ade6ab6f005989205ff405
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: 07a86345e49081320663d7706310a71a40ace134
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145523"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302105"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastructure de sécurité : gestion des configurations | Mesures de prévention 
 | Produit/Service | Article |

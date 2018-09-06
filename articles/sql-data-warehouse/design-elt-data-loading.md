@@ -3,23 +3,25 @@ title: Plutôt qu’ETL, concevoir ELT pour Azure SQL Data Warehouse | Microsoft
 description: Plutôt qu’ETL, concevoir un processus d’extraction, de chargement et de transformation (ELT) pour charger les données dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 33e4a405547fcdd797ddfdf6aba6c6c1c126b742
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: facd9a98b2f2d866574dd1f9bf180fa2a9618f31
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42142292"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301328"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Conception de processus ELT pour Azure SQL Data Warehouse
 
 Plutôt que le processus d’extraction, de transformation et de chargement (ETL) concevez un processus d’extraction, de chargement et de transformation (ELT) pour charger les données dans Azure SQL Data Warehouse. Cet article présente les méthodes de conception d’un processus ELT qui déplace des données dans un entrepôt de données Azure.
+
+> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>ELT, qu’est-ce que ça veut dire ?
 

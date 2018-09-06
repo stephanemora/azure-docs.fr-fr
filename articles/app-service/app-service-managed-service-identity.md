@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: 2e392a3a50cda3daacb5bc358baaea2627eeafc0
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: fc1251cafcb2a535ccaf8354cb5c7c8b6a4afd33
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578828"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337532"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Guide pratique pour utiliser Managed Service Identity dans App Service et Azure Functions
 
@@ -151,7 +151,7 @@ Où `<TENANTID>` et `<PRINCIPALID>` sont remplacés par des GUID. La propriété
 Une application peut utiliser son identité pour obtenir des jetons pour d’autres ressources protégées par AAD, telles qu’Azure Key Vault. Ces jetons représentent l’application qui accède à la ressource, pas un utilisateur spécifique de l’application. 
 
 > [!IMPORTANT]
-> Vous pouvez être amené à configurer la ressource cible pour autoriser l’accès à partir de votre application. Par exemple, si vous demandez un jeton de coffre de clés, vous devez vérifier que vous avez ajouté une stratégie d’accès qui inclut l’identité de votre application. Si tel n’est pas le cas, vos appels au coffre de clés sont rejetés, même s’ils incluent le jeton. Pour en savoir plus sur les ressources qui prennent en charge les jetons d’identité de service managée, consultez [Services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-service-identity/overview.md#which-azure-services-support-managed-service-identity).
+> Vous pouvez être amené à configurer la ressource cible pour autoriser l’accès à partir de votre application. Par exemple, si vous demandez un jeton de coffre de clés, vous devez vérifier que vous avez ajouté une stratégie d’accès qui inclut l’identité de votre application. Si tel n’est pas le cas, vos appels au coffre de clés sont rejetés, même s’ils incluent le jeton. Pour en savoir plus sur les ressources qui prennent en charge les jetons d’identité de service managée, consultez [Services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-service-identity/services-support-msi.md#azure-services-that-support-azure-ad-authentication).
 
 Il existe un protocole REST simple pour obtenir un jeton dans App Service et Azure Functions. Pour les applications .NET, la bibliothèque Microsoft.Azure.Services.AppAuthentication fournit une abstraction sur ce protocole et prend en charge une expérience de développement local.
 

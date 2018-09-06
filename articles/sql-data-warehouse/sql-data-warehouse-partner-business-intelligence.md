@@ -3,19 +3,19 @@ title: Partenaires de SQL Data Warehouse en matière d’aide à la décision | 
 description: Répertorie les partenaires tiers en matière d’aide à la décision proposant des solutions qui prennent en charge SQL Data Warehouse.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 410d234e8a3aa098edd029eda09c421d2af2886e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 36f0b1c0ac503efb13f69b489557af891e1286fa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142391"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301487"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partenaires décisionnels de SQL Data Warehouse
 Pour créer votre solution d’entrepôt de données de bout en bout, vous pouvez choisir parmi un large éventail d’outils performants.  Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des solutions d’aide à la décision (BI) prenant en charge Azure SQL Data Warehouse.

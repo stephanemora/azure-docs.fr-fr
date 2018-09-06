@@ -1,18 +1,20 @@
 ---
 title: Utilisation de Terraform avec Azure Cloud Shell
 description: Utilisez Terraform avec Azure Cloud Shell pour simplifier l’authentification et la configuration des modèles.
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, groupe de machines virtuelles identiques, machine virtuelle, réseau, stockage, modules
-ms.service: virtual-machines-linux
-author: dcaro
-ms.author: dcaro
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/19/2017
-ms.topic: article
-ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 107a6dd82465ce1455a3c2922c8f9cba6b73dd64
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121523"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667960"
 ---
 # <a name="terraform-cloud-shell-development"></a>Développement de Terraform Cloud Shell 
 
@@ -46,7 +48,7 @@ Les fichiers et les états de l’interpréteur de commandes sont conservés dan
 L’interface de ligne de commande Azure 2.0 est disponible dans le Cloud Shell et constitue un outil idéal pour tester les configurations et vérifier votre travail après l’exécution d’une opération `terraform apply` ou `terraform destroy`.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Créer un petit cluster de machines virtuelles à l’aide du registre de modules](terraform-create-vm-cluster-module.md)
 [Créer un petit cluster de machines virtuelles à l’aide du langage HCL personnalisé](terraform-create-vm-cluster-with-infrastructure.md)

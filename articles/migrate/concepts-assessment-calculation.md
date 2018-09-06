@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: 7ffcf5e3c7e6f0cb3d344b7d148b6024e8469eff
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263007"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286271"
 ---
 # <a name="assessment-calculations"></a>Calculs d’évaluation
 
@@ -40,7 +40,7 @@ Azure Migrate passe en revue les propriétés suivantes de la machine virtuelle 
 --- | --- | ---
 **Type de démarrage** | Azure prend en charge les machines virtuelles avec le type de démarrage BIOS, et non UEFI. | Préparé sous condition si le type de démarrage est UEFI.
 **Cœurs** | Le nombre de cœurs des machines doit être inférieur ou égal au nombre maximal de cœurs (32) pris en charge pour une machine virtuelle Azure.<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération les cœurs utilisés pour la comparaison. Si un facteur de confort est spécifié dans les paramètres de l’évaluation, le nombre de cœurs utilisés est multiplié par le facteur de confort.<br/><br/> En l’absence d’historique des performances, Azure Migrate utilise les cœurs alloués, sans appliquer le facteur de confort. | Prêt si inférieur ou égal aux limites.
-**Mémoire** | La taille de la mémoire de la machine doit être inférieure ou égale à la mémoire maximale (3 892 Go sur la série Azure M Standard_M128m&nbsp;<sup>2</sup>) autorisée pour une machine virtuelle Azure. [Plus d’informations](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la mémoire utilisée pour la comparaison. Si un facteur de confort est spécifié, la mémoire utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la mémoire allouée est utilisée, sans appliquer le facteur de confort.<br/><br/> | Prêt si dans les limites.
+**Mémoire** | La taille de la mémoire de la machine doit être inférieure ou égale à la mémoire maximale (3 892 Go sur la série Azure M Standard_M128m&nbsp;<sup>2</sup>) autorisée pour une machine virtuelle Azure. [Plus d’informations](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la mémoire utilisée pour la comparaison. Si un facteur de confort est spécifié, la mémoire utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la mémoire allouée est utilisée, sans appliquer le facteur de confort.<br/><br/> | Prêt si dans les limites.
 **Disque de stockage** | La taille allouée d’un disque doit être inférieure ou égale à 4 To (4 096 Go).<br/><br/> Le nombre de disques attachés à la machine doit être inférieur ou égal à 65, disque du système d’exploitation compris. | Prêt si dans les limites.
 **Mise en réseau** | Au maximum 32 cartes réseau doivent être attachées à une machine. | Prêt si dans les limites.
 

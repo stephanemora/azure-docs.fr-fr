@@ -3,23 +3,23 @@ title: Données sensibles - Outil Microsoft de modélisation des menaces - Azure
 description: Mesures de correction des menaces exposées dans l’outil de modélisation des menaces
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: bfc1e8dd6acf2cba5b4622785aa3714a7ff037c9
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031802"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301459"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastructure de sécurité : Données sensibles | Mesures de correction 
 | Produit/Service | Article |

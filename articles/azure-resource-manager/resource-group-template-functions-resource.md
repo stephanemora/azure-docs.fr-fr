@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: d3d2375b0b633beb56232e518202b09777f60cc8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4e454030f77a22236da18c8d8a5215667784f7c5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524506"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301438"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -51,7 +51,7 @@ Pour obtenir des valeurs de paramètres, de variables ou du déploiement actuel,
 
 Renvoie les valeurs pour n’importe quel type de ressource qui prend en charge l’opération list. Les utilisations les plus courantes sont `listKeys` et `listSecrets`. 
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
@@ -127,6 +127,7 @@ Spécifiez la ressource en utilisant le nom de la ressource ou la [fonction reso
                 "signedExpiry": "2018-08-20T11:00:00Z",
                 "signedResourceTypes": "s"
             }
+        }
     },
     "resources": [
         {
@@ -188,7 +189,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Renvoie des informations sur un fournisseur de ressources et les types de ressources qu’il prend en charge. Si vous ne fournissez pas un type de ressource, la fonction retourne tous les types pris en charge pour le fournisseur de ressources.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
@@ -276,7 +277,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Renvoie un objet représentant l’état d’exécution d’une ressource.
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
@@ -568,7 +569,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction lorsque le nom de la ressource est ambigu ou non configuré dans le même modèle. 
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |

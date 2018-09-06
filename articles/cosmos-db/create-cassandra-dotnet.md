@@ -11,14 +11,21 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 1b7021987c1c58c7b08798a28643ac647569e2bc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6ab7c0fa5f7e4d10b38ecee8f75372dda3b11a1c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485546"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700578"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application Cassandra avec .NET et Azure Cosmos DB
+
+> [!div class="op_single_selector"]
+> * [.NET](create-cassandra-dotnet.md)
+> * [Java](create-cassandra-java.md)
+> * [Node.JS](create-cassandra-nodejs.md)
+> * [Python](create-cassandra-python.md)
+>  
 
 Ce guide de démarrage rapide montre comment utiliser .NET et [l’API Cassandra](cassandra-introduction.md) Azure Cosmos DB pour créer une application de profil en clonant un exemple de GitHub. Ce guide de démarrage rapide vous montre également comment créer un compte Azure Cosmos DB en utilisant le portail web Azure.   
 

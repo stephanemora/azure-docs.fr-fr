@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 60da24b5b0bb7d83414539f07936c61a196e0b62
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d8c3bb07c88dc96b7ca779ca0f4dfe09052ab290
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783688"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666168"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analyser vos éléments multimédia à l’aide du portail Azure
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure Media Services Analytics est un ensemble de composants de reconnaissance vocale et de vision qui répondent aux besoins des entreprises en termes de conformité, de sécurité et de portée mondiale, et qui aident les organisations et les entreprises à extraire des informations exploitables de leurs fichiers vidéo. Pour une présentation plus détaillée d’Azure Media Services Analytics, consultez [cette](media-services-analytics-overview.md) rubrique. 
 
 Cette rubrique explique comment traiter vos éléments multimédia avec des processeurs multimédia Media Analytics à l’aide du portail Azure. Les processeurs multimédia Media Analytics créent des fichiers MP4 ou JSON. Si un processeur multimédia a produit un fichier MP4, vous téléchargez celui-ci progressivement. Si un processeur multimédia a produit un fichier JSON, vous téléchargez celui-ci à partir du Stockage Blob Azure. 
@@ -35,7 +35,7 @@ Cette rubrique explique comment traiter vos éléments multimédia avec des proc
 ## <a name="choose-an-asset-that-you-want-to-analyze"></a>Sélectionner une ressource que vous souhaitez analyser
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez votre compte Azure Media Services.
 2. Dans la fenêtre **Paramètres**, sélectionnez **Éléments multimédias**.  
-   .
+   
     ![Analyser des vidéos](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
 3. Sélectionnez l’élément que vous souhaitez analyser, puis appuyez sur le bouton **Analyser**.
    

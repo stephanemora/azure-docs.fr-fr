@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: b8a177ad2bbd463d2dcb94a01ff2a29a95d86693
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 567bac8a12a841eed2df1467b94a2a91c86ff7b4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105281"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666149"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutoriel : Créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,9 +37,9 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+- Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
-* Un principal de service Azure Active Directory. Une fois que vous avez créé le principal de service, n’oubliez pas de récupérer **l’ID d’application** et la **clé d’authentification** en suivant les instructions dans l’article dont le lien est indiqué ci-après. Vous aurez besoin de ces valeurs plus loin dans ce didacticiel. En outre, vérifiez que ce principal de service est membre du rôle *Contributeur* de l’abonnement ou du groupe de ressources dans lequel le cluster est créé. Pour savoir comment récupérer les valeurs requises et attribuer les rôles adéquats, consultez [Créer un principal de service Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+- Un principal de service Azure Active Directory. Une fois que vous avez créé le principal de service, n’oubliez pas de récupérer **l’ID d’application** et la **clé d’authentification** en suivant les instructions dans l’article dont le lien est indiqué ci-après. Vous aurez besoin de ces valeurs plus loin dans ce didacticiel. En outre, vérifiez que ce principal de service est membre du rôle *Contributeur* de l’abonnement ou du groupe de ressources dans lequel le cluster est créé. Pour savoir comment récupérer les valeurs requises et attribuer les rôles adéquats, consultez [Créer un principal de service Azure Active Directory](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 ## <a name="create-an-azure-storage-account"></a>Créer un compte de stockage Azure
 
@@ -148,18 +148,18 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 Dans Azure Data Factory, une fabrique de données peut comporter un ou plusieurs pipelines de données. Un pipeline de données comprend une ou plusieurs activités. Il existe deux types d’activité :
 
-* [Activités de déplacement des données](../data-factory/copy-activity-overview.md) Vous utilisez les activités de déplacement des données pour déplacer des données d’une banque de données source vers une banque de données de destination.
-* [Activités de transformation des données](../data-factory/transform-data.md). Vous utilisez les activités de transformation des données pour transformer/traiter les données. L’activité Hive HDInsight est l’une des activités de transformation prises en charge par Data Factory. Dans ce didacticiel, vous utilisez l’activité de transformation Hive.
+- [Activités de déplacement des données](../data-factory/copy-activity-overview.md) Vous utilisez les activités de déplacement des données pour déplacer des données d’une banque de données source vers une banque de données de destination.
+- [Activités de transformation des données](../data-factory/transform-data.md). Vous utilisez les activités de transformation des données pour transformer/traiter les données. L’activité Hive HDInsight est l’une des activités de transformation prises en charge par Data Factory. Dans ce didacticiel, vous utilisez l’activité de transformation Hive.
 
 Dans cet article, vous configurez l’activité Hive pour créer un cluster HDInsight Hadoop à la demande. Quand l’activité s’exécute pour traiter des données, le déroulement des opérations est le suivant :
 
 1. Un cluster Hadoop HDInsight est automatiquement créé juste-à-temps à votre intention pour traiter la tranche. 
 
 1. Les données d’entrée sont traitées par l’exécution d’un script HiveQL sur le cluster. Dans ce didacticiel, le script HiveQL associé à l’activité Hive effectue les opérations suivantes :
-
-    * Il utilise la table existante (*hivesampletable*) pour créer une autre table **HiveSampleOut**.
-    * Il remplit la table **HiveSampleOut** uniquement avec des colonnes spécifiques issues de la table d’origine *hivesampletable*.
-
+    
+    - Il utilise la table existante (*hivesampletable*) pour créer une autre table **HiveSampleOut**.
+    - Il remplit la table **HiveSampleOut** uniquement avec des colonnes spécifiques issues de la table d’origine *hivesampletable*.
+    
 1. Le cluster Hadoop HDInsight est supprimé à l’issue du traitement et reste inactif pendant l’intervalle de temps configuré (paramètre timeToLive). Si la tranche de données suivante peut être traitée au cours de cette durée d’inactivité timeToLive, elle est traitée à l’aide du même cluster.  
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
@@ -265,16 +265,16 @@ Dans cette section, vous créez deux services liés au sein de votre fabrique de
     ![Indiquer les détails du cluster HDInsight pour le pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "Indiquer les détails du cluster HDInsight pour le pipeline")
 
 1. Sélectionnez l’onglet **Script**, puis effectuez les étapes suivantes :
-
-    a. Pour **Service lié au script**, sélectionnez **HDIStorageLinkedService**. Cette valeur est le service lié de stockage que vous avez préalablement créé.
-
-    b. Pour **Chemin d’accès du fichier**, sélectionnez **Parcourir le stockage** et accédez à l’emplacement de l’exemple de script Hive. Si vous avez exécuté le script PowerShell précédemment, cet emplacement doit être `adfgetstarted/hivescripts/hivescript.hql`.
-
-    ![Fournir les détails du script Hive pour le pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Fournir les détails du script Hive pour le pipeline")
-
-    c. Sous **Avancé** > **Paramètres**, sélectionnez **Remplir automatiquement à partir du script**. Cette option recherche tous les paramètres dans le script Hive qui requièrent des valeurs à l’exécution. Le script que vous utilisez (**hivescript.hql**) a un paramètre **Output**. Indiquez la valeur dans le format `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` pour pointer vers un dossier existant de votre stockage Azure. Le chemin respecte la casse. Il s’agit du chemin où sera stockée la sortie du script.
-
-    ![Fournir des paramètres pour le script Hive](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Fournir des paramètres pour le script Hive")
+    
+    1. Pour **Service lié au script**, sélectionnez **HDIStorageLinkedService**. Cette valeur est le service lié de stockage que vous avez préalablement créé.
+    
+    1. Pour **Chemin d’accès du fichier**, sélectionnez **Parcourir le stockage** et accédez à l’emplacement de l’exemple de script Hive. Si vous avez exécuté le script PowerShell précédemment, cet emplacement doit être `adfgetstarted/hivescripts/hivescript.hql`.
+    
+        ![Fournir les détails du script Hive pour le pipeline](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "Fournir les détails du script Hive pour le pipeline")
+    
+    1. Sous **Avancé** > **Paramètres**, sélectionnez **Remplir automatiquement à partir du script**. Cette option recherche tous les paramètres dans le script Hive qui requièrent des valeurs à l’exécution. Le script que vous utilisez (**hivescript.hql**) a un paramètre **Output**. Indiquez la valeur dans le format `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` pour pointer vers un dossier existant de votre stockage Azure. Le chemin respecte la casse. Il s’agit du chemin où sera stockée la sortie du script.
+    
+        ![Fournir des paramètres pour le script Hive](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-parameters.png "Fournir des paramètres pour le script Hive")
 
 1. Sélectionnez **Valider** pour valider le pipeline. Cliquez sur le bouton **>>** flèche droite (>>) pour fermer la fenêtre de validation.
 

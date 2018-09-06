@@ -3,19 +3,19 @@ title: Utilisation des boucles T-SQL dans Azure SQL Data Warehouse | Microsof
 description: Conseils relatifs à l’utilisation de boucles T-SQL et au remplacement de curseurs dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d51c8f18d7c00d21fcc057efcda73e2a6b46cc7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b7c21566916c9728900e69dc6480098fadae7622
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598963"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301206"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Utilisation de boucles T-SQL dans SQL Data Warehouse
 Conseils relatifs à l’utilisation de boucles T-SQL et au remplacement de curseurs dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
@@ -70,5 +70,5 @@ DROP TABLE #tbl;
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des conseils supplémentaires en matière de développement, consultez la [vue d’ensemble du développement](sql-data-warehouse-overview-develop.md).
+Pour obtenir des conseils supplémentaires, consultez la [vue d’ensemble du développement](sql-data-warehouse-overview-develop.md).
 

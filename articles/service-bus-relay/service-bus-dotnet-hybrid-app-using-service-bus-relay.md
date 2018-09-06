@@ -3,7 +3,7 @@ title: Application hybride Azure WCF Relay locale/dans le cloud (.NET) | Microso
 description: Découvrez comment créer une application hybride locale/de cloud .NET à l’aide d’Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
-ms.author: sethm
-ms.openlocfilehash: fe13de5f83fe18a85f8d46d0eee039159e1a60e9
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.author: spelluru
+ms.openlocfilehash: 23e0e487914b6e8810d8db00462c353c99955665
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
-ms.locfileid: "29346439"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697466"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Application .NET locale/de cloud hybride avec Azure WCF Relay
 
@@ -84,7 +84,7 @@ Ce projet est une application console Visual Studio et utilise le [package NuGet
 
    Notez que les assemblys client nécessaires sont maintenant référencés.
 8. Ajoutez une nouvelle classe pour votre contrat de produit. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **ProductsServer** et cliquez sur **Ajouter**, puis sur **Classe**.
-9. Dans la zone **Nom**, saisissez le nom **ProductsContract.cs**. Cliquez ensuite sur **Add**.
+9. Dans la zone **Nom**, saisissez le nom **ProductsContract.cs**. Cliquez ensuite sur **Ajouter**.
 10. Dans **ProductsContract.cs**, remplacez la définition d’espace de noms existante par le code suivant, qui définit le contrat du service.
 
     ```csharp
@@ -233,7 +233,7 @@ Dans cette section, vous allez générer une application ASP.NET simple qui affi
 
 7. De retour dans la boîte de dialogue **Nouvelle application web ASP.NET**, cliquez sur **OK** pour créer l’application MVC.
 8. Vous devez maintenant configurer les ressources Azure d’une nouvelle application web. Suivez les étapes de [publication sur Azure décrites dans cet article](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure). Ensuite, revenez à ce didacticiel et passez à l’étape suivante.
-10. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Modèles**, puis cliquez sur **Ajouter** et sur **Classe**. Dans la zone **Nom**, saisissez le nom **Product.cs**. Cliquez ensuite sur **Add**.
+10. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Modèles**, puis cliquez sur **Ajouter** et sur **Classe**. Dans la zone **Nom**, saisissez le nom **Product.cs**. Cliquez ensuite sur **Ajouter**.
 
     ![][17]
 
@@ -452,7 +452,7 @@ Avant d’exécuter l’application dans le cloud, vous devez vous assurer que *
 
     ![][38]
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Azure Relay, consultez les ressources suivantes :  
 

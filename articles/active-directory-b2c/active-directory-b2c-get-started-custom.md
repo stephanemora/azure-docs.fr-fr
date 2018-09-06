@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e25103d2fcbfc70be7f96f5c0e5fa6abe13fe393
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446739"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344560"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C : bien démarrer avec les stratégies personnalisées
 
@@ -77,7 +77,7 @@ Azure AD B2C vous impose d’inscrire deux applications supplémentaires qui son
 4. Sélectionnez **Nouvelle inscription d’application**.
    * Pour **Nom**, utilisez `IdentityExperienceFramework`.
    * Pour **Type d’application**, utilisez **Application/API web**.
-   * Pour **URL de connexion**, utilisez `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, où `yourtenant` est le nom de domaine de votre locataire Azure AD B2C.
+   * Pour **URL de connexion**, utilisez `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, où `yourtenant` est le nom de domaine de votre locataire Azure AD B2C.
 5. Sélectionnez **Créer**.
 6. Une fois qu’elle est créée, sélectionnez l’application nouvellement créée **IdentityExperienceFramework**.<br>
    * Sélectionner **Propriétés**.<br>
@@ -89,7 +89,7 @@ Azure AD B2C vous impose d’inscrire deux applications supplémentaires qui son
 1. Sélectionnez **Nouvelle inscription d’application**.
    * Pour **Nom**, utilisez `ProxyIdentityExperienceFramework`.
    * Pour **Type d’application**, utilisez **Native**.
-   * Pour **URI de redirection**, utilisez `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, où `yourtenant` est votre locataire Azure AD B2C.
+   * Pour **URI de redirection**, utilisez `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, où `yourtenant` est votre locataire Azure AD B2C.
 1. Sélectionnez **Créer**.
 1. Une fois qu’elle a été créée, sélectionnez l’application **ProxyIdentityExperienceFramework**.<br>
    * Sélectionner **Propriétés**. <br>

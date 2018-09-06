@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: b68550bce1f4e3fbe3845c21598720083c8e384c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 43edbc653ddbd55aab5e722071de1f2cf4bcd1c4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295205"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344514"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implémenter le comportement de modèle d’appareil
 
@@ -41,6 +41,6 @@ Cet article vous a décrit comment définir le comportement de votre propre mod�
 > * Définir comment un appareil simulé doit répondre à un appel de méthode provenant du hub IoT auquel il est connecté
 > * Déboguer vos scripts
 
-Maintenant que vous avez découvert comment spécifier le comportement d’un appareil simulé, nous vous recommandons d’apprendre à [Créer un appareil simulé](iot-accelerators-remote-monitoring-test.md).
+Maintenant que vous avez découvert comment spécifier le comportement d’un appareil simulé, nous vous recommandons d’apprendre à [Créer un appareil simulé](iot-accelerators-device-simulation-create-simulated-device.md).
 
 Pour plus d’informations à l’intention des développeurs sur la solution de simulation d’appareil, voir le [Guide de référence des développeurs](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide).

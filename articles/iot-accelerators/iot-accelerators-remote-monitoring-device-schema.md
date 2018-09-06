@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: c153153313511640f7969938f63ea9fbe7b0847c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: f312f29e14c371e7b500f3eee6471151e3544513
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282649"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338853"
 ---
 # <a name="understand-the-device-model-schema"></a>Comprendre le schéma de modèle d’appareil
 
@@ -24,7 +24,7 @@ Cet article décrit le schéma de modèle d’appareil qui spécifie les fonctio
 Les articles suivants sont associées à l’article en cours :
 
 * [Implémenter le comportement de modèle d’appareil](iot-accelerators-remote-monitoring-device-behavior.md) décrit les fichiers JavaScript que vous utilisez pour implémenter le comportement d’un appareil simulé.
-* [Créer un appareil simulé](iot-accelerators-remote-monitoring-test.md) réunit toutes les instructions et vous montre comment déployer un nouveau type d’appareil simulé dans votre solution.
+* [Créer un appareil simulé](iot-accelerators-remote-monitoring-create-simulated-device.md) réunit toutes les instructions et vous montre comment déployer un nouveau type d’appareil simulé dans votre solution.
 
 Dans cet article, vous apprendrez comment :
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143825"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287756"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Interroger des données Azure Cosmos DB avec des requêtes SQL
 
@@ -27,17 +27,7 @@ Microsoft Azure Cosmos DB prend en charge l’interrogation de documents à l’
 
 * Azure Cosmos DB utilise le modèle de programmation de JavaScript comme base pour le langage de requête. L’API SQL est incluse dans le système de type, l’évaluation d’expression et l’appel de fonction de JavaScript. En retour, cela fournit un modèle de programmation naturel pour les projections relationnelles, la navigation hiérarchique entre les documents JSON, les jointures réflexives, les requêtes spatiales et l’appel de fonctions définies par l’utilisateur écrites entièrement en JavaScript, entre autres fonctionnalités. 
 
-Cet article vous guide tout au long d’exemples de requêtes SQL à l’aide de documents JSON simples. Pour en savoir plus sur la syntaxe du langage SQL d’Azure Cosmos DB, consultez l’article [Informations de référence sur la syntaxe SQL](sql-api-sql-query-reference.md). Vous pouvez également commencer par regarder les vidéos suivantes qui montrent les fonctionnalités d’interrogation d’Azure Cosmos DB et présentent le [Query Playground](http://www.documentdb.com/sql/demo) en ligne.
-
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-La vidéo suivante présente des techniques d’interrogation avancées supplémentaires :
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
+Cet article vous guide tout au long d’exemples de requêtes SQL à l’aide de documents JSON simples. Pour en savoir plus sur la syntaxe du langage SQL d’Azure Cosmos DB, consultez l’article [Informations de référence sur la syntaxe SQL](sql-api-sql-query-reference.md). 
 
 ## <a id="GettingStarted"></a>Bien démarrer avec les commandes SQL
 Nous allons créer deux documents JSON simples et interroger ces données. Sélectionnez deux documents JSON sur les familles, insérer ces documents JSON dans une collection, puis interrogez les données. Nous avons ici un document JSON simple pour les familles Andersen et Wakefield, les parents, les enfants (et leurs animaux), l’adresse et les informations d’inscription. Le document se compose de chaînes, de nombres, d'opérateurs booléens, de tableaux et de propriétés imbriquées. 

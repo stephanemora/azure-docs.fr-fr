@@ -3,19 +3,19 @@ title: Utilisation de la propriété IDENTITY pour créer des clés de substitut
 description: Suggestions et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ab028705f5af7c37017d2e697240b7d3436f5f71
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: abe245e6174cb947e78252941c71ce6857b77f77
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526982"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306789"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Utilisation de la propriété IDENTITY pour créer des clés de substitution dans Azure SQL Data Warehouse
 Suggestions et exemples d’utilisation de la propriété IDENTITY pour créer des clés de substitution dans des tables Azure SQL Data Warehouse.

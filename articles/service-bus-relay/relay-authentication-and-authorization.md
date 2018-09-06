@@ -3,7 +3,7 @@ title: Authentification et autorisation Azure Relay | Microsoft Docs
 description: Vue d’ensemble de l’authentification par signature d’accès partagé (SAP) dans Azure Relay
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
-ms.author: sethm
-ms.openlocfilehash: 86a9cf2c1106180ba5c8c65849042784bfd2afcd
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: spelluru
+ms.openlocfilehash: fff484f2ee6722083a34383b8960931cb37b8316
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28018115"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700444"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Authentification et autorisation Azure Relay
 
@@ -46,7 +46,7 @@ Pour accéder à une entité, le client requiert un jeton SAP créé à l’aide
 
 La prise en charge de l’authentification SAP pour Azure Relay est incluse dans le Kit de développement logiciel (SDK) Azure .NET, versions 2.0 et ultérieures. SAP inclut l’assistance pour [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Toutes les API qui acceptent une chaîne de connexion en tant que paramètre incluent la prise en charge des chaînes de connexion des services SAS.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur la signature d’accès partagé (SAP), consultez [Authentification de Service Bus avec les signatures d’accès partagé](../service-bus-messaging/service-bus-sas.md).
 - Pour en savoir plus sur la fonctionnalité Connexions hybrides, consultez le [Guide du protocole de connexions hybrides Azure Relay](relay-hybrid-connections-protocol.md).

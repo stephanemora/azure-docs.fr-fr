@@ -8,12 +8,12 @@ ms.technology: project-url-preview
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9041a88a292fb2dabead69195ebc3074e2ecf486
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369604"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301350"
 ---
 # <a name="url-preview-in-javascript"></a>Aperçu d’URL en JavaScript 
 
@@ -21,7 +21,7 @@ L’application suivante sur une seule page utilise JavaScript pour créer un ap
 
 ## <a name="prerequisites"></a>Prérequis
 
-Obtenir une clé d’accès pour l’essai gratuit [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Obtenir une clé d’accès pour l’essai gratuit [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 
 ## <a name="code-scenario"></a>Scénario de code
 L’exemple javascript suivant inclut un objet d’entrée de zone de texte où l’utilisateur entre l’URL dont l’aperçu doit être affiché.  Lorsque l’utilisateur clique sur le bouton **Aperçu**, la méthode sur clic est acheminée jusqu’à `getPreview` où le code génère une requête web vers le point de terminaison **UrlPreview**.
@@ -128,6 +128,6 @@ Pour exécuter l’application :
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide C#](csharp.md)
-- [Démarrage rapide de Java](java-quickstart.md)
+- [Démarrage rapide Java](java-quickstart.md)
 - [Démarrage rapide Node](node-quickstart.md)
 - [Démarrage rapide Python](python-quickstart.md)

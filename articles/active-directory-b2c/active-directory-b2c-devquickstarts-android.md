@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86ef621eccc7e6ba999318348f940a6a3931274e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 716cf9e47cd71d003513066d390f9dccb5c83dcb
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442404"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344124"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure Active Directory B2C : Se connecter à l’aide d’une application Android
 
@@ -74,7 +74,7 @@ Vous pouvez configurer la communication avec Azure AD B2C en spécifiant l’URI
 Si vous choisissez de détecter automatiquement les URI du point de terminaison d’autorisation et de jeton URI, vous devrez extraire des informations de l’URI de détection. L’URI de détection peut être généré en remplaçant l’\_ID client et le nom de la stratégie\_ dans l’URL suivante :
 
 ```java
-String mDiscoveryURI = "https://login.microsoftonline.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
 ```
 
 Vous pouvez alors obtenir les URI des points de terminaison d’autorisation et de jeton et créer un objet AuthorizationServiceConfiguration en exécutant la commande suivante :
@@ -101,9 +101,9 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
 Plutôt que d’utiliser la détection pour obtenir les URI des points de terminaison d’autorisation et de jeton, vous pouvez également les spécifier explicitement en remplaçant l’\_ID client et le nom de la\_stratégie dans l’URL ci-dessous :
 
 ```java
-String mAuthEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
 
-String mTokenEndpoint = "https://login.microsoftonline.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
 ```
 
 Exécutez le code suivant pour créer votre objet AuthorizationServiceConfiguration :

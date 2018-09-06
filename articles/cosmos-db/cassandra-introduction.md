@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 6ec0feeac9364b416709b45af09c79773a87d0e1
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f2f2257d3ddc22a80600882d2078210ac27cb15d
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42023803"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43284920"
 ---
 # <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Présentation d’Azure Cosmos DB : API Apache Cassandra
 
@@ -34,10 +34,7 @@ Azure Cosmos DB peut être utilisé comme magasin de données pour les applicati
 
 ![API Cassandra Azure Cosmos DB](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-L’API Cassandra vous permet d’interagir avec les données stockées dans la base de données Azure Cosmos à l’aide d’outils de langage de requête basés sur Cassandra (par exemple, CQLSH) et des pilotes client Cassandra que vous connaissez déjà. En savoir plus dans cette vidéo Microsoft Mechanics avec Kirill Gavrylyuk, responsable principal de l’ingénierie.
-
-> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
->
+L’API Cassandra vous permet d’interagir avec les données stockées dans la base de données Azure Cosmos à l’aide d’outils de langage de requête basés sur Cassandra (par exemple, CQLSH) et des pilotes client Cassandra que vous connaissez déjà. 
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Quel est l’avantage de l’utilisation de l’API Apache Cassandra pour Azure Cosmos DB ?
 

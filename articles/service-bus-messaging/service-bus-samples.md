@@ -3,7 +3,7 @@ title: Vue d’ensemble d’exemples de messagerie Azure Service Bus | Microsoft
 description: Décrit les exemples de messagerie Service Bus avec des liens vers chacun d’eux
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 7bdb336b8aad0031412a31b58a10296242e7da18
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.author: spelluru
+ms.openlocfilehash: a20cf83dec62c0ea2882c2beda784b34ee15c602
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159923"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696555"
 ---
 # <a name="service-bus-messaging-samples"></a>Exemples de messagerie Service Bus
 
@@ -32,7 +32,7 @@ Les exemples de messagerie Service Bus illustrent des fonctionnalités clés de 
 
 En outre, l’[Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) est un exemple hébergé sur GitHub qui vous permet de vous connecter à un espace de noms Service Bus et de gérer facilement les entités de messagerie. L’outil fournit des fonctionnalités avancées telles que les fonctionnalités d’importation/exportation et la possibilité de tester des entités de messagerie et des services de relais. Vous trouverez l’ensemble de la documentation et du code source de l’Explorateur Service Bus sur [GitHub](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Les emplacements des exemples sont ici :
 

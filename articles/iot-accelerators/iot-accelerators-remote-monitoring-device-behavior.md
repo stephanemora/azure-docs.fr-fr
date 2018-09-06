@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5c05f2617025d5cb4f1328f04c8d71049e1efcc7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: a983c7307308534140ab8999593ac4c8c6992a42
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284773"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338504"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implémenter le comportement de modèle d’appareil
 
@@ -41,7 +41,7 @@ Cet article vous a décrit comment définir le comportement de votre propre mod�
 > * Définir comment un appareil simulé répond à un appel de méthode à partir de la solution de surveillance à distance
 > * Déboguer vos scripts
 
-Maintenant que vous avez appris à spécifier le comportement d’un appareil simulé, l’étape suivante suggérée est d’apprendre à [créer un appareil simulé](iot-accelerators-remote-monitoring-test.md).
+Maintenant que vous avez découvert comment spécifier le comportement d’un appareil simulé, nous vous recommandons d’apprendre à [Créer un appareil simulé](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
 Pour plus d’informations sur le développement de la solution de surveillance à distance, consultez :
 

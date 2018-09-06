@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: sethm
-ms.openlocfilehash: 124c4592a41bf9f3e2a148ba5c3b928bb051d160
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: bafc08eae4a32f803f485097401a586a662f64e9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28196618"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700405"
 ---
 # <a name="message-browsing"></a>Parcours des messages
 
@@ -42,7 +42,7 @@ Quand elle est appelée à plusieurs reprises, la méthode Peek énumère tous l
 
 Vous pouvez également amorcer une surcharge de la méthode en définissant un [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber) de démarrage, puis appeler la surcharge de la méthode sans paramètre pour continuer l’énumération. **PeekBatch** fonctionne de façon équivalente, mais récupère tout un ensemble de messages à la fois.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

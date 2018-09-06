@@ -2,20 +2,20 @@
 title: Démarrage rapide - Utiliser le portail Azure pour envoyer et recevoir des messages depuis Azure Service Bus | Microsoft Docs
 description: Dans ce démarrage rapide, vous apprenez à envoyer et recevoir des messages Service Bus à l’aide du portail Azure
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: spelluru
+ms.openlocfilehash: 05c19b2b602e8541a21d5be508e0346c63714544
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867203"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700427"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Démarrage rapide : Envoyer et recevoir des messages à l’aide du portail Azure et de .NET
 

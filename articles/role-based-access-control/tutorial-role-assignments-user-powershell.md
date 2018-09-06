@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 4eeae864721040bda18409b48abf5d33b81ca609
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cac585b36c3b5969a18c941215b623443850cd4c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295896"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301726"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Tutoriel : accorder l’accès à un utilisateur avec RBAC et Azure PowerShell
 
@@ -47,7 +47,7 @@ Dans RBAC, pour accorder l’accès, vous créez une attribution de rôle. Une a
 | Principal de sécurité | Définition de rôle | Étendue |
 | --- | --- | --- |
 | Utilisateur<br>(Utilisateur du tutoriel RBAC) | [Lecteur](built-in-roles.md#reader) | Abonnement |
-| Utilisateur<br>(Utilisateur du tutoriel RBAC)| [Collaborateur](built-in-roles.md#contributor) | Groupe de ressources<br>(rbac-tutorial-resource-group) |
+| Utilisateur<br>(Utilisateur du tutoriel RBAC)| [Contributeur](built-in-roles.md#contributor) | Groupe de ressources<br>(rbac-tutorial-resource-group) |
 
    ![Attributions de rôles pour un utilisateur](./media/tutorial-role-assignments-user-powershell/rbac-role-assignments-user.png)
 
@@ -109,7 +109,7 @@ Vous utilisez un groupe de ressources pour montrer comment attribuer un rôle à
 
 Pour accorder l’accès à l’utilisateur, vous utilisez la commande [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) afin d’attribuer un rôle. Vous devez spécifier le principal de sécurité, la définition de rôle et l’étendue.
 
-1. Obtenez l’ID de votre abonnement à l’aide de la commande [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Obtenez l’ID de votre abonnement à l’aide de la commande [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription
@@ -250,7 +250,7 @@ Pour supprimer l’accès pour des utilisateurs, des groupes et des applications
       -Scope $subScope
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Pour supprimer les ressources créées par ce tutoriel, supprimez le groupe de ressources et l’utilisateur.
 
