@@ -1,18 +1,20 @@
 ---
 title: Créer un cluster Kubernetes avec Azure Kubernetes Service (AKS) et Terraform
 description: Tutoriel illustrant comment créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, machine virtuelle, azure, kubernetes
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 06/11/2018
-ms.topic: article
-ms.openlocfilehash: bd00a0cc8446802a03570edd58949a46c0769101
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8a997c88943b0273d3136dbf02a784fbdb982527
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302861"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666805"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) gère votre environnement Kubernetes hébergé, ce qui vous permet de déployer et de gérer de manière simple et rapide des applications en conteneur sans avoir à maîtriser l’orchestration de conteneurs. Il élimine également la charge des opérations en cours et la maintenance par configuration, la mise à niveau et la mise à l’échelle des ressources à la demande, sans déconnecter vos applications.
@@ -53,7 +55,7 @@ La première étape consiste à créer le répertoire qui contient vos fichiers 
     mkdir terraform-aks-k8s
     ```
 
-1. Remplacez les répertoires par le nouveau répertoire :
+1. Remplacez les répertoires par le nouveau répertoire :
 
     ```bash
     cd terraform-aks-k8s

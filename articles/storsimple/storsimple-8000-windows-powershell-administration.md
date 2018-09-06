@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9408531a9e24af93359b562ed022b3d8253851e8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696818"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665682"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Windows PowerShell pour StorSimple fournit une interface de ligne de commande que vous pouvez utiliser pour gérer votre appareil Microsoft Azure StorSimple. Comme son nom l’indique, il s’agit d’une interface de ligne de commande basée sur Windows PowerShell, qui est créée dans une instance d’exécution avec restriction. Du point de vue de l’utilisateur au niveau de la ligne de commande, une instance d’exécution avec restriction apparaît comme une version limitée de Windows PowerShell. Tout en conservant certaines fonctionnalités de base de Windows PowerShell, cette interface a des applets de commande dédiées supplémentaires orientées vers la gestion de votre appareil Microsoft Azure StorSimple.
 
@@ -37,7 +37,7 @@ Après avoir lu cet article, vous pourrez :
 
 > [!NOTE]
 > * Les applets de commande de Windows PowerShell pour StorSimple vous permettent de gérer votre appareil StorSimple depuis une console série ou à distance via l’accès distant Windows PowerShell. Pour plus d’informations sur chacune des applets de commande individuelles qui peuvent être utilisés dans cette interface, consultez les [informations de référence sur les applets de commande pour Windows PowerShell pour StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
-> * Les applets de commande d’Azure PowerShell StorSimple sont une autre collection d’applets de commande qui vous permettent d’automatiser des tâches de niveau service et de migration StorSimple à partir de la ligne de commande. Pour plus d’informations sur les applets de commande d’Azure PowerShell pour StorSimple, consultez [Informations de référence sur les applets de commande d’Azure StorSimple](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
+> * Les applets de commande d’Azure PowerShell StorSimple sont une autre collection d’applets de commande qui vous permettent d’automatiser des tâches de niveau service et de migration StorSimple à partir de la ligne de commande. Pour plus d’informations sur les applets de commande d’Azure PowerShell pour StorSimple, consultez [Informations de référence sur les applets de commande d’Azure StorSimple](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
 
 
 Vous pouvez accéder à Windows PowerShell pour StorSimple selon une des méthodes suivantes :
@@ -61,7 +61,7 @@ Assurez-vous d’utiliser les paramètres PuTTY suivants pour vous connecter à 
    | Élément du clavier | Sélectionnez |
    | --- | --- |
    | Touche Retour arrière |Ctrl+? (127) |
-   | Touches Origine et Fin |Standard |
+   | Touches Origine et Fin |standard |
    | Touches de fonction et pavé numérique |ÉCHAP[n~ |
    | État initial des touches de direction |Normal |
    | État initial du pavé numérique |Normal |

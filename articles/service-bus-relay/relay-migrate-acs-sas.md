@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2017
-ms.author: sethm
-ms.openlocfilehash: 7a2674ad4db9749b0a2d9342017a230797514763
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: spelluru
+ms.openlocfilehash: 39764ce2dce8e00d1b41179e7285a0cea1c808bf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26855380"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698942"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrer du service Access Control Service d’Azure Active Directory vers le service de signature d’accès partagé
 
@@ -60,7 +60,7 @@ Vous pouvez effectuer cette nouvelle configuration supplémentaire de la signatu
 
 Les règles de signature d’accès partagé ne sont pas destinées à être des comptes; elles sont des clés de signatures nommées associées à des droits. Par conséquent, les scénarios dans lesquels l’application crée plusieurs identités de service et leur accorde des droits d’accès pour plusieurs entités ou pour l’espace de noms entier requièrent toujours un intermédiaire pour émettre des jetons. Vous pouvez obtenir des conseils pour ce type d’intermédiaire en [contactant le support technique](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’authentification Azure Relay, consultez les sujets suivants :
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 31676ea43acc495bf0cb6a249901e5b64ef217b7
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024688"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782928"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Forum Aux Questions Azure Machine Learning : facturation, fonctionnalités, limitations et support
 Voici quelques-unes des questions fréquemment posées et des réponses correspondantes sur Azure Machine Learning, un service cloud pour le développement de modèles prédictifs et la mise en œuvre de solutions via des services web. Ce FAQ aborde l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -312,7 +312,7 @@ Vous pouvez également rechercher des formations sur [Microsoft Virtual Academy]
 
 **Comment puis-je bénéficier d’un support pour Azure Machine Learning ?**
 
-Pour obtenir un support technique pour Azure Machine Learning, accédez au [Support Azure](/support/options/) et sélectionnez **Machine Learning**.
+Pour obtenir un support technique pour Azure Machine Learning, accédez au [Support Azure](https://azure.microsoft.com/support/options/) et sélectionnez **Machine Learning**.
 
 Azure Machine Learning dispose également d’un forum communautaire sur MSDN, où vous pouvez poser des questions en rapport avec Azure Machine Learning. Ce forum est géré par l’équipe Azure Machine Learning. Visitez le [Forum Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
@@ -437,9 +437,9 @@ Nous vous recommandons de commencer par le niveau Standard S1 et de surveiller 
 
 Les nouveaux profils de facturation sont disponibles dans les trois régions de production dans lesquelles nous prenons en charge les nouveaux services web :
 
-* États-Unis - partie centrale méridionale
-* Europe de l'Ouest
-* Asie du Sud-Est
+* USA Centre Sud
+* Europe Ouest
+* Asie Sud-Est
 
 **J’ai des services web dans plusieurs régions. Dois-je avoir un profil pour chaque région ?**
 

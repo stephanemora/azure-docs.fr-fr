@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7ca0e8eb2d496bdcd8eff7dbee2af2e549f123dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626853"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698755"
 ---
 # <a name="data-management-gateway"></a>Passerelle de gestion de données
 > [!NOTE]
@@ -142,7 +142,7 @@ Au niveau du pare-feu d’entreprise, vous devez configurer les domaines et port
 
 | Noms de domaine | Ports | Description |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Utilisé pour la communication avec le serveur principal du service Déplacement des données |
+| *.servicebus.windows.net |443 |Utilisé pour la communication avec le serveur principal du service Déplacement des données |
 | *.core.windows.net |443 |Utilisé pour une copie intermédiaire à l’aide d’objets Blob Azure (si configuré)|
 | *.frontend.clouddatahub.net |443 |Utilisé pour la communication avec le serveur principal du service Déplacement des données |
 | *.servicebus.windows.net |9350-9354, 5671 |Service Bus Relay facultatif sur TCP utilisé par l’Assistant de copie |

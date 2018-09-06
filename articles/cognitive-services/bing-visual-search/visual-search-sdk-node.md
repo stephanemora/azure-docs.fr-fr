@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 51797f4b674224b4348f3f51518a5b087fd2329a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961891"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782438"
 ---
 # <a name="visual-search-sdk-node-quickstart"></a>Démarrage rapide du SDK Recherche visuelle (Node)
 
@@ -28,7 +28,7 @@ Les scénarios de code sont documentés dans les rubriques suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Une clé d’API Cognitive Services est requise pour authentifier les appels du Kit de développement logiciel (SDK). Inscrivez-vous pour obtenir une [clé d’essai gratuit]((https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)). La clé d’essai convient pour sept jours avec un appel par seconde. Pour les scénarios de production, [achetez une clé d’accès](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consultez aussi les [informations de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Une clé d’API Cognitive Services est requise pour authentifier les appels du Kit de développement logiciel (SDK). Inscrivez-vous pour obtenir une [clé d’essai gratuite](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). La clé d’essai convient pour sept jours avec un appel par seconde. Pour les scénarios de production, [achetez une clé d’accès](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consultez aussi les [informations de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 
 ## <a name="application-dependencies"></a>Dépendances de l’application
 

@@ -3,14 +3,14 @@ title: Architecture de réplication VMware sur Azure avec Azure Site Recovery | 
 description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles VMware locales vers Azure, à l’aide d’Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 08/29/2018
 ms.author: raynew
-ms.openlocfilehash: 48adf61dc0f1796b820e1e14ca509d4618c6256b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920564"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288139"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>Architecture de la réplication VMware vers Azure
 
@@ -32,22 +32,7 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 
 ![Composants](./media/vmware-azure-architecture/arch-enhanced.png)
 
-## <a name="configuration-steps"></a>Configuration
 
-Les grandes étapes pour configurer VMware pour la migration ou récupération d’urgence Azure sont les suivantes :
-
-1. **Configurez les composants Azure**. Vous avez besoin d’un compte Azure avec les autorisations appropriées, d’un compte de stockage Azure, d’un réseau virtuel Azure et d’un coffre Recovery Services. [Plus d’informations](tutorial-prepare-azure.md)
-2. **Configurez les composants locaux**. Cela comprend la configuration d’un compte sur le serveur VMware de façon que Site Recovery puisse détecter automatiquement les machines virtuelles à répliquer, la configuration d’un compte qui peut être utilisé pour installer le composant de service Mobilité sur les machines virtuelles que vous souhaitez répliquer et la vérification des machines virtuelles et serveurs VMware pour s’assurer qu’ils respectent les prérequis. Vous pouvez éventuellement vous préparer pour vous connecter à ces machines virtuelles Azure après le basculement. Site Recovery réplique les données de machines virtuelles dans un compte de stockage Azure, et crée des machines virtuelles Azure en utilisant les données lorsque vous exécutez un basculement vers Azure. [Plus d’informations](vmware-azure-tutorial-prepare-on-premises.md)
-3. **Configurez la réplication**. Vous choisissez l’emplacement de la réplication. Vous configurez l’environnement de réplication source en configurant une machine virtuelle VMware locale unique (le serveur de configuration) qui exécute tous les composants Site Recovery locaux dont vous avez besoin. Après la configuration, vous inscrivez la machine du serveur de configuration dans le coffre Recovery Services. Ensuite, vous sélectionnez les paramètres de la cible. [Plus d’informations](vmware-azure-tutorial.md)
-4. **Créez une stratégie de réplication**. Vous créez une stratégie de réplication qui spécifie comment la réplication doit se produire. 
-    - **Seuil d’objectif de point de récupération** : ce paramètre de surveillance établit que si la réplication n’a pas lieu au cours de la période spécifiée, une alerte (et éventuellement un e-mail) est émise. Par exemple, si vous définissez le seuil d’objectif de point de récupération sur 30 minutes, et si un problème empêche la réplication de se produire pendant 30 minutes, un événement est généré. Ce paramètre n’affecte pas la réplication. La réplication est continue et des points de récupération sont créés toutes les quelques minutes.
-    - **Rétention** : la rétention du point de récupération spécifie la durée de conservation des points de récupération dans Azure. Vous pouvez spécifier une valeur comprise entre 0 et 24 heures pour le stockage Premium, ou jusqu’à 72 heures pour le stockage Standard. Vous pouvez effectuer un basculement vers le point de récupération le plus récent ou vers un point stocké si vous avez défini une valeur supérieure à zéro. Après la période de rétention, les points de récupération sont vidés.
-    - **Instantanés cohérents d’incident** : par défaut, Site Recovery prend des instantanés cohérents d’incident et crée des points de récupération associés toutes les quelques minutes. Un point de récupération est cohérent avec l’incident si tous les composants de données reliés entre eux sont cohérents au niveau de l’ordre d’écriture, comme ils l’étaient lors de la création du point de récupération. Pour mieux comprendre, imaginez l’état des données sur le disque dur de votre ordinateur après une panne d’alimentation ou un événement similaire. Un point de récupération cohérent d’incident est généralement suffisant si votre application est conçue pour récupérer d’un incident sans incohérence de données.
-    - **Instantanés cohérents d’application** : si cette valeur n’est pas nulle, le service Mobilité s’exécutant sur la machine virtuelle tente de générer des instantanés cohérents de système de fichiers et des points de récupération. Le premier instantané est pris une fois la réplication initiale terminée. Ensuite, les instantanés sont pris à la fréquence que vous spécifiez. Un point de récupération est cohérent avec l’application si, en plus d’être cohérent au niveau de l’ordre d’écriture, les applications en cours d’exécution terminent toutes leurs opérations et vident leur mémoire tampon sur le disque (suspension de l’application). Les points de récupération cohérents d’application sont recommandés pour les applications de base de données telles que SQL, Oracle et Exchange. Si un instantané cohérent d’incident est suffisant, cette valeur peut être définie sur 0.  
-    - **Cohérence avec plusieurs machines virtuelles** : vous pouvez éventuellement créer un groupe de réplication. Ensuite, lorsque vous activez la réplication, vous pouvez rassembler des machines virtuelles dans ce groupe. Les machines virtuelles d’un groupe de réplication sont répliquées ensemble et elles ont des points de récupération cohérents d’incident et d’application lorsqu’elles basculent. Restez vigilant si vous devez utiliser cette option, car elle peut affecter les performances de la charge de travail étant donné que des instantanés doivent être collectés sur plusieurs ordinateurs. Utilisez cette option uniquement si les machines virtuelles exécutent la même charge de travail et doivent être cohérentes, et si elles ont des activités identiques. Vous pouvez ajouter jusqu’à 8 machines virtuelles à un groupe. 
-5. **Activez la réplication de machines virtuelles**. Enfin, vous activez la réplication pour vos machines virtuelles VMware locales. Si vous avez créé un compte pour installer le service Mobilité et spécifié que Site Recovery doit effectuer une installation push, alors le service Mobilité est installé sur chacune des machines virtuelles pour lesquelles vous activez la réplication. [Plus d’informations](vmware-azure-tutorial.md#enable-replication) Si vous avez créé un groupe de réplication pour la cohérence avec plusieurs machines virtuelles, vous pouvez ajouter des machines virtuelles à ce groupe.
-6. **Testez le basculement**. Une fois que tout est configuré, vous pouvez effectuer un test de basculement pour vérifier que les machines virtuelles basculent vers Azure comme prévu. [Plus d’informations](tutorial-dr-drill-azure.md)
-7. **Effectuez le basculement**. Si vous effectuez simplement une migration des machines virtuelles sur Azure, vous pouvez exécuter un basculement complet pour ce faire. Si vous configurez la récupération d’urgence, vous pouvez exécuter un basculement complet comme nécessaire. Pour une récupération d’urgence complète, après le basculement vers Azure, vous pouvez effectuer une restauration automatique sur votre site local quand il est disponible. [Plus d’informations](vmware-azure-tutorial-failover-failback.md)
 
 ## <a name="replication-process"></a>Processus de réplication
 

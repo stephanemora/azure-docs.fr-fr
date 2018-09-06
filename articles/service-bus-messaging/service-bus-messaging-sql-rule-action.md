@@ -3,7 +3,7 @@ title: Référence relative à la syntaxe SQLRuleAction dans Azure | Microsoft�
 description: Informations sur la syntaxe SQLRuleAction.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 9ac9a2968adfdd8e1fb229ad744bc99914cdcd08
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: 01833a51425f6a02c5ed781f4b10b22dc292f45d
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29125817"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696395"
 ---
 # <a name="sqlruleaction-syntax"></a>Syntaxe SQLRuleAction
 
@@ -220,7 +220,7 @@ La fonction `property(name)` renvoie la valeur de la propriété référencée p
 - L’action réussit s’il est fait référence à des propriétés d’utilisateur inexistantes.
 - Une propriété d’utilisateur inexistante est évaluée comme « Inconnue » en interne, suivant la même sémantique que [SQLFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) lors de l’évaluation des opérateurs.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Classe SQLRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [Classe SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

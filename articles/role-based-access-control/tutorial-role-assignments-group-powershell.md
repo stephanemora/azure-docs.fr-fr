@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 5012ce22204c3ac32b22fe2cd842ce1300b426f8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8bb06493683dabb92dfe75f371f96db14a7951b3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295811"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301001"
 ---
 # <a name="tutorial-grant-access-for-a-group-using-rbac-and-azure-powershell"></a>Tutoriel : Accorder l’accès à un groupe avec RBAC et Azure PowerShell
 
@@ -47,7 +47,7 @@ Dans RBAC, pour accorder l’accès, vous créez une attribution de rôle. Une a
 | Principal de sécurité | Définition de rôle | Étendue |
 | --- | --- | --- |
 | Groupe<br>(Groupe du tutoriel RBAC) | [Lecteur](built-in-roles.md#reader) | Abonnement |
-| Groupe<br>(Groupe du tutoriel RBAC)| [Collaborateur](built-in-roles.md#contributor) | Groupe de ressources<br>(rbac-tutorial-resource-group) |
+| Groupe<br>(Groupe du tutoriel RBAC)| [Contributeur](built-in-roles.md#contributor) | Groupe de ressources<br>(rbac-tutorial-resource-group) |
 
    ![Attributions de rôles pour un groupe](./media/tutorial-role-assignments-group-powershell/rbac-role-assignments.png)
 
@@ -122,7 +122,7 @@ Pour accorder l’accès au groupe, vous utilisez la commande [New-AzureRmRoleAs
     $groupId = "11111111-1111-1111-1111-111111111111"
     ```
 
-1. Obtenez l’ID de votre abonnement à l’aide de la commande [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Obtenez l’ID de votre abonnement à l’aide de la commande [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription
@@ -263,7 +263,7 @@ Pour supprimer l’accès pour des utilisateurs, des groupes et des applications
       -Scope $subScope
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Pour supprimer les ressources créées par ce tutoriel, supprimez le groupe de ressources et le groupe.
 

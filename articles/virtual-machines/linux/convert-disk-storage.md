@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 5c06de6b757da63bb35a4f094e5912e8dcd786f9
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 783dd82041e21242ac4ac136a5d9c91fc9b94e84
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005048"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666775"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Convertir le stockage Managed Disks Azure de standard en premium, et vice versa
 
 Le service Managed Disks offre trois options de stockage : [Premium (SSD)](../windows/premium-storage.md), Standard SSD (préversion) et [Standard HDD](../windows/standard-storage.md). Il vous permet de basculer facilement entre les options avec une interruption minimale adaptée à vos besoins de performances. Ce n’est pas pris en charge pour les disques non gérés. Toutefois, vous pouvez facilement [effectuer des conversions en disques gérés](convert-unmanaged-to-managed-disks.md) pour basculer facilement entre les types de disques.
 
-Cet article vous montre comment convertir des disques gérés de standard en premium, et vice versa, à l’aide de l’interface de ligne de commande Azure. Si vous devez installer ou mettre à niveau l’interface, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli.md). 
+Cet article vous montre comment convertir des disques gérés de standard en premium, et vice versa, à l’aide de l’interface de ligne de commande Azure. Si vous devez installer ou mettre à niveau l’interface, consultez [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -135,13 +135,13 @@ az vm start --ids $vmId
 
 ## <a name="convert-using-the-azure-portal"></a>Convertir à l’aide du portail Azure
 
-Vous pouvez également convertir des disques non gérés en disques gérés à l’aide du portail Azure.
+Vous pouvez également convertir des disques non gérés en disques managés à l’aide du portail Azure.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez la machine virtuelle dans la liste des machines virtuelles sur le portail.
 3. Dans le panneau de la machine virtuelle, sélectionnez **Disques** dans le menu.
 4. En haut du panneau **Disques**, sélectionnez **Migrer vers des disques gérés**.
-5. Si votre machine virtuelle se trouve dans un groupe à haute disponibilité, un avertissement apparaît sur le panneau **Migrer vers des disques gérés**, indiquant que vous devez commencer par convertir le groupe à haute disponibilité. L’avertissement doit avoir un lien sur lequel vous pouvez cliquer pour convertir le groupe à haute disponibilité. Une fois le groupe à haute disponibilité converti, ou si votre machine virtuelle ne se trouve pas dans un groupe à haute disponibilité, cliquez sur **Migrate** pour démarrer le processus de migration de vos disques vers des disques gérés. 
+5. Si votre machine virtuelle se trouve dans un groupe à haute disponibilité, un avertissement apparaît sur le panneau **Migrer vers des disques gérés**, indiquant que vous devez commencer par convertir le groupe à haute disponibilité. L’avertissement doit avoir un lien sur lequel vous pouvez cliquer pour convertir le groupe à haute disponibilité. Une fois le groupe à haute disponibilité converti, ou si votre machine virtuelle ne se trouve pas dans un groupe à haute disponibilité, cliquez sur **Migrate** pour démarrer le processus de migration de vos disques vers des disques managés. 
 
 Lorsque la migration est terminée, la machine virtuelle est arrêtée, puis redémarrée.
 

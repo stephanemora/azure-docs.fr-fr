@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 2757dea5e73f226efc13b7788ce1ab0702aa2e61
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1b8c1ba80b4c69f36e8304cbe978452a359ac911
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104695"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698075"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Utiliser Ansible pour gérer vos inventaires dynamiques Azure
 Ansible peut être utilisé pour extraire des informations d’inventaire de diverses sources (y compris les sources cloud comme Azure) dans un *inventaire dynamique*. Dans cet article, vous utilisez [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) pour configurer un inventaire dynamique Azure Ansible dans lequel vous créez deux machines virtuelles, étiquetez l’une d’entre elles et installez Nginx sur la machine virtuelle étiquetée.
@@ -137,25 +137,26 @@ L’objectif des étiquettes est de travailler rapidement et facilement avec des
 1. Insérez le code suivant dans le fichier `nginx.yml` nouvellement créé :
 
     ```yml
+    ---
     - name: Install and start Nginx on an Azure virtual machine
     hosts: azure
     become: yes
     tasks:
     - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
+      apt: pkg=nginx state=installed
+      notify:
+      - start nginx
 
     handlers:
     - name: start nginx
-        service: name=nginx state=started
+      service: name=nginx state=started
     ```
 
 1. Exécutez le playbook `nginx.yml` :
 
-  ```azurecli-interactive
-  ansible-playbook -i azure_rm.py nginx.yml
-  ```
+    ```azurecli-interactive
+    ansible-playbook -i azure_rm.py nginx.yml
+    ```
 
 1. Une fois que vous avez exécuté le playbook, vous constatez des résultats similaires à ceux de la sortie suivante :
 

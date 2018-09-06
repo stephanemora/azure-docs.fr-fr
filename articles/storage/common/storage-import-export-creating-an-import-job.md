@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 3c6adc3f27e49facec124401f03a036269b7c7a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524445"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666017"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Création d’un travail d’importation pour le service Azure Import/Export
 
@@ -57,7 +57,7 @@ La préparation de votre disque implique :
 
 ## <a name="obtaining-your-shipping-location"></a>Obtention de votre emplacement d’expédition
 
-Avant de créer un travail d’importation, vous devez obtenir un nom et une adresse pour l’emplacement d’expédition en appelant l’opération [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` renvoie une liste d’emplacements et leurs adresses postales. Vous pouvez sélectionner un emplacement dans la liste renvoyée et expédier vos disques durs à cette adresse. Vous pouvez également utiliser l’opération `Get Location` pour obtenir directement l’adresse d’expédition relative à un emplacement spécifique.
+Avant de créer un travail d’importation, vous devez obtenir un nom et une adresse pour l’emplacement d’expédition en appelant l’opération [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` renvoie une liste d’emplacements et leurs adresses postales. Vous pouvez sélectionner un emplacement dans la liste renvoyée et expédier vos disques durs à cette adresse. Vous pouvez également utiliser l’opération `Get Location` pour obtenir directement l’adresse d’expédition relative à un emplacement spécifique.
 
  Suivez les étapes ci-dessous pour obtenir l’emplacement d’expédition :
 

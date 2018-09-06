@@ -3,19 +3,19 @@ title: Gérer les ressources de calcul dans Azure SQL Data Warehouse | Microsoft
 description: Découvrez les capacités de montée en puissance des performances dans Azure SQL Data Warehouse. Procédez à une montée en puissance en ajustant la valeur DWU ou allégez les coûts en suspendant l’entrepôt de données.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca6d34d3b670bfd05a9b65fe9e6b260120e3a5b8
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 53a801a367e6948c3070224b7ff36a013a1faab3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528492"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300848"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gérer les ressources de calcul dans Azure SQL Data Warehouse
 Découvrez comment gérer les ressources de calcul dans Azure SQL Data Warehouse. Vous pouvez alléger les coûts en suspendant l’entrepôt de données, ou mettre à l’échelle ce dernier afin de répondre aux exigences en matière de niveau de performance. 

@@ -2,19 +2,19 @@
 title: 'Didacticiel : Mise à jour d’un assortiment d’inventaire de vente au détail à l’aide de canaux de publication/abonnement et de filtres de rubrique avec Azure PowerShell | Microsoft Docs'
 description: Dans ce tutoriel, vous découvrez comment envoyer et recevoir des messages à partir d’une rubrique et d’un abonnement et comment ajouter et utiliser les règles de filtre à l’aide d’Azure PowerShell
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
-ms.author: sethm
+ms.author: spelluru
 ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 6246e951cb9b1e0b4dac656fef6acf8027e79271
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 14f3fe81ab613f05154365b832d860808c3184bf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126549"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702185"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutoriel : mise à jour de l’inventaire à l’aide de PowerShell et des rubriques/abonnements
 

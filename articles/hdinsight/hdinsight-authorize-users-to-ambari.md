@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 7734848035eeab3c38a57b9999f8cda77f6a4e24
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f1aa80ec9df8faee4cf5ea98910e28cfc11a7920
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107154"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782125"
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autoriser les utilisateurs à accéder à Ambari Views
 
@@ -116,7 +116,7 @@ Le mode Liste propose des fonctionnalités de modification rapide dans deux cat�
 
     ![Mode Liste Rôles - utilisateurs](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* La catégorie Groupes du mode Liste affiche tous les groupes, ainsi que le rôle affecté à chacun. Dans notre exemple, la liste des groupes est synchronisée à partir des groupes Azure Active Directory spécifiés dans la propriété **Accéder au groupe d’utilisateurs** des paramètres de domaine du cluster. Voir [Créer un cluster HDInsight joint à un domaine](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
+* La catégorie Groupes du mode Liste affiche tous les groupes, ainsi que le rôle affecté à chacun. Dans notre exemple, la liste des groupes est synchronisée à partir des groupes Azure Active Directory spécifiés dans la propriété **Accéder au groupe d’utilisateurs** des paramètres de domaine du cluster. Voir [Créer un cluster HDInsight joint à un domaine](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Mode Liste Rôles - groupes](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

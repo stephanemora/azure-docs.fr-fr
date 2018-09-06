@@ -10,21 +10,21 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 48555dc8d1cc027cb771e0ba0678c6cb12d6785f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101538"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697973"
 ---
+# <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Conseils sur les performances pour Azure Cosmos DB et Java Async
+
 > [!div class="op_single_selector"]
 > * [Java asynchrone](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
-> 
 
-# <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Conseils sur les performances pour Azure Cosmos DB et Java Async
 Azure Cosmos DB est une base de données distribuée rapide et flexible qui peut être mise à l’échelle en toute transparence avec une latence et un débit garantis. Vous n’avez pas à apporter de modifications d’architecture majeures ou écrire de code complexe pour mettre à l’échelle votre base de données avec Azure Cosmos DB. La réduction et l’augmentation de l’échelle est aussi simple que le passage d’un appel d’API ou de Kit de développement logiciel (SDK). Toutefois, étant donné qu’Azure Cosmos DB est accessible via des appels réseau, vous pouvez apporter des optimisations côté client de manière à atteindre des performances de pointe quand vous utilisez le [Kit de développement logiciel (SDK) Java Async SQL](sql-api-sdk-async-java.md).
 
 Si vous vous demandez comment améliorer les performances de votre base de données, lisez ce qui suit :

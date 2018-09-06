@@ -3,19 +3,19 @@ title: 'Tutoriel : Gestion du calcul avec Azure Functions dans Azure SQL Data W
 description: Comment utiliser Azure Functions pour gérer le calcul de votre entrepôt de données.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 48428ef329de4719a25afd20c21ac102bba540a8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2f366718a11f715b0c91a556eb3b0f216424b82c
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188444"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287899"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Utiliser Azure Functions pour gérer les ressources de calcul dans Azure SQL Data Warehouse
 

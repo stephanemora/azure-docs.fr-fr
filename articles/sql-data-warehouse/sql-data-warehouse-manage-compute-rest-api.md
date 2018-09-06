@@ -3,19 +3,19 @@ title: Suspendre, reprendre et mettre à l’échelle avec REST dans Azure SQL D
 description: Gérez la puissance de calcul dans SQL Data Warehouse via les API REST.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 21423d69bf2cf06bcd208082ce492bf5dd038e29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 8db4d5cb69b65e60cd77d85d743798168bc6d813
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790659"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300831"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>API REST pour Azure SQL Data Warehouse
 API REST pour gérer le calcul dans Azure SQL Data Warehouse.

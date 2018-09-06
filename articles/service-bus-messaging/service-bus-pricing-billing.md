@@ -3,7 +3,7 @@ title: Tarification et facturation de Service Bus | Microsoft Docs
 description: Présentation de la structure de prix de Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 4faf37394b8e4f6c4e463acb11aea898a29fef80
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: spelluru
+ms.openlocfilehash: 9f899afef175afa2509dc60e0920dc387f8a7c5e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448405"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702559"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Tarification et facturation de Service Bus
 
@@ -37,7 +37,7 @@ Service Bus utilise les 2 mesures suivantes pour les files d’attente et les r
 
 Le niveau **standard** présente une tarification progressive pour les opérations exécutées avec les files d’attente et les rubriques/abonnements, ce qui entraîne des remises basées sur le volume de pouvant atteindre 80 %, pour les plus hauts niveaux d’utilisation. Il existe également des frais de base de niveau standard de 10 $ par mois, ce qui vous permet d'effectuer jusqu'à 12,5 millions d'opérations par mois sans frais supplémentaires.
 
-Le niveau **premium** isole les ressources au niveau des couches processeur et mémoire, ce qui permet d'exécuter chaque charge de travail client de manière isolée. Ce conteneur de ressources est appelé *unité de messagerie*. Au moins une unité de messagerie est allouée à chaque espace de noms premium. Vous pouvez acheter une, deux ou quatre unités de messagerie pour chaque espace de noms Service Bus Premium. Une entité ou une charge de travail unique peut couvrir plusieurs unités de messagerie et le nombre d’unités de messagerie peut être modifié à volonté. En revanche, les frais qui vous sont facturés sont établis par période de 24 heures. Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables, Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables, mais aussi supérieures.
+Le niveau **premium** isole les ressources au niveau des couches processeur et mémoire, ce qui permet d'exécuter chaque charge de travail client de manière isolée. Ce conteneur de ressources est appelé *unité de messagerie*. Au moins une unité de messagerie est allouée à chaque espace de noms premium. Vous pouvez acheter une, deux ou quatre unités de messagerie pour chaque espace de noms Service Bus Premium. Une entité ou une charge de travail unique peut couvrir plusieurs unités de messagerie et le nombre d’unités de messagerie peut être modifié à volonté. En revanche, les frais qui vous sont facturés sont établis par période de 24 heures. Au final, les performances de votre solution Service Bus sont prévisibles et répétables. Au final, les performances de votre solution Service Bus sont non seulement prévisibles et répétables, mais aussi supérieures.
 
 > [!NOTE]
 > Les rubriques et les abonnements sont uniquement disponibles dans les niveaux tarifaires Standard ou Premium ; le niveau De base prend en charge uniquement les files d’attente.

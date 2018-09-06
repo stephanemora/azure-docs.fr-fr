@@ -3,19 +3,19 @@ title: Notes de publication Azure SQL Data Warehouse avril 2018 | Microsoft Docs
 description: Notes de publication pour Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: aabda90deb9634ef456f1006bccb69375f63fc97
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: f1a3b99d40435bf2b7e33f81a43372f304fbb856
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39323991"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287001"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-april-2018"></a>Nouveautés dans Azure SQL Data Warehouse Avril 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en avril 2018.
@@ -57,7 +57,7 @@ Pour plus d’informations sur les limites maximales, consultez la section [Requ
 La vue `sys.pdw_database_mappings` n’est pas utilisée dans SQL Data Warehouse. Auparavant, une SÉLECTION de cette vue ne retournait aucun résultat. La vue a été supprimée. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un entrepôt de données SQL][create a SQL Data Warehouse]. Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure][Azure glossary] lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources de SQL Data Warehouse.  
+À présent que vous en savez un peu plus sur SQL Data Warehouse, découvrez comment [créer rapidement un entrepôt SQL Data Warehouse][create a SQL Data Warehouse]. Si vous n’êtes pas encore familiarisé avec Azure, vous pouvez vous appuyer sur le [Glossaire Azure][Azure glossary] lorsque vous rencontrez de nouveaux termes. Ou bien, consultez ces autres ressources de SQL Data Warehouse.  
 
 * [Témoignages de clients]
 * [Blogs]

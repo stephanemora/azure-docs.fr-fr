@@ -3,7 +3,7 @@ title: Vue d’ensemble des API .NET standard Azure Relay | Microsoft Docs
 description: Vue d’ensemble des API .NET standard Azure Relay
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
-ms.author: sethm
-ms.openlocfilehash: aa1863a44f00ae17f63b02c7c247b2c9fd9925f6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: spelluru
+ms.openlocfilehash: a6a1706c8d1e849fd1bb4309c46063dd3f9439c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28016431"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700138"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Présentation des API .NET standard pour les connexions hybrides Azure Relay
 
@@ -135,7 +135,7 @@ var textWriter = new StreamWriter(hybridConnectionStream);
 await textWriter.WriteLineAsync("hello");
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur Azure Relay, consultez les liens suivants :
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 2b3bd55fd2ed9f392611fcb32b0ebd0f5c6b5e09
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322523"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300607"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Tutoriel : Créer un rôle personnalisé à l’aide d’Azure PowerShell
 
@@ -38,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- Autorisations nécessaires pour créer des rôles personnalisés, tels que [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator)
+- autorisations nécessaires pour créer des rôles personnalisés, par exemple, [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ;
 - [Azure PowerShell](/powershell/azure/install-azurerm-ps) installé localement
 
 ## <a name="sign-in-to-azure-powershell"></a>Se connecter à Azure PowerShell
@@ -99,7 +99,7 @@ Le moyen le plus simple de créer un rôle personnalisé consiste à commencer a
     
 1. Modifiez le fichier JSON pour ajouter l’opération `"Microsoft.Support/*"` à la propriété `Actions`. Veillez à inclure une virgule après l’opération de lecture. Cette action autorise l’utilisateur à créer des tickets de support.
 
-1. Obtenez l’ID de votre abonnement à l’aide de la commande [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Obtenez l’ID de votre abonnement à l’aide de la commande [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription

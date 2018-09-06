@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 50ece1d1f74ace494e6bebb84f9f121c1fad7a6c
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: a1e8c53263093554bb616ec130cd17a0d6d4339c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918205"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302913"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Didacticiel : déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
@@ -220,7 +220,7 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
 
 ![Publication de l’application][publish-app]
 
-Vous pouvez suivre la procession du déploiement dans la fenêtre de sortie.  Lorsque l’application est déployée, ouvrez un navigateur et saisissez l’adresse du cluster et le port de l’application. Par exemple : http://http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Vous pouvez suivre la procession du déploiement dans la fenêtre de sortie.  Lorsque l’application est déployée, ouvrez un navigateur et saisissez l’adresse du cluster et le port de l’application. Par exemple : http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Exemple Fabrikam Web][fabrikam-web-page-deployed]
 

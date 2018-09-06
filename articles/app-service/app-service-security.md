@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885868"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382114"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Sécurité dans Azure App Service et Azure Functions
 
@@ -29,7 +29,7 @@ Les composants de plateforme d’App Service, notamment les machines virtuelles 
 
 - Les ressources de votre application sont [protégées](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) des ressources Azure des autres clients.
 - Les [instances de machine virtuelle et les logiciels de runtime sont régulièrement mis à jour](app-service-patch-os-runtime.md) pour que soient traitées les vulnérabilités récemment découvertes. 
-- La communication de secrets (tels que des chaînes de connexion) entre votre application et d’autres ressources Azure (telles que [SQL Database](/services/sql-database/)) reste dans Azure et ne franchit pas les limites du réseau. Les secrets sont toujours chiffrés quand ils sont stockés.
+- La communication de secrets (tels que des chaînes de connexion) entre votre application et d’autres ressources Azure (telles que [SQL Database](https://azure.microsoft.com/services/sql-database/)) reste dans Azure et ne franchit pas les limites du réseau. Les secrets sont toujours chiffrés quand ils sont stockés.
 - Toutes les communications via les fonctionnalités de connectivité d’App Service, telles que la [connexion hybride](app-service-hybrid-connections.md), sont chiffrées. 
 - Toutes les connexions avec les outils de gestion à distance, tels qu’Azure PowerShell, Azure CLI, les SDK Azure et les API REST, sont chiffrées.
 - La gestion continue des menaces protège l’infrastructure et la plateforme contre les programmes malveillants, le déni de service distribué (DDoS), les attaques de l’intercepteur (man-in-the-middle, MITM) et bien d’autres menaces.
@@ -84,7 +84,7 @@ Dans chacun de ces cas, App Service fournit un moyen d’établir des connexions
 
 ### <a name="azure-resources"></a>Ressources Azure
 
-Quand votre application se connecte à des ressources Azure, telles que [SQL Database](/services/sql-database/) et [Stockage Azure](/azure/storage/), la connexion reste dans Azure et ne franchit pas les limites du réseau. Toutefois, comme la connexion emprunte le dispositif réseau partagé dans Azure, assurez-vous systématiquement qu’elle est chiffrée. 
+Quand votre application se connecte à des ressources Azure, telles que [SQL Database](https://azure.microsoft.com/services/sql-database/) et [Stockage Azure](/azure/storage/), la connexion reste dans Azure et ne franchit pas les limites du réseau. Toutefois, comme la connexion emprunte le dispositif réseau partagé dans Azure, assurez-vous systématiquement qu’elle est chiffrée. 
 
 Si votre application est hébergée dans un [environnement App Service](environment/intro.md), vous devez [vous connecter à des services Azure pris en charge à l’aide de points de terminaison du service Réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -117,4 +117,4 @@ Une autre approche consiste à intégrer votre application App Service à [Azure
 - Servir une application interne à l’aide d’un équilibreur de charge interne (ILB), l’accès n’étant alors autorisé qu’à partir de votre réseau virtuel Azure. L’équilibreur de charge interne possède une adresse IP appartenant à votre sous-réseau privé, ce qui isole totalement vos applications d’internet.
 - [Utiliser un équilibreur de charge interne derrière un pare-feu d’applications web (WAF)](environment/integrate-with-application-gateway.md). Le WAF offre une protection de niveau entreprise à vos applications publiques, telle que la protection DDoS, le filtrage des URI et la prévention de l’injection SQL.
 
-Pour plus d’informations, consultez [Présentation des environnements Azure App Service](environment/intro.md).
+Pour plus d’informations, consultez [Présentation des environnements Azure App Service](environment/intro.md). 

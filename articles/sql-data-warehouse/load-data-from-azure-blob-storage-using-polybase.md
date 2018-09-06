@@ -3,19 +3,19 @@ title: 'Tutoriel : Chargement des données de New York Taxicab dans Azure SQL D
 description: Ce tutoriel utilise le portail Azure et SQL Server Management Studio pour charger les données de New York Taxicab d’un objet blob Azure public vers Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: acc7d0a031821b8b6e9c110c92597b0307e216fb
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 06d889686c673adc3941ac7303ab52a6fff408a8
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193231"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288122"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutoriel : Chargement des données de New York Taxicab dans Azure SQL Data Warehouse
 

@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ddeee70d29f54a0691b0a13ad299003b3da338a1
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: af4a831c084ae10b381b8e08fd0ce4798b21b394
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345016"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382169"
 ---
 # <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Découvrez comment utiliser des manifestes de déploiement pour déployer des modules et établir des itinéraires.
 
@@ -153,7 +153,7 @@ Pour obtenir des exemples sur la façon de créer des requêtes pour les propri�
 Par exemple, sur IoT Edge, si vous voulez filtrer des messages reçus sur un appareil de passerelle à partir d’un appareil de nœud terminal. Les messages provenant des modules contiennent une propriété système appelée **connectionModuleId**. Par conséquent, si vous souhaitez router des messages à partir d’appareils de nœud terminal directement vers IoT Hub, utilisez l’itinéraire suivant pour exclure les messages de modules :
 
 ```sql
-FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
+FROM /messages/\* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
 
 ### <a name="sink"></a>Récepteur

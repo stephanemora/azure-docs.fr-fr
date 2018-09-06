@@ -3,7 +3,7 @@ title: Didacticiel Azure Service Bus WCF Relay | Microsoft Docs
 description: Créez une application cliente et un service à l’aide de WCF Relay.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
-ms.author: sethm
-ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 0833a7ec71a0aea66f8ebfdfff81d88925019309
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642306"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701863"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Didacticiel Azure WCF Relay
 
@@ -694,11 +694,11 @@ namespace Microsoft.ServiceBus.Samples
 
     Voici un exemple de sortie de la fenêtre de console. Notez que les valeurs indiquées ici sont fournies à titre d’exemple uniquement.
 
-    `Your Service Namespace: myNamespace``Your SAS Key: <SAS key value>`
+    `Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
     L’application de service imprime l’adresse sur laquelle il écoute dans la fenêtre de console, comme indiqué dans l’exemple suivant.
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/``Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
 10. Dans la fenêtre de console **EchoClient**, entrez les mêmes informations que celles que vous avez entrées précédemment pour l’application de service. Suivez les étapes précédentes pour saisir des valeurs identiques pour l’espace de noms de service et la clé SAP pour l’application cliente
 11. Après avoir saisi ces valeurs, le client ouvre un canal au service et vous invite à saisir du texte, comme indiqué dans l’exemple de sortie de console suivante.
 

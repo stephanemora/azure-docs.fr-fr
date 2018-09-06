@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919561"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669440"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Répliquer une application Dynamics AX multiniveau à l’aide d’Azure Site Recovery
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 
  Dynamics AX figure parmi les solutions ERP les plus populaires au sein des entreprises pour standardiser les processus, gérer les ressources et simplifier la conformité sur l’ensemble des sites. En cas de défaillance, étant donné le rôle critique qu’elle joue au sein de l’entreprise, l’application doit pouvoir être restaurée le plus rapidement possible.
@@ -52,9 +52,9 @@ Pour les besoins de cet article, des machines virtuelles VMware avec Dynamics AX
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | OUI | OUI
-**VMware** | OUI | OUI
-**Serveur physique** | OUI | OUI
+**Hyper-V** | Oui | Oui
+**VMware** | Oui | Oui
+**Serveur physique** | Oui | Oui
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Permettre la récupération d’urgence de l’application Dynamics AX à l’aide de Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Protéger votre application Dynamics AX
@@ -99,7 +99,7 @@ Vous pouvez sélectionner la machine virtuelle dans les éléments répliqués a
 
 * Si vous utilisez une adresse IP statique, spécifiez l’adresse IP que vous souhaitez attribuer à la machine virtuelle dans la zone de texte **Adresse IP cible**
 
-    ![Paramètres réseau ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![Paramètres réseau ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. Créer un plan de récupération

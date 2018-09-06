@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1db10a1578133021b976231a66aee6b550d71faf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 414a6042d064a1dece7025dc277533d40ef2aa64
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299729"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781911"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Forum aux Questions
 > [!NOTE]
@@ -42,7 +42,7 @@ Consultez la [page de tarification de Data Factory][adf-pricing-details] pour pl
 * Pour obtenir un didacticiel sur la façon de **transformer des données** au moyen de l’activité Hive de HDInsight. Consultez [Traiter des données en exécutant un script Hive sur un cluster Hadoop](data-factory-build-your-first-pipeline.md)
 
 ### <a name="what-is-the-data-factorys-region-availability"></a>Dans quelle région sera disponible Data Factory ?
-Data Factory est disponible dans les régions **Ouest des États-Unis** et **Europe du Nord**. Les services de calcul et de stockage utilisés par les fabriques de données peuvent être proposés dans d'autres régions. Consultez [Régions prises en charge](data-factory-introduction.md#supported-regions).
+Data Factory est disponible dans les régions **USA Ouest** et **Europe Nord**. Les services de calcul et de stockage utilisés par les fabriques de données peuvent être proposés dans d'autres régions. Consultez [Régions prises en charge](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>quelles sont les limites du nombre de fabriques de données/pipelines/activités/jeux de données ?
 Consultez la section **Limites d’Azure Data Factory** de l’article [Abonnement Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md#data-factory-limits) .
@@ -200,9 +200,9 @@ Si vous voulez vraiment arrêter immédiatement toutes les exécutions, le seul 
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories
+[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
 [azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/resourcemanager/azurerm.datafactories/v2.3.0/set-azurermdatafactoryslicestatus
+[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
 
 [adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
 [hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/

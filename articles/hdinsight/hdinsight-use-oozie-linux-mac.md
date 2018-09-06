@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 9989f33721d4fc18529e63b6d1417180a8d58a9a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049466"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783319"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilisation d’Oozie avec Hadoop pour définir et exécuter un workflow Azure HDInsight basé sur Linux
 
@@ -35,7 +35,7 @@ Vous pouvez également utiliser Oozie pour planifier des travaux propres à un s
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Un cluster HDInsight**: consultez la page [Prise en main de HDInsight sur Linux](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Un cluster HDInsight**: consultez la page [Prise en main de HDInsight sur Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).

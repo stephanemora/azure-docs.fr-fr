@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: 305c017bd49f233c10479e2c33ec8db72cae3aa7
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: a1616150ebf696654bc0ca9a79d39c3877c363d9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28198866"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699384"
 ---
 # <a name="topic-filters-and-actions"></a>Actions et filtres de rubrique
 
@@ -52,7 +52,7 @@ Le partitionnement utilise des filtres pour distribuer les messages aux différe
 
 Le routage utilise des filtres pour distribuer les messages aux différents abonnements à la rubrique de manière prévisible, mais pas nécessairement en mode mutuellement exclusif. Utilisés conjointement avec la fonctionnalité de [transfert automatique](service-bus-auto-forwarding.md), les filtres de rubrique permettent de créer des graphiques de routage complexes dans un espace de noms Service Bus pour la distribution de messages dans une région Azure. Avec Azure Functions ou Azure Logic Apps servant de pont entre les espaces de noms Azure Service Bus, vous pouvez créer des topologies globales complexes avec une intégration directe dans les applications métier.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

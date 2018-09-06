@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617019"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340186"
 ---
 # <a name="network-connectivity"></a>Connectivité réseau
 Cet article fournit des informations sur l’infrastructure réseau d’Azure Stack qui vous aideront à déterminer la meilleure intégration possible d’Azure Stack dans votre environnement réseau existant. 
@@ -45,7 +45,7 @@ Le tableau suivant montre les réseaux logiques et les plages de sous-réseau IP
 | Infrastructure du commutateur | Adresses IP de point à point pour le routage, les interfaces de gestion de commutateur dédiées et les adresses de bouclage attribuées au commutateur. | /26 | 
 | Infrastructure | Utilisé pour les composants internes de Azure Stack pour communiquer. | /24 |
 | Privé | Utilisé pour le réseau de stockage et les adresses IP virtuelles privées. | /24 | 
-| BMC | Utilisé pour communiquer avec les contrôleurs BMC sur les hôtes physiques. | /27 | 
+| BMC | Utilisé pour communiquer avec les contrôleurs BMC sur les hôtes physiques. | /26 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>Infrastructure réseau

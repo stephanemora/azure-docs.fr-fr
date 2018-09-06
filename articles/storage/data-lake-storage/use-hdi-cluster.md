@@ -1,22 +1,18 @@
 ---
 title: Utiliser Azure Data Lake Storage Gen2 (préversion) avec des clusters Azure HDInsight
 description: Découvrez comment interroger des données à partir d’Azure Data Lake Storage Gen2 (préversion) et à stocker les résultats de votre analyse.
-keywords: hdfs,données structurées,données non structurées,data lake store,entrée Hadoop,sortie Hadoop,stockage hadoop,entrée hdfs,sortie hdfs,stockage hdfs, wasb azure
-services: hdinsight,storage
-tags: azure-portal
 author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 4a9f79b292e58331dcd2f7cb656e24b244aa89ba
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528506"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782275"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Utiliser Azure Data Lake Storage Gen2 (préversion) avec des clusters Azure HDInsight
 
@@ -174,7 +170,7 @@ Pour créer un conteneur, utilisez la commande suivante :
 
 Le modèle d’URI pour accéder aux fichiers du stockage Azure à partir de HDInsight est le suivant :
 
-    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>
 
 Le schéma d’URI offre un accès non chiffré (avec le préfixe *abfs:*) et un accès chiffré SSL (avec *abfss*). Dans la mesure du possible, nous vous recommandons d’utiliser *abfss*, même s’il s’agit d’accéder à des données qui résident dans la même région Azure.
 
@@ -183,7 +179,7 @@ Le schéma d’URI offre un accès non chiffré (avec le préfixe *abfs:*) et un
 
     Si les valeurs de &lt;FILE_SYSTEM_NAME&gt; ou &lt;ACCOUNT_NAME&gt; n’ont pas été spécifiées, le système de fichiers par défaut est utilisé. Pour les fichiers du système de fichiers par défaut, vous pouvez utiliser un chemin d'accès relatif ou absolu. Par exemple, le fichier *hadoop-mapreduce-examples.jar* fourni avec les clusters HDInsight peut être désigné à l’aide d’un des chemins suivants :
     
-        abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
+        abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
         abfs:///example/jars/hadoop-mapreduce-examples.jar
         /example/jars/hadoop-mapreduce-examples.jar
 

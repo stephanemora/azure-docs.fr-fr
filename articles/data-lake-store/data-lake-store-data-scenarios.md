@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: e0c7ed22762ef19c6e68ad69d0cabcfeb8007251
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 19743dcd2866b8fc7b6ad1fdf387b134f7b3ca50
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031037"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783074"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Storage Gen1 pour le Big Data
 
@@ -40,7 +40,7 @@ Ceci représente les petits jeux de données qui sont utilisés pour créer un p
 
 | source de données | Réception avec |
 | --- | --- |
-| Ordinateur local |<ul> <li>[Portail Azure](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Interface CLI 2.0 inter-plateforme Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Utilisation de Data Lake Tools pour Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Ordinateur local |<ul> <li>[Portail Azure](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Interface CLI 2.0 inter-plateforme Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Utilisation de Data Lake Tools pour Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
 | Azure Storage Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[l’outil AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp en cours d’exécution sur un cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Flux de données

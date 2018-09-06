@@ -14,17 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 055decd689e260a69651c5a3e1ce3f3f78b67340
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783538"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665883"
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur FMLE pour envoyer un flux en direct à débit binaire unique
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
-> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 >
@@ -37,7 +36,6 @@ Ce didacticiel montre comment gérer Azure Media Services (AMS) avec l’outil A
 Ce didacticiel décrit l’utilisation de AAC. Cependant, FMLE ne prend pas en charge AAC par défaut. Vous devez acheter un plug-in pour l’encodage AAC, comme par exemple, le [plug-in AAC de MainConcept](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Prérequis
-
 * [Créer un compte Azure Media Services](media-services-portal-create-account.md)
 * Vérifiez qu’un point de terminaison de streaming est en cours d’exécution. Pour plus d’informations, consultez [Gestion des points de terminaison de diffusion en continu dans un compte Media Services](media-services-portal-manage-streaming-endpoints.md)
 * Installez la dernière version de l’outil [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) .

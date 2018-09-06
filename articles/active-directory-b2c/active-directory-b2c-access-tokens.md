@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 58a0a1e8be7ad5a119204b52b5263943dcef0192
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9cd5789cd2ee6e167f3d3ed05c2fde077f7ec9a3
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441224"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344939"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C : Demande de jetons d’accès
 
@@ -79,7 +79,7 @@ Lorsque vous demandez un jeton d’accès, l’application cliente doit spécifi
 > Actuellement, les domaines personnalisés ne sont pas pris en charge avec les jetons d’accès. Vous devez utiliser votre domaine tenantName.onmicrosoft.com dans l’URL de la requête.
 
 ```
-https://login.microsoftonline.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://<tenantName>.b2clogin.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 Pour acquérir plusieurs autorisations dans la même requête, vous pouvez ajouter plusieurs entrées séparées par des espaces dans le même paramètre d’**étendue**. Par exemple : 

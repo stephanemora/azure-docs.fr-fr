@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 832b32ebc4cf99d17df4669b421415d0d0ca0560
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 786dbb258fa4299f80f7ff9d24a1c129a9506bb7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112846"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663743"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Exemple de script pour charger un disque dur virtuel spécialisé sur Azure et créer une machine virtuelle
 
@@ -147,7 +147,7 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 | [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)                           | Spécifie une image de machine virtuelle.                                                                                                                                            |
 | [Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)                                     | Définit les propriétés du disque du système d’exploitation sur une machine virtuelle.                                                                                                                      |
 | [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)                   | Définit les propriétés du disque du système d’exploitation sur une machine virtuelle.                                                                                                                      |
-| [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.network/add-azurermvmnetworkinterface)                 | Ajoute une interface réseau à une machine virtuelle.                                                                                                                                       |
+| [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?view=azurermps-6.8.1)                 | Ajoute une interface réseau à une machine virtuelle.                                                                                                                                       |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm)                                                 | Création d’une machine virtuelle                                                                                                                                                            |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Supprime un groupe de ressources et toutes les ressources contenues.                                                                                                                         |
 

@@ -3,25 +3,27 @@ title: Mettre à niveau vers la dernière génération d’Azure SQL Data Wareho
 description: Mettez à niveau Azure SQL Data Warehouse vers la dernière génération de l’architecture matérielle et de stockage Azure.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2993e1f4d28fd5d281ea510121686d3bc37a8c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746960"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306978"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimiser les performances en mettant à niveau SQL Data Warehouse
 Mettez à niveau Azure SQL Data Warehouse vers la dernière génération de l’architecture matérielle et de stockage Azure.
 
 ## <a name="why-upgrade"></a>Pourquoi procéder à une mise à niveau ?
 Vous pouvez maintenant effectuer une mise à niveau de manière fluide vers le niveau Gen2 optimisé pour le calcul d’Azure SQL Data Warehouse dans le portail Azure. Si vous avez un entrepôt de données de niveau Gen1 optimisé pour le calcul, la mise à niveau est recommandée. En effectuant la mise à niveau, vous pouvez utiliser la dernière génération de matériel et d’architecture de stockage améliorée Azure. Vous pouvez ainsi bénéficier de meilleures performances, d’une scalabilité supérieure et d’un stockage en colonnes illimité. 
+
+> [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>S’applique à
 Cette mise à niveau s’applique aux entrepôts de données de niveau Gen1 optimisé pour le calcul.

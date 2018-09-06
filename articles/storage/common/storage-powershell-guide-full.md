@@ -2,23 +2,18 @@
 title: Utilisation d’Azure PowerShell avec Azure Storage | Microsoft Docs
 description: Apprenez à utiliser des applets de commande Azure PowerShell pour le stockage Azure.
 services: storage
-documentationcenter: na
 author: roygara
-manager: jeconnoc
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 06/13/2018
 ms.author: rogarana
-ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: f0f20a4ceac2f0b79d4ae3bbf3cf82eb761bceb8
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652499"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782669"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Utilisation d'Azure PowerShell avec Azure Storage
 
@@ -55,7 +50,7 @@ Connect-AzureRmAccount
 
 ## <a name="list-the-storage-accounts-in-the-subscription"></a>Répertorier les comptes de stockage de l’abonnement
 
-Exécutez l’applet de commande [Get-AzureRMStorageAccount](/powershell/module/azurerm.resources/get-azurermstorageaccount) pour récupérer la liste des comptes de stockage dans l’abonnement actuel. 
+Exécutez l’applet de commande [Get-AzureRMStorageAccount](/powershell/module/azurerm.storage/Get-AzureRmStorageAccount) pour récupérer la liste des comptes de stockage dans l’abonnement actuel. 
 
 ```powershell
 Get-AzureRMStorageAccount | Select StorageAccountName, Location
@@ -108,11 +103,11 @@ $ctx = $storageAccount.Context
 
 Le script utilise les applets de commande PowerShell suivantes : 
 
-*   [Get-AzureRmLocation](/powershell/module/azurerm.storage/Get-AzureRmLocation) -- récupère une liste des emplacements valides. L’exemple utilise `eastus` pour l’emplacement.
+*   [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) -- récupère une liste des emplacements valides. L’exemple utilise `eastus` pour l’emplacement.
 
-*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/New-AzureRmResourceGroup) -- crée un nouveau groupe de ressources. Un groupe de ressources est un conteneur logique dans lequel vos ressources Azure sont déployées et gérées. Nous avons appelé le nôtre `teststoragerg`. 
+*   [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) -- crée un nouveau groupe de ressources. Un groupe de ressources est un conteneur logique dans lequel vos ressources Azure sont déployées et gérées. Nous avons appelé le nôtre `teststoragerg`. 
 
-*   [Nouveau-AzureRmStorageAccount](/powershell/module/azurerm.resources/New-AzureRmStorageAcccount) -- crée le compte de stockage réel. L’exemple utilise `testpshstorage`.
+*   [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) -- crée le compte de stockage. L’exemple utilise `testpshstorage`.
 
 Le nom de référence (SKU) indique le type de réplication pour le compte de stockage, comme LRS (stockage localement redondant). Pour en savoir plus, consultez [Réplication de Stockage Azure](storage-redundancy.md).
 
@@ -128,7 +123,7 @@ Maintenant que vous avez une référence à un compte de stockage ou un compte d
 
 ### <a name="storage-account-properties"></a>Propriétés du compte de stockage
 
-Pour modifier les paramètres pour un compte de stockage, utilisez [Set-AzureRmStorageAccount](/powershell/module/azurerm.resources/Set-AzureRmStorageAccount). Si vous ne pouvez pas modifier l’emplacement d’un compte de stockage, ou le groupe de ressources dans lequel il réside, vous pouvez modifier la plupart des autres propriétés. La liste suivante décrit certaines des propriétés que vous pouvez modifier à l’aide de PowerShell.
+Pour modifier les paramètres pour un compte de stockage, utilisez [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azurermstorageaccount). Si vous ne pouvez pas modifier l’emplacement d’un compte de stockage, ou le groupe de ressources dans lequel il réside, vous pouvez modifier la plupart des autres propriétés. La liste suivante décrit certaines des propriétés que vous pouvez modifier à l’aide de PowerShell.
 
 * Le **domaine personnalisé** affecté au compte de stockage.
 
@@ -186,7 +181,7 @@ Par défaut, tous les comptes de stockage sont accessibles par n’importe quel 
 L’article explique comment gérer ces paramètres à l’aide des applets de commande PowerShell suivantes :
 * [Add-AzureRmStorageAccountNetworkRule](/powershell/module/AzureRM.Storage/Add-AzureRmStorageAccountNetworkRule)
 * [Update-AzureRmStorageAccountNetworkRuleSet](/powershell/module/azurerm.storage/update-azurermstorageaccountnetworkruleset)
-* [Remove-AzureRmStorageAccountNetworkRule](/powershell/module/azurerm.storage/remove-azurermstorage-account-networkrule)
+* [Remove-AzureRmStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.storage/remove-azurermstorageaccountnetworkrule?view=azurermps-6.8.1)
 
 ## <a name="use-storage-analytics"></a>Utiliser l’analyse du stockage  
 
@@ -220,7 +215,6 @@ Maintenant que vous savez comment gérer votre compte de stockage avec PowerShel
 L’API Table Azure Cosmos DB fournit des fonctionnalités premium pour le stockage des tables, telles que la distribution globale clé en main, les opérations de lecture et d’écriture à faible latence, l’indexation secondaire automatique et un débit dédié. 
 
 * Pour plus d’informations, consultez [API Table Azure Cosmos DB](../../cosmos-db/table-introduction.md). 
-* Pour découvrir comment utiliser PowerShell pour effectuer des opérations d’API Table Azure Cosmos DB, consultez [Effectuer des opérations d’API Table Azure Cosmos DB avec PowerShell](../../cosmos-db/table-powershell.md).
 
 ## <a name="independent-cloud-deployments-of-azure"></a>Déploiements de cloud indépendant d’Azure
 
@@ -232,7 +226,7 @@ La plupart des gens utilisent le cloud public Azure pour leur déploiement Azure
 
 Pour découvrir comment accéder à ces clouds et à leur stockage avec PowerShell, consultez [Gestion du stockage dans les clouds indépendants d’Azure avec PowerShell](storage-powershell-independent-clouds.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous avez créé un groupe de ressources et un compte de stockage pour cet exercice, vous pouvez supprimer toutes les ressources que vous avez créées en supprimant le groupe de ressources. Cette opération supprime également toutes les ressources contenues dans le groupe. Dans le cas présent, le compte de stockage créé et le groupe de ressources sont supprimés.
 

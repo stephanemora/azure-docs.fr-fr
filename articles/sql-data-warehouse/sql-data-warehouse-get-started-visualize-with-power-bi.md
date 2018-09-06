@@ -3,19 +3,19 @@ title: Visualiser les données SQL Data Warehouse avec Power BI
 description: Visualiser les données SQL Data Warehouse avec Power BI
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 52581a87caac419a79caab647cc9c5a4ee7453ba
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 514516dcc28e99d03611c7db6ec09c7b4a48ff0e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601574"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306661"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualiser des données avec Power BI
 Ce didacticiel vous montre comment utiliser Power BI pour vous connecter SQL Data Warehouse et créer quelques visualisations de base.
@@ -25,7 +25,6 @@ Ce didacticiel vous montre comment utiliser Power BI pour vous connecter SQL Dat
 > 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour parcourir ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un SQL Data Warehouse préchargé avec la base de données AdventureWorksDW. Pour provisionner un entrepôt de données, consultez [Créer un entrepôt de données SQL](create-data-warehouse-portal.md) et chargez l’exemple de données. Si vous disposez déjà d’un entrepôt de données, mais pas d’un exemple de données, vous pouvez [charger WideWorldImportersDW](load-data-wideworldimportersdw.md).

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053325"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286763"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 
@@ -40,12 +40,6 @@ La base de données Azure Cosmos étant une base de données multimodèle, il es
 Azure Cosmos DB offre des performances élevées et prévisibles en réservant des ressources pour répondre aux besoins de débit de votre application. Les modèles de chargement des applications et d’accès changent au fil du temps. Avec Azure Cosmos DB, vous pouvez facilement augmenter ou diminuer la quantité de débit réservé disponible pour votre application.
 
 Avec Azure Cosmos DB, un débit réservé est spécifié en termes de traitement d’unités de requête par seconde. On peut considérer les unités de requête un peu comme une devise de débit. Vous réservez une quantité d’unités de requête garantie accessible par seconde à votre application. Chaque opération dans Azure Cosmos DB (y compris l’écriture d’un document, l’exécution d’une requête, la mise à jour d’un document) consomme des ressources de processeur, de mémoire et d’E/S par seconde. Autrement dit, chaque opération entraîne des frais de requête, exprimés en unités de requête. Comprendre les facteurs qui ont un impact sur les frais d’unités de requête et cerner les demandes de débit de votre application vous permettent d’exécuter votre application de la manière la plus rentable possible. 
-
-Pour démarrer, regardez la vidéo suivante, où le responsable du programme Azure Cosmos DB, Andrew Liu, traite des unités de requête (les exemples d’unités de requête de la vidéo contiennent une faute de frappe mineure. Quand des données de 1 Ko avec 100 000 enregistrements sont utilisées, le stockage total est de 100 Mo et non pas de 100 Go) : <br /><br />
-
-> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
-> 
-> 
 
 ## <a name="throughput-isolation-in-globally-distributed-databases"></a>Isolement de débit dans des bases de données distribués à l’échelle mondiale
 

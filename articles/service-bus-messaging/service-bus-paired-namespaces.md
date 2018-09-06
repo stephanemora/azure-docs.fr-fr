@@ -3,7 +3,7 @@ title: Espaces de noms associés Azure Service Bus | Microsoft Docs
 description: Détails sur l'implémentation de l'espace de noms associé et coût
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.author: spelluru
+ms.openlocfilehash: 3dbeba3e8a7a3acc651eb9f2f679440dd9e6728b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159539"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696738"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Détails sur l'implémentation de l'espace de noms associé et implications en termes de coût
 
@@ -99,7 +99,7 @@ Au moins un programme exécutable de l'application doit exécuter activement le 
 ## <a name="closefault-behavior"></a>Comportement de fermeture/erreur
 Dans une application qui héberge le siphon, si l’instance [MessagingFactory][MessagingFactory] principale ou secondaire connaît une défaillance ou est fermée sans que son partenaire connaisse une défaillance ou soit fermé également, et que le siphon détecte cet état, le siphon réagit. Si l’autre instance [MessagingFactory][MessagingFactory] n’est pas fermée dans les 5 secondes, le siphon place l’instance [MessagingFactory][MessagingFactory] toujours ouverte en état de défaillance.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Consultez [Modèles de messagerie asynchrone et haute disponibilité][Asynchronous messaging patterns and high availability] pour une discussion détaillée sur la messagerie asynchrone de Service Bus. 
 
 [PairNamespaceAsync]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PairNamespaceAsync_Microsoft_ServiceBus_Messaging_PairedNamespaceOptions_

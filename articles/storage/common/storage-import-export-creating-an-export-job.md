@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 889cedf555c8a9a86cc8a2101f27cafcb48376df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0066ec20c68d70fac9a6529f8f5b85855d6c5349
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523153"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666822"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Création d’un travail d’exportation pour le service Azure Import/Export
 La création d’un travail d’exportation pour le service Microsoft Azure Import/Export à l’aide de l’API REST implique les étapes suivantes :
@@ -48,7 +48,7 @@ La création d’un travail d’exportation pour le service Microsoft Azure Impo
  Pour plus d’informations sur la spécification des blobs à exporter, consultez l’opération [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate).
 
 ## <a name="obtaining-your-shipping-location"></a>Obtention de votre emplacement d’expédition
-Avant de créer un travail d’exportation, vous devez obtenir un nom et une adresse d’emplacement d’expédition en appelant l’opération [Get Location](https://portal.azure.com) ou [List Locations](/rest/api/storageimportexport/listlocations). `List Locations` renvoie une liste d’emplacements et leurs adresses postales. Vous pouvez sélectionner un emplacement dans la liste renvoyée et expédier vos disques durs à cette adresse. Vous pouvez également utiliser l’opération `Get Location` pour obtenir directement l’adresse d’expédition relative à un emplacement spécifique.
+Avant de créer un travail d’exportation, vous devez obtenir un nom et une adresse d’emplacement d’expédition en appelant l’opération [Get Location](https://portal.azure.com) ou [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` renvoie une liste d’emplacements et leurs adresses postales. Vous pouvez sélectionner un emplacement dans la liste renvoyée et expédier vos disques durs à cette adresse. Vous pouvez également utiliser l’opération `Get Location` pour obtenir directement l’adresse d’expédition relative à un emplacement spécifique.
 
 Suivez les étapes ci-dessous pour obtenir l’emplacement d’expédition :
 

@@ -1,5 +1,5 @@
 ---
-title: Langues et pays/régions pris en charge pour l’API Recherche Web Bing sur Azure | Microsoft Docs
+title: Pays, régions et langues pris en charge par l’API Recherche Web Bing
 description: Découvrez les langues et pays/régions pris en charge par l’API Recherche Web Bing.
 services: cognitive-services
 author: v-jerkin
@@ -7,24 +7,24 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: e1994ddf3bf71d01adeac4ff8688bdd1e6eac660
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 87384a8aeabfe0c4a178344235debcc586cdf3de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001716"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888469"
 ---
-# <a name="bing-web-search-countriesregions-and-languages"></a>Pays/régions et langues de Recherche Web Bing
+# <a name="countries-regions-and-languages-supported-by-the-bing-web-search-api"></a>Pays, régions et langues pris en charge par l’API Recherche Web Bing
 
-L’API Recherche Web Bing prend en charge plus d’une trentaine de pays/régions, dont beaucoup possèdent plusieurs langues. Spécifier un pays/une région avec une requête sert principalement à affiner les résultats de la recherche en fonction des centres d’intérêt dans ce pays/cette région. En outre, les résultats peuvent contenir des liens vers Bing, servant à localiser l’expérience utilisateur de Bing en fonction du pays/de la région ou de la langue spécifiée.
+L’API Recherche Web Bing prend en charge plus d’une trentaine de pays ou régions, dont beaucoup possèdent plusieurs langues. En utilisant une requête pour spécifier un pays ou une région, vous pouvez affiner les résultats de la recherche en fonction des centres d’intérêt dans ce pays ou cette région. Il se peut que les résultats incluent des liens vers Bing qui permettent de localiser l’expérience utilisateur Bing en fonction du pays, de la région ou de la langue spécifié.
 
-Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête `cc`. Si vous spécifiez un pays/une région, vous devez également spécifier un ou plusieurs codes de langue à l’aide de l’en-tête HTTP `Accept-Language`. Les langues prises en charge varient selon le pays/la région ; elles sont indiquées pour chaque pays/région dans le tableau Marchés.
+Vous pouvez spécifier un pays ou une région à l’aide du paramètre de requête `cc`. Lorsqu’un pays ou une région est spécifié, vous devez indiquer un ou plusieurs codes de langue avec l’[`Accept-Language`en-tête](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers). Utilisez le [tableau des marchés](#Markets) pour consulter la liste des langues prises en charge pour chaque marché.
 
-Vous pouvez également indiquer le marché à l’aide du paramètre de requête `mkt` et d’un code issu du tableau **Marchés**. Le fait d’indiquer un marché spécifie simultanément un pays/une région et une langue par défaut. Dans ce cas, le paramètre de requête `setLang` peut être défini sur un code de langue. Généralement, il s’agit de la même langue que celle spécifiée par `mkt`, sauf si l’utilisateur préfère voir Bing dans une autre langue.
+Vous pouvez également indiquer le marché à l’aide du paramètre de requête `mkt` et d’un code issu du tableau **Marchés**. En indiquant un marché, vous renseignez simultanément un pays/une région et une langue prédéfinie. Vous pouvez définir clairement la langue avec le paramètre de requête `setLang`.
 
-## <a name="countries"></a>Pays
+## <a name="countriesregions"></a>Pays/régions
 
 |Pays/région|Code|
 |-------|----|
@@ -39,7 +39,7 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Finlande|FI|
 |France|FR|
 |Allemagne|DE|
-|Hong Kong|HK|
+|Hong Kong (R.A.S.)|HK|
 |Inde|IN|
 |Indonésie|ID|
 |Italie|IT|
@@ -65,7 +65,6 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Royaume-Uni|GB|
 |États-Unis|FR|
 
-
 ## <a name="markets"></a>Marchés
 
 |Pays/région|Langage|Code du marché|
@@ -83,7 +82,7 @@ Vous pouvez également indiquer le marché à l’aide du paramètre de requête
 |Finlande|Finnois|fi-FI|
 |France|Français|fr-FR|
 |Allemagne|Allemand|de-DE|
-|Hong Kong|Chinois traditionnel|zh-HK|
+|Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|
 |Inde|Français|en-IN|
 |Indonésie|Français|en-ID|
 |Italie|Italien|it-IT|

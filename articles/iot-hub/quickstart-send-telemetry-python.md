@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 8c7acbe12c6bfed2066f6edb4ef7358b2180aeb3
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 7d5f2246eec20144a30e0abbc31038bdf04ab2b0
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39212933"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339274"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub et lire les données de télémétrie depuis le concentrateur avec une application back-end (Python)
 
@@ -127,7 +127,7 @@ L’utilitaire CLI `iothub-explorer` se connecte au point de terminaison **Évé
 Dans une autre fenêtre de terminal, exécutez les commandes suivantes en remplaçant `{your hub service connection string}` par la chaîne de connexion de service que vous avez notée précédemment :
 
 ```cmd/sh
-iothub-explorer monitor-events MyPythonDevice --login {your hub service connection string}
+iothub-explorer monitor-events MyPythonDevice --login "{your hub service connection string}"
 ```
 
 La capture d’écran suivante présente la sortie lorsque l’utilitaire reçoit les données de télémétrie envoyées par l’appareil simulé au concentrateur :

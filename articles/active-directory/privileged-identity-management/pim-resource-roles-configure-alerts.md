@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 33bd13421b0c1574475516da942abe4e8c71ed52
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2fa63cf2fa05f2cde4558f0bea38bfd7f17df3ae
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188830"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43342060"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurer des alertes de sécurité pour les rôles de ressources Azure dans PIM
 Privileged Identity Management (PIM) pour les ressources Azure génère des alertes en cas d’activité suspecte ou non sécurisée dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur la page Alertes. 
@@ -53,5 +53,4 @@ Personnalisez les paramètres des différentes alertes pour travailler avec votr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Exiger une authentification multifacteur pour les rôles de ressources Azure dans PIM](pim-resource-roles-require-mfa.md)
 - [Configurer des alertes de sécurité pour les rôles de ressources Azure dans PIM](pim-resource-roles-configure-alerts.md)

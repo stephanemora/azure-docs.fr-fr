@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143646"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286442"
 ---
 # <a name="read-nsg-flow-logs"></a>Lire des journaux de flux NSG
 
 Découvrez comment lire les entrées de journaux de flux de groupe de sécurité réseau avec PowerShell.
 
-Les journaux de flux de groupe de sécurité réseau sont stockés dans un compte de stockage dans de [objets blob de bloc](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Les objets blob de blocs sont composés de blocs plus petits. Chaque journal est un objet blob de blocs séparé généré toutes les heures. Les nouveaux journaux sont créés toutes les heures, les journaux sont mis à jour avec les nouvelles entrées toutes les quelques minutes avec les dernières données. Dans cet article vous allez apprendre à lire une partie des journaux de flux.
+Les journaux de flux de groupe de sécurité réseau sont stockés dans un compte de stockage dans de [objets blob de bloc](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Les objets blob de blocs sont composés de blocs plus petits. Chaque journal est un objet blob de blocs séparé généré toutes les heures. Les nouveaux journaux sont créés toutes les heures, les journaux sont mis à jour avec les nouvelles entrées toutes les quelques minutes avec les dernières données. Dans cet article vous allez apprendre à lire une partie des journaux de flux.
 
 ## <a name="scenario"></a>Scénario
 

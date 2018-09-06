@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: cynthn
-ms.openlocfilehash: be7933b038fb5a648249e9b0c73415bff778930b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 34bfe7733c60337d6ab7d81c498d2fb0fd15e1fd
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012782"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338484"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-using-powershell"></a>Créer une machine virtuelle Windows à partir d’un disque spécialisé à l’aide de PowerShell
 
@@ -47,7 +47,7 @@ Pour plus d’informations, consultez la page relative au [contrôle de version 
 
 ## <a name="option-1-use-an-existing-disk"></a>Option 1 : Utiliser un disque existant
 
-Si vous avez une machine virtuelle que vous avez supprimée et que vous souhaitez réutiliser le disque du système d’exploitation pour créer une machine virtuelle, utilisez [Get-AzureRmDisk](/azure/powershell/get-azurermdisk).
+Si vous avez une machine virtuelle que vous avez supprimée et que vous souhaitez réutiliser le disque du système d’exploitation pour créer une machine virtuelle, utilisez [Get-AzureRmDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermdisk?view=azurermps-6.8.1).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -89,7 +89,7 @@ Si vous devez créer un compte de stockage, procédez comme suit :
     Get-AzureRmResourceGroup
     ```
 
-    Pour créer un groupe de ressources nommé *MyResourceGroup* dans la région *Ouest des États-Unis*, tapez :
+    Pour créer un groupe de ressources nommé *MyResourceGroup* dans la région *USA Ouest*, tapez :
 
     ```powershell
     New-AzureRmResourceGroup `
@@ -258,7 +258,7 @@ $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig `
    -AddressPrefix 10.0.0.0/24
 ```
 
-Créez le réseau virtuel. Cet exemple définit le nom de réseau virtuel sur **myVnetName**, l’emplacement sur **West US** et le préfixe d’adresse du réseau virtuel sur **10.0.0.0/16**. 
+Créez le réseau virtuel. Cet exemple définit le nom de réseau virtuel sur **myVnetName**, l’emplacement sur **USA Ouest** et le préfixe d’adresse du réseau virtuel sur **10.0.0.0/16**. 
    
 ```powershell
 $vnetName = "myVnetName"

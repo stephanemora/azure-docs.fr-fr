@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 9466f4178047a4927684a1fcfd80f661ea4aa7a5
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 523746153aa39f50d5c54c97a4f74352de04c27f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127700"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288036"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Génération et transfert de clés HSM protégées pour Azure clé de coffre
 
@@ -491,7 +491,7 @@ Utilisez une clé USB ou un autre dispositif de stockage portable pour copier le
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Étape 5 : Transférez votre clé vers le coffre de clés Azure
 
-Pour l’opération finale, sur la station de travail connectée à Internet, utilisez l’applet de commande [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) pour télécharger le package de transfert de clé copié à partir de la station de travail de la station de travail non connectée vers le module de sécurité matériel (HSM) d’Azure Key Vault :
+Pour l’opération finale, sur la station de travail connectée à Internet, utilisez l’applet de commande [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-add-azurekeyvaultkey) pour télécharger le package de transfert de clé copié à partir de la station de travail de la station de travail non connectée vers le module de sécurité matériel (HSM) d’Azure Key Vault :
 
    ```powershell
         Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'

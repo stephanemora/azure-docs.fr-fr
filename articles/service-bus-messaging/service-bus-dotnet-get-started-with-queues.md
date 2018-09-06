@@ -3,7 +3,7 @@ title: Prise en main des files d’attente Azure Service Bus | Microsoft Docs
 description: Écrire une application console C# qui utilise les files d’attente de messagerie Service Bus.
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/7/2017
-ms.author: sethm
-ms.openlocfilehash: 6af7e4d238c10c0fed3443db58644e3557525993
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: d75d1937ca0450f3eedd2c5ba4e91caf3b473a9b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308363"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698008"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
 
@@ -408,7 +408,7 @@ Pour recevoir les messages que vous venez d’envoyer, créez une autre applicat
    
     ![Longueur de la file d’attente][queue-message-receive]
 
-Félicitations ! Vous avez maintenant créé une file d’attente, envoyé un ensemble de messages à cette dernière et reçu ces messages de la même file d’attente.
+Félicitations ! Vous avez maintenant créé une file d’attente, envoyé un ensemble de messages à cette dernière et reçu ces messages de la même file d’attente.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

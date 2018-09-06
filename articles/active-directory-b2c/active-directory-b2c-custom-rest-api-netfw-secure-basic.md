@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 02dfec1ff572f846463b27a2ca0d91916fbee5ae
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f157602ce3a9c5b6f15a03ad816d8aece4e22805
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444903"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339165"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Sécuriser vos services RESTful à l’aide de l’authentification de base HTTP
 
@@ -326,7 +326,7 @@ Une fois que votre service RESTful est protégé par l’ID client (nom d’util
       "exp": 1507125903,
       "nbf": 1507122303,
       "ver": "1.0",
-      "iss": "https://login.microsoftonline.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+      "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
       "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
       "acr": "b2c_1a_signup_signin",
       "nonce": "defaultNonce",

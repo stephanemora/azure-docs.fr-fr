@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 62d821894521c5dea8e7577b75d9590adc829263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b32e9628b80705a99a2a8cf77534ed37a47515c8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212413"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669094"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509
 Cet article vous explique comment sécuriser la communication entre les différents nœuds de votre cluster Windows autonome. Il décrit également comment authentifier les clients qui se connectent à ce cluster à l’aide de certificats X.509. L’authentification garantit que seuls les utilisateurs autorisés peuvent accéder au cluster et aux applications déployées, et effectuer des tâches de gestion. La sécurité par certificat doit être activée sur le cluster lors de sa création.  
@@ -354,7 +354,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-Vous pouvez ensuite exécuter d’autres commandes PowerShell pour travailler avec ce cluster. Par exemple, vous pouvez exécuter [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode.md?view=azureservicefabricps) pour afficher la liste des nœuds sur ce cluster sécurisé.
+Vous pouvez ensuite exécuter d’autres commandes PowerShell pour travailler avec ce cluster. Par exemple, vous pouvez exécuter [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) pour afficher la liste des nœuds sur ce cluster sécurisé.
 
 
 Pour supprimer le cluster, connectez-vous au nœud du cluster dans lequel vous avez téléchargé le package Service Fabric, ouvrez une ligne de commande et accédez au dossier du package. Exécutez à présent la commande suivante :

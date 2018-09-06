@@ -3,7 +3,7 @@ title: Bibliothèques de gestion Azure Service Bus | Microsoft Docs
 description: Gérez les espaces de noms et les entités de messagerie Service Bus à partir de .NET.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 7946958bec8b2f444155b5a9701f1f7401fe4f3c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: a959687fbf6e296cab7e0d8ca49ae97a005622cf
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120894"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696573"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliothèques de gestion Service Bus
 
@@ -76,7 +76,7 @@ Le modèle pour manipuler une ressource Service Bus quelconque suit un protocole
    await sbClient.Queues.CreateOrUpdateAsync(resourceGroupName, namespaceName, QueueName, queueParams);
    ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Exemple de gestion .NET](https://github.com/Azure-Samples/service-bus-dotnet-management/)
 * [Informations de référence sur l’API Microsoft.Azure.Management.ServiceBus](/dotnet/api/Microsoft.Azure.Management.ServiceBus)

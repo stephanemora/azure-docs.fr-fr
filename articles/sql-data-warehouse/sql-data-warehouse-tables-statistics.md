@@ -3,19 +3,19 @@ title: Création, mise à jour de statistiques - Azure SQL Data Warehouse | Micr
 description: Recommandations et exemples pour la création et la mise à jour de statistiques d’optimisation des requêtes sur des tables dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 778da6d244561d87e7070ab244fd92dba043488e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 1a7ea00e8bdf4fa1a22dd765e5108dce72e2d380
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140476"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307460"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Création, mise à jour de statistiques sur des tables dans Azure SQL Data Warehouse
 Recommandations et exemples pour la création et la mise à jour de statistiques d’optimisation des requêtes sur des tables dans Azure SQL Data Warehouse.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089908"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382686"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
@@ -91,5 +91,5 @@ Une fois que vous avez ajouté le nouveau client à Azure Stack, ou que le locat
 ## <a name="next-steps"></a>Étapes suivantes
 
  - Pour consulter les messages d’erreur s’ils sont déclenchés dans votre processus d’inscription, consultez [Usage and billing error codes](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes) (Code d’erreur d’utilisation et de facturation).
- - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Usage and billing in Azure Stack](/azure-stack-billing-and-chargeback.md) (Utilisation et facturation dans Azure Stack).
+ - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Usage and billing in Azure Stack](azure-stack-billing-and-chargeback.md) (Utilisation et facturation dans Azure Stack).
  - Pour vérifier comment un client final peut vous ajouter, en tant que fournisseur de services cloud, en tant que responsable pour son locataire Azure Stack, consultez [Enable a Cloud Service Provider to manage your Azure Stack subscription](user\azure-stack-csp-enable-billing-usage-tracking.md) (Autoriser un fournisseur de services cloud pour gérer votre abonnement Azure Stack).

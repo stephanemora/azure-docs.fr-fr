@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: sethm
-ms.openlocfilehash: 4789da3c84d52b2615bf4250a36093a74154e1d4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28199030"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702059"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferts, verrouillages et règlement des messages
 
@@ -122,7 +122,7 @@ Si une opération **Complete** échoue, ce qui arrive généralement à la fin d
 
 Le mécanisme standard permettant d’identifier les remises de messages dupliqués consiste à vérifier l’ID du message (message-id). Cet identificateur doit être défini par l’expéditeur à une valeur unique, éventuellement en lien avec un identificateur du processus initial. Un planificateur de travaux préfère généralement définir l’ID du message sur l’identificateur du travail qu’il essaie d’assigner à un processus Worker avec le processus Worker donné. De cette façon, le processus Worker ignore la deuxième occurrence de l’assignation du travail si ce travail est déjà fait.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

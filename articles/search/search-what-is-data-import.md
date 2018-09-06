@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: 6c3756e721847a8cb746f5dc755ccd90bfebe9f0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b518d86d5cb08f85beecd4afe30efc9e4f70e1f7
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008272"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371466"
 ---
 # <a name="indexing-in-azure-search"></a>Indexation dans Recherche Azure
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Les indexeurs connectent un index à une source de données (généralement une 
 
 ### <a name="how-to-pull-data-into-an-azure-search-index"></a>Comment extraire des données dans un index Recherche Azure
 
-La fonctionnalité de l’indexeur est exposée dans le [Portail Azure](search-import-data-portal.md), ainsi que dans [l’API REST](/rest/api/searchservice/Indexer-operations) et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.indexersoperations). 
+La fonctionnalité de l’indexeur est exposée dans le [Portail Azure](search-import-data-portal.md), ainsi que dans [l’API REST](/rest/api/searchservice/Indexer-operations) et le [Kit de développement logiciel (SDK) .NET](/dotnet/api/microsoft.azure.search.indexersoperationsextensions). 
 
 L’avantage du portail est qu’Azure Search peut générer un schéma d’index par défaut pour vous en lisant les métadonnées du jeu de données source. Vous pouvez modifier l’index généré jusqu’à ce que l’index soit traité, après quoi les seules modifications de schéma autorisées sont celles qui ne nécessitent pas la réindexation. Si les modifications que vous souhaitez apporter impactent directement le schéma, vous devez reconstruire l’index. 
 

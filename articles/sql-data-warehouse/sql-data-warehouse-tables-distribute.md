@@ -3,19 +3,19 @@ title: Guide de conception pour les tables distribuées – Azure SQL Data Wareh
 description: Recommandations pour la conception des tables distribuées par hachage et par tourniquet dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 99a063abb3edea75b14fbcf67a889c5ba435daf3
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 6b6d6dd5f000c4295ffdf64f7d2f1ece4f625678
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258046"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307515"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Guide de conception des tables distribuées dans Azure SQL Data Warehouse
 Recommandations pour la conception des tables distribuées par hachage et par tourniquet dans Azure SQL Data Warehouse.

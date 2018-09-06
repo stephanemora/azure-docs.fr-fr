@@ -2,18 +2,18 @@
 title: Protection des applications Azure Service Bus contre les pannes et les sinistres | Microsoft Docs
 description: Techniques permettant de protéger les applications contre une panne Service Bus potentielle.
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 06/14/2018
-ms.author: sethm
-ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: spelluru
+ms.openlocfilehash: 5401d43f11c8afc02f48dd643fd4ff2f9611e06e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301714"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696715"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Meilleures pratiques pour protéger les applications contre les pannes de Service Bus et les sinistres
 
@@ -78,7 +78,7 @@ L’exemple [Géo-réplication avec la messagerie répartie de Service Bus][Geo-
 
 Service Bus prend en charge la géorécupération d’urgence et la géoréplication au niveau de l’espace de noms. Pour plus d’informations, consultez [Géorécupération d’urgence Azure Service Bus](service-bus-geo-dr.md). La fonctionnalité de récupération d’urgence, disponible pour la [référence SKU Premium](service-bus-premium-messaging.md) uniquement, implémente la récupération d’urgence des métadonnées, en s’appuyant sur les espaces de noms de récupération d’urgence principal et secondaire.
 
-## <a name="availability-zones-preview"></a>Zones de disponibilité (aperçu)
+## <a name="availability-zones-preview"></a>Zones de disponibilité (préversion)
 
 La référence SKU de Service Bus Premium prend en charge les [zones de disponibilité](../availability-zones/az-overview.md), fournissant des emplacements isolés des défaillances au sein d’une région Azure. 
 

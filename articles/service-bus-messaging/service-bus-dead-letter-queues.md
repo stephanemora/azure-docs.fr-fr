@@ -3,7 +3,7 @@ title: Files d’attente de lettres mortes Service Bus | Microsoft Docs
 description: Vue d’ensemble des files d’attente de lettres mortes Azure Service Bus
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
-ms.author: sethm
-ms.openlocfilehash: a82d70e7bf776bf470d14e7f061774ccbb136316
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: spelluru
+ms.openlocfilehash: fcdda123ff63c0d350945d3e4929d2a39a38fcb3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28925660"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699866"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 
@@ -82,7 +82,7 @@ Les messages seront envoyés à la file d’attente de lettres mortes de transfe
 
 Pour récupérer ces messages de lettres mortes, vous pouvez créer un récepteur à l’aide de la méthode utilitaire [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath).
 
-## <a name="example"></a>Exemple
+## <a name="example"></a>Exemples
 
 L’extrait de code suivant crée un destinataire de message. Dans la boucle de réception de la file d’attente principale, le code récupère le message avec [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), qui demande au service broker de retourner immédiatement les messages disponibles ou de ne retourner aucun résultat. Si le code reçoit un message, il l’abandonne immédiatement, ce qui incrémente le `DeliveryCount`. Une fois que le système déplace le message vers la file d’attente de lettres mortes, la file d’attente principale est vide et la boucle se ferme, car [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) retourne **null**.
 
@@ -103,7 +103,7 @@ while(true)
 }
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur les files d’attente de lettres mortes Service Bus, consultez les articles suivants :
 

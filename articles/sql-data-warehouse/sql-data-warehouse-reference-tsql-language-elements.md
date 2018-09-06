@@ -2,19 +2,20 @@
 title: Éléments de langage T-SQL - Azure SQL Data Warehouse | Microsoft Docs
 description: Liens vers la documentation des instructions T-SQL prises en charge dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 06/13/2018
+ms.author: mausher
 ms.reviewer: igorstan
-ms.openlocfilehash: bd7665798e5bf26c0e538deb713ef9696c84338c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d40861650f479f8ef840c5150b2153f461871331
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43311001"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Éléments de langage T-SQL pris en charge dans Azure SQL Data Warehouse
 Liens vers la documentation des éléments de langage T-SQL pris en charge dans Azure SQL Data Warehouse.
@@ -80,7 +81,7 @@ Liens vers la documentation des éléments de langage T-SQL pris en charge dans 
 * [|= (Opérateur OR EQUALS au niveau du bit)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [&amp;= (Opérateur AND EQUALS au niveau du bit)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Fonctions
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)

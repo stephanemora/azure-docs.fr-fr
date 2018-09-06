@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21b1e69573d2ddd31979e6c23dd7f3bd130cadbe
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3ba02e7760d7400b5168a902415f16c4b276b3a7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798014"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287951"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Concepts clés et modèle de ressource hiérarchiques Azure Cosmos DB
 
@@ -30,12 +30,6 @@ Cet article répond aux questions suivantes :
 * Comment adresser une ressource ?
 * Comment travailler avec des collections ?
 * Comment utiliser les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur ?
-
-Dans la vidéo suivante, le responsable du programme Azure Cosmos DB, Andrew Liu, vous guide dans la découverte du modèle de ressource Azure Cosmos DB. 
-
-> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
->
->
 
 ## <a name="hierarchical-resource-model"></a>Modèle de ressource hiérarchique
 Comme l’illustre le schéma suivant, le **modèle de ressource** hiérarchique d’Azure Cosmos DB regroupe des ensembles de ressources dans un compte de base de données, chacun d’eux étant adressable par le biais d’un URI stable et logique. Dans cet article, les ensembles de ressources sont désignés sous le nom de **flux**. 

@@ -1,23 +1,26 @@
 ---
 title: Utiliser Terraform pour créer un groupe de machines virtuelles Azure identiques à partir d’une image Packer personnalisée
 description: Utilisez Terraform pour effectuer la configuration et gérer les versions d’un groupe de machines virtuelles Azure identiques à partir d’une image personnalisée générée par Packer (comprenant un réseau virtuel et des disques attachés gérés).
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, groupe de machines virtuelles identiques, machine virtuelle, réseau, stockage, modules images personnalisées, packer
-author: VaijanathB
+author: tomarcher
+manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/29/2017
-ms.topic: article
-ms.openlocfilehash: 284eae93de36986e41ba80f98f86495d8f34f57b
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9e999ba8a36edd990bbab4648d9d4d98e3301153
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23655391"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668629"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Utiliser Terraform pour créer un groupe de machines virtuelles Azure identiques à partir d’une image Packer personnalisée
 
 Dans ce didacticiel, vous allez utiliser [Terraform](https://www.terraform.io/) pour créer et déployer un [groupe de machines virtuelles Azure identiques](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview), créé avec une image personnalisée générée à l’aide de [Packer](https://www.packer.io/intro/index.html) et comprenant des disques gérés qui utilisent le [langage de configuration Hashicorp](https://www.terraform.io/docs/configuration/syntax.html) (HCL).  
 
-Ce didacticiel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Configurer votre déploiement Terraform

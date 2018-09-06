@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3ee1f394536061cecaa5d775650149b30098560e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600219"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382043"
 ---
 # <a name="add-custom-html-to-the-map"></a>Ajouter du code HTML personnalisé à une carte
 
@@ -29,13 +29,13 @@ Dans le code ci-dessus, le premier bloc de code construit un objet de carte. Vou
 
 Le deuxième bloc de code crée un élément HTML à partir d’une image.
 
-Le dernier bloc de code utilise la fonction [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml) de la classe map pour ajouter l’image à la position spécifiée de la carte.
+Le dernier bloc de code utilise la fonction [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml) de la classe map pour ajouter l’image à la position spécifiée de la carte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les classes et les méthodes utilisées dans cet article : 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addhtml)
+* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
     
 Pour consulter plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants : 
 * [Afficher les résultats de la recherche](./map-search-location.md)

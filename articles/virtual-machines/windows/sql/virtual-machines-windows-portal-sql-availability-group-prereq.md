@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: f2a0af65af068f3a78a08e46e0e42caefd87d7b1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322894"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371483"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Remplir les conditions préalables pour la création de groupes de disponibilité AlwaysOn sur des machines virtuelles Azure
 
@@ -39,7 +39,7 @@ Ce didacticiel suppose que vous avez des notions de base sur les groupes de disp
 
 
 ## <a name="create-an-azure-account"></a>Création d'un compte Azure
-Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](/pricing/free-trial/?WT.mc_id=A261C142F) ou [activer les avantages de l’abonnement à Visual Studio](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+Vous avez besoin d’un compte Azure. Vous pouvez [ouvrir un compte Azure gratuit](https://signup.azure.com/signup?offer=ms-azr-0044p&appId=102&ref=azureplat-generic&redirectURL=https:%2F%2Fazure.microsoft.com%2Fget-started%2Fwelcome-to-azure%2F&correlationId=24f9d452-1909-40d7-b609-2245aa7351a6&l=en-US) ou [activer les avantages de l’abonnement à Visual Studio](https://docs.microsoft.com/visualstudio/subscriptions/subscriber-benefits).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 1. Connectez-vous au [Portail Azure](http://portal.azure.com).

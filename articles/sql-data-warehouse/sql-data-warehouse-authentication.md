@@ -3,19 +3,19 @@ title: S’authentifier sur Azure SQL Data Warehouse | Microsoft Docs
 description: Découvrez comment vous authentifier sur Azure SQL Data Warehouse à l’aide d’Azure Active Directory (AAD) ou de l’authentification SQL Server.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/12/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 173bc797cb6436decddb68aaf1599ea7a6dd597e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d082ba8bd2819450609a8a6e4ab41b4320158d4b
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793577"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43311129"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>S’authentifier sur Azure SQL Data Warehouse
 Découvrez comment vous authentifier sur Azure SQL Data Warehouse à l’aide d’Azure Active Directory (AAD) ou de l’authentification SQL Server.
@@ -54,7 +54,7 @@ Les avantages d’Azure Active Directory incluent :
 * Permet la rotation de mot de passe à un emplacement unique
 * Gérer les autorisations de base de données à l’aide de groupes (AAD) externes.
 * Élimine le stockage des mots de passe en activant l’authentification intégrée Windows et les autres formes d’authentification prises en charge par Azure Active Directory.
-* Utilise les utilisateurs de base de données à relation contenant-contenu pour authentifier les identités au niveau de la base de données.
+* Utilise les utilisateurs de base de données autonome pour authentifier les identités au niveau de la base de données.
 * Prend en charge l’authentification basée sur les jetons pour les applications se connectant à SQL Data Warehouse.
 * Prend en charge Multi-Factor Authentication avec l’authentification universelle Active Directory pour SQL Server Management Studio. Pour obtenir une description de Multi-Factor Authentication, consultez [Prise en charge SSMS de Azure AD MFA avec la base de données SQL et SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
@@ -70,7 +70,7 @@ Suivez ces étapes pour configurer l’authentification Azure Active Directory.
 2. Facultatif : associer ou modifier le répertoire actif actuellement associé à votre abonnement Azure
 3. Créer un administrateur Azure Active Directory pour Azure SQL Data Warehouse
 4. Configurer vos ordinateurs clients
-5. Créer des utilisateurs de base de données à relation contenant-contenu dans votre base de données mappés sur les identités Azure AD
+5. Créer des utilisateurs de base de données autonome dans votre base de données mappés sur les identités Azure AD
 6. Se connecter à l’entrepôt de données à l’aide des identités Azure AD
 
 Actuellement, les utilisateurs Azure Active Directory ne sont pas affichés dans l’Explorateur d’objets SSDT. Comme solution de contournement, vous pouvez afficher les utilisateurs dans [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
@@ -85,5 +85,5 @@ Pour commencer à interroger votre entrepôt de données avec Visual Studio et d
 <!-- Article references -->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
+[What is Azure Active Directory]:../active-directory/fundamentals/active-directory-whatis.md
 [Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations

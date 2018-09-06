@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 0f10384e7e21d65b3a16869a10f8294b9643c74c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705681"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340591"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Créer et gérer une passerelle VPN avec le module Azure PowerShell
 
@@ -66,7 +66,7 @@ $GwIPConf1   = "gwipconf1"
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources
 
-Créez un groupe de ressources avec la commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Vous devez d’abord créer un groupe de ressources. Dans l’exemple suivant, un groupe de ressources nommé *TestRG1* est créé dans la région *Est des États-Unis* :
+Créez un groupe de ressources avec la commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Vous devez d’abord créer un groupe de ressources. Dans l’exemple suivant, un groupe de ressources nommé *TestRG1* est créé dans la région *USA Est* :
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
@@ -145,7 +145,7 @@ Pour plus d’informations, consultez [Réinitialiser une passerelle VPN](vpn-ga
 
 ## <a name="get-the-gateway-public-ip-address"></a>Obtenir l’adresse IP publique de la passerelle
 
-Si vous connaissez le nom de l’adresse IP publique, utilisez [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Reset-AzureRmPublicIpAddress) pour afficher l’adresse IP publique affectée à la passerelle.
+Si vous connaissez le nom de l’adresse IP publique, utilisez [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-6.8.1) pour afficher l’adresse IP publique affectée à la passerelle.
 
 ```azurepowershell-interactive
 $myGwIp = Get-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1

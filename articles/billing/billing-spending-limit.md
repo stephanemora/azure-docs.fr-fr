@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/15/2018
 ms.author: genli
-ms.openlocfilehash: 6049e3614b63bfabee6721dcaa83008eb3306493
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069980"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670089"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendre la limite de dépense d’Azure et comment la désactiver
 
@@ -48,8 +48,7 @@ Vous pouvez supprimer la limite de dépense à tout moment, pour autant qu’un 
 Pour supprimer votre limite de dépense, procédez comme suit :
 
 1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/Subscriptions).
-1. Sélectionnez un abonnement.
-. Si l’abonnement est désactivé parce que la limite de dépense a été atteinte, cliquez sur la notification suivante : « L’abonnement a atteint la limite de dépense et a été désactivé pour empêcher les frais. » Autrement, cliquez sur **Supprimer la limite de dépense** dans la zone **ÉTAT DE L’ABONNEMENT**.
+1. Sélectionnez un abonnement. Si l’abonnement est désactivé parce que la limite de dépense a été atteinte, cliquez sur la notification suivante : « L’abonnement a atteint la limite de dépense et a été désactivé pour empêcher les frais. » Autrement, cliquez sur **Supprimer la limite de dépense** dans la zone **ÉTAT DE L’ABONNEMENT**.
 1. Sélectionnez une option adaptée à votre situation.
 
 ![Sélection d’une option de suppression de la limite de dépense](./media/billing-spending-limit/remove-spending-limit.PNG)

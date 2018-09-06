@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af7d4253b4e631295f8c04c96601e932595af9c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044728"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697762"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Guide pratique pour créer et configurer le runtime d’intégration autohébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Vue d’ensemble du runtime d’intégration](concepts-integration-runtime.md).
@@ -219,7 +219,7 @@ Au niveau du **pare-feu d’entreprise**, vous devez configurer les domaines et 
 
 Noms de domaine | Ports | Description
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443, 80 | Utilisé pour la communication avec le serveur principal du service Déplacement des données
+*.servicebus.windows.net | 443 | Utilisé pour la communication avec le serveur principal du service Déplacement des données
 *.core.windows.net | 443 | Utilisé pour une copie intermédiaire à l’aide d’objets Blob Azure (si configuré)
 *.frontend.clouddatahub.net | 443 | Utilisé pour la communication avec le serveur principal du service Déplacement des données
 download.microsoft.com | 443 | Utilisé pour télécharger les mises à jour

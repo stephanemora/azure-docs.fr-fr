@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0f8568dd67dd292ccca3972a402a110cd4a46fb
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580272"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344874"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 et flux Pour le compte de OAuth 2.0
 Le flux Pour le compte de OAuth 2.0 sert quand une application appelle un service/API web, qui à son tour doit appeler un autre service/API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. Pour que le service de niveau intermédiaire puisse faire des demandes authentifiées au service en aval, il doit sécuriser un jeton d’accès d’Azure Active Directory (Azure AD) pour le compte de l’utilisateur.
@@ -40,7 +40,7 @@ Supposons que l’utilisateur a été authentifié sur une application à l’ai
 
 Les étapes qui suivent constituent le flux Pour le compte de et sont décrites à l’aide du diagramme suivant.
 
-![Flux Pour le compte de OAuth 2.0](/media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![Flux Pour le compte de OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
 1. L’application cliente fait une demande à l’API A avec le jeton A (avec une revendication d’API A `aud`).

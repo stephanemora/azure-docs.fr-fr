@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a112e2f201109b71b7bab1c2b344ec4fcf2a851c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ff023812acd5e30bfec34254379431b3e620dac9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627642"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781840"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : limitations actuelles
 
@@ -47,7 +47,7 @@ Les scénarios suivants ne sont _pas_ pris en charge :
 - L’authentification directe n’est pas intégrée à [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->Comme solution de contournement _uniquement_ pour les scénarios non pris en charge (à l’exception de l’intégration d’Azure AD Connect Health), activez la synchronisation de hachage du mot de passe dans la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) de l’Assistant Azure AD Connect. Quand des utilisateurs se connectent à des applications répertoriées dans la section « Scénarios non pris en charge », ces demandes de connexion spécifiques _ne sont pas_ traitées par des Agents d’authentification directe et ne sont donc pas enregistrées dans les [Journaux d’authentification directe](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Comme solution de contournement _uniquement_ pour les scénarios non pris en charge (à l’exception de l’intégration d’Azure AD Connect Health), activez la synchronisation de hachage du mot de passe dans la page [Fonctionnalités facultatives](active-directory-aadconnect-get-started-custom.md#optional-features) de l’Assistant Azure AD Connect.
 
 >[!NOTE]
 L’activation de la synchronisation de hachage du mot de passe vous donne la possibilité de basculer l’authentification en cas d’interruption de votre infrastructure locale. Ce basculement de l’authentification directe vers la synchronisation de hachage du mot de passe n’est pas automatique. Vous devrez basculer la méthode de connexion manuellement avec Azure AD Connect. Si le serveur exécutant Azure AD Connect tombe en panne, vous devrez demander de l’aide au Support Microsoft pour désactiver l’authentification directe.

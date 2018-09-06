@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4cfd11499efb5978359fd98204271477c52491b5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 519f13d668f09fb2d83e8f64767e195e2544fc1e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621988"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343284"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurer le flux des informations d’identification par mot de passe du propriétaire de ressource dans Azure AD B2C
 
@@ -46,7 +46,7 @@ Les flux suivants ne sont pas pris en charge :
 
    Vous voyez ensuite un point de terminaison comme cet exemple :
 
-   `https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>Inscrire une application
@@ -64,7 +64,7 @@ Utilisez votre application de développement d’API favorite pour générer un 
 - Remplacez *\<B2C_1A_ROPC_Auth>* par le nom complet de votre stratégie d’informations d’identification de mot de passe du propriétaire de ressource.
 - Remplacez *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* par l’ID d’application issu de votre inscription.
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Clé | Valeur |
 | --- | ----- |
@@ -81,7 +81,7 @@ La requête POST réelle ressemble à la suivante :
 
 ```
 POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
-Host: login.microsoftonline.com
+Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -104,7 +104,7 @@ Une réponse correcte avec accès hors connexion ressemble à l’exemple suivan
 
 Construisez un appel POST comme celui figurant ici, avec les informations contenues dans le tableau suivant en tant que corps de la requête :
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Clé | Valeur |
 | --- | ----- |

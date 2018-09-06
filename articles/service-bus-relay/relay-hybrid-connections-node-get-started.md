@@ -3,7 +3,7 @@ title: Bien démarrer avec les WebSockets de connexions hybrides Azure Relay dan
 description: Écrire une application console Node.js pour des WebSockets de connexions hybrides Azure Relay
 services: service-bus-relay
 documentationcenter: node
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: e44e4867-3cf3-46be-8f8a-7671e2013bc4
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: sethm
-ms.openlocfilehash: 1e0b76b96029e1a7ed84f1c8cd895090e8acbc6f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: 25e9095561f72583bad86aa96b64a412e0983ab6
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38671000"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702355"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-node"></a>Bien démarrer avec les WebSockets de connexions hybrides Relay dans Node
 

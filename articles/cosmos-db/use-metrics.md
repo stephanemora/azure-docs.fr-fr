@@ -11,21 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e4bc8af7533b3d18f9e04f431d6c9f97e0982ae5
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858661"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286667"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Surveillance et débogage à l’aide de métriques dans Azure Cosmos DB
 
 Azure Cosmos DB fournit des métriques concernant le débit, le stockage, la cohérence, la disponibilité et la latence. Le [portail Azure](https://portal.azure.com) fournit une vue agrégée de ces métriques. Pour obtenir une vue détaillée des métriques, consultez le SDK du client et les [journaux de diagnostic](./logging.md).
-
-Pour obtenir une vue d’ensemble des nouvelles métriques et savoir comment trouver les partitions les plus utilisées de votre base de données, regardez la vidéo Azure Friday suivante :
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Cosmos-DB-Get-the-Most-Out-of-Provisioned-Throughput/player]
-> 
 
 Cet article explique des cas d’utilisation courants et montre comment utiliser les métriques d’Azure Cosmos DB pour analyser et déboguer ces problèmes. Les métriques sont collectées toutes les cinq minutes et sont conservées pendant sept jours.
 

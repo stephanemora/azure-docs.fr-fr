@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ee341fd3b54d748849da34cd11db30e5ea758fb1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b00eb1b2d25187dc50be53425ebae347edde33b4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445265"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344809"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C : Connexion à une application à page unique en utilisant un flux implicite OAuth 2.0
 
@@ -46,7 +46,7 @@ Dans cette demande, le client indique dans le paramètre `scope` les autorisatio
 
 ### <a name="use-a-sign-in-policy"></a>Utilisation d’une stratégie de connexion
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -59,7 +59,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-a-sign-up-policy"></a>Utilisation d’une stratégie d’inscription
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -72,7 +72,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-an-edit-profile-policy"></a>Utilisation d’une stratégie de modification de profil
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -144,11 +144,11 @@ Il existe de nombreuses bibliothèques open source pour valider les jetons JWT e
 
 Azure AD B2C a un point de terminaison des métadonnées OpenID Connect. Une application peut utiliser le point de terminaison pour extraire des informations sur Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Il existe un document de métadonnées JSON pour chaque stratégie dans votre locataire Azure AD B2C. Par exemple, le document de métadonnées pour la stratégie b2c_1_sign_in dans le locataire fabrikamb2c.onmicrosoft.com se trouve ici :
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 Une des propriétés de ce document de configuration est `jwks_uri`. La valeur de la même stratégie serait :
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
 Pour déterminer la stratégie utilisée pour signer un jeton d’ID (et l’emplacement d’où extraire les métadonnées), deux options sont possibles. D’abord, le nom de la stratégie est inclus dans la revendication `acr` de `id_token`. Pour plus d’informations sur la façon d’analyser les revendications à partir d’un jeton d’ID, consultez [Informations de référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md). L’autre option consiste à coder la stratégie dans la valeur du paramètre `state` lors de l’émission de la demande. puis de décoder le paramètre `state` pour déterminer quelle stratégie a été utilisée. Les 2 méthodes sont valides.
 
@@ -180,7 +180,7 @@ Dans le flux d’une application web standard, vous faites cela en effectuant un
 
 ```
 
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -254,7 +254,7 @@ Lorsque vous souhaitez déconnecter l’utilisateur de l’application, redirige
 Vous pouvez simplement rediriger l’utilisateur vers le `end_session_endpoint` qui est répertorié dans le même document de métadonnées OpenID Connect décrit dans [Validation du jeton d’ID](#validate-the-id-token). Par exemple : 
 
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```

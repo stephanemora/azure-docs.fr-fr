@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: 6e1f6177ccacf24955763982189bcdb1ef69c788
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: e8e5cfe4774334b470de2fbba00760126db71ddc
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28196766"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696851"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiration des messages (durée de vie)
 
@@ -55,7 +55,7 @@ Vous activez la fonctionnalité à l’aide de la propriété [autoDeleteOnIdle]
 La propriété **autoDeleteOnIdle** doit être définie par le biais d’une opération Azure Resource Manager ou des API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) du client .NET Framework. Elle ne peut pas être définie dans le portail.
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

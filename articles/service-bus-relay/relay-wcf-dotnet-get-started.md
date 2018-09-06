@@ -3,7 +3,7 @@ title: Prise en main des relais WCF Azure Relay dans .NET | Microsoft Docs
 description: Découvrez comment utiliser les relais WCF Azure Relay pour connecter deux applications hébergées à des emplacements différents.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
-ms.author: sethm
-ms.openlocfilehash: face684190456fbf4b78a84ac3afe7a4ead8995a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: b9701eae026522238424a21ae3ecf2baa40334fa
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697890"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701763"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Comment utiliser les relais WCF Azure Relay avec .NET
 Cet article explique comment utiliser le service Azure Relay. Les exemples sont écrits en C# et utilisent l’API WCF (Windows Communication Foundation) avec les extensions contenues dans l’assembly Service Bus. Pour plus d’informations sur Azure Relay, consultez la page [Vue d’ensemble d’Azure Relay](relay-what-is-it.md).

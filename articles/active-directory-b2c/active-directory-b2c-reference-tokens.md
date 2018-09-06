@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309024"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339975"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: références sur les jetons
 
@@ -73,7 +73,7 @@ Les revendications dans les jetons d’ID ne sont pas retournées dans un ordre 
 | NOM | Revendication | Exemple de valeur | Description |
 | --- | --- | --- | --- |
 | Audience |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Une revendication d’audience identifie le destinataire du jeton. Dans Azure AD B2C, l’audience est l’ID attribué à votre application dans le portail d’inscription de l’application. Votre application doit valider cette valeur et rejeter le jeton s’il ne correspond pas. Audience est synonyme de ressource. |
-| Émetteur |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |La revendication identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton. Elle identifie également le répertoire Azure AD dans lequel l’utilisateur a été authentifié. Votre application doit valider la revendication de l’émetteur de manière à s’assurer que le jeton provient bien du point de terminaison Azure Active Directory v2.0. |
+| Émetteur |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |La revendication identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton. Elle identifie également le répertoire Azure AD dans lequel l’utilisateur a été authentifié. Votre application doit valider la revendication de l’émetteur de manière à s’assurer que le jeton provient bien du point de terminaison Azure Active Directory v2.0. |
 | Émis à |`iat` |`1438535543` |Cette revendication est l’heure à laquelle le jeton a été émis, représentée en heure epoch. |
 | Heure d’expiration |`exp` |`1438539443` |Cette revendication d’heure d’expiration est l’heure à laquelle le jeton n’est plus valide, représentée en heure epoch. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. |
 | Pas avant |`nbf` |`1438535543` |Cette revendication est l’heure à laquelle le jeton devient valide, représentée en heure epoch. Cela correspond généralement à l’heure à laquelle le jeton a été émis. Votre application doit utiliser cette revendication pour vérifier la validité de la durée de vie du jeton. |
@@ -120,7 +120,7 @@ La revendication `alg` indique l’algorithme utilisé pour signer le jeton. La 
 Azure AD B2C a un point de terminaison des métadonnées OpenID Connect. Cela permet aux applications d’extraire des informations sur Azure AD B2C lors de l’exécution. Ces informations incluent les points de terminaison, le contenu des jetons et les clés de signature de jetons. Votre répertoire B2C contient un document de métadonnées JSON pour chaque stratégie. Par exemple, le document de métadonnées pour la stratégie `b2c_1_sign_in` dans `fabrikamb2c.onmicrosoft.com` se trouve à l’emplacement suivant :
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
 où `fabrikamb2c.onmicrosoft.com` est le répertoire B2C utilisé pour authentifier l’utilisateur et `b2c_1_sign_in` est la stratégie utilisée pour acquérir le jeton. Afin de déterminer la stratégie utilisée pour signer un jeton (et l’emplacement à partir duquel extraire les métadonnées), deux options sont possibles. Tout d’abord, le nom de la stratégie est inclus dans la revendication `acr` du jeton. Vous pouvez analyser les revendications contenues dans le corps du jeton JWT par le biais d’un décodage base-64 du corps et la désérialisation de la chaîne JSON résultante. La revendication `acr` sera le nom de la stratégie qui a été utilisée pour émettre le jeton.  L'autre option consiste à coder la stratégie dans la valeur du paramètre `state` lors de l'émission de la requête, puis à la décoder pour déterminer la stratégie qui a été utilisée. Les 2 méthodes sont valides.
@@ -128,7 +128,7 @@ où `fabrikamb2c.onmicrosoft.com` est le répertoire B2C utilisé pour authentif
 Le document de métadonnées est un objet JSON qui contient plusieurs informations utiles. Celles-ci incluent l’emplacement des points de terminaison requis pour effectuer l’authentification OpenID Connect. Elles comprennent également un `jwks_uri`qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. Cet emplacement est fourni ici, mais il est préférable d’extraire cet emplacement de manière dynamique à l’aide du document de métadonnées et d’analyser `jwks_uri`:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
 ```
 
 Le document JSON situé à cette URL contient toutes les informations sur les clés publiques utilisées à un moment donné. Votre application peut utiliser les revendications `kid` dans l’en-tête JWT pour sélectionner la clé publique utilisée dans le document JSON pour signer un jeton donné. Elle peut ensuite procéder à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.

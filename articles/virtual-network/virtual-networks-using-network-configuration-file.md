@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: ed47a5d1449ba634f90e93a82f15daf6e44a553e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 57ad5541bb7b61f8d26002168bb069fad3058965
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793859"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339072"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurer un réseau virtuel (Classic) à l’aide d’un fichier config réseau
 > [!IMPORTANT]
@@ -37,7 +37,7 @@ Vous pouvez utiliser PowerShell ou l’interface CLI Azure pour exporter un fic
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Installez Azure PowerShell et connectez-vous à Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Installez Azure PowerShell et connectez-vous à Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. Modifiez le répertoire (et assurez-vous qu’il existe) ainsi que le nom de fichier dans la commande suivante, selon vos besoins, puis exécutez la commande pour exporter le fichier config réseau :
 
     ```powershell
@@ -67,7 +67,7 @@ Un fichier config réseau est un fichier XML (lorsque vous utilisez PowerShell)
 
 ### <a name="example-xml-for-use-with-powershell"></a>Exemple de code XML pour une utilisation avec PowerShell
 
-L’exemple de fichier config réseau suivant crée un réseau virtuel nommé *myVirtualNetwork* avec un espace d’adressage *10.0.0.0/16* dans la région Azure *États-Unis de l’Est*. Le réseau virtuel contient un sous-réseau nommé *mySubnet* avec le préfixe d’adresse *10.0.0.0/24*.
+L’exemple de fichier config réseau suivant crée un réseau virtuel nommé *myVirtualNetwork* avec un espace d’adressage *10.0.0.0/16* dans la région Azure *USA Est*. Le réseau virtuel contient un sous-réseau nommé *mySubnet* avec le préfixe d’adresse *10.0.0.0/24*.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -94,7 +94,7 @@ Si le fichier config réseau que vous avez exporté ne comporte aucun contenu, v
 
 ### <a name="example-json-for-use-with-the-azure-cli-10"></a>Exemple JSON pour une utilisation avec Azure CLI 1.0
 
-L’exemple de fichier config réseau suivant crée un réseau virtuel nommé *myVirtualNetwork* avec un espace d’adressage *10.0.0.0/16* dans la région Azure *États-Unis de l’Est*. Le réseau virtuel contient un sous-réseau nommé *mySubnet* avec le préfixe d’adresse *10.0.0.0/24*.
+L’exemple de fichier config réseau suivant crée un réseau virtuel nommé *myVirtualNetwork* avec un espace d’adressage *10.0.0.0/16* dans la région Azure *USA Est*. Le réseau virtuel contient un sous-réseau nommé *mySubnet* avec le préfixe d’adresse *10.0.0.0/24*.
 
 ```json
 {
@@ -125,7 +125,7 @@ Vous pouvez utiliser PowerShell ou l’interface CLI Azure pour importer un fic
 
 ### <a name="powershell"></a>PowerShell
  
-1. [Installez Azure PowerShell et connectez-vous à Azure](/powershell/azure/install-azure-ps?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. [Installez Azure PowerShell et connectez-vous à Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 2. Modifiez le répertoire ainsi que le nom de fichier dans la commande suivante, selon vos besoins, puis exécutez la commande pour importer le fichier config réseau :
  
     ```powershell

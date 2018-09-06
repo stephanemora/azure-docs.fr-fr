@@ -3,19 +3,19 @@ title: 'Didacticiel : Chargement de données dans Azure SQL Data Warehouse | Mic
 description: Ce tutoriel utilise le portail Azure et SQL Server Management Studio pour charger l’entrepôt de données WideWorldImportersDW depuis un objet blob Azure public vers Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 0b28bb07006ed58a82af80afe42fe472d4878971
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 57803d6b83b71e65064c4ec701ed5b7e7607321f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195360"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286931"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement de données dans Azure SQL Data Warehouse
 
@@ -1089,7 +1089,7 @@ Pour obtenir des performances élevées pour les requêtes, il est important de 
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Vous êtes facturé en fonction des ressources de calcul et des données que vous avez chargées dans votre entrepôt de données. Les deux sont facturés séparément.  
 
@@ -1097,11 +1097,11 @@ Suivez ces étapes pour nettoyer les ressources selon vos besoins.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur votre entrepôt de données.
 
-    ![Supprimer des ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Supprimer les ressources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Si vous voulez conserver les données dans le stockage, vous pouvez suspendre le calcul quand vous n’utilisez pas l’entrepôt de données. Quand vous suspendez le calcul, vous êtes facturé uniquement pour le stockage des données et vous pouvez reprendre le calcul dès que vous voulez utiliser les données. Pour suspendre le calcul, cliquez sur le bouton **Suspendre**. Quand l’entrepôt de données est suspendu, un bouton **Démarrer** s’affiche.  Pour reprendre le calcul, cliquez sur **Démarrer**.
 
-3. Si vous voulez éviter des frais ultérieurs, vous pouvez supprimer l’entrepôt de données. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
+3. Si vous voulez éviter des frais futurs, vous pouvez supprimer l’entrepôt de données. Pour supprimer l’entrepôt de données afin de ne pas être facturé pour le calcul ou le stockage, cliquez sur **Supprimer**.
 
 4. Pour supprimer le serveur SQL que vous avez créé, cliquez sur **sample-svr.database.windows.net** dans l’image précédente, puis sur **Supprimer**.  N’oubliez pas que la suppression du serveur supprime toutes les bases de données attribuées au serveur.
 

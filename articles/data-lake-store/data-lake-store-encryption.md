@@ -4,21 +4,16 @@ description: Le chiffrement dans Azure Data Lake Store vous permet de protéger 
 services: data-lake-store
 documentationcenter: ''
 author: esung22
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 2328f7e233025d9f9ee9113aa28fb74754dd9193
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c3f79348cb5d80639d76ad1a8ba82fcfa56ebed1
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43311068"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Chiffrement des données dans Azure Data Lake Store
 
@@ -113,7 +108,6 @@ Le schéma suivant illustre ces concepts :
 Lorsque vous utilisez des clés gérées par le client, vous pouvez effectuer une rotation de la MEK. Pour savoir comment configurer un compte Data Lake Store avec des clés gérées par le client, consultez [Prise en main](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
 
 ### <a name="prerequisites"></a>Prérequis
-
 
 Lorsque vous avez configuré le compte Data Lake Store, vous avez choisi d’utiliser vos propres clés. Cette option ne peut pas être modifiée une fois le compte créé. Les étapes ci-dessous supposent que vous utilisez des clés gérées par le client (c’est-à-dire que vous avez choisi vos propres clés dans Key Vault).
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856638"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288300"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Comment distribuer des données mondialement avec Azure Cosmos DB
 Avec plus de 50 régions géographiques, Azure est partout et continue de s’étendre. Présente dans le monde entier, l’une des fonctionnalités différenciées qu’Azure offre à ses développeurs est la possibilité de générer, de déployer et de gérer facilement des applications mondialement distribuées. 
@@ -34,11 +34,6 @@ Dans cet article, nous fournissons une vue d’ensemble des fonctionnalités de 
 
 ## <a id="EnableGlobalDistribution"></a>Activation de la distribution mondiale clé en main
 Azure Cosmos DB fournit les fonctionnalités suivantes pour vous permettre d’écrire facilement des applications distribuées mondialement. Ces fonctionnalités sont disponibles par l’intermédiaire des [API REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) basées sur le fournisseur de ressources d’Azure Cosmos DB, ainsi que sur le portail Azure.
-
-Regardez la vidéo suivante pour voir en action la fonctionnalité clé en main de distribution mondiale dans Azure Cosmos DB.
-
-> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
->
 
 ### <a id="RegionalPresence"></a>Omniprésence régionale 
 Azure étend constamment sa présence géographique en ajoutant de [nouvelles régions](https://azure.microsoft.com/regions/) en ligne. Classé comme *service fondamental* dans Azure, Azure Cosmos DB est disponible dans toutes les nouvelles régions Azure par défaut. Cela vous permet d’associer une région géographique à votre compte de base de données Azure Cosmos DB dès qu’Azure ouvre une nouvelle région aux entreprises.

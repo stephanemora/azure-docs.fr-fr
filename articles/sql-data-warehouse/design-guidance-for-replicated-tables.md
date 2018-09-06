@@ -3,25 +3,26 @@ title: Guide de conception pour les tables répliquées - Azure SQL Data Warehou
 description: Recommandations relatives à la conception de tables répliquées dans votre schéma Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/23/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cc796061056ff017e3d778ebb2e50e13d55a4c1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dfbfc61b9088535d6b50a9897b908572d88d6676
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32189562"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302760"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Guide de conception pour l’utilisation de tables répliquées dans Azure SQL Data Warehouse
 Cet article vous fournit des recommandations relatives à la conception de tables répliquées dans votre schéma SQL Data Warehouse. Utilisez ces recommandations pour améliorer les performances des requêtes en réduisant le déplacement de données et la complexité des requêtes.
 
-## <a name="prerequisites"></a>Prérequis
+> [!VIDEO https://www.youtube.com/embed/1VS_F37GI9U]
 
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous êtes familiarisé avec les concepts de distribution et de déplacement des données dans SQL Data Warehouse.  Pour plus d’informations, consultez l’article sur [l’architecture](massively-parallel-processing-mpp-architecture.md). 
 
 Dans le cadre de la conception d’une table, essayez d’en savoir autant que possible sur vos données et la façon dont elles sont interrogées.  Considérez par exemple les questions suivantes :

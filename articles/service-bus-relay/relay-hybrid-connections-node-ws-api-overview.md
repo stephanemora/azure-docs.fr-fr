@@ -3,7 +3,7 @@ title: Vue d’ensemble des API Node Azure Relay | Microsoft Docs
 description: Vue d’ensemble des API Node Relay
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b7d6e822-7c32-4cb5-a4b8-df7d009bdc85
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
-ms.author: sethm
-ms.openlocfilehash: 696e3f77a283cc31d3c8f6007a839480ae8eb984
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: spelluru
+ms.openlocfilehash: bf0173f9c9802be689f7f3a893d381a251a2b16a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019453"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701134"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Vue d’ensemble des API Node pour les connexions hybrides Relay
 
@@ -208,7 +208,7 @@ WebSocket.relayedConnect(
 );
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur Azure Relay, consultez les liens suivants :
 * [Qu’est-ce qu’Azure Relay ?](relay-what-is-it.md)
 * [API Relay disponibles](relay-api-overview.md)

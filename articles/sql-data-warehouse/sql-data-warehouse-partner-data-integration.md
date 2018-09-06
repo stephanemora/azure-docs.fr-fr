@@ -3,19 +3,19 @@ title: Partenaires de SQL Data Warehouse en matière d’intégration de donnée
 description: Répertorie les partenaires tiers proposant des solutions d’intégration de données prenant en charge SQL Data Warehouse.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 1329fe4b30070111354adb87b32be6f694f316c5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d92d230be1ec0e85894a1e9e4d8635aa71afa514
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141283"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307702"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partenaires de SQL Data Warehouse en matière d’intégration de données
 Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des solutions d’intégration de données prenant en charge Azure SQL Data Warehouse.
@@ -74,7 +74,7 @@ Pour plus d’informations sur d’autres partenaires, consultez [Partenaires d�
 <!--Marketplace Links -->
 [alteryx_marketplace]:https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/
 [attunity_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
-<!--[bryte_systems_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/bryte/bryteflow-cdc-free-trial/-->informatica_Cloud_Services_marketplacehttps://azuremarketplace.microsoft.com/marketplace/partners/informatica/informatica-cloud-services//
+<!--[bryte_systems_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/bryte/bryteflow-cdc-free-trial/-->informatica_Cloud_Services_marketplace https://azuremarketplace.microsoft.com/marketplace/partners/informatica/informatica-cloud-services//
 <!--[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
 [informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/-->
 [informatica_PowerCenter_byol]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/informatica.powercenter/

@@ -2,20 +2,20 @@
 title: Démarrage rapide - Envoyer et recevoir des messages depuis et vers Azure Service Bus | Microsoft Docs
 description: Dans ce démarrage rapide, vous apprenez à envoyer et recevoir des messages Service Bus à l’aide de PowerShell et du client .NET Standard
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: b22bf2acc83f46eda1aa74981377e66261d13394
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 5652069e7a81f54936a41ddb563b49fe6131e7e0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660543"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696834"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Démarrage rapide : Envoyer et recevoir des messages à l’aide d’Azure PowerShell et de .NET
 
@@ -31,10 +31,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit][] avant de
 
 Pour suivre ce didacticiel, vérifiez que les éléments suivants sont installés :
 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) ou version ultérieure.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) ou ultérieur.
 - [Kit de développement logiciel (SDK) NET Core](https://www.microsoft.com/net/download/windows), version 2.0 ou ultérieure.
 
-Pour ce démarrage rapide, vous devez disposer de la version la plus récente d’Azure PowerShell. Si vous devez installer ou mettre à niveau, consultez [Installation et configuration d’Azure PowerShell][].
+Pour ce démarrage rapide, vous devez disposer de la version la plus récente d’Azure PowerShell. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation et configuration d’Azure PowerShell][].
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure
 
@@ -115,7 +115,7 @@ Pour exécuter le code, procédez comme suit :
 
    ![sortie du programme](./media/service-bus-quickstart-powershell/dotnet.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Exécutez la commande suivante pour supprimer le groupe de ressources, l’espace de noms et toutes les ressources associées :
 
@@ -123,7 +123,7 @@ Exécutez la commande suivante pour supprimer le groupe de ressources, l’espac
 Remove-AzureRmResourceGroup -Name my-resourcegroup
 ```
 
-## <a name="understand-the-sample-code"></a>Découvrir l’exemple de code
+## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
 Cette section contient plus de détails sur ce que fait l’exemple de code. 
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1716ebf1d3490511d7102c8c756c78c0f0c55291
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652397"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43670039"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considérations relatives à la conception des groupes de machines virtuelles identiques
 Cet article présente les considérations à prendre en compte pour créer des groupes de machines virtuelles identiques. Pour plus d'informations sur les groupes de machines virtuelles identiques, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).
@@ -33,8 +33,8 @@ En règle générale, les groupes identiques sont utiles pour le déploiement d�
 
 - Une fois la configuration du groupe identique spécifiée, vous pouvez mettre à jour la propriété *capacity* pour déployer davantage de machines virtuelles en parallèle. Ce processus est bien mieux que l’écriture d’un script pour orchestrer le déploiement d’un grand nombre de machines virtuelles individuelles en parallèle.
 - Vous pouvez [utiliser la mise à l’échelle automatique d’Azure pour dimensionner automatiquement un groupe identique](./virtual-machine-scale-sets-autoscale-overview.md), mais pas les machines virtuelles individuelles.
-- Vous pouvez [réinitialiser les machines virtuelles des groupes identiques](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm), mais [pas les machines virtuelles individuelles](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- Vous pouvez [sur-approvisionner](./virtual-machine-scale-sets-design-overview.md) les machines virtuelles d’un groupe identique pour une fiabilité accrue et un déploiement plus rapide. Vous ne pouvez pas sur-approvisionner des machines virtuelles individuelles à moins d’écrire un code personnalisé pour effectuer cette opération.
+- Vous pouvez [réinitialiser les machines virtuelles des groupes identiques](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/reimage), mais [pas les machines virtuelles individuelles](https://docs.microsoft.com/rest/api/compute/virtualmachines).
+- Vous pouvez [sur-approvisionner](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#overprovisioning) les machines virtuelles d’un groupe identique pour une fiabilité accrue et un déploiement plus rapide. Vous ne pouvez pas sur-approvisionner des machines virtuelles individuelles à moins d’écrire un code personnalisé pour effectuer cette opération.
 - Vous pouvez spécifier une [stratégie de mise à niveau](./virtual-machine-scale-sets-upgrade-scale-set.md) pour faciliter le déploiement des mises à niveau sur les machines virtuelles de votre groupe identique. Avec des machines virtuelles individuelles, vous devez orchestrer les mises à jour vous-même.
 
 ### <a name="vm-specific-features"></a>Fonctionnalités spécifiques des machines virtuelles

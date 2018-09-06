@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: defc871caed429eeda1f8672323b48a9c0007c8e
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678738"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371735"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Créer une machine virtuelle Windows avec l’applet de commande New-AzureRMVM simplifiée dans Cloud Shell 
 
-L’applet de commande [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) a ajouté un jeu de paramètres simplifié pour la création d’une nouvelle machine virtuelle à l’aide de PowerShell. Cette rubrique explique comment utiliser PowerShell dans Azure Cloud Shell, avec la dernière version de l’applet de commande New-AzureVM préinstallée, pour créer une machine virtuelle. Nous allons utiliser un jeu de paramètres simplifié qui crée automatiquement toutes les ressources nécessaires à l’aide de valeurs par défaut pertinentes. 
+L’applet de commande [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) a ajouté un jeu de paramètres simplifié pour la création d’une nouvelle machine virtuelle à l’aide de PowerShell. Cette rubrique explique comment utiliser PowerShell dans Azure Cloud Shell, avec la dernière version de l’applet de commande New-AzureVM préinstallée, pour créer une machine virtuelle. Nous allons utiliser un jeu de paramètres simplifié qui crée automatiquement toutes les ressources nécessaires à l’aide de valeurs par défaut pertinentes. 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -36,7 +36,7 @@ Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez
 
 ## <a name="create-the-vm"></a>Création de la machine virtuelle
 
-Vous pouvez utiliser l’applet de commande [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) pour créer une machine virtuelle avec les valeurs par défaut, ce qui implique l’utilisation de l’image Windows Server 2016 Datacenter de Place de marché Azure. Vous pouvez utiliser New-AzureRMVM avec le paramètre **-Name** uniquement, et l’applet de commande utilisera cette valeur pour tous les noms de ressources. Dans cet exemple, nous définissons le paramètre **-Name** en tant que *myVM*. 
+Vous pouvez utiliser l’applet de commande [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) pour créer une machine virtuelle avec les valeurs par défaut, ce qui implique l’utilisation de l’image Windows Server 2016 Datacenter de Place de marché Azure. Vous pouvez utiliser New-AzureRMVM avec le paramètre **-Name** uniquement, et l’applet de commande utilisera cette valeur pour tous les noms de ressources. Dans cet exemple, nous définissons le paramètre **-Name** en tant que *myVM*. 
 
 Vérifiez que **PowerShell** est sélectionné dans Cloud Shell et tapez :
 
