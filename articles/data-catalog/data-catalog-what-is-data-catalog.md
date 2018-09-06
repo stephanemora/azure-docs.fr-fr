@@ -1,25 +1,19 @@
 ---
-title: "Introduction à Azure Data Catalog | Microsoft Docs"
-description: "Cet article présente Microsoft Azure Data Catalog, notamment ses fonctionnalités et les problèmes qu’il résoud. Data Catalog permet à n’importe quel utilisateur de s’inscrire, de découvrir, de comprendre et d’utiliser des sources de données."
+title: Présentation d’Azure Data Catalog
+description: Cet article présente Microsoft Azure Data Catalog, notamment ses fonctionnalités et les problèmes qu’il résoud. Data Catalog permet à n’importe quel utilisateur de s’inscrire, de découvrir, de comprendre et d’utiliser des sources de données.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: cc733907-17ec-4153-9f0c-5b3754b2db19
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: edf6e1d8b86d9773b54353bb70f000bcdf40e5ec
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: ba9cce1c63145bea25e657cb690287e1cbf5a4e4
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052819"
 ---
 # <a name="what-is-azure-data-catalog"></a>Qu’est-ce qu’Azure Data Catalog ?
 Azure Data Catalog est un service cloud entièrement géré dont les utilisateurs peuvent détecter les sources de données, et comprendre les sources de données qu’ils recherchent. Dans le même temps, Data Catalog permet aux organisations de mieux exploiter leurs investissements existants. 

@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 08/29/2018
 ms.author: douglasl
-ms.openlocfilehash: 2dab0adb0728a1fb5e8ac9bebe01f861ed8c7c3a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f4a88c5495fc3297699110d8a12a22ff7d6c2bbb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055364"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144352"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-use-custom-activities.md)
+> * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Version actuelle](transform-data-using-dotnet-custom-activity.md)
 
 Vous pouvez utiliser deux types d’activités dans un pipeline Azure Data Factory.
@@ -99,15 +99,19 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 
 | Propriété              | Description                              | Obligatoire |
 | :-------------------- | :--------------------------------------- | :------- |
-| Nom                  | Nom de l’activité dans le pipeline     | OUI      |
+| Nom                  | Nom de l’activité dans le pipeline     | Oui      |
 | description           | Texte décrivant l’activité.  | Non        |
-| Type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | OUI      |
-| linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | OUI      |
-| command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | OUI      |
+| Type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | Oui      |
+| linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | Oui      |
+| command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | Oui      |
 | resourceLinkedService | Le service lié Stockage Azure sur le compte de stockage où l’application personnalisée est stockée. | Non        |
 | folderPath            | Chemin du dossier de l’application personnalisée et de toutes ses dépendances. | Non        |
 | referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non        |
 | extendedProperties    | Propriétés définies par l’utilisateur qui peuvent être passées à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des propriétés supplémentaires. | Non        |
+
+## <a name="custom-activity-permissions"></a>Autorisations d’activité personnalisée
+
+L’activité personnalisée définit le compte d’utilisateur automatique Azure Batch sur *Accès non-administrateur avec étendue de la tâche* (spécification utilisateur automatique par défaut). Vous ne pouvez pas modifier le niveau d’autorisation du compte d’utilisateur automatique. Pour plus d’informations, voir [Exécuter des tâches sous des comptes d’utilisateur dans Azure Batch | Comptes d’utilisateur automatique](../batch/batch-user-accounts.md#auto-user-accounts).
 
 ## <a name="executing-commands"></a>Exécution de commandes
 

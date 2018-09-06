@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 0715f1723f7bb43b0d11e55e8af01202fc8a92be
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d408456373c8124e1a385879852d6198caf0813c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344458"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050188"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Liaisons Azure Cosmos DB pour Azure Functions 1.x
 
@@ -36,6 +36,10 @@ Cet article explique comment utiliser des liaisons [Azure Cosmos DB](..\cosmos-d
 >Cette liaison était nommée à l’origine DocumentDB. Dans Functions version 1.x, seul le déclencheur a été renommé Cosmos DB. La liaison d’entrée, la liaison de sortie et le package NuGet conservent le nom DocumentDB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>API prises en charge
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
@@ -216,10 +220,7 @@ Le déclencheur n’indique pas si un document a été mis à jour ou inséré, 
 
 ## <a name="input"></a>Entrée
 
-La liaison d’entrée Azure Cosmos DB récupère un ou plusieurs documents Azure Cosmos DB et les transmet au paramètre d’entrée de la fonction. L’ID du document ou les paramètres de requête peuvent être déterminés en fonction du déclencheur qui appelle la fonction. 
-
->[!NOTE]
-> N’utilisez pas des liaisons d’entrée ou de sortie Azure Cosmos DB si vous utilisez l’API MongoDB sur un compte Cosmos DB. L’altération des données est une possibilité.
+La liaison d’entrée Azure Cosmos DB utilise l’API SQL pour récupérer un ou plusieurs documents Azure Cosmos DB et les transmet au paramètre d’entrée de la fonction. L’ID du document ou les paramètres de requête peuvent être déterminés en fonction du déclencheur qui appelle la fonction.
 
 ## <a name="input---examples"></a>Entrée - Exemples
 
@@ -1185,10 +1186,7 @@ Dans les fonctions JavaScript, les mises à jour ne sont pas effectuées une foi
 
 ## <a name="output"></a>Sortie
 
-La liaison de sortie Azure Cosmos DB vous permet d’écrire un nouveau document dans une base de données Azure Cosmos DB. 
-
->[!NOTE]
-> N’utilisez pas des liaisons d’entrée ou de sortie Azure Cosmos DB si vous utilisez l’API MongoDB sur un compte Cosmos DB. L’altération des données est une possibilité.
+La liaison de sortie Azure Cosmos DB vous permet d’écrire un nouveau document dans une base de données Azure Cosmos DB en utilisant l’API SQL. 
 
 ## <a name="output---examples"></a>Sortie - exemples
 

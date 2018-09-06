@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628169"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049122"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
@@ -48,26 +48,26 @@ Avant de commencer, vous devez [créer un espace de noms et un hub Event Hubs](.
 
 Consultez également le [Forum aux questions (FAQ) sur Azure Event Hubs](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Comment configurer les données de surveillance des locataires Azure pour qu’elles soient diffusées vers un hub d’événements ?
+## <a name="azure-tenant-monitoring-data"></a>Données de surveillance du locataire Azure
 
 Les données de surveillance des locataires Azure ne sont actuellement disponibles que pour Azure Active Directory. Vous pouvez utiliser les données des [rapports Azure Active Directory](../active-directory/reports-monitoring/overview-reports.md), qui contiennent l’historique des connexions et la piste d’audit des modifications apportées à un locataire particulier.
 
-### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Diffuser les données Azure Active Directory vers un hub d’événements
+### <a name="azure-active-directory-data"></a>Données Azure Active Directory
 
 Pour envoyer des données à partir du journal Azure Active Directory dans un espace de noms Event Hubs, vous configurer un paramètre de diagnostic de locataire sur votre locataire AAD. [Suivez ce guide](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) pour configurer un paramètre de diagnostic de locataire.
 
-## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Comment configurer les données de surveillance d’abonnement Azure pour qu’elles soient diffusées vers un hub d’événements ?
+## <a name="azure-subscription-monitoring-data"></a>Données de surveillance de l’abonnement Azure
 
 Les données de surveillance d’abonnement Azure sont disponibles dans le [journal d’activité Azure](./monitoring-overview-activity-logs.md). Celui-ci contient les opérations de création, de mise à jour et de suppression du Gestionnaire des ressources, les changements d’[intégrité du service Azure](../service-health/service-health-overview.md) qui peuvent influer sur les ressources de votre abonnement, les transitions d’état d’[intégrité des ressources](../service-health/resource-health-overview.md), et plusieurs autres types d’événements au niveau de l’abonnement. [Cet article décrit toutes les catégories d’événements qui s’affichent dans le journal d’activité Azure](./monitoring-activity-log-schema.md).
 
-### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Diffuser les données du journal d’activité Azure vers un hub d’événements
+### <a name="activity-log-data"></a>Données du journal d'activité
 
 Pour envoyer les données du journal d’activité Azure vers un espace de noms Event Hubs, vous devez configurer un profil de journal dans votre abonnement. [Suivez ce guide](./monitoring-stream-activity-logs-event-hubs.md) pour configurer un profil de journal dans votre abonnement. Vous devez effectuer cette configuration pour chaque abonnement que vous souhaitez surveiller.
 
 > [!TIP]
 > Un profil de journal permet uniquement de sélectionner un espace de noms Event Hubs, dans lequel un hub d’événements est créé puis nommé « insights-operational-logs ». Il n’est pas encore possible de spécifier un nom personnalisé pour un hub d’événements dans un profil de journal.
 
-## <a name="how-do-i-set-up-azure-resource-monitoring-data-to-be-streamed-to-an-event-hub"></a>Comment configurer les données de surveillance des ressources Azure pour qu’elles soient diffusées vers un hub d’événements ?
+## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Métriques des ressources et journaux de diagnostic Azure
 
 Les ressources Azure émettent deux types de données de surveillance :
 1. [Journaux de diagnostic des ressources](./monitoring-overview-of-diagnostic-logs.md)
@@ -78,25 +78,25 @@ Ces deux types de données sont envoyés à un hub d’événements à l’aide 
 > [!TIP]
 > Vous pouvez utiliser Azure Policy pour faire en sorte que toutes les ressources de l’étendue spécifiée soient toujours configurées avec un paramètre de diagnostic [à l’aide de l’effet DeployIfNotExists de la règle de stratégie](../azure-policy/policy-definition.md#policy-rule). À l’heure actuelle, DeployIfNotExists est uniquement pris en charge dans les stratégies prédéfinies.
 
-## <a name="how-do-i-set-up-guest-os-monitoring-data-to-be-streamed-to-an-event-hub"></a>Comment configurer les données de surveillance des systèmes d’exploitation invités pour qu’elles soient diffusée vers un hub d’événements ?
+## <a name="guest-os-data"></a>Données du système d’exploitation invité
 
 Pour envoyer les données de surveillance des systèmes d’exploitation invités vers un hub d’événements, vous devez installer un agent. Que ce soit pour Windows ou pour Linux, vous devez spécifier dans un fichier config les données à envoyer au hub d’événements, ainsi que le hub d’événements vers lequel envoyer les données. Ensuite, vous devez passer ce fichier config à l’agent qui est exécuté sur la machine virtuelle.
 
-### <a name="stream-linux-data-to-an-event-hub"></a>Diffuser les données Linux vers un hub d’événements
+### <a name="linux-data"></a>Données Linux
 
 [L’agent de diagnostic Azure pour Linux](../virtual-machines/extensions/diagnostics-linux.md) peut être utilisé pour envoyer les données de surveillance d’une machine Linux vers un hub d’événements. Pour cela, ajoutez le hub d’événements comme récepteur dans les paramètres protégés de votre fichier config LAD. [Consultez cet article pour en savoir plus sur l’ajout du récepteur de hub d’événements à l’agent de diagnostic Azure pour Linux](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > Il n’est pas possible de configurer le streaming des données de surveillance des systèmes d’exploitation invités vers un hub d’événements dans le portail. Au lieu de cela, vous devez modifier manuellement le fichier config.
 
-### <a name="stream-windows-data-to-an-event-hub"></a>Diffuser les données Windows vers un hub d’événements
+### <a name="windows-data"></a>Données Windows
 
 [L’agent de diagnostic Azure pour Windows](./azure-diagnostics.md) peut être utilisé pour envoyer les données de surveillance d’une machine Windows vers un hub d’événements. Pour cela, ajoutez le hub d’événements comme récepteur dans la section privateConfig du fichier config WAD. [Consultez cet article pour en savoir plus sur l’ajout du récepteur de hub d’événements à l’agent de diagnostic Azure pour Windows](./azure-diagnostics-streaming-event-hubs.md).
 
 > [!NOTE]
 > Il n’est pas possible de configurer le streaming des données de surveillance des systèmes d’exploitation invités vers un hub d’événements dans le portail. Au lieu de cela, vous devez modifier manuellement le fichier config.
 
-## <a name="how-do-i-set-up-application-monitoring-data-to-be-streamed-to-event-hub"></a>Comment configurer les données de surveillance de l’application pour qu’elles soient diffusées vers un hub d’événements ?
+## <a name="application-monitoring-data"></a>Données de surveillance de l’application
 
 Les données de surveillance de l’application nécessitent que votre code soit instrumenté avec un SDK. Il n’existe donc pas de solution toute faite pour router les données de surveillance de l’application vers un hub d’événements dans Azure. Toutefois, [Azure Application Insights](../application-insights/app-insights-overview.md) est un service qui peut être utilisé pour collecter des données Azure au niveau de l’application. Si vous utilisez Application Insights, vous pouvez diffuser des données de surveillance vers un hub d’événements en procédant de la manière suivante :
 

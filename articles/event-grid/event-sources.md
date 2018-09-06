@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: efc71e02cc02574973f0b6b428b5b670cd9cfd5b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617350"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144227"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Sources d’événements dans Azure Event Grid
 
@@ -74,13 +74,14 @@ Pour obtenir des exemples d’Event Hubs utilisé comme gestionnaire, consultez 
 
 ## <a name="iot-hub"></a>IoT Hub
 
-S’abonner aux événements IoT Hub pour répondre aux événements de création et de suppression d’appareil.
+S’abonner aux événements IoT Hub pour répondre aux événements de création, de suppression, de connexion et de déconnexion d’appareil.
 
 |Intitulé  |Description  |
 |---------|---------|
-| [Tutoriel : Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Une application logique envoie un e-mail de notification chaque fois qu’un appareil est ajouté à votre hub IoT. |
-| [Vue d’ensemble : Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions](../iot-hub/iot-hub-event-grid.md) | Vue d’ensemble de l’intégration de hubs IoT à Event Grid. |
+| [Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Une application logique envoie un e-mail de notification chaque fois qu’un appareil est ajouté à votre hub IoT. |
+| [Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions](../iot-hub/iot-hub-event-grid.md) | Vue d’ensemble de l’intégration de hubs IoT à Event Grid. |
 | [Schéma d’événement](event-schema-iot-hub.md) | Affiche les champs dans les événements IoT Hub. |
+| [Commander des événements d’état de la connexion et de la déconnexion d’appareils](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Montre comment commander des événements d’état de la connexion d’appareils. |
 
 ## <a name="media-services"></a>Media Services
 

@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: a5ee6241630ee24a05c2c4b932453bd7946a7508
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 64095089e4c0841aa1f77165969221836c747738
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368853"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888571"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrage des correspondances contenues dans la réponse de recherche  
 
@@ -79,6 +79,12 @@ Le code suivant affiche la réponse à la requête précédente. Comme vous pouv
         }
     }
 }
+```
+
+Si vous souhaitez exclure des types de contenu spécifiques de la réponse (des images, par exemple), vous pouvez ajouter un trait d’union (moins) en tant que préfixe à la valeur responseFilter. Séparez les types de contenu exclus par une virgule : 
+
+```
+&responseFilter=-images,-videos
 ```
 
 Même si Bing n’a pas retourné de résultats en matière de vidéos et d’actualités dans la réponse précédente, cela ne signifie pas que ce contenu n’existe pas. Cela signifie simplement que la page ne contient pas ces résultats. Toutefois, si vous [parcourez](./paging-webpages.md) plus de résultats, il est probable qu’ils s’affichent dans les pages suivantes. En outre, si vous appelez directement les points de terminaison [d’API Recherche de vidéos](../bing-video-search/search-the-web.md) et [d’API Recherche d’actualités](../bing-news-search/search-the-web.md), la réponse contient probablement les résultats. 

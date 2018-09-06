@@ -1,73 +1,81 @@
 ---
-title: Connecteur SMTP dans Azure Logic Apps | Microsoft Docs
-description: Créez des applications logiques avec Azure App Service. Connectez-vous à SMTP pour envoyer un e-mail.
+title: Se connecter à SMTP à partir d’Azure Logic Apps | Microsoft Docs
+description: Automatiser des tâches et des flux de travail qui envoient des e-mails via votre compte SMTP (Simple Mail Transfer Protocol) à l’aide d’Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 07/15/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 516110abc1786d99bc719d47d61475cdc2ebcc4b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: 90af33574093cfbe529093c7091ee6988f043aa6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296065"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052020"
 ---
-# <a name="get-started-with-the-smtp-connector"></a>Prise en main du connecteur SMTP
-Connectez-vous à SMTP pour envoyer un e-mail.
+# <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envoyer un e-mail à partir de votre compte SMTP avec Azure Logic Apps
 
-Pour utiliser [n’importe quel connecteur](apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Avec Azure Logic Apps et le connecteur SMTP (Simple Mail Transfer Protocol), vous pouvez créer des tâches et des flux de travail automatisés qui envoient des e-mails à partir de votre compte SMTP. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions SMTP. Par exemple, lorsque votre SMTP envoie un e-mail, vous pouvez informer votre équipe dans Slack avec le connecteur Slack. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
+
+## <a name="prerequisites"></a>Prérequis
+
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+
+* Vos informations d’identification utilisateur et compte SMTP
+
+  Vos informations d’identification autorisent votre application logique à créer une connexion et à accéder à votre compte SMTP.
+
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* L’application logique à partir de laquelle vous souhaitez accéder à votre compte SMTP. Pour utiliser une action SMTP, démarrez votre application logique avec un déclencheur, tel qu’un déclencheur Salesforce, si vous avez un compte Salesforce.
+
+  Par exemple, vous pouvez démarrer votre application logique avec le déclencheur Salesforce **Lorsqu'un enregistrement est créé**. 
+  Ce déclencheur entre en jeu chaque fois qu’un enregistrement, tel qu’un prospect, est créé dans Salesforce. 
+  Vous pouvez ensuite suivre ce déclencheur avec l’action SMTP **Envoyer un e-mail**. Ainsi, quand le nouvel enregistrement est créé, votre application logique envoie un e-mail à partir de votre compte SMTP concernant le nouvel enregistrement.
 
 ## <a name="connect-to-smtp"></a>Se connecter à SMTP
-Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une [connexion](connectors-overview.md) permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à SMTP, vous devez préalablement disposer d’une *connexion* SMTP. Pour créer une connexion, entrez les informations d’identification que vous utilisez généralement pour accéder au service auquel vous vous connectez. Ainsi, dans l’exemple SMTP, entrez les informations d’identification telles que votre nom de connexion, l’adresse du serveur SMTP et les informations de connexion utilisateur pour créer la connexion à SMTP.  
 
-### <a name="create-a-connection-to-smtp"></a>Créer une connexion à SMTP
-> [!INCLUDE [Steps to create a connection to SMTP](../../includes/connectors-create-api-smtp.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-an-smtp-trigger"></a>Utiliser un déclencheur SMTP
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
 
-Dans cet exemple, SMTP ne dispose pas d’un déclencheur qui lui est propre. Par exemple, utilisez le déclencheur **Salesforce - quand un objet est créé**. Ce déclencheur s’active lorsqu’un objet est créé dans Salesforce. Dans notre exemple, il est configuré de sorte que chaque fois qu’un nouveau prospect est créé dans Salesforce, une action *envoyer un e-mail* s’exécute par le biais du connecteur SMTP avec une notification signalant la création du nouveau prospect.
+1. Sous la dernière étape où vous souhaitez ajouter une action SMTP, choisissez **Nouvelle étape**. 
 
-1. Saisissez *salesforce* dans la zone de recherche sur le concepteur d’applications logiques, puis sélectionnez le déclencheur **Salesforce - Création d’un objet** .  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger-1.png)  
-2. Le contrôle **Lors de la création d’un objet** s’affiche.
-   ![](../../includes/media/connectors-create-api-salesforce/trigger-2.png)  
-3. Sélectionnez le **Type d’objet** puis sélectionnez *Prospect* à partir de la liste d’objets. Lors de cette étape, vous créez un déclencheur qui informe votre application logique de la création d’un nouveau prospect dans Salesforce.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger3.png)  
-4. Le déclencheur a été créé.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger-4.png)  
+   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. 
+   Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
-## <a name="use-an-smtp-action"></a>Utiliser une action SMTP
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. Dans la zone de recherche, entrez « smtp » comme filtre. Sous la liste des actions, sélectionnez l’action souhaitée.
 
-Une fois le déclencheur ajouté, procédez comme suit pour ajouter une action SMTP qui se produira chaque fois qu’un nouveau prospect sera créé dans Salesforce.
+1. Lorsque vous y êtes invité, fournissez ces informations de connexion :
 
-1. Sélectionnez **+ Nouvelle étape** pour ajouter l’action à exécuter lorsqu’un prospect est créé.  
-   ![](../../includes/media/connectors-create-api-salesforce/trigger4.png)  
-2. Sélectionnez **Ajouter une action**. Ouvre la zone de recherche dans laquelle vous pouvez rechercher l’action que vous souhaitez effectuer.  
-   ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-2.png)  
-3. Entrez *smtp* pour rechercher les actions associées à SMTP.  
-4. Sélectionnez **SMTP - Envoyer un message électronique** comme action à exécuter lorsque le prospect est créé. Le bloc de contrôles de l’action s’affiche. Vous devez établir votre connexion SMTP dans le bloc du concepteur, si ce n’est pas déjà fait.  
-   ![](../../includes/media/connectors-create-api-smtp/smtp-2.png)    
-5. Entrez les informations de messagerie de votre choix dans le bloc **SMTP - Envoyer un message électronique**.  
-   ![](../../includes/media/connectors-create-api-smtp/using-smtp-action-4.PNG)  
-6. Enregistrez votre travail afin d’activer votre workflow.  
+   | Propriété | Obligatoire | Description |
+   |----------|----------|-------------|
+   | **Nom de connexion** | Oui | Un nom pour la connexion à votre serveur SMTP | 
+   | **Adresse du serveur SMTP** | Oui | L’adresse de votre serveur SMTP | 
+   | **Nom d’utilisateur** | Oui | Votre nom d'utilisateur pour votre compte SMTP | 
+   | **Mot de passe** | Oui | Votre mot de passe pour votre compte SMTP | 
+   | **Port du serveur SMTP** | Non  | Un port spécifique que vous souhaitez utiliser sur votre serveur SMTP | 
+   | **Activer le protocole SSL ?** | Non  | Activer ou désactiver le chiffrement SSL. | 
+   |||| 
 
-## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
+1. Fournissez les informations nécessaires pour l’action sélectionnée. 
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/smtpconnector/).
+1. Enregistrez votre application logique ou poursuivez la génération du flux de travail de votre application logique.
 
-## <a name="more-connectors"></a>Autres connecteurs
-Revenir à la [liste des API](apis-list.md).
+## <a name="connector-reference"></a>Référence de connecteur
+
+Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence](/connectors/smtpconnector/) du connecteur.
+
+## <a name="get-support"></a>Obtenir de l’aide
+
+* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

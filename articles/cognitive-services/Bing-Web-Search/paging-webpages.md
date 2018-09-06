@@ -1,6 +1,6 @@
 ---
-title: Pagination des pages Web disponibles | Microsoft Docs
-description: Découvrez comment paginer toutes les pages Web renvoyées par Bing.
+title: Pagination des résultats de l’API Recherche Web Bing | Microsoft Docs
+description: Découvrez comment paginer les résultats de l’API Recherche Web Bing.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -8,22 +8,22 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 04/15/2017
-ms.author: scottwhi
-ms.openlocfilehash: bf29783246c603270d59b20b63027fccdbd45b89
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/20/2018
+ms.author: erhopf
+ms.openlocfilehash: cd03b3af08746674dd2ba2d4af593e19e066efca
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367940"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888239"
 ---
-# <a name="paging-webpages"></a>Pagination des pages Web 
+# <a name="how-to-page-through-bing-web-search-api-results"></a>Pagination des résultats de l’API Recherche Web Bing
 
 Lorsque vous appelez l’API Recherche Web Bing, Bing retourne une liste de résultats. La liste est un sous-ensemble du nombre total de résultats susceptibles d’être en rapport avec la requête. Pour obtenir une estimation du nombre total de résultats disponibles, accédez au champ [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) de l’objet de la réponse.  
   
-L’exemple suivant illustre le champ `totalEstimatedMatches` qui est inclus dans une réponse Web.  
+L’exemple suivant illustre le champ `totalEstimatedMatches` qui est inclus dans une réponse web.  
   
-```  
+```
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -32,15 +32,15 @@ L’exemple suivant illustre le champ `totalEstimatedMatches` qui est inclus dan
         "value" : [...]
     }
 }  
-```  
+```
   
-Pour paginer les pages Web disponibles, utilisez les paramètres de requête [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) et [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset).  
+Pour paginer les pages web disponibles, utilisez les paramètres de requête [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) et [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset).  
   
-Le paramètre `count` spécifie le nombre de résultats à retourner dans la réponse. Vous pouvez demander jusqu’à 50 résultats dans la réponse. La valeur par défaut est de 10. Le nombre réel retourné peut être inférieur à ce que vous avez demandé.
+Le paramètre `count` spécifie le nombre de résultats à renvoyer dans la réponse. Vous pouvez demander jusqu’à 50 résultats dans la réponse. La valeur par défaut est de 10. Le nombre réel renvoyé peut être inférieur à ce que vous avez demandé.
 
 Le paramètre `offset` spécifie le nombre de résultats à ignorer. Le paramètre `offset` est basé sur zéro et doit être inférieur à (`totalEstimatedMatches` - `count`).  
   
-Si vous souhaitez afficher 15 résultats Web par page, vous devez définir `count` sur 15 et `offset` sur 0 pour obtenir la première page de résultats. Pour chaque page suivante, vous devez incrémenter le paramètre `offset` de 15 (par exemple, 15, 30).  
+Si vous souhaitez afficher 15 pages web par page, vous devez définir `count` sur 15 et `offset` sur 0 pour obtenir la première page de résultats. Pour chaque page suivante, vous devez incrémenter le paramètre `offset` de 15 (par exemple, 15, 30).  
   
 L’exemple suivant illustre une requête de 15 pages Web avec un paramètre offset de défini sur 45.  
   

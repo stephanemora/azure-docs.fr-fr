@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ad0366d333266af0b16a7acaaa4519f20a951a80
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342706"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128593"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec la commande Run
 
@@ -23,7 +23,7 @@ La commande Run utilise l’agent de machine virtuelle pour exécuter des script
 
 Il existe plusieurs options pour accéder à vos machines virtuelles. La commande Run peut exécuter à distance des scripts sur vos machines virtuelles à l’aide de l’agent de machine virtuelle. Elle peut être utilisée via le portail Azure, l’[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), l’[interface de ligne de commande Azure (CLI)](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Cette fonctionnalité est utile dans tous les scénarios dans lesquels vous exécutez un script au sein d’une machine virtuelle, et elle constitue une des seules méthodes capables de corriger une machine virtuelle dépourvue d’un port RDP ou SSH ouvert en raison d’une configuration incorrecte du réseau ou de l’administrateur.
+Cette fonctionnalité est utile dans tous les scénarios qui impliquent l’exécution d’un script au sein d’une machine virtuelle ; elle constitue un des seuls moyens de dépanner et de corriger une machine virtuelle dont le port RDP ou SSH n’est pas ouvert en raison d’une configuration incorrecte du réseau ou de l’utilisateur administrateur.
 
 ## <a name="restrictions"></a>Restrictions
 
@@ -63,7 +63,6 @@ Ce tableau affiche la liste des commandes disponibles pour les machines virtuell
 |**EnableAdminAccount**|Vérifie si le compte Administrateur local est désactivé, et si tel est le cas, l’active.|
 |**IPConfig**| Affiche des informations détaillées pour l’adresse IP, le masque de sous-réseau et la passerelle par défaut de chaque carte liée à TCP/IP.|
 |**RDPSettings**|Vérifie les paramètres du registre et les paramètres de la stratégie de domaine. Suggère les actions de la stratégie si la machine fait partie d’un domaine, ou remplace les paramètres par les valeurs par défaut.|
-|**ResetAccountPassword**| Réinitialise le mot de passe du compte Administrateur intégré.|
 |**ResetRDPCert**|Supprime le certificat SSL lié à l’écouteur RDP et restaure les valeurs par défaut pour la sécurité de l’écouteur RDP. Utilisez ce script si vous rencontrez des problèmes avec le certificat.|
 |**SetRDPPort**|Définit le numéro de port par défaut ou spécifié par l’utilisateur pour les connexions Bureau à distance. Active la règle de pare-feu pour l’accès entrant au port.|
 

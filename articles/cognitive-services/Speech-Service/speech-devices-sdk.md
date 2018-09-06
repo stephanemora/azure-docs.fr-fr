@@ -9,20 +9,22 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4607c997f6c274f6b367fe3e99bf8d21deceef0d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 97a5d00d43ac6a9d4b28ba23ca69d9b67e1bdf6f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285491"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049797"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>À propos du kit de développement logiciel (SDK) Speech Devices (préversion)
 
-Seul, le service Microsoft Speech fonctionne avec une large gamme d’appareils et de sources audio. Vous pouvez maintenant faire passer vos applications de reconnaissance vocale au niveau supérieur en y associant du matériel et des logiciels. Le kit de développement logiciel (SDK) Speech Devices est une bibliothèque préconfigurée associée à du matériel spécifique compatible avec le microphone. Le kit de développement logiciel (SDK) vous permet d’intégrer facilement votre appareil au service cloud Microsoft Speech et de créer une expérience utilisateur exceptionnelle pour vos clients.
+Le [service Microsoft Speech](overview.md) fonctionne avec une large gamme d’appareils et de sources audio. Vous pouvez maintenant faire passer vos applications de reconnaissance vocale au niveau supérieur en y associant du matériel et des logiciels. Le kit de développement logiciel (SDK) Speech Devices est une bibliothèque préconfigurée associée à des kits de développement de réseau de microphones sur mesure. En vous aidant à tester rapidement de nouveaux scénarios vocaux, le SDK Speech Devices vous permet d’intégrer facilement votre appareil au service cloud Microsoft Speech et de créer une expérience utilisateur exceptionnelle pour vos clients. 
 
-Le kit de développement logiciel (SDK) vous permet de créer vos propres appareils ambiants avec un mot déclencheur personnalisé, afin que l’élément qui déclenche l’interaction utilisateur soit spécifique à votre marque. Il utilise plusieurs canaux audio pour une reconnaissance vocale plus précise, incluant notamment la suppression de bruit, l’annulation de l’écho, la voix en champ lointain et la formation de faisceaux.
+Le SDK Speech Devices consomme le [SDK Speech](speech-sdk.md) qu’il utilise pour envoyer l’audio traité par notre algorithme de traitement audio avancé, du réseau de microphones de l’appareil au service [Microsoft Speech Service](overview.md).  Il utilise plusieurs canaux audio pour une [reconnaissance vocale](speech-to-text.md) à champ lointain plus précise, incluant notamment la suppression de bruit, l’annulation de l’écho, la formation de faisceaux et la déréverbération.
 
-Le kit de développement logiciel (SDK) permet différents scénarios vocaux, tels que l’utilisation de systèmes de commande au volant, d’assistants embarqués ou à domicile, et de haut-parleurs intelligents. Vous pouvez répondre aux utilisateurs avec du texte, leur répondre en utilisant la voix par défaut ou une voix personnalisée, fournir les résultats de recherche, traduire dans d’autres langues et bien plus encore. 
+Le SDK Speech Devices vous permet également de créer vos appareils ambiants avec un [mot déclencheur personnalisé](speech-devices-sdk-create-kws.md), afin que l’élément qui déclenche l’interaction utilisateur soit spécifique à votre marque. 
+
+Le SDK permet différents scénarios vocaux, tels que l’utilisation de systèmes de commande au volant, d’assistants en magasin ou à domicile, et de haut-parleurs intelligents. Vous pouvez répondre aux utilisateurs avec du texte, leur répondre en utilisant la voix par défaut ou une [voix personnalisée](how-to-customize-voice-font.md), fournir les résultats de recherche, [traduire](speech-translation.md) dans d’autres langues et bien plus encore. Nous avons hâte de découvrir vos créations !
 
 
 

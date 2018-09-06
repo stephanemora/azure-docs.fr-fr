@@ -1,32 +1,33 @@
 ---
-title: Protection de vos machines virtuelles dans Azure Security Center | Microsoft Docs
-description: Ce document traite des recommandations d’Azure Security Center qui peuvent vous aider à protéger vos machines virtuelles et à rester en conformité avec les stratégies de sécurité.
+title: Recommandations concernant les machines virtuelles dans Azure Security Center | Microsoft Docs
+description: Ce document traite des recommandations d’Azure Security Center qui peuvent vous aider à protéger vos machines virtuelles, vos ordinateurs, vos applications web et vos environnements App Service.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
-ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
+ms.assetid: f5ce7f62-7b12-4bc0-b418-4a2f9ec49ca1
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
-ms.author: terrylan
-ms.openlocfilehash: 54375f6f98b4989a7af8bcde649d967f77c6c862
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.date: 07/18/2018
+ms.author: rkarlin
+ms.openlocfilehash: 7e73d6236f76c58307bb552aeee03bafe66addcc
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2018
-ms.locfileid: "27623496"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43132672"
 ---
-# <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Protection de vos machines virtuelles dans Azure Security Center
-Le Centre de sécurité Azure analyse l’état de sécurité de vos ressources Azure. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires.  Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles, mise en réseau, applications et SQL.
+# <a name="understand-azure-security-center-resource-recommendations"></a>Comprendre les recommandations sur les ressources d’Azure Security Center
 
-Cet article traite des recommandations qui s’appliquent aux machines virtuelles.  Les recommandations relatives aux machines virtuelles se concentrent autour de la collecte de données, de l’application des mises à jour du système, de la configuration du logiciel anti-programme malveillant, du chiffrement de vos disques de machines virtuelles, et bien plus encore.  Utilisez le tableau ci-dessous pour mieux comprendre les recommandations disponibles pour les machines virtuelles et leurs effets.
 
-## <a name="available-vm-recommendations"></a>Recommandations disponibles pour les machines virtuelles
+## <a name="recommendations"></a>Recommandations
+Utilisez le tableau ci-dessous pour mieux comprendre les recommandations Compute et App Services disponibles, et leurs effets.
+
+### <a name="computers"></a>Ordinateurs
 | Recommandation | Description |
 | --- | --- |
 | [Activer la collecte des données pour des abonnements](security-center-enable-data-collection.md) |Recommande l’activation de la collecte des données dans la stratégie de sécurité pour chacun de vos abonnements et toutes les machines virtuelles de vos abonnements. |
@@ -42,15 +43,65 @@ Cet article traite des recommandations qui s’appliquent aux machines virtuelle
 | [Évaluation des vulnérabilités non installée](security-center-vulnerability-assessment-recommendations.md) |Recommande d’installer une solution d’évaluation des vulnérabilités sur votre machine virtuelle. |
 | [Corriger des vulnérabilités](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Vous permet de voir les vulnérabilités du système et des applications détectées par la solution d’évaluation des vulnérabilités installée sur votre machine virtuelle. |
 
-## <a name="see-also"></a>Voir aussi
+### <a name="app-services"></a>App Services
+| Recommandation | Description |
+| --- | --- |
+| App Service ne doit être accessible que via HTTPS | Recommande de limiter l’accès d’App Service via HTTPS uniquement. |
+| Web Sockets doit être désactivé pour l’application web| Recommande d’examiner soigneusement l’utilisation de Web Sockets à l’intérieur d’applications web.  Le protocole Web Sockets est vulnérable à différents types de menaces de sécurité. |
+| Utiliser des domaines personnalisés pour votre application web | Recommande l’utilisation de domaines personnalisés pour protéger une application web contre des attaques courantes telles que le hameçonnage et d’autres attaques liées au DNS. |
+| Configurer des restrictions d’adresse IP pour l’application web | Recommande de définir une liste d’adresses IP autorisées à accéder à votre application.  L’utilisation de restrictions d’adresse IP protège une application web contre des attaques courantes. |
+| Ne pas autoriser toutes (’*’) les ressources à accéder à votre application | Recommande de ne pas définir le paramètre WEBSITE_LOAD_CERTIFICATES sur «  *». La définition du paramètre sur «*  » signifie que tous les certificats seront chargés dans votre magasin de certificats personnels d’applications web.  Cela peut conduire à un abus du principe des privilèges minimum, car il est peu probable que le site ait besoin d’accéder à tous les certificats lors de l’exécution. |
+| CORS ne devrait pas autoriser toutes les ressources à accéder à votre application | Recommande d’autoriser uniquement les domaines requis à interagir avec votre application web. Le partage des ressources cross-origin (CORS) ne devrait pas autoriser tous les domaines à accéder à votre application web. |
+| Utiliser la dernière version de .NET Framework prise en charge pour l’application web | Recommande d’utiliser la dernière version de .NET Framework pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable. |
+| Utiliser la dernière version de Java prise en charge pour l’application web | Recommande d’utiliser la dernière version de Java pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable. |
+| Utiliser la dernière version de PHP prise en charge pour l’application web | Recommande d’utiliser la dernière version de PHP pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable. |
+| [Add a web application firewall](security-center-add-web-application-firewall.md) |Recommande le déploiement d’un pare-feu d’applications web (WAF) pour les points de terminaison web. Une recommandation WAF est indiquée pour n’importe quelle IP publique (adresse IP de niveau d’instance ou adresse IP à équilibrage de charge) ayant un groupe de sécurité réseau associé avec des ports web entrants ouverts (80, 443).</br></br>Security Center recommande d’approvisionner un WAF pour vous défendre contre les attaques ciblant vos applications web sur les machines virtuelles et sur l’environnement App Service (ASE). Un environnement App Service (ASE) est une option de plan de service [Premium](https://azure.microsoft.com/pricing/details/app-service/) d'Azure App Service qui fournit un environnement totalement isolé et dédié pour l'exécution sécurisée de vos applications Azure App Service. Pour en savoir plus sur ASE, voir [Documentation sur l’environnement App Service](../app-service/environment/intro.md).</br></br>Vous pouvez protéger plusieurs applications web dans le centre de sécurité en les ajoutant à vos déploiements WAF existants. |
+| [Finaliser la protection des applications](security-center-add-web-application-firewall.md#finalize-application-protection) |Pour terminer la configuration d’un pare-feu d’applications web, le trafic doit être redirigé vers l’appliance de pare-feu d’applications web. L’application de cette recommandation permet d’apporter les modifications nécessaires à la configuration. |
+| Utiliser la dernière version de Node.js prise en charge pour l’application web | Recommande d’utiliser la dernière version de Node.js pour les classes de sécurité les plus récentes. L’utilisation de classes et types plus anciens peut rendre votre application vulnérable. |
+| CORS ne devrait pas autoriser toutes les ressources à accéder à votre Function App | Recommande d’autoriser uniquement les domaines requis à interagir avec votre application web. Le partage des ressources cross-origin (CORS) ne devrait pas autoriser tous les domaines à accéder à votre application de fonction. |
+| Utiliser des domaines personnalisés pour Function App | Recommande l’utilisation de domaines personnalisés pour protéger une application de fonction contre des attaques courantes telles que le hameçonnage et d’autres attaques liées au DNS. |
+| Configurer les restrictions IP pour Function App | Recommande de définir une liste d’adresses IP autorisées à accéder à votre application. L’utilisation de restrictions d’adresse IP protège une application de fonction contre des attaques courantes. |
+| Function App ne doit pas être accessible via HTTPS | Recommande de limiter l’accès d’applications de fonction via HTTPS uniquement. |
+| Le débogage à distance devrait être désactivé pour Function App | Recommande de désactiver le débogage pour Function App si vous n’avez plus besoin de l’utiliser. Le débogage distant requiert que des ports d’entrée soient ouverts sur une Function App. |
+| Web Sockets devrait être désactivé pour Function App | Recommande d’examiner soigneusement l’utilisation de Web Sockets à l’intérieur d’applications de fonction. Le protocole Web Sockets est vulnérable à différents types de menaces de sécurité. |
+
+
+## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :
 
-* [Protection de vos applications dans Azure Security Center](security-center-application-recommendations.md)
+* [Surveiller l’identité et l’accès dans Azure Security Center](security-center-identity-access.md)
 * [Protection de votre réseau dans Azure Security Center](security-center-network-recommendations.md)
 * [Protection de votre service SQL Azure dans Azure Security Center](security-center-sql-service-recommendations.md)
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
+* [Protection de vos machines et de vos applications dans Azure Security Center](security-center-virtual-machine-protection.md)
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+
+<!--Image references-->
+[1]: ./media/security-center-virtual-machine-recommendations/overview.png
+[2]: ./media/security-center-virtual-machine-recommendations/compute.png
+[3]: ./media/security-center-virtual-machine-recommendations/monitoring-agent-health-issues.png
+[4]: ./media/security-center-virtual-machine-recommendations/compute-recommendations.png
+[5]: ./media/security-center-virtual-machine-recommendations/apply-system-updates.png
+[6]: ./media/security-center-virtual-machine-recommendations/missing-update-details.png
+[7]: ./media/security-center-virtual-machine-recommendations/vm-computers.png
+[8]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon1.png
+[9]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon2.png
+[10]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png
+[11]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png
+[12]: ./media/security-center-virtual-machine-recommendations/filter.png
+[13]: ./media/security-center-virtual-machine-recommendations/vm-detail.png
+[14]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig1-new006-2017.png
+[15]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new3.png
+[16]: ./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png
+[17]: ./media/security-center-virtual-machine-recommendations/app-services.png
+[18]: ./media/security-center-virtual-machine-recommendations/ase.png
+[19]: ./media/security-center-virtual-machine-recommendations/web-app.png
+[20]: ./media/security-center-virtual-machine-recommendations/recommendation.png
+[21]: ./media/security-center-virtual-machine-recommendations/recommendation-desc.png
+[22]: ./media/security-center-virtual-machine-recommendations/passed-assessment.png
+[23]: ./media/security-center-virtual-machine-recommendations/healthy-resources.png
+[24]: ./media/security-center-virtual-machine-recommendations/function-app.png

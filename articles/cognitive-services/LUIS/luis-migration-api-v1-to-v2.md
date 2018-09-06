@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: cb68ad57302f151975c1ca6616a24db9804a6a68
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e7460a0eaf51e839accf08b6f8b07a112033af17
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223053"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130517"
 ---
 # <a name="api-v2-migration-guide"></a>Guide de migration vers API v2
 Les API de [point de terminaison](https://aka.ms/v1-endpoint-api-docs) et de [création](https://aka.ms/v1-authoring-api-docs) de la version 1 seront déconseillées. Utilisez ce guide pour comprendre comment migrer vers la version 2 des API de [point de terminaison](https://aka.ms/luis-endpoint-apis) et de [création](https://aka.ms/luis-authoring-apis). 
@@ -111,7 +111,7 @@ Les API de la clé du point de terminaison de l’abonnement sont déconseillée
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Les [clés de point de terminaison](luis-how-to-azure-subscription.md) Azure sont générées dans le portail Azure. Vous affectez la clé à une application LUIS à la page **[Publier](luis-how-to-manage-keys.md)**. Vous n’avez pas besoin de connaître la valeur de clé réelle. LUIS utilise le nom de l’abonnement pour effectuer l’affectation. 
+Les [clés de point de terminaison](luis-how-to-azure-subscription.md) Azure sont générées sur le Portail Azure. Vous affectez la clé à une application LUIS à la page **[Publier](luis-how-to-manage-keys.md)**. Vous n’avez pas besoin de connaître la valeur de clé réelle. LUIS utilise le nom de l’abonnement pour effectuer l’affectation. 
 
 ## <a name="new-versioning-route"></a>Nouvel itinéraire de contrôle de version
 Le modèle v2 est maintenant contenu dans une [version](luis-how-to-manage-versions.md). Un nom de version a 10 caractères dans l’itinéraire. La version par défaut est « 0.1 ».
@@ -168,6 +168,6 @@ Voir [Codes de réponse des API LUIS](luis-reference-response-codes.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Utilisez la documentation de l’API v2 pour mettre à jour des appels REST existants vers des API LIUS de [point de terminaison](https://aka.ms/luis-endpoint-apis) et de [création](https://aka.ms/luis-authoring-apis). 
+Utilisez la documentation de l’API v2 pour mettre à jour des appels REST existants vers des API LUIS de [point de terminaison](https://aka.ms/luis-endpoint-apis) et de [création](https://aka.ms/luis-authoring-apis). 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

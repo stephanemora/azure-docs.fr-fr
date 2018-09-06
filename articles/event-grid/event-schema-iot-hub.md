@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a86b22b3327b2353dd37a9f9863337d12a009434
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145633"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143571"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schéma des événements Azure Event Grid pour IoT Hub
 
@@ -31,8 +31,33 @@ IoT Hub émet les types d’événements suivants :
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publié quand un appareil est inscrit auprès d’un hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Publié quand un appareil est supprimé d’un hub IoT. | 
+| Microsoft.Devices.DeviceConnected | Publié quand un appareil est connecté à un hub IoT. |
+| Microsoft.Devices.DeviceDisconnected | Publié quand un appareil est déconnecté d’un hub IoT. | 
 
 ## <a name="example-event"></a>Exemple d’événement
+
+Les schémas pour les événements DeviceConnected et DeviceDisconnected ont la même structure. Cet exemple d’événement montre le schéma d’un événement déclenché quand un appareil est connecté à un hub IoT :
+
+```json
+[{
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": {
+    "deviceConnectionStateEventInfo": {
+      "sequenceNumber":
+        "000000000000000001D4132452F67CE200000002000000000000000000000001"
+    },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID"
+  }, 
+  "dataVersion": "1", 
+  "metadataVersion": "1" 
+}]
+```
 
 Les schémas pour les événements DeviceCreated et DeviceDeleted ont la même structure. Cet exemple d’événement montre le schéma d’un événement déclenché quand un appareil est inscrit auprès d’un hub IoT :
 
@@ -47,6 +72,7 @@ Les schémas pour les événements DeviceCreated et DeviceDeleted ont la même s
     "twin": {
       "deviceId": "LogicAppTestDevice",
       "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "null",
       "status": "enabled",
       "statusUpdateTime": "0001-01-01T00:00:00",
       "connectionState": "Disconnected",
@@ -74,11 +100,9 @@ Les schémas pour les événements DeviceCreated et DeviceDeleted ont la même s
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
+    "deviceId": "LogicAppTestDevice"
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
@@ -98,17 +122,29 @@ Tous les événements contiennent les mêmes données de niveau supérieur :
 | dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
-Le contenu de l’objet de données est différent pour chaque serveur de publication d’événements. Pour les événements IoT Hub, l’objet de données contient les propriétés suivantes :
+Pour tous les événements IoT Hub, l’objet de données contient les propriétés suivantes :
 
 | Propriété | type | Description |
 | -------- | ---- | ----------- |
 | hubName | chaîne | Nom du hub IoT où l’appareil a été créé ou supprimé. |
 | deviceId | chaîne | Identificateur unique de l’appareil. Cette chaîne qui respecte la casse peut contenir jusqu’à 128 caractères et prend en charge les caractères alphanumériques 7 bits ASCII, ainsi que les caractères spéciaux suivants :`- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| operationTimestamp | chaîne | Horodatage ISO8601 de l’opération |
-| opType | chaîne | Type d’événement spécifié pour cette opération par le hub IoT : `DeviceCreated` ou `DeviceDeleted`.
+
+Le contenu de l’objet de données est différent pour chaque serveur de publication d’événements. Pour les événements IoT Hub **DeviceConnected** et **DeviceDisconnected**, l’objet de données contient les propriétés suivantes :
+
+| Propriété | type | Description |
+| -------- | ---- | ----------- |
+| moduleId | chaîne | Identificateur unique du module. Ce champ est sorti uniquement pour les appareils de module. Cette chaîne qui respecte la casse peut contenir jusqu’à 128 caractères et prend en charge les caractères alphanumériques 7 bits ASCII, ainsi que les caractères spéciaux suivants :`- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceConnectionStateEventInfo | objet | Informations d’événement sur l’état de connexion d’appareil
+| sequenceNumber | chaîne | Un numéro qui vous aide à indiquer l’ordre des événements de connexion et de déconnexion d’appareils. Le dernier événement aura un numéro de séquence plus élevé que l’événement précédent. Ce numéro peut changer de plus d’une unité, mais il ne peut qu’augmenter. Consultez [comment utiliser le numéro de séquence](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+
+Le contenu de l’objet de données est différent pour chaque serveur de publication d’événements. Pour les événements IoT Hub **DeviceCreated** et **DeviDeleted**, l’objet de données contient les propriétés suivantes :
+
+| Propriété | type | Description |
+| -------- | ---- | ----------- |
 | twin | objet | Informations sur le jumeau d’appareil, qui est la représentation cloud des métadonnées d’appareil de l’application. | 
 | deviceID | chaîne | Identificateur unique du jumeau d’appareil. | 
-| etag | chaîne | Information qui décrit le contenu du jumeau d’appareil. Chaque etag est unique pour chaque jumeau d’appareil. | 
+| etag | chaîne | Un validateur pour garantir la cohérence des mises à jour à un jumeau d'appareil. Chaque etag est unique pour chaque jumeau d’appareil. |  
+| deviceEtag| chaîne | Un validateur pour garantir la cohérence des mises à jour à un registre d'appareil. Chaque deviceEtag est unique pour chaque registre d’appareil. |
 | status | chaîne | Indique si le jumeau d’appareil est activé ou désactivé. | 
 | statusUpdateTime | chaîne | Horodatage ISO8601 de la dernière mise à jour de l’état du jumeau d’appareil. |
 | connectionState | chaîne | Indique si l’appareil est connecté ou déconnecté. | 

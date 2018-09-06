@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: b180c7e8d26acc86aa1d1982ace92efafa85f9ef
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115358"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144123"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 
@@ -251,7 +251,8 @@ Le processus principal continue à s’exécuter et à assurer le trafic pour le
 ## <a name="current-limitations"></a>Limitations actuelles
 
 ### <a name="publish-symbols"></a>Publier des symboles
-Le débogueur de captures instantanées nécessite que des fichiers de symboles se trouvent sur le serveur de production pour le décodage des variables et pour fournir une fonctionnalité de débogage dans Visual Studio. La version 15.2 de Visual Studio 2017 publie les symboles des builds de mise en production par défaut lors de sa publication dans App Service. Dans les versions antérieures, vous devez ajouter la ligne suivante à votre fichier de profil de publication `.pubxml` afin que les symboles soient publiés en mode Mise en production :
+Le débogueur de captures instantanées nécessite que des fichiers de symboles se trouvent sur le serveur de production pour le décodage des variables et pour fournir une fonctionnalité de débogage dans Visual Studio.
+La version 15.2 de Visual Studio 2017 (ou ultérieure) publie les symboles des builds de mise en production par défaut lors de sa publication dans App Service. Dans les versions antérieures, vous devez ajouter la ligne suivante à votre fichier de profil de publication `.pubxml` afin que les symboles soient publiés en mode Mise en production :
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>
@@ -400,6 +401,49 @@ Suivez ces étapes pour configurer votre rôle service cloud avec une ressource 
       <!-- Other SnapshotCollector configuration options -->
     </Add>
    </TelemetryProcessors>
+   ```
+
+### <a name="overriding-the-shadow-copy-folder"></a>Remplacement du dossier des clichés instantanés
+
+Lorsque le collecteur de captures instantanées démarre, il essaie de rechercher un dossier sur le disque convenant pour l’exécution du processus du chargeur des captures instantanées. Le dossier choisi est appelé dossier des clichés instantanés.
+
+Le collecteur de captures instantanées vérifie quelques emplacements connus, en s’assurant qu’il dispose des autorisations pour copier les fichiers binaires du chargeur des captures instantanées. Les variables d'environnement suivantes sont utilisées :
+- Fabric_Folder_App_Temp
+- LOCALAPPDATA
+- APPDATA
+- TEMP
+
+Si aucun dossier approprié n’est trouvé, le collecteur de captures instantanées signale un message d’erreur indiquant _« Impossible de trouver un dossier des clichés instantanées »._
+
+Si la copie échoue, le collecteur de captures instantanées indique une erreur `ShadowCopyFailed`.
+
+Si le chargeur ne peut pas être lancé, le collecteur de captures instantanées indique une erreur `UploaderCannotStartFromShadowCopy`. Le corps du message comprend souvent `System.UnauthorizedAccessException`. Cette erreur se produit généralement lorsque l’application est exécutée avec un compte disposant d’autorisations réduites. Le compte a l’autorisation d’écrire dans le dossier des clichés instantanés, mais il n’est pas autorisé à exécuter du code.
+
+Étant donné que ces erreurs se produisent généralement lors du démarrage, elles seront généralement suivies d’une erreur `ExceptionDuringConnect` indiquant _« Échec du démarrage du chargeur »._
+
+Pour contourner ces erreurs, vous pouvez spécifier manuellement le dossier des clichés instantanés avec l’option de configuration `ShadowCopyFolder`. Par exemple, en utilisant ApplicationInsights.config :
+
+   ```xml
+   <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Override the default shadow copy folder. -->
+      <ShadowCopyFolder>D:\SnapshotUploader</ShadowCopyFolder>
+      <!-- Other SnapshotCollector configuration options -->
+    </Add>
+   </TelemetryProcessors>
+   ```
+
+Ou bien, si vous utilisez appsettings.json avec une application .NET Core :
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "ShadowCopyFolder": "D:\\SnapshotUploader"
+     }
+   }
    ```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Utilisez une recherche Application Insights pour trouver des exceptions avec des captures instantanées

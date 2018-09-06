@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: f187aa81ca519f2597657f01c2d7a630740b5348
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 068e9a3379bd2762455aade1761592fa70a09a20
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634309"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144376"
 ---
-# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions - Préversion
+# <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Réagir aux événements IoT Hub en utilisant Event Grid pour déclencher des actions
 
 Azure IoT Hub s’intègre à Azure Event Grid pour vous permettre d’envoyer des notifications d’événements à d’autres services et de déclencher des processus en aval. Configurez vos applications métier pour écouter les événements IoT Hub, afin de pouvoir réagir aux événements critiques de manière fiable, scalable et sécurisée. Vous pouvez par exemple créer une application pour effectuer plusieurs actions telles que la mise à jour d’une base de données, la création d’un ticket et la remise d’une notification par e-mail chaque fois qu’un nouvel appareil IoT est inscrit auprès de votre hub IoT. 
 
@@ -35,12 +35,40 @@ IoT Hub publie les types d’événements suivants :
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Publié quand un appareil est inscrit auprès d’un hub IoT. |
 | Microsoft.Devices.DeviceDeleted | Publié quand un appareil est supprimé d’un hub IoT. | 
+| Microsoft.Devices.DeviceConnected | Publié quand un appareil est connecté à un hub IoT. | 
+| Microsoft.Devices.DeviceDisconnected | Publié quand un appareil est déconnecté d’un hub IoT. | 
+Notez que les événements de connexion et de déconnexion d’appareils seront bientôt activés pour les régions Est du Canada et Est des États-Unis.
 
 Utilisez le portail Azure ou Azure CLI pour configurer les événements à publier à partir de chaque hub IoT. Pour obtenir un exemple, suivez le didacticiel [Envoyer des notifications par e-mail sur des événements Azure IoT Hub à l’aide de Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
 
 ## <a name="event-schema"></a>Schéma d’événement
 
 Les événements IoT Hub contiennent toutes les informations dont vous avez besoin pour répondre aux modifications du cycle de vie de vos appareils. Vous pouvez identifier un événement IoT Hub en vérifiant que la propriété eventType commence par **Microsoft.Devices**. Pour plus d’informations sur la façon d’utiliser des propriétés d’événements Event Grid, consultez le [Schéma d’événement Azure Event Grid](../event-grid/event-schema.md).
+
+### <a name="device-connected-schema"></a>Schéma d’appareil connecté
+
+L’exemple suivant montre le schéma d’un événement de connexion d’appareil : 
+
+```json
+[{  
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": {
+      "deviceConnectionStateEventInfo": {
+        "sequenceNumber":
+          "000000000000000001D4132452F67CE200000002000000000000000000000001"
+      },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID",
+  }, 
+  "dataVersion": "1", 
+  "metadataVersion": "1" 
+}]
+```
 
 ### <a name="device-created-schema"></a>Schéma de création d’appareil
 
@@ -57,6 +85,7 @@ L’exemple suivant montre le schéma d’un événement de création d’appare
     "twin": {
       "deviceId": "LogicAppTestDevice",
       "etag": "AAAAAAAAAAE=",
+      "deviceEtag":"null",
       "status": "enabled",
       "statusUpdateTime": "0001-01-01T00:00:00",
       "connectionState": "Disconnected",
@@ -84,11 +113,9 @@ L’exemple suivant montre le schéma d’un événement de création d’appare
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
+    "deviceId": "LogicAppTestDevice"
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
@@ -97,15 +124,18 @@ Pour obtenir une description détaillée de chaque propriété, consultez [Sché
 
 ## <a name="filter-events"></a>Filtrer les événements
 
-Les abonnements aux événements IoT Hub peuvent filtrer les événements en fonction du nom de l’appareil et du type d’événement. Les filtres d’objets dans Event Grid fonctionnent d’après des correspondances de **préfixe** et de **suffixe**. Le filtre utilise un opérateur `AND`. Ainsi, les événements avec un objet qui correspond à la fois au préfixe et au suffixe sont remis à l’abonné. 
+Les abonnements aux événements IoT Hub peuvent filtrer les événements en fonction du nom de l’appareil et du type d’événement. Les filtres d’objets dans Event Grid fonctionnent d’après des correspondances de **Commence avec** (préfixe) et de **Se termine par** (suffixe). Le filtre utilise un opérateur `AND`. Ainsi, les événements avec un objet qui correspond à la fois au préfixe et au suffixe sont remis à l’abonné. 
 
 L’objet des événements IoT utilise le format suivant :
 
 ```json
 devices/{deviceId}
 ```
+## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitations pour les événements d’état de la connexion et de la déconnexion d’appareils
 
-### <a name="tips-for-consuming-events"></a>Conseils relatifs à la consommation d’événements
+Pour recevoir les événements de connexion et de déconnexion d’appareils, vous devez ouvrir le lien D2C ou C2D pour votre appareil. Si votre appareil utilise le protocole MQTT, IoT Hub gardera le lien C2D ouvert. Pour AMQP, vous pouvez ouvrir le lien C2D en appelant l’[API Receive Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet). Le lien D2C est ouvert si vous envoyez des données de télémétrie. Si la connexion de l’appareil est intermittente (l’appareil se connecte et se déconnecte fréquemment), nous n’enverrons pas chaque état de connexion, mais nous publierons l’état de connexion capturé chaque minute. En cas de panne de IoT Hub, nous publierons l’état de connexion d’appareil une fois celle-ci terminée. Si l’appareil se déconnecte pendant la panne, l’événement de déconnexion d’appareil est publié dans les 10 minutes.
+
+## <a name="tips-for-consuming-events"></a>Conseils relatifs à la consommation d’événements
 
 Les applications qui gèrent des événements IoT Hub doivent suivre ces pratiques suggérées :
 
@@ -113,11 +143,10 @@ Les applications qui gèrent des événements IoT Hub doivent suivre ces pratiqu
 * Ne supposez pas que tous les événements reçus sont des types attendus. Vérifiez toujours eventType avant de traiter le message.
 * Les messages peuvent arriver dans le désordre ou après un certain délai. Utilisez le champ etag pour vérifier si vos informations sur les objets sont à jour.
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Suivre le didacticiel d’événements IoT Hub](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+* [Apprendre à commander des événements d’état de la connexion et de la déconnexion d’appareils](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * [En savoir plus sur Event Grid][lnk-eg-overview]
 * [Comparer les différences entre le routage des messages et des événements IoT Hub][lnk-eg-compare]
 

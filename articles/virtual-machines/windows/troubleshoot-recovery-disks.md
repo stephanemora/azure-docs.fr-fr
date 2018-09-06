@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 9845476e23396eecc4149f3e856c40b0f80f13cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f099eefbc6d196f25c2b09669cdc1c3cdec68a12
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004764"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050012"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Résoudre les problèmes d’une machine virtuelle Windows en connectant le disque du système d’exploitation à une machine virtuelle de récupération à l’aide d’Azure PowerShell
 Si votre machine virtuelle Windows dans Azure rencontre une erreur de démarrage ou de disque, vous devrez peut-être appliquer la procédure de résolution de problèmes directement sur le disque. Comme exemple courant, citons l’échec de mise à jour d’une application qui empêche le bon démarrage de la machine virtuelle. Cet article vous explique comment utiliser Azure PowerShell pour connecter le disque à une autre machine virtuelle Windows et corriger les éventuelles erreurs, puis réparer votre machine virtuelle d’origine. 
@@ -39,6 +39,8 @@ Le processus de résolution de problème se présente comme suit :
 5. Se connecter à la machine virtuelle de récupération. Modifier les fichiers ou exécuter des outils afin de corriger les problèmes sur le disque du système d’exploitation copié.
 6. Démonter et détacher le disque à partir de la machine virtuelle de récupération.
 7. Changer le disque de système d’exploitation pour la machine virtuelle affectée.
+
+Vous pouvez utiliser les scripts de récupération de machine virtuelle pour automatiser les étapes 1, 2, 3, 4, 6 et 7. Pour obtenir de la documentation et des instructions supplémentaires, consultez [Scripts de récupération de machine virtuelle pour la machine virtuelle Gestionnaire des ressources](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
 
 Vérifiez que la [dernière version d’Azure PowerShell](/powershell/azure/overview) est installée et connectez-vous à votre abonnement :
 

@@ -8,15 +8,15 @@ author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/28/2018
 ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: cdf067839c73f9da40d03628ff1c9920764e2219
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127476"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143808"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure SQL Database et SQL Data Warehouse
 
@@ -121,7 +121,7 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 > - Les deux abonnements doivent se trouver dans le même locataire Azure Active Directory.
 > - L’utilisateur dispose des autorisations requises pour lancer des opérations, telles que l’activation des points de terminaison de service et l’ajout d’un sous-réseau de réseau virtuel sur le serveur donné.
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 
 Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
 
@@ -181,11 +181,10 @@ Le stockage Azure a implémenté la même fonctionnalité qui vous permet de lim
 Si vous choisissez d’utiliser cette fonctionnalité avec un compte de stockage utilisé par une instance SQL Azure Server, vous risquez de rencontrer les problèmes. Vous trouverez ci-dessous une liste détaillée des fonctionnalités Azure SQLDB affectées par ce problème.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase est couramment utilisé pour charger des données dans Azure SQLDW à partir de comptes de stockage. Si le compte de stockage à partir duquel vous chargez des données limite l’accès à seulement un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue. Il existe une atténuation pour cela, et vous pouvez envoyer un e-mail à l’adresse *dmalik@microsoft.com* pour plus d’informations.
+PolyBase est couramment utilisé pour charger des données dans Azure SQLDW à partir de comptes de stockage. Si le compte de stockage à partir duquel vous chargez des données limite l’accès à seulement un ensemble de sous-réseaux de réseau virtuel, la connectivité entre PolyBase et le compte sera interrompue. Il existe une atténuation pour cela, et vous pouvez contacter le support Microsoft pour en savoir plus.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Audit d’objets blob Azure SQLDB
 L’audit d’objets blob transfère des journaux d’audit à votre propre compte de stockage. Si ce compte de stockage utilise la fonctionnalité de points de terminaison de service VENT, la connectivité entre Azure SQLDB et le compte de stockage sera interrompue.
-
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Ajout d’une règle de pare-feu de réseau virtuel à votre serveur sans activer les points de terminaison de service Vnet
 

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/25/2018
+ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: 9e4d65875085ec293813e2683acde095ae112b75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503704"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144036"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit comment personnaliser les différents paramètres de structure pour votre cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour des clusters autonomes, vous personnalisez les paramètres en mettant à jour le fichier ClusterConfig.json et en effectuant une mise à niveau de configuration sur votre cluster. 
@@ -187,9 +187,10 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 ## <a name="dnsservice"></a>DnsService
 | **Paramètre** | **Valeurs autorisées** |**Stratégie de mise à niveau**| **Conseils ou brève description** |
 | --- | --- | --- | --- |
-|InstanceCount|entier, valeur par défaut : -1|statique|valeur par défaut : -1, ce qui signifie que DnsService est en cours d’exécution sur chaque nœud. OneBox a besoin de cette option ait la valeur 1, dans la mesure où DnsService utilise le port 53 bien connu. Donc, il ne peut pas avoir plusieurs instances sur le même ordinateur.|
+|EnablePartitionedQuery|valeur booléenne, valeur par défaut : FALSE|statique|Indicateur permettant d’activer la prise en charge des requêtes DNS pour les services partitionnés. Cette fonctionnalité est désactivée par défaut. Pour en savoir plus, voir [Service DNS Service Fabric.](service-fabric-dnsservice.md)|
+|InstanceCount|entier, valeur par défaut : -1|statique|La valeur par défaut est 1, ce qui signifie que DnsService est en cours d’exécution sur chaque nœud. OneBox a besoin de cette option ait la valeur 1, dans la mesure où DnsService utilise le port 53 bien connu. Donc, il ne peut pas avoir plusieurs instances sur le même ordinateur.|
 |IsEnabled|valeur booléenne, valeur par défaut : FALSE|statique|Active/désactive DnsService. DnsService est désactivé par défaut, et cette configuration doit être définie pour l’activer. |
-|PartitionPrefix|chaîne, valeur par défaut : « - »|statique|Contrôle la valeur de la chaîne de préfixe de partition dans les requêtes DNS pour les services partitionnés. La valeur : <ul><li>doit être conforme à RFC, car elle fera partie d’une requête DNS ;</li><li>ne doit pas contenir de point (« . »), car le point interfère avec le comportement de suffixe DNS ;</li><li>ne doit pas comporter plus de 5 caractères ;</li><li>ne peut pas être une chaîne vide.</li><li>Si le paramètre PartitionPrefix est remplacé, PartitionSuffix doit être substitué et vice versa.</li></ul>Pour en savoir plus, voir [Service DNS Service Fabric](service-fabric-dnsservice.md).|
+|PartitionPrefix|Chaîne (valeur par défaut : "--")|statique|Contrôle la valeur de la chaîne de préfixe de partition dans les requêtes DNS pour les services partitionnés. La valeur : <ul><li>doit être conforme à RFC, car elle fera partie d’une requête DNS ;</li><li>ne doit pas contenir de point (« . »), car le point interfère avec le comportement de suffixe DNS ;</li><li>ne doit pas comporter plus de 5 caractères ;</li><li>ne peut pas être une chaîne vide.</li><li>Si le paramètre PartitionPrefix est remplacé, PartitionSuffix doit être substitué et vice versa.</li></ul>Pour en savoir plus, voir [Service DNS Service Fabric](service-fabric-dnsservice.md).|
 |PartitionSuffix|Chaîne (valeur par défaut : "")|statique|Contrôle la valeur de la chaîne de suffixe de partition dans les requêtes DNS pour les services partitionnés. La valeur : <ul><li>doit être conforme à RFC, car elle fera partie d’une requête DNS ;</li><li>ne doit pas contenir de point (« . »), car le point interfère avec le comportement de suffixe DNS ;</li><li>ne doit pas comporter plus de 5 caractères ;</li><li>Si le paramètre PartitionPrefix est remplacé, PartitionSuffix doit être substitué et vice versa.</li></ul>Pour en savoir plus, voir [Service DNS Service Fabric](service-fabric-dnsservice.md). |
 
 ## <a name="fabricclient"></a>FabricClient
@@ -350,6 +351,9 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ApplicationHostCloseTimeout| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique| Spécifiez la durée en secondes. Lorsqu’une sortie de Fabric est détectée dans des processus auto-activés ; FabricRuntime ferme tous les réplicas dans le processus de l’hôte de l’utilisateur (applicationhost). Il s’agit du délai d’attente pour l’opération de fermeture. |
 |ApplicationUpgradeTimeout| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(360)|Dynamique| Spécifiez la durée en secondes. Délai de mise à niveau de l’application. Si le délai d’attente est inférieur à "ActivationTimeout", le déploiement échouera. |
 |ContainerServiceArguments|chaîne, valeur par défaut : « -H localhost:2375 -H npipe:// »|statique|Service Fabric (SF) gère le démon Docker (sauf sur les ordinateurs clients Windows comme Win10). Cette configuration permet à l’utilisateur de spécifier des arguments personnalisés qui doivent être passés au démon Docker quand vous le démarrez. Quand des arguments personnalisés sont spécifiés, Service Fabric ne transmet pas d’autres arguments au moteur Docker, à l’exception de l’argument « --pidfile ». Par conséquent, les utilisateurs ne doivent pas spécifier l’argument « --pidfile » dans le cadre de leurs arguments personnalisés. Les arguments personnalisés doivent également vérifier que le démon Docker écoute sur le canal de nom par défaut sur Windows (ou le socket de domaine Unix sur Linux) pour que Service Fabric puisse communiquer avec lui.|
+|ContainerServiceLogFileMaxSizeInKb|entier, valeur par défaut : 32768|statique|Taille maximale du fichier journal généré par les conteneurs Docker.  Windows uniquement.|
+|ContainerServiceLogFileNamePrefix|chaîne, valeur par défaut : sfcontainerlogs|statique|Préfixe du nom de fichier pour les fichiers journaux générés par les conteneurs Docker.  Windows uniquement.|
+|ContainerServiceLogFileRetentionCount|entier, valeur par défaut : 10|statique|Nombre de fichiers journaux générés par les conteneurs Docker avant le remplacement des fichiers journaux.  Windows uniquement.|
 |CreateFabricRuntimeTimeout|TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(120)|Dynamique| Spécifiez la durée en secondes. La valeur du délai d’expiration pour l’appel de synchronisation FabricCreateRuntime |
 |DefaultContainerRepositoryAccountName|Chaîne (valeur par défaut : "")|statique|Informations d’identification par défaut utilisées à la place des informations d’identification spécifiées dans ApplicationManifest.xml |
 |DefaultContainerRepositoryPassword|Chaîne (valeur par défaut : "")|statique|Informations d’identification de mot de passe par défaut utilisées à la place des informations d’identification spécifiées dans ApplicationManifest.xml|
@@ -357,6 +361,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |DeploymentMaxRetryInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(3600)|Dynamique| Spécifiez la durée en secondes. Intervalle maximum avant une nouvelle tentative de déploiement. À chaque échec continu, l’intervalle avant nouvelle tentative est calculé de la manière suivante : Min( DeploymentMaxRetryInterval; Nombre d’échecs continus * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(10)|Dynamique|Spécifiez la durée en secondes. Intervalle de temporisation pour l’échec du déploiement. À chaque échec de déploiement continu, le système retentera le déploiement jusqu'à la valeur MaxDeploymentFailureCount. L’intervalle entre chaque tentative est un produit de l’échec du déploiement continu et de l’intervalle de temporisation de déploiement. |
 |EnableActivateNoWindow| valeur booléenne, valeur par défaut : FALSE|Dynamique| Le processus activé est créé en arrière-plan sans aucune console. |
+|EnableContainerServiceDebugMode|Valeur booléenne, valeur par défaut : TRUE|statique|Activer/désactiver la journalisation pour les conteneurs Docker.  Windows uniquement.|
 |EnableDockerHealthCheckIntegration|Valeur booléenne, valeur par défaut : TRUE|statique|Permet l’intégration des événements de vérification d’intégrité Docker avec le rapport d’intégrité du système Service Fabric |
 |EnableProcessDebugging|valeur booléenne, valeur par défaut : FALSE|Dynamique| Permet de lancer des hôtes d’application dans le débogueur |
 |EndpointProviderEnabled| valeur booléenne, valeur par défaut : FALSE|statique| Permet la gestion des ressources de points de terminaison par Fabric. Requiert la spécification de la plage de ports d’application de début et de fin dans FabricNode. |
