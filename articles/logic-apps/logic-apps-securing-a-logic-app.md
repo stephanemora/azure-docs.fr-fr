@@ -1,35 +1,31 @@
 ---
 title: Sécuriser l’accès à Azure Logic Apps | Microsoft Docs
-description: Renforcez la sécurité pour protéger l’accès aux déclencheurs, aux entrées et sorties, aux paramètres d’action et aux services utilisés avec des workflows dans Azure Logic Apps.
+description: Protéger l’accès aux déclencheurs, aux entrées et sorties, aux paramètres d’action et aux services dans les workflows pour Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
+ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 11/22/2016
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 2052e58dab7241836409fb013778f9702004021c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299907"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127477"
 ---
-# <a name="secure-access-to-your-logic-apps"></a>Sécurisation de l’accès à vos applications logiques
+# <a name="secure-access-in-azure-logic-apps"></a>Accès sécurisé dans Azure Logic Apps
 
-De nombreux outils sont disponibles pour vous aider à sécuriser votre application logique.
+Voici quelques façons de sécuriser l’accès aux différents composants dans votre application logique :
 
-* Sécurisation de l’accès au déclencheur d’une application logique (Déclencheur de requête HTTP)
-* Sécurisation de l’accès pour gérer, modifier ou lire une application logique
-* Sécurisation de l’accès au contenu des entrées et sorties d’une exécution
-* Sécurisation des paramètres ou des entrées dans des actions d’un flux de travail
-* Sécurisation de l’accès aux services recevant des requêtes d’un flux de travail
+* Accès sécurisé pour déclencher un workflow d’application logique avec le déclencheur de requête HTTP.
+* Accès sécurisé pour gérer, modifier ou lire une application logique.
+* Accès sécurisé au contenu à l’intérieur des entrées et sorties pour l’exécution d’une application logique.
+* Paramètres ou entrées sécurisés pour les actions dans le workflow d’une application logique.
+* Accès sécurisé aux services recevant des requêtes du workflow d’une application logique.
 
 ## <a name="secure-access-to-trigger"></a>Sécuriser l’accès au déclencheur
 

@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238877"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128124"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -94,8 +94,18 @@ Utilisez les étapes suivantes pour configurer le suivi des fichiers sur des ord
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Entrer le chemin     | Chemin dans lequel rechercher le fichier. Exemple : « c:\temp\myfile.txt ».       |
+|Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « c:\temp\\\*.txt »<br>Vous pouvez également utiliser des variables d’environnement telles que « %winDir%\System32\\\*.* »       |
+|Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Caractère générique, récursivité et paramètres d’environnement
+
+La récursivité vous permet de spécifier des caractères génériques pour simplifier le suivi entre les répertoires, et des variables d’environnement pour vous permettre d’effectuer le suivi de fichiers entre les environnements avec plusieurs noms de lecteurs ou des noms de lecteurs dynamiques. Voici une liste des informations courantes que vous devez connaître lorsque vous configurez la récursivité :
+
+* Les caractères génériques sont requis pour effectuer le suivi de plusieurs fichiers
+* Si vous utilisez des caractères génériques, ceux-ci ne peuvent être utilisés que dans le dernier segment du chemin d’accès. (par exemple C:\dossier\\**fichier** ou /etc/*.conf)
+* Si le chemin d’accès d’une variable d’environnement n’est pas valide, la validation réussit, mais ce chemin d’accès échoue lors de l’exécution de l’inventaire.
+* Évitez les chemins d’accès généraux comme `c:\*.*` lors de la définition du chemin d’accès, auquel cas un trop grand nombre de dossiers sont parcourus.
 
 ## <a name="configure-file-content-tracking"></a>Configurer le suivi de contenu de fichier
 
@@ -122,13 +132,8 @@ Utilisez les étapes suivantes pour configurer le suivi des clés de Registre su
 
 Actuellement, la solution Change Tracking ne prend pas en charge les éléments suivants :
 
-* Dossiers (répertoires) pour le suivi des fichiers Windows
-* Récursivité pour le suivi des fichiers Windows
-* Caractères génériques pour le suivi des fichiers Windows
 * Récursivité pour le suivi du Registre Windows
-* Variables de chemin d’accès
 * Systèmes de fichiers réseau
-* Contenu du fichier
 
 Autres limitations :
 

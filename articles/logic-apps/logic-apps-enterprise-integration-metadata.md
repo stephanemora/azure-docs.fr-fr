@@ -1,28 +1,23 @@
 ---
 title: Gestion des métadonnées d’artefact de compte d’intégration - Azure Logic Apps | Microsoft Docs
-description: Ajout ou suppression de métadonnées d’artefact à partir de comptes d’intégration pour Azure Logic Apps
-author: padmavc
-manager: jeconnoc
-editor: ''
+description: Ajout ou suppression de métadonnées d’artefact à partir de comptes d’intégration dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 02/23/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 3e7ef6aef9bc1062ae0f76adfbaf086961fcaa94
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 537014c2780fe94cfb35806759f8bcbd974c4c95
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298363"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128801"
 ---
-# <a name="manage-artifact-metadata-in-integration-accounts-for-logic-apps"></a>Gestion de métadonnées d’artefact dans des comptes d’intégration pour des applications logiques
+# <a name="manage-artifact-metadata-from-integration-accounts-in-azure-logic-apps-with-enterprise-integration-pack"></a>Gestion des métadonnées d’artefact à partir de comptes d’intégration dans Azure Logic Apps avec Enterprise Integration Pack
 
 Vous pouvez définir des métadonnées personnalisées pour les artefacts dans les comptes d’intégration et récupérer ces métadonnées pendant l’exécution pour votre application logique. Par exemple, vous pouvez spécifier des métadonnées pour les artefacts tels que des partenaires, des contrats, des schémas et mappages ; tous stockent les métadonnées à l’aide de paires clé-valeur. 
 

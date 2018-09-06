@@ -1,28 +1,23 @@
 ---
 title: Messages EDIFACT pour l’intégration d’entreprise B2B - Azure Logic Apps | Microsoft Docs
-description: Échanger des messages EDIFACT au format EDI dans le cadre d’une intégration d’entreprise B2B avec Azure Logic Apps
+description: Échanger des messages EDIFACT au format EDI dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.author: LADocs; jonfan
-ms.openlocfilehash: d85db6f5be487578ceab261d2779589439bfad31
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 2da672e1f55af1e38ae0a3fa90b7ecb10d2f17c7
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300094"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128375"
 ---
-# <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Échanger des messages EDIFACT pour l’intégration d’entreprise avec Logic Apps
+# <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages EDIFACT dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
 Avant de pouvoir échanger des messages EDIFACT pour Azure Logic Apps, vous devez créer un contrat EDIFACT et le stocker dans votre compte d’intégration. Voici les étapes de création d’un contrat EDIFACT.
 

@@ -1,29 +1,31 @@
 ---
-title: Guide pratique pour installer Azure IoT Edge sur Linux | Microsoft Docs
-description: Instructions d’installation d’Azure IoT Edge sur Linux sur ARM32
+title: Installer Azure IoT Edge sur Linux ARM32 | Microsoft Docs
+description: Instructions d’installation d’Azure IoT Edge sur Linux sur des appareils ARM32, comme un Raspberry PI
 author: kgremban
 manager: timlt
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 7720e0471c6d8f2ba20f28753773829a28f93c7a
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 3f4e914f12feab3c36fca604c1bb37ab1a61b66f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141483"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127223"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)
 
-Le runtime Azure IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le **démon de sécurité IoT Edge** fournit et gère les standards de sécurité sur l’appareil Edge. Le démon se lance à chaque démarrage et amorce l’appareil en démarrant l’agent IoT Edge. **L’agent IoT Edge** facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge, y compris le hub IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub.
+Le runtime Azure IoT Edge est ce qui transforme un appareil en un appareil IoT Edge. Le runtime peut être déployé sur un appareil de petite taille comme un Raspberry Pi ou de grande taille comme un serveur industriel. Une fois qu’un appareil est configuré avec le runtime IoT Edge, vous pouvez commencer à déployer une logique métier sur celui-ci à partir du cloud. 
 
-Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur un appareil Edge Linux ARM32v7/armhf (par exemple, Raspberry Pi).
+Pour en savoir plus sur le fonctionnement du runtime IoT Edge et les composants inclus, consultez [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md).
+
+Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur un appareil Edge Linux ARM32v7/armhf. Par exemple, ces étapes sont adaptées aux appareils Raspberry Pi. Consultez la [prise en charge Azure IoT Edge](support.md#operating-systems) pour obtenir la liste des systèmes d’exploitation ARM32 actuellement pris en charge. 
 
 >[!NOTE]
->Chaque package dans les référentiels de logiciels Linux est soumis aux termes du contrat de licence qu’il renferme (/usr/share/doc/*nom_package*). Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package revient à accepter ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
+>Chaque package des référentiels de logiciels Linux est soumis aux termes du contrat de licence qu’il contient (/usr/share/doc/*nom_package*). Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package revient à accepter ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.
 
 ## <a name="install-the-container-runtime"></a>Installer le runtime de conteneur
 
@@ -31,7 +33,7 @@ Azure IoT Edge s’appuie sur un runtime de conteneur [compatible avec OCI][lnk-
 
 Les commandes ci-dessous permettent d’installer le moteur Moby et l’interface de ligne de commande (CLI). L’interface CLI est utile pour le développement, mais facultative pour les déploiements de production.
 
-```cmd/sh
+```bash
 
 # You can copy the entire text from this code block and 
 # paste in terminal. The comment lines will be ignored.
@@ -49,7 +51,10 @@ sudo apt-get install -f
 
 ## <a name="install-the-iot-edge-security-daemon"></a>Installer le démon de sécurité IoT Edge
 
-```cmd/sh
+Le **démon de sécurité IoT Edge** fournit et gère les standards de sécurité sur l’appareil Edge. Le démon se lance à chaque démarrage et amorce l’appareil en démarrant le reste du runtime IoT Edge. 
+
+
+```bash
 # You can copy the entire text from this code block and 
 # paste in terminal. The comment lines will be ignored.
 
@@ -63,18 +68,26 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>Configurer le démon de sécurité Azure IoT Edge
+## <a name="connect-your-device-to-an-iot-hub"></a>Connectez votre appareil à un IoT Hub 
 
+Configurez le runtime IoT Edge pour lier votre appareil physique à une identité d’appareil existante dans un IoT Hub Azure. 
 
 Le démon peut être configuré à l’aide du fichier de configuration situé à l’emplacement `/etc/iotedge/config.yaml`. Le fichier étant protégé en écriture par défaut, vous pouvez avoir besoin d’autorisations élevées pour le modifier.
+
+Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d’une chaîne de connexion d’appareil fournie par IoT Hub. Vous pouvez également utiliser le service Device Provisioning pour approvisionner automatiquement des appareils. Ce service s’avère particulièrement utile lorsque vous devez approvisionner de nombreux appareils. Choisissez le script d’installation approprié selon votre choix en matière d’approvisionnement. 
+
+### <a name="option-1-manual-provisioning"></a>Option 1 : Provisionnement manuel
+
+Pour provisionner manuellement un appareil, vous devez lui fournir une [chaîne de connexion d’appareil][lnk-dcs] que vous pouvez créer en inscrivant un nouvel appareil dans votre IoT Hub.
+
+
+Ouvrez le fichier de configuration. 
 
 ```bash
 sudo nano /etc/iotedge/config.yaml
 ```
 
-L’appareil Edge peut être configuré manuellement à l’aide d’une [chaîne de connexion d’appareil][lnk-dcs] ou [automatiquement par le biais du service Device Provisioning][lnk-dps].
-
-* Pour la configuration manuelle, supprimez les marques de commentaire du mode de provisionnement **manuel**. Mettez à jour la valeur de **device_connection_string** avec la chaîne de connexion à partir de votre appareil IoT Edge.
+Recherchez la section de provisionnement du fichier et supprimez les commentaires du mode de provisionnement **manuel**. Mettez à jour la valeur de **device_connection_string** avec la chaîne de connexion à partir de votre appareil IoT Edge.
 
    ```yaml
    provisioning:
@@ -88,7 +101,27 @@ L’appareil Edge peut être configuré manuellement à l’aide d’une [chaîn
    #   registration_id: "{registration_id}"
    ```
 
-* Pour la configuration automatique, supprimez les marques de commentaire du mode de provisionnement **dps**. Mettez à jour les valeurs de **scope_id** et de **registration_id** avec les valeurs de votre instance de service IoT Hub Device Provisioning et de votre appareil IoT Edge à l’aide du module de plateforme sécurisée. 
+Enregistrez et fermez le fichier. 
+
+   `CTRL + X`, `Y`, `Enter`
+
+Après avoir entré les informations de provisionnement dans le fichier de configuration, redémarrez le démon :
+
+```bash
+sudo systemctl restart iotedge
+```
+
+### <a name="option-2-automatic-provisioning"></a>Option 2 : Provisionnement automatique
+
+Pour provisionner automatiquement un appareil, [configurez le Service Device Provisioning et récupérez votre ID d’inscription d’appareil][lnk-dps]. Le provisionnement automatique fonctionne uniquement avec des appareils qui possèdent une puce de Module de plateforme sécurisée (TPM). Par exemple, les appareils Raspberry Pi ne sont pas équipés d’une puce TPM par défaut. 
+
+Ouvrez le fichier de configuration. 
+
+```bash
+sudo nano /etc/iotedge/config.yaml
+```
+
+Recherchez la section de provisionnement du fichier et supprimez les commentaires du mode de provisionnement **dps**. Mettez à jour les valeurs de **scope_id** et de **registration_id** avec les valeurs de votre IoT Hub Device Provisioning Service et de votre appareil IoT Edge avec TPM. 
 
    ```yaml
    # provisioning:
@@ -106,14 +139,12 @@ Enregistrez et fermez le fichier.
 
    `CTRL + X`, `Y`, `Enter`
 
-Après avoir entré les informations de provisionnement dans la configuration, redémarrez le démon :
+Après avoir entré les informations de provisionnement dans le fichier de configuration, redémarrez le démon :
 
-```cmd/sh
+```bash
 sudo systemctl restart iotedge
 ```
 
->[!TIP]
->Vous avez besoin de privilèges élevés pour exécuter les commandes `iotedge`. Une fois que vous vous déconnectez de votre machine et que vous vous reconnectez pour la première fois après avoir installé le runtime IoT Edge, vos autorisations sont automatiquement mises à jour. En attendant, utilisez **sudo** devant les commandes. 
 
 ## <a name="verify-successful-installation"></a>Vérifier la réussite de l’installation
 
@@ -121,24 +152,27 @@ Si vous avez utilisé la procédure de **configuration manuelle** dans la sectio
 
 Vous pouvez vérifier l’état du démon IoT Edge à l’aide de la commande suivante :
 
-```cmd/sh
+```bash
 systemctl status iotedge
 ```
 
 Examinez les journaux du démon à l’aide de la commande suivante :
 
-```cmd/sh
+```bash
 journalctl -u iotedge --no-pager --no-full
 ```
 
 Enfin, répertoriez les modules en cours d’exécution à l’aide de la commande suivante :
 
-```cmd/sh
+```bash
 sudo iotedge list
 ```
->[!NOTE]
->Sur des appareils avec contraintes de ressources comme RaspberryPi, il est vivement recommandé d’affecter la valeur *false* à la variable d’environnement *OptimizeForPerformance* conformément aux instructions figurant dans le [guide de résolution des problèmes.][lnk-trouble]
 
+## <a name="tips-and-suggestions"></a>Conseils et suggestions
+
+Vous avez besoin de privilèges élevés pour exécuter les commandes `iotedge`. Après l’installation du runtime, déconnectez-vous de votre machine et reconnectez-vous pour mettre à jour vos autorisations automatiquement. Dans l’intervalle, utilisez **sudo** devant les commandes `iotedge`.
+
+Sur des appareils avec contraintes de ressources, il est vivement recommandé d’affecter la valeur *false* à la variable d’environnement *OptimizeForPerformance* conformément aux instructions figurant dans le [guide de résolution des problèmes][lnk-trouble].
 
 ## <a name="next-steps"></a>Étapes suivantes
 

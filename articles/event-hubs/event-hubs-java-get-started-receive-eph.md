@@ -2,23 +2,19 @@
 title: Recevoir des événements d’Azure Event Hubs avec Java | Microsoft Docs
 description: Prise en main de la réception d’événements des Event Hubs avec Java
 services: event-hubs
-documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: 38e3be53-251c-488f-a856-9a500f41b6ca
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
-ms.author: sethm
-ms.openlocfilehash: bf87bed80c142bce6229ad858a33a1c6ede63a23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 08/26/2018
+ms.author: shvija
+ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128164"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Recevoir des événements d’Azure Event Hubs avec Java
 
@@ -29,7 +25,6 @@ Pour plus d’informations, consultez la section [Vue d’ensemble d’Event Hu
 Ce didacticiel explique comment recevoir des événements dans un concentrateur d’événements à l’aide d’une application console en Java.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -59,18 +54,18 @@ Pour utiliser EventProcessorHost, vous devez disposer d’un [compte Azure Stora
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Créer un projet Java à l’aide de l’hôte EventProcessor
 
-La bibliothèque cliente Java pour Event Hubs est utilisable dans les projets Maven à partir du [Référentiel central Maven][Maven Package]. Elle peut être référencée à l’aide de la déclaration de dépendance suivante dans votre fichier projet Maven. La version actuelle est 1.0.0 :    
+La bibliothèque cliente Java pour Event Hubs est utilisable dans les projets Maven à partir du [Référentiel central Maven][Maven Package]. Elle peut être référencée à l’aide de la déclaration de dépendance suivante dans votre fichier projet Maven. La version actuelle pour l’artefact azure-eventhubs-eph est la version 2.0.1 et la version actuelle pour l’artefact azure-eventhubs est la version 1.0.2 :    
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs-eph</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.1</version>
 </dependency>
 ```
 
@@ -188,18 +183,14 @@ Pour différents types d’environnements build, vous pouvez obtenir expliciteme
     {
         private int checkpointBatchingCount = 0;
 
-        // OnOpen is called when a new event processor instance is created by the host. In a real implementation, this
-        // is the place to do initialization so that events can be processed when they arrive, such as opening a database
-        // connection.
+        // OnOpen is called when a new event processor instance is created by the host. 
         @Override
         public void onOpen(PartitionContext context) throws Exception
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is opening");
         }
 
-        // OnClose is called when an event processor instance is being shut down. The reason argument indicates whether the shut down
-        // is because another host has stolen the lease for this partition or due to error or host shutdown. In a real implementation,
-        // this is the place to do cleanup for resources that were opened in onOpen.
+        // OnClose is called when an event processor instance is being shut down. 
         @Override
         public void onClose(PartitionContext context, CloseReason reason) throws Exception
         {
@@ -207,18 +198,13 @@ Pour différents types d’environnements build, vous pouvez obtenir expliciteme
         }
         
         // onError is called when an error occurs in EventProcessorHost code that is tied to this partition, such as a receiver failure.
-        // It is NOT called for exceptions thrown out of onOpen/onClose/onEvents. EventProcessorHost is responsible for recovering from
-        // the error, if possible, or shutting the event processor down if not, in which case there will be a call to onClose. The
-        // notification provided to onError is primarily informational.
         @Override
         public void onError(PartitionContext context, Throwable error)
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " onError: " + error.toString());
         }
 
-        // onEvents is called when events are received on this partition of the Event Hub. The maximum number of events in a batch
-        // can be controlled via EventProcessorOptions. Also, if the "invoke processor after receive timeout" option is set to true,
-        // this method will be called with null when a receive timeout occurs.
+        // onEvents is called when events are received on this partition of the Event Hub. 
         @Override
         public void onEvents(PartitionContext context, Iterable<EventData> events) throws Exception
         {
@@ -226,8 +212,6 @@ Pour différents types d’environnements build, vous pouvez obtenir expliciteme
             int eventCount = 0;
             for (EventData data : events)
             {
-                // It is important to have a try-catch around the processing of each event. Throwing out of onEvents deprives
-                // you of the chance to process any remaining events in the batch. 
                 try
                 {
                     System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
@@ -236,10 +220,7 @@ Pour différents types d’environnements build, vous pouvez obtenir expliciteme
                     
                     // Checkpointing persists the current position in the event stream for this partition and means that the next
                     // time any host opens an event processor on this event hub+consumer group+partition combination, it will start
-                    // receiving at the event after this one. Checkpointing is usually not a fast operation, so there is a tradeoff
-                    // between checkpointing frequently (to minimize the number of events that will be reprocessed after a crash, or
-                    // if the partition lease is stolen) and checkpointing infrequently (to reduce the impact on event processing
-                    // performance). Checkpointing every five events is an arbitrary choice for this sample.
+                    // receiving at the event after this one. 
                     this.checkpointBatchingCount++;
                     if ((checkpointBatchingCount % 5) == 0)
                     {
@@ -260,17 +241,55 @@ Pour différents types d’environnements build, vous pouvez obtenir expliciteme
     }
     ```
 
-> [!NOTE]
-> Ce didacticiel utilise une seule instance de EventProcessorHost. Pour augmenter le débit, il est recommandé d’exécuter plusieurs instances d’EventProcessorHost, de préférence sur des machines séparées.  Cela offre également davantage de redondance. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup** . Lors de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances de EventProcessorHost basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés.
-> 
-> 
+Ce didacticiel utilise une seule instance de EventProcessorHost. Pour augmenter le débit, il est recommandé d’exécuter plusieurs instances d’EventProcessorHost, de préférence sur des machines séparées.  Cela offre également davantage de redondance. Dans ces cas, les différentes instances se coordonnent automatiquement entre elles afin d'équilibrer la charge des événements reçus. Si vous souhaitez que plusieurs récepteurs traitent *tous* les événements, vous devez utiliser le concept **ConsumerGroup** . Lors de la réception des événements à partir de différents ordinateurs, il peut être utile de spécifier des noms pour les instances de EventProcessorHost basées sur les ordinateurs (ou rôles) dans lesquels ils sont déployés.
+
+## <a name="publishing-messages-to-eventhub"></a>Publication de messages sur EventHub
+
+Avant que les messages ne soient récupérés par les consommateurs, ils doivent d’abord être publiés sur les partitions par les éditeurs. Il est important de noter que lorsque les messages sont publiés sur Event Hub de façon synchrone à l’aide de la méthode sendSync() sur l’objet com.microsoft.azure.eventhubs.EventHubClient, le message peut être envoyé à une partition spécifique ou distribué à toutes les partitions disponibles par tourniquet (round robin) selon que la clé de partition est spécifiée ou non.
+
+Lorsqu’une chaîne représentant la clé de partition est spécifiée, la clé sera hachée pour déterminer à quelle partition envoyer l’événement.
+
+Lorsque la clé de partition n’est pas définie, les messages sont distribués par tourniquet (round robin) à toutes les partitions disponibles
+
+```java
+// Serialize the event into bytes
+byte[] payloadBytes = gson.toJson(messagePayload).getBytes(Charset.defaultCharset());
+
+// Use the bytes to construct an {@link EventData} object
+EventData sendEvent = EventData.create(payloadBytes);
+
+// Transmits the event to event hub without a partition key
+// If a partition key is not set, then we will round-robin to all topic partitions
+eventHubClient.sendSync(sendEvent);
+
+//  the partitionKey will be hash'ed to determine the partitionId to send the eventData to.
+eventHubClient.sendSync(sendEvent, partitionKey);
+
+```
+
+## <a name="implementing-a-custom-checkpointmanager-for-eventprocessorhost-eph"></a>Mise en œuvre d’un CheckpointManager personnalisé pour EventProcessorHost (EPH)
+
+L’API fournit un mécanisme pour implémenter votre gestionnaire de point de contrôle personnalisé pour les scénarios où la mise en œuvre par défaut n’est pas compatible avec votre cas d’utilisation.
+
+Le gestionnaire de point de contrôle par défaut utilise le stockage blob, mais si vous remplacez le gestionnaire de point de contrôle utilisé par EPH par votre propre mise en œuvre, vous pouvez utiliser n’importe quel magasin souhaité pour sauvegarder votre mise en œuvre du gestionnaire de point de contrôle.
+
+Vous devez créer une classe qui met en œuvre l’interface com.microsoft.azure.eventprocessorhost.ICheckpointManager
+
+Utiliser votre mise en œuvre personnalisée du gestionnaire de point de contrôle (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
+
+Dans votre mise en œuvre, vous pouvez remplacer le mécanisme de points de contrôle par défaut et implémenter nos propres points de contrôle en fonction de votre propre magasin de données (SQL Server, CosmosDB, Cache Redis, etc.). Il est recommandé que le magasin utilisé pour sauvegarder votre mise en œuvre du gestionnaire de point de contrôle soit accessible à toutes les instances EPH qui traitent des événements pour le groupe de consommateurs.
+
+Vous pouvez utiliser n’importe quel magasin de données disponible dans votre environnement.
+
+La classe com.microsoft.azure.eventprocessorhost.EventProcessorHost vous fournit 2 constructeurs qui vous permettent de remplacer le gestionnaire de point de contrôle pour votre EventProcessorHost.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d'ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
+* [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Create an Event Hub](event-hubs-create.md) (Créer un Event Hub)
-* [FAQ sur les hubs d'événements](event-hubs-faq.md)
+* [FAQ sur les hubs d’événements](event-hubs-faq.md)
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 08/27/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: db50a43e23d982722a4f3a7b663086863d915dd2
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 735c5a3645f5e2e0f31bac4d4b2f61d73dfe069e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580123"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128777"
 ---
 # <a name="permissions-in-azure-active-directory"></a>Autorisations dans Azure Active Directory
 
@@ -38,10 +38,10 @@ Les autorisations effectives sont celles qu’a votre application lors des requ�
 
 * Pour les autorisations déléguées, les autorisations effectives de votre application correspondent au niveau de privilège le moins élevé entre les autorisations déléguées que l’application a reçues (par le biais d’un consentement) et les privilèges de l’utilisateur actuellement connecté. Votre application ne peut jamais avoir plus de privilèges que l’utilisateur connecté. Au sein des organisations, les privilèges de l’utilisateur connecté peuvent être déterminés par la stratégie ou l’appartenance à un ou plusieurs rôles d’administrateur. Pour plus d’informations sur les rôles d’administrateur, consultez [Attribution de rôles d’administrateur dans Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
     Par exemple, supposons que votre application ait reçu l’autorisation déléguée `User.ReadWrite.All` dans Microsoft Graph. Cette autorisation permet nominalement à votre application de lire et mettre à jour le profil de chaque utilisateur dans une organisation. Si l’utilisateur connecté est un administrateur général, votre application est en mesure de mettre à jour le profil de chaque utilisateur de l’organisation. Toutefois, si l’utilisateur connecté n’a pas de rôle d’administrateur, votre application peut uniquement mettre à jour le profil de l’utilisateur connecté. Elle ne peut pas mettre à jour les profils des autres utilisateurs de l’organisation, car l’utilisateur pour lequel elle est autorisée à agir n’a pas ces privilèges.
-* Pour les autorisations d’application, les autorisations effectives de votre application correspondent au niveau complet des privilèges impliqués par l’autorisation. Par exemple, une application qui a l’autorisation `User.ReadWrite.All` peut mettre à jour le profil de chaque utilisateur de l’organisation. 
+* Pour les autorisations d’application, les autorisations effectives de votre application correspondent au niveau complet des privilèges impliqués par l’autorisation. Par exemple, une application qui a l’autorisation `User.ReadWrite.All` peut mettre à jour le profil de chaque utilisateur de l’organisation.
 
 ## <a name="permission-attributes"></a>Attributs d’autorisation
-Les autorisations dans Azure AD ont plusieurs propriétés qui aident les utilisateurs, administrateurs ou développeurs d’applications à prendre des décisions avisées sur les éléments auxquels l’autorisation accorde l’accès. 
+Les autorisations dans Azure AD ont plusieurs propriétés qui aident les utilisateurs, administrateurs ou développeurs d’applications à prendre des décisions avisées sur les éléments auxquels l’autorisation accorde l’accès.
 
 > [!NOTE]
 > Vous pouvez voir les autorisations exposées par une application Azure AD ou un principal du service à l’aide du portail Azure ou de PowerShell. Essayez ce script pour voir les autorisations exposées par Microsoft Graph.
@@ -55,18 +55,19 @@ Les autorisations dans Azure AD ont plusieurs propriétés qui aident les utilis
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Nom de la propriété | Description | Exemples | 
+| Nom de la propriété | Description | Exemples |
 | --- | --- | --- |
-| `ID` | Valeur GUID qui identifie cette autorisation de façon unique. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
-| `IsEnabled` | Indique si cette autorisation est disponible à l’utilisation. | true | 
-| `Type` | Indique si cette autorisation nécessite le consentement de l’utilisateur ou de l’administrateur. | Utilisateur | 
-| `AdminConsentDescription` | Description présentée aux administrateurs pendant leur expérience de consentement. | Autorise l’application à lire des e-mails dans des boîtes aux lettres utilisateur. | 
-| `AdminConsentDisplayName` | Nom convivial présenté aux administrateurs pendant leur expérience de consentement. | Accéder en lecture aux e-mails utilisateur | 
-| `UserConsentDescription` | Description présentée aux utilisateurs pendant une expérience de consentement. |  Autorise l’application à lire des e-mails dans votre boîte aux lettres. | 
-| `UserConsentDisplayName` | Nom convivial présenté aux utilisateurs pendant une expérience de consentement. | Lire vos e-mails | 
-| `Value` | Chaîne utilisée pour identifier l’autorisation pendant des flux d’autorisation OAuth 2.0. `Value` peut également être combinée avec la chaîne d’URI d’ID d’application pour former un nom d’autorisation complet. | `Mail.Read` | 
+| `ID` | Valeur GUID qui identifie cette autorisation de façon unique. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
+| `IsEnabled` | Indique si cette autorisation est disponible à l’utilisation. | true |
+| `Type` | Indique si cette autorisation nécessite le consentement de l’utilisateur ou de l’administrateur. | Utilisateur |
+| `AdminConsentDescription` | Description présentée aux administrateurs pendant leur expérience de consentement. | Autorise l’application à lire des e-mails dans des boîtes aux lettres utilisateur. |
+| `AdminConsentDisplayName` | Nom convivial présenté aux administrateurs pendant leur expérience de consentement. | Accéder en lecture aux e-mails utilisateur |
+| `UserConsentDescription` | Description présentée aux utilisateurs pendant une expérience de consentement. |  Autorise l’application à lire des e-mails dans votre boîte aux lettres. |
+| `UserConsentDisplayName` | Nom convivial présenté aux utilisateurs pendant une expérience de consentement. | Lire vos e-mails |
+| `Value` | Chaîne utilisée pour identifier l’autorisation pendant des flux d’autorisation OAuth 2.0. `Value` peut également être combinée avec la chaîne d’URI d’ID d’application pour former un nom d’autorisation complet. | `Mail.Read` |
 
 ## <a name="types-of-consent"></a>Types de consentement
+
 Les applications dans Azure AD reposent sur un consentement pour obtenir l’accès aux ressources ou API nécessaires. Il existe plusieurs types de consentement dont votre application peut avoir besoin pour fonctionner correctement. Si vous définissez des autorisations, vous devez également comprendre la façon dont vos utilisateurs vont accéder à votre application ou API.
 
 * **Consentement de l’utilisateur statique** : se produit automatiquement pendant le [flux d’autorisation OAuth 2.0](v1-protocols-oauth-code.md#request-an-authorization-code) quand vous spécifiez la ressource avec laquelle votre application veut interagir. Dans le cadre d’un consentement de l’utilisateur statique, votre application doit déjà avoir spécifié toutes les autorisations dont elle a besoin dans sa configuration dans le portail Azure. Si l’utilisateur (ou administrateur, selon le cas) n’a pas donné son consentement à cette application, Azure AD invite l’utilisateur à le donner à ce stade. 
@@ -74,8 +75,8 @@ Les applications dans Azure AD reposent sur un consentement pour obtenir l’acc
     Découvrez-en plus sur l’inscription d’une application Azure AD qui demande l’accès à un ensemble statique d’API.
 * **Consentement de l’utilisateur dynamique** : fonctionnalité du modèle d’application Azure AD v2. Dans ce scénario, votre application demande un ensemble d’autorisations dont elle a besoin dans le [flux d’autorisation OAuth 2.0 pour des applications v2](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent). Si l’utilisateur n’a pas déjà donné son consentement, il est invité à le faire à ce stade. [Découvrez-en plus sur le consentement dynamique](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
-    > [!NOTE]
-    > Le consentement dynamique peut s’avérer pratique, mais il représente un véritable défi pour les autorisations qui nécessitent un consentement de l’administrateur, dans la mesure où l’expérience de consentement de l’administrateur n’a pas connaissance de ces autorisations au moment du consentement. Si vous avez besoin d’autorisations à privilège administratif, votre application doit les inscrire dans le portail Azure.
+    > [!IMPORTANT]
+    > Le consentement dynamique peut s’avérer pratique, mais il représente un véritable défi pour les autorisations qui nécessitent un consentement de l’administrateur, dans la mesure où l’expérience de consentement de l’administrateur n’a pas connaissance de ces autorisations au moment du consentement. Si vous avez besoin d’autorisations à privilège administratif ou si votre application utilise le consentement dynamique, vous devez inscrire toutes les autorisations dans le portail Azure (pas seulement le sous-ensemble d’autorisations qui nécessite le consentement de l’administrateur). Ceci permet aux administrateurs de locataires de donner leur consentement au nom de tous leurs utilisateurs.
   
 * **Consentement de l’administrateur** : nécessaire quand votre application a besoin d’accéder à certaines autorisations à privilèges élevés. Le consentement de l’administrateur garantit que les administrateurs disposent de contrôles supplémentaires avant d’autoriser des applications ou des utilisateurs à accéder aux données à privilèges élevés de l’organisation. [Découvrez-en plus sur la manière d’accorder un consentement de l’administrateur](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
@@ -84,7 +85,7 @@ Les applications dans Azure AD reposent sur un consentement pour obtenir l’acc
 ### <a name="client-best-practices"></a>Meilleures pratiques clientes
 
 - Demandez uniquement les autorisations dont votre application a besoin. Les applications qui ont trop d’autorisations courent le risque d’exposer des données utilisateur si elles sont compromises.
-- Choisissez entre les autorisations déléguées et les autorisations d’application en fonction du scénario que votre application prend en charge. 
+- Choisissez entre les autorisations déléguées et les autorisations d’application en fonction du scénario que votre application prend en charge.
     - Utilisez toujours des autorisations déléguées si l’appel est effectué pour le compte d’un utilisateur.
     - Utilisez uniquement des autorisations d’application si l’application est non interactive et qu’elle n’effectue pas d’appels pour le compte d’un utilisateur spécifique. Les autorisations d’application sont à privilèges élevés et ne doivent être utilisées qu’en cas de nécessité absolue.
 - Quand vous utilisez une application basée sur le point de terminaison v2.0, définissez toujours les autorisations statiques (celles spécifiées dans votre inscription d’application) pour qu’elles soient le sur-ensemble des autorisations dynamiques que vous demandez au moment de l’exécution (celles spécifiées dans le code et envoyées en tant que paramètres de requête dans votre requête d’autorisation) afin que des scénarios comme le consentement de l’administrateur fonctionnent correctement.
@@ -95,16 +96,11 @@ Les applications dans Azure AD reposent sur un consentement pour obtenir l’acc
 - Les ressources doivent explicitement définir des autorisations `Read` et `ReadWrite` séparément.
 - Les ressources doivent marquer toutes les autorisations qui permettent d’accéder à des données situées au-delà des limites de l’utilisateur comme des autorisations `Admin`.
 - Les ressources doivent suivre le modèle de nommage `Subject.Permission[.Modifier]`, où :
-    - `Subject` correspond au type de données disponibles,
-    - `Permission` correspond à l’action qu’un utilisateur peut effectuer sur ces données, et 
-    - `Modifier` est éventuellement utilisé pour décrire les spécialisations d’une autre autorisation. 
+    - `Subject` correspond au type de données disponibles
+    - `Permission` correspond à l’action qu’un utilisateur peut effectuer sur ces données
+    - `Modifier` est éventuellement utilisé pour décrire les spécialisations d’une autre autorisation
     
-    Par exemple :  
+    Par exemple : 
     * Mail.Read : autorise les utilisateurs à lire des messages.
     * Mail.ReadWrite : autorise les utilisateurs à lire ou écrire des messages.
     * Mail.ReadWrite.All : autorise un administrateur ou utilisateur à accéder à tous les messages de l’organisation.
-
-
-
-
-
