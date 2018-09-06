@@ -1,27 +1,22 @@
 ---
 title: Déplacer des applications depuis BizTalk Services vers Azure Logic Apps | Microsoft Docs
-description: Déplacer ou migrer Azure BizTalk Services (MABS) vers Azure Logic Apps
+description: Migrer d’Azure BizTalk Services (MABS) vers Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: jonfancey
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jonfancey
+ms.author: jonfan
+ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.author: jonfan; LADocs
-ms.openlocfilehash: 846386172c0221c217430e62c8560484f799fa7f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f27e82e780917e00625ef6a14ab8317d1f5b8ae8
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299543"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124797"
 ---
-# <a name="move-from-biztalk-services-to-azure-logic-apps"></a>Déplacer depuis BizTalk Services vers Azure Logic Apps
+# <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrer de BizTalk Services vers Azure Logic Apps
 
 Microsoft Azure BizTalk Services (MABS) fait l’objet d’une mise hors service. Pour déplacer vos solutions d’intégration MABS vers[Azure Logic Apps](../logic-apps/logic-apps-overview.md), suivez les instructions de cet article. 
 
@@ -38,7 +33,7 @@ Le service [Connexions hybrides d’Azure App Service](../app-service/app-servic
 
 Ce tableau mappe les fonctionnalités de BizTalk Services à Logic Apps.
 
-| BizTalk Services   | Logic Apps            | Objectif                      |
+| BizTalk Services   | Logic Apps            | Objectif                      |
 | ------------------ | --------------------- | ---------------------------- |
 | Connecteur          | Connecteur             | Envoyer et recevoir des données   |
 | Pont             | Application logique             | Processeur de pipeline           |

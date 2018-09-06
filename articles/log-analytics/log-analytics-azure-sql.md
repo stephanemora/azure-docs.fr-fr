@@ -3,9 +3,9 @@ title: Solution Azure SQL Analytics dans Log Analytics | Microsoft Docs
 description: La solution Azure SQL Analytics vous permet de gérer vos instances Azure SQL Database.
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: danimir
 manager: carmonm
-editor: ''
+ms.reviewer: carlrab
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
 ms.workload: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: magoedte
+ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 440e16416b8567178c61c3d6ce2155e0e331521c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216323"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886558"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Surveiller les instances Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -44,7 +44,7 @@ Azure SQL Analytics est une solution de surveillance cloud prenant en charge l
 | Source connectée | Support | Description |
 | --- | --- | --- |
 | **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Oui** | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
-| [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | Log Analytics ne lit pas les données du compte de stockage. |
+| [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | Log Analytics ne lit pas les données d’un compte de stockage. |
 | [Agents Windows](log-analytics-windows-agent.md) | Non  | Les agents directs Windows ne sont pas utilisés par la solution. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non  | Les agents directs Linux ne sont pas utilisés par la solution. |
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne valorise aucune connexion directe entre l’agent SCOM et Log Analytics. |
@@ -119,7 +119,7 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 ### <a name="elastic-pool-and-database-reports"></a>Rapports de base de données et de pool de bases de données élastique
 
-Les pools de bases de données élastique et les bases de données ont leurs propres rapports qui affichent toutes les données collectées pour la ressource, dans le temps imparti.
+Les pools élastiques et les bases de données ont leurs propres rapports qui affichent toutes les données collectées pour la ressource, dans le temps imparti.
 
 ![Base de données Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
 
@@ -135,27 +135,77 @@ En vous aidant de la durée de la requête et des attentes de requête, vous pou
 
 Vous pouvez facilement [créer des alertes](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) avec les données provenant de ressources Azure SQL Database. Voici quelques requêtes utiles de [recherche dans les journaux](log-analytics-log-searches.md) que vous pouvez utiliser pour créer des alertes :
 
-
-
-*DTU élevé sur Azure SQL Database*
+*UC élevée sur Azure SQL Database*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/DATABASES/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
-*DTU élevé sur un pool élastique Azure SQL Database*
+> [!NOTE]
+> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les mesures de diagnostic (option « Toutes les mesures ») à la solution.
+> - Remplacez la valeur MetricName cpu_percent par dtu_consumption_percent pour obtenir des résultats de DTU élevés à la place.
+
+*UC élevée sur des pools élastiques SQL Database*
 
 ```
 AzureMetrics 
-| where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" 
+| where ResourceProvider=="MICROSOFT.SQL"
+| where ResourceId contains "/ELASTICPOOLS/"
+| where MetricName=="cpu_percent" 
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
 
+> [!NOTE]
+> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les mesures de diagnostic (option « Toutes les mesures ») à la solution.
+> - Remplacez la valeur MetricName cpu_percent par dtu_consumption_percent pour obtenir des résultats de DTU élevés à la place.
 
+*Stockage de base de données SQL Azure supérieur à 95 % en moyenne dans la dernière heure*
+
+```
+let time_range = 1h;
+let storage_threshold = 95;
+AzureMetrics
+| where ResourceId contains "/DATABASES/"
+| where MetricName == "storage_percent"
+| summarize max_storage = max(Average) by ResourceId, bin(TimeGenerated, time_range)
+| where max_storage > storage_threshold
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les mesures de diagnostic (option « Toutes les mesures ») à la solution.
+> - Cette requête nécessite une règle d’alerte pour être configurée de manière à déclencher une alerte lorsqu’il y a des résultats (résultats > 0) à la requête, indiquant que la condition existe sur certaines bases de données. La sortie est une liste de ressources de base de données qui se situent au-dessus de storage_threshold dans le time_range défini.
+> - La sortie est une liste de ressources de base de données qui se situent au-dessus de storage_threshold dans le time_range défini.
+
+*Alerte sur Intelligent Insights*
+
+```
+let alert_run_interval = 1h;
+let insights_string = "hitting its CPU limits";
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| where TimeGenerated > ago(alert_run_interval)
+| where rootCauseAnalysis_s contains insights_string
+| distinct ResourceId
+```
+
+> [!NOTE]
+> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu le journal de diagnostic SQLInsights à la solution.
+> - Cette requête nécessite la configuration d’une règle d’alerte pour une exécution à la même fréquence qu’alert_run_interval afin d’éviter des résultats en double. La règle doit être configurée pour déclencher l’alerte lorsqu’il y a des résultats (résultats > 0) à la requête.
+> - Personnalisez l’alert_run_interval afin de spécifier l’intervalle de temps pour vérifier si la condition est remplie sur les bases de données configurées pour transmettre en continu le journal à la solution.
+> - Personnalisez l’insights_string pour capturer la sortie du texte d’analyse de cause racine Insights. Ce texte est identique à celui affiché dans l’interface utilisateur de la solution que vous pouvez utiliser à partir des insights existants. Vous pouvez également utiliser la requête ci-dessous pour voir le texte de tous les éléments Insights générés sur votre abonnement. Utilisez la sortie de la requête pour collecter les chaînes distinctes et configurer des alertes sur Insights.
+
+```
+AzureDiagnostics
+| where Category == "SQLInsights" and status_s == "Active" 
+| distinct rootCauseAnalysis_s
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

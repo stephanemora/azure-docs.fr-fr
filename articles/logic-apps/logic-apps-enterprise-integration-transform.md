@@ -1,28 +1,24 @@
 ---
-title: Convertir les données XML avec des transformations - Azure Logic Apps | Microsoft Docs
-description: Créer des transformations ou des mappages pour convertir les données XML entre les différents formats dans les applications logiques à l’aide du Kit de développement logiciel (SDK) d’intégration d’entreprise
+title: Convertir des données XML entre des formats - Azure Logic Apps | Microsoft Docs
+description: Créer des transformations ou des mappages qui convertissent des données XML entre les différents formats dans Azure Logic Apps à l’aide d’Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 1621843d58954aa05a572f43fdab0fb16097332e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299451"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125293"
 ---
-# <a name="enterprise-integration-with-xml-transforms"></a>Intégration d’entreprise avec les transformations XML
-## <a name="overview"></a>Vue d'ensemble
+# <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Créer des mappages qui convertissent des données XML entre les différents formats dans Azure Logic Apps à l’aide d’Enterprise Integration Pack
+
 Le connecteur Enterprise Integration Transform convertit les données d’un format vers un autre format. Vous pouvez, par exemple, avoir un message entrant qui contient la date du jour au format AnnéeMoisJour. Vous pouvez utiliser une transformation pour remettre en forme la date au format MoisJourAnnée.
 
 ## <a name="what-does-a-transform-do"></a>Que fait une transformation ?

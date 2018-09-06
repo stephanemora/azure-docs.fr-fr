@@ -1,28 +1,23 @@
 ---
-title: 'Scenario Serverless : créer un tableau de bord des insights client avec Azure | Microsoft Docs'
-description: Apprenez à gérer des retours d’expérience client, des données sociales, etc. en générant un tableau de bord client avec Azure Logic Apps et Azure Functions
-keywords: ''
+title: 'Scenario serverless : créer un tableau de bord des insights client avec des services Azure | Microsoft Docs'
+description: Gérer des retours d’expérience client, des données de médias sociaux, etc., en générant un tableau de bord client avec Azure Logic Apps et Azure Functions
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: jeffhollan
+ms.author: jehollan
+ms.reviewer: estfan, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.author: jehollan; LADocs
-ms.openlocfilehash: 3ee3ec3107cf8aad834e8201405c9aa833d838af
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9d6d74c4afb4d1cd62e5946b7e6f8c401e7ef2aa
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299958"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124642"
 ---
-# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
+# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 
 Azure offre des outils serverless qui permettent de générer et d’héberger rapidement des applications dans le cloud, sans avoir à réfléchir à l’infrastructure. Dans ce tutoriel, vous pouvez créer un tableau de bord qui se déclenche lors de retours d’expérience client, analyse le retour avec le Machine Learning et publie des insights dans une source telle que Power BI ou Azure Data Lake.
 

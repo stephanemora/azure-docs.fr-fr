@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d0dbf603c600639679e121723556a7f3ceb17e37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 67806563dcd67876d4d922c7f2c76379f7ad7222
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158979"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125511"
 ---
 # <a name="billing-options-in-the-azure-marketplace"></a>Options de facturation sur la Place de marché Azure
 
@@ -28,7 +28,7 @@ Cet article décrit les options de facturation disponibles sur la [Place de marc
 ## <a name="commercial-considerations-in-the-marketplace"></a>Considérations d’ordre commercial concernant la Place de marché
 La Place de marché ne partage pas les revenus pour les types de liste suivants : 
 *   Liste
-*   Essai
+*   Version d’évaluation
 *   Transact suivant le modèle de facturation BYOL (apportez votre propre licence)
 
 La participation aux vitrines de la Place de marché n’implique pas de frais supplémentaires.
@@ -70,9 +70,9 @@ L’option de publication Transact de la Place de marché Azure présente un ava
 Dans ce scénario, Microsoft gère la facturation et les paiements à votre place. La facturation Microsoft vous évite d’avoir à créer votre propre relation d’approvisionnement avec votre client. Elle peut vous faire gagner du temps et économiser des ressources. Elle peut également vous aider à vous concentrer sur la vente plutôt que sur la collecte des paiements. 
 
 ## <a name="enterprise-agreement"></a>Contrat Entreprise  
-Si vous êtes un client Contrat Entreprise Microsoft, vous pouvez utiliser votre Contrat Entreprise pour payer les produits Microsoft. Certains produits, notamment votre utilisation d’Azure, sont susceptibles de vous être facturés. L’option de paiement Contrat Entreprise est destinée aux entreprises désireuses d’acheter des licences de logiciels et de services cloud pour au moins trois ans. Vous échelonnez les paiements au lieu de n’effectuer qu’un seul paiement initial. Si vous utilisez l’option de publication Paiement à l’utilisation, la facturation de vos frais de licence de logiciels suit le cycle trimestriel de facturation de dépassement du Contrat Entreprise.  
+Si vous êtes un client Contrat Entreprise Microsoft, vous pouvez utiliser votre Contrat Entreprise pour payer les produits Microsoft. Certains produits, notamment votre utilisation d’Azure, sont susceptibles de vous être facturés. L’option de paiement Contrat Entreprise est destinée aux entreprises désireuses d’acheter des licences de logiciels et de services cloud pour au moins trois ans. Vous échelonnez les paiements au lieu d’effectuer un seul paiement préalable. Si vous utilisez l’option de publication Paiement à l’utilisation, la facturation de vos frais de licence de logiciels suit le cycle trimestriel de facturation de dépassement du Contrat Entreprise.  
 
-### <a name="monetary-commitment"></a>Engagement financier
+### <a name="monetary-commitment"></a>Engagement monétaire
 Si vous êtes un client Contrat Entreprise, vous pouvez ajouter Azure à votre contrat. Pour cela, vous pouvez régler d’avance un engagement financier portant sur Azure. Il courra tout au long de l’année. Votre engagement inclut toute combinaison d’utilisation des services Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes

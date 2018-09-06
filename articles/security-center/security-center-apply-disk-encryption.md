@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 67cff664f3723b2194ecd1519729cca17069d07f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcfa6ead0eac4a8a631c0388466534406c7a594b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040214"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887336"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Appliquer le chiffrement de disque dans Azure Security Center
 Azure Security Center vous recommande d’appliquer le chiffrement de disques si vous avez des disques de machines virtuelles Windows ou Linux qui ne sont pas chiffrés à l’aide d’Azure Disk Encryption. Disk Encryption vous permet de chiffrer vos disques de machines virtuelles IaaS Windows et Linux.  Le chiffrement est recommandé pour les systèmes d’exploitation et les volumes de données de votre machine virtuelle.
@@ -44,7 +44,7 @@ Pour chiffrer les machines virtuelles Azure qui ont fait l’objet d’une alert
 * Récupérez et exécutez le script Azure PowerShell de configuration d’Azure Disk Encryption.
 * Chiffrez vos machines virtuelles.
 
-[Chiffrement d’une machine virtuelle Azure](security-center-disk-encryption.md) vous guide à travers ces étapes.  Pour suivre cette procédure, vous devez utiliser Windows 10 en tant qu’ordinateur client à partir duquel vous allez configurer le chiffrement de disque.
+[Chiffrer une machine virtuelle IaaS Windows avec Azure PowerShell](../security/quick-encrypt-vm-powershell.md) vous guide pas à pas. Pour suivre cette procédure, vous devez utiliser Windows en tant qu’ordinateur client à partir duquel vous allez configurer le chiffrement de disque.
 
 Vous pouvez utiliser de nombreuses approches pour les Machines virtuelles Azure. Si vous êtes déjà familiarisé avec Azure PowerShell ou avec l’interface de ligne de commande Azure, vous pouvez opter pour d’autres approches. Pour en savoir plus sur ces autres approches, consultez [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
 
@@ -52,16 +52,15 @@ Vous pouvez utiliser de nombreuses approches pour les Machines virtuelles Azure.
 Ce document vous a montré comment implémenter la recommandation du Centre de sécurité « Apply disk encryption ». Pour plus d’informations sur le chiffrement de disque, consultez les rubriques suivantes :
 
 * [Chiffrement et gestion de clés avec Azure Key Vault](https://azure.microsoft.com/documentation/videos/azurecon-2015-encryption-and-key-management-with-azure-key-vault/) (vidéo, 36 min 39 secondes) : découvrez comment utiliser la gestion du chiffrement des disques pour des machines virtuelles IaaS et Azure Key Vault afin de protéger et sécuriser vos données.
-* [Chiffrement d’une machine virtuelle Azure](security-center-disk-encryption.md) (document) : découvrez comment chiffrer des machines virtuelles Azure.
-* [Azure Disk Encryption](../security/azure-security-disk-encryption.md) (document) : découvrez comment activer le chiffrement de disque pour des machines virtuelles Windows et Linux.
+* [Azure Disk Encryption](../security/azure-security-disk-encryption-overview.md) (document) : découvrez comment activer le chiffrement de disque pour des machines virtuelles Windows et Linux.
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-* [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.
-* [FAQ Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
+* [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
+* [FAQ sur Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : recherchez des billets de blog sur la sécurité et la conformité Azure.
 
 <!--Image references-->

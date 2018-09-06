@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5867012e0322e520b4ef234599fa25a2ec08138d
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: d5b43f81cbb3bbebb231a8a9738f6138b62ef7f6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325766"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046027"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Déployer des modules Azure IoT Edge à partir de Visual Studio Code
 
@@ -130,7 +130,7 @@ Vous déployez les modules sur votre appareil en appliquant le manifeste de dép
 
 2. Cliquez avec le bouton droit sur l’appareil que vous souhaitez configurer avec le manifeste de déploiement. 
 
-3. Sélectionnez **Create Deployment for IoT Edge Device** (Créer le déploiement pour l’appareil IoT Edge). 
+3. Sélectionnez **Créer un déploiement pour un seul appareil**. 
 
 4. Recherchez le fichier JSON de manifeste de déploiement à utiliser, puis cliquez sur **Select Edge Deployment Manifest** (Sélectionner un manifeste de déploiement Edge). 
 

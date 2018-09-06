@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: e562b694b2d3f226d0b4f5bc03b54d6562e52244
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3fc00400590582d21590aadc9741cf0eaf048240
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145973"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047212"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Liaisons Azure Cosmos DB pour Azure Functions 2.x (Préversion)
 
@@ -37,7 +37,11 @@ Cet article explique comment utiliser des liaisons [Azure Cosmos DB](..\cosmos-d
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>Packages - Functions 2.x
+## <a name="supported-apis"></a>API prises en charge
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+
+## <a name="packages---functions-2x"></a>Packages - Functions 2.x
 
 Les liaisons Azure Cosmos DB pour Functions version 2.x sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.CosmosDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB), version 3.x. Le code source des liaisons se trouve dans le référentiel GitHub [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/).
 
@@ -160,7 +164,7 @@ Voici le code JavaScript :
     }
 ```
 
-### <a name="trigger---java-example"></a>Déclencheur : exemple Java
+### <a name="trigger---java-example"></a>Déclencheur - exemple Java
 
 L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction Java](functions-reference-java.md) qui utilise la liaison. La fonction est impliquée lorsqu’il y a des insertions ou des mises à jour dans la base de données et la collection spécifiées.
 
@@ -254,10 +258,7 @@ Le déclencheur n’indique pas si un document a été mis à jour ou inséré, 
 
 ## <a name="input"></a>Entrée
 
-La liaison d’entrée Azure Cosmos DB récupère un ou plusieurs documents Azure Cosmos DB et les transmet au paramètre d’entrée de la fonction. L’ID du document ou les paramètres de requête peuvent être déterminés en fonction du déclencheur qui appelle la fonction. 
-
->[!NOTE]
-> N’utilisez pas des liaisons d’entrée ou de sortie Azure Cosmos DB si vous utilisez l’API MongoDB sur un compte Cosmos DB. L’altération des données est une possibilité.
+La liaison d’entrée Azure Cosmos DB utilise l’API SQL pour récupérer un ou plusieurs documents Azure Cosmos DB et les transmet au paramètre d’entrée de la fonction. L’ID du document ou les paramètres de requête peuvent être déterminés en fonction du déclencheur qui appelle la fonction. 
 
 ## <a name="input---examples"></a>Entrée - Exemples
 
@@ -1092,7 +1093,7 @@ Voici le fichier *function.json* :
 
 Voici le code JavaScript :
 
-```cs
+```javascript
 module.exports = function (context, req, toDoItem) {
     context.log('JavaScript queue trigger function processed work item');
     if (!toDoItem)
@@ -1253,10 +1254,7 @@ Dans les fonctions JavaScript, les mises à jour ne sont pas effectuées une foi
 
 ## <a name="output"></a>Sortie
 
-La liaison de sortie Azure Cosmos DB vous permet d’écrire un nouveau document dans une base de données Azure Cosmos DB. 
-
->[!NOTE]
-> N’utilisez pas des liaisons d’entrée ou de sortie Azure Cosmos DB si vous utilisez l’API MongoDB sur un compte Cosmos DB. L’altération des données est une possibilité.
+La liaison de sortie Azure Cosmos DB vous permet d’écrire un nouveau document dans une base de données Azure Cosmos DB en utilisant l’API SQL. 
 
 ## <a name="output---examples"></a>Sortie - exemples
 

@@ -3,19 +3,19 @@ title: Foire aux questions Azure SQL Data Warehouse | Microsoft Docs
 description: Cet article répertorie les questions fréquemment posées par les clients et les développeurs sur Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971701"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306738"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Foire aux questions SQL Data Warehouse
 
@@ -53,13 +53,13 @@ R. Pour obtenir de l’aide concernant le développement avec SQL Data Warehouse
 
 Q. Comment envoyer un ticket de support ?
 
-R. Les [Tickets de support] peuvent être déposés sur le Portail Azure.
+R. Les [tickets de support] peuvent être déposés sur le Portail Azure.
 
 ## <a name="sql-languagefeature-support"></a>Prise en charge de fonctionnalités / langages SQL 
 
 Q. Quels sont les types de données pris en charge par SQL Data Warehouse ?
 
-R. Consultez la page [types de données] SQL Data Warehouse.
+R. Consultez la page [Types de données] SQL Data Warehouse.
 
 Q. Quelles fonctionnalités de table prenez-vous en charge ?
 

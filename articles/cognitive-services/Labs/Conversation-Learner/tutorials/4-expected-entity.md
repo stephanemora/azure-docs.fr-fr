@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170906"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888202"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Comment utiliser la propriété « Entité attendue » des actions
 
@@ -43,7 +43,7 @@ Concrètement, si le champ « Entité attendue » d’une action est défini sur
 
 ### <a name="create-the-model"></a>Création du modèle
 
-1. Dans l’interface utilisateur web, cliquez sur Nouveau modèle.
+1. Dans l’interface utilisateur web, cliquez sur New Model
 2. Dans Nom, entrez ExpectedEntities. Cliquez ensuite sur Créer.
 
 ### <a name="create-an-entity"></a>Créer une entité
@@ -65,7 +65,7 @@ Concrètement, si le champ « Entité attendue » d’une action est défini sur
     - Cette valeur signifie que, si cette question est posée et que la réponse de l’utilisateur ne comporte aucune entité détectée, le bot doit supposer que cette entité correspond à la totalité de la réponse.
 2. Cliquez sur Actions, puis sur Nouvelle Action pour en créer une deuxième.
 3. Dans Réponse, tapez « Hello $name ».
-    - L’entité est automatiquement ajoutée comme étant une entité disqualifiante. 
+    - L’entité est automatiquement ajoutée en tant qu’entité requise. 
 4. Cliquez sur Enregistrer.
 
 Vous avez maintenant deux actions.
@@ -95,9 +95,9 @@ Voici deux exemples dans lesquels le modèle d’extraction d’entités d’app
 3. Sélectionnez « Bonjour $name ».
 4. Entrez « mon nom est susan ».
     - Le modèle identifie susan comme nom, car il a déjà vu ce modèle.
-2. Cliquez sur Attribuer un score aux actions.
+2. Cliquez sur Score Actions (Actions de score).
 2. Sélectionnez « Bonjour susan ».
-3. Cliquez sur Apprentissage terminé.
+3. Cliquez sur Done Teaching (Apprentissage terminé).
 
 Dans les exemples suivants, l’heuristique « entité attendue » se déclenche, mais elle n’est pas correcte. Les exemples montrent comment effectuer la correction.
 
@@ -115,7 +115,7 @@ Dans les exemples suivants, l’heuristique « entité attendue » se déclenc
 3. Cliquez pour sélectionner frank, puis cliquez sur le nom.
 2. Cliquez sur Attribuer un score aux actions.
 3. Sélectionnez « Bonjour $name ».
-4. Cliquez sur Apprentissage terminé.
+4. Cliquez sur Done Teaching (Apprentissage terminé).
 
 ![](../media/tutorial4_dialogs.PNG)
 

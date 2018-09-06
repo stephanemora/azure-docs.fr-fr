@@ -1,25 +1,21 @@
 ---
 title: Suivre des messages B2B dans Azure Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Suivre la communication B2B pour votre compte d’intégration et vos applications logiques avec Azure Log Analytics
-author: padmavc
-manager: jeconnoc
-editor: ''
+description: Suivre la communication B2B pour des comptes d’intégration et pour Azure Logic Apps avec Azure Log Analytics
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 06/19/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 82d1fbc4167d1df4cb2c976395c181e4abd1ba3c
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 5bf5385824eb9b711a2fee547c29d24d7ef5a01d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293199"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125766"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Suivre la communication B2B avec Azure Log Analytics
 
@@ -56,7 +52,7 @@ Pour que Log Analytics effectue le suivi des messages B2B pour votre application
 
    ![Sélectionnez votre espace de travail Log Analytics.](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Sous **Gestion**, choisissez **Présentation**.
+3. Sous **Gestion**, choisissez **Vue d’ensemble**.
 
    ![Sélection du portail Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
@@ -142,8 +138,8 @@ Voici les descriptions de propriété pour chaque message AS2.
 
 | Propriété | Description |
 | --- | --- |
-| Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord AS2 |
-| Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord AS2 |
+| Expéditeur | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord AS2 |
+| Destinataire | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord AS2 |
 | Application logique | Application logique dans laquelle les actions AS2 sont configurées |
 | Statut | État du message AS2 <br>Success = a reçu ou envoyé un message AS2 valide. Aucun MDN n’est configuré. <br>Success = a reçu ou envoyé un message AS2 valide. MDN est configuré et reçu ou envoyé. <br>Failed = a reçu un message AS2 non valide. Aucun MDN n’est configuré. <br>Pending = a reçu ou envoyé un message AS2 valide. Un MDN est configuré et attendu. |
 | Ack | État du message MDN <br>Accepted = a reçu ou envoyé un MDN positif. <br>Pending = en attente de réception ou d’envoi d’un MDN. <br>Rejected = a reçu ou envoyé un MDN négatif. <br>Not Required = aucun MDN n’est configuré dans l’accord. |
@@ -173,7 +169,7 @@ Voici les descriptions de propriété pour chaque message X12.
 
 | Propriété | Description |
 | --- | --- |
-| Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord X12 |
+| Expéditeur | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord X12 |
 | Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord X12 |
 | Application logique | Application logique dans laquelle les actions X12 sont configurées |
 | Statut | État du message X12 <br>Success = a reçu ou envoyé un message X12 valide. Aucun accusé de réception fonctionnel configuré. <br>Success = a reçu ou envoyé un message X12 valide. Accusé de réception fonctionnel configuré et reçu ou envoyé. <br>Failed = a reçu ou envoyé un message X12 non valide. <br>Pending = a reçu ou envoyé un message X12 valide. Accusé de réception fonctionnel configuré et attendu. |
@@ -206,8 +202,8 @@ Voici les descriptions de propriété pour chaque message EDIFACT.
 
 | Propriété | Description |
 | --- | --- |
-| Sender | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
-| Receiver | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
+| Expéditeur | Partenaire invité spécifié dans **Paramètres de réception**, ou partenaire hôte spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
+| Destinataire | Partenaire hôte spécifié dans **Paramètres de réception**, ou partenaire invité spécifié dans **Paramètres d’envoi** pour un accord EDIFACT |
 | Application logique | Application logique dans laquelle les actions EDIFACT sont configurées |
 | Statut | État du message EDIFACT <br>Success = a reçu ou envoyé un message EDIFACT valide. Aucun accusé de réception fonctionnel configuré. <br>Success = a reçu ou envoyé un message EDIFACT valide. Accusé de réception fonctionnel configuré et reçu ou envoyé. <br>Failed = a reçu ou envoyé un message EDIFACT non valide. <br>Pending = a reçu ou envoyé un message EDIFACT valide. Accusé de réception fonctionnel configuré et attendu. |
 | Ack | État de l’accusé de réception fonctionnel (997) <br>Accepted = a reçu ou envoyé un accusé de réception positif. <br>Rejected = a reçu ou envoyé un accusé de réception négatif. <br>Pending = attendait un accusé de réception fonctionnel mais ne l’a pas reçu. <br>Pending = a généré un accusé de réception fonctionnel mais ne peut pas l’envoyer au partenaire. <br>Not Required = accusé de réception fonctionnel non configuré. |

@@ -14,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 983cecdcdb95dca398f728dbdbe5feac69075d6a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 7f6049e874f329c1e3a4f72417dd9a7eebc42628
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248368"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887061"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Didacticiel : Utiliser une MSI (Managed Service Identity) de machine virtuelle Windows pour accéder à Stockage Azure à l’aide d’informations d’identification SAP
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel montre comment activer une Managed Service Identity solution pour une machine virtuelle Windows, puis utiliser la Managed Service Identity pour obtenir des informations d’identification SAP (Signature d’Accès Partagé) de stockage. Plus précisément, des [informations d’identification SAP de service](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Ce tutoriel vous indique comment utiliser une identité affectée par le système pour une machine virtuelle Windows afin d’obtenir des informations d’identification SAP (signature d’accès partagé) de stockage. Plus précisément, des [informations d’identification SAP de service](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 Une SAP de service offre la possibilité d’accorder un accès limité à des objets dans un compte de stockage, pendant une durée limitée et pour un service spécifique (en l’occurrence, le service BLOB), sans exposer de clé d’accès de compte. Vous pouvez utiliser des informations d’identification SAP comme d’habitude lors de l’exécution d’opérations de stockage, par exemple, lors de l’utilisation du SDK Stockage Azure. Ce didacticiel montre le chargement et le téléchargement d’un objet blob à l’aide de Stockage Azure PowerShell. Vous apprendrez à :
 
-
 > [!div class="checklist"]
-> * Activer l’identité du service administré sur une machine virtuelle Windows 
+> * Créez un compte de stockage.
 > * Autoriser votre machine virtuelle à accéder à la SAP d’un compte stockage dans le Gestionnaire des ressources 
 > * Obtenir un jeton d’accès à l’aide de l’identité de votre machine virtuelle et l’utiliser pour récupérer la SAP à partir du Gestionnaire des ressources 
 
@@ -41,33 +40,12 @@ Une SAP de service offre la possibilité d’accorder un accès limité à des o
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Connexion à Azure
+- [Connectez-vous au Portail Azure](https://portal.azure.com).
 
-Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
+- [Créez une machine virtuelle Windows](/azure/virtual-machines/windows/quick-create-portal).
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Création d'une machine virtuelle Windows dans un nouveau groupe de ressources
+- [Activez l’identité affectée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm).
 
-Pour ce didacticiel, nous allons créer une machine virtuelle Windows. Vous pouvez également activer une identité MSI sur une machine virtuelle existante.
-
-1.  Cliquez sur le bouton **+/Créer un service** dans l’angle supérieur gauche du portail Azure.
-2.  Sélectionnez **Compute**, puis **Windows Server 2016 Datacenter**. 
-3.  Saisissez les informations de la machine virtuelle. Le **Nom d’utilisateur** et le **Mot de passe** créés ici sont les informations d’identification nécessaires pour vous connecter à la machine virtuelle.
-4.  Choisissez un **Abonnement** approprié pour la machine virtuelle dans la liste déroulante.
-5.  Pour sélectionner un nouveau **Groupe de ressources** dans lequel vous souhaitez créer une machine virtuelle, choisissez **Créer un nouveau**. Lorsque vous avez terminé, cliquez sur **OK**.
-6.  Choisissez la taille de la machine virtuelle. Pour voir plus de tailles, sélectionnez **Afficher tout** ou modifiez le filtre **Type de disque pris en charge**. Conservez les valeurs par défaut dans le panneau des paramètres et cliquez sur **OK**.
-
-    ![Texte de remplacement d’image](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Activer une identité MSI (Managed Service Identity) sur votre machine virtuelle
-
-L’identité MSI d’une machine virtuelle vous permet d’obtenir des jetons d’accès d’Azure AD sans avoir à entrer d’informations d’identification dans votre code. En arrière-plan, l’activation de Managed Service Identity sur une machine virtuelle effectue deux opérations : elle inscrit votre machine virtuelle auprès d’Azure Active Directory pour créer son identité administrée, et elle configure l’identité sur la machine virtuelle.
-
-1. Accédez au groupe de ressources de votre nouvelle machine virtuelle et sélectionnez la machine virtuelle que vous avez créée à l’étape précédente.
-2. Dans les paramètres de la machine virtuelle situés dans le panneau de gauche, cliquez sur **Configuration**.
-3. Pour enregistrer et activer une Managed Service Identity, sélectionnez **Oui**. Si vous souhaitez la désactiver, sélectionnez Non.
-4. Assurez-vous d’avoir cliqué sur **Enregistrer** pour enregistrer la configuration.
-
-    ![Texte de remplacement d’image](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage. 
 

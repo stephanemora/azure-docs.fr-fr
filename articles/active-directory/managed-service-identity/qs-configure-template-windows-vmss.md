@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 68304b3e5eea50aba28f46344abcbd7ad060c5c8
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 69b88b5aabbadadea3b04f96d9a21f266c85a52f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140061"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125382"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Configurer Managed Service Identity sur un groupe de machines virtuelles identiques au moyen d’un modèle
 
@@ -322,7 +322,7 @@ Si vous disposez d’un groupe de machines virtuelles identiques qui ne nécessi
 
 1. Si vous vous connectez à Azure localement ou via le portail Azure, utilisez un compte associé à l’abonnement Azure qui contient le groupe de machines virtuelles identiques.
 
-2. Chargez le modèle dans un [éditeur](#azure-resource-manager-templates) et localisez la ressource `Microsoft.Compute/virtualMachineScaleSets` qui vous intéresse dans la section `resources`. Si votre groupe de machines virtuelles identiques dispose uniquement de l’identité affectée par l’utilisateur, vous pouvez désactiver celle-ci en remplaçant le type d’identité par `None`.
+2. Chargez le modèle dans un [éditeur](#azure-resource-manager-templates) et localisez la ressource `Microsoft.Compute/virtualMachineScaleSets` qui vous intéresse dans la section `resources`. Si votre groupe de machines virtuelles identiques dispose uniquement de l’identité affectée par l’utilisateur, vous pouvez la désactiver en remplaçant le type d’identité par `None`.
 
    L’exemple suivant montre comment supprimer d’une machine virtuelle toutes les identités affectées par l’utilisateur et sans identité affectée par le système :
 
@@ -339,7 +339,7 @@ Si vous disposez d’un groupe de machines virtuelles identiques qui ne nécessi
    
    **API Microsoft.Compute/virtualMachineScaleSets version du 01/06/2018**
     
-   Pour supprimer une seule identité affectée par l’utilisateur dans un groupe de machines virtuelles identiques, supprimez-la du dictionnaire `userAssignedIdentities`.
+   Pour supprimer une seule identité affectée par l’utilisateur d’un groupe de machines virtuelles identiques, supprimez-la du dictionnaire `userAssignedIdentities`.
 
    Si vous disposez d’une identité affectée par le système, conservez-la dans la valeur `type` sous la valeur `identity`.
 

@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: e833cb0e7f98933fd106a92a9aac6c4c2677d50d
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443580"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124995"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Choix du niveau de service et des ressources de calcul, de mémoire, de stockage et d’E/S pour vCore
 
@@ -35,8 +35,8 @@ Le tableau suivant montre les différences entre ces deux niveaux :
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|
 |Calcul|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|
 |Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,5 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,5 Go par cœur |
-|Stockage|[Stockage distant Premium](../virtual-machines/windows/premium-storage.md),<br/>Base de données singleton : 5 Go à 4 To<br/>Instance gérée : 32 Go à 8 To |Stockage SSD local,<br/>Base de données unique : 5 Go à 4 To<br/>Instance gérée : 32 Go à 4 To |
-|Débit d’E/S (approximatif)|Base de données singleton : 500 IOPS par vCore avec un maximum de 7000 IOPS</br>Instance gérée : dépend de la [taille du fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|
+|Stockage|[Stockage distant Premium](../virtual-machines/windows/premium-storage.md),<br/>Base de données unique : 5 Go à 4 To<br/>Instance gérée : 32 Go à 8 To |Stockage SSD local,<br/>Base de données unique : 5 Go à 1 To<br/>Instance gérée : 32 Go à 4 To |
+|Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec un maximum de 7 000 IOPS</br>Instance gérée : dépend de la [taille du fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|
 |Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|
 |Sauvegardes|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|
 |En mémoire|N/A|Pris en charge|
@@ -53,10 +53,10 @@ Consultez [SQL Database FAQ](sql-database-faq.md) (FAQ de SQL Database) pour obt
 
 Tenez compte des éléments suivants :
 - Le stockage alloué est utilisé par les fichiers de données (MDF) et les fichiers journaux (LDF).
-- Chaque niveau de performance d’une base de données Singleton accepte une taille de base de données maximale, qui correspond, par défaut, à 32 Go.
-- Lorsque vous configurez la taille de base de données Singleton nécessaire (c’est-à-dire, la taille des fichiers MDF), 30 % de stockage supplémentaire sont automatiquement ajoutés pour prendre en charge les fichiers LDF
+- Chaque niveau de performance d’une base de données unique accepte une taille de base de données maximale, qui correspond, par défaut, à 32 Go.
+- Lorsque vous configurez la taille de base de données unique nécessaire (c’est-à-dire, la taille des fichiers MDF), 30 % de stockage supplémentaire sont automatiquement ajoutés pour prendre en charge les fichiers LDF
 - La taille de stockage dans une instance gérée doit être spécifiée en multiples de 32 Go.
-- Vous pouvez choisir n’importe quelle taille de base de données Singleton située entre 10 Go et la taille maximale prise en charge
+- Vous pouvez choisir n’importe quelle taille de base de données singleton située entre 10 Go et la taille maximale prise en charge
  - Pour le stockage Standard, augmentez ou diminuez la taille par incréments de 10 Go
  - Pour le stockage Premium, augmentez ou diminuez la taille par incréments de 250 Go
 - Dans le niveau de service Usage général, `tempdb` utilise un disque SSD attaché et le coût de ce stockage est inclus dans le prix du modèle vCore.

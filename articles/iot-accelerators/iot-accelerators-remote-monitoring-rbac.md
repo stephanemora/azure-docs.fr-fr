@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8886c08e88c1dd46d2b325b9ba8e9e0b8ae104f9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007383"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886308"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de surveillance à distance
 
@@ -51,7 +51,7 @@ Utilisez le Portail Azure pour ajouter un utilisateur à la solution de surveill
 
 1. Vérifiez que [l’utilisateur se trouve dans le répertoire](../active-directory/fundamentals/add-users-azure-active-directory.md) que vous utilisez. Vous avez choisi le répertoire à utiliser lors de votre connexion au site [Accélérateurs de solution Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators). Le nom du répertoire est indiqué dans l’angle supérieur droit de la [page](https://www.azureiotsolutions.com/Accelerators).
 
-1. Recherchez **l’application d’entreprise** pour votre solution dans le Portail Azure. Le nom de l’application est celui de votre solution de surveillance à distance. Dans la capture d’écran suivante, le nom d’affichage de la solution et de l’application est **contoso-rm4**.
+1. Recherchez **l’application d’entreprise** pour votre solution dans le Portail Azure. Ensuite, filtrez la liste en définissant **Type d’application** sur **Toutes les applications**. Recherchez votre application par son nom. Le nom de l’application est celui de votre solution de surveillance à distance. Dans la capture d’écran suivante, le nom d’affichage de la solution et de l’application est **contoso-rm4**.
 
     ![Application d’entreprise](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 

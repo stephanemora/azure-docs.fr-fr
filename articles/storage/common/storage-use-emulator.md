@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146165"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888081"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -26,9 +26,8 @@ Actuellement, l’émulateur de stockage s’exécute uniquement sous Windows. P
 
 > [!NOTE]
 > Il n’est pas garanti que vous puissiez accéder aux données créées dans une version de l’émulateur de stockage à partir d’une autre version. Si vous devez rendre vos données persistantes à long terme, nous vous recommandons de stocker ces données dans un compte de stockage Azure plutôt que dans l’émulateur de stockage.
-> <p/>
+> 
 > L’émulateur de stockage dépend des versions spécifiques des bibliothèques OData. Le remplacement des DLL OData utilisées par l’émulateur de stockage par des versions ultérieures n’est pas pris en charge et peut provoquer un comportement inattendu. Toutefois, vous pouvez utiliser n’importe quelle version OData prise en charge par le service de stockage pour envoyer des demandes à l’émulateur.
->
 
 ## <a name="how-the-storage-emulator-works"></a>Fonctionnement de l’émulateur de stockage
 L’émulateur de stockage utilise une instance locale de Microsoft SQL Server et le système de fichiers local pour émuler les services de stockage Azure. Par défaut, l’émulateur de stockage s’appuie sur une base de données dans Microsoft SQL Server 2012 Express LocalDB. Vous pouvez configurer l’émulateur de stockage de sorte qu’il accède à une instance locale de SQL Server plutôt qu’à l’instance LocalDB. Pour plus d’informations, consultez la section [Démarrer et initialiser l’émulateur de stockage](#start-and-initialize-the-storage-emulator) plus loin dans cet article.
@@ -187,6 +186,7 @@ L’émulateur de stockage étant un environnement émulé exécuté dans une in
 Les différences suivantes s’appliquent au stockage d’objets blob dans l’émulateur :
 
 * L’émulateur de stockage prend uniquement en charge les objets blob d’une taille inférieure ou égale à 2 Go.
+* La longueur maximale d’un nom d’objet blob dans l’émulateur de stockage est de 256 caractères, contre 1 024 caractères dans le stockage Azure.
 * La copie incrémentielle permet de copier des instantanés à partir d’objets blob remplacés, ce qui renvoie une erreur sur le service.
 * L’opération Get Page Ranges Diff ne fonctionne pas entre des instantanés copiés à l’aide de la copie incrémentielle d’objets blob.
 * Une opération Put Blob peut réussir sur un objet blob qui existe dans l’émulateur de stockage avec un bail actif, même si l’ID du bail n’a pas été spécifié dans la demande.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224800"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886402"
 ---
 # <a name="back-up-your-app-in-azure"></a>Sauvegarde de votre application dans Azure
 La fonctionnalité de sauvegarde et de restauration [d’Azure App Service](app-service-web-overview.md) vous permet de créer facilement des sauvegardes d’applications manuelles ou planifiées. Vous pouvez restaurer l’application d’après la capture instantanée d’un état précédent en remplaçant l’application existante ou en restaurant sur une autre application. 
@@ -55,6 +55,7 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
 * Les sauvegardes peuvent contenir jusqu’à 10 Go de contenu d’applications et de bases de données. Une erreur se produit si la taille de la sauvegarde dépasse cette limite.
 * La sauvegarde d’Azure Database pour MySQL avec SSL activé n’est pas prise en charge. Si une sauvegarde est configurée, celle-ci échoue.
 * La sauvegarde d’Azure Database pour PostgreSQL avec SSL activé n’est pas prise en charge. Si une sauvegarde est configurée, celle-ci échoue.
+* Les bases de données MySQL in-app sont automatiquement sauvegardées sans aucune configuration. Si vous définissez manuellement des paramètres des bases de données MySQL in-app, par exemple l’ajout de chaînes de connexion, il est possible que les sauvegardes ne fonctionnent pas correctement.
 * L’utilisation d’un compte de stockage avec pare-feu comme destination de vos sauvegardes n’est pas prise en charge. Si une sauvegarde est configurée, celle-ci échoue.
 
 
@@ -85,7 +86,9 @@ Les solutions de base de données suivantes sont prises en charge par la fonctio
     ![Sélection d'un compte de stockage](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Pour qu’une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** de la page **Paramètres d’application** de votre application.
+   > Pour qu’une base de données apparaisse dans cette liste, sa chaîne de connexion doit figurer dans la section **Chaînes de connexion** de la page **Paramètres d’application** de votre application. 
+   >
+   > Les bases de données MySQL in-app sont automatiquement sauvegardées sans aucune configuration. Si vous définissez manuellement des paramètres des bases de données MySQL in-app, par exemple l’ajout de chaînes de connexion, il est possible que les sauvegardes ne fonctionnent pas correctement.
    > 
    > 
 6. Dans la page **Configuration de la sauvegarde**, cliquez sur **Enregistrer**.    

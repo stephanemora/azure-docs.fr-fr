@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b17749999f7903746651403c5948933332dbee5d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246528"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047930"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurer un réseau virtuel pour Azure SQL Database Managed Instance
 
@@ -39,21 +39,39 @@ Planifiez votre déploiement de Managed Instance dans un réseau virtuel en util
 ## <a name="requirements"></a>Configuration requise
 
 Pour la création d’une option Managed Instance, vous avez besoin d’un sous-réseau dédié conforme aux exigences suivantes dans le réseau virtuel :
-- **Vide** : le sous-réseau ne doit contenir aucun autre service cloud associé et ne doit pas être un sous-réseau de passerelle. Vous ne pouvez pas créer d’option Managed Instance dans un sous-réseau qui contient des ressources autres qu’une instance managée ni ajouter ultérieurement d’autres ressources à l’intérieur du sous-réseau.
-- **Pas de groupe de sécurité réseau** : aucun groupe de sécurité réseau ne doit être associé au sous-réseau.
+- **Sous-réseau dédié** : le sous-réseau ne doit contenir aucun autre service cloud associé et ne doit pas être un sous-réseau de passerelle. Vous ne pouvez pas créer d’option Managed Instance dans un sous-réseau qui contient des ressources autres qu’une instance managée ni ajouter ultérieurement d’autres ressources à l’intérieur du sous-réseau.
+- **Pas de groupe de sécurité réseau** : aucun groupe de sécurité réseau ne doit être associé au sous-réseau. 
 - **Table de routage spécifique** : le sous-réseau doit avoir une table de routage utilisateur (UDR) avec un itinéraire Internet de tronçon suivant 0.0.0.0/0 comme seul itinéraire affecté. Pour plus d’informations, consultez [Créer la table de routage nécessaire et l’associer](#create-the-required-route-table-and-associate-it).
 3. **DNS personnalisé éventuel** : si un DNS personnalisé est spécifié sur le réseau virtuel, vous devez ajouter l’adresse IP des programmes de résolution récursifs d’Azure (168.63.129.16) à la liste. Pour plus d’informations, consultez [Configuration d’un DNS personnalisé](sql-database-managed-instance-custom-dns.md).
-4. **Pas de point de terminaison de service** : le sous-réseau ne doit pas avoir de point de terminaison de service (stockage ou SQL) associé. Vérifiez que l’option Points de terminaison de service est désactivée quand vous créez le réseau virtuel.
-5. **Adresses IP suffisantes** : le sous-réseau doit avoir un minimum de 16 adresses IP. Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour les options Managed Instance](#determine-the-size-of-subnet-for-managed-instances).
+4. **Pas de point de terminaison de service** : le sous-réseau ne doit pas avoir de point de terminaison de service associé. Vérifiez que l’option Points de terminaison de service est désactivée quand vous créez le réseau virtuel.
+5. **Nombre d’adresses IP suffisant** : le sous-réseau doit absolument avoir 16 adresses IP au minimum (le minimum recommandé est de 32 adresses IP). Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour les options Managed Instance](#determine-the-size-of-subnet-for-managed-instances).
 
 > [!IMPORTANT]
 > Vous ne pouvez pas déployer une nouvelle option Managed Instance si le sous-réseau de destination n’est pas compatible avec toutes les exigences précédentes. La réseau virtuel de destination et le sous-réseau doivent constamment respecter ces exigences (avant et après le déploiement), car toute violation peut entraîner l’entrée de l’instance dans un état défectueux et la rendre indisponible. Pour récupérer de cet état, vous devez créer une instance dans un réseau virtuel avec les stratégies réseau conformes, recréer des données de niveau d’instance et restaurer vos bases de données. Cela induit un temps d’arrêt important pour vos applications.
 
+Avec l’introduction de la _stratégie d’intention de réseau_, vous pouvez ajouter un groupe de sécurité réseau (NSG) sur un sous-réseau Managed Instance une fois que l’option Managed Instance est créée.
+
+Vous pouvez désormais utiliser un groupe de sécurité réseau pour affiner les plages d’adresses IP à partir desquelles les applications et les utilisateurs peuvent interroger et gérer les données en filtrant le trafic réseau acheminé vers le port 1433. 
+
+> [!IMPORTANT]
+> Lorsque vous configurez les règles du groupe de sécurité réseau qui limiteront l’accès au port 1433, vous devez également insérer les règles de trafic entrant à la priorité la plus haute affichées dans le tableau ci-dessous. Sinon, la stratégie d’intention de réseau bloque la modification comme étant non conforme.
+
+| NOM       |PORT                        |PROTOCOLE|SOURCE           |DESTINATION|ACTION|
+|------------|----------------------------|--------|-----------------|-----------|------|
+|gestion  |9000, 9003, 1438, 1440, 1452|Quelconque     |Quelconque              |Quelconque        |AUTORISER |
+|mi_subnet   |Quelconque                         |Quelconque     |SOUS-RÉSEAU MI        |Quelconque        |AUTORISER |
+|health_probe|Quelconque                         |Quelconque     |AzureLoadBalancer|Quelconque        |AUTORISER |
+
+L’expérience de routage a également été améliorée : en plus de l’itinéraire Internet type de tronçon suivant 0.0.0.0/0, vous pouvez maintenant ajouter un itinéraire défini par l’utilisateur (UDR) pour acheminer le trafic vers vos plages d’adresses IP privées sur site via la passerelle de réseau virtuel ou une appliance de réseau virtuel (NVA).
+
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Déterminer la taille du sous-réseau pour les options Managed Instance
 
-Quand vous créez une option Managed Instance, Azure alloue plusieurs machines virtuelles en fonction de la taille sélectionnée pendant le provisionnement. Étant donné que ces machines virtuelles sont associées à votre sous-réseau, elles nécessitent des adresses IP. Pour garantir la haute disponibilité pendant les opérations normales et la maintenance du service, Azure peut allouer des machines virtuelles supplémentaires. Par conséquent, le nombre d’adresses IP nécessaires dans un sous-réseau est supérieur au nombre d’options Managed Instance dans ce sous-réseau. 
+Quand vous créez une option Managed Instance, Azure alloue plusieurs machines virtuelles en fonction du niveau sélectionné pendant l’approvisionnement. Étant donné que ces machines virtuelles sont associées à votre sous-réseau, elles nécessitent des adresses IP. Pour garantir la haute disponibilité pendant les opérations normales et la maintenance du service, Azure peut allouer des machines virtuelles supplémentaires. Par conséquent, le nombre d’adresses IP nécessaires dans un sous-réseau est supérieur au nombre d’options Managed Instance dans ce sous-réseau. 
 
 Par défaut, une option Managed Instance a besoin d’un minimum de 16 adresses IP dans un sous-réseau et peut en utiliser jusqu’à 256. Ainsi, vous pouvez utiliser des masques de sous-réseau /28 à /24 lors de la définition de vos plages d’adresses IP de sous-réseau. 
+
+> [!IMPORTANT]
+> Une taille de sous-réseau avec 16 adresses IP est le minimum absolu avec un potentiel limité pour la montée en puissance ultérieure de Managed Instance. Le choix d'un sous-réseau avec le préfixe /27 ou un préfixe inférieur est fortement recommandé. 
 
 Si vous envisagez de déployer plusieurs options Managed Instance à l’intérieur du sous-réseau et avez besoin d’optimiser la taille de ce dernier, utilisez ces paramètres pour former un calcul : 
 
@@ -62,6 +80,9 @@ Si vous envisagez de déployer plusieurs options Managed Instance à l’intéri
 - Chaque instance Critique pour l’entreprise a besoin de quatre adresses
 
 **Exemple** : vous prévoyez d’avoir trois Managed Instances de type Usage général et deux de type Critique pour l’entreprise. Cela signifie que vous avez besoin de 5 + 3 * 2 + 2 * 4 = 19 adresses IP. Comme les plages d’adresses IP sont définies par puissance de 2, vous avez besoin d’une plage de 32 (2 ^ 5) adresses IP. Ainsi, vous devez réserver le sous-réseau avec un masque de sous-réseau de /27. 
+
+> [!IMPORTANT]
+> Le calcul affiché ci-dessus deviendra obsolète au fur et à mesure des améliorations. 
 
 ## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Créer un réseau virtuel pour Managed Instance à l’aide du déploiement Azure Resource Manager
 
@@ -84,59 +105,6 @@ Pour créer et configurer le réseau virtuel, le plus simple consiste à utilise
 
 Vous pouvez modifier les noms du réseau virtuel et des sous-réseaux et ajustez les plages d’adresses IP associées à vos ressources réseau. Lorsque vous appuyez sur le bouton « Acheter », ce formulaire crée et configure votre environnement. Si vous n’avez pas besoin de deux sous-réseaux, vous pouvez supprimer celui par défaut. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Créer un réseau virtuel pour les options Managed Instance à l’aide du portail
-
-La création d’un réseau virtuel Azure est un prérequis à celle d’une option Managed Instance. Vous pouvez utiliser le portail Azure, [PowerShell](../virtual-network/quick-create-powershell.md) ou [Azure CLI](../virtual-network/quick-create-cli.md). La section suivante présente les étapes qui font appel au portail Azure. Les informations décrites ici s’appliquent à chacune de ces méthodes.
-
-1. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
-2. Recherchez **Réseau virtuel**, puis cliquez dessus. Vérifiez ensuite que **Resource Manager** est sélectionné en tant que mode de déploiement, puis cliquez sur **Créer**.
-
-   ![créer un réseau virtuel](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
-
-3. Remplissez le formulaire de réseau virtuel avec les informations demandées, comme l’illustre la capture d’écran suivante :
-
-   ![formulaire de création de réseau virtuel](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
-
-4. Cliquez sur **Créer**.
-
-   L’espace d’adressage et le sous-réseau sont spécifiés en notation CIDR. 
-
-   > [!IMPORTANT]
-   > Les valeurs par défaut créent un sous-réseau qui accepte tout l’espace d’adressage du réseau virtuel. Si vous choisissez cette option, vous ne pouvez pas créer d’autres ressources à l’intérieur du réseau virtuel autres que d’une option Managed Instance. 
-
-   L’approche recommandée est la suivante : 
-   - Calculer la taille du sous-réseau en suivant la section [Déterminer la taille du sous-réseau pour Managed Instance](#determine-the-size-of-subnet-for-managed-instances)  
-   - Évaluer les besoins pour le reste du réseau virtuel 
-   - Renseigner les plages d’adresses du réseau virtuel et du sous-réseau en conséquence 
-
-   Vérifiez que les points de terminaison de service sont **désactivés**. 
-
-   ![formulaire de création de réseau virtuel](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
-
-### <a name="create-the-required-route-table-and-associate-it"></a>Créer la table de routage nécessaire et l’associer
-
-1. Connectez-vous au portail Azure.  
-2. Recherchez **Table de routage**, puis cliquez dessus. Cliquez ensuite sur **Créer** depuis la page Table de routage.
-
-   ![formulaire de création de table de routage](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
-
-3. Créez un itinéraire Internet de tronçon suivant 0.0.0.0/0, comme le montrent les captures d’écran suivantes :
-
-   ![ajouter une table de routage](./media/sql-database-managed-instance-tutorial/route-table-add.png)
-
-   ![itinéraire](./media/sql-database-managed-instance-tutorial/route.png)
-
-4. Associez cet itinéraire au sous-réseau de l’option Managed Instance, comme le montrent les captures d’écran suivantes :
-
-    ![sous-réseau](./media/sql-database-managed-instance-tutorial/subnet.png)
-
-    ![définir une table de routage](./media/sql-database-managed-instance-tutorial/set-route-table.png)
-
-    ![définir une table de routage - enregistrer](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
-
-
-Une fois votre réseau virtuel créé, vous êtes prêt à créer votre option Managed Instance.  
-
 ## <a name="modify-an-existing-virtual-network-for-managed-instances"></a>Modifier un réseau virtuel existant pour des options Managed Instance 
 
 Les questions et réponses figurant dans cette section vous montrent comment ajouter une option Managed Instance à un réseau virtuel existant. 
@@ -153,11 +121,24 @@ Si vous voulez en créer un :
 - Suivez les étapes décrites dans [Ajouter, modifier ou supprimer un sous-réseau de réseau virtuel](../virtual-network/virtual-network-manage-subnet.md). 
 - Créez une table de routage qui contient une seule entrée, **0.0.0.0/0**, en tant qu’itinéraire Internet de tronçon suivant et associez-la au sous-réseau de l’option Managed Instance.  
 
-Si vous voulez créer une option Managed Instance à l’intérieur d’un sous-réseau existant : 
-- Vérifiez que si le sous-réseau est vide (il est impossible de créer une option Managed Instance dans un sous-réseau qui contient d’autres ressources, notamment le sous-réseau de passerelle). 
-- Calculez la taille du sous-réseau en suivant les instructions de la section [Déterminer la taille du sous-réseau pour les options Managed Instance](#determine-the-size-of-subnet-for-managed-instances) et vérifiez qu’il est correctement dimensionné. 
-- Vérifiez que les points de terminaison de service ne sont pas activés sur le sous-réseau.
-- Vérifiez qu’il n’y a aucun groupe de sécurité réseau associé au sous-réseau. 
+Si vous souhaitez créer une option Managed Instance à l’intérieur d’un sous-réseau existant, nous recommandons le script PowerShell suivant pour préparer le sous-réseau.
+```powershell
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
+
+$parameters = @{
+    subscriptionId = '<subscriptionId>'
+    resourceGroupName = '<resourceGroupName>'
+    virtualNetworkName = '<virtualNetworkName>'
+    subnetName = '<subnetName>'
+    }
+
+Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
+```
+La préparation du sous-réseau s’effectue en trois étapes simples :
+
+- Valider : le réseau virtuel et le sous-réseau sont validés pour les exigences de mise en réseau de Managed Instance.
+- Confirmer : l’utilisateur voit un ensemble de modifications à effectuer pour préparer le sous-réseau au déploiement de Managed Instance et est invité à donner son consentement.
+- Préparer : le réseau virtuel et le sous-réseau sont configurés correctement.
 
 **Avez-vous configuré un serveur DNS personnalisé ?** 
 

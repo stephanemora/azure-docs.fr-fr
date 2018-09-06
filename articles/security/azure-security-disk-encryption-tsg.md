@@ -11,32 +11,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: e669fb5da0e3fd3c6a14ffed5cbdf80b8a4d9590
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: e63d798c24159777711c9cdd765e40b44826a530
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390719"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888727"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
 
-Ce guide s’adresse aux informaticiens professionnels, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les organisations utilisent Azure Disk Encryption. Cet article est destiné à fournir des conseils pour résoudre les problèmes liés au chiffrement des disques.
+Ce guide s’adresse aux informaticiens professionnels, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les organisations utilisent Azure Disk Encryption. Cet article est destiné à vous aider à résoudre les problèmes liés au chiffrement des disques.
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>Résolution des problèmes de chiffrement de disque de système d’exploitation Linux
 
 Pour chiffrer le disque du système d’exploitation (SE) Linux, il faut démonter le lecteur du système d’exploitation avant l’exécution du processus de chiffrement de disque complet. Si le service ne peut pas démonter le lecteur, un message d’erreur du type « Échec du démontage après... » apparaît généralement.
 
-Cette erreur peut se produire lors d’une tentative de chiffrement de disque dans un environnement de machines virtuelles cible, quand l’image de ce dernier a été modifiée par rapport à celle de la galerie d’images stock (officielles) prises en charge. Voici des raisons pour lesquelles des écarts par rapport à l’image prise en charge peuvent interférer avec la capacité de l’extension à démonter le lecteur du système d’exploitation :
+Cette erreur peut se produire lors d’une tentative de chiffrement de disque dans un environnement de machines virtuelles cible, quand l’image de ce dernier a été modifiée par rapport à celle de la galerie d’images stock (officielles) prises en charge. Les écarts de l’image prise en charge peuvent interférer avec la capacité de l’extension à démonter le lecteur du système d’exploitation. Les exemples d’écarts peuvent inclure les éléments suivants :
 - Images personnalisées qui ne correspondent plus au système de fichiers ou au schéma de partitionnement pris en charge.
 - Les applications volumineuses, telles que SAP, MongoDB, Apache Cassandra et Docker, ne sont pas prises en charge quand elles sont installées et exécutées dans le système d’exploitation avant le chiffrement. Azure Disk Encryption ne peut pas arrêter en toute sécurité ces processus, comme cela est nécessaire pour la préparation du lecteur du système d’exploitation pour le chiffrement du disque. S’il existe toujours des processus actifs détenant des handles de fichier ouverts sur le lecteur du système d’exploitation, ce lecteur ne peut pas être démonté, ce qui entraîne l’échec du chiffrement du lecteur du système d’exploitation. 
 - Les scripts personnalisés qui s’exécutent au moment de l’activation du chiffrement ou en cas de modification apportée sur la machine virtuelle pendant le processus de chiffrement. Ce conflit peut se produire lorsqu’un modèle Azure Resource Manager définit plusieurs extensions à exécuter simultanément ou lorsqu’une extension de script personnalisé ou une autre action est exécutée en même temps que le chiffrement de disque. L’exécution de ces étapes de manière sérialisée et isolée peut résoudre le problème.
-- Si Security Enhanced Linux (SELinux) n’est pas désactivé avant l’activation du chiffrement, l’étape de démontage échoue. SELinux peut être réactivé à la fin du chiffrement.
+- Comme Security Enhanced Linux (SELinux) n’a pas été désactivé avant l’activation du chiffrement, l’étape de démontage échoue. SELinux peut être réactivé à la fin du chiffrement.
 - Le disque du système d’exploitation utilise un schéma de Gestionnaire de volume logique (LVM). Même si une prise en charge limitée des disques de données LVM existe, ce n’est pas le cas pour le disque du système d’exploitation LVM.
 - Les configurations requises en matière de capacité de mémoire minimale ne sont pas remplies (7 Go sont recommandés pour le chiffrement de disque de système d’exploitation).
 - Les lecteurs de données ont été montés de manière récursive sous le répertoire /mnt/ ou les uns sous les autres (par exemple /mnt/data1, /mnt/data2, /data3 + /data3/data4, etc.).
-- D’autres [configurations requises](azure-security-disk-encryption-prerequisites.md) Azure Disk Encryption pour Linux ne sont pas satisfaites.
+- D’autres [conditions préalables](azure-security-disk-encryption-prerequisites.md) pour Azure Disk Encryption pour Linux ne sont pas remplies.
 
 ## <a name="unable-to-encrypt"></a>Chiffrement impossible
 
@@ -64,10 +64,10 @@ ProgressMessage            : OS disk successfully encrypted, please reboot the V
 Une fois que vous êtes invité à redémarrer la machine virtuelle et après le redémarrage de la machine virtuelle, vous devez attendre 2 à 3 minutes pour le redémarrage et l’exécution des étapes finales sur la cible. Le message d’état est modifié lorsque le chiffrement est enfin terminé. Lorsque ce message s’affiche, le lecteur de système d’exploitation chiffré est prêt à être utilisé et la machine virtuelle est de nouveau disponible.
 
 Dans les cas suivants, nous vous recommandons de restaurer la machine virtuelle à la capture instantanée ou à la sauvegarde effectuée immédiatement avant le chiffrement :
-   - Si la séquence de redémarrage décrites précédemment ne se produisent pas.
+   - Si la séquence de redémarrage décrite précédemment ne se produit pas.
    - Si les informations de démarrage, message de progression ou autres indicateurs d’erreur signalent que le chiffrement du système d’exploitation a échoué au milieu de ce processus. Le message peut-être par exemple l’erreur « Échec du démontage » qui est décrite dans ce guide.
 
-Avant d’effectuer une autre tentative, il est recommandé de réévaluer les caractéristiques de la machine virtuelle et de vérifier que tous les prérequis sont satisfaits.
+Avant d’effectuer une autre tentative, il est recommandé de réévaluer les caractéristiques de la machine virtuelle et de vous assurer que toutes les conditions préalables sont remplies.
 
 ## <a name="troubleshooting-azure-disk-encryption-behind-a-firewall"></a>Résolution des problèmes Azure Disk Encryption derrière un pare-feu
 Lorsque la connectivité est limitée par un pare-feu, une exigence de proxy ou des paramètres de groupe de sécurité réseau (NSG), cela peut interrompre la capacité de l’extension à effectuer les tâches nécessaires. Cette interruption peut entraîner les messages d’état de type « État de l’extension non disponible sur la machine virtuelle ». Dans les scénarios prévus, le processus de chiffrement échoue. Les sections qui suivent décrivent certains problèmes courants au niveau du pare-feu qui valent la peine d’être examinés.
@@ -80,7 +80,7 @@ La machine virtuelle doit pouvoir accéder au coffre de clés. Reportez-vous au 
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Gestion des packages Linux derrière un pare-feu
 
-Au moment de l’exécution, Azure Disk Encryption pour Linux s’appuie sur le système de gestion des packages de la distribution cible pour installer les composants prérequis nécessaires à l’activation du chiffrement. Si les paramètres de pare-feu empêchent la machine virtuelle de télécharger et d’installer ces composants, des échecs sont à prévoir. Les étapes de configuration de ce système de gestion des packages peuvent varier selon la distribution. Sous Red Hat, lorsqu’un proxy est requis, vous devez absolument vous assurer que le gestionnaire d’abonnements et yum sont configurés correctement. Pour plus d’informations, consultez [Guide pratique pour résoudre les problèmes du gestionnaire d’abonnement et yum](https://access.redhat.com/solutions/189533).  
+Au moment de l’exécution, Azure Disk Encryption pour Linux s’appuie sur le système de gestion des packages de la distribution cible pour installer les composants prérequis nécessaires avant l’activation du chiffrement. Si les paramètres de pare-feu empêchent la machine virtuelle de télécharger et d’installer ces composants, des échecs sont à prévoir. Les étapes de configuration de ce système de gestion des packages peuvent varier selon la distribution. Sous Red Hat, lorsqu’un proxy est requis, vous devez absolument vous assurer que le gestionnaire d’abonnements et yum sont configurés correctement. Pour plus d’informations, consultez [Guide pratique pour résoudre les problèmes du gestionnaire d’abonnement et yum](https://access.redhat.com/solutions/189533).  
 
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Résolution des problèmes Windows Server 2016 Server Core
@@ -117,14 +117,14 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="troubleshooting-encryption-status"></a>Résolution des problèmes de l’état du chiffrement
+<!-- ## Troubleshooting encryption status
 
-Si l’état de chiffrement attendu ne correspond pas à ce qui est signalé dans le portail, consultez l’article suivant du support technique : [L’état de chiffrement est affiché de façon incorrecte dans le portail de gestion Azure](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+If the expected encryption state does not match what is being reported in the portal, see the following support article:
+[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Ce document vous a fait découvrir certains problèmes couramment rencontrés dans Azure Disk Encryption et en a décrit la résolution. Pour plus d’informations sur ce service et ses fonctionnalités, consultez les articles suivants :
 
 - [Appliquer le chiffrement de disque dans Azure Security Center](../security-center/security-center-apply-disk-encryption.md)
-- [Chiffrer une machine virtuelle Azure](../security-center/security-center-disk-encryption.md)
 - [Chiffrement des données au repos Azure](azure-security-encryption-atrest.md)

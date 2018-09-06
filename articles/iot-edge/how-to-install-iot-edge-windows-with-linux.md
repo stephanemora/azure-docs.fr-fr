@@ -7,20 +7,22 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: ea576c0d434d4db7077fc41bc1f5bbbc89e7779e
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d6852b5b1fe3d0b3c248fc1948fa4c3a9428de89
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576645"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125406"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Installer le runtime Azure IoT Edge sur Windows pour l’utiliser avec des conteneurs Linux
 
-Le runtime Azure IoT Edge est déployé sur tous les appareils IoT Edge. Il comprend trois composants. Le **démon de sécurité IoT Edge** fournit et gère les standards de sécurité sur l’appareil Edge. Le démon se lance à chaque démarrage et amorce l’appareil en démarrant l’agent IoT Edge. **L’agent IoT Edge** facilite le déploiement et la surveillance des modules sur l’appareil IoT Edge, y compris le hub IoT Edge. Le **hub IoT Edge** gère les communications entre les modules sur l’appareil IoT Edge et entre l’appareil et IoT Hub.
+Le runtime Azure IoT Edge est ce qui transforme un appareil en appareil IoT Edge. Le runtime peut être déployé sur un appareil de petite taille comme un Raspberry Pi ou de grande taille comme un serveur industriel. Une fois qu’un appareil est configuré avec le runtime IoT Edge, vous pouvez commencer à déployer une logique métier sur celui-ci à partir du cloud. 
 
-Cet article répertorie les étapes d’installation du runtime Azure IoT Edge sur votre système Windows x64 (AMD/Intel). La prise en charge de Windows est actuellement assurée en préversion.
+Pour en savoir plus sur le fonctionnement du runtime IoT Edge et les composants inclus, consultez [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md).
+
+Cet article répertorie les étapes d’installation du runtime Azure IoT Edge avec les conteneurs Linux sur votre système Windows x64 (AMD/Intel). La prise en charge de Windows est actuellement assurée en préversion.
 
 >[!NOTE]
 L’utilisation de conteneurs Linux sur les systèmes Windows n’est pas une configuration de production recommandée ou prise en charge pour Azure IoT Edge. Cependant, ils peuvent être utilisés à des fins de développement et de test.
@@ -29,6 +31,8 @@ L’utilisation de conteneurs Linux sur les systèmes Windows n’est pas une co
 Azure IoT Edge peut être utilisé à des fins de développement et de test sur les versions suivantes de Windows, quand des conteneurs Linux sont utilisés :
   * Windows 10 ou systèmes d’exploitation d’ordinateur plus récents.
   * Windows Server 2016 ou systèmes d’exploitation de serveur plus récents.
+
+Pour plus d’informations sur les systèmes d’exploitation actuellement pris en charge, consultez [Prise en charge d’Azure IoT Edge](support.md#operating-systems). 
 
 ## <a name="install-the-container-runtime"></a>Installer le runtime de conteneur 
 
@@ -43,7 +47,7 @@ Vous pouvez utiliser [Docker pour Windows][lnk-docker-for-windows] pour le déve
 
 Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d’une chaîne de connexion d’appareil fournie par IoT Hub. Vous pouvez également utiliser le service Device Provisioning pour approvisionner automatiquement des appareils. Ce service s’avère particulièrement utile lorsque vous devez approvisionner de nombreux appareils. Choisissez le script d’installation approprié selon votre choix en matière d’approvisionnement. 
 
-### <a name="install-and-manually-provision"></a>Installer et approvisionner manuellement
+### <a name="option-1-install-and-manually-provision"></a>Option 1 : installer et approvisionner manuellement
 
 1. Suivez les étapes de la rubrique [Inscrire un nouvel appareil Azure IoT Edge][lnk-dcs] pour inscrire votre appareil et récupérer la chaîne de connexion d’appareil. 
 
@@ -56,11 +60,11 @@ Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d
    Install-SecurityDaemon -Manual -ContainerOs Linux
    ```
 
-4. Lorsque **DeviceConnectionString** vous est demandé, fournissez la chaîne de connexion récupérée dans IoT Hub. N’incluez pas les guillemets autour de la chaîne de connexion. 
+4. Lorsque **DeviceConnectionString** vous est demandé, fournissez la chaîne de connexion récupérée dans IoT Hub. Ne mettez pas de guillemets autour de la chaîne de connexion. 
 
-### <a name="install-and-automatically-provision"></a>Installer et approvisionner automatiquement
+### <a name="option-2-install-and-automatically-provision"></a>Option 2 : installer et approvisionner automatiquement
 
-1. Suivez les étapes de la rubrique [Créer et provisionner un appareil Edge avec TPM simulé sur Windows][lnk-dps] pour configurer le service Device Provisioning et récupérer son **ID d’étendue**, simuler un appareil TPM et récupérer son **ID d’inscription**, puis créez une inscription individuelle. Une fois votre appareil inscrit dans votre IoT Hub, passez à l’installation.  
+1. Suivez les étapes de la rubrique [Créer et provisionner un appareil Edge avec TPM simulé sur Windows][lnk-dps] pour configurer le service Device Provisioning et récupérer son **ID d’étendue**, simuler un appareil TPM et récupérer son **ID d’inscription**, puis créez une inscription individuelle. Une fois l’appareil inscrit dans votre IoT Hub, passez à l’installation.  
 
    >[!TIP]
    >Gardez ouverte la fenêtre dans laquelle s’exécute le simulateur TPM durant l’installation et les tests. 
@@ -74,7 +78,7 @@ Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d
    Install-SecurityDaemon -Dps -ContainerOs Linux
    ```
 
-4. Lorsque vous y êtes invité, fournissez **l’ID d’étendue** et **l’ID d’inscription** pour votre service d’approvisionnement et votre appareil.
+4. Lorsque vous y êtes invité, fournissez l’**ID d’étendue** et l’**ID d’inscription** pour votre service d’approvisionnement et votre appareil.
 
 ## <a name="verify-successful-installation"></a>Vérifier la réussite de l’installation
 

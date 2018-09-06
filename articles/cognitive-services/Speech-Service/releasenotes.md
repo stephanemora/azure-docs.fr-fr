@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bbf3c5930de2ec6c709b6b527ae3eac107382420
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929962"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047797"
 ---
 # <a name="release-notes"></a>Notes de publication
 
@@ -78,7 +78,7 @@ ms.locfileid: "41929962"
 
 * Correction des valeurs de retour incorrectes dans le résultat lorsque `RecognizeAsync()` expire.
 * La dépendance sur les bibliothèques media foundation sous Windows est supprimée. Le Kit de développement logiciel (SDK) utilise désormais les API Core Audio.
-* Correction de la documentation : ajout d’une page région pour décrire les régions prises en charge.
+* Correction de la documentation : ajout d’une page [régions](regions.md) pour décrire les régions prises en charge.
 
 **Problèmes connus**
 

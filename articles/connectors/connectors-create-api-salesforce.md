@@ -1,63 +1,72 @@
 ---
-title: Découvrez comment utiliser le connecteur Salesforce dans vos applications logiques | Microsoft Docs
-description: Créez des applications logiques avec Azure App Service. Le connecteur Salesforce offre une API permettant de travailler avec des objets Salesforce.
+title: Se connecter à Salesforce à partir d’Azure Logic Apps | Microsoft Docs
+description: Automatiser des tâches et des flux de travail qui surveillent, créent et gèrent des enregistrements et des travaux de Salesforce à l’aide d’Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 10/05/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 4278837bb5653b66223374aa728bdc81b279fff7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: 03c250f153402c68889c2e3ac187ccab3e2d858b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237299"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887483"
 ---
-# <a name="get-started-with-the-salesforce-connector"></a>Prise en main du connecteur Salesforce
-Le connecteur Salesforce offre une API permettant de travailler avec des objets Salesforce.
+# <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Surveiller, créer et gérer des ressources Salesforce à l’aide d’Azure Logic Apps
 
-Pour utiliser [n’importe quel connecteur](apis-list.md), vous devez commencer par créer une application logique. Vous pouvez démarrer maintenant en [créant une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Avec Azure Logic Apps et le connecteur Salesforce, vous pouvez créer pour vos ressources Salesforce des tâches et workflows automatisés, tels que les enregistrements, les travaux et les objets, par exemple :
 
-## <a name="connect-to-salesforce-connector"></a>Se connecter au connecteur Salesforce
-Pour que votre application logique puisse accéder à un service, vous devez commencer par créer une *connexion* à celui-ci. Une [connexion](connectors-overview.md) permet d’assurer la connectivité entre une application logique et un autre service.  
+* Surveiller si des enregistrements sont créés ou modifiés. 
+* Créer, obtenir et gérer des travaux et des enregistrements, y compris des actions d’insertion, de mise à jour et de suppression.
 
-### <a name="create-a-connection-to-salesforce-connector"></a>Créer une connexion au connecteur Salesforce
-> [!INCLUDE [Steps to create a connection to Salesforce Connector](../../includes/connectors-create-api-salesforce.md)]
-> 
-> 
+Vous pouvez utiliser des déclencheurs Salesforce qui obtiennent des réponses de Salesforce et mettent le résultat à la disposition d’autres actions. Vous pouvez utiliser des actions dans vos applications logiques pour effectuer des tâches avec des ressources Salesforce. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="use-a-salesforce-connector-trigger"></a>Utiliser un déclencheur du connecteur Salesforce
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="prerequisites"></a>Prérequis
 
-> [!INCLUDE [Steps to create a Salesforce trigger](../../includes/connectors-create-api-salesforce-trigger.md)]
-> 
-> 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
-## <a name="add-a-condition"></a>Ajouter une condition
-> [!INCLUDE [Steps to create a Salesforce condition](../../includes/connectors-create-api-salesforce-condition.md)]
-> 
-> 
+* Un [compte Salesforce](https://salesforce.com/)
 
-## <a name="use-a-salesforce-connector-action"></a>Utiliser une action du connecteur Salesforce
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-> [!INCLUDE [Steps to create a Salesforce action](../../includes/connectors-create-api-salesforce-action.md)]
-> 
-> 
+* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Salesforce. Pour démarrer avec un déclencheur Salesforce, [créez une application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour utiliser une action Salesforce, démarrez votre application logique avec un autre déclencheur, par exemple, le déclencheur **Périodicité**.
 
-## <a name="connector-specific-details"></a>Détails spécifiques aux connecteurs
+## <a name="connect-to-salesforce"></a>Se connecter à Salesforce
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/salesforce/). 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
+
+1. Choisissez une procédure : 
+
+   * Pour les applications logiques vides, dans la zone de recherche, entrez « salesforce » comme filtre. 
+   Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
+
+     -ou-
+
+   * Pour les applications logiques existantes, sous l’étape où vous souhaitez ajouter une action, choisissez **Nouvelle étape**. Dans la zone de recherche, saisissez le filtre « salesforce ». Dans la liste des actions, sélectionnez l’action souhaitée.
+
+1. Si vous êtes invité à vous connecter à Salesforce, faites-le maintenant pour pouvoir y accéder.
+
+   Vos informations d’identification autorisent votre application logique à créer une connexion à Salesforce et à accéder à vos données.
+
+1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionnés et continuez à générer le flux de travail de votre application logique.
+
+## <a name="connector-reference"></a>Référence de connecteur
+
+Pour obtenir des détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence](/connectors/salesforce/) du connecteur.
+
+## <a name="get-support"></a>Obtenir de l’aide
+
+* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
+* En savoir plus sur les autres [connecteurs d’applications logiques](../connectors/apis-list.md)

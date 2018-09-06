@@ -1,28 +1,23 @@
 ---
-title: Surveiller les transactions B2B et configurer la journalisation - Azure Logic Apps | Microsoft Docs
-description: Surveiller les messages AS2, X12 et EDIFACT, démarrer la journalisation des diagnostics pour votre compte d’intégration
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: Surveiller les messages B2B et configurer la journalisation - Azure Logic Apps | Microsoft Docs
+description: Surveiller les messages AS2, X12 et EDIFACT. Configurer la journalisation des diagnostics pour votre compte d’intégration dans Azure Logic Apps.
 services: logic-apps
-documentationcenter: ''
-ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 399c7b91949a854f3a152e9a3788d9163c565934
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299315"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125173"
 ---
-# <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>Surveiller et configurer la journalisation des diagnostics pour la communication B2B dans des comptes d’intégration
+# <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Surveiller les messages B2B et configurer la journalisation pour les comptes d’intégration dans Azure Logic Apps
 
 Une fois la communication B2B configurée entre deux processus ou applications d’entreprise en cours d’exécution via votre compte d’intégration, ces entités peuvent échanger des messages entre elles. Pour vérifier que cette communication fonctionne comme prévu, vous pouvez configurer la surveillance des messages AS2, X12 et EDIFACT, ainsi que la journalisation des diagnostics pour votre compte d’intégration via le service [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Ce service surveille vos environnements cloud et local pour vous aider à maintenir leur disponibilité et leurs performances, et collecte aussi des détails d’exécution et des événements pour un débogage enrichi. Vous pouvez également [utiliser vos données de diagnostic avec d’autres services](#extend-diagnostic-data), tels que Stockage Azure et Azure Event Hubs.
 

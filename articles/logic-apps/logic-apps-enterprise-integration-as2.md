@@ -1,27 +1,23 @@
 ---
 title: Messages AS2 pour l’intégration d’entreprise B2B - Azure Logic Apps | Microsoft Docs
-description: Échangez des messages AS2 dans le cadre d’une intégration d’entreprise B2B avec Azure Logic Apps
+description: Échanger des messages AS2 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 8984b76c68ebd562ce9e5af9bded859b38d498da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298237"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124660"
 ---
-# <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Échangez des messages AS2 dans le cadre d’une intégration d’entreprise avec Logic Apps
+# <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Échanger des messages AS2 dans le cadre d’une intégration d’entreprise B2B dans Azure Logic Apps avec Enterprise Integration Pack
 
 Avant de pouvoir échanger des messages AS2 pour Azure Logic Apps, vous devez créer un contrat AS2 et le stocker dans votre compte d’intégration. Voici les étapes de création d’un contrat AS2.
 
