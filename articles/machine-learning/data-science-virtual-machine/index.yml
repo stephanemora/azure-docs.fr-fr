@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: fd2a030d3529857b5a68aeaf28494e76d416e6fd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781037"
 documentType: LandingData
 title: Documentation sur la machine virtuelle de science des données Azure
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: gokuma
-  ms.openlocfilehash: 2378c8bcca2ac97c6045a9e573192087d03b4b61
-  ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 04/19/2018
-  ms.locfileid: "31590783"
 abstract:
   description: Les machines virtuelles de science des données et d’apprentissage profond sont des images de machine virtuelle personnalisées sur Azure, chargées avec des outils de science des données utilisés pour créer des applications intelligentes d’analytique avancée.
 sections:
@@ -41,8 +41,8 @@ sections:
     style: ordered
     items:
     - html: <a href="provision-vm">Configurer une machine virtuelle de science des données Windows</a>
-    - html: <a href="vm-do-ten-thing">Utiliser une machine virtuelle de science des données Windows</a>
-    - html: <a href:"linux-dsvm-intro">Provision a Linux CentOS DSVM</a>
+    - html: <a href="vm-do-ten-things">Utiliser une machine virtuelle de science des données Windows</a>
+    - html: <a href="linux-dsvm-intro">Configurer une machine virtuelle de science des données Linux CentOS</a>
     - html: <a href="dsvm-ubuntu-intro">Configurer une machine virtuelle de science des données Linux Ubuntu</a>
     - html: <a href="linux-dsvm-walkthrough">Utiliser une machine virtuelle de science des données Linux</a>
 - title: Plus de technologies Microsoft Azure Machine Learning
