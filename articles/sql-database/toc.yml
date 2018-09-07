@@ -9,15 +9,27 @@ items:
     href: sql-database-paas-vs-sql-server-iaas.md
 - name: Démarrages rapides
   items:
-  - name: Créer une base de données - Portail
-    href: sql-database-get-started-portal.md
-  - name: Créer une base de données - Interface de ligne de commande Azure
-    href: sql-database-get-started-cli.md
-  - name: Créer une base de données - Azure PowerShell
-    href: sql-database-get-started-powershell.md
-  - name: Créer une instance Managed Instance
-    href: sql-database-managed-instance-get-started.md
-  - name: Connexion et requête
+  - name: Créer
+    items:
+    - name: Base de données unique
+      href: sql-database-get-started-portal.md
+    - name: Instance gérée
+      href: sql-database-managed-instance-get-started.md
+  - name: Configuration
+    items:
+    - name: Règle de pare-feu de serveur logique
+      href: sql-database-get-started-portal-firewall.md
+    - name: Connexion de machine virtuelle cliente à une instance Managed Instance
+      href: sql-database-managed-instance-configure-vm.md
+    - name: Connexion point à site à une instance Managed Instance
+      href: sql-database-managed-instance-configure-p2s.md
+  - name: Charger des données
+    items:
+    - name: Importer le fichier BACPAC dans une base de données unique
+      href: sql-database-import.md
+    - name: Restaurer une sauvegarde de base de données sur une instance Managed Instance
+      href: sql-database-managed-instance-get-started-restore.md
+  - name: Requête
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -59,13 +71,9 @@ items:
     href: sql-database-security-tutorial.md
   - name: 5 - Mettre en œuvre une base de données répartie géographiquement
     href: sql-database-implement-geo-distributed-database.md
-  - name: 6 - Créer une instance Managed Instance
-    href: sql-database-managed-instance-create-tutorial-portal.md
-  - name: 7 - Restaurer une sauvegarde vers une instance Managed Instance
-    href: sql-database-managed-instance-restore-from-backup-tutorial.md
-  - name: 8 - Migrer vers une instance Managed Instance à l’aide de DMS
+  - name: 6 - Migrer vers une instance Managed Instance à l’aide de DMS
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 9 - Configurer Azure SQL Data Sync
+  - name: 7 - Configurer Azure SQL Data Sync
     href: sql-database-get-started-sql-data-sync.md
 - name: Exemples
   items:
@@ -606,9 +614,9 @@ items:
     href: /azure/architecture/
   - name: Témoignages client
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 1cd65f1f3ee3907324bdb17be61dcfb5d0a747f1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: e44c2d461f35098e20e50c776ca37b932566c4a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245909"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050477"

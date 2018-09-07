@@ -7,14 +7,14 @@ items:
     href: azure-stack-poc.md
   - name: Notes de publication
     items:
+    - name: mise à jour 1808
+      href: azure-stack-update-1808.md
     - name: mise à jour 1807
       href: azure-stack-update-1807.md
     - name: mise à jour 1805
       href: azure-stack-update-1805.md
     - name: mise à jour 1804
       href: azure-stack-update-1804.md
-    - name: mise à jour 1803
-      href: azure-stack-update-1803.md
 - name: Démarrages rapides
   items:
   - name: Évaluer Microsoft Azure Stack
@@ -53,6 +53,8 @@ items:
         items:
         - name: Publier des points de terminaison
           href: azure-stack-integrate-endpoints.md
+        - name: Hôte d’extension
+          href: azure-stack-extension-host-prepare.md
     - name: Intégration des identités
       items:
       - name: Choix d’un fournisseur d’identité
@@ -370,9 +372,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formation et certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: d56f99f44539f4979a9fdec672278dffd4a16809
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 2334accb56409bf77b52153a9e0d279cddd1d352
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668028"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026662"

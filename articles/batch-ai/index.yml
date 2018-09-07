@@ -1,0 +1,67 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 0443553b72d414695ff96a4aeb2a9dd21531f1da
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44058039"
+documentType: LandingData
+title: Documentation Azure Batch AI (préversion)
+metadata:
+  title: Documentation Azure Batch AI (préversion)
+  meta.description: Azure Batch AI is a managed service to help data scientists and AI researchers train and test machine learning and AI models at scale in Azure - without having to manage complex infrastructure. Learn how to use Batch AI with our quickstarts, tutorials, and samples.
+  services: batch-ai
+  author: dlepow
+  manager: jeconnock
+  layout: LandingPage
+  ms.service: batch-ai
+  ms.topic: landing-page
+  ms.date: 08/16/2018
+  ms.author: danlep
+abstract:
+  description: Azure Batch AI est un service géré aidant les chercheurs de données et les chercheurs en IA à former et tester des modèles de machine Learning et IA à grande échelle dans Azure sans avoir à gérer la complexité d’une infrastructure. Découvrez comment utiliser Azure Batch AI en tirant parti de nos guides de démarrage rapide, nos tutoriels et nos exemples.
+sections:
+- title: Démarrages en 5 minutes
+  items:
+  - type: paragraph
+    text: Découvrez comment créer votre premier cluster Batch AI.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Azure CLI
+      href: quickstart-create-cluster-cli.md
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Portail Azure
+      href: quickstart-create-cluster-portal.md
+  - type: paragraph
+    text: Découvrez comment former votre premier modèle d’apprentissage approfondi.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Azure CLI
+      href: quickstart-tensorflow-training-cli.md
+- title: Didacticiels pas à pas
+  items:
+  - type: paragraph
+    text: Découvrez comment utiliser Batch AI pour former des modèles avec différentes infrastructures.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-horovod-tensorflow.md">Formation dispensée à l’aide de Horovod</a>
+- title: Informations de référence
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Ligne de commande
+      html: <p><a href="https://docs.microsoft.com/en-us/cli/azure/batchai?view=azure-cli-latest">interface de ligne de commande Azure</a></p>
+    - title: Langues
+      html: <p><a href="https://docs.microsoft.com/en-us/dotnet/api/overview/azure/batchai?view=azure-dotnet">.NET</a></p><p><a href="https://docs.microsoft.com/en-us/java/api/overview/azure/batchai?view=azure-java-stable">Java</a></p><p><a href="https://docs.microsoft.com/en-us/javascript/api/overview/azure/batchai?view=azure-node-latest">Node.JS</a></p><p><a href="https://docs.microsoft.com/en-us/python/api/overview/azure/batchai?view=azure-python">Python</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/batchai/">Référence d’API REST</a></p>

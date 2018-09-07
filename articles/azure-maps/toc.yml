@@ -23,15 +23,15 @@ items:
   items:
   - name: Niveaux de zoom et grille mosaïque
     href: zoom-levels-and-tile-grid.md
-  - name: Couverture du service
+  - name: Couverture
     items:
-    - name: Géocodage
+    - name: Couverture du géocodage
       href: geocoding-coverage.md
-    - name: Trafic
+    - name: Couverture du trafic
       href: traffic-coverage.md
-    - name: Rendu
+    - name: Couverture du rendu
       href: render-coverage.md
-    - name: Routage
+    - name: Couverture du routage
       href: routing-coverage.md
   - name: Langues prises en charge
     href: supported-languages.md
@@ -67,12 +67,14 @@ items:
       href: map-add-shape.md
     - name: Ajouter du code HTML personnalisé
       href: map-add-custom-html.md
-    - name: Afficher les résultats de la recherche
-      href: map-search-location.md
-    - name: Obtenir des informations à partir d’une coordonnée
-      href: map-get-information-from-coordinate.md
-    - name: Afficher l’itinéraire de A à B
-      href: map-route.md
+    - name: Services
+      items:
+      - name: Afficher les résultats de la recherche
+        href: map-search-location.md
+      - name: Obtenir des informations à partir d’une coordonnée
+        href: map-get-information-from-coordinate.md
+      - name: Afficher l’itinéraire de A à B
+        href: map-route.md
     - name: Afficher le trafic
       href: map-show-traffic.md
     - name: Interaction avec les événements de souris
@@ -157,9 +159,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: vidéos
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
-ms.openlocfilehash: 9ff456a752ffecc3f4fa67fc8b85540833451fb5
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0cf84e9b73831c1ead82f7cd01efb94ac312883d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339129"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022813"
