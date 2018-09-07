@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: e7a5c7f08b34c91512ad2bf5d9f3fcb82feb9e08
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026094"
 documentType: LandingData
 title: Documentation Site Recovery
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2017
   ms.author: carolz
-  ms.openlocfilehash: 0d66952b5f159ce92b8586f7beb71c25fe7c7b39
-  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/10/2018
-  ms.locfileid: "27740077"
 abstract:
   description: Azure Site Recovery orchestre et gère la récupération d’urgence pour les machines virtuelles Azure, les machines virtuelles locales et les serveurs physiques. Découvrez comment répliquer, basculer et effectuer une restauration automatique avec nos guides de démarrage rapide et nos didacticiels.
 sections:
@@ -43,7 +43,7 @@ sections:
     style: ordered
     items:
     - html: <a href="azure-to-azure-tutorial-enable-replication">Configurer une récupération d'urgence</a>
-    - html: <a href="azure-to-azure-tutorial-dr-drill">Exécuter une simulation de récupération d’urgence</a>
+    - html: <a href="azure-to-azure-tutorial-dr-drill">Effectuer un test de récupération d’urgence</a>
     - html: <a href="azure-to-azure-tutorial-failover-failback">Exécuter un basculement et une restauration automatique</a>
   - type: text
     html: <h3>VMware</h3>
@@ -53,18 +53,18 @@ sections:
     - html: <a href="tutorial-prepare-azure">Préparer Azure</a>
     - html: <a href="tutorial-prepare-on-premises-vmware">Préparer des machines virtuelles VMware locales</a>
     - html: <a href="tutorial-vmware-to-azure">Configurer une récupération d'urgence</a>
-    - html: <a href="tutorial-dr-drill-azure">Exécuter une simulation de récupération d’urgence</a>
-    - html: <a href="tutorial-vmware-to-azure-failover-failback">Exécuter un basculement et une restauration automatique</a>
+    - html: <a href="tutorial-dr-drill-azure">Effectuer un test de récupération d’urgence</a>
+    - html: <a href="vmware-azure-tutorial-failover-failback">Exécuter un basculement et une restauration automatique</a>
   - type: text
     html: <h3>Hyper-V</h3>
   - type: list
     style: ordered
     items:
     - html: <a href="tutorial-prepare-azure">Préparer Azure</a>
-    - html: <a href="tutorial-prepare-on-premises-hyper-v">Préparer un Hyper-V local</a>
+    - html: <a href="tutorial-prepare-on-premises-hyper-v">Préparer un serveur Hyper-V local</a>
     - html: <a href="tutorial-hyper-v-to-azure">Configurer la récupération d'urgence pour les machines virtuelles Hyper-V</a>
     - html: <a href="tutorial-hyper-v-vmm-to-azure">Configurer la récupération d'urgence pour les machines virtuelles Hyper-V gérées par System Center VMM</a>
-    - html: <a href="tutorial-dr-drill-azure">Exécuter une simulation de récupération d’urgence</a>
+    - html: <a href="tutorial-dr-drill-azure">Effectuer un test de récupération d’urgence</a>
     - html: <a href="tutorial-hyper-v-to-azure-failover-failback">Exécuter un basculement et une restauration automatique</a>
   - type: text
     html: <h3>Migrer vers Azure</h3>
@@ -73,13 +73,13 @@ sections:
     items:
     - html: <a href="tutorial-prepare-azure">Préparer Azure</a>
     - html: <a href="tutorial-migrate-on-premises-to-azure">Migrer des machines locales</a> ou des <a href="tutorial-migrate-aws-to-azure">Instances AWS vers Azure</a>
-- title: Référence
+- title: Informations de référence
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Ligne de commande
-      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/azurerm.siterecovery>Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/site-recovery/">Référence d’API REST</a></p>
