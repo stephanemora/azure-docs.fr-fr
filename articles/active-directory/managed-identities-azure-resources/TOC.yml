@@ -57,7 +57,7 @@ items:
     href: /azure/event-hubs/event-hubs-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
 - name: Procédures
   items:
-  - name: Configurer une identité pour une machine virtuelle Azure
+  - name: Configurer des identités gérées sur les machines virtuelles
     items:
     - name: Portail
       href: qs-configure-portal-windows-vm.md
@@ -71,7 +71,7 @@ items:
       href: qs-configure-rest-vm.md
     - name: SDK Azure
       href: qs-configure-sdk-windows-vm.md
-  - name: Configurer une identité pour un jeu de mise à l’échelle de machine virtuelle Azure
+  - name: Configurer des identités gérées sur les groupe de machines virtuelles identiques
     items:
     - name: Portail
       href: qs-configure-portal-windows-vmss.md
@@ -83,7 +83,7 @@ items:
       href: qs-configure-template-windows-vmss.md
     - name: REST
       href: qs-configure-rest-vmss.md
-  - name: Utiliser une identité gérée de machine virtuelle
+  - name: Utiliser des identités gérées sur les machines virtuelles
     items:
     - name: Obtenir un jeton d’accès
       href: how-to-use-vm-token.md
@@ -131,9 +131,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-msi
   - name: Forum des développeurs AAD
     href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
-ms.openlocfilehash: f64ce80ca45f847e76c5ec28e28a9271b19ed008
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 44506baf79a9e5b5c35bca677968a312ec8aff15
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44029392"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44156908"

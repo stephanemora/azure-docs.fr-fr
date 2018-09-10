@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: baa449bb9e78a5c6437b0a9528e5d1f10dfa519f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a89755bcc0ed5ef8bee4ed00b99c73993a57bcb9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520450"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163020"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>Didacticiel : 9.  Ajouter l’analyse des sentiments
 Dans ce tutoriel, vous allez créer une application montrant comment extraire le sentiment positif, négatif et neutre des énoncés.
@@ -27,7 +27,7 @@ Dans ce tutoriel, vous allez créer une application montrant comment extraire le
 > * Entraîner et publier l’application
 > * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS 
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous ne disposez pas de l’application Ressources humaines du tutoriel [entité keyPhrase intégrée](luis-quickstart-intent-and-key-phrase.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle dans le site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
@@ -80,7 +80,7 @@ Ajouter une nouvelle intention de recueillir des commentaires employés de la pa
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="configure-app-to-include-sentiment-analysis"></a>Configurer l’application pour inclure l’analyse des sentiments
 Configurez l’analyse des sentiments sur la page **Publier**. 
@@ -93,11 +93,11 @@ Configurez l’analyse des sentiments sur la page **Publier**.
 
 ## <a name="publish-app-to-endpoint"></a>Publier l’application vers un point de terminaison
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Interroger le point de terminaison avec un énoncé
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Jill Jones work with the media team on the public portal was amazing`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `EmployeeFeedback` avec l’analyse des sentiments extraite.
 
@@ -204,7 +204,7 @@ LUIS en a fini avec cette requête. L’application d’appel, par exemple un ch
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 5ce08861934305cccca9933a822fccf642746a59
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527702"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160079"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Didacticiel : réviser les énoncés de point de terminaison
 Dans ce didacticiel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus par le point de terminaison HTTP de LUIS. 
@@ -27,7 +27,7 @@ Dans ce didacticiel, améliorez les prédictions de l’application en vérifian
 > * Entraîner et publier l’application
 > * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous n’avez pas l’application des ressources humaines à partir du didacticiel des [sentiments](luis-quickstart-intent-and-sentiment-analysis.md), importez l’application à partir du référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json). Si vous utilisez ce didacticiel comme une nouvelle application importée, vous devez également effectuer l’apprentissage, publier, puis ajouter les énoncés au point de terminaison avec un [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou à partir du point de terminaison dans un navigateur. Les énoncés à ajouter sont :
@@ -104,19 +104,19 @@ Conservez la liste d’expressions actuelle avec tout nom de tâche récemment d
 
 LUIS ne connaît pas les modifications apportées tant que son apprentissage n’a pas été effectué. 
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
 
 Si vous avez importé cette application, vous devez sélectionner **Analyse des sentiments**.
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>Interroger le point de terminaison avec un énoncé
 
 Essayez un énoncé proche de l’énoncé corrigé. 
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Are there any natural language processing jobs in my department right now?`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 
@@ -230,7 +230,7 @@ La précision de cette prédiction d’application a augmenté en révisant des 
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

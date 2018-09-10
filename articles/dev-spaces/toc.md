@@ -2,11 +2,15 @@
 ## [Vue d’ensemble](azure-dev-spaces.md)
 
 ## Démarrages rapides
+### [Java (VS Code & CLI)](quickstart-java.md)
 ### [.NET Core (VS Code & CLI)](quickstart-netcore.md)
 ### [.NET Core (Visual Studio 2017)](quickstart-netcore-visualstudio.md)
 ### [Node.js (VS Code & CLI)](quickstart-nodejs.md)
 
 ## Didacticiels
+### Java (VS Code & CLI)
+#### [1 - Prise en main](get-started-java.md)
+#### [2 - Développement en équipe](team-development-java.md)
 ### .NET Core (VS Code et CLI)
 #### [1 - Prise en main](get-started-netcore.md)
 #### [2 - Développement en équipe](team-development-netcore.md)

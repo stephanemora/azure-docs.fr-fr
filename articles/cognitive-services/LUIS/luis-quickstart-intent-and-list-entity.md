@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: afad3fe725fddd0748cc206517a7274815cf1653
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 04411f415b7cfe07d893c43e758bd2a4a226472a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495262"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162196"
 ---
 # <a name="tutorial-4-add-list-entity"></a>Didacticiel : 4. Ajouter une entité de liste
 Dans ce didacticiel, créez une application qui montre comment obtenir des données correspondant à une liste prédéfinie. 
@@ -27,7 +27,7 @@ Dans ce didacticiel, créez une application qui montre comment obtenir des donn�
 > * Effectuer l’apprentissage de l’application et la publier
 > * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous ne disposez pas de l’application Ressources humaines du didacticiel [entité regex](luis-quickstart-intents-regex-entity.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json).
@@ -135,15 +135,15 @@ Maintenant que l’intention **MoveEmployee** dispose d’énoncés, LUIS doit c
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Interroger le point de terminaison avec un autre énoncé
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `shift 123-45-6789 from Z-1242 to T-54672`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **q**uery. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `MoveEmployee` avec `Employee` extrait.
 
@@ -272,7 +272,7 @@ LUIS en a fini avec cette requête. L’application d’appel, par exemple un ch
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

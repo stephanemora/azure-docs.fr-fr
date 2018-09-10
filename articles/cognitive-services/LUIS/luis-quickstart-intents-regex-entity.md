@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 994bd6f2a041e25d15c7e0b4a216952cec4101fa
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 9672215c8cc5f95775e3b7fba74b27379a58ff49
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492821"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162917"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Tutoriel : 3. Ajouter une entité d’expression régulière
 Dans ce tutoriel, vous créez une application qui montre comment extraire des données mises en forme de façon homogène à partir d’un énoncé avec l’entité **Expression régulière**.
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous créez une application qui montre comment extraire des do
 > * Effectuer l’apprentissage et publier l’application
 > * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 Si vous ne disposez pas de l’application Ressources humaines du tutoriel sur les [entités intégrées](luis-tutorial-prebuilt-intents-entities.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application dans le site web [LUIS](luis-reference-regions.md#luis-website), à partir du dépôt Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
@@ -111,15 +111,15 @@ Créez une entité d’expression régulière pour indiquer à LUIS ce qu’est 
 
 ## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Interroger le point de terminaison avec un autre énoncé
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `When were HRF-123456 and hrf-234567 published in the last year?`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `FindForm` avec les deux numéros de formulaire `HRF-123456` et `hrf-234567`.
 
@@ -231,7 +231,7 @@ LUIS en a fini avec cette requête. L’application d’appel, par exemple un ch
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
