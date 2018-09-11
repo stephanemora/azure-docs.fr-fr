@@ -1,5 +1,5 @@
 # Azure Dev Spaces
-## [Vue d’ensemble](azure-dev-spaces.md)
+## [Vue d’ensemble](index.yml)
 
 ## Démarrages rapides
 ### [Java (VS Code & CLI)](quickstart-java.md)
