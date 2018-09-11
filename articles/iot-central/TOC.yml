@@ -1,117 +1,126 @@
+items:
 - name: Notions de base d’Azure IoT
   href: /azure/iot-fundamentals
 - name: Documentation sur Azure IoT Central
   href: index.yml
 - name: Vue d’ensemble
   items:
-    - name: Qu’est-ce que Azure IoT Central ?
-      href: overview-iot-central.md
-    - name: Options de la solution IoT
-      href: overview-iot-options.md
-    - name: Visite guidée de l’IU
-      href: overview-iot-central-tour.md
+  - name: Qu’est-ce que Azure IoT Central ?
+    href: overview-iot-central.md
+  - name: Options de la solution IoT
+    href: overview-iot-options.md
+  - name: Visite guidée de l’IU
+    href: overview-iot-central-tour.md
 - name: Démarrages rapides
-  expanded: true
   items:
-    - name: Créer une application
-      href: quick-deploy-iot-central.md
+  - name: Créer une application
+    href: quick-deploy-iot-central.md
+  expanded: true
 - name: Didacticiels
   items:
-    - name: 1- Définir un nouveau type d’appareil
-      href: tutorial-define-device-type.md
-    - name: 2- Configurer des règles
-      href: tutorial-configure-rules.md
-    - name: 3- Personnaliser la vue de l’opérateur
-      href: tutorial-customize-operator.md
-    - name: 4- Surveiller vos appareils
-      href: tutorial-monitor-devices.md
-    - name: 5- Ajouter un appareil
-      href: tutorial-add-device.md
+  - name: 1- Définir un nouveau type d’appareil
+    href: tutorial-define-device-type.md
+  - name: 2- Configurer des règles
+    href: tutorial-configure-rules.md
+  - name: 3- Personnaliser la vue de l’opérateur
+    href: tutorial-customize-operator.md
+  - name: 4- Surveiller vos appareils
+    href: tutorial-monitor-devices.md
+  - name: 5- Ajouter un appareil
+    href: tutorial-add-device.md
 - name: Concepts
   items:
-    - name: Architecture
-      href: concepts-architecture.md
-    - name: Connectivité
-      href: concepts-connectivity.md
+  - name: Architecture
+    href: concepts-architecture.md
+  - name: Connectivité
+    href: concepts-connectivity.md
 - name: Procédures
   items:
-    - name: Administrateur
-      items:
-        - name: 'En tant que CSP, créer et gérer une application'
-          href: howto-create-and-manage-applications-as-CSP.md
-        - name: Gérer votre application
-          href: howto-administer.md
-        - name: Exporter vos données
-          href: howto-export-data.md
-        - name: Visualiser vos données dans Power BI
-          href: howto-connect-powerbi.md
-    - name: Générateur
-      items:
-        - name: Configurer le modèle d’appareil
-          href: howto-set-up-template.md
-        - name: Modèle d’appareil de version
-          href: howto-version-devicetemplate.md
-        - name: Créer une règle de télémétrie
-          href: howto-create-telemetry-rules.md
-        - name: Créer une règle d’événements
-          href: howto-create-event-rules.md
-        - name: Créer des actions de webook sur des règles
-          href: howto-create-webhooks.md
-        - name: Créer des workflows dans Microsoft Flow
-          href: howto-add-microsoft-flow.md
-        - name: Configurer la page d’accueil
-          href: howto-configure-homepage.md
-        - name: Préparer et charger des images
-          href: howto-prepare-images.md
-    - name: Operator
-      items:
-        - name: Gestion de vos appareils
-          href: howto-manage-devices.md
-        - name: Utiliser des ensembles d’appareils
-          href: howto-use-device-sets.md
-        - name: Créer une analyse personnalisée
-          href: howto-create-analytics.md
-    - name: Développeur d’appareils
-      items:
-        - name: Préparer et connecter une application Node.js (générique)
-          href: howto-connect-nodejs.md
-        - name: Préparer et connecter un kit de développement IoT MXChip
-          href: howto-connect-devkit.md
-        - name: Préparer et connecter un Raspberry Pi (Python)
-          href: howto-connect-raspberry-pi-python.md
-        - name: 'Préparer et connecter un Raspberry Pi (C#)'
-          href: howto-connect-raspberry-pi-csharp.md
-        - name: Préparer et connecter un appareil Windows IoT Core
-          href: howto-connect-windowsiotcore.md
+  - name: Administrateur
+    items:
+    - name: En tant que CSP, créer et gérer une application
+      href: howto-create-and-manage-applications-as-CSP.md
+    - name: Gérer votre application
+      href: howto-administer.md
+    - name: Exporter vos données
+      href: howto-export-data.md
+    - name: Visualiser vos données dans Power BI
+      href: howto-connect-powerbi.md
+  - name: Générateur
+    items:
+    - name: Configurer le modèle d’appareil
+      href: howto-set-up-template.md
+    - name: Modèle d’appareil de version
+      href: howto-version-devicetemplate.md
+    - name: Créer une règle de télémétrie
+      href: howto-create-telemetry-rules.md
+    - name: Créer une règle d’événements
+      href: howto-create-event-rules.md
+    - name: Créer des actions de webook sur des règles
+      href: howto-create-webhooks.md
+    - name: Créer des workflows dans Microsoft Flow
+      href: howto-add-microsoft-flow.md
+    - name: Déclencher Azure Functions
+      href: howto-trigger-azure-functions.md
+    - name: Configurer la page d’accueil
+      href: howto-configure-homepage.md
+    - name: Préparer et charger des images
+      href: howto-prepare-images.md
+  - name: Operator
+    items:
+    - name: Gestion de vos appareils
+      href: howto-manage-devices.md
+    - name: Utiliser des ensembles d’appareils
+      href: howto-use-device-sets.md
+    - name: Créer une analyse personnalisée
+      href: howto-create-analytics.md
+  - name: Développeur d’appareils
+    items:
+    - name: Préparer et connecter une application Node.js (générique)
+      href: howto-connect-nodejs.md
+    - name: Préparer et connecter un kit de développement IoT MXChip
+      href: howto-connect-devkit.md
+    - name: Préparer et connecter un Raspberry Pi (Python)
+      href: howto-connect-raspberry-pi-python.md
+    - name: Préparer et connecter un Raspberry Pi (C#)
+      href: howto-connect-raspberry-pi-csharp.md
+    - name: Préparer et connecter un appareil Windows IoT Core
+      href: howto-connect-windowsiotcore.md
 - name: Rubriques connexes
   items:
-    - name: solutions
-      items:
-        - name: Accélérateurs de solution IoT
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: /microsoft-iot-central
-    - name: Services de plateforme
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: Service IoT Hub Device Provisioning
-          href: /azure/iot-dps
-        - name: Location Based Services
-          href: /azure/location-based-services
-        - name: Kits de développement logiciel (SDK) IoT Service
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: Kits de développement logiciel (SDK) IoT Device
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+  - name: solutions
+    items:
+    - name: Accélérateurs de solution IoT
+      href: /azure/iot-suite
+    - name: IoT Central
+      href: /microsoft-iot-central
+  - name: Services de plateforme
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: Service IoT Hub Device Provisioning
+      href: /azure/iot-dps
+    - name: Location Based Services
+      href: /azure/location-based-services
+    - name: Kits de développement logiciel (SDK) IoT Service
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: Kits de développement logiciel (SDK) IoT Device
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Ressources
   items:
-    - name: Demandes de données client
-      href: iot-central-customer-data-requests.md
-    - name: Dépassement de capacité de la pile
-      href: 'https://stackoverflow.com/questions/tagged/azure-iot-central'
+  - name: Demandes de données client
+    href: iot-central-customer-data-requests.md
+  - name: Dépassement de capacité de la pile
+    href: https://stackoverflow.com/questions/tagged/azure-iot-central
+ms.openlocfilehash: 83afcefb0e8fa90253e917ba700644b21bb61100
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348920"

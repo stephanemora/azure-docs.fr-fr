@@ -25,7 +25,9 @@
 ### [Valider la configuration](hana-installation.md)
 ### [Exemple d’installation HANA](hana-example-installation.md)
 ## [Haute disponibilité et récupération d’urgence](hana-overview-high-availability-disaster-recovery.md)
-## [Résolution des problèmes et surveillance](troubleshooting-monitoring.md)
+## Résolution des problèmes et surveillance
+### [Surveillance HLI](troubleshooting-monitoring.md)
+### [Surveillance et dépannage à partir de HANA](hana-monitor-troubleshoot.md)
 ## Procédures
 ### [Configuration de la haute disponibilité avec STONITH](ha-setup-with-stonith.md)
 ### [Sauvegarde du système d’exploitation pour références SKU de type II](os-backup-type-ii-skus.md)

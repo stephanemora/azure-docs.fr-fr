@@ -1,29 +1,36 @@
+items:
 - name: Documentation Cloud Foundry
   href: index.md
 - name: Démarrages rapides
-  expanded: true
   items:
-    - name: Modèle Marketplace
-      href: 'https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry'
+  - name: Modèle Marketplace
+    href: https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry
+  expanded: true
 - name: Didacticiels
   items:
-    - name: Déployer une application CF dans Azure
-      href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
-    - name: CloudFoundry sur Azure
-      href: /azure/virtual-machines/linux/cloudfoundry-get-started
-    - name: Déployer CF OMS Nozzle
-      href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
-    - name: Intégrer Cloud Foundry avec Azure
-      href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
+  - name: Déployer une application CF dans Azure
+    href: /azure/virtual-machines/linux/cloudfoundry-deploy-your-first-app
+  - name: CloudFoundry sur Azure
+    href: /azure/virtual-machines/linux/cloudfoundry-get-started
+  - name: Déployer CF OMS Nozzle
+    href: /azure/cloudfoundry/cloudfoundry-oms-nozzle
+  - name: Intégrer Cloud Foundry avec Azure
+    href: /azure/cloudfoundry/how-cloud-foundry-integrates-with-azure
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Site Cloud Foundry
-      href: 'https://docs.cloudfoundry.org/'
-    - name: Installation de CF sur Azure
-      href: 'https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html'
-    - name: Pivotal et Azure
-      href: 'https://pivotal.io/partners/microsoft'
-    - name: Plug-in VSTS pour CF
-      href: 'https://github.com/Microsoft/vsts-cloudfoundry'
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Site Cloud Foundry
+    href: https://docs.cloudfoundry.org/
+  - name: Installation de CF sur Azure
+    href: https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html
+  - name: Pivotal et Azure
+    href: https://pivotal.io/partners/microsoft
+  - name: Plug-in Azure DevOps pour CF
+    href: https://github.com/Microsoft/vsts-cloudfoundry
+ms.openlocfilehash: ee63fd4e7387777a042c41a8b457f2d9d0ace8e5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294237"
