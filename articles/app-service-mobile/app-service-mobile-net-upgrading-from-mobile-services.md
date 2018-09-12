@@ -68,7 +68,7 @@ La première étape de la mise à niveau consiste à créer la ressource Mobile 
 
 Ensuite, créez la seconde instance d’application en suivant les [instructions de création d’un serveur principal .NET](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app). Quand vous êtes invité à sélectionner votre plan App Service ou « plan d’hébergement », choisissez celui de votre application qui a migré.
 
-Vous souhaiterez probablement utiliser les mêmes base de données et hub de notifications que dans Mobile Services. Copiez ces valeurs en ouvrant le [portail Azure] et en accédant à l’application d’origine, puis cliquez sur **Paramètres** > **Paramètres d’application**. Sous **Chaînes de connexion**, copiez `MS_NotificationHubConnectionString` et `MS_TableConnectionString`. Accédez à votre nouveau site de mise à niveau et collez-les en remplaçant les valeurs existantes. Répétez ce processus pour tous les autres paramètres d’application dont votre application a besoin. Si vous n’utilisez pas un service qui a migré, vous pouvez lire des chaînes de connexion et des paramètres d’application sous l’onglet **Configurer** de la section Mobile Services du [[portail Azure Classic]].
+Vous souhaiterez probablement utiliser les mêmes base de données et hub de notifications que dans Mobile Services. Copiez ces valeurs en ouvrant le [portail Azure] et en accédant à l’application d’origine, puis cliquez sur **Paramètres** > **Paramètres d’application**. Sous **Chaînes de connexion**, copiez `MS_NotificationHubConnectionString` et `MS_TableConnectionString`. Accédez à votre nouveau site de mise à niveau et collez-les en remplaçant les valeurs existantes. Répétez ce processus pour tous les autres paramètres d’application dont votre application a besoin. Si vous n’utilisez pas un service qui a migré, vous pouvez lire des chaînes de connexion et des paramètres d’application sous l’onglet **Configurer** de la section Mobile Services du [portail Azure Classic].
 
 Faites une copie du projet ASP.NET de votre application et publiez-la sur votre nouveau site. En utilisant une copie de votre application cliente mise à jour avec la nouvelle URL, vérifiez que tout fonctionne comme prévu.
 
@@ -259,7 +259,7 @@ Une fois la nouvelle version cliente prête, essayez-la par rapport à votre pro
 <!-- URLs. -->
 
 [Portail Azure]: https://portal.azure.com/
-[[portail Azure Classic]]: https://manage.windowsazure.com/
+[portail Azure Classic]: https://manage.windowsazure.com/
 [Que sont les applications Mobile Apps ?]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [Kit de développement logiciel (SDK) Mobile App Server]: http://www.nuget.org/packages/microsoft.azure.mobile.server
