@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923407"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021991"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge pour la réplication de machines virtuelles VMware et de serveurs physiques vers un site secondaire
 
@@ -57,15 +57,15 @@ Seules les machines Linux avec le stockage suivant peuvent être répliquées :
 
 **Configuration** | **Pris en charge**  
 --- | --- 
-Hôte - Association de cartes réseau | OUI 
-Hôte -VLAN | OUI 
-Hôte - IPv4 | OUI 
+Hôte - Association de cartes réseau | Oui 
+Hôte -VLAN | Oui 
+Hôte - IPv4 | Oui 
 Hôte - IPv6 | Non  
 Machine virtuelle invitée - Association de cartes réseau | Non 
-Machine virtuelle invitée - IPv4 | OUI
+Machine virtuelle invitée - IPv4 | Oui
 Machine virtuelle invitée - IPv6 | Non 
-Machine virtuelle invitée - Windows/Linux - Adresse IP statique | OUI
-Machine virtuelle invitée - Plusieurs cartes réseau | OUI
+Machine virtuelle invitée - Windows/Linux - Adresse IP statique | Oui
+Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
 
 ## <a name="storage"></a>Stockage
@@ -74,29 +74,29 @@ Machine virtuelle invitée - Plusieurs cartes réseau | OUI
 
 **Stockage (hôte)** | **Pris en charge** 
 --- | --- 
-NFS | OUI 
+NFS | Oui 
 SMB 3.0 | N/A 
-SAN (ISCSI) | OUI 
-Chemins d’accès multiples (MPIO) | OUI 
+SAN (ISCSI) | Oui 
+Chemins d’accès multiples (MPIO) | Oui 
 
 ### <a name="guest-or-physical-server-storage"></a>Stockage sur serveur physique ou invité
 
 **Configuration** | **Pris en charge** 
 --- | --- 
-VMDK | OUI 
+VMDK | Oui 
 VHD/VHDX | N/A 
 Machine virtuelle de 2e génération | N/A 
-Disque de cluster partagé | OUI 
+Disque de cluster partagé | Oui 
 Disque chiffré | Non  
-UEFI| OUI 
+UEFI| Oui 
 NFS | Non  
 SMB 3.0 | Non  
-RDM | OUI 
-Disque > 1 To | OUI 
-Volume avec disque à bandes > 1 To<br/><br/> LVM | OUI 
+RDM | Oui 
+Disque > 1 To | Oui 
+Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui 
 Espaces de stockage | Non  
-Ajout/suppression de disque à chaud | OUI 
-Exclure le disque | OUI 
+Ajout/suppression de disque à chaud | Oui 
+Exclure le disque | Oui 
 Chemins d’accès multiples (MPIO) | N/A 
 
 ## <a name="vaults"></a>Coffres
@@ -112,7 +112,7 @@ Le Service mobilité coordonne la réplication entre les serveurs VMware locaux 
 
 **Mettre à jour** | **Détails** 
 --- | --- 
-Mises à jour Scout | [En savoir plus et télécharger](/vmware-physical-secondary-disaster-recovery.md#updates) les dernières mises à jour Scout | Les mises à jour Scout sont cumulatives.
+Mises à jour Scout | [En savoir plus et télécharger](vmware-physical-secondary-disaster-recovery.md#updates) les dernières mises à jour Scout | Les mises à jour Scout sont cumulatives.
 Mises à jour de composants | Les mises à jour Scout incluent les mises à jour pour tous les composants, y compris le serveur RX, le serveur de configuration, les serveurs maîtres et process cibles, les serveurs v-Continuum et les serveurs sources à protéger.<br/><br/> [Plus d’informations](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)
 
 

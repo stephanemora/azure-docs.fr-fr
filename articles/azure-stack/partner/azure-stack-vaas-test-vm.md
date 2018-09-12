@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 9d32c23f66563988d023df3bf6a33efa30237e57
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 78136ab00dcba2f8a99df36ba99d384b49995882
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234134"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159212"
 ---
 # <a name="deploy-the-local-agent-and-test-virtual-machines"></a>Déployer l’agent local et tester les machines virtuelles
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Découvrez comment utiliser l’agent local Validation en tant que service (VaaS) pour vérifier votre matériel. Vous devez déployer l’agent local sur la solution Azure Stack en cours de validation avant d’exécuter les tests de validation.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666017"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021844"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Création d’un travail d’importation pour le service Azure Import/Export
 
@@ -97,7 +97,7 @@ Vous devez expédier vos disques à l’adresse obtenue à l’étape précéden
 >  Vous devez expédier vos disques via un service de transport pris en charge, qui vous fournira un numéro de suivi pour votre colis.
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>Mise à jour du travail d’importation avec les informations d’expédition
-Dès que vous avez votre numéro de suivi, appelez l’opération [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) pour mettre à jour le nom du transporteur, le numéro de suivi du travail et le numéro du compte du transporteur pour le retour d’expédition. Vous pouvez éventuellement spécifier le nombre de disques, ainsi que la date d’expédition.
+Dès que vous avez votre numéro de suivi, appelez l’opération [Update Job Properties](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update) pour mettre à jour le nom du transporteur, le numéro de suivi du travail et le numéro du compte du transporteur pour le retour d’expédition. Vous pouvez éventuellement spécifier le nombre de disques, ainsi que la date d’expédition.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

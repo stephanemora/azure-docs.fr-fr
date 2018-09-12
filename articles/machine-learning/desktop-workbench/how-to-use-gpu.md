@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: f3b6c4f6af14615511400650662fe7a350c172ba
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09d8e3da543cdf4433d986b321697abcad88eb22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42146640"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157988"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Guide pratique pour utiliser des GPU dans Azure Machine Learning
 Les processeurs graphiques (GPU) sont largement utilisés pour traiter des tâches exigeant beaucoup de ressources de calcul, notamment lors de l’apprentissage de certains modèles de réseau neuronal profond. L’utilisation de GPU vous permet de réduire considérablement la durée d’apprentissage des modèles. Dans ce document, vous allez apprendre à configurer Azure Machine Learning Workbench pour utiliser une instance [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) dotée de processeurs graphiques en tant que cible d’exécution. 
@@ -86,7 +86,7 @@ C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "m
 ### <a name="configure-azure-ml-workbench-to-access-gpu"></a>Configurer Azure Machine Learning Workbench pour accéder au GPU
 Revenez au projet et ouvrez l’**affichage des fichiers**, puis appuyez sur le bouton **Actualiser**. À présent, vous voyez deux nouveaux fichiers de configuration `my_dsvm.compute` et `my_dsvm.runconfig`.
  
-Ouvrez le fichier `my_dsvm.compute`. Remplacez la valeur de `baseDockerImage` par `microsoft/mmlspark:plus-gpu-0.7.9` et ajoutez une nouvelle ligne `nvidiaDocker: true`. Le fichier doit ainsi comporter ces deux lignes :
+Ouvrez le fichier `my_dsvm.compute`. Remplacez la valeur de `baseDockerImage` par `microsoft/mmlspark:plus-gpu-0.9.9` et ajoutez une nouvelle ligne `nvidiaDocker: true`. Le fichier doit ainsi comporter ces deux lignes :
  
 ```yaml
 ...

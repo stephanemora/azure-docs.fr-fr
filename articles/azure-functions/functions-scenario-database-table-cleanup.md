@@ -4,23 +4,19 @@ description: Utilisez Azure Functions pour planifier une tâche qui se connecte 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: 2947fc6da0c4559e81cf97255b8375b020e0b657
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a257948c97437d6045f705acb02054928d22ff89
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30231274"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092867"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 Cette rubrique vous montre comment utiliser Azure Functions pour créer une tâche planifiée qui nettoie des lignes dans une table d’une base de données Azure SQL Database. La nouvelle fonction de script C# est créée selon un modèle de déclencheur du minuteur prédéfini dans le Portail Azure. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre d’application dans l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. 
@@ -28,7 +24,6 @@ Cette rubrique vous montre comment utiliser Azure Functions pour créer une tâc
 Pour que votre fonction traite des opérations de création, de lecture, de mise à jour et de suppression individuelles dans une table Mobile Apps, utilisez à la place des [liaisons Mobile Apps](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 + Cette rubrique crée une fonction déclenchée par un minuteur. Suivez les étapes de la rubrique [Créer une fonction dans Azure, qui est déclenchée par un minuteur](functions-create-scheduled-function.md) pour créer une version C# de cette fonction.   
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 7fc5b164792907644a0a41615436806f998a8b1e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 2f5396826da88fd2efdd3588babdbdfdeb42252a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398707"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026141"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du kit de développement logiciel Java V7
 
@@ -208,7 +208,7 @@ Dans ce guide de démarrage rapide, vous avez appris à transférer des fichiers
 
 > [!div class="nextstepaction"]
 > [Kit de développement logiciel Stockage Azure pour Java](https://github.com/azure/azure-storage-java) 
-> [Référence API](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-stable)
+> [Référence API](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 > [Exemples de code pour Java](../common/storage-samples-java.md)
 
 * Pour plus d’informations sur l’Explorateur Stockage et les objets blob, consultez [Gérer les ressources de stockage Blob Azure avec l’Explorateur Stockage](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

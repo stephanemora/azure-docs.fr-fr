@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: f18b6edb900640e48e5ca87639f71cec9287af38
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26343886"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159739"
 ---
 # <a name="custom-reports-from-verizon"></a>Rapports personnalisés de Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 Les rapports personnalisés de Verizon accessibles via le portail de gestion pour les profils Verizon vous permettent de définir le type des données à collecter pour les rapports d’enregistrements Edge CNAMEs.
 
 
 ## <a name="accessing-verizon-custom-reports"></a>Accès aux rapports personnalisés de Verizon
-1. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer** .
+1. Dans le panneau Profil CDN, cliquez sur le bouton **Gérer** .
    
     ![Bouton Gérer du profil CDN](./media/cdn-reports/cdn-manage-btn.png)
    

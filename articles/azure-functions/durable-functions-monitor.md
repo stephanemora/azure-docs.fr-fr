@@ -3,23 +3,19 @@ title: Moniteurs dans l’extension Fonctions durables - Azure
 description: Découvrez comment implémenter un moniteur d’état à l’aide de l’extension Fonctions durables pour Azure Functions.
 services: functions
 author: kashimiz
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 02c068fc70748584583b2c71659b1a1abdc0a46d
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: f59fcecbb1f321c447e15469cf5584c5be8d7b96
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035769"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094348"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo
 

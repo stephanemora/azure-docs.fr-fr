@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186194"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160046"
 ---
 # <a name="iot-hub-operations-monitoring"></a>Surveillance des opérations IoT Hub
 
@@ -186,26 +186,6 @@ La catégorie de routage des messages assure le suivi des erreurs qui se produis
 }
 ```
 
-## <a name="view-events"></a>Visualiser les événements
-
-Vous pouvez utiliser l’outil *iothub-explorer* pour vérifier rapidement que votre IoT Hub génère des événements de surveillance. Pour installer l’outil, consultez les instructions dans le dépôt [iothub-explorer][lnk-iothub-explorer] GitHub.
-
-1. Vérifiez que la catégorie de surveillance **Connexions** a la valeur **Verbose** (Mode détaillé) dans le portail.
-
-1. À une invite de commandes, exécutez la commande suivante pour lire le point de terminaison de surveillance :
-
-    ```
-    iothub-explorer monitor-ops --login {your iothubowner connection string}
-    ```
-
-1. Dans une autre invite de commandes, exécutez la commande suivante pour simuler un appareil envoyant des messages de l’appareil au cloud :
-
-    ```
-    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
-    ```
-
-1. La première invite de commandes affiche les événements de surveillance quand l’appareil simulé se connecte à votre IoT Hub.
-
 ## <a name="connect-to-the-monitoring-endpoint"></a>Se connecter au point de terminaison de surveillance
 
 Le point de terminaison de surveillance de votre IoT Hub est un point de terminaison compatible Event Hub. Vous pouvez utiliser n’importe quel mécanisme compatible avec Event Hubs pour lire les messages de surveillance à partir de ce point de terminaison. L’exemple suivant crée un lecteur de base qui ne convient pas dans le cas d’un déploiement à débit élevé. Pour plus d’informations sur la façon de traiter les messages à partir des concentrateurs d’événements, reportez-vous au didacticiel [Prise en main des concentrateurs d’événements][lnk-eventhubs-tutorial].
@@ -303,5 +283,4 @@ Pour explorer davantage les capacités de IoT Hub, consultez :
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

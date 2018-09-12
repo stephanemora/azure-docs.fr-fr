@@ -9,12 +9,12 @@ ms.technology: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a41b4e5b6c268ec68488c6764d4192cf8d2345a4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e7a62a79bdc2e486fb6bfca34eb4addeba2bde0e
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368820"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158311"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurer votre expérience de Suggestion automatique personnalisée
 Si vous êtes abonné au niveau approprié de la Recherche personnalisée (voir les [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), vous pouvez personnaliser les suggestions de recherche élaborées dans votre expérience de Recherche personnalisée. La Suggestion automatique personnalisée retourne une liste de requêtes suggérées qui s’appuient sur une chaîne de requête partielle fournie par l’utilisateur. Avec la Suggestion automatique personnalisée, vous fournissez des suggestions de recherche personnalisées pertinentes par rapport à votre expérience de recherche. Vous spécifiez s’il faut retourner uniquement des suggestions personnalisées ou inclure également des suggestions Bing. Si vous incluez les suggestions Bing, les suggestions personnalisées apparaissent avant celles-ci. Les suggestions Bing sont limitées au contexte de votre instance de Recherche personnalisée.
@@ -38,7 +38,7 @@ Vous pouvez charger une liste de suggestions à partir d’un fichier. Placez ch
 ## <a name="remove-suggestions"></a>Supprimer des suggestions
 Pour supprimer une suggestion, cliquez sur l’icône de suppression en regard de la suggestion à éliminer.
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
   >[!NOTE]  
   >Les modifications de configuration de la Suggestion automatique personnalisée peuvent demander jusqu’à 24 heures pour prendre effet.

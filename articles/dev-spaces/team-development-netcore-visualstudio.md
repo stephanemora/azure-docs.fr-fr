@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: douge
-ms.openlocfilehash: 1b603db552edd14dab2c86e6b005184eb88e74bb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 97b052833946b373e2333491c4b516b3a088130b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154813"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158464"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Développement en équipe avec les espaces Azure Dev Spaces
 
@@ -163,6 +163,6 @@ Pour tester votre nouvelle version de `mywebapi` avec `webfrontend`, ouvrez votr
 
 Maintenant, ajoutez « scott.s » à l’URL pour qu’elle ressemble à quelque chose comme ceci http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io, puis actualisez le navigateur. Vous devriez atteindre le point d’arrêt que vous avez défini dans votre projet `mywebapi`. Appuyez sur F5 pour continuer et dans votre navigateur, vous devriez maintenant voir le nouveau message « Hello from webfrontend » et mywebapi affiche maintenant autre chose. C’est parce que le chemin d’accès de votre code mis à jour dans `mywebapi` est en cours d’exécution l’espace `default/scott`.
 
-[!INCLUDE[](includes/well-done.md)]
+[!INCLUDE [](includes/well-done.md)]
 
-[!INCLUDE[](includes/clean-up.md)]
+[!INCLUDE [](includes/clean-up.md)]

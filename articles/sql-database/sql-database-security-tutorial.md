@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: daredis
-ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d805a39831ce2eea204689a4daa069d10b757e8
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193459"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054068"
 ---
 # <a name="secure-your-azure-sql-database"></a>Sécuriser votre base de données SQL Azure
 
@@ -42,16 +42,15 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour suivre ce didacticiel, vérifiez que vous disposez des éléments suivants :
 
 - La dernière version de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). 
 - Microsoft Excel.
-- Un serveur Azure SQL Server et une base de données. Consultez [Création d’une base de données SQL Azure à l’aide du portail Azure](sql-database-get-started-portal.md), [Créer une base de données SQL Azure à l’aide de l’interface de ligne de commande Azure](sql-database-get-started-cli.md) et [Créer une base de données SQL Azure unique à l’aide de PowerShell](sql-database-get-started-powershell.md). 
+- Un serveur Azure SQL Server et une base de données. Consultez [Création d’une base de données SQL Azure à l’aide du portail Azure](sql-database-get-started-portal.md), [Créer une base de données SQL Azure à l’aide de l’interface de ligne de commande Azure](sql-database-cli-samples.md) et [Créer une base de données SQL Azure unique à l’aide de PowerShell](sql-database-powershell-samples.md). 
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Créer une règle de pare-feu au niveau du serveur dans le portail Azure
 

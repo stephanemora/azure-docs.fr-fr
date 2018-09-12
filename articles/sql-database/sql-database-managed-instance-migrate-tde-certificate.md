@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920045"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050609"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Migrer vers Azure SQL Managed Instance le certificat d’une base de données protégée par TDE
 
@@ -141,4 +141,4 @@ Le certificat est désormais disponible dans l’instance Managed Instance spéc
 
 Dans cet article, vous avez appris à migrer un certificat qui protège la clé de chiffrement d’une base de données avec TDE d’un serveur SQL Server local et IaaS vers Azure SQL Managed Instance.
 
-Consultez [Restaurer une sauvegarde de base de données dans Azure SQL Database Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md) pour apprendre à restaurer une sauvegarde de base de données dans Azure SQL Database Managed Instance.
+Consultez [Restaurer une sauvegarde de base de données dans Azure SQL Database Managed Instance](sql-database-managed-instance-get-started-restore.md) pour apprendre à restaurer une sauvegarde de base de données dans Azure SQL Database Managed Instance.

@@ -3,23 +3,19 @@ title: Publication de Fonctions durables sur Azure Event Grid (version prélimin
 description: Découvrez comment configurer la publication automatique de l’extension Fonctions durables sur Azure Event Grid.
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: glenga
-ms.openlocfilehash: 691f00b0f05d8c91ae6f4409ba9eeeb50b0cd53b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: dff0aace6c46340f07ff6fb4fd7f92ee93b7fa8c
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343693"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091747"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publication de Fonctions durables sur Azure Event Grid (version préliminaire)
 

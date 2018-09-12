@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 7cb7ce0ea81cf99c2ee14a6f209864894563d237
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ccdffaf0c224cc4579f24ca5f3ca60a6c53f3bd6
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111777"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160401"
 ---
 # <a name="set-up-sql-data-sync"></a>Configurer SQL Data Sync
 Dans ce didacticiel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation hybride contenant des instances SQL Database et SQL Server. Ce nouveau groupe de synchronisation est entièrement configuré et synchronise sur la planification définie.
@@ -239,7 +239,7 @@ Vous devez apporter et propager toutes les modifications du schéma manuellement
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Comment puis-je exporter et importer une base de données avec Data Sync ?
 Après avoir exporté une base de données sous forme de fichier `.bacpac` et avoir importé le fichier pour créer une base de données, vous devez effectuer les deux tâches suivantes pour utiliser Data Sync dans la nouvelle base de données :
-1.  Nettoyer les objets Data Sync et les tables annexes de la **nouvelle base de données** à l’aide de [ce script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Ce script supprime tous les objets Data Sync requis de la base de données.
+1.  Nettoyer les objets Data Sync et les tables annexes de la **nouvelle base de données** à l’aide de [ce script](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql). Ce script supprime tous les objets Data Sync requis de la base de données.
 2.  Recréer le groupe de synchronisation avec la nouvelle base de données. Si vous n’avez plus besoin de l’ancien groupe de synchronisation, supprimez-le.
 
 ## <a name="faq-about-the-client-agent"></a>FAQ concernant l’agent client

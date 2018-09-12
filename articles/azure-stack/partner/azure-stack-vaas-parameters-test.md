@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 65cae4d10a4683207474008a18bac39751ce8e96
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9f042779e3463f0d75dc6327b3553156edbf162a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234531"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162221"
 ---
 # <a name="test-parameters-for-validation-as-a-service-azure-stack"></a>Paramètres de test de la validation en tant que service Azure Stack
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Avant d’exécuter une suite de tests à partir de la validation en tant que service (VaaS), sélectionnez une solution et créez une passe de test.
 

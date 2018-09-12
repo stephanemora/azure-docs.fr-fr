@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 09/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dcc324f3b6c5153b294719ff8939aed8a3e82b1c
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 7a27fbb4530f8aca1c45888cdff0fae7dea667e0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436829"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095026"
 ---
 # <a name="manage-access-using-rbac-and-azure-powershell"></a>Gérer l’accès avec RBAC et Azure PowerShell
 
@@ -144,7 +144,7 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 ## <a name="list-access"></a>Répertorier les accès
 
-Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attributions de rôles pour énumérer les accès.
+Dans RBAC, pour énumérer les accès, vous répertoriez les attributions de rôles.
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>Répertorier les attributions de rôle dans une étendue spécifique
 
@@ -206,7 +206,7 @@ Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="grant-access"></a>Accorder l'accès
 
-Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès.
+Dans RBAC, pour accorder l’accès, vous créez une attribution de rôle.
 
 ### <a name="search-for-object-ids"></a>Rechercher des ID d’objet
 
@@ -231,7 +231,7 @@ Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 Pour accorder l'accès à une application dans l’étendue de l'abonnement, utilisez [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment).
 
 ```azurepowershell
-New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope <subscription id>
+New-AzureRmRoleAssignment -ObjectId <application id> -RoleDefinitionName <role name> -Scope /subscriptions/<subscription id>
 ```
 
 ```Example

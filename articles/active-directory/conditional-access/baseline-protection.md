@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 856673d2a5465f9646172a1436ed75c0d73692cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003170"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024071"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Qu’est ce qu’une protection de base ?  
 
@@ -86,7 +86,7 @@ Alors que la gestion de stratégies d’accès conditionnelles personnalisées n
 
 Les rôles d’annuaire inclus dans la stratégie de base sont les rôles Azure AD les plus privilégiés. 
 
-Si vous disposez de comptes privilégiés qui sont utilisés dans vos scripts, vous devriez les remplacer par [Managed Service Identity (MSI)](../managed-service-identity/overview.md) ou par des [principaux de service avec certificats](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Pour contourner provisoirement le problème, vous pouvez exclure des comptes d’utilisateurs spécifiques de la stratégie de base. 
+Si vous disposez de comptes privilégiés qui sont utilisés dans vos scripts, vous devriez les remplacer par [Managed Service Identity (MSI)](../managed-identities-azure-resources/overview.md) ou par des [principaux de service avec certificats](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Pour contourner provisoirement le problème, vous pouvez exclure des comptes d’utilisateurs spécifiques de la stratégie de base. 
 
 Les stratégies de base s’appliquent à des flux d’authentification hérités comme POP, IMAP ou un client Office pour ordinateur de bureau plus ancien. 
 

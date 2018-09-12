@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 90c18af0f846061c102f1daf1b84a332aaec1dc6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 1e908a8cf5576ce3bc3d58d1ef6f29d596ebc58b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234138"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158175"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Valider une nouvelle solution Azure Stack
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Découvrez comment utiliser le flux de travail de validation de solution pour certifier les nouvelles solutions Azure Stack.
 
@@ -41,13 +41,13 @@ Ce guide de démarrage rapide vous explique comment ajouter votre solution et ex
 ## <a name="create-a-solution-validation-workflow"></a>Créer un flux de travail de validation de solution
 
 1. Sélectionnez le nom de la solution.
-2. Sélectionnez **Gérer** sur la vignette **Solution Validations** (Validations de solution).
+2. Sélectionnez **Gérer** sur la vignette **Validations de solution**.
 
     ![Validations de solution](media/image2.png)
 
 ## <a name="create-a-solution-workflow"></a>Créer un flux de travail de solution
 
-1. Sélectionnez **New solution validation** (Validation de nouvelle solution).
+1. Sélectionnez **Validation de nouvelle solution**.
 2. Tapez le nom de la validation.
 3. Sélectionnez **Minimum** ou **Maximum**.  
     - **Minimum**  
@@ -73,11 +73,11 @@ Ajoutez les paramètres d’environnement suivants :
 | Informations de passe de test | Obligatoire | Description |
 | --- | --- | --- | --- |
 | Build Azure Stack | Obligatoire | Numéro de build Azure Stack (par exemple 20170501.1). Cette valeur doit être un numéro de build ou une version Azure Stack valides, par exemple 1.0.170330.9. |
-| ID client | Obligatoire | ID du locataire Active Directory. Il doit s’agir d’un identificateur global unique (par exemple ECA23256-6BA0-4F27-8E4D-AFB02F088363). |
+| ID client | Obligatoire | ID du locataire Active Directory. Il doit s’agir d’un identificateur global unique (par exemple ECA23256-6BA0-4F27-8E4D-AFB02F088363) |
 | Région | Obligatoire | Région du déploiement Azure Stack. |
-| Point de terminaison Resource Manager du locataire | Obligatoire | Point de terminaison pour les opérations Azure Resource Manager du locataire (par exemple https://management.loc-ext.domain.com). |
-| Point de terminaison Resource Manager de l’administrateur | Non requis | Point de terminaison pour les opérations Azure Resource Manager du locataire (par exemple https://management.loc-ext.domain.com). |
-| FQDN externe | Non requis | Nom de domaine complet externe utilisé comme suffixe pour les points de terminaison (par exemple local.azurestack.external ou redmond.contoso.com). |
+| Point de terminaison Resource Manager du locataire | Obligatoire | Point de terminaison pour les opérations Azure Resource Manager du locataire (par exemple https://management.loc-ext.domain.com) |
+| Point de terminaison Resource Manager de l’administrateur | Non requis | Point de terminaison pour les opérations Azure Resource Manager du locataire (par exemple https://management.loc-ext.domain.com) |
+| FQDN externe | Non requis | Nom de domaine complet externe utilisé comme suffixe pour les points de terminaison. (par exemple local.azurestack.external ou redmond.contoso.com). |
 | Nombre de nœuds | Obligatoire | Nombre de nœuds de votre solution. |
 
 ## <a name="add-common-test-parameters"></a>Ajouter des paramètres de test communs
@@ -86,13 +86,13 @@ Ajoutez les paramètres de test communs suivants :
 
 | Informations de passe de test | Obligatoire | Description |
 | --- | --- | --- |
-| Nom d’utilisateur du locataire | Obligatoire | Nom d’utilisateur du locataire (par exemple tenant@contoso.onmicrosoft.com). |
+| Nom d'utilisateur du locataire | Obligatoire | Nom d’utilisateur du locataire (par exemple tenant@contoso.onmicrosoft.com) |
 | Mot de passe du locataire | Obligatoire | Mot de passe du locataire. |
-| Nom d’utilisateur de l’administrateur du service | Non requis | Nom d’utilisateur du locataire (par exemple tenant@contoso.onmicrosoft.com). |
-| Mot de passe de l’administrateur du service | Non requis | Nom d’utilisateur de l’administrateur du service (par exemple serviceadmin@contoso.onmicrosoft.com). |
-| Nom d’utilisateur de l’administrateur du cloud | Non requis | Compte d’administrateur de domaine Azure Stack (par exemple, contoso\cloudadmin). |
-| Mot de passe d’administrateur du cloud | Non requis | |
-|  Chaîne de connexion des diagnostics | Non requis | URI de signature d’accès partagé (SAP) d’un compte de stockage Azure dans lequel les journaux de diagnostic seront copiés pendant l’exécution des tests. Consultez la section [Create an Azure storage blob to store logs](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs) (Créer un blob de stockage Azure pour stocker les journaux). <br><br>La valeur du paramètre commun **Chaîne de connexion des diagnostics** est stockée par le service et fournie lors de la planification à tous les tests du flux de travail qui utilisent ce paramètre. Lorsque l’URL SAP doit arriver à expiration dans les 30 jours, vous êtes invité à indiquer une nouvelle URL SAP sur la page des paramètres communs. |
+| Nom d’utilisateur de l’administrateur de service | Non requis | Nom d’utilisateur du locataire (par exemple tenant@contoso.onmicrosoft.com) |
+| Mot de passe de l’administrateur de service | Non requis | Nom d’utilisateur de l’administrateur du service (par exemple serviceadmin@contoso.onmicrosoft.com) |
+| Nom d’utilisateur de l’administrateur de cloud | Non requis | Compte d’administrateur de domaine Azure Stack (par exemple, contoso\cloudadmin). |
+| Mot de passe d’administrateur de cloud | Non requis | |
+|  Chaîne de connexion des diagnostics | Non requis | URI de signature d’accès partagé (SAP) d’un compte de stockage Azure dans lequel les journaux de diagnostic seront copiés pendant l’exécution des tests. Consultez la section [Créer un blob de stockage Azure pour stocker les journaux](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs). <br><br>La valeur du paramètre commun **Chaîne de connexion des diagnostics** est stockée par le service et fournie lors de la planification à tous les tests du flux de travail qui utilisent ce paramètre. Lorsque l’URL SAP doit arriver à expiration dans les 30 jours, vous êtes invité à indiquer une nouvelle URL SAP sur la page des paramètres communs. |
 | Balise - Nom | Non requis |  Vous pouvez entrer des balises descriptives pour libeller le flux de travail. Il s’agit du nom de la balise. |
 | Balise - Valeur | Non requis | Vous pouvez entrer des balises descriptives pour libeller le flux de travail. Il s’agit de la valeur de la balise. |
 

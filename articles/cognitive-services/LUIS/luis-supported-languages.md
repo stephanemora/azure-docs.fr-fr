@@ -27,7 +27,7 @@ Si vous avez besoin d’une application client LUIS multilingue, comme un chatb
 LUIS comprend les énoncés dans les langues suivantes :
 
 
-| Langage |Paramètres régionaux  |  Domaine prédéfini | Entité prédéfinie | Suggestions d’expression | **[Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment et<br>mots clés)| 
+| Langage |Paramètres régionaux  |  Domaine prédéfini | Entité prédéfinie | Suggestions d’expression | \**[Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Sentiment et<br>mots clés)| 
 |--|--|:--:|:--:|:--:|:--:|
 | Anglais (États-Unis) |`en-US` | ✔ | ✔  |✔|✔|
 | Français (Canada) |`fr-CA` |-|   -   |-|✔|
@@ -58,7 +58,7 @@ La prise en charge linguistique varie pour les [entités prédéfinies](luis-ref
      - でございます ne signifie pas la même chose que です. 
      - です ne signifie pas la même chose que だ. 
 
-### <a name="text-analytics-support-notes"></a>**Notes sur la prise en charge de l’analyse de texte
+### <a name="text-analytics-support-notes"></a>\*\*Notes sur la prise en charge de l’analyse de texte
 L’analyse de texte inclut l’entité keyPhrase prédéfinie et l’analyse des sentiments. Seul le portugais est pris en charge pour les sous-cultures : `pt-PT` et `pt-BR`. Toutes les autres cultures sont prises en charge au niveau de la culture principale. En savoir plus sur les [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) par l’analyse de texte. 
 
 ### <a name="speech-api-supported-languages"></a>Langues prises en charge par l’API Microsoft Speech

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a96326e23a2ed913ccab8a23666a4f408157d3da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b662b9a1ed52a9475328d7178565a159f4d50f8f
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603978"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050355"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 
@@ -99,7 +99,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 
 * Nom du réseau virtuel : TestVNet1
 * Groupe de ressources : TestRG1
-* Emplacement : Est des États-Unis
+* Emplacement : USA Est
 * TestVNet1 : 10.11.0.0/16 et 10.12.0.0/16
 * FrontEnd : 10.11.0.0/24
 * BackEnd : 10.12.0.0/24
@@ -119,7 +119,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 * Serveur principal : 10.42.0.0/24
 * Sous-réseau de passerelle : 10.42.255.0/27
 * Groupe de ressources : TestRG4
-* Emplacement : États-Unis de l’Ouest
+* Emplacement : USA Ouest
 * Nom de la passerelle : VNet4GW
 * Adresse IP publique : VNet4GWIP
 * Type de VPN : RouteBased
@@ -312,7 +312,7 @@ Il est important de s’assurer que l’espace d’adressage IP du nouveau rés
 
 * Nom du réseau virtuel : TestVNet5
 * Groupe de ressources : TestRG5
-* Emplacement : Japon de l’Est
+* Emplacement : Japon Est
 * TestVNet5 : 10.51.0.0/16 et 10.52.0.0/16
 * Serveur frontal : 10.51.0.0/24
 * Serveur principal : 10.52.0.0/24
@@ -453,7 +453,7 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
   Se connecter à Abonnement 1 avant d’exécuter l’exemple suivant :
 
   ```powershell
-  $vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
+  $vnet5gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet5gw.Name = "VNet5GW"
   $vnet5gw.Id   = "/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW"
   $Connection15 = "VNet1toVNet5"
@@ -464,7 +464,7 @@ Dans cet exemple, étant donné que les passerelles se trouvent dans différents
   Se connecter à Abonnement 5 avant d’exécuter l’exemple suivant :
 
   ```powershell
-  $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
+  $vnet1gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet1gw.Name = "VNet1GW"
   $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
   $Connection51 = "VNet5toVNet1"

@@ -3,26 +3,21 @@ title: Appeler une fonction Azure à partir de Microsoft Flow | Documents Micros
 description: Créez un connecteur personnalisé, puis appelez une fonction à l’aide du connecteur.
 services: functions
 keywords: applications cloud, services cloud, Microsoft Flow, processus métier, application métier
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467742"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092256"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Appeler une fonction à partir de Microsoft Flow
 
@@ -234,7 +229,7 @@ Le flux étant complet, vous ajoutez une ligne à la liste SharePoint pour voir 
     | **Titre**           | Éolienne 60 |
     | **Dernier entretien** | 08/04/2017 |
     | **Production max.**       | 2 500 |
-    | **Entretien nécessaire** | OUI |
+    | **Entretien nécessaire** | Oui |
     | **Effort estimé** | 10 |
 
 3. Cliquez sur **Done**.

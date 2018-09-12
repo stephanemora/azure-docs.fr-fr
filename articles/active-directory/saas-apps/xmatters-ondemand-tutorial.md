@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d140cbdb0548de869c7aab6ba5da281046a215f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a235b85887e64e0a5ca35aae8f31734250a78bb5
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434110"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Didacticiel : Intégration d’Azure Active Directory à xMatters OnDemand
 
@@ -202,9 +202,9 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>Création d’un utilisateur de test xMatters OnDemand
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans xMatters OnDemand. xMatters OnDemand prend en charge l’attribution automatique d’utilisateurs, qui est activée par défaut. Des informations supplémentaires sur la configuration de l’attribution automatique d’utilisateurs sont disponibles [ici](xmatters-ondemand-provisioning-tutorial.md).
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans xMatters OnDemand.
 
-**Si vous avez besoin de créer un utilisateur manuellement, effectuez les étapes suivantes :**
+**Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
 1. Connectez-vous à votre client **xMatters OnDemand** .
 
@@ -269,7 +269,6 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-* [Configurer l’approvisionnement de l’utilisateur](xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 

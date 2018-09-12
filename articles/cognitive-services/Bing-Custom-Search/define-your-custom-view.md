@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8ffe3087df398d6310828e41d0c6992199fafbed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ef8aabc7363db88317a6428301512b0a0d4c055
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368857"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158770"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configurer votre expérience de recherche personnalisée
 Une instance de Recherche personnalisée vous permet d’adapter l’expérience de recherche pour inclure uniquement du contenu provenant de sites Web qui intéressent vos utilisateurs. Plutôt que d’effectuer une recherche à l’échelle du Web, Bing ne recherche que dans la section du web qui vous convient.
@@ -69,7 +69,7 @@ Vous pouvez tester votre instance de recherche en utilisant le volet de visualis
 ## <a name="adjust-rank"></a>Classer par ordre de priorité
 Le portail vous permet de modifier la position d’éléments dans le classement pour exploiter les résultats que Bing retourne. Dans le volet de visualisation, entrez un terme à rechercher et exécutez la requête. Le volet de visualisation affiche la liste des résultats de la recherche pour la requête. À droite de chaque résultat se trouve la liste des réglages que vous pouvez effectuer. 
 
-- Block (Bloquer). Déplace le domaine, la sous-page ou la page Web dans la liste des éléments bloqués. Vous sélectionnez le niveau à bloquer. Bing exclut le contenu du site sélectionné dans les résultats de recherche. 
+- Bloquer. Déplace le domaine, la sous-page ou la page Web dans la liste des éléments bloqués. Vous sélectionnez le niveau à bloquer. Bing exclut le contenu du site sélectionné dans les résultats de recherche. 
 - Boost (Élever). Élève le contenu du domaine ou de la page secondaire à un niveau supérieur dans les résultats de recherche. Vous choisissez s’il faut privilégier le contenu issu de la sous-page ou du domaine auquel la page Web appartient.
 - Demote. (Rétrograder.) Rétrograde le contenu du domaine ou de la page secondaire à un niveau inférieur dans les résultats de recherche. Vous choisissez s’il faut rétrograder le contenu issu de la sous-page ou du domaine auquel la page Web appartient. 
 - Pin-to-top (Épingler en haut). Définit la page Web qui s’affiche en haut des résultats si le terme de requête de l’utilisateur correspond exactement au terme de requête que vous avez utilisé. Il n’est pas nécessaire que la liste des éléments actifs contienne cette page Web pour que vous puissiez l’épingler. 
@@ -113,7 +113,7 @@ Suivez ces étapes pour que Bing ajoute des sections à votre instance Recherche
 5.  Cliquez sur **Add site** (Ajouter le site) en regard du résultat que vous souhaitez inclure.
 6.  Cliquez sur le bouton **OK** .
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 ## <a name="view-statistics"></a>Consulter les statistiques
 Si vous êtes abonné au niveau approprié de la Recherche personnalisée (voir les [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), un onglet **Statistics** (Statistiques) est ajouté à vos instances de production. Cet onglet de statistiques affiche des informations détaillées sur l’utilisation de vos points de terminaison de Recherche personnalisée, notamment sur le volume d’appels, les requêtes principales, la répartition géographique, les codes de réponse et la recherche sécurisée. Vous pouvez filtrer ces informations à l’aide des contrôles fournis.

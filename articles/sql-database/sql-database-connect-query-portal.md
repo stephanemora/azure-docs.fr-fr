@@ -10,19 +10,18 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 6e9dbeb5915f98ec4d08d8656b6b338ea78117da
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4dca277326ec89d0c7ab512e9d107ce68cefb2ca
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792628"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050848"
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portail Azure : utilisez l’éditeur de requête SQL pour vous connecter et effectuer des requêtes de données
 
 L’éditeur de requête SQL est un outil de requête de navigateur qui offre un moyen efficace et léger pour exécuter des requêtes SQL sur votre base de données SQL Azure ou Azure SQL Data Warehouse sans quitter le portail Azure. Ce guide de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Ce guide de démarrage rapide utilise comme point de départ les ressources créées dans l’un de ces guides de démarrage rapide :
 
@@ -33,7 +32,7 @@ Ce guide de démarrage rapide utilise comme point de départ les ressources cré
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 
 ## <a name="connect-using-sql-authentication"></a>Se connecter à l’aide de l’authentification SQL

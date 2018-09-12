@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: fc0ccd84f493fd69c84515331386592ec11a887e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282239"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025291"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources
 
@@ -27,7 +27,7 @@ Lorsqu’un code doit accéder ou modifier des ressources, vous devez configurer
 Cet article explique comment effectuer ces étapes via le portail. Elle se concentre sur une application à locataire unique conçue pour s’exécuter au sein d’une seule organisation. Les applications à locataire unique sont généralement utilisées pour les applications métier exécutées au sein de votre organisation.
 
 > [!IMPORTANT]
-> Au lieu de créer un principal du service, envisagez d’utiliser Managed Service Identity Azure AD pour l’identité de votre application. MSI Azure AD est une fonctionnalité de la préversion publique d’Azure Active Directory qui simplifie la création d’une identité pour le code. Si votre code s’exécute sur un service qui prend en charge MSI Azure AD et accède aux ressources qui prennent en charge l’authentification Azure Active Directory, MSI Azure AD correspond bien à vos besoins. Pour en savoir plus sur MSI Azure AD, y compris les services qui prennent actuellement en charge cette fonctionnalité, consultez [Managed Service Identity pour les ressources Azure](../active-directory/managed-service-identity/overview.md).
+> Au lieu de créer un principal du service, envisagez d’utiliser Managed Service Identity Azure AD pour l’identité de votre application. MSI Azure AD est une fonctionnalité de la préversion publique d’Azure Active Directory qui simplifie la création d’une identité pour le code. Si votre code s’exécute sur un service qui prend en charge MSI Azure AD et accède aux ressources qui prennent en charge l’authentification Azure Active Directory, MSI Azure AD correspond bien à vos besoins. Pour en savoir plus sur MSI Azure AD, y compris les services qui prennent actuellement en charge cette fonctionnalité, consultez [Managed Service Identity pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="required-permissions"></a>Autorisations requises
 

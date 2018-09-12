@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 56d207dc47b9e055782568f1c4a4cedc4d19a288
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e527a0eaec433b96b5c37c5ec22f392a7166dfe8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348019"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162442"
 ---
 # <a name="manage-app-passwords-using-security-info-preview"></a>Gérer les mots de passe d’application à l’aide des informations de sécurité (préversion)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Certaines applications sans navigateur, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cela signifie que si vous utilisez la vérification en deux étapes, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.
 
@@ -45,7 +45,7 @@ Si votre administrateur n’a pas activé la fonctionnalité d’informations de
 
 1. Connectez-vous à votre compte professionnel ou scolaire.
 
-2. Accédez à myapps.microsoft.com, sélectionnez votre nom dans le coin supérieur droit de la page, puis sélectionnez **Profil**.
+2. Accédez à myapps.microsoft.com, sélectionnez votre nom en haut à droite de la page, puis sélectionnez **Profil**.
 
 3. Dans la zone **Gérer le compte**, sélectionnez **Modifier les informations de sécurité**.
 

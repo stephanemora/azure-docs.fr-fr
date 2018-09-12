@@ -7,14 +7,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: f7a314b3de112ad1fa7a5a356c2325846e9371b1
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413380"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054578"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ? 
 
@@ -177,8 +177,8 @@ SQL Database prend en charge la génération d’applications avec Python, Java,
 - Consultez ces démarrages rapides pour bien commencer :
 
   - [Créer une base de données SQL dans le portail Azure](sql-database-get-started-portal.md)  
-  - [Créer une base de données SQL avec Azure CLI](sql-database-get-started-cli.md)
-  - [Créer une base de données SQL à l’aide de PowerShell](sql-database-get-started-powershell.md)
+  - [Créer une base de données SQL avec Azure CLI](sql-database-cli-samples.md)
+  - [Créer une base de données SQL à l’aide de PowerShell](sql-database-powershell-samples.md)
 
 - Pour accéder à des exemples Azure CLI et PowerShell, consultez :
   - [Exemples d’interface de ligne de commande Azure pour SQL Database](sql-database-cli-samples.md)

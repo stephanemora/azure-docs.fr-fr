@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 7dbd2585628c64f5baf7df6083e38217d00953be
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4abdbac44f4730d15c36d587190db1f95ea54d19
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145537"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050726"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>Contrôle et autorisation d’accès aux bases de données SQL Database et SQL Data Warehouse
 
@@ -49,7 +49,7 @@ Les comptes d’**administrateur de serveur** et d’**administrateur Azure AD**
 - Ces comptes peuvent afficher la table système `sys.sql_logins`.
 
 ### <a name="configuring-the-firewall"></a>Configuration du pare-feu
-Quand le pare-feu au niveau du serveur est configuré pour une plage d’adresses IP ou une adresse IP individuelle, l’**administrateur de serveur SQL** et l’**administrateur Azure Active Directory** peuvent se connecter à la base de données MASTER et à toutes les bases de données utilisateur. Le pare-feu au niveau du serveur initial peut être configuré via le [portail Azure](sql-database-get-started-portal.md), à l’aide de [PowerShell](sql-database-get-started-powershell.md) ou de [l’API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Une fois la connexion établie, les règles supplémentaires de pare-feu au niveau du serveur peuvent également être configurées à l’aide de [Transact-SQL](sql-database-configure-firewall-settings.md).
+Quand le pare-feu au niveau du serveur est configuré pour une plage d’adresses IP ou une adresse IP individuelle, l’**administrateur de serveur SQL** et l’**administrateur Azure Active Directory** peuvent se connecter à la base de données MASTER et à toutes les bases de données utilisateur. Le pare-feu au niveau du serveur initial peut être configuré via le [portail Azure](sql-database-get-started-portal.md), à l’aide de [PowerShell](sql-database-powershell-samples.md) ou de [l’API REST](https://msdn.microsoft.com/library/azure/dn505712.aspx). Une fois la connexion établie, les règles supplémentaires de pare-feu au niveau du serveur peuvent également être configurées à l’aide de [Transact-SQL](sql-database-configure-firewall-settings.md).
 
 ### <a name="administrator-access-path"></a>Chemin d’accès administrateur
 Lorsque le pare-feu au niveau du serveur est correctement configuré, l’**administrateur de serveur SQL** et l’**administrateur Azure Active Directory** peuvent se connecter à l’aide des outils clients tels que SQL Server Management Studio ou SQL Server Data Tools. Seuls les outils les plus récents fournissent toutes les fonctionnalités et capacités. Le diagramme suivant illustre une configuration classique avec deux comptes d’administrateur.

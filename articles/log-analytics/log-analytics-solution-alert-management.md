@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: eb61a48e8c479db4742d65187b202655f29b032d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: acf9e512e188c34c0124832a6a534135790f1e2d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131045"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049199"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solution Alert Management dans Azure Log Analytics
 
 ![Icône de gestion des alertes](media/log-analytics-solution-alert-management/icon.png)
 
-La solution de gestion des alertes vous permet d’analyser toutes les alertes qui se produisent dans votre référentiel Log Analytics.  Ces alertes peuvent provenir de diverses sources, y compris celles [créées par Log Analytics](log-analytics-alerts.md) ou [importées à partir de Nagios ou Zabbix](log-analytics-linux-agents.md).  La solution importe également les alertes de tous les [groupes d’administration System Center Operations Manager connectés](log-analytics-om-agents.md).
+La solution de gestion des alertes vous permet d’analyser toutes les alertes qui se produisent dans votre référentiel Log Analytics.  Ces alertes peuvent provenir de diverses sources, y compris celles [créées par Log Analytics](log-analytics-alerts.md) ou [importées à partir de Nagios ou Zabbix](log-analytics-linux-agents.md). La solution importe également les alertes de tous les [groupes d’administration System Center Operations Manager connectés](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Prérequis
 La solution fonctionnant avec tous les enregistrements dans le référentiel Log Analytics ayant le type **Alerte**, vous devez donc effectuer la configuration nécessaire pour collecter ces enregistrements.
@@ -36,10 +36,10 @@ La solution fonctionnant avec tous les enregistrements dans le référentiel Log
 - Pour les alertes System Center Operations Manager, [connectez votre groupe d’administration Operations Manager à votre espace de travail Log Analytics](log-analytics-om-agents.md).  Toutes les alertes créées dans System Center Operations Manager sont importées dans Log Analytics.  
 
 ## <a name="configuration"></a>Configuration
-Ajoutez la solution Alert Management à votre espace de travail Log Analytics en suivant la procédure décrite dans [Ajouter des solutions](log-analytics-add-solutions.md).  Aucune configuration supplémentaire n’est requise.
+Ajoutez la solution Alert Management à votre espace de travail Log Analytics en suivant la procédure décrite dans [Ajouter des solutions](log-analytics-add-solutions.md). Aucune configuration supplémentaire n’est requise.
 
 ## <a name="management-packs"></a>Packs d’administration
-Si votre groupe d’administration System Center Operations Manager est connecté à votre espace de travail Log Analytics, les packs d’administration suivants sont installés dans System Center Operations Manager lorsque vous ajoutez cette solution.  Ces packs d’administration ne nécessitent aucune opération de configuration ou de maintenance.  
+Si votre groupe d’administration System Center Operations Manager est connecté à votre espace de travail Log Analytics, les packs d’administration suivants sont installés dans System Center Operations Manager lorsque vous ajoutez cette solution.  Ces packs d’administration ne nécessitent aucune opération de configuration ou de maintenance.
 
 * Microsoft System Center Advisor Alert Management (Microsoft.IntelligencePacks.AlertManagement)
 
@@ -53,7 +53,7 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 |:--- |:--- |:--- |
 | [Agents Windows](log-analytics-windows-agent.md) | Non  |Les agents Windows directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non  |Les agents Linux directs ne génèrent pas d’alertes.  Des alertes Log Analytics peuvent être créées à partir d’événements et de données de performances collectées à partir des agents Linux.  Les alertes Nagios et Zabbix sont collectées à partir de ces serveurs qui requièrent l’agent Linux. |
-| [Groupe d’administration de Microsoft System Center Operations Manager](log-analytics-om-agents.md) |OUI |Les alertes générées sur des agents Operations Manager sont remises au groupe d’administration, puis transférées à Log Analytics.<br><br>Une connexion directe entre des agents Operations Manager et Log Analytics n’est pas obligatoire. Les données des alertes sont transférées du groupe d’administration dans Log Analytics. |
+| [Groupe d’administration de Microsoft System Center Operations Manager](log-analytics-om-agents.md) |Oui |Les alertes générées sur des agents Operations Manager sont remises au groupe d’administration, puis transférées à Log Analytics.<br><br>Une connexion directe entre des agents Operations Manager et Log Analytics n’est pas obligatoire. Les données des alertes sont transférées du groupe d’administration dans Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
@@ -112,13 +112,13 @@ Le tableau suivant fournit des exemples de recherches dans les journaux pour les
 
 | Requête | Description |
 |:---|:---|
-| Alerte &#124; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) |Alertes critiques déclenchées au cours des dernières 24 heures |
-| Alerte &#124; où AlertSeverity == « avertissement » et TimeRaised > ago(24 h) |Alertes d’avertissement déclenchées au cours des dernières 24 heures |
-| Alerte &#124; où SourceSystem == « OpsManager » et AlertState ! = « Fermé » et TimeRaised > ago(24 h) &#124; résumer Count = count() par SourceDisplayName |Sources avec des alertes actives déclenchées au cours des dernières 24 heures |
-| Alerte &#124; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) et AlertState != « Fermé » |Alertes critiques déclenchées au cours des dernières 24 heures et toujours actives |
-| Alerte &#124; où SourceSystem == « OpsManager », TimeRaised > ago(24 h) et AlertState != « Fermé » |Alertes déclenchées au cours des dernières 24 heures et désormais fermées |
-| Alerte &#124; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124; résumer Count = count() par AlertSeverity |Alertes déclenchées au cours de la journée précédente et regroupées selon leur niveau de gravité |
-| Alerte &#124; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124; résumer Count = count() par RepeatCount desc |Alertes déclenchées au cours de la journée précédente et triées selon leur valeur de répétition |
+| Alerte & #124 ; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) |Alertes critiques déclenchées au cours des dernières 24 heures |
+| Alerte & #124 ; où AlertSeverity == « avertissement » et TimeRaised > ago(24 h) |Alertes d’avertissement déclenchées au cours des dernières 24 heures |
+| Alerte & #124 ; où SourceSystem == « OpsManager » et AlertState ! = « Fermé » et TimeRaised > ago(24 h) & #124 ; résumer Count = count() par SourceDisplayName |Sources avec des alertes actives déclenchées au cours des dernières 24 heures |
+| Alerte &#124 ; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) et AlertState != « Fermé » |Alertes critiques déclenchées au cours des dernières 24 heures et toujours actives |
+| Alerte &#124 ; où SourceSystem == « OpsManager », TimeRaised > ago(24 h) et AlertState != « Fermé » |Alertes déclenchées au cours des dernières 24 heures et désormais fermées |
+| Alerte & #124 ; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124 ; résumer Count = count() par AlertSeverity |Alertes déclenchées au cours de la journée précédente et regroupées selon leur niveau de gravité |
+| Alerte & #124 ; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124 ; résumer Count = count() par RepeatCount desc |Alertes déclenchées au cours de la journée précédente et triées selon leur valeur de répétition |
 
 
 

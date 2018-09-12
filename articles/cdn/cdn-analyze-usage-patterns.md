@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: fa828bfa736d677fb4881e5cc2628c0e03eb8749
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26345245"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162068"
 ---
 # <a name="core-reports-from-verizon"></a>Rapports principaux de Verizon
 
-[!INCLUDE[cdn-verizon-only](../../includes/cdn-verizon-only.md)]
+[!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
 En utilisant les rapports principaux de Verizon via le portail de gestion des profils Verizon, vous pouvez afficher des modèles d’utilisation pour votre CDN avec les rapports suivants :
 
@@ -35,7 +35,7 @@ En utilisant les rapports principaux de Verizon via le portail de gestion des pr
 * Données IPV4/IPV6 transférées
 
 ## <a name="accessing-verizon-core-reports"></a>Accès aux rapports principaux de Verizon
-1. Dans le panneau de profil CDN, cliquez sur le bouton **Gérer** .
+1. Dans le panneau Profil CDN, cliquez sur le bouton **Gérer** .
    
     ![Bouton Gérer du profil CDN](./media/cdn-reports/cdn-manage-btn.png)
    

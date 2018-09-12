@@ -4,23 +4,19 @@ description: Découvrez comment utiliser des déclencheurs et des liaisons HTTP 
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, fonctions, traitement des événements, webhooks, calcul dynamique, architecture sans serveur, HTTP, API, REST
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 183dad8f70a4094f6d6ba3605fd19f8921dcc988
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 41870f4f3cf4a0aba461021b4787e1ba004e5ead
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142122"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095111"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Liaisons HTTP et webhook Azure Functions
 
@@ -278,7 +274,7 @@ module.exports = function(context, req) {
 };
 ```
 
-### <a name="trigger---java-example"></a>Déclencheur : exemple Java
+### <a name="trigger---java-example"></a>Déclencheur - exemple Java
 
 L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Java ](functions-reference-java.md) qui utilise la liaison. La fonction retourne une réponse 200 en guise de code d’état HTTP avec un corps de requête qui fait précéder le corps de requête déclencheur d’un message d’accueil « Hello ».
 

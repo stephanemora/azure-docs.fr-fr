@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 10f4749524c4d4b35b83e5637d35f4ef9a8f9ab6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7edfe5a115caf4ee6e4677e5fd7f324b8f3873ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041328"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Didacticiel : Intégration d’Azure Active Directory à Replicon
 
@@ -177,7 +177,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
 ### <a name="create-a-replicon-test-user"></a>Créer un utilisateur de test Replicon
 
-L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Replicon. Replicon prend en charge le provisionnement automatique d’utilisateurs, qui est activé par défaut. Des informations supplémentaires sur la configuration du provisionnement automatique d’utilisateurs sont disponibles [ici](replicon-provisioning-tutorial.md).
+L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans Replicon.
 
 **Si vous avez besoin de créer un utilisateur manuellement, procédez comme suit :**
 
@@ -249,7 +249,6 @@ Pour plus d’informations sur le panneau d’accès, consultez [Présentation d
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-* [Configurer l’approvisionnement de l’utilisateur](replicon-provisioning-tutorial.md)
 
 <!--Image references-->
 

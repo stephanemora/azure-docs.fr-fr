@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: c1431ec852cab943e00d3933ef4f0500a4fdb151
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1f9b689ac6127bc2f7d1e810356ae9a23b8e0996
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368852"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162391"
 ---
 # <a name="build-a-custom-search-web-page"></a>Créer une page web Recherche personnalisée
 La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour des sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sous-sites et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
@@ -96,7 +96,7 @@ La Recherche personnalisée fournit une IU hébergée pour restituer la réponse
 
     ![Capture d’écran de l’étape des configurations supplémentaires de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-subscription-key.png)
 
-[!INCLUDE[publish or revert](../includes/publish-revert.md)]
+[!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
 <a name="consuminghostedui"></a>
 ## <a name="consuming-hosted-ui"></a>Consommation de l’interface utilisateur hébergée
@@ -179,7 +179,7 @@ L’exécution d’une recherche restitue des résultats comme ceux qui suivent.
 ![Capture d’écran des résultats de la recherche personnalisée](./media/custom-search-webapp-results.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez :
+Dans ce tutoriel, vous avez :
 
 > [!div class="checklist"]
 > - Créé une instance de recherche personnalisée

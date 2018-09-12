@@ -1,20 +1,21 @@
 ---
-title: Former votre application LUIS - Azure | Microsoft Docs
-description: Utiliser Language Understanding (LUIS) pour former votre modèle.
+title: Formez votre application LUIS
+titleSuffix: Azure Cognitive Services
+description: La formation est le processus au cours duquel votre application Language Understanding (LUIS) apprend afin d’améliorer sa compréhension du langage naturel. Formez votre application LUIS après des mises à jour du modèle, telles qu’un ajout, une édition, un étiquetage ou une suppression d’entités, d’intentions ou d’énoncés.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: e947df20141b0b9870f318f410488aea23bafcf5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 42cff3dd8237598da5aa71ed1a4d6462c5b4c25d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223182"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049129"
 ---
 # <a name="train-your-luis-app"></a>Formez votre application LUIS
 
@@ -32,11 +33,7 @@ Pour démarrer le processus itératif, vous devez commencer par former votre app
 
 2. Dans le volet supérieur votre application, sélectionnez **Train** (Former). 
 
-    ![Bouton Train](./media/luis-how-to-train/train-button.png)
-
 3. Une fois la formation terminée, une barre de notification verte s’affiche en haut du navigateur.
-
-    ![Page Train & Test App (Former et tester l’application)](./media/luis-how-to-train/train-success.png)
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 

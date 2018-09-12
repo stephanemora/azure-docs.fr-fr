@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: a9e1bb2f134e0e51803266f5e7f94c05ab6966f2
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6ef8c0486a694ac44c53375b24893812b10343e4
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234465"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158481"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Valider les mises à jour logicielles issues de Microsoft
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Microsoft publie régulièrement des mises à jour du logiciel Azure Stack. Avant d’être rendues publiques, ces mises à jour sont fournies aux partenaires qui participent à la conception des offres Azure Stack pour permettre à ces derniers de valider les mises à jour pour leurs solutions et de faire part de leurs commentaires à Microsoft.
 
@@ -60,4 +60,4 @@ Pour plus d’informations sur la surveillance de la progression de l’exécuti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur le service [Validation en tant que service pour Azure Stack](https://docs.microsoft.com/azure/azure-stack/partner).
+- Apprenez-en davantage sur la [Validation en tant que service Azure Stack](https://docs.microsoft.com/azure/azure-stack/partner).

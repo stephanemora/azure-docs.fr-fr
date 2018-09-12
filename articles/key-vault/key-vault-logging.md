@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e86d68107278641e40346327fa3a8cb7059b7d71
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178821"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159586"
 ---
 # <a name="azure-key-vault-logging"></a>Journalisation d’Azure Key Vault
 Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -44,7 +44,6 @@ Utilisez ce didacticiel pour vous familiariser avec Azure Key Vault pour créer 
 Pour plus d’informations générales sur Azure Key Vault, consultez la page [Présentation d’Azure Key Vault](key-vault-whatis.md)
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un coffre de clés existant que vous utilisez déjà.  
@@ -76,7 +75,7 @@ Pour plus d’informations sur la configuration d’Azure PowerShell, consultez 
 ## <a id="storage"></a>Création d’un nouveau compte de stockage pour vos journaux
 Bien que vous puissiez utiliser un compte de stockage existant pour vos journaux, nous allons en créer un nouveau qui sera dédié à vos journaux de coffre de clés. Pour plus de commodité, en prévision du moment où vous devrez le spécifier par la suite, nous allons enregistrer les détails dans une variable nommée **sa**.
 
-Pour faciliter encore la gestion, nous allons utiliser le groupe de ressources qui contient votre coffre de clés. Dans le [didacticiel de mise en route](key-vault-get-started.md), ce groupe de ressources se nomme **ContosoResourceGroup** et nous allons continuer d’utiliser l’emplacement Asie orientale. Remplacez ces valeurs par les vôtres, selon le cas :
+Pour faciliter encore la gestion, nous allons utiliser le groupe de ressources qui contient votre coffre de clés. Dans le [didacticiel de mise en route](key-vault-get-started.md), ce groupe de ressources se nomme **ContosoResourceGroup** et nous allons continuer d’utiliser l’emplacement Asie Est. Remplacez ces valeurs par les vôtres, selon le cas :
 
     $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 

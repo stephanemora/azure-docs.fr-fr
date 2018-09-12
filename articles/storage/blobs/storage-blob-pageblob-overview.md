@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: a215771b0126e9048b7d9da4ed1d6073c8e960a4
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266941"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022686"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>Fonctionnalités uniques des objets blob de pages Azure
 
@@ -71,7 +71,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>Écriture de pages sur un objet blob de pages
-Pour écrire des pages, utilisez la méthode [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx).  Cela vous permet d’écrire un ensemble séquentiel de pages jusqu’à 4 Mo. Le décalage écrit doit commencer sur une limite de 512 octets (startingOffset % 512 == 0) et se terminer sur une limite de 512 - 1.  L’exemple de code suivant montre comment appeler **WritePages** pour un objet blob :
+Pour écrire des pages, utilisez la méthode [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_).  Cela vous permet d’écrire un ensemble séquentiel de pages jusqu’à 4 Mo. Le décalage écrit doit commencer sur une limite de 512 octets (startingOffset % 512 == 0) et se terminer sur une limite de 512 - 1.  L’exemple de code suivant montre comment appeler **WritePages** pour un objet blob :
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -116,8 +116,6 @@ foreach (PageRange range in pageRanges)
 
 #### <a name="leasing-a-page-blob"></a>Location d’un objet blob de pages
 L’opération de blob de bail établit et gère un verrou sur un blob pour les opérations d’écriture et de suppression. Cette opération est utile dans les scénarios où un objet blob de pages est accessible à partir de plusieurs clients, pour faire en sorte qu’un seul client à la fois puisse écrire dans l’objet blob. Les disques Azure, par exemple, utilisent ce mécanisme de leasing pour garantir que le disque n’est géré que par une seule machine virtuelle. La durée du verrou peut être de 15 à 60 secondes, ou peut être infinie. Consultez la documentation [ici](/rest/api/storageservices/lease-blob) pour plus de détails.
-
-> Utilisez le lien suivant pour obtenir des [exemples de code](/resources/samples/?service=storage&term=blob&sort=0 ) pour de nombreux autres scénarios d’application. 
 
 En plus des API REST riches en fonctionnalités, les objets blob de pages offrent également un accès partagé, une durabilité et une sécurité renforcée. Nous aborderons ces avantages plus en détails dans les paragraphes suivants. 
 

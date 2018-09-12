@@ -3,25 +3,20 @@ title: Créer une fonction qui s’intègre avec Azure Logic Apps | Documents Mi
 description: Créez une fonction qui s’intègre à Azure Logic Apps et à Azure Cognitive Services pour catégoriser les sentiments de tweets et envoyer des notifications quand le sentiment est peu favorable.
 services: functions, logic-apps, cognitive-services
 keywords: flux de travail, applications cloud, services cloud, processus d’entreprise, intégration de systèmes, intégration d’applications d’entreprise, IAE
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 16a46b4c49687186e25c399dcc2c5c168e7c5004
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 23db8d307892b100f291a1f32c9b77c73a60f23e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586872"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090760"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 
@@ -63,7 +58,7 @@ Les API Cognitive Services sont disponibles dans Azure en tant que ressources in
     | Paramètre      |  Valeur suggérée   | Description                                        |
     | --- | --- | --- |
     | **Name** | MyCognitiveServicesAccnt | Choisissez un nom de compte unique. |
-    | **Lieu** | États-Unis de l’Ouest | Utilisez l’emplacement le plus proche de vous. |
+    | **Lieu** | USA Ouest | Utilisez l’emplacement le plus proche de vous. |
     | **Niveau tarifaire** | F0 | Démarrez avec le niveau le plus bas. Si vous manquez d’appels, choisissez un niveau plus élevé.|
     | **Groupe de ressources** | myResourceGroup | Utilisez le même groupe de ressources pour tous les services de ce didacticiel.|
 
@@ -144,7 +139,7 @@ Vous disposez maintenant d’une fonction permettant de classer les scores des s
     | ----------------- | ------------ | ------------- |
     | **Name** | TweetSentiment | Choisissez un nom approprié pour votre application. |
     | **Groupe de ressources** | myResourceGroup | Choisissez le même groupe de ressources existant que précédemment. |
-    | **Lieu** | Est des États-Unis | Choisissez un emplacement proche de vous. |    
+    | **Lieu** | USA Est | Choisissez un emplacement proche de vous. |    
 
 4. Choisissez **Épingler au tableau de bord** puis cliquez sur **Créer** pour créer votre application logique. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 6fbc49584b040f952fdff147207864d2d1f6377e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 5aca1400ddfe1522cd9dc8d68d8cba8a222e4d21
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887439"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095196"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Intégration de Service Map avec System Center Operations Manager
   > [!NOTE]
@@ -31,11 +31,10 @@ La solution Service Map détecte automatiquement les composants d’application 
 Avec cette intégration entre Service Map et System Center Operations Manager, vous pouvez créer automatiquement des diagrammes d’application distribuée dans Operations Manager basés sur des cartes de dépendance dynamique dans Service Map.
 
 ## <a name="prerequisites"></a>Prérequis
-
 * Un groupe d’administration d’Operations Manager (2012 R2 ou version ultérieure) qui gère un ensemble de serveurs.
 * Un espace de travail Log Analytics avec la solution Service Map activée.
 * Un ensemble de serveurs (au moins un) gérés par Operations Manager et envoyant des données à Service Map. Les serveurs Windows et Linux sont pris en charge.
-* Un principal de service disposant d’un accès à l’abonnement Azure associé à l’espace de travail Log Analytics. Pour plus d’informations, consultez l’article [Créer un principal du service](#creating-a-service-principal).
+* Un principal de service disposant d’un accès à l’abonnement Azure associé à l’espace de travail Log Analytics. Pour plus d’informations, consultez l’article [Créer un principal du service](#create-a-service-principal).
 
 ## <a name="install-the-service-map-management-pack"></a>Installation du pack d’administration de Service Map
 Vous activez l’intégration entre Operations Manager et Service Map en important le groupement de packs d’administration Microsoft.SystemCenter.ServiceMap (Microsoft.SystemCenter.ServiceMap.mpb). Vous pouvez télécharger l’offre groupée de packs d’administration à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=55763). Le groupe contient les packs d’administration suivants :

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e5ced038d5f1ab57939221a0392ab436560c348d
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107103"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160508"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Didacticiel : créer des modèles Azure Resource Manager avec des ressources dépendantes
 
@@ -26,11 +26,12 @@ Découvrez comment créer un modèle Azure Resource Manager pour déployer plu
 
 Certaines ressources ne peuvent pas être déployées avant qu’une autre ressource n’existe. Par exemple, vous ne pouvez pas créer la machine virtuelle avant que son compte de stockage et son interface réseau n’existent. Vous définissez cette relation en rendant une seule ressource dépendante des autres ressources. Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle. Pour plus d’informations, consultez [Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager](./resource-group-define-dependencies.md).
 
+Ce tutoriel décrit les tâches suivantes :
+
 > [!div class="checklist"]
 > * Ouvrir un modèle de démarrage rapide
 > * Explorer le modèle
 > * Déployer le modèle
-> * Supprimer les ressources
 
 Les instructions fournies dans ce didacticiel créent une machine virtuelle, un réseau virtuel, et d’autres ressources dépendantes. 
 
