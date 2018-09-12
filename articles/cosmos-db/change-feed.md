@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902960"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287323"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Utilisation du support de flux de modification dans Azure Cosmos DB
 
@@ -31,12 +31,6 @@ Le **support de flux de modification** d’Azure Cosmos DB vous permet de créer
 
 > [!NOTE]
 > Le support de flux de modification est fourni pour tous les conteneurs et modèles de données dans Azure Cosmos DB. Toutefois, le flux de modification est lu à l’aide du client SQL et sérialise les éléments au format JSON. En raison du formatage JSON, les clients MongoDB seront confrontés à une incompatibilité entre les documents au format BSON et le flux de modification au format JSON.
-
-Dans la vidéo suivante, le responsable du programme Azure Cosmos DB, Andrew Liu, montre comment fonctionne le flux de modification Azure Cosmos DB.
-
-> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
->
->
 
 ## <a name="how-does-change-feed-work"></a>Comment fonctionne le flux de modification ?
 

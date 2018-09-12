@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: ca7b79e02f63875b95f84b8d1e92a2ed2180db24
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ad8d0392b4b0e1e9e8d94e0d5a7a0c72455ecfcb
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043043"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700995"
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Sérialisation des données dans Hadoop avec Microsoft Avro Library
 
@@ -36,7 +36,7 @@ La bibliothèque <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20L
 La représentation sérialisée d’un objet dans le système Avro est composée de deux parties : schéma et valeur réelle. Le schéma Avro décrit le modèle de données indépendant du langage des données sérialisées avec JSON. Il est présenté côte à côte avec une représentation binaire des données. Le fait de séparer le schéma de la représentation binaire permet l’écriture de chaque objet sans surcharge par valeur, ce qui permet d’accélérer la sérialisation et de réduire la représentation.
 
 ## <a name="the-hadoop-scenario"></a>Scénario Hadoop
-Le format de sérialisation Apache Avro est largement utilisé dans Azure HDInsight et dans d’autres environnements Apache Hadoop. Avro offre un moyen pratique pour représenter des structures de données complexes dans une tâche Hadoop MapReduce. Le format des fichiers Avro (fichier conteneur d’objets Avro) a été conçu pour prendre en charge le modèle de programmation MapReduce distribué. La fonctionnalité clé qui permet la distribution est la possibilité de fractionner les fichiers : il est ainsi possible de rechercher un point quelconque dans un fichier et de commencer la lecture à partir d'un bloc particulier.
+Le format de sérialisation Apache Avro est largement utilisé dans Azure HDInsight et dans d’autres environnements Apache Hadoop. Avro offre un moyen pratique pour représenter des structures de données complexes dans une tâche Hadoop MapReduce. Le format des fichiers Avro (fichier conteneur d’objets Avro) a été conçu pour prendre en charge le modèle de programmation MapReduce distribué. La fonctionnalité clé qui permet la distribution est la possibilité de fractionner les fichiers : il est ainsi possible de rechercher un point quelconque dans un fichier et de commencer la lecture à partir d’un bloc particulier.
 
 ## <a name="serialization-in-avro-library"></a>Sérialisation dans Avro Library
 La bibliothèque .NET pour Avro prend en charge deux types de sérialisations d'objets :

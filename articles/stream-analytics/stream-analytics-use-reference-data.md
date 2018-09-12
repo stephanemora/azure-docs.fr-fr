@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 888a99cad68f98030d4481cc23cb82123c900ee6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 2a6172a4e163d937f5a0a2140831b730bca23c3f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480527"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696521"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utiliser des données de référence pour effectuer des recherches dans Stream Analytics
 Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature, utilisé pour effectuer des recherches ou pour se mettre en corrélation avec votre flux de données. Azure Stream Analytics charge les données de référence dans la mémoire pour obtenir un traitement de flux à faible latence. Pour utiliser des données de référence dans votre tâche Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. Stream Analytics utilise le stockage d’objets blob Azure comme couche de stockage pour les données de référence et, avec la référence Azure Data Factory, les données peuvent être transformées et/ou copiées en stockage d’objets blob Azure, pour être utilisées comme données de référence pour [un nombre illimité de magasins de données cloud et en local](../data-factory/copy-activity-overview.md). Les données de référence sont modélisées en tant que séquence d'objets Blob (définie dans la configuration d'entrée) dans l'ordre croissant de la date/l'heure spécifiée dans le nom de l'objet blob. Elles prennent en charge **uniquement** l’ajout à la fin de la séquence à l’aide d’une date/heure **ultérieure** à celle indiquée par le dernier objet blob dans la séquence.
@@ -50,7 +50,7 @@ Pour configurer vos données de référence, vous devez d'abord créer une entr�
 Si vos données de référence ne sont pas supposées changer, la prise en charge des données de référence statiques est activée en spécifiant un chemin d’accès statique dans la configuration d’entrée. Azure Stream Analytics récupère l’objet blob à partir du chemin spécifié. Les jetons de substitution {date} et {time} ne sont pas nécessaires. Les données de référence sont immuables dans Stream Analytics. Il n’est donc pas recommandé d’écraser un objet blob de données de référence statiques.
 
 ## <a name="generating-reference-data-on-a-schedule"></a>Génération de données de référence sur une planification
-Si vos données de référence sont un jeu de données variant lentement, la prise en charge de l’actualisation des données de référence peut être activée en spécifiant un modèle de chemin d’accès dans la configuration d’entrée à l’aide des jetons de substitution {date} et {time}. Stream Analytics collectera les définitions de données de référence mises à jour en fonction de ce modèle de chemin d’accès. Par exemple, un modèle `sample/{date}/{time}/products.csv` avec un format de date **« JJ-MM-AAAA »** et un format d’heure **« HH-mm »** demande à Stream Analytics de récupérer le blob `sample/2015-04-16/17-30/products.csv` mis à jour à 17:30 le 16 avril 2015 (UTC).
+Si vos données de référence sont un jeu de données variant lentement, la prise en charge de l’actualisation des données de référence peut être activée en spécifiant un modèle de chemin d’accès dans la configuration d’entrée à l’aide des jetons de substitution {date} et {time}. Stream Analytics collectera les définitions de données de référence mises à jour en fonction de ce modèle de chemin d’accès. Par exemple, un modèle `sample/{date}/{time}/products.csv` avec un format de date **« AAAA-MM-JJ »** et un format d’heure **« HH:mm »** donne pour instruction à Stream Analytics de sélectionner l’objet blob `sample/2015-04-16/17-30/products.csv` mis à jour à 17:30 le 16 avril 2015 (UTC).
 
 Azure Stream Analytics analyse automatiquement les objets blob de données de référence actualisées à un intervalle d’une minute.
 
@@ -73,7 +73,7 @@ Azure Stream Analytics analyse automatiquement les objets blob de données de r�
     * Utiliser {date} / {time} dans le modèle de chemin d’accès
     * Ajouter un nouvel objet blob à l’aide du même conteneur et du même chemin d’accès que ceux définis dans l’entrée du travail
     * Utiliser une date/heure **supérieure** à celle spécifiée par le dernier objet blob dans la séquence.
-3. Les blobs de données de référence ne sont **pas** triés selon l’heure de la « Dernière modification » du blob, mais uniquement par l’heure et la date spécifiées dans le nom de blob utilisant les substitutions {date} et {time}.
+3. Les objets blob de données de référence ne sont **pas** triés selon l’heure de la « Dernière modification », mais uniquement selon l’heure et la date spécifiées dans le nom d’objet blob en utilisant les substitutions {date} et {time}.
 3. Afin d’éviter de se retrouver avec une liste de blobs volumineuse, envisagez de supprimer les blobs très anciens pour lesquels le traitement ne se fera plus. Veuillez noter qu’il se peut qu’ASA doive traiter à nouveau une petite quantité dans certains scénarios, par exemple un redémarrage.
 
 ## <a name="next-steps"></a>Étapes suivantes

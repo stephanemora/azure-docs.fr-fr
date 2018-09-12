@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 19b7f708d43907ac45450a64f988b2a517293511
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f076a906ba38e6c8e8c9530baba1607553b41ea6
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446705"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338326"
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C : Ajout de Google+ en tant que fournisseur d’identités OAuth2 à l’aide de stratégies personnalisées
 
@@ -23,7 +23,7 @@ ms.locfileid: "37446705"
 
 Ce guide vous montre comment activer l’identification pour les utilisateurs de comptes Google+ à l’aide des [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
@@ -78,7 +78,7 @@ Pour utiliser Google+ en tant que fournisseur d’identité dans Azure Active Di
 
     ![Google+ - Sélectionner un type d’application](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Fournissez un **nom** pour votre application, entrez `https://login.microsoftonline.com` dans le champ **Origines JavaScript autorisées**, et `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **URI de redirection autorisée**. Remplacez **{tenant}** par votre nom de client (par exemple, contosob2c.onmicrosoft.com). La valeur **{tenant}** respecte la casse. Cliquez sur **Créer**.
+13.  Fournissez un **nom** pour votre application, entrez `https://{tenant}.b2clogin.com` dans le champ **Origines JavaScript autorisées**, et `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` dans le champ **URI de redirection autorisée**. Remplacez **{locataire}** par le nom de votre locataire (par exemple, contosob2c). La valeur **{tenant}** respecte la casse. Cliquez sur **Créer**.
 
     ![Google+ - Fournir les origines autorisées de JavaScript et les URI de redirection](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 

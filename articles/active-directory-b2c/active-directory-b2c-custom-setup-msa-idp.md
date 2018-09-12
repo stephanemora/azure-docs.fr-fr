@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7a83ace83176d75abdac03b354c4c4ac71eb4238
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6a981f112c97ee35b476c92f6f698e68a12a1363
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449131"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336819"
 ---
 # <a name="azure-active-directory-b2c-add-microsoft-account-msa-as-an-identity-provider-using-custom-policies"></a>Azure Active Directory B2C : ajouter un compte Microsoft (MSA) comme fournisseur d’identité à l’aide de stratégies personnalisées
 
@@ -23,7 +23,7 @@ ms.locfileid: "37449131"
 
 Cet article montre comment permettre aux utilisateurs de se connecter à partir d’un compte Microsoft (MSA) à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 Ces étapes sont les suivantes :
@@ -58,7 +58,7 @@ Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azu
 
     ![Compte Microsoft : dans la liste des plateformes, choisissez Web](media/active-directory-b2c-custom-setup-ms-account-idp/msa-web.png)
 
-7.  Entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans le champ **Rediriger les URI** . Remplacez **{tenant}** par votre nom de client (par exemple, contosob2c.onmicrosoft.com).
+7.  Entrez `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` dans le champ **Rediriger les URI** . Remplacez **{locataire}** par le nom de votre locataire (par exemple, contosob2c).
 
     ![Compte Microsoft : définir des URL de redirection](media/active-directory-b2c-custom-setup-ms-account-idp/msa-redirect-url.png)
 

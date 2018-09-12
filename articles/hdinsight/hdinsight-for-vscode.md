@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: b66658bde818e2b4cce2cbc0dc5b419ba33dc737
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 58f930b7bb1dee8f8f95b6627ebf70fe095126c0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108826"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697847"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utiliser les Azure HDInsight Tools pour Visual Studio Code
 
 Découvrez comment utiliser Azure HDInsight Tools pour Visual Studio Code (VSCode) pour créer et envoyer des travaux Hive de traitement par lots, des requêtes Hive interactives et des scripts pySpark. Vous pouvez installer Azure HDInsight Tools sur les plateformes prises en charge par VS Code. Il s’agit des instances Windows, Linux et macOS. Renseignez-vous sur les prérequis pour les différentes plateformes.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de poursuivre cet article, vérifiez que vous avez les éléments nécessaires suivants :
 
@@ -272,7 +272,7 @@ HDInsight Tools pour VS Code vous permet également d’envoyer des requêtes Py
 Une fois que vous avez envoyé un travail Python, les journaux d’envoi apparaissent dans la fenêtre **Output** (Sortie) dans VS Code. **L’URL de l’interface utilisateur Spark** et **l’URL de l’interface utilisateur Yarn** s’affichent également. Vous pouvez ouvrir l’URL dans un navigateur web pour suivre l’état du travail.
 
 >[!NOTE]
->PySpark3 ne prend plus en charge Livy 0.4 (qui est un cluster Spark 2.2 HDI). Seul PySpark est pris en charge par Python. L’échec de l’envoi à Spark 2.2 avec Python3 est un problème connu.
+>PySpark3 ne prend plus en charge Livy 0.4 (qui est un cluster Spark 2.2 HDI). Seul « PySpark » est pris en charge par Python. L’échec de l’envoi à Spark 2.2 avec Python3 est un problème connu.
    
 ## <a name="livy-configuration"></a>Configuration de Livy
 La configuration de Livy est prise en charge et peut être effectuée dans les paramètres du projet qui se trouvent dans le dossier de l’espace de travail. Pour plus d’informations, consultez [Lisez-moi Livy](https://github.com/cloudera/livy/blob/master/README.rst ).

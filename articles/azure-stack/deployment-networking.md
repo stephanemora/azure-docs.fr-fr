@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: b808875e66e867b84e2971c6a5bd031d108d003b
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: aac8713f94482e0fc809f24786b96d29b23b076a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652605"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343386"
 ---
 # <a name="about-deployment-network-traffic"></a>À propos du trafic réseau de déploiement
 Pour que le déploiement d’Azure Stack fonctionne, vous devez comprendre le flux du trafic réseau inhérent. Cet article décrit le trafic réseau attendu pendant le processus de déploiement pour que vous compreniez ce à quoi vous pouvez vous attendre.
@@ -38,7 +38,7 @@ La solution Azure Stack inclut un groupe de serveurs qui sont utilisés pour hé
 ## <a name="deployment-requirements"></a>Composants requis pour le déploiement
 Avant le démarrage du déploiement, votre fabricant OEM peut valider un nombre minimal de composants requis pour garantir le bon déroulement du déploiement. Il est important de bien les comprendre pour préparer l’environnement et assurer la réussite de la validation. Les voici :
 
--   [Certificats](azure-stack-pki-certs.md)
+-   [Certificates](azure-stack-pki-certs.md)
 -   [Abonnement Azure](https://azure.microsoft.com/free/?b=17.06)
 -   Accès à Internet
 -   DNS
@@ -52,13 +52,13 @@ La machine DVM est configurée avec une adresse IP à partir du réseau BMC et n
 
 Pendant le déploiement, la machine DVM s’authentifie auprès d’Azure Active Directory (Azure AD) à l’aide d’un compte Azure à partir de votre abonnement. Pour ce faire, la machine DVM nécessite un accès Internet à une liste d’URL et de ports spécifiques. Vous trouverez la liste complète dans la documentation [Publier des points de terminaison](azure-stack-integrate-endpoints.md). La machine DVM utilise un serveur DNS pour transférer les demandes DNS effectuées par les composants internes aux URL externes. Le serveur DNS interne transmet ces demandes à l’adresse du redirecteur DNS que vous fournissez au fabricant OEM avant le déploiement. Il en va de même pour le serveur NTP ; un serveur de temps fiable est nécessaire pour maintenir la cohérence et la synchronisation de l’heure de tous les composants Azure Stack.
 
-L’accès à Internet exigé par la machine DVM durant le déploiement est sortant uniquement ; aucun appel entrant n’est effectué au cours du déploiement. Gardez à l’esprit qu’elle utilise son adresse IP en tant que source et qu’Azure Stack ne prend pas en charge les configurations de proxy. Ainsi, vous pouvez être amené à fournir un proxy transparent ou une traduction NAT pour accéder à Internet. Une fois le déploiement terminé, toutes les communications entre Azure et Azure Stack sont effectuées via le réseau externe à l’aide d’adresses IP virtuelles publiques.
+L’accès à Internet qu’exige la machine DVM durant le déploiement est sortant uniquement. Aucun appel entrant n’est effectué au cours du déploiement. Gardez à l’esprit qu’elle utilise son adresse IP en tant que source et qu’Azure Stack ne prend pas en charge les configurations de proxy. Ainsi, vous pouvez être amené à fournir un proxy transparent ou une traduction NAT pour accéder à Internet. Durant le déploiement, certains composants internes commencent à accéder à Internet via le réseau externe en utilisant des adresses IP virtuelles publiques. Une fois le déploiement terminé, toutes les communications entre Azure et Azure Stack sont effectuées via le réseau externe à l’aide d’adresses IP virtuelles publiques.
 
 Les configurations réseau sur les commutateurs Azure Stack contiennent des listes de contrôle d’accès (ACL) qui limitent le trafic entre certaines sources et destinations réseau. La machine DVM est le seul composant sans restriction d’accès ; même le serveur HLH est très limité. Vous pouvez contacter votre fabricant OEM pour en savoir plus sur les options de personnalisation permettant de faciliter la gestion et l’accès à partir de vos réseaux. En raison de ces listes ACL, il est important d’éviter de changer les adresses serveur NTP et DNS au moment du déploiement. Si vous le faites, vous devrez reconfigurer tous les commutateurs de la solution.
 
 Une fois le déploiement terminé, les adresses serveur DNS et NTP fournies continuent d’être utilisées directement par les composants du système. Par exemple, si vous vérifiez les demandes DNS une fois le déploiement terminé, la source passe de l’adresse IP de la machine DVM à une adresse de la plage du réseau externe.
 
-Une fois Azure Stack correctement déployé, votre partenaire OEM peut utiliser la machine DVM pour effectuer des tâches supplémentaires. Toutefois, quand toutes les tâches de déploiement et configurations post-déploiement sont terminées, le fabricant OEM doit enlever et supprimer la machine DVM du serveur HLH.
+Une fois le déploiement terminé, les adresses de serveur DNS et NTP fournies continuent d’être utilisées directement par les composants du système via le DNS à l’aide du réseau externe. Par exemple, si vous vérifiez les requêtes DNS une fois le déploiement terminé, la source passe de l’adresse IP de la machine DVM à une adresse IP virtuelle publique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Valider l’inscription auprès d’Azure](azure-stack-validate-registration.md)

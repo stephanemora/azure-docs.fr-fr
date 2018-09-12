@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 614930fb11e65404416e604c94351e2754b8e941
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190802"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287537"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 Quand vous créez ou gérez des clusters AKS, vous pouvez parfois rencontrer des problèmes. Cet article décrit en détail certains problèmes courants et indique la façon de les résoudre.
@@ -31,7 +31,7 @@ Vous devez demander des cœurs [ici](https://docs.microsoft.com/azure/azure-supp
 Le nombre maximal de pods par nœud est défini sur 30 par défaut si vous déployez un cluster AKS dans le portail Azure.
 Le nombre maximal de pods par nœud est défini sur 110 par défaut si vous déployez un cluster AKS dans l’interface de ligne de commande Azure. (Vérifiez que vous utilisez bien la dernière version de l’interface de ligne de commande Azure). Vous pouvez changer ce paramètre par défaut en utilisant l’indicateur –max-nodes-per-pod dans la commande az aks create.
 
-### <a name="i-am-getting--insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>J’obtiens l’erreur « insufficientSubnetSize » (taille de sous-réseau insuffisante) quand je déploie un cluster AKS avec des fonctionnalités réseau avancées. Que dois-je faire ?
+### <a name="i-am-getting-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>J’obtiens l’erreur « insufficientSubnetSize » quand je déploie un cluster AKS avec des fonctionnalités réseau avancées. Que dois-je faire ?
 
 Dans l’option de réseau virtuel personnalisé sélectionnée pour la mise en réseau pendant l’opération de création AKS, Azure CNI est utilisé pour IPAM. Le nombre de nœuds dans un cluster AKS peut être compris entre 1 et 100. La taille du sous-réseau doit être supérieure au produit du nombre de nœuds par le nombre maximal de pods par nœud.
 

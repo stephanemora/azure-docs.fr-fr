@@ -1,25 +1,18 @@
 ---
 title: Forum Aux Questions Azure ExpressRoute | Microsoft Docs
 description: Le Forum aux questions ExpressRoute contient des informations sur les services Azure pris en charge, le coût, les données et connexions, le contrat de niveau de service, les fournisseurs et les emplacements, la bande passante et les détails techniques.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: jeconnoc
-editor: ''
-ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/14/2018
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2e332b361a1531eb5f6a8a1d3c46c2f258035258
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818791"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302294"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -53,7 +46,7 @@ Oui. La configuration des circuits ExpressRoute vous permet d’augmenter jusqu�
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Puis-je utiliser la même connexion réseau privée avec un réseau virtuel et d’autres services Azure simultanément ?
 
-Oui. Un circuit ExpressRoute, une fois configuré, vous permet d’accéder simultanément aux services au sein d’un réseau virtuel et aux autres services Azure. Vous vous connectez à des réseaux virtuels sur le chemin d’accès d’homologation privée et à d’autres services sur le chemin d’accès d’homologation publique.
+Oui. Un circuit ExpressRoute, une fois configuré, vous permet d’accéder simultanément aux services au sein d’un réseau virtuel et aux autres services Azure. Vous vous connectez aux réseaux virtuels via le chemin d’accès d’homologation privée, et aux autres services via le chemin d’accès d’homologation Microsoft.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>ExpressRoute offre-t-il un contrat de niveau de service (SLA) ?
 
@@ -70,33 +63,18 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 ### <a name="public-peering"></a>Homologation publique
 
 >[!NOTE]
->L’homologation Microsoft est le meilleur moyen d’accéder à tous les services hébergés sur Azure.
+>L’homologation publique a été désactivée sur les nouveaux circuits ExpressRoute. Les services Azure sont disponibles sur l’homologation Microsoft.
 >
-
-* Power BI
-* Dynamics 365 for Finance and Operations (anciennement Dynamics AX Online)
-* La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br>
-  Les services suivants ne sont PAS pris en charge :
-    * CDN
-    * Test de charge Visual Studio Team Services
-    * Multi-Factor Authentication
-    * Traffic Manager
 
 ### <a name="microsoft-peering"></a>Homologation Microsoft
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* Applications d’Engagement client Dynamics 365 (anciennement CRM Online)
-  * Dynamics 365 pour les ventes
-  * Dynamics 365 pour le service client
-  * Dynamics 365 pour le service après-vente
-  * Dynamics 365 pour le service de projet
-* À l’aide de [filtres de routage](#route-filters-for-microsoft-peering), vous pouvez accéder aux mêmes services publics avec l’homologation Microsoft :
-  * Power BI
-  * Dynamics 365 pour la finance et les opérations
-  * La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br>
-  Les services suivants ne sont PAS pris en charge :
+* Dynamics 365 
+* Power BI
+* Azure Active Directory
+* Test de charge Visual Studio Team Services
+* La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br>Les services suivants ne sont **pas pris en charge** :
     * CDN
-    * Test de charge Visual Studio Team Services
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -132,7 +110,7 @@ Vous ne perdez pas votre connectivité si une des connexions croisées échoue. 
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Comment garantir une haute disponibilité sur un réseau virtuel connecté à ExpressRoute ?
 
-Vous pouvez obtenir une haute disponibilité en connectant à votre réseau virtuel des circuits ExpressRoute à différents emplacements d’homologation (par exemple Singapore, Singapore2). Si un circuit ExpressRoute tombe en panne, la connectivité bascule vers un autre circuit ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir un circuit plutôt qu’un autre. Voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md) pour plus d’informations sur le poids de connexion.
+Vous pouvez obtenir une haute disponibilité en connectant à votre réseau virtuel des circuits ExpressRoute à différents emplacements d’homologation (par exemple, Singapore, Singapore2). Si un circuit ExpressRoute tombe en panne, la connectivité bascule vers un autre circuit ExpressRoute. Par défaut, le trafic qui quitte votre réseau virtuel est acheminé selon le principe de routage ECMP (Equal Cost Multi-path Routing). Vous pouvez utiliser le poids de connexion pour choisir un circuit plutôt qu’un autre. Pour plus d’informations, voir [Optimisation du routage ExpressRoute](expressroute-optimize-routing.md).
 
 ### <a name="onep2plink"></a>Si je ne suis pas colocalisé au niveau d’un échange de cloud et que mon fournisseur de services offre une connexion point à point, dois-je commander deux connexions physiques entre mon réseau local et Microsoft ?
 
@@ -152,12 +130,12 @@ Oui. Vous pouvez avoir plusieurs circuits ExpressRoute dans votre abonnement. La
 
 Oui. Vous pouvez avoir des circuits ExpressRoute de nombreux fournisseurs de services. Chaque circuit ExpressRoute est associé uniquement à un fournisseur de services. 
 
-### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Je vois deux emplacements d’homologation ExpressRoute dans le même métro, par exemple Singapore et Singapore2. Quel emplacement d’homologation dois-je choisir pour créer mon circuit ExpressRoute ?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Je vois deux emplacements d’homologation ExpressRoute dans le même métro, par exemple, Singapore et Singapore2. Quel emplacement d’homologation dois-je choisir pour créer mon circuit ExpressRoute ?
 Si votre fournisseur de services propose ExpressRoute sur les deux sites, vous pouvez collaborer avec lui et choisir l’un ou l’autre site pour configurer ExpressRoute. 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Puis-je avoir plusieurs circuits ExpressRoute dans le même métro ? Puis-je les lier au même réseau virtuel ?
 
-Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements d’homologation ExpressRoute et que les circuits sont créés à différents emplacements d’homologation, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement d’homologation, vous ne pouvez pas les lier au même réseau virtuel. Chaque nom d’emplacement dans le portail Azure ou dans l’API PowerShell/CLI représente un emplacement appairage. Par exemple, vous pouvez sélectionner les emplacements d’appairage « Singapour » et « Singapour2 » et connecter des circuits de chacun au même réseau virtuel. 
+Oui. Vous pouvez avoir plusieurs circuits ExpressRoute, avec des fournisseurs de services identiques ou différents. Si le métro a plusieurs emplacements d’homologation ExpressRoute et que les circuits sont créés à différents emplacements d’homologation, vous pouvez les lier au même réseau virtuel. Si les circuits sont créés au même emplacement d’homologation, vous ne pouvez pas les lier au même réseau virtuel. Chaque nom d’emplacement dans le portail Azure ou dans l’API PowerShell/CLI représente un emplacement d’homologation. Par exemple, vous pouvez sélectionner les emplacements d’appairage « Singapour » et « Singapour2 » et connecter des circuits de chacun au même réseau virtuel. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Comment connecter mes réseaux virtuels à un circuit ExpressRoute ?
 
@@ -205,7 +183,7 @@ Oui. Si vous n’avez pas publié les itinéraires par défaut (0.0.0.0/0) ou le
 
 Oui. Vous pouvez publier des itinéraires par défaut (0.0.0.0/0) pour bloquer la connectivité Internet de toutes les machines virtuelles qui sont déployées au sein d’un réseau virtuel et qui acheminent tout le trafic sortant via le circuit ExpressRoute.
 
-Si vous publiez des itinéraires par défaut, nous forçons le trafic en direction des services offerts via l’homologation publique (tels que le stockage Azure et base de données SQL) vers votre environnement local. Vous devrez configurer votre routeur pour retourner le trafic vers Azure via le chemin d’accès d’homologation publique ou via Internet. Si vous avez activé un point de terminaison de service (préversion) pour le service, le trafic vers le service n’est pas forcé vers votre site. Le trafic reste dans le réseau principal Azure. Découvrez plus d’informations sur les points de terminaison de service dans [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
+Si vous publiez des itinéraires par défaut, nous forçons le réacheminement du trafic en direction des services offerts via l’homologation Microsoft (tels que le Stockage Azure et SQL DB) vers votre environnement local. Vous devez configurer vos routeurs de façon à ce qu’ils retournent le trafic vers Azure via le chemin d’accès d’homologation Microsoft ou via Internet. Si vous avez activé un point de terminaison de service pour le service, le trafic vers le service n’est pas réacheminé vers votre site. Le trafic reste dans le réseau principal Azure. Découvrez plus d’informations sur les points de terminaison de service dans [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json).
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Les réseaux virtuels liés à un même circuit ExpressRoute peuvent-ils communiquer entre eux ?
 
@@ -223,17 +201,13 @@ Oui. Vous devez créer une passerelle ExpressRoute dans votre réseau virtuel. L
 
 L’adresse IP publique est utilisée uniquement pour la gestion interne, et ne constitue pas un risque pour la sécurité de votre réseau virtuel.
 
-### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>De quoi ai-je besoin pour me connecter au stockage Azure via ExpressRoute ?
-
-Vous devez établir un circuit ExpressRoute et configurer des itinéraires pour l’homologation publique.
-
 ### <a name="are-there-limits-on-the-number-of-routes-i-can-advertise"></a>Existe-t-il des limites sur le nombre d’itinéraires que je peux publier ?
 
-Oui. Nous acceptons jusqu’à 4000 préfixes d’itinéraires pour l’homologation privée et 200 pour l’homologation publique et l’homologation Microsoft. Vous pouvez augmenter ce nombre jusqu’à 10 000 itinéraires par homologation privée si vous activez la fonctionnalité Premium d’ExpressRoute.
+Oui. Nous acceptons jusqu’à 4 000 préfixes d’itinéraires pour une homologation privée, et 200 pour une homologation Microsoft. Vous pouvez augmenter ce nombre jusqu’à 10 000 itinéraires par homologation privée si vous activez la fonctionnalité Premium d’ExpressRoute.
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Existe-t-il des restrictions de plages d’adresses IP que je peux publier sur la session BGP ?
 
-Nous n’acceptons pas les préfixes privés (RFC1918) dans la session BGP d’homologation publique et dans la session BGP d’homologation Microsoft.
+Nous n’acceptons pas les préfixes privés (RFC1918) pour la session BGP d’homologation Microsoft.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Que se passe-t-il si je dépasse les limites du protocole BGP ?
 
@@ -242,18 +216,6 @@ Les sessions BGP sont supprimées. Elles sont ensuite réinitialisées lorsque l
 ### <a name="what-is-the-expressroute-bgp-hold-time-can-it-be-adjusted"></a>Quelle est la durée de conservation BGP d'ExpressRoute ? Peut-elle être ajustée ?
 
 La durée de conservation est de 180. Les messages persistants sont envoyés toutes les 60 secondes. Il s'agit de paramètres fixes de Microsoft qui ne peuvent pas être modifiés. Vous pouvez configurer différents minuteurs et les paramètres de la session BGP seront négociés en conséquence.
-
-### <a name="after-i-advertise-the-default-route-00000-to-my-virtual-networks-i-cant-activate-windows-running-on-my-azure-vms-how-to-i-fix-this"></a>Une fois que je publie l’itinéraire par défaut (0.0.0.0/0) sur mes réseaux virtuels, je ne peux pas activer Windows qui est en cours d’exécution sur mes machines virtuelles Azure. Comment faire pour résoudre ce problème ?
-
-Les étapes suivantes aident Azure à reconnaître la demande d’activation :
-
-1. Établissez l’homologation publique pour votre circuit ExpressRoute.
-2. Effectuez une recherche DNS et recherchez l’adresse IP de **kms.core.windows.net**
-3. Le Service de gestion de clés doit reconnaître que la demande d’activation provient d’Azure et honorer la demande. Effectuez l’une des trois tâches suivantes :
-
-   * Sur votre réseau local, réacheminez le trafic destiné à l’adresse IP que vous avez obtenu à l’étape 2 vers Azure via l’homologation publique.
-   * Faites en sorte que votre fournisseur de services réseau renvoie le trafic vers Azure via l’homologation publique.
-   * Créez un itinéraire défini par l’utilisateur qui pointe sur l’adresse IP ayant Internet en tant que tronçon suivant et appliquez-le au(x) sous-réseau(x) où sont situées ces machines virtuelles.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Puis-je modifier la bande passante d’un circuit ExpressRoute ?
 
@@ -280,7 +242,7 @@ ExpressRoute Premium est un ensemble de fonctionnalités répertoriées ci-desso
     **Exemples :**
 
     *  Vous pouvez lier un réseau virtuel créé en Europe de l’ouest à un circuit créé dans la Silicon Valley. 
-    *  Sur l’homologation publique, les préfixes d’autres régions géopolitiques sont publiés de sorte que vous pouvez vous connecter à SQL Azure en Europe de l’ouest à partir d’un circuit dans la Silicon Valley, par exemple.
+    *  Sur l’homologation Microsoft, les préfixes d’autres régions géopolitiques sont publiés de sorte que vous pouvez vous connecter, par exemple, à SQL Azure en Europe de l’Ouest à partir d’un circuit situé dans la Silicon Valley.
 
 
 ### <a name="limits"></a>Combien de réseaux virtuels puis-je lier à un circuit ExpressRoute si j’ai activé ExpressRoute Premium ?
@@ -309,11 +271,11 @@ Consultez la page de [tarification](https://azure.microsoft.com/pricing/details/
 
 Oui. Les frais d’ExpressRoute Premium s’ajoutent aux frais de circuit ExpressRoute et aux frais du fournisseur de connectivité.
 
-## <a name="expressroute-for-office-365-and-dynamics-365"></a>ExpressRoute pour Office 365 et Dynamics 365
+## <a name="expressroute-for-office-365"></a>ExpressRoute pour Office 365
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-dynamics-365"></a>Comment créer un circuit ExpressRoute pour se connecter à des services Office 365 et Dynamics 365 ?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services"></a>Comment faire pour créer un circuit ExpressRoute pour se connecter à des services Office 365 ?
 
 1. Consultez la [page des conditions préalables d’ExpressRoute](expressroute-prerequisites.md) pour vérifier que vous avez respecté les conditions.
 2. Pour vous assurer que vos besoins de connectivité sont satisfaisants, examinez la liste des fournisseurs de services et les emplacements dans l’article [Partenaires d’ExpressRoute partenaires et emplacements](expressroute-locations.md).
@@ -321,13 +283,9 @@ Oui. Les frais d’ExpressRoute Premium s’ajoutent aux frais de circuit Expres
 4. Suivez les étapes répertoriées dans les flux de travail pour configurer la connectivité aux [flux de travail ExpressRoute pour l’approvisionnement et les états du circuit](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Assurez-vous d’avoir activé le module complémentaire ExpressRoute lors de la configuration de la connectivité aux services Office 365 et Dynamics 365.
+> Assurez-vous d’avoir activé le module complémentaire ExpressRoute lors de la configuration de la connectivité aux services Office 365.
 > 
 > 
-
-### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-dynamics-365"></a>Dois-je activer l’homologation publique Azure pour me connecter aux services Office 365 et Dynamics 365 ?
-
-Non, vous devez uniquement activer l’homologation Microsoft. Le trafic d'authentification vers Azure AD est envoyé via l’homologation Microsoft. 
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Mes circuits ExpressRoute existants peuvent-ils prendre en charge la connectivité aux services Office 365 et Dynamics 365 ?
 
@@ -337,9 +295,9 @@ Oui. Votre circuit ExpressRoute existant peut être configuré pour prendre en c
 
 Reportez-vous à la page [URL et plages d’adresses IP Office 365](http://aka.ms/o365endpoints) pour obtenir une liste à jour des services pris en charge par le biais d’ExpressRoute.
 
-### <a name="how-much-does-expressroute-for-office-365-services-and-dynamics-365-cost"></a>Combien coûte ExpressRoute pour les services Office 365 et Dynamics 365 ?
+### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>Combien coûte ExpressRoute pour les services Office 365 ?
 
-Les services Office 365 et Dynamics 365 nécessitent l'activation d'un module premium complémentaire. Consultez la [page de détails des prix appliqués](https://azure.microsoft.com/pricing/details/expressroute/) pour les coûts.
+Les services Office 365 nécessitent l’activation d’un module complémentaire Premium. Consultez la [page de détails des prix appliqués](https://azure.microsoft.com/pricing/details/expressroute/) pour les coûts.
 
 ### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>Quelles régions sont prises en charge dans ExpressRoute pour Office 365 ?
 
@@ -356,10 +314,6 @@ Consultez la recommandation en matière de [Haute disponibilité et basculement 
 
 Oui. Les points de terminaison du service Office 365 GCC sont accessibles via Azure US Government ExpressRoute. Toutefois, vous devez d’abord ouvrir un ticket de support sur le portail Azure pour fournir à Microsoft les préfixes que vous avez l’intention de publier. La connectivité aux services Office 365 GCC sera établie une fois le ticket de support résolu. 
 
-### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>Dynamics 365 for Operations (précédemment appelé Dynamics AX Online) est-il accessible par le biais d’une connexion ExpressRoute ?
-
-Oui. [Dynamics 365 pour les opérations](https://www.microsoft.com/dynamics365/operations) est hébergé sur Azure. Vous pouvez activer l’homologation publique Azure sur votre circuit ExpressRoute pour vous y connecter.
-
 ## <a name="route-filters-for-microsoft-peering"></a>Filtres de routage pour l’homologation Microsoft
 
 ### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>J’active l’homologation Microsoft pour la première fois, quels itinéraires s’afficheront ?
@@ -374,7 +328,7 @@ Lorsque vous utilisez des filtres de routage, n’importe quel client peut activ
 
 Non, vous n’avez pas besoin d’autorisation pour Dynamics 365. Vous pouvez créer une règle et sélectionner la Communauté Dynamics 365 sans autorisation.
 
-### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>J’ai activé l’homologation Microsoft avant le 1er août 2017. Comment puis-je tirer parti des filtres de routage ?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>J’ai activé l’homologation Microsoft avant le 1er août 2017. Comment puis-je tirer parti des filtres de routage ?
 
 Votre circuit existant continuera à publier des préfixes pour Office 365 et Dynamics 365. Si vous souhaitez ajouter des publications de préfixes publics Azure sur la même homologation Microsoft, vous pouvez créer un filtre de routage, sélectionner les services que vous souhaitez publier (y compris le(s) service(s) Office 365 dont vous avez besoin et Dynamics 365) et joindre le filtre à votre homologation Microsoft. Consultez [Configurer des filtres de routage pour l’homologation Microsoft](how-to-routefilter-powershell.md)pour obtenir des instructions.
 

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 95ab06685452f647884bf92f110e3ab56f3c2714
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c4fb8e1972286776a5fc7a13c5e9a8c91e370dd3
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41954842"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338617"
 ---
 # <a name="azure-stack-registration"></a>Inscription d’Azure Stack
 Vous pouvez inscrire le Kit de développement Azure Stack auprès d’Azure pour télécharger des éléments de la Place de marché à partir d’Azure et renvoyer des rapports de données commerciales à Microsoft. L’inscription est obligatoire pour prendre en charge les fonctionnalités complètes d’Azure Stack, notamment la syndication de la Place de marché. L’inscription est recommandée, car elle vous permet de tester des fonctionnalités Azure Stack importantes, telles que la syndication de la Place de marché et les rapports d’utilisation. Après avoir inscrit Azure Stack, l’utilisation est signalée à Azure Commerce. Vous pouvez la consulter sous l’abonnement utilisé pour l’inscription. Toutefois, l’utilisation du kit de développement Azure Stack n’est pas facturée à ses utilisateurs.
 
 Si vous n’inscrivez pas votre Kit de développement Azure Stack (ASDK), il se peut qu’un message d’avertissement **Activation requise** s’affiche pour vous inviter à l’inscrire. Il s’agit du comportement attendu.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de suivre ces instructions pour inscrire le kit ASDK auprès d’Azure, veillez à installer Azure Stack PowerShell et télécharger les outils Azure Stack, comme décrit dans l’article relatif à la [configuration post-déploiement](asdk-post-deploy.md).
 
 De plus, le mode de langage PowerShell doit avoir la valeur **FullLanguageMode** sur l’ordinateur utilisé pour inscrire le kit ASDK auprès d’Azure. Pour vérifier que le mode de langage actuel est défini sur full, ouvrez une fenêtre PowerShell avec élévation de privilèges et exécutez les commandes PowerShell suivantes :
@@ -84,6 +84,10 @@ Suivez ces étapes pour vérifier que l’inscription du kit ASDK auprès d’Az
 3. Si une liste d’éléments disponibles dans Azure s’affiche, l’activation a réussi.
 
     ![](media/asdk-register/3.PNG)
+
+## <a name="move-a-registration-resource"></a>Déplacer une ressource d’inscription
+Le déplacement d’une ressource d’inscription entre des groupes de ressources sous le même abonnement **est** pris en charge. Pour plus d’informations sur le déplacement de ressources vers un nouveau groupe de ressources, voir [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Ajouter un élément marketplace Azure Stack](.\.\azure-stack-marketplace.md)

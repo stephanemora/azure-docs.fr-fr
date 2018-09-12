@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/30/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: cc1b89ff94b4d4dc0b191512b110521d5fa05a7a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445020"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344364"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -27,16 +27,16 @@ Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 |----|----------------------|--------------|------------------|
 | Correctif cumulatif d’août | 3.2.0.0 | 15 août 2018 | Prise en charge (version recommandée) |
 | Disponibilité générale | 3.1.0.0 | 19 juillet 2018 | Pris en charge |
-| Correctif cumulatif de juin | 3.0.13.0 | 29 juin 2018 | La version de l’agent expire le 4 septembre 2018 |
-| Actualiser 2 | 3.0.12.0 | 22 mai 2018 | La version de l’agent expire le 4 septembre 2018 |
-| Correctif cumulatif d’avril | 2.3.0.0 | 8 mai 2018 | La version de l’agent expire le 4 septembre 2018 |
-| Correctif cumulatif de mars | 2.2.0.0 | 12 mars 2018 | La version de l’agent expire le 4 septembre 2018 |
-| Correctif cumulatif de février | 2.1.0.0 | 28 février 2018 | La version de l’agent expire le 4 septembre 2018 |
-| Actualisation 1 | 2.0.11.0 | 8 février 2018 | La version de l’agent expire le 4 septembre 2018 |
-| Correctif cumulatif de janvier | 1.4.0.0 | 8 janvier 2018 | La version de l’agent expire le 4 septembre 2018 |
-| Correctif cumulatif de novembre | 1.3.0.0 | 30 novembre 2017 | La version de l’agent expire le 4 septembre 2018 |
-| Correctif cumulatif d’octobre | 1.2.0.0 | 31 octobre 2017 | La version de l’agent expire le 4 septembre 2018 |
-| Version préliminaire initiale | 1.1.0.0 | 26 septembre 2017 | La version de l’agent expire le 4 septembre 2018 |
+| Correctif cumulatif de juin | 3.0.13.0 | 29 juin 2018 | La version de l’agent expirera le 1er octobre 2018 |
+| Actualiser 2 | 3.0.12.0 | 22 mai 2018 | La version de l’agent expirera le 1er octobre 2018 |
+| Correctif cumulatif d’avril | 2.3.0.0 | 8 mai 2018 | La version de l’agent expirera le 1er octobre 2018 |
+| Correctif cumulatif de mars | 2.2.0.0 | 12 mars 2018 | La version de l’agent expirera le 1er octobre 2018 |
+| Correctif cumulatif de février | 2.1.0.0 | 28 février 2018 | La version de l’agent expirera le 1er octobre 2018 |
+| Actualisation 1 | 2.0.11.0 | 8 février 2018 | La version de l’agent expirera le 1er octobre 2018 |
+| Correctif cumulatif de janvier | 1.4.0.0 | 8 janvier 2018 | La version de l’agent expirera le 1er octobre 2018 |
+| Correctif cumulatif de novembre | 1.3.0.0 | 30 novembre 2017 | La version de l’agent expirera le 1er octobre 2018 |
+| Correctif cumulatif d’octobre | 1.2.0.0 | 31 octobre 2017 | La version de l’agent expirera le 1er octobre 2018 |
+| Version préliminaire initiale | 1.1.0.0 | 26 septembre 2017 | La version de l’agent expirera le 1er octobre 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -49,6 +49,9 @@ Cette mise en production inclut le correctif suivant :
 
 ## <a name="agent-version-3100"></a>Version 3.1.0.0 de l’agent
 Les notes de publication suivantes concernent la version 3.1.0.0 de l’agent Azure File Sync (mise en production le 19 juillet 2018).
+
+### <a name="evaluation-tool"></a>Outil d’évaluation
+Avant de déployer l’agent Azure File Sync, vous devez évaluer s’il est compatible avec votre système à l’aide de l’outil d’évaluation Azure File Sync. Cet outil est une applet de commande AzureRM PowerShell qui recherche les problèmes potentiels liés à votre système de fichiers et à votre jeu de données, comme des caractères non pris en charge ou une version de système d’exploitation non prise en charge. Pour des instructions d’installation et d’utilisation, voir la section [Outil d’évaluation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#evaluation-tool) du guide de planification. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Installation de l’agent et configuration du serveur
 Pour plus d’informations sur l’installation et la configuration de l’agent Azure File Sync avec Windows Server, consultez [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md) et [Guide pratique pour déployer Azure File Sync](storage-sync-files-deployment-guide.md).

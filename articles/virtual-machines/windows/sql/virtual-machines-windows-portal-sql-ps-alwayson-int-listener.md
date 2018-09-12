@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307984"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381793"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
 Cette rubrique explique comment effectuer les opérations suivantes :
@@ -42,6 +42,8 @@ Rubriques connexes :
 
 ## <a name="configure-the-windows-firewall"></a>Configurer le Pare-feu Windows
 Configurez le Pare-feu Windows pour autoriser l’accès à SQL Server. Les règles de pare-feu autorisent les connexions TCP aux ports utilisés par l’instance de SQL Server et à la sonde de l’écouteur. Pour obtenir des instructions détaillées, consultez [Configurer un pare-feu Windows pour accéder au moteur de base de données](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Créez une règle entrante pour le port SQL Server et pour le port de la sonde.
+
+Si vous restreignez l’accès avec un groupe de sécurité réseau Azure, assurez-vous que les règles d’autorisation incluent l’adresse IP de la machine virtuelle SQL Server principale, les adresses IP flottantes de l’équilibreur de charge pour l’écouteur de groupe de disponibilité, et l’adresse IP du cluster principal, le cas échéant.
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Exemple de script : Créer un équilibreur de charge interne à l’aide de PowerShell
 > [!NOTE]
@@ -195,6 +197,7 @@ Notez les instructions suivantes concernant l’écouteur de groupe de disponibi
 
 * Avec un équilibreur de charge interne, vous n’accédez à l’écouteur qu’à partir du même réseau virtuel.
 
+* Si vous restreignez l’accès avec un groupe de sécurité réseau Azure, assurez-vous que les règles d’autorisation incluent l’adresse IP de la machine virtuelle SQL Server principale, les adresses IP flottantes de l’équilibreur de charge pour l’écouteur de groupe de disponibilité, et l’adresse IP du cluster principal, le cas échéant.
 
 ## <a name="for-more-information"></a>Pour plus d’informations
 Pour plus d’informations, consultez [Configure Always On availability group in Azure VM manually (Configuration manuelle d’un groupe de disponibilité Always On dans une machine virtuelle Azure)](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

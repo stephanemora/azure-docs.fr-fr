@@ -1,25 +1,18 @@
 ---
-title: Workflows de configuration d’un circuit ExpressRoute | Microsoft Docs
+title: Workflows de configuration d’un circuit Azure ExpressRoute | Microsoft Docs
 description: Cette page vous guide tout au long des workflows pour la configuration du circuit ExpressRoute et des homologations
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/12/2017
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: cba1b2cfee379e7d2b079bcb3089981ef1044d66
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23013124"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301036"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
 Cette page vous guide de façon sommaire tout au long des workflows d’approvisionnement du service et de configuration du routage.
@@ -33,9 +26,9 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
 3. Assurez-vous que le circuit a été correctement approvisionné en vérifiant l’état approvisionnement du circuit ExpressRoute via PowerShell. 
 4. Configurez les domaines de routage. Si votre fournisseur de connectivité gère la couche 3 pour vous, il configurera le routage pour votre circuit. Si votre fournisseur de connectivité offre uniquement des services de couche 2, vous devez configurer le routage conformément aux instructions décrites dans les pages [Conditions requises pour le routage](expressroute-routing.md) et [Configuration du routage](expressroute-howto-routing-classic.md).
    
-   * Activer l'homologation privée Azure : vous devez activer cette homologation pour vous connecter aux machines virtuelles/services de cloud déployés au sein de réseaux virtuels.
-   * Activer l'homologation publique Azure : vous devez activer l'homologation publique Azure si vous souhaitez vous connecter à des services Azure hébergés sur des adresses IP publiques. Cette étape est nécessaire pour accéder aux ressources Azure si vous avez choisi d'activer le routage par défaut pour l'homologation privée Azure.
-   * Activer l’homologation Microsoft : vous devez activer cette option pour accéder aux services Office 365 et Dynamics 365. 
+   * Activer l’homologation privée Azure : activez cette homologation pour vous connecter aux machines virtuelles/services cloud déployés au sein de réseaux virtuels.
+
+   * Activer l’homologation Microsoft : activez cette option pour accéder aux services Office 365 et Dynamics 365. De plus, tous les services Azure PaaS sont accessibles via l’homologation Microsoft.
      
      > [!IMPORTANT]
      > Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/appareil edge différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
@@ -49,7 +42,7 @@ L'illustration et les étapes correspondantes suivantes montrent les tâches que
 Chaque circuit ExpressRoute comporte deux états :
 
 * État d’approvisionnement du fournisseur de service
-* État
+* Statut
 
 L'état représente l’état d'approvisionnement de Microsoft. Cette propriété est définie sur Activée lorsque vous créez un circuit ExpressRoute
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4da97d708f8db2dcee406645a0eee409fa111012
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34652540"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696800"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit
 Cet article vous indique comment régler une requête Stream Analytics pour augmenter le débit des travaux Stream Analytics. Vous pouvez utiliser le guide suivant pour mettre à l’échelle votre travail afin de gérer une charge plus élevée et de bénéficier de davantage de ressources système (par exemple, plus de bande passante, de ressources processeur, de mémoire).
@@ -31,7 +31,7 @@ Si votre requête est par définition entièrement parallélisable sur plusieurs
     -   L’horodatage de sortie est en retard par rapport au temps horloge. Selon la logique de votre requête, l’horodatage de sortie peut présenter un décalage logique par rapport au temps horloge. Toutefois, ils doivent avancer à peu près à la même vitesse. Si l’horodatage de sortie est de plus en plus en retard, cela indique que le système est surchargé. Cela peut être le résultat de la limitation du récepteur de sortie en aval ou d’une utilisation élevée du processeur. Comme nous ne fournissons pas de métrique d’utilisation du processeur à ce stade, il peut être difficile de différencier les deux.
         - Si le problème est dû à une limitation du récepteur, vous devrez peut-être augmenter le nombre de partitions de sortie (et également de partitions d’entrée pour que le travail reste entièrement parallélisable), ou augmenter la quantité de ressources du récepteur (par exemple le nombre d’unités de requête pour CosmosDB).
     - Dans le diagramme de travail, il existe une métrique d’événement de backlog par partition pour chaque entrée. Si la métrique d’événement de backlog continue à augmenter, cela indique également que la ressource système est contrainte (en raison de la limitation du récepteur de sortie ou d’une utilisation élevée du processeur).
-4.  Une fois que vous avez déterminé les limites d’un travail avec 6 unités de streaming, vous pouvez extrapoler linéairement la capacité de traitement du travail à mesure que vous ajoutez d’autres unités, en partant du principe que vous n’avez aucune asymétrie des données qui rend une partition « sensible ».
+4.  Une fois que vous avez déterminé les limites d’un travail avec 6 unités de streaming, vous pouvez extrapoler linéairement la capacité de traitement du travail à mesure que vous ajoutez d’autres unités, en partant du principe que vous n’avez aucune asymétrie des données rendant une partition « sensible ».
 
 > [!NOTE]
 > Choisissez le nombre approprié d’unités de streaming : comme Stream Analytics crée un nœud de traitement pour chaque ensemble de 6 unités de streaming ajouté, il est préférable de faire du nombre de nœuds un diviseur du nombre de partitions d’entrée pour que les partitions puissent être réparties uniformément entre les nœuds.
@@ -70,7 +70,7 @@ Pour certains cas d’usage d’éditeurs de logiciels indépendants, où il est
 2.  Réduisez le nombre de partitions d’entrée à la valeur la plus faible possible de 2 si vous utilisez Event Hub.
 3.  Exécutez la requête avec 6 unités de streaming. Avec la charge attendue pour chaque sous-requête, ajoutez autant de ces sous-requêtes que possible, jusqu’à ce que le travail atteigne les limites des ressources système. Reportez-vous au [cas 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) pour connaître les symptômes de cette situation.
 4.  Une fois que vous atteignez la limite des sous-requêtes mesurée ci-dessus, commencez à ajouter la sous-requête à un nouveau travail. Le nombre de travaux à exécuter en fonction du nombre de requêtes indépendantes doit être assez linéaire, en partant du principe que vous n’avez aucune asymétrie de charge. Vous pouvez ensuite prévoir combien de travaux avec 6 unités de streaming vous devez exécuter en fonction du nombre de locataires que vous souhaitez traiter.
-5.  Lors de l’utilisation de la jointure des données de référence avec les requêtes de ce type, vous devez unir les entrées avant la jointure avec les mêmes données de référence, puis fractionner les événements si nécessaire. Dans le cas contraire, chaque jointure des données de référence conserve une copie des données de référence en mémoire, ce qui risque d’augmenter l’utilisation de la mémoire inutilement.
+5.  Si vous utilisez une jointure de données de référence avec de telles requêtes, vous devez unir les entrées avant la jointure avec les mêmes données de référence. Ensuite, fractionnez les événements si nécessaire. Dans le cas contraire, chaque jointure des données de référence conserve une copie des données de référence en mémoire, ce qui risque d’augmenter l’utilisation de la mémoire inutilement.
 
 > [!Note] 
 > Combien de locataires à placer dans chaque travail ?

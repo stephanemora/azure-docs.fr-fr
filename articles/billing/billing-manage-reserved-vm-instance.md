@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: d47c85d4197f45db50f1974b6faea270e6761237
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628570"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382148"
 ---
-# <a name="manage-reservations-for-resources-in-azure"></a>Gérer les réservations pour les ressources dans Azure
+# <a name="manage-reservations-for-azure-resources"></a>Gérer les réservations pour les ressources Azure
 
-Après avoir acheté une réservation Azure, vous voudrez peut-être l’appliquer à un autre abonnement que celui spécifié à l’achat. Si vos machines virtuelles, bases de données SQL ou autres ressources correspondantes sont en cours d’exécution dans plusieurs abonnements, vous pouvez aussi changer l’étendue de la réservation pour la partager. Pour optimiser cette remise de réservation, vérifiez que le nombre d’instances achetées correspond aux attributs et au nombre de ressources en cours d’exécution. Pour en savoir plus, consultez [Réservations Azure](https://go.microsoft.com/fwlink/?linkid=862121).
+Après avoir acheté une réservation Azure, il se peut que vous deviez l’appliquer à un autre abonnement, modifier la personne autorisés à la gérer, ou en modifier l’étendue. Vous pouvez également diviser une réservation en deux pour appliquer certaines des instances que vous avez achetées à un autre abonnement.
+
+Si vous avez acheté Azure Reserved Virtual Machine Instances, vous pouvez modifier le paramètre d’optimisation de la réservation. La remise sur la réservation peut s’appliquer à des machines virtuelles de la même série, ou vous pouvez réserver de la capacité du centre de données pour une taille de machine virtuelle spécifique.
 
 ## <a name="change-the-scope-for-a-reservation"></a>Modifier l’étendue d’une réservation
 
@@ -34,7 +36,11 @@ Pour mettre à jour l’étendue d’une réservation :
 2. Sélectionnez **Tous les services** > **Réservations**.
 3. Sélectionnez la réservation.
 4. Sélectionnez **Paramètres** > **Configuration**.
-5. Modifiez l’étendue. Si vous passez de l’étendue partagée à une étendue unique, vous ne pouvez sélectionner que les abonnements dont vous êtes le propriétaire. Seuls peuvent être sélectionnés les abonnements présents dans le même contexte de facturation que celui de la réservation. Le contexte de facturation est déterminé par l’abonnement que vous avez sélectionné au moment de l’achat de la réservation. L’étendue s’applique uniquement aux abonnements MS-AZR-0003P de l’offre avec paiement à l’utilisation, et MS-AZR-0017P de l’offre Entreprise. Pour les contrats d’entreprise, les abonnements de développement et de test ne peuvent pas bénéficier de la remise de réservation.
+5. Modifiez l’étendue. 
+
+Si vous passez de l’étendue partagée à une étendue unique, vous ne pouvez sélectionner que les abonnements dont vous êtes le propriétaire. Seuls peuvent être sélectionnés les abonnements présents dans le même contexte de facturation que celui de la réservation.
+
+L’étendue s’applique uniquement aux abonnements MS-AZR-0003P de l’offre avec paiement à l’utilisation, MS-AZR-0017P de l’offre Entreprise ou CSP. Pour les contrats d’entreprise, les abonnements de développement et de test ne peuvent pas bénéficier de la remise de réservation.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Ajouter ou modifier les utilisateurs qui peuvent gérer une réservation
 
@@ -47,26 +53,14 @@ Pour déléguer la gestion de l’accès à une réservation :
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** > **Réservation** pour afficher la liste des réservations auxquelles vous avez accès.
 3. Sélectionnez la réservation pour laquelle vous souhaitez déléguer l’accès à d’autres utilisateurs.
-4. Sélectionnez **Contrôle d’accès (IAM)** dans le menu.
-5. Sélectionnez **Ajouter** > **Rôle** > **Propriétaire** (ou un rôle différent si vous souhaitez accorder un accès limité).
-6. Entrez l’adresse e-mail de l’utilisateur à ajouter en tant que propriétaire. 
+4. Sélectionnez **Contrôle d’accès (IAM)**.
+5. Sélectionnez **Ajouter** > **Rôle** > **Propriétaire**. Ou si vous souhaitez accorder un accès limité, sélectionnez un autre rôle.
+6. Tapez l’adresse e-mail de l’utilisateur à ajouter comme propriétaire.
 7. Sélectionnez l’utilisateur, puis **Enregistrer**.
-
-## <a name="optimize-reserved-vm-instance-for-vm-size-flexibility-or-capacity-priority"></a>Optimiser l’instance de machine virtuelle réservée pour la flexibilité de taille de machine virtuelle ou la priorité de capacité
-
- La flexibilité d’instance de machine virtuelle applique la remise de réservation à d’autres machines virtuelles dans le même [groupe de tailles de machine virtuelle](https://aka.ms/RIVMGroups). Par défaut, quand l’étendue de la réservation est partagée, la flexibilité de taille d’instance est activée et la capacité du centre de données n’est pas prioritaire pour les déploiements de machine virtuelle. Pour les réservations dont l’étendue est unique, vous pouvez optimiser la réservation pour la priorité de capacité au lieu de la flexibilité de taille d’instance de machine virtuelle. La priorité de capacité réserve la capacité du centre de données à vos déploiements, ce qui vous garantit de pouvoir lancer des instances de machine virtuelle quand vous en avez besoin.
-
-Pour mettre à jour l’étendue d’une réservation :
-
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Sélectionnez **Tous les services** > **Réservations**.
-3. Sélectionnez la réservation.
-4. Sélectionnez **Paramètres** > **Configuration**.
-5. Changez le paramètre Optimiser pour.
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Diviser une réservation unique en deux réservations
 
- Après avoir acheté plusieurs instances, vous voudrez peut-être affecter les instances d’une réservation à différents abonnements. Par défaut, toutes les instances (quantité spécifiée lors de l’achat) ont une étendue, qu’elle soit sur un abonnement unique ou partagée sur plusieurs abonnements. Par exemple, vous avez acheté 10 machines virtuelles Standard D2 et spécifié l’étendue à l’abonnement A. Vous pouvez à présent affecter l’étendue pour 7 réservations à l’abonnement A et les 3 instances restantes à l’abonnement B. La division d’une réservation vous permet de répartir les instances pour une gestion de l’étendue plus minutieuse. Vous pouvez simplifier la répartition sur les abonnements en choisissant une étendue partagée. Toutefois, pour des raisons de gestion de coûts et de budgétisation, vous pouvez affecter des quantités à des abonnements spécifiques.
+ Après avoir acheté plusieurs instances de ressource dans une réservation, vous pouvez affecter de instances de cette réservation à d’autres abonnements. Par défaut, toutes les instances ont une étendue : abonnement unique ou partagé. Par exemple, vous avez acheté 10 instances de réservation et spécifié l’étendue de l’abonnement A. Vous pouvez à présent modifier l’étendue de 7 réservations à l’abonnement A, et les 3 instances restantes à l’abonnement B. La division d’une réservation vous permet de répartir les instances pour une gestion de l’étendue précise. Vous pouvez simplifier la répartition sur les abonnements en choisissant une étendue partagée. Toutefois, pour des raisons de gestion de coûts et de budgétisation, vous pouvez affecter des quantités à des abonnements spécifiques.
 
  Vous pouvez diviser une réservation en deux réservations par l’intermédiaire de PowerShell, de CLI ou de l’API.
 
@@ -92,18 +86,38 @@ Pour mettre à jour l’étendue d’une réservation :
     Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 4. Vous pouvez mettre à jour l’étendue en exécutant la commande suivante :
+
     ```powershell
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
+## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Modifier le paramètre d’optimisation pour des instances de machine virtuelle réservées
+
+ Lorsque vous achetez une instance de machine virtuelle réservée, vous choisissez sa flexibilité de taille ou sa priorité de capacité. La flexibilité de taille d’instance applique la remise sur réservation aux autres machines virtuelles du même [groupe de tailles de machine virtuelle](https://aka.ms/RIVMGroups). La priorité de capacité réserve de la capacité de centre de données pour vos déploiements. Cette option offre une assurance supplémentaire quand à votre capacité à lancer les instances de machine virtuelle quand vous en avez besoin.
+
+Par défaut, quand l’étendue de la réservation est partagée, la flexibilité de taille de l’instance est activée. La capacité de centre de données n’est pas priorisée pour les déploiements de machine virtuelle.
+
+Pour les réservations dont l’étendue est unique, vous pouvez optimiser la réservation pour la priorité de capacité au lieu de la flexibilité de taille d’instance de machine virtuelle.
+
+Pour mettre à jour le paramètre d’optimisation de la réservation :
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Sélectionnez **Tous les services** > **Réservations**.
+3. Sélectionnez la réservation.
+4. Sélectionnez **Paramètres** > **Configuration**.
+5. Modifiez le paramètre **Optimiser pour**.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
+Pour plus d’informations sur les réservations Azure, voir les articles suivants :
 
-- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
+- [Que sont les réservations Azure ?](billing-save-compute-costs-reservations.md)
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Comprendre comment la remise de réservation est appliquée](billing-understand-vm-reservation-charges.md)
+- [Prépayer des logiciels SUSE avec des réservations Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Comprendre comment la remise sur réservation de machine virtuelle est appliquée](billing-understand-vm-reservation-charges.md)
+- [Comprendre comment la remise sur offre logicielle SUSE Linux Enterprise est appliquée](../billing/billing-understand-suse-reservation-charges.md)
+- [Comprendre comment les autres remises sur réservation sont appliquées](billing-understand-reservation-charges.md)
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
 - [Coûts des logiciels Windows non inclus dans les réservations](billing-reserved-instance-windows-software-costs.md)

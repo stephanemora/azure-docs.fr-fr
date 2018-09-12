@@ -3,24 +3,26 @@ title: Sécurité au niveau des colonnes dans Azure SQL Data Warehouse | Microso
 description: La sécurité au niveau des colonnes permet aux clients de contrôler l’accès aux colonnes de table de base de données selon le contexte d’exécution de l’utilisateur ou leur appartenance au groupe. La sécurité au niveau des colonnes simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux colonnes.
 services: sql-data-warehouse
 author: KavithaJonnakuti
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 06/15/2018
 ms.author: kavithaj
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: 5a916132f705f3c517ee6789b61a3972b2445b62
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1765c92ad10fa35af98e7c7314eb44c3a119f422
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939834"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301053"
 ---
 # <a name="column-level-security"></a>Sécurité au niveau des colonnes 
 La sécurité au niveau des colonnes permet aux clients de contrôler l’accès aux colonnes de table de base de données selon le contexte d’exécution de l’utilisateur ou leur appartenance au groupe.  
 
-La sécurité au niveau des colonnes simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux colonnes pour protéger les données sensibles. Vous pouvez, par exemple, vous assurer que des utilisateurs spécifiques peuvent accéder uniquement à certaines colonnes d’une table qui sont pertinentes par rapport à leur service. La logique de restriction d’accès se situe dans la couche de base de données plutôt qu’à l’écart des données d’une autre couche d’application. La base de données applique les restrictions d’accès chaque fois qu’un accès aux données est tenté à partir d’un quelconque niveau. Cela rend votre système de sécurité global plus fiable et robuste en réduisant sa surface d’exposition. En outre, cela élimine la nécessité d’ajouter des vues pour filtrer les colonnes afin d’imposer des restrictions d’accès aux utilisateurs. 
+> [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+
+La sécurité au niveau des colonnes simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux colonnes pour protéger les données sensibles. Vous pouvez, par exemple, vous assurer que des utilisateurs spécifiques peuvent accéder uniquement à certaines colonnes d’une table qui sont pertinentes par rapport à leur service. La logique de restriction d’accès se situe dans la couche de base de données plutôt qu’à l’écart des données d’une autre couche d’application. La base de données applique les restrictions d’accès chaque fois qu’un accès aux données est tenté à partir d’un quelconque niveau. Cette restriction rend votre système de sécurité plus fiable et robuste en réduisant sa surface d’exposition. En outre, la sécurité au niveau des colonnes élimine la nécessité d’ajouter des vues pour filtrer les colonnes afin d’imposer des restrictions d’accès aux utilisateurs. 
 
 Vous pouvez implémenter la sécurité au niveau des colonnes avec l’instruction T-SQL [GRANT](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql). Avec ce mécanisme, l’authentification SQL et AAD (Azure Active Directory) sont toutes deux prises en charge.
 

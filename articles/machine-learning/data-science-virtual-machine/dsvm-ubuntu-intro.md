@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f45bb3b47209bd6b02cea49c23b0a59ad75fc2e2
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: d9008956d3a5542d71438ee13050a3951230e101
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146631"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338805"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Approvisionner une machine virtuelle pour la science des données pour Linux (Ubuntu)
 
@@ -75,19 +75,20 @@ Cette image de machine virtuelle de science des données ne génère pas de frai
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>Autres versions de la machine virtuelle pour la science des données
 Une image [CentOS](linux-dsvm-intro.md) est également disponible avec la plupart des mêmes outils que l’image Ubuntu. Une image [Windows](provision-vm.md) est également disponible.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de pouvoir créer une machine virtuelle pour la science des données pour Linux, vous devez disposer d’un abonnement Azure. Pour en obtenir un, consultez la page [Obtenir une version d’évaluation gratuite d’Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Créer une machine virtuelle pour la science des données pour Linux
 Voici les étapes de création d’une instance de la machine virtuelle pour la science des données pour Linux :
 
-1. Accédez à la liste des machines virtuelles présentes sur le [portail Azure](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
+1. Accédez à la liste des machines virtuelles présentes sur le [portail Azure](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). Si vous n’êtes pas déjà connecté, vous pouvez être invité à vous connecter à votre compte Azure. 
 1. Cliquez sur **Créer** (en bas) pour ouvrir l’Assistant.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. Les sections suivantes fournissent les entrées de chacune des étapes de l’Assistant (énumérées à droite de la figure précédente) utilisé pour créer la machine virtuelle de sciences des données. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
    
    a. **Paramètres de base**:
    
    * **Name**(Nom) : nom du serveur Data Science que vous créez.
+   * **Type de disque de machine virtuelle** : choisissez **SSD Premium** si vous préférez un disque SSD. Sinon, choisissez **HDD Standard**. 
    * **User Name**(Nom d’utilisateur) : premier ID de connexion du compte.
    * **Password**(Mot de passe) : premier mot de passe du compte (vous pouvez utiliser une clé publique SSH au lieu d’un mot de passe).
    * **Subscription**(Abonnement) : si vous disposez de plusieurs abonnements, sélectionnez celui qui sera associé à la création et à la facturation de la machine. Vous devez disposer des privilèges de création de ressources pour cet abonnement.
@@ -96,23 +97,17 @@ Voici les étapes de création d’une instance de la machine virtuelle pour la 
    
    b. **Taille**:
    
-   * Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez **Afficher tout** pour afficher d’autres tailles de machines virtuelles. Sélectionnez une machine virtuelle de classe NC ou ND pour la formation à la GPU. La page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/) répertorie les régions avec GPU.
+   * Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez une machine virtuelle de classe NC ou ND pour des instances de machine virtuelle basées sur GPU. La page [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/) répertorie les régions avec GPU.
    
    c. **Paramètres**:
    
-   * **Type de disque** : choisissez **Premium** si vous préférez un disque SSD. Sinon, choisissez **Standard**. Les machines virtuelles GPU nécessitent un disque Standard.
-   * **Compte de stockage** : vous pouvez créer un compte de stockage Azure associé à votre abonnement ou utiliser un compte existant au même emplacement que celui que vous avez sélectionné à l’étape de définition des **Paramètres de base** de l’Assistant.
-   * **Other parameters**(Autres paramètres) : dans la plupart des cas, vous utilisez simplement la valeur par défaut. Si vous envisagez de ne pas utiliser les valeurs par défaut, survolez le lien d’informations pour obtenir de l’aide sur les différents champs.
+   * Dans la plupart des cas, vous pouvez simplement utiliser les valeurs par défaut. Si vous envisagez de ne pas utiliser les valeurs par défaut, survolez le lien d’informations pour obtenir de l’aide sur les différents champs.
    
    d. **Résumé**:
    
-   * Vérifiez que toutes les informations que vous avez saisies sont correctes.
+   * Vérifiez que toutes les informations que vous avez saisies sont correctes. Un lien est fourni pour accéder aux conditions de service. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** . Pour démarrer l’approvisionnement, cliquez sur **Créer**. 
    
-   e. **Acheter**:
-   
-   * Pour démarrer l’approvisionnement, cliquez sur **Buy**(Acheter). Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** .
-
-L’approvisionnement prend environ 5 à 10 minutes. L’état de l’approvisionnement est affiché sur le portail Azure.
+L’approvisionnement prend environ 5 minutes. L’état de l’approvisionnement est affiché sur le portail Azure.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Accès à une machine virtuelle pour la science des données pour Linux
 
@@ -434,6 +429,6 @@ Voici comment poursuivre votre formation et votre exploration :
 
 * La procédure [Science des données sur la machine virtuelle pour la science des données pour Linux](linux-dsvm-walkthrough.md) vous montre comment effectuer plusieurs tâches courantes relatives à la science des données avec la machine virtuelle pour la science des données Linux configurée ici. 
 * Explorez les différents outils de science des données sur la machine virtuelle de science des données en testant les outils répertoriés dans cet article. Vous pouvez également exécuter *dsvm-plus-info* dans l’interpréteur de commandes sur la machine virtuelle pour accéder à une présentation de base et à des liens vers des informations supplémentaires sur les outils installés sur la machine virtuelle.  
-* Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Visitez la [galerie Cortana Analytics](http://gallery.cortanaanalytics.com) pour obtenir des exemples de Machine Learning et d’analyse des données qui utilisent la suite Cortana Analytics.
+* Découvrez comment créer des solutions analytiques de bout en bout systématiquement à l’aide du [processus TDSP (Team Data Science Process)](http://aka.ms/tdsp).
+* Pour des exemples d’apprentissage automatique et d’analyse de données utilisant les services d’intelligence artificielle d’Azure, visitez [Azure AI Gallery](https://gallery.azure.ai/).
 

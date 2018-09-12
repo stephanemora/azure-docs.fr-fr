@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: marsma
-ms.openlocfilehash: 92e60b4213cb80d193a7c35f68b8f9fd099481d7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 65ff60be992440c69e50a084b467a8efbb19574e
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165093"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307147"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Stockage des images conteneur dans Azure Container Registry
 
@@ -43,7 +43,7 @@ La table suivante décrit l’image conteneur et les limites de stockage en plac
 | Balises | Aucune limite|
 | Stockage | 5 To |
 
-Un très grand nombre de balises et de référentiels peuvent affecter les performances de votre registre. Supprimez régulièrement les référentiels non utilisés, les balises et les images à l’aide de [Azure CLI](/cli/azure/acr), l’ACR [l’API REST](/rest/api/containerregistry/) ou le [portail Azure][portal] en tant que partie de votre routine de maintenance du registre. Les ressources de registre supprimées telles que des référentiels, des images et des balises ne *peuvent pas* être récupérées après suppression.
+Un très grand nombre de balises et de référentiels peuvent affecter les performances de votre registre. Supprimez régulièrement les référentiels, balises et images non utilisés dans le cadre de la routine de maintenance de votre Registre. Les ressources de registre supprimées telles que des référentiels, des images et des balises ne *peuvent pas* être récupérées après suppression. Pour plus d’informations sur la suppression de ressources du Registre, voir [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Coût de stockage
 

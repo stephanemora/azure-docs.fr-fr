@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: bce4e05cbc4ecc8a44f2929eecbeee4093d39652
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: de4a771672b45f930385c2c923b3935c65b6c045
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628356"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301644"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Comprendre comment la remise de réservation Azure est appliquée aux machines virtuelles
 
@@ -47,23 +47,23 @@ Le tableau suivant montre les coûts de votre machine virtuelle après l’achat
 3. Pour les heures 2 et 3, les deux instances se sont exécutées chacune pendant 1 heure. Une instance est couverte par la réservation, et l’autre est facturée au tarif du paiement à l’utilisation.
 4. Pour l’heure 4, l’instance 1 s’exécute pendant 0,5 heure tandis que l’instance 2 s’exécute pendant 1 heure. L’instance 1 est entièrement couverte par la réservation, et la durée de 0,5 heure de l’instance 2 est couverte. Vous êtes facturé au tarif du paiement à l’utilisation pour cette durée de 0,5 heure restante.
 
-Pour comprendre et voir l’application de vos réservations Azure dans les rapports d’utilisation pour la facturation, consultez [Comprendre l’utilisation des réservations](https://go.microsoft.com/fwlink/?linkid=862757).
+Pour comprendre et voir l’application de vos réservations Azure dans les rapports d’utilisation pour la facturation, voir [Comprendre l’utilisation des réservations](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Application de la remise de réservation aux machines virtuelles Windows
 
-Quand vous exécutez des instances de machine virtuelle Windows, la réservation est appliquée pour couvrir les coûts d’infrastructure. L’application de la réservation aux coûts d’infrastructure de machine virtuelle pour les machines virtuelles Windows est identique à celle qui est appliquée pour les machines virtuelles non Windows. Les logiciels Windows vous sont facturés séparément, par processeur virtuel. Consultez [Coûts des logiciels Windows avec les réservations](https://go.microsoft.com/fwlink/?linkid=862756). Vous pouvez supporter les coûts de licence Windows avec [Azure Hybrid Benefit pour Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+Quand vous exécutez des instances de machine virtuelle Windows, la réservation est appliquée pour couvrir les coûts d’infrastructure. L’application de la réservation aux coûts d’infrastructure de machine virtuelle pour les machines virtuelles Windows est identique à celle qui est appliquée pour les machines virtuelles non Windows. Les logiciels Windows vous sont facturés séparément, par processeur virtuel. Vous [Coûts des logiciels Windows avec les réservations](https://go.microsoft.com/fwlink/?linkid=862756). Vous pouvez supporter les coûts de licence Windows avec [Azure Hybrid Benefit pour Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les réservations, consultez les articles suivants :
+Pour plus d’informations sur les réservations Azure, voir les articles suivants :
 
-- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
+- [Que sont les réservations Azure ?](billing-save-compute-costs-reservations.md)
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
 - [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](billing-understand-reserved-instance-usage.md)
 - [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
-- [Comprendre l’utilisation d’une réservation pour les abonnements CSP](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Comprendre l’utilisation d’une réservations pour les abonnements CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 - [Coûts des logiciels Windows non inclus dans les réservations](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique

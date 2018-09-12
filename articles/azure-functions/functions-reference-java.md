@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw
-ms.openlocfilehash: d895258a4c8a38d00932d81600dc8633d7d70112
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: bbc1c3426b52e71db84a988b39a1d76ac24b6168
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140451"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697009"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 
@@ -93,7 +93,7 @@ avec le fichier `function.json` correspondant :
 
 Azure Functions prend en charge l’utilisation de bibliothèques tierces. Par défaut, toutes les dépendances spécifiées dans votre fichier `pom.xml` de projet sont automatiquement regroupées pendant l’objectif `mvn package`. Pour les bibliothèques qui ne sont pas définies comme des dépendances dans le fichier `pom.xml`, placez-les dans un répertoire `lib` du dossier racine de la fonction. Les dépendances placées dans le répertoire `lib` doivent être ajoutées au chargeur de classes système lors de l’exécution.
 
-## <a name="data-types"></a>Types de données
+## <a name="data-type-support"></a>Prise en charge des types de données
 
 Vous pouvez utiliser tous les types de données Java pour les données d’entrée et de sortie, y compris les types natifs, les types Java personnalisés et les types Azure spécialisés définis dans le package `azure-functions-java-library`. Le runtime Azure Functions tente de convertir l’entrée reçue selon le type demandé par votre code.
 
@@ -243,7 +243,7 @@ public class MyClass {
 
 Interagissez avec l’environnement d’exécution Azure Functions au travers de l’objet `ExecutionContext` défini dans le package `azure-functions-java-library`. Utilisez l’objet `ExecutionContext` pour exploiter les informations des appels et du runtime Functions dans votre code.
 
-### <a name="logging"></a>Journalisation
+### <a name="custom-logging"></a>Journalisation personnalisée
 
 Vous pouvez accéder à l’enregistreur d’événements du runtime Functions via l’objet `ExecutionContext`. Cet enregistreur est lié à Azure Monitor et vous permet de signaler les avertissements et erreurs générés lors de l’exécution de la fonction.
 
@@ -263,6 +263,29 @@ public class Function {
     }
 }
 ```
+
+## <a name="view-logs-and-trace"></a>Afficher les journaux et le suivi
+
+Vous pouvez utiliser Azure CLI pour obtenir une journalisation Java standard, une journalisation d’erreurs, ainsi que toute autre journalisation d’application. Tout d’abord, configurez votre application de fonction pour écrire la journalisation d’application en utilisant Azure CLI :
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+Pour obtenir une sortie de journalisation pour votre application de fonction en utilisant Azure CLI, ouvrez une nouvelle session d’invite de commandes, Bash ou Terminal, puis entrez la commande suivante :
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+La commande [az webapp log tail](/cli/azure/webapp/log) permet de filtrer la sortie en utilisant l’option `--provider`. 
+
+Pour télécharger les fichiers journaux sous la forme d’un fichier zip unique en utilisant Azure CLI, ouvrez une nouvelle session d’invite de commandes, Bash ou Terminal, puis entrez la commande suivante :
+
+```azurecli-interactive
+az webapp log download --resource-group resourcegroupname --name functionappname
+```
+
+Avant d’exécuter cette commande, vous devez avoir activé la journalisation du système de fichiers dans le portail Azure ou dans Azure CLI.
 
 ## <a name="environment-variables"></a>Variables d’environnement
 
@@ -288,9 +311,12 @@ Chaque mise en correspondance des valeurs / de la clé dans le mappage `values` 
 Maintenant que votre code dépend de ces variables d’environnement, vous pouvez vous connecter au Portail Azure pour définir la même paire clé/valeur dans vos paramètres d’application de fonction, pour que votre code fonctionne de façon équivalente lors du test local et lors du déploiement vers Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations, consultez les ressources suivantes :
+
+Pour plus d’informations sur le développement Java de Fonction Azure, voir les ressources suivantes :
 
 * [Meilleures pratiques pour Azure Functions](functions-best-practices.md)
 * [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)
 * [Azure Functions triggers and bindings (Déclencheurs et liaisons Azure Functions)](functions-triggers-bindings.md)
+- Développement et débogage locaux avec [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) et [Eclipse](functions-create-maven-eclipse.md). 
 * [Débogage distant de Java Azure Functions avec Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Plug-in Maven pour Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) : simplifier la création de fonction via l’objectif `azure-functions:add`, et préparer un répertoire intermédiaire pour le [déploiement de fichier ZIP](deployment-zip-push.md).

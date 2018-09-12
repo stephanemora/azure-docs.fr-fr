@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: e7a63167285c06fdfe632e7d45d9fddd3cca7842
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2c8978cfba8fc56d4dbc565cb3a91c75d9d54679
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248520"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700193"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent-issues"></a>Résoudre les problèmes liés à Microsoft Azure Recovery Services Agent (MARS)
 ## <a name="recommended-steps"></a>Étapes recommandées
@@ -66,7 +66,10 @@ Procédez comme suit si vos sauvegardes planifiées ne se déclenchent pas autom
 <li>Double-cliquez sur la tâche « Microsoft-OnlineBackup » et accédez à l’onglet « Déclencheurs ».
 <li>Assurez-vous que l’état de la tâche est définie sur « Activé ». Si ce n’est pas le cas, cliquez sur « Modifier » et cochez la case « Activé »
 <li>Accédez à la section *Options de sécurité* de l’onglet *Général*
-<li>Assurez-vous que le compte d’utilisateur sélectionné pour l’exécution de la tâche est soit *SYSTEM* soit le groupe des administrateurs locaux sur le serveur > [!TIP]. Il est recommandé de redémarrer le serveur après avoir effectué les étapes ci-dessus pour vous assurer que les modifications apportées sont appliquées de manière cohérente
+<li>Assurez-vous que le compte d’utilisateur sélectionné pour l’exécution de la tâche est *SYSTÈME* ou le groupe Administrateurs locaux sur le serveur
+
+> [!TIP]
+> Nous vous recommandons de redémarrer le serveur après avoir suivi les étapes ci-dessus pour vous assurer que les modifications apportées ont été appliquées de manière cohérente
 
 
 ## <a name="troubleshooting-restore-issues"></a>Résolution des problèmes de restauration

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 7401355c7920729933d0fcc3dd4cc8ce610c399e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b51f0c1e0c6ef713bf8d3ff0a124300f446a9373
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199073"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306806"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Conseils sur la récupération d’urgence des données dans Azure Data Lake Store
 
-Azure Data Lake Store fournit un stockage localement redondant (LRS). Dès lors, les données de votre compte Azure Data Lake Store seront résistantes aux défaillances matérielles temporaires au sein d’une région par le biais des réplicas automatisés. Cela garantit durabilité et haute disponibilité et permet de respecter le contrat de niveau de service d’Azure Data Lake Store. Cet article donne des conseils sur la protection des données contre les rares pannes ou suppressions accidentelles qui peuvent se produire à l’échelle d’une région.
+Azure Data Lake Store fournit un stockage localement redondant (LRS). Dès lors, les données de votre compte Azure Data Lake Store seront résistantes aux défaillances matérielles temporaires au sein d’un centre de données grâce à des réplicas automatisés. Cela garantit durabilité et haute disponibilité et permet de respecter le contrat de niveau de service d’Azure Data Lake Store. Cet article donne des conseils sur la protection des données contre les rares pannes ou suppressions accidentelles qui peuvent se produire à l’échelle d’une région.
 
 ## <a name="disaster-recovery-guidance"></a>Guide de récupération d’urgence
 Il est essentiel que chaque client veille à élaborer son propre plan de récupération d’urgence. Pour générer votre plan de récupération d’urgence, lisez les formations contenues dans cet article. Voici quelques ressources qui peuvent vous aider à créer votre propre plan.

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091822"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286330"
 ---
 # <a name="sql-database-faq"></a>Forum Aux Questions de base de données SQL
 
@@ -22,8 +22,10 @@ ms.locfileid: "43091822"
 La version actuelle de la base de données SQL est la version 12. La version 11 a été retirée.
 
 ## <a name="what-is-the-sla-for-sql-database"></a>Quel est le contrat de niveau de service (SLA) de la base de données SQL ?
-Nous garantissons qu’au moins 99,99 % du temps, vous disposerez d’une connectivité entre Microsoft Azure SQL Database et notre passerelle Internet, quel que soit votre niveau de service. Pour plus d’informations, consultez [Contrat de niveau de service](http://azure.microsoft.com/support/legal/sla/).
+Nous garantissons qu’au moins 99,99 % du temps, vous disposerez d’une connectivité entre Microsoft Azure SQL Database et notre passerelle Internet, quel que soit votre niveau de service. 0,01 % est réservé pour les correctifs, les mises à niveau et les basculements. Pour plus d’informations, consultez [Contrat de niveau de service](http://azure.microsoft.com/support/legal/sla/). Pour plus d’informations sur l’architecture de disponibilité d’Azure SQL Database, voir [Haute disponibilité et Azure SQL Database](sql-database-high-availability.md). 
 
+## <a name="can-i-control-when-patching-downtime-occurs"></a>Puis-je contrôler le moment ou se produit le temps d’arrêt pour une mise à jour corrective ?
+Non. L’impact d’une mise à jour corrective est généralement imperceptible si vous [utilisez une logique de nouvelle tentative](sql-database-develop-overview.md#resiliency) dans votre application.
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Quel est le nouveau modèle d’achat basé sur des vCores d’Azure SQL Database ?
 
 Le nouveau modèle d’achat vient compléter le modèle basé sur des unités DTU existant. Le modèle d’achat basé sur des vCores est conçu pour offrir aux clients de la flexibilité, du contrôle et de la transparence. Il permet de traduire de manière simple les exigences des charges de travail locales vers le cloud. Il permet également aux clients de mettre à l’échelle les ressources de calcul et de stockage en fonction des besoins de leur charge de travail. Des options de pool élastique et de base de données unique utilisant le modèle basé sur des vCores permettent également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Pour plus d’informations, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md). 

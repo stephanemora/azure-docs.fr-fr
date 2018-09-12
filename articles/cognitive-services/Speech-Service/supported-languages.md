@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123152"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668578"
 ---
 # <a name="supported-languages-for-speech-service"></a>Langues prises en charge pour le service Speech
 
@@ -39,7 +39,7 @@ L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes
 
 ## <a name="text-to-speech"></a>Synthèse vocale
 
-L’API **Synthèse vocale** offre les voix suivantes, chacune d’elles prenant en charge une langue et un dialecte spécifiques, identifiés par les paramètres régionaux.
+L’API Synthèse vocale offre les voix suivantes, chacune d’elles prenant en charge une langue et un dialecte spécifiques, identifiés par les paramètres régionaux.
 
 Paramètres régionaux | Langage | Sexe | Mappage du nom du service
 -------|----------|---------|--------------------
@@ -128,13 +128,16 @@ zh-TW | Chinois (Taïwan)|Féminin | « Voix de synthèse vocale pour le service
 
 ### <a name="customization"></a>Personnalisation
 
-Les polices de la voix de **synthèse vocale** personnalisées prennent en charge l’anglais (États-Unis) (en-US) et le chinois (zh-CN).
+La personnalisation vocale est disponible pour l’anglais américain (en-US), le chinois continental (zh-CN) et l’italien (it-IT).
+
+> [!NOTE]
+> L’apprentissage de la voix italienne commence par un jeu de données de plus de 2 000 énoncés. Les modèles bilingues chinois-anglais sont également pris en charge avec un jeu de données initial de plus de 2 000 énoncés.
 
 ## <a name="speech-translation"></a>Traduction vocale
 
 L’API **Traduction vocale** prend en charge différentes langues pour la traduction de parole en parole et de parole en texte. La langue source doit toujours figurer dans le tableau des langues vocales ci-dessous. Les langues cibles disponibles dépendent selon que cible de la traduction est de la parole ou du texte.
 
-Vous pouvez obtenir la liste des langues soit par programmation, soit en utilisant le point de terminaison des langues de l’API REST. La liste fournit chaque code de langue, ainsi que le nom de la langue en anglais ou dans toute autre langue prise en charge. Cette liste est mise à jour par le service Microsoft Translator chaque fois qu’une nouvelle langue devient disponible.
+Vous pouvez obtenir la liste des langues par programmation en utilisant le point de terminaison des langues de l’API REST. La liste fournit chaque code de langue, ainsi que le nom de la langue en anglais ou dans toute autre langue prise en charge. Cette liste est mise à jour par le service Microsoft Translator chaque fois qu’une nouvelle langue devient disponible.
 
 ### <a name="speech-languages"></a>Langues de synthèse vocale
 

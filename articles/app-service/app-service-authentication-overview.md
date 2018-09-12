@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888098"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336802"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 
@@ -135,7 +135,7 @@ Cette option évite d’avoir à écrire du code d’authentification dans l’a
 
 L’option est **Autoriser les requêtes anonymes**. Cette option active l’authentification et l’autorisation dans App Service, mais délègue les décisions d’autorisation au code de l’application. Dans le cas des demandes authentifiées, App Service transmet également les informations d’authentification dans les en-têtes HTTP. 
 
-Cette option assure un traitement plus souple des requêtes anonymes. Par exemple, il permet de [présenter plusieurs options de connexion](app-service-authentication-how-to.md#configure-multiple-sign-in-options) aux utilisateurs. Elle implique toutefois d’écrire du code. 
+Cette option assure un traitement plus souple des requêtes anonymes. Par exemple, il permet de [présenter plusieurs fournisseurs de connexion](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aux utilisateurs. Vous devez cependant écrire du code. 
 
 ## <a name="more-resources"></a>Autres ressources
 

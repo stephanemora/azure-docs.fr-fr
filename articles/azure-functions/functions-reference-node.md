@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6099a818651cf75a75159f43748720b3eb01e4de
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005473"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287819"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -30,27 +30,28 @@ L’expérience JavaScript pour Azure Functions facilite l’exportation d’une
 Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md).
 
 ## <a name="exporting-a-function"></a>Exporter une fonction
-Toutes les fonctions JavaScript doivent exporter un seul `function` par le biais de `module.exports` pour que le runtime trouve la fonction et l’exécute. Cette fonction doit toujours inclure un objet `context` .
+Chaque fonction JavaScript doit exporter une seule `function` par le biais de `module.exports` pour que le runtime trouve la fonction et l’exécute. Cette fonction doit toujours prendre un objet `context` en tant que premier paramètre.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(context) {
-    // Additional inputs can be accessed by the arguments property
-    if(arguments.length === 4) {
-        context.log('This function has 4 inputs');
-    }
-};
-// or you can include additional inputs in your arguments
+// You must include a context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
+    context.done();
+};
+// You can also use 'arguments' to dynamically handle inputs
+module.exports = function(context) {
+    context.log('Number of inputs: ' + arguments.length);
+    // Iterates through trigger and input binding data
+    for (i = 1; i < arguments.length; i++){
+        context.log(arguments[i]);
+    }
+    context.done();
 };
 ```
 
-Les liaisons de `direction === "in"` sont transmises en tant qu’arguments de fonction, ce qui signifie que vous pouvez utiliser [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) pour gérer de manière dynamique les nouvelles entrées (par exemple, en utilisant `arguments.length` pour effectuer une itération sur toutes vos entrées). Cette fonctionnalité est pratique si vous ne disposez que d’un déclencheur sans entrée supplémentaire, dans la mesure où vous pouvez accéder de manière prévisible aux données de votre déclencheur sans faire référence à votre objet `context`.
+Les liaisons d’entrée et de déclencheur (liaisons de `direction === "in"`) peut être transmises à la fonction en tant que paramètres. Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json*. Vous pouvez gérer les entrées de manière dynamique en utilisant l’objet [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) JavaScript. Par exemple, si vous avez `function(context, a, b)` et le remplacez par `function(context, a)`, vous pouvez toujours obtenir la valeur `b` dans le code de fonction en faisant référence à `arguments[2]`.
 
-Les arguments sont toujours transmis à la fonction dans leur ordre d’apparition dans *function.json*, même si vous ne les spécifiez pas dans votre instruction d’exportation. Par exemple, si vous avez `function(context, a, b)` et le remplacez par `function(context, a)`, vous pouvez toujours obtenir la valeur `b` dans le code de fonction en faisant référence à `arguments[2]`.
-
-Toutes les liaisons, quelle que soit leur direction, sont également transmises sur l’objet `context` (voir le script ci-dessous). 
+Toutes les liaisons, quelle que soit leur direction, sont également transmises sur l’objet `context` à l’aide de la propriété `context.bindings`.
 
 ## <a name="context-object"></a>Objet de contexte
 Le runtime utilise un objet `context` pour transmettre des données vers et à partir de votre fonction et vous permettre de communiquer avec le runtime.
@@ -61,6 +62,7 @@ L’objet `context` est toujours le premier paramètre d’une fonction et doit 
 // You must include a context, but other arguments are optional
 module.exports = function(context) {
     // function logic goes here :)
+    context.done();
 };
 ```
 

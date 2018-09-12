@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: ac5073d1abc32b7598a869750f9c5a801559e9e6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 017ac3214046b812ce003ab7a190f2f2b3f4f2e2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264075"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697939"
 ---
 # <a name="update-the-sql-resource-provider"></a>Mettre à jour le fournisseur de ressources SQL
 
@@ -30,7 +30,7 @@ Un nouveau fournisseur de ressources SQL peut être publié lorsque le build Azu
 >[!IMPORTANT]
 >Vous devez installer les mises à jour dans l’ordre de leur publication. Vous ne pouvez pas ignorer les versions. Reportez-vous à la liste des versions dans [Déployer les conditions préalables du fournisseur de ressources](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour mettre à jour le fournisseur de ressources, utilisez le script *UpdateSQLProvider.ps1*. Le script est inclus avec le téléchargement du nouveau fournisseur de ressources SQL. Le processus de mise à jour est similaire au processus utilisé pour [déployer le fournisseur de ressources](.\azure-stack-sql-resource-provider-deploy.md). Le script de mise à jour utilise les mêmes arguments que le script DeploySqlProvider.ps1. Vous devrez fournir les informations de certificat.
 
@@ -105,6 +105,7 @@ Vous pouvez spécifier les paramètres suivants à partir de la ligne de command
 | **AzCredential** | Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack. | _Obligatoire_ |
 | **VMLocalCredential** | Informations d’identification du compte d’administrateur local de la machine virtuelle du fournisseur de ressources SQL. | _Obligatoire_ |
 | **PrivilegedEndpoint** | Adresse IP ou nom DNS du point de terminaison privilégié. |  _Obligatoire_ |
+| **AzureEnvironment** | L’environnement Azure du compte administrateur de service que vous avez utilisé pour déployer Azure Stack. Obligatoire uniquement s’il ne s’agit pas d’AD FS. Les noms d’environnement pris en charge sont **AzureCloud**, **AzureUSGovernment** ou, si vous utilisez Azure Active Directory en Chine, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Vous devez également placer le fichier de certificat .pfx dans ce répertoire. | _Facultatif pour un seul nœud, mais obligatoire pour plusieurs nœuds._ |
 | **DefaultSSLCertificatePassword** | Mot de passe pour le certificat .pfx. | _Obligatoire_ |
 | **MaxRetryCount** | Nombre de fois où vous souhaitez réessayer chaque opération en cas d’échec.| 2 |

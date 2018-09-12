@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: b888846056fd60f37cdb1da85904fa14ffe79a39
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 698f96b15a9387cd30d26e684ed03ff4cc3346a7
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369656"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697898"
 ---
 # <a name="data-sources"></a>Sources de données 
 QnA Maker peut extraire automatiquement des paires de question-réponse des formats de contenu semi-structuré courants, par exemple des foires aux questions et des manuels de produit. Le contenu peut également être ajouté à la base de connaissances à partir de fichiers structurés.
@@ -53,7 +53,7 @@ Les fichiers structurés du type .tsv, .xlsx avec colonnes de mise en forme peuv
 
 | Question  | Réponse  | Métadonnées                |
 |-----------|---------|-------------------------|
-| Question1 | Réponse1 | `Key1:Value1\|Key2:Value2` |
+| Question1 | Réponse1 | `Clé1:Valeur1|Clé2:Valeur2` |
 | Question2 | Réponse2 |      `Key:Value`           |
 Toutes les autres colonnes du fichier source sont ignorées.
 
@@ -62,7 +62,7 @@ L’importation d’une base de connaissances remplace le contenu de la base de 
 
 | Question  | Réponse  | Source| Métadonnées                |
 |-----------|---------|----|---------------------|
-| Question1 | Réponse1 | Url1|`Key1:Value1\|Key2:Value2` |
+| Question1 | Réponse1 | Url1|`Clé1:Valeur1|Clé2:Valeur2` |
 | Question2 | Réponse2 | Éditorial|    `Key:Value`       |
 
 ## <a name="editorial"></a>Éditorial

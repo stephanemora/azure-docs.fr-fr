@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c2fc3bcba4b685fba36683f89c0b6ad877dbb1d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0668eb33fe33b062c941ec4f2bff47c5ed77fb51
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595136"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287882"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect Sync : meilleures pratiques pour modifier la configuration par défaut
 L’objectif de cette rubrique est de décrire les modifications prises en charge et celles qui ne sont pas prises en charge pour Azure AD Connect Sync.
@@ -37,6 +37,9 @@ Azure AD Connect Sync s’exécute sous un compte de service créé par l’Assi
 
 ## <a name="changes-to-synchronization-rules"></a>Modifications apportées aux règles de synchronisation
 L'Assistant d’installation fournit une configuration qui est censée fonctionner pour les scénarios les plus courants. Au cas où vous devez apporter des modifications à la configuration, vous devez suivre ces règles pour toujours avoir une configuration prise en charge.
+
+> [!WARNING]
+> Si vous apportez des modifications aux règles de synchronisation par défaut, ces modifications seront remplacées lors de la prochaine mise à jour d’Azure AD Connect, entraînant des résultats de synchronisation inattendus et probablement indésirables.
 
 * Vous pouvez [modifier le flux d’attributs](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) si le flux des attributs directs par défaut ne convient pas à votre organisation.
 * Si vous ne souhaitez [pas transférer un attribut](active-directory-aadconnectsync-change-the-configuration.md#do-not-flow-an-attribute) et voulez supprimer des valeurs d’attribut d’Azure AD existantes, vous devez créer une règle pour ce scénario.

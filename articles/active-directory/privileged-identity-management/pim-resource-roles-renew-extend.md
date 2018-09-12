@@ -1,6 +1,6 @@
 ---
-title: Étendre ou renouveler des rôles de ressources Azure dans PIM | Microsoft Docs
-description: Découvrez comment étendre ou renouveler des rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
+title: Étendre ou renouveler des affectations de rôles de ressources Azure dans PIM | Microsoft Docs
+description: Découvrez comment étendre ou renouveler des affectations de rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3294bddea867e061d01e8dc72f4e47f3238b6c4d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189648"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344083"
 ---
-# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>Étendre ou renouveler des rôles de ressources Azure dans PIM
+# <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Étendre ou renouveler des affectations de rôles de ressources Azure dans PIM
 
 Privileged Identity Management (PIM) pour les ressources Azure propose de nouveaux contrôles permettant de gérer le cycle de vie d’accès et d’attribution des ressources Azure. Les administrateurs peuvent attribuer une appartenance à l’aide de propriétés de date et d’heure de début et de fin. À l’approche de la fin de l’attribution, PIM envoie des notifications par e-mail aux utilisateurs ou aux groupes concernés, ainsi qu’aux administrateurs de la ressource pour garantir le maintien de l’accès approprié. Les attributions peuvent être renouvelées et rester visibles à l’état expiré pendant 30 jours, même si l’accès n’est pas étendu.
 

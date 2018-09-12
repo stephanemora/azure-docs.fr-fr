@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858804"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696817"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions
 
@@ -22,7 +22,7 @@ L’informatique sans serveur permet de se concentrer sur des éléments de logi
 
 Grâce à l’intégration native entre [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) et Azure Functions, vous pouvez créer des déclencheurs de base de données, des liaisons d’entrée et des liaisons de sortie directement à partir de votre compte Azure Cosmos DB. À l’aide d’Azure Functions et d’Azure Cosmos DB, vous pouvez créer et déployer des applications sans serveur basées sur les événements avec un accès à faible latence aux données enrichies pour une base d’utilisateurs globale.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Azure Cosmos DB et Azure Functions permettent d’intégrer vos bases de données et applications sans serveur comme suit :
 
@@ -31,7 +31,7 @@ Azure Cosmos DB et Azure Functions permettent d’intégrer vos bases de donnée
 * Liez une fonction à un conteneur Azure Cosmos DB à l’aide d’une **liaison de sortie**. Les liaisons de sortie écrivent des données dans un conteneur après l’exécution d’une fonction.
 
 > [!NOTE]
-> À l’heure actuelle, le déclencheur Azure Cosmos DB, les liaisons d’entrée et les liaisons de sortie fonctionnent uniquement avec les comptes d’API SQL et d’API Graph.
+> À l’heure actuelle, le déclencheur Azure Cosmos DB, les liaisons d’entrée et les liaisons de sortie fonctionnent uniquement avec les comptes d’API SQL et d’API Gremlin.
 
 Le diagramme suivant illustre chacune de ces trois intégrations : 
 
@@ -82,7 +82,7 @@ Les illustrations suivantes montrent le code dans le portail Azure pour ce scén
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Cas d’usage de gaming - Déclencheur Azure Cosmos DB et liaison de sortie
 
-Dans le gaming, lorsqu’un nouvel utilisateur est créé, vous pouvez rechercher d’autres utilisateurs que vous connaissez peut-être à l’aide de l’[API Graph Azure Cosmos DB](graph-introduction.md). Vous pouvez ensuite écrire les résultats dans une [base de données SQL Azure Cosmos DB] pour faciliter leur récupération.
+En matière de gaming, quand un utilisateur est créé, vous pouvez rechercher d’autres utilisateurs que vous connaissez peut-être à l’aide de l’[API Gremlin Azure Cosmos DB](graph-introduction.md). Vous pouvez ensuite écrire les résultats dans une [base de données SQL Azure Cosmos DB] pour faciliter leur récupération.
 
 **Implémentation :** Utiliser un déclencheur Azure Cosmos DB et une liaison de sortie
 

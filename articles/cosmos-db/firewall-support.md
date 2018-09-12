@@ -3,20 +3,20 @@ title: Prise en charge du pare-feu Azure Cosmos DB et contrôle d’accès IP�
 description: Découvrez comment utiliser les stratégies de contrôle d’accès IP pour la prise en charge du pare-feu dans les comptes de base de données Azure Cosmos DB.
 keywords: contrôle d’accès IP, prise en charge du pare-feu
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
-ms.author: sngun
-ms.openlocfilehash: e67fc5e00a638f116a69dbb36c60cf183cbde808
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: govindk
+ms.openlocfilehash: b21debdd6baa0a6587318ad861a821840ec6879c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857828"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666695"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Prise en charge du pare-feu Azure Cosmos DB
 Pour sécuriser les données stockées dans un compte de base de données Azure Cosmos DB, Azure Cosmos DB assure la prise en charge d’un [modèle d’autorisation](https://msdn.microsoft.com/library/azure/dn783368.aspx) basé sur une clé secrète, qui utilise un code d’authentification de message basé sur le hachage (HMAC) à forte intégrité. Outre le modèle d’autorisations basé sur un secret, Azure Cosmos DB prend désormais en charge les contrôles d’accès basés sur une stratégie IP pour la prise en charge du pare-feu entrant. Ce modèle est semblable aux règles de pare-feu d’un système de base de données classique et renforce la sécurité du compte de base de données Azure Cosmos DB. Avec ce modèle, vous pouvez désormais configurer un compte de base de données Azure Cosmos DB pour qu’il soit accessible uniquement à partir d’un ensemble d’ordinateurs et/ou de services cloud approuvés. L’accès aux ressources Azure Cosmos DB à partir de ces ensembles d’ordinateurs et de services approuvés nécessite toujours que l’appelant présente un jeton d’autorisation valide.
@@ -57,7 +57,12 @@ L’accès au Portail Azure est activé par défaut lorsque vous modifiez le par
 ![Capture d’écran montrant comment activer l’accès au Portail Azure](./media/firewall-support/enable-azure-portal.png)
 
 ## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Connexions à partir de centres de données Azure ou de services PaaS Azure internationaux
-Dans Azure, les services PaaS tels qu’Azure Stream Analytics, Azure Functions et Azure App Service sont utilisés conjointement avec Azure Cosmos DB. Pour autoriser l’accès au compte de base de données Azure Cosmos DB à partir de ces services dont les adresses IP ne sont pas facilement utilisables, ajoutez l’adresse IP 0.0.0.0 à la liste autorisée des adresses IP associées à votre compte de base de données Azure Cosmos DB par programmation. 
+
+Des services Azure PaaS tels qu’Azure Stream Analytics et Azure Functions sont utilisés conjointement avec Azure Cosmos DB. Pour autoriser des applications d’autres services Azure PaaS à se connecter à vos ressources Azure Cosmos DB, un paramètre de pare-feu doit être activé. Pour activer ce paramètre de pare-feu, ajoutez l’adresse IP 0.0.0.0 à la liste des adresses IP autorisées. L’adresse IP 0.0.0.0 restreint les connexions au compte Azure Cosmos DB à la plage d’adresses IP du centre de données Azure. Ce paramètre n’autorise pas l’accès au compte Azure Cosmos DB à partir d’autres plages d’adresses IP.
+
+> [!IMPORTANT]
+> Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Lorsque vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
+> 
 
 L’accès aux connexions à partir de centres de données Azure internationaux est activé par défaut lorsque vous modifiez le paramètre du Pare-feu par **Réseaux sélectionnés** dans le Portail Azure. 
 

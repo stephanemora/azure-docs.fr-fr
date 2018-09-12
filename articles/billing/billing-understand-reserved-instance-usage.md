@@ -1,5 +1,5 @@
 ---
-title: Comprendre l’utilisation d’une réservation Azure pour un abonnement avec paiement à l’utilisation | Microsoft Docs
+title: Comprendre l’utilisation de réservations Azure pour un abonnement avec paiement à l’utilisation | Microsoft Docs
 description: Découvrez comment analyser votre utilisation pour comprendre l’application de la réservation Azure à votre abonnement avec paiement à l’utilisation.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1226b2f73d556da2ff7d73f6f322e0bd1590f915
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627881"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307056"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation
 
@@ -93,14 +93,14 @@ Filtrez les données sur **Informations supplémentaires**, puis tapez votre **I
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les réservations, consultez les articles suivants :
+Pour plus d’informations sur les réservations Azure, voir les articles suivants :
 
-- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
+- [Que sont les réservations Azure ?](billing-save-compute-costs-reservations.md)
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Gérer les réservations dans Azure](billing-manage-reserved-vm-instance.md)
+- [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)
 - [Comprendre comment la remise de réservation est appliquée](billing-understand-vm-reservation-charges.md)
-- [Comprendre l’utilisation des réservations pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
+- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](billing-understand-reserved-instance-usage-ea.md)
 - [Coûts des logiciels Windows non inclus dans les réservations](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique

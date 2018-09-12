@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2c6cdcd5d8d50a54a87e3dabd2aa09eccc646738
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144033"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287661"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
 
@@ -71,7 +71,7 @@ Managed Instance est disponible en deux niveaux de service :
 - **Usage général** : conçu pour des applications avec des exigences de performances et de latence d’E/S standard.
 - **Critique pour l’entreprise** : conçu pour les applications avec des exigences de latence d’E/S faible et un impact minimal des opérations de maintenance sous-jacentes sur la charge de travail.
 
-Les deux niveaux de service garantissent une disponibilité de 99,99 % et vous permettent de sélectionner la taille de stockage et la capacité de calcul indépendamment. 
+Les deux niveaux de service garantissent une disponibilité de 99,99 % et vous permettent de sélectionner la taille de stockage et la capacité de calcul indépendamment. Pour plus d’informations sur l’architecture à haute disponibilité d’Azure SQL Database, voir [Haute disponibilité et Azure SQL Database](sql-database-high-availability.md).
 
 > [!IMPORTANT]
 > Le changement de niveau de service de Usage général à Critique pour l’entreprise, ou inversement n’est pas pris en charge dans la Préversion publique. Si vous souhaitez migrer vos bases de données vers une instance d’un autre niveau de service, vous pouvez créer une instance, restaurer les bases de données avec limite de restauration dans le temps à partir de l’instance d’origine, puis abandonner celle-ci si elle n’est plus nécessaire. 
@@ -97,7 +97,7 @@ La liste suivante décrit les principales caractéristiques du niveau de service
 | Nombre de fichiers de données (ROWS) par base de données | Multiple | 
 | Nombre de fichiers journaux (LOG) par base de données | 1 | 
 | Sauvegardes automatisées gérées | Oui |
-| Haute disponibilité | Selon le stockage étendu et [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| Haute disponibilité | Données stockées dans Stockage Azure et [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Analyse et métriques des instances et bases de données intégrées | Oui |
 | Mise à jour corrective automatique des logiciels | Oui |
 | Réseau virtuel - Déploiement Azure Resource Manager | Oui |
@@ -131,7 +131,7 @@ La liste suivante décrit les principales caractéristiques du niveau de service
 | Nombre de fichiers de données (ROWS) par base de données | Multiple | 
 | Nombre de fichiers journaux (LOG) par base de données | 1 | 
 | Sauvegardes automatisées gérées | Oui |
-| Haute disponibilité | Basé sur des [groupes de disponibilité Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) et [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| Haute disponibilité | Données stockées sur disque SSD local qui utilisent des [groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) et [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Analyse et métriques des instances et bases de données intégrées | Oui |
 | Mise à jour corrective automatique des logiciels | Oui |
 | Réseau virtuel - Déploiement Azure Resource Manager | Oui |

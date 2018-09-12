@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: fa4005d1f09a2e0abca1e0083603d4335fb023c9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902919"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701012"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 Cet article décrit les différents types de sorties disponibles pour un travail Azure Stream Analytics. Les sorties permettent de stocker et d’enregistrer les résultats du travail Stream Analytics. Vous pouvez utiliser ces données pour aller plus loin dans l’analyse marketing et l’entreposage de vos données. 
 
 Lorsque vous concevez votre requête Stream Analytics, faites référence au nom de la sortie à l’aide de la [clause INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). Vous pouvez utiliser une seule sortie par travail, ou si nécessaire plusieurs sorties par travail de diffusion en continu en ajoutant plusieurs clauses INTO dans la requête.
 
-Pour créer, modifier et tester des sorties de travaux Stream Analytics, vous pouvez utiliser le [Portail Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [l’API .NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [l’API REST](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output) et [Visual Studio](stream-analytics-tools-for-visual-studio.md).
+Pour créer, modifier et tester des sorties de travaux Stream Analytics, vous pouvez utiliser le [Portail Azure](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [l’API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [l’API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) et [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Certains types de sorties prennent en charge le [partitionnement](#partitioning), et les [tailles de lots de sortie](#output-batch-size) varient afin d’optimiser le débit.
 
@@ -296,15 +296,15 @@ Le tableau suivant récapitule la prise en charge de la partition et le nombre d
 
 | Type de sortie | Prise en charge du partitionnement | Clé de partition  | Nombre de générateurs de sortie | 
 | --- | --- | --- | --- |
-| Azure Data Lake Store | OUI | Utilisez les jetons {date} et {time} dans le modèle de préfixe du chemin. Choisissez le format de date, par exemple, AAAA/MM/JJ, JJ/MM/AAAA, MM-JJ-AAAA. HH est utilisé pour le format de l’heure. | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). | 
+| Azure Data Lake Store | Oui | Utilisez les jetons {date} et {time} dans le modèle de préfixe du chemin. Choisissez le format de date, par exemple, AAAA/MM/JJ, JJ/MM/AAAA, MM-JJ-AAAA. HH est utilisé pour le format de l’heure. | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | Non  | Aucun | Non applicable. | 
-| Stockage d'objets blob Azure | OUI | Utilisez les jetons {date} et {time} de vos champs d’événement dans le modèle de chemin. Choisissez le format de date, par exemple, AAAA/MM/JJ, JJ/MM/AAAA, MM-JJ-AAAA. HH est utilisé pour le format de l’heure. Dans le cadre de la [préversion](https://aka.ms/ASAPreview), la sortie d’objet blob peut être partitionnée par un seul attribut d’événement personnalisé {fieldname} ou par {datetime:\<specifier>}. | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). | 
-| Azure Event Hub | OUI | OUI | Dépend de l’alignement des partitions.</br> Lorsque la clé de partition Event Hub de sortie s’aligne parfaitement avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions Event Hub de sortie. Chaque enregistreur utilise la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) d’EventHub pour envoyer des événements à la partition concernée. </br> Lorsque la clé de partition Event Hub de sortie ne s’aligne pas avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions de cette précédente étape. Chaque enregistreur utilise la [classe SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) d’EventHubClient pour envoyer des événements à toutes les partitions de sortie. |
+| Stockage d'objets blob Azure | Oui | Utilisez les jetons {date} et {time} de vos champs d’événement dans le modèle de chemin. Choisissez le format de date, par exemple, AAAA/MM/JJ, JJ/MM/AAAA, MM-JJ-AAAA. HH est utilisé pour le format de l’heure. Dans le cadre de la [préversion](https://aka.ms/ASAPreview), la sortie d’objet blob peut être partitionnée par un seul attribut d’événement personnalisé {fieldname} ou par {datetime:\<specifier>}. | Suit le partitionnement d’entrée des [requêtes entièrement parallélisables](stream-analytics-scale-jobs.md). | 
+| Azure Event Hub | Oui | Oui | Dépend de l’alignement des partitions.</br> Lorsque la clé de partition Event Hub de sortie s’aligne parfaitement avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions Event Hub de sortie. Chaque enregistreur utilise la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) d’EventHub pour envoyer des événements à la partition concernée. </br> Lorsque la clé de partition Event Hub de sortie ne s’aligne pas avec l’étape de requête (précédente) en amont, le nombre d’enregistreurs est égal au nombre de partitions de cette précédente étape. Chaque enregistreur utilise la [classe SendBatchAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) d’EventHubClient pour envoyer des événements à toutes les partitions de sortie. |
 | Power BI | Non  | Aucun | Non applicable. | 
-| Stockage de tables Azure | OUI | N’importe quelle colonne de sortie.  | Suit le partitionnement d’entrée des [requêtes entièrement mises en parallèle ](stream-analytics-scale-jobs.md). | 
-| Rubrique Azure Service Bus | OUI | Choisi automatiquement. Le nombre de partitions est basé sur la [référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.| Égal au nombre de partitions de la rubrique de sortie.  |
-| File d’attente Azure Service Bus | OUI | Choisi automatiquement. Le nombre de partitions est basé sur la [référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.| Égal au nombre de partitions de la file d’attente de sortie. |
-| Azure Cosmos DB | OUI | Utilisez le jeton {partition} dans le modèle de nom de collection. La valeur de {partition} est basée sur la clause PARTITION BY dans la requête. | Suit le partitionnement d’entrée des [requêtes entièrement mises en parallèle ](stream-analytics-scale-jobs.md). |
+| Stockage de tables Azure | Oui | N’importe quelle colonne de sortie.  | Suit le partitionnement d’entrée des [requêtes entièrement mises en parallèle ](stream-analytics-scale-jobs.md). | 
+| Rubrique Azure Service Bus | Oui | Choisi automatiquement. Le nombre de partitions est basé sur la [référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.| Égal au nombre de partitions de la rubrique de sortie.  |
+| File d’attente Azure Service Bus | Oui | Choisi automatiquement. Le nombre de partitions est basé sur la [référence Service Bus et sa taille](../service-bus-messaging/service-bus-partitioning.md). La clé de partition est une valeur entière unique pour chaque partition.| Égal au nombre de partitions de la file d’attente de sortie. |
+| Azure Cosmos DB | Oui | Utilisez le jeton {partition} dans le modèle de nom de collection. La valeur de {partition} est basée sur la clause PARTITION BY dans la requête. | Suit le partitionnement d’entrée des [requêtes entièrement mises en parallèle ](stream-analytics-scale-jobs.md). |
 | Azure Functions | Non  | Aucun | Non applicable. | 
 
 ## <a name="output-batch-size"></a>Taille de lot de sortie

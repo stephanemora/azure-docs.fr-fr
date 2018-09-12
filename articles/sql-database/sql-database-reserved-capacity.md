@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 1d1cad4b614eb35be9235a721368db8048be050a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fcb7f2c1bb3e1653b9f8112abc0effaddc45fa54
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632217"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306467"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
 
@@ -65,12 +65,13 @@ La remise de réservation vCore est appliquée automatiquement au nombre d’ins
 
 Pour savoir comment gérer la réservation de capacité réservée SQL Database, consultez [Gérer la capacité réservée SQL Database](../billing/billing-manage-reserved-vm-instance.md).
 
-Pour plus d’informations sur la réservation Azure, consultez les articles suivants :
+Pour plus d’informations sur les réservations Azure, voir les articles suivants :
 
 - [Qu’est-ce qu’une réservation Azure ?](../billing/billing-save-compute-costs-reservations.md)
 - [Gérer les réservations Azure](../billing/billing-manage-reserved-vm-instance.md)
-- [Comprendre l’usage d’une réservation pour votre abonnement avec paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)
-- [Comprendre l’usage d’une réservation pour votre inscription d’entreprise](../billing/billing-understand-reserved-instance-usage-ea.md)
+- [Comprendre la remise sur réservation Azure](../billing/billing-understand-reservation-charges.md)
+- [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)
+- [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Réservations Azure dans le cadre du programme Fournisseur de solutions Microsoft Cloud de l’Espace partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeedes
-ms.openlocfilehash: f860036f1a69b2d1ab6ac8de763a49380f8fe4bf
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3a394c13092547991bf7f8ae98e5c69e92077701
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141476"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344782"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Didacticiel : Intégration d’Azure Active Directory à YouEarnedIt
 
@@ -34,7 +34,7 @@ L’intégration d’YouEarnedIt à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration de YouEarnedIt à Azure AD, vous avez besoin des éléments suivants :
 
@@ -139,7 +139,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configuration de YouEarnedIt](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. Pour configurer l’authentification unique côté **YouEarnedIt**, vous devez envoyer le **Certificat (Base64)** téléchargé et **l’URL du service d’authentification unique SAML** au responsable de la réussite des clients YouEarnedIt qui vous a été attribué. Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+7. Pour configurer l’authentification unique côté **YouEarnedIt**, vous devez envoyer le ***Certificat (Base64)*** téléchargé et l’***URL du service d’authentification unique SAML*** au responsable de la réussite des clients **YouEarnedIt** qui vous a été attribué. Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

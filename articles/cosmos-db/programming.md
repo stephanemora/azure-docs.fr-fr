@@ -10,24 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142902"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287442"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmation Azure Cosmos DB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
 
 Découvrez comment l’exécution transactionnelle de JavaScript intégrée au langage d’Azure Cosmos DB permet aux développeurs d’écrire des **procédures stockées**, des **déclencheurs** et des **fonctions définies par l’utilisateur (FDU)** en mode natif dans une version [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/) pour JavaScript. L’intégration avec JavaScript vous permet d’écrire une logique de programme qui peut être expédiée et exécutée directement dans les partitions de stockage de base de données. 
 
-Nous vous recommandons de commencer par regarder la vidéo suivante, dans laquelle Andrew Liu présente le modèle de programmation de base de données côté serveur d’Azure Cosmos DB. 
-
-> [!VIDEO https://www.youtube.com/embed/s0cXdHNlVI0]
->
-> 
-
-Ensuite, revenez à cet article dans lequel vous découvrirez les réponses aux questions suivantes :  
+Dans cet article, vous allez découvrir les réponses aux questions suivantes :  
 
 * Comment écrire une procédure stockée, un déclencheur ou une fonction définie par l'utilisateur à l'aide de JavaScript ?
 * Comment Azure Cosmos DB offre-il une garantie ACID ?

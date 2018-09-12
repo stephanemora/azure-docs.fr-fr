@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-ms.openlocfilehash: ddeaf184138bd48d324799ddb45248b0a0ee8eeb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 14e6e8bb723eb236f8fb315454b8697a3bd947ef
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30174971"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286425"
 ---
 # <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Accorder à plusieurs applications l'autorisation d'accéder à un coffre de clés
 
-## <a name="q-i-have-several-over-16-applications-that-need-to-access-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>Q : Je possède plusieurs applications (plus de 16) qui nécessitent un accès à un coffre de clés. Étant donné que le coffre de clés Key Vault n'autorise que 16 entrées de contrôle d’accès, comment dois-je procéder ?
+## <a name="q-i-have-several-applications-that-need-to-access-a-key-vault-how-can-i-give-these-applications-up-to-1024-access-to-key-vault"></a>Q : J’ai plusieurs applications qui doivent accéder à un coffre de clés. Comment permettre à ces applications (jusqu’à 1 024) d’accéder au coffre de clés ?
 
-La stratégie de contrôle d’accès Key Vault prend uniquement en charge 16 entrées. Mais vous pouvez créer un groupe de sécurité Azure Active Directory. Ajoutez tous les principaux du service associés à ce groupe de sécurité et accordez à ce groupe de sécurité l'accès à Key Vault.
+La stratégie de contrôle d’accès d’Azure Key Vault prend en charge jusqu’à 1 024 entrées. Mais vous pouvez créer un groupe de sécurité Azure Active Directory. Ajoutez tous les principaux du service associés à ce groupe de sécurité et accordez à ce groupe de sécurité l'accès à Key Vault.
 
 Voici les conditions préalables requises :
 * [Installez le module Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureAD).

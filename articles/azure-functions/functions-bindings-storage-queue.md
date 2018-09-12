@@ -4,7 +4,7 @@ description: Comprendre comment utiliser la liaison de sortie et le déclencheur
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/23/2017
+ms.date: 09/03/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e034d6c57c619ea74003f531d3309f7da17210b0
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 996a53751d6b8c6dd06084da371badb0c31d367f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140699"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667517"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Liaisons de stockage File d’attente Azure pour Azure Functions
 
@@ -35,13 +35,13 @@ Les liaisons du Stockage File d’attente sont fournies dans le package NuGet [M
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## <a name="packages---functions-2x"></a>Packages - Functions 2.x
 
-Les liaisons du Stockage File d’attente sont fournies dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Queue).
+Les liaisons du Stockage File d’attente sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues).
 
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Déclencheur
 
@@ -447,7 +447,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---java-example"></a>Sortie - exemple Java
+### <a name="output---java-example"></a>Sortie : exemple Java
 
  L’exemple ci-après présente une fonction Java qui crée un message de file d’attente en cas de déclenchement par une requête HTTP.
 
@@ -463,7 +463,7 @@ module.exports = function(context) {
  }
  ```
 
-Dans la [bibliothèque runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres dont la valeur serait écrite dans Stockage File d’attente.  Le paramètre doit être de type `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
+Dans la [bibliothèque runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres dont la valeur serait écrite dans Stockage File d’attente.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
 
 
 ## <a name="output---attributes"></a>Sortie - attributs

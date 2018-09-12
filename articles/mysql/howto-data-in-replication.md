@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294419"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667155"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Comment configurer Azure Database pour MySQL pour la réplication de données entrantes MySQL
 
-Dans cet article, vous allez apprendre à configurer la réplication de données entrantes dans le service Azure Database pour MySQL en configurant les serveurs réplicas et principaux. La réplication des données entrantes permet de synchroniser les données provenant d’un serveur MySQL principal qui s’exécute en local, dans des machines virtuelles ou des services de base de données hébergés par d’autres fournisseurs cloud, dans un réplica du service Azure Database pour MySQL. 
+Dans cet article, vous allez apprendre à configurer la réplication des données entrantes dans le service Azure Database pour MySQL en configurant les serveurs réplica et maître. La réplication des données entrantes permet de synchroniser les données provenant d’un serveur MySQL maître qui s’exécute en local, dans des machines virtuelles ou des services de base de données hébergés par d’autres fournisseurs cloud dans un réplica au sein du service Azure Database pour MySQL. 
 
 Cet article suppose que vous ayez déjà utilisé les serveurs et base de données MySQL.
 
@@ -34,14 +34,14 @@ Cet article suppose que vous ayez déjà utilisé les serveurs et base de donné
 
 2. Créer les mêmes comptes d’utilisateur et les privilèges correspondants
 
-   Les comptes d’utilisateurs ne sont pas répliqués à partir du serveur principal vers le serveur réplica. Si vous prévoyez de fournir aux utilisateurs un accès au serveur réplica, vous devez créer manuellement tous les comptes et privilèges correspondants sur ce nouveau serveur Azure Database pour MySQL.
+   Les comptes d’utilisateur ne sont pas répliqués à partir du serveur maître vers le serveur réplica. Si vous prévoyez de fournir aux utilisateurs un accès au serveur réplica, vous devez créer manuellement tous les comptes et privilèges correspondants sur ce nouveau serveur Azure Database pour MySQL.
 
-## <a name="configure-the-primary-server"></a>Configurer le serveur principal
-Les étapes suivantes servent à préparer et à configurer le serveur MySQL hébergé localement, dans une machine virtuelle ou par un service de base de données hébergé par d’autres fournisseurs de cloud pour la réplication de données entrantes. Ce serveur est le serveur « principal » dans la réplication de données entrantes. 
+## <a name="configure-the-master-server"></a>Configurer le serveur maître
+Les étapes suivantes servent à préparer et à configurer le serveur MySQL hébergé localement, dans une machine virtuelle ou par un service de base de données hébergé par d’autres fournisseurs de cloud pour la réplication de données entrantes. Ce serveur est le « maître » dans la réplication de données entrantes. 
 
 1. Activer la journalisation binaire
 
-   Vérifiez si la journalisation binaire a été activée sur le serveur principal en exécutant la commande suivante : 
+   Vérifiez si la journalisation binaire a été activée sur le serveur maître en exécutant la commande suivante : 
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
@@ -51,9 +51,9 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
    Si `log_bin` est renvoyé avec la valeur « OFF », activez la journalisation binaire en modifiant votre fichier my.cnf ainsi que `log_bin=ON` et redémarrez le serveur pour que la modification prenne effet.
 
-2. Paramètres du serveur principal
+2. Paramètres du serveur maître
 
-   La réplication de données entrantes requiert que le paramètre `lower_case_table_names` soit cohérent entre les serveurs principaux et réplica. Par défaut, ce paramètre est 1 dans Azure Database pour MySQL. 
+   La réplication des données entrantes requiert que le paramètre `lower_case_table_names` soit cohérent entre les serveurs maître et réplica. Par défaut, ce paramètre est 1 dans Azure Database pour MySQL. 
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
@@ -61,9 +61,9 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
 3. Créer un nouveau rôle de réplication et définir une autorisation
 
-   Créer un compte d’utilisateur sur le serveur principal configuré avec des privilèges de réplication. Cela est possible via des commandes SQL ou un outil tel que MySQL Workbench. Si vous prévoyez une réplication avec SSL, cela doit être spécifié lors de la création de l’utilisateur. Reportez-vous à la documentation MySQL pour comprendre comment [ajouter des comptes d’utilisateur](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) sur votre serveur principal. 
+   Créez un compte d’utilisateur sur le serveur maître configuré avec des privilèges de réplication. Cela est possible via des commandes SQL ou un outil tel que MySQL Workbench. Si vous prévoyez une réplication avec SSL, cela doit être spécifié lors de la création de l’utilisateur. Pour comprendre comment [ajouter des comptes d’utilisateur](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) sur votre serveur maître, reportez-vous à la documentation MySQL. 
 
-   Dans les commandes ci-dessous, le nouveau rôle de réplication créé peut accéder au serveur principal à partir de n’importe quelle machine, et pas seulement de celle qui héberge le serveur principal lui-même. Cela s’effectue en spécifiant « syncuser@’%’ » dans la commande de création d’un utilisateur. Consultez la documentation MySQL pour en savoir plus sur la [définition des noms de compte](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
+   Dans les commandes ci-dessous, le nouveau rôle de réplication créé peut accéder au serveur maître à partir de n’importe quelle machine, et pas seulement de celle qui héberge le serveur maître. Cela s’effectue en spécifiant « syncuser@’%’ » dans la commande de création d’un utilisateur. Consultez la documentation MySQL pour en savoir plus sur la [définition des noms de compte](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
    **Commande SQL**
 
@@ -100,9 +100,9 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
    ![Subordonné de réplication](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Définir le serveur principal sur le mode lecture seule
+4. Définir le serveur maître en mode en lecture seule
 
-   Avant de commencer à vider la base de données, le serveur doit être placé en mode lecture seule. En mode lecture seule, le serveur principal ne pourra pas traiter toutes les transactions d’écriture. Évaluer l’impact sur votre entreprise et planifiez la fenêtre de lecture seule lors d’une période creuse, si nécessaire.
+   Avant de commencer à vider la base de données, le serveur doit être placé en mode lecture seule. En mode lecture seule, le serveur maître ne peut traiter aucune transaction d’écriture. Évaluer l’impact sur votre entreprise et planifiez la fenêtre de lecture seule lors d’une période creuse, si nécessaire.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
@@ -120,15 +120,15 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
    ![Résultats de l’état récapitulatif](./media/howto-data-in-replication/masterstatus.png)
  
-## <a name="dump-and-restore-primary-server"></a>Vider et restaurer le serveur principal
+## <a name="dump-and-restore-master-server"></a>Vider et restaurer le serveur maître
 
-1. Vider de toutes les bases de données à partir du serveur principal
+1. Vider toutes les bases de données du serveur maître
 
-   Vous pouvez utiliser mysqldump pour vider les bases de données à partir de votre serveur principal. Pour plus d’informations, reportez-vous à [Dump & Restore](concepts-migrate-dump-restore.md) (Vider et restaurer). Il n’est pas nécessaire de vider les bibliothèques MySQL et de test.
+   Vous pouvez utiliser mysqldump pour vider les bases de données de votre serveur maître. Pour plus d’informations, reportez-vous à [Dump & Restore](concepts-migrate-dump-restore.md) (Vider et restaurer). Il n’est pas nécessaire de vider les bibliothèques MySQL et de test.
 
-2. Définir le serveur principal en mode de lecture/écriture
+2. Définir le serveur maître en mode lecture/écriture
 
-   Une fois que la base de données a été vidée, repassez le serveur MySQL principal en mode de lecture/écriture.
+   Une fois la base de données vidée, remettez le serveur MySQL maître en mode de lecture/écriture.
 
    ```sql
    SET GLOBAL read_only = OFF;
@@ -139,21 +139,21 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
    Restaurez le fichier de vidage sur le serveur créé dans le service Azure Database pour MySQL. Reportez-vous à [Dump & Restore](concepts-migrate-dump-restore.md) (Vider et restaurer) pour savoir comment restaurer un fichier de vidage sur un serveur MySQL. Si le fichier de vidage est volumineux, transférez-le vers une machine virtuelle dans Azure au sein de la même région que votre serveur réplica. Restaurez-le sur le serveur Azure Database pour MySQL à partir de la machine virtuelle.
 
-## <a name="link-primary-and-replica-servers-to-start-data-in-replication"></a>Lier des serveurs principaux et réplicas pour démarrer la réplication de données entrantes
+## <a name="link-master-and-replica-servers-to-start-data-in-replication"></a>Lier les serveurs maître et réplica pour démarrer la réplication des données entrantes
 
-1. Définir le serveur principal
+1. Définir un serveur maître
 
    Toutes les fonctions de réplication de données entrantes sont effectuées par des procédures stockées. Vous trouverez toutes les procédures dans [Data-in Replication Stored Procedures](reference-data-in-stored-procedures.md) (Procédures stockées de réplication de données entrantes). Les procédures stockées peuvent être exécutées dans l’interpréteur de commandes MySQL ou MySQL Workbench. 
 
-   Pour lier deux serveurs et démarrer la réplication, connectez-vous au serveur réplica cible dans la base de données Azure pour le service MySQL et définissez l’instance externe comme serveur principal. Pour ce faire, utilisez la procédure stockée `mysql.az_replication_change_primary` sur le serveur Azure DB pour MySQL.
+   Pour lier deux serveurs et démarrer une réplication, connectez-vous au serveur réplica cible dans le service Azure Database pour MySQL, et définissez l’instance externe en tant que serveur maître. Pour ce faire, utilisez la procédure stockée `mysql.az_replication_change_master` sur le serveur Azure DB pour MySQL.
 
    ```sql
-   CALL mysql.az_replication_change_primary('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
 
-   - master_host : nom d’hôte du serveur principal
-   - master_user : nom d’utilisateur du serveur principal
-   - master_password : mot de passe du serveur principal
+   - master_host : nom d’hôte du serveur maître
+   - master_user : nom d’utilisateur pour le serveur maître
+   - master_password : mot de passe pour le serveur maître
    - master_log_file : nom de fichier du journal binaire à partir de l’exécution de `show master status`
    - master_log_pos : position du journal binaire à partir de l’exécution de `show master status`
    - master_ssl_ca : contexte du certificat d’autorité de certification. Si vous n’utilisez pas le protocole SSL, transmettez une chaîne vide.
@@ -171,17 +171,17 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
    -----END CERTIFICATE-----'
    ```
 
-   La réplication avec SSL est définie entre un serveur principal hébergé dans le domaine « companya.com » et un serveur réplica hébergé dans Azure Database pour MySQL. Cette procédure stockée est exécutée sur le réplica. 
+   La réplication avec SSL est définie entre un serveur maître hébergé dans le domaine « companya.com », et un serveur réplica hébergé dans Azure Database pour MySQL. Cette procédure stockée est exécutée sur le réplica. 
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *Réplication sans SSL*
 
-   La réplication sans SSL est définie entre un serveur principal hébergé dans le domaine « companya.com » et un serveur réplica hébergé dans Azure Database pour MySQL. Cette procédure stockée est exécutée sur le réplica.
+   La réplication sans SSL est définie entre un serveur maître hébergé dans le domaine « companya.com », et un serveur réplica hébergé dans Azure Database pour MySQL. Cette procédure stockée est exécutée sur le réplica.
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
 2. Démarrer la réplication
@@ -206,7 +206,7 @@ Les étapes suivantes servent à préparer et à configurer le serveur MySQL hé
 
 ### <a name="stop-replication"></a>Arrêter la réplication
 
-Pour arrêter la réplication entre le serveur principal et le serveur réplica, utilisez la procédure stockée suivante :
+Pour arrêter la réplication entre le serveur maître et le serveur réplica, utilisez la procédure stockée suivante :
 
 ```sql
 CALL mysql.az_replication_stop;
@@ -214,10 +214,10 @@ CALL mysql.az_replication_stop;
 
 ### <a name="remove-replication-relationship"></a>Supprimer la relation de réplication
 
-Pour arrêter la réplication entre le serveur principal et le serveur réplica, utilisez la procédure stockée suivante :
+Pour supprimer la relation entre le serveur maître et le serveur réplica, utilisez la procédure stockée suivante :
 
 ```sql
-CALL mysql.az_replication_remove_primary;
+CALL mysql.az_replication_remove_master;
 ```
 
 ### <a name="skip-replication-error"></a>Ignorer l’erreur de réplication

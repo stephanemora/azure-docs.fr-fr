@@ -1,5 +1,5 @@
 ---
-title: Obtenir de l’aide sur l’accès et l’utilisation du portail Mes applications dans Azure Active Directory | Microsoft Docs
+title: Obtenir de l’aide sur l’accès au portail MyApps dans Azure Active Directory et sur son utilisation | Microsoft Docs
 description: Obtenez de l’aide sur la connexion et l’exécution de tâches courantes dans le volet d’accès.
 services: active-directory
 author: eross-msft
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343608"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306408"
 ---
-# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Résoudre les problèmes liés à l’accès et à l’utilisation du portail Mes applications
+# <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Résoudre des problèmes liés à l’accès au portail MyApps et à son utilisation
 
-Si vous rencontrez des problèmes liés à la connexion ou à l’utilisation du portail Mes applications, essayez ces conseils de résolution des problèmes avant de demander de l’aide au support technique ou à votre administrateur.
+Si vous rencontrez des problèmes liés à la connexion au portail MyApps ou à son utilisation, essayez de suivre ces conseils de résolution des problèmes avant de demander de l’aide au support technique ou à votre administrateur.
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Je n’arrive pas à me connecter au portail Mes applications
+## <a name="i-am-having-trouble-signing-into-the-myapps-portal"></a>Je n’arrive pas à me connecter au portail MyApps
 
 Essayez ces conseils généraux :
 
@@ -45,7 +45,7 @@ Vous pouvez réinitialiser votre mot de passe ou déverrouiller votre compte san
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Je n’arrive pas à installer l’extension de connexion sécurisée à Mes applications
 
-Le portail Mes applications nécessite un navigateur qui prend en charge JavaScript et dans lequel CSS est activée. Si vous utilisez des applications à authentification unique par mot de passe, l’extension doit également être installée. Cette extension est téléchargée automatiquement lorsque vous démarrez une application configurée pour l’authentification unique par mot de passe.
+L’accès au portail MyApps nécessite de disposer d’un navigateur qui prend en charge JavaScript et dans lequel CSS est activé. Si vous utilisez des applications à authentification unique par mot de passe, l’extension doit également être installée. Cette extension est téléchargée automatiquement lorsque vous démarrez une application configurée pour l’authentification unique par mot de passe.
 
 Vérifiez que vous respectez les exigences de navigateur suivantes :
 
@@ -63,8 +63,8 @@ Vous pouvez également télécharger l’extension directement à partir des sit
 Si vous avez installé l’extension et que vous rencontrez toujours des problèmes, essayez ce qui suit :
 
 - Vérifiez vos paramètres d’extension de navigateur que vous assurer que l’extension est activée.
-- Redémarrez votre navigateur et connectez-vous au portail Mes applications.
-- Effacez les cookies de votre navigateur et connectez-vous au portail Mes applications.
+- Redémarrez votre navigateur, puis connectez-vous au portail MyApps.
+- Effacez les cookies de votre navigateur, puis connectez-vous au portail MyApps.
 - Pour accéder à un outil de diagnostic et pour obtenir des instructions pas à pas sur la configuration de l’extension pour Internet Explorer, consultez [Résoudre les problèmes liés à l’extension du volet d’accès pour Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Utiliser l’extension de connexion sécurisée à Mes applications
@@ -85,7 +85,7 @@ Si vous avez installé l’extension et que vous rencontrez toujours des problè
 * Pour démarrer une application à partir de l’extension, procédez comme suit :
    1. Après avoir installé l’extension, connectez-vous-y en sélectionnant **Connectez-vous pour commencer**.
    2. Sélectionnez l’icône de l’extension pour ouvrir son menu.
-   3. Recherchez une application disponible dans le portail Mes applications.
+   3. Recherchez une application disponible dans le portail MyApps.
    4. Dans la liste des résultats de la recherche, sélectionnez l’application.  
        Les trois dernières applications que vous avez utilisées sont affichées dans la liste de raccourcis **Récemment utilisé**.
 

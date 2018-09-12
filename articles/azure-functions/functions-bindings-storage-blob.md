@@ -4,7 +4,7 @@ description: Comprendre comment utiliser les déclencheurs et les liaisons Stock
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/12/2018
+ms.date: 09/03/2018
 ms.author: glenga
-ms.openlocfilehash: 4a5a0634e371e4a762b3877b0c3e45682924a27d
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b9dcc4d7edd24d545722dde85e682a658d5ef2bc
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144834"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667943"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -41,13 +41,13 @@ Les liaisons du Stockage Blob sont fournies dans le package NuGet [Microsoft.Azu
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## <a name="packages---functions-2x"></a>Packages - Functions 2.x
 
-Les liaisons du Stockage Blob sont fournies dans le package NuGet [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob).
+Les liaisons du Stockage Blob sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs).
 
-[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Déclencheur
 
@@ -59,7 +59,7 @@ Utilisez Event Grid au lieu du déclencheur de stockage Blob pour les scénarios
 
 * Comptes de stockage Blob uniquement
 * Scalabilité élevée
-* Délai de démarrage à froid
+* Réduction du délai de démarrage à froid
 
 ### <a name="blob-only-storage-accounts"></a>Comptes de stockage Blob uniquement
 
@@ -778,7 +778,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---java-example"></a>Sortie - exemple Java
+### <a name="output---java-example"></a>Sortie : exemple Java
 
 L’exemple suivant montre des liaisons d’entrée et de sortie d’objets blob dans une fonction Java. La fonction effectue une copie d’un objet blob de texte. La fonction est déclenchée par un message de file d’attente qui contient le nom de l’objet blob à copier. Le nouvel objet blob est nommé {originalblobname}-Copy
 

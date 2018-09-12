@@ -12,18 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bad1cbe0b142e146ada28f2af5d152973100e919
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4795e21c4279b6d313ba56296bafc49daf7bbb48
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595102"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288170"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Synchronisation Azure AD Connect : modifier la configuration par défaut
 L’objectif de cet article est d’expliquer comment apporter des modifications à la configuration par défaut dans la synchronisation Azure Active Directory (Azure AD) Connect. Elle explique pas à pas la procédure pour les scénarios courants. À la fin, vous serez capable d’apporter des modifications simples à votre configuration en fonction de vos propres règles d’entreprise.
+
+> [!WARNING]
+> Si vous apportez des modifications aux règles de synchronisation par défaut, ces modifications seront remplacées lors de la prochaine mise à jour d’Azure AD Connect, entraînant des résultats de synchronisation inattendus et probablement indésirables.
+>
+> Les règles de synchronisation out-of-box ont une empreinte numérique. Si vous apportez une modification à ces règles, l’empreinte numérique ne correspondra plus. Vous risquez de rencontrer des problèmes lorsque vous tenterez d’appliquer une nouvelle version d’Azure AD Connect. Procédez à des modifications uniquement de la façon décrite dans cet article.
 
 ## <a name="synchronization-rules-editor"></a>Éditeur de règles de synchronisation
 L’éditeur de règles de synchronisation sert à afficher et modifier la configuration par défaut. Il se trouve dans le menu **Démarrer**, sous le groupe **Azure AD Connect**.  

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2018
+ms.date: 08/31/2018
 ms.author: rithorn
-ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: b95dba65a7ab89306844e48641aba584e3d6b175
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480320"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371514"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -38,7 +38,7 @@ Un autre scénario où vous pouvez utiliser les groupes d’administration consi
 
 ### <a name="important-facts-about-management-groups"></a>Faits importants sur les groupes d’administration
 
-- 10 000 groupes d’administration peuvent être pris en charge dans un seul annuaire.
+- 10 000 groupes d’administration peuvent être pris en charge dans un seul annuaire (locataire Azure Active Directory).
 - Une arborescence de groupes d’administration peut prendre en charge jusqu’à six niveaux de profondeur.
   - Cette limite n’inclut ni le niveau racine ni le niveau d’abonnement.
 - Chaque groupe d’administration et chaque abonnement ne prennent en charge qu’un seul parent.

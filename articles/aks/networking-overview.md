@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 051402a319e1dc26145b5a1602a4caeffa7fba19
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445505"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697236"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuration réseau dans Azure Kubernetes Service (AKS)
 
@@ -47,10 +47,10 @@ La mise en réseau avancée procure les avantages suivants :
 
 ## <a name="advanced-networking-prerequisites"></a>Conditions préalables de mise en réseau avancée
 
-* Le réseau virtuel du cluster AKS doit autoriser la connectivité Internet sortante.
+* Le réseau virtuel du cluster AKS doit autoriser les connexions Internet sortantes.
 * Ne créez pas plus d’un cluster AKS dans le même sous-réseau.
 * Les clusters AKS ne peuvent pas utiliser `169.254.0.0/16`, `172.30.0.0/16` ou `172.31.0.0/16` pour la plage d’adresses de service Kubernetes.
-* Le principal de service utilisé par le cluster AKS doit disposer au moins des autorisations [Contributeur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) sur le sous-réseau de votre réseau virtuel. Si vous souhaitez définir un [rôle personnalisé](../role-based-access-control/custom-roles.md) au lieu d’utiliser le rôle de contributeur de réseau intégré, les autorisations suivantes sont nécessaires :
+* Le principal du service utilisé par le cluster AKS doit disposer au moins des autorisations [Contributeur de réseau](../role-based-access-control/built-in-roles.md#network-contributor) sur le sous-réseau de votre réseau virtuel. Si vous souhaitez définir un [rôle personnalisé](../role-based-access-control/custom-roles.md) au lieu d’utiliser le rôle de contributeur de réseau intégré, les autorisations suivantes sont nécessaires :
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
@@ -60,55 +60,62 @@ Les clusters configurés avec la mise en réseau avancée nécessitent une plani
 
 Les adresses IP des pods et des nœuds de cluster sont affectées à partir du sous-réseau spécifié du réseau virtuel. Chaque nœud est configuré avec une adresse IP primaire, qui est l’adresse IP du nœud, et 30 adresses IP supplémentaires préconfigurées par Azure CNI, qui sont affectées aux pods planifiés sur le nœud. Lorsque vous faites monter en charge votre cluster, chaque nœud est configuré de manière similaire avec des adresses IP du sous-réseau.
 
-Le plan d’adressage IP pour un cluster AKS se compose d’un réseau virtuel, au moins un sous-réseau pour les nœuds et les pods, et une plage d’adresses de service Kubernetes.
+Le plan d’adressage IP pour un cluster AKS se compose d’un réseau virtuel, d’au moins un sous-réseau pour les nœuds et les pods, et d’une plage d’adresses de service Kubernetes.
 
 | Plage Azure/ressource Azure | Limites et tailles |
 | --------- | ------------- |
-| Réseau virtuel | La taille d’un réseau virtuel Azure peut aller jusqu’à /8, toutefois, le nombre d’adresses IP configurées est limité à 16 000. |
+| Réseau virtuel | Le réseau virtuel Azure peut être aussi volumineux que la valeur /8, mais est limité à 65 536 adresses IP configurées. |
 | Sous-réseau | Doit pouvoir contenir les nœuds, les pods, ainsi que toutes les ressources Kubernetes et Azure qui peuvent être provisionnées dans votre cluster. Par exemple, si vous déployez un équilibreur de charge interne Azure, ses adresses IP frontend sont allouées à partir du sous-réseau du cluster, et non à partir des adresses IP non publiques. <p/>Pour calculer la taille *minimale* du sous-réseau : `(number of nodes) + (number of nodes * pods per node)` <p/>Exemple pour un cluster à 50 nœuds : `(50) + (50 * 30) = 1,550` (/21 ou plus) |
-| Plage d’adresses de service Kubernetes | Cette plage ne doit être utilisée par aucun élément réseau sur ce réseau virtuel ou connectée à celui-ci. Le CIDR d’adresse du service doit être inférieur à /12. |
+| Plage d’adresses de service Kubernetes | Cette plage ne doit être utilisée par aucun élément réseau sur ce réseau virtuel ou connecté à celui-ci. Le CIDR d’adresse du service doit être inférieur à /12. |
 | Adresse IP du service DNS Kubernetes | Adresse IP dans la plage d’adresses de service Kubernetes, qui sera utilisée par la détection de service de cluster (kube-dns). |
 | Adresse de pont Docker | Adresse IP (en notation CIDR) utilisée en tant qu’adresse IP de pont Docker sur les nœuds. Valeur par défaut : 172.17.0.1/16. |
 
-Chaque réseau virtuel provisionné en vue d’une utilisation avec le plug-in Azure CNI est limité à **16 000 adresses IP**.
-
 ## <a name="maximum-pods-per-node"></a>Nombre maximal de pods par nœud
 
-Le nombre maximal de pods par défaut dans chaque nœud d’un cluster AKS varie selon qu’il s’agit d’un réseau de base ou d’un réseau avancé, et selon la méthode de déploiement du cluster.
+Le nombre maximal par défaut de pods par nœud d’un cluster AKS varie selon qu’il s’agit d’un réseau de base ou avancé, et selon la méthode de déploiement du cluster.
 
 ### <a name="default-maximum"></a>Valeurs maximales par défaut
 
-* Réseau de base : **110 pods par nœud**
-* Réseau avancé : **30 pods par nœud**
+Il s’agit des valeurs maximales *par défaut* lorsque vous déployez un AKS cluster sans spécifier le nombre maximal de pods au moment du déploiement :
 
-### <a name="configure-maximum"></a>Configurer les valeurs maximales
+| Méthode de déploiement | De base | Avancé | Configurable au moment du déploiement |
+| -- | :--: | :--: | -- |
+| Azure CLI | 110 | 30 | Oui |
+| Modèle Resource Manager | 110 | 30 | Oui |
+| Portail | 110 | 30 | Non  |
 
-Selon votre méthode de déploiement, il se peut que vous puissiez modifier le nombre maximal de pods par nœud dans un cluster AKS.
+### <a name="configure-maximum---new-clusters"></a>Configurer un maximum : nouveaux clusters
+
+Pour spécifier un autre nombre maximal de pods par nœud lorsque vous déployez un cluster AKS :
 
 * **Azure CLI** : Spécifiez l’argument `--max-pods` lorsque vous déployez un cluster avec la commande [az aks create][az-aks-create].
 * **Modèle Resource Manager** : Spécifiez la propriété `maxPods` dans l’objet [ManagedClusterAgentPoolProfile] lorsque vous déployez un cluster avec un modèle Resource Manager.
 * **Portail Azure** : Vous ne pouvez pas modifier le nombre maximal de pods par nœud lorsque vous déployez un cluster avec le portail Azure. Les clusters de réseau avancé sont limités à 30 pods par nœud lorsqu’ils sont déployés dans le portail Azure.
 
+### <a name="configure-maximum---existing-clusters"></a>Configurer un maximum : clusters existants
+
+Vous ne pouvez pas modifier le nombre maximal de pods par nœud sur un cluster AKS existant. Vous pouvez ajuster le nombre uniquement lors du déploiement initial du cluster.
+
 ## <a name="deployment-parameters"></a>Paramètres de déploiement
 
 Lorsque vous créez un cluster AKS, les paramètres suivants sont configurables pour les réseaux avancés :
 
-**Réseau virtuel** : le réseau virtuel dans lequel vous souhaitez déployer le cluster Kubernetes. Si vous souhaitez créer un réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis suivez la procédure décrite dans la section *Créer un réseau virtuel*. Un réseau virtuel ne peut contenir que 16 000 adresses IP configurées.
+**Réseau virtuel** : réseau virtuel dans lequel vous souhaitez déployer le cluster Kubernetes. Si vous souhaitez créer un réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis suivez la procédure décrite dans la section *Créer un réseau virtuel*. Pour plus d’informations sur les limites et quotas d’un réseau virtuel Azure, voir [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
-**Sous-réseau** : le sous-réseau du réseau virtuel dans lequel vous souhaitez déployer le cluster. Si vous souhaitez créer un nouveau sous-réseau dans le réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis exécutez la procédure décrite dans la section *Créer un sous-réseau*.
+**Sous-réseau** : sous-réseau du réseau virtuel dans lequel vous souhaitez déployer le cluster. Si vous souhaitez créer un nouveau sous-réseau dans le réseau virtuel pour votre cluster, sélectionnez *Créer un nouveau*, puis exécutez la procédure décrite dans la section *Créer un sous-réseau*.
 
 **Plage d’adresses du service Kubernetes** : il s’agit du jeu d’adresses IP virtuelles que Kubernetes affecte aux [services][services] dans votre cluster. Vous pouvez utiliser n’importe quelle plage d’adresses privées répondant aux exigences suivantes :
 
-* doit être située en dehors de la plage d’adresses IP du réseau virtuel de votre cluster ;
-* ne doit comporter aucun élément en commun avec les autres réseaux virtuels pour lesquelles il existe un lien de peering avec le réseau virtuel du cluster ;
-* ne doit avoir aucun élément en commun avec des adresses IP locales ;
-* ne doit pas être dans les plages `169.254.0.0/16`, `172.30.0.0/16`, ou `172.31.0.0/16`.
+* ne peut pas figurer dans la plage d’adresses IP de réseau virtuel de votre cluster ;
+* ne peut pas présenter de chevauchement avec un autre réseau virtuel avec lequel le réseau virtuel du cluster s’apparie ;
+* ne peut avoir aucun élément en commun avec des adresses IP locales ;
+* ne peut pas s’inscrire dans les plages `169.254.0.0/16`, `172.30.0.0/16`, ou `172.31.0.0/16`.
 
 Bien qu’il soit techniquement possible de spécifier une plage d’adresses de service dans le même réseau virtuel que votre cluster, cette manière de procéder n’est pas recommandée. Tout chevauchement entre des plages d’adresses IP est susceptible d’entraîner des comportements imprévisibles. Pour plus d’informations, consultez la section [FAQ](#frequently-asked-questions) de cet article. Pour plus d’informations sur les réplicas Kubernetes, consultez[Services][services] dans la documentation de Kubernetes.
 
 **Adresse IP du service DNS Kubernetes** :l’adresse IP du service DNS du cluster. Cette adresse doit se situer dans la *plage d’adresses du service Kubernetes*.
 
-**Adresse du pont docker** : l’adresse IP et le masque réseau à affecter au pont docker. Cette adresse IP doit être située en dehors de la plage d’adresses IP du réseau virtuel de votre cluster.
+**Adresse du pont docker** : l’adresse IP et le masque réseau à affecter au pont docker. Cette adresse IP ne peut pas figurer dans la plage d’adresses IP de réseau virtuel de votre cluster.
 
 ## <a name="configure-networking---cli"></a>Configurer la mise en réseau – Interface de ligne de commande
 
@@ -150,13 +157,15 @@ La série suivante de questions-réponses s’applique à la configuration rése
 
   Oui, lorsque vous déployez un cluster avec l’interface CLI Azure ou un modèle Resource Manager. Consultez [Nombre maximal de pods par nœud](#maximum-pods-per-node).
 
+  Vous ne pouvez pas modifier le nombre maximal de pods par nœud sur un cluster existant.
+
 * *Comment configurer des propriétés supplémentaires pour le sous-réseau développé lors de la création du cluster AKS ? Par exemple, des points de terminaison du service.*
 
   La liste complète des propriétés pour le réseau virtuel et les sous- réseaux développés durant la création du cluster AKS peut être configurée dans la page de configuration du réseau virtuel standard du portail Azure.
 
 * *Puis-je utiliser un autre sous-réseau dans le réseau virtuel de mon cluster pour la* **plage d’adresses du service Kubernetes** ?
 
-  Cette configuration, bien que possible, n’est pas recommandée. La plage d’adresses du service est un jeu d’adresses IP virtuelles que Kubernetes affecte aux services dans votre cluster. Azure Networking ne peut pas voir la plage d’adresses IP de service du cluster Kubernetes. En raison de ce manque de visibilité, il est possible de créer ultérieurement un sous-réseau dans le réseau virtuel du cluster qui chevauche la plage d’adresses de service. Si un chevauchement de ce type se produit, Kubernetes peut affecter à un service une adresse IP déjà utilisée par une autre ressource dans le sous-réseau, ce qui provoque un comportement imprévisible ou des échecs. Utilisez une plage d’adresses en dehors du réseau virtuel du cluster pour éviter tout risque de chevauchement.
+  Cette configuration, bien que possible, n’est pas recommandée. La plage d’adresses du service est un jeu d’adresses IP virtuelles que Kubernetes affecte aux services dans votre cluster. Azure Networking ne peut pas voir la plage d’adresses IP de service du cluster Kubernetes. En raison de ce manque de visibilité, il est possible de créer ultérieurement un sous-réseau dans le réseau virtuel du cluster, qui chevauche la plage d’adresses de service. Si un chevauchement de ce type se produit, Kubernetes peut affecter à un service une adresse IP déjà utilisée par une autre ressource dans le sous-réseau, ce qui provoque un comportement imprévisible ou des échecs. Utilisez une plage d’adresses en dehors du réseau virtuel du cluster pour éviter tout risque de chevauchement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

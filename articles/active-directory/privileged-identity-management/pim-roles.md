@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188984"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666334"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Rôles d’annuaire Azure AD pouvant être gérés dans PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -76,13 +76,36 @@ L’accès au portail Azure nécessite que l’utilisateur soit un administrateu
 L’accès à Microsoft Online Services peut nécessiter l’affectation d’une licence à l’utilisateur pour qu’il puisse ouvrir le portail du service ou effectuer des tâches administratives.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Attribution d’une licence à un utilisateur dans Azure AD
+
 1. Avec un compte d’administrateur général ou un compte de coadministrateur, connectez-vous au [portail Azure](http://portal.azure.com).
-3. Sélectionnez Azure AD et l’annuaire que vous souhaitez utiliser et auquel des licences sont associées.
-4. Sélectionnez **Licences** sur la gauche. La liste des licences disponibles s’affiche.
-5. Sélectionnez le plan de licence contenant les licences que vous souhaitez distribuer.
-6. Sélectionnez **Affecter des utilisateurs**.
-7. Sélectionnez l’utilisateur auquel vous souhaitez affecter une licence.
-8. Cliquez sur le bouton **Affecter** .  L’utilisateur peut à présent se connecter à Azure.
+
+1. Sélectionnez l’annuaire Azure AD que vous souhaitez utiliser et auquel des licences sont associées.
+
+1. Dans le volet de navigation à gauche, cliquez sur **Azure Active Directory**.
+
+1. Cliquez sur **Licences**. La liste des licences disponibles s’affiche.
+
+    ![Licences Azure Active Directory](./media/pim-roles/licenses-overview.png)
+
+1. Cliquez sur votre **produit**.
+
+1. Cliquez sur le plan de licence contenant les licences que vous souhaitez distribuer.
+
+    ![Produits sous licence](./media/pim-roles/licenses-products.png)
+
+1. Cliquez sur **Affecter** pour ouvrir le volet Affecter une licence.
+
+    ![Utilisateurs sous licence](./media/pim-roles/licenses-licensed-users.png)
+
+1. Sélectionnez l’utilisateur ou le groupe auxquels vous souhaitez affecter une licence.
+
+    ![Affecter une licence](./media/pim-roles/licenses-assign-license.png)
+
+1. Cliquez sur **Options d’affectation** pour configurer vos options d’affectation.
+
+    ![Options d’affectation](./media/pim-roles/licenses-assignment-options.png)
+
+1. Cliquez sur **Affecter** pour affecter la licence. L’utilisateur est désormais titulaire de la licence.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Étapes suivantes

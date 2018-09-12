@@ -7,14 +7,14 @@ manager: carmonm
 keywords: sauvegarde de machines virtuelles
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 438c1130486fe1ba2ee484ae01655a2fb115de27
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390753"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286650"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure
 Cet article formule des suggestions de performances et de ressources pour vous aider à planifier votre infrastructure de sauvegarde de machines virtuelles. Il définit également les principaux aspects du service Backup, qui peuvent être essentiels afin de vous aider à déterminer votre architecture, à planifier sa capacité et à définir des planifications. Si vous avez [préparé votre environnement](backup-azure-arm-vms-prepare.md), la planification est l’étape à suivre avant de passer à la [sauvegarde des machines virtuelles](backup-azure-arm-vms.md). Si vous avez besoin d’informations sur les machines virtuelles Azure, consultez la [Documentation sur les machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/). 
@@ -50,17 +50,18 @@ Azure Backup effectue la sauvegarde complète VSS sur les machines virtuelles Wi
 ```
 
 #### <a name="linux-vms"></a>Machines virtuelles Linux
-Le service Sauvegarde Azure fournit une infrastructure de script. Pour garantir la cohérence des applications lors de la sauvegarde de machines virtuelles Linux, créez des pré-scripts et post-scripts personnalisés qui contrôlent le flux et l’environnement de sauvegarde. Le service Sauvegarde Azure appelle le pré-script avant de prendre l’instantané de machine virtuelle, puis appelle le post-script à la fin du travail de prise d’instantané de machine virtuelle. Pour plus d’informations, voir [Sauvegarde cohérente des applications des machines virtuelles Linux à l’aide de pré-scripts et de post-scripts](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
+Sauvegarde Azure Backup fournit une infrastructure de script permettant de contrôler le flux de travail et l’environnement de sauvegarde. Pour garantir que les sauvegardes de machines virtuelles Linux soient cohérentes avec l’application, utilisez l’infrastructure de scripts pour créer des pré-scripts et post-scripts personnalisés. Appelez le pré-script avant de prendre l’instantané de machine virtuelle, puis appelez le post-script une fois le travail de prise d’instantané de machine virtuelle terminé. Pour plus d’informations, voir l’article concernant les [sauvegardes de machines virtuelles Linux cohérentes avec l’application](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
 > [!NOTE]
 > Le service Sauvegarde Azure appelle uniquement les pré-scripts et post-scripts écrits par le client. Si les pré-scripts et post-scripts s’exécutent avec succès. le service Sauvegarde Azure marque le point de récupération comme étant cohérent dans l’application. Toutefois, le client est responsable de la cohérence des applications lors de l’utilisation des scripts personnalisés.
 >
 
-
-Ce tableau décrit les types de compatibilité et les conditions dans lesquelles elles se produisent pendant les procédures de sauvegarde et de restauration de machine virtuelle Azure.
+Le tableau suivant décrit les types de cohérences et les conditions dans lesquelles elles se produisent.
 
 | Cohérence | En fonction du service VSS | Explication et détails |
 | --- | --- | --- |
-| Cohérence des applications |Oui pour Windows|La cohérence des applications est idéale pour les charges de travail, car elle apporte les garanties suivantes :<ol><li> la machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*. <li>Il n’y a *aucune perte de données*.<li> Les données sont cohérentes vis-à-vis de l’application qui les utilise grâce à la sollicitation de l’application au moment de la sauvegarde (à l’aide de VSS) pré/post script.</ol> <li>*Machines virtuelles Windows* : La plupart des charges de travail de Microsoft ont des enregistreurs VSS qui effectuent des actions de charges de travail spécifiques relatives à la cohérence des données. Par exemple, Microsoft SQL Server dispose d’un enregistreur VSS qui garantit que les écritures dans le journal des transactions et de la base de données sont effectuées correctement. Pour les sauvegardes d’une machine virtuelle Azure Windows, la création d’un point de récupération cohérent signifie que l’extension de sauvegarde a pu appeler le flux de travail VSS et se terminer avant la prise de l’instantané de la machine virtuelle. Pour que l’instantané de machine virtuelle Azure soit précis, les enregistreurs VSS de toutes les applications de machine virtuelle Azure doivent également se terminer. (Découvrez les [principes de base du service VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) et son [fonctionnement](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Machines virtuelles Linux* : les clients peuvent exécuter des [pré-scripts et post-scripts personnalisés pour assurer la cohérence de l’application](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
+| Cohérence des applications |Oui pour Windows|La cohérence des applications est idéale pour les charges de travail, car elle apporte les garanties suivantes :<ol><li> la machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*. <li>Il n’y a *aucune perte de données*.<li> Les données sont cohérentes vis-à-vis de l’application qui les utilise grâce à la sollicitation de l’application au moment de la sauvegarde (à l’aide de VSS) pré/post script.</ol> <li>*Machines virtuelles Windows* : la plupart des charges de travail de Microsoft ont des enregistreurs VSS qui exécutent des actions de charges de travail spécifiques relatives à la cohérence des données. Par exemple, l’enregistreur VSS SQL Server veille à ce que les écritures dans le fichier journal de transactions et la base de données soient effectuées correctement. Pour les sauvegardes de machines virtuelles IaaS Windows, la création d’un point de récupération cohérent avec l’application signifie que l’extension de sauvegarde doit appeler le flux de travail VSS et le terminer avant la prise de l’instantané de la machine virtuelle. Pour que l’instantané de machine virtuelle Azure soit précis, les enregistreurs VSS de toutes les applications de machine virtuelle Azure doivent également se terminer. (Découvrez les [principes de base du service VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) et son [fonctionnement](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Machines virtuelles Linux* : les clients peuvent exécuter des [pré-scripts et post-scripts personnalisés pour assurer la cohérence de l’application](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Cohérence du système de fichiers |Oui : pour les ordinateurs Windows |Il existe deux scénarios où le point de récupération peut être *cohérent avec le système de fichiers* :<ul><li>Sauvegardes de machines virtuelles Linux dans Azure, sans pré/post-script ou si le pré/post-script a échoué. <li>Échec de VSS lors de la sauvegarde de machines virtuelles Windows dans Azure.</li></ul> Dans les deux cas, la meilleure solution consiste à s’assurer que les conditions suivantes sont satisfaites : <ol><li> la machine virtuelle *démarre*. <li>Les données *ne sont pas endommagées*.<li>Il n’y a *aucune perte de données*.</ol> Les applications doivent implémenter leur propre mécanisme de « correctif » sur les données restaurées. |
 | Cohérence en cas d’incident |Non  |Cette situation est la même que lorsqu’une machine virtuelle rencontre un « incident » (via une réinitialisation matérielle ou logicielle). La cohérence en cas d’incident se produit généralement lorsque la machine virtuelle Azure est arrêtée au moment de la sauvegarde. Un point de récupération cohérent ne fournit aucune garantie de cohérence des données sur le support de stockage, que ce soit au niveau du système d’exploitation ou de l’application. Seules les données déjà présentes sur le disque au moment de la sauvegarde sont capturées et sauvegardées. <br/> <br/> Même s’il n’existe aucune garantie, le démarrage a généralement lieu et est suivi d’une procédure de vérification du disque comme chkdsk permettant de résoudre les erreurs d’endommagement. Les données ou les écritures en mémoire qui n’ont pas été transférées sur le disque sont perdues. Si une restauration de données est nécessaire, l’application suit généralement son propre mécanisme de vérification. <br><br>Par exemple, si le journal des transactions comporte des entrées qui n’existent pas dans la base de données, le logiciel de base de données effectue alors une restauration jusqu’à ce que les données soient cohérentes. Lorsque des données sont réparties sur plusieurs disques virtuels (comme des volumes fractionnés), un point de récupération cohérent après incident ne fournit aucune garantie quant à l’exactitude des données. |
 
@@ -104,19 +105,22 @@ Une opération de restauration se compose de deux tâches principales : la copie
 * Heure de copie des données : les données sont copiées du coffre de sauvegarde vers le compte de stockage client. Le temps de restauration des IOPS et du débit que le service Sauvegarde Azure atteint sur le compte de stockage client sélectionné. Pour réduire le temps de copie pendant le processus de restauration, sélectionnez un compte de stockage non chargé avec d’autres lectures et écritures d’application.
 
 ## <a name="best-practices"></a>Meilleures pratiques
-Nous vous suggérons de suivre les bonnes pratiques ci-dessous lorsque vous configurez des sauvegardes de machines virtuelles comportant des disques non managés :
 
-> [!Note]
-> Les bonnes pratiques suivantes qui recommandent de changer ou de gérer les comptes de stockage s’appliquent uniquement aux machines virtuelles comportant des disques non managés. Si vous utilisez des disques managés, Azure s’occupe de toutes les activités de gestion qui impliquent du stockage.
-> 
+Nous vous suggérons de suivre les meilleures pratiques ci-dessous lors de la configuration de sauvegardes de toutes machines virtuelles :
 
-* Ne planifiez pas la sauvegarde de plus de 10 machines virtuelles classiques à partir du même service cloud en même temps. Si vous souhaitez sauvegarder davantage de machines virtuelles d’un même service cloud, échelonnez les débuts de sauvegarde d’heure en heure.
-* Ne planifiez pas la sauvegarde simultanée de plus de 100 machines virtuelles à partir d’un même coffre. 
+* Ne planifiez pas de sauvegarde simultanée de plus de 10 machines virtuelles classiques à partir du même service cloud. Si vous souhaitez sauvegarder plusieurs machines virtuelles à partir du même service cloud, échelonnez les débuts de sauvegarde d’heure en heure.
+* Ne planifiez pas de sauvegardes pour plus de 100 machines virtuelles à partir d’un seul coffre en même temps.
 * Planifiez les sauvegardes de machines virtuelles pendant les heures creuses. Ainsi, le service Sauvegarde utilise des IOPS pour transférer les données du compte de stockage client vers le coffre de sauvegarde.
-* Veillez à appliquer une stratégie aux machines virtuelles réparties entre les différents comptes de stockage. Nous vous suggérons de limiter à 20 le nombre total de disques d’un même compte de stockage protégés par la même planification de sauvegarde. Si votre compte de stockage contient plus de 20 disques, répartissez ces machines virtuelles entre plusieurs stratégies afin d’obtenir les IOPS requises pendant la phase de transfert du processus de sauvegarde.
-* Évitez de restaurer une machine virtuelle exécutée sur le stockage Premium vers le même compte de stockage. Si le processus de restauration coïncide avec l’opération de sauvegarde, cela réduira les IOPS disponibles pour la sauvegarde.
-* Pour la sauvegarde de machines virtuelles Premium sur une pile de sauvegarde de machines virtuelles V1, il est recommandé d’allouer seulement 50 % de l’espace total du compte de stockage, pour que le service Sauvegarde Azure puisse copier la capture instantanée sur le compte et transférer des données depuis cet emplacement copié du compte de stockage vers le coffre.
 * Vérifiez que Python version 2.7 (ou supérieure) est installé sur les machines virtuelles Linux activées pour la sauvegarde.
+
+### <a name="best-practices-for-vms-with-unmanaged-disks"></a>Meilleures pratiques pour les machines virtuelles équipées de disques non gérés
+
+Les recommandations suivantes s’appliquent uniquement aux machines virtuelles utilisant des disques non gérés. Si vos machines virtuelles utilisent des disques managés, le service de sauvegarde assure toutes les activités de gestion du stockage.
+
+* Veillez à appliquer une stratégie de sauvegarde aux machines virtuelles réparties entre plusieurs comptes de stockage. Veillez à limiter à 20 le nombre total de disques d’un même compte de stockage protégés par la même planification de sauvegarde. Si votre compte de stockage contient plus de 20 disques, répartissez ces machines virtuelles entre plusieurs stratégies afin d’obtenir les IOPS requises pendant la phase de transfert du processus de sauvegarde.
+* Évitez de restaurer une machine virtuelle exécutée sur le stockage Premium vers le même compte de stockage. Si le processus de restauration coïncide avec l’opération de sauvegarde, cela réduira les IOPS disponibles pour la sauvegarde.
+* Pour la sauvegarde de machines virtuelles Premium sur une pile de sauvegarde de machines virtuelles V1, il est recommandé d’allouer seulement 50 % de l’espace total du compte de stockage, de façon à ce que le service de sauvegarde puisse copier la capture instantanée sur le compte de stockage, puis transférer les données de celui-ci vers le coffre.
+
 
 ## <a name="data-encryption"></a>Chiffrement des données
 Azure Backup ne chiffre pas les données dans le cadre du processus de sauvegarde. Toutefois, vous pouvez chiffrer les données dans la machine virtuelle et sauvegarder les données protégées en toute transparence (pour en savoir plus, lire [sauvegarde des données chiffrées](backup-azure-vms-encryption.md)).

@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: a57d5f8d857a8cfcdc81e86650466aec740f41e3
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344696"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286807"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Stratégies permettant de tester votre code dans Azure Functions
 
@@ -34,9 +34,9 @@ Cette rubrique montre les différentes manières de tester les fonctions, parmi 
 + Fonction déclenchée par un minuteur
 + Application ou infrastructure de test
 
-Toutes ces méthodes de test utilisent une fonction de déclencheur HTTP qui accepte les entrées via un paramètre de chaîne de requête ou le corps de la requête. Vous allez créer cette fonction dans la première section.
+Toutes ces méthodes de test utilisent une fonction de déclencheur HTTP qui accepte les entrées via un paramètre de chaîne de requête ou le corps de la requête. Vous créez cette fonction en utilisant le portail Azure dans la première section.
 
-## <a name="create-a-function-for-testing"></a>Créer une fonction de test
+## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>Créer une fonction simple pour tester en utilisant le portail Azure
 Dans ce didacticiel, nous allons utiliser principalement une version légèrement modifiée du modèle de fonction JavaScript HttpTrigger disponible lors de la création d’une fonction. Si vous avez besoin d’aide pour créer une fonction, passez en revue ce [didacticiel](functions-create-first-azure-function.md). Sélectionnez le modèle **HttpTrigger- JavaScript** lors de la création de la fonction de test dans le [portail Azure].
 
 Le modèle de fonction par défaut est essentiellement une fonction « hello world » qui renvoie le nom à partir du corps de la requête ou du paramètre de chaîne de requête, `name=<your name>`.  Nous allons mettre à jour le code pour vous permettre également de fournir le nom et l’adresse en tant que contenu JSON dans le corps de la requête. La fonction les renvoie ensuite vers le client une fois disponibles.   
@@ -443,4 +443,4 @@ Dans la fenêtre du navigateur de la fonction de file d’attente, vous pouvez v
 
 <!-- URLs. -->
 
-[portail Azure]: https://portal.azure.com
+[Portail Azure]: https://portal.azure.com

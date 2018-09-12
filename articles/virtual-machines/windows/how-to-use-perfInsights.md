@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144005"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668119"
 ---
 # <a name="how-to-use-perfinsights"></a>Utilisation de PerfInsights
 
@@ -68,7 +68,7 @@ Ce scénario exécute le test d’évaluation [Diskspd](https://github.com/Micro
 
 Ce scénario exécute un suivi du [compteur de performances](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) en utilisant les compteurs spécifiés dans le fichier RuleEngineConfig.json. Si la machine virtuelle est identifiée en tant que serveur qui exécute SQL Server, elle exécute un suivi du compteur de performances. Il le fait en utilisant les compteurs trouvés dans le fichier RuleEngineConfig.json. Ce scénario inclut également des données de diagnostics de performances.
 
-### <a name="azure-files-analysis"></a>Analyse Azure Files
+### <a name="azure-files-analysis"></a>Analyse de fichiers Azure
 
 Ce scénario exécute une capture du compteur de performances spéciale ainsi qu’un suivi du réseau. La capture inclut tous les compteurs de partages de clients SMB. Voici quelques compteurs de performances de partages de clients SMB clés, qui font partie de la capture :
 
@@ -104,7 +104,7 @@ Les informations portant sur la configuration de la machine virtuelle Windows, d
 
 |Données collectées                              |  |  | Scénarios de performances |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Analyse rapide des performances | Benchmarking | Analyse des performances | Analyse Azure Files | Analyse avancée des performances |
+|                               | Analyse rapide des performances | Benchmarking | Analyse des performances | Analyse de fichiers Azure | Analyse avancée des performances |
 | Informations tirées des journaux d’événements       | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
 | Informations système                | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
 | Mappage de volume                        | Oui                        | OUI                                | OUI                      | OUI                  | Oui                  |
@@ -171,9 +171,9 @@ Tests de charge de travail d’E/S Diskspd (disque de système d’exploitation 
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Problèmes possibles lorsque vous exécutez l’outil sur des machines virtuelles de production
 
--  Pour les scénarios d’évaluation ou d’« Analyse avancée de performances » configurés pour utiliser XPerf ou DiskSpd, l’outil peut nuire aux performances de la machine virtuelle. Ces scénarios ne doivent pas être exécutés dans un environnement de production.
+-  Pour les scénarios d’évaluation ou d’« Analyse avancée des performances » configurés pour utiliser XPerf ou DiskSpd, l’outil peut nuire aux performances de la machine virtuelle. Ces scénarios ne doivent pas être exécutés dans un environnement de production.
 
--  Pour les scénarios d’évaluation ou d’« Analyse avancée de performances » configurés pour utiliser DiskSpd, assurez-vous qu’aucune autre activité d’arrière-plan n’interfère avec la charge de travail d’E/S.
+-  Pour les scénarios d’évaluation ou d’« Analyse avancée des performances » configurés pour utiliser DiskSpd, assurez-vous qu’aucune autre activité en arrière-plan n’interfère avec la charge de travail d’E/S.
 
 -  Par défaut, l’outil utilise le disque de stockage temporaire pour collecter les données. Si le suivi est activé sur une durée plus longue, la quantité de données collectées peut être pertinente. Cela peut réduire la disponibilité de l’espace sur le disque temporaire, et donc affecter toute application s’appuyant sur ce disque.
 
@@ -245,11 +245,11 @@ Pour exécuter l’outil PerfInsights, suivez ces étapes :
     >
     >Si le commutateur de durée **/d** n’est pas spécifié, PerfInsights vous invitera à reproduire le problème lors de l’exécution de vmslow, d’azurefiles et des scénarios avancés. 
 
-Quand les traces ou les opérations sont terminées, un nouveau fichier apparaît dans le même dossier que PerfInsights. Le nom du fichier est **CollectedData\_aaaa-MM-jj\_hh-mm-ss-fff.zip.** Vous pouvez envoyer ce fichier à l’agent de Support pour analyse ou ouvrir le rapport dans le fichier zip pour examiner les résultats et recommandations.
+Quand les traces ou les opérations sont terminées, un nouveau fichier apparaît dans le même dossier que PerfInsights. Le nom du fichier est **PerformanceDiagnostics\_aaaa-MM-jj\_hh-mm-ss-fff.zip**. Vous pouvez envoyer ce fichier à l’agent de Support pour analyse ou ouvrir le rapport dans le fichier zip pour examiner les résultats et recommandations.
 
 ## <a name="review-the-diagnostics-report"></a>Examinez le rapport de diagnostics
 
-Le fichier **CollectedData\_aaaa-MM-jj\_hh-mm-ss-fff.zip** peut inclure un rapport HTML qui détaille les conclusions de PerfInsights. Pour passer en revue le rapport, développez le fichier **CollectedData\_aaaa-MM-jj\_hh-mm-ss-fff.zip**, puis ouvrez le fichier **PerfInsights Report.html**.
+Le fichier **PerformanceDiagnostics\_aaaa-MM-jj\_hh-mm-ss-fff.zip** peut inclure un rapport HTML détaillant les conclusions de PerfInsights. Pour consulter le rapport, développez le fichier **PerformanceDiagnostics\_aaaa-MM-jj\_hh-mm-ss-fff.zip**, puis ouvrez le fichier **PerfInsights Report.html**.
 
 Sélectionnez l’onglet **Conclusions**.
 
@@ -314,4 +314,4 @@ La capture d’écran suivante affiche un message semblable à ce que vous pouve
 
 Suivez les instructions dans le message pour accéder à l’espace de travail de transfert de fichier. Pour plus de sécurité, vous devez modifier votre mot de passe à la première utilisation.
 
-Après vous être connecté, une boîte de dialogue s’affiche pour vous inviter à charger le fichier **CollectedData\_aaaa-MM-jj\_hh-mm-ss-fff.zip** collecté par PerfInsights.
+Après vous être connecté, vous voyez s’afficher une boîte de dialogue vous invitant à charger le fichier **PerformanceDiagnostics\_aaaa-MM-jj\_hh-mm-ss-fff.zip** collecté par PerfInsights.

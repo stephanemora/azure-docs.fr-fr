@@ -4,14 +4,14 @@ description: Répond aux questions fréquemment posées sur Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: 3f035f38b1ad68e9e39d151ffad3fc650a0a1d80
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952747"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699962"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -48,7 +48,7 @@ Azure Migrate est un outil de planification de la migration et le planificateur 
 
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Quelles sont les régions Azure prises en charge par Azure Migrate ?
 
-Azure Migrate prend actuellement en charge les USA Est et les USA Centre-Ouest en tant qu’emplacements de projets de migration. Notez que même si vous ne pouvez créer des projets de migration que dans l’Ouest du centre des États-Unis et aux USA Est, vous pouvez toujours évaluer vos machines pour [plusieurs emplacements cible](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). L’emplacement du projet est uniquement utilisé pour stocker les données détectées.
+Azure Migrate prend actuellement en charge les USA Est et les USA Centre-Ouest en tant qu’emplacements de projets de migration. Notez que même si vous ne pouvez créer des projets de migration que dans les régions USA Centre-Ouest et USA Est, vous pouvez toujours évaluer vos machines pour [plusieurs emplacements cible](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). L’emplacement du projet est uniquement utilisé pour stocker les données détectées.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Comment le site local se connecte-t-il à Azure Migrate ?
 
@@ -123,6 +123,12 @@ Si vous avez un environnement qui est partagé entre des locataires et que vous 
 ### <a name="how-many-virtual-machines-can-be-discovered-in-a-single-migration-project"></a>Combien de machines virtuelles peuvent être détectées dans un même projet de migration ?
 
 Vous pouvez découvrir 1 500 machines virtuelles dans un même projet de migration. Si vous avez plus de machines que cela dans votre environnement local, [consultez cette section ](how-to-scale-assessment.md) pour obtenir des informations sur la façon dont vous pouvez découvrir un grand environnement dans Azure Migrate.
+
+### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate prend-il en charge l’estimation de coût basée sur l’Accord Entreprise (EA) ?
+
+Azure Migrate ne prend actuellement pas en charge les estimation de coût pour l’[offre Accord Entreprise](https://azure.microsoft.com/offers/enterprise-agreement-support/). La solution de contournement consiste à spécifier Paiement à l’utilisation pour l’offre, en précisant manuellement le pourcentage de remise (applicable à l’abonnement) dans le champ « Remise » des propriétés d’évaluation.
+
+  ![Remise](./media/resources-faq/discount.png)
 
 ## <a name="dependency-visualization"></a>Visualisation de dépendance
 

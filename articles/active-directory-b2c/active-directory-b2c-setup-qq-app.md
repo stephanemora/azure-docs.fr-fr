@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 82668446f139a5a003c33178e2d415a9314c61bc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 11bb5bf132103bed9e154a12c0e628177ca6a57a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952175"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344922"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte QQ à l’aide d’Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Pour utiliser un compte QQ en tant que fournisseur d’identité dans Azure Acti
 1. Accédez à [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 2. Sélectionnez **应用管理** (gestion des applications).
 5. Sélectionnez**创建应用**(créer une application) et entrez les informations requises.
-7. Dans le champ **授权回调域** (URL de rappel), entrez `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Par exemple, si votre `tenant_name` est contoso.onmicrosoft.com, définissez l’URL sur `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+7. Dans le champ **授权回调域** (URL de rappel), entrez `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp`. Par exemple, si votre `tenant_name` est contoso, définissez l’URL sur `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 8. Sélectionnez **创建应用** (créer une application).
 9. Dans la page de confirmation, sélectionnez **应用管理** (gestion des applications) pour revenir à la page de gestion des applications.
 10. Sélectionnez **查看** (afficher) en regard de l’application que vous avez créée.

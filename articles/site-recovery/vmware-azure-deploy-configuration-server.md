@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056757"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666430"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
@@ -26,7 +26,7 @@ Cliquez [ici](vmware-azure-architecture.md) pour en savoir plus sur le rôle du 
 
 Le serveur de configuration doit être configuré comme une machine virtuelle VMware hautement disponible avec certaines exigences matérielles et dimensionnelles minimales. Pour un déploiement simple et pratique, Site Recovery fournit un modèle OVA (Open Virtualization Application) téléchargeable pour configurer le serveur de configuration conformément à toutes les exigences listées ci-dessous.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Les conditions matérielles minimales pour un serveur de configuration sont synthétisées dans le tableau suivant.
 
@@ -42,7 +42,7 @@ Les conditions minimales de taille pour le serveur de configuration varient selo
 | 12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz) |18 Go |600 Go |500 Go à 1 To |Répliquez entre 100 et 150 machines. |
 | 16 processeurs virtuels (2 sockets * 8 cœurs \@ 2,5 GHz) |32 Go |1 To |1 To à 2 To |Répliquez entre 150 et 200 machines. |
 
-Si vous répliquez plusieurs machines virtuelles VMware, lisez les [considérations relatives à la planification de la capacité](/site-recovery-plan-capacity-vmware.md). Exécutez [l’outil du planificateur de déploiement](site-recovery-deployment-planner.md) pour la réplication de VMware.
+Si vous répliquez plusieurs machines virtuelles VMware, lisez les [considérations relatives à la planification de la capacité](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Exécutez [l’outil du planificateur de déploiement](site-recovery-deployment-planner.md) pour la réplication de VMware.
 
 ## <a name="download-the-template"></a>Téléchargez le modèle
 
@@ -81,7 +81,7 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 1. Dans l’inventaire du client vSphere, faites un clic droit sur la machine virtuelle, puis sélectionnez **Modifier les paramètres**.
 2. Dans **Matériel**, sélectionnez **Ajouter** > **Adaptateur Ethernet**. Sélectionnez ensuite **Suivant**.
-3. Sélectionnez un type d’adaptateur et un réseau. 
+3. Sélectionnez un type d’adaptateur et un réseau.
 4. Pour connecter la carte réseau virtuelle lorsque la machine virtuelle s’allume, sélectionnez **Connecter à la mise sous tension**. Ensuite, sélectionnez **Suivant** > **Terminer** > **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Inscrire le serveur de configuration auprès des services Azure Site Recovery
@@ -102,7 +102,7 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
     > [!NOTE]
     > Une fois inscrit, le coffre Recovery Services n’est plus modifiable.
-    
+
 3. Dans **Installer des logiciels tiers** :
 
     |Scénario   |Procédure à suivre  |
@@ -144,6 +144,10 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 ## <a name="upgrade-the-configuration-server"></a>Mettre à niveau le serveur de configuration
 
 Pour mettre à niveau le serveur de configuration sur la version la plus récente, lisez les étapes indiquées [ici](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+
+## <a name="manage-the-configuration-server"></a>Gérer le serveur de configuration
+
+Pour éviter toute interruption d’une réplication continue, assurez-vous que l’adresse IP du serveur de configuration ne change pas une fois celui-ci inscrit dans un coffre. Pour plus d’informations sur les tâches courantes d’administration du serveur de configuration, voir [ici](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Résoudre les problèmes de déploiement
 

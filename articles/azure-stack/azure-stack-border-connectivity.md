@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 260c58ad9099a4532c8a6558cfcf5c13f0fc8d52
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 39edcb97f062693d11fd5c0ce332c206ebd4b54a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282006"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343551"
 ---
 # <a name="border-connectivity"></a>Connectivité de la bordure 
 La planification de l’intégration au réseau est un prérequis important pour réussir le déploiement, l’exploitation et la gestion de systèmes intégrés Azure Stack. Pour commencer la planification de la connectivité de la frontière, vous devez décider si vous souhaitez utiliser ou non le routage dynamique avec le protocole BGP (Border Gateway Protocol). Pour cela, vous devez soit affecter un numéro de système autonome BGP 16 bits (public ou privé), soit utiliser un routage statique où une route statique par défaut est affectée aux appareils frontière.
@@ -31,7 +31,7 @@ La planification de l’intégration au réseau est un prérequis important pour
 ## <a name="bgp-routing"></a>Routage BGP
 L’utilisation d’un protocole de routage dynamique comme BGP garantit que votre système est toujours informé des changements de réseau et facilite l’administration. 
 
-Comme indiqué dans le diagramme suivant, la publication de l’espace d’adressage IP privé sur le commutateur TOR est limitée au moyen d’une liste de préfixes. Celle-ci refuse les sous-réseaux IP privés et son application en tant que carte de routage sur la connexion entre le TOR et la frontière.
+Comme indiqué dans le diagramme suivant, la publication de l’espace d’adressage IP privé sur le commutateur TOR est limitée au moyen d’une liste de préfixes. La liste de préfixes définit les sous-réseaux IP privés et leur application en tant que carte de routage sur la connexion entre le commutateur TOR et la limite.
 
 L’équilibreur de charge logiciel (SLB, Software Load Balancer) en cours d’exécution dans la solution Azure Stack est appairé aux appareils TOR. Il peut donc publier dynamiquement les adresses IP virtuelles.
 
@@ -44,13 +44,19 @@ Le routage statique nécessite une configuration supplémentaire pour les appare
 
 Pour intégrer Azure Stack dans votre environnement réseau avec un routage statique, les quatre liens physiques entre la limite et l’appareil TOR doivent tous être connectés, et la haute disponibilité ne peut pas être garantie en raison du fonctionnement du routage statique.
 
-L’appareil situé à la limite doit être configuré avec des routes statiques pointant vers le P2P des appareils TOR pour le trafic destiné au réseau externe ou aux adresses IP virtuelles du réseau de l’infrastructure. Il nécessite des routes statiques vers le réseau BMC pour le déploiement. Les clients peuvent choisir de laisser des routes statiques à la frontière pour accéder à certaines ressources qui se trouvent sur le réseau du contrôleur BMC.  L’ajout de routes statiques aux réseaux de *l’infrastructure des commutateurs* et de la *gestion des commutateurs*  est facultatif.
+L’appareil situé à la limite doit être configuré avec des itinéraires statiques pointant vers le P2P des appareils TOR pour le trafic destiné au réseau *externe*, ou aux adresses IP virtuelles publiques et au réseau de l’*infrastructure*. Elle requiert des itinéraires statiques vers les réseaux *BMC* et *externe* pour le déploiement. Les opérateurs peuvent choisir de laisser des itinéraires statiques à la limite pour accéder à des ressources d’administration qui se trouvent sur le réseau *BMC*. L’ajout de routes statiques aux réseaux de *l’infrastructure des commutateurs* et de la *gestion des commutateurs*  est facultatif.
 
 Les appareils TOR sont configurés à l’origine avec une route statique par défaut qui envoie tout le trafic aux appareils situés à la frontière. La seule exception à la règle par défaut concerne l’espace privé, qui est bloqué avec une liste ACL appliquée sur la connexion entre le TOR et la frontière.
 
 Le routage statique s’applique seulement aux liaisons montantes entre le TOR et les commutateurs situés à la frontière. Le routage dynamique BGP est utilisé dans le rack, car il s’agit d’un outil essentiel pour l’équilibreur SLB et pour d’autres composants. Il ne peut être ni désactivé ni supprimé.
 
 ![Routage statique](media/azure-stack-border-connectivity/static-routing.png)
+
+<sup>\*</sup> Le réseau BMC est facultatif après le déploiement.
+
+<sup>\*\*</sup> Le réseau d’infrastructure du commutateur est facultatif, car le réseau entier peut être inclus dans le réseau de gestion du commutateur.
+
+<sup>\*\*\*</sup> Le réseau de gestion du commutateur est requis et peut être ajouté séparément à partir du réseau d’infrastructure du commutateur.
 
 ## <a name="transparent-proxy"></a>Proxy transparent
 Si votre centre de données exige que l’ensemble du trafic utilise un proxy, vous devez configurer un *proxy transparent* pour traiter l’ensemble du trafic du rack afin de le gérer conformément à la stratégie, en séparant le trafic entre les zones de votre réseau.

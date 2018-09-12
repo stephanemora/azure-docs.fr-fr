@@ -1,6 +1,6 @@
 ---
-title: Présentation du volet d’accès dans Azure Active Directory ? | Microsoft Docs
-description: Découvrez comment utiliser les différentes versions du volet d’accès (navigateur web, application Android, iPhone et iPad) pour accéder aux applications SaaS.
+title: Qu’est le portail MyApps dans Azure Active Directory ? | Microsoft Docs
+description: Découvrez comment utiliser les différentes versions du portail MyApps (navigateur web, application Android, iPhone et iPad) pour accéder aux applications SaaS.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146380"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302275"
 ---
-# <a name="what-is-the-access-panel"></a>Présentation du volet d’accès
+# <a name="what-is-the-myapps-portal"></a>Qu’est-ce que le portail MyApps ?
 
-Le volet d’accès est un portail basé sur le web. Si vous disposez d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD), vous pouvez utiliser le volet d’accès pour afficher et démarrer des applications basées sur le cloud auxquelles un administrateur Azure AD vous a accordé un accès. Vous pouvez également utiliser des fonctionnalités de gestion de groupes et d’applications libre-service par le biais du volet d’accès.
+Si vous disposez d’un compte professionnel ou scolaire dans Azure Active Directory (Azure AD), vous pouvez utiliser le portail web MyApps pour afficher et démarrer des applications basées sur le cloud auxquelles un administrateur Azure AD vous a donné accès. Vous pouvez également utiliser des fonctionnalités de gestion de groupes et d’applications libre-service en utilisant le portail MyApps.
 
-Le volet d’accès est séparé du portail Azure. Il ne nécessite pas de disposer d’un abonnement Azure.
+Le portail MyApps est séparé du portail Azure. Il ne nécessite pas de disposer d’un abonnement Azure.
 
-![Volet d’accès][1] Grâce au volet d’accès, vous pouvez modifier certains de vos paramètres de profil et procéder comme suit :
+![Portail MyApps][1] Le portail MyApps vous permet de modifier certains de vos paramètres de profil et d’effectuer les opérations suivantes :
 
 - Modifier le mot de passe associé à un compte professionnel ou scolaire.
 
@@ -39,12 +39,9 @@ Le volet d’accès est séparé du portail Azure. Il ne nécessite pas de dispo
 
 - Gérer les groupes en libre-service. Les administrateurs peuvent créer et gérer des groupes de sécurité et demander l’appartenance à des groupes de sécurité dans Azure AD. Pour plus d’informations, consultez [Gestion de groupe libre-service pour les utilisateurs dans Azure AD](../users-groups-roles/groups-self-service-management.md) et [Gérer vos groupes](../fundamentals/active-directory-manage-groups.md).
 
+## <a name="access-the-myapps-portal"></a>Accéder au portail MyApps
 
-
-
-## <a name="access-the-access-panel"></a>Accéder au volet d’accès
-
-Vous pouvez accéder au volet d’accès en accédant à `http://myapps.microsoft.com`.
+Vous pouvez accéder au portail MyApps à l’adresse `http://myapps.microsoft.com`.
 
 Si vous avez configuré la personnalisation de votre page de connexion, vous pouvez charger cette personnalisation en ajoutant le domaine de votre organisation à l’URL (par exemple, `http://myapps.microsoft.com/<your domain>.com`).
 
@@ -54,7 +51,7 @@ Distribuez l’URL à tous les utilisateurs qui se connectent aux applications i
 
 ## <a name="authentication"></a>Authentification
 
-Pour accéder au volet d’accès, vous devez être authentifié via un compte professionnel ou scolaire dans Azure AD. Vous pouvez être authentifié dans Azure AD directement. En guise d’alternative, si une organisation a configuré la fédération à l’aide des services Active Directory Federation Services (AD FS) ou d’autres technologies, vous pouvez être authentifié par Windows Server Active Directory.
+Pour accéder au portail MyApps, vous devez être authentifié via un compte professionnel ou scolaire dans Azure AD. Vous pouvez être authentifié dans Azure AD directement. En guise d’alternative, si une organisation a configuré la fédération à l’aide des services Active Directory Federation Services (AD FS) ou d’autres technologies, vous pouvez être authentifié par Windows Server Active Directory.
 
 Si vous disposez d’un abonnement Azure ou Office 365 et que vous utilisez le portail Azure ou une application Office 365, vous pouvez afficher la liste des applications sans avoir à vous reconnecter. Si vous n’êtes pas authentifié, vous êtes invité à vous connecter à l’aide du nom d’utilisateur et du mot de passe correspondant à votre compte dans Azure AD. Si votre organisation a configuré la fédération, la saisie du nom d’utilisateur suffit.
 
@@ -62,12 +59,12 @@ Une fois authentifié, vous pouvez interagir avec les applications que l’admin
 
 ## <a name="web-browser-requirements"></a>Configuration requise du navigateur web
 
-Au minimum, le volet d’accès nécessite un navigateur prenant en charge JavaScript et dans lequel CSS est activée. Pour se connecter aux applications via l’authentification unique (SSO) avec mot de passe, l’extension du volet d’accès doit être installée dans votre navigateur. Cette extension est téléchargée automatiquement quand vous sélectionnez une application configurée pour l’authentification unique (SSO) avec mot de passe.
+Au minimum, le portail MyApps nécessite un navigateur prenant en charge JavaScript et dans lequel CSS est activé. Pour se connecter aux applications via une authentification unique (SSO) avec mot de passe, l’extension du portail MyApps doit être installée dans votre navigateur. Cette extension est téléchargée automatiquement quand vous sélectionnez une application configurée pour l’authentification unique (SSO) avec mot de passe.
 
 Le programme d’installation est spécifique à l’architecture. Si vous cliquez sur le lien de téléchargement, vous obtenez uniquement le programme d’installation qui correspond à l’architecture de votre système d’exploitation. Si vous êtes administrateur de déploiement d’applications, cliquez sur le lien de téléchargement des appareils 64 bits et sur celui des appareils 32 bits pour obtenir les deux programmes d’installation.
 
 
-L’extension du panneau d’accès est actuellement disponible pour :
+L’extension du portail MyApps est actuellement disponible pour :
 - **Edge** : sur Windows 10 Édition anniversaire ou version ultérieure. 
 - **Chrome** : sur Windows 7 ou version ultérieure, et sur Mac OS X ou version ultérieure.
 - **Firefox 26.0 ou version ultérieure** : sur Windows XP SP2 ou version ultérieure, et sur Mac OS X 10.6 ou version ultérieure.
@@ -77,7 +74,7 @@ L’extension du panneau d’accès est actuellement disponible pour :
 Pour vous connecter à l’authentification unique avec mot de passe, vous devez utiliser l’extension. Une fois que l’extension est installée, vous pouvez vous y connecter pour activer des fonctionnalités supplémentaires en sélectionnant **Connectez-vous pour commencer**. 
 
 - Vous pouvez vous connecter à une application directement à l’aide de l’**URL de connexion** de l’application. Lorsque vous utilisez l’URL de l’application, l’extension détecte l’action et vous offre la possibilité de vous connecter à partir de l’extension.
-- Vous pouvez lancer une des vos applications à partir du panneau d’accès à l’aide de la fonctionnalité de *recherche rapide* de l’extension. 
+- Vous pouvez lancer n’importe laquelle de vos applications à partir du portail MyApps à l’aide de la fonctionnalité de *recherche rapide* de l’extension. 
 - L’extension vous présente les trois dernières applications que vous avez lancées dans la section **Récemment utilisé**.
 - Vous pouvez utiliser les URL internes de la société à distance via le [Proxy d’application](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
@@ -111,7 +108,7 @@ Pour utiliser les URL internes de la société à distance à l’aide de l’ex
 L’équipe Azure Active Directory publie l’application mobile My Apps. Quand vous installez cette application, vous pouvez vous connecter aux applications SSO avec mot de passe sur des appareils iOS et Android.
 
 > [!NOTE]
-> Vous pouvez vous connecter aux applications qui prennent en charge la fédération avec Azure AD (notamment Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 et plus de 70 autres) sur presque n’importe quel navigateur web sur n’importe quel appareil sans nécessiter de plug-in ou d’application mobile. Pour l’utilisation sur un appareil mobile, le reste de l’[expérience de volet d’accès](https://myapps.microsoft.com/) ne nécessite pas non plus l’utilisation de l’application mobile My Apps.
+> Vous pouvez vous connecter aux applications qui prennent en charge la fédération avec Azure AD (notamment Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 et plus de 70 autres) sur presque n’importe quel navigateur web sur n’importe quel appareil sans nécessiter de plug-in ou d’application mobile. Pour une utilisation sur un appareil mobile, les autres [expériences du portail MyApps](https://myapps.microsoft.com/) ne nécessitent pas non plus l’application mobile My Apps.
 >
 >
 
@@ -145,22 +142,22 @@ Intune Managed Browser est disponible dans l’[Apple App Store](https://itunes.
 
 ## <a name="tips-for-testing-the-user-experience"></a>Conseils pour tester l’expérience utilisateur
 
-Si vous êtes administrateur Azure et que vous êtes connecté au portail Azure à l’aide d’un compte dans l’annuaire, vous êtes automatiquement connecté au volet d’accès sous votre compte actuel. Cette vue affiche toutes les applications qui vous sont assignées.
+Si vous êtes un administrateur Azure connecté au portail Azure à l’aide d’un compte figurant dans l’annuaire, vous êtes automatiquement connecté au portail MyApps sous votre compte actuel. Cette vue affiche toutes les applications qui vous sont assignées.
 
 Pour tester dans un *autre* compte d’utilisateur, procédez comme suit :
 
-1. En haut à droite du portail Azure ou du volet d’accès, sélectionnez **Déconnexion**. 
-2. Accédez au [volet d’accès](http://myapps.microsoft.com).
+1. En haut à droite du portail Azure ou du portail MyApps, sélectionnez **Déconnexion**. 
+2. Accédez au [portail MyApps](http://myapps.microsoft.com).
 3. Dans la page de connexion, tapez le nom d’utilisateur et le mot de passe du compte dans l’annuaire que vous souhaitez tester.
 
 
 ## <a name="starting-applications"></a>Démarrage des applications
 
-Cette section décrit plusieurs types d’applications qui peuvent apparaître dans le volet d’accès.
+Cette section décrit plusieurs types d’applications qui peuvent apparaître sur le portail MyApps.
 
 ### <a name="office-365-applications"></a>Applications Office 365
 
-Si votre organisation utilise des applications Office 365 et que vous disposez d’une licence pour celles-ci, les applications Office 365 apparaissent dans votre volet d’accès.
+Si votre organisation utilise des applications Office 365 et si vous disposez d’une licence pour celles-ci, les applications Office 365 apparaissent sur votre portail MyApps.
 
 Lorsque vous sélectionnez la vignette d’une application Office 365, vous êtes redirigé vers l’application et connecté automatiquement.
 
@@ -174,7 +171,7 @@ Lorsque vous sélectionnez la vignette d’une application, vous êtes redirigé
 
 Votre administrateur peut ajouter des applications à la section Active Directory du portail Azure avec le mode d’authentification unique (SSO) défini sur **Authentification unique avec mot de passe**. Tous les utilisateurs de l’annuaire peuvent voir toutes les applications qui ont été configurées dans ce mode.
 
-La première fois que vous sélectionnez une vignette d’application, vous êtes invité à installer le plug-in d’authentification unique (SSO) avec mot de passe pour Internet Explorer ou Chrome. L’installation peut nécessiter le redémarrage de votre navigateur web. Lorsque vous revenez au volet d’accès et que vous sélectionnez à nouveau la vignette de l’application, vous êtes invité à fournir un nom d’utilisateur et un mot de passe pour l’application. Une fois que vous avez entré le nom d’utilisateur et le mot de passe, les informations d’identification sont stockées de manière sécurisée dans Azure AD et liées à votre compte dans Azure AD.
+La première fois que vous sélectionnez une vignette d’application, vous êtes invité à installer le plug-in d’authentification unique (SSO) avec mot de passe pour Internet Explorer ou Chrome. L’installation peut nécessiter le redémarrage de votre navigateur web. Lorsque vous revenez au portail MyApps et sélectionnez à nouveau la vignette de l’application, vous êtes invité à fournir un nom d’utilisateur et un mot de passe pour l’application. Une fois que vous avez entré le nom d’utilisateur et le mot de passe, les informations d’identification sont stockées de manière sécurisée dans Azure AD et liées à votre compte dans Azure AD.
 
 La prochaine fois que vous sélectionnez la vignette de l’application, vous êtes connecté automatiquement à l’application.  
 
@@ -194,7 +191,7 @@ Votre administrateur peut ajouter des applications à la section Active Director
 
 La première fois que vous sélectionnez une vignette d’application, vous êtes invité à installer le plug-in d’authentification unique (SSO) avec mot de passe pour Internet Explorer ou Chrome. L’installation peut nécessiter le redémarrage de votre navigateur web.  
 
-Lorsque vous revenez au volet d’accès et que vous sélectionnez à nouveau la vignette de l’application, vous êtes connecté automatiquement à l’application.
+Lorsque vous revenez au portail MyApps et sélectionnez à nouveau la vignette de l’application, vous êtes connecté automatiquement à l’application.
 
 Certaines applications peuvent exiger que vous changiez votre mot de passe lors de la première connexion. Si vos informations d’identification ont changé dans l’application tierce cible, vous devez également mettre à jour les informations d’identification stockées dans Azure AD. 
 
@@ -206,9 +203,9 @@ Pour mettre à jour vos informations d’identification, procédez comme suit :
 
 ### <a name="application-with-existing-sso-solutions"></a>Application avec solutions d’authentification unique (SSO) existantes
 
-Pour configurer l’authentification unique (SSO) pour une application, le portail Azure propose une troisième option appelée l’authentification unique existante. Cette option permet à votre administrateur de créer un lien vers une application et de le placer dans le volet d’accès pour les utilisateurs sélectionnés.
+Pour configurer l’authentification unique (SSO) pour une application, le portail Azure propose une troisième option appelée l’authentification unique existante. Cette option permet à votre administrateur de créer un lien vers une application, et de le placer sur le portail MyApps pour des utilisateurs sélectionnés.
 
-Par exemple, si une application est configurée pour authentifier les utilisateurs avec les services AD FS 2.0, votre administrateur peut utiliser l’option d’authentification unique existante pour créer un lien vers cette application dans le volet d’accès. Quand vous accédez au lien, vous êtes authentifié par le biais des services AD FS 2.0 ou de la solution d’authentification unique (SSO) existante fournie par l’application.
+Par exemple, si une application est configurée pour authentifier les utilisateurs en utilisant les services AD FS 2.0, votre administrateur peut utiliser l’option d’authentification unique existante pour créer un lien vers cette application sur le portail MyApps. Quand vous accédez au lien, vous êtes authentifié par le biais des services AD FS 2.0 ou de la solution d’authentification unique (SSO) existante fournie par l’application.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

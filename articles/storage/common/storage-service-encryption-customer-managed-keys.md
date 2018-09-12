@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527084"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781562"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du service de stockage à l’aide de clés gérées par le client dans Azure Key Vault
 Microsoft Azure s’engage à vous aider à protéger et préserver vos données pour répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Une manière de protéger vos données avec la plateforme de stockage Azure consiste à utiliser Storage Service Encryption (SSE), qui chiffre automatiquement vos données lors de leur écriture dans le stockage et les déchiffre lors de leur récupération. Le chiffrement et le déchiffrement sont automatiques et transparents ; ils utilisent la technologie de [chiffrement AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits, l’un des chiffrements par bloc les plus sécurisés qui soient.
@@ -34,7 +34,7 @@ Pour utiliser des clés gérées par le client avec SSE, vous pouvez créer un c
 Commencez par créer un compte de stockage si vous n’en avez pas encore. Pour plus d’informations, consultez la rubrique [Créer un compte de stockage](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Étape 2 : activer SSE pour le service de stockage d’objets blob et de fichiers
-Pour activer SSE à l’aide de clés de gérée par le client, deux fonctionnalités de protection des clés, Suppression réversible et Ne pas vider, doivent également être activées. Ces paramètres empêchent la suppression accidentelle ou intentionnelle des clés. La période de rétention maximale des clés est définie à 90 jours, ce qui protège les utilisateurs contre les intervenants malveillants ou les rançongiciels.
+Pour activer SSE à l’aide de clés gérées par le client, deux fonctionnalités de protection des clés, Suppression réversible et Ne pas vider, doivent également être activées dans Azure Key Vault. Ces paramètres empêchent la suppression accidentelle ou intentionnelle des clés. La période de rétention maximale des clés est définie à 90 jours, ce qui protège les utilisateurs contre les intervenants malveillants ou les rançongiciels.
 
 Si vous souhaitez activer des clés pour SSE par programmation gérée par le client, vous pouvez utiliser [l’API REST du fournisseur de ressources de stockage Azure](https://docs.microsoft.com/rest/api/storagerp), la [Storage Resource Provider Client Library pour .NET](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 

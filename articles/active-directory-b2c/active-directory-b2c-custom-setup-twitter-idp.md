@@ -10,19 +10,19 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 28679ef07c2625908f7b08f808ff49c48ddb625b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440945"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339866"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C : ajoutez Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Cet article indique comment activer la connexion pour les utilisateurs d’un compte Twitter à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
 ## <a name="step-1-create-a-twitter-account-application"></a>Étape 1 : Créer une application de compte Twitter
@@ -36,9 +36,9 @@ Pour utiliser Twitter en tant que fournisseur d’identité dans Azure Active Di
  
     a. Entrez le **nom** et une **description** pour votre nouvelle application. 
 
-    b. Dans la zone **Site web**, collez **https://login.microsoftonline.com**. 
+    b. Dans la zone **Site web**, collez **https://{locataire}.b2clogin.com**. Où **{locataire}** est le nom de votre locataire (par exemple, https://contosob2c.b2clogin.com).
 
-    c. 4. Dans le champ **Callback URL** (URL de rappel), entrez `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Veillez à remplacer **{tenant}** par le nom de votre locataire (par exemple, contosob2c.onmicrosoft.com) et **{policyId}** par votre ID de stratégie (par exemple, b2c_1_policy).  **L’URL de rappel doit être en lettres minuscules.** Vous devez ajouter une URL de rappel pour toutes les stratégies qui utilisent la connexion Twitter. Veillez à utiliser `b2clogin.com` au lieu de ` login.microsoftonline.com` si vous l’utilisez dans votre application.
+    c. 4. Dans le champ **Callback URL** (URL de rappel), entrez `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp`. Veillez à remplacer **{locataire}** par le nom de votre locataire (par exemple, contosob2c), et **{policyId}** par votre ID de stratégie (par exemple, b2c_1_policy).  **L’URL de rappel doit être en lettres minuscules.** Vous devez ajouter une URL de rappel pour toutes les stratégies qui utilisent la connexion Twitter. Veillez à utiliser `b2clogin.com` au lieu de ` login.microsoftonline.com` si vous l’utilisez dans votre application.
 
     d. En bas de la page, lisez les conditions et acceptez-les, puis sélectionnez **Create your Twitter application** (Créer votre application Twitter).
 

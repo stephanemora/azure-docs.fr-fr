@@ -12,31 +12,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 08/30/2018
 ms.author: milanga;cenkdin;juliako
-ms.openlocfilehash: ebaa679c43bd577d4f37feb7f3a025086490e25f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e8d8067fcf30b16dd3dbc7f6cf50129d837aa3a5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785748"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306854"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Mettre à jour Media Services après la substitution de clés d’accès de stockage
 
-Quand vous créez un compte Azure Media Services (AMS), vous êtes également invité à sélectionner un compte de stockage Azure qui est utilisé pour stocker votre contenu multimédia. Vous pouvez ajouter plusieurs comptes de stockage à votre compte Media Services. Cette rubrique présente la procédure de régénération des clés de stockage. Elle montre également comment ajouter des comptes de stockage à un compte multimédia. 
+Quand vous créez un compte Azure Media Services (AMS), vous êtes également invité à sélectionner un compte de stockage Azure qui est utilisé pour stocker votre contenu multimédia. Vous pouvez ajouter plusieurs comptes de stockage à votre compte Media Services. Cet article explique comment orchestrer la rotation des clés de stockage. Elle montre également comment ajouter des comptes de stockage à un compte multimédia. 
 
-Pour effectuer les actions décrites dans cette rubrique, vous devez utiliser des [API ARM](https://docs.microsoft.com/rest/api/media/mediaservice) et [Powershell](https://docs.microsoft.com/powershell/resourcemanager/azurerm.media/v0.3.2/azurerm.media).  Pour plus d’informations, consultez [Guide pratique pour gérer les ressources Azure avec PowerShell et Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
+Pour effectuer les actions décrites dans cet article, vous devez utiliser des [API Azure Resource Manager](https://docs.microsoft.com/rest/api/media/mediaservice) et [Powershell](https://docs.microsoft.com/powershell/module/azurerm.media).  Pour plus d’informations, voir [Guide pratique pour gérer les ressources Azure avec PowerShell et Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Lors de la création d’un compte de stockage, Azure génère deux clés d’accès de stockage 512 bits, qui sont utilisées pour authentifier l’accès à votre compte de stockage. Pour sécuriser vos connexions de stockage, il est recommandé de régénérer et d’alterner périodiquement vos clés d’accès de stockage. Vous bénéficiez de deux clés d’accès (primaire et secondaire), ce qui vous permet de conserver vos connexions au compte de stockage à l’aide d’une clé d’accès lorsque vous régénérez l’autre clé. Cette procédure est également appelée « substitution des clés d’accès ».
 
-Media Services dépend d'une clé de stockage qui lui est fournie. Plus précisément, les localisateurs utilisés pour diffuser en continu ou télécharger vos ressources dépendent de la clé d’accès de stockage spécifiée. Lors de la création d'un compte AMS, Media Services choisit une dépendance sur la clé d'accès de stockage principale par défaut, mais en tant qu'utilisateur, vous pouvez mettre à jour la clé de stockage d’AMS. Vous devez indiquer à Media Services quelle clé utiliser en suivant les étapes décrites dans cette rubrique.  
+Media Services dépend d'une clé de stockage qui lui est fournie. Plus précisément, les localisateurs utilisés pour diffuser en continu ou télécharger vos ressources dépendent de la clé d’accès de stockage spécifiée. Lors de la création d’un compte AMS, Media Services choisit une dépendance sur la clé d’accès de stockage principale par défaut mais, en tant qu’utilisateur, vous pouvez mettre à jour la clé de stockage d’AMS. Vous devez veiller à indiquer à Media Services la clé à utiliser en suivant les étapes décrites dans cet article.  
 
 >[!NOTE]
 > Si vous possédez plusieurs comptes de stockage, vous devez effectuer cette procédure pour chacun d’eux. L’ordre de régénération des clés de stockage n’est pas fixe. Vous pouvez commencer par la clé primaire ou la clé secondaire.
 >
-> Avant d’appliquer les étapes décrites dans cette rubrique sur un compte de production, veillez à les tester sur un compte de pré-production.
+> Avant de suivre les étapes décrites dans cet article sur un compte de production, veillez à les tester sur un compte de pré-production.
 >
 
 ## <a name="steps-to-rotate-storage-keys"></a>Étapes de régénération des clés de stockage 
@@ -68,7 +68,7 @@ L’exemple suivant montre comment obtenir le compte de stockage et le synchroni
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Étapes à suivre pour ajouter des comptes de stockage à votre compte AMS
 
-La rubrique suivante montre comment ajouter des comptes de stockage à votre compte AMS : [Attacher plusieurs comptes de stockage à un compte Media Services](meda-services-managing-multiple-storage-accounts.md).
+L’article suivant montre comment ajouter des comptes de stockage à votre compte AMS : [Attacher plusieurs comptes de stockage à un compte Media Services](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

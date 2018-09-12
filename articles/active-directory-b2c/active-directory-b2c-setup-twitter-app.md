@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bf5ae39d83fd021775fbd18cf23d2e6b9078e748
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6d8e9245e95c08aad69cd05f338b6260e554469b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927894"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337788"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Twitter à l’aide d’Azure Active Directory B2C
 
@@ -26,14 +26,14 @@ Pour utiliser un compte Twitter comme fournisseur d’identité dans Azure Activ
 1. Connectez-vous aux [Applications Twitter](https://apps.twitter.com/) avec vos informations d’identification Twitter.
 2. Sélectionnez **Create New App** (Créer une application).
 3. Entrez un **Nom**, une **Description** et un **Site web**.
-4. Entrez `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp` dans **URL de rappel**. Remplacez **{tenant}** par le nom de votre locataire (par exemple, contosob2c.onmicrosoft.com) et **{policyId}** par votre ID de stratégie (par exemple, b2c_1_policy). Ajoutez une URL de rappel pour toutes les stratégies qui utilisent le compte Twitter. Veillez à utiliser `b2clogin.com` au lieu de ` login.microsoftonline.com` si vous l’utilisez dans votre application.
+4. Entrez `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp` dans **URL de rappel**. Remplacez **{locataire}** par le nom de votre locataire (par exemple, contosob2c), et **{policyId}** par votre ID de stratégie (par exemple, b2c_1_policy). Ajoutez une URL de rappel pour toutes les stratégies qui utilisent le compte Twitter. 
 5. Acceptez le **Contrat du développeur** et sélectionnez **Créer votre application Twitter**.
 7. Sélectionnez l’onglet **Keys and Access Tokens** .
 8. Copiez les informations de **Consumer Key** (Clé du client) et de **Consumer Secret** (Secret du client). Vous aurez besoin de ces deux valeurs pour configurer un compte Twitter en tant que fournisseur d’identité dans votre locataire.
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>Configurer Twitter en tant que fournisseur d’identité dans votre locataire
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
 2. Assurez-vous que vous utilisez le répertoire qui contient votre locataire Azure AD B2C en l’activant dans l’angle supérieur droit du portail Azure. Sélectionnez les informations sur votre abonnement, puis cliquez sur **Changer de répertoire**. 
 
     ![Basculez vers votre client Azure AD B2C.](./media/active-directory-b2c-setup-twitter-app/switch-directories.png)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308029"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344495"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Créer une application web ASP.NET avec inscription, connexion, modification du profil et réinitialisation du mot de passe Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > * Inscrire votre application web auprès de votre répertoire Azure AD B2C
 > * Créer une stratégie d’inscription/de connexion d’utilisateur, de modification du profil et de réinitialisation du mot de passe pour votre application web
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Vous devez connecter votre locataire B2C à un compte Azure. Vous pouvez créer un compte Azure gratuit [ici](https://azure.microsoft.com/).
 - Vous avez besoin de [Microsoft Visual Studio](https://www.visualstudio.com/) ou d’un programme similaire pour afficher et modifier l’exemple de code.
@@ -95,7 +95,7 @@ Notre exemple est configuré pour utiliser les stratégies et l’ID client du l
 * `ida:ResetPasswordPolicyId` par votre nom de stratégie « Réinitialiser le mot de passe »
 
 ## <a name="launch-the-app"></a>Lancer l’application
-À partir de Visual Studio, lancez l’application. Accédez à l’onglet Liste de tâches et notez que l’URl est : https://login.microsoftonline.com/*VotreNomDeClient*/oauth2/v2.0/authorize?p=*NomDeVotreStratégieInscription*&client_id=*VotreIDdeClient*.....
+À partir de Visual Studio, lancez l’application. Accédez à l’onglet Liste de tâches et notez que l’URL est : https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*&client_id=*YourclientID*.....
 
 Inscrivez-vous à l’application à l’aide de votre adresse e-mail ou nom d’utilisateur. Déconnectez-vous, puis reconnectez-vous et modifiez le profil ou réinitialisez le mot de passe. Déconnectez-vous et connectez-vous en tant qu’autre utilisateur. 
 

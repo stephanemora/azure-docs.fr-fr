@@ -14,14 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531577"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667445"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
@@ -33,19 +33,19 @@ Ce schéma illustre ce que vous allez créer dans ce didacticiel.
 
 ![Groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
 
 Le tableau suivant répertorie les conditions requises que vous devez remplir avant de commencer ce didacticiel :
 
-|  |Prérequis |Description |
+|  |Conditions préalables |Description |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Deux serveurs SQL Server | - Dans un groupe à haute disponibilité Azure <br/> - Dans un domaine <br/> - Avec la fonctionnalité de Clustering de basculement installée |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partage de fichiers pour le témoin de cluster |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Compte du service SQL Server | Compte du domaine |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Compte du service SQL Server Agent | Compte du domaine |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Ports du pare-feu ouverts | - SQL Server : **1433** pour l’instance par défaut <br/> - Point de terminaison de mise en miroir de bases de données : **5022** ou un port disponible <br/> - Sonde d’équilibrage de charge Azure : **59999** ou un port disponible |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Ports du pare-feu ouverts | - SQL Server : **1433** pour l’instance par défaut <br/> - Point de terminaison de mise en miroir de bases de données : **5022** ou un port disponible <br/> - Sonde d’intégrité d’adresse IP d’équilibreur de charge de groupe de disponibilité : **59999** ou tout port disponible <br/> - Sonde d’intégrité d’adresse IP d’équilibreur de charge de cluster principal : **58888** ou tout port disponible |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Ajout de la fonctionnalité de Clustering de basculement | Fonctionnalité requise sur les deux serveurs SQL Server |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Compte du domaine d’installation | - Administrateur local sur chaque serveur SQL Server <br/> - Membres du rôle de serveur fixe sysadmin pour chaque instance de SQL Server  |
 
@@ -78,7 +78,7 @@ Une fois les conditions préalables remplies, la première étape consiste à cr
    | Point d'accès pour l'administration du cluster |Tapez un nom de cluster, par exemple **SQLAGCluster1** dans **Nom du cluster**.|
    | Confirmation |Utilisez les valeurs par défaut, sauf si vous utilisez des espaces de stockage. Consultez la remarque qui suit ce tableau. |
 
-### <a name="set-the-cluster-ip-address"></a>Définir l’adresse IP du cluster
+### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Définir l’adresse IP du cluster de basculement de Windows Server
 
 1. Dans **Gestionnaire du cluster de basculement**, accédez à **Principales ressources du cluster** et développez les détails du cluster. Les ressources **Nom** et **Adresse IP** doivent toutes deux être à l’état **Échec**. La ressource à adresse IP ne peut pas être mise en ligne, car le cluster a la même adresse IP que la machine elle-même. Cette adresse est donc dupliquée.
 
@@ -343,13 +343,15 @@ Vous pouvez maintenant configurer le groupe de disponibilité en procédant comm
 
 Sur les machines virtuelles Azure, un groupe de disponibilité SQL Serveur requiert un équilibrage de charge. Cet équilibreur de charge stocke les adresses IP des écouteurs du groupe de disponibilité et du cluster de basculement Windows Server. Cette section indique comment créer l’équilibrage de charge dans le portail Azure.
 
+Un équilibreur de charge Azure peut être Standard ou De base. Une équilibreur de charge Standard offre davantage de fonctionnalités qu’un équilibreur de charge De base. Pour un groupe de disponibilité, un équilibreur de charge Standard est requis si vous utilisez une zone de disponibilité (au lieu d’un groupe à haute disponibilité). Pour plus d’informations sur la différence entre les types d’équilibreurs de charge, voir [Comparaison des références SKU de Load Balancer](../../../load-balancer/load-balancer-overview.md#skus).
+
 1. Dans le portail Azure, accédez au groupe de ressources où se trouvent vos serveurs SQL Server et cliquez sur **+ Ajouter**.
-2. Recherchez **Équilibrage de charge**. Choisissez l’équilibrage de charge publié par Microsoft.
+1. Recherchez **Équilibrage de charge**. Choisissez l’équilibrage de charge publié par Microsoft.
 
    ![Groupe de disponibilité dans le Gestionnaire du cluster de basculement](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1.  Cliquez sur **Créer**.
-3. Configurez les paramètres suivants pour l’équilibreur de charge.
+1. Cliquez sur **Créer**.
+1. Configurez les paramètres suivants pour l’équilibreur de charge.
 
    | Paramètre | Champ |
    | --- | --- |
@@ -358,7 +360,7 @@ Sur les machines virtuelles Azure, un groupe de disponibilité SQL Serveur requi
    | **Réseau virtuel** |Utilisez le nom de votre réseau virtuel Azure. |
    | **Sous-réseau** |Utilisez le nom du sous-réseau auquel appartient la machine virtuelle.  |
    | **Affectation d’adresses IP** |statique |
-   | **Adresse IP** |Utilisez une adresse disponible du sous-réseau. Notez que celle-ci diffère de l’adresse IP de votre cluster |
+   | **Adresse IP** |Utilisez une adresse disponible du sous-réseau. Utilisez cette adresse pour votre écouteur de groupe de disponibilité. Notez que celle-ci diffère de l’adresse IP de votre cluster.  |
    | **Abonnement** |Utilisez le même abonnement que la machine virtuelle. |
    | **Lieu** |Utilisez le même emplacement que la machine virtuelle. |
 
@@ -376,7 +378,9 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
    ![Rechercher l’équilibrage de charge dans le groupe de ressources](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Cliquez sur l’équilibrage de charge, sur **Pools principaux**, puis sur **+Ajouter**. 
+1. Cliquez sur l’équilibrage de charge, sur **Pools principaux**, puis sur **+Ajouter**.
+
+1. Entez un nom pour le pool principal.
 
 1. Associez le pool principal au groupe à haute disponibilité contenant les machines virtuelles.
 
@@ -391,7 +395,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Cliquez sur l’équilibrage de charge, sur **Health probes (Sondes d’intégrité)**, puis sur **+Ajouter**.
 
-1. Configurez la sonde d’intégrité comme suit :
+1. Définissez la sonde d’intégrité de l’écouteur comme suit :
 
    | Paramètre | Description | Exemples
    | --- | --- |---
@@ -407,14 +411,14 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
 1. Cliquez sur l’équilibrage de charge, sur **Règles d’équilibrage de charge** et sur **+Ajouter**.
 
-1. Configurez les règles d’équilibrage de charge comme suit :
+1. Configurez les règles d’équilibrage de charge de l’écouteur comme suit.
    | Paramètre | Description | Exemples
    | --- | --- |---
    | **Name** | Texte | SQLAlwaysOnEndPointListener |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée lorsque vous avez créé l’équilibrage de charge. |
    | **Protocole** | Choisissez TCP. |TCP |
-   | **Port** | Utiliser le port pour l'écouteur de groupe de disponibilité | 1435 |
-   | **Port principal** | Ce champ est inutilisé lorsque l’option IP flottante est définie pour Retour au serveur direct. | 1435 |
+   | **Port** | Utiliser le port pour l'écouteur de groupe de disponibilité | 1433 |
+   | **Port principal** | Ce champ est inutilisé lorsque l’option IP flottante est définie pour Retour au serveur direct. | 1433 |
    | **Sonde** |Nom que vous avez spécifié pour la sonde. | SQLAlwaysOnEndPointProbe |
    | **Persistance de session** | Liste déroulante | **Aucun** |
    | **Délai d’inactivité** | Délai en minutes de maintien d’une connexion TCP ouverte | 4 |
@@ -423,17 +427,17 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
    > [!WARNING]
    > Le retour au serveur direct est configuré lors de la création. Cette valeur n’est pas modifiable.
 
-1. Cliquez sur **OK** pour définir les règles d’équilibrage de charge.
+1. Cliquez sur **OK** pour définir les règles d’équilibrage de charge de l’écouteur.
 
-### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Ajouter l’adresse IP frontale pour le cluster WSFC
+### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>Ajouter l’adresse IP du cluster principal pour le cluster de basculement Windows Server (WSFC)
 
-L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur de charge. 
+L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur de charge.
 
-1. Dans le portail, ajoutez une nouvelle configuration d’adresse IP frontale pour le cluster WSFC. Utilisez l’adresse IP que vous avez configurée pour le cluster WSFC dans les ressources principales du cluster. Définissez l’adresse IP comme statique. 
+1. Dans le portail, sur le même équilibreur de charge Azure, cliquez sur **Configuration d’adresse IP frontale**, puis sur **+Ajouter**. Utilisez l’adresse IP que vous avez configurée pour le cluster WSFC dans les ressources principales du cluster. Définissez l’adresse IP comme statique.
 
-1. Cliquez sur l’équilibrage de charge, sur **Health probes (Sondes d’intégrité)**, puis sur **+Ajouter**.
+1. Cliquez sur l’équilibreur de charge, sur **Sondes d’intégrité**, puis sur **+Ajouter**.
 
-1. Configurez la sonde d’intégrité comme suit :
+1. Définissez la sonde d’intégrité de l’adresse IP du cluster principal WSFC comme suit :
 
    | Paramètre | Description | Exemples
    | --- | --- |---
@@ -447,13 +451,13 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
 
 1. Configurez les règles d’équilibrage de charge. Cliquez sur **Règles d’équilibrage de charge**, puis sur **+Ajouter**.
 
-1. Configurez les règles d’équilibrage de charge comme suit :
+1. Définissez les règles d’équilibrage de charge de l’adresse IP du cluster principal comme suit.
    | Paramètre | Description | Exemples
    | --- | --- |---
-   | **Name** | Texte | WSFCPointListener |
-   | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée quand vous avez configuré l’adresse IP du cluster WSFC. |
+   | **Name** | Texte | WSFCEndPoint |
+   | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée quand vous avez configuré l’adresse IP du cluster WSFC. Celle-ci diffère de l’adresse IP de l’écouteur |
    | **Protocole** | Choisissez TCP. |TCP |
-   | **Port** | Utiliser le port pour l'écouteur de groupe de disponibilité | 58888 |
+   | **Port** | Utilisez le port de l’adresse IP du cluster. Il s’agit d’un port disponible qui n’est pas utilisé pour le port de la sonde de l’écouteur. | 58888 |
    | **Port principal** | Ce champ est inutilisé lorsque l’option IP flottante est définie pour Retour au serveur direct. | 58888 |
    | **Sonde** |Nom que vous avez spécifié pour la sonde. | WSFCEndPointProbe |
    | **Persistance de session** | Liste déroulante | **Aucun** |
@@ -486,7 +490,7 @@ Dans SQL Server Management Studio, configurez le port d’écoute.
 
 1. Vous devez maintenant voir le nom de l'écouteur que vous avez créé dans le Gestionnaire du cluster de basculement. Cliquez avec le bouton droit sur l’écouteur, puis cliquez sur **Propriétés**.
 
-1. Dans le champ **Port**, indiquez le numéro de port de l’écouteur du groupe de disponibilité à l’aide du paramètre $EndpointPort utilisé précédemment (valeur par défaut : 1433), puis cliquez sur **OK**.
+1. Dans la zone **Port**, spécifiez le numéro de port de l’écouteur de groupe de disponibilité. 1433 est la valeur par défaut. Cliquez ensuite sur **OK**.
 
 Vous avez maintenant un groupe de disponibilité SQL Server dans des machines virtuelles Azure exécutées en mode Resource Manager.
 
@@ -498,38 +502,20 @@ Pour tester la connexion :
 
 1. Utilisez l’utilitaire **sqlcmd** pour tester la connexion. Par exemple, le script suivant établit une connexion **sqlcmd** avec le réplica principal au moyen de l’écouteur avec une authentification Windows :
 
-    ```
-    sqlcmd -S <listenerName> -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName> -E
+  ```
 
-    Si l’écouteur utilise un port autre que le port par défaut (1433), spécifiez le port dans la chaîne de connexion. Par exemple, la commande sqlcmd suivante se connecte à un écouteur sur le port 1435 :
+  Si l’écouteur utilise un port autre que le port par défaut (1433), spécifiez le port dans la chaîne de connexion. Par exemple, la commande sqlcmd suivante se connecte à un écouteur sur le port 1435 :
 
-    ```
-    sqlcmd -S <listenerName>,1435 -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName>,1435 -E
+  ```
 
 La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébergeant le réplica principal.
 
 > [!TIP]
 > Vérifiez que le port spécifié est ouvert sur le pare-feu des deux serveurs SQL. Les deux serveurs requièrent une règle de trafic entrant sur le port TCP utilisé. Pour plus d’informations, consultez [Ajouter ou modifier une règle de pare-feu](http://technet.microsoft.com/library/cc753558.aspx).
->
->
-
-
-
-<!--**Notes**: *Notes provide just-in-time info: A Note is “by the way” info, an Important is info users need to complete a task, Tip is for shortcuts. Don’t overdo*.-->
-
-
-<!--**Procedures**: *This is the second “step." They often include substeps. Again, use a short title that tells users what they’ll do*. *("Configure a new web project.")*-->
-
-<!--**UI**: *Note the format for documenting the UI: bold for UI elements and arrow keys for sequence. (Ex. Click **File > New > Project**.)*-->
-
-<!--**Screenshot**: *Screenshots really help users. But don’t include too many since they’re difficult to maintain. Highlight areas you are referring to in red.*-->
-
-<!--**No. of steps**: *Make sure the number of steps within a procedure is 10 or fewer. Seven steps is ideal. Break up long procedure logically.*-->
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
 ## <a name="next-steps"></a>Étapes suivantes
 
