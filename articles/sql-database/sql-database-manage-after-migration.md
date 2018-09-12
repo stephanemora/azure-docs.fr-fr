@@ -11,13 +11,13 @@ ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
-ms.component: migration
-ms.openlocfilehash: ab6a66821905901515258842176ce24e485a54e3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.component: data-movement
+ms.openlocfilehash: 133cba72a93d692851043f1c66d6a4a38e18b324
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110610"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379456"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud – Gestion de votre base de données dans Azure SQL Database
 
@@ -50,7 +50,7 @@ De plus, la fonctionnalité de [rétention à long terme](sql-database-long-term
 ### <a name="how-do-i-ensure-business-continuity-in-the-event-of-a-datacenter-level-disaster-or-regional-catastrophe"></a>Comment faire pour assurer la continuité de l’activité en cas de sinistre au niveau du centre de données ou de catastrophe au niveau d’une région ?
 Étant donné que vos sauvegardes de bases de données sont stockées dans un sous-système de stockage géorépliqué, en cas de sinistre régional, vous pouvez restaurer la sauvegarde dans une autre région Azure. Cette fonctionnalité s’appelle la géorestauration. L’objectif de point de récupération (RPO) correspondant est généralement inférieur à 1 heure et le temps de récupération estimé est compris entre quelques minutes et quelques heures.
 
-Pour les bases de données critiques, Azure SQL Database propose une géoréplication active. En bref, une copie secondaire géorépliquée de votre base de données d’origine est créée dans une autre région. Par exemple, votre base de données est initialement hébergée dans la région Azure Ouest des États-Unis et vous avez besoin d’une résilience en cas de sinistre régional. Vous créez alors un géoréplica actif de la base de données de la région Ouest des États-Unis dans la région Est des États-Unis. Quand la catastrophe frappe la région Ouest des États-Unis, vous pouvez basculer vers la région Est des États-Unis. Leur configuration dans un groupe de basculement automatique est préférable, car ce dernier garantit que la base de données peut basculer automatiquement vers le serveur secondaire de la région Est des États-Unis en cas de sinistre. Le RPO correspondant est inférieur à 5 secondes et le temps de récupération estimé est inférieur à 30 secondes.
+Pour les bases de données critiques, Azure SQL Database propose une géoréplication active. En bref, une copie secondaire géorépliquée de votre base de données d’origine est créée dans une autre région. Par exemple, votre base de données est initialement hébergée dans la région Azure USA Ouest et vous avez besoin d’une résilience en cas de sinistre régional. Vous créez alors un géoréplica actif de la base de données de la région USA Ouest dans la région USA Est. Quand la catastrophe frappe la région USA Ouest, vous pouvez basculer vers la région USA Est. Leur configuration dans un groupe de basculement automatique est préférable, car ce dernier garantit que la base de données peut basculer automatiquement vers le serveur secondaire de la région USA Est en cas de sinistre. Le RPO correspondant est inférieur à 5 secondes et le temps de récupération estimé est inférieur à 30 secondes.
 
 Si aucun groupe de basculement automatique n’est configuré, votre application doit effectuer une surveillance active et déclencher le basculement vers les bases de données secondaires en cas d’urgence. Vous pouvez créer jusqu’à 4 géoréplicas actifs de ce type dans les différentes régions Azure. Vous obtenez ainsi des résultats encore meilleurs. Vous pouvez également accéder à ces géoréplicas actifs secondaires en lecture seule. Cette possibilité s’avère très pratique pour réduire la latence dans un scénario d’application géodistribuée. 
 

@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: terrylan
-ms.openlocfilehash: 367067874b167268bd690a9e0b55412e92e08122
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32273647d0f773c3f47653ac6fc87fef48630c0a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040654"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299285"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Surveillance et traitement des événements de sécurité dans Azure Security Center
 Le tableau de bord Événements fournit une vue d’ensemble sur le nombre d’événements de sécurité collectés au fil du temps et une liste d’événements notables qui peuvent nécessiter votre attention.  
@@ -108,7 +108,7 @@ Si la ligne de l’espace de travail :
 1. Sélectionnez un espace de travail avec le statut **METTRE À NIVEAU LE PLAN**.
 2. **Le tableau de bord Événements** s’ouvre. Sélectionnez le **tableau de bord Try the Events** (Essayer les événements).
 
-  ![Tableau de bord Essayer][11]
+  ![Essayer le tableau de bord][11]
 
 3. Dans **Intégration de la sécurité avancée**, sélectionnez l’espace de travail que vous mettez à niveau.
 4. Dans **Tarification**, sélectionnez **Standard**.

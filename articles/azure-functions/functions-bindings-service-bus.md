@@ -4,24 +4,20 @@ description: Découvrez comment utiliser des déclencheurs et des liaisons Azure
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, fonctions, traitement des événements, calcul dynamique, architecture sans serveur
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/01/2017
 ms.author: glenga
-ms.openlocfilehash: 20dd9349b9ca5ffb6042156e340019c4483b93e5
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ee5b11bc04a7e13354c30b64dc55c165eea4f028
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145968"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303963"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Liaisons Azure Service Bus pour Azure Functions
 
@@ -179,7 +175,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-### <a name="trigger---java-example"></a>Déclencheur : exemple Java
+### <a name="trigger---java-example"></a>Déclencheur - exemple Java
 
 L’exemple suivant montre une liaison de déclencheur Service Bus dans un fichier *function.json* et une [fonction Java](functions-reference-java.md) qui utilise la liaison. La fonction est déclenchée par un message placé dans une file d’attente Service Bus, et la fonction enregistre le message de la file d’attente.
 
@@ -519,7 +515,7 @@ L’exemple suivant montre une fonction Java qui envoie un message à une file d
 public String pushToQueue(
   @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
   final String message,
-  @HttpOutput(name = "response") final OutputBinding<T>; result ) {
+  @HttpOutput(name = "response") final OutputBinding<T> result ) {
       result.setValue(message + " has been sent.");
       return message;
  }

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2a4bae196e956d92548944637509b23f78ceb5d2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121707"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348002"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Tutoriel : Intégration d’Azure Active Directory à Lessonly.com
 
@@ -126,7 +126,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique Lessonly.com](mailto:dev@lessonly.com). 
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de connexion et l’identificateur réels. Pour obtenir ces valeurs, contactez [l’équipe du support technique Lessonly.com](mailto:support@lessonly.com). 
 
 1. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 
@@ -165,7 +165,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Configurer l'authentification unique](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. Pour configurer l’authentification unique côté **Lessonly.com**, vous devez envoyer le **Certificat (Base64)** téléchargé, ainsi que **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe du support technique Lessonly.com](mailto:dev@lessonly.com).
+1. Pour configurer l’authentification unique côté **Lessonly.com**, vous devez envoyer le **Certificat (Base64)** téléchargé, ainsi que **l’URL de déconnexion, l’ID d’entité SAML et l’URL du service d’authentification unique SAML** à [l’équipe du support technique Lessonly.com](mailto:support@lessonly.com).
 
 > [!TIP]
 > Vous pouvez maintenant lire une version concise de ces instructions dans le [portail Azure](https://portal.azure.com), pendant que vous configurez l’application.  Après avoir ajouté cette application à partir de la section **Active Directory > Applications d’entreprise**, cliquez simplement sur l’onglet **Authentification unique** et accédez à la documentation incorporée par le biais de la section **Configuration** en bas. Vous pouvez en savoir plus sur la fonctionnalité de documentation incorporée ici : [Documentation incorporée Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -208,7 +208,7 @@ L’objectif de cette section est de créer l’utilisateur Britta Simon dans Le
 Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur sera créé lors d’une tentative d’accès à Lessonly.com, s’il n’existe pas déjà.
 
 > [!NOTE]
-> Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique Lessonly.com](mailto:dev@lessonly.com).
+> Si vous devez créer un utilisateur manuellement, contactez [l’équipe du support technique Lessonly.com](mailto:support@lessonly.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 

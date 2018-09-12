@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 5895e918fbd3b67074069ccc81bd794a75725c9a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620934"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347781"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Déboguer l’authentification unique SAML aux applications dans Azure Active Directory
 
@@ -96,11 +96,11 @@ Pour résoudre l’erreur :
     - Revendications émises dans le jeton
     - Certificat utilisé pour signer le jeton. Pour plus d’informations sur la vérification de la réponse SAML, voir [Protocole SAML d’authentification unique](single-sign-on-saml-protocol.md).
 4. Pour plus d’informations sur la réponse SAML, voir [Protocole SAML d’authentification unique](single-sign-on-saml-protocol.md).
-5. Maintenant que vous avez vérifié la réponse SAML, consultez l’aide à la résolution du problème dans [Erreur sur la page d’une application après connexion](../application-sign-in-problem-application-error.md). 
+5. Maintenant que vous avez vérifié la réponse SAML, consultez l’aide à la résolution du problème dans [Erreur sur la page d’une application après connexion](../manage-apps/application-sign-in-problem-application-error.md). 
 6. Si vous ne parvenez toujours pas à vous connecter, vous pouvez demander au fournisseur de l’application ce qui manque dans la réponse SAML.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que l’authentification unique fonctionne sur votre application, vous pouvez [Automatiser l’attribution d’utilisateurs et la suppression de privilèges d'accès pour les applications SaaS](../active-directory-saas-app-provisioning.md) ou [Bien démarrer avec l’accès conditionnel](../conditional-access/app-based-conditional-access.md).
+Maintenant que l’authentification unique fonctionne sur votre application, vous pouvez [Automatiser l’attribution d’utilisateurs et la suppression de privilèges d'accès pour les applications SaaS](../manage-apps/user-provisioning.md) ou [Bien démarrer avec l’accès conditionnel](../conditional-access/app-based-conditional-access.md).
 
 

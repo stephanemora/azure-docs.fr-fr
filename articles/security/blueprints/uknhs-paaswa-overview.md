@@ -8,16 +8,16 @@ ms.service: security
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
-ms.openlocfilehash: 319c89969e98eafd792af078bf3094ca0aa9a7dd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 8c5e36daf8d404bd4db3a53769db45754f2734be
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343197"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301981"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-uk-nhs"></a>Azure Blueprint Sécurité et conformité : Application web PaaS pour le UK NHS
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cette solution Azure Blueprint Sécurité et conformité fournit une architecture de référence et des instructions pour une solution de plateforme en tant que service (PaaS) adaptée à la collecte, au stockage et à la récupération de données de santé. Cette solution montre les façons dont les clients peuvent se conformer aux instructions fournies dans le [Guide de bonne pratique de la sécurité cloud](https://digital.nhs.uk/data-and-information/looking-after-information/data-security-and-information-governance/nhs-and-social-care-data-off-shoring-and-the-use-of-public-cloud-services/health-and-social-care-cloud-security-good-practice-guide) publié par [NHS Digital](https://digital.nhs.uk/), un partenaire du Ministère de la santé et des affaires sociales du Royaume-Uni. Le guide de bonne pratique de la sécurité cloud est basé sur les 14 [principes de la sécurité cloud](https://www.ncsc.gov.uk/guidance/implementing-cloud-security-principles) publiés par le centre national de cybersécurité du Royaume-Uni.
 
@@ -25,27 +25,27 @@ Cette architecture de référence, le guide d’implémentation et le modèle de
 
 ## <a name="architecture-diagram-and-components"></a>Diagramme et composants de l’architecture
 
-Cette solution fournit une architecture de référence pour une application web PaaS avec un serveur principal Azure SQL Database. L’application web est hébergée dans un environnement Azure App Service dédié, privé et isolé dans un centre de données Azure. L’environnement équilibre la charge du trafic généré par l’application web entre des machines virtuelles gérées par Azure. Toutes les connexions externes requièrent TLSv1.2. Cette architecture inclut également des groupes de sécurité réseau, une passerelle d’application (Azure Application Gateway), un DNS (Azure DNS) et un équilibreur de charge (Azure Load Balancer).
+Cette solution fournit une architecture de référence pour une application web PaaS avec un serveur principal Azure SQL Database. L’application web est hébergée dans un environnement Azure App Service dédié, privé et isolé dans un centre de données Azure. L’environnement équilibre la charge du trafic pour l’application web entre des machines virtuelles gérées par Azure. Toutes les connexions externes requièrent TLSv1.2. Cette architecture inclut également des groupes de sécurité réseau, une passerelle d’application (Azure Application Gateway), un DNS (Azure DNS) et un équilibreur de charge (Azure Load Balancer).
 
-La solution utilise des comptes de stockage Azure, que les clients peuvent configurer pour utiliser Storage Service Encryption afin de maintenir la confidentialité des données au repos. Azure enregistre trois copies des données au sein d’un centre de données sélectionné par le client pour assurer la résilience. Le stockage géographiquement redondant permet de s’assurer de la réplication des données vers un centre de données secondaire situé à des centaines de kilomètres et du stockage de trois copies dans ce centre de données, empêchant ainsi une perte de données en cas de dysfonctionnement au niveau du centre de données primaire du client.
+La solution utilise des comptes de stockage Azure que les clients peuvent configurer pour utiliser Storage Service Encryption afin de maintenir la confidentialité des données au repos. Azure enregistre trois copies des données au sein d’un centre de données sélectionné par le client pour assurer la résilience. Le stockage géographiquement redondant permet de s’assurer de la réplication des données vers un centre de données secondaire situé à des centaines de kilomètres et du stockage de trois copies dans ce centre de données, empêchant ainsi une perte de données en cas de dysfonctionnement au niveau du centre de données primaire du client.
 
-Pour renforcer la sécurité, toutes les ressources dans cette solution sont gérées comme un groupe de ressources via Azure Resource Manager. Le contrôle d’accès en fonction du rôle Azure Active Directory est utilisé pour contrôler l’accès aux données déployées et aux clés dans Azure Key Vault. L’intégrité du système est surveillée par l’intermédiaire de Azure Security Center et de Azure Monitor. Les clients configurent ces deux services de surveillance pour la capture de journaux et la centralisation des informations concernant l’intégrité du système dans un tableau de bord facilement consultable. Azure Application Gateway est configuré comme un pare-feu en mode prévention et n’autorise pas le trafic qui n’est pas TLSv1.2. La solution utilise Azure Application Service Environment v2 pour isoler la couche web dans un environnement non mutualisé.
+Pour renforcer la sécurité, toutes les ressources dans cette solution sont gérées comme un groupe de ressources via Azure Resource Manager. Le contrôle d’accès en fonction du rôle Azure Active Directory est utilisé pour contrôler l’accès aux données déployées et aux clés dans Azure Key Vault. L’intégrité du système est surveillée dans Azure Security Center et Azure Monitor. Les clients configurent ces deux services de surveillance pour la capture de journaux et la centralisation des informations concernant l’intégrité du système dans un tableau de bord facilement consultable. Azure Application Gateway est configuré comme un pare-feu en mode prévention et n’autorise pas le trafic qui n’est pas TLSv1.2. La solution utilise Azure Application Service Environment v2 pour isoler la couche web dans un environnement non mutualisé.
 
 **Microsoft recommande de configurer une connexion VPN ou ExpressRoute pour la gestion et l’importation de données dans le sous-réseau de l’architecture de référence.**
 
 ![Diagramme de l’architecture de référence Application web IaaS pour UK NHS](images/uknhs-paaswa-architecture.png?raw=true "Diagramme de l’architecture de référence Application web IaaS pour UK NHS")
 
-Cette solution utilise les services Azure suivants. Les informations détaillées concernant l’architecture de déploiement figurent à la section [Architecture de déploiement](#deployment-architecture).
+Cette solution utilise les services Azure suivants. Les détails de l’architecture de déploiement figurent dans la section [Architecture de déploiement](#deployment-architecture).
 
 - Application Gateway
     - Pare-feu d’application web
         - Mode de pare-feu : prévention
         - Ensemble de règles : OWASP
-        - Port d’écoute : 443
+        - Écouteur : port 443
 - Azure Active Directory
 - Azure Application Service Environment v2
 - Azure Automation
-- Azure DNS
+- DNS Azure
 - Azure Key Vault
 - Azure Load Balancer
 - Azure Monitor
@@ -59,7 +59,7 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
 
-La section ci-après décrit en détail les éléments nécessaires au déploiement et à l’implémentation.
+La section suivante décrit en détail les éléments nécessaires au déploiement et à l’implémentation.
 
 **Azure Resource Manager** : [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permet aux clients d’utiliser les ressources de la solution en tant que groupe. Les clients peuvent déployer, mettre à jour ou supprimer toutes les ressources de la solution en une seule opération coordonnée. Les clients utilisent pour le déploiement un modèle pouvant fonctionner avec différents environnements, par exemple de test, intermédiaire et de production. Le Gestionnaire des ressources Azure Resource Manager offre des fonctionnalités de sécurité, d’audit et de marquage pour aider les clients à gérer leurs ressources après le déploiement de celles-ci.
 
@@ -74,12 +74,12 @@ L’utilisation de App Service Environment pour cette architecture permet les co
 - Certificat d’équilibreur de charge interne auto-signé pour la communication HTTPS. En guise de meilleure pratique, Microsoft préconise l’utilisation d’une autorité de certification de confiance afin de renforcer la sécurité.
 - [Mode d’équilibrage de charge interne](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer)
 - Désactivation de [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
-- Modification du [chiffrement TLS](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- Changement du [chiffrement TLS](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Contrôle des [ports réseau de trafic entrant](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
 - [Pare-feu d’applications web – Restreindre les données](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Autorisation du [trafic Azure SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Azure Web Apps** : [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) permet aux clients de créer et d’héberger des applications web écrites dans le langage de programmation de leur choix sans devoir gérer l’infrastructure. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Visual Studio Team Services ou n’importe quel référentiel Git.
+**Azure Web Apps** : [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) permet aux clients de créer et d’héberger des applications web écrites dans le langage de programmation de leur choix sans devoir gérer l’infrastructure. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Azure DevOps ou n’importe quel référentiel Git.
 
 ### <a name="virtual-network"></a>Réseau virtuel
 
@@ -91,7 +91,7 @@ L’architecture définit un réseau privé virtuel avec l’espace d’adressag
 - un groupe de sécurité réseau pour App Service Environment
 - un groupe de sécurité réseau pour Azure SQL Database
 
-Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouverts afin que la solution puisse fonctionner correctement et en toute sécurité. En outre, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
+Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouverts afin que la solution puisse fonctionner correctement et en toute sécurité. Par ailleurs, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
 
 - Les [événements et journaux de diagnostic](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sont activés et stockés dans un compte de stockage.
 - Log Analytics est connecté aux [journaux de diagnostic du groupe de sécurité réseau](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
@@ -104,7 +104,7 @@ Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouver
 
 ### <a name="data-in-transit"></a>Données en transit
 
-Par défaut, Azure chiffre toutes les communications avec les centres de données Azure. Toutes les transactions en direction du service Stockage Azure par le biais du Portail Azure s’effectuent via HTTPS.
+Par défaut, Azure chiffre toutes les communications avec les centres de données Azure. Toutes les transactions en direction du Stockage Azure passant par le portail Azure se produisent via HTTPS.
 
 ### <a name="data-at-rest"></a>Données au repos
 
@@ -116,32 +116,32 @@ L’architecture protège les données au repos à l’aide d’un chiffrement, 
 
 **Azure SQL Database** : l’instance Azure SQL Database utilise les mesures de sécurité de base de données suivantes :
 
-- La solution [d’authentification et d’autorisation Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permet la gestion des identités des utilisateurs de bases de données et d’autres services Microsoft dans un emplacement central.
+- [L’authentification et l’autorisation Active Directory](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) permettent la gestion des identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement central.
 - L’[audit Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) suit les événements de base de données et consigne ceux-ci dans un journal d’audit conservé dans un compte de stockage Azure.
-- Azure SQL Database est configuré pour utiliser la technologie [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) qui assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux de transactions afin de protéger les informations au repos. Transparent Data Encryption protège les données des accès non autorisés.
+- Azure SQL Database est configuré pour utiliser la technologie [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) qui assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux de transactions afin de protéger les informations au repos. Transparent Data Encryption protège les données stockées des accès non autorisés.
 - Des [règles de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) empêchent tout accès aux serveurs de base de données sans autorisation appropriée. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande.
 - La [détection des menaces SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) permet de détecter et traiter les menaces potentielles à mesure qu’elles surviennent en déclenchant des alertes de sécurité en cas d’activités de base de données suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux aux bases de données.
-- Des [colonnes Encrypted](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantissent que les données sensibles n’apparaissent jamais en tant que texte en clair à l’intérieur du système de base de données. Une fois le chiffrement des données activé, seules des applications clientes ou des serveurs d’applications ayant accès aux clés peuvent accéder aux données en texte clair.
+- Des [colonnes chiffrées](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantissent que les données sensibles n’apparaissent jamais sous forme de texte en clair à l’intérieur du système de base de données. Une fois le chiffrement des données activé, seules des applications clientes ou des serveurs d’applications ayant accès aux clés peuvent accéder aux données en texte clair.
 - [SQL Database Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limite l’exposition des données sensibles en masquant celles-ci aux utilisateurs ou aux applications dépourvus de privilèges. Le masquage dynamique des données peut découvrir automatiquement les données potentiellement sensibles et suggérer les masques appropriés à appliquer. Cela permet d’identifier et de réduire l’accès aux données afin qu’elles ne quittent pas la base de données par l’intermédiaire d’un accès non autorisé. Les clients doivent ajuster les paramètres de masquage de données dynamiques pour respecter leur schéma de base de données.
 
 ### <a name="identity-management"></a>Gestion des identités
 
-Les technologies ci-après offrent des fonctionnalités permettant de gérer l’accès aux données dans l’environnement Azure :
+Les technologies suivantes offrent des fonctionnalités de gestion de l’accès aux données dans l’environnement Azure :
 
 - [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) est le service mutualisé basé sur le cloud de Microsoft pour la gestion des répertoires et des identités. Tous les utilisateurs de cette solution sont créés dans Azure Active Directory, notamment ceux qui accèdent à Azure SQL Database.
-- L’authentification auprès de l’application est effectuée à l’aide d’Azure Active Directory. Pour plus d’informations, consultez [Intégration d’applications dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). En outre, le chiffrement des colonnes de base de données utilise Azure Active Directory pour authentifier l’application auprès d’Azure SQL Database. Pour plus d’informations, découvrez comment [protéger des données sensibles dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
-- Le [contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permet aux administrateurs de définir des autorisations d’accès affinées pour n’accorder aux utilisateurs que l’accès dont ils ont besoin pour accomplir leur travail. Plutôt que d’attribuer à tous les utilisateurs des autorisations d’accès illimitées aux ressources Azure, les administrateurs peuvent n’autoriser que certaines actions d’accès aux données. Par exemple, l’accès aux abonnements est limité à l’administrateur d’abonnements.
-- La solution [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) permet aux clients de minimiser le nombre d’utilisateurs qui ont accès à des informations spécifiques. Les administrateurs peuvent utiliser Azure Active Directory Privileged Identity Management pour découvrir, restreindre et surveiller les identités privilégiées et leur accès aux ressources. Cette fonctionnalité permet également d’appliquer un accès administratif juste-à-temps à la demande si nécessaire.
-- La solution [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) détecte les vulnérabilités risquant d’affecter les identités d’une organisation, configure des réponses automatiques aux actions suspectes détectées en lien avec les identités d’une organisation, et examine les incidents suspects afin de prendre les mesures appropriées pour résoudre ces derniers.
+- L’authentification auprès de l’application est effectuée à l’aide d’Azure Active Directory. Pour plus d’informations, consultez [Intégration d’applications à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). En outre, le chiffrement des colonnes de base de données utilise Azure Active Directory pour authentifier l’application auprès d’Azure SQL Database. Pour plus d’informations, découvrez comment [protéger des données sensibles dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- [Le contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permet aux administrateurs de définir des autorisations affinées pour accorder uniquement le nombre d’accès dont les utilisateurs ont besoin pour leur travail. Au lieu d’accorder à tous les utilisateurs des autorisations illimitées sur les ressources Azure, les administrateurs peuvent autoriser seulement certaines actions pour accéder aux données. Par exemple, l’accès aux abonnements est limité à l’administrateur d’abonnements.
+- La solution [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) permet aux clients de minimiser le nombre d’utilisateurs qui ont accès à des informations spécifiques. Les administrateurs peuvent utiliser Azure Active Directory Privileged Identity Management pour découvrir, restreindre et superviser les identités privilégiées et leur accès aux ressources. Cette fonctionnalité permet également d’appliquer un accès administratif juste-à-temps à la demande si nécessaire.
+- [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) détecte les vulnérabilités risquant d’affecter les identités d’une organisation, configure des réponses automatiques aux actions suspectes détectées en lien avec les identités d’une organisation, et examine les incidents suspects afin de prendre les mesures appropriées pour résoudre ces derniers.
 
 ### <a name="security"></a>Sécurité
 
-**Gestion des secrets** : la solution utilise [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour gérer les clés et les secrets. Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Les fonctionnalités d’Azure Key Vault ci-après aident les clients à protéger les données ainsi qu’à y accéder :
+**Gestion des secrets** : la solution utilise [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour gérer les clés et les secrets. Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Les fonctionnalités suivantes d’Azure Key Vault aident les clients à protéger les données et à y accéder :
 
 - Les stratégies d’accès avancées sont configurées en fonction des besoins.
 - Les stratégies d’accès Key Vault sont définies avec des autorisations minimales requises pour les clés et les secrets.
 - L’ensemble des clés et secrets figurant dans Key Vault présentent des dates d’expiration.
-- Toutes les clés stockées dans Key Vault sont protégées par des modules de sécurité matériels spécialisés. Le type de clé est une clé RSA de 2048 bits protégée par un module de sécurité matériel.
+- Toutes les clés dans Key Vault sont protégées par des modules de sécurité matériels spécialisés. Le type de clé est une clé RSA de 2048 bits protégée par un module de sécurité matériel.
 - Des autorisations minimales requises sont accordées à tous les utilisateurs et à toutes les identités à l’aide du contrôle d’accès en fonction rôle.
 - Les journaux de diagnostics pour Key Vault sont activés avec une période de rétention d’au moins 365 jours.
 - Les opérations de chiffrement autorisées pour les clés sont restreintes à celles qui sont nécessaires.
@@ -172,10 +172,10 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 **Log Analytics** : ces journaux sont consolidés dans [Log Analytics](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports basés sur des tableaux de bord. Une fois collectées, les données sont organisées dans différents tableaux en fonction du type de données. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Log Analytics pour permettre aux clients d’utiliser des requêtes Log Analytics afin d’accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
 
 Les [solutions de gestion](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Log Analytics suivantes sont également incluses dans cette architecture :
--   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions propres à l’infrastructure de serveur déployée.
+-   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : La solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions propres à l’infrastructure de serveur déployée.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de recommandations spécifiques pour l’infrastructure de serveur déployée.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : la solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas et qui envoient des données opérationnelles.
--   [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité de tous les abonnements Azure d’un client.
+-   [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : La solution Activity Log Analytics facilite l’analyse des journaux d’activité de tous les abonnements Azure d’un client.
 
 **Azure Automation** : [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) stocke, exécute et gère les runbooks. Dans cette solution, les runbooks aident à collecter les journaux d’Azure SQL Database. La solution Automation [Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking) permet aux clients d’identifier facilement les changements dans l’environnement.
 

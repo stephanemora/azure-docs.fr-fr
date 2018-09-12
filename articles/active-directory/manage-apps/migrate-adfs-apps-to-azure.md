@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: d22b86ad33db600eb5273e3ab09e71a1b1fd527b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cdce0ae223a637ac30ed472d2bf711aa36958414
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577494"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346761"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrer des applications locales AD FS vers Azure 
 
@@ -55,7 +55,7 @@ Pour une organisation qui utilise déjà AD FS, Ping ou un autre fournisseur d�
 - En tant que fournisseur d’identité pour les applications SaaS, Azure AD prend en charge des fonctionnalités supplémentaires :
   - Certificats de signature de jeton par application.
   - [Date d’expiration des certificats configurable](manage-certificates-for-federated-single-sign-on.md).
-  - [Approvisionnement automatisé](../active-directory-saas-app-provisioning.md) des comptes utilisateur (dans les applications de la Place de marché Microsoft Azure principales) basé sur les identités Azure AD.
+  - [Approvisionnement automatisé](user-provisioning.md) des comptes utilisateur (dans les applications de la Place de marché Microsoft Azure principales) basé sur les identités Azure AD.
 
 **Avantages d’un fournisseur d’identité local conservés**
 - Tout en profitant des avantages d’Azure AD, vous pouvez continuer à utiliser votre solution locale pour l’authentification. Vous bénéficiez ainsi toujours des solutions locales d’authentification multifacteur, de journalisation et d’audit. 
@@ -232,7 +232,7 @@ En raison de la configuration créée plus tôt sous **Identité** > **Paramètr
 ![Sélectionner Azure AD en tant que service d’authentification](media/migrate-adfs-apps-to-azure/migrate10.png)
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>Facultatif : configurer l’approvisionnement utilisateur dans Azure AD
-Si vous souhaitez qu’Azure AD gère l’approvisionnement utilisateur pour une application SaaS, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Si vous souhaitez qu’Azure AD gère l’approvisionnement utilisateur pour une application SaaS, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](user-provisioning.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

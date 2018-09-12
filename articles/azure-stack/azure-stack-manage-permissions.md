@@ -4,23 +4,22 @@ description: En tant qu’administrateur de service ou locataire, découvrez com
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
-manager: fenila
+manager: femila
 editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.reviewer: thomas.roettinger
-ms.openlocfilehash: 0e50ea44ebb0b0a7285dab04666dd55cad480c6a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: thoroet
+ms.openlocfilehash: ab61e1f892f46ad36df741b7a72afcfcbaa0ed87
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29385634"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376933"
 ---
 # <a name="manage-role-based-access-control"></a>Gérer le contrôle d’accès en fonction du rôle
 
@@ -49,6 +48,6 @@ Applicable uniquement aux services de fédération Active Directory (AD FS).
 3. Dans le panneau **Utilisateurs**, cliquez sur **Rôles**.
 4. Dans le panneau **Rôles**, cliquez sur **Ajouter** pour ajouter des autorisations pour le groupe Active Directory universel.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Ajouter un locataire Azure Stack](azure-stack-add-new-user-aad.md)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340037"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349226"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Manuel de preuve de concept Azure Active Directory : Blocs de construction
 
@@ -340,7 +340,7 @@ Si l’approvisionnement est activé pour l’application, vous devrez peut-êtr
 | Étape | Ressources |
 | --- | --- |
 | Supprimez l’utilisateur du groupe auquel l’application est affectée | [Gérer l’appartenance à un groupe des utilisateurs dans votre client Azure Active Directory](fundamentals/active-directory-groups-members-azure-portal.md) |
-| Attendez quelques minutes que l’approvisionnement soit annulé | [Approvisionnement automatique des utilisateurs pour les applications SaaS dans Azure AD : Comment fonctionne l’approvisionnement automatique ?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| Attendez quelques minutes que l’approvisionnement soit annulé | [Approvisionnement automatique des utilisateurs pour les applications SaaS dans Azure AD : Comment fonctionne l’approvisionnement automatique ?](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | Dans une session distincte du navigateur, connectez-vous en tant que professionnel de l’information au portail MyApps et vérifiez l’absence de cette mosaïque | http://myapps.microsoft.com |
 
 

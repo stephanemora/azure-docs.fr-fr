@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: spelluru
-ms.openlocfilehash: ff0e3124168927d03816079a4f5ab322663459ac
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e6dd30fc8da919995849ba818f608604a57a0b37
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702450"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346824"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Prérécupérer les messages Azure Service Bus
 
@@ -44,7 +44,7 @@ En mode de réception [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messag
 
 En mode de réception [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock), les messages récupérés dans la mémoire tampon de prérécupération sont acquis dans la mémoire tampon à l’état verrouillé et déclenchent l’horloge de délai d’expiration du verrouillage. Si la mémoire tampon de prérécupération présente une taille conséquente, et que le traitement est si long que le verrouillage des messages arrive à expiration pendant que les messages résident dans la mémoire tampon de prérécupération ou même pendant que l’application traite les messages, l’application peut faire face à certains événements déroutants.
 
-Il est possible que l’application acquière un message dont le verrouillage est arrivé à expiration ou doit l’être prochainement. Dans ce cas, l’application peut commencer à traiter le message, puis se trouver dans l’impossibilité d’achever le traitement en raison de l’expiration d’un verrouillage. L’application peut vérifier la propriété [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) (qui est soumise aux variations d’horloge entre l’horloge du répartiteur et celle de la machine locale). Si le verrouillage d’un message est arrivé à expiration, l’application doit ignorer le message, et aucun appel d’API sur ou avec le message ne doit être effectué. Si le message n’est pas arrivé à expiration, mais que son expiration est imminente, il est possible de renouveler et prolonger le verrouillage avec une autre période de verrouillage par défaut en appelant [message. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
+Il est possible que l’application acquière un message dont le verrouillage est arrivé à expiration ou doit l’être prochainement. Dans ce cas, l’application peut commencer à traiter le message, puis se trouver dans l’impossibilité d’achever le traitement en raison de l’expiration d’un verrouillage. L’application peut vérifier la propriété [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) (qui est soumise aux variations d’horloge entre l’horloge du répartiteur et celle de la machine locale). Si le verrouillage d’un message est arrivé à expiration, l’application doit ignorer le message, et aucun appel d’API sur ou avec le message ne doit être effectué. Si le message n’est pas arrivé à expiration, mais que son expiration est imminente, il est possible de renouveler et prolonger le verrouillage avec une autre période de verrouillage par défaut en appelant [message. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_).
 
 Si le verrouillage arrive silencieusement à expiration dans la mémoire tampon de prérécupération, le message est considéré comme abandonné et redevient récupérable à partir de la file d’attente. Ceci peut alors entraîner sa récupération dans la mémoire tampon de prérécupération, en dernière position. Si la mémoire tampon de prérécupération n’est généralement pas utilisable pendant l’arrivée à expiration des messages, les messages sont prérécupérés de façon répétée, mais ne sont en fait jamais remis dans un état exploitable (correctement verrouillés), et sont finalement déplacés vers la file d’attente de lettres mortes une fois que le nombre de remises maximal a été atteint.
 

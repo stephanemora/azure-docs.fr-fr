@@ -3,7 +3,7 @@ title: Mise à jour 1710 d’Azure Stack (Build 20171020.1) | Microsoft Docs
 description: Apprenez-en davantage sur le contenu de la mise à jour 1710 pour les systèmes intégrés, les problèmes connus, et l’emplacement à partir duquel la télécharger.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.assetid: 135314fd-7add-4c8c-b02a-b03de93ee196
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: mabrigg
-ms.openlocfilehash: 8c7c39ecdc332c994e5c00f8415462f208e7d20b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: brenduns
+ms.reviewer: justini
+ms.openlocfilehash: cf870551a3dbd9b5ea0ef6f886dc6451e43b2c25
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311921"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377188"
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Mise à jour 1710 d’Azure Stack (Build 20171020.1)
 
@@ -86,7 +87,7 @@ Cette section énumère des problèmes connus après l’installation de la buil
    Pour contourner les deux derniers problèmes, vous pouvez taper le nom de l’abonnement ou du groupe de ressources (si vous les connaissez), ou utiliser PowerShell à la place.
 - La suppression d’abonnements utilisateur aboutit à des ressources orphelines. Pour contourner ce problème, commencez pas supprimer des ressources d’utilisateurs ou la totalité du groupe de ressources, puis supprimez les abonnements utilisateur.
 - Vous n’avez pas la possibilité d’afficher les autorisations de votre abonnement sur les portails Azure Stack. Pour contourner ce problème, vous pouvez vérifier les autorisations à l’aide de PowerShell.
-- Le chargement du panneau **Service Health** a échoué. Si vous ouvrez le panneau Service Health dans le portail d’administration ou utilisateur, Azure Stack affiche une erreur et ne charge pas les informations. Ce comportement est normal. Même si vous pouvez sélectionner et ouvrir Service Health, cette fonctionnalité n’est pas encore disponible, mais elle sera implémentée dans une prochaine version d’Azure Stack.
+- Le chargement du panneau **Service Health** a échoué. Si vous ouvrez le panneau Service Health dans le portail d’administration ou utilisateur, Azure Stack affiche une erreur et ne charge pas les informations. Ce comportement est normal. Même s’il est possible de sélectionner et d’ouvrir Service Health, cette fonctionnalité n’est pas encore disponible ; elle sera implémentée dans une prochaine version d’Azure Stack.
  
 
 ### <a name="backup"></a>Sauvegarde

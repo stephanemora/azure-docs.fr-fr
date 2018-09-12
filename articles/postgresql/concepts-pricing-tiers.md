@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/21/2018
-ms.openlocfilehash: 7494f139f824d3794fced3a0eb4f8d676f3961f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 18f6647a8412477384a48aa777461f99b2fbcb0a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173705"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379536"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -46,32 +46,32 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 
 | **Région Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Centre des États-Unis | X |  |
-| Est des États-Unis | X | X |
-| Est des États-Unis 2 | X | X |
-| Centre-Nord des États-Unis | X | X |
-| États-Unis - partie centrale méridionale | X | X |
-| États-Unis de l’Ouest | X | X |
-| Ouest des États-Unis 2 |  | X |
+| USA Centre | X | X |
+| USA Est | X | X |
+| USA Est 2 | X | X |
+| USA Centre Nord | X | X |
+| USA Centre Sud | X | X |
+| USA Ouest | X | X |
+| USA Ouest 2 |  | X |
 | Centre du Canada | X | X |
 | Est du Canada | X | X |
-| Sud du Brésil | X | X |
-| Europe du Nord | X | X |
-| Europe de l'Ouest |  | X |
-| France-Centre |  | X |
+| Brésil Sud | X | X |
+| Europe Nord | X | X |
+| Europe Ouest |  | X |
+| France Centre |  | X |
 | Ouest du Royaume-Uni |  | X |
 | Sud du Royaume-Uni |  | X |
-| Est de l'Asie | X | X |
-| Asie du Sud-Est | X | X |
-| Est de l’Australie |  | X |
+| Asie Est | X | X |
+| Asie Sud-Est | X | X |
+| Australie Est |  | X |
 | Centre de l’Australie |  | X |
 | Centre de l’Australie 2 |  | X |
-| Sud-est de l’Australie |  | X |
-| Inde centrale | X | X |
-| Inde occidentale | X | X |
-| Inde du Sud |  | X |
-| Est du Japon | X | X |
-| Ouest du Japon | X | X |
+| Australie Sud-Est |  | X |
+| Inde Centre | X | X |
+| Inde Ouest | X | X |
+| Inde Sud |  | X |
+| Japon Est | X | X |
+| Japon Ouest | X | X |
 | Centre de la Corée |  | X |
 | Corée du Sud |  | X |
 
@@ -98,7 +98,7 @@ Lorsque le serveur est marqué en lecture seule, toutes les sessions existantes 
 
 Vous pouvez augmenter la quantité de stockage provisionné sur votre serveur ou démarrer une nouvelle session en mode lecture-écriture et supprimer des données pour récupérer du stockage disponible. L’exécution de `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` définit la session actuelle en mode lecture-écriture. Pour éviter une altération des données, n’effectuez pas d’opérations d’écriture lorsque le serveur est toujours en lecture seule.
 
-Nous vous recommandons de configurer une alerte pour vous avertir quand votre serveur de stockage est proche du seuil afin d’éviter la mise en lecture seule. Pour plus d’informations, consultez la documentation sur la manière de [configurer une alerte](howto-alert-on-metric.md).
+Nous vous recommandons de configurer une alerte pour vous avertir quand votre serveur de stockage est proche du seuil afin d’éviter la mise en lecture seule. Pour plus d’informations, consultez la documentation sur [comment configurer une alerte](howto-alert-on-metric.md).
 
 ## <a name="backup"></a>Sauvegarde
 

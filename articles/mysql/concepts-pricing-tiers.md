@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 07/11/2018
-ms.openlocfilehash: 70891e4c1425badb43dac66ada9c0b3a43b8fb0d
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 614ea0dd69c9bb07df20634298c1192e6ffee789
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173671"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380333"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Niveaux tarifaires Azure Database pour MySQL
 
@@ -45,32 +45,32 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 
 | **Région Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| Centre des États-Unis | X |  |
-| Est des États-Unis | X | X |
-| Est des États-Unis 2 | X | X |
-| Centre-Nord des États-Unis | X | X |
-| États-Unis - partie centrale méridionale | X | X |
-| États-Unis de l’Ouest | X | X |
-| Ouest des États-Unis 2 |  | X |
+| USA Centre | X | X |
+| USA Est | X | X |
+| USA Est 2 | X | X |
+| USA Centre Nord | X | X |
+| USA Centre Sud | X | X |
+| USA Ouest | X | X |
+| USA Ouest 2 |  | X |
 | Centre du Canada | X | X |
 | Est du Canada | X | X |
-| Sud du Brésil | X | X |
-| Europe du Nord | X | X |
-| Europe de l'Ouest |  | X |
-| France-Centre |  | X |
+| Brésil Sud | X | X |
+| Europe Nord | X | X |
+| Europe Ouest |  | X |
+| France Centre |  | X |
 | Ouest du Royaume-Uni |  | X |
 | Sud du Royaume-Uni |  | X |
-| Est de l'Asie | X | X |
-| Asie du Sud-Est | X | X |
-| Est de l’Australie |  | X |
+| Asie Est | X | X |
+| Asie Sud-Est | X | X |
+| Australie Est |  | X |
 | Centre de l’Australie |  | X |
 | Centre de l’Australie 2 |  | X |
-| Sud-est de l’Australie |  | X |
-| Inde centrale | X | X |
-| Inde occidentale | X | X |
-| Inde du Sud |  | X |
-| Est du Japon | X | X |
-| Ouest du Japon | X | X |
+| Australie Sud-Est |  | X |
+| Inde Centre | X | X |
+| Inde Ouest | X | X |
+| Inde Sud |  | X |
+| Japon Est | X | X |
+| Japon Ouest | X | X |
 | Centre de la Corée |  | X |
 | Corée du Sud |  | X |
 

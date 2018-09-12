@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 69901c7b-4673-4bd8-acf2-8c6bdd9d1546
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 9/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: e20670476f4549a06d80d5f85e2ebd8ab1f50b05
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 69ed08e8f6c820790c432bfa25988e038fd0efbd
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047239"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379687"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Surveiller l’intégrité et les alertes dans Azure Stack
 
@@ -37,11 +36,11 @@ Azure Stack inclut des fonctionnalités de surveillance de l’infrastructure qu
 
 Dans Azure Stack, les alertes sont déclenchées avec seulement deux gravités : **avertissement** et **critique**.
 
-**Avertissement**  
-Un opérateur peut résoudre l’alerte d’avertissement de façon planifiée. En général, l’alerte n’affecte pas les charges de travail utilisateur.
+- **Avertissement**  
+  Un opérateur peut résoudre l’alerte d’avertissement de façon planifiée. En général, l’alerte n’affecte pas les charges de travail utilisateur.
 
-**Critical**  
-Un opérateur doit résoudre l’alerte critique de toute urgence. Il s’agit de problèmes qui affectent actuellement ou qui affecteront bientôt les utilisateurs Azure Stack. 
+- **Critical**  
+  Un opérateur doit résoudre l’alerte critique de toute urgence. Il s’agit de problèmes qui affectent actuellement ou qui affecteront bientôt les utilisateurs Azure Stack. 
 
  
  ## <a name="view-and-manage-component-health-state"></a>Afficher et gérer l’état d’intégrité des composants
@@ -54,8 +53,8 @@ Pour afficher l’état d’intégrité dans le portail, cliquez sur la région 
 
 Vous pouvez cliquer sur un fournisseur de ressources ou un rôle d’infrastructure pour afficher des informations plus détaillées.
 
-> [!WARNING]
->Si vous cliquez sur un rôle d’infrastructure, puis sur l’instance de rôle, des options Démarrer, Redémarrer ou Arrêter s’affichent. N’utilisez pas ces actions quand vous appliquez des mises à jour à un système intégré. En outre, n’utilisez **pas** ces options dans un environnement du Kit de développement Azure Stack. Ces options sont conçues uniquement pour un environnement de systèmes intégrés, où il existe plusieurs instances de rôle par rôle d’infrastructure. Le redémarrage d’une instance de rôle (notamment AzS-Xrp01) dans le Kit de développement entraîne une instabilité du système. Pour obtenir une assistance en cas de problème, postez votre problème sur le [Forum Azure Stack](https://aka.ms/azurestackforum).
+> [!WARNING]  
+> Si vous cliquez sur un rôle d’infrastructure, puis sur l’instance de rôle, des options Démarrer, Redémarrer ou Arrêter s’affichent. N’utilisez pas ces actions quand vous appliquez des mises à jour à un système intégré. En outre, n’utilisez **pas** ces options dans un environnement du Kit de développement Azure Stack. Ces options sont conçues uniquement pour un environnement de systèmes intégrés, où il existe plusieurs instances de rôle par rôle d’infrastructure. Le redémarrage d’une instance de rôle (notamment AzS-Xrp01) dans le Kit de développement entraîne une instabilité du système. Pour obtenir une assistance en cas de problème, postez votre problème sur le [Forum Azure Stack](https://aka.ms/azurestackforum).
 >
  
 ## <a name="view-alerts"></a>Afficher les alertes

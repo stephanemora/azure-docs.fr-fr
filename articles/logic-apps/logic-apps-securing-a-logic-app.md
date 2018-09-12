@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127477"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377392"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Accès sécurisé dans Azure Logic Apps
 
@@ -77,7 +77,7 @@ Ce paramètre peut être configuré dans les paramètres d’application logique
 1. Cliquez sur l’élément de menu **Paramètres de flux de travail** sous **Paramètres**
 1. Spécifier la liste des plages d’adresses IP acceptées par le déclencheur
 
-Une plage d’adresses IP valide se présente au format `192.168.1.1/255`. Si vous souhaitez que l’application logique ne soit déclenchée que comme une application logique imbriquée, sélectionnez l’option **Autres applications logiques uniquement**. Cette option écrit un tableau vide est écrit sur la ressource, ce qui signifie que seuls les appels du service lui-même (applications logiques parentes) entraînent un déclenchement.
+Une plage d’adresses IP valide se présente au format `192.168.1.1/32`. Si vous souhaitez que l’application logique ne soit déclenchée que comme une application logique imbriquée, sélectionnez l’option **Autres applications logiques uniquement**. Cette option écrit un tableau vide est écrit sur la ressource, ce qui signifie que seuls les appels du service lui-même (applications logiques parentes) entraînent un déclenchement.
 
 > [!NOTE]
 > Vous pouvez toujours exécuter une application logique avec un déclencheur de requête via l’API REST / Gestion `/triggers/{triggerName}/run`, quelle que soit l’adresse IP. Ce scénario nécessite une authentification auprès de l’API REST Azure, et tous les événements apparaissent dans le journal d’audit Azure. Définissez les stratégies de contrôle d’accès en conséquence.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 9ab2b22840d162fc0194151c5eec02675aad92dc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 26642fefbb86b2709e110b13d782286fd18d5e60
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427650"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348053"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Didacticiel : Configurer Asana pour l’approvisionnement automatique d’utilisateurs
 
@@ -89,7 +89,7 @@ Cette section explique pas à pas comment connecter Azure AD à l’API d’attr
 
 1. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory sur Asana**.
 
-1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateurs à synchroniser d’Azure AD à Asana. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans Asana pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications. Pour plus d’informations, consultez la section [Personnaliser les mappages d’attributs de l’attribution des utilisateurs](../active-directory-saas-customizing-attribute-mappings.md).
+1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateurs à synchroniser d’Azure AD à Asana. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateurs dans Asana pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications. Pour plus d’informations, consultez la section [Personnaliser les mappages d’attributs de l’attribution des utilisateurs](../manage-apps/customize-application-attributes.md).
 
 1. Pour activer le service d’attribution Azure AD pour Asana, définissez **État d’attribution** sur **Activé** dans la section **Paramètres**.
 
@@ -97,7 +97,7 @@ Cette section explique pas à pas comment connecter Azure AD à l’API d’attr
 
 La synchronisation initiale commence pour les utilisateurs affectés à Asana dans la section **Utilisateurs**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Utilisez la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Les journaux d’audit décrivent toutes les actions effectuées par le service de provisionnement dans votre application Asana.
 
-Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, consultez la section [Générer un état sur l’attribution automatique de comptes d’utilisateurs](../active-directory-saas-provisioning-reporting.md).
+Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, consultez la section [Générer un état sur l’attribution automatique de comptes d’utilisateurs](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: fa8bb25af1ecefefac4cb1347e64ac11af0c2c2c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 238f411ca1a1bb1aa3c89a515edd2091162512a2
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144022"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379757"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur les machines virtuelles Azure sur SUSE Linux Enterprise Server pour les applications SAP
 
@@ -128,7 +128,7 @@ Vous pouvez utiliser un modèle Azure de GitHub pour déployer l’ensemble des 
 
 La Place de marché Azure contient une image de SUSE Linux Enterprise Server for SAP Applications 12 que vous pouvez utiliser pour déployer de nouvelles machines virtuelles. L’image Place de marché contient l’agent de ressource pour SAP NetWeaver.
 
-Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur GitHub pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
+Vous pouvez utiliser l’un des modèles de démarrage rapide disponibles sur GitHub pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
 
 1. Ouvrez le [modèle ASCS/SCS Multi SID][template-multisid-xscs] ou le [modèle convergé][template-converged] dans le portail Azure. Le modèle ASCS/SCS crée uniquement les règles d’équilibrage de charge pour les instances de SAP NetWeaver ASCS/SCS et ERS (Linux uniquement), tandis que le modèle convergé crée également les règles d’équilibrage de charge pour une base de données (par exemple Microsoft SQL Server ou SAP HANA). Si vous prévoyez d’installer un système SAP NetWeaver et que vous souhaitez également installer la base de données sur les mêmes machines, utilisez le [modèle convergé][template-converged].
 1. Entrez les paramètres suivants
@@ -366,7 +366,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
      params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
      op monitor timeout=20s interval=10 depth=0
    
-   sudo crm configure group g-<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
+   sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
       meta resource-stickiness=3000
    </code></pre>
 
@@ -579,7 +579,7 @@ Les étapes ci-dessous partent du principe que vous installez le serveur d’app
 
 1. Configurer le système d’exploitation
 
-   Réduire la taille du cache d’intégrité. Pour plus d’informations, consultez [Faibles performances en écriture sur les serveurs 11/12 SLES avec une grande quantité de RAM](https://www.suse.com/support/kb/doc/?id=7010287).
+   Réduire la taille du cache d’intégrité. Pour plus d’informations, consultez [Faibles performances en écriture sur les serveurs SLES 11/12 avec une grande quantité de RAM](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>sudo vi /etc/sysctl.conf
 

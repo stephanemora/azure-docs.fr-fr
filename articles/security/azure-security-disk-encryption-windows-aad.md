@@ -1,28 +1,22 @@
 ---
 title: Activation d’Azure Disk Encryption avec Azure AD App pour les machines virtuelles IaaS Windows (version précédente) | Microsoft Docs
 description: Cet article fournit des instructions sur l’activation de Microsoft Azure Disk Encryption pour les machines virtuelles IaaS Windows.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 30b1151b-3314-4526-ba4e-4f6b23b1b280
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 2ecc177f810c9a3fe2d096b71aed4886cf89d7b4
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: 52b16341a4d2fb23709c4b97a7fec92ac3923c7d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889219"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348869"
 ---
 #  <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Activation d’Azure Disk Encryption pour les machines virtuelles IaaS Windows (version précédente)
 
-**Avec la nouvelle version d’Azure Disk Encryption, il n’y a plus besoin de fournir un paramètre d’application Azure AD pour activer le chiffrement de disque des machines virtuelles. Vous n’avez plus à fournir les informations d’identification Azure AD lors de l’étape d’activation du chiffrement. La nouvelle version permet à toutes les nouvelles machines virtuelles d’être chiffrées sans les paramètres d’application Azure AD. Pour consulter les instructions d’activation du chiffrement de disque des machines virtuelles grâce à la nouvelle version, consultez l’article [Azure Disk Encryption pour les machines virtuelles Windows](azure-security-disk-encryption-windows.md). Les machines virtuelles qui ont déjà été chiffrées avec les paramètres d’application Azure AD sont toujours prises en charge et doivent continuer à être gérées avec la syntaxe AAD.**
+**Avec la nouvelle version d’Azure Disk Encryption, il n’y a plus besoin de fournir un paramètre d’application Azure AD pour activer le chiffrement de disque des machines virtuelles. Avec la nouvelle version, vous n’êtes plus obligé de fournir les informations d’identification Azure AD lors de l’étape d’activation du chiffrement. La nouvelle version permet à toutes les nouvelles machines virtuelles d’être chiffrées sans les paramètres d’application Azure AD. Pour consulter les instructions d’activation du chiffrement de disque des machines virtuelles grâce à la nouvelle version, consultez l’article [Azure Disk Encryption pour les machines virtuelles Windows](azure-security-disk-encryption-windows.md). Les machines virtuelles déjà chiffrées avec les paramètres d’application Azure AD sont toujours prises en charge et doivent continuer à être gérées avec la syntaxe AAD.**
 
 
 Il existe de nombreux scénarios permettant d’activer le chiffrement de disque et les étapes peuvent varier selon le scénario. Les sections suivantes décrivent ces scénarios de façon plus détaillée pour les machines virtuelles IaaS Windows. Avant de pouvoir utiliser le chiffrement de disque, les [prérequis pour Azure Disk Encryption](../security/azure-security-disk-encryption-prerequisites-aad.md) doivent être satisfaits. 

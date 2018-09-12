@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ec84cdb4e226eea4d16d28d63acd7be59241b973
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398362"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346914"
 ---
 # <a name="understand-azure-identity-solutions"></a>Comprendre les solutions d’identité Azure
 Microsoft Azure Active Directory (Azure AD) est une solution cloud de gestion des identités et des accès qui associe des services d’annuaire, une gouvernance des identités et la gestion de l’accès aux applications. Azure AD [active rapidement l’authentification unique (SSO)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) sur des milliers d’applications commerciales et personnalisées dans la [galerie d’applications Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Vous utilisez probablement déjà bon nombre de ces applications : Office 365, Salesforce.com, Box, ServiceNow et Workday.
@@ -110,10 +110,10 @@ Nous pouvons vous proposer une multitude de ressources en ligne très utiles pou
 
 * [Activation de votre annuaire pour la gestion hybride avec Azure AD Connect](../connect/active-directory-aadconnect.md)
 * [Sécurité supplémentaire pour un monde toujours connecté](../authentication/multi-factor-authentication.md)
-* [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../active-directory-saas-app-provisioning.md)
+* [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md)
 * [Gestion de vos mots de passe en tout lieu](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
-* [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../active-directory-saas-app-provisioning.md)
+* [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md)
 * [Offrir un accès à distance sécurisé aux applications locales](../manage-apps/application-proxy.md)
 * [Gestion de l’accès aux ressources avec les groupes Azure Active Directory](active-directory-manage-groups.md)
 * [Qu’est-ce que la gestion des licences Microsoft Azure Active Directory ?](active-directory-licensing-whatis-azure-portal.md)

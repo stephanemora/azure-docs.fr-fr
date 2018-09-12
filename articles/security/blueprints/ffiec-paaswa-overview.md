@@ -8,16 +8,16 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: meladie
-ms.openlocfilehash: 4a124299b8f70ce5c5b1518d923efb2f8e75097f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: f31bb6fe713514b7b34f5b16693cf7ea31db757f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906355"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302424"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-ffiec-financial-services"></a>Blueprint de sécurité et de conformité Azure : Application web PaaS pour le FFIEC
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cette solution Automation Blueprint de sécurité et de conformité Azure fournit des conseils pour déployer un environnement PaaS (Platform as a service) adapté à la collecte, au stockage et à la récupération des données financières régies par le FFIEC (Federal Financial Institution Examination Council). Cette solution automatise le déploiement et la configuration des ressources Azure pour une architecture de référence commune, illustrant diverses façons dont les clients peuvent satisfaire à des exigences de conformité et de sécurité spécifiques, et sert de base aux clients souhaitant générer et configurer leurs propres solutions sur Azure. La solution implémente un sous-ensemble des exigences inscrites dans les livres du FFIEC. Pour plus d’informations sur les exigences du FFIEC et sur cette solution, consultez la section [documentation sur la conformité](#compliance-documentation).
 
@@ -27,7 +27,7 @@ Cette architecture constitue une base que les clients peuvent modifier en foncti
 - Cette architecture constitue une base de référence qui permet aux clients d’utiliser Azure conformément aux exigences du FFIEC.
 - Les clients doivent réaliser des évaluations de sécurité et de conformité pour toute solution créée à l’aide de cette architecture, car les exigences peuvent varier selon leur implémentation.
 
-La mise en conformité par rapport aux exigences du FFIEC nécessite que des auditeurs qualifiés certifient une solution cliente de production. Les audits sont réglementés par des examinateurs issus d’agences membre du FFIEC, notamment le Conseil des gouverneurs de la Réserve fédérale des États-Unis (FRB), la FDIC (Federal Deposit Insurance Corporation), la NCUA (National Credit Union Administration), l’OCC (Office of the Comptroller of the Currency) et le Bureau américain de protection des consommateurs (CFPB). Ces examinateurs certifient que les audits sont effectués par des évaluateurs indépendants de l’institution auditée. Il incombe aux clients d’évaluer de façon appropriée la sécurité et la conformité de toute solution basée sur cette architecture, car les exigences peuvent varier en fonction des spécificités de chaque implémentation.
+La mise en conformité par rapport aux exigences du FFIEC nécessite que des auditeurs qualifiés certifient une solution cliente de production. Les audits sont supervisés par des examinateurs issus d’agences membre du FFIEC, notamment le Conseil des gouverneurs de la Réserve fédérale des États-Unis (FRB), la FDIC (Federal Deposit Insurance Corporation), la NCUA (National Credit Union Administration), l’OCC (Office of the Comptroller of the Currency) et le Bureau américain de protection des consommateurs (CFPB). Ces examinateurs certifient que les audits sont effectués par des évaluateurs indépendants de l’institution auditée. Il incombe aux clients d’évaluer de façon appropriée la sécurité et la conformité de toute solution basée sur cette architecture, car les exigences peuvent varier en fonction des spécificités de chaque implémentation.
 
 Cliquez [ici](https://aka.ms/ffiec-paaswa-repo) pour obtenir des instructions de déploiement.
 
@@ -37,7 +37,7 @@ Cette solution Automation Blueprint de sécurité et de conformité Azure déplo
 
 Les services Azure SQL Database sont configurables avec des index columnstore afin d’améliorer les fonctions d’analyse et de génération de rapports. Azure SQL Database peut être mis à l’échelle (augmentation ou diminution) ou bien complètement arrêté selon l’utilisation du client. La totalité du trafic SQL est chiffrée avec SSL grâce à l’inclusion de certificats auto-signés. En guise de meilleure pratique, Azure préconise l’utilisation d’une autorité de certification de confiance afin de renforcer la sécurité.
 
-La solution utilise des comptes de stockage Azure que les clients peuvent configurer pour utiliser Storage Service Encryption afin de maintenir la confidentialité des données au repos. Azure stocke trois copies des données dans un centre de données sélectionné par le client pour assurer la résilience. Le stockage géographiquement redondant garantit que les données sont répliquées dans un centre de données secondaire situé à des centaines de kilomètres et stockées en trois copies dans ce centre de données, ce qui empêche une perte de données en cas de dysfonctionnement au niveau du centre de données principal du client.
+La solution utilise des comptes de stockage Azure que les clients peuvent configurer pour utiliser Storage Service Encryption afin de maintenir la confidentialité des données au repos. Azure enregistre trois copies des données au sein d’un centre de données sélectionné par le client pour assurer la résilience. Le stockage géographiquement redondant permet de s’assurer de la réplication des données vers un centre de données secondaire situé à des centaines de kilomètres et du stockage de trois copies dans ce centre de données, empêchant ainsi une perte de données en cas de dysfonctionnement au niveau du centre de données primaire du client.
 
 Pour renforcer la sécurité, toutes les ressources dans cette solution sont gérées sous forme de groupe de ressources dans Azure Resource Manager. Le contrôle d’accès en fonction du rôle Azure Active Directory est utilisé pour contrôler l’accès aux ressources déployées ainsi qu’à leurs clés dans Azure Key Vault. L’intégrité du système est surveillée dans Azure Monitor. Les clients configurent ces deux services de surveillance pour la capture de journaux et la centralisation des informations concernant l’intégrité du système dans un tableau de bord facilement consultable.
 
@@ -53,12 +53,12 @@ Cette solution utilise les services Azure suivants. Les détails de l’architec
     - Pare-feu d’application web
         - Mode de pare-feu : prévention
         - Ensemble de règles : OWASP
-        - Port d’écoute : 443
+        - Écouteur : port 443
 - Application Insights
 - Azure Active Directory
 - Azure Application Service Environment v2
 - Azure Automation
-- Azure DNS
+- DNS Azure
 - Azure Key Vault
 - Azure Load Balancer
 - Azure Monitor
@@ -88,9 +88,9 @@ Cette solution crée une machine virtuelle en tant qu’hôte bastion joint au d
 -   [Stratégie d’arrêt automatique](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) pour réduire la consommation des ressources de machine virtuelle non utilisées
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) activé afin que les informations d’identification et autres secrets soient utilisés dans un environnement protégé, isolé du système d’exploitation en cours d’exécution
 
-**App Service Environment v2** : L’environnement Azure App Service est une fonctionnalité App Service qui fournit un environnement entièrement dédié et isolé pour l’exécution sécurisée d’applications App Service à grande échelle. Cette fonctionnalité d’isolation est nécessaire pour répondre aux exigences de conformité du FFIEC.
+**App Service Environment v2** : l’environnement Azure App Service est une fonctionnalité d’Azure App Service qui fournit un environnement dédié et totalement isolé pour l’exécution sécurisée d’applications App Service à grande échelle. Cette fonctionnalité d’isolation est nécessaire pour répondre aux exigences de conformité du FFIEC.
 
-Les environnements App Service sont isolés pour exécuter uniquement les applications d’un seul client et sont toujours déployés dans un réseau virtuel. Cette fonctionnalité d’isolation permet à l’architecture de référence d’isoler complètement les locataires, en les supprimant de l’environnement multilocataire d’Azure qui interdit à ces locataires d’énumérer les ressources d’environnement App Service déployées. Les clients ont un contrôle affiné sur le trafic réseau entrant et sortant des applications, et les applications peuvent établir des connexions sécurisées à haut débit sur les réseaux virtuels avec les ressources d’entreprise locales. Les clients peuvent faire une « mise à l'échelle automatique » avec l’environnement App Service en fonction des métriques de charge, du budget disponible ou d’une planification définie.
+Les environnements App Service sont isolés pour exécuter uniquement les applications d’un seul client et sont toujours déployés dans un réseau virtuel. Cette fonctionnalité d’isolation permet à l’architecture de référence d’isoler complètement les locataires, en les supprimant de l’environnement multilocataire d’Azure qui interdit à ces locataires d’énumérer les ressources d’environnement App Service déployées. Les clients ont un contrôle affiné sur le trafic réseau entrant et sortant des applications, et les applications peuvent établir des connexions sécurisées à haut débit sur les réseaux virtuels avec les ressources d’entreprise locales. Les clients peuvent faire une « mise à l’échelle automatique » avec l’environnement App Service basé sur les mesures de charge, le budget disponible ou une planification définie.
 
 L’utilisation de l’environnement App Service pour cette architecture permet les configurations suivantes :
 
@@ -103,16 +103,16 @@ L’utilisation de l’environnement App Service pour cette architecture permet 
 - [Pare-feu d’applications web – Restreindre les données](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Autorisation du [trafic Azure SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Azure Web Apps** : [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) permet aux clients de créer et d’héberger des applications web écrites dans le langage de programmation de leur choix sans devoir gérer l’infrastructure. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Visual Studio Team Services ou n’importe quel référentiel Git.
+**Azure Web Apps** : [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) permet aux clients de créer et d’héberger des applications web écrites dans le langage de programmation de leur choix sans devoir gérer l’infrastructure. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Azure DevOps ou n’importe quel référentiel Git.
 
 ### <a name="virtual-network"></a>Réseau virtuel
 
 L’architecture définit un réseau privé virtuel avec l’espace d’adressage 10.200.0.0/16.
 
-**Groupes de sécurité réseau** : Les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contiennent des listes de contrôle d’accès qui autorisent ou refusent le trafic au sein d’un réseau virtuel. Les groupes de sécurité réseau peuvent être utilisés pour sécuriser le trafic au niveau d’un sous-réseau ou d’une machine virtuelle individuelle. Les groupes de sécurité réseau suivants existent :
+**Groupes de sécurité réseau** : les [groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contiennent des listes de contrôle d’accès qui autorisent ou refusent le trafic au sein d’un réseau virtuel. Les groupes de sécurité réseau peuvent être utilisés pour sécuriser le trafic au niveau d’un sous-réseau ou d’une machine virtuelle individuelle. Les groupes de sécurité réseau suivants existent :
 
 - 1 groupe de sécurité réseau pour Application Gateway
-- 1 groupe de sécurité réseau pour l’environnement App Service
+- un groupe de sécurité réseau pour App Service Environment
 - 1 groupe de sécurité réseau pour Azure SQL Database
 - 1 groupe de sécurité réseau pour le bastion
 
@@ -121,7 +121,7 @@ Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouver
 - Les [événements et journaux de diagnostic](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sont activés et stockés dans un compte de stockage.
 - Log Analytics est connecté aux [journaux de diagnostic du groupe de sécurité réseau](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**Sous-réseaux** : Chaque sous-réseau est associé au groupe de sécurité réseau qui lui correspond.
+**Sous-réseaux** : chaque sous-réseau est associé au groupe de sécurité réseau qui lui correspond.
 
 **Azure DNS** : le DNS (Domain Name System) se charge de traduire (ou résoudre) un nom de site web ou de service en une adresse IP. [Azure DNS](https://docs.microsoft.com/azure/dns/dns-overview) est un service d’hébergement pour domaines DNS, qui assure la résolution de noms à l’aide de l’infrastructure Azure. En hébergeant des domaines dans Azure, les utilisateurs peuvent gérer des enregistrements DNS en utilisant les mêmes informations d’identification, API, outils et modes de facturation que pour d’autres services Azure. Azure DNS prend désormais également en charge les domaines DNS privés.
 
@@ -147,14 +147,14 @@ L’architecture protège les données au repos à l’aide d’un chiffrement, 
 - Des [règles de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) empêchent tout accès aux serveurs de base de données sans autorisation appropriée. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande.
 - La [détection des menaces SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) permet de détecter et traiter les menaces potentielles à mesure qu’elles surviennent en déclenchant des alertes de sécurité en cas d’activités de base de données suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux aux bases de données.
 - Des [colonnes chiffrées](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) garantissent que les données sensibles n’apparaissent jamais sous forme de texte en clair à l’intérieur du système de base de données. Une fois le chiffrement des données activé, seules des applications clientes ou des serveurs d’applications ayant accès aux clés peuvent accéder aux données en texte clair.
-- [SQL Database Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limite l’exposition des données sensibles en masquant celles-ci aux utilisateurs ou aux applications qui n’ont pas de privilège. Le masquage dynamique des données peut découvrir automatiquement les données potentiellement sensibles et suggérer les masques appropriés à appliquer. Cela permet d’identifier et de réduire l’accès aux données pour qu’elles ne quittent pas la base de données via un accès non autorisé. Les clients doivent ajuster les paramètres de masquage de données dynamiques pour respecter leur schéma de base de données.
+- [SQL Database Dynamic Data Masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limite l’exposition des données sensibles en masquant celles-ci aux utilisateurs ou aux applications dépourvus de privilèges. Le masquage dynamique des données peut découvrir automatiquement les données potentiellement sensibles et suggérer les masques appropriés à appliquer. Cela permet d’identifier et de réduire l’accès aux données afin qu’elles ne quittent pas la base de données par l’intermédiaire d’un accès non autorisé. Les clients doivent ajuster les paramètres de masquage de données dynamiques pour respecter leur schéma de base de données.
 
 ### <a name="identity-management"></a>Gestion des identités
 
 Les technologies suivantes offrent des fonctionnalités de gestion de l’accès aux données dans l’environnement Azure :
 
-- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) est l’annuaire cloud multilocataire et le service de gestion des identités de Microsoft. Tous les utilisateurs de cette solution sont créés dans Azure Active Directory, y compris les utilisateurs qui accèdent à Azure SQL Database.
-- L’authentification dans l’application est effectuée à l’aide d’Azure Active Directory. Pour plus d’informations, consultez [Intégration d’applications à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). En outre, le chiffrement des colonnes de base de données utilise Azure Active Directory pour authentifier l’application auprès d’Azure SQL Database. Pour plus d’informations, découvrez comment [protéger des données sensibles dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+- [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) est le service mutualisé basé sur le cloud de Microsoft pour la gestion des répertoires et des identités. Tous les utilisateurs de cette solution sont créés dans Azure Active Directory, notamment ceux qui accèdent à Azure SQL Database.
+- L’authentification auprès de l’application est effectuée à l’aide d’Azure Active Directory. Pour plus d’informations, consultez [Intégration d’applications à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). En outre, le chiffrement des colonnes de base de données utilise Azure Active Directory pour authentifier l’application auprès d’Azure SQL Database. Pour plus d’informations, découvrez comment [protéger des données sensibles dans Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
 - [Le contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) permet aux administrateurs de définir des autorisations affinées pour accorder uniquement le nombre d’accès dont les utilisateurs ont besoin pour leur travail. Au lieu d’accorder à tous les utilisateurs des autorisations illimitées sur les ressources Azure, les administrateurs peuvent autoriser seulement certaines actions pour accéder aux données. Par exemple, l’accès aux abonnements est limité à l’administrateur d’abonnements.
 - La solution [Azure Active Directory Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-getting-started) permet aux clients de minimiser le nombre d’utilisateurs qui ont accès à des informations spécifiques. Les administrateurs peuvent utiliser Azure Active Directory Privileged Identity Management pour découvrir, restreindre et superviser les identités privilégiées et leur accès aux ressources. Cette fonctionnalité permet également d’appliquer un accès administratif juste-à-temps à la demande si nécessaire.
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) détecte les vulnérabilités risquant d’affecter les identités d’une organisation, configure des réponses automatiques aux actions suspectes détectées en lien avec les identités d’une organisation, et examine les incidents suspects afin de prendre les mesures appropriées pour résoudre ces derniers.
@@ -175,11 +175,11 @@ Les technologies suivantes offrent des fonctionnalités de gestion de l’accès
 
 Azure Security Center utilise diverses fonctionnalités de détection pour avertir les clients des attaques potentielles qui ciblent leur environnement. Ces alertes fournissent de précieuses informations sur le déclencheur de l’alerte, les ressources ciblées et la source de l’attaque. Azure Security Center a un ensemble [d’alertes de sécurité prédéfinies](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type), qui sont déclenchées en cas de menace ou d’activité suspecte. Les [règles d’alerte personnalisées](https://docs.microsoft.com/en-us/azure/security-center/security-center-custom-alert) d’Azure Security Center permettent aux clients de définir de nouvelles alertes de sécurité basées sur les données déjà collectées dans leur environnement.
 
-Azure Security Center fournit des incidents et des alertes de sécurité hiérarchisés, pour simplifier la découverte et la résolution des problèmes potentiels de sécurité. Un [rapport d’intelligence des menaces](https://docs.microsoft.com/azure/security-center/security-center-threat-report) est généré pour chaque menace détectée afin d’aider les équipes chargées de traiter les incidents à examiner et à contrecarrer les menaces.
+Azure Security Center fournit des incidents et des alertes de sécurité hiérarchisés, pour simplifier la découverte et la résolution des problèmes potentiels de sécurité. Un [rapport de Threat intelligence](https://docs.microsoft.com/azure/security-center/security-center-threat-report) est généré pour chaque menace détectée afin d’aider les équipes chargées de répondre aux incidents à examiner et à contrecarrer les menaces.
 
 **Azure Application Gateway** : L’architecture réduit le risque de failles de sécurité à l’aide d’Azure Application Gateway avec un pare-feu d’applications web configuré et l’ensemble de règles OWASP activé. Les autres fonctionnalités incluent notamment :
 
-- [End-to-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Activation du [déchargement SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Désactivation de [TLS versions 1.0 et 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Pare-feu d’applications web](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (mode de prévention)
@@ -248,7 +248,7 @@ Les meilleures pratiques concernant l’implémentation d’un réseau hybride s
 
 ## <a name="disclaimer"></a>Clause d'exclusion de responsabilité
 
-- Ce document est fourni à titre d’information uniquement. MICROSOFT N’ACCORDE AUCUNE GARANTIE EXPRESSE, IMPLICITE OU STATUTAIRE EN LIEN AVEC LES INFORMATIONS CONTENUES DANS CE DOCUMENT. Ce document est fourni &quot;en l’état&quot; Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis. Les clients qui lisent ce document assument les risques liés à son utilisation.
+- Ce document est fourni à titre d’information uniquement. MICROSOFT N’ACCORDE AUCUNE GARANTIE EXPRESSE, IMPLICITE OU STATUTAIRE EN LIEN AVEC LES INFORMATIONS CONTENUES DANS CE DOCUMENT. Ce document est fourni &quot;en l’état.&quot; Les informations et les points de vue exprimés dans ce document, y compris les URL et autres références à des sites web, peuvent être modifiés sans préavis. Les clients qui lisent ce document assument les risques liés à son utilisation.
 - Ce document n’accorde aux clients aucun droit légal de propriété intellectuelle sur les produits ou solutions Microsoft.
 - Les clients peuvent copier et utiliser ce document pour un usage interne, à titre de référence.
 - Certaines recommandations contenues dans ce document peuvent entraîner une augmentation de l’utilisation des données, du réseau ou des ressources de calcul dans Azure, entraînant éventuellement des coûts de licence ou d’abonnement supplémentaires pour le client.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 550f655f6eac5a114636978255578eb3753e0d4b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fe05ab36f971105cf72342b8df5e2a82de7fc2b8
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918130"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391791"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
 
@@ -39,7 +39,7 @@ Les étapes fournies dans cet article permettent de créer un réseau virtuel, u
   - **Espace d’adressage** : 10.1.0.0/16
   - **Abonnement** : vérifiez que l’abonnement indiqué est celui que vous souhaitez utiliser. Vous pouvez modifier des abonnements à l’aide de la liste déroulante.
   - **Groupe de ressources :** TestRG1
-  - **Emplacement** : États-Unis de l’Est
+  - **Emplacement** : USA Est
   - **Sous-réseau** : Serveur frontal
   - **Plage d’adresses** : 10.1.0.0/24
 
@@ -54,12 +54,12 @@ Le sous-réseau de passerelle contient les adresses IP réservées utilisées pa
 2. Dans la page de votre réseau virtuel, cliquez sur **Sous-réseaux** pour développer la page **VNet1 - Sous-réseaux**.
 3. Cliquez sur **+ Sous-réseau de passerelle** en haut de la page pour ouvrir la page **Ajouter un sous-réseau**.
 
-  ![Ajouter un sous-réseau de passerelle](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Ajouter un sous-réseau de passerelle")
+  ![Ajouter un sous-réseau de passerelle](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Ajouter un sous-réseau de passerelle")
 4. Le **nom** de votre sous-réseau est automatiquement renseigné avec la valeur requise « GatewaySubnet ». Ajustez les valeurs de **plage d’adresses** renseignées automatiquement pour qu’elles correspondent aux valeurs suivantes :
 
   **Plage d’adresses (bloc CIDR)** : 10.1.255.0/27
 
-  ![Ajouter un sous-réseau de passerelle](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Ajouter un sous-réseau de passerelle")
+  ![Ajouter un sous-réseau de passerelle](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Ajouter un sous-réseau de passerelle")
 5. Pour créer le sous-réseau de passerelle, cliquez sur **OK** en bas de la page.
 
 ## <a name="gwvalues"></a>Configurer les paramètres de la passerelle
@@ -72,7 +72,7 @@ Le sous-réseau de passerelle contient les adresses IP réservées utilisées pa
   - **Type de passerelle** : VPN 
   - **Type de VPN** : Basé sur itinéraires
   - **Référence (SKU)** : VpnGw1
-  - **Emplacement** : États-Unis de l’Est
+  - **Emplacement** : USA Est
   - **Réseau virtuel** : cliquez sur **Réseau virtuel/Choisir un réseau virtuel** pour ouvrir la page **Choisir un réseau virtuel**. Sélectionnez **VNet1**.
 
   ![Configuration des paramètres de la passerelle](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "Configuration des paramètres de la passerelle")

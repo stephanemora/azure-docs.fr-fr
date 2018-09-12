@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 20cc91a1754c3d68b447430abf21a3aad5925e05
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365346"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347645"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Résoudre les problèmes de proxy d’application et les messages d’erreur
 Si des erreurs se produisent dans l’accès à une application publiée ou dans la publication d’applications, vérifiez les options suivantes pour voir si le proxy d’application Microsoft Azure Active Directory fonctionne correctement :
@@ -67,7 +67,7 @@ Cette table répertorie les erreurs les plus courantes qui proviennent de la con
 | 13016 - Azure AD ne peut pas récupérer un ticket Kerberos pour l’utilisateur, car il n’existe pas d’UPN dans le jeton de périphérie ou dans le cookie d’accès. | Il existe un problème avec la configuration de STS (SharePoint Team Services). Corrigez la configuration de la revendication UPN dans STS. |
 | 13019 - Azure AD ne peut pas récupérer un ticket Kerberos pour l’utilisateur en raison de l’erreur API générale suivante. | Cet événement peut indiquer une configuration incorrecte entre Azure AD et le serveur contrôleur de domaine, ou un problème de configuration de la date/heure sur les deux ordinateurs. Le contrôleur de domaine a refusé le ticket Kerberos créé par Azure AD. Vérifiez que les configurations d’Azure AD et du serveur d’applications principal sont correctes, en particulier les configurations du nom de principal du service (SPN). Assurez-vous qu’Azure AD est joint au même domaine que le contrôleur de domaine pour que le contrôleur de domaine établisse la relation d’approbation avec Azure AD. Assurez-vous que les configurations de la date/heure sur Azure AD et sur le contrôleur de domaine sont synchronisées. |
 | 13020 - Azure AD ne peut pas récupérer un ticket Kerberos pour l’utilisateur, car le SPN du serveur principal n’est pas défini. | Cet événement peut indiquer une configuration incorrecte entre Azure AD et le serveur contrôleur de domaine, ou un problème de configuration de la date/heure sur les deux ordinateurs. Le contrôleur de domaine a refusé le ticket Kerberos créé par Azure AD. Vérifiez que les configurations d’Azure AD et du serveur d’applications principal sont correctes, en particulier les configurations du nom de principal du service (SPN). Assurez-vous qu’Azure AD est joint au même domaine que le contrôleur de domaine pour que le contrôleur de domaine établisse la relation d’approbation avec Azure AD. Assurez-vous que les configurations de la date/heure sur Azure AD et sur le contrôleur de domaine sont synchronisées. |
-| 13022 - Azure AD ne peut pas authentifier l’utilisateur, car le serveur principal répond aux tentatives d’authentification Kerberos avec une erreur HTTP 401. | Cet événement peut indiquer une configuration incorrecte entre Azure AD et le serveur d’applications principal, ou un problème de configuration de la date/heure sur les deux ordinateurs. Le serveur principal a refusé le ticket Kerberos créé par Azure AD. Vérifiez que les configurations d’Azure AD et du serveur d’applications principal sont correctes. Assurez-vous que les configurations de la date/heure sur Azure AD et sur le serveur d’applications principal sont synchronisées. Pour plus d’informations, consultez l’article [Résolution des problèmes de configuration de délégation Kerberos contrainte pour le proxy d’application](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
+| 13022 - Azure AD ne peut pas authentifier l’utilisateur, car le serveur principal répond aux tentatives d’authentification Kerberos avec une erreur HTTP 401. | Cet événement peut indiquer une configuration incorrecte entre Azure AD et le serveur d’applications principal, ou un problème de configuration de la date/heure sur les deux ordinateurs. Le serveur principal a refusé le ticket Kerberos créé par Azure AD. Vérifiez que les configurations d’Azure AD et du serveur d’applications principal sont correctes. Assurez-vous que les configurations de la date/heure sur Azure AD et sur le serveur d’applications principal sont synchronisées. Pour plus d’informations, consultez l’article [Résolution des problèmes de configuration de délégation Kerberos contrainte pour le proxy d’application](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## <a name="end-user-errors"></a>Erreurs de l’utilisateur final
 

@@ -1,6 +1,6 @@
 ---
 title: Activer l’agent de machine virtuelle dans Azure Security Center | Microsoft Docs
-description: Ce document vous montre comment implémenter la recommandation du Centre de sécurité Azure **Activer l’agent de machine virtuelle**.
+description: Ce document vous montre comment implémenter la recommandation de l’Azure Security Center (centre de sécurité Azure) **Activer l’agent de machine virtuelle**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 5b431c25-4241-45b7-9556-cf2a1956f3da
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 337a7adfd93c76882a749685702bea6d1524c96a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 200ab53839811e20200534b7168d6b4fb368e42a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040284"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295681"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Activer l’agent de machine virtuelle dans le Centre de sécurité Azure
 L’agent de machine virtuelle doit être installé sur les machines virtuelles pour [activer la collecte des données](security-center-enable-data-collection.md).  Le Centre de sécurité Azure vous permet de voir quelles machines virtuelles nécessitent l’agent de machine virtuelle et vous recommandera d’activer l’agent sur ces machines virtuelles.
@@ -38,7 +38,7 @@ L’agent de machine virtuelle est installé par défaut sur les machines virtue
    ![L’agent de machine virtuelle est manquant][2]
 
 ## <a name="see-also"></a>Voir aussi
-Pour plus d’informations sur Security Center, consultez :
+Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md): découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md): découvrez la façon dont les recommandations peuvent vous aider à protéger vos ressources Azure.

@@ -2,20 +2,20 @@
 title: Créer une fonction déployée à partir de GitHub dans Azure | Microsoft Docs
 description: Créez une application de fonction et déployez le code de fonction à partir d’un référentiel GitHub à l’aide d’Azure Functions.
 services: functions
-ms.service: functions
+ms.service: azure-functions
 keywords: ''
 ms.devlang: azurecli
-author: syntaxc4
+author: ggailey777
 ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 3090058236212d1baca17e2886a76f31ee1b2718
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f2d2eb20f3b609fce164bc1cbd33162b5afbe6c8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424467"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163054"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Créer une application de fonction déployée à partir de GitHub dans Azure
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cde70518164c386697127b079979b5b3b76ae088
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cd95a1f1e0631340fa9844fd31c3d8c0af1168dd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139867"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347050"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Index d’articles pour la gestion des applications dans Azure Active Directory
 Cette page fournit la liste complète des documents qui traitent des diverses fonctionnalités d’application dans Azure Active Directory (Azure AD).
@@ -42,7 +42,7 @@ Cette section fournit un accès rapide aux guides de résolution des problèmes 
 | Domaine de fonctionnalités |  |
 |:---:| --- |
 | Authentification unique fédérée |[Dépannage de l’authentification unique basée sur SAML](develop/howto-v1-debug-saml-sso-issues.md) |
-| Authentification unique par mot de passe |[Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Authentification unique par mot de passe |[Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](manage-apps/manage-access-panel-browser-extension.md) |
 | Proxy d’application |[Guide de résolution des problèmes pour le proxy d’application](manage-apps/application-proxy-troubleshoot.md) |
 | Authentification unique entre AD en local et Azure AD |[Dépannage de la synchronisation de hachage du mot de passe](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Résolution des problèmes de réécriture du mot de passe](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Appartenances au groupe dynamique |[Résolution des problèmes liés à l’appartenance au groupe dynamique](users-groups-roles/groups-troubleshooting.md) |
@@ -56,7 +56,7 @@ L’authentification unique permet aux utilisateurs d’accéder à différentes
 | Introduction à la fédération et à d’autres types d’authentification |[Authentification unique avec Azure AD](manage-apps/what-is-single-sign-on.md) |
 | Des milliers d’applications SaaS pré-intégrées à Azure AD avec des étapes de configuration de l’authentification unique simplifiées |[Prise en main de la galerie d’applications Azure AD](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Liste complète des applications pré-intégrées qui prennent en charge la fédération](saas-apps/tutorial-list.md)<br /><br />[Comment ajouter votre application à la galerie d’applications Azure AD](develop/howto-app-gallery-listing.md) |
 | Plus de 150 didacticiels d’application sur la configuration de l’authentification unique pour les applications telles que [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), et bien plus encore |[Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](saas-apps/tutorial-list.md) |
-| Comment configurer et personnaliser manuellement votre configuration de l’authentification unique |[Configuration de l'authentification unique fédérée pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées](active-directory-saml-claims-customization.md) |
+| Comment configurer et personnaliser manuellement votre configuration de l’authentification unique |[Configuration de l'authentification unique fédérée pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)<br /><br />[Personnalisation des revendications émises dans le jeton SAML pour les applications pré-intégrées](active-directory-saml-claims-customization.md) |
 | Guide de dépannage pour les applications fédérées qui utilisent le protocole SAML |[Dépannage de l’authentification unique basée sur SAML](develop/howto-v1-debug-saml-sso-issues.md) |
 | Comment configurer la date d’expiration du certificat de votre application et renouveler vos certificats |[Gestion des certificats pour l’authentification unique fédérée sur Azure Active Directory](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
@@ -70,7 +70,7 @@ Pour activer l’authentification unique pour les applications qui ne prennent p
 | Introduction au fonctionnement de l’authentification unique par mot de passe et brève vue d’ensemble technique |[Authentification unique par mot de passe avec Azure AD](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Résumé des scénarios relatifs au partage de compte et résolution de ces problèmes par Azure AD |[Partage de comptes avec Azure AD](active-directory-sharing-accounts.md) |
 | Modifier automatiquement le mot de passe pour certaines applications à intervalles réguliers |[Substitution de mot de passe automatique (version préliminaire)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
-| Guides de déploiement et de dépannage pour la version Internet Explorer de l’extension de gestion de mot de passe Azure AD |[Déploiement de l'extension du volet d'accès pour Internet Explorer à l'aide de la stratégie de groupe](active-directory-saas-ie-group-policy.md)<br /><br />[Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Guides de déploiement et de dépannage pour la version Internet Explorer de l’extension de gestion de mot de passe Azure AD |[Déploiement de l'extension du volet d'accès pour Internet Explorer à l'aide de la stratégie de groupe](manage-apps/deploy-access-panel-browser-extension.md)<br /><br />[Résolution des problèmes liés à l'extension du volet d'accès pour Internet Explorer](manage-apps/manage-access-panel-browser-extension.md) |
 
 L’authentification unique par mot de passe est disponible pour toutes les éditions d’Azure AD dans la limite de dix applications par utilisateur. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) prend en charge un nombre illimité d’applications. Si votre organisation a [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) ou [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez [utiliser des groupes pour affecter l’accès à des applications](#managing-access-to-applications). La substitution de mot de passe automatique est une fonctionnalité [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) .
 
@@ -130,11 +130,11 @@ Automatisez la création, la maintenance et la suppression d’identités utilis
 
 | Guide des articles |  |
 |:---:| --- |
-| Découvrir son fonctionnement et trouver les réponses aux questions les plus fréquentes |[Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](active-directory-saas-app-provisioning.md) |
-| Configurer le mappage des informations entre Azure AD et votre application SaaS |[Personnalisation des mappages d’attributs](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Écriture d’expressions pour les mappages d’attributs](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
+| Découvrir son fonctionnement et trouver les réponses aux questions les plus fréquentes |[Automatiser l’approvisionnement/annuler l’approvisionnement des utilisateurs pour les applications SaaS](manage-apps/user-provisioning.md) |
+| Configurer le mappage des informations entre Azure AD et votre application SaaS |[Personnalisation des mappages d’attributs](manage-apps/customize-application-attributes.md)<br><br>[Écriture d’expressions pour les mappages d’attributs](manage-apps/functions-for-customizing-application-data.md) |
 | Comment activer l’approvisionnement automatique pour toute application qui prend en charge le protocole SCIM |[Configurer l’approvisionnement automatique des utilisateurs pour toute application prenant en charge le protocole SCIM](manage-apps/use-scim-to-provision-users-and-groups.md) |
-| Comment créer des rapports et résoudre les problèmes d’approvisionnement d’utilisateurs |[Création de rapports sur l’approvisionnement d’utilisateurs automatique](active-directory-saas-provisioning-reporting.md)<br><br>[Résolution des problèmes d’approvisionnement d’utilisateurs](active-directory-application-provisioning-content-map.md) |
-| Limiter les personnes pouvant être approvisionnées pour une application en fonction de ses valeurs d’attribut |[Filtres d’étendue](active-directory-saas-scoping-filters.md) |
+| Comment créer des rapports et résoudre les problèmes d’approvisionnement d’utilisateurs |[Création de rapports sur l’approvisionnement d’utilisateurs automatique](manage-apps/check-status-user-account-provisioning.md)<br><br>[Résolution des problèmes d’approvisionnement d’utilisateurs](active-directory-application-provisioning-content-map.md) |
+| Limiter les personnes pouvant être approvisionnées pour une application en fonction de ses valeurs d’attribut |[Filtres d’étendue](manage-apps/define-conditional-rules-for-provisioning-user-accounts.md) |
 
 L’approvisionnement automatique des utilisateurs est disponible pour toutes les éditions d’Azure AD dans la limite de dix applications par utilisateur. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) prend en charge un nombre illimité d’applications. Si votre organisation a [Azure AD Standard](https://azure.microsoft.com/pricing/details/active-directory/) ou [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), vous pouvez [utiliser des groupes pour gérer les utilisateurs pouvant être approvisionnés](#managing-access-to-applications).
 

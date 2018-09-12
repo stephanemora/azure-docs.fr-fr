@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: b696325c19d4e1d9c9fe6b85a3c46add756340ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443509"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347696"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications
 
@@ -84,7 +84,7 @@ Les applications qui prennent en charge le profil SCIM décrit dans cet article 
 13. Cliquez sur **Enregistrer** pour démarrer le service d’approvisionnement Azure AD. 
 14. Si vous synchronisez uniquement les utilisateurs et les groupes attribués (recommandé), veillez à sélectionner l’onglet **Utilisateurs et groupes** et à attribuer les utilisateurs et/ou groupes que vous souhaitez synchroniser.
 
-Une fois la synchronisation initiale démarrée, vous pouvez utiliser l’onglet **Journaux d’audit** pour surveiller la progression. Il indique toutes les actions effectuées par le service d’approvisionnement de votre application. Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../active-directory-saas-provisioning-reporting.md).
+Une fois la synchronisation initiale démarrée, vous pouvez utiliser l’onglet **Journaux d’audit** pour surveiller la progression. Il indique toutes les actions effectuées par le service d’approvisionnement de votre application. Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
 
 >[!NOTE]
 >La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. 
@@ -152,7 +152,7 @@ Le moyen le plus simple d’implémenter un point de terminaison SCIM qui peut a
 13. Cliquez sur **Enregistrer** pour démarrer le service d’approvisionnement Azure AD. 
 14. Si vous synchronisez uniquement les utilisateurs et les groupes attribués (recommandé), veillez à sélectionner l’onglet **Utilisateurs et groupes** et à attribuer les utilisateurs et/ou groupes que vous souhaitez synchroniser.
 
-Une fois la synchronisation initiale démarrée, vous pouvez utiliser l’onglet **Journaux d’audit** pour surveiller la progression. Il indique toutes les actions effectuées par le service d’approvisionnement de votre application. Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../active-directory-saas-provisioning-reporting.md).
+Une fois la synchronisation initiale démarrée, vous pouvez utiliser l’onglet **Journaux d’audit** pour surveiller la progression. Il indique toutes les actions effectuées par le service d’approvisionnement de votre application. Pour plus d’informations sur la lecture des journaux d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
 
 La dernière étape de vérification de l’exemple consiste à ouvrir le fichier TargetFile.csv dans le dossier \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug sur votre machine Windows. Une fois le processus de déploiement exécuté, ce fichier affiche les détails de tous les utilisateurs et groupes affectés et configurés.
 
@@ -692,11 +692,11 @@ L’illustration suivante contient les messages qu’Azure AD envoie à un servi
 
 ## <a name="related-articles"></a>Articles connexes
 * [Index d’articles pour la gestion des applications dans Azure Active Directory](../active-directory-apps-index.md)
-* [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](../active-directory-saas-app-provisioning.md)
-* [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](../active-directory-saas-customizing-attribute-mappings.md)
-* [Écriture d’expressions pour les mappages d’attributs](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Filtres d’étendue pour l’approvisionnement des utilisateurs](../active-directory-saas-scoping-filters.md)
-* [Notifications d’approvisionnement de comptes](../active-directory-saas-app-provisioning.md)
+* [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](user-provisioning.md)
+* [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](customize-application-attributes.md)
+* [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md)
+* [Filtres d’étendue pour l’approvisionnement des utilisateurs](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Notifications d’approvisionnement de comptes](user-provisioning.md)
 * [Liste des didacticiels sur l’intégration des applications SaaS](../saas-apps/tutorial-list.md)
 
 <!--Image references-->

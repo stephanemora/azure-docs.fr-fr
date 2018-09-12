@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 9c9cde23f8f8dc557b99d2f1508c923aaa2dce91
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140276"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346336"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
 
@@ -27,7 +27,7 @@ Si votre application locale utilise l’authentification basée SAML, vous pouve
 
 Effectuez les actions suivantes :
 
-- Intégrez l’application SAML en utilisant le modèle d’application ne figurant pas dans la galerie, comme décrit dans [Configuration de l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure Active Directory](../active-directory-saas-custom-apps.md). Notez soigneusement la valeur de **l’URL de connexion** utilisée.
+- Intégrez l’application SAML en utilisant le modèle d’application ne figurant pas dans la galerie, comme décrit dans [Configuration de l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure Active Directory](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Notez soigneusement la valeur de **l’URL de connexion** utilisée.
 -  Utilisez le Proxy d’application Azure AD pour publier l’application locale, avec **Azure Active Directory** configuré comme source d’authentification. Pour des instructions, consultez [Publication d’applications à l’aide du proxy d’application Azure AD](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Lorsque vous configurez **l’URL interne**, utilisez l’URL de connexion indiquée dans le modèle d’application ne figurant pas dans la galerie. De cette façon, les utilisateurs peuvent accéder à l’application depuis l’extérieur de l’organisation. Le Proxy d’application exécute l’authentification unique SAML pour l’application locale.

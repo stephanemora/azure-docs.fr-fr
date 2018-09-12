@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d8be831469659993da4f9f392e23b9408eb283e3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415943"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302216"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center et service SQL Database
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) vous aide à vous empêcher, détecter et répondre aux menaces. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
@@ -37,7 +37,6 @@ Security Center vous aide à protéger les données dans SQL Database en fournis
 En plus de vous aider à protéger vos ressources SQL Database, Security Center fournit également l’analyse de la sécurité et la gestion des machines virtuelles, services cloud, App Services et réseaux virtuels Azure, notamment. Pour en savoir plus sur Security Center, cliquez [ici](security-center-intro.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Le niveau Gratuit de Security Center est activé avec votre abonnement. Pour plus d’informations sur les niveaux Gratuit et Standard de Security Center, consultez [Tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 Le Centre de sécurité prend en charge l’accès en fonction du rôle. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure Active Directory](../role-based-access-control/role-assignments-portal.md). La FAQ de Security Center fournit des informations sur la [gestion des autorisations dans Security Center](security-center-faq.md#permissions).

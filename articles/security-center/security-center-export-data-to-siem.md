@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: barclayn
-ms.openlocfilehash: 7a0a72a25010952f13eb190f0e0a1a65cc6d42d3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: aede60a729fe9c0594ded485e189c0b467e34271
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29124831"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298231"
 ---
 # <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>Exportation de données Azure Security vers SIEM - Configuration du pipeline [Préversion]
 
@@ -66,7 +66,7 @@ Voici quelques exemples de requêtes Splunk que vous pouvez utiliser pour extrai
 | Obtenir des informations d’alertes : heure, nom, état, ID et abonnement | index=main Microsoft.Security/locations/alerts \| table \_time, properties.eventName, State, properties.operationId, am_subscriptionId |
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - [Systèmes SIEM pris en charge](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
 - [Diffuser en continu le journal d’activité vers Event Hubs](../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)

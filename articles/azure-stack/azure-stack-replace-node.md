@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1b37b150dad4951a4ade81f226b515ce9cae9053
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27598771"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377052"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Remplacer un nœud d’unité d’échelle sur un système intégré Azure Stack
 
@@ -66,7 +66,7 @@ Les étapes suivantes fournissent une vue d’ensemble de la procédure de rempl
 3. Utilisez le point de terminaison privilégié pour [vérifier l’état de réparation du disque virtuel](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair). Avec de nouveaux lecteurs de données, une opération de réparation de stockage complète peut prendre plusieurs heures en fonction de la charge du système et de l’espace utilisé.
 4. Une fois la réparation terminée, vérifiez que toutes les alertes actives ont été automatiquement fermées.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur le remplacement d’un disque physique échangeable à chaud, voir [Remplacer un disque](azure-stack-replace-disk.md). 
 - Pour plus d’informations sur le remplacement d’un composant matériel non échangeable à chaud, consultez [Remplacer un composant matériel](azure-stack-replace-component.md).

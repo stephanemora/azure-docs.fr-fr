@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146166"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348767"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Mise à niveau d’applications Service Fabric à l’aide de PowerShell
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Générez et publiez l’application en cliquant avec le bouton droit sur le pro
 > 
 > 
 
-Après avoir généré le projet dans Visual Studio, vous pouvez utiliser la commande PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) pour copier le package d’application dans le magasin d’images. Si vous souhaitez vérifier le package de l’application en local, utilisez l’applet de commande [Test-ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage). L’étape suivante consiste à inscrire l’application auprès du runtime Service Fabric en utilisant l’applet de commande [Register-ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype). L’étape suivante consiste à démarrer une instance de l’application à l’aide de l’applet de commande [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Ces trois étapes sont analogues à l’utilisation de l’élément de menu **Déployer** dans Visual Studio.  Une fois le provisionnement terminé, vous devez nettoyer le package d’application copié à partir du magasin d’images afin de réduire la consommation de ressources.  Si un type d’application n’est plus nécessaire, son inscription doit être annulée pour la même raison. Pour plus d’informations, consultez [Déployer et supprimer des applications avec PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
+Après avoir généré le projet dans Visual Studio, vous pouvez utiliser la commande PowerShell [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) pour copier le package d’application dans le magasin d’images. Si vous souhaitez vérifier le package de l’application en local, utilisez l’applet de commande [Test-ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage). L’étape suivante consiste à inscrire l’application auprès du runtime Service Fabric en utilisant l’applet de commande [Register-ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype). L’étape suivante consiste à démarrer une instance de l’application à l’aide de l’applet de commande [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps).  Ces trois étapes sont analogues à l’utilisation de l’élément de menu **Déployer** dans Visual Studio.  Une fois le provisionnement terminé, vous devez nettoyer le package d’application copié à partir du magasin d’images afin de réduire la consommation de ressources.  Si un type d’application n’est plus nécessaire, son inscription doit être annulée pour la même raison. Pour plus d’informations, consultez [Déployer et supprimer des applications avec PowerShell](service-fabric-application-upgrade-tutorial-powershell.md).
 
 À présent, vous pouvez utiliser l' [Explorateur de Service Fabric pour afficher le cluster et l'application](service-fabric-visualizing-your-cluster.md). L’application a un service web accessible dans Internet Explorer en tapant [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) dans la barre d’adresse.  Vous devez normalement voir des objets visuels flottants en rotation à l'écran.  En outre, vous pouvez utiliser [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) pour vérifier l’état de l’application.
 

@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142108"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298673"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gérer les droits d’accès aux données du Stockage Azure avec RBAC (préversion)
 
 Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](https://docs.microsoft.com/azure/role-based-access-control/overview). Le Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux conteneurs ou aux files d’attente. Quand un rôle RBAC est attribué à une identité Azure AD, celle-ci est autorisée à accéder aux ressources correspondantes, en fonction de l’étendue spécifiée. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Vous pouvez attribuer des droits d’accès aux ressources de stockage Azure à l’aide du Portail Azure, des outils en ligne de commande Azure et des API de gestion Azure. 
 
-Une identité Azure AD peut correspondre à un utilisateur, un groupe ou un principal du service d’application, ou éventuellement à une *identité Managed Service Identity*. Un principal de sécurité peut correspondre à un utilisateur, un groupe ou un principal du service d’application. Une [identité Managed Service Identity](../../active-directory/managed-service-identity/overview.md) est une identité administrée automatiquement, qui permet de s’authentifier à partir d’applications s’exécutant dans Machines virtuelles Azure, des applications de fonction, des groupes de machines virtuelles identiques, etc. Pour une vue d’ensemble de l’identité dans Azure AD, consultez [Comprendre les solutions d’identité Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+Une identité Azure AD peut correspondre à un utilisateur, un groupe ou un principal du service d’application, ou éventuellement à une *identité Managed Service Identity*. Un principal de sécurité peut correspondre à un utilisateur, un groupe ou un principal du service d’application. Une [identité Managed Service Identity](../../active-directory/managed-identities-azure-resources/overview.md) est une identité administrée automatiquement, qui permet de s’authentifier à partir d’applications s’exécutant dans Machines virtuelles Azure, des applications de fonction, des groupes de machines virtuelles identiques, etc. Pour une vue d’ensemble de l’identité dans Azure AD, consultez [Comprendre les solutions d’identité Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
 ## <a name="rbac-roles-for-azure-storage"></a>Rôles RBAC pour le Stockage Azure
 
@@ -34,10 +34,7 @@ Pour plus d’informations sur la définition des rôles intégrés pour le Stoc
 
 Vous pouvez également définir des rôles personnalisés à utiliser avec des conteneurs et des files d’attente. Pour plus d’informations, consultez [Créer des rôles personnalisés pour le contrôle d’accès en fonction du rôle Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
-> [!IMPORTANT]
-> Cette préversion est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont pas disponibles tant que l’intégration d’Azure AD pour le Stockage Azure n’est pas officiellement disponible de manière générale. Si l’intégration d’Azure AD n’est pas encore prise en charge pour votre scénario, continuez à utiliser l’autorisation basée sur une clé partagée ou les jetons SAP dans vos applications. Pour plus d’informations sur la préversion, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
->
-> Durant la préversion, les attributions de rôles RBAC peuvent prendre jusqu’à cinq minutes pour se propager.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Attribuer un rôle à un principal de sécurité
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: b802c7b96bd8d0cfa56347d45542495caf69d7e4
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 09411ad3f0a27ba4d6d36342f9e298e177a021d8
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824708"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324935"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection : bonnes pratiques et architectures de référence
 
@@ -88,7 +88,7 @@ Pour [Azure App Service](../app-service/app-service-value-prop-what-is.md), sél
 L’idée derrière la défense en profondeur est de gérer les risques en utilisant des stratégies de protection variées. Le fait de superposer des défenses dans une application réduit les chances de réussite d’une attaque. Nous vous recommandons d’implémenter des conceptions sécurisées pour vos applications par le biais des fonctionnalités intégrées à la plateforme Azure.
 
 Par exemple, plus la taille (*surface d’exposition*) de l’application est importante, plus le risque d’attaque est élevé. Vous pouvez réduire la surface d’exposition en créant des listes vertes permettant de limiter l’espace d’adressage IP exposé et les ports d’écoute qui ne sont pas nécessaires sur les équilibreurs de charge ([Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md) et [Azure Application Gateway](../application-gateway/application-gateway-create-probe-portal.md)). Les [groupes de sécurité réseau](../virtual-network/security-overview.md) permettent également de réduire la surface d’attaque.
-Vous pouvez utiliser des [balises de service](/virtual-network/security-overview.md#service-tags) et des [groupes de sécurité d’application](/virtual-network/security-overview.md#application-security-groups) pour simplifier la création de règles de sécurité et configurer la sécurité réseau comme prolongement naturel de la structure d’une application.
+Vous pouvez utiliser des [balises de service](../virtual-network/security-overview.md#service-tags) et des [groupes de sécurité d’application](../virtual-network/security-overview.md#application-security-groups) pour simplifier la création de règles de sécurité et configurer la sécurité réseau comme prolongement naturel de la structure d’une application.
 
 Vous devez déployer les services Azure dans un [réseau virtuel](../virtual-network/virtual-networks-overview.md) dans la mesure du possible. Les ressources de service peuvent ainsi communiquer par le biais d’adresses IP privées. Le trafic du service Azure à partir d’un réseau virtuel utilise des adresses IP publiques comme adresses IP source par défaut. Le fait d’utiliser des [points de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) force le trafic de service à utiliser des adresses privées de réseau virtuel comme adresses IP source lors de l’accès au service Azure à partir d’un réseau virtuel.
 
@@ -126,7 +126,7 @@ Le service Azure DDoS Protection Basic contribue à protéger les clients et év
 
 #### <a name="ddos-protection-telemetry-monitoring-and-alerting"></a>Protection DDoS : télémétrie, monitoring et génération d’alertes
 
-DDoS Protection Standard expose des données de télémétrie riches par le biais [d’Azure Monitor](/monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) pendant la durée d’une attaque DDoS. Vous pouvez configurer des alertes pour une des mesures d’Azure Monitor utilisée par DDoS Protection. Vous pouvez intégrer la journalisation à Splunk (Azure Event Hubs), Azure Log Analytics et Stockage Azure pour analyse avancée par le biais de l’interface de diagnostic d’Azure Monitor.
+DDoS Protection Standard expose des données de télémétrie riches par le biais [d’Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) pendant la durée d’une attaque DDoS. Vous pouvez configurer des alertes pour une des mesures d’Azure Monitor utilisée par DDoS Protection. Vous pouvez intégrer la journalisation à Splunk (Azure Event Hubs), Azure Log Analytics et Stockage Azure pour analyse avancée par le biais de l’interface de diagnostic d’Azure Monitor.
 
 ##### <a name="ddos-mitigation-policies"></a>Stratégies d’atténuation des risques liés à DDoS
 
