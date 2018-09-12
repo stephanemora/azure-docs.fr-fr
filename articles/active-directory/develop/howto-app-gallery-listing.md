@@ -17,12 +17,12 @@ ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: d5c00e9df9c1bfee0c665cafc763c52a36f98052
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666306"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345843"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Lister votre application dans la galerie d’applications Azure Active Directory
 
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) est un service d’identité basé sur le clou
 
 *  Les clients qui utilisent SCIM peuvent utiliser le provisionnement pour la même application.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Pour des applications fédérées (Open ID et SAML/WS-Fed), l’application doit prendre en charge le modèle SaaS pour être répertorié dans la galerie Azure AD. Les applications de galerie d’entreprise doivent prendre en charge plusieurs configurations de client, non un client spécifique.
 
@@ -69,7 +69,7 @@ Pour lister une application dans la galerie d’applications Azure AD, vous deve
 
     * En cas de problème d’accès, contactez l’[équipe d’intégration de l’authentification unique Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** ou **WS-Fed** : si votre application prend en charge SAML 2.0, vous pouvez l’intégrer directement avec un locataire Azure AD en suivant les [instructions pour ajouter une application personnalisée](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** ou **WS-Fed** : si votre application prend en charge SAML 2.0, vous pouvez l’intégrer directement avec un locataire Azure AD en suivant les [instructions pour ajouter une application personnalisée](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
     ![Chronologie de l’énumération des applications SAML 2.0 ou WS-Fed dans la galerie](./media/howto-app-gallery-listing/saml.png)
 
