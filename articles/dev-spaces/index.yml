@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b275387e5d884f8ca6484690b7caf5a84759e9e2
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: cf8cdf228a492f643501367cba2946964ab3e5c2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44326012"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390482"
 documentType: LandingData
 title: Azure Dev Spaces
 metadata:
@@ -62,4 +62,4 @@ sections:
     - text: Génère une configuration Docker et Kubernetes actifs en tant que configuration sous forme de code que vous pouvez utiliser du développement jusqu’à la production.
     - text: Partagez un cluster Kubernetes avec votre équipe et travaillez ensemble en collaboration. Développez votre code de manière isolée et procédez à des tests de bout en bout avec d’autres composants sans avoir à répliquer ni simuler de dépendances.
   - type: markdown
-    text: '![](media/azure-dev-spaces/vscode-overview.png)'
+    text: '![](media/azure-dev-spaces/collaborate-graphic.gif)'
