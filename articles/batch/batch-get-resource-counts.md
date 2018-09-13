@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
-ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e1d6f2d6181e70fde75907191664dcf6cd0b7252
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698381"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391757"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Surveiller les solutions Batch en comptant les tâches et les nœuds par état
 
@@ -53,11 +53,9 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 
 Pour obtenir le nombre de tâches pour un travail, vous pouvez utiliser un modèle semblable pour REST et d’autres langages pris en charge. 
 
-### <a name="counts-for-large-numbers-of-tasks"></a>Calcul d’un grand nombre de tâches
-
-L’opération Obtenir le nombre de tâches retourne le nombre d’états de tâche dans le système à un point dans le temps. Quand votre travail a un grand nombre de tâches, le nombre retourné par Obtenir le nombre de tâches peut être décalé de quelques secondes par rapport à l’état réel des tâches. Batch garantit une éventuelle cohérence entre les résultats de l’opération Obtenir le nombre de tâches et l’état réel des tâches (que vous pouvez interroger avec l’API Liste de tâches). Toutefois, si votre travail a un très grand nombre de tâches (> 200 000), nous vous recommandons d’utiliser plutôt l’API Liste de tâches et une [requête filtrée](batch-efficient-list-queries.md), qui fournit des informations plus à jour. 
-
-Les versions d’API du service Batch avant 2018-08-01.7.0 retournent aussi une propriété `validationStatus` dans la réponse de l’opération Obtenir le nombre de tâches. Cette propriété indique si Batch a vérifié la cohérence entre le nombre d’états et les états signalés dans l’API Liste de tâches. La valeur `validated` indique uniquement que Batch a vérifié la cohérence du travail au moins une fois. La valeur de la propriété `validationStatus` n’indique pas si le nombre retourné par l’opération Obtenir le nombre de tâches est actuellement à jour.
+> [!NOTE]
+> Les versions d’API du service Batch avant 2018-08-01.7.0 retournent aussi une propriété `validationStatus` dans la réponse de l’opération Obtenir le nombre de tâches. Cette propriété indique si Batch a vérifié la cohérence entre le nombre d’états et les états signalés dans l’API Liste de tâches. La valeur `validated` indique uniquement que Batch a vérifié la cohérence du travail au moins une fois. La valeur de la propriété `validationStatus` n’indique pas si le nombre retourné par l’opération Obtenir le nombre de tâches est actuellement à jour.
+>
 
 ## <a name="node-state-counts"></a>Nombre d’états des nœuds
 

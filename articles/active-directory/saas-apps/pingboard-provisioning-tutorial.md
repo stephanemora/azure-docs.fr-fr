@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 93c3b0cbc3ce063aaeb086d089631a8810293bbe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e96ea7d212f1a34bb6d10f8c49a15e1b34bfc469
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382531"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348954"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Didacticiel : Configurer Pingboard pour l’approvisionnement automatique d’utilisateurs
 
@@ -89,7 +89,7 @@ Cette section vous guide tout au long de la connexion d’Azure AD à l’API de
 
 1. Dans la section **Mappages**, sélectionnez **Synchronize Azure Active Directory Users to Pingboard** (Synchroniser les utilisateurs Azure Active Directory avec Pingboard).
 
-1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur à synchroniser entre Azure AD et Pingboard. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Pingboard pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications. Pour plus d’informations, consultez [Personnalisation des mappages d’attributs de provisionnement d’utilisateurs](../active-directory-saas-customizing-attribute-mappings.md).
+1. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur à synchroniser entre Azure AD et Pingboard. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans Pingboard pour les opérations de mise à jour. Sélectionnez **Enregistrer** pour valider les modifications. Pour plus d’informations, consultez [Personnalisation des mappages d’attributs de provisionnement d’utilisateurs](../manage-apps/customize-application-attributes.md).
 
 1. Pour activer le service de provisionnement Azure AD pour Pingboard, définissez le paramètre **État de provisionnement** sur **Activé** dans la section **Paramètres**.
 
@@ -97,7 +97,7 @@ Cette section vous guide tout au long de la connexion d’Azure AD à l’API de
 
 La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service est en cours d’exécution. Utilisez la section **Détails de la synchronisation** pour surveiller la progression et suivre les liens vers les journaux d’activité de provisionnement. Les journaux décrivent toutes les actions effectuées par le service de provisionnement sur votre application Pingboard.
 
-Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, consultez la section [Générer un état sur l’attribution automatique de comptes d’utilisateurs](../active-directory-saas-provisioning-reporting.md).
+Pour savoir plus en détail comment lire les journaux d’attribution Azure AD, consultez la section [Générer un état sur l’attribution automatique de comptes d’utilisateurs](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

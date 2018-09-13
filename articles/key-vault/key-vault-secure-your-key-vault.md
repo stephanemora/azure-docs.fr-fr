@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d8c5e660b460e763fb4a500463543316c8c914ed
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343460"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159401"
 ---
 # <a name="secure-your-key-vault"></a>Sécuriser votre coffre de clés
 Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement (tels que les certificats, les chaînes de connexion et les mots de passe) de vos applications cloud. Comme il s’agit de données sensibles et stratégiques, il est préférable de sécuriser l’accès à vos coffres de clés afin que seuls les applications et les utilisateurs autorisés puissent accéder à ces derniers. Cet article propose une vue d’ensemble du modèle d’accès à un coffre de clés, explique l’authentification et l’autorisation, et détaille la procédure de sécurisation de l’accès au coffre de clés pour vos applications cloud à l’aide d’un exemple.
@@ -130,7 +130,7 @@ Voyons maintenant quelles actions sont effectuées par chaque rôle dans le cont
 * **Auditeurs**
   * Examen des journaux d’utilisation pour confirmer l’utilisation correcte des clés/secrets et la conformité aux normes en matière de sécurité des données
 
-Voyons maintenant quelles autorisations d’accès au coffre de clés sont requises par les différents rôles (et l’application) pour effectuer les tâches qui leur sont affectées. 
+Voyons maintenant quelles autorisations d’accès au coffre de clés sont requises par les différents rôle (et l’application) pour effectuer les tâches qui leur sont affectées. 
 
 | Rôle d’utilisateur | Autorisations de plan de gestion | Autorisations de plan de données |
 | --- | --- | --- |

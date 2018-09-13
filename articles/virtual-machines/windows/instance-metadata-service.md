@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d64233883d2dd6fb174c55467fcfcd276b452775
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ccaa6e79d9a24409b8c905561b265c70ea781dc2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782988"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022573"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -310,7 +310,7 @@ subnet/prefix | Préfixe de sous-réseau, par exemple 24 | 2017-04-02
 ipv6/ipAddress | Adresse IPv6 locale de la machine virtuelle | 2017-04-02 
 macAddress | Adresse MAC de la machine virtuelle | 2017-04-02 
 scheduledevents | Consultez [Événements planifiés](scheduled-events.md). | 2017-08-01
-identité | (Préversion) Managed Service Identity. Consulter [Obtenir un jeton d’accès](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01
+identité | (Préversion) Managed Service Identity. Consulter [Obtenir un jeton d’accès](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Exemples de scénarios d’utilisation  
 

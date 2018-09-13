@@ -9,28 +9,28 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: diberry
-ms.openlocfilehash: 2554854507d127a7cf3ce016ed38310049b2c958
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ddb22bce77dda55ad6e83efa8c0ca2c476f78836
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43770077"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161116"
 ---
 # <a name="quickstart-change-model-using-java"></a>Démarrage rapide : Modifier un modèle à l’aide de Java 
 
-[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!include[Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+[!INCLUDE [Quickstart prerequisites for endpoint](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * [JDK SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (Kit de développement Java, Édition Standard)
 * [Bibliothèque JSON GSON de Google](https://github.com/google/gson).
 
-[!include[Quickstart note about code repository](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Quickstart note about code repository](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>Exemples d’énoncés de fichier JSON
 
-[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
+[!INCLUDE [Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 ## <a name="create-quickstart-code"></a>Créer un code de démarrage rapide
 
@@ -83,9 +83,9 @@ Appeler `AddUtterance` sans argument permet d’ajouter les énoncés LUIS à l�
 
 Cette ligne de commande affiche les résultats de l’appel de l’API d’ajout d’énoncés. 
 
-[!include[Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
+[!INCLUDE [Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Une fois le démarrage rapide terminé, supprimez tous les fichiers créés pour ce démarrage rapide. 
 
 ## <a name="next-steps"></a>Étapes suivantes
