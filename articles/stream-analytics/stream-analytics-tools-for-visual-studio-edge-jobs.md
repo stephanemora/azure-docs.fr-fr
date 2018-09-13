@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/13/2018
-ms.openlocfilehash: cfdfa1493857a1731da74c52a616293b482f811a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5dc90a1334b525c02be3eae2985900ab07cf2e05
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030690"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696246"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Développer des tâches Edge Stream Analytics avec les outils Visual Studio
 
@@ -93,7 +93,7 @@ Pour tester la requête localement, vous devez charger les exemples de données.
 4. Vous pouvez l’exécuter localement ou l’envoyer sur Azure. Pour tester la requête > sélectionnez **Exécuter localement**.  
    ![Options d’exécution](./media/stream-analytics-tools-for-visual-studio-edge-jobs/run-options.png)
  
-5. La fenêtre d’invite de commandes affiche l’état du travail. Quand le travail s’exécute avec succès, un dossier du type « 2018-02-23-11-31-42 » est créé dans le chemin du dossier de projet « Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42 ». Accédez à l’emplacement du dossier pour afficher les résultats dans le dossier local :
+5. La fenêtre d’invite de commandes affiche l’état du travail. Quand le travail s’exécute correctement, un dossier du type « 2018-02-23-11-31-42 » est créé dans le chemin du dossier de projet « Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42 ». Accédez à l’emplacement du dossier pour afficher les résultats dans le dossier local :
 
    Vous pouvez également vous connecter au portail Azure pour vérifier que le travail a bien été créé. 
 

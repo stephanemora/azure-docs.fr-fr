@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 488ec66eb485761d484e305c298dfb9117745a42
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145279"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696446"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 
@@ -40,7 +40,7 @@ En tant que service de base de données multi-model distribué, Azure Cosmos DB 
         * [API SQL](sql-api-introduction.md) : moteur de base de données JSON sans schéma avec de riches fonctions d’interrogation SQL.
         * [API MongoDB](mongodb-introduction.md) : service *MongoDB en tant que service* hautement évolutif, alimenté par la plateforme Azure Cosmos DB. Compatible avec les bibliothèques, pilotes, outils et applications MongoDB existants.
         * [API Cassandra](cassandra-introduction.md) : service Cassandra en tant que service mondialement distribué, alimenté par la plateforme Azure Cosmos DB. Compatible avec les bibliothèques, pilotes, outils et applications [Apache Cassandra](https://cassandra.apache.org/) existants.
-        * [API Gremlin](graph-introduction.md) : service de base de données de graphe évolutif horizontalement, entièrement managé, qui facilite la création et l’exécution d’applications qui fonctionnent avec des jeux de données hautement connectés prenant en charge les API Open Graph (d’après la [spécification Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [API Gremlin](graph-introduction.md) : service de base de données de graphe évolutif horizontalement, entièrement managé, qui facilite la création et l’exécution d’applications qui fonctionnent avec des jeux de données hautement connectés prenant en charge les API Open Gremlin (d’après la [spécification Apache TinkerPop](http://tinkerpop.apache.org/), Apache Gremlin).
         * [API de table](table-introduction.md): service de base de données valeur-clé créé pour offrir des fonctionnalités Premium (par exemple, indexation automatique, faible latence garantie, distribution globale) aux applications de stockage de table Azure sans apporter de modifications aux applications.
         * Des modèles de données et des API supplémentaires seront bientôt disponibles.
 

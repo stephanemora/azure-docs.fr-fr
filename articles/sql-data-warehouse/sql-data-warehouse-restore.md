@@ -3,22 +3,22 @@ title: Restaurer un entrepôt de données Azure SQL | Microsoft Docs
 description: Guide pratique pour la restauration d’un entrepôt de données Azure SQ.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 583346f2297f590d8e9484c0a3c19c947de7f740
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 6eba50fbe7c2a7a40b08e37a96adac66583b8251
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191606"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781858"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Restauration d’un entrepôt de données Azure SQL 
-Cet article vous montre comment effectuer les opérations suivantes :
+Dans cet article, vous allez découvrir comment effectuer les opérations suivantes dans le portail Azure et PowerShell :
 
 - Créer un point de restauration
 - Effectuer une restauration à partir d’un point de restauration automatique ou d’un point de restauration défini par l’utilisateur
@@ -26,15 +26,19 @@ Cet article vous montre comment effectuer les opérations suivantes :
 - Effectuer une restauration à partir d’une sauvegarde
 - Créer une copie de votre entrepôt de données à partir d’un point de restauration défini par l’utilisateur
 
+> [!NOTE]
+> À compter du 27 août, la restauration entre serveurs a été désactivée en raison d’une régression connue. Nous travaillons activement sur un correctif, avec la priorité la plus élevée. Veuillez nous excuser pour ce désagrément. En attendant, vous pouvez tirer parti de votre [géosauvegarde](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) pour la restauration entre serveurs.  
+>
+
 ## <a name="before-you-begin"></a>Avant de commencer
 **Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut.  Avant de pouvoir restaurer un entrepôt de données SQL, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez la rubrique [Demander une modification du quota DTU][Request a DTU quota change].
 
-# <a name="restore-through-powershell"></a>Effectuer une restauration par le biais de PowerShell
+## <a name="restore-through-powershell"></a>Effectuer une restauration par le biais de PowerShell
 
 ## <a name="install-powershell"></a>Installer PowerShell
 Pour utiliser Azure PowerShell avec SQL Data Warehouse, vous devez installer Azure PowerShell version 1.0 ou supérieure.  Vous pouvez vérifier la version en exécutant **Get-Module -ListAvailable -Name AzureRM**.  La version la plus récente peut être installée à partir de [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Pour plus d’informations sur l’installation de la dernière version, consultez la page [Installation et configuration d’Azure PowerShell][How to install and configure Azure PowerShell].
 
-## <a name="restore-an-active-or-paused-database"></a>Restauration d’une base de données active ou en pause
+## <a name="restore-an-active-or-paused-database-using-powershell"></a>Restaurer une base de données active ou interrompue à l’aide de PowerShell
 Pour restaurer une base de données à partir d’un point de restauration, utilisez l’applet de commande PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Ouvrez Windows PowerShell.
@@ -90,7 +94,7 @@ $RestoredDatabase.status
 > Une fois la restauration terminée, vous pouvez configurer votre base de données restaurée en suivant les instructions de la section [Configurer votre base de données après récupération][Configure your database after recovery].
 >
 
-## <a name="copy-your-data-warehouse-with-user-defined-restore-points"></a>Copier votre entrepôt de données avec des points de restauration définis par l’utilisateur
+## <a name="copy-your-data-warehouse-with-user-defined-restore-points-using-powershell"></a>Copier votre entrepôt de données avec des points de restauration définis par l’utilisateur à l’aide de PowerShell
 Pour restaurer une base de données à partir d’un point de restauration défini par l’utilisateur, utilisez l’applet de commande PowerShell [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Ouvrez Windows PowerShell.
@@ -98,10 +102,10 @@ Pour restaurer une base de données à partir d’un point de restauration défi
 3. Sélectionnez l’abonnement contenant la base de données à restaurer.
 4. Créez un point de restauration pour une copie immédiate de votre base de données.
 5. Renommez votre base de données avec un nom temporaire.
-5. Récupérez le point de restauration le plus récent par la valeur RestorePointLabel spécifiée.
-6. Obtenez l’ID de ressource de la base de données pour lancer la restauration.
-6. Restaurez la base de données au niveau du point de restauration souhaité.
-7. Vérifiez que la base de données restaurée est en ligne.
+6. Récupérez le point de restauration le plus récent par la valeur RestorePointLabel spécifiée.
+7. Obtenez l’ID de ressource de la base de données pour lancer la restauration.
+8. Restaurez la base de données au niveau du point de restauration souhaité.
+9. Vérifiez que la base de données restaurée est en ligne.
 
 ```Powershell
 
@@ -138,7 +142,7 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-a-deleted-database"></a>restauration d’une base de données supprimée.
+## <a name="restore-a-deleted-database-using-powershell"></a>Restaurer une base de données supprimée à l’aide de PowerShell
 Pour restaurer une base de données supprimée, utilisez l’applet de commande [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 1. Ouvrez Windows PowerShell.
@@ -173,7 +177,7 @@ $RestoredDatabase.status
 > Une fois la restauration terminée, vous pouvez configurer votre base de données restaurée en suivant les instructions de la section [Configurer votre base de données après récupération][Configure your database after recovery].
 >
 
-## <a name="restore-from-an-azure-geographical-region"></a>Restauration à partir d’une région géographique Azure
+## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Restaurer à partir d’une région géographique Azure à l’aide de PowerShell
 Pour récupérer une base de données, utilisez l’applet de commande [Restore-AzureRmSqlDatabase][Restore-AzureRmSqlDatabase].
 
 > [!NOTE]
@@ -208,9 +212,9 @@ $GeoRestoredDatabase.status
 
 La base de données récupérée sera compatible avec le chiffrement transparent des données si la base de données source l’est aussi.
 
-# <a name="restore-through-the-azure-portal"></a>Effectuer une restauration par le biais du portail Azure
+## <a name="restore-through-the-azure-portal"></a>Restaurer par le biais du portail Azure
 
-## <a name="create-a-user-defined-restore-point"></a>Créer un point de restauration défini par l’utilisateur
+## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Créer un point de restauration défini par l’utilisateur à l’aide du portail Azure
 1. Connectez-vous au [portail Azure][Azure portal].
 
 2. Accédez à l’entrepôt de données SQL pour lequel vous voulez créer un point de restauration.
@@ -218,37 +222,37 @@ La base de données récupérée sera compatible avec le chiffrement transparent
 3. En haut du panneau Vue d’ensemble, sélectionnez **+Nouveau point de restauration**.
 
     ![Nouveau point de restauration](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
-    
+
 4. Spécifiez un nom pour votre point de restauration.
 
     ![Nom du point de restauration](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
-## <a name="restore-an-active-or-paused-database"></a>Restauration d’une base de données active ou en pause
+## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurer une base de données active ou interrompue à l’aide du portail Azure
 1. Connectez-vous au [portail Azure][Azure portal].
 2. Accédez à l’entrepôt de données SQL à partir duquel effectuer la restauration.
 3. En haut du panneau Vue d’ensemble, sélectionnez **Restaurer**.
 
     ![ Présentation de la restauration](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
-    
+
 4. Sélectionnez **Points de restauration automatiques** ou **Points de restauration définis par l’utilisateur**.
 
     ![Points de restauration automatiques](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
-    
+
 5. Pour l’option Points de restauration définis par l’utilisateur, sélectionnez un **Point de restauration** ou **Créer un point de restauration défini par l’utilisateur**.
 
     ![Points de restauration définis par l’utilisateur](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
-## <a name="restore-a-deleted-database"></a>restauration d’une base de données supprimée.
+## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Restaurer une base de données supprimée à l’aide du portail Azure
 1. Connectez-vous au [portail Azure][Azure portal].
 2. Accédez au serveur SQL sur lequel votre base de données supprimée était hébergée.
 3. Sélectionnez l’icône Bases de données supprimées dans la table des matières.
 
     ![Bases de données supprimées](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_0.png)
-    
+
 4. Sélectionnez la base de données supprimée que vous souhaitez restaurer.
 
     ![Sélectionner Bases de données supprimées](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_1.png)
-    
+
 5. Spécifiez un nouveau nom de base de données.
 
     ![Spécifier un nom de base de données](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_2.png)

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 3fcede7f813e97885d8fc3d7e0bc04776f2d0d12
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579842"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697745"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Didacticiel : déployer des applications sur Azure et Azure Stack
 
@@ -97,7 +97,6 @@ Ce tutoriel suppose que vous disposez de connaissances de base sur Azure et Azur
 
 ### <a name="prerequisites"></a>Prérequis
 
-
 Visual Studio Team Services (VSTS) s’authentifie sur Azure Resource Manager avec un principal du service. VSTS doit disposer du rôle **Contributeur** pour provisionner des ressources dans un abonnement Azure Stack.
 
 Les étapes suivantes décrivent ce qui est nécessaire pour configurer l’authentification :
@@ -109,7 +108,11 @@ Les étapes suivantes décrivent ce qui est nécessaire pour configurer l’auth
 
 ### <a name="create-a-service-principal"></a>Créer un principal du service
 
-Reportez-vous aux instructions de [Création du principal du service](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) pour créer un principal du service, puis choisissez le type d’application **Application/API web**.
+Pour créer un principal du service, reportez-vous aux instructions [Création du principal du service](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Pour Type d’application, choisissez **Application web/API** ou [utilisez le script PowerShell](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) comme expliqué dans l’article [Créer une connexion de service Azure Resource Manager avec un principal du service existant](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+
+ > [!Note]  
+ > Si vous utilisez le script pour créer un point de terminaison Azure Resource Manager Azure Stack, vous devez transmettre le paramètre **-azureStackManagementURL** et le paramètre **-environmentName**. Par exemple :   
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>Créer une clé d’accès
 
@@ -262,7 +265,19 @@ Grâce à la création de points de terminaison, une build de Visual Studio Onli
 9. Dans **Ajouter des utilisateurs et groupes**, entrez un nom d’utilisateur et sélectionnez cet utilisateur dans la liste des utilisateurs.
 10. Sélectionnez **Enregistrer les modifications**.
 
-Maintenant que les informations du point de terminaison existent, la connexion de VSTS à Azure Stack est prête pour l’utilisation. L’agent de build dans Azure Stack obtient des instructions de VSTS, puis l’agent transmet les informations du point de terminaison pour la communication avec Azure Stack.
+## <a name="create-an-azure-stack-endpoint"></a>Créer un point de terminaison Azure Stack
+
+Pour créer une connexion au service avec un principal du service existant, suivez les instructions dans l’article [Créer une connexion au service Azure Resource Manager avec un principal du service existant](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) et utilisez le mappage suivant :
+
+- Environnement : AzureStack
+- URL de l’environnement : quelque chose comme `https://management.local.azurestack.external`
+- ID d’abonnement : ID d’abonnement de l’utilisateur d’Azure Stack
+- Nom d’abonnement : nom d’abonnement de l’utilisateur d’Azure Stack
+- ID client du principal du service : ID du principal de [cette](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) section dans cet article.
+- Clé du principal du service : clé du même article (ou le mot de passe si vous avez utilisé le script).
+- ID du locataire : ID du locataire récupérée en suivant les instructions dans [Obtenir l’ID du locataire](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+
+Maintenant que le point de terminaison est créé, la connexion de VSTS à Azure Stack est prête pour l’utilisation. L’agent de build dans Azure Stack obtient des instructions de VSTS, puis l’agent transmet les informations du point de terminaison pour la communication avec Azure Stack.
 
 ![Agent de build](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
 
@@ -302,7 +317,7 @@ La CI/CD hybride peut s’appliquer au code d’application et au code d’infra
 ### <a name="create-the-build-definition"></a>Créer la définition de build
 
 1. Connectez-vous à VSTS avec un compte permettant de créer une définition de build.
-2. Accédez à la page **Build Web Applicaiton** (Créer une application web) du projet.
+2. Accédez à la page **Build Web Application** (Créer une application web) du projet.
 
 3. Dans **Arguments**, ajoutez le code **-r win10-x64**. Cette action est requise pour déclencher un déploiement autonome avec .NET Core.
 
@@ -403,7 +418,7 @@ La création d’une définition de mise en production est la dernière étape d
 
 21. Sous l’onglet **Pipeline**, sélectionnez l’icône **Déclencheur de déploiement continu** pour l’artefact NorthwindCloud Traders-Web et définissez le **Déclencheur de déploiement continu** sur **Activé**.  Procédez de la même manière pour l’artefact « NorthwindCloud Traders-Vessel ».
 
-    ![Définir la déclencheur de déploiement continu](media\azure-stack-solution-hybrid-pipeline\121.png)
+    ![Définir le déclencheur de déploiement continu](media\azure-stack-solution-hybrid-pipeline\121.png)
 
 22. Pour l’environnement Azure Stack, sélectionnez l’icône **Conditions préalables au déploiement** et définissez le déclencheur sur **Après la mise en production**.
 
@@ -422,7 +437,7 @@ Maintenant que vous avez terminé les modifications de la définition de mise en
 
     ![Créer une mise en production](media\azure-stack-solution-hybrid-pipeline\200.png)
 
-2. Entrez une description pour la mise en production, vérifiez que les artefacts corrects sont sélectionnés, puis choisissez **Créer**. Après quelques instants, une bannière s’affiche, indiquant que la nouvelle mise en production a été créée ; le nom de la mise en production est affichée sous forme de lien. Choisissez le lien pour afficher la page récapitulative de la mise en production.
+2. Entrez une description pour la mise en production, vérifiez que les artefacts corrects sont sélectionnés, puis choisissez **Créer**. Après quelques instants, une bannière s’affiche, indiquant que la nouvelle mise en production a été créée ; le nom de la mise en production est affiché sous forme de lien. Choisissez le lien pour afficher la page récapitulative de la mise en production.
 
     ![Bannière de création de mise en production](media\azure-stack-solution-hybrid-pipeline\201.png)
 

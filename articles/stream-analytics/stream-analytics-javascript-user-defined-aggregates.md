@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: eb433a322f8077c947fd6db1aaa0e2266a109938
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187052"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702372"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Agrégats JavaScript définis par l’utilisateur Azure Stream Analytics (version préliminaire)
  
@@ -80,7 +80,7 @@ Chaque UDA JavaScript est défini par une déclaration d’objet de fonction. Vo
 
 ### <a name="function-alias"></a>Alias de fonction
 
-L’alias de fonction est l’identificateur de l’UDA. En cas d’appel dans une requête Stream Analytics, utilisez toujours des alias d’UDA avec le préfixe « uda. » .
+L’alias de fonction est l’identificateur de l’UDA. En cas d’appel dans une requête Stream Analytics, utilisez toujours des alias d’UDA avec le préfixe « uda.». .
 
 ### <a name="function-type"></a>Type de fonction
 
@@ -169,13 +169,13 @@ Maintenant, nous allons créer un UDA JavaScript sous un travail ASA existant en
     }
     ````
 
-1. Une fois que vous avez cliqué sur le bouton « Enregistrer », votre UDA s’affiche dans la liste des fonctions.
+1. Une fois que vous avez cliqué sur le bouton « Enregistrer », votre UDA s’affiche dans la liste des fonctions.
 
-1. Cliquez sur la nouvelle fonction « TWA » pour vérifier sa définition.
+1. Cliquez sur la nouvelle fonction « TWA » pour lire sa définition.
 
 ## <a name="calling-javascript-uda-in-asa-query"></a>Appel d’un UDA JavaScript dans une requête ASA
 
-Dans le portail Azure, ouvrez votre projet, modifiez la requête et appelez la fonction TWA() avec un préfixe de mandat « uda. ». Par exemple : 
+Dans le portail Azure, ouvrez votre projet, modifiez la requête, puis appelez la fonction TWA() avec un préfixe de mandat « uda. ». Par exemple : 
 
 ````SQL
 WITH value AS

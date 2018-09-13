@@ -13,18 +13,20 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20a704a0d5b61134a61b5cbf02a1c71dbc7039e1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189335"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665432"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurer les paramètres des rôles d’annuaire Azure AD dans PIM
 
 Un administrateur de rôle privilégié peut personnaliser Azure AD Privileged Identity Management (PIM) dans son organisation, notamment modifier l’expérience d’un utilisateur qui active une attribution de rôle éligible.
 
 ## <a name="open-role-settings"></a>Ouvrir les paramètres des rôles
+
+Suivez ces étapes pour ouvrir les paramètres pour un rôle d’annuaire Azure AD.
 
 1. Ouvrez **Azure AD Privileged Identity Management**.
 
@@ -44,19 +46,19 @@ Un administrateur de rôle privilégié peut personnaliser Azure AD Privileged I
 
 ## <a name="activations"></a>Activations
 
-Le curseur **Activations** correspond à la durée maximale (en heures) pendant laquelle un rôle reste actif avant d’expirer. Cette valeur peut être comprise entre 1 et 72 heures.
+Utilisez le curseur **Activations** pour définir la durée maximale (en heures) pendant laquelle un rôle reste actif avant d’expirer. Cette valeur peut être comprise entre 1 et 72 heures.
 
 ## <a name="notifications"></a>Notifications
 
-Le bouton **Notifications** vous permet de choisir si le système doit envoyer ou non des e-mails aux administrateurs pour leur confirmer qu’ils ont activé un rôle. Cette option peut être utile pour détecter les activations non autorisées ou illégitimes.
+Utilisez le commutateur **Notifications** pour spécifier si le système doit envoyer ou non des e-mails aux administrateurs pour leur confirmer qu’ils ont activé un rôle. Cette option peut être utile pour détecter les activations non autorisées ou illégitimes.
 
 ## <a name="incidentrequest-ticket"></a>Ticket d’incident/de demande
 
-Le bouton **Ticket d’incident/demande** vous permet de choisir si les administrateurs éligibles doivent ou non inclure un numéro de ticket lorsqu’ils activent leur rôle. Cela peut être utile lorsque vous effectuez des audits d’accès à un rôle.
+Utilisez le commutateur **Ticket d’incident/de demande** pour spécifier si les administrateurs éligibles doivent ou non inclure un numéro de ticket lorsqu’ils activent leur rôle. Cela peut être utile lorsque vous effectuez des audits d’accès à un rôle.
 
 ## <a name="multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
-Le bouton **Authentification multifacteur** vous permet de choisir si les utilisateurs doivent ou non confirmer leur identité via l’authentification multifacteur avant de pouvoir activer leurs rôles. Une seule vérification est nécessaire par session, et non chaque fois qu’ils ont activé un rôle. Il existe deux conseils à garder à l’esprit lorsque vous activez l’authentification multifacteur :
+Utilisez le commutateur **Authentification multifacteur** pour spécifier si les utilisateurs doivent ou non confirmer leur identité via l’authentification multifacteur avant de pouvoir activer leurs rôles. Une seule vérification est nécessaire par session, et non chaque fois qu’ils ont activé un rôle. Il existe deux conseils à garder à l’esprit lorsque vous activez l’authentification multifacteur :
 
 * Les utilisateurs qui disposent de comptes Microsoft pour leurs adresses de messagerie (généralement @outlook.com mais pas toujours) ne peuvent pas s’inscrire à Azure MFA. Si vous souhaitez attribuer des rôles aux utilisateurs disposant de comptes Microsoft, vous devez les rendre administrateurs permanents ou désactiver l’authentification multifacteur pour ce rôle.
 * Vous ne pouvez pas désactiver l’authentification multifacteur pour les rôles à privilèges élevés pour Azure AD et Office 365. Il s’agit d’une fonctionnalité de sécurité car ces rôles doivent être soigneusement protégés :  
@@ -80,13 +82,13 @@ Le bouton **Authentification multifacteur** vous permet de choisir si les utilis
   * Administrateur Skype Entreprise  
   * Administrateur de compte d’utilisateur  
 
-Pour plus d’informations sur l’utilisation de l’authentification multifacteur avec PIM, consultez [Exiger une authentification multifacteur pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-require-mfa.md).
+Pour plus d’informations, consultez [Authentification multifacteur (MFA) et PIM](pim-how-to-require-mfa.md).
 
 ## <a name="require-approval"></a>Exiger une approbation
 
-Le bouton **Exiger l’approbation** vous permet de choisir s’il faut exiger une approbation pour activer un rôle.
+Si vous souhaitez exiger une approbation pour activer un rôle, procédez comme suit.
 
-1. Lorsque vous configurez le bouton sur **Activé**, le volet affiche les options permettant de sélectionner des approbateurs.
+1. Réglez le commutateur **Exiger l'approbation** sur **Activé**. Le volet affiche les options permettant de sélectionner des approbateurs.
 
     ![Rôles d’annuaire Azure AD - Paramètres - Exiger une approbation](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
@@ -107,5 +109,5 @@ Le bouton **Exiger l’approbation** vous permet de choisir s’il faut exiger u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Exiger une authentification multifacteur pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-require-mfa.md)
+- [Attribuer des rôles d’annuaire Azure AD dans PIM](pim-how-to-add-role-to-user.md)
 - [Configurer des alertes de sécurité pour les rôles d’annuaire Azure AD dans PIM](pim-how-to-configure-security-alerts.md)

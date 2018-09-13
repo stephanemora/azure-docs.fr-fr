@@ -9,19 +9,32 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: 8a9409c46cac8397bc449c586374729a4d864036
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41931333"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664443"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
-Cet article montre comment utiliser l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour charger et indexer vos vidéos avec Azure Video Indexer. Il aborde également certains des paramètres que vous pouvez définir sur l’API pour en modifier le processus et la sortie.
+Cet article montre comment charger une vidéo avec Azure Video Indexer. L’API Video Indexer fournit deux options de chargement : 
+
+* charger votre vidéo à partir d’une URL (par défaut),
+* envoyer le fichier vidéo sous forme de tableau d’octets dans le corps de la demande.
+
+L’article montre comment utiliser l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour charger et indexer vos vidéos selon une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets.  
+
+L’article aborde également certains des paramètres que vous pouvez définir sur l’API pour en modifier le processus et la sortie.
 
 > [!Note]
-> Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). <br/>Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. <br/>Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
+> Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). <br/>Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
+
+## <a name="uploading-considerations"></a>Éléments à prendre en compte pour le chargement
+    
+- Lors du chargement de votre vidéo à partir de l’URL (par défaut), le point de terminaison doit être sécurisé avec TLS 1.2 (ou version ultérieure)
+- L’option de tableau d’octets est limitée à 4 Go et expire après 30 minutes
+- L’URL fournie dans le paramètre `videoURL` doit être encodée
 
 ## <a name="configurations-and-params"></a>Configurations et paramètres
 
@@ -45,7 +58,7 @@ Le prix dépend de l’option d’indexation sélectionnée.
 
 Une URL POST pour notifier la fin de l’indexation. Video Indexer y ajoute deux paramètres de la chaîne de requête : l’ID et l’état. Par exemple, si l’URL de rappel est « https://test.com/notifyme?projectName=MyProject », la notification sera envoyée avec des paramètres supplémentaires vers « https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed ».
 
-Vous pouvez également ajouter davantage de paramètres à l’URL avant de publier l’appel auprès de Video Indexer et ces paramètres figureront dans le rappel. Plus tard, dans votre code, vous pouvez analyser la chaîne de requête et obtenir en rappel tous les paramètres spécifiés dans la chaîne de requête (les données que vous aviez initialement ajoutées à l’URL et les informations fournies par Video Indexer.) 
+Vous pouvez également ajouter davantage de paramètres à l’URL avant de publier l’appel auprès de Video Indexer et ces paramètres figureront dans le rappel. Plus tard, dans votre code, vous pouvez analyser la chaîne de requête et obtenir en rappel tous les paramètres spécifiés dans la chaîne de requête (les données que vous aviez initialement ajoutées à l’URL et les informations fournies par Video Indexer.) L’URL doit être encodée.
 
 ### <a name="streamingpreset"></a>streamingPreset
 
@@ -56,6 +69,12 @@ Lorsque vous utilisez l’API [Charger une vidéo](https://api-portal.videoindex
 Pour exécuter les travaux d’indexation et d’encodage, le [compte Azure Media Services connecté à votre compte Video Indexer](connect-to-azure.md), nécessite des unités réservées. Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Dans la mesure où il s’agit de tâches de calcul intensif, un type d’unité S3 est fortement recommandé. Le nombre d’unités de demande définit le nombre maximal de travaux pouvant s’exécuter en parallèle. La suggestion de base de référence est 10 unités de demande S3. 
 
 Si vous souhaitez uniquement indexer votre vidéo sans l’encoder, définissez `streamingPreset` sur `NoStreaming`.
+
+### <a name="videourl"></a>videoUrl
+
+URL du fichier audio/vidéo à indexer. L’URL doit pointer vers un fichier multimédia (les pages HTML ne sont pas prises en charge). Le fichier peut être protégé par un jeton d’accès fourni dans le cadre de l’URI et le point de terminaison qui traite le fichier doit être sécurisé avec TLS 1.2 ou version ultérieure. L’URL doit être encodée. 
+
+Si le paramètre `videoUrl` n’est pas spécifié, Video Indexer s’attend à ce que vous passiez le fichier en tant que contenu de corps multipart/form.
 
 ## <a name="code-sample"></a>Exemple de code
 

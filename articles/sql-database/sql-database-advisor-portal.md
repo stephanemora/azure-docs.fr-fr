@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 7df4033a378ce3b37a99ed0335200e7f71696594
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67432c8751cd8809649d41195957a7d68b392074
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528644"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665597"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 
@@ -114,7 +114,7 @@ Sélectionnez une recommandation, puis cliquez sur **Afficher le script**. Exéc
 *Les index qui sont exécutés manuellement ne sont pas surveillés ni validés en ce qui concerne l’impact du service sur les performances*. Nous vous suggérons donc de surveiller ces index après leur création pour vérifier s’ils améliorent les performances et de les ajuster ou de les supprimer, si nécessaire. Pour plus d’informations sur la création d’index, consultez [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
 ### <a name="canceling-recommendations"></a>Annulation de recommandations
-Les recommandations ayant l’état **En attente**, **En cours de vérification** ou **Réussite** peuvent être annulées. Les recommandations avec l'état **En cours d'exécution** ne peuvent pas être annulées.
+Les recommandations ayant l’état **En attente**, **En cours de validation** ou **Réussite** peuvent être annulées. Les recommandations avec l'état **En cours d'exécution** ne peuvent pas être annulées.
 
 1. Sélectionnez une recommandation dans la zone **Historique des réglages** pour ouvrir la page **Détails des recommandations**.
 2. Cliquez sur **Annuler** pour abandonner le processus d'application de la recommandation.
@@ -126,7 +126,7 @@ L’application d’une recommandation ne se produit pas toujours instantanémen
 |:--- |:--- |
 | Pending |La commande Appliquer la recommandation a été reçue et son exécution est planifiée. |
 | En cours d'exécution |La recommandation est en cours d’application. |
-| Vérification |La recommandation a été correctement appliquée et le service évalue les avantages. |
+| Validation |La recommandation a été correctement appliquée et le service évalue les avantages. |
 | Succès |La recommandation a été correctement appliquée et les avantages ont été évalués. |
 | Error |Une erreur s’est produite au cours du processus d'application de la recommandation. Il peut s’agir d’un problème temporaire ou éventuellement d’un changement de schéma dans la table auquel cas le script n’est plus valide. |
 | Annulation |La recommandation a été appliquée, mais a été jugée non performante et est automatiquement annulée. |

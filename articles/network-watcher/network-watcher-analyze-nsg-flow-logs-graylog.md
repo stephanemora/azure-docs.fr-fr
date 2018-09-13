@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 87d7c39a9340a82813f4df971c03a10be56e8f94
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: db3b08ae8092661e6ffa0f2dd7e460f341a8d013
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141310"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666057"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gérer et analyser les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Graylog
 
@@ -32,7 +32,7 @@ Un réseau peut comprendre de nombreux groupes de sécurité réseau pour lesque
 
 Les journaux de flux des groupes de sécurité réseau sont activés à l’aide de Network Watcher. Les journaux de flux affluent dans le stockage Blob Azure. Un plug-in Logstash assure la connexion et le traitement des journaux de flux à partir du stockage Blob, et les envoie à Graylog. Une fois les journaux de flux stockés dans Graylog, il peuvent être analysés et visualisés dans des tableaux de bord personnalisés.
 
-![Graylog workflow]](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
+![Workflow Graylog](./media/network-watcher-analyze-nsg-flow-logs-graylog/workflow.png)
 
 ## <a name="installation-steps"></a>Étapes d’installation
 

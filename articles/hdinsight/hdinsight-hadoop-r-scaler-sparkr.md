@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: 38b7808f880bb346aeddbe87e5fb17499708d092
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c59ac5efab8b46463f97c375d999a131667d3cea
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599076"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699547"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combiner ScaleR et SparkR dans HDInsight
 
@@ -331,7 +331,7 @@ joinedDF5 <- rename(joinedDF4,
 
 ## <a name="save-results-to-csv-for-exchange-with-scaler"></a>Enregistrer les résultats au format CSV pour l’échange avec ScaleR
 
-Les jonctions nécessaires avec SparkR sont alors terminées. Nous enregistrons les données du fichier final Spark DataFrame « joinedDF5 » dans un fichier CSV pour les saisir dans ScaleR, puis nous fermons la session SparkR. Nous indiquons explicitement à SparkR d’enregistrer le fichier CSV résultant en 80 partitions distinctes afin d’établir un parallélisme suffisant dans le traitement ScaleR :
+Les jonctions nécessaires avec SparkR sont alors terminées. Nous enregistrons les données du fichier final Spark DataFrame « joinedDF5 » dans un fichier CSV pour les envoyer dans ScaleR, puis nous fermons la session SparkR. Nous indiquons explicitement à SparkR d’enregistrer le fichier CSV résultant en 80 partitions distinctes afin d’établir un parallélisme suffisant dans le traitement ScaleR :
 
 ```
 logmsg('output the joined data from Spark to CSV') 

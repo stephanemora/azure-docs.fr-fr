@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/05/2018
+ms.date: 09/05/2018
 ms.author: juliako
-ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744749"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841832"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Créer un compte Video Indexer connecté à Azure
 
@@ -52,7 +52,7 @@ Cet article explique comment créer un compte Video Indexer connecté à un abo
 
 ## <a name="connect-to-azure"></a>Connexion à Azure
 
-1. Ouvrez une session avec cet utilisateur, puis cliquez sur le bouton **Se connecter à Azure** :
+1. Connectez-vous à [https://www.videoindexer.ai/](https://www.videoindexer.ai/) et cliquez sur le bouton **Se connecter à Azure** :
 
     ![Connexion à Azure](./media/create-account/connect-to-azure.png)
 
@@ -69,9 +69,21 @@ Cet article explique comment créer un compte Video Indexer connecté à un abo
     * Pour utiliser un compte Media Services existant, sélectionnez **Utiliser une ressource existante**. Dans la liste des comptes, sélectionnez votre compte.
 
         Votre compte Media Services doit avoir la même région que votre compte Video Indexer. Pour réduire la durée d’indexation et améliorer le débit, ajustez le type et le nombre d’unités réservées sur **10 unités réservées S3** dans votre compte Media Services.
-    * Pour configurer manuellement votre connexion, cliquez sur le lien **Basculer vers la configuration manuelle** et fournissez les informations nécessaires :
+    * Pour configurer manuellement votre connexion, cliquez sur **Basculer vers la configuration manuelle**. 
+    
+        Vous pouvez configurer manuellement votre connexion si l’option automatique échoue pour une raison quelconque, si vos installation et configuration sont différentes des scénarios courants ou si vous voulez avoir une visibilité et un contrôle complets sur les paramètres. 
+        
+        Dans **Connecter Video Indexer à un abonnement Azure**, indiquez les informations suivantes.
 
-    ![Connexion de Video Indexer à Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
+        |Paramètre|Description|
+        |---|---|
+        |Région du compte Video Indexer|Nom de la région du compte Video Indexer. Pour améliorer les performances et réduire les coûts, il est fortement recommandé de spécifier le nom de la région où se trouvent la ressource Azure Media Services et le compte de stockage Azure. |
+        |Locataire Azure Active Directory (AAD)|Nom du locataire Azure AD, par exemple contoso.onmicrosoft.com. Les informations relatives au locataire peuvent être récupérées à partir du portail Azure. Placez votre curseur sur le nom de l’utilisateur connecté, en haut à droite.|
+        |Identifiant d’abonnement|Abonnement Azure sous lequel cette connexion doit être créée. L’ID d’abonnement peut être récupéré à partir du portail Azure. Cliquez sur **Tous les services** dans le panneau gauche, puis recherchez « abonnements ». Sélectionnez **Abonnements** et choisissez l’ID voulu dans la liste de vos abonnements.|
+        |Nom du groupe de ressources Azure Media Services|Nom du groupe de ressources dans lequel le compte Media Services figure.|
+        |Nom de la ressource de service multimédia|Nom de la ressource Azure Media Services.|
+        |ID de l'application|ID d’application Azure AD avec des autorisations pour le compte Media Services spécifié. Pour plus d’informations, consultez [Utiliser une authentification de principal de service](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
+        |Clé de l’application|Pour plus d’informations, consultez [Utiliser une authentification de principal de service](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
 5. Lorsque vous avez terminé, choisissez **Connecter**. Cette opération peut prendre quelques minutes. 
 
@@ -98,7 +110,7 @@ Tenez compte des considérations suivantes pour Azure Media Services :
 
 * Si vous vous êtes connecté à un nouveau compte Media Services, Video Indexer démarre automatiquement son **point de terminaison de streaming** par défaut :
 
-    ![Point de terminaison de streaming Media Services](./media/create-account/ams-streaming-endpoint.png)
+    ![Point de terminaison de diffusion en continu Media Services](./media/create-account/ams-streaming-endpoint.png)
 
 * Si vous vous êtes connecté à un compte Media Services existant, Video Indexer ne modifie pas la configuration du point de terminaison de streaming par défaut. Si aucun **point de terminaison de streaming** n’est en cours d’exécution, vous ne serez pas en mesure de regarder les vidéos à partir de ce compte Media Services, ni dans Video Indexer.
 

@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c62869d1ec0dca1859972e817fe1e5e2c1f4c1eb
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: b8004500df2e29ab865a8eb78adf278ef61d5ee8
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797860"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702433"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "34797860"
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Prise en main**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Démarrer**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -52,6 +52,18 @@ ms.locfileid: "34797860"
 ## <a name="release-notes"></a>Notes de publication
 
 Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la parité des fonctions avec la dernière version du [kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-sdk-dotnet.md).
+
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Ajout de la prise en charge de l’annulation de demande.
+* Ajout de SetCurrentLocation à ConnectionPolicy, qui remplit automatiquement les emplacements par défaut en fonction de la région.
+* Correction de bogue dans les requêtes entre plusieurs partitions avec Min/Max et un filtre qui correspond à Aucun document sur une partition individuelle.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
+
+* Les méthodes DocumentClient ont désormais une parité avec IDocumentClient.
+* Mise à jour de la pile de transport TCP direct pour réduire le nombre de connexions établies.
+* Ajout de la prise en charge du mode direct TCP pour les clients autres que Windows.
 
 ### <a name="a-name11001100"></a><a name="1.10.0"/>1.10.0
 
@@ -174,6 +186,8 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.0.0-preview2](#2.0.0-preview2) |26 juillet 2018 |--- |
+| [2.0.0-preview](#2.0.0-preview) |11 mai 2018 |--- |
 | [1.9.1](#1.9.1) |09 mars 2018 |--- |
 | [1.8.2](#1.8.2) |21 février 2018 |--- |
 | [1.8.1](#1.8.1) |05 février 2018 |--- |

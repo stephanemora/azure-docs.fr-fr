@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 11/01/2017
+ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: 7786e08e04d2ebce757b4c47b8ed599036c95958
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207857"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701532"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core dans le modèle Reliable Services de Service Fabric
 
@@ -27,15 +27,13 @@ ASP.NET Core est une nouvelle infrastructure open source et multiplateforme dest
 
 Cet article constitue un guide détaillé pour héberger des services ASP.NET Core dans le modèle Reliable Services de Service Fabric à l’aide de l’ensemble **Microsoft.ServiceFabric.AspNetCore.*** de packages NuGet.
 
-Pour obtenir un didacticiel de présentation d’ASP.NET Core dans Service Fabric et des instructions de configuration de votre environnement de développement, consultez [Créer une application .NET](service-fabric-tutorial-create-dotnet-app.md).
+Pour obtenir un tutoriel de présentation d’ASP.NET Core dans Service Fabric et des instructions de configuration de votre environnement de développement, consultez [Créer une application .NET](service-fabric-tutorial-create-dotnet-app.md).
 
 Pour lire la suite de cet article, vous devez déjà maîtriser ASP.NET Core. Si ce n’est pas le cas, nous vous conseillons de lire les [notions de base d’ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
 ## <a name="aspnet-core-in-the-service-fabric-environment"></a>ASP.NET Core dans l’environnement Service Fabric
 
-Si les applications ASP.NET Core peuvent s’exécuter sur .NET Core ou sur l’infrastructure .NET Framework complète, pour le moment, les services Service Fabric ne peuvent s’exécuter que sur l’infrastructure .NET Framework complète. Cela signifie que lorsque vous générez un service Service Fabric ASP.NET Core, vous devez toujours cibler l’infrastructure .NET Framework complète.
-
-L’infrastructure ASP.NET Core peut être utilisée de deux manières dans Service Fabric :
+Les applications ASP.NET Core et Service Fabric peuvent s’exécuter sur .NET Core et sur le .NET Framework complet. L’infrastructure ASP.NET Core peut être utilisée de deux manières dans Service Fabric :
  - **Hébergée en tant qu’exécutable invité**. Cette méthode est principalement utilisée pour exécuter des applications ASP.NET Core existantes sur Service Fabric sans modification de code.
  - **Exécutée dans un service Reliable Service**. Cette méthode permet des services ASP.NET Core avec état ainsi qu’une meilleure intégration au runtime Service Fabric.
 
@@ -96,12 +94,15 @@ Le diagramme suivant illustre le flux de demande avec l’intergiciel (middlewar
 
 ![Intégration d’ASP.NET Core à Service Fabric][2]
 
-Les implémentations `ICommunicationListener` de Kestrel et HttpSys utilisent ce mécanisme de la même façon. Même si HttpSys peut différencier en interne les requêtes d’après leur chemin d’URL unique à l’aide de la fonctionnalité de partage de port *http.sys* sous-jacente, cette fonctionnalité *n’est pas* utilisée par l’implémentation `ICommunicationListener` de HttpSys, car cela entraîne la survenue des erreurs HTTP 503 et HTTP 404 dans le scénario décrit précédemment. Il est alors très difficile pour les clients de déterminer l’objet de l’erreur, car les codes HTTP 503 et HTTP 404 sont couramment utilisés pour indiquer d’autres erreurs. Par conséquent, les implémentations `ICommunicationListener` de Kestrel et HttpSys sont normalisées dans l’intergiciel (middleware) fourni par la méthode d’extension `UseServiceFabricIntegration` afin que les clients n’aient à effectuer qu’une action de nouvelle résolution de point de terminaison de service sur les réponses HTTP 410.
+Les implémentations `ICommunicationListener` de Kestrel et HttpSys utilisent ce mécanisme de la même façon. Même si HttpSys peut différencier en interne les requêtes d’après leur chemin d’URL unique à l’aide de la fonctionnalité de partage de port *http.sys* sous-jacente, cette fonctionnalité *n’est pas* utilisée par l’implémentation `ICommunicationListener` de HttpSys, car cela entraîne la survenue des erreurs HTTP 503 et HTTP 404 dans le scénario décrit précédemment. Il est alors difficile pour les clients de déterminer l’objet de l’erreur, car les codes HTTP 503 et HTTP 404 sont couramment utilisés pour indiquer d’autres erreurs. Par conséquent, les implémentations `ICommunicationListener` de Kestrel et HttpSys sont normalisées dans l’intergiciel (middleware) fourni par la méthode d’extension `UseServiceFabricIntegration` afin que les clients n’aient à effectuer qu’une action de nouvelle résolution de point de terminaison de service sur les réponses HTTP 410.
 
 ## <a name="httpsys-in-reliable-services"></a>HttpSys dans Reliable Services
 Vous pouvez utiliser HttpSys dans un service Reliable Services en important le package NuGet **Microsoft.ServiceFabric.AspNetCore.HttpSys**. Ce package contient `HttpSysCommunicationListener`, une implémentation de `ICommunicationListener`, qui vous permet de créer un WebHost ASP.NET Core dans un service Reliable Services utilisant HttpSys comme serveur web.
 
 HttpSys est basé sur [l’API du serveur HTTP Windows](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). Elle utilise le pilote du noyau *http.sys* utilisé par IIS pour traiter les requêtes HTTP et les acheminer vers les processus exécutant les applications web. De cette façon, plusieurs processus d’une même machine physique ou virtuelle peuvent héberger des applications web sur un même port, dont l’ambiguïté est levée par un chemin d’accès d’URL ou un nom d’hôte unique. Ces fonctionnalités sont utiles dans Service Fabric pour héberger plusieurs sites web dans un même cluster.
+
+>[!NOTE]
+>L’implémentation de HttpSys fonctionne uniquement sur la plateforme Windows.
 
 Le diagramme suivant illustre l’utilisation du pilote de noyau *http.sys* par HttpSys sur Windows pour le partage de port :
 
@@ -188,7 +189,7 @@ Pour utiliser un port affecté dynamiquement avec HttpSys, omettez la propriét�
   </Resources>
 ```
 
-Notez qu’un port dynamique alloué par une configuration `Endpoint` fournit un seul port *par processus hôte*. Le modèle d’hébergement Service Fabric actuel permet à plusieurs instances de service et/ou réplicas d’être hébergés dans le même processus, ce qui signifie que chacun d’entre eux partagera le même port s’il est alloué via la configuration `Endpoint`. Plusieurs instances de HttpSys peuvent partager un même port à l’aide de la fonctionnalité de partage de port *http.sys* sous-jacente, mais celle-ci n’est pas prise en charge par `HttpSysCommunicationListener` en raison des complications qu’elle induit pour les requêtes des clients. Pour une utilisation de port dynamique, il est recommandé d’utiliser Kestrel comme serveur web.
+Un port dynamique alloué par une configuration `Endpoint` fournit un seul port *par processus hôte*. Le modèle d’hébergement Service Fabric actuel permet à plusieurs instances de service et/ou réplicas d’être hébergés dans le même processus, ce qui signifie que chacun d’entre eux partagera le même port s’il est alloué via la configuration `Endpoint`. Plusieurs instances de HttpSys peuvent partager un même port à l’aide de la fonctionnalité de partage de port *http.sys* sous-jacente, mais celle-ci n’est pas prise en charge par `HttpSysCommunicationListener` en raison des complications qu’elle induit pour les requêtes des clients. Pour une utilisation de port dynamique, il est recommandé d’utiliser Kestrel comme serveur web.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel dans Reliable Services
 Kestrel peut être utilisé dans un service Reliable Service en important le paquet NuGet **Microsoft.ServiceFabric.AspNetCore.Kestrel**. Ce paquet contient `KestrelCommunicationListener`, une implémentation de `ICommunicationListener`, qui vous permet de créer une méthode WebHost d’ASP.NET Core dans un service Reliable Service utilisant Kestrel en tant que serveur web.
@@ -250,7 +251,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 Dans cet exemple, une instance singleton de `IReliableStateManager` est fournie au conteneur d’injection de dépendance WebHost. Cela n’est pas rigoureusement nécessaire, mais elle vous permet d’utiliser `IReliableStateManager` et Reliable Collections dans vos méthodes d’action de contrôleur MVC.
 
-Notez qu’aucun nom de configuration `Endpoint` **n’est** fourni à `KestrelCommunicationListener` dans un service avec état. La section suivante contient une explication plus détaillée à ce sujet.
+**Aucun** nom de configuration `Endpoint` n’est fourni à `KestrelCommunicationListener` dans un service avec état. La section suivante contient une explication plus détaillée à ce sujet.
 
 ### <a name="endpoint-configuration"></a>Configuration du point de terminaison
 Aucune configuration `Endpoint` n’est requise pour utiliser Kestrel. 
@@ -281,7 +282,7 @@ Si aucune configuration `Endpoint` n’est utilisée, omettez le nom dans le con
 #### <a name="use-kestrel-with-a-dynamic-port"></a>Utiliser Kestrel avec un port dynamique
 Kestrel ne peut pas utiliser l’affectation de port automatique de la configuration `Endpoint` indiquée dans le fichier ServiceManifest.xml, car l’affectation de port automatique d’une configuration `Endpoint` affecte un port unique par *processus hôte*, et un processus hôte unique peut contenir plusieurs instances de Kestrel. Comme Kestrel ne prend pas en charge le partage de port, cela ne fonctionne pas, car chaque instance de Kestrel doit être ouverte sur un port unique.
 
-Pour utiliser l’affectation de port dynamique avec Kestrel, omettez simplement entièrement la configuration `Endpoint` indiquée dans le fichier ServiceManifest.xml, et ne transmettez pas le nom d’un point de terminaison au constructeur `KestrelCommunicationListener` :
+Pour utiliser l’affectation de port dynamique avec Kestrel, omettez entièrement la configuration `Endpoint` indiquée dans le fichier ServiceManifest.xml, et ne transmettez pas le nom d’un point de terminaison au constructeur `KestrelCommunicationListener` :
 
 ```csharp
 new KestrelCommunicationListener(serviceContext, (url, listener) => ...

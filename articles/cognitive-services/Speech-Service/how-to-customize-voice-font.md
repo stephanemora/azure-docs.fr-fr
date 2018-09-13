@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 84493ae83515c0458bf5b9e9cf44603300a8b4f7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 35572f046b3702deba56e86819b8ad0cd7ae6e9b
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284885"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842464"
 ---
 # <a name="creating-custom-voice-fonts"></a>Création de polices de voix personnalisée
 
@@ -22,7 +22,6 @@ Pour créer votre police de la voix, effectuez un enregistrement en studio et ch
 
 Vous pouvez commencer avec un petit volume de données afin de procéder à une démonstration de faisabilité. Mais plus vous fournissez de données, plus votre voix semblera naturelle et professionnelle.
 
-La personnalisation vocale est disponible pour l’anglais américain (en-US) et le chinois continental (zh-CN).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -32,19 +31,20 @@ Vous avez besoin d’un compte Azure et d’un abonnement au service Speech. Si 
 
 1. Connectez-vous au [portail Custom Voice](https://customvoice.ai) à l’aide du compte Microsoft que vous avez utilisé pour faire votre demande d’accès.
 
-2. Accédez à « Abonnements » sous le nom de votre compte en haut à droite.
+2. Accédez à Tous les abonnements sous le nom de votre compte en haut à droite.
 
     ![Abonnements](media/custom-voice/subscriptions.png)
 
 3. Sur la page « Abonnements », choisissez « Connecter l’abonnement existant ».
-
-     ![Connecter l’abonnement existant](media/custom-voice/connect-existing-sub.png)
 
 4. Collez votre clé d’abonnement dans le tableau, comme indiqué ci-dessous. Chaque abonnement dispose de deux clés et vous pouvez utiliser n’importe laquelle des deux.
 
      ![Ajouter un abonnement](media/custom-voice/add-subscription.png)
 
 Vous êtes prêt !
+
+> [!IMPORTANT]
+> Durant la phase de préversion privée, les abonnements doivent être mis sur liste verte pour utiliser la fonctionnalité de voix personnalisée. Suivez les étapes de la page pour mettre votre abonnement sur liste verte.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Préparer les enregistrements et les transcriptions
 
@@ -69,8 +69,6 @@ Les fichiers audio doivent être préparés comme suit. Les autres formats ne so
 | Format d’archive| Zip      |
 | Taille d’archive maximale|200 Mo|
 
-Placez l’ensemble des fichiers audio dans un même dossier sans sous-répertoires. Tous les fichiers doivent se trouver dans un même fichier d’archive ZIP.
-
 > [!NOTE]
 > Les fichiers son avec un taux d’échantillonnage inférieur à 16 000 Hz seront rejetés. Si un fichier zip contient des sons avec différents taux d’échantillonnage, seuls ceux égaux ou supérieurs à 16 000 Hz seront importés.
 > Actuellement, le portail importe les archives ZIP jusqu’à 200 Mo. Toutefois, il est possible de charger plusieurs archives. Le nombre maximal de jeux de données autorisés est de 10 fichiers ZIP pour les utilisateurs d’abonnement gratuit et de 50 pour les utilisateurs d’abonnement standard.
@@ -90,7 +88,7 @@ Par exemple :
 Le système vocal personnalisé normalise les transcriptions en convertissant le texte en minuscules et en supprimant les signes de ponctuation superflus. Il est important que les transcriptions soient parfaitement fidèles aux enregistrements audio correspondants.
 
 > [!TIP]
-> Lors de la création de voix de synthèse vocale, sélectionnez les énoncés (ou rédigez les scripts) en prenant en compte à la fois l’efficacité et la couverture phonétique.
+> Lors de la création de voix de synthèse vocale, sélectionnez les énoncés (ou rédigez les scripts) en prenant en compte à la fois l’efficacité et la couverture phonétique. Des difficultés à obtenir les résultats que vous souhaitez ? [Contactez l’équipe Custom Voice](mailto:tts@microsoft.com) pour en savoir plus sur le moyen de nous consulter.
 
 ## <a name="upload-your-datasets"></a>Charger vos jeux de données
 
@@ -102,8 +100,6 @@ Après avoir préparé votre archive de fichiers audio et les transcriptions, ch
 1. Connectez-vous au portail.
 
 2. Choisissez **Données** sous Custom Voice sur la page principale. 
-
-    ![Mes projets](media/custom-voice/my-projects.png)
 
     Le tableau Mes données vocales s’affiche. Si vous n’avez pas encore chargé de jeux de données vocales, ce tableau est vide.
 
@@ -124,7 +120,7 @@ Après avoir préparé votre archive de fichiers audio et les transcriptions, ch
 > [!NOTE]
 > Les utilisateurs d’abonnement gratuit peuvent charger deux jeux de données à la fois. Les utilisateurs d’abonnement standard peuvent, quant à eux, charger cinq jeux de données simultanément. Si vous atteignez la limite, attendez au moins la fin de l’importation de l’un de vos jeux de données, puis recommencez l’opération.
 
-Une fois le chargement terminé, le tableau Mes données vocales s’affiche à nouveau. Vous devez voir une entrée correspondant au jeu de données que vous venez de charger. 
+Une fois le chargement terminé, le tableau Mes données vocales s’affiche à nouveau. Vous devez voir une entrée correspondant au jeu de données que vous venez de charger.
 
 Les jeux de données sont automatiquement validés après le chargement. La validation des données inclut une série de vérifications sur les fichiers audio visant à contrôler le format, la taille et le taux d’échantillonnage. Les vérifications effectuées sur les fichiers de transcription contrôlent le format de fichier et effectuent quelques opérations de normalisation du texte. Les énoncés sont transcrits à l’aide de la reconnaissance vocale, et le texte obtenu est comparé à la transcription que vous avez fournie.
 
@@ -191,17 +187,11 @@ Le temps d’apprentissage varie selon le volume de données audio traitées. Il
 
 ## <a name="test-your-voice-font"></a>Tester votre police vocale
 
-Une fois votre police vocale créée, vous pouvez la tester avant de procéder à son déploiement. Cliquez sur **Tester** dans la colonne Opérations. La page de test de la police vocale sélectionnée s’affiche. Le tableau est vide si vous n’avez encore envoyé aucune demande de test pour la voix.
-
-![Mes polices vocales, 2ème partie](media/custom-voice/my-voice-fonts2.png)
+Une fois votre police vocale créée, vous pouvez la tester avant de procéder à son déploiement. Cliquez sur **Tester** dans la colonne Opérations du tableau Mes polices vocales. La page de test de la police vocale sélectionnée s’affiche. Le tableau est vide si vous n’avez encore envoyé aucune demande de test pour la voix.
 
 Cliquez sur le bouton **Tester avec le texte** sous le titre du tableau pour afficher un menu contextuel permettant d’envoyer les demandes de test. Vous pouvez envoyer votre demande de test au format texte brut ou SSML. La taille d’entrée maximale est de 1024 caractères, balises de requête SSML comprises. La langue de votre texte doit être identique à celle de votre police vocale.
 
-![Test de la police vocale](media/custom-voice/voice-font-testing.png)
-
 Après avoir renseigné la zone de texte et confirmé le mode d’entrée, cliquez sur **Oui** pour envoyer votre demande de test et revenir à la page de test. Le tableau inclut désormais une entrée qui correspond à votre nouvelle demande, ainsi que la colonne d’état désormais familière. La synthétisation vocale peut prendre plusieurs minutes. Lorsque la colonne État affiche le message Réussi, vous pouvez télécharger l’entrée de texte (un fichier `.txt`) et la sortie audio (un fichier `.wav`), et écouter ce dernier pour vérifier la qualité.
-
-![Test de la police vocale, 2ème partie](media/custom-voice/voice-font-testing2.png)
 
 ## <a name="create-and-use-a-custom-endpoint"></a>Créer et utiliser un point de terminaison personnalisé
 
@@ -224,13 +214,20 @@ Lorsque l’état du déploiement affiche Réussi, le point de terminaison de vo
 Il est également possible d’effectuer un test en ligne du point de terminaison via le portail Custom Voice. Pour tester votre point de terminaison, choisissez **Test des points de terminaison** dans le menu déroulant de Custom Voice. La page de test des points de terminaison s’affiche. Choisissez une voix personnalisée déployée et saisissez le texte à lire (au format texte brut ou SSML) dans la zone de texte.
 
 > [!NOTE] 
-> Lorsque vous utilisez SSML, la balise `<voice>` doit spécifier le nom que vous avez donné à votre voix personnalisée lors de sa création.
+> Lorsque vous utilisez SSML, la balise `<voice>` doit spécifier le nom que vous avez donné à votre voix personnalisée lors de sa création. Si vous envoyez un texte brut, la voix personnalisée est toujours utilisée.
 
 Cliquez sur **Lire** pour écouter le texte parlé dans votre police vocale personnalisée.
 
 ![Test des points de terminaison](media/custom-voice/endpoint-testing.png)
 
 D’un point de vue fonctionnel, le point de terminaison personnalisé est identique au point de terminaison standard utilisé pour les demandes de synthèse vocale. Consultez [API REST](rest-apis.md) pour en savoir plus.
+
+## <a name="language-support"></a>Support multilingue
+
+La personnalisation vocale est disponible pour l’anglais américain (en-US), le chinois continental (zh-CN) et l’italien (it-IT).
+
+> [!NOTE]
+> L’apprentissage de la voix italienne commence par un jeu de données de plus de 2 000 énoncés. Les modèles bilingues chinois-anglais sont également pris en charge avec un jeu de données de plus de 2 000 énoncés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fd594e65de79844720462996a89477e0a6237ceb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e69cf8753fb0cc9326e047ec97cbe08ee6f26610
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988923"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668459"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Commencer à analyser votre application mobile avec App Center et Application Insights
 
@@ -68,9 +68,9 @@ Pour vous assurer que vos événements personnalisés sont reçus, accédez à l
 Dès que votre application envoie des événements personnalisés et que ces derniers sont reçus par App Center, vous devez créer une ressource Application Insights de type App Center dans le Portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Sélectionnez **Créer une ressource** > **Surveillance + gestion** > **Application Insights**.
+2. Sélectionnez **Créer une ressource** > **Outils de gestion** > **Application Insights**.
 
-    ![Ajout d’une ressource Application Insights](./media/app-insights-mobile-center-quickstart/add.png)
+    ![Ajout d’une ressource Application Insights](./media/app-insights-mobile-center-quickstart/add-b.png)
 
     Une boîte de configuration s’affiche. Utilisez le tableau ci-dessous pour remplir les champs d’entrée.
 
@@ -143,7 +143,7 @@ Application Insights peut interroger, segmenter, filtrer et analyser les donnée
 
    ![Outil Flux d’utilisateurs](./media/app-insights-mobile-center-quickstart/user-flows.png)
 
-   L’outil Flux d’utilisateurs visualise les événements qu’envoie les utilisateurs après un événement de début. Il est utile pour obtenir une vue d’ensemble de la façon dont les utilisateurs parcourent votre application. Il peut aussi révéler des endroits de votre application où les utilisateurs ne vont plus ou répètent la même action encore et encore.
+   L’outil Flux d’utilisateurs visualise les événements qu’envoient les utilisateurs après un événement de début. Il est utile pour obtenir une vue d’ensemble de la façon dont les utilisateurs parcourent votre application. Il peut aussi révéler des endroits de votre application où les utilisateurs ne vont plus ou répètent la même action encore et encore.
 
    Outre Flux d’utilisateurs, Application Insights dispose de plusieurs outils d’analyse du comportement des utilisateurs pour répondre à des questions spécifiques :
 

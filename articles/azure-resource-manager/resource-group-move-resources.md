@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617288"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783336"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -57,8 +57,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   * [Transfert de la propriété d’un abonnement Azure à un autre compte](../billing/billing-subscription-transfer.md)
   * [Associer ou ajouter un abonnement Azure à Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. Le service doit activer la possibilité de déplacer des ressources. Cet article répertorie les services permettant de déplacer des ressources et les services qui ne le permettent pas.
-3. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevez une erreur indiquant que **l’abonnement n’est pas inscrit pour un type de ressource**. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource.
+1. L’abonnement de destination doit être inscrit pour le fournisseur de la ressource déplacée. Sinon, vous recevez une erreur indiquant que **l’abonnement n’est pas inscrit pour un type de ressource**. Vous pouvez rencontrer ce problème lors du déplacement d’une ressource vers un nouvel abonnement qui n’a jamais été utilisé avec ce type de ressource.
 
   Pour PowerShell, utilisez les commandes suivantes pour obtenir l’état de l’inscription :
 
@@ -86,14 +85,16 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
   az provider register --namespace Microsoft.Batch
   ```
 
-4. Le compte déplaçant les ressources doit avoir au moins les autorisations suivantes :
+1. Le compte déplaçant les ressources doit avoir au moins les autorisations suivantes :
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** sur le groupe de ressources source.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** sur le groupe de ressources de destination.
 
-5. Avant de déplacer les ressources, vérifiez les quotas d’abonnement pour l’abonnement vers lequel vous souhaitez déplacer les ressources. Si le déplacement des ressources signifie que l’abonnement dépassera ses limites, vous devez vérifier si vous pouvez demander une augmentation du quota. Pour connaître la liste des limites et savoir comment demander une augmentation, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
+1. Avant de déplacer les ressources, vérifiez les quotas d’abonnement pour l’abonnement vers lequel vous souhaitez déplacer les ressources. Si le déplacement des ressources signifie que l’abonnement dépassera ses limites, vous devez vérifier si vous pouvez demander une augmentation du quota. Pour connaître la liste des limites et savoir comment demander une augmentation, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 
-5. Quand c’est possible, divisez les grands déplacements en opérations de déplacement distinctes. Resource Manager met immédiatement en échec les tentatives de déplacement de plus de 800 ressources en une seule opération. Cependant, un déplacement de moins de 800 ressources peut également échouer en raison d’un dépassement du délai d’expiration.
+1. Quand c’est possible, divisez les grands déplacements en opérations de déplacement distinctes. Resource Manager met immédiatement en échec les tentatives de déplacement de plus de 800 ressources en une seule opération. Cependant, un déplacement de moins de 800 ressources peut également échouer en raison d’un dépassement du délai d’expiration.
+
+1. Le service doit activer la possibilité de déplacer des ressources. Pour déterminer si le déplacement sera effectué, [valider votre demande de déplacement](#validate-move). Consultez les sections ci-dessous dans cet article pour connaître les [services permettant de déplacer des ressources](#services-that-can-be-moved) et les [services qui ne le permettent pas](#services-that-cannot-be-moved).
 
 ## <a name="when-to-call-support"></a>Quand appeler le support technique
 
@@ -106,6 +107,59 @@ Contactez le [support technique](https://portal.azure.com/#blade/Microsoft_Azure
 
 * Déplacer vos ressources vers un nouveau compte Azure (et client Azure Active Directory) et que vous avez besoin d’aide concernant les instructions de la section précédente.
 * Déplacer des ressources classiques, mais que vous rencontrez des problèmes avec les limitations.
+
+## <a name="validate-move"></a>Valider le déplacement
+
+[L’opération de validation du déplacement](/rest/api/resources/resources/validatemoveresources) vous permet de tester votre scénario de déplacement sans réellement déplacer les ressources. Utilisez cette opération pour déterminer si le déplacement sera effectué. Pour exécuter cette opération, vous avez besoin des éléments suivants :
+
+* Nom du groupe de ressources source
+* ID de ressource du groupe de ressources cible
+* ID de ressource de chaque ressource à déplacer
+* [Jeton d’accès](/rest/api/azure/#acquire-an-access-token) pour votre compte
+
+Envoyez la requête suivante :
+
+```
+POST https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<source-group>/validateMoveResources?api-version=2018-02-01
+Authorization: Bearer <access-token>
+Content-type: application/json
+```
+
+Avec le corps de la demande :
+
+```json
+{
+ "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
+}
+```
+
+Si la demande est correctement mise en forme, l’opération retourne :
+
+```
+Response Code: 202
+cache-control: no-cache
+pragma: no-cache
+expires: -1
+location: https://management.azure.com/subscriptions/<subscription-id>/operationresults/<operation-id>?api-version=2018-02-01
+retry-after: 15
+...
+```
+
+Le code d’état 202 indique que la demande de validation a été acceptée, mais la réussite de l’opération de déplacement n’est pas encore déterminée. La valeur de `location` contient une URL que vous utilisez pour vérifier l’état de l’opération longue.  
+
+Pour vérifier l’état, envoyez la demande suivante :
+
+```
+GET <location-url>
+Authorization: Bearer <access-token>
+```
+
+Pendant l’exécution de l’opération, vous continuez à recevoir le code d’état 202. Attendez le nombre de secondes indiqué dans la valeur `retry-after` avant de réessayer. Si l’opération de déplacement est validée, vous recevez le code d’état 204. Si la validation de déplacement échoue, vous recevez un message d’erreur, par exemple :
+
+```json
+{"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
+```
 
 ## <a name="services-that-can-be-moved"></a>Services pouvant être déplacés
 
@@ -122,7 +176,6 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Azure Maps
 * Azure Relay
 * Azure Stack - Inscriptions
-* Azure Migrate
 * Batch
 * BizTalk Services
 * Service de robot
@@ -188,6 +241,7 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Azure Database pour PostgreSQL
 * Azure Database Migration
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * Certificats : les certificats App Service Certificates peuvent être déplacés, mais les certificats chargés ont des [limitations](#app-service-limitations).
 * Container Instances
@@ -215,11 +269,11 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 
 Les disques managés ne prennent pas en charge le déplacement. Cette restriction signifie également que plusieurs ressources associées ne peuvent pas être déplacées. Vous ne pouvez pas déplacer :
 
-* Disques gérés
-* Machines virtuelles avec des disques gérés
-* Images créées à partir de disques gérés
-* Instantanés créés à partir de disques gérés
-* Groupes à haute disponibilité comprenant des machines virtuelles avec des disques gérés
+* Disques managés
+* Machines virtuelles avec des disques managés
+* Images créées à partir de disques managés
+* Instantanés créés à partir de disques managés
+* Groupes à haute disponibilité comprenant des machines virtuelles avec des disques managés
 
 Bien que vous ne puissiez pas déplacer un disque managé, vous pouvez créer une copie, puis créer une nouvelle machine virtuelle à partir du disque managé existant. Pour plus d'informations, consultez les pages suivantes :
 
@@ -237,8 +291,6 @@ Lors de la migration d’un réseau virtuel, vous devez également migrer ses re
 Pour déplacer un réseau virtuel homologué, vous devez d’abord désactiver l’homologation du réseau virtuel. Une fois l’homologation désactivée, vous pouvez déplacer le réseau virtuel. Après le déplacement, réactivez l’homologation du réseau virtuel.
 
 Vous ne pouvez pas déplacer un réseau virtuel vers un autre abonnement s’il contient un sous-réseau avec des liens de navigation dans les ressources. Par exemple, si une ressource Cache Redis est déployée dans un sous-réseau, ce sous-réseau possède un lien de navigation dans les ressources.
-
-Vous ne pouvez pas déplacer un réseau virtuel vers un autre abonnement s’il contient un serveur DNS personnalisé. Pour déplacer le réseau virtuel, configurez-le en tant que serveur DNS Par défaut (Azure). Après le déplacement, reconfigurez le serveur DNS personnalisé.
 
 ## <a name="app-service-limitations"></a>limitations d’App Service
 

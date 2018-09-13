@@ -3,7 +3,7 @@ title: Utilisation des rubriques et abonnements Azure Service Bus avec Node.js |
 description: Découvrez comment utiliser les rubriques et abonnements Service Bus dans Azure à partir d’une application Node.js.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: d3a7ebd135f705a6a3ea91feb4e037a9ed6d0c79
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: spelluru
+ms.openlocfilehash: daabf711e923e1c4ff3132c5e4765bdbff206948
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704994"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782909"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Utilisation des rubriques et abonnements Service Bus avec Node.js
 
@@ -95,7 +95,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-La méthode `createServiceBusService` prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de rubrique par défaut, comme la durée de vie du message ou la taille maximale de la rubrique. 
+La méthode `createTopicIfNotExists` prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de rubrique par défaut, comme la durée de vie du message ou la taille maximale de la rubrique. 
 
 L’exemple suivant définit la taille maximale de la rubrique sur 5 Go, et la durée de vie du message sur une minute :
 
@@ -235,7 +235,7 @@ var rule={
 }
 ```
 
-Désormais, quand un message est envoyé à `MyTopic`, il est remis aux destinataires abonnés à l’abonnement de rubrique `AllMessages`, et est remis de manière sélective aux destinataires abonnés aux abonnements de rubrique `HighMessages` et `LowMessages` (en fonction du contenu du message).
+Quand un message est envoyé à `MyTopic`, il est remis aux destinataires abonnés à l’abonnement de rubrique `AllMessages`, et est remis de manière sélective aux destinataires abonnés aux abonnements de rubrique `HighMessages` et `LowMessages` (en fonction du contenu du message).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Envoi de messages à une rubrique
 Pour envoyer un message à une rubrique Service Bus, votre application doit utiliser la méthode `sendTopicMessage` de l’objet **ServiceBusService**.
@@ -268,7 +268,7 @@ Les rubriques Service Bus prennent en charge une taille de message maximale de 2
 ## <a name="receive-messages-from-a-subscription"></a>Réception des messages d’un abonnement
 La méthode `receiveSubscriptionMessage` de l’objet **ServiceBusService** permet de recevoir les messages d’un abonnement. Par défaut, les messages sont supprimés de l’abonnement au fur et à mesure de leur lecture. Toutefois, vous pouvez définir le paramètre facultatif `isPeekLock` sur **true** pour lire (afficher un aperçu) et verrouiller le message sans le supprimer de l’abonnement.
 
-Le comportement par défaut de lecture et de suppression du message dans le cadre de l’opération de réception est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d’un message en cas d’échec. Pour mieux comprendre ce comportement, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Comme Service Bus a marqué le message comme étant consommé, lorsque l’application redémarre et recommence à consommer des messages, elle manque le message consommé avant l’incident.
+Le comportement par défaut de lecture et de suppression du message dans le cadre de l’opération de réception est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d’un message en cas d’échec. Pour mieux comprendre ce comportement, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Étant donné que Service Bus a marqué le message comme étant consommé, quand l’application redémarre et recommence à consommer des messages, elle a manqué le message consommé avant l’incident.
 
 Si le paramètre `isPeekLock` est défini sur **true**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer de messages manquants. Lorsque Service Bus reçoit une requête, il recherche le message suivant à consommer, le verrouille pour empêcher d’autres consommateurs de le recevoir, et le renvoie à l’application.
 Dès lors que l’application traite le message (ou qu’elle le stocke de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **deleteMessage**, et passe le message à supprimer sous la forme d’un paramètre. La méthode **deleteMessage** marque le message comme consommé et le supprime de l’abonnement.

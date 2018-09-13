@@ -12,19 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247821"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841928"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
 L’inscription d’Azure Stack auprès d’Azure permet de télécharger des éléments de la Place de marché à partir d’Azure et de configurer la génération de rapports de données commerciales envoyés à Microsoft. Après avoir enregistré Azure Stack, l’utilisation est signalée au commerce Azure et vous pouvez le voir dans l’abonnement utilisé pour l’inscription.
+
+Les informations contenues dans cet article décrivent l’inscription de systèmes intégrés Azure Stack auprès d’Azure. Pour plus d’informations sur l’inscription du kit ASDK auprès d’Azure, consultez [Inscription d’Azure Stack](.\asdk\asdk-register.md) dans la documentation ASDK.
 
 > [!IMPORTANT]  
 > L’inscription est obligatoire pour prendre en charge les fonctionnalités complètes d’Azure Stack, notamment pour proposer les éléments sur la Place de marché. En outre, vous enfreindrez les conditions du contrat de licence d’Azure Stack si vous ne vous inscrivez pas lorsque vous utilisez le modèle de facturation à l’utilisation. Pour en savoir plus sur les modèles de licence d’Azure Stack, consultez la [page Comment acheter](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
@@ -100,9 +102,9 @@ Utilisez ces étapes pour inscrire Azure Stack auprès d’Azure à l’aide du 
 
 Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces environnements, vous devez inscrire le fournisseur de ressources Azure Stack auprès d’Azure, puis configurer votre modèle de facturation.
 
-1. Pour inscrire le fournisseur de ressources Azure Stack avec Azure, démarrez PowerShell ISE en tant qu’administrateur et utilisez les applets de commande PowerShell suivantes avec le paramètre **EnvironmentName** défini sur le type d’abonnement Azure approprié (voir les paramètres ci-dessous).
+1. Pour inscrire le fournisseur de ressources Azure Stack auprès d’Azure, démarrez PowerShell ISE en tant qu’administrateur et utilisez les applets de commande PowerShell suivantes avec le paramètre **EnvironmentName** défini sur le type d’abonnement Azure approprié (voir les paramètres ci-dessous).
 
-2. Ajoutez le compte Azure que vous utilisez pour inscrire Azure Stack. Pour ajouter le compte, exécutez la cmdlet **Add-AzureRmAccount**. Vous êtes invité à entrer vos informations d’identification du compte administrateur global Azure et vous devrez peut-être utiliser l’authentification à 2 facteurs en fonction de la configuration de votre compte.
+2. Ajoutez le compte Azure que vous utilisez pour inscrire Azure Stack. Pour ajouter le compte, exécutez l’applet de commande **Add-AzureRmAccount**. Vous êtes invité à entrer vos informations d’identification du compte administrateur global Azure et vous devrez peut-être utiliser l’authentification à 2 facteurs en fonction de la configuration de votre compte.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -160,9 +162,9 @@ Utilisez ces étapes pour inscrire Azure Stack auprès d’Azure à l’aide du 
 
 Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces environnements, vous devez inscrire le fournisseur de ressources Azure Stack auprès d’Azure, puis configurer votre modèle de facturation.
 
-1. Pour inscrire le fournisseur de ressources Azure Stack avec Azure, démarrez PowerShell ISE en tant qu’administrateur et utilisez les applets de commande PowerShell suivantes avec le paramètre **EnvironmentName** défini sur le type d’abonnement Azure approprié (voir les paramètres ci-dessous).
+1. Pour inscrire le fournisseur de ressources Azure Stack auprès d’Azure, démarrez PowerShell ISE en tant qu’administrateur et utilisez les applets de commande PowerShell suivantes avec le paramètre **EnvironmentName** défini sur le type d’abonnement Azure approprié (voir les paramètres ci-dessous).
 
-2. Ajoutez le compte Azure que vous utilisez pour inscrire Azure Stack. Pour ajouter le compte, exécutez la cmdlet **Add-AzureRmAccount**. Vous êtes invité à entrer vos informations d’identification du compte administrateur global Azure et vous devrez peut-être utiliser l’authentification à 2 facteurs en fonction de la configuration de votre compte.
+2. Ajoutez le compte Azure que vous utilisez pour inscrire Azure Stack. Pour ajouter le compte, exécutez l’applet de commande **Add-AzureRmAccount**. Vous êtes invité à entrer vos informations d’identification du compte administrateur global Azure et vous devrez peut-être utiliser l’authentification à 2 facteurs en fonction de la configuration de votre compte.
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
@@ -263,7 +265,7 @@ Pour obtenir la clé d’activation, exécutez les applets de commande PowerShel
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Créer une ressource d’activation dans Azure Stack
 
-Revenez à l’environnement Azure Stack avec le fichier ou le texte obtenu à partir de la clé d’activation créée depuis Get-AzsActivationKey. Vous allez ensuite créer une ressource d’activation dans Azure Stack à l’aide de cette clé d’activation. Pour créer une ressource d’activation, exécutez les applets de commande PowerShell suivantes :  
+Revenez à l’environnement Azure Stack avec le fichier ou le texte obtenu à partir de la clé d’activation créée depuis Get-AzsActivationKey. Vous allez ensuite créer une ressource d’activation dans Azure Stack à l’aide de cette clé d’activation. Pour créer une ressource d’activation, exécutez les applets de commande PowerShell suivantes :  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -329,13 +331,13 @@ Vous devez mettre à jour ou renouveler votre inscription dans les cas suivants�
 
 Vous devez d’abord supprimer la ressource d’activation d’Azure Stack, puis la ressource d’inscription dans Azure.  
 
-Pour supprimer la ressource d’activation d’Azure Stack, exécutez les applets de commande PowerShell suivantes dans votre environnement Azure Stack :  
+Pour supprimer la ressource d’activation d’Azure Stack, exécutez les applets de commande PowerShell suivantes dans votre environnement Azure Stack :  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Ensuite, pour supprimer la ressource d’inscription dans Azure, assurez-vous d’être sur un ordinateur connecté à Azure, connectez-vous au bon contexte Azure PowerShell et exécutez les applets de commande PowerShell appropriées, comme décrit ci-dessous.
+Ensuite, pour supprimer la ressource d’inscription d’Azure, vérifiez que vous êtes sur un ordinateur connecté à Azure, connectez-vous au contexte Azure PowerShell correct et exécutez les applets de commande PowerShell appropriées, comme décrit ci-dessous.
 
 Vous pouvez utiliser le jeton d’inscription utilisé pour créer la ressource :  
 
@@ -386,6 +388,8 @@ Pour les environnements Azure Stack qui utilisent un modèle de facturation selo
 
 2. Enregistrez ce jeton d’inscription pour l’utiliser sur la machine connectée à Azure. Vous pouvez copier le fichier ou le texte à partir de $FilePathForRegistrationToken.
 
+## <a name="move-a-registration-resource"></a>Déplacer une ressource d’inscription
+Le déplacement d’une ressource d’inscription entre des groupes de ressources sous le même abonnement **est** pris en charge pour tous les environnements. Toutefois, le déplacement d’une ressource d’inscription entre abonnements est uniquement pris en charge pour les fournisseurs de services cloud quand les deux abonnements correspondent au même ID partenaire. Pour plus d’informations sur le déplacement de ressources vers un nouveau groupe de ressources, consultez [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="registration-reference"></a>Référence de l’inscription
 

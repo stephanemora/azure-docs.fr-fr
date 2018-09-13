@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6729c87dcc9a85e2e3ccb6b4822213d38e2ba6f7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918014"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666112"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Présentation du cache local d’Azure App Service
 
@@ -44,13 +44,15 @@ La fonctionnalité de cache local d’Azure App Service fournit une vue de rôle
 * Elles ne sont pas affectées par les mises à niveau planifiées ou les temps d’arrêt imprévus, ni par d’autres interruptions éventuelles d’Azure Storage sur les serveurs qui fournissent le partage de contenu.
 * Elles ne redémarrent pas systématiquement après des modifications du partage de stockage.
 
-## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>Impact du cache local sur le comportement d’App Service
-* Le cache local est une copie des dossiers /site et /siteextensions de l’application web. Il est créé sur l’instance de machine virtuelle locale au démarrage de l’application web. La taille du cache local par application web est limitée à 300 Mo par défaut, mais vous pouvez augmenter cette taille jusqu’à 2 Go.
-* Le cache local est en lecture-écriture. Toutefois, toute modification est ignorée quand l’application web change de machines virtuelles ou est redémarrée. N’utilisez pas le cache local pour des applications qui stockent des données stratégiques dans le magasin de contenu.
-* Les applications web peuvent continuer à écrire des fichiers journaux et des données de diagnostic comme elles le font habituellement. Toutefois, les fichiers journaux et les données sont stockés localement sur la machine virtuelle. Ils sont ensuite régulièrement copiés dans le magasin de contenu partagé. Malgré la copie dans le magasin de contenu partagé, les écritures différées risquent d’être perdues en cas d’arrêt soudain d’une instance de machine virtuelle.
-* La structure des dossiers LogFiles et Data est modifiée pour les applications web qui utilisent le cache local. Ces dossiers de stockage contiennent désormais des sous-dossiers dont le nom est formé d’un identificateur unique et d’un horodatage. Chaque sous-dossier correspond à une instance de machine virtuelle sur laquelle l’application web est en cours d’exécution ou s’est exécutée.  
-* La publication de changements sur l’application web s’effectue dans le magasin de contenu partagé durable, quel que soit le mécanisme de publication utilisé. Pour actualiser le cache local de l’application web, vous devez redémarrer l’application. vous pouvez rendre le cycle de vie transparent. Pour plus d’informations, consultez la suite de cet article.
-* D:\Home pointe vers le cache local. D:\local continue de pointer vers le stockage propre à la machine virtuelle temporaire.
+## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Comment le cache local change le comportement d’App Service
+* _D:\home_ pointe vers le cache local, qui est créé sur l’instance de machine virtuelle au démarrage de l’application. _D:\local_ continue de pointer vers le stockage propre à la machine virtuelle temporaire.
+* Le cache local contient une copie unique des dossiers _/site_ et _/siteextensions_ du magasin de contenu partagé dans _D:\home\site_ et _D:\home\siteextensions_, respectivement. Les fichiers sont copiés dans le cache local au démarrage de l’application. La taille des deux dossiers pour chaque application est limitée à 300 Mo par défaut, mais vous pouvez l’augmenter jusqu’à 2 Go.
+* Le cache local est en lecture-écriture. Toutefois, toute modification est ignorée quand l’application change de machine virtuelle ou est redémarrée. N’utilisez pas le cache local pour des applications qui stockent des données stratégiques dans le magasin de contenu.
+* _D:\home\LogFiles_ et _D:\home\Data_ contiennent des fichiers journaux et des données d’application. Les deux sous-dossiers sont stockés localement sur l’instance de machine virtuelle et sont copiés régulièrement dans le magasin de contenu partagé. Les applications peuvent conserver des fichiers journaux et des données en les écrivant dans ces dossiers. Toutefois, la copie dans le magasin de contenu partagé est une technique de « meilleur effort », vous n’êtes donc pas à l’abri d’une perte des fichiers journaux et des données en cas d’incident soudain sur une instance de machine virtuelle.
+* Le [streaming des journaux](web-sites-enable-diagnostic-log.md#streamlogs) est affecté par la copie de « meilleur effort ». Vous pouvez observer jusqu'à une minute de délai dans les journaux diffusés en continu.
+* Dans le magasin de contenu partagé, la structure des dossiers _LogFiles_ et _Data_ change pour les applications qui utilisent le cache local. Ces dossiers contiennent maintenant des sous-dossiers dont le nom est formé d’un « identificateur unique » et d’un horodatage. Chaque sous-dossier correspond à une instance de machine virtuelle sur laquelle l’application est en cours d’exécution ou s’est exécutée.
+* Les autres dossiers de _D:\home_ restent dans le cache local et ne sont pas copiés dans le magasin de contenu partagé.
+* Le déploiement d’applications par n’importe quelle méthode prise en charge publie directement dans le magasin de contenu partagé durable. Pour actualiser les dossiers _D:\home\site_ et _D:\home\siteextensions_ dans le cache local, l’application doit être redémarrée. vous pouvez rendre le cycle de vie transparent. Pour plus d’informations, consultez la suite de cet article.
 * L’affichage de contenu par défaut du site SCM continue à être celui du magasin de contenu partagé.
 
 ## <a name="enable-local-cache-in-app-service"></a>Activer le cache local dans App Service

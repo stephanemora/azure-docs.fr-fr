@@ -1,5 +1,5 @@
 ---
-title: Comprendre la remise de réservation Azure | Microsoft Docs
+title: Comprendre la remise des réservations Azure | Microsoft Docs
 description: Découvrez comment une remise de réservation est appliquée aux bases de données SQL en cours d’exécution.
 services: billing
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 3a5339200309a50eace5b48dfbd9127b7eb1dae6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 923337291d297832e03892b505f4efa8d3bb3f36
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632331"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300712"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Comprendre comment une remise de réservation Azure est appliquée aux bases de données SQL
 
@@ -40,7 +40,7 @@ Dans le reste de ces exemples, nous supposons que la capacité réservée SQL Da
 - Scénario 3 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 30. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Les deux sont couvertes par la remise de réservation.
 - Scénario 4 : Vous exécutez une base de données SQL à 16 cœurs de 13 h 00 à 13 h 45. Vous exécutez une autre base de données SQL à 16 cœurs de 13 h 30 à 14 h 00. Le prix du chevauchement de 15 minutes vous est facturé selon la méthode du paiement à l’utilisation. La remise de réservation s’applique aux calculs utilisés pendant la période restante.
 
-Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation de l’utilisation, consultez [Comprendre l’utilisation des réservations Azure](https://go.microsoft.com/fwlink/?linkid=862757).
+Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation d’utilisation, consultez [Comprendre l’utilisation des réservations Azure](https://go.microsoft.com/fwlink/?linkid=862757).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

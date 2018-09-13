@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 037c2714d146bd59b30573df874794342d743e03
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42142375"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782230"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Runbooks enfants dans Azure Automation
 
@@ -72,7 +72,9 @@ Si vous ne voulez pas que le runbook parent se bloque pendant qu’il attend, vo
 
 Les paramètres d’un runbook enfant démarré avec une applet de commande sont fournis sous forme de table de hachage, comme décrit dans [Paramètres du runbook](automation-starting-a-runbook.md#runbook-parameters). Seuls les types de données simples peuvent être utilisés. Si le Runbook possède un paramètre avec un type de données complexe, il doit être appelé en ligne.
 
-Si vous utilisez plusieurs abonnements, le contexte de l’abonnement peut être perdu durant l’appel des runbooks enfants. Pour que le contexte de l’abonnement soit passé aux runbooks enfants, ajoutez le paramètre `DefaultProfile` à l’applet de commande et passez-lui le contexte.
+Le contexte d’abonnement peut être perdu quand vous appelez les runbooks enfant comme des travaux séparés. Pour que le runbook enfant appelle des applets de commande Azure RM sur l’abonnement Azure souhaité, il doit s’authentifier sur cet abonnement indépendamment du runbook parent.
+
+Si des travaux au sein du même compte Automation utilisent plusieurs abonnements, la sélection d’un abonnement dans un travail peut changer le contexte d’abonnement actuellement sélectionné pour d’autres travaux également, ce qui n’est normalement pas souhaitable. Pour éviter ce problème, enregistrez le résultat de l’appel de l’applet de commande `Select-AzureRmSubscription` et passez cet objet au paramètre `DefaultProfile` de tous les appels d’applets de commande Azure RM suivants. Ce modèle doit être appliqué de manière cohérente à tous les runbooks exécutés dans ce compte Automation.
 
 ### <a name="example"></a>Exemples
 

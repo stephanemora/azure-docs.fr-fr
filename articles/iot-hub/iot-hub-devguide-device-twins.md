@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: e94b023275f3992bea9595195688eebf42f0f229
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186786"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288276"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux d’appareil IoT Hub
 
@@ -254,7 +254,7 @@ Les Tags (balises) ainsi que les propriétés souhaitées (Desired) et signalée
     }
     ```
 
-* Aucune valeur de chaîne ne peut avoir une longueur supérieure à 4 Ko.
+* Aucune valeur de chaîne ne peut avoir une longueur supérieure à 512 octets.
 
 ## <a name="device-twin-size"></a>Taille de jumeau d’appareil
 IoT Hub impose une limite de taille de 8 Ko à chacune des valeurs totales respectives de `tags`, de `properties/desired` et de `properties/reported`, à l’exception des éléments en lecture seule.
@@ -354,6 +354,7 @@ Pour tenter de mettre en pratique certains des concepts décrits dans cet articl
 
 * [Utilisation d’un jumeau d’appareil][lnk-twin-tutorial]
 * [Utilisation des propriétés de jumeau d’appareil][lnk-twin-properties]
+* [Gestion des appareils avec le kit de ressources Azure IoT pour VS Code][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -377,6 +378,7 @@ Pour tenter de mettre en pratique certains des concepts décrits dans cet articl
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow

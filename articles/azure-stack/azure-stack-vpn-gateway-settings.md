@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: brenduns
-ms.openlocfilehash: e9e474fe4a32bb99673fba2a88f28a3161f23362
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6380936766bb0f3848811be305783c274867b0fc
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050416"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381865"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Paramètres de configuration de la passerelle VPN pour Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "43050416"
 
 Une passerelle VPN est un type de passerelle de réseau virtuel qui envoie le trafic chiffré entre votre réseau virtuel dans Azure Stack et une passerelle VPN distante. La passerelle VPN distante peut être dans Azure, un appareil dans votre centre de données ou un appareil dans un autre site.  S’il y a une connexion réseau entre deux points de terminaison, vous pouvez établir une connexion VPN sécurisée de site à site (S2S) entre les deux réseaux.
 
-Une connexion de passerelle VPN s’appuie sur la configuration de plusieurs ressources, contenant chacune des paramètres configurables. Les sections de cet article présentent les ressources et les paramètres relatifs à une passerelle VPN pour un réseau virtuel créé dans le modèle de déploiement Resource Manager. Vous trouverez les descriptions et les diagrammes de topologie de chaque solution de connexion dans [À propos la passerelle VPN pour Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
+Une connexion de passerelle VPN s’appuie sur la configuration de plusieurs ressources, contenant chacune des paramètres configurables. Cet article présente les ressources et les paramètres relatifs à une passerelle VPN pour un réseau virtuel créé dans le modèle de déploiement Resource Manager. Vous trouverez les descriptions et les diagrammes de topologie de chaque solution de connexion dans [À propos la passerelle VPN pour Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
 ## <a name="vpn-gateway-settings"></a>Paramètres de la passerelle VPN
 
@@ -100,7 +100,7 @@ Lorsque vous créez la passerelle de réseau virtuel d’une configuration de pa
 >
 > En outre, pour le moment, Azure Stack ne gère pas l’utilisation des sélecteurs de trafic reposant sur les stratégies pour les passerelles basées sur le routage, car les configurations de stratégies IPSec/IKE personnalisées ne sont pas prises en charge.
 
-* **PolicyBased** : les VPN basés sur les stratégies chiffrent et acheminent les paquets par le biais des tunnels IPsec basés sur les stratégies IPsec qui sont configurées avec les combinaisons de préfixes d’adresses entre votre réseau local et le réseau virtuel Azure Stack. La stratégie ou le sélecteur de trafic sont généralement définis sous la forme d’une liste d’accès dans la configuration de périphérique VPN.
+* **PolicyBased** : les VPN basés sur les stratégies chiffrent et acheminent les paquets par le biais des tunnels IPsec basés sur les stratégies IPsec qui sont configurées avec les combinaisons de préfixes d’adresses entre votre réseau local et le réseau virtuel Azure Stack. La stratégie ou le sélecteur de trafic prennent généralement la forme d’une liste d’accès dans la configuration de périphérique VPN.
 
   >[!NOTE]
   >Le type PolicyBased est pris en charge dans Azure, mais non dans Azure Stack.
@@ -184,14 +184,12 @@ Contrairement à Azure, qui prend en charge plusieurs offres en tant qu’initia
 |Version IKE |IKEv2 |
 |Chiffrement et algorithmes de hachage (Chiffrement)     | GCMAES256|
 |Chiffrement et algorithmes de hachage (Authentification) | GCMAES256|
-|Durée de vie de l’AS (durée)  | 27 000 secondes<sup>Voir remarque 1</sup> |
-|Durée de vie de l’AS (octets) | 33 553 408<sup>Voir remarque 2</sup>     |
-|PFS (Perfect Forward Secrecy) |Aucun<sup>Voir remarque 3</sup> |
+|Durée de vie de l’AS (durée)  | 27 000 secondes  |
+|Durée de vie de l’AS (octets) | 33 553 408     |
+|PFS (Perfect Forward Secrecy) |Aucun<sup>Voir remarque 1</sup> |
 |Détection d’homologue mort | Pris en charge|  
 
-* *Remarque 1 :* Avant la version 1803, Azure Stack utilise la valeur 14 400 pour la propriété de durée de vie de l’AS (durée).
-* *Remarque 2 :* Avant la version 1803, Azure Stack utilise la valeur 819 200 pour la propriété de durée de vie de l’AS (octets).
-* *Remarque 3 :* Avant la version 1807, Azure Stack utilise la valeur PFS2048 pour la propriété PFS (Perfect Forward Secrecy).
+* *Remarque 1 :* avant la version 1807, Azure Stack utilise la valeur PFS2048 pour la propriété PFS (Perfect Forward Secrecy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

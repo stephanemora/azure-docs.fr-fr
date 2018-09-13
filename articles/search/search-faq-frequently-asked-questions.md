@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
-ms.openlocfilehash: d731faffe1b2448670a5fafa0278ff8c7fb21722
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 1491fdb0f208100619e569f9a74d5e697a0065a6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792730"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841675"
 ---
 # <a name="azure-search---frequently-asked-questions-faq"></a>Recherche Azure - Questions fréquentes (FAQ)
 
@@ -46,6 +46,12 @@ Vous ne pouvez pas suspendre le service. Lorsque le service est créé, les ress
 Même si vous pouvez [obtenir une définition d’index](https://docs.microsoft.com/rest/api/searchservice/get-index) à tout moment, il n’existe pas de fonctionnalité d’extraction d’index, de création de capture instantanée ou de sauvegarde-restauration qui permettent de télécharger un index cloud *rempli* sur un système local, ou de le déplacer vers un autre service Recherche Azure.
 
 Les index sont générés et remplis à partir du code que vous écrivez, et s’exécutent uniquement dans le cloud, dans la Recherche Azure. En règle générale, les clients qui souhaitent déplacer un index vers un autre service modifient leur code de manière à utiliser un nouveau point de terminaison, puis réexécutent l’indexation. Si vous voulez qu’une fonctionnalité vous permette de créer une capture instantanée ou une sauvegarde d’index, votez sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
+
+### <a name="can-i-restore-my-index-or-service-once-it-is-deleted"></a>Puis-je restaurer mon index ou mon service une fois qu’il est supprimé ?
+
+Non, vous ne pouvez pas restaurer un index ou un service. Si vous supprimez un index Recherche Azure, l’opération est définitive et l’index ne peut pas être récupéré. Quand vous supprimez un service Recherche Azure, tous les index dans le service sont supprimés définitivement. En outre, si vous supprimez un groupe de ressources Azure qui contient un ou plusieurs services Recherche Azure, tous les services sont supprimés définitivement.  
+
+La restauration des ressources telles que les index, les indexeurs, les sources de données et les compétences nécessite leur recréation à partir du code. Dans le cas des index, vous devez réindexer les données provenant de sources externes. Pour cette raison, nous vous recommandons vivement de conserver une copie principale ou une sauvegarde des données d’origine dans un autre magasin de données, tel qu’Azure SQL Database ou Cosmos DB.
 
 ### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexershttpsdocsmicrosoftcomazuresearchsearch-howto-connecting-azure-sql-database-to-azure-search-using-indexers"></a>Puis-je effectuer une indexation à partir de réplicas de base de données SQL ? (s’applique aux [indexeurs Azure SQL Database](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 

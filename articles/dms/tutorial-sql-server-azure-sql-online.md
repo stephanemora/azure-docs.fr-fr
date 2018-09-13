@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/27/2018
-ms.openlocfilehash: 90d5ce098241dfc207356a8594a3c8c2d268ad83
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 08/31/2018
+ms.openlocfilehash: b4cbc7fc7e031fcbd25229792488dbb4002ea23e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049078"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340209"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Migrer SQL Server vers Azure SQL Database en ligne à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) avec un temps d’arrêt minimal. Dans ce tutoriel, vous allez migrer la base de données **Adventureworks2012** restaurée dans une instance locale de SQL Server 2016 (ou une version ultérieure) vers Azure SQL Database à l’aide d’Azure Database Migration Service.
@@ -30,6 +30,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Exécuter la migration.
 > * Surveiller la migration.
 > * Télécharger un rapport de migration.
+
+> [!IMPORTANT]
+> Pour une expérience de migration optimale, Microsoft vous recommande de créer une instance Azure Database Migration Service dans la même région Azure que la base de données cible. Le déplacement des données entre les régions ou les zones géographiques peut ralentir le processus de migration et introduire des erreurs.
 
 ## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
@@ -159,7 +162,7 @@ Pour migrer le schéma **AdventureWorks2012** vers Azure SQL Database, procédez
     ![Déployer le schéma](media\tutorial-sql-server-to-azure-sql-online\dma-schema-deploy.png)
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Inscrire le fournisseur de ressources Microsoft.DataMigration
-1. Connectez-vous au Portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
+1. Connectez-vous au portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
  
    ![Afficher les abonnements au portail](media\tutorial-sql-server-to-azure-sql-online\portal-select-subscription1.png)
        
@@ -276,7 +279,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
     ![État de l’activité - En cours](media\tutorial-sql-server-to-azure-sql-online\dms-activity-in-progress.png)
 
 ## <a name="perform-migration-cutover"></a>Effectuer le basculement de la migration
-Une fois le chargement complet initial effectué, les bases de données sont identifiées par le libellé **Prêt pour le basculement**.
+Une fois le chargement complet initial effectué, les bases de données identifiées par le libellé **Prêt pour le basculement**.
 
 1. Lorsque vous êtes prêt à effectuer la migration de base de données, sélectionnez **Démarrer le basculement**.
 

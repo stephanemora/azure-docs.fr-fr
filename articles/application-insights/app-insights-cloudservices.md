@@ -6,25 +6,25 @@ documentationcenter: ''
 keywords: WAD2AI, Azure Diagnostics
 author: mrbullwinkle
 manager: carmonm
-editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: tbd
-ms.date: 05/05/2017
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783515"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour Services cloud Azure
 [Les applications de service cloud Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) peuvent être surveillées par [Application Insights][start] pour la disponibilité, les performances, les défaillances et l’utilisation en combinant les données des kits de développement logiciel (SDK) d’Application Insights avec les données [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
 
-![Exemples](./media/app-insights-cloudservices/sample.png)
+![Capture d’écran du tableau de bord de présentation](./media/app-insights-cloudservices/overview-graphs.png)
 
 ## <a name="before-you-start"></a>Avant de commencer
 Vous devez disposer des éléments suivants :
@@ -81,9 +81,8 @@ Si vous avez décidé de créer une ressource distincte pour chaque rôle (et é
 1. Dans le [portail Azure][portal], créez une ressource Application Insights. Choisissez ASP.NET comme type d’application. 
 
     ![Cliquez sur Nouveau > Application Insights](./media/app-insights-cloudservices/01-new.png)
-2. Notez que chaque ressource est identifiée par une clé d’instrumentation. Vous en aurez peut-être besoin plus tard si vous souhaitez configurer ou vérifier manuellement la configuration du SDK.
+2. Chaque ressource est identifiée par une clé d’instrumentation. Vous en aurez peut-être besoin plus tard si vous souhaitez configurer ou vérifier manuellement la configuration du SDK.
 
-    ![Cliquez sur Propriétés, sélectionnez la clé et appuyez sur Ctrl + C](./media/app-insights-cloudservices/02-props.png) 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurer Diagnostics Azure pour chaque rôle
 Définissez cette option pour surveiller votre application avec Application Insights. Pour les rôles web, vous bénéficierez d’alertes, de diagnostics et d’une surveillance des performances, ainsi que de l’analyse de l’utilisation. Pour d’autres rôles, vous pouvez rechercher et surveiller des diagnostics Azure tels que le redémarrage, les compteurs de performances et les appels à System.Diagnostics.Trace. 
@@ -107,14 +106,14 @@ Dans Visual Studio, configurez le Kit de développement logiciel (SDK) Applicat
 1. **Rôles Web** : cliquez avec le bouton droit sur le projet et sélectionnez **Configurer Application Insights** ou **Ajouter la télémétrie Application Insights**.
 
 2. **Rôles de travail** : 
- * cliquez avec le bouton droit sur le projet et sélectionnez **Gérer les packages NuGet**.
+ * Cliquez avec le bouton droit sur le projet et sélectionnez **Gérer les packages NuGet**.
  * Ajoutez [Application Insights pour les serveurs Windows](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
     ![Recherchez « Application Insights »](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 3. Configurez le Kit SDK pour envoyer des données à la ressource Application Insights.
 
-    Dans une fonction de démarrage appropriée, définissez la clé d’instrumentation à partir du paramètre de configuration dans le fichier .cscfg :
+    Dans une fonction de démarrage appropriée, définissez la clé d'instrumentation à partir du paramètre de configuration figurant dans le fichier ``.cscfg file`` :
  
     ```csharp
    
@@ -128,7 +127,7 @@ Dans Visual Studio, configurez le Kit de développement logiciel (SDK) Applicat
    * [Pour les pages Web](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 4. Définissez le fichier ApplicationInsights.config pour que celui-ci soit toujours copié dans le répertoire de sortie. 
    
-    (Dans le fichier .config, vous verrez des messages vous demandant de placer la clé d'instrumentation là. Toutefois, pour les applications cloud, il est préférable de la définir à partir du fichier .cscfg. Ceci garantit que le rôle est identifié correctement dans le portail.)
+    (Dans le fichier .config, vous verrez des messages vous demandant de placer la clé d'instrumentation là. Toutefois, pour les applications cloud, il est préférable de la définir à partir du fichier ``.cscfg file``. Ceci garantit que le rôle est identifié correctement dans le portail.)
 
 #### <a name="run-and-publish-the-app"></a>Exécution et publication de l’application
 Exécutez votre application et connectez-vous à Azure. Ouvrez les ressources Application Insights que vous avez créées pour voir apparaître les points de données individuels dans [Recherche](app-insights-diagnostic-search.md) et les données agrégées dans [Metrics Explorer](app-insights-metrics-explorer.md). 
@@ -152,7 +151,7 @@ Pour visualiser les compteurs de performances et le nombre d’événements, ouv
 
 ![Données de diagnostics Azure](./media/app-insights-cloudservices/23-wad.png)
 
-Utilisez [Search](app-insights-diagnostic-search.md) ou une [requête Analytics](app-insights-analytics-tour.md) pour effectuer des recherches dans les différents journaux de suivi envoyés par Azure Diagnostics. Par exemple, supposons que vous disposez d’une exception non prise en charge qui a provoqué un incident et le recyclage d’un rôle. Cette information s’affiche dans le canal Application du Journal des événements Windows. Vous pouvez utiliser Search pour rechercher l’erreur du Journal des événements Windows et obtenir la trace de pile complète pour l’exception. Cela vous aidera à identifier l’origine du problème.
+Utilisez [Search](app-insights-diagnostic-search.md) ou une [requête Analytics](app-insights-analytics-tour.md) pour effectuer des recherches dans les différents journaux de suivi envoyés par Azure Diagnostics. Par exemple, supposons que vous disposez d’une exception non prise en charge qui a provoqué un incident et le recyclage d’un rôle. Cette information s’affiche dans le canal Application du Journal des événements Windows. Vous pouvez utiliser Search pour rechercher l’erreur du Journal des événements Windows et obtenir la trace de pile complète pour l’exception. Cela vous aidera à identifier la cause du problème.
 
 ![Recherche de diagnostics Azure](./media/app-insights-cloudservices/25-wad.png)
 
@@ -197,7 +196,7 @@ Pour les rôles web, ces compteurs sont également collectés :
 
 Vous pouvez spécifier des compteurs personnalisés ou d’autres compteurs de performances Windows en modifiant ApplicationInsights.config [comme dans cet exemple](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
-  ![Compteurs de performances](./media/app-insights-cloudservices/OLfMo2f.png)
+  ![Compteurs de performances](./media/app-insights-cloudservices/002-servers.png)
 
 ## <a name="correlated-telemetry-for-worker-roles"></a>Télémétrie liée aux rôles de travail
 Elle représente une riche expérience de diagnostic, lorsque vous pouvez découvrir ce qui a provoqué l’échec de la demande ou bien une forte latence. Grâce aux rôles Web, le Kit SDK définit automatiquement la corrélation entre les télémétries connexes. Pour les rôles de travail, vous pouvez utiliser un initialiseur de télémétrie personnalisée pour définir un attribut de contexte Operation.Id commun pour toutes les télémétries afin d’y parvenir. Ceci vous permet de découvrir très rapidement si le problème de latence/d'échec était dû à une dépendance ou à votre code ! 
@@ -206,11 +205,7 @@ Voici comment procéder :
 
 * Définissez l'ID de corrélation dans un CallContext, comme indiqué [ici](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36). Dans ce cas, nous utilisons l'ID de la demande comme id de corrélation
 * Ajoutez une implémentation personnalisée de TelemetryInitializer, qui définit l’Operation.Id sur le correlationId mentionné ci-dessus. Voici un exemple : [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
-* Ajoutez l'initialiseur de télémétrie personnalisée. Effectuez cette opération dans le fichier ApplicationInsights.config ou dans le code mentionné [ici](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233)
-
-Et voilà ! L’expérience du portail est déjà intégrée pour vous permettre de découvrir très rapidement toutes les télémétries qui lui sont associées :
-
-![Télémétrie corrélée](./media/app-insights-cloudservices/bHxuUhd.png)
+* Ajoutez l'initialiseur de télémétrie personnalisée. Effectuez cette opération dans le fichier ApplicationInsights.config ou dans le code mentionné [ici](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Télémétrie client
 [Ajoutez le Kit de développement logiciel (SDK) JavaScript à vos pages web][client] pour obtenir des données de télémétrie basées sur votre navigateur, comme le nombre d’affichages de vos pages, les délais de chargement de vos pages, les exceptions de script, mais aussi les données de télémétrie personnalisées que vous pouvez rédiger dans les scripts de vos pages.

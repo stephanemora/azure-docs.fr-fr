@@ -6,21 +6,21 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/30/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8266d9e3530969154ac9c8c877badda9f8b4fed3
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124995"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307270"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Choix du niveau de service et des ressources de calcul, de mémoire, de stockage et d’E/S pour vCore
 
 Le modèle d’achat vCore vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Il vous permet également de choisir la génération de matériel :
 - Gen 4 : jusqu'à 24 processeurs logiques basés sur le processeur Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (cœur physique), 7 Go par cœur, disque SSD attaché
-- Gen 5 : jusqu'à 80 processeurs logiques basés sur le processeur Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. Go par cœur, disque SSD fast eNVM
+- Gen 5 : jusqu’à 80 processeurs logiques basés sur le processeur Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1. Go par cœur, disque SSD fast eNVM
 
 Le modèle vCore vous permet également d’utiliser [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) afin de réduire les coûts.
 
@@ -34,7 +34,7 @@ Le tableau suivant montre les différences entre ces deux niveaux :
 |---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|
 |Calcul|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|
-|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,5 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,5 Go par cœur |
+|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur |
 |Stockage|[Stockage distant Premium](../virtual-machines/windows/premium-storage.md),<br/>Base de données unique : 5 Go à 4 To<br/>Instance gérée : 32 Go à 8 To |Stockage SSD local,<br/>Base de données unique : 5 Go à 1 To<br/>Instance gérée : 32 Go à 4 To |
 |Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec un maximum de 7 000 IOPS</br>Instance gérée : dépend de la [taille du fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|
 |Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|

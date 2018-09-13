@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 857998c73abed76c9e20d5b3422ce607fb9f733d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122403"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782878"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console série de machine virtuelle (préversion) 
 
 
-La console série de machine virtuelle Azure permet aux machines virtuelles Linux et Windows d’accéder à une console texte. Cette connexion série est effectuée via le port série COM1 de la machine virtuelle. Elle fournit l’accès à la machine virtuelle et n’est pas liée au réseau de la machine virtuelle ni à l’état du système d’exploitation. Pour une machine virtuelle, l’accès à la console série n’est possible que via le portail Azure. De plus, seuls les utilisateurs disposant d’un rôle de Contributeur (ou supérieur) pour cette machine virtuelle sont autorisés à accéder à la console. 
+La console série de machine virtuelle Azure permet aux machines virtuelles Linux d’accéder à une console texte. Cette connexion série est effectuée via le port série COM1 de la machine virtuelle. Elle fournit l’accès à la machine virtuelle et n’est pas liée au réseau de la machine virtuelle ni à l’état du système d’exploitation. Pour une machine virtuelle, l’accès à la console série n’est possible que via le portail Azure. De plus, seuls les utilisateurs disposant d’un rôle de Contributeur (ou supérieur) pour cette machine virtuelle sont autorisés à accéder à la console. 
 
 Pour obtenir la documentation sur la console série pour les machines virtuelles Windows, [cliquez ici](../windows/serial-console.md).
 
@@ -38,7 +38,7 @@ Pour obtenir la documentation sur la console série pour les machines virtuelles
 * L’option [Diagnostics de démarrage](boot-diagnostics.md) DOIT être activée sur votre machine virtuelle (voir la capture d’écran ci-dessous).
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * Le compte Azure qui utilise la console série doit disposer du [rôle Contributeur](../../role-based-access-control/built-in-roles.md) pour la machine virtuelle et pour le compte de stockage de [diagnostics de démarrage](boot-diagnostics.md). 
 * La machine virtuelle pour laquelle vous accédez à la console doit également avoir un compte avec mot de passe. Vous pouvez en créer un avec la fonctionnalité [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles (voir la capture d’écran ci-dessous).
 
@@ -61,6 +61,29 @@ Pour les machines virtuelles, la console série est accessible uniquement via le
 
 > [!NOTE] 
 > La console série nécessite la configuration d’un utilisateur local avec un mot de passe. À ce stade, les machines virtuelles configurées uniquement avec une clé publique SSH ne disposent d’aucun accès à la console en série. Pour créer un utilisateur local avec mot de passe, utilisez [Extension d’accès aux machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (également disponible dans le portail en cliquant sur « Réinitialiser le mot de passe ») et créez un utilisateur local avec un mot de passe.
+
+## <a name="access-serial-console-for-linux"></a>Accéder à la console série pour Linux
+Pour permettre le bon fonctionnement de la console série, le système d’exploitation invité doit être configuré pour la lecture et l’écriture des messages de console sur le port série. La plupart des [distributions Azure Linux approuvées](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) présentent la console série configurée par défaut. Un simple clic sur la section de la console série dans le portail Azure vous octroie l’accès à la console. 
+
+Distribution      | Accès à la console série
+:-----------|:---------------------
+Red Hat Enterprise Linux    | L’accès à la console série est activé par défaut pour les images Red Hat Enterprise Linux disponibles sur Azure. 
+CentOS      | Les images CentOS disponibles sur Azure disposent de l’accès à la console activé par défaut. 
+Ubuntu      | Les images Ubuntu disponibles sur Azure disposent de l’accès à la console activé par défaut.
+CoreOS      | Les images CoreOS disponibles sur Azure disposent de l’accès à la console activé par défaut.
+SUSE        | Les images SLES les plus récentes disponibles sur Azure disposent de l’accès à la console activé par défaut. Si vous utilisez des versions antérieures (version 10 ou antérieure) de SLES sur Azure, suivez les instructions de [l’article de la base de connaissances](https://www.novell.com/support/kb/doc.php?id=3456486) pour activer la console série. 
+Oracle Linux        | Les images Oracle Linux disponibles sur Azure disposent de l’accès à la console activé par défaut.
+Images Linux personnalisées     | Pour activer la console série pour votre image Linux personnalisée de machine virtuelle, activez l’accès à la console dans /etc/inittab pour exécuter un terminal sur ttyS0. Voici un exemple d’ajout de cet élément dans le fichier inittab : `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Pour plus d’informations sur la création d’images personnalisées, consultez [Création et chargement d’un disque dur virtuel Linux dans Azure](https://aka.ms/createuploadvhd).
+
+## <a name="common-scenarios-for-accessing-serial-console"></a>Scénarios courants pour l’accès à la console série 
+Scénario          | Actions à effectuer dans la console série                
+:------------------|:-----------------------------------------
+Fichier FSTAB endommagé | Saisissez la clé `Enter` pour continuer et réparer le fichier fstab à l’aide d’un éditeur de texte. Vous devrez peut-être activer le mode mono-utilisateur pour cela. Consultez [Résoudre les incidents fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) et [Utilisation de la console série pour accéder à GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md) pour commencer.
+Règles de pare-feu incorrectes | Accès à la console série et correction des tables d’adresses IP. 
+Contrôle de la corruption du système de fichiers | Accès à la console série et récupération du système de fichiers. 
+Problèmes de configuration SSH/RDP | Accès à la console série et modification des paramètres. 
+Système de verrouillage du réseau| Accès à la console série via le portail de gestion du système. 
+Interaction avec le chargeur de démarrage | Accès à GRUB via la console série. Accédez à [Utilisation de la console série pour accéder à GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md) pour commencer. 
 
 ## <a name="disable-serial-console"></a>Désactiver la console série
 Par défaut, tous les abonnements ont accès à la console série pour toutes les machines virtuelles. Vous pouvez désactiver la console série au niveau de l’abonnement ou au niveau de la machine virtuelle.
@@ -120,31 +143,14 @@ Si un utilisateur est connecté à la console série alors qu’un autre utilisa
 >[!CAUTION] 
 Cela signifie donc que l’utilisateur qui laisse sa place n’est pas réellement déconnecté. La possibilité d’appliquer une déconnexion réelle (via SIGHUP ou autre mécanisme similaire) est actuellement étudiée. Pour Windows, il existe un délai d’expiration automatique qui est activé dans la console SAC (Special Administrative Console). Toutefois, pour Linux, vous pouvez configurer un délai d’expiration terminal. Pour ce faire, il vous suffit d’ajouter `export TMOUT=600` à votre profil .bash_profile ou .profile pour l’utilisateur avec lequel vous vous connectez à la console, pour mettre fin à la session après un délai de 10 minutes.
 
-### <a name="disable-feature"></a>Désactiver la fonctionnalité
-La fonctionnalité Console série peut être désactivée pour certaines machines virtuelles, en désactivant le paramètre de diagnostics de démarrage.
+## <a name="accessibility"></a>Accessibilité
+L’accessibilité est un point central de la console série Azure. Nous avons donc fait en sorte que la console série soit accessible aux personnes présentant des déficiences visuelles ou auditives, ainsi qu’aux personnes qui ne peuvent pas utiliser une souris.
 
-## <a name="common-scenarios-for-accessing-serial-console"></a>Scénarios courants pour l’accès à la console série 
-Scénario          | Actions à effectuer dans la console série                |  Applicabilité du système d’exploitation 
-:------------------|:-----------------------------------------|:------------------
-Fichier FSTAB endommagé | Saisissez la clé `Enter` pour continuer et réparer le fichier fstab à l’aide d’un éditeur de texte. Vous devrez peut-être activer le mode mono-utilisateur pour cela. Consultez [Résoudre les incidents fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) et [Utilisation de la console série pour accéder à GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md) pour commencer. | Linux 
-Règles de pare-feu incorrectes | Accès à la console série et correction des tables d’adresses IP ou des règles de pare-feu Windows. | Linux/Windows 
-Contrôle de la corruption du système de fichiers | Accès à la console série et récupération du système de fichiers. | Linux/Windows 
-Problèmes de configuration SSH/RDP | Accès à la console série et modification des paramètres. | Linux/Windows 
-Système de verrouillage du réseau| Accès à la console série via le portail de gestion du système. | Linux/Windows 
-Interaction avec le chargeur de démarrage | Accès à GRUB/BCD via la console série. Accédez à [Utilisation de la console série pour accéder à GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md) pour commencer. | Linux/Windows 
+### <a name="keyboard-navigation"></a>Navigation au clavier
+Utilisez la touche `tab` de votre clavier pour naviguer dans l’interface de la console série, à l’intérieur du portail Azure. Votre emplacement est mis en surbrillance à l’écran. Pour quitter le panneau de la console série, appuyez sur `Ctrl + F6` sur votre clavier.
 
-## <a name="access-serial-console-for-linux"></a>Accéder à la console série pour Linux
-Pour permettre le bon fonctionnement de la console série, le système d’exploitation invité doit être configuré pour la lecture et l’écriture des messages de console sur le port série. La plupart des [distributions Azure Linux approuvées](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) présentent la console série configurée par défaut. Un simple clic sur la section de la console série dans le portail Azure vous octroie l’accès à la console. 
-
-Distribution      | Accès à la console série
-:-----------|:---------------------
-Red Hat Enterprise Linux    | L’accès à la console série est activé par défaut pour les images Red Hat Enterprise Linux disponibles sur Azure. 
-CentOS      | Les images CentOS disponibles sur Azure disposent de l’accès à la console activé par défaut. 
-Ubuntu      | Les images Ubuntu disponibles sur Azure disposent de l’accès à la console activé par défaut.
-CoreOS      | Les images CoreOS disponibles sur Azure disposent de l’accès à la console activé par défaut.
-SUSE        | Les images SLES les plus récentes disponibles sur Azure disposent de l’accès à la console activé par défaut. Si vous utilisez des versions antérieures (version 10 ou antérieure) de SLES sur Azure, suivez les instructions de [l’article de la base de connaissances](https://www.novell.com/support/kb/doc.php?id=3456486) pour activer la console série. 
-Oracle Linux        | Les images Oracle Linux disponibles sur Azure disposent de l’accès à la console activé par défaut.
-Images Linux personnalisées     | Pour activer la console série pour votre image Linux personnalisée de machine virtuelle, activez l’accès à la console dans /etc/inittab pour exécuter un terminal sur ttyS0. Voici un exemple d’ajout de cet élément dans le fichier inittab : `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Pour plus d’informations sur la création d’images personnalisées, consultez [Création et chargement d’un disque dur virtuel Linux dans Azure](https://aka.ms/createuploadvhd).
+### <a name="use-serial-console-with-a-screen-reader"></a>Utiliser la console série avec un lecteur d’écran
+La console série comprend une prise en charge intégrée des lecteurs d’écran. Quand le lecteur d’écran est activé, le texte de remplacement du bouton sélectionné est lu à voix haute.
 
 ## <a name="errors"></a>Errors
 La plupart des erreurs sont de nature temporaire et peuvent être corrigées par une nouvelle tentative de connexion à la console série. Le tableau ci-dessous présente une liste d’erreurs accompagnées de mesures de prévention.
@@ -164,6 +170,7 @@ Problème                           |   Atténuation
 Aucune option n’est disponible pour la console série de l’instance de groupe de machines virtuelles identiques |  À ce stade de la préversion, l’accès à la console série n’est pas pris en charge pour les instances de groupe de machines virtuelles identiques.
 L’invite de connexion ne s’affiche pas lorsque vous appuyez sur la touche Entrée après l’affichage de la bannière de connexion | Consultez la page suivante : [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cela peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de GRUB qui fait que Linux ne parvient pas à se connecter correctement au port série.
 Une réponse « Interdit » s’est produite lors de l’accès au compte de stockage des diagnostics de démarrage de cette machine virtuelle. | Assurez-vous que les diagnostics de démarrage n’ont pas un pare-feu de compte. Un compte de stockage des diagnostics de démarrage accessible est nécessaire au fonctionnement de la console série.
+Le texte de la console série n’occupe l’écran que partiellement (souvent après l’utilisation d’un éditeur de texte) | Ce problème connu se produit lorsque la taille de l’écran est inconnue et qu’une connexion série est utilisée. Il est recommandé d’installer xterm ou un autre utilitaire similaire permettant de redimensionner l’affichage. L’exécution de la commande « resize » permet de résoudre ce problème.
 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ) 
@@ -174,6 +181,15 @@ R. Pour nous contacter au sujet d’un problème, accédez à la page https://ak
 **Q. Je n’arrive pas à accéder à la console série. Où puis-je effectuer une demande de support ?**
 
 R. Cette fonctionnalité est en préversion, et est donc couverte par les Conditions d’utilisation des préversions Azure. La prise en charge de cette fonctionnalité est optimale avec les canaux mentionnés plus haut. 
+
+**Q. Puis-je utiliser une console série à la place d’une connexion SSH ?**
+
+R. Même si cela est techniquement possible, la console série est principalement utilisée comme outil de résolution des problèmes, lorsque la connectivité via le protocole SSH n’est pas possible. Nous déconseillons l’utilisation de la console série en remplacement du SSH, et ce, pour deux raisons :
+
+1. La console série ne dispose pas d’autant de bande passante que le protocole SSH, car c’est une connexion qui convient au texte uniquement. De fait, les interactions qui sollicitent beaucoup l’interface graphique utilisateur seront difficiles.
+1. L’accès à la console série se fait uniquement à l’aide d’un nom d’utilisateur et d’un mot de passe. Les clés SSH sont beaucoup plus sécurisées que les combinaisons nom d’utilisateur/mot de passe. Pour des raisons de sécurité, il est donc recommandé d’utiliser le SSH plutôt que la console série.
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utiliser la console série pour [démarrer dans GRUB et entrer en mode mono-utilisateur](serial-console-grub-single-user-mode.md)

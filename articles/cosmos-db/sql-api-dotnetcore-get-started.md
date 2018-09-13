@@ -12,20 +12,22 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: be8b99f8cf291d2e09187344aa458420db92364e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d433eeb7d63282868b8919ee8c53283080bf8b59
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237645"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701056"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB : Bien démarrer avec l’API SQL et .NET Core
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js pour MongoDB](mongodb-samples.md)
+> * [Java](sql-api-java-get-started.md)
+> * [Java asynchrone](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)  
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Bienvenue dans le didacticiel Bien démarrer avec l’API SQL pour Azure Cosmos DB avec .NET Core À la fin de ce didacticiel, vous disposerez d’une application de console qui crée et interroge des ressources Azure Cosmos DB.
@@ -134,7 +136,7 @@ private async Task GetStartedDemo()
 }
 ```
 
-Ajoutez le code suivant pour exécuter votre tâche asynchrone à partir de la méthode **Main** . La méthode **Main** intercepte les exceptions et les consigne dans la console.
+Ajoutez le code suivant pour exécuter votre tâche asynchrone à partir de la méthode **Main** . La méthode **Main** intercepte les exceptions et les consignes dans la console.
 
 ```csharp
 static void Main(string[] args)
@@ -164,7 +166,7 @@ static void Main(string[] args)
 
 Appuyez sur le bouton **DocumentDBGettingStarted** pour générer et exécuter l’application.
 
-Félicitations ! Vous êtes connecté à un compte Azure Cosmos DB. Jetons maintenant un œil à l’utilisation des ressources Azure Cosmos DB.  
+Félicitations ! Vous êtes connecté à un compte Azure Cosmos DB. Jetons maintenant un œil à l’utilisation des ressources Azure Cosmos DB.  
 
 ## <a name="step-4-create-a-database"></a>Étape 4 : créer une base de données
 Avant d'ajouter le code permettant de créer une base de données, ajoutez une méthode d'assistance pour l'écriture sur la console.
@@ -196,7 +198,7 @@ private async Task GetStartedDemo()
 
 Appuyez sur le bouton **DocumentDBGettingStarted** pour exécuter l’application.
 
-Félicitations ! Vous avez créé une base de données Azure Cosmos DB.  
+Félicitations ! Vous avez créé une base de données Azure Cosmos DB.  
 
 ## <a id="CreateColl"></a>Étape 5 : créer une collection
 > [!WARNING]
@@ -217,7 +219,7 @@ Copiez et collez le code suivant dans votre méthode **GetStartedDemo** en desso
 
 Appuyez sur le bouton **DocumentDBGettingStarted** pour exécuter l’application.
 
-Félicitations ! Vous avez créé une collection de documents Azure Cosmos DB.  
+Félicitations ! Vous avez créé une collection de documents Azure Cosmos DB.  
 
 ## <a id="CreateDoc"></a>Étape 6 : Création de documents JSON
 Vous pouvez créer un [document](sql-api-resources.md#documents) à l’aide de la méthode [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) de la classe **DocumentClient**. Les documents sont du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser [l’outil de migration de données](import-data.md) d’Azure Cosmos DB.
@@ -382,7 +384,7 @@ await this.CreateFamilyDocumentIfNotExists("FamilyDB_oa", "FamilyCollection_oa",
 
 Appuyez sur le bouton **DocumentDBGettingStarted** pour exécuter l’application.
 
-Félicitations ! Vous avez créé deux documents Azure Cosmos DB.  
+Félicitations ! Vous avez créé deux documents Azure Cosmos DB.  
 
 ![Diagramme illustrant la relation hiérarchique existant entre le compte, la base de données en ligne, la collection et les documents utilisés par le didacticiel NoSQL pour créer une application de console C#](./media/sql-api-dotnetcore-get-started/nosql-tutorial-account-database.png)
 
@@ -438,7 +440,7 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Appuyez sur le bouton **DocumentDBGettingStarted** pour exécuter l’application.
 
-Félicitations ! Vous avez interrogé une collection Azure Cosmos DB.
+Félicitations ! Vous avez interrogé une collection Azure Cosmos DB.
 
 Le schéma suivant montre comment la syntaxe de requête SQL d’Azure Cosmos DB est appelée sur la collection que vous avez créée. C’est par ailleurs cette même logique qui s’applique à la requête LINQ.
 
@@ -478,7 +480,7 @@ this.ExecuteSimpleQuery("FamilyDB_oa", "FamilyCollection_oa");
 
 Appuyez sur le bouton **DocumentDBGettingStarted** pour exécuter l’application.
 
-Félicitations ! Vous avez remplacé un document Azure Cosmos DB.
+Félicitations ! Vous avez remplacé un document Azure Cosmos DB.
 
 ## <a id="DeleteDocument"></a>Étape 9 : supprimer le document JSON
 Azure Cosmos DB prend en charge la suppression des documents JSON.  
@@ -507,7 +509,7 @@ await this.DeleteFamilyDocument("FamilyDB_oa", "FamilyCollection_oa", "Andersen.
 
 Appuyez sur le bouton **DocumentDBGettingStarted** pour exécuter l’application.
 
-Félicitations ! Vous avez supprimé un document Azure Cosmos DB.
+Félicitations ! Vous avez supprimé un document Azure Cosmos DB.
 
 ## <a id="DeleteDatabase"></a>Étape 10 : supprimer la base de données
 Supprimer la base de données créée revient à supprimer la base de données et toutes les ressources enfants (collections, documents, etc.).
@@ -526,7 +528,7 @@ await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"
 
 Appuyez sur le bouton **DocumentDBGettingStarted** pour exécuter l’application.
 
-Félicitations ! Vous avez supprimé une base de données Azure Cosmos DB.
+Félicitations ! Vous avez supprimé une base de données Azure Cosmos DB.
 
 ## <a id="Run"></a>Étape 11 : exécuter votre application de console C#
 Appuyez sur le bouton **DocumentDBGettingStarted** dans Visual Studio pour générer l’application en mode débogage.
@@ -556,7 +558,7 @@ Deleted Family Andersen.1
 End of demo, press any key to exit.
 ```
 
-Félicitations ! Vous avez terminé le didacticiel et vous disposez d’une application de console C# qui fonctionne !
+Félicitations ! Vous avez terminé le didacticiel et vous disposez d’une application de console C# qui fonctionne !
 
 ## <a id="GetSolution"></a> Obtenir la solution complète du didacticiel
 Pour générer la solution GetStarted qui contient tous les exemples de cet article, vous devez avoir les éléments suivants :

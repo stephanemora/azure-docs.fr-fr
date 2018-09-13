@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c2d0f14bca2b9ab062c61407479ab45a0104ff0a
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 0408b26e687dd31c408dbccc68f56e8198016c8f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716261"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664786"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Déploiement basé sur le cloud Azure Multi-Factor Authentication
 
@@ -23,8 +23,8 @@ La prise en main d’Azure Multi-Factor Authentication (Azure MFA) est un proces
 
 Avant de commencer, assurez-vous que vous disposez des prérequis suivants :
 
-* Un compte d’administrateur général dans votre locataire Azure AD. Si vous avez besoin d’aide lors de cette étape, consultez notre article [prise en main Azure AD](../get-started-azure-ad.md)
-* Des licences correctement attribuées aux utilisateurs. Si vous avez besoin de plus d’informations, consultez la rubrique [Comment obtenir Azure Multi-Factor Authentication](concept-mfa-licensing.md)
+* Un compte d’administrateur général dans votre locataire Azure AD. Si vous avez besoin d’aide lors de cette étape, consultez notre article [Prise en main d'Azure AD](../get-started-azure-ad.md).
+* Des licences correctement attribuées aux utilisateurs. Si vous avez besoin de plus d’informations, consultez la rubrique [Guide pratique pour obtenir l’authentification multifacteur Azure](concept-mfa-licensing.md).
 
 ## <a name="choose-how-to-enable"></a>Choisir comment activer
 
@@ -32,7 +32,7 @@ Avant de commencer, assurez-vous que vous disposez des prérequis suivants :
 
 Activé par Azure AD Identity Protection : cette méthode utilise la stratégie des risques Azure AD Identity Protection pour imposer la vérification en deux étapes basée uniquement sur le risque de connexion pour toutes les applications cloud. Cette méthode requiert une licence Azure Active Directory P2. Vous trouverez plus d’informations sur cette méthode dans [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins).
 
-Activé par l’utilisateur de modification d’état : c’est la méthode traditionnelle pour exiger une vérification en deux étapes. Elle fonctionne avec Azure MFA dans le cloud et le serveur Azure MFA. Cette méthode nécessite que les utilisateurs effectuent la vérification en deux étapes **chaque fois** qu’ils se connectent, puis remplace les stratégies d’accès conditionnel. Vous trouverez plus d’informations sur cette méthode dans [Comment exiger la vérification en deux étapes pour un utilisateur](howto-mfa-userstates.md)
+Activé par l’utilisateur de modification d’état : c’est la méthode traditionnelle pour exiger une vérification en deux étapes. Elle fonctionne avec Azure MFA dans le cloud et le serveur Azure MFA. Cette méthode nécessite que les utilisateurs effectuent la vérification en deux étapes **chaque fois** qu’ils se connectent, puis remplace les stratégies d’accès conditionnel. Vous trouverez plus d’informations sur cette méthode dans [Comment exiger la vérification en deux étapes pour un utilisateur](howto-mfa-userstates.md).
 
 > [!Note]
 > Vous trouverez plus d’informations sur les licences et la tarification sur les pages de tarification [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/

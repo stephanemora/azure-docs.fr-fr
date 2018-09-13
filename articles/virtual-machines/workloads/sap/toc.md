@@ -24,7 +24,11 @@
 ## Installer SAP HANA
 ### [Valider la configuration](hana-installation.md)
 ### [Exemple d’installation HANA](hana-example-installation.md)
-## [Haute disponibilité et récupération d’urgence](hana-overview-high-availability-disaster-recovery.md)
+## Haute disponibilité et récupération d’urgence
+### [Options et considérations](hana-overview-high-availability-disaster-recovery.md)
+### [Sauvegarde et restauration](hana-backup-restore.md)
+### [Principes et préparation](hana-concept-preparation.md)
+### [Procédure de basculement en cas de récupération d’urgence](hana-failover-procedure.md)
 ## Résolution des problèmes et surveillance
 ### [Surveillance HLI](troubleshooting-monitoring.md)
 ### [Surveillance et dépannage à partir de HANA](hana-monitor-troubleshoot.md)

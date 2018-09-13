@@ -3,18 +3,18 @@ title: Affichage de directions avec Azure Maps | Microsoft Docs
 description: Comment afficher des directions entre deux emplacements sur une carte Javascript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 52462c1c5a2a1a9698a2b51708e63b1bb1664f6e
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 80abd6db9888524aa6a66d9861d8dc2d05188e19
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745534"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781494"
 ---
 # <a name="show-directions-from-a-to-b"></a>Afficher des directions de A à B 
 
@@ -22,23 +22,30 @@ Cet article vous explique comment exécuter une requête d’itinéraire et affi
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
-<iframe height='500' scrolling='no' title='Afficher des directions de A à B sur une carte' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la page <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>Show directions from A to B on a map</a> (Afficher des directions de A à B sur une carte) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Montrer un itinéraire de A à B sur une carte (module Service)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la section <a href='https://codepen.io/azuremaps/pen/RBZbep/'>Montrer un itinéraire de A à B sur une carte</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Dans le code ci-dessus, le premier bloc de code construit un objet de carte. Vous pouvez consultez la section [Créer une carte](./map-create.md) pour obtenir des instructions.
+Dans le code ci-dessus, le premier bloc de code construit un objet de carte. Vous pouvez consulter la section [Créer une carte](./map-create.md) pour obtenir des instructions.
 
-Le deuxième bloc de code crée et ajoute des repères sur la carte pour représenter le point de départ et le point d’arrivée de l’itinéraire. Pour plus d’instructions, consultez la section relative à [l’ajout d’un repère sur la carte](map-add-pin.md).
+La ligne du deuxième bloc de code instancie un client de service.
 
-Le troisième bloc de code utilise la fonction [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) de la classe map pour définir le rectangle englobant de la carte en fonction des points de départ et d’arrivée de l’itinéraire.
+Le troisième bloc de code initialise la [couche linestring](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings) sur la carte.
 
-Le quatrième bloc de code envoie un élément [XMLHttpRequest](https://xhr.spec.whatwg.org/) à [l’API d’itinéraire Azure Maps](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+Le quatrième bloc de code crée et ajoute des repères sur la carte pour représenter le point de départ et le point d’arrivée de l’itinéraire. Pour plus d’instructions, consultez la section relative à [l’ajout d’un repère sur la carte](map-add-pin.md).
 
-Le dernier bloc de code analyse la réponse entrante. Si la réponse est correcte, il collecte les données de latitude et de longitude pour chaque étape. Il crée un ensemble de lignes en reliant chaque étape à l’étape suivante. Il ajoute toutes ces lignes sur la carte pour restituer l’itinéraire. Pour plus d’instructions, consultez la section relative à [l’ajout d’une ligne sur la carte](./map-add-shape.md#addALine).
+Le bloc de code suivant utilise la fonction [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) de la classe map pour définir le rectangle englobant de la carte en fonction des points de départ et d’arrivée de l’itinéraire.
+
+Le sixième bloc de code construit une requête d’itinéraire.
+
+Le dernier bloc de code interroge le service de routage Azure Maps avec la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) pour obtenir un itinéraire entre le point de départ et le point de destination. La réponse est ensuite analysée au format GeoJSON à l’aide de la méthode [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). Il ajoute toutes ces lignes sur la carte pour restituer l’itinéraire. Pour plus d’informations, consultez la section relative à [l’ajout d’une ligne sur la carte](./map-add-shape.md#addALine).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les classes et les méthodes utilisées dans cet article : 
 
+* [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections)
+* [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes)
+* [Couche linestring](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings)
 * [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
     * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings)

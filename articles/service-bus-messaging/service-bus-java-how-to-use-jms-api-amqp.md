@@ -3,7 +3,7 @@ title: Utilisation d’AMQP 1.0 avec l’API Java Service Bus | Microsoft Docs
 description: Découvrez comment utiliser Java Message Service (JMS) avec Azure Service Bus et le protocole Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2017
-ms.author: sethm
-ms.openlocfilehash: 0848facd764c4fb0d7f95c1ae89ecb02a32257e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: spelluru
+ms.openlocfilehash: bfab0c374e4b20b09167f37363fe0681144426ac
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23044174"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699343"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Utilisation de l’API Java Message Service (JMS) avec Service Bus et AMQP 1.0
 Advanced Message Queuing Protocol (AMQP) 1.0 est un protocole de messagerie « wire-level » efficace et fiable qui peut être utilisé pour créer des applications de messagerie interplateforme robustes.
@@ -37,7 +37,7 @@ Ce guide présuppose que vous disposez déjà d’un espace de noms Service Bus 
 > 
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>Téléchargement des bibliothèques clientes JMS d’AMQP 1.0
-Pour plus d’informations sur l’adresse de téléchargement de la dernière version de la bibliothèque cliente Apache Qpid JMS AMQP 1.0, accédez à [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
+Pour plus d’informations sur l’adresse de téléchargement de la dernière version de la bibliothèque de client Apache Qpid JMS AMQP 1.0, accédez à [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html).
 
 Vous devez ajouter les quatre fichiers JAR suivants de l’archive de distribution Apache Qpid JMS AMQP 1.0 au CLASSPATH Java lors de la création et de l’exécution des applications JMS avec Service Bus :
 
@@ -87,7 +87,7 @@ Où **[namespace]**, **[SASPolicyName]** et **[SASPolicyKey]** ont les significa
 * **[SASPolicyKey]**  : clé de la stratégie de signature d’accès partagé de la file d’attente.
 
 > [!NOTE]
-> vous devez encoder manuellement le mot de passe dans une URL. Un utilitaire efficace d’encodage dans une URL est disponible à l’adresse [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
+> vous devez encoder manuellement le mot de passe dans une URL. Un utilitaire pratique d’encodage d’URL est disponible à l’adresse [http://www.w3schools.com/tags/ref_urlencode.asp](http://www.w3schools.com/tags/ref_urlencode.asp).
 > 
 > 
 
@@ -98,7 +98,7 @@ L’entrée qui définit une destination dans le fournisseur JNDI de fichier de 
 queue.[jndi_name] = [physical_name]
 ```
 
-ou
+or
 
 ```
 topic.[jndi_name] = [physical_name]

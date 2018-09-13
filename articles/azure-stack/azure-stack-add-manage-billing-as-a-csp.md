@@ -3,7 +3,7 @@ title: Gérer l’utilisation et la facturation pour Azure Stack comme fournisse
 description: Procédure pas à pas d’inscription d’Azure Stack comme fournisseur de services cloud et d’ajout de clients pour la facturation.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/30/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: f119c2803148d68c9c08cbc6a61a3c8733bc1da4
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 9bb4a4ea81f2dc0fb11e2f7cae1b9d02b0edfdde
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090346"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341433"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gérer l’utilisation et la facturation pour Azure Stack comme fournisseur de services cloud 
 
@@ -58,7 +58,7 @@ Les abonnements de fournisseur de services cloud (CSP) sont le choix privilégi�
 
 ## <a name="register-azure-stack"></a>Inscrire Azure Stack
 
-Pour s’inscrire auprès d’Azure Stack, consultez [Inscrire Azure Stack auprès de votre abonnement Azure](azure-stack-registration.md).
+Utilisez l’abonnement CSPSS créé en suivant les informations contenues dans la section précédente pour inscrire Azure Stack auprès d’Azure. Pour plus d’informations, consultez [Inscrire Azure Stack auprès de votre abonnement Azure](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Ajouter un client final
 
@@ -82,5 +82,5 @@ Quand Azure Stack transfère des informations d’utilisation à Azure global, u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- - Pour en savoir plus sur le programme CSP, consultez [Programme des fournisseurs de solutions cloud](https://partnercenter.microsoft.com/en-us/partner/programs).
+ - Pour en savoir plus sur le programme CSP, consultez [Programme des fournisseurs de solutions cloud](https://partner.microsoft.com/solutions/microsoft-cloud-solutions).
  - Pour en savoir plus sur la récupération d’informations d’utilisation de ressources à partir d’Azure Stack, consultez [Utilisation et facturation dans Azure Stack](azure-stack-billing-and-chargeback.md).

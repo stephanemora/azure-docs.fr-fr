@@ -197,6 +197,7 @@
 #### [Restrictions du client](manage-apps/tenant-restrictions.md)
 #### [Utilisez SCIM approvisionner les utilisateurs](manage-apps/use-scim-to-provision-users-and-groups.md)
 
+### [Comprendre les expériences de consentement de l’application Azure AD](application-consent-experience.md)
 
 ### Résolution des problèmes
 

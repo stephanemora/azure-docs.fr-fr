@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ddd30729aa2bcb616efab814dc4046d2817c64fa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128675"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782411"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Console série de machine virtuelle (préversion) 
 
 
-La console série de machine virtuelle Azure permet aux machines virtuelles Linux et Windows d’accéder à une console texte. Cette connexion série est effectuée via le port série COM1 de la machine virtuelle. Elle fournit l’accès à la machine virtuelle et n’est pas liée au réseau de la machine virtuelle ni à l’état du système d’exploitation. Pour une machine virtuelle, l’accès à la console série n’est possible que via le portail Azure. De plus, seuls les utilisateurs disposant d’un rôle de Contributeur (ou supérieur) pour cette machine virtuelle sont autorisés à accéder à la console. 
+La console série de machine virtuelle Azure permet aux machines virtuelles Windows d’accéder à une console texte. Cette connexion série est effectuée via le port série COM1 de la machine virtuelle. Elle fournit l’accès à la machine virtuelle et n’est pas liée au réseau de la machine virtuelle ni à l’état du système d’exploitation. Pour une machine virtuelle, l’accès à la console série n’est possible que via le portail Azure. De plus, seuls les utilisateurs disposant d’un rôle de Contributeur (ou supérieur) pour cette machine virtuelle sont autorisés à accéder à la console. 
 
 Pour obtenir la documentation sur la console série pour les machines virtuelles Linux, [cliquez ici](../linux/serial-console.md).
 
@@ -39,14 +39,14 @@ Pour obtenir la documentation sur la console série pour les machines virtuelles
 * L’option [Diagnostics de démarrage](boot-diagnostics.md) doit être activée dans la machine virtuelle. 
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * Le compte qui utilise la console série doit disposer du [rôle Contributeur](../../role-based-access-control/built-in-roles.md) pour la machine virtuelle et pour le compte de stockage avec [diagnostics de démarrage](boot-diagnostics.md). 
-* La machine virtuelle pour laquelle vous accédez à la console série doit également posséder un compte avec mot de passe. Vous pouvez en créer un avec la fonctionnalité [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles (voir la capture d’écran ci-dessous).
+* La machine virtuelle pour laquelle vous accédez à la console doit également avoir un compte avec mot de passe. Vous pouvez en créer un avec la fonctionnalité [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles (voir la capture d’écran ci-dessous).
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
 ## <a name="get-started-with-serial-console"></a>Bien démarrer avec la console série
-Pour les machines virtuelles, la console série est accessible uniquement via le [portail Azure](https://portal.azure.com). Voici les étapes permettant aux machines virtuelles d’accéder à la console série via le portail : 
+Pour les machines virtuelles, la console série est accessible uniquement via le [portail Azure](https://portal.azure.com). Voici les étapes permettant aux machines virtuelles d’accéder à la console série via le portail :
 
   1. Ouvrez le portail Azure
   2. Dans le menu de gauche, sélectionnez Machines virtuelles.
@@ -55,8 +55,8 @@ Pour les machines virtuelles, la console série est accessible uniquement via le
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="configure-serial-console-for-windows"></a>Configurer la console série pour Windows 
-La [console SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) est activée par défaut dans les nouvelles images Windows Server sur Azure. La console SAC est prise en charge sur les versions serveur de Windows, mais elle n’est pas disponible sur les versions client (par exemple Windows 10, Windows 8 ou Windows 7). Pour activer la console série dans les machines virtuelles Windows créées à l’aide de l’image Feb2018 ou d’images antérieures, procédez aux étapes suivantes : 
+## <a name="enable-serial-console-in-custom-or-older-images"></a>Activer la console série dans les images personnalisées ou anciennes
+La [console SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) est activée par défaut dans les nouvelles images Windows Server sur Azure. La console SAC est prise en charge sur les versions serveur de Windows, mais elle n’est pas disponible sur les versions client (par exemple Windows 10, Windows 8 ou Windows 7). Pour activer la console série dans les machines virtuelles Windows créées avant février 2018, effectuez les étapes suivantes : 
 
 1. Connectez-vous à la machine virtuelle Windows via le Bureau à distance
 2. Dans une invite de commandes d’administration, exécutez les commandes suivantes 
@@ -73,13 +73,13 @@ Si nécessaire, la console SAC peut être activée hors connexion.
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-### <a name="how-do-i-know-if-sac-is-enabled-or-not"></a>Comment savoir si la console SAC est activée ? 
+### <a name="how-do-i-know-if-sac-is-enabled"></a>Comment savoir si la console SAC est activée ?
 
-Si la [console SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) n’est pas activée, la console série n’affiche pas l’invite pour la console SAC. Elle peut afficher des informations relatives à l’intégrité de la machine virtuelle dans certains cas, ou ne rien afficher.  
+Si la [console SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) n’est pas activée, la console série n’affiche pas l’invite pour la console SAC. Parfois, les informations d’intégrité de la machine virtuelle s’affichent, et d’autres fois non.  
 
-### <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>Activation du menu de démarrage à afficher dans la console série 
+## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Activer le menu de démarrage Windows dans la console série 
 
-Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows s’affichent dans la console série, vous pouvez définir les options supplémentaires suivantes pour le chargeur de démarrage de Windows.
+Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows s’affichent dans la console série, vous pouvez ajouter les options supplémentaires suivantes à vos données de configuration de démarrage. Pour plus d’informations, consultez [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
 
 1. Connectez-vous à la machine virtuelle Windows via le Bureau à distance
 2. Dans une invite de commandes d’administration, exécutez les commandes suivantes : 
@@ -88,8 +88,14 @@ Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows
 * `bcdedit /set {bootmgr} bootems yes`
 3. Redémarrer le système pour activer le menu de démarrage
 
-> [!NOTE] 
-> À ce stade, la prise en charge des clés de fonction n’est pas activée. Si vous avez besoin d’options de démarrage avancées, utilisez bcdedit /set {current} onetimeadvancedoptions on. Pour plus d’informations, consultez [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
+## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Utiliser la console série pour les appels NMI dans les machines virtuelles Windows
+Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent les NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne réponde pas.
+
+La console série peut être utilisée pour envoyer une NMI à une machine virtuelle Azure à l’aide de l’icône de clavier dans la barre de commandes ci-dessous. Une fois que la NMI est remise, la configuration de machine virtuelle contrôle le mode de réponse du système. Windows peut être configuré pour se bloquer et créer un vidage mémoire lors de la réception d’une NMI.
+
+![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+
+Pour plus d’informations sur la configuration de Windows pour créer un vidage sur incident lorsqu’il reçoit une NMI, consultez la section [Comment générer un fichier complet de vidage sur incident ou un fichier complet de vidage sur incident du noyau à l’aide d’une NMI sur un système Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="disable-serial-console"></a>Désactiver la console série
 Par défaut, tous les abonnements ont accès à la console série pour toutes les machines virtuelles. Vous pouvez désactiver la console série au niveau de l’abonnement ou au niveau de la machine virtuelle.
@@ -149,15 +155,23 @@ Si un utilisateur est connecté à la console série alors qu’un autre utilisa
 >[!CAUTION] 
 Cela signifie donc que l’utilisateur qui laisse sa place n’est pas réellement déconnecté. La possibilité d’appliquer une déconnexion réelle (via SIGHUP ou autre mécanisme similaire) est actuellement étudiée. Pour Windows, un délai d’expiration automatique est activé dans la console SAC. Mais pour Linux, vous pouvez configurer un délai d’expiration terminal. 
 
-## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>Utilisation de la Console série pour les appels NMI dans les machines virtuelles Windows
-Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent les NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne réponde pas.
+## <a name="common-scenarios-for-accessing-serial-console"></a>Scénarios courants pour l’accès à la console série 
+Scénario          | Actions à effectuer dans la console série                
+:------------------|:-----------------------------------------
+Règles de pare-feu incorrectes | Accès à la console série et correction des règles de pare-feu Windows. 
+Contrôle de la corruption du système de fichiers | Accès à la console série et récupération du système de fichiers. 
+Problèmes de configuration RDP | Accès à la console série et modification des paramètres. Pour démarrer, accédez à la [documentation RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
+Système de verrouillage du réseau| Accès à la console série via le portail de gestion du système. Certaines commandes réseau sont listées dans la [documentation de CMD et PowerShell dans la console série](./serial-console-cmd-ps-commands.md). 
+Interaction avec le chargeur de démarrage | Accès à BCD via la console série. Pour démarrer, consultez [Activation du menu de démarrage à afficher dans la console série](#enabling-boot-menu-to-show-in-the-serial-console). 
 
-La Console série peut être utilisée pour envoyer une NMI à une machine virtuelle Azure à l’aide de l’icône de clavier dans la barre de commandes ci-dessous. Une fois que la NMI est remise, la configuration de machine virtuelle contrôle le mode de réponse du système. Windows peut être configuré pour se bloquer et créer un vidage mémoire lors de la réception d’une NMI.
+## <a name="accessibility"></a>Accessibilité
+L’accessibilité est un point central de la console série Azure. Nous avons donc fait en sorte que la console série soit accessible aux personnes présentant des déficiences visuelles ou auditives, ainsi qu’aux personnes qui ne peuvent pas utiliser une souris.
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+### <a name="keyboard-navigation"></a>Navigation au clavier
+Utilisez la touche `tab` de votre clavier pour naviguer dans l’interface de la console série, à l’intérieur du portail Azure. Votre emplacement est mis en surbrillance à l’écran. Pour quitter le panneau de la console série, appuyez sur `Ctrl + F6` sur votre clavier.
 
-Pour plus d’informations sur la configuration de Windows pour créer un vidage sur incident lorsqu’il reçoit une NMI, consultez la section [Comment générer un fichier complet de vidage sur incident ou un fichier complet de vidage sur incident du noyau à l’aide d’une NMI sur un système Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
-
+### <a name="use-serial-console-with-a-screen-reader"></a>Utiliser la console série avec un lecteur d’écran
+La console série comprend une prise en charge intégrée des lecteurs d’écran. Quand le lecteur d’écran est activé, le texte de remplacement du bouton sélectionné est lu à voix haute.
 
 ## <a name="errors"></a>Errors
 La plupart des erreurs sont de nature temporaire et peuvent être corrigées par une nouvelle tentative de connexion. Le tableau ci-dessous présente une liste d’erreurs accompagnées de mesures de prévention.

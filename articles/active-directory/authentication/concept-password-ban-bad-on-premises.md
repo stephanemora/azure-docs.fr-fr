@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: ff349c480ca14b4242fb7597751b4eb6acb0ee78
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 286f8e560ec653ed4f4f1cad5a2ae27b940f8d15
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141295"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781778"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Préversion : Appliquer la protection de mot de passe Azure AD pour Windows Server Active Directory
 
@@ -39,6 +39,7 @@ Trois composants logiciels constituent la protection de mot de passe Azure AD :
 * Toutes les machines sur lesquelles les composants de protection de mot de passe Azure AD sont installés, notamment les contrôleurs de domaine, doivent exécuter Windows Server 2012 ou une version ultérieure.
 * Le runtime C universel doit être installé sur tous les ordinateurs sur lesquels les composants de protection par mot de passe Azure AD sont installés, notamment les contrôleurs de domaine. Pour cela, téléchargez de préférence tous les correctifs sur l’ordinateur avec Windows Update. Sinon, il est possible d’installer un package de mise à jour propre au système d’exploitation ; voir [Mise à jour du runtime C universel C sous Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows).
 * Une connectivité réseau doit exister entre au moins un contrôleur de domaine dans chaque domaine et au moins un serveur hébergeant le service de proxy de protection de mot de passe Azure AD.
+* L’agent DC doit être installé sur tout contrôleur de domaine Active Directory qui exploite les fonctionnalités de protection des mots de passe.
 * Les domaines Active Directory exécutant le logiciel du service d’agent de contrôleur de domaine doivent utiliser DFSR pour la réplication sysvol.
 * Un compte d’administrateur général doit être utilisé pour inscrire le service de proxy de protection de mot de passe Azure AD auprès d’Azure AD.
 * Un compte avec des privilèges d’administrateur de domaine Active Directory dans le domaine racine de forêt doit être utilisé.
@@ -66,7 +67,9 @@ Deux programmes d’installation sont requis pour la protection de mot de passe 
 * Aucune configuration minimale n’est requise au niveau fonctionnel de la forêt ou du domaine Active Directory.
 * Le logiciel ne crée pas de compte et n’en exige pas dans les domaines Active Directory qu’il protège.
 * Le déploiement incrémentiel est pris en charge sous réserve que la stratégie de mot de passe soit uniquement appliquée à l’endroit où l’agent de contrôleur de domaine est installé.
+* Il est recommandé d’installer l’agent DC sur tous les contrôleurs de domaine pour assurer l’application de la protection des mots de passe. 
 * La protection de mot de passe Azure AD n’est pas un moteur d’application de stratégie en temps réel. Il peut y avoir un décalage entre le moment où la configuration de la stratégie de mot de passe est modifiée et celui où elle atteint et s’applique à tous les contrôleurs de domaine.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

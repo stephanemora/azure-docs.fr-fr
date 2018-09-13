@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.author: jovanpop-msft
-ms.openlocfilehash: cb378c2d2773096992ef688653fd77b2625f8754
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42024235"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381996"
 ---
 # <a name="create-an-azure-sql-managed-instance"></a>Créer une instance gérée SQL Azure
 
@@ -50,7 +50,7 @@ Le sous-réseau est dédié aux instances gérées et vous ne pouvez pas créer 
     > Ce déploiement Azure Resource Manager créera deux sous-réseaux dans le réseau virtuel : un pour les instances gérées appelé **ManagedInstances**, et l’autre appelé **Par défaut** pour les autres ressources telle qu’une machine virtuelle client utilisable pour se connecter à une instance gérée. Si vous n’avez besoin de deux sous-réseaux, vous pouvez supprimer le sous-réseau par défaut plus tard. Toutefois, il sera alors impossible d’effectuer l’étape 3 de ce guide de démarrage rapide ([Préparer la machine client](#prepare-client-machine)).
 
     > [!Note]
-    > Si vous modifiez les noms du réseau virtuel et du sous-réseaux, assurez-vous de vous rappeler des nouveaux noms, car vous en aurez besoin dans les sections suivantes. Dans le reste du didacticiel, il sera considéré que vous avez créé un réseau virtuel appelé **MyNewVNet**, un sous-réseau **ManagedInstances** pour les instances gérées SQL et un sous-réseau **Par défaut** pour les machines virtuelles et les autres ressources.
+    > Si vous modifiez les noms du réseau virtuel et du sous-réseau, assurez-vous de vous rappeler des nouveaux noms, car vous en aurez besoin dans les sections suivantes. Dans le reste du didacticiel, il sera considéré que vous avez créé un réseau virtuel appelé **MyNewVNet**, un sous-réseau **ManagedInstances** pour les instances gérées SQL et un sous-réseau **Par défaut** pour les machines virtuelles et les autres ressources.
 
 ## <a name="create-a-managed-instance"></a>Créer une option Managed Instance
 
@@ -60,7 +60,7 @@ Les étapes suivantes vous montrent comment créer votre option Managed Instance
 2. Recherchez **Managed Instance**, puis sélectionnez **Azure SQL Database Managed Instance (preview)** (Azure SQL Database Managed Instance (préversion)).
 3. Cliquez sur **Créer**.
 
-   ![Créer une instance gérée](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Créer une instance gérée](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
 4. Sélectionnez votre abonnement et vérifiez que les conditions d’utilisation de la préversion sont définies sur l’état **Accepté**.
 
@@ -77,26 +77,21 @@ Les étapes suivantes vous montrent comment créer votre option Managed Instance
    |**Lieu**|L’emplacement que vous avez précédemment sélectionné|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
    |**Réseau virtuel**|Le réseau virtuel que vous avez créé précédemment| Choisissez un élément **MyNewVNet/ManagedInstances** si vous n’avez pas modifié les noms à l’étape précédente. Sinon, choisissez le nom du réseau virtuel et le sous-réseau ManagedInstance saisis dans la section précédente. **N’utilisez pas le sous-réseau Par défaut, car il n’est pas configuré pour héberger les instances gérées**. |
 
-   ![formulaire de création de l’option managed instance](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
+   ![formulaire de création de l’option managed instance](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
 6. Cliquez sur **Niveau de tarification** pour dimensionner les ressources de calcul et de stockage, ainsi que pour examiner les options de niveau tarifaire. Par défaut, votre instance bénéficie de 32 Go d’espace de stockage gratuitement, **ce qui peut être insuffisant pour vos applications**.
 7. Utilisez les curseurs ou zones de texte pour spécifier la quantité de stockage et le nombre de v-cores. 
-   ![niveau tarifaire d’instance gérée](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+   ![niveau tarifaire d’instance gérée](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
 
 8. Lorsque vous avez terminé, cliquez sur **Appliquer** pour enregistrer votre sélection.  
 9. Cliquez sur **Créer** pour déployer l’option Managed Instance.
 10. Cliquez sur l’icône **Notifications** pour afficher l’état du déploiement.
- 
-   ![progression du déploiement](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
-
 11. Cliquez sur **Déploiement en cours** pour ouvrir la fenêtre de l’option Managed Instance et surveiller de façon précise la progression du déploiement.
- 
-   ![progression du déploiement 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
 Pendant le déploiement, passez à la procédure suivante.
 
 > [!IMPORTANT]
-> Pour la première instance dans un sous-réseau, la durée du déploiement est généralement plus importante que celle des instances suivantes. 24 heures peuvent parfois être nécessaires. N’annulez pas l’opération de déploiement car elle dure plus longtemps que prévu. Il s’agit d’une situation temporaire, propre au déploiement de votre première instance. Prévoyez une réduction significative du temps de déploiement peu après le début de la préversion publique. La création de la deuxième instance gérée dans le sous-réseau prendra quelques minutes.
+> Pour la première instance dans un sous-réseau, la durée du déploiement est généralement plus importante que celle des instances suivantes. N’annulez pas l’opération de déploiement car elle dure plus longtemps que prévu. La création de la deuxième instance gérée dans le sous-réseau prendra quelques minutes.
 
 ## <a name="prepare-client-machine"></a>Préparer une machine client
 

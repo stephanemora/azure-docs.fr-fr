@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: 0a0eeb3815b793ed81f60b2b239bc459e5574788
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369661"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781745"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Intégrer QnA Maker et LUIS pour distribuer votre base de connaissances
 Au fur et à mesure que la taille de votre base de connaissances QnA Maker augmente, il devient difficile de la gérer comme un ensemble monolithique unique et il est nécessaire de fractionner la base de connaissances en parties logiques plus petites.
@@ -32,8 +32,8 @@ Dans le scénario ci-dessus, QnA Maker obtient d’abord l’intention de la que
 - Connectez-vous au portail [LUIS](https://www.luis.ai/) et [créez une application](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
 - [Ajouter des intentions](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) conformément à votre scénario.
 - [Formez](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) et [publiez](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) votre application LUIS.
-- Connectez-vous à [QnA Maker](https://qnamaker.ai) et [créez les bases de connaissances]() conformément à votre scénario.
-- [Testez]() et [publiez]() les bases de connaissances.
+- Connectez-vous à [QnA Maker](https://qnamaker.ai) et [créez](https://www.qnamaker.ai/Create) les bases de connaissances conformément à votre scénario.
+- Testez et publiez les bases de connaissances.
 
 ## <a name="qna-maker--luis-bot"></a>Bot QnA Maker + LUIS
 1. Tout d’abord, créez un bot d’application web avec le modèle LUIS, liez-le à l’application LUIS que vous avez créée précédemment et modifiez les intentions. Consultez la procédure détaillée [ici](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).

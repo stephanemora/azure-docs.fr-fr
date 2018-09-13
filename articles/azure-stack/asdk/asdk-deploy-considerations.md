@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f4b55bb3287f67792b3257c3f62256437f5625ca
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f3cf1232861239069894a8e5fa60c911053f038d
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30164965"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841979"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Considérations liées à la planification du déploiement d’Azure Stack
 Avant de déployer le kit de développement Azure Stack (ASDK), vérifiez que l’ordinateur hôte du kit de développement répond à la configuration requise décrite dans cet article.
@@ -66,7 +66,7 @@ Des exemples de configurations OEM sont disponibles.
 ## <a name="operating-system"></a>Système d’exploitation
 |  | **Configuration requise** |
 | --- | --- |
-| **Version du SE** |Windows Server 2012 R2 ou version ultérieure. La version du système d’exploitation n’est pas critique avant le démarrage du déploiement, car vous allez démarrer l’ordinateur hôte sur le disque VHD qui est fourni dans l’installation Azure Stack. Le système d’exploitation et tous les correctifs nécessaires sont déjà intégrés dans l’image. N’utilisez pas de clés pour activer les instances Windows Server utilisées dans le Kit de développement. |
+| **Version du SE** |Windows Server 2016 ou version ultérieure. La version du système d’exploitation n’est pas critique avant le démarrage du déploiement, car vous allez démarrer l’ordinateur hôte sur le disque VHD qui est fourni dans l’installation Azure Stack. Le système d’exploitation et tous les correctifs nécessaires sont déjà intégrés dans l’image. N’utilisez pas de clés pour activer les instances Windows Server utilisées dans le Kit de développement. |
 
 > [!TIP]
 > Après avoir installé le système d’exploitation, vous pouvez utiliser le [vérificateur de déploiement Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) pour vérifier que votre matériel a la configuration requise.
@@ -89,10 +89,10 @@ Pour déployer Azure Stack en utilisant un compte Azure AD, vous devez prépare
    
    | **Compte Active Directory Azure** | **Pris en charge ?** |
    | --- | --- |
-   | Compte professionnel ou scolaire avec un abonnement Azure public valide |OUI |
-   | Compte Microsoft avec abonnement Azure public valide |OUI |
-   | Compte professionnel ou scolaire avec un abonnement Azure en Chine valide |OUI |
-   | Compte professionnel ou scolaire avec un abonnement Azure pour le gouvernement américain valide |OUI |
+   | Compte professionnel ou scolaire avec un abonnement Azure public valide |Oui |
+   | Compte Microsoft avec abonnement Azure public valide |Oui |
+   | Compte professionnel ou scolaire avec un abonnement Azure en Chine valide |Oui |
+   | Compte professionnel ou scolaire avec un abonnement Azure pour le gouvernement américain valide |Oui |
 
 ## <a name="network"></a>Réseau
 ### <a name="switch"></a>Switch

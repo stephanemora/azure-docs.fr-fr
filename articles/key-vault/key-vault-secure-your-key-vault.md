@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41918085"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343460"
 ---
 # <a name="secure-your-key-vault"></a>Sécuriser votre coffre de clés
 Azure Key Vault est un service cloud qui protège les clés et secrets de chiffrement (tels que les certificats, les chaînes de connexion et les mots de passe) de vos applications cloud. Comme il s’agit de données sensibles et stratégiques, il est préférable de sécuriser l’accès à vos coffres de clés afin que seuls les applications et les utilisateurs autorisés puissent accéder à ces derniers. Cet article propose une vue d’ensemble du modèle d’accès à un coffre de clés, explique l’authentification et l’autorisation, et détaille la procédure de sécurisation de l’accès au coffre de clés pour vos applications cloud à l’aide d’un exemple.
@@ -94,8 +94,8 @@ Les stratégies d’accès à un coffre de clés accordent des autorisations s�
 
 > [!IMPORTANT]
 > Notez que les stratégies d’accès à un coffre de clés s’appliquent au niveau du coffre. Par exemple, lorsqu’un utilisateur est autorisé à créer et à supprimer des clés, il peut effectuer ces opérations sur toutes les clés de ce coffre de clés.
-> 
-> 
+
+En plus des stratégies d’accès, l’accès au plan de données peut également être limité à l’aide des [points de terminaison de service du réseau virtuel pour Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) en configurant [des pare-feux et des règles de réseau virtuel](key-vault-network-security.md) pour une couche de sécurité supplémentaire.
 
 ## <a name="example"></a>Exemples
 Supposons que vous développiez une application qui utilise un certificat pour SSL, le stockage Azure pour stocker des données et une clé RSA 2 048 bits pour les opérations de signature. Supposons que cette application s’exécute dans une machine virtuelle (ou un groupe de machines virtuelles identiques). Vous pouvez utiliser un coffre de clés pour stocker tous les secrets de l’application et utiliser le coffre de clés pour stocker le certificat Bootstrap auquel l’application fait appel pour s’authentifier auprès d’Azure Active Directory.
@@ -130,7 +130,7 @@ Voyons maintenant quelles actions sont effectuées par chaque rôle dans le cont
 * **Auditeurs**
   * Examen des journaux d’utilisation pour confirmer l’utilisation correcte des clés/secrets et la conformité aux normes en matière de sécurité des données
 
-Voyons maintenant quelles autorisations d’accès au coffre de clés sont requises par les différents rôle (et l’application) pour effectuer les tâches qui leur sont affectées. 
+Voyons maintenant quelles autorisations d’accès au coffre de clés sont requises par les différents rôles (et l’application) pour effectuer les tâches qui leur sont affectées. 
 
 | Rôle d’utilisateur | Autorisations de plan de gestion | Autorisations de plan de données |
 | --- | --- | --- |
@@ -201,8 +201,8 @@ Cet exemple illustre un scénario simple. Les scénarios réels peuvent être pl
 
 > [!NOTE]
 > Remarque : cet exemple montre comment l’accès au coffre de clés sera verrouillé en production. Les développeurs doivent posséder leur propre abonnement ou groupe de ressources avec des autorisations complètes pour gérer leurs coffres de clés, les machines virtuelles et le compte de stockage où ils développent l’application.
-> 
-> 
+
+Il est fortement recommandé de sécuriser l’accès à votre coffre de clés en [configurant des pare-feux et des réseaux virtuels Key Vault](key-vault-network-security.md).
 
 ## <a name="resources"></a>Ressources
 * [Contrôle d’accès en fonction du rôle Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
@@ -243,6 +243,8 @@ Cet exemple illustre un scénario simple. Les scénarios réels peuvent être pl
   Liens vers la documentation de référence des applets de commande PowerShell permettant de gérer la stratégie d’accès au coffre de clés.
 
 ## <a name="next-steps"></a>Étapes suivantes
+[Configurer des pare-feu et des réseaux virtuels Key Vault](key-vault-network-security.md)
+
 Pour un didacticiel de prise en main destiné aux administrateurs, consultez la page [Prise en main d’Azure Key Vault](key-vault-get-started.md).
 
 Pour plus d’informations sur l’utilisation de la journalisation du coffre de clés, consultez [Journalisation d’Azure Key Vault](key-vault-logging.md).

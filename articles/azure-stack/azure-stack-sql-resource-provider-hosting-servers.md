@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970549"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842496"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
 
 Vous pouvez héberger une instance SQL sur une machine virtuelle dans [Azure Stack](azure-stack-poc.md), ou sur une machine virtuelle à l’extérieur de votre environnement Azure Stack, à condition que le fournisseur de ressources SQL puisse se connecter à l’instance.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Avant d’ajouter un serveur d’hébergement SQL, consultez les exigences générales et obligations suivantes.
 
@@ -78,15 +78,15 @@ Pour ajouter un serveur d’hébergement autonome déjà configuré, effectuez l
 
 1. Connectez-vous au portail d’administration Azure Stack en tant qu’administrateur de service.
 
-2. Sélectionnez **Parcourir** &gt; **RESSOURCES ADMINISTRATIVES** &gt; **Serveurs d’hébergement SQL**.
+2. Sélectionnez **Tous les services** &gt; **RESSOURCES ADMINISTRATIVES** &gt; **Serveurs d’hébergement SQL**.
 
    ![Serveurs d’hébergement SQL](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   Dans le panneau **Serveurs d’hébergement SQL**, vous pouvez connecter le fournisseur de ressources SQL à des instances de SQL Server qui font office de serveur principal du fournisseur de ressources.
+   Sous **Serveurs d’hébergement SQL**, vous pouvez connecter le fournisseur de ressources SQL à des instances de SQL Server qui font office de backend du fournisseur de ressources.
 
-   ![Tableau de bord de l’adaptateur SQL](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![Tableau de bord de l’adaptateur SQL](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. Sur **Ajouter un serveur d’hébergement SQL**, fournissez les détails de la connexion pour votre instance SQL Server.
+3. Cliquez sur **Ajouter**, puis fournissez les détails de la connexion pour votre instance SQL Server dans le panneau **Ajouter un serveur d’hébergement SQL**.
 
    ![Ajouter un serveur d’hébergement SQL](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 

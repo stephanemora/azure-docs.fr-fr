@@ -9,12 +9,12 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 80e287d09fdc5ab7157b9ee46bc830fd2db4d501
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912268"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698041"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
 
@@ -30,11 +30,10 @@ Dans cette solution, vous allez apprendre à utiliser Azure Stream Analytics pou
 * vous appuyer sur l’expérience de surveillance et de journalisation pour résoudre les problèmes.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour effectuer cette solution, vous avez besoin des prérequis suivants :
 * Un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Présentation du scénario - « Hello, Péage ! »
+## <a name="scenario-introduction-hello-toll"></a>Présentation du scénario - « Hello, Péage ! »
 Une gare de péage est un dispositif très répandu. Il s’en trouve sur de nombreux autoroutes, ponts et tunnels dans le monde entier. Chaque station de péage compte plusieurs guichets. Aux guichets manuels, vous vous arrêtez pour régler le montant du péage à un guichetier. Aux guichets automatisés, un capteur scanne une carte RFID apposée sur le pare-brise de votre véhicule lorsque vous franchissez le péage. Il est facile de visualiser le franchissement de ces stations de péage par les véhicules sous la forme d’un flux d’événements sur lequel des opérations intéressantes peuvent être effectuées.
 
 ![Image de voitures à des postes de péage](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
@@ -112,7 +111,7 @@ Voici une brève description des colonnes :
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Configurer l’environnement pour Azure Stream Analytics
 Pour effectuer cette solution, vous avez besoin d’un abonnement Microsoft Azure. Si vous n’avez pas de compte Azure, vous pouvez [demander un essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
 
-Pour tirer pleinement parti de votre crédit Azure gratuit, suivez les instructions de la section « Nettoyer votre compte Azure » à la fin de cet article.
+Pour tirer pleinement parti de votre crédit Azure, suivez les instructions de la section « Nettoyer votre compte Azure » à la fin de cet article.
 
 ## <a name="deploy-the-sample"></a>Déployer l'exemple 
 Il existe plusieurs ressources qui peuvent facilement être déployées ensemble dans un groupe de ressources en quelques clics. La définition de la solution est hébergée dans le référentiel github sous [https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).

@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2b393a5b60ba534fba8115ab3ef0f35a26ad3ed4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143498"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300351"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Tutoriel : Stocker des données en périphérie avec les bases de données SQL Server
 
@@ -176,7 +176,11 @@ Un [manifeste de déploiement](module-composition.md) déclare les modules que l
 
 1. Dans l’Explorateur Visual Studio Code, ouvrez le fichier **deployment.template.json**. 
 2. Recherchez la section **moduleContent.$edgeAgent.properties.desired.modules**. Deux modules doivent être répertoriés : **tempSensor**, qui génère des données simulées et votre module **sqlFunction**.
-3. Ajoutez le code suivant pour déclarer un troisième module :
+3. Si vous utilisez des conteneurs Windows, modifiez la section **sqlFunction.settings.image**.
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+4. Ajoutez le code suivant pour déclarer un troisième module. Ajoutez une virgule après la section sqlFunction et insérez :
 
    ```json
    "sql": {
@@ -191,16 +195,18 @@ Un [manifeste de déploiement](module-composition.md) déclare les modules que l
    }
    ```
 
-4. Selon le système d’exploitation de votre appareil IoT Edge, mettez à jour les paramètres **sql.settings** avec le code suivant :
+   Voici un exemple en cas de confusion avec l’ajout d’un élément JSON. ![Ajouter un conteneur SQL Server](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows :
+5. Selon le type de conteneurs Docker sur votre appareil IoT Edge, mettez à jour les paramètres **sql.settings** avec le code suivant :
+
+   * Conteneurs Windows :
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux :
+   * Conteneurs Linux :
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -210,28 +216,20 @@ Un [manifeste de déploiement](module-composition.md) déclare les modules que l
    >[!Tip]
    >Chaque fois que vous créez un conteneur SQL Server dans un environnement de production, vous devez [modifier le mot de passe administrateur par défaut du système](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
-5. Enregistrez le fichier **deployment.template.json**. 
+6. Enregistrez le fichier **deployment.template.json**.
 
 ## <a name="build-your-iot-edge-solution"></a>Générer votre solution IoT Edge
 
 Dans les sections précédentes, vous avez créé une solution avec un module, puis en avez ajouté un autre au modèle du manifeste de déploiement. Maintenant, vous devez générer la solution, créer des images de conteneur pour les modules et envoyer les images au registre de conteneurs. 
 
-1. Dans le fichier deployment.template.json, donnez au runtime IoT Edge les informations d’identification du registre afin qu’il puisse accéder aux images de module. Recherchez la section **moduleContent.$edgeAgent.properties.desired.runtime.settings**. 
-2. Insérez le code JSON suivant après **loggingOptions** :
+1. Dans le fichier .env, donnez au runtime IoT Edge les informations d’identification du registre afin qu’il puisse accéder aux images de module. Recherchez les sections **CONTAINER_REGISTRY_USERNAME** et **CONTAINER_REGISTRY_PASSWORD** et insérez vos informations d’identification après le symbole égal à : 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-3. Insérez les informations d’identification du registre dans les champs de **nom d’utilisateur**, de **mot de passe** et **d’adresse**. Utilisez les valeurs que vous avez copiées quand vous avez créé votre registre Azure Container Registry au début du tutoriel.
-4. Enregistrez le fichier **deployment.template.json**.
-5. Connectez votre registre de conteneurs à Visual Studio Code afin de pouvoir envoyer les images au registre. Utilisez les informations d’identification que vous venez d’ajouter au manifeste de déploiement. Entrez la commande suivante dans le terminal intégré : 
+2. Enregistrez le fichier .env.
+3. Connectez-vous à votre registre de conteneurs à Visual Studio Code afin de pouvoir envoyer les images au registre. Utilisez les informations d’identification que vous avez ajoutées au fichier .env. Entrez la commande suivante dans le terminal intégré :
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -243,7 +241,7 @@ Dans les sections précédentes, vous avez créé une solution avec un module, p
     Login Succeeded
     ```
 
-6. Dans l’Explorateur VS Code, cliquez avec le bouton droit sur le fichier **deployment.template.json** et sélectionnez **Build IoT Edge solution** (Générer la solution IoT Edge). 
+4. Dans l’Explorateur VS Code, cliquez avec le bouton droit sur le fichier **deployment.template.json** et sélectionnez **Build and Push IoT Edge solution** (Générer et envoyer (push) la solution IoT Edge). 
 
 ## <a name="deploy-the-solution-to-a-device"></a>Déployer la solution sur un appareil
 
@@ -287,7 +285,7 @@ Cette section vous guide tout au long de la configuration de la base de données
    * Conteneur Windows :
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Conteneur Linux : 

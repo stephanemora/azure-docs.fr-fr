@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a0ca0ae3ed615f6bc2774364f7a443023b911b5d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 06b5660a9428e98d2e99b5d447a05700968ec884
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937553"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381911"
 ---
 # <a name="azure-stack-validation-report"></a>Rapport de validation Azure Stack
-L’outil Azure Stack Readiness Checker exécute des validations qui prennent en charge le déploiement et la maintenance d’un environnement Azure Stack. L’outil écrit les résultats de la validation dans un fichier de rapport .json. Le rapport présente des données résumées et détaillées sur l’état des prérequis en vue du déploiement d’Azure Stack et sur la rotation des secrets pour les déploiements existants d’Azure Stack.  
+Utilisez l’outil Azure Stack Readiness Checker pour exécuter des validations prenant en charge le déploiement et la maintenance d’un environnement Azure Stack. L’outil écrit les résultats dans un fichier de rapport .json. Le rapport affiche des données résumées et détaillées sur l’état des prérequis en vue du déploiement d’Azure Stack. Le rapport affiche également des informations sur la Rotation des secrets des déploiements Azure Stack existants.  
 
  ## <a name="where-to-find-the-report"></a>Emplacement du rapport
 Quand l’outil s’exécute, il journalise les résultats dans **AzsReadinessCheckerReport.json**. L’outil crée également un journal nommé **AzsReadinessChecker.log**. L’emplacement de ces fichiers est indiqué avec les résultats de la validation dans PowerShell.
@@ -56,7 +56,7 @@ Le récapitulatif affiche les validations qui n’ont pas de résultats et indiq
 
 
 ## <a name="view-a-filtered-report"></a>Afficher un rapport filtré
-Pour voir un rapport filtré sur un seul type de validation, utilisez le paramètre **-ReportSections** et spécifiez l’une des valeurs suivantes en fonction du type de validation à afficher :
+Pour afficher un rapport filtré sur un seul type de validation, utilisez le paramètre **-ReportSections** avec l’une des valeurs suivantes :
 - Certificat
 - AzureRegistration
 - AzureIdentity

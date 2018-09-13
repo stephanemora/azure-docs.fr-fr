@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 924269e16ab09cfd144955d3bd462cab7b37aaaf
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917133"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381752"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Déploiement d’Active Directory Federation Services dans Azure
 AD FS simplifie et sécurise la fédération des identités et l’authentification unique (SSO) sur le web. La fédération avec AD Azure ou O365 permet aux utilisateurs de s’authentifier à l’aide de leurs informations d’identification locales et d’accéder à toutes les ressources du cloud. Par conséquent, il est important de disposer d’une infrastructure AD FS hautement disponible pour garantir l’accès aux ressources locales et dans le cloud. Le déploiement d’AD FS dans Azure peut contribuer à bénéficier d’une haute disponibilité avec un minimum d’efforts.
@@ -187,12 +187,14 @@ Dans le panneau Équilibreurs de charge, sélectionnez l’équilibreur de charg
 
 **6.3. Configuration de la sonde**
 
-Dans le panneau Équilibreurs de charge internes, sélectionnez Sondes.
+Dans le panneau Équilibreurs de charge internes, sélectionnez Sondes d’intégrité.
 
 1. Cliquez sur Ajouter
-2. Indiquez les détails de la sonde a. **Nom** : nom de la sonde b. **Protocole** : TCP c. **Port** : 443 (HTTPS) d. **Intervalle** : 5 (valeur par défaut) : il s’agit de l’intervalle auquel l’équilibreur de charge interne interrogera les machines virtuelles du pool principal e. **Seuil de défaillance d’intégrité** : 2 (valeur par défaut) : il s’agit du seuil limite de défaillances consécutives de la sonde au-delà duquel l’équilibreur de charge interne considérera une machine du pool principal comme non réactive et cessera de lui envoyer du trafic.
+2. Indiquez les détails de la sonde a. **Nom** : nom de la sonde b. **Protocole** : HTTP c. **Port** : 80 (HTTP) d. **Chemin d’accès** : /adfs/probe e. **Intervalle** : 5 (valeur par défaut) : il s’agit de l’intervalle auquel l’équilibreur de charge interne interrogera les machines virtuelles du pool principal f. **Seuil de défaillance d’intégrité** : 2 (valeur par défaut) : il s’agit du seuil limite de défaillances consécutives de la sonde au-delà duquel l’équilibreur de charge interne considérera une machine du pool principal comme non réactive et cessera de lui envoyer du trafic.
 
 ![Configuration de la sonde d’équilibreur de charge interne](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+Nous utilisons le point de terminaison /adfs/probe qui a été créé explicitement pour les contrôles d’intégrité dans un environnement AD FS où il est impossible de vérifier l’intégralité du chemin d’accès HTTPS.  Cette méthode est de meilleure qualité qu’une vérification de base du port 443, qui ne reflète pas exactement l’état d’un déploiement AD FS moderne.  Des informations supplémentaires sur ce point sont disponibles ici : https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
 
 **6.4. Création des règles d’équilibrage de charge**
 
@@ -323,7 +325,7 @@ Vous pouvez utiliser un réseau virtuel existant ou créer un nouveau réseau vi
 
 | Paramètre | Description |
 |:--- |:--- |
-| Emplacement |Région dans laquelle déployer les ressources, par exemple, États-Unis de l'Est. |
+| Lieu |Région dans laquelle déployer les ressources, par exemple, USA Est. |
 | StorageAccountType |Type de compte de stockage créé |
 | VirtualNetworkUsage |Indique si un réseau virtuel sera créé ou si un compte existant est utilisé |
 | VirtualNetworkName |Nom du réseau virtuel à créer, obligatoire lors de l’utilisation du réseau virtuel nouveau ou existant |

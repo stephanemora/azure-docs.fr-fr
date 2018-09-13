@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: bf7dabc1c3765d86e7a0f87acaa6f06a68d3d530
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398816"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782006"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob
 Vous pouvez activer l’accès en lecture anonyme public pour un conteneur et ses objets blob dans Stockage Blob Azure. En procédant ainsi, vous pouvez accorder un accès en lecture seule à ces ressources sans partager votre clé de compte et sans exiger de signature d’accès partagé (SAP).
@@ -30,7 +30,7 @@ Vous pouvez configurer un conteneur avec les autorisations suivantes :
 
 Vous pouvez définir les autorisations de conteneur par les moyens suivants :
 
-* [portail Azure](https://portal.azure.com)
+* [Portail Azure](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Azure CLI 2.0](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Par programmation, en utilisant l’une des bibliothèques clientes de stockage ou l’API REST
@@ -39,7 +39,7 @@ Vous pouvez définir les autorisations de conteneur par les moyens suivants :
 Pour définir des autorisations de conteneur dans le [portail Azure](https://portal.azure.com), effectuez les étapes suivantes :
 
 1. Ouvrez le panneau de votre **Compte de stockage** dans le portail. Vous pouvez trouver votre compte de stockage en sélectionnant **Comptes de stockage** dans le panneau de menu principal du portail.
-1. Sous l’élément **SERVICE BLOB** du panneau de menu, sélectionnez **Conteneurs**.
+1. Sous l’élément **Service Blob** du panneau de menu, sélectionnez **Objets blob**.
 1. Cliquez avec le bouton droit sur la ligne du conteneur ou sélectionnez les points de suspension pour ouvrir le **menu contextuel** du conteneur.
 1. Sélectionnez **Stratégie d’accès** dans le menu contextuel.
 1. Sélectionnez un **type d’accès** dans le menu déroulant.

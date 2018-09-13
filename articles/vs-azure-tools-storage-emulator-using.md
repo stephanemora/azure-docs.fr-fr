@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: e4a72729cfe69a810e0eec0a0ac6ddb87a468932
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4b14fa44f484735f2a5efee4d631a6f48e6a8bf6
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144828"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382634"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configuration et utilisation de l’émulateur de stockage avec Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -33,7 +33,7 @@ Pour plus d’informations sur l’émulateur de stockage, y compris la configur
 > 
 
 ## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Configuration d’une chaîne de connexion pour l’émulateur de stockage
-Pour accéder à l’émulateur de stockage depuis du code au sein d’un rôle, vous devez configurer une chaîne de connexion qui pointe vers l’émulateur de stockage et qui pourra être modifiée ultérieurement pour pointer vers un compte de stockage Azure. Une chaîne de connexion est un paramètre de configuration que votre rôle peut lire pendant l’exécution pour se connecter à un compte de stockage. Pour plus d’informations sur la création de chaînes de connexion, consultez [Configuration d’une application Azure](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+Pour accéder à l’émulateur de stockage depuis du code au sein d’un rôle, vous devez configurer une chaîne de connexion qui pointe vers l’émulateur de stockage et qui pourra être modifiée ultérieurement pour pointer vers un compte de stockage Azure. Une chaîne de connexion est un paramètre de configuration que votre rôle peut lire pendant l’exécution pour se connecter à un compte de stockage. Pour plus d’informations sur la création des chaînes de connexion, consultez [Configuration des chaînes de connexion Stockage Azure](/azure/storage/common/storage-configure-connection-string).
 
 > [!NOTE]
 > Vous pouvez retourner une référence au compte de l’émulateur de stockage à partir de votre code à l’aide de la propriété **DevelopmentStorageAccount**. Cette approche fonctionne correctement si vous voulez accéder à l’émulateur de stockage à partir de votre code. Toutefois, si vous projetez de publier votre application dans Azure, vous devrez créer une chaîne de connexion pour accéder à votre compte de stockage et modifier votre code pour utiliser cette chaîne de connexion avant de publier l’application. Si vous passez fréquemment du compte de l’émulateur de stockage à un compte de stockage Azure, l’utilisation d’une chaîne de connexion vous permettra de simplifier ce processus.

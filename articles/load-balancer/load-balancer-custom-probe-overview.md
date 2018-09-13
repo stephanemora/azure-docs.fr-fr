@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190731"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695423"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -36,7 +36,7 @@ Les types de sondes d’intégrité disponibles et la façon dont les sondes d�
 > [!IMPORTANT]
 > Les sondes d’intégrité d’un équilibreur de charge proviennent de l’adresse IP 168.63.129.16 et ne doivent pas être bloquées pour pouvoir annoter votre instance.  Consultez [adresse IP source de sonde](#probesource) pour plus d’informations.
 
-## <a name="types"></a>Types de sonde d’intégrité
+## <a name="types"></a>Types de sonde
 
 Les sondes d’intégrité peuvent observer n’importe quel port sur une instance de serveur principal, y compris le port sur lequel ledit service est fourni. Le protocole de la sonde d’intégrité peut être configuré pour trois types de sondes d’intégrité différents :
 

@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005393"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841590"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid 
 
@@ -35,19 +35,20 @@ Les codes de réponse HTTP suivants indiquent qu’un événement a bien été d
 
 ### <a name="failure-codes"></a>Codes d’échec
 
-Les codes de réponse HTTP suivants indiquent un échec de la tentative de distribution d’un événement. 
+Les codes de réponse HTTP suivants indiquent un échec de la tentative de distribution d’un événement.
 
 - 400 Demande incorrecte
 - 401 Non autorisé
 - 404 Introuvable
 - 408 Délai d’expiration de la demande
+- 413 Entité de demande trop grande
 - 414 URI trop long
 - 429 Trop de demandes
 - 500 Erreur interne du serveur
 - 503 Service indisponible
 - 504 Dépassement du délai de la passerelle
 
-Si Event Grid reçoit une erreur qui indique que le point de terminaison n’est pas disponible temporairement ou qu’une prochaine requête peut aboutir, il tente à nouveau d’envoyer l’événement. Si Event Grid reçoit une erreur qui indique que la remise ne réussira jamais et qu’un [point de terminaison de lettres mortes a été configuré](manage-event-delivery.md), il envoie l’événement au point de terminaison de lettres mortes. 
+Si vous avez [configuré un point de terminaison de lettres mortes](manage-event-delivery.md) et qu’Event Grid reçoit un code réponse 400 ou 413, Event Grid envoie immédiatement l’événement au point de terminaison de lettres mortes. Sinon, Event Grid repasse toutes les erreurs.
 
 ## <a name="retry-intervals-and-duration"></a>Intervalles avant nouvelle tentative et durée
 

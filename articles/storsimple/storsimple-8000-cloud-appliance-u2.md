@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4d47b5426da5d857085991767faa5fb227476408
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852334"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665003"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Déployer et gérer une appliance cloud StorSimple dans Azure (Update 3 et versions ultérieures)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’appliance cloud StorSimple série 8000 est une fonctionnalité supplémentaire fournie avec votre solution Microsoft Azure StorSimple. StorSimple Cloud Appliance s’exécute sur une machine virtuelle dans un réseau virtuel Microsoft Azure. Vous pouvez l’utiliser pour sauvegarder et cloner les données à partir de vos ordinateurs hôtes.
 
@@ -265,7 +265,7 @@ Pour arrêter tous les frais, vous devez supprimer l’appliance cloud. Pour sup
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Résolution des problèmes de connectivité Internet
 La création d’une appliance cloud échoue si vous ne disposez d’aucune connectivité à Internet. Pour résoudre les problèmes de connectivité Internet, procédez comme suit dans le portail Azure :
 
-1. [Créez une machine virtuelle Windows Server 2012 dans Azure](/articles/virtual-machines/windows/quick-create-portal.md). Cette machine virtuelle doit utiliser le même compte de stockage, le même réseau virtuel et le même sous-réseau que ceux utilisés par votre appliance cloud. S’il existe déjà un hôte Windows Server dans Azure en utilisant le même compte de stockage, le même réseau virtuel et le même sous-réseau, vous pouvez également l’utiliser pour résoudre vos problèmes de connectivité Internet.
+1. [Création d’une machine virtuelle Windows dans le portail Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Cette machine virtuelle doit utiliser le même compte de stockage, le même réseau virtuel et le même sous-réseau que ceux utilisés par votre appliance cloud. S’il existe déjà un hôte Windows Server dans Azure en utilisant le même compte de stockage, le même réseau virtuel et le même sous-réseau, vous pouvez également l’utiliser pour résoudre vos problèmes de connectivité Internet.
 2. Connectez-vous à distance à la machine virtuelle créée à l’étape précédente.
 3. Ouvrez une fenêtre de commande à l’intérieur de la machine virtuelle (Win + R, puis tapez `cmd`).
 4. À l’invite, entrez la commande suivante :

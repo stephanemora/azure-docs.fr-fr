@@ -1,25 +1,26 @@
 ---
 title: Manuel du modèle de solution Microsoft Cortana Intelligence de prévision de la demande d’énergie | Microsoft Docs
 description: Un modèle de solution avec Microsoft Cortana Intelligence permettant de prévoir la demande en énergie d’une société de service public de distribution d’énergie.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: ilanr9
-manager: ilanr9
+manager: cgronlun
 editor: yijichen
 ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
-ms.author: ilanr9;yijichen;garye
-ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yijichen
+ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23004034"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842571"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manuel du modèle de solution Microsoft Cortana Intelligence de prévision de la demande d’énergie
 ## <a name="executive-summary"></a>Résumé
@@ -32,7 +33,7 @@ Ce manuel regroupe les instructions liées aux analyses et aux activités métie
 > 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce document traite de l’utilisation de Cortana Intelligence, et plus particulièrement d’Azure Machine Learning (AML), dans l’implémentation et le déploiement de solutions de prévision d’énergie du point de vue de l’entreprise, des données et de la technique. Le document se compose de trois parties principales :  
 
 1. Présentation de l’entreprise  
@@ -259,7 +260,7 @@ Les tables suivantes montrent des exemples de format de données de consommation
 | 7/1/2015 |10:00:01 |ABC1234 |7.1 |2.2 |4.3 |
 | 7/1/2015 |10:00:02 |ABC1234 |6.0 |2.1 |4.0 |
 
-| **Date** | **Time** | **Emplacement** | **Température** |
+| **Date** | **Time** | **Lieu** | **Température** |
 | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |11242 |24,4 |
 | 7/1/2015 |10:00:01 |11242 |24,4 |
@@ -316,7 +317,7 @@ Cela permet de ramener la valeur d’origine à une plage plus petite, comprise 
 ## <a name="modeling"></a>Modélisation
 La phase de modélisation est celle pendant laquelle la conversion des données a lieu. Au cœur de ce processus, il peut y avoir des algorithmes qui analysent les données d’historique (données d’apprentissage), extraire des modèles et générer un modèle. Ce modèle peut servir par la suite à prédire ces nouvelles données qui n’ont pas été utilisées pour générer le modèle.
 
-Une fois que nous avons un modèle de travail fiable, nous pouvons l’utiliser pour noter les nouvelles données structurées, de manière à y inclure les fonctionnalités requises (X). Le processus d’évaluation utilisera un modèle persistant (objet issu de la phase de formation) et prévoira la variable cible désignée par Ŷ.
+Une fois que nous avons un modèle de travail fiable, nous pouvons l’utiliser pour noter les nouvelles données structurées, de manière à y inclure les fonctionnalités requises (X). Le processus de scoring utilisera le modèle persistant (l’objet de la phase d’entraînement) et prédira la variable cible qui est indiquée par Ŷ.
 
 ### <a name="demand-forecasting-modeling-techniques"></a>Techniques de modélisation de prévision des demandes
 En cas de prévision de demande, nous utilisons les données d’historique commandées par heure. Nous faisons généralement référence à des données qui incluent la dimension temps en tant que [série chronologique](https://en.wikipedia.org/wiki/Time_series). L’objectif de la série chronologique est de dégager des tendances associées à l’heure, à la saisonnalité, la corrélation automatique (corrélation sur la durée) et de les formuler dans un modèle.

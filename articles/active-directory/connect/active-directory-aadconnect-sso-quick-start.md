@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8cab491a874094ee195f12ba6fe7f19a87f09ef2
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522179"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841946"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
@@ -42,6 +42,9 @@ Vérifiez que les prérequis suivants sont remplis :
     >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) pour en savoir plus.
 
 * **Utiliser une topologie Azure AD Connect prise en charge** . Veillez à utiliser une des topologies d’Azure Connect AD prises en charge et décrites [ici](active-directory-aadconnect-topologies.md).
+
+    >[!NOTE]
+    >L’authentification unique fluide prend en charge plusieurs forêts AD, qu’il existe ou non des approbations AD entre elles.
 
 * **Définir les informations d'identification de l'administrateur de domaine** : Vous devez disposer des informations d'identification de l'administrateur de domaine pour chaque forêt Active Directory, dans les scénarios suivants :
     * Synchronisation avec Azure AD via Azure AD Connect.
@@ -180,7 +183,7 @@ Mozilla Firefox n'utilise pas automatiquement l’authentification Kerberos. Cha
 
 #### <a name="safari-macos"></a>Safari (macOS)
 
-Assurez-vous que la machine utilisant le système macOS est jointe à AD. Pour obtenir des instructions sur la façon de rejoindre AD, voir [Meilleures pratiques pour intégrer OS X dans Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Assurez-vous que la machine utilisant le système macOS est jointe à AD. Les instructions pour joindre à AD votre appareil macOS sortent du cadre de cet article.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (toutes les plateformes)
 

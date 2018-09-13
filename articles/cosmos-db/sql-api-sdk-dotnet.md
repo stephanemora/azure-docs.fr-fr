@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd460d92430f8ab011e90b969495972b744162df
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d25f46804c3320b7d941a945f3c4d9a5dfb6970c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798710"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702127"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK .NET Azure Cosmos DB pour l’API SQL : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "34798710"
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-get-started.md)</td></tr>
+<tr><td>**Démarrer**</td><td>[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -50,6 +50,18 @@ ms.locfileid: "34798710"
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Ajout de la prise en charge de l’annulation de demande.
+* Ajout de SetCurrentLocation à ConnectionPolicy, qui remplit automatiquement les emplacements par défaut en fonction de la région.
+* Correction de bogue dans les requêtes entre plusieurs partitions avec Min/Max et un filtre qui correspond à Aucun document sur une partition individuelle.
+
+### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
+
+* Les méthodes DocumentClient ont désormais une parité avec IDocumentClient.
+* Mise à jour de la pile de transport TCP direct pour réduire le nombre de connexions établies.
+* Ajout de la prise en charge du mode direct TCP pour les clients autres que Windows.
+
 ### <a name="a-name12201220"></a><a name="1.22.0"/>1.22.0
 
 * Ajout de la propriété ConsistencyLevel à FeedOptions.
@@ -297,6 +309,8 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.0.0-preview2](#2.0.0-preview2) |26 juillet 2018 |--- |
+| [2.0.0-preview](#2.0.0-preview) |11 mai 2018 |--- |
 | [1.22.0](#1.22.0) |19 avril 2018 |--- |
 | [1.21.1](#1.20.1) |09 mars 2018 |--- |
 | [1.20.2](#1.20.1) |21 février 2018 |--- |

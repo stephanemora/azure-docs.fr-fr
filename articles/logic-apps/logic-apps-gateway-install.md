@@ -1,25 +1,24 @@
 ---
 title: Installation d’une passerelle de données locale - Azure Logic Apps | Microsoft Docs
-description: Comment télécharger et installer la passerelle de données avant d’accéder aux données locales à partir d’applications logiques
+description: Télécharger et installer la passerelle de données locale pour pouvoir accéder aux données locales avec Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503646"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842445"
 ---
-# <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Installer la passerelle de données locale pour Azure Logic Apps
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
-Avant de pouvoir connecter vos applications logiques à des sources de données locales, téléchargez et installez la passerelle de données locale sur un ordinateur local. La passerelle fonctionne comme un pont qui effectue un transfert de données et de chiffrement entre des sources de données locales (pas situées sur le cloud) et vos applications logiques. Cet article vous explique comment télécharger, installer et configurer votre passerelle de données locale. 
+Pour pouvoir vous connecter à des sources de données locales à partir d’Azure Logic Apps, téléchargez et installez la passerelle de données locale sur un ordinateur local. La passerelle fonctionne comme un pont qui effectue un transfert de données et de chiffrement entre des sources de données locales (pas situées sur le cloud) et vos applications logiques. Cet article vous explique comment télécharger, installer et configurer votre passerelle de données locale. 
 
 Vous pouvez utiliser la même installation de passerelle pour d’autres services, tels que Power BI, Microsoft Flow, PowerApps et Azure Analysis Services. Pour en savoir plus, voir [Fonctionnement de la passerelle de données](#gateway-cloud-service).
 
@@ -52,7 +51,11 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un [compte professionnel ou scolaire](../active-directory/fundamentals/sign-up-organization.md) équipé d’[un abonnement Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer). Pendant l’installation de la passerelle, identifiez-vous avec ce compte afin d’associer l’installation de passerelle à votre abonnement Azure. Vous utiliserez par la suite le même compte lors de la création d’une ressource Azure pour installer votre passerelle dans le portail Azure. Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+* Un [compte professionnel ou scolaire](../active-directory/fundamentals/sign-up-organization.md) avec un [abonnement Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+
+  Pendant l’installation de la passerelle, identifiez-vous avec ce compte afin d’associer l’installation de passerelle à votre abonnement Azure. 
+  Vous utiliserez par la suite le même compte lors de la création d’une ressource Azure pour installer votre passerelle dans le portail Azure. 
+  Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
 * Voici la configuration requise pour votre ordinateur local :
 
@@ -72,8 +75,7 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
     > [!TIP]
     > Pour réduire la latence, vous pouvez installer la passerelle le plus près possible de votre source de données, ou sur le même ordinateur, en supposant que vous disposiez des autorisations nécessaires.
 
-  * Installez la passerelle sur un ordinateur qui *ne se met pas* hors tension, en veille et ne se connecte pas à Internet. La passerelle ne peut fonctionner sans ces prérequis. 
-  De même, les performances de la passerelle peuvent être ralenties sur un réseau sans fil.
+  * Installez la passerelle sur un ordinateur connecté à Internet, toujours allumé et qui ne se met *pas* en veille. Sinon, la passerelle ne peut pas s’exécuter. Par ailleurs, les performances peuvent être réduites sur un réseau sans fil.
 
   * Pendant l’installation, vous devez vous connecter avec un [compte professionnel ou scolaire](../active-directory/sign-up-organization.md) géré par Azure Active Directory (Azure AD), et non par un compte Microsoft. 
   En outre, assurez-vous que ce compte n’est pas un compte (invité) B2B Azure. 

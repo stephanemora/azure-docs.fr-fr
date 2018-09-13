@@ -11,78 +11,112 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 901eb5ef43ddb2840ed7a3d83fc08f2f05849461
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a4aecd276df8e5453f0c35d6290bbe8a8d156ffa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189733"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669361"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configurer les paramètres des rôles de ressources Azure dans PIM
 
-Quand vous configurez les paramètres de rôle, vous définissez les paramètres par défaut appliqués aux affectations dans l’environnement Privileged Identity Management (PIM). Pour définir ces paramètres pour votre ressource, sélectionnez l’onglet **Paramètres de rôle** dans le volet gauche. Vous pouvez également sélectionner le bouton Paramètres de rôle de la barre d’action (dans n’importe quel rôle) pour afficher les options actuelles.
+Quand vous configurez les paramètres des rôles de ressources Azure, vous définissez les paramètres par défaut qui sont appliqués aux attributions de rôles de ressources Azure dans Azure AD Privileged Identity Management (PIM). Utilisez les procédures suivantes pour configurer le flux de travail d’approbation et spécifier qui peut approuver ou refuser les demandes.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="open-role-settings"></a>Ouvrir les paramètres des rôles
 
-Le flux de travail d’approbation dans PIM (Privileged Identity Management) pour les rôles de ressources Azure permet aux administrateurs de protéger ou restreindre davantage l’accès aux ressources critiques. Autrement dit, les administrateurs peuvent exiger une approbation pour activer des attributions de rôles. 
+Suivez ces étapes pour ouvrir les paramètres pour un rôle de ressource Azure.
 
-Le concept de hiérarchie des ressources est propre aux rôles de ressources Azure. Cette hiérarchie permet aux ressources enfants au sein du conteneur parent d’hériter des attributions de rôle d’un objet de ressource parent. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-Considérez l’exemple suivant : Bob, administrateur des ressources, utilise PIM pour affecter Alice en tant que membre éligible au rôle de propriétaire dans l’abonnement Contoso. Avec cette attribution, Alice est propriétaire éligible de tous les conteneurs de groupes de ressources au sein de l’abonnement Contoso. Elle est également propriétaire éligible de toutes les ressources (telles que les machines virtuelles) au sein de chaque groupe de ressources de l’abonnement. 
+1. Ouvrez **Azure AD Privileged Identity Management**.
 
-Supposez que l’abonnement Contoso comprenne trois groupes de ressources : Fabrikam Test, Fabrikam Dev et Fabrikam Prod. Chacun de ces groupes de ressources contient une seule machine virtuelle.
+1. Cliquez sur **Ressources Azure**.
 
-Les paramètres de PIM sont configurés pour chaque rôle d’une ressource. Contrairement aux attributions, ces paramètres ne sont pas hérités et s’appliquent uniquement au rôle de ressource. [En savoir plus sur les attributions éligibles et la visibilité des ressources](pim-resource-roles-eligible-visibility.md).
+1. Cliquez sur la ressource que vous souhaitez gérer, telle qu’un abonnement ou un groupe d’administration.
 
-Bob utilise PIM pour exiger de la part de tous les membres du rôle de propriétaire de l’abonnement Contoso une demande d’approbation pour l’activation. Pour aider à protéger les ressources contenues dans le groupe de ressources Fabrikam Prod, Bob exige également une approbation pour les membres du rôle de propriétaire de cette ressource. Les rôles de propriétaire de Fabrikam Test et Fabrikam Dev ne nécessitent pas d’approbation pour l’activation.
+    ![Liste des ressources Azure à gérer](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-Quand Alice demande l’activation de son rôle de propriétaire pour l’abonnement Contoso, un approbateur doit approuver ou refuser sa demande pour qu’elle devienne active dans le rôle. Si Alice décide d’[étendre son activation](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) au groupe de ressources Fabrikam Prod, un approbateur doit également approuver ou refuser cette demande. En revanche, si Alice décide d’étendre son activation à Fabrikam Test ou Fabrikam Dev, l’approbation n’est pas requise.
+1. Cliquez sur **Paramètres de rôle**.
 
-Il se peut que le flux de travail d’approbation ne soit pas nécessaire pour tous les membres d’un rôle. Envisagez un scénario dans lequel votre société embauche plusieurs associés sous contrat pour aider au développement d’une application qui s’exécute dans un abonnement Azure. En tant qu’administrateur de la ressource, vous souhaitez que les employés bénéficient d’un accès éligible, sans approbation, et que l’associé sous contrat ait besoin de demander une approbation. Pour configurer le flux de travail d’approbation pour les associés sous contrat uniquement, vous pouvez créer un rôle personnalisé avec les mêmes autorisations que le rôle affecté aux employés. Vous pouvez demander l’approbation pour activer ce rôle personnalisé. [En savoir plus sur les rôles personnalisés](pim-resource-roles-custom-role-policy.md).
+    ![Paramètres de rôle](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
-Pour configurer le flux de travail d’approbation et spécifier les personnes autorisées à approuver ou à refuser les demandes, appliquez les procédures suivantes.
+1. Cliquez sur le rôle dont vous souhaitez configurer les paramètres.
+
+    ![Détails des paramètres du rôle](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+
+1. Cliquez sur **Modifier** pour ouvrir le volet Paramètres de rôle.
+
+    ![Modifier les paramètres du rôle](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+
+    Dans le volet Paramètres de rôle de chaque rôle, vous pouvez configurer plusieurs paramètres.
+
+## <a name="assignment-duration"></a>Durée de l’attribution
+
+Vous pouvez choisir entre deux options de durée d’attribution pour chaque type d’attribution (éligible et actif) lorsque vous configurez les paramètres d’un rôle. Ces options deviennent la durée maximale par défaut lorsqu’un membre est attribué au rôle dans PIM.
+
+Vous pouvez choisir l’une de ces options de durée d’attribution **éligible** :
+
+| | |
+| --- | --- |
+| **Autoriser une attribution éligible permanente** | Les administrateurs de ressources peuvent attribuer une appartenance éligible permanente. |
+| **Faire expirer les attributions éligibles après** | Les administrateurs de ressources peuvent exiger que toutes les attributions éligibles aient une date de début et une date de fin spécifiées. |
+
+Vous pouvez choisir l’une de ces options de durée d’attribution **active** :
+
+| | |
+| --- | --- |
+| **Autoriser une attribution active permanente** | Les administrateurs de ressources peuvent attribuer une appartenance active permanente. |
+| **Faire expirer les attributions actives après** | Les administrateurs de ressources peuvent exiger que toutes les attributions actives aient une date de début et une date de fin spécifiées. |
+
+> [!NOTE] 
+> Toutes les attributions qui ont une date de fin spécifiée peuvent être renouvelées par les administrateurs de ressources. De plus, les membres peuvent lancer des demandes en libre-service afin d’[étendre ou renouveler des attributions de rôles](pim-resource-roles-renew-extend.md).
+
+## <a name="require-multi-factor-authentication"></a>Exiger une authentification multifacteur
+
+PIM permet l’application facultative de l’authentification multifacteur (MFA) Azure dans deux scénarios distincts.
+
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Demander l'authentification multifacteur lors de l'attribution active
+
+Dans certains cas, vous pouvez attribuer un membre à un rôle pour une courte durée (une journée par exemple). Il n’est alors pas nécessaire que les membre attribués demandent l’activation. Dans ce scénario, PIM ne peut pas appliquer l’authentification multifacteur lorsque le membre utilise son attribution de rôle, car il est déjà actif dans le rôle depuis le moment où il est attribué.
+
+Pour garantir que l’administrateur de ressources qui réalise l’attribution est bien celui qu’il prétend être, vous pouvez appliquer l’authentification multifacteur lors de l’attribution active en cochant la case **Demander l'authentification multifacteur lors de l'attribution active**.
+
+### <a name="require-multi-factor-authentication-on-activation"></a>Exiger Multi-Factor Authentication lors de l’activation
+
+Vous pouvez exiger des membres éligibles d’un rôle qu’ils exécutent l’authentification multifacteur pour pouvoir effectuer l’activation. Ce processus garantit, avec une certitude raisonnable, que l’utilisateur demandant l’activation est bien celui qu’il prétend être. L’application de cette option permet de protéger les ressources critiques au cas où le compte d’utilisateur pourrait être compromis.
+
+Pour exiger d’un membre éligible qu’il exécute l’authentification multifacteur avant l’activation, cochez la case **Exiger l’authentification multifacteur lors de l’activation**.
+
+Pour plus d’informations, consultez [Authentification multifacteur (MFA) et PIM](pim-how-to-require-mfa.md).
+
+## <a name="activation-maximum-duration"></a>Durée maximum d'activation
+
+Utilisez le curseur **Durée maximum d'activation** pour définir la durée maximale, en heures, pendant laquelle un rôle reste actif avant d’expirer. Cette valeur peut être comprise entre 1 et 24 heures.
+
+## <a name="require-justification"></a>Demander une justification
+
+Vous pouvez exiger des membres qu’ils entrent une justification lors de l’attribution active ou quand ils effectuent l’activation. Pour demander une justification, cochez la case **Demander une justification lors de l'affectation active** ou la case **Demander une justification lors de l’activation**.
 
 ## <a name="require-approval-to-activate"></a>Demander une approbation pour activation
 
-1. Accédez à PIM dans le portail Azure et sélectionnez une ressource dans la liste.
+Si vous souhaitez exiger une approbation pour activer un rôle, procédez comme suit.
 
-   ![Volet « Ressources Azure » avec une ressource sélectionnée](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+1. Cochez la case **Exiger une approbation pour activer**.
 
-2. Dans le volet gauche, sélectionnez **Paramètres de rôle**.
+1. Cliquez sur **Sélectionner des approbateurs** pour ouvrir le volet Sélectionner un membre ou un groupe.
 
-3. Recherchez et sélectionnez un rôle, puis sélectionnez **Modifier** pour modifier les paramètres.
+    ![Sélectionner un membre ou un groupe](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-   ![Bouton « Modifier » pour le rôle d’opérateur](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
+1. Sélectionnez au moins un membre ou un groupe, puis cliquez sur **Sélectionner**. Vous pouvez ajouter n’importe quelle combinaison de membres et de groupes. Vous devez sélectionner au moins un approbateur. Il n’existe aucun approbateur par défaut.
 
-4. Dans la section **Activation**, cochez la case **Demander une approbation pour activation**.
+    Vos sélections figurent dans la liste des approbateurs sélectionnés.
 
-   ![Section « Activation » des paramètres de rôle](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
-
-## <a name="specify-approvers"></a>Spécifier des approbateurs
-
-Cliquez sur **Sélectionner des approbateurs** pour ouvrir le volet **Sélectionnez un utilisateur ou un groupe**.
-
->[!NOTE]
->Vous devez sélectionner au moins un utilisateur ou un groupe pour mettre à jour le paramètre. Il n’existe aucun approbateur par défaut.
-
-Les administrateurs de ressources peuvent ajouter n’importe quelle combinaison d’utilisateurs et de groupes à la liste des approbateurs. 
-
-![Volet « Sélectionnez un utilisateur ou un groupe » avec un utilisateur sélectionné](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
-
-## <a name="request-approval-to-activate"></a>Demander une approbation pour activation
-
-Une demande d’approbation n’a aucun impact sur la procédure à suivre par un membre pour l’activation. [Passez en revue les étapes pour activer un rôle](pim-resource-roles-activate-your-roles.md).
-
-Si un membre a demandé l’activation d’un rôle qui nécessite une approbation et si le rôle n’est plus nécessaire, le membre peut annuler sa demande dans PIM.
-
-Pour ce faire, accédez à PIM et sélectionnez **Mes demandes**. Recherchez la demande et sélectionnez **Annuler**.
-
-![Volet « Mes demandes »](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
+1. Une fois que vous avez spécifié tous vos paramètres de rôle, cliquez sur **Mettre à jour** pour enregistrer vos modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Exiger une authentification multifacteur pour les rôles de ressources Azure dans PIM](pim-resource-roles-require-mfa.md)
+- [Attribuer des rôles de ressources Azure dans PIM](pim-resource-roles-assign-roles.md)
 - [Configurer des alertes de sécurité pour les rôles de ressources Azure dans PIM](pim-resource-roles-configure-alerts.md)

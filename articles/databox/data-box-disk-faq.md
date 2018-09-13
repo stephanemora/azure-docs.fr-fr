@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 931b3fd4730ed9ca3a901b423d6c804dfa7e5305
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 26f8f59d940c1e4a25e24229c2a3df75052e63e4
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143540"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783284"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Qu’est-ce qu’Azure Data Box Disk ? (Préversion)
 
@@ -48,7 +48,7 @@ R. Les disques Azure Data Box permettent un transfert rapide, économique et sé
 Les disques sont chiffrés à l’aide du chiffrement de lecteur BitLocker et vos clés de chiffrement sont gérées sur le portail Azure. Ensuite, vous copiez les données à partir des serveurs du client. Dans le centre de données, Microsoft migre vos données depuis le disque vers le cloud en utilisant une liaison montante rapide de réseau privé, puis les charge dans Azure.
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>Q. Quand dois-je utiliser des disques Data Box ?
-R. Si vous souhaitez transférer vers Azure 35 To de données (maximum), les disques Data Box pourront vous être utiles.
+R. Si vous souhaitez transférer vers Azure 40 To de données (maximum), les disques Data Box pourront vous être utiles.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>Q. Combien coûtent les disques Data Box ?
 R. Pendant la période de préversion, les disques Data Box sont disponibles gratuitement. L’expédition est également gratuite, toutefois, les frais de stockage Azure s’appliquent.
@@ -60,10 +60,10 @@ R.  Pour obtenir des disques Azure Data Box, commencez par vous inscrire à la [
 R. Pour 5 disques de 8 To chacun (7 To de capacité utilisable), la capacité utilisable maximale est de 35 To. Par conséquent, vous pouvez transférer 35 To de données dans une seule instance.  Pour transférer davantage de données, vous devez commander davantage de disques.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>Q. Comment puis-je vérifier si les disques Data Box sont disponibles dans ma région ? 
-R.  Les disques Data Box sont disponibles aux États-Unis, au Canada et dans tous les pays de l’Union européenne pendant la phase de préversion.  
+R.  Les disques Data Box sont disponibles aux États-Unis, au Canada, en Australie et dans tous les pays de l’Union européenne pendant la phase de préversion.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>Q. Dans quelles régions puis-je stocker des données avec des disques Data Box ?
-R. La solution Data Box Disk est prise en charge dans toutes les régions des États-Unis, du Canada, de l’Europe Ouest et de l’Europe Nord pour la préversion. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge.
+R. La solution Data Box Disk est prise en charge dans toutes les régions des États-Unis, du Canada, d’Australie, de l’Europe Ouest et de l’Europe Nord pour la préversion. Seules les régions du cloud public Azure sont prises en charge. Azure Government et les autres clouds souverains ne sont pas pris en charge.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>Q. Qui dois-je contacter si je rencontre des problèmes avec des disques Data Box ?
 R. Si vous rencontrez des problèmes avec des disques Data Box, veuillez contacter le [support Data Box Disk](mailto:expresspodsupport@microsoft.com).

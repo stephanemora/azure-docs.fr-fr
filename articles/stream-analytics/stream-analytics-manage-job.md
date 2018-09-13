@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186228"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702525"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Créer un travail Stream Analytics pour analyser les données d’appel téléphonique et visualiser les résultats dans un tableau de bord Power BI
  
@@ -61,7 +61,7 @@ Avant que Stream Analytics puisse analyse le flux de données d’appels fraudul
    ![Créer un espace de noms du hub d’événements](media/stream-analytics-manage-job/create-ehns.png)
 
 5. Lorsque le déploiement de l’espace de noms est terminé, accédez à **Toutes les ressources** > recherchez « myEventHubNS » dans la liste des ressources Azure > sélectionnez pour l’ouvrir.  
-6. Sélectionnez ensuite **+Event Hub** > **Nom**, le hub d’événements « MyEventHub ». Vous pouvez utiliser un autre nom. Utilisez les options par défaut pour les autres paramètres, sélectionnez **Créer** et attendez que le déploiement réussisse.
+6. Sélectionnez ensuite **+Event Hub** > **Nom**, le hub d’événements « MyEventHub ». Vous pouvez utiliser un autre nom. Utilisez les options par défaut pour les autres paramètres, sélectionnez **Créer** et attendez que le déploiement réussisse.
 
    ![Créer un event hub](media/stream-analytics-manage-job/create-eh.png)
 
@@ -69,7 +69,7 @@ Avant que Stream Analytics puisse analyse le flux de données d’appels fraudul
 
 Pour qu’une application puisse envoyer des données à Azure Event Hubs, le hub d’événements doit disposer d’une stratégie autorisant un accès approprié. La stratégie d’accès génère une chaîne de connexion qui inclut des informations d’autorisation.
 
-1. Accédez au **Event Hubs** que vous avez créé à l’étape précédente, « MyEventHub », > sélectionnez **Stratégies d’accès partagé** dans le volet du hub d’événements > sélectionnez **+ Ajouter**.  
+1. Accédez au concentrateur **Event Hubs** que vous avez créé à l’étape précédente, « MyEventHub », > sélectionnez **Stratégies d’accès partagé** dans le volet du hub d’événements > sélectionnez **+ Ajouter**.  
 2. Définissez le nom de la stratégie sur **Mypolicy** > et sélectionnez **Gérer** > puis **Créer**.  
 
    ![Créer une stratégie d’accès partagé de hub d’événements](media/stream-analytics-manage-job/create-ehpolicy.png)
@@ -240,7 +240,7 @@ Vous pouvez tester une requête à partir de l’éditeur de requête, et que vo
 
 2. Sélectionnez **Maintenant** pour l’heure de début de sortie du travail, puis sélectionnez **Démarrer**. Le travail démarre en quelques minutes et vous pouvez visualiser l’état dans la barre de notification.  
 
-3. Lorsque le travail aboutit, accédez à [Powerbi.com](https://powerbi.com/), puis connectez-vous avec votre compte professionnel ou scolaire. Si la requête du travail Stream Analytics génère des résultats, vous voyez que votre jeu de données est déjà créé. Accédez à l’onglet **Jeux de données**, vous pouvez voir un jeu de données nommé « ASAdataset ».  
+3. Lorsque le travail aboutit, accédez à [Powerbi.com](https://powerbi.com/), puis connectez-vous avec votre compte professionnel ou scolaire. Si la requête du travail Stream Analytics génère des résultats, vous voyez que votre jeu de données est déjà créé. Accédez à l’onglet **Jeux de données**, où vous pouvez voir un jeu de données nommé « ASAdataset ».  
 
 4. Dans votre espace de travail, sélectionnez **+ Créer**. Créez un tableau de bord et nommez-le Fraudulent Calls. Vous allez ajouter deux vignettes à ce tableau de bord : une vignette permet d’afficher le nombre d’appels frauduleux à une instance donnée et l’autre vignette contient une visualisation de graphique en courbes.  
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d5b01566f672309837f738e185820a0f13eda1c1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247393"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382252"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -112,7 +112,7 @@ Pour afficher les résultats au format CSV :
 ```
 
 ### <a name="system-requirements"></a>Configuration requise
-- Un serveur exécutant Windows Server 2012 R2 ou Windows Server 2016 
+- Un serveur exécutant Windows Server 2012 R2 ou Windows Server 2016 :
 
     | Version | Références prises en charge | Options de déploiement prises en charge |
     |---------|----------------|------------------------------|
@@ -121,15 +121,15 @@ Pour afficher les résultats au format CSV :
 
     Nous prévoyons d’ajouter la prise en charge de versions ultérieures de Windows Server quand elles seront disponibles. Nous sommes susceptibles d’ajouter la prise en charge de versions antérieures de Windows Server en réponse aux commentaires des utilisateurs.
 
-- Un serveur avec un minimum of 2 Go de mémoire
+    > [!Important]  
+    > Nous vous recommandons de mettre régulièrement à jour tous les serveurs que vous utilisez avec Azure File Sync en installant les dernières mises à jour disponibles sur Windows Update. 
+
+- Un serveur avec un minimum de 2 Gio de mémoire.
 
     > [!Important]  
-    > Si le serveur s’exécute sur une machine virtuelle avec la mémoire dynamique activée, la machine virtuelle doit être configurée avec un minimum de 2 048 Mo de mémoire.
+    > Si le serveur s’exécute sur une machine virtuelle où la mémoire dynamique est activée, la machine virtuelle doit être configurée avec un minimum de 2 048 Mio de mémoire.
     
-- Un volume connecté localement, formaté avec le système de fichiers NTFS
-
-> [!Important]  
-> Nous vous recommandons de mettre régulièrement à jour tous les serveurs que vous utilisez avec Azure File Sync en installant les dernières mises à jour disponibles sur Windows Update. 
+- Un volume attaché localement formaté avec le système de fichiers NTFS.
 
 ### <a name="file-system-features"></a>Fonctionnalités du système de fichiers
 | Fonctionnalité | État de la prise en charge | Notes |

@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 78956c8e9d9248708ec326fc07d46f48e51e0f83
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247643"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341258"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -85,12 +85,12 @@ Les données d’appareil qu’une solution IoT donnée stocke dépendent des ex
 
 ## <a name="device-heartbeat"></a>Pulsation des appareils
 
-Le registre des identités IoT Hub contient un champ appelé **connectionState**. Vous ne devez utiliser le champ **connectionState** que pendant le développement et le débogage. Les solutions IoT ne doivent pas interroger le champ au moment de l’exécution. Par exemple, n’interrogez pas le champ **connectionState** pour vérifier si un appareil est connecté avant d’envoyer un message cloud vers appareil ou un SMS. Nous vous recommandons de vous abonner à [l’événement **Appareil déconnecté**](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) sur Event Grid pour recevoir des alertes et superviser l’état de la connexion de l’appareil. Suivez ce [tutoriel](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) pour apprendre à intégrer les événements IoT Hub à votre solution IoT.
+Le registre des identités IoT Hub contient un champ appelé **connectionState**. Vous ne devez utiliser le champ **connectionState** que pendant le développement et le débogage. Les solutions IoT ne doivent pas interroger le champ au moment de l’exécution. Par exemple, n’interrogez pas le champ **connectionState** pour vérifier si un appareil est connecté avant d’envoyer un message cloud vers appareil ou un SMS. Nous vous recommandons de vous abonner à [l’événement **Appareil déconnecté**][lnk-devguide-evgrid-evtype] sur Event Grid pour recevoir des alertes et superviser l’état de la connexion de l’appareil. Suivez ce [tutoriel][lnk-howto-evgrid-connstate] pour savoir comment intégrer les événements Appareil connecté et Appareil déconnecté d’IoT Hub à votre solution IoT.
 
 Si votre solution IoT a besoin de savoir si un appareil est connecté, vous pouvez implémenter le *modèle de pulsation*.
 Dans le modèle par pulsations, l’appareil envoie des messages appareil-à-cloud au moins une fois par durée fixe (par exemple, au moins une fois par heure). Ainsi, même si un appareil n’a pas de données à envoyer, il envoie toujours un message appareil-à-cloud vide (généralement avec une propriété qui l’identifie comme pulsation). Côté service, la solution gère un mappage avec la dernière pulsation reçue pour chaque appareil. Si la solution ne reçoit pas de message de pulsation dans le temps imparti de la part de l’appareil, elle suppose qu’il y a un problème avec l’appareil.
 
-Une implémentation plus complexe pourrait inclure les informations de la [surveillance des opérations][lnk-devguide-opmon] pour identifier les appareils qui ne parviennent pas à se connecter ou à communiquer. Quand vous implémentez le modèle par pulsations, veillez à vérifier les [quotas et limitations IoT Hub][lnk-quotas].
+Une implémentation plus complexe peut inclure les informations [d’Azure Monitor][lnk-AM] et [d’Azure Resource Health][lnk-ARH] pour identifier les appareils qui ne parviennent pas à se connecter ou à communiquer. Consultez le guide [Superviser avec des diagnostics][lnk-devguide-mon]. Quand vous implémentez le modèle par pulsations, veillez à vérifier les [quotas et limitations IoT Hub][lnk-quotas].
 
 > [!NOTE]
 > Si une solution IoT utilise uniquement l’état de la connexion de l’appareil pour déterminer si elle doit envoyer des messages cloud vers appareil, et que ces messages ne sont pas diffusés à de larges groupes d’appareils, envisagez d’utiliser un modèle de *délai d’expiration court* plus simple. Ce modèle permet d’obtenir le même résultat qu’en maintenant l’état de la connexion de l’appareil avec sa pulsation, tout en étant plus efficace. Si vous demandez des accusés de réception des messages, IoT Hub peut vous informer sur les appareils en mesure de recevoir des messages et ceux qui ne le sont pas.
@@ -110,7 +110,7 @@ Message de notification pour l’appareil :
 |$iothub-message-source | deviceLifecycleEvents |
 |$content-encoding | utf-8 |
 |opType | **createDeviceIdentity** ou **deleteDeviceIdentity** |
-|hubName | Nom du hub IoT |
+|hubName | Nom de l’IoT Hub |
 |deviceId | ID de l’appareil |
 |operationTimestamp | Horodatage ISO8601 de l’opération |
 |iothub-message-schema | deviceLifecycleNotification |
@@ -146,7 +146,7 @@ $iothub-enqueuedtime |  Heure d’envoi de la notification |
 $iothub-message-source | moduleLifecycleEvents |
 $content-encoding | utf-8 |
 opType | **createModuleIdentity** ou **deleteModuleIdentity** |
-hubName | Nom du hub IoT |
+hubName | Nom de l’IoT Hub |
 moduleId | ID du module |
 operationTimestamp | Horodatage ISO8601 de l’opération |
 iothub-message-schema | moduleLifecycleNotification |
@@ -236,7 +236,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 Pour mettre en pratique certains des concepts décrits dans cet article, consultez le didacticiel IoT Hub suivant :
 
-* [Bien démarrer avec Azure IoT Hub][lnk-getstarted-tutorial]
+* [Mise en route d’Azure IoT Hub][lnk-getstarted-tutorial]
 
 Pour savoir comment utiliser le service d’approvisionnement des appareils IoT Hub afin d’activer l’approvisionnement sans contact et juste-à-temps, consultez : 
 
@@ -256,7 +256,7 @@ Pour savoir comment utiliser le service d’approvisionnement des appareils IoT 
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
@@ -265,3 +265,8 @@ Pour savoir comment utiliser le service d’approvisionnement des appareils IoT 
 
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+
+[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

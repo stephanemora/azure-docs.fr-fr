@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: 72f8211ecc0534b15402911de8fc0ec3d541a835
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 6135e4a0182f3af7db54eab974e4c307402185ab
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294902"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666074"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Répliquer des données dans Azure Database pour MySQL
 
@@ -29,16 +29,17 @@ Voici les principaux scénarios à prendre en compte avant d’utiliser la répl
 ## <a name="limitations-and-considerations"></a>Limitations et considérations
 
 ### <a name="data-not-replicated"></a>Données non répliquées
-La [*base de données système mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) sur le serveur principal n’est pas répliquée. Les modifications apportées aux comptes et aux autorisations sur le serveur principal ne sont pas répliquées. Si vous créez un compte sur le serveur principal et que ce compte a besoin d’accéder au serveur réplica, créez manuellement le même compte sur le serveur réplica. Pour une présentation des tables figurant dans la base de données système, consultez le [manuel MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
+La [*base de données système mysql*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html) sur le serveur maître n’est pas répliquée. Les modifications apportées aux comptes et aux autorisations sur le serveur maître ne sont pas répliquées. Si vous créez un compte sur le serveur maître et que ce compte a besoin d’accéder au serveur réplica, créez manuellement le même compte sur le serveur réplica. Pour une présentation des tables figurant dans la base de données système, consultez le [manuel MySQL](https://dev.mysql.com/doc/refman/5.7/en/system-database.html).
 
 ### <a name="requirements"></a>Configuration requise
-- La version du serveur principal doit être au moins MySQL version 5.6. 
-- Les versions du serveur principal et du serveur réplica doivent être identiques. Par exemple, ce doit être MySQL version 5.6 ou MySQL version 5.7.
+- La version du serveur maître doit être au moins MySQL version 5.6. 
+- Les versions du serveur maître et du serveur réplica doivent être identiques. Par exemple, ce doit être MySQL version 5.6 ou MySQL version 5.7.
 - Chaque table doit avoir une clé primaire.
-- Le serveur principal doit utiliser le moteur MySQL InnoDB.
-- L’utilisateur doit disposer des autorisations nécessaires pour configurer la journalisation binaire et créer de nouveaux utilisateurs sur le serveur principal.
+- Le serveur maître doit utiliser le moteur MySQL InnoDB.
+- L’utilisateur doit disposer des autorisations nécessaires pour configurer la journalisation binaire et créer de nouveaux utilisateurs sur le serveur maître.
 
 ### <a name="other"></a>Autres
+- La réplication des données entrantes est prise en charge uniquement dans les niveaux tarifaires Usage général et Mémoire optimisée.
 - Les identificateurs de transaction globaux (GTID) ne sont pas pris en charge.
 
 ## <a name="next-steps"></a>Étapes suivantes

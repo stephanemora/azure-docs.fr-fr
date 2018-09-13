@@ -14,14 +14,19 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 090e7419f80bc734ee2b1cb4f976911792046a9c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142009"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782158"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Utilisation du pack de contenu Power BI Azure Active Directory
+
+|  |
+|--|
+|Actuellement, le pack de contenu Azure AD Power BI utilise les API Azure AD Graph pour récupérer des données à partir de votre locataire Azure AD. Par conséquent, vous pouvez voir certaines différences entre les données disponibles dans le pack de contenu et les données récupérées à l’aide des [API Microsoft Graph pour les rapports](concept-reporting-api.md). |
+|  |
 
 Comprendre comment vos utilisateurs adoptent et utilisent les fonctionnalités d’Azure Active Directory est essentiel pour vous en tant qu’administrateur informatique. Cela vous permet de planifier votre infrastructure informatique et votre communication pour augmenter l’utilisation et tirer le meilleur parti des fonctionnalités d’AAD. Le pack de contenu Power BI pour Azure Active Directory vous donne la possibilité d’analyser vos données pour comprendre comment vous pouvez les utiliser afin de recueillir des informations plus détaillées sur ce qui se passe avec Azure Active Directory pour les différentes fonctionnalités sur lesquelles vous comptez fortement.  Avec l’intégration des API Azure Active Directory API à Power BI, vous pouvez facilement télécharger les packs de contenu prédéfinis et obtenir des informations détaillées sur toutes les activités d’Azure Active Directory à l’aide de l’expérience de visualisation enrichie qu’offre Power BI. Vous pouvez créer votre propre tableau de bord et le partager facilement avec d’autres personnes de votre organisation. 
 

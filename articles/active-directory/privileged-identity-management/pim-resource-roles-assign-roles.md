@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7019a6f97a9590d3b652584015f3077f4ed075af
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 7b82be6cdc8b64595c11eef84e8071fad9c07191
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188918"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665461"
 ---
 # <a name="assign-azure-resource-roles-in-pim"></a>Attribuer des rôles de ressources Azure dans PIM
 
@@ -34,61 +34,98 @@ Azure AD PIM peut gérer les rôles de ressources intégrés d’Azure, ainsi qu
 >[!NOTE]
 Les utilisateurs ou les membres d’un groupe affectés aux rôles de propriétaire ou d’administrateur de l’accès utilisateur, de même que les administrateurs globaux qui permettent la gestion des abonnements dans Azure AD, sont des administrateurs de ressources. Ces administrateurs peuvent assigner des rôles, configurer des paramètres de rôle et revoir les accès à l’aide de PIM pour Azure Resources. Affichez la liste des [rôles intégrés pour les ressources Azure](../../role-based-access-control/built-in-roles.md).
 
-## <a name="assign-roles"></a>Attribuer des rôles
+## <a name="assign-a-role"></a>Attribuer un rôle
 
-Pour affecter un utilisateur ou un groupe à un rôle quand vous visualisez le volet **Rôles**, sélectionnez le rôle, puis **Ajouter un utilisateur**. 
+Suivez ces étapes pour rendre un utilisateur éligible pour un rôle de ressource Azure.
 
-![Volet « Rôles » avec le bouton « Ajouter un utilisateur »](media/azure-pim-resource-rbac/rbac-assign-roles-1.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un nom d’utilisateur qui est membre du rôle [Administrateur de rôle privilégié](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
-Vous pouvez également sélectionner **Ajouter un utilisateur** à partir du volet **Membres**.
+    Pour plus d’informations sur la façon d’accorder l’accès à un autre administrateur pour la gestion de PIM, consultez [Accorder l’accès à d’autres administrateurs pour la gestion de PIM](pim-how-to-give-access-to-pim.md).
 
-![Volet « Membres » avec le bouton « Ajouter un utilisateur »](media/azure-pim-resource-rbac/rbac-assign-roles-2.png)
+1. Ouvrez **Azure AD Privileged Identity Management**.
 
+    Si vous n’avez pas encore démarré PIM dans le portail Azure, accédez à [commencer à utiliser PIM](pim-getting-started.md).
 
-Si vous ajoutez un utilisateur ou un groupe à partir du volet **Membres**, vous devez : 
+1. Cliquez sur **Ressources Azure**.
 
-1. Choisir un rôle dans le volet **Sélectionner un rôle** avant de pouvoir sélectionner un utilisateur ou un groupe.
+1. Utilisez le **filtre de ressources** pour filtrer la liste des ressources managées.
 
-   ![Volet « Sélectionner un rôle »](media/azure-pim-resource-rbac/rbac-assign-roles-select-role.png)
+    ![Liste des ressources Azure à gérer](./media/pim-resource-roles-assign-roles/resources-list.png)
 
-2. Choisissez un utilisateur ou un groupe à partir de l’annuaire.
+1. Cliquez sur la ressource que vous souhaitez gérer, telle qu’un abonnement ou un groupe d’administration.
 
-3. Dans le menu déroulant, choisissez le type d’attribution approprié : 
+1. Sous Gérer, cliquez sur **Rôles** pour afficher la liste des rôles pour les ressources Azure.
 
-   - **Juste-à-temps :** fournit aux utilisateurs ou membres du groupe un accès au rôle éligible mais pas persistant pendant une période spécifiée ou bien indéfiniment (en fonction de la configuration des paramètres de rôle). 
-   - **Directe :** ne nécessite pas l’activation de l’attribution du rôle par l’utilisateur ou les membres du groupe (connu sous le nom d’accès permanent). Nous vous recommandons d’utiliser l’attribution directe pour une utilisation à court terme, où l’accès ne sera pas obligatoire une fois la tâche terminée, par exemple dans le cas d’activités d’astreinte ou soumises à des contraintes de temps.
+    ![Rôles de ressources Azure](./media/pim-resource-roles-assign-roles/resources-roles.png)
 
-4. Si l’attribution doit être permanente (éligible en permanence pour une attribution juste-à-temps, ou active en permanence pour une attribution directe), cochez la case qui se trouve sous la zone **Type d’attribution**.
+1. Cliquez sur **Ajouter un membre** pour ouvrir le volet Nouvelle affectation.
 
-   ![Volet « Paramètres d’appartenance » avec la zone « Type d’attribution » et la case à cocher associée](media/azure-pim-resource-rbac/rbac-assign-roles-settings.png)
+1. Cliquez sur **Sélectionner un rôle** pour ouvrir le volet Sélectionner un rôle.
 
-   >[!NOTE]
-   >La case à cocher peut être non modifiable si un autre administrateur a spécifié la durée maximale d’attribution pour chaque type d’attribution dans les paramètres de rôle.
+    ![Volet Nouvelle affectation](./media/pim-resource-roles-assign-roles/resources-select-role.png)
 
-   Pour spécifier une durée d’attribution spécifique, décochez la case et modifiez les champs des heures et dates de début et/ou de fin.
+1. Cliquez sur un rôle que vous souhaitez affecter et cliquez sur **Sélectionner**.
 
-   ![Volet « Paramètres d’appartenance » avec champs de date de début, heure de début, date de fin et heure de fin](media/azure-pim-resource-rbac/rbac-assign-roles-duration.png)
+    Le volet Sélectionner un membre ou un groupe s’ouvre.
 
+1. Cliquez sur un membre ou un groupe que vous souhaitez affecter au rôle, puis cliquez sur **Sélectionner**.
 
-## <a name="manage-role-assignments"></a>Gérer les attributions de rôles
+    ![Volet Sélectionner un membre ou un groupe](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
 
-Les administrateurs peuvent gérer les attributions de rôle en sélectionnant **Rôles** ou **Membres** dans le volet gauche. Sélectionner **Rôles** permet aux administrateurs de limiter leurs tâches de gestion à un rôle spécifique. Sélectionner **Membres** permet d’afficher toutes les attributions de rôles d’utilisateurs et de groupes pour la ressource.
+    Le volet Paramètres d'appartenance s’ouvre.
 
-![Volet « Rôles »](media/azure-pim-resource-rbac/rbac-assign-roles-roles.png)
+1. Dans la liste **Type d'attribution**, sélectionnez **Éligible** ou **Actif**.
 
-![Volet « Membres »](media/azure-pim-resource-rbac/rbac-assign-roles-members.png)
+    ![Volet des paramètres des appartenances](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
 
->[!NOTE]
-Si vous avez un rôle en attente d’activation, une bannière de notification s’affiche en haut de la page quand vous visualisez l’appartenance.
+    PIM pour les ressources Azure fournit deux types distincts d’attribution :
 
+    - Les attributions **éligibles** exigent des membres qu’ils effectuent une action pour utiliser ce rôle. Il peut s’agir de procéder à une vérification de l’authentification multifacteur (MFA), de fournir une justification professionnelle ou de demander une approbation aux approbateurs désignés.
 
-## <a name="modify-existing-assignments"></a>Modifier des attributions existantes
+    - Les attributions **actives** n’exigent pas des membres qu’ils effectuent une action pour utiliser ce rôle. Les membres attribués comme étant actifs détiennent à tout moment les privilèges affectés au rôle.
 
-Pour modifier des attributions existantes à partir de la vue des détails du groupe/utilisateur, sélectionnez **Modifier les paramètres** à partir de la barre d’action. Sélectionnez le type d’attribution **Juste-à-temps** ou **Directe**.
+1. Si l’attribution doit être permanente (éligible de façon permanente ou attribuée définitivement), cochez la case **Définitivement**.
 
-![Volet « Détails de l’utilisateur » avec le bouton « Modifier les paramètres »](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+    Selon les paramètres du rôle, cette case à cocher peut ne pas être affichée ou être non modifiable.
+
+1. Pour spécifier une durée d’attribution spécifique, décochez la case et modifiez les champs des heures et dates de début et/ou de fin.
+
+    ![Paramètres des appartenances - date et heure](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
+
+1. Lorsque vous avez terminé, cliquez sur **Terminé**.
+
+    ![Nouvelle affectation - Ajouter](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
+
+1. Pour créer la nouvelle attribution de rôle, cliquez sur **Ajouter**. Une notification de l’état s’affiche.
+
+    ![Nouvelle affectation - Notification](./media/pim-resource-roles-assign-roles/resources-new-assignment-notification.png)
+
+## <a name="update-or-remove-an-existing-role-assignment"></a>Mettre à jour ou supprimer une attribution de rôle existante
+
+Suivez ces étapes pour mettre à jour ou supprimer une attribution de rôle existante.
+
+1. Ouvrez **Azure AD Privileged Identity Management**.
+
+1. Cliquez sur **Ressources Azure**.
+
+1. Cliquez sur la ressource que vous souhaitez gérer, telle qu’un abonnement ou un groupe d’administration.
+
+1. Sous Gérer, cliquez sur **Rôles** pour afficher la liste des rôles pour les ressources Azure.
+
+    ![Rôles de ressources Azure - Sélectionner un rôle](./media/pim-resource-roles-assign-roles/resources-update-select-role.png)
+
+1. Cliquez sur le rôle que vous souhaitez mettre à jour ou supprimer.
+
+1. Recherchez l’attribution de rôle sous les onglets **Rôles éligibles** et **Rôles actifs**.
+
+    ![Mettre à jour ou supprimer une attribution de rôle](./media/pim-resource-roles-assign-roles/resources-update-remove.png)
+
+1. Cliquez sur **Mettre à jour** ou sur **Supprimer** pour mettre à jour ou supprimer l’attribution de rôle.
+
+    Pour obtenir des informations sur l’extension d’une attribution de rôle, consultez [Étendre ou renouveler des rôles de ressources Azure dans PIM](pim-resource-roles-renew-extend.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Étendre ou renouveler des rôles de ressources Azure dans PIM](pim-resource-roles-renew-extend.md)
 - [Configurer les paramètres des rôles de ressources Azure dans PIM](pim-resource-roles-configure-role-settings.md)
 - [Attribuer des rôles d’annuaire Azure AD dans PIM](pim-how-to-add-role-to-user.md)

@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011947"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698381"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Surveiller les solutions Batch en comptant les tâches et les nœuds par état
 
-Pour surveiller et gérer des solutions Azure Batch à grande échelle, vous avez besoin d’un comptage précis des ressources dans les différents états. Azure Batch fournit des opérations efficaces pour obtenir ces comptages pour les *tâches* et les *nœuds de calcul* Batch. Utilisez ces opérations à la place des appels d’API potentiellement longs pour retourner des informations détaillées sur les grandes collections de tâches ou de nœuds.
+Pour surveiller et gérer des solutions Azure Batch à grande échelle, vous avez besoin d’un comptage précis des ressources dans les différents états. Azure Batch fournit des opérations efficaces pour obtenir ces comptages pour les *tâches* et les *nœuds de calcul* Batch. Utilisez ces opérations à la place des requêtes de liste potentiellement longues pour retourner des informations détaillées sur les grandes collections de tâches ou de nœuds.
 
 * [Obtenir le nombre de tâches][rest_get_task_counts] obtient un comptage agrégé des tâches actives, en cours d’exécution et terminées dans un travail, ainsi que des tâches ayant réussi ou échoué. 
 
@@ -49,19 +49,15 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 Pour obtenir le nombre de tâches pour un travail, vous pouvez utiliser un modèle semblable pour REST et d’autres langages pris en charge. 
- 
 
-### <a name="consistency-checking-for-task-counts"></a>Vérification de la cohérence des nombres de tâches
+### <a name="counts-for-large-numbers-of-tasks"></a>Calcul d’un grand nombre de tâches
 
-Le service Batch fournit une validation supplémentaire pour les nombres d’états des tâches en effectuant des vérifications de cohérence par rapport à plusieurs composants du système. Dans l’hypothèse peu probable où la vérification de cohérence trouverait des erreurs, le service Batch corrige le résultat de l’opération Obtenir le nombre de tâches en fonction des résultats de la vérification de cohérence.
+L’opération Obtenir le nombre de tâches retourne le nombre d’états de tâche dans le système à un point dans le temps. Quand votre travail a un grand nombre de tâches, le nombre retourné par Obtenir le nombre de tâches peut être décalé de quelques secondes par rapport à l’état réel des tâches. Batch garantit une éventuelle cohérence entre les résultats de l’opération Obtenir le nombre de tâches et l’état réel des tâches (que vous pouvez interroger avec l’API Liste de tâches). Toutefois, si votre travail a un très grand nombre de tâches (> 200 000), nous vous recommandons d’utiliser plutôt l’API Liste de tâches et une [requête filtrée](batch-efficient-list-queries.md), qui fournit des informations plus à jour. 
 
-La propriété `validationStatus` de la réponse indique si le service Batch a effectué la vérification de cohérence. Si le service Batch n’a pas pu vérifier les nombres d’états par rapport aux états réels dans le système, la propriété `validationStatus` est définie sur `unvalidated`. Pour des raisons de performances, le service Batch n’effectue pas la vérification de cohérence si le travail inclut plus de 200 000 tâches ; dans ce cas, la propriété `validationStatus` est définie sur `unvalidated`. (Le nombre de tâches n’est pas nécessairement incorrect dans ce cas, car même une perte de données limitée est improbable.) 
-
-Quand une tâche change d’état, le pipeline d’agrégation traite le changement en quelques secondes. L’opération Obtenir le nombre de tâches reflète le nombre de tâches mises à jour pendant cette période. Toutefois, si le pipeline d’agrégation ne détecte pas un changement de l’état d’une tâche, ce changement n’est pas enregistré avant la prochaine phase de validation. Pendant cette période, les nombres de tâches peuvent être légèrement erronés en raison de l’événement manqué, mais ils sont corrigés à la prochaine phase de validation.
+Les versions d’API du service Batch avant 2018-08-01.7.0 retournent aussi une propriété `validationStatus` dans la réponse de l’opération Obtenir le nombre de tâches. Cette propriété indique si Batch a vérifié la cohérence entre le nombre d’états et les états signalés dans l’API Liste de tâches. La valeur `validated` indique uniquement que Batch a vérifié la cohérence du travail au moins une fois. La valeur de la propriété `validationStatus` n’indique pas si le nombre retourné par l’opération Obtenir le nombre de tâches est actuellement à jour.
 
 ## <a name="node-state-counts"></a>Nombre d’états des nœuds
 
@@ -101,7 +97,7 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
-L’extrait de code C# suivant montre comment répertorier le nombre de nœuds pour un pool donné du compte actif.
+L’extrait de code C# suivant montre comment répertorier le nombre de nœuds pour un pool donné dans le compte actuel.
 
 ```csharp
 foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODATADetailLevel(filterClause: "poolId eq 'testpool'")))

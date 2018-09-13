@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7c990fc0d385af9527bf55339b2fa617e589ec0e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 59dab4651366c3ad6579e0da660baee0c653d1a3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190584"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666000"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Activer des rôles d’annuaire Azure AD dans PIM
 
@@ -26,11 +26,11 @@ Le service Azure Active Directory (Azure AD) Privileged Identity Management (PIM
 
 Si vous êtes éligible à un rôle d’administrateur, vous pouvez activer ce rôle quand vous devez effectuer des actions privilégiées. Par exemple, si vous gérez occasionnellement des fonctionnalités d’Office 365, les administrateurs de rôle privilégié de votre organisation peuvent ne pas vous attribuer le rôle d’administrateur général permanent, étant donné que ce rôle affecte également les autres services. Au lieu de cela, ils peuvent vous attribuer des rôles Azure AD tels qu’administrateur Exchange Online. Vous pouvez faire une demande pour activer ce rôle lorsque vous avez besoin de ses privilèges. Vous aurez ainsi le contrôle d’administrateur pendant une période prédéterminée.
 
-Cet article s’adresse aux administrateurs qui ont besoin d’activer leur rôle dans PIM.
+Cet article s’adresse aux administrateurs qui ont besoin d’activer leur rôle d’annuaire Azure AD dans PIM.
 
 ## <a name="activate-a-role"></a>Activer un rôle
 
-Lorsque vous avez besoin des privilèges d’un rôle, vous pouvez demander une activation à l’aide de l’option de navigation **Mes rôles** dans PIM.
+Lorsque vous avez besoin d’endosser un rôle d’annuaire Azure AD, vous pouvez demander une activation à l’aide de l’option de navigation **Mes rôles** dans PIM.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 

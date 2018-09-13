@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 3004e2e4db12b7b5beb7ab024562d4e285c99a50
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b63d7f4be1d94d19819564a231fd7792203146e1
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40238429"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341833"
 ---
 |  |
 |--|
-|Managed Service Identity est une fonctionnalité d’Azure Active Directory. Les [services Azure prenant en charge l’identité du service administré](/azure/active-directory/managed-service-identity/services-support-msi) sont soumis à leur propre chronologie. Assurez-vous de passer en revue l’état [Disponibilité](/azure/active-directory/managed-service-identity/services-support-msi) des identités gérées pour votre ressource et les [problèmes connus](/azure/active-directory/managed-service-identity/known-issues) avant de commencer.|
+|Identités managées pour ressources Azure est une fonctionnalité d’Azure Active Directory. Les [services Azure prenant en charge les identités managées pour ressources Azure](/azure/active-directory/managed-service-identity/services-support-msi) sont soumis à leur propre chronologie. Assurez-vous de passer en revue l’état [Disponibilité](/azure/active-directory/managed-service-identity/services-support-msi) des identités gérées pour votre ressource et les [problèmes connus](/azure/active-directory/managed-service-identity/known-issues) avant de commencer.|
 |  |

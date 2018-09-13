@@ -1,63 +1,76 @@
 ---
-title: Appel et réponse - Démarrage rapide Node.js pour Azure Cognitive Services, API Recherche web Bing | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche web Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : Utiliser Node.js pour appeler l’API Recherche Web Bing'
+description: Dans ce démarrage rapide, vous allez apprendre à effectuer votre premier appel vers l’API Recherche Web Bing en utilisant Node.js et vous allez recevoir une réponse JSON.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: a47dfaa48acb5b4a8ffc9b9f8da98f42e7729399
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 7a46500f7cbf319c788761bccfaa92197ef67490
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368525"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886929"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-for-nodejs"></a>Appel et réponse : votre première requête Recherche web Bing pour Node.js
+# <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser Node.js pour appeler l’API Recherche Web Bing  
 
-L’API Recherche web Bing fournit une expérience similaire à Bing.com/Search en retournant les résultats de recherche identifiés par Bing comme pertinents pour la requête de l’utilisateur. Les résultats peuvent inclure des pages web, images, vidéos, actualités et entités, ainsi que des requêtes de recherches associées, corrections orthographiques, fuseaux horaires, conversions d’unités, traductions et calculs. Les types de résultats obtenus sont basés sur leur pertinence et le niveau des API Recherche Bing auxquelles vous êtes abonné.
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel vers l’API Recherche Web Bing et recevoir une réponse JSON en moins de 10 minutes.  
 
-Cet article inclut une application console simple qui exécute une requête d’API Recherche web Bing et affiche les résultats de recherche bruts retournés qui sont au format JSON. Alors que cette application est écrite en JavaScript et exécutée sous Node.js, l’API est un service web RESTful compatible avec n’importe quel langage de programmation qui peut formuler des requêtes HTTP et analyser JSON. 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer de [Node.js 6](https://nodejs.org/en/download/) pour exécuter ce code.
+Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.
+* [Node.js 6](https://nodejs.org/en/download/) ou version ultérieure
+* Une clé d’abonnement  
 
-## <a name="running-the-application"></a>Exécution de l'application
+## <a name="create-a-project-and-declare-required-modules"></a>Créer un projet et déclarer les modules requis
 
-Pour exécuter cette application, suivez les étapes ci-dessous.
-
-1. Créez un projet Node.js dans votre éditeur ou IDE favori.
-2. Ajoutez le code fourni.
-3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-4. Exécutez le programme.
+Créez un projet Node.js dans votre éditeur ou IDE favori. Copiez l’extrait de code ci-dessous dans votre projet. Ce démarrage rapide utilise le mode strict et nécessite le module `https` pour envoyer et recevoir des données.
 
 ```javascript
+// Use strict mode.
 'use strict';
 
+// Require the https module.
 let https = require('https');
+```
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+## <a name="define-variables"></a>Définir des variables
 
-// Replace the subscriptionKey string value with your valid subscription key.
+Quelques variables doivent être définies avant de continuer. Vérifiez que `host` et `path` sont valides et remplacez la valeur `subscriptionKey` par une clé d’abonnement valide à partir de votre compte Azure. N’hésitez pas à personnaliser la requête de recherche en remplaçant la valeur de `term`.
+
+```javascript
+// Replace with a valid subscription key.
 let subscriptionKey = 'enter key here';
 
-// Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-// search APIs.  In the future, regional endpoints may be available.  If you
-// encounter unexpected authorization errors, double-check this host against
-// the endpoint for your Bing Web search instance in your Azure dashboard.
+/*
+ * Verify the endpoint URI. If you
+ * encounter unexpected authorization errors, double-check this host against
+ * the endpoint for your Bing Web search instance in your Azure dashboard.  
+ */
 let host = 'api.cognitive.microsoft.com';
 let path = '/bing/v7.0/search';
-
 let term = 'Microsoft Cognitive Services';
 
+// Validate the subscription key.
+if (subscriptionKey.length === 32) {
+    bing_web_search(term);
+} else {
+    console.log('Invalid Bing Search API subscription key!');
+    console.log('Please paste yours into the source code.');
+}
+```
+
+## <a name="create-a-response-handler"></a>Créer un gestionnaire de réponse
+
+Créez un gestionnaire pour enchaîner et analyser la réponse. Le `response_handler` est appelé chaque fois qu’une requête est faite pour l’API Recherche Web Bing, comme vous le verrez dans la section suivante.
+
+```javascript
 let response_handler = function (response) {
     let body = '';
     response.on('data', function (d) {
@@ -66,9 +79,10 @@ let response_handler = function (response) {
     response.on('end', function () {
         console.log('\nRelevant Headers:\n');
         for (var header in response.headers)
-            // header keys are lower-cased by Node.js
+            // Headers are lowercased by Node.js.
             if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
                  console.log(header + ": " + response.headers[header]);
+        // Stringify and parse the response body.
         body = JSON.stringify(JSON.parse(body), null, '  ');
         console.log('\nJSON Response:\n');
         console.log(body);
@@ -77,34 +91,37 @@ let response_handler = function (response) {
         console.log('Error: ' + e.message);
     });
 };
+```
 
+## <a name="make-a-request-and-print-the-response"></a>Effectuer une requête et imprimer la réponse
+
+Construisez la requête et effectuez un appel à l’API Recherche Web Bing. Une fois la requête effectuée, la fonction `response_handler` est appelée et la réponse est imprimée.
+
+```javascript
 let bing_web_search = function (search) {
-  console.log('Searching the Web for: ' + term);
-  let request_params = {
-        method : 'GET',
-        hostname : host,
-        path : path + '?q=' + encodeURIComponent(search),
-        headers : {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
-
+    console.log('Searching the Web for: ' + term);
+        // Declare the method, hostname, path, and headers.
+        let request_params = {
+            method : 'GET',
+            hostname : host,
+            path : path + '?q=' + encodeURIComponent(search),
+            headers : {
+                'Ocp-Apim-Subscription-Key' : subscriptionKey,
+            }
+        };
+    // Request to the Bing Web Search API.
     let req = https.request(request_params, response_handler);
     req.end();
 }
-
-if (subscriptionKey.length === 32) {
-    bing_web_search(term);
-} else {
-    console.log('Invalid Bing Search API subscription key!');
-    console.log('Please paste yours into the source code.');
-}
-
 ```
 
-## <a name="json-response"></a>Réponse JSON
+## <a name="put-it-all-together"></a>Assemblage
 
-Un exemple de réponse figure ci-dessous. Pour limiter la longueur de la réponse JSON, un seul résultat est indiqué et les autres parties de la réponse ont été tronquées. 
+La dernière étape consiste à exécuter votre code ! Si vous souhaitez comparer votre code avec le nôtre, [un exemple de code est disponible sur GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
+
+## <a name="sample-response"></a>Exemple de réponse
+
+Les réponses à partir de l’API Recherche Web Bing sont retournées au format JSON. Cet exemple de réponse a été tronqué pour afficher un résultat unique.  
 
 ```json
 {
@@ -231,11 +248,6 @@ Un exemple de réponse figure ci-dessous. Pour limiter la longueur de la répons
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel de l’application à page unique Recherche web Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Didacticiel sur l’application à page unique Recherche Web Bing](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>Voir aussi 
-
-[Vue d’ensemble de Recherche web Bing](../overview.md)  
-[Essayer](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Obtenir une clé d’accès d’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Informations de référence sur l’API Recherche web Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

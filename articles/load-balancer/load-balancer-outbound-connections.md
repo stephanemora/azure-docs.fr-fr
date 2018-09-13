@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122574"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842253"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -80,7 +80,7 @@ Dans ce scénario, la machine virtuelle ne fait pas partie d’un pool d’équi
 >[!IMPORTANT] 
 >Ce scénario s’applique également lorsque __seul__ un équilibreur de charge interne de base est joint. Le scénario 3 est __non disponible__ lorsqu’un équilibreur de charge interne standard est joint à une machine virtuelle.  Vous devez créer explicitement [scénario 1](#ilpip) ou [scénario 2](#lb) en plus pour utiliser un équilibreur de charge interne standard.
 
-Pour exécuter cette fonction, Azure utilise la traduction d’adresses réseau sources avec masquage de port ([traduction d’adresse de port](#pat)). Ce scénario est similaire au [scénario 2](#lb), sauf qu’il n’existe aucun contrôle de l’adresse IP utilisée. Il s’agit d’un scénario de secours quand les scénarios 1 et 2 n’existent pas. Nous vous déconseillons ce scénario si vous voulez exercer un contrôle sur l’adresse sortante. Si les connexions sortantes sont un élément essentiel de votre application, il est préférable de choisir un autre scénario.
+Pour exécuter cette fonction, Azure utilise la traduction d’adresses réseau sources avec masquage de port ([traduction d’adresse de port](#pat)). Ce scénario est similaire au [scénario 2](#lb), sauf qu’il n’existe aucun contrôle de l’adresse IP utilisée. Il s’agit d’un scénario de secours quand les scénarios 1 et 2 n’existent pas. Nous vous déconseillons ce scénario si vous voulez exercer un contrôle sur l’adresse sortante. Si les connexions sortantes sont un élément essentiel de votre application, choisissez plutôt un autre scénario.
 
 Les ports SNAT sont préaffectés comme décrit dans la section [Présentation de la traduction d’adresses réseau sources et de la traduction d’adresse de port](#snat).  Le nombre de machines virtuelles qui partagent un groupe à haute disponibilité détermine quel niveau de pré-allocation s’applique.  Une machine virtuelle autonome sans un groupe à haute disponibilité est effectivement un pool de 1 dans le cadre de la détermination de la pré-allocation (ports SNAT 1024). Les ports SNAT sont une ressource limitée qui peut être épuisée. Il est important de comprendre comment ils sont [consommés](#pat). Pour savoir comment concevoir en fonction de cette consommation et d’en atténuer éventuellement les effets, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust).
 
@@ -165,7 +165,7 @@ Le tableau suivant présente les préaffectations de ports SNAT pour les différ
 | 801-1 000 | 32 |
 
 >[!NOTE]
-> Lorsque vous utilisez l’équilibreur de charge standard avec [plusieurs serveurs frontaux](load-balancer-multivip-overview.md), [chaque adresse IP de serveur frontal multiplie le nombre de ports SNAT disponibles](#multivipsnat) dans la table précédente. Par exemple, un pool principal de 50 machines virtuelles avec 2 règles d’équilibrage de charge, chacun avec des adresses IP de serveurs frontaux séparées, utilisera les ports SNAT 2048 (2 x 1024) par configuration IP. Affichez les détails pour [plusieurs serveurs frontaux](#multife).
+> Lorsque vous utilisez l’équilibreur de charge standard avec [plusieurs serveurs frontaux](load-balancer-multivip-overview.md), [chaque adresse IP de serveur frontal multiplie le nombre de ports SNAT disponibles](#multivipsnat) dans la table précédente. Par exemple, un pool backend de 50 machines virtuelles avec 2 règles d’équilibrage de charge, chacun avec une adresse IP frontend séparée, utilise 2048 ports SNAT (2 x 1024) par configuration IP. Affichez les détails pour [plusieurs serveurs frontaux](#multife).
 
 Ne perdez pas de vue que le nombre de ports SNAT disponibles ne se traduit pas directement en nombre de flux. Un port de traduction d’adresses réseau sources peut être réutilisé pour plusieurs destinations uniques. Les ports ne sont consommés que si cela permet de rendre les flux uniques. Pour obtenir des conseils concernant la conception et l’atténuation, consultez la section qui explique [comment gérer cette ressource épuisable](#snatexhaust), ainsi que la section qui décrit la [traduction d’adresse de port](#pat).
 
@@ -219,16 +219,16 @@ En assignant une adresse IP publique de niveau d’instance, vous passez à un 
 
 #### <a name="multifesnat"></a>Utiliser plusieurs serveurs frontaux
 
-Lorsque vous utilisez l’équilibreur de charge standard public, vous assignez [plusieurs adresses IP de serveur frontal pour les connexions sortantes](#multife) et [multipliez le nombre de ports SNAT disponibles](#preallocatedports).  Vous devez créer une configuration IP de serveur frontal, la règle et le pool principal pour déclencher la programmation du SNAT à l’IP publique du serveur frontal.  La règle n’a pas besoin de fonctionner et une sonde d’intégrité n’a pas besoin d’aboutir.  Si vous utilisez plusieurs serveurs frontaux pour l’entrant également (plutôt que simplement pour le sortant), vous devez correctement utiliser les sondes d’intégrité personnalisées pour garantir la fiabilité.
+Lorsque vous utilisez l’équilibreur de charge standard public, vous assignez [plusieurs adresses IP de serveur frontal pour les connexions sortantes](#multife) et [multipliez le nombre de ports SNAT disponibles](#preallocatedports).  Vous devez créer une configuration IP de serveur frontal, la règle et le pool principal pour déclencher la programmation du SNAT à l’IP publique du serveur frontal.  La règle n’a pas besoin de fonctionner et une sonde d’intégrité n’a pas besoin d’aboutir.  Si vous utilisez plusieurs frontends pour le trafic entrant également (plutôt que simplement pour le trafic sortant), vous devez correctement utiliser les sondes d’intégrité personnalisées pour garantir la fiabilité.
 
 >[!NOTE]
 >Dans la plupart des cas, l’insuffisance des ports SNAT résulte d’une mauvaise conception.  Assurez-vous que vous comprenez la raison de l’insuffisance de ports avant d’utiliser plus de serveurs frontaux pour ajouter des ports SNAT.  Vous pouvez masquer un problème qui peut provoquer une défaillance ultérieure.
 
 #### <a name="scaleout"></a>Augmenter la taille des instances
 
-Des [ports préalloués](#preallocatedports) sont affectés en fonction de la taille du pool principal et groupés par niveau afin de réduire les interruptions dans les situations où certains des ports ont été réalloués pour prendre en charge le prochain niveau immédiatement supérieur de taille de pool principal.  Vous pouvez disposer d’une option d’augmentation de l’intensité d’utilisation des ports SNAT pour une instance frontale donnée en mettant à l’échelle votre pool principal vers la taille maximale pour un niveau donné.  Pour ce faire, il est nécessaire que l’application monte en charge de manière efficace.
+Des [ports préalloués](#preallocatedports) sont attribués en fonction de la taille du pool backend et regroupés en niveaux afin de réduire les interruptions dans les situations où certains des ports doivent être réalloués pour prendre en charge le prochain niveau immédiatement supérieur de taille de pool backend.  Vous pouvez avoir l’option d’augmenter l’intensité d’utilisation des ports SNAT pour un frontend donné en mettant à l’échelle votre pool backend vers la taille maximale pour un niveau donné.  Pour ce faire, il est nécessaire que l’application monte en charge de manière efficace.
 
-Par exemple, 2 machines virtuelles du pool principal auraient 1 024 ports SNAT disponibles par configuration IP, pour un total de 2 048 ports SNAT pris en charge pour le déploiement.  Si le déploiement devait être augmenté de 50 machines virtuelles, même si le nombre de ports préalloués demeure constant par machine virtuelle, un total de 51 200 (50 x 1 024) ports SNAT peut être utilisé par le déploiement.  Si vous souhaitez monter votre déploiement en charge, vérifiez le nombre de [ports préalloués](#preallocatedports) par niveau pour vous assurer que vous configurez votre montée en charge sur la valeur maximale pour le niveau respectif.  Dans l’exemple précédent, si vous aviez choisi de monter en charge à 51 instances et non à 50, vous auriez atteint le niveau suivant et disposeriez d’un nombre moins important de ports SNAT par machine virtuelle, au total.
+Par exemple, 2 machines virtuelles du pool principal auraient 1 024 ports SNAT disponibles par configuration IP, pour un total de 2 048 ports SNAT pris en charge pour le déploiement.  Si le déploiement devait être augmenté de 50 machines virtuelles, même si le nombre de ports préalloués demeure constant par machine virtuelle, un total de 51 200 (50 x 1 024) ports SNAT peut être utilisé par le déploiement.  Si vous souhaitez monter votre déploiement en charge, vérifiez le nombre de [ports préalloués](#preallocatedports) par niveau pour vous assurer que vous configurez votre montée en charge sur la valeur maximale pour le niveau respectif.  Dans l’exemple précédent, si vous choisissez de passer à 51 instances et non à 50, vous atteignez le niveau suivant et obtenez moins de ports SNAT par machine virtuelle et au total.
 
 Si vous effectuez une montée en charge vers le niveau immédiatement supérieur de taille de pool principal et que l’opération nécessite une réallocation des ports alloués, certaines de vos connexions peuvent expirer.  Si vous utilisez uniquement certains de vos ports SNAT, une telle montée en charge n’affectera pas vos connexions.  La moitié des ports existants seront réaffectés à chaque fois que vous passerez au niveau de pool principal suivant.  Si vous ne voulez pas que cela se produise, vous devez configurer votre déploiement en fonction de la taille de niveau considérée.  Sinon, assurez-vous que votre application peut détecter et effectuer autant de tentatives que nécessaire.  Les conservations de connexion active TCP peuvent contribuer à détecter un dysfonctionnement des ports SNAT suite à une réallocation.
 
@@ -253,7 +253,7 @@ Quand vous appliquez un groupe de sécurité réseau à une machine virtuelle à
 Si un groupe de sécurité réseau bloque les demandes d’analyse d’intégrité depuis la balise par défaut AZURE_LOADBALANCER, votre analyse de l’intégrité de la machine virtuelle échoue et la machine virtuelle est marquée comme défaillante. L’équilibrage de charge arrête l’envoi de nouveaux flux vers cette machine virtuelle.
 
 ## <a name="limitations"></a>Limites
-- DisableOutboundSnat n’est pas disponible en tant qu’option lors de la configuration d’une règle d’équilibrage de charge dans le portail.  Utilisez les outils REST, modèle ou client à la place.
+- DisableOutboundSnat n’est pas une option disponible quand vous configurez une règle d’équilibrage de charge dans le portail.  Utilisez les outils REST, modèle ou client à la place.
 - Les rôles de travail web sans un réseau virtuel et d’autres services Microsoft peuvent être accessibles lorsque seul un équilibreur de charge standard interne est utilisé en raison d’un effet secondaire du fonctionnement des services de pre-réseau virtuel et des services d’autres plateformes. Vous ne devez pas compter sur cet effet secondaire, car le service lui-même ou la plateforme sous-jacente peut changer sans préavis. Vous devez toujours supposer que vous devez créer explicitement des connectivités sortantes si cela est souhaitable lors de l’utilisation d’un équilibreur de charge interne standard uniquement. Le scénario [SNAT par défaut](#defaultsnat) 3 décrit dans cet article n’est pas disponible.
 
 ## <a name="next-steps"></a>Étapes suivantes

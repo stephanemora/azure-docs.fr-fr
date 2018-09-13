@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919516"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702542"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : définir un nouveau type d’appareil dans votre application Azure IoT Central
 
@@ -280,22 +280,22 @@ Vous utilisez les *paramètres* pour autoriser un opérateur à envoyer des donn
 
 ## <a name="use-properties--device-properties"></a>Utiliser des propriétés/propriétés d’appareil
 
-Les *propriétés* vous permettent de stocker des informations concernant votre appareil dans l’application. Dans cette section, vous allez ajouter des propriétés d’appareil à votre modèle d’appareil **Climatiseur connecté** pour stocker le numéro de série et la version de microprogramme de l’appareil. Notez qu’il s’agit dans les deux cas de propriétés en lecture seule signalées par l’appareil. Vous pouvez leur affecter des valeurs. Les propriétés que vous pouvez utiliser et auxquelles vous pouvez assigner des valeurs incluent l’emplacement de l’appareil, les informations sur la propriété et l’heure/la date de la dernière utilisation de l’appareil.
+Les *propriétés* vous permettent de stocker des informations concernant votre appareil dans l’application. Dans cette section, vous allez ajouter des propriétés cloud à votre modèle d’appareil **Climatiseur connecté** pour stocker l’emplacement de l’appareil et la dernière date de service. Notez que ces deux éléments sont des propriétés modifiables de l’appareil. Il existe également des propriétés en lecture seule consignées par l’appareil et qui ne sont pas modifiables, par exemple le numéro de série de l’appareil et la version du microprogramme.
  
 1. Accédez à la page **Propriétés** de votre modèle d’appareil **Climatiseur connecté** :
 
     ![Préparation de l’ajout d’une propriété](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    Vous pouvez créer différents types de propriétés d’appareil, comme des nombres ou du texte. Pour ajouter une propriété de numéro de série à votre modèle d’appareil, choisissez **Texte**.
+    Vous pouvez créer différents types de propriétés d’appareil, comme des nombres ou du texte. Pour ajouter une propriété d’emplacement à votre modèle d’appareil, choisissez **Emplacement**.
 
-2. Pour configurer votre propriété de numéro de série, utilisez les informations du tableau suivant :
+2. Pour configurer votre propriété d’emplacement, utilisez les informations du tableau suivant :
 
     | Champ                | Valeur                |
     | -------------------- | -------------------- |
-    | Nom d’affichage         | Numéro de série        |
-    | Nom du champ           | serialNumber         |
-    | Valeur initiale        | cac00001             |
-    | Description          | Numéro de série de l’appareil |
+    | Nom d’affichage         | Lieu             |
+    | Nom du champ           | location             |
+    | Valeur initiale        | Seattle, WA          |
+    | Description          | Emplacement de l’appareil      |
 
     Laissez les autres champs définis sur leur valeur par défaut.
 
@@ -303,16 +303,16 @@ Les *propriétés* vous permettent de stocker des informations concernant votre 
 
     Choisissez **Enregistrer**.
 
-3. Pour ajouter une version de microprogramme aux propriétés d’appareil associées au modèle d’appareil, choisissez **Texte**.
+3. Pour ajouter une propriété de dernière date de service à votre modèle d’appareil, choisissez **Date**.
 
-4. Pour configurer la propriété d’appareil relative à la version du microprogramme, utilisez les informations du tableau suivant :
+4. Pour configurer votre propriété de dernière date de service, utilisez les informations du tableau suivant :
 
     | Champ                | Valeur                   |
     | -------------------- | ----------------------- |
-    | Nom d’affichage         | Version du microprogramme        |
-    | Nom du champ           | firmwareVersion         |
-    | Valeur initiale        | 0.1                     |
-    | Description          | Version du microprogramme de l’appareil |
+    | Nom d’affichage         | Dernière date de service       |
+    | Nom du champ           | serviceDate             |
+    | Valeur initiale        | 1/1/2018                |
+    | Description          | Dernière utilisation           |
 
     ![Configuration des propriétés de l’appareil](./media/tutorial-define-device-type/configureproperties2.png)
 

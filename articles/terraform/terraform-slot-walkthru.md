@@ -1,18 +1,20 @@
 ---
 title: Terraform avec les emplacements de déploiement fournisseur Azure
 description: Didacticiel sur l’utilisation de Terraform avec les emplacements de déploiement fournisseur Azure
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, machine virtuelle, Azure, emplacements de déploiement
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 4/05/2018
-ms.topic: article
-ms.openlocfilehash: 3a018dbaf90801604b13efcf8bd7afb6dbc68659
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bbd06ae8927e6c21607ac1c997f1e5cf37f092bf
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416861"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667234"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Utiliser Terraform pour approvisionner une infrastructure avec des emplacements de déploiement Azure
 
@@ -21,7 +23,6 @@ Vous pouvez utiliser des [emplacements de déploiement Azure](/azure/app-service
 Cet article illustre un exemple d’utilisation d’emplacements de déploiement en vous guidant à travers le déploiement de deux applications via GitHub et Azure. L’une de ces applications est hébergée dans un emplacement de production. La seconde application est hébergée dans un emplacement de préproduction. (Les noms « production » et « intermédiaire ». Il peut s’agir de tout type d’emplacement requis dans le cadre de votre scénario.) Après avoir configuré vos emplacements de déploiement, vous pouvez utiliser Terraform pour basculer entre les deux emplacements en fonction de vos besoins.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
@@ -218,7 +219,7 @@ Après avoir dupliqué (fork) le référentiel du projet de test, configurez les
 
 Dans les sections précédentes, vous avez configuré deux emplacements, **slotAppService** et **slotAppServiceSlotOne**, pour déployer les applications à partir de différentes branches dans GitHub. Nous allons maintenant afficher un aperçu des applications web pour vérifier qu’elles ont été déployées avec succès.
 
-Exécutez la procédure ci-après à deux reprises. À l’étape 3, sélectionnez **slotAppService** la première fois, puis **slotAppServiceSlotOne** la seconde fois.
+Effectuez les étapes suivantes 2 fois. À l’étape 3, sélectionnez **slotAppService** la première fois, puis **slotAppServiceSlotOne** la seconde fois.
 
 1. Dans le menu principal du Portail Azure, sélectionnez **Groupes de ressources**.
 

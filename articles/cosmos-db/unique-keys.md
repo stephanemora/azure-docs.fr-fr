@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 796971ff541b62a22a70df4022ab78817e7158e9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003315"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696137"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Clés uniques dans Azure Cosmos DB
 
 Les clés uniques permettent aux développeurs d’ajouter une couche d’intégrité des données à leur base de données. En créant une stratégie de clé unique durant la création d’un conteneur, vous garantissez l’unicité d’une ou de plusieurs valeurs par [clé de partition](partition-data.md). Une fois qu’un conteneur a été créé avec une stratégie de clé unique, il empêche la création de tout nouvel élément ou de tout élément mis à jour avec des valeurs dupliquant des valeurs spécifiées par la contrainte de clé unique.   
 
 > [!NOTE]
-> Les clés uniques sont prises en charge par les dernières versions des SDK SQL [.NET](sql-api-sdk-dotnet.md) et [.NET Core](sql-api-sdk-dotnet-core.md) et de [l’API MongoDB](mongodb-feature-support.md#unique-indexes). L’API Table et l’API Graph ne prennent pas en charge les clés uniques à l’heure actuelle. 
+> Les clés uniques sont prises en charge par les dernières versions des SDK SQL [.NET](sql-api-sdk-dotnet.md) et [.NET Core](sql-api-sdk-dotnet-core.md) et de [l’API MongoDB](mongodb-feature-support.md#unique-indexes). L’API Table et l’API Gremlin ne prennent pas en charge les clés uniques pour l’instant. 
 > 
 >
 

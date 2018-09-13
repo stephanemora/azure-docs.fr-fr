@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 836f426be950e33031ff74276218d1ba59f1f2f7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140283"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300911"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gérer les mots de passe d’application pour la vérification en deux étapes
 
@@ -38,11 +38,46 @@ Lorsque vous utilisez des mots de passe d’application, gardez à l’esprit le
 
 Vous recevez un mot de passe d’application lors de votre inscription initiale au processus de vérification en deux étapes. Si vous avez besoin de mots de passe supplémentaires, vous pouvez en créer d’autres en fonction de la manière dont vous utilisez la vérification en deux étapes :
 
-- **Vous utilisez la vérification en deux étapes avec votre compte Microsoft Azure.** Créez et supprimez vos mots de passe d’application à l’aide du [Portail Azure](https://portal.azure.com). Pour plus d’informations, consultez l’article [Mots de passe d’application et vérification en deux étapes](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
+- **Vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et le portail MyApps.** Créez et supprimez vos mots de passe d’application en suivant les instructions de la section [Créer et supprimer des mots de passe d’application à l’aide du portail MyApps](#create-and-delete-app-passwords-using-the-myapps-portal) de cet article. Pour plus d’informations sur le portail MyApps et la manière de l’utiliser, consultez [Qu’est-ce que le portail MyApps dans Azure Active Directory ?](active-directory-saas-access-panel-introduction.md).
 
-- **Vous utilisez la vérification en deux étapes avec votre compte Microsoft personnel.** Créez et supprimez vos mots de passe d’application à partir de la page [Notion de base sur la sécurité](https://account.microsoft.com/account/) avec votre compte Microsoft. Pour plus d’informations, consultez l’article [Mots de passe d’application et vérification en deux étapes](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
+- **Vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et le portail Office 365.** Créez et supprimez vos mots de passe d’application en suivant les instructions de la section [Créer et supprimer des mots de passe d’application à l’aide du Portail Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) de cet article.
 
-- **Vous utilisez la vérification en deux étapes avec votre compte professionnel ou scolaire et vos applications Office 365.** Créez et supprimez vos mots de passe d’application en suivant les instructions de la section [Créer et supprimer des mots de passe d’application à l’aide du Portail Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) de cet article.
+- **Vous utilisez la vérification en deux étapes avec votre compte Microsoft personnel.** Créez et supprimez vos mots de passe d’application à partir de la page [Notion de base sur la sécurité](https://account.microsoft.com/account/) avec votre compte Microsoft personnel. Pour plus d’informations, consultez l’article [Mots de passe d’application et vérification en deux étapes](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification).
+
+## <a name="create-and-delete-app-passwords-using-the-myapps-portal"></a>Créer et supprimer des mots de passe d’application à l’aide du portail MyApps
+Vous pouvez créer et supprimer des mots de passe d’application via le portail MyApps.
+
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Pour créer un mot de passe d’application à l’aide du portail MyApps
+
+1. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).
+
+2. Sélectionnez votre nom en haut à droite, puis choisissez **Profil**.
+
+3. Sélectionnez **Vérification de sécurité supplémentaire**.
+
+   ![Capture d’écran : Vérification de sécurité supplémentaire](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+
+4. Sélectionnez **Mots de passe d’application**.
+
+   ![Capture d’écran : sélection de Mots de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
+
+5. Cliquez sur **Créer**.
+
+6. Tapez un nom pour le mot de passe d’application, puis sélectionnez **Suivant**.
+
+7. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.
+   
+    ![Créer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Pour supprimer un mot de passe d’application à l’aide du portail MyApps
+
+1. Accédez à votre profil, puis sélectionnez **Vérification de sécurité supplémentaire**.
+
+2. Sélectionnez **Mots de passe d’application**, puis **Supprimer** en regard du mot de passe d’application à supprimer.
+
+   ![Supprimer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+
+3. Sélectionnez **Oui** pour confirmer la suppression du mot de passe, puis sélectionnez **Fermer**.
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Créer et supprimer des mots de passe d’application à l’aide du Portail Office 365
 
@@ -77,46 +112,6 @@ Si vous utilisez la vérification en deux étapes avec votre compte professionne
     Le mot de passe d’application est supprimé.
 
 5. Créez un autre mot de passe d’application en exécutant la procédure correspondante.
-
-## <a name="manage-app-passwords-in-the-azure-portal"></a>Gérer les mots de passe d’application dans le portail Azure
-
-Si vous utilisez la vérification en deux étapes avec Azure, vous devrez créer des mots de passe d’application par le biais du portail Azure.
-
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gérer les mots de passe d’application à l’aide du portail MyApps
-
-Vous pouvez également créer et supprimer des mots de passe d’application par le biais du portail MyApps.
-
-### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>Pour créer un mot de passe d’application à l’aide du portail MyApps
-
-1. Connectez-vous à [https://myapps.microsoft.com](https://myapps.microsoft.com).
-
-2. Sélectionnez votre nom en haut à droite, puis choisissez **Profil**.
-
-3. Sélectionnez **Vérification de sécurité supplémentaire**.
-
-   ![Capture d’écran : Vérification de sécurité supplémentaire](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
-
-4. Sélectionnez **Mots de passe d’application**.
-
-   ![Capture d’écran : sélection de Mots de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. Cliquez sur **Créer**.
-
-6. Tapez un nom pour le mot de passe d’application, puis sélectionnez **Suivant**.
-
-7. Copiez le mot de passe d’application dans le Presse-papiers et collez-le dans votre application.
-   
-    ![Créer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
-
-### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>Pour supprimer un mot de passe d’application à l’aide du portail MyApps
-
-1. Accédez à votre profil, puis sélectionnez **Vérification de sécurité supplémentaire**.
-
-2. Sélectionnez **Mots de passe d’application**, puis **Supprimer** en regard du mot de passe d’application à supprimer.
-
-   ![Supprimer un mot de passe d’application](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-
-3. Sélectionnez **Oui** pour confirmer la suppression du mot de passe, puis sélectionnez **Fermer**.
 
 ## <a name="if-your-app-passwords-arent-working-properly"></a>Si vos mots de passe d’application ne fonctionnent pas correctement
 

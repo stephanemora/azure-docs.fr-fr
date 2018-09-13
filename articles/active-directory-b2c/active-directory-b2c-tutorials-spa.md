@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591565"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343860"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel - Activer l’authentification d’application à page unique avec des comptes à l’aide d’Azure Active Directory B2C
 
@@ -24,24 +24,24 @@ Ce didacticiel vous montre comment utiliser Azure Active Directory (Azure AD) B2
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Inscrire un exemple d’application à page unique dans votre locataire Azure AD B2C.
+> * Inscrire un exemple d’application à page unique dans votre répertoire Azure AD B2C.
 > * Créer des stratégies pour l’inscription et la connexion des utilisateurs, la modification d’un profil, et la réinitialisation d’un mot de passe.
-> * Configurer l’exemple d’application pour utiliser votre locataire Azure AD B2C.
+> * Configurer l’exemple d’application pour utiliser votre répertoire Azure AD B2C.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Utiliser votre propre [locataire Azure AD B2C](active-directory-b2c-get-started.md)
+* Créer votre propre [répertoire Azure AD B2C](active-directory-b2c-get-started.md)
 * Installer [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
 * [Kit de développement logiciel (SDK) .NET Core 2.0.0](https://www.microsoft.com/net/core) ou version ultérieure
 * Installez [Node.js](https://nodejs.org/en/download/)
 
 ## <a name="register-single-page-app"></a>Inscrire une application à page unique
 
-Les applications doivent être [inscrites](../active-directory/develop/developer-glossary.md#application-registration) dans votre locataire avant qu’elles ne puissent recevoir des [jetons d’accès](../active-directory/develop/developer-glossary.md#access-token) de la part de Azure Active Directory. L’inscription d’une application crée un [id d’application](../active-directory/develop/developer-glossary.md#application-id-client-id) pour celle-ci dans votre client. 
+Les applications doivent être [inscrites](../active-directory/develop/developer-glossary.md#application-registration) dans votre répertoire avant qu’elles ne puissent recevoir des [jetons d’accès](../active-directory/develop/developer-glossary.md#access-token) de la part de Azure Active Directory. L’inscription d’une application crée un [id d’application](../active-directory/develop/developer-glossary.md#application-id-client-id) pour celle-ci dans votre répertoire. 
 
-Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre client Azure AD B2C.
+Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre répertoire Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -49,7 +49,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
 
 2. Dans les paramètres B2C, cliquez sur **Applications**, puis sur **Ajouter**. 
 
-    Pour inscrire l’exemple d’application web dans votre locataire, utilisez les paramètres suivants :
+    Pour inscrire l’exemple d’application web dans votre répertoire, utilisez les paramètres suivants :
     
     ![Ajouter une nouvelle application](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -63,7 +63,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     
 3. Cliquez sur **Créer** pour inscrire votre application.
 
-Les applications inscrites sont indiquées dans la liste des applications du client Azure AD B2C. Sélectionnez votre application à page unique dans la liste. Le volet de propriétés de l’application à page unique inscrite s’affiche.
+Les applications inscrites sont indiquées dans la liste des applications du répertoire Azure AD B2C. Sélectionnez votre application à page unique dans la liste. Le volet de propriétés de l’application à page unique inscrite s’affiche.
 
 ![Propriétés de l’application à page unique](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -127,25 +127,25 @@ Pour activer la réinitialisation du mot de passe sur votre application, vous de
 
 ## <a name="update-single-page-app-code"></a>Mettre à jour le code de l’application à page unique
 
-Maintenant que vous avez une application inscrite et des stratégies créées, vous devez configurer votre application pour utiliser votre locataire Azure AD B2C. Dans ce didacticiel, vous configurez un exemple d’application SPA JavaScript que vous pouvez télécharger à partir de GitHub. 
+Maintenant que vous avez une application inscrite et des stratégies créées, vous devez configurer votre application pour utiliser votre répertoire Azure AD B2C. Dans ce didacticiel, vous configurez un exemple d’application SPA JavaScript que vous pouvez télécharger à partir de GitHub. 
 
 [Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-L’exemple d’application montre comment une application à page unique peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs, et appeler une API web protégée. Vous devez modifier l’application pour utiliser l’inscription de l’application dans votre locataire et configurer les stratégies que vous avez créées. 
+L’exemple d’application montre comment une application à page unique peut utiliser Azure AD B2C pour l’inscription et la connexion des utilisateurs, et appeler une API web protégée. Vous devez modifier l’application pour utiliser l’inscription de l’application dans votre répertoire et configurer les stratégies que vous avez créées. 
 
 Pour modifier les paramètres d’application :
 
 1. Ouvrez le fichier `index.html` dans l’exemple d’application monopage Node.js.
-2. Configurez l’exemple avec les informations d’inscription des locataires Azure AD B2C. Modifiez les lignes de code suivantes :
+2. Configurez l’exemple avec les informations d’inscription des répertoires Azure AD B2C. Modifiez les lignes de code suivantes (veillez à remplacer les valeurs par les noms de votre répertoire et de vos API) :
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -185,20 +185,20 @@ L’exemple d’application prend en charge l’inscription et la connexion des 
 
     ![Flux de travail d’abonnement](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Cliquez sur **Créer** pour créer un compte local dans le locataire Azure AD B2C.
+4. Cliquez sur **Créer** pour créer un compte local dans le répertoire Azure AD B2C.
 
 Maintenant l’utilisateur peut utiliser son adresse e-mail pour se connecter et utiliser l’application SPA.
 
 > [!NOTE]
-> Une fois connecté, l’application affiche une erreur d’autorisations insuffisantes. Vous recevez cette erreur car vous tentez d’accéder à une ressource du locataire de démonstration. Étant donné que votre jeton d’accès est valide uniquement pour votre locataire Azure AD, l’appel d’API n’est pas autorisé. Passez au didacticiel suivant pour créer une API web protégée pour votre locataire. 
+> Une fois connecté, l’application affiche une erreur d’autorisations insuffisantes. Vous recevez cette erreur car vous tentez d’accéder à une ressource du répertoire de démonstration. Étant donné que votre jeton d’accès est valide uniquement pour votre répertoire Azure AD, l’appel d’API n’est pas autorisé. Passez au didacticiel suivant pour créer une API web protégée pour votre répertoire. 
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Vous pouvez utiliser votre client Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Vous pouvez utiliser votre répertoire Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre répertoire Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à créer un locataire Azure AD B2C, créer des stratégies et mettre à jour l’exemple d’application à page unique pour utiliser votre locataire Azure AD B2C. Passez au didacticiel suivant pour apprendre à inscrire, configurer et appeler une API web protégée à partir d’une application de bureau.
+Dans ce didacticiel, vous avez appris à créer un répertoire Azure AD B2C, créer des stratégies et mettre à jour l’exemple d’application à page unique pour utiliser votre répertoire Azure AD B2C. Passez au didacticiel suivant pour apprendre à inscrire, configurer et appeler une API web protégée à partir d’une application de bureau.
 
 > [!div class="nextstepaction"]
 > 

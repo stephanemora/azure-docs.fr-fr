@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: a742ac79f1152816621312e2ebc59598772ba127
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990619"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782387"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduction à la mise à l’échelle automatique
 La mise à l’échelle automatique est une fonctionnalité supplémentaire de Service Fabric pour mettre dynamiquement à l’échelle vos services selon la charge qu’ils présentent ou leur utilisation des ressources. La mise à l’échelle automatique offre une extensibilité idéale et permet le provisionnement d’instances ou de partitions supplémentaires de votre service à la demande. Tout le processus de mise à l’échelle automatique est automatisé et fluide, et après avoir configuré vos stratégies sur un service, aucune opération de mise à l’échelle manuelle n’est nécessaire au niveau du service. La mise à l’échelle automatique peut être activée au moment de la création du service ou à tout moment par la mise à jour du service.
@@ -47,7 +47,7 @@ Deux mécanismes sont pris en charge pour la mise à l’échelle automatique. L
 Le premier type de déclencheur est basé sur la charge d’instances dans une partition de service sans état. Les charges de métriques sont d’abord lissées afin d’obtenir la charge pour chaque instance d’une partition, puis la moyenne de ces valeurs est calculée pour toutes les instances de la partition. Trois facteurs déterminent quand le service est mis à l’échelle :
 
 * Le _seuil inférieur de charge_ est une valeur qui détermine le moment où la taille du service est **diminuée**. Si la charge moyenne de toutes les instances des partitions est inférieure à cette valeur, la taille du service est diminuée.
-* Le _seuil supérieur de charge_ est une valeur qui détermine le moment où la taille du service est **augmentée**. Si la charge moyenne de toutes les instances de la partition est inférieure à cette valeur, la taille du service est augmentée.
+* Le _seuil supérieur de charge_ est une valeur qui détermine le moment où la taille du service est **augmentée**. Si la charge moyenne de toutes les instances de la partition est supérieure à cette valeur, la taille du service est augmentée.
 * _L’intervalle de mise à l’échelle_ détermine la fréquence à laquelle le déclencheur est vérifié. Une fois que le déclencheur est vérifié, le mécanisme est appliqué si une mise à l’échelle est nécessaire. Si la mise à l’échelle n’est pas nécessaire, aucune action n’est entreprise. Dans les deux cas, aucune nouvelle vérification du déclencheur n’est effectuée avant l’expiration suivante de l’intervalle de mise à l’échelle.
 
 Ce déclencheur peut être utilisé uniquement avec les services sans état (conteneurs ou services Service Fabric sans état). Quand un service a plusieurs partitions, le déclencheur est évalué séparément pour chaque partition et le mécanisme spécifié est appliqué à chacune de manière indépendante. Par conséquent, dans ce cas, il est possible que la taille de certaines partitions du service soit augmentée, que la taille d’autres soit diminuée, et que la taille d’autres encore ne soit pas du tout mise à l’échelle en même temps, en fonction de leur charge.

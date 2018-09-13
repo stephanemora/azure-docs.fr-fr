@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128124"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669481"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -27,8 +27,7 @@ Les modifications apportées aux logiciels installés, aux services Windows, aux
 
 Les versions suivantes du système d’exploitation Windows sont officiellement prises en charge pour l’agent Windows :
 
-* Windows Server 2008 Service Pack 1 (SP1) (ou version ultérieure) ;
-* Windows 7 SP1 (ou version ultérieure).
+* Windows Server 2008 R2 ou version ultérieure
 
 ## <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
 
@@ -47,8 +46,8 @@ Les distributions Linux suivantes sont officiellement prises en charge. Toutefoi
 Pour commencer à suivre les modifications, vous devez activer la solution Change Tracking et Inventory pour votre compte Automation.
 
 1. Dans le Portail Azure, accédez à votre compte Automation.
-1. Sélectionnez **Change Tracking** sous **CONFIGURATION**.
-1. Sélectionnez un espace de travail Log Analytics existant ou **créez un espace de travail** et cliquez sur **Activer**.
+2. Sélectionnez **Change Tracking** sous **CONFIGURATION**.
+3. Sélectionnez un espace de travail Log Analytics existant ou **créez un espace de travail** et cliquez sur **Activer**.
 
 La solution est ainsi activée pour votre compte Automation. L’activation de la solution peut prendre jusqu’à 15 minutes. La bannière bleue vous avertit quand la solution est activée. Revenez à la page **Change Tracking** pour gérer la solution.
 

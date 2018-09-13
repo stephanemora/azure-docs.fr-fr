@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 338c2a197cb50091c3b272e0ce590341ffda1d7f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900827"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341081"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Microsoft à l’aide d’Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Pour utiliser un compte Microsoft en tant que fournisseur d’identité dans Azu
 3. Indiquez un **Nom** pour votre application et cliquez sur **Créer**.
 4. Sur la page d’inscription, copiez la valeur de l’**ID de l’application**. Il sert à configurer votre compte Microsoft comme fournisseur d’identité dans votre client.
 5. Sélectionnez **Ajouter une plateforme**, puis choisissez **Web**.
-6. Entrez `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` dans **URL de redirection**. Remplacez **{tenant}** par votre nom de client (par exemple, contosob2c.onmicrosoft.com).
+6. Entrez `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` dans **URL de redirection**. Remplacez **{tenant}** par votre nom de locataire (par exemple, contosob2c).
 7. Sous **Secrets de l’application**, sélectionnez **Générer un nouveau mot de passe**. Copiez le nouveau mot de passe affiché à l’écran. Vous en aurez besoin pour configurer un compte Microsoft comme fournisseur d’identité dans votre client. Ce mot de passe est une information d’identification de sécurité importante.
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Configuration d’un compte Microsoft en tant que fournisseur d’identité

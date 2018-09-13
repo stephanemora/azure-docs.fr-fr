@@ -8,12 +8,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/03/2018
-ms.openlocfilehash: 32e73918b2dd98822d42d74002b705ff730145d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 136b21f026d208c09b50dfa8601de692e518774e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902970"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699108"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
  
@@ -23,7 +23,7 @@ Le niveau de compatibilité permet de garantir la bonne exécution des travaux e
  
 ## <a name="set-a-compatibility-level"></a>Définir un niveau de compatibilité 
 
-Le niveau de compatibilité contrôle le comportement d’exécution d’un travail Stream Analytics. Vous pouvez définir le niveau de compatibilité d’un travail Stream Analytics à l’aide du portail ou en appelant [l’API REST create job](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Azure Stream Analytics prend actuellement en charge deux niveaux de compatibilité : « 1.0 » et « 1.1 ». Par défaut, le niveau de compatibilité est défini sur « 1.0 », qui a été introduit lors de la publication en disponibilité générale d’Azure Stream Analytics. Pour mettre à jour la valeur par défaut, accédez à votre travail Stream Analytics existant > sélectionnez l’option **Niveau de compatibilité** dans la section **Configurer** et modifiez la valeur. 
+Le niveau de compatibilité contrôle le comportement d’exécution d’un travail Stream Analytics. Vous pouvez définir le niveau de compatibilité d’un travail Stream Analytics à l’aide du portail ou en appelant [l’API REST create job](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Azure Stream Analytics prend en charge deux niveaux de compatibilité : « 1.0 » et « 1.1 ». Par défaut, le niveau de compatibilité est défini sur « 1.0 », qui date de la version en disponibilité générale d’Azure Stream Analytics. Pour mettre à jour la valeur par défaut, accédez à votre travail Stream Analytics existant > sélectionnez l’option **Niveau de compatibilité** dans la section **Configurer** et modifiez la valeur. 
 
 Veillez à interrompre le travail avant de mettre à jour le niveau de compatibilité. Si votre travail est en cours d’exécution, vous ne peut pas mettre à jour le niveau de compatibilité. 
 
@@ -40,11 +40,11 @@ Voici les principales modifications introduites dans le niveau de compatibilité
 
   * **versions précédentes :** Azure Stream Analytics utilisait DataContractSerializer, c’est pourquoi le contenu des messages incluait des balises XML. Par exemple : 
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ “SensorId”:”1”, “Temperature”:64\}\u0001 
+   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **version actuelle :** le contenu du message renferme directement le flux sans aucune balise supplémentaire. Par exemple : 
   
-   { “SensorId”:”1”, “Temperature”:64} 
+   { "SensorId":"1", "Temperature":64} 
  
 * **Conservation de la casse pour les noms de champ**  
 

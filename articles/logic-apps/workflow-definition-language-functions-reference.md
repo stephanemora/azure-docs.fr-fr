@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105637"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307111"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence de fonctions du langage de définition de workflow dans Azure Logic Apps
 
@@ -80,7 +80,7 @@ Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Vérifier si une chaîne se termine par la sous-chaîne spécifiée. | 
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Générer un identificateur global unique (GUID) sous forme de chaîne. | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Renvoyer la position de départ d’une sous-chaîne. | 
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Renvoyer la position de fin d’une sous-chaîne. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retourne la position de départ de la dernière occurrence d’une sous-chaîne. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Remplacer une sous-chaîne par la chaîne spécifiée et renvoyer la chaîne mise à jour. | 
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Renvoyer un tableau qui comporte tous les caractères d’une chaîne et sépare chaque caractère à l’aide du caractère délimiteur spécifié. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Vérifie si une chaîne commence par une sous-chaîne spécifique. | 
@@ -2123,7 +2123,7 @@ indexOf('<text>', '<searchText>')
 
 | Valeur de retour | type | Description | 
 | ------------ | ---- | ----------- | 
-| <*index-value*>| Entier  | Position ou valeur d’index de départ de la sous-chaîne spécifiée. <p>Si la chaîne est introuvable, retourne le chiffre -1. </br>Si la chaîne est vide, retourne le chiffre 0. | 
+| <*index-value*>| Entier  | Position ou valeur d’index de départ de la sous-chaîne spécifiée. <p>Si la chaîne est introuvable, retourne le chiffre -1. | 
 |||| 
 
 *Exemple* 
@@ -2387,7 +2387,7 @@ Et retournent les résultats suivants :
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-Retourne la position ou la valeur d’index de fin d’une sous-chaîne. Cette fonction ne respecte pas la casse, et les index commencent par 0.
+Retourne la position de départ ou la valeur d’index de la dernière occurrence d’une sous-chaîne. Cette fonction ne respecte pas la casse, et les index commencent par 0.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2401,18 +2401,18 @@ lastIndexOf('<text>', '<searchText>')
 
 | Valeur de retour | type | Description | 
 | ------------ | ---- | ----------- | 
-| <*ending-index-value*> | Entier  | Position ou valeur d’index de fin de la sous-chaîne spécifiée. <p>Si la chaîne est introuvable, retourne le chiffre -1. </br>Si la chaîne est vide, retourne le chiffre 0. | 
+| <*ending-index-value*> | Entier  | Retourne la position de départ ou la valeur d’index de la dernière occurrence de la sous-chaîne spécifiée. <p>Si la chaîne est introuvable, retourne le chiffre -1. | 
 |||| 
 
 *Exemple* 
 
-Cet exemple recherche la valeur d’index de fin de la sous-chaîne « world » dans la chaîne « hello world » :
+Cet exemple recherche la valeur d’index de départ de la dernière occurrence de la sous-chaîne « world » dans la chaîne « hello world » :
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-Et retourne ce résultat : `10`
+Et retourne ce résultat : `6`
 
 <a name="length"></a>
 

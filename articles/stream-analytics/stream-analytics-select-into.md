@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: ccaa6203e4bfe52758e26416646f9152ac5378ea
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b056d4c29464451d3dc0ef62437f934535820489
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907953"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697990"
 ---
 # <a name="debug-queries-by-using-select-into-statements"></a>Déboguer des requêtes à l’aide des instructions SELECT INTO
 
@@ -30,9 +30,9 @@ Notez que le travail est en cours d’exécution, mais aucun événement n’est
 
 ![Vignette Surveillance](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
  
-Dans ce cas, vous pouvez ajouter quelques instructions SELECT INTO supplémentaires pour « journaliser » les résultats JOIN intermédiaires et les données lues à partir de l’entrée.
+Dans ce cas, vous pouvez ajouter quelques instructions SELECT INTO supplémentaires pour « journaliser » les résultats JOIN intermédiaires et les données lues à partir de l’entrée.
 
-Dans cet exemple, nous avons ajouté deux nouvelles « sorties temporaires ». Il peut s’agir du récepteur que vous voulez. Ici, nous utilisons Stockage Azure comme exemple :
+Dans cet exemple, nous avons ajouté deux nouvelles « sorties temporaires ». Il peut s’agir du récepteur que vous voulez. Ici, nous utilisons Stockage Azure comme exemple :
 
 ![Ajout d’instructions SELECT INTO supplémentaires](./media/stream-analytics-select-into/stream-analytics-select-into-outputs.png)
 

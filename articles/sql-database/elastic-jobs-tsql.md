@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126423"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842603"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
@@ -184,7 +184,13 @@ Par exemple, pour regrouper tous les résultats de l’exécution d’un même t
 
 ## <a name="monitor-database-performance"></a>Surveiller les performances de la base de données
 
-L’exemple suivant crée un nouveau travail pour collecter des données de performances de plusieurs bases de données.  
+L’exemple suivant crée un nouveau travail pour collecter des données de performances de plusieurs bases de données.
+
+Par défaut, l’agent de travail cherchera à créer la table dans laquelle stocker les résultats retournés. Par conséquent, la connexion associée aux informations d’identification utilisées pour les informations d’identification de sortie devront disposer des autorisations suffisantes pour effectuer cette opération. Si vous souhaitez créer manuellement la table à l’avance, elle doit avoir les propriétés suivantes :
+1. Colonnes avec le nom et les types de données corrects pour le jeu de résultats.
+2. Colonne supplémentaire pour internal_execution_id avec le type de données uniqueidentifier.
+3. Index non cluster nommé « IX_<TableName>_Internal_Execution_ID » sur la colonne internal_execution_id.
+
 Se connecter à la [*base de données de travail*](elastic-jobs-overview.md#job-database) et exécuter les commandes suivantes :
 
 ```sql

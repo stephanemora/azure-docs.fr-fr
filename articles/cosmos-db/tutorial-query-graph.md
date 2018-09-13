@@ -1,5 +1,5 @@
 ---
-title: Comment interroger des données de graphique dans Azure Cosmos DB ? | Microsoft Docs
+title: Comment interroger des données de graphique dans Azure Cosmos DB ? | Microsoft Docs
 description: Apprendre à interroger des données de graphique dans Azure Cosmos DB
 services: cosmos-db
 author: luisbosquez
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: ad38976f439c399d839d6c5ee9dcd6ade7726c71
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: e3ed90d0b706e742588a5a0966d9ac3bda44ecbd
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081905"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697440"
 ---
-# <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Tutoriel : Interroger Azure Cosmos DB à l’aide de l’API Graph et de Gremlin
+# <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Didacticiel : interroger Azure Cosmos DB à l’aide de l’API Gremlin et de Gremlin
 
-L’[API Graph](graph-introduction.md) d’Azure Cosmos DB prend en charge les requêtes [Gremlin](https://github.com/tinkerpop/gremlin/wiki). Cet article fournit des exemples de documents et de requêtes pour vous aider à démarrer. L’article relatif à la [prise en charge de Gremlin](gremlin-support.md) comporte des informations de référence détaillées sur Gremlin.
+L’[API Gremlin](graph-introduction.md) d’Azure Cosmos DB prend en charge les requêtes [Gremlin](https://github.com/tinkerpop/gremlin/wiki). Cet article fournit des exemples de documents et de requêtes pour vous aider à démarrer. L’article relatif à la [prise en charge de Gremlin](gremlin-support.md) comporte des informations de référence détaillées sur Gremlin.
 
 Cet article décrit les tâches suivantes : 
 

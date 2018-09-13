@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: aeb00bf55c578f61e5e1edbaab11c7773b9eab94
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 3840d8d1e18e73c1f08c450859032c07e441cff2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42023204"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699173"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Créer votre première fonction dans Azure avec Java et Maven (aperçu)
 
@@ -175,11 +175,37 @@ curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.
 Hello, AzureFunctionsTest
 ```
 
+## <a name="make-changes-and-redeploy"></a>Effectuer des modifications et redéployer
+
+Modifiez le fichier source `src/main.../Function.java` dans le projet généré pour modifier le texte retourné par votre application de fonction. Remplacez cette ligne :
+
+```java
+return request.createResponse(200, "Hello, " + name);
+```
+
+par ce qui suit :
+
+```java
+return request.createResponse(200, "Hi, " + name);
+```
+
+Enregistrez les modifications et redéployez l’application en exécutant `azure-functions:deploy` à partir du terminal comme vous l’avez fait précédemment. L’application de fonction sera mise à jour et cette requête :
+
+```bash
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
+```
+
+retournera la sortie mise à jour suivante :
+
+```Output
+Hi, AzureFunctionsTest
+```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Vous avez créé une application de fonction Java avec un déclencheur HTTP simple et vous l’avez déployée sur Azure Functions.
 
 - Pour plus d’informations sur le développement de fonctions Java, consultez le [Guide du développeur de fonctions Java](functions-reference-java.md).
 - Ajoutez des fonctions supplémentaires avec différents déclencheurs à votre projet en utilisant la cible Maven `azure-functions:add`.
-- Déboguez les fonctions localement avec Visual Studio Code. Avec le [pack d’extension Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installé et votre projet de fonctions ouvert dans Visual Studio Code, [attachez le débogueur](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) au port 5005. Ensuite, définissez un point d’arrêt dans l’éditeur et déclenchez votre fonction alors qu’elle s’exécute localement : ![Déboguer des fonctions dans Visual Studio Code](media/functions-create-java-maven/vscode-debug.png)
-- Déboguez les fonctions à distance avec Visual Studio Code. Pour obtenir des instructions, consultez la documentation relative à [l’écriture d’applications Java sans serveur](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud).
+- Écrivez et déboguez des fonctions en local avec [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md) et [Eclipse](functions-create-maven-eclipse.md). 
+- Déboguez les fonctions déployées dans Azure avec Visual Studio Code. Pour obtenir des instructions, consultez la documentation relative aux [applications Java sans serveur](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) Visual Studio Code.
