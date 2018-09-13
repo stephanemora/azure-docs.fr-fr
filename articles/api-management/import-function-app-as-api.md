@@ -38,7 +38,7 @@ Vous apprendrez à :
 ## <a name="prerequisites"></a>Prérequis
 
 * Suivez le guide de démarrage rapide [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
-* Vérifiez que votre abonnement contient une application Azure Functions. Pour plus d’informations, consultez [Création d’une application Azure Function](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). L’application doit contenir des fonctions avec un déclencheur HTTP et un paramètre de niveau d’autorisation défini sur *Anonyme* ou *Fonction*.**
+* Vérifiez que votre abonnement contient une application Azure Functions. Pour plus d’informations, consultez [Création d’une application Azure Function](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). L’application doit contenir des fonctions avec un déclencheur HTTP et un paramètre de niveau d’autorisation défini sur *Anonyme* ou *Fonction*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -69,7 +69,7 @@ Suivez les étapes ci-dessous pour créer une nouvelle API à partir d’une app
     ![Ajouter à partir d’une application de fonction](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > Vous pouvez importer uniquement des fonctions qui utilisent un déclencheur HTTP et dont le paramètre de niveau d’autorisation est défini sur *Anonyme* ou *Fonction*.**
+    > Vous pouvez importer uniquement des fonctions qui utilisent un déclencheur HTTP et dont le paramètre de niveau d’autorisation est défini sur *Anonyme* ou *Fonction*.
 
 7. Modifiez les champs pré-renseignés le cas échéant. Cliquez sur **Créer**.
 
