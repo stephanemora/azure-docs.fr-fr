@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/24/2018
+ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: bdcc0510503e48caf70f4f0d91d7602d767ca9ab
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248642"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092476"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Sauvegarde et restauration dans Azure SQL Data Warehouse
 Découvrez comment la sauvegarde et la restauration fonctionnent dans Azure SQL Data Warehouse. Utilisez des captures instantanées d’entrepôts de données pour récupérer ou copier votre entrepôt de données dans un point de restauration précédent dans la région primaire. Utilisez des sauvegardes géoredondantes d’entrepôts de données pour effectuer une restauration dans une autre région géographique. 
@@ -40,21 +40,22 @@ order by run_id desc
 ```
 
 ## <a name="user-defined-restore-points"></a>Points de restauration définis par l’utilisateur
-Cette fonctionnalité vous permet de déclencher manuellement des captures instantanées pour créer des points de restauration de votre entrepôt de données avant et après des modifications importantes. Cette fonctionnalité garantit que les points de restauration sont logiquement cohérents, ce qui fournit une protection des données supplémentaires en cas d’interruptions de la charge de travail ou d’erreurs d’utilisateur pendant le temps de récupération rapide. Les points de restauration définis par l’utilisateur sont disponibles pendant sept jours et sont automatiquement supprimés pour votre compte. Vous ne pouvez pas changer la période de conservation des points de restauration définis par l’utilisateur. Seuls 42 points de restauration définis par l’utilisateur sont pris en charge à un instant donné. Ils doivent donc être [supprimés](https://go.microsoft.com/fwlink/?linkid=875299) avant qu’un autre point de restauration soit créé. Vous pouvez déclencher des captures instantanées pour créer des points de restauration définis par l’utilisateur par le biais de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) ou du portail Azure.
+Cette fonctionnalité vous permet de déclencher manuellement des captures instantanées pour créer des points de restauration de votre entrepôt de données avant et après des modifications importantes. Cette fonctionnalité garantit que les points de restauration sont logiquement cohérents, ce qui fournit une protection des données supplémentaires en cas d’interruptions de la charge de travail ou d’erreurs d’utilisateur pendant le temps de récupération rapide. Les points de restauration définis par l’utilisateur sont disponibles pendant sept jours et sont automatiquement supprimés pour votre compte. Vous ne pouvez pas changer la période de conservation des points de restauration définis par l’utilisateur. **42 points de restauration définis par l’utilisateur** sont garantis à un instant donné. Ils doivent donc être [supprimés](https://go.microsoft.com/fwlink/?linkid=875299) avant qu’un autre point de restauration soit créé. Vous pouvez déclencher des captures instantanées pour créer des points de restauration définis par l’utilisateur par le biais de [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) ou du portail Azure.
 
 
 > [!NOTE]
 > Si vous avez besoin de points de restauration de plus de 7 jours, votez pour cette fonctionnalité [ici](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). Vous pouvez également créer un point de restauration défini par l’utilisateur et effectuer une restauration à partir du point de restauration nouvellement créé dans un nouvel entrepôt de données. Une fois la restauration effectuée, vous retrouvez l’entrepôt de données en ligne que vous pouvez mettre en pause indéfiniment pour réduire les coûts de calcul. La base de données en pause entraîne des frais de stockage aux tarifs du Stockage Premium Azure. Si vous avez besoin d’une copie active de l’entrepôt de données restauré, vous pouvez reprendre, ce qui ne doit prendre que quelques minutes.
 >
 
-### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Conservation des captures instantanées lorsqu’un entrepôt de données est mis en pause
-SQL Data Warehouse ne crée pas de captures instantanées et ne fait pas expirer les points de restauration pendant la mise en pause d’un entrepôt de données. Les points de restauration ne changent pas pendant que l’entrepôt de données est mis en pause. La conservation des points de restauration est basée sur le nombre de jours pendant lesquels l’entrepôt de données est en ligne, et non pas sur les jours du calendrier.
+### <a name="restore-point-retention"></a>Conservation des points de restauration
+La section suivante contient plus d’informations sur les périodes de conservation des points de restauration :
+1. SQL Data Warehouse supprime un point de restauration quand celui-ci atteint la période de conservation de 7 jours **et** lorsqu’il y a au moins 42 points de restauration au total (points de restauration définis par l’utilisateur et points de restauration automatiques)
+2. Aucune capture instantanée n’est prise lorsqu’un entrepôt de données est mis en pause
+3. L’âge d’un point de restauration est mesuré selon les jours calendaires absolus à partir du moment où le point de restauration est pris, y compris lorsque l’entrepôt de données est mis en pause
+4. À tout moment, un entrepôt de données peut stocker jusqu’à 42 points de restauration définis par l’utilisateur et 42 points de restauration automatiques, à condition que ces points de restauration n’aient pas atteint la période de conservation de 7 jours
+5. Si une capture instantanée est prise, l’entrepôt de données est alors mis en pause pendant plus de 7 jours, puis son activité reprend. Il est possible que le point de restauration persiste jusqu’à ce qu’il y ait 42 points de restauration au total (points de restauration définis par l’utilisateur et points de restauration automatiques)
 
-Par exemple, si une capture instantanée démarre le 1er octobre à 16h00 et que l’entrepôt de données est mis en suspens le 3 octobre à 16h00, l’ancienneté des points de restauration est de deux jours. Quand l’entrepôt de données est remis en ligne, le point de restauration a une ancienneté de deux jours. Si l’entrepôt de données est mis en ligne le 5 octobre à 16h00, le point de restauration a une ancienneté de deux jours et est conservé pendant encore cinq jours.
-
-Quand l’entrepôt de données revient en ligne, SQL Data Warehouse recommence à créer des points de restauration et les fait expirer quand elles ont plus de sept jours de données.
-
-### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Conservation des captures instantanées lorsqu’un entrepôt de données est supprimé
+### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Rétention des captures instantanées lorsqu’un entrepôt de données est supprimé
 Lorsque vous supprimez un entrepôt de données, SQL Data Warehouse crée une capture instantanée finale et l’enregistre pendant sept jours. Vous pouvez restaurer l’entrepôt de données au point de restauration final créé lors de la suppression. 
 
 > [!IMPORTANT]
