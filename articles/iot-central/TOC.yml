@@ -11,12 +11,12 @@ items:
     href: overview-iot-options.md
   - name: Visite guidée de l’IU
     href: overview-iot-central-tour.md
-- name: Guides de démarrage rapide
+- name: Démarrages rapides
   items:
   - name: Créer une application
     href: quick-deploy-iot-central.md
   expanded: true
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: 1- Définir un nouveau type d’appareil
     href: tutorial-define-device-type.md
@@ -36,8 +36,6 @@ items:
     href: concepts-connectivity.md
 - name: Procédures
   items:
-  - name: Création d'une application
-    href: howto-create-application.md
   - name: Connecter des appareils
     items:
     - name: Préparer et connecter une application Node.js (générique)
@@ -122,9 +120,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Dépassement de capacité de la pile
     href: https://stackoverflow.com/questions/tagged/azure-iot-central
-ms.openlocfilehash: 6cfa705fbcdf7c876dd78fb28210742eb5562e8a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 75958525a9315f521aea8389850379625d635aee
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714596"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543943"
