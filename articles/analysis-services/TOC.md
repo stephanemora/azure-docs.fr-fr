@@ -4,13 +4,13 @@
 
 ## [Qu’est-ce qu’Analysis Services ?](analysis-services-overview.md)
 
-# Démarrages rapides
+# Guides de démarrage rapide
 
 ## [Créer un serveur - Portail](analysis-services-create-server.md)
 ## [Créer un serveur – PowerShell](analysis-services-create-powershell.md)
 ## [Configuration d’un pare-feu de serveur - Portail](analysis-services-qs-firewall.md)
 
-# Didacticiels
+# Tutoriels
 
 ## [1 - Ajouter un exemple de modèle à partir du portail](analysis-services-create-sample-model.md) 
 ## [2 - Configurer les rôles d’utilisateur et d’administrateur de serveur](tutorials/analysis-services-tutorial-roles.md)
@@ -82,6 +82,7 @@
 ## [Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 ## [Langage TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 ## [Modèle d’objet tabulaire (TOM)](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo)
+## [Limites de ressource et d’objet](analysis-services-capacity-limits.md)
 
 # Ressources
 

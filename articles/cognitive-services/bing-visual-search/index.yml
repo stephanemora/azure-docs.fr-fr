@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 99ddb641cefc0f31316a8de2f363b95afff0d053
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624302"
+documentType: LandingData
+title: Documentation Recherche visuelle Bing
+metadata:
+  document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
+  title: Documentation Recherche visuelle Bing - Tutoriels, informations de référence sur l’API
+  description: Découvrez comment utiliser l’API Recherche visuelle Bing pour obtenir des insights sur une image. Ces tutoriels vous montrent comment créer des applications qui utilisent le service.
+  services: cognitive-services
+  author: swhite-msft
+  manager: rosh
+  ms.service: bing-visual-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/24/2018
+  ms.author: scottwhi
+abstract:
+  description: L’API Recherche visuelle Bing offre une expérience similaire à Bing.com/images et retourne des insights sur une image, notamment des images visuellement similaires, des magasins où acheter les produits figurant dans l’image et des recherches associées.
+sections:
+- title: Guides de démarrage rapide de 5 minutes
+  items:
+  - type: paragraph
+    text: 'Pour commencer à utiliser l’API Recherche visuelle Bing, envoyez une image à Bing et récupérez des insights sur cette image :'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    - image:
+        src: media/index/logo_python.svg
+    rows:
+    - title: Votre première requête
+      values:
+      - href: quickstarts/csharp
+      - href: quickstarts/java
+      - href: quickstarts/nodejs
+      - href: quickstarts/python
+- title: Tutoriels pas à pas
+  items:
+  - type: paragraph
+    text: 'Découvrez comment développer des applications à l’aide de l’API Recherche visuelle Bing :'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-bing-visual-search-single-page-app">Application web à page unique</a> | <a href="tutorial-bing-visual-search-single-page-app-source">Code source</a>
+- title: Informations de référence
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API REST v7
+      html: <p><a href="https://aka.ms/bingvisualsearchreferencedoc">Référence sur l’API</a></p>

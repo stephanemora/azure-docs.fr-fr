@@ -5,7 +5,7 @@ items:
   items:
   - name: À propos de Security Center
     href: security-center-intro.md
-- name: Démarrages rapides
+- name: Guides de démarrage rapide
   items:
   - name: Abonnements Azure
     href: security-center-get-started.md
@@ -16,7 +16,7 @@ items:
   - name: Solutions de sécurité
     href: quick-security-solutions.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Définir les stratégies de sécurité
     href: tutorial-security-policy.md
@@ -34,7 +34,7 @@ items:
   items:
   - name: Mettre à niveau vers la sécurité avancée
     href: security-center-onboarding.md
-  - name: Protection de serveur avec WATP (préversion)
+  - name: Protection des serveurs avec Windows Defender ATP (préversion)
     href: security-center-wdatp.md
   - name: Définir une stratégie de sécurité
   - name: Définir des stratégies de sécurité
@@ -150,12 +150,14 @@ items:
       href: security-center-alert-validation.md
     - name: Score de confiance de l’alerte
       href: security-center-confidence-score.md
-    - name: Threat intelligence map (Carte d’informations sur les menaces)
+    - name: Carte des alertes de sécurité et informations sur les menaces
       href: security-center-threat-intel.md
     - name: Investigation
       href: security-center-investigation.md
     - name: Gérer les données utilisateur d’investigation
       href: security-center-investigation-user-data.md
+    - name: UEBA pour les utilisateurs et ressources Azure
+      href: security-center-ueba-mcas.md
   - name: Automatiser les flux de travail de sécurité
     items:
     - name: Playbooks Logic Apps
@@ -210,9 +212,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 2d35c25f9afb743b7c0d2d466bc7943d1cab1419
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 12f463c36edef411f42ff17f2126284a0c89983e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053738"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716891"

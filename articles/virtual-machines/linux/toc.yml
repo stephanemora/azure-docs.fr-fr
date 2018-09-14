@@ -3,9 +3,9 @@ items:
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: À propos des Machines virtuelles
+  - name: À propos des machines virtuelles
     href: overview.md
-- name: Démarrages rapides
+- name: Guides de démarrage rapide
   items:
   - name: Créer une machine virtuelle - Interface de ligne de commande Azure
     href: quick-create-cli.md
@@ -14,7 +14,7 @@ items:
   - name: Créer une machine virtuelle - Azure PowerShell
     href: quick-create-powershell.md
   expanded: true
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: 1 - Créer/gérer des machines virtuelles
     href: tutorial-manage-vm.md
@@ -101,7 +101,7 @@ items:
   - name: Stockage sur disque
     href: about-disks-and-vhds.md
     items:
-    - name: Managed Disks
+    - name: Disques managés
       href: managed-disks-overview.md
     - name: Stockage Premium
       href: premium-storage.md
@@ -149,7 +149,7 @@ items:
       href: copy-vm.md
   - name: Sécuriser des machines virtuelles
     items:
-    - name: Encrypt (Chiffrer)
+    - name: Chiffrer
       href: encrypt-disks.md
     - name: Utiliser des contrôles d’accès
       href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
@@ -188,7 +188,7 @@ items:
       href: change-vm-size.md
     - name: Remplacer le disque de système d’exploitation
       href: os-disk-swap.md
-    - name: Ajouter des balises à une machine virtuelle
+    - name: Étiqueter une machine virtuelle
       href: tag.md
     - name: Exécuter des scripts sur une machine virtuelle
       href: run-scripts-in-vm.md
@@ -372,16 +372,16 @@ items:
         href: postgresql-install.md
       - name: MS SQL sur Linux
         href: /sql/linux/sql-server-linux-azure-virtual-machine
-    - name: HPC (High-Performance Computing, calcul haute performance)
+    - name: HPC (High-Performance Computing)
       href: hpcpack-cluster-options.md
       items:
-      - name: Exécutez NAMD
+      - name: Exécuter NAMD
         href: classic/hpcpack-cluster-namd.md
       - name: Installer les pilotes GPU NVIDIA
         href: n-series-driver-setup.md
   - name: Gérer le stockage
     items:
-    - name: FAQ sur Managed Disks
+    - name: Questions fréquentes (FAQ) sur les disques
       href: faq-for-disks.md
     - name: Ajouter un disque
       items:
@@ -397,7 +397,7 @@ items:
       href: snapshot-copy-managed-disk.md
     - name: Sauvegarder des disques non managés
       href: incremental-snapshots.md
-    - name: Convertir vers Managed Disks
+    - name: Convertir en disques managés
       href: convert-unmanaged-to-managed-disks.md
     - name: Convertir un disque Standard en disque Premium
       href: convert-disk-storage.md
@@ -531,6 +531,8 @@ items:
         href: storage-resource-deletion-errors.md
       - name: Redémarrages inattendus de machines virtuelles avec des VHD joints
         href: unexpected-reboots-attached-vhds.md
+    - name: Erreurs de limitation
+      href: troubleshooting-throttling-errors.md
 - name: Informations de référence
   items:
   - name: Azure CLI
@@ -565,9 +567,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Forum Aux Questions
     href: faq.md
-ms.openlocfilehash: d01a454c9b7b7a0996ff700b529233f661d7c153
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 53217d96cf159661643f5a0b4dc7266c2876d074
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348325"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717180"

@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 986a946e345492515a79f7dcd8730c533f4a0503
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 0439f35a8ad7daab780bde301a2ec5fee8aaf1d6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052738"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718275"
 documentType: LandingData
 title: Documentation Azure SQL Database
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Documentation Azure SQL Database – Didacticiels, informations de référence sur les API
+  title: Documentation Azure SQL Database – Tutoriels, informations de référence sur les API
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   author: CarlRabeler
@@ -21,7 +21,7 @@ metadata:
   ms.date: 07/07/2018
   ms.author: carlrab
 abstract:
-  description: Azure SQL Database est une base de données relationnelle en tant que service reposant sur la dernière version stable du moteur de base de données Microsoft SQL Server. SQL Database est une base de données hautes performances, fiable et sécurisée, que vous pouvez utiliser pour créer des applications et des sites web axés sur les données dans le langage de programmation de votre choix, sans avoir à gérer l’infrastructure. Découvrez comment utiliser SQL Database avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
+  description: Azure SQL Database est une base de données relationnelle en tant que service reposant sur la dernière version stable du moteur de base de données Microsoft SQL Server. SQL Database est une base de données hautes performances, fiable et sécurisée, que vous pouvez utiliser pour créer des applications et des sites web axés sur les données dans le langage de programmation de votre choix, sans avoir à gérer l’infrastructure. Découvrez comment utiliser SQL Database avec nos guides de démarrage rapide, nos tutoriels et nos exemples.
   aside:
     image:
       alt: 
@@ -83,7 +83,7 @@ sections:
       image:
         src: media/index/i_intelligence.svg
       title: Intelligence intégrée
-- title: Démarrages en 5 minutes
+- title: Guides de démarrage rapide de 5 minutes
   items:
   - type: paragraph
     text: 'Azure SQL Database vous permet d’effectuer facilement des tâches de gestion basiques à l’aide du Portail Azure, d’Azure CLI et d’Azure PowerShell. Découvrez comment effectuer des tâches de gestion basiques à l’aide des exemples de guides de démarrage rapide suivants :'
@@ -144,7 +144,7 @@ sections:
       - href: 
       - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
       - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
-- title: Didacticiels pas à pas
+- title: Tutoriels pas à pas
   items:
   - type: paragraph
     text: Apprenez à créer, gérer et migrer des bases de données à l’aide de SQL DB

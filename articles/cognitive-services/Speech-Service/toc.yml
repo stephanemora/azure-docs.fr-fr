@@ -1,14 +1,14 @@
 items:
-- name: Speech Service et Kit de développement logiciel (SDK)
+- name: Speech Service et kit SDK
   href: index.yml
 - name: Vue d’ensemble
   items:
   - name: Qu’est-ce que le service de reconnaissance vocale ?
     href: overview.md
   expanded: true
-- name: Démarrages rapides
+- name: Guides de démarrage rapide
   items:
-  - name: Essayez le service Speech gratuitement
+  - name: Essayer le service Speech gratuitement
     displayName: get started, subscription key
     href: get-started.md
   - name: Reconnaissance vocale
@@ -117,7 +117,9 @@ items:
     href: regions.md
   - name: API REST
     href: rest-apis.md
-  - name: API du Kit de développement logiciel (SDK) de reconnaissance vocale
+  - name: Informations de référence sur Swagger
+    href: https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#
+  - name: API du kit SDK de reconnaissance vocale
     displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows
     href: speech-sdk-reference.md
   - name: Balisage de synthèse vocale
@@ -136,11 +138,11 @@ items:
     - name: FAQ de Translator
       displayName: translate speech, speech translation, translator, s2s, speech to speech
       href: https://www.microsoft.com/translator/faq.aspx
-  - name: Kit de développement logiciel (SDK) de reconnaissance vocale
+  - name: Kit SDK de reconnaissance vocale
     displayName: C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample
     href: speech-sdk.md
     items:
-    - name: Download
+    - name: Téléchargement
       href: speech-sdk.md#get-the-sdk
     - name: Exemples
       href: speech-sdk.md#get-the-samples
@@ -178,9 +180,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Confidentialité et cookies
     href: https://privacy.microsoft.com/privacystatement
-ms.openlocfilehash: db76ca0221ae2d4b2bb3f966f7fecaba8b1ed733
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 1508a3d5a3689f4f12e25dd18d90b58a4e18a87f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42440149"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716976"
