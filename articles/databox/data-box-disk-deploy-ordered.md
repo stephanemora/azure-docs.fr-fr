@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f46a3ecb3c4ef6ace31b7010ba9068ab04a43315
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 37130e946aad00ef4eca14b7ce7942a8e435e6cd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126539"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782326"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutoriel : Commander un disque Azure Data Box Disk (préversion)
 
-Azure Data Box Disk est une solution cloud qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers des disques SSD fournis par Microsoft et renvoyez les disques. Ces données sont ensuite chargées dans Azure. 
+Azure Data Box Disk est une solution cloud hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers des disques SSD fournis par Microsoft et renvoyez les disques. Ces données sont ensuite chargées dans Azure. 
 
 Ce tutoriel explique comment commander un Azure Data Box Disk. Ce tutoriel vous fournira des informations sur :
 
@@ -38,7 +38,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 > [!IMPORTANT]
 > - Data Box Disk est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution. 
-> - Pendant la période de préversion, Data Box Disk peut être envoyé vers les clients des États-Unis et de l’Union européenne. Pour plus d’informations, consultez [Disponibilité des régions](data-box-disk-overview.md#region-availability).
+> - Pendant la période de préversion, Data Box Disk peut être envoyé aux clients se trouvant aux États-Unis, en Europe du Nord et de l’Ouest, au Canada et en Australie. Pour plus d’informations, consultez [Disponibilité des régions](data-box-disk-overview.md#region-availability).
 
 ## <a name="sign-up"></a>Inscription 
 
@@ -80,7 +80,7 @@ Procédez comme suit dans le [portail Azure](https://aka.ms/azuredataboxfromdisk
     |---|---|
     |NOM|Indiquez un nom convivial pour suivre la commande.<br> Le nom peut comporter entre 3 et 24 caractères qui peuvent être des lettres, des chiffres et des traits d’union. <br> Il doit commencer et se terminer par une lettre ou un chiffre. |
     |Groupe de ressources| Créez-en un nouveau ou utilisez un groupe existant. <br> Un groupe de ressources est un conteneur logique pour les ressources qui peuvent être gérées ou déployées ensemble. |
-    |Région Azure de destination| Sélectionnez une région pour votre compte de stockage.<br> Actuellement, les comptes de stockage de toutes les régions des États-Unis et d’Europe du Nord sont pris en charge. |
+    |Région Azure de destination| Sélectionnez une région pour votre compte de stockage.<br> Actuellement, les comptes de stockage de toutes les régions des États-Unis, d’Europe du Nord et de l’Ouest, du Canada et de l’Australie sont pris en charge. |
     |Compte(s) de stockage|Selon la région Azure spécifiée, effectuez la sélection dans la liste filtrée d’un compte de stockage existant. <br>Vous pouvez également créer un nouveau compte Usage général v1 et Usage général v2. |
     |Taille de données estimée en To| Entrez une estimation en To. <br>Selon la taille des données, Microsoft vous envoie un nombre de disques SSD de 8 To (7 To de capacité utilisable) approprié. <br>La capacité utilisable maximale de 5 disques peut atteindre 35 To. |
 
