@@ -1,0 +1,91 @@
+items:
+- name: Documentation relative aux notions de base
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+  - name: Qu’est-ce qu’Azure Active Directory ?
+    href: active-directory-whatis.md
+  - name: Nouveautés d’Azure Active Directory
+    href: whats-new.md
+  expanded: true
+- name: Démarrages rapides
+  items:
+  - name: Accéder au portail et créer un abonné
+    href: active-directory-access-create-new-tenant.md
+  - name: Afficher vos groupes avec leurs membres assignés
+    href: active-directory-groups-view-azure-portal.md
+- name: Concepts
+  items:
+  - name: Gestion des identités Azure
+    href: identity-fundamentals.md
+  - name: Gestion des groupes et des accès
+    href: active-directory-manage-groups.md
+  - name: Gestion des licences par groupe
+    href: active-directory-licensing-whatis-azure-portal.md
+  - name: Architecture Azure AD
+    href: active-directory-architecture.md
+  - name: Autorisations utilisateur par défaut
+    href: users-default-permissions.md
+  - name: Stockages de données d’identité pour l’UE
+    href: active-directory-data-storage-eu.md
+- name: Procédures
+  items:
+  - name: Organisation
+    items:
+    - name: S’inscrire à Azure AD Premium
+      href: active-directory-get-started-premium.md
+    - name: S’inscrire à Azure AD en tant qu’organisation
+      href: sign-up-organization.md
+    - name: Ajouter un nom de domaine personnalisé
+      href: add-custom-domain.md
+    - name: Ajouter la marque de la société
+      href: customize-branding.md
+    - name: Associer un abonnement Azure
+      href: active-directory-how-subscriptions-associated-directory.md
+  - name: Groupes
+    items:
+    - name: Créer un groupe et ajouter des membres
+      href: active-directory-groups-create-azure-portal.md
+    - name: Ajouter ou supprimer des membres du groupe
+      href: active-directory-groups-members-azure-portal.md
+    - name: Supprimer un groupe et ses membres
+      href: active-directory-groups-delete-group.md
+    - name: Ajouter ou supprimer un groupe dans un autre groupe
+      href: active-directory-groups-membership-azure-portal.md
+    - name: Modifier les informations du groupe
+      href: active-directory-groups-settings-azure-portal.md
+    - name: Ajouter ou supprimer des propriétaires de groupe
+      href: active-directory-accessmanagement-managing-group-owners.md
+  - name: Utilisateurs
+    items:
+    - name: Ajouter ou supprimer un nouvel utilisateur
+      href: add-users-azure-active-directory.md
+    - name: Ajouter ou modifier les informations de profil utilisateur
+      href: active-directory-users-profile-azure-portal.md
+    - name: Réinitialiser le mot de passe de l’utilisateur
+      href: active-directory-users-reset-password-azure-portal.md
+    - name: Attribuer des rôles aux utilisateurs
+      href: active-directory-users-assign-role-azure-portal.md
+    - name: Attribuer des licences à des utilisateurs ou les supprimer
+      href: license-users-groups.md
+    - name: Restaurer un utilisateur supprimé.
+      href: active-directory-users-restore.md
+  expanded: true
+- name: Ressources
+  items:
+  - name: Obtenir une assistance pour Azure Active Directory
+    href: active-directory-troubleshooting-support-howto.md
+  - name: Forum Aux Questions sur Azure Active Directory
+    href: active-directory-faq.md
+  - name: Plans de déploiement Azure Active Directory
+    href: active-directory-deployment-plans.md
+  - name: Gérer votre répertoire Azure AD
+    href: active-directory-administer.md
+  - name: Solutions d’identité Azure
+    href: understand-azure-identity-solutions.md
+ms.openlocfilehash: 70f51f82b34423cdde57109f384dcae851dc0d50
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45636289"

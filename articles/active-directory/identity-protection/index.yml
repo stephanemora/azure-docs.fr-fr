@@ -1,0 +1,46 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 04de34624a7902849d42ad62ed4e6a813157ddd9
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45606675"
+documentType: LandingData
+title: Azure AD Identity Protection
+metadata:
+  document_id: 
+  title: Documentation relative à Azure Active Directory Identity Protection - Guides de démarrage rapide, concepts, références | Microsoft Docs
+  description: Découvrez comment configurer et tester Azure Active Directory Identity Protection.
+  services: active-directory
+  ms.component: identity-protection
+  author: MarkusVi
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/14/2018
+  ms.author: markvi
+abstract:
+  description: Découvrez comment fonctionne la détection d’identités potentiellement compromises et comment implémenter des réponses automatisées pour s’en occuper. Azure Active Directory Identity Protection est une fonctionnalité de l’édition Azure AD Premium P2 qui vous permet de :<ul><li>Détecter les vulnérabilités potentielles qui affectent les identités de votre organisation</li><li>Configurer des stratégies d’accès conditionnel pour répondre automatiquement à des actions suspectes liées aux identités de votre organisation</li><li>Examiner les incidents suspects et prendre les mesures appropriées pour les résoudre</li></ul><br> Les ressources suivantes permettent une prise en main rapide.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video.png
+      width: 246
+    title: Présentation d’Azure AD Identity Protection
+    href: https://www.youtube.com/watch?v=zI3jn_G0_Ns
+    width: 246
+sections:
+- title: Démarrages rapides en 5 minutes
+  items:
+  - type: paragraph
+    text: Découvrez comment configurer des stratégies en matière de risque à la connexion pour les scénarios d’accès courants.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Bloquer l’accès lorsqu’un risque de session est détecté
+      href: quickstart-sign-in-risk-policy.md
