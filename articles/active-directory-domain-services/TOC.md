@@ -43,6 +43,7 @@
 ### [Créer une UO sur un domaine géré](active-directory-ds-admin-guide-create-ou.md)
 ### [Créer un compte de service administré de groupe sur un domaine managé](active-directory-ds-create-gmsa.md)
 ### [Administrer la stratégie de groupe sur un domaine géré](active-directory-ds-admin-guide-administer-group-policy.md)
+### [Configurer des stratégies de mot de passe sur un domaine géré](active-directory-ds-password-policy.md)
 ## [Sélectionner un réseau virtuel](active-directory-ds-networking.md)
 ## Déployer des applications
 ### [Configurer la prise en charge de la synchronisation de profil pour SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)

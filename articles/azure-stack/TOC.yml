@@ -28,6 +28,8 @@ items:
     href: azure-stack-tutorial-sql-server.md
   - name: Offrir des applications web
     href: azure-stack-tutorial-app-service.md
+  - name: Déployer Ethereum
+    href: azure-stack-ethereum.md
 - name: Concepts
   items:
   - name: Intégration du centre de données
@@ -99,18 +101,28 @@ items:
     href: azure-stack-manage-basics.md
 - name: Procédures
   items:
-  - name: Configurer la collecte de données de télémétrie
-    href: azure-stack-telemetry.md
-  - name: Inscrire Azure Stack
-    href: azure-stack-registration.md
-  - name: gérer
+  - name: Gérer Azure Stack
     items:
+    - name: Configurer la collecte de données de télémétrie
+      href: azure-stack-telemetry.md
+    - name: Inscrire Azure Stack
+      href: azure-stack-registration.md
     - name: Gestion des régions
       href: azure-stack-region-management.md
     - name: Utilisation du portail administrateur
       href: azure-stack-manage-portals.md
     - name: Se connecter à Azure Stack
       href: azure-stack-connect-azure-stack.md
+    - name: Connexion à Azure
+      items:
+      - name: Connexion à l’aide de VPN
+        href: azure-stack-connect-vpn.md
+      - name: À propos de la passerelle VPN
+        href: azure-stack-vpn-gateway-about-vpn-gateways.md
+      - name: Paramètres de la passerelle VPN
+        href: azure-stack-vpn-gateway-settings.md
+      - name: Connexion à l’aide d’ExpressRoute
+        href: azure-stack-connect-expressroute.md
     - name: Activer l’interface de ligne de commande pour les utilisateurs
       href: azure-stack-cli-admin.md
     - name: Configurer l’environnement de gestion
@@ -149,6 +161,8 @@ items:
         href: azure-stack-manage-storage-physical-memory-capacity.md
       - name: Ajouter des nœuds d’unités d’échelle
         href: azure-stack-add-scale-node.md
+      - name: Ajouter des adresses IP publiques
+        href: azure-stack-add-ips.md
     - name: Remplacer le matériel
       items:
       - name: Actions de nœud
@@ -159,25 +173,6 @@ items:
         href: azure-stack-replace-disk.md
       - name: Remplacer le composant
         href: azure-stack-replace-component.md
-    - name: Sauvegarde d’Azure Stack
-      href: azure-stack-backup-infrastructure-backup.md
-      items:
-      - name: Activer la sauvegarde d’Azure Stack à partir de la console d’administration
-        href: azure-stack-backup-enable-backup-console.md
-      - name: Activer la sauvegarde d’Azure Stack avec PowerShell
-        href: azure-stack-backup-enable-backup-powershell.md
-      - name: Sauvegarde d’Azure Stack
-        href: azure-stack-backup-back-up-azure-stack.md
-      - name: Sauvegarder des fichiers et applications sur Azure Stack
-        href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
-      - name: Répliquer des machines virtuelles Azure Stack dans Azure
-        href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
-      - name: Récupérer des données suite à une perte catastrophique
-        href: azure-stack-backup-recover-data.md
-      - name: Meilleures pratiques en matière de sauvegarde
-        href: azure-stack-backup-best-practices.md
-      - name: Référence liée à la sauvegarde
-        href: azure-stack-backup-reference.md
   - name: Sécurité, conformité et identité
     items:
     - name: Présentation de la sécurité
@@ -202,144 +197,150 @@ items:
       href: azure-stack-rotate-secrets.md
     - name: Mettre à jour l’antivirus
       href: azure-stack-security-av.md
-  - name: Proposer des services
+  - name: Renseigner le Marketplace
     items:
-    - name: Vue d’ensemble des services proposés
-      href: azure-stack-offer-services-overview.md
-    - name: Créer des plans, des offres et des quotas
+    - name: Présentation de la Place de marché
+      href: azure-stack-marketplace.md
+    - name: Télécharger des éléments du Marketplace
+      href: azure-stack-download-azure-marketplace-item.md
+    - name: Éléments Place de marché Microsoft Azure pour Azure Stack
+      href: azure-stack-marketplace-azure-items.md
+    - name: Créer et publier un élément du Marketplace
+      href: azure-stack-create-and-publish-marketplace-item.md
+    - name: Utiliser l’outil de publication du Marketplace
+      href: azure-stack-marketplace-publisher.md
+    - name: Systèmes d’exploitation invités pour Azure Stack
+      href: azure-stack-supported-os.md
+    - name: Ajouter une image de machine virtuelle personnalisée
+      href: azure-stack-add-vm-image.md
+    - name: Offrir un groupe de machines virtuelles identiques
+      href: azure-stack-compute-add-scalesets.md
+    - name: Offrir des machines virtuelles Linux
+      href: azure-stack-linux.md
+    - name: Ajouter une machine virtuelle Red Hat
+      href: azure-stack-redhat-create-upload-vhd.md
+    - name: Offrir un cluster Kubernetes
+      href: azure-stack-solution-template-kubernetes-cluster-add.md
+  - name: Proposer des services
+    href: azure-stack-offer-services-overview.md
+  - name: Vue d’ensemble des services PaaS
+    href: azure-stack-tools-paas-services.md
+  - name: Proposer SQL en tant que PaaS
+    href: azure-stack-sql-resource-provider.md
+    items:
+    - name: Déployer le fournisseur de ressources SQL Server
+      href: azure-stack-sql-resource-provider-deploy.md
+    - name: Ajouter des serveurs d’hébergement SQL
+      href: azure-stack-sql-resource-provider-hosting-servers.md
+    - name: Créer des bases de données SQL
+      href: azure-stack-sql-resource-provider-databases.md
+    - name: Mettre à jour le fournisseur de ressources SQL Server
+      href: azure-stack-sql-resource-provider-update.md
+    - name: Tenir à jour le fournisseur de ressources SQL Server
+      href: azure-stack-sql-resource-provider-maintain.md
+    - name: Supprimer le fournisseur de ressources SQL Server
+      href: azure-stack-sql-resource-provider-remove.md
+  - name: Proposer MySQL en tant que PaaS
+    href: azure-stack-mysql-resource-provider.md
+    items:
+    - name: Déployer le fournisseur de ressources MySQL Server
+      href: azure-stack-mysql-resource-provider-deploy.md
+    - name: Ajouter des serveurs d’hébergement MySQL
+      href: azure-stack-mysql-resource-provider-hosting-servers.md
+    - name: Créer des bases de données MySQL
+      href: azure-stack-mysql-resource-provider-databases.md
+    - name: Mettre à jour le fournisseur de ressources MySQL Server
+      href: azure-stack-mysql-resource-provider-update.md
+    - name: Maintenance du fournisseur de ressources MySQL Server
+      href: azure-stack-mysql-resource-provider-maintain.md
+    - name: Supprimer le fournisseur de ressources MySQL Server
+      href: azure-stack-mysql-resource-provider-remove.md
+  - name: Offrir App Service en tant que PaaS
+    href: azure-stack-app-service-overview.md
+    items:
+    - name: Planification de la capacité App Service
+      href: azure-stack-app-service-capacity-planning.md
+    - name: Avant de commencer
+      href: azure-stack-app-service-before-you-get-started.md
+    - name: Comment redistribuer Azure App Service sur Azure Stack dans les domaines d’erreur
+      href: azure-stack-app-service-fault-domain-update.md
+    - name: Déployer le fournisseur de ressources App Service
+      href: azure-stack-app-service-deploy.md
+    - name: Déployer App Service hors connexion
+      href: azure-stack-app-service-deploy-offline.md
+    - name: Mettre à jour App Service
+      href: azure-stack-app-service-update.md
+    - name: Mettre à jour App Service hors connexion
+      href: azure-stack-app-service-update-offline.md
+    - name: Ajouter de nouveaux rôles de travail web
+      href: azure-stack-app-service-add-worker-roles.md
+    - name: Configurer des sources de déploiement
+      href: azure-stack-app-service-configure-deployment-sources.md
+    - name: Notes de publication d’App Service sur Azure Stack
       items:
-      - name: Vue d’ensemble des plans, des offres, des quotas et des abonnements
-        href: azure-stack-plan-offer-quota-overview.md
-      - name: Créer un plan
-        href: azure-stack-create-plan.md
-      - name: Créer un plan d’extension
-        href: create-add-on-plan.md
-      - name: Créer une offre
-        href: azure-stack-create-offer.md
-      - name: S’abonner à une offre
-        href: azure-stack-subscribe-plan-provision-vm.md
-      - name: Déléguer des offres dans Azure Stack
-        href: azure-stack-delegated-provider.md
-      - name: Types de quota
-        href: azure-stack-quota-types.md
-    - name: Vue d’ensemble des services PaaS
-      href: azure-stack-tools-paas-services.md
-    - name: Proposer SQL en tant que PaaS
-      href: azure-stack-sql-resource-provider.md
-      items:
-      - name: Déployer le fournisseur de ressources SQL Server
-        href: azure-stack-sql-resource-provider-deploy.md
-      - name: Ajouter des serveurs d’hébergement SQL
-        href: azure-stack-sql-resource-provider-hosting-servers.md
-      - name: Créer des bases de données SQL
-        href: azure-stack-sql-resource-provider-databases.md
-      - name: Mettre à jour le fournisseur de ressources SQL Server
-        href: azure-stack-sql-resource-provider-update.md
-      - name: Tenir à jour le fournisseur de ressources SQL Server
-        href: azure-stack-sql-resource-provider-maintain.md
-      - name: Supprimer le fournisseur de ressources SQL Server
-        href: azure-stack-sql-resource-provider-remove.md
-    - name: Proposer MySQL en tant que PaaS
-      href: azure-stack-mysql-resource-provider.md
-      items:
-      - name: Déployer le fournisseur de ressources MySQL Server
-        href: azure-stack-mysql-resource-provider-deploy.md
-      - name: Ajouter des serveurs d’hébergement MySQL
-        href: azure-stack-mysql-resource-provider-hosting-servers.md
-      - name: Créer des bases de données MySQL
-        href: azure-stack-mysql-resource-provider-databases.md
-      - name: Mettre à jour le fournisseur de ressources MySQL Server
-        href: azure-stack-mysql-resource-provider-update.md
-      - name: Maintenance du fournisseur de ressources MySQL Server
-        href: azure-stack-mysql-resource-provider-maintain.md
-      - name: Supprimer le fournisseur de ressources MySQL Server
-        href: azure-stack-mysql-resource-provider-remove.md
-    - name: Offrir App Service en tant que PaaS
-      items:
-      - name: Vue d’ensemble d’App Service sur Azure Stack
-        href: azure-stack-app-service-overview.md
-      - name: planification de la capacité
-        href: azure-stack-app-service-capacity-planning.md
-      - name: Avant de commencer
-        href: azure-stack-app-service-before-you-get-started.md
-      - name: Comment redistribuer Azure App Service sur Azure Stack dans les domaines d’erreur
-        href: azure-stack-app-service-fault-domain-update.md
-      - name: Déployer le fournisseur de ressources App Service
-        href: azure-stack-app-service-deploy.md
-      - name: Déployer App Service hors connexion
-        href: azure-stack-app-service-deploy-offline.md
-      - name: Mettre à jour App Service
-        href: azure-stack-app-service-update.md
-      - name: Mettre à jour App Service hors connexion
-        href: azure-stack-app-service-update-offline.md
-      - name: Ajouter de nouveaux rôles de travail web
-        href: azure-stack-app-service-add-worker-roles.md
-      - name: Configurer des sources de déploiement
-        href: azure-stack-app-service-configure-deployment-sources.md
       - name: Notes de publication d’App Service sur Azure Stack Update 1
         href: azure-stack-app-service-release-notes-update-one.md
       - name: Notes de publication d’App Service sur Azure Stack Update 2
         href: azure-stack-app-service-release-notes-update-two.md
       - name: Notes de publication d’App Service sur Azure Stack Update 3
         href: azure-stack-app-service-release-notes-update-three.md
-    - name: Déployer Ethereum
-      href: azure-stack-ethereum.md
-    - name: Renseigner le Marketplace
+  - name: Créer des plans, des offres et des quotas
+    items:
+    - name: Vue d’ensemble des plans, des offres, des quotas et des abonnements
+      href: azure-stack-plan-offer-quota-overview.md
+    - name: Créer un plan
+      href: azure-stack-create-plan.md
+    - name: Créer un plan d’extension
+      href: create-add-on-plan.md
+    - name: Créer une offre
+      href: azure-stack-create-offer.md
+    - name: S’abonner à une offre
+      href: azure-stack-subscribe-plan-provision-vm.md
+    - name: Déléguer des offres dans Azure Stack
+      href: azure-stack-delegated-provider.md
+    - name: Types de quota
+      href: azure-stack-quota-types.md
+  - name: Utilisation et facturation
+    href: azure-stack-billing-and-chargeback.md
+    items:
+    - name: Gérer l’utilisation et la facturation en tant que fournisseur de services Cloud
+      href: azure-stack-add-manage-billing-as-a-csp.md
       items:
-      - name: Présentation de la Place de marché
-        href: azure-stack-marketplace.md
-      - name: Télécharger des éléments du Marketplace
-        href: azure-stack-download-azure-marketplace-item.md
-      - name: Éléments Place de marché Microsoft Azure pour Azure Stack
-        href: azure-stack-marketplace-azure-items.md
-      - name: Créer et publier un élément du Marketplace
-        href: azure-stack-create-and-publish-marketplace-item.md
-      - name: Utiliser l’outil de publication du Marketplace
-        href: azure-stack-marketplace-publisher.md
-      - name: Systèmes d’exploitation invités pour Azure Stack
-        href: azure-stack-supported-os.md
-      - name: Ajouter une image de machine virtuelle personnalisée
-        href: azure-stack-add-vm-image.md
-      - name: Offrir un groupe de machines virtuelles identiques
-        href: azure-stack-compute-add-scalesets.md
-      - name: Offrir des machines virtuelles Linux
-        href: azure-stack-linux.md
-      - name: Ajouter une machine virtuelle Red Hat
-        href: azure-stack-redhat-create-upload-vhd.md
-      - name: Offrir un cluster Kubernetes
-        href: azure-stack-solution-template-kubernetes-cluster-add.md
-    - name: Utilisation et facturation
-      href: azure-stack-billing-and-chargeback.md
+      - name: Ajouter des locataires pour l’utilisation et la facturation
+        href: azure-stack-csp-howto-register-tenants.md
+      - name: Gérer l’inscription des locataires
+        href: azure-stack-csp-ref-operations.md
+    - name: Référence relative à l’utilisation et la facturation
       items:
-      - name: Gérer l’utilisation et la facturation en tant que fournisseur de services Cloud
-        href: azure-stack-add-manage-billing-as-a-csp.md
-        items:
-        - name: Ajouter des locataires pour l’utilisation et la facturation
-          href: azure-stack-csp-howto-register-tenants.md
-        - name: Gérer l’inscription des locataires
-          href: azure-stack-csp-ref-operations.md
-      - name: Référence relative à l’utilisation et la facturation
-        items:
-        - name: Rapports des données d’utilisation
-          href: azure-stack-usage-reporting.md
-        - name: Infrastructure des rapports d’utilisation pour les fournisseurs de services Cloud
-          href: azure-stack-csp-ref-infrastructure.md
-        - name: API d’utilisation du fournisseur
-          href: azure-stack-provider-resource-api.md
-        - name: API d’utilisation du client
-          href: azure-stack-tenant-resource-usage-api.md
-        - name: Forum Aux Questions sur l’utilisation
-          href: azure-stack-usage-related-faq.md
-    - name: Connexion à Azure
-      items:
-      - name: Connexion à l’aide de VPN
-        href: azure-stack-connect-vpn.md
-      - name: À propos de la passerelle VPN
-        href: azure-stack-vpn-gateway-about-vpn-gateways.md
-      - name: Paramètres de la passerelle VPN
-        href: azure-stack-vpn-gateway-settings.md
-      - name: Connexion à l’aide d’ExpressRoute
-        href: azure-stack-connect-expressroute.md
+      - name: Rapports des données d’utilisation
+        href: azure-stack-usage-reporting.md
+      - name: Infrastructure des rapports d’utilisation pour les fournisseurs de services Cloud
+        href: azure-stack-csp-ref-infrastructure.md
+      - name: API d’utilisation du fournisseur
+        href: azure-stack-provider-resource-api.md
+      - name: API d’utilisation du client
+        href: azure-stack-tenant-resource-usage-api.md
+      - name: Forum Aux Questions sur l’utilisation
+        href: azure-stack-usage-related-faq.md
+  - name: Sauvegarde d’Azure Stack
+    href: azure-stack-backup-infrastructure-backup.md
+    items:
+    - name: Activer la sauvegarde d’Azure Stack à partir de la console d’administration
+      href: azure-stack-backup-enable-backup-console.md
+    - name: Activer la sauvegarde d’Azure Stack avec PowerShell
+      href: azure-stack-backup-enable-backup-powershell.md
+    - name: Sauvegarde d’Azure Stack
+      href: azure-stack-backup-back-up-azure-stack.md
+    - name: Sauvegarder des fichiers et applications sur Azure Stack
+      href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+    - name: Répliquer des machines virtuelles Azure Stack dans Azure
+      href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+    - name: Récupérer des données suite à une perte catastrophique
+      href: azure-stack-backup-recover-data.md
+    - name: Meilleures pratiques en matière de sauvegarde
+      href: azure-stack-backup-best-practices.md
+    - name: Référence liée à la sauvegarde
+      href: azure-stack-backup-reference.md
   - name: Résolution des problèmes
     items:
     - name: Problèmes connus
@@ -372,9 +373,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formation et certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 2334accb56409bf77b52153a9e0d279cddd1d352
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c6032eb4482dafaebcc376f3f22102a15f6f4cf4
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026662"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985611"

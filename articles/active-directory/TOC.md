@@ -12,7 +12,6 @@
 
 
 # Prise en main
-## [Prise en main d'Azure AD](fundamentals/get-started-azure-ad.md)
 ## [S’inscrire à Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Ajouter un nom de domaine personnalisé](fundamentals/add-custom-domain.md)
 ## [Configurer la marque de la société](fundamentals/customize-branding.md)
@@ -20,6 +19,7 @@
 ## [Attribuer des licences à des utilisateurs](fundamentals/license-users-groups.md)
 ## [Configurer la réinitialisation du mot de passe libre-service](authentication/quickstart-sspr.md)
 ## [Ajouter les informations de confidentialité de votre organisation dans Azure AD](active-directory-properties-area.md)
+## [Accéder à Azure Active Directory pour créer un nouveau locataire](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # Procédures
@@ -91,11 +91,13 @@
 ### [Utilisateurs à risque](reports-monitoring/concept-user-at-risk.md)
 ### [Connexions risquées](reports-monitoring/concept-risky-sign-ins.md)
 ### [Événements à risque](reports-monitoring/concept-risk-events.md)
-### [Surveillance des journaux avec Azure Monitor](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [Surveillance des journaux avec Azure Monitor](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [FORUM AUX QUESTIONS](reports-monitoring/reports-faq.md)
 
 ### Tâches
-#### [Configurer des emplacements nommés](active-directory-named-locations.md)
+#### [Télécharger un rapport de connexion](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [Télécharger un rapport d’audit](reports-monitoring/quickstart-download-audit-report.md)
+#### [Configurer des emplacements nommés](reports-monitoring/quickstart-configure-named-locations.md)
 #### [Afficher les rapports d’activité](reports-monitoring/howto-find-activity-reports.md)
 #### [Utiliser le pack de contenu Azure AD Power BI](reports-monitoring/howto-power-bi-content-pack.md)
 #### [Corriger les problèmes d’utilisateurs avec indicateur de risque](reports-monitoring/howto-remediate-users-flagged-for-risk.md)

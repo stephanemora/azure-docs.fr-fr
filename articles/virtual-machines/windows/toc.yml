@@ -3,9 +3,9 @@ items:
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: À propos des machines virtuelles
+  - name: À propos des Machines virtuelles
     href: overview.md
-- name: Guides de démarrage rapide
+- name: Démarrages rapides
   items:
   - name: Créer une machine virtuelle - Portail
     href: quick-create-portal.md
@@ -14,7 +14,7 @@ items:
   - name: Créer une machine virtuelle - Interface de ligne de commande Azure
     href: quick-create-cli.md
   expanded: true
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: 1 - Créer/gérer une machine virtuelle
     href: tutorial-manage-vm.md
@@ -93,7 +93,7 @@ items:
   - name: Stockage sur disque
     href: about-disks-and-vhds.md
     items:
-    - name: Disques managés
+    - name: Managed Disks
       href: managed-disks-overview.md
     - name: Stockage Premium
       href: premium-storage.md
@@ -159,7 +159,7 @@ items:
       href: windows-desktop-multitenant-hosting-deployment.md
   - name: Sécuriser des machines virtuelles
     items:
-    - name: Chiffrer
+    - name: Encrypt (Chiffrer)
       href: encrypt-disks.md
     - name: Utiliser WinRM
       href: winrm.md
@@ -192,8 +192,10 @@ items:
       href: resize-vm.md
     - name: Remplacer le disque de système d’exploitation
       href: os-disk-swap.md
-    - name: Étiqueter une machine virtuelle
+    - name: Ajouter des balises à une machine virtuelle
       href: tag.md
+    - name: Synchronisation de l’heure
+      href: time-sync.md
     - name: Exécuter des scripts sur une machine virtuelle
       href: run-scripts-in-vm.md
       items:
@@ -494,9 +496,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
   - name: Forum Aux Questions
     href: faq.md
-ms.openlocfilehash: b2b68caeee7d77ec49f583f13c651a0b91afeb39
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: af9685fcf53366785a7473a5e6c246907929a3fc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715327"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985513"

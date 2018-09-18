@@ -20,7 +20,7 @@
 #### [Containers](./marketplace-containers.md)
 #### [Service de conseil](./consulting-services.md)  
 #### [Guide de publication Office 365, Dynamics 365 et Power BI](./appsource-offer-publishing-guide.md)
-#### [Activer votre expérience d’essai sur la place de marché à l’aide d’Azure Active Directory](./enable-trial-using-azure-ad.md)
+#### [Activer une liste Microsoft AppSource et Place de marché Microsoft Azure à l’aide d’Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Développer votre activité avec la Place de marché](./grow-your-business-with-azure-marketplace.md)  
 #### [Solutions recommandées](./preferred-solutions.md) 
