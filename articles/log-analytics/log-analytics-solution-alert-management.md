@@ -112,13 +112,13 @@ Le tableau suivant fournit des exemples de recherches dans les journaux pour les
 
 | Requête | Description |
 |:---|:---|
-| Alerte & #124 ; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) |Alertes critiques déclenchées au cours des dernières 24 heures |
-| Alerte & #124 ; où AlertSeverity == « avertissement » et TimeRaised > ago(24 h) |Alertes d’avertissement déclenchées au cours des dernières 24 heures |
-| Alerte & #124 ; où SourceSystem == « OpsManager » et AlertState ! = « Fermé » et TimeRaised > ago(24 h) & #124 ; résumer Count = count() par SourceDisplayName |Sources avec des alertes actives déclenchées au cours des dernières 24 heures |
-| Alerte &#124 ; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) et AlertState != « Fermé » |Alertes critiques déclenchées au cours des dernières 24 heures et toujours actives |
-| Alerte &#124 ; où SourceSystem == « OpsManager », TimeRaised > ago(24 h) et AlertState != « Fermé » |Alertes déclenchées au cours des dernières 24 heures et désormais fermées |
-| Alerte & #124 ; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124 ; résumer Count = count() par AlertSeverity |Alertes déclenchées au cours de la journée précédente et regroupées selon leur niveau de gravité |
-| Alerte & #124 ; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124 ; résumer Count = count() par RepeatCount desc |Alertes déclenchées au cours de la journée précédente et triées selon leur valeur de répétition |
+| Alerte &#124; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) |Alertes critiques déclenchées au cours des dernières 24 heures |
+| Alerte &#124; où AlertSeverity == « avertissement » et TimeRaised > ago(24 h) |Alertes d’avertissement déclenchées au cours des dernières 24 heures |
+| Alerte &#124; où SourceSystem == « OpsManager » et AlertState ! = « Fermé » et TimeRaised > ago(24 h) &#124; résumer Count = count() par SourceDisplayName |Sources avec des alertes actives déclenchées au cours des dernières 24 heures |
+| Alerte &#124; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) et AlertState != « Fermé » |Alertes critiques déclenchées au cours des dernières 24 heures et toujours actives |
+| Alerte &#124; où SourceSystem == « OpsManager », TimeRaised > ago(24 h) et AlertState != « Fermé » |Alertes déclenchées au cours des dernières 24 heures et désormais fermées |
+| Alerte &#124; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124; résumer Count = count() par AlertSeverity |Alertes déclenchées au cours de la journée précédente et regroupées selon leur niveau de gravité |
+| Alerte &#124; où SourceSystem == « OpsManager » et TimeRaised > ago(1d) &#124; résumer Count = count() par RepeatCount desc |Alertes déclenchées au cours de la journée précédente et triées selon leur valeur de répétition |
 
 
 
