@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2217adbbb9e5222e6c33bfcdce41c30396c7f231
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 95341f318a9902a82ecb0366400ec34d159f0225
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45740318"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363681"
 documentType: LandingData
-title: Rapports Azure AD et analyse
+title: Rapports et surveillance Azure Active Directory
 metadata:
   document_id: 
   title: Documentation relative aux rapports Azure Active Directory reports et à l’analyse - Tutoriels, guides de démarrage rapide, concepts, références | Microsoft Docs
@@ -22,7 +22,7 @@ metadata:
   ms.date: 08/14/2018
   ms.author: priyamo
 abstract:
-  description: Découvrez comment afficher des rapports d’audit et de sécurité pour votre environnement ou les analyser au fil du temps pour obtenir des informations sur les modèles d’utilisation. Les rapports Azure AD, vous permettent d’obtenir des informations sur les modèles d’utilisation et de sécurité de votre environnement. Vous pouvez par exemple répondre aux questions suivantes :<ul><li>Comment sont les applications ou les services utilisés par les utilisateurs ?</li><li>Quels sont les risques potentiels affectant l’intégrité de l’environnement ?</li><li>Comment résoudre les problèmes empêchant les utilisateurs d’effectuer leur travail ?</li>
+  description: Découvrez comment afficher des rapports d’audit et de sécurité pour votre environnement ou les analyser au fil du temps pour obtenir des informations sur les modèles d’utilisation. Les rapports Azure Active Directory (Azure AD), vous permettent d’obtenir des informations sur les modèles d’utilisation et de sécurité de votre environnement. Vous pouvez par exemple répondre aux questions suivantes :<ul><li>Comment sont les applications ou les services utilisés par les utilisateurs ?</li><li>Quels sont les risques potentiels affectant l’intégrité de l’environnement ?</li><li>Comment résoudre les problèmes empêchant les utilisateurs d’effectuer leur travail ?</li>
 sections:
 - title: Démarrages rapides en 5 minutes
   items:
