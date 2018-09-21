@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5e67c60828467cce7c3b40ba17f15f44ad045920
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: fec075a744b5f47a4be7f1b960cceedfea7b9a2c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735668"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35635686"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>Déployer des ressources Azure sur plusieurs groupes de ressources et des abonnements
 
-En général, vous déployez toutes les ressources dans votre modèle sur un seul [groupe de ressources](resource-group-overview.md). Toutefois, il existe des scénarios dans lesquels vous pouvez souhaiter déployer simultanément un ensemble de ressources à placer dans des groupes de ressources ou des abonnements différents. Par exemple, vous voudrez peut-être déployer la machine virtuelle de sauvegarde destinée à Azure Site Recovery sur un groupe de ressources et un emplacement distincts. Resource Manager vous permet d’utiliser des modèles imbriqués pour cibler des groupes de ressources ou des abonnements différents du groupe de ressources ou de l’abonnement utilisés pour le modèle parent.
+En général, vous déployez toutes les ressources dans votre modèle sur un seul [groupe de ressources](resource-group-overview.md). Toutefois, il existe des scénarios dans lesquels vous pouvez souhaitez déployer un ensemble de ressources, tout en les plaçant dans différents groupes de ressources ou abonnements. Par exemple, vous voudrez peut-être déployer la machine virtuelle de sauvegarde destinée à Azure Site Recovery sur un groupe de ressources et un emplacement distincts. Resource Manager vous permet d’utiliser des modèles imbriqués pour cibler des groupes de ressources ou des abonnements différents du groupe de ressources ou de l’abonnement utilisés pour le modèle parent.
 
 > [!NOTE]
 > Vous ne pouvez pas déployer sur plus de cinq groupes de ressources dans un déploiement. En règle générale, cette limitation signifie que vous pouvez déployer sur un groupe de ressources spécifié pour le modèle parent et jusqu'à quatre groupes de ressources dans les déploiements imbriqués ou liés. Toutefois, si votre modèle parent contient uniquement des modèles imbriqués ou liés et ne déploie lui-même aucune ressource, vous pouvez inclure jusqu'à cinq groupes de ressources dans les déploiements imbriqués ou liés.
@@ -126,8 +126,6 @@ L’exemple suivant déploie deux comptes de stockage, un dans le groupe de ress
 ```
 
 Si vous définissez `resourceGroup`sur le nom d’un groupe de ressources qui n’existe pas, le déploiement échoue.
-
-Pour déployer l’exemple de modèle, utilisez Azure PowerShell 4.0.0 ou version ultérieure, ou Azure CLI 2.0.0 ou version ultérieure.
 
 ## <a name="use-the-resourcegroup-and-subscription-functions"></a>Utiliser les fonctions resourceGroup() et subscription()
 

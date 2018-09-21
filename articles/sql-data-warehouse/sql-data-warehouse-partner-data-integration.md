@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: d92d230be1ec0e85894a1e9e4d8635aa71afa514
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f9a376b0a5b4bb573af1ec4d4e846fc08d4022d3
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307702"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734199"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partenaires de SQL Data Warehouse en matière d’intégration de données
 Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des solutions d’intégration de données prenant en charge Azure SQL Data Warehouse.
@@ -27,9 +27,9 @@ Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi 
 | ![Attunity][2] |**Attunity**<br>Attunity CloudBeam offre une solution automatisée et optimisée de chargement de données dans SQL Data Warehouse. Dotée d’une conception de type « cliquer pour charger », elle simplifie et accélère à la fois le chargement par lot et la réplication incrémentielle à partir de nombreuses bases de données hétérogènes, notamment SQL Server, Oracle, DB2, Sybase et mySQL. |[Marketplace][attunity_marketplace]<br>[Démarrage rapide][attunity_quickstart]<br>[Site web][attunity_cloudbeam_website]<br>[Feuille de données][attunity_cloudbeam_datasheet]<br>[Twitter][attunity_cloudbeam_twitter]<br>[YouTube][attunity_cloudbeam_youtube] |[![Vidéo Attunity](./media/sql-data-warehouse-partner-data-integration/attunity_video.jpg)](https://www.youtube.com/watch?v=w14zuSjMlok) |
 | ![Bryte Systems][3] |**Bryte Systems**<br>Bryte Systems automatise le transfert de données vers SQL Data Warehouse à partir de diverses bases de données et sources. Bryte Systems est spécialisé dans les technologies d’intégration et de déplacement de données. Cette entreprise crée des entrepôts de données et des lacs de données cloud destinés à découvrir les perspectives. |[Site web][bryte_systems_azure_website] | |
 | ![Informatica][4] |**Services Informatica Cloud pour Azure – Paiement à l’utilisation**<br> Optimisez la valeur de vos services Azure et obtenez des informations exploitables à partir de tous vos jeux de données hybrides avec les services Informatica Cloud pour Azure – Paiement à l’utilisation. Informatica Cloud offre une solution de pointe pour l’intégration des données, les analyses cloud, l’intégration d’application et la gestion des données. Grâce aux fonctionnalités libre-service de migration, d’intégration et de gestion des données, les clients peuvent importer, exporter, synchroniser et planifier (rapidement et de manière fiable) des pétaoctets de données vers Azure à partir de diverses sources telles que les applications SaaS, les lacs de données basés sur Hadoop et d’autres sources de données locales (Oracle, SAP). Les services Informatica Cloud pour Azure offrent une connectivité native, à volume élevé et haute performance, à Azure SQL Data Warehouse, SQL Database, Stockage Blob, Data Lake Store et Azure Cosmos DB. |[Marketplace][informatica_Cloud_Services_marketplace]<br>[Version d’évaluation gratuite][informatica_cloud_free_trial]<br>[Guide de configuration][informatica_cloud_services_config]<br>[Site web][informatica_Cloud_Services_website]<br>[Twitter][informatica_cloud_twitter]<br>[YouTube][informatica_cloud_youtube] | |
-| ![Informatica][4] |**Informatica PowerCenter**<br>Informatica est l’un des fournisseurs indépendants de logiciels d’intégration de données les plus connus au monde. PowerCenter constitue le fondement de toutes vos initiatives d’intégration de données. Utilisez PowerCenter pour l’analyse, l’entreposage de données, la migration d’application, la consolidation ou la gouvernance des données. |[Marketplace][informatica_PowerCenter_byol]<br>[Site web][informatica_PowerCenter_website]<br>[Datasheet][informatica_powercenter_datasheet]<br>[Twitter][informatica_powercenter_twitter]<br>[YouTube][informatica_powercenter_youtube] | |
+| ![Informatica][4] |**Informatica PowerCenter**<br>Informatica est l’un des fournisseurs indépendants de logiciels d’intégration de données les plus connus au monde. PowerCenter constitue le fondement de toutes vos initiatives d’intégration de données. Utilisez PowerCenter pour l’analyse, l’entreposage de données, la migration d’application, la consolidation ou la gouvernance des données. |[Marketplace][informatica_PowerCenter_byol]<br>[Site web][informatica_PowerCenter_website]<br>[Feuille de données][informatica_powercenter_datasheet]<br>[Twitter][informatica_powercenter_twitter]<br>[YouTube][informatica_powercenter_youtube] | |
 | ![Redgate][5] |**Redgate Data Platform Studio (Preview)**<br>Data Platform Studio de Redgate offre un moyen simple et fiable de migrer des bases de données SQL locales vers Azure SQL Data Warehouse. Il est conçu pour prendre des décisions intelligentes pour une migration entièrement automatisée et est disponible gratuitement pour les migrations à occurrence unique. |[Site web][redgate_website]<br>[Twitter][redgate_twitter]<br>[YouTube][redgate_youtube] |[![Vidéo Redgate](./media/sql-data-warehouse-partner-data-integration/redgate_video.jpg)](https://www.youtube.com/watch?v=IR9HNvnU46s) |
-| ![SnapLogic][6] |**SnapLogic**<br>La solution iPaaS (Integration Platform as a Service) de SnapLogic permet aux clients de transférer rapidement des données à destination ou en provenance de Microsoft Azure SQL Data Warehouse. SnapLogic offre la possibilité d’intégrer des centaines d’applications, services et scénarios IoT en une seule solution. Diffusez des perspectives rapides et efficaces dans le cloud, en local ou en mode hybride avec SnapLogic ! |[Marketplace][snaplogic_marketplace]<br>[Site web][snaplogic_website]<br>[Datasheet][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Vidéo Snaplogic](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
+| ![SnapLogic][6] |**SnapLogic**<br>La solution iPaaS (Integration Platform as a Service) de SnapLogic permet aux clients de transférer rapidement des données à destination ou en provenance de Microsoft Azure SQL Data Warehouse. SnapLogic offre la possibilité d’intégrer des centaines d’applications, services et scénarios IoT en une seule solution. Diffusez des perspectives rapides et efficaces dans le cloud, en local ou en mode hybride avec SnapLogic ! |[Marketplace][snaplogic_marketplace]<br>[Site web][snaplogic_website]<br>[Feuille de données][snaplogic_datasheet]<br>[Twitter][snaplogic_twitter]<br>[YouTube][snaplogic_youtube] |[![Vidéo Snaplogic](./media/sql-data-warehouse-partner-data-integration/snaplogic_video.jpg)](https://www.youtube.com/watch?v=YiJCwObOh5Y) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur d’autres partenaires, consultez [Partenaires décisionnels][bi_partners] et [Partenaires de gestion des données][dm_partners].
@@ -56,8 +56,13 @@ Pour plus d’informations sur d’autres partenaires, consultez [Partenaires d�
 <!--Datasheet Links-->
 [alteryx_designer_datasheet]:http://www.alteryx.com/sites/default/files/resources/files/alt-designer-ds.pdf
 [attunity_cloudbeam_datasheet]:http://www.attunity.com/sites/default/files/content/attunity-azure-solution-sheet.pdf
+
 <!--[bryte_systems_azure_datasheet]:-->
-<!--[informatica_cloud_datasheet]:https://www.informatica.com/content/dam/informatica-com/global/amer/us/collateral/data-sheet/cloud-integration-platform_data-sheet_2711.pdf--> [informatica_powercenter_datasheet]:https://www.informatica.com/content/dam/informatica-com/global/amer/us/collateral/brochure/powercenter_brochure_6659.pdf [snaplogic_datasheet]:http://campaigns.snaplogic.com/rs/055-FYJ-916/images/SnapLogic-for-Microsoft-Cortana.pdff
+
+<!--[informatica_cloud_datasheet]:https://www.informatica.com/content/dam/informatica-com/global/amer/us/collateral/data-sheet/cloud-integration-platform_data-sheet_2711.pdf-->
+
+[informatica_powercenter_datasheet]:https://www.informatica.com/content/dam/informatica-com/global/amer/us/collateral/brochure/powercenter_brochure_6659.pdf
+[snaplogic_datasheet]:http://campaigns.snaplogic.com/rs/055-FYJ-916/images/SnapLogic-for-Microsoft-Cortana.pdf
 
 <!--Free Trial-->
 [informatica_cloud_free_trial]:https://www.informatica.com/products/cloud-integration/connectivity/microsoft-azure-connector.html
@@ -74,32 +79,61 @@ Pour plus d’informations sur d’autres partenaires, consultez [Partenaires d�
 <!--Marketplace Links -->
 [alteryx_marketplace]:https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/
 [attunity_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
-<!--[bryte_systems_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/bryte/bryteflow-cdc-free-trial/-->informatica_Cloud_Services_marketplace https://azuremarketplace.microsoft.com/marketplace/partners/informatica/informatica-cloud-services//
+
+<!--[bryte_systems_marketplace]:https://azure.microsoft.com/en-gb/marketplace/partners/bryte/bryteflow-cdc-free-trial/--> 
+
+[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/partners/informatica/informatica-cloud-services/
+
 <!--[informatica_PowerCenter_std_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-standard-10-0pc-std-10-0-windows/
 [informatica_PowerCenter_adv_marketplace]:https://azure.microsoft.com/marketplace/partners/informatica/informatica-powercenter-advanced-10-0pc-adv-10-0-ubuntu/-->
+
 [informatica_PowerCenter_byol]:https://azuremarketplace.microsoft.com/en-us/marketplace/apps/informatica.powercenter/
-<!--[redgate_marketplace]:--> [snaplogic_marketplace]:https://azure.microsoft.com/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows// 
+
+<!--[redgate_marketplace]:-->
+
+[snaplogic_marketplace]:https://azure.microsoft.com/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
 
 <!--Quickstart_links-->
+
 [attunity_quickstart]:https://www.attunity.com/products/cloudbeam/solutions-attunity-cloudbeam-azure-data-analytic-services/
 
 <!--PressRelease_links-->
+
 [alteryx_designer_press]:https://www.alteryx.com/press-releases/alteryx-now-enables-data-analysts-to-perform-in-database-blending-in-microsoft-azure 
 [attunity_cloudbeam_press]:http://www.attunity.com/news/attunity-launches-cloud-data-warehouse-solutions-microsoft-azure
 [bryte_systems_azure_press]:http://medianet.com.au/releases/release-details?id=837667
+
 <!--[informatica_Cloud_Services_press]:-->
 <!--[informatica_PowerCenter_press]:-->
-<!--[redgate_press]:--> [snaplogic_press]:https://www.snaplogic.com/press-releases/snaplogic-introduces-support-for-microsoft-azure-sql-data-warehousee
+
+<!--[redgate_press]:-->
+
+[snaplogic_press]:https://www.snaplogic.com/press-releases/snaplogic-introduces-support-for-microsoft-azure-sql-data-warehouse
 
 <!--YouTube-->
+
 [alteryx_designer_youtube]:https://www.youtube.com/user/alteryx
 [attunity_cloudbeam_youtube]:https://www.youtube.com/user/Attunity
-<!--[bryte_systems_azure_youtube]:--> [informatica_Cloud_youtube]:https://www.youtube.com/user/InformaticaOnDemand [informatica_PowerCenter_youtube]:https://www.youtube.com/user/InformaticaCorp [redgate_youtube]:https://www.youtube.com/user/RedGateVideos [snaplogic_youtube]:https://www.youtube.com/user/snapLogicIncc
+
+<!--[bryte_systems_azure_youtube]:-->
+
+[informatica_Cloud_youtube]:https://www.youtube.com/user/InformaticaOnDemand
+[informatica_PowerCenter_youtube]:https://www.youtube.com/user/InformaticaCorp
+[redgate_youtube]:https://www.youtube.com/user/RedGateVideos
+[snaplogic_youtube]:https://www.youtube.com/user/snapLogicInc
 
 <!--Twitter-->
+
 [alteryx_designer_twitter]:https://twitter.com/alteryx
 [attunity_cloudbeam_twitter]:https://twitter.com/attunity
-<!--[bryte_systems_azure_twitter]:--> [informatica_cloud_twitter]:https://twitter.com/infacloud [informatica_powercenter_twitter]:https://twitter.com/Informatica [redgate_twitter]:https://twitter.com/RedgateDPS [snaplogic_twitter]:https://twitter.com/snaplogicc
+
+<!--[bryte_systems_azure_twitter]:-->
+
+[informatica_cloud_twitter]:https://twitter.com/infacloud
+[informatica_powercenter_twitter]:https://twitter.com/Informatica
+[redgate_twitter]:https://twitter.com/RedgateDPS
+[snaplogic_twitter]:https://twitter.com/snaplogic
 
 <!--WhitePaper-->
+
 [alteryx_whitepaper]:http://pages.alteryx.com/Microsoft-Azure-InDB-WP?lsm=microsoft

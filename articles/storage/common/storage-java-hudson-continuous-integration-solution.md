@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: c076ae96f8aba648196dc5222db3da3da68673ff
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 86a14d12f6621524ef26e2a869d4be532105dc77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528389"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732334"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Utilisation d’Azure Storage avec une solution d’intégration continue Hudson
 ## <a name="overview"></a>Vue d’ensemble
@@ -53,7 +53,7 @@ Pour utiliser le service BLOB avec votre solution Hudson CI, vous avez besoin de
      
       Une solution Hudson CI type serait configurée pour s’exécuter en tant que service, mais l’exécution du WAR Hudson depuis la ligne de commande est suffisante pour les besoins de ce didacticiel.
 * Un compte Azure. Vous pouvez vous inscrire pour un compte Azure sur <http://www.azure.com>.
-* Un compte de stockage Azure. Si vous ne disposez pas déjà d’un compte de stockage, vous pouvez en créer un en suivant la procédure décrite dans la section [Créer un compte de stockage](../common/storage-create-storage-account.md#create-a-storage-account).
+* Un compte de stockage Azure. Si vous ne disposez pas déjà d’un compte de stockage, vous pouvez en créer un en suivant la procédure décrite dans la section [Créer un compte de stockage](../common/storage-quickstart-create-account.md).
 * Une bonne connaissance de la solution Hudson CI est recommandée, mais pas obligatoire, car le contenu suivant emploiera un exemple élémentaire pour décrire la procédure requise lorsque vous utilisez le service BLOB comme référentiel pour les artefacts de build Hudson CI.
 
 ## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>Utilisation du service BLOB avec Hudson CI

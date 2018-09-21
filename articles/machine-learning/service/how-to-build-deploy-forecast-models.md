@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 07/13/2018
-ms.openlocfilehash: 60eecf134f067d68326fc23ade8ed2a5a7ae7ac4
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9bdda67f08b9fbee20bdcc11186b97a3d942b778
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070334"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580665"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Générer et déployer des modèles de prévision avec Azure Machine Learning
 
@@ -106,7 +106,7 @@ print('imports done')
 
 ## <a name="load-data-and-explore"></a>Charger des données et explorer
 
-Cet extrait de code montre le processus classique de démarrage avec un jeu de données brut, en l’occurrence les [données Finer Foods de Dominick’s](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Vous pouvez également utiliser la fonction de commodité [load_dominicks_oj_data](https://docs.microsoft.com/en-us/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
+Cet extrait de code montre le processus classique de démarrage avec un jeu de données brut, en l’occurrence les [données Finer Foods de Dominick’s](https://research.chicagobooth.edu/kilts/marketing-databases/dominicks).  Vous pouvez également utiliser la fonction de commodité [load_dominicks_oj_data](https://docs.microsoft.com/python/api/ftk.data.dominicks_oj.load_dominicks_oj_data).
 
 
 ```python
@@ -337,7 +337,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 Les données contiennent environ 250 combinaisons différentes de magasins et de marques dans un cadre de données. Chaque combinaison définit sa propre série chronologique de ventes. 
 
-Vous pouvez utiliser la classe [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) pour modéliser facilement plusieurs séries dans une structure de données unique à l’aide du _grain_ (niveau de granularité). Ce niveau de granularité est spécifié par les colonnes `store` et `brand`.
+Vous pouvez utiliser la classe [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) pour modéliser facilement plusieurs séries dans une structure de données unique à l’aide du _grain_ (niveau de granularité). Ce niveau de granularité est spécifié par les colonnes `store` et `brand`.
 
 La différence entre _grain_ et _group_ (groupe) réside dans le fait que le niveau de granularité est toujours physiquement significatif dans le monde réel, alors que le groupe ne l’est pas nécessairement. Les fonctions de package interne utilisent le groupe afin de créer un modèle unique à partir de plusieurs séries chronologiques si l’utilisateur pense que ce regroupement permet d’améliorer les performances du modèle. Par défaut, le groupe est défini pour être égal au niveau de granularité, et un modèle unique est généré pour chaque niveau de granularité. 
 
@@ -499,7 +499,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-La fonction [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) génère un rapport détaillé du cadre de données des séries chronologiques. Le rapport inclut une description générale des données ainsi que des statistiques spécifiques aux données de série chronologique. 
+La fonction [TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) génère un rapport détaillé du cadre de données des séries chronologiques. Le rapport inclut une description générale des données ainsi que des statistiques spécifiques aux données de série chronologique. 
 
 
 ```python
@@ -886,14 +886,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Prétraiter des données et imputer les valeurs manquantes
 
-Commencez par fractionner les données en jeu de formation et jeu de test avec la fonction d’utilité [last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest). Le jeu de test en résultant contient les 40 dernières observations de chaque série chronologique. 
+Commencez par fractionner les données en jeu de formation et jeu de test avec la fonction d’utilité [last_n_periods_split](https://docs.microsoft.com/python/api/ftk.ts_utils?view=azure-ml-py-latest). Le jeu de test en résultant contient les 40 dernières observations de chaque série chronologique. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Les modèles de série chronologique de base nécessitent des séries chronologiques contiguës. Vérifiez que les séries sont normales, c’est-à-dire qu’elles disposent d’un index de temps échantillonné à intervalles réguliers, à l’aide de la fonction [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain).
+Les modèles de série chronologique de base nécessitent des séries chronologiques contiguës. Vérifiez que les séries sont normales, c’est-à-dire qu’elles disposent d’un index de temps échantillonné à intervalles réguliers, à l’aide de la fonction [check_regularity_by_grain](https://docs.microsoft.com/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain).
 
 
 ```python
@@ -968,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Vous pouvez remarquer que la plupart des séries (213 sur 249) sont irrégulières. Une [transformation d’imputation](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) est nécessaire pour remplir les valeurs manquantes des quantités de vente. Bien qu’il existe de nombreuses options d’imputation, l’exemple de code suivant utilise une interpolation linéaire.
+Vous pouvez remarquer que la plupart des séries (213 sur 249) sont irrégulières. Une [transformation d’imputation](https://docs.microsoft.com/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest) est nécessaire pour remplir les valeurs manquantes des quantités de vente. Bien qu’il existe de nombreuses options d’imputation, l’exemple de code suivant utilise une interpolation linéaire.
 
 
 ```python
@@ -1034,7 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Combiner plusieurs modèles
 
-L’estimateur [ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) vous permet de combiner plusieurs estimateurs pour ajuster et prédire au moyen d’une seule ligne de code.
+L’estimateur [ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) vous permet de combiner plusieurs estimateurs pour ajuster et prédire au moyen d’une seule ligne de code.
 
 
 ```python
@@ -1248,7 +1248,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-La fonction [RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) wrappe des estimateurs de régression sklearn afin de pouvoir les former sur TimeSeriesDataFrame. Le forecaster wrappé place également chaque groupe, en l’occurrence « store » (magasin), dans le même modèle. Le forecaster peut apprendre un modèle pour un groupe composé de séries qui ont été considérées similaires et qui peuvent être regroupées. Un modèle pour un groupe de séries utilise souvent les données provenant de séries plus longues, afin d’améliorer les prévisions sur les séries courtes. Vous pouvez remplacer ces modèles par d’autres modèles de la bibliothèque qui prennent en charge la régression. 
+La fonction [RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) wrappe des estimateurs de régression sklearn afin de pouvoir les former sur TimeSeriesDataFrame. Le forecaster wrappé place également chaque groupe, en l’occurrence « store » (magasin), dans le même modèle. Le forecaster peut apprendre un modèle pour un groupe composé de séries qui ont été considérées similaires et qui peuvent être regroupées. Un modèle pour un groupe de séries utilise souvent les données provenant de séries plus longues, afin d’améliorer les prévisions sur les séries courtes. Vous pouvez remplacer ces modèles par d’autres modèles de la bibliothèque qui prennent en charge la régression. 
 
 
 ```python
@@ -1372,7 +1372,7 @@ Dans la figure ci-dessous, chaque carré représente des données à partir d’
 ![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
 
 **Balayage de paramètre**  
-La classe [TSGridSearchCV](https://docs.microsoft.com/en-us/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) effectue une recherche exhaustive sur les valeurs de paramètre spécifiées et utilise `RollingOriginValidator` pour évaluer les performances de paramètre afin de trouver les meilleurs paramètres.
+La classe [TSGridSearchCV](https://docs.microsoft.com/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) effectue une recherche exhaustive sur les valeurs de paramètre spécifiées et utilise `RollingOriginValidator` pour évaluer les performances de paramètre afin de trouver les meilleurs paramètres.
 
 
 ```python

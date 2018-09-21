@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 807b8a17570dfdcefa07a42719b7b0b24e4f31d7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141474"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297160"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Fonctionnalités des données client d’Azure Key Vault
 
@@ -37,7 +37,7 @@ Les informations suivantes identifient les données client dans Azure Key Vault 
 - Les contacts des certificats peuvent contenir des adresses e-mail, des noms ou des numéros de téléphone d’utilisateurs
 - Les émetteurs des certificats peuvent contenir des adresses e-mail, des noms, des numéros de téléphone, des informations d’identification de compte et des détails de l’organisation
 - Des étiquettes arbitraires peuvent être appliquées à des objets dans Azure Key Vault. Ces objets incluent les coffres, les clés, les secrets, les certificats et les comptes de stockage. Les étiquettes utilisées peuvent contenir des données personnelles
-- Les journaux d’accès d’Azure Key Vault contiennent les ID d’objet, les [UPN](../active-directory/connect/active-directory-aadconnect-userprincipalname.md) et les adresses IP pour chaque appel d’API REST
+- Les journaux d’accès d’Azure Key Vault contiennent les ID d’objet, les [UPN](../active-directory/hybrid/plan-connect-userprincipalname.md) et les adresses IP pour chaque appel d’API REST
 - Les journaux de diagnostic d’Azure Key Vault peuvent contenir des ID d’objet et des adresses IP pour les appels d’API REST
 
 ## <a name="deleting-customer-data"></a>Suppression des données client

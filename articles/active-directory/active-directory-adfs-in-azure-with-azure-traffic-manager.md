@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: anandy;billmath
-ms.openlocfilehash: e984d3d590021e3dd9e46d0f12493889b2acc229
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2ed0b551faba68c0956be89277348eeee60d759c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26604777"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298215"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Déploiement des services AD FS haute disponibilité par-delà les frontières dans Azure avec Azure Traffic Manager
-[Déploiement des services AD FS dans Azure](active-directory-aadconnect-azure-adfs.md) fournit des instructions détaillées sur la façon dont vous pouvez déployer une infrastructure AD FS simple pour votre organisation dans Azure. Cet article indique les étapes suivantes permettant de créer un déploiement par-delà les frontières des services AD FS dans Azure à l’aide [d’Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager permet de créer une infrastructure AD FS à haute disponibilité et haute performance, répartie géographiquement pour votre organisation en utilisant les différentes méthodes de routage disponibles en fonction des besoins de l’infrastructure.
+[Déploiement des services AD FS dans Azure](hybrid/how-to-connect-fed-azure-adfs.md) fournit des instructions détaillées sur la façon dont vous pouvez déployer une infrastructure AD FS simple pour votre organisation dans Azure. Cet article indique les étapes suivantes permettant de créer un déploiement par-delà les frontières des services AD FS dans Azure à l’aide [d’Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Azure Traffic Manager permet de créer une infrastructure AD FS à haute disponibilité et haute performance, répartie géographiquement pour votre organisation en utilisant les différentes méthodes de routage disponibles en fonction des besoins de l’infrastructure.
 
 Une infrastructure AD FS hautement disponible et par-delà les frontières permet d’obtenir ce qui suit :
 
@@ -45,7 +45,7 @@ Les principes de conception de base sont identiques à ceux qui sont indiqués d
 
 ## <a name="steps-to-integrate-azure-traffic-manager"></a>Procédure d’intégration d’Azure Traffic Manager
 ### <a name="deploy-ad-fs-in-the-new-geographical-region"></a>Déployer les services AD FS dans la nouvelle région géographique
-Suivez les étapes et les instructions décrites dans l’article [Déploiement des services AD FS dans Azure](active-directory-aadconnect-azure-adfs.md) pour déployer la même topologie dans la nouvelle région géographique.
+Suivez les étapes et les instructions décrites dans l’article [Déploiement des services AD FS dans Azure](hybrid/how-to-connect-fed-azure-adfs.md) pour déployer la même topologie dans la nouvelle région géographique.
 
 ### <a name="dns-labels-for-public-ip-addresses-of-the-internet-facing-public-load-balancers"></a>Noms DNS des adresses IP publiques des équilibreurs de charge accessibles sur Internet (publics)
 Comme indiqué ci-dessus, Azure Traffic Manager ne peut faire référence aux points de terminaison qu’en utilisant des noms DNS. Il est donc important de créer des noms DNS pour les adresses IP publiques des équilibreurs de charge externes. La capture d’écran affichée ci-dessous vous indique comment configurer votre nom DNS pour l’adresse IP publique. 
@@ -97,7 +97,7 @@ Suivez les étapes ci-dessous pour créer un profil Traffic Manager. Pour plus d
 
 ## <a name="test-the-routing-and-ad-fs-sign-in"></a>Tester le routage et la connexion des services AD FS
 ### <a name="routing-test"></a>Test de routage
-Un test très basique du routage consiste à effectuer un test Ping sur le nom DNS du service de fédération à partir d’une machine de chaque région géographique. Selon la méthode de routage choisie, le point de terminaison soumis réellement au test Ping est reflété dans l’affichage Ping. Par exemple, si vous avez sélectionné le routage de type Performances, le point de terminaison le plus proche de la région du client est atteint. L’instantané indiqué ci-dessous présente deux tests Ping à partir de deux machines clientes de différentes régions, l’une dans la région Asie de l’Est et l’autre dans la région États-Unis de l’Ouest. 
+Un test très basique du routage consiste à effectuer un test Ping sur le nom DNS du service de fédération à partir d’une machine de chaque région géographique. Selon la méthode de routage choisie, le point de terminaison soumis réellement au test Ping est reflété dans l’affichage Ping. Par exemple, si vous avez sélectionné le routage de type Performances, le point de terminaison le plus proche de la région du client est atteint. L’instantané indiqué ci-dessous présente deux tests Ping à partir de deux machines clientes de différentes régions, l’une dans la région Asie Est et l’autre dans la région USA Ouest. 
 
 ![Test de routage](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/pingtest.png)
 
@@ -116,7 +116,7 @@ Le moyen le plus simple de tester AD FS est d’utiliser la page IdpInitiatedSig
     ![Test ADFS : authentification réussie](./media/active-directory-adfs-in-azure-with-azure-traffic-manager/adfstest2.png)
 
 ## <a name="related-links"></a>Liens connexes
-* [Déploiement des services AD FS dans Azure](active-directory-aadconnect-azure-adfs.md)
+* [Déploiement des services AD FS dans Azure](hybrid/how-to-connect-fed-azure-adfs.md)
 * [Qu’est-ce que Traffic Manager ?](../traffic-manager/traffic-manager-overview.md)
 * [Méthodes de routage du trafic de Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 985010457413c15622f85e8ce8c6955a64ae40e9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099657"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985896"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guide technique du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale et d’autres secteurs d’activité
 
@@ -42,7 +42,7 @@ Les objectifs de cet article sont les suivants :
 > 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 ![Architecture de maintenance prédictive](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
 Le déploiement de la solution active les services Azure dans Cortana Analytics Suite (notamment Event Hub, Stream Analytics, HDInsight, Data Factory et Machine Learning). Le schéma d’architecture illustre la manière dont est construit le modèle de solution de maintenance prédictive pour le secteur aérospatial. Vous pouvez passer en revue ces services dans le portail Azure en cliquant dessus dans le schéma du modèle de solution créé avec le déploiement de la solution (à l’exception de HDInsight, qui est provisionné à la demande quand les activités de pipeline connexes doivent être exécutées avant d’être supprimées dans la foulée).
@@ -154,7 +154,7 @@ Une fois le Générateur de données lancé, le pipeline commence à manquer de 
 1. Un des travaux Stream Analytics enregistre les données brutes entrantes dans le stockage blob. Si vous cliquez sur le composant Stockage Blob de votre solution dans l’écran à partir duquel vous avez déployé la solution, puis cliquez sur Ouvrir dans le volet droit, vous accédez au [portail Azure](https://portal.azure.com/). Une fois dans le portail, cliquez sur Objets BLOB. Dans le panneau suivant figure la liste des conteneurs. Cliquez sur **maintenancesadata**. Dans le volet suivant se trouve le dossier **rawdata**. Le dossier rawdata comprend des dossiers nommés par exemple hour=17 et hour=18. La présence de ces dossiers signifie que des données brutes sont générées sur votre ordinateur et stockées dans des objets blob. Vous devriez voir des fichiers csv avec des tailles finies en Mo dans ces dossiers.
 2. La dernière étape du pipeline consiste à écrire des données (par exemple, les prédictions générées à partir de l’apprentissage automatique) dans SQL Database. Vous devrez peut-être attendre un maximum de trois heures pour les données s'affichent dans la base de données SQL. Le [portail Azure](https://portal.azure.com/) offre un moyen de surveiller la quantité de données disponible dans votre base de données SQL Database. Dans le volet gauche, identifiez les BASES DE DONNÉES SQL ![icône SQL](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-SQL-databases.png) et cliquez dessus. Recherchez ensuite votre base de données **pmaintenancedb** et cliquez dessus. En bas de la page suivante, cliquez sur Gérer
    
-    ![Icône Gérer](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png).
+    ![Icône Gérer](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-manage.png)
    
     Ici, vous pouvez cliquer sur Nouvelle requête et rechercher le nombre de lignes (par exemple, select count(*) from PMResult). À mesure que votre base de données augmente, le nombre de lignes de la table devrait augmenter.
 

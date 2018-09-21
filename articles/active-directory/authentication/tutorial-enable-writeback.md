@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 9512c800a35ad4a819c657b07227d781c63c6399
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e91ca2ff438e3ae9e9b3f46e5a8db89f17fb1c8e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163290"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295119"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Didacticiel : Activation de la réécriture du mot de passe
 
@@ -29,7 +29,7 @@ Dans ce didacticiel, vous allez activer la réécriture du mot de passe pour vot
 
 * Accès à un locataire Azure AD fonctionnel avec au moins une licence d’essai attribuée.
 * Un compte avec des privilèges d’administrateur général sur votre locataire Azure AD.
-* Un serveur existant configuré, exécutant une version actuelle d’[Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md).
+* Un serveur existant configuré, exécutant une version actuelle d’[Azure AD Connect](../hybrid/how-to-connect-install-express.md).
 * Vous devez avoir suivi les didacticiels précédents sur la réinitialisation de mot de passe en libre-service (SSPR).
 
 ## <a name="enable-password-writeback-option-in-azure-ad-connect"></a>Activer l’option de réécriture du mot de passe dans Azure AD Connect

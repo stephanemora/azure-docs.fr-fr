@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c1247dfca6dea638da2113fef940b97ad3348b9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160278"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297569"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Intégrer votre infrastructure VPN avec Azure MFA en utilisant l’extension NPS (Network Policy Server) pour Azure
 
@@ -122,7 +122,7 @@ Si le module PowerShell Microsoft Azure Active Directory n’est pas déjà pré
 
 Pour utiliser l’extension de serveur NPS, les utilisateurs locaux doivent être synchronisés avec Azure Active Directory, et activés pour MFA. Ce guide présuppose que les utilisateurs locaux sont synchronisés avec Azure Active Directory via AD Connect. Vous trouverez ci-dessous des instructions pour fournir aux utilisateurs l’authentification multifacteur.
 
-Pour obtenir plus d’informations sur Azure AD Connect, consultez [Intégrer vos annuaires locaux à Azure Active Directory](../connect/active-directory-aadconnect.md). 
+Pour obtenir plus d’informations sur Azure AD Connect, consultez [Intégrer vos annuaires locaux à Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>ID du GUID Azure Active Directory 
 
@@ -453,5 +453,5 @@ Pour plus d’informations, consultez [Intégrer votre infrastructure NPS exista
 
 [Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Intégrer vos répertoires locaux à Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Intégrer vos répertoires locaux à Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

@@ -1,8 +1,8 @@
 ---
-title: "Détection intelligente - Élévation anormale du volume des exceptions dans Azure Application Insights | Microsoft Docs"
-description: "Surveillez les exceptions d’application avec Azure Application Insights afin de déterminer si le volume des exceptions présente des anomalies."
+title: Détection intelligente - Élévation anormale du volume des exceptions dans Azure Application Insights | Microsoft Docs
+description: Surveillez les exceptions d’application avec Azure Application Insights afin de déterminer si le volume des exceptions présente des anomalies.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8030f3331a03170bb265c417a57725544bdc7d3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 898cc0935051f65cb0f2977c7d90e998ec32cdd3
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632796"
 ---
 # <a name="abnormal-rise-in-exception-volume-preview"></a>Élévation anormale du volume des exceptions (préversion)
 
@@ -36,4 +37,4 @@ Non, une notification ne signifie pas que votre application rencontre réellemen
 Les notifications incluent des informations de diagnostic qui facilitent le processus de diagnostic :
 1. **Tri.** La notification vous indique le nombre d’utilisateurs ou le nombre de demandes affectés. Ceci vous permet d’attribuer une priorité au problème.
 2. **Portée.** Le problème affecte-t-il tout le trafic ou une opération seulement ? Ces informations peuvent être obtenues dans la notification.
-3. **Diagnostic.** La détection contient des informations sur la méthode à partir de laquelle l’exception a été levée, ainsi que le type d’exception. Pour mieux diagnostiquer le problème, vous pouvez également utiliser les éléments liés et les rapports pointant vers des informations de prise en charge.
+3. **Diagnostic**. La détection contient des informations sur la méthode à partir de laquelle l’exception a été levée, ainsi que le type d’exception. Pour mieux diagnostiquer le problème, vous pouvez également utiliser les éléments liés et les rapports pointant vers des informations de prise en charge.

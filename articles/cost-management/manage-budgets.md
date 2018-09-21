@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9d6bf29909393846ec17a1bcc210fb989efd7f99
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 106e8f082d148ed9a8c58313177be81ee074a2c3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939798"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578461"
 ---
 # <a name="manage-budgets"></a>Gérer les budgets
 
@@ -83,5 +83,5 @@ Dans le rapport des coûts par rapport au budget dans le temps, cliquez sur **Ac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous n’avez pas encore suivi le premier tutoriel de Cost Management, consultez-le dans [Réviser l’utilisation et les coûts](https://docs.microsoft.com/en-us/azure/cost-management/tutorial-review-usage).
+- Si vous n’avez pas encore suivi le premier tutoriel de Cost Management, consultez-le dans [Réviser l’utilisation et les coûts](https://docs.microsoft.com/azure/cost-management/tutorial-review-usage).
 - Découvrez-en plus sur les [rapports disponibles dans Cost Management](use-reports.md).

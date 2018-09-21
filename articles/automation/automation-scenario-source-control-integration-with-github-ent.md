@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 04/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 685d434affd0561658ae99c50bbe7b1fc27a5572
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8c7dc256b92252793545336ffc45a987054a5509
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195520"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35636214"
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-github-enterprise"></a>Scénario Azure Automation - Intégration du contrôle de code source Automation avec GitHub Enterprise
 
@@ -44,7 +44,6 @@ GitHRWCredential | La ressource d’informations d’identification que vous cr�
 
 ### <a name="prerequisites"></a>Prérequis
 
-
 1. Le runbook Sync-LocalGitFolderToAutomationAccount s’authentifie à l’aide du [Compte d’identification Azure](automation-sec-configure-azure-runas-account.md).
 
 2. Un espace de travail Log Analytics avec la solution Azure Automation activée et configurée est également requis. Si aucun n’est associé au compte Automation utilisé pour installer et configurer ce scénario, il est créé et configuré pour vous lorsque vous exécutez le script **New-OnPremiseHybridWorker.ps1** à partir du Runbook Worker hybride.
@@ -60,7 +59,7 @@ Pour importer les runbooks *Export-RunAsCertificateToHybridWorker* et *Sync-Loca
 
 ### <a name="deploy-and-configure-hybrid-runbook-worker"></a>Déployer et configurer un Runbook Worker hybride
 
-Si un Runbook Worker hybride n’est pas déjà déployé dans votre centre de données, vous devez consulter la configuration requise et suivre les étapes d’installation automatisée en utilisant la procédure décrite dans Runbooks Worker hybride Azure Automation - Automatiser l’installation et la configuration pour [Windows](automation-windows-hrw-install.md#automated-deployment) ou [Linux](automation-linux-hrw-install.md#installing-linux-hybrid-runbook-worker). Une fois le Worker hybride correctement installé sur un ordinateur, procédez comme suit pour effectuer sa configuration afin de prendre en charge ce scénario.
+Si un Runbook Worker hybride n’est pas déjà déployé dans votre centre de données, vous devez consulter la configuration requise et suivre les étapes d’installation automatisée en utilisant la procédure décrite dans Runbooks Worker hybride Azure Automation - Automatiser l’installation et la configuration pour [Windows](automation-windows-hrw-install.md#automated-deployment) ou [Linux](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker). Une fois le Worker hybride correctement installé sur un ordinateur, procédez comme suit pour effectuer sa configuration afin de prendre en charge ce scénario.
 
 1. Connectez-vous à l’ordinateur hébergeant le rôle Runbook Worker hybride avec un compte disposant des droits d’administrateur local et créez un répertoire pour stocker les fichiers de runbook Git. Clonez le dépôt Git interne dans le répertoire.
 1. Si vous n’avez pas déjà créé un compte d’identification ou que vous souhaitez en créer un spécialement conçu à cet effet, dans le portail Azure, accédez aux comptes Automation, sélectionnez votre compte Automation, puis créez une [ressource d’informations d’identification](automation-credentials.md) contenant le nom d’utilisateur et le mot de passe d’un utilisateur disposant d’autorisations sur le Worker hybride.

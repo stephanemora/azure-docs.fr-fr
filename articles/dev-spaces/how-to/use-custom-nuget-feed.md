@@ -11,12 +11,12 @@ ms.topic: article
 description: Utilisez un flux NuGet personnalisé pour accéder à des packages NuGet et les utiliser dans un espace Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs
 manager: ghogen
-ms.openlocfilehash: 3badd15bcfd09c97b43744a20c5df05f4ff57e84
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04b89f6d12c58e2f4915a84d3e0a7988d0e3192f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199107"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579190"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Utiliser un flux NuGet personnalisé dans un espace Azure Dev Spaces
 
@@ -25,7 +25,7 @@ Un flux NuGet offre un moyen pratique d’inclure des sources de package dans un
 ## <a name="set-up-a-nuget-feed"></a>Configurer un flux NuGet
 
 Pour configurer un flux NuGet :
-1. Ajoutez une [référence de package](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files) dans le fichier `*.csproj` sous le nœud `PackageReference`.
+1. Ajoutez une [référence de package](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) dans le fichier `*.csproj` sous le nœud `PackageReference`.
 
    ```xml
    <ItemGroup>
@@ -35,7 +35,7 @@ Pour configurer un flux NuGet :
    </ItemGroup>
    ```
 
-2. Créez un fichier [NuGet.Config](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file) dans le dossier du projet.
+2. Créez un fichier [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) dans le dossier du projet.
      * Dans la section `packageSources`, référencez l’emplacement du flux NuGet. Important : le flux NuGet doit être accessible publiquement.
      * Dans la section `packageSourceCredentials`, configurez les informations d’identification (nom d’utilisateur et mot de passe). 
 

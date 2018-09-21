@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7aadb7b89cf1b338a257846882e34ff796df74b2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666382"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580716"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Devenir un éditeur sur la Place de marché dans le cloud
 
@@ -28,11 +28,11 @@ Cet article traite de l’inscription en tant qu’éditeur sur la place de marc
 
 |  | Étape d’inscription | Duration | Détails |  
 |:--- |:--- |:--- |:--- |  
-| 1 | S’inscrire au Microsoft Partner Network | 15 min | [S’inscrire au Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Créer un compte Microsoft <ul>(requis pour les offres de transaction de la Place de marché Azure ; recommandé pour les autres)</ul> | 15 min | [Créer un ID Microsoft](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Envoyer le formulaire d’inscription sur la place de marché | 15 min | [Envoyer le formulaire de candidature pour la Place de marché](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
-| 4 |  Se connecter au Portail Cloud Partner | 1 à 3 jours | [Se connecter au Portail Cloud Partner](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5. | S’inscrire dans le Centre de développement Microsoft (pour les offres de transaction de la Place de marché Azure) | 5 à 10 jours | [S’inscrire dans le centre de développement](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 1 | S’inscrire au Microsoft Partner Network | 15 min | [S’inscrire au Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Créer un compte Microsoft <ul>(requis pour les offres de transaction de la Place de marché Azure ; recommandé pour les autres)</ul> | 15 min | [Créer un ID Microsoft](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | Envoyer le formulaire d’inscription sur la place de marché | 15 min | [Envoyer le formulaire de candidature pour la Place de marché](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  Se connecter au Portail Cloud Partner | 1 à 3 jours | [Se connecter au Portail Cloud Partner](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5. | S’inscrire dans le Centre de développement Microsoft (pour les offres de transaction de la Place de marché Azure) | 5 à 10 jours | [S’inscrire dans le centre de développement](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. S’inscrire au Microsoft Partner Network  
@@ -54,9 +54,9 @@ Un compte Microsoft, par exemple, *@outlook.com ou @live.com*, est utilisé pour
 [! IMPORTANT] Notez qu’un compte Microsoft associé à votre e-mail professionnel ne vous autorise pas à accéder à ce portail.
 
 >[!Note]
->Si vous avez déjà un compte Microsoft, passez en revue les [Instructions pour la création d’un ID Microsoft dans le but de gérer un compte de place de marché](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) afin de déterminer s’il peut être utilisé pour la publication sur la place de marché. 
+>Si vous avez déjà un compte Microsoft, passez en revue les [Instructions pour la création d’un ID Microsoft dans le but de gérer un compte de place de marché](https://review.docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) afin de déterminer s’il peut être utilisé pour la publication sur la place de marché. 
 
->Les utilisateurs avec un compte d’entreprise fédéré Azure Active Directory doivent lire [cet article](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) avant d’essayer de créer ou d’utiliser votre compte Microsoft existant.
+>Les utilisateurs avec un compte d’entreprise fédéré Azure Active Directory doivent lire [cet article](https://review.docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) avant d’essayer de créer ou d’utiliser votre compte Microsoft existant.
 
 *   Pour obtenir de l’aide pour créer ou gérer votre compte Microsoft, visitez les [pages de support technique du compte Microsoft](https://support.microsoft.com/en-us/products/microsoft-account?category=manage-account).
 
@@ -100,12 +100,12 @@ Une fois l’inscription au [Centre de développement](https://developer.microso
 >Pour ne pas avoir à payer les frais d’inscription de 99 $ au Centre de développement, complétez le formulaire d’inscription sur la place de marché et vous recevrez votre code promotionnel par e-mail. 
 
 >[!Important]
->Avant de créer un compte du Centre de développement Microsoft, vérifiez que votre organisation n’a pas déjà un compte de Centre de développement, afin d’éviter des doublons de comptes. Pour plus d’informations, consultez la section [S’inscrire dans le centre de développement](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center).
+>Avant de créer un compte du Centre de développement Microsoft, vérifiez que votre organisation n’a pas déjà un compte de Centre de développement, afin d’éviter des doublons de comptes. Pour plus d’informations, consultez la section [S’inscrire dans le centre de développement](https://docs.microsoft.com/azure/marketplace/register-dev-center).
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez les vitrines de la place de marché : [Comparaison entre AppSource et la Place de marché Azure](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [Déterminer le type de référencement pour votre solution](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
+* Découvrez les vitrines de la place de marché : [Comparaison entre AppSource et la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+*   [Déterminer le type de référencement pour votre solution](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  
 ---  

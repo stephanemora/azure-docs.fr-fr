@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 01/03/2018
+ms.date: 09/19/2018
 ms.reviewers: billgib
 ms.author: genemi
-ms.openlocfilehash: 026f3450535e4bed6a636fc5ae6ee9d821dbbb72
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 2f22ed862f9b45334a961f80e47ee2b4634e46fb
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247664"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498332"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gérer un schéma dans une application SaaS qui utilise des bases de données SQL mutualisées partitionnées
-
+ 
 Ce didacticiel examine les défis liés du maintien d’un parc de bases de données dans une application SaaS (Software as a Service). Les solutions sont présentées pour la ventilation des modifications de schéma dans le parc de bases de données.
 
 Comme n’importe quelle application, l’application SaaS Wingtip Tickets évolue au fil du temps et nécessite l’apport de modifications à la base de données. Les modifications peuvent avoir un impact sur les données de schéma ou de référence ou appliquer des tâches de maintenance des bases de données. Avec une application SaaS qui utilise une base de données par modèle de client, les modifications doivent être coordonnées dans un parc potentiellement massif de bases de données client. En outre, vous devez intégrer ces modifications dans le processus d’approvisionnement de bases de données pour vous assurer qu’elles sont incluses dans les nouvelles bases de données, telles que créées.

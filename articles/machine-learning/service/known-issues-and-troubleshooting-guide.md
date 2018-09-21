@@ -7,16 +7,16 @@ ms.author: svankam
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: studio
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 05db4e47e5b2931a101a323a0210c080b87c1c42
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: dc57509475634b6a8038179dbb205533c3ea9d99
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832939"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35768856"
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Problèmes connus et guide de dépannage 
 Cet article vous permet de rechercher et corriger les erreurs ou défaillances rencontrées dans le cadre de l’utilisation de l’application Azure Machine Learning Workbench. 
@@ -124,10 +124,10 @@ Vous pouvez utiliser l’interface CLI pour supprimer un compte Expérimentation
 
 ```azure-cli
 # delete a project
-$ az ml project delete -g <resource group name> -a <experimentation account name> -w <worksapce name> -n <project name>
+$ az ml project delete -g <resource group name> -a <experimentation account name> -w <workspace name> -n <project name>
 
 # delete a workspace 
-$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <worksapce name>
+$ az ml workspace delete -g <resource group name> -a <experimentation account name> -n <workspace name>
 
 # delete an experimentation account
 $ az ml account experimentation delete -g <resource group name> -n <experimentation account name>

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 71d50a55d9c584b61a1412bb03a03ad99f1bb96c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 548c94ce502da8c6a8d208daafb5b0fb624de1e1
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39632289"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603927"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Bien démarrer avec les requêtes dans Log Analytics
 
@@ -28,6 +28,7 @@ ms.locfileid: "39632289"
 > [!NOTE]
 > Vous devez suivre le tutoriel [Bien démarrer avec le portail Analytics](get-started-analytics-portal.md) avant d’effectuer ce tutoriel.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Dans ce tutoriel, vous allez apprendre à écrire des requêtes Azure Log Analytics. Au terme du tutoriel, vous saurez :
 
@@ -49,7 +50,7 @@ Les requêtes peuvent commencer par un nom de table ou la commande *search*. Vou
 ### <a name="table-based-queries"></a>Requêtes basées sur une table
 Azure Log Analytics organise les données en tables, chacune composée de plusieurs colonnes. Toutes les tables et colonnes sont affichées dans le volet Schéma du portail Analytics. Identifiez une table qui vous intéresse et jetez un œil à une partie des données :
 
-```OQL
+```KQL
 SecurityEvent
 | take 10
 ```
@@ -65,7 +66,7 @@ Nous pourrions exécuter la requête sans ajouter `| take 10` : elle serait touj
 ### <a name="search-queries"></a>Requêtes de recherche
 Les requêtes de recherche sont moins structurées et généralement plus adaptées pour rechercher des enregistrements qui incluent une valeur spécifique dans une de leurs colonnes :
 
-```OQL
+```KQL
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
@@ -87,7 +88,7 @@ Cette opération pourrait cependant retourner trop de résultats et également p
 
 La meilleure façon d’obtenir uniquement les 10 enregistrements les plus récents consiste à utiliser **top**, qui trie la table entière côté serveur, puis retourne les premiers enregistrements :
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated
 ```
@@ -102,7 +103,7 @@ Les filtres, comme leur nom l’indique, filtrent les données en fonction d’u
 
 Pour ajouter un filtre à une requête, utilisez l’opérateur **where** suivi d’une ou plusieurs conditions. Par exemple, la requête suivante retourne uniquement des enregistrements *SecurityEvent* dans lesquels _Level_ est égal à _8_ :
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8
 ```
@@ -118,14 +119,14 @@ Quand vous écrivez des conditions de filtre, vous pouvez utiliser les expressio
 
 Pour filtrer en fonction de plusieurs conditions, vous pouvez utiliser **and** :
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
 Ou enchaîner plusieurs éléments **where** avec le caractère barre verticale :
 
-```OQL
+```KQL
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
@@ -145,7 +146,7 @@ Le sélecteur d’heure se trouve dans le coin supérieur gauche ; il indique qu
 ### <a name="time-filter-in-query"></a>Filtre de temps dans la requête
 Vous pouvez également définir votre propre intervalle de temps en ajoutant un filtre de temps à la requête. Il est préférable de placer le filtre de temps immédiatement après le nom de la table : 
 
-```OQL
+```KQL
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
@@ -157,7 +158,7 @@ Dans le filtre de temps ci-dessus, `ago(30m)` signifie « il y a 30 minutes » ;
 ## <a name="project-and-extend-select-and-compute-columns"></a>Project et Extend : sélectionner et calculer des colonnes
 Utilisez **project** pour sélectionner les colonnes à inclure dans les résultats :
 
-```OQL
+```KQL
 SecurityEvent 
 | top 10 by TimeGenerated 
 | project TimeGenerated, Computer, Activity
@@ -174,7 +175,7 @@ Vous pouvez également utiliser **project** pour renommer des colonnes et en dé
 * Créer une colonne nommée *EventCode*. La fonction **substring()** est utilisée pour obtenir uniquement les quatre premiers caractères du champ Activity.
 
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
@@ -182,7 +183,7 @@ SecurityEvent
 
 **extend** conserve toutes les colonnes d’origine dans le jeu de résultats et en définit de nouvelles. La requête suivante utilise **extend** pour ajouter une colonne *localtime* qui contient une valeur TimeGenerated localisée.
 
-```OQL
+```KQL
 SecurityEvent
 | top 10 by TimeGenerated
 | extend localtime = TimeGenerated-8h
@@ -192,7 +193,7 @@ SecurityEvent
 Utilisez **summarize** pour identifier des groupes d’enregistrements, en fonction d’une ou plusieurs colonnes, et leur appliquer des agrégations. L’utilisation la plus courante de **summarize** est *count*, qui retourne le nombre de résultats contenus dans chaque groupe.
 
 La requête suivante passe en revue tous les enregistrements *Perf* générés au cours de la dernière heure, les regroupe par *ObjectName* et compte les enregistrements dans chaque groupe : 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
@@ -200,7 +201,7 @@ Perf
 
 Parfois, il est judicieux de définir les groupes au moyen de plusieurs dimensions. Chaque combinaison unique de ces valeurs définit un groupe distinct :
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
@@ -208,7 +209,7 @@ Perf
 
 Une autre utilisation courante consiste à effectuer des calculs mathématiques ou statistiques sur chaque groupe. Par exemple, ce qui suit calcule la moyenne de *CounterValue* pour chaque ordinateur :
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
@@ -216,7 +217,7 @@ Perf
 
 Malheureusement, les résultats de cette requête n’ont aucune signification dans la mesure où nous avons combiné différents compteurs de performances. Pour que les résultats de cette requête soient plus explicites, nous devons calculer la moyenne séparément pour chaque combinaison de *CounterName* et *Computer* :
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
@@ -227,7 +228,7 @@ Le regroupement des résultats peut également reposer sur une colonne de temps 
 
 Pour créer des groupes basés sur des valeurs continues, il convient de diviser la plage en unités gérables à l’aide de **bin**. La requête suivante analyse les enregistrements *Perf* qui mesurent la mémoire disponible (*Available MBytes*) sur un ordinateur spécifique. Elle calcule la valeur moyenne pour chaque période de 1 heure, au cours des 2 derniers jours :
 
-```OQL
+```KQL
 Perf 
 | where TimeGenerated > ago(2d)
 | where Computer == "ContosoAzADDS2" 

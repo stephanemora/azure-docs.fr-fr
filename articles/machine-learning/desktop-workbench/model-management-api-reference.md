@@ -8,17 +8,17 @@ manager: hjerez
 editor: jasonwhowell
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 233ae50246619c3e503e42081c3b4de88090f411
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c0f51e47038737d6aa743be718ad6b28c161c766
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835030"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35636935"
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Informations de référence sur l’API de compte de gestion des services Azure Machine Learning
 
@@ -81,12 +81,12 @@ Inscrit un modèle.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
-| model | body | Charge utile utilisée pour inscrire un modèle | OUI | [Modèle](#model) |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| model | body | Charge utile utilisée pour inscrire un modèle | Oui | [Modèle](#model) |
 
 
 ### <a name="responses"></a>Réponses
@@ -107,11 +107,11 @@ Interroge la liste des modèles dans un compte. Vous pouvez filtrer la liste des
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 | Nom | query | Nom d’objet | Non  | chaîne |
 | tag | query | Balise de modèle | Non  | chaîne |
 | count | query | Nombre d’éléments à récupérer dans une page | Non  | chaîne |
@@ -136,12 +136,12 @@ Obtient un modèle par ID.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| id | chemin d’accès | ID d’objet | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| id | chemin d’accès | ID d’objet | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -162,12 +162,12 @@ Inscrit un manifeste auprès du modèle inscrit et de toutes ses dépendances.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
-| manifestRequest | body | Charge utile utilisée pour inscrire un manifeste | OUI | [Manifest](#manifest) |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| manifestRequest | body | Charge utile utilisée pour inscrire un manifeste | Oui | [Manifest](#manifest) |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -188,11 +188,11 @@ Interroge la liste des manifestes dans un compte. Vous pouvez filtrer la liste d
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 | modelId | query | ID du modèle | Non  | chaîne |
 | manifestName | query | Nom du manifeste | Non  | chaîne |
 | count | query | Nombre d’éléments à récupérer dans une page | Non  | chaîne |
@@ -217,12 +217,12 @@ Obtient le manifeste par ID.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| id | chemin d’accès | ID d’objet | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| id | chemin d’accès | ID d’objet | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -243,12 +243,12 @@ Crée une image en tant qu’une image Docker dans Azure Container Registry.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
-| imageRequest | body | Charge utile utilisée pour créer une image | OUI | [ImageRequest](#imagerequest) |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| imageRequest | body | Charge utile utilisée pour créer une image | Oui | [ImageRequest](#imagerequest) |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | headers | Schéma |
@@ -269,11 +269,11 @@ Interroge la liste d’images dans un compte. Vous pouvez filtrer la liste de r�
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 | manifestId | query | ID du manifeste | Non  | chaîne |
 | manifestName | query | Nom du manifeste | Non  | chaîne |
 | count | query | Nombre d’éléments à récupérer dans une page | Non  | chaîne |
@@ -298,12 +298,12 @@ Obtient une image par ID.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| id | chemin d’accès | ID de l’image | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| id | chemin d’accès | ID de l’image | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -325,12 +325,12 @@ Crée un service à partir d’une image.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
-| serviceRequest | body | Charge utile utilisée pour créer un service | OUI | [ServiceCreateRequest](#servicecreaterequest) |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| serviceRequest | body | Charge utile utilisée pour créer un service | Oui | [ServiceCreateRequest](#servicecreaterequest) |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | headers | Schéma |
@@ -352,11 +352,11 @@ Interroge la liste de services dans un compte. Vous pouvez filtrer la liste de r
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 | serviceName | query | Nom du service | Non  | chaîne |
 | modelId | query | Nom du modèle | Non  | chaîne |
 | modelName | query | ID du modèle | Non  | chaîne |
@@ -386,12 +386,12 @@ Obtient un service par ID.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| id | chemin d’accès | ID d’objet | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| id | chemin d’accès | ID d’objet | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -412,13 +412,13 @@ Met à jour un service existant.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| id | chemin d’accès | ID d’objet | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
-| serviceUpdateRequest | body | Charge utile utilisée pour mettre à jour un service existant | OUI |  [ServiceUpdateRequest](#serviceupdaterequest) |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| id | chemin d’accès | ID d’objet | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| serviceUpdateRequest | body | Charge utile utilisée pour mettre à jour un service existant | Oui |  [ServiceUpdateRequest](#serviceupdaterequest) |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | headers | Schéma |
@@ -440,12 +440,12 @@ Supprime un service.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| id | chemin d’accès | ID d’objet | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| id | chemin d’accès | ID d’objet | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -467,12 +467,12 @@ Obtient les clés du service.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| id | chemin d’accès | ID du service | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| id | chemin d’accès | ID du service | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -493,13 +493,13 @@ Régénère les clés du service, puis les retourne.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| id | chemin d’accès | ID du service | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
-| regenerateKeyRequest | body | Charge utile utilisée pour mettre à jour un service existant | OUI | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| id | chemin d’accès | ID du service | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
+| regenerateKeyRequest | body | Charge utile utilisée pour mettre à jour un service existant | Oui | [ServiceRegenerateKeyRequest](#serviceregeneratekeyrequest) |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -520,11 +520,11 @@ Interroge la liste des déploiements dans un compte. Vous pouvez filtrer la list
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 | serviceId | query | ID du service | Non  | chaîne |
 
 ### <a name="responses"></a>Réponses
@@ -546,12 +546,12 @@ Obtient le déploiement par ID.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| id | chemin d’accès | ID de déploiement | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| id | chemin d’accès | ID de déploiement | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -572,12 +572,12 @@ Obtient l’état de l’opération asynchrone par ID d’opération.
 ### <a name="parameters"></a>parameters
 | NOM | Emplacement | Description | Obligatoire | Schéma
 |--------------------|--------------------|--------------------|--------------------|--------------------|
-| subscriptionId | chemin d’accès | ID d’abonnement Azure. | OUI | chaîne |
-| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | OUI | chaîne |
-| accountName | chemin d’accès | Nom du compte Gestion des modèles | OUI | chaîne |
-| id | chemin d’accès | ID d’opération | OUI | chaîne |
-| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | OUI | chaîne |
-| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | OUI | chaîne |
+| subscriptionId | chemin d’accès | ID d’abonnement Azure. | Oui | chaîne |
+| nom_groupe_ressources | chemin d’accès | Nom du groupe de ressources dans lequel se trouve le compte de gestion des modèles | Oui | chaîne |
+| accountName | chemin d’accès | Nom du compte Gestion des modèles | Oui | chaîne |
+| id | chemin d’accès | ID d’opération | Oui | chaîne |
+| api-version | query | Version de l’API du fournisseur de ressources Microsoft.Machine.Learning à utiliser | Oui | chaîne |
+| Authorization | en-tête | Jeton d’autorisation, qui doit prendre la forme « Bearer XXXXXX » | Oui | chaîne |
 
 ### <a name="responses"></a>Réponses
 | Code | Description | Schéma |
@@ -702,7 +702,7 @@ Détail de l’erreur du service Gestion des modèles
 
 |NOM|Description|Schéma|
 |---|---|---|
-|**code**  <br>*obligatoire*|Code d’erreur|chaîne|
+|**code**  <br>*obligatoire*|Code d’erreur.|chaîne|
 |**message**  <br>*obligatoire*|Message d’erreur.|chaîne|
 
 
@@ -713,7 +713,7 @@ Objet d’erreur du service Gestion des modèles
 
 |NOM|Description|Schéma|
 |---|---|---|
-|**code**  <br>*obligatoire*|Code d’erreur|chaîne|
+|**code**  <br>*obligatoire*|Code d’erreur.|chaîne|
 |**details**  <br>*facultatif*|Tableau d’objets de détail d’erreur|<[ErrorDetail](#errordetail)> tableau|
 |**message**  <br>*obligatoire*|Message d’erreur.|chaîne|
 |**statusCode**  <br>*facultatif*|Code d'état HTTP.|integer|

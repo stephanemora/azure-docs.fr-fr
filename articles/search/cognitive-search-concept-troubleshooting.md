@@ -10,16 +10,16 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640963"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575295"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Conseils de dépannage pour la recherche cognitive
 
-Cet article contient une liste de conseils et astuces destinés à vous d’aller de l’avant lorsque vous commencez à utiliser les fonctionnalités de recherche cognitive dans Recherche Azure. 
+Cet article contient une liste de conseils et astuces destinés à vous permettre d’aller de l’avant lorsque vous commencez à utiliser les fonctionnalités de recherche cognitive dans Recherche Azure. 
 
 Si ce n’est déjà fait, parcourez le [didacticiel concernant l’appel des API de recherche cognitive](cognitive-search-quickstart-blob.md) pour pratiquer l’application d’enrichissements de recherche cognitive à une source de données d’objet blob.
 
@@ -33,7 +33,7 @@ Exécutez votre exemple de document via le pipeline de bout en bout et vérifiez
 ## <a name="tip-2-make-sure-your-data-source-credentials-are-correct"></a>Conseil 2 : assurez-vous que les informations d’identification de votre source de données sont correctes
 La connexion de source de données n’est pas validée tant que vous ne définissez pas un indexeur qui l’utilise. Si vous rencontrez des erreurs signalant que l’indexeur ne peut pas accéder aux données, vérifiez les points suivants :
 - Votre chaîne de connexion est correcte. En particulier lorsque vous créez des jetons SAP, veillez à utiliser le format attendu par Recherche Azure. Pour découvrir les différents formats pris en charge, voir la section [Comment spécifier des informations d’identification](
-https://docs.microsoft.com/en-us/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials).
+https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials).
 - Le nom de votre conteneur dans l’indexeur est correct.
 
 ## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>Conseil 3 : regardez ce qui fonctionne même en présence de défaillances
@@ -91,7 +91,7 @@ Un échec d’affichage du contenu peut également résulter d’erreurs de mapp
 
 L’analyse d’image nécessite une grande capacité de calcul, même pour des cas simples. Ainsi, quand des images sont particulièrement volumineuses ou complexes, les temps de traitement peuvent dépasser le temps maximal imparti. 
 
-Le temps d’exécution maximal varie selon le niveau : de quelques minutes pour le niveau Gratuit, à une durée d’indexation de 24 heures pour les niveaux facturables. Si le traitement n’aboutit dans un délai de 24 heures pour un traitement à la demande, passez à une planification telle que l’indexeur reprenne le traitement là où il l’a laissé. 
+Le temps d’exécution maximal varie selon le niveau : de quelques minutes pour le niveau Gratuit, à une durée d’indexation de 24 heures pour les niveaux facturables. Si le traitement n’aboutit pas dans un délai de 24 heures pour un traitement à la demande, passez à une planification telle que l’indexeur reprenne le traitement là où il l’a laissé. 
 
 Pour les indexeurs planifiés, l’indexation reprend dans le délai prévu au dernier bon document connu. Avec une planification récurrente, l’indexeur peut opérer à sa manière dans le backlog d’images sur une série d’heures ou de jours, jusqu’à ce que toutes les images non traitées le soient. Pour plus d’informations sur la syntaxe de planification, voir l’[Étape 3 : créer un indexeur](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
 

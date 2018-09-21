@@ -1,6 +1,7 @@
 ---
 title: 'Démarrage rapide : Utiliser le kit de développement logiciel de l’API Recherche Web Bing pour Node.js'
-description: Apprenez à utiliser le kit de développement logiciel de l’API Recherche Web Bing pour Node.js.
+titleSuffix: Azure Cognitive Services
+description: Le kit de développement logiciel de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application Node.js. Dans ce démarrage rapide, vous allez apprendre à instancier un client, envoyer une requête et imprimer la réponse.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 7c3003ab4ba40a9d0212e7c94b6dd3bfbc8f0ca2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b27c11a69c7d16f38c2448d380b611940078c501
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186629"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121900"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>Démarrage rapide : Utiliser le kit de développement logiciel de l’API Recherche Web Bing pour Node.js
 
@@ -98,7 +99,7 @@ webSearchApiClient.web.search('seahawks').then((result) => {
 
 L’étape finale consiste à exécuter votre programme !
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous avez terminé ce projet, veillez à supprimer votre clé d’abonnement dans le code du programme.
 

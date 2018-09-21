@@ -9,16 +9,16 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 63f4d9f72b9bf81ea772123d65db0659fd3ffa5c
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989674"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578172"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>Didacticiel : Ajouter la saisie automatique à votre zone de recherche avec Recherche Azure
 
-Dans ce didacticiel, vous allez apprendre à utiliser les [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), la [saisie semi-automatique](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete) et les [facettes](search-faceted-navigation.md) dans l’[API REST Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/) et le [kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) afin de créer une zone de recherche puissante. Les *suggestions* fournissent des recommandations de résultats réels, selon ce que l’utilisateur a saisi jusqu'à présent. La *saisie semi-automatique*, [nouvelle fonctionnalité en préversion](search-api-preview.md) dans Recherche Azure, fournit des termes de l’index afin de compléter la saisie de l’utilisateur. Nous allons comparer plusieurs techniques pour améliorer la productivité de l’utilisateur pour qu’ils trouvent rapidement et facilement ce qu’ils cherchent, en leur offrant la richesse d’une recherche lors de la saisie.
+Dans ce didacticiel, vous allez apprendre à utiliser les [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions), la [saisie semi-automatique](https://docs.microsoft.com/rest/api/searchservice/autocomplete) et les [facettes](search-faceted-navigation.md) dans l’[API REST Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/) et le [kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) afin de créer une zone de recherche puissante. Les *suggestions* fournissent des recommandations de résultats réels, selon ce que l’utilisateur a saisi jusqu'à présent. La *saisie semi-automatique*, [nouvelle fonctionnalité en préversion](search-api-preview.md) dans Recherche Azure, fournit des termes de l’index afin de compléter la saisie de l’utilisateur. Nous allons comparer plusieurs techniques pour améliorer la productivité de l’utilisateur pour qu’ils trouvent rapidement et facilement ce qu’ils cherchent, en leur offrant la richesse d’une recherche lors de la saisie.
 
 Ce didacticiel vous aide à gérer une application ASP.NET MVC qui utilise C# pour appeler les [bibliothèques client .NET Recherche Azure](https://aka.ms/search-sdk) et JavaScript pour appeler l’API REST Recherche Azure directement. L’application dans ce didacticiel cible un index rempli via l’exemple de données [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). Vous pouvez utiliser l’index déjà configuré dans la démonstration NYCJobs, ou remplir votre propre index à l’aide d’un chargeur de données dans l’exemple de solution NYCJobs. L’exemple utilise les bibliothèques client JavaScript de l’[interface utilisateur jQuery](https://jqueryui.com/autocomplete/) et [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) pour créer une zone de recherche qui prend en charge la saisie semi-automatique. Avec ces composants, ainsi que Recherche Azure, vous allez voir plusieurs exemples de prise en charge de la saisie semi-automatique avec la saisie en avance dans votre zone de recherche.
 
@@ -214,7 +214,7 @@ Ce didacticiel décrit les étapes de base pour créer une zone de recherche qui
 Intégrez des suggestions et la saisie semi-automatique à votre expérience de recherche.  Pensez à l’aide offerte aux utilisateurs par l’utilisation directe du kit de développement logiciel (SDK) .NET ou de l’API REST, pour qu’ils profitent pleinement de Recherche Azure lors de leurs saisies et ainsi améliorer leur productivité.
 
 > [!div class="nextstepaction"]
-> [API REST de saisie semi-automatique ](https://docs.microsoft.com/en-us/rest/api/searchservice/autocomplete)
-> [API REST de suggestions](https://docs.microsoft.com/en-us/rest/api/searchservice/suggestions)
-> [Attribut d’index de facettes sur une API REST création d’index](https://docs.microsoft.com/en-us/rest/api/searchservice/create-index)
+> [API REST de saisie semi-automatique ](https://docs.microsoft.com/rest/api/searchservice/autocomplete)
+> [API REST de suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions)
+> [Attribut d’index de facettes sur une API REST création d’index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 

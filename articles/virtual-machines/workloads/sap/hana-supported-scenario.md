@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859950"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576491"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scénario pris en charge pour des grandes instances HANA
 Ce document décrit les scénarios pris en charge, avec les détails de leur architecture pour les grandes instances HANA.
@@ -40,7 +40,7 @@ Découvrons les termes et définitions utilisés dans ce document.
 - Multi SID : système doté de plusieurs instances configurées. Également appelé environnement MCOS.
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les grandes instances HANA prennent en charge un large éventail d’architectures pour répondre aux besoins de votre entreprise. La liste suivante présente les scénarios ainsi que les détails de leur configuration. 
 
 La conception de l’architecture dérivée s’appuie exclusivement sur la perspective de l’infrastructure, et vous devez consulter SAP ou vos partenaires d’implémentation pour le déploiement HANA. Si vos scénarios ne sont pas répertoriés, contactez l’équipe des comptes Microsoft pour examiner l’architecture et trouver une solution qui vous convienne.
@@ -198,7 +198,7 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
-- La répartition de la taille des volumes est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
+- La répartition de la taille des volumes est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
 
 ## <a name="3-single-node-with-dr-normal"></a>3. Nœud unique avec récupération d’urgence (Normale)
  
@@ -235,9 +235,9 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
-- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
+- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
 - Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
+- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure).
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
 
@@ -284,9 +284,9 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
-- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
+- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
 - Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Sur le site de reprise après sinistre : les volumes partagés de données, de fichiers journaux et de sauvegardes de fichiers journaux pour l’AQ, marqués comme « QA Instance installation » (Installation de l’instance AQ), sont configurés pour l’installation de l’instance AQ.
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
@@ -335,7 +335,7 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
-- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
+- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
 - STONITH : un SBD est configuré pour l’installation STONITH. L’utilisation de STONITH est néanmoins facultative.
 
 
@@ -391,11 +391,11 @@ Les points de montage suivants sont préconfigurés :
 
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
-- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
+- Pour MCOS : la répartition de la taille des volume est basée sur la taille de la base de données en mémoire. Consultez la section [Vue d’ensemble et architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) pour découvrir quelles tailles de base de données en mémoire sont prises en charge avec l’environnement multi SID.
 - STONITH : un SBD est configuré pour l’installation STONITH. L’utilisation de STONITH est néanmoins facultative.
 - Sur le site de reprise après sinistre : **deux jeux de volumes de stockage sont nécessaires** pour la réplication du nœud principal et du nœud secondaire.
 - Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Sur le site de reprise après sinistre : les volumes partagés de données, de fichiers journaux et de sauvegardes de fichiers journaux pour l’AQ, marqués comme « QA Instance installation » (Installation de l’instance AQ), sont configurés pour l’installation de l’instance AQ.
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
@@ -559,10 +559,10 @@ Les points de montage suivants sont préconfigurés :
 ### <a name="key-considerations"></a>Considérations relatives aux clés
 - /usr/sap/SID est un lien symbolique vers /hana/shared/SID.
 -  Sur le site de reprise après sinistre : les volumes et les points de montage sont configurés, donc marqués comme « Required for HANA installation » (nécessaires pour l’installation HANA), en vue de l’installation de l’instance HANA de production sur l’unité HLI de reprise après sinistre. 
-- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
+- Sur le site de reprise après sinistre : les volumes partagés, de sauvegarde de fichiers journaux, et de données, marqués comme « Storage Replication » (Réplication de stockage), sont répliqués par le biais de la capture instantanée depuis le site de production. Ces volumes sont montés uniquement pendant la durée de basculement. Pour plus d’informations, lisez le document [Procédure de basculement en cas de récupération d’urgence](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure). 
 - Le volume de démarrage pour la **classe de type I des références SKU** est répliqué sur le nœud de reprise après sinistre.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Reportez-vous à [Infrastructure et connectivité](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) pour HLI.
-- Reportez-vous à [Haute disponibilité et reprise après sinistre](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) pour HLI.
+- Reportez-vous à [Infrastructure et connectivité](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) pour HLI.
+- Reportez-vous à [Haute disponibilité et reprise après sinistre](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) pour HLI.

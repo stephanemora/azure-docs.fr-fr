@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: 17d57a809bcbd4c299675c07756b55423a160ed1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165126"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35769595"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partager des tableaux de bord Azure à l’aide du contrôle d’accès en fonction du rôle
 Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Vous permettez à d’autres utilisateurs de voir votre tableau de bord au moyen du [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) Azure. Vous affectez un utilisateur ou un groupe d’utilisateurs à un rôle, qui définit si ces utilisateurs peuvent visualiser ou modifier le tableau de bord publié. 
@@ -45,7 +45,7 @@ Voici un exemple.  Supposons que vous disposiez d’un abonnement Azure et que l
 Toutefois, vous pouvez également affecter des autorisations au groupe de ressources qui contient plusieurs tableaux de bord ou à un tableau de bord spécifique. Par exemple, vous pouvez décider qu’un groupe d’utilisateurs doit disposer d’autorisations limitées dans l’ensemble de l’abonnement, mais un accès plus étendu à un tableau de bord donné. Vous affectez alors ces utilisateurs à un rôle pour ce tableau de bord. 
 
 ## <a name="publish-dashboard"></a>Publier un tableau de bord
-Supposons que vous ayez terminé de configurer un tableau de bord que vous souhaitez partager avec un groupe d’utilisateurs dans votre abonnement. La procédure ci-après décrit un groupe personnalisé appelé Responsables du stockage, mais vous pouvez nommer votre groupe à votre convenance. Pour plus d’informations sur la création d’un groupe Active Directory et sur l’ajout d’utilisateurs à ce groupe, voir [Gestion des groupes dans Azure Active Directory](../active-directory/active-directory-groups-create-azure-portal.md).
+Supposons que vous ayez terminé de configurer un tableau de bord que vous souhaitez partager avec un groupe d’utilisateurs dans votre abonnement. La procédure ci-après décrit un groupe personnalisé appelé Responsables du stockage, mais vous pouvez nommer votre groupe à votre convenance. Pour plus d’informations sur la création d’un groupe Active Directory et sur l’ajout d’utilisateurs à ce groupe, voir [Gestion des groupes dans Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 1. Dans le tableau de bord, sélectionnez **Partager**.
    

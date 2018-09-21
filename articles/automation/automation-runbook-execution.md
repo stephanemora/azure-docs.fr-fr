@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42141055"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982975"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -59,7 +59,7 @@ Vous pouvez afficher une synthèse de l’état de toutes les tâches du Runbook
 
 À droite de votre compte Automation, vous pouvez observer un résumé de toutes les tâches de Runbook pour un compte Automation sélectionné sous la vignette **Statistiques des tâches**.
 
-![Vignette Statistiques des tâches](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![Vignette Statistiques des tâches](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 Cette vignette affiche un nombre et une représentation graphique de l’état de toutes les tâches exécutées.
 

@@ -4,14 +4,14 @@ description: Explique comment obtenir des recommandations pour migrer des machin
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 571bd2424d1d38e6c0048a95b263dda000477e44
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b02ae4b75426b379ad7c124f5ddeb053c142ce6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221877"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730292"
 ---
 # <a name="migrate-machines-after-assessment"></a>Migrer des machines après évaluation
 
@@ -25,7 +25,7 @@ Cet article décrit comment obtenir des suggestions d’outil de migration, une 
 Pour obtenir des suggestions d’outil de migration, vous devez effectuer une découverte approfondie de l’environnement local. Pour ce faire, vous devez installer des agents sur les machines locales.  
 
 1. Créez un projet Azure Migrate, découvrez les machines locales et créez une évaluation de la migration. [Plus d’informations](tutorial-assessment-vmware.md)
-2. Téléchargez et installez les agents Azure Migrate sur chaque machine locale pour laquelle vous souhaitez afficher une méthode de migration recommandée. [Suivez cette procédure](how-to-create-group-machine-dependencies.md#prepare-machines-for-dependency-mapping) pour installer les agents.
+2. Téléchargez et installez les agents Azure Migrate sur chaque machine locale pour laquelle vous souhaitez afficher une méthode de migration recommandée. [Suivez cette procédure](how-to-create-group-machine-dependencies.md#prepare-for-dependency-visualization) pour installer les agents.
 2. Identifiez les machines locales adaptées à la migration lift-and-shift. Il s’agit des machines virtuelles dont les applications n’ont pas besoin de subir de modifications et qui peuvent être migrées en l’état.
 3. Pour la migration lift-and-shift, nous vous suggérons d’utiliser Azure Site Recovery. [Plus d’informations](../site-recovery/tutorial-migrate-on-premises-to-azure.md) Vous pouvez également utiliser des outils tiers qui prennent en charge la migration vers Azure.
 4. Si des machines locales ne sont pas adaptées à la migration lift-and-shift, autrement dit, si vous souhaitez migrer une application spécifique plutôt qu’une machine virtuelle entière, vous pouvez utiliser d’autres outils de migration. Par exemple, nous vous suggérons le [service Azure Database Migration](https://azure.microsoft.com/campaigns/database-migration/) si vous souhaitez migrer vers Azure des bases de données locales telles que SQL Server, MySQL ou Oracle.
@@ -40,7 +40,7 @@ Pour obtenir des suggestions d’outil de migration, vous devez effectuer une d�
 
 3. Dans **Outil suggéré**, examinez les suggestions d’outils pour la migration.
 
-    ![Outil suggéré](./media/tutorial-assessment-vmware/assessment-suitability.png) 
+    ![Outil suggéré](./media/tutorial-assessment-vmware/assessment-suitability.png)
 
 
 

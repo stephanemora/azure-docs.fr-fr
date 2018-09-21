@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 104ef98aac3e34e30a86854a0d759cf11106b55b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414699"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575296"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Services de conseil de Place de marché Azure
 Les services de conseil de la Place de marché Azure permettent aux partenaires Microsoft de connecter les clients aux services pour gérer et étendre leur utilisation d’Azure. La Place de marché Azure prend en charge le référencement des offres de services de conseil des partenaires intégrateurs de systèmes de Microsoft. 
@@ -73,7 +73,7 @@ Pour plus d’informations, consultez les [compétences via Microsoft Partner Ne
 Le lancement des services de conseil de la Place de marché Azure sera effectué dans une région géographique spécifique. Le premier lancement sera effectué aux États-Unis, au Canada, au Royaume-Uni et en Australie. Les catalogues pour les autres pays seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Comment s’inscrire aux services de conseil de la Place de marché Azure
-Commencez par l’inscription de vos services de conseil avec la [Place de marché Azure](https://azuremarketplace.microsoft.com/en-us/sell/signup). Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 
+Commencez par l’inscription de vos services de conseil avec la [Place de marché Azure](https://azuremarketplace.microsoft.com/en-us/sell/signup). Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 
 
 **À quoi s’attendre après l’inscription** L’équipe d’intégration vous enverra un e-mail de bienvenue dans un délai de 1 à 3 jours ouvrables qui inclut vos informations de connexion au Portail Cloud Partner (CPP). [Portail Cloud Partner](https://cloudpartner.azure.com) est le portail de référencement des offres où les éditeurs soumettent les informations de référencement et les envois. 
 
@@ -150,7 +150,7 @@ Lors de la révision des descriptions et des résumés des offres, l’équipe a
 |**Preuve de concept**    |    Formulez les modifications d’ingénierie, les artefacts techniques ou les autres artefacts que vous vous engagez à fournir à un client.     | Optimisez le résumé de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.        |
 |**Atelier**    |   Incluez un agenda détaillé quotidien, hebdomadaire ou mensuel, selon la durée que vous avez choisie pour votre offre. Formulez les objectifs d’apprentissage ou les autres livrables de votre atelier.     |   Optimisez le récapitulatif de votre offre à l’aide de mots clés garantissant l’optimisation du référencement de votre site auprès d’un moteur de recherche.      |
 
-Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre référencement en utilisant [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Ce langage de conception léger vous aidera à peaufiner l’aspect de votre référencement. 
+Dans le Portail Cloud Partner, vous pouvez ajouter une mise en forme à votre référencement en utilisant [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Ce langage de conception léger vous aidera à peaufiner l’aspect de votre référencement. 
 
 **Exemples de notes Markdown**
 *   Ajouter * au début et à la fin du bloc de copie - sans espace pour créer des caractères en italique (par ex. : *contenu*)

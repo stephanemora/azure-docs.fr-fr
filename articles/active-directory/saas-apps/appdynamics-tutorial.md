@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7f24dad3cfefd5ecb0b1c78f4a2b242c99a01239
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548274"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605825"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Didacticiel : Intégration d’Azure Active Directory à AppDynamics
 
@@ -102,17 +102,17 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 1. Dans le portail Azure, dans la page d’intégration de l’application **AppDynamics**, cliquez sur **Authentification unique**.
 
-    ![Configure Single Sign-On][4]
+    ![Configurer l'authentification unique][4]
 
 2. Dans la boîte de dialogue **Authentification unique**, pour le **Mode**, sélectionnez **Authentification basée sur SAML** pour activer l’authentification unique.
 
-    ![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_samlbase.png)
+    ![Configurer l'authentification unique](./media/appdynamics-tutorial/tutorial_appdynamics_samlbase.png)
 
 3. Dans la section **Domaine et URL AppDynamics**, effectuez les étapes suivantes :
 
-    ![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
+    ![Configurer l'authentification unique](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.saas.appdynamics.com`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
     b. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://<companyname>.saas.appdynamics.com/controller`
 
@@ -125,11 +125,11 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 5. Cliquez sur le bouton **Enregistrer** .
 
-    ![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_general_400.png)
+    ![Configurer l'authentification unique](./media/appdynamics-tutorial/tutorial_general_400.png)
 
 6. Dans la section **Configuration de AppDynamics**, cliquez sur **Configurer AppDynamics** pour ouvrir la fenêtre **Configurer l’authentification**. Copiez **l’URL de déconnexion et l’URL du service d’authentification unique SAML** à partir de la **section Référence rapide**.
 
-    ![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png)
+    ![Configurer l'authentification unique](./media/appdynamics-tutorial/tutorial_appdynamics_configure.png)
 
 7. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise AppDynamics en tant qu’administrateur.
 
@@ -189,6 +189,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 ### <a name="creating-an-appdynamics-test-user"></a>Création d’un utilisateur de test AppDynamics
 
 L’objectif de cette section est de créer un utilisateur appelé Britta Simon dans AppDynamics. AppDynamics prend en charge le provisionnement juste-à-temps, activé par défaut. Vous n’avez aucune opération à effectuer dans cette section. Un utilisateur est créé pendant la tentative d’accès à AppDynamics, s’il n’existe pas déjà.
+
 >[!Note]
 >Si vous devez créer un utilisateur manuellement, contactez [l’équipe de support technique du client AppDynamics](https://www.appdynamics.com/support/).
 
@@ -206,7 +207,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 2. Dans la liste des applications, sélectionnez **AppDynamics**.
 
-    ![Configure Single Sign-On](./media/appdynamics-tutorial/tutorial_appdynamics_app.png)
+    ![Configurer l'authentification unique](./media/appdynamics-tutorial/tutorial_appdynamics_app.png)
 
 3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 

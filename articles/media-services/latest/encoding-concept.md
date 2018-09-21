@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: juliako
-ms.openlocfilehash: e1c7536c59b110ae3dd753ff5f4b01195f8dadca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 69c5516ee503d774b143bb2d83f09ea863a00b31
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659526"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35771039"
 ---
 # <a name="encoding-with-azure-media-services"></a>Encodage avec Azure Media Services
 
@@ -38,8 +38,8 @@ Actuellement, Media Services prend en charge les préréglages d’encodage int�
 |---|---|---|
 |**AudioAnalyzerPreset**|Analyse de contenu audio|Ce préréglage applique un ensemble prédéfini d’opérations d’analyse basée sur l’IA, notamment la transcription de la parole. Actuellement, le préréglage prend en charge le traitement du contenu avec une seule piste audio.<br/>Vous pouvez spécifier la langue de la charge utile audio de l’entrée en utilisant le format BCP-47 « étiquette langue-région » (par exemple « en-US »). La liste des langues prises en charge est : « en-US », « en-GB », « es-ES », « es-MX », « fr-FR », « it-IT », « ja-JP », « pt-BR », « zh-CN ».|
 |**VideoAnalyzerPreset**|Analyse de contenu audio et vidéo|Extrait des insights (métadonnées enrichies) des contenus audio et vidéo, et génère en sortie un fichier au format JSON. Vous pouvez spécifier si vous voulez extraire seulement des insights audio lors du traitement d’un fichier vidéo. Pour plus d’informations, consultez [Analyser un contenu vidéo](analyze-videos-tutorial-with-api.md).|
-|**BuiltInStandardEncoderPreset**|Streaming|Utilisé pour définir un préréglage intégré pour l’encodage de la vidéo en entrée avec l’encodeur standard. <br/>Les préréglages suivants sont actuellement pris en charge :<br/>**EncoderNamedPreset.AdaptiveStreaming** (recommandé). Pour plus d’informations, consultez [Génération automatique d’une échelle de débit binaire](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** - produit un fichier MP4 unique contenant seulement le contenu audio stéréo encodé à 192 Kbits/s.<br/>**EncoderNamedPreset.H264MultipleBitrate1080** produit un ensemble de 8 fichiers MP4 alignés sur GOP, de 6 000 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 1 080p et descend à 360p.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** produit un ensemble de 6 fichiers MP4 alignés sur GOP, de 3 400 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 720p et descend à 360p.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** produit un ensemble de 5 fichiers MP4 alignés sur GOP, de 1 600 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 480p et descend à 360p.<br/><br/>Pour plus d’informations, consultez [Chargement, encodage et streaming de fichiers](stream-files-tutorial-with-api.md).|
-|**StandardEncoderPreset**|Streaming|Décrit les paramètres utilisés lors de l’encodage de vidéo en entrée avec l’encodeur standard. <br/>Utilisez ce préréglage lors de la personnalisation des préréglages de transformation. Pour plus d’informations, consultez [Guide pratique pour personnaliser les paramètres de transformation prédéfinis](customize-encoder-presets-how-to.md).|
+|**BuiltInStandardEncoderPreset**|Diffusion en continu|Utilisé pour définir un préréglage intégré pour l’encodage de la vidéo en entrée avec l’encodeur standard. <br/>Les préréglages suivants sont actuellement pris en charge :<br/>**EncoderNamedPreset.AdaptiveStreaming** (recommandé). Pour plus d’informations, consultez [Génération automatique d’une échelle de débit binaire](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** - produit un fichier MP4 unique contenant seulement le contenu audio stéréo encodé à 192 Kbits/s.<br/>**EncoderNamedPreset.H264MultipleBitrate1080** produit un ensemble de 8 fichiers MP4 alignés sur GOP, de 6 000 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 1 080p et descend à 360p.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** produit un ensemble de 6 fichiers MP4 alignés sur GOP, de 3 400 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 720p et descend à 360p.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** produit un ensemble de 5 fichiers MP4 alignés sur GOP, de 1 600 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 480p et descend à 360p.<br/><br/>Pour plus d’informations, consultez [Chargement, encodage et streaming de fichiers](stream-files-tutorial-with-api.md).|
+|**StandardEncoderPreset**|Diffusion en continu|Décrit les paramètres utilisés lors de l’encodage de vidéo en entrée avec l’encodeur standard. <br/>Utilisez ce préréglage lors de la personnalisation des préréglages de transformation. Pour plus d’informations, consultez [Guide pratique pour personnaliser les paramètres de transformation prédéfinis](customize-encoder-presets-how-to.md).|
 
 ## <a name="custom-presets"></a>Préréglages personnalisés
 
@@ -51,7 +51,7 @@ Actuellement, les clients doivent utiliser le portail Azure ou les API d’AMS v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-### <a name="tutorials"></a>Tutoriels
+### <a name="tutorials"></a>Didacticiels
 
 Les tutoriels suivants montrent comment encoder votre contenu avec Media Services :
 
@@ -63,13 +63,13 @@ Les tutoriels suivants montrent comment encoder votre contenu avec Media Service
 Les exemples de code suivant contiennent du code qui montre comment encoder avec Media Services :
 
 * [.NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore)
-* [CLI 2.0](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
+* [interface de ligne de commande Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
 
-### <a name="sdks"></a>Kits SDK
+### <a name="sdks"></a>Kits de développement logiciel (SDK)
 
 Vous pouvez utiliser un des kits SDK Media Services v3 pris en charge suivants pour encoder votre contenu.
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [REST](https://docs.microsoft.com/rest/api/media/transforms)
 * [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)

@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 97c9480d6f2b75d83252bfb6410d7b5f946757ef
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7cb5dc5b170103f98d56abc920f36dd85f855961
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630651"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364809"
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Accorder l’accès aux données d’un environnement Time Series Insights à l’aide du portail Azure
 
@@ -34,39 +34,10 @@ Les stratégies d’accès aux données accordent des autorisations pour génér
 
 Les deux types de stratégies permettent de distinguer clairement l’accès à la gestion de l’environnement et l’accès aux données contenues dans l’environnement. Par exemple, vous pouvez configurer un environnement de sorte que le propriétaire/créateur de l’environnement soit supprimé de l’accès aux données. Par ailleurs, les utilisateurs et services qui sont autorisés à lire des données de l’environnement peuvent ne pas avoir accès à la configuration de l’environnement.
 
-## <a name="grant-data-access"></a>Accorder l’accès aux données
-Effectuez les étapes suivantes pour accorder l’accès aux données à un utilisateur principal :
-
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-
-2. Recherchez votre environnement Time Series Insights. Tapez **Time Series** dans la zone de **recherche**. Sélectionnez **Environnement Time Series** dans les résultats de recherche. 
-
-3. Sélectionnez votre environnement Time Series Insights dans la liste.
-   
-4. Sélectionnez **Stratégies d’accès aux données**, puis **+Ajouter**.
-  ![Gérer la source Time Series Insights - Environnement](media/data-access/getstarted-grant-data-access1.png)
-
-5. Sélectionnez **Sélectionner un utilisateur**.  Recherchez le nom d’utilisateur ou l’adresse e-mail pour accéder à l’utilisateur que vous voulez ajouter. Cliquez sur **Sélectionner** pour confirmer la sélection. 
-
-   ![Gérer la source Time Series Insights - Ajouter](media/data-access/getstarted-grant-data-access2.png)
-
-6. Sélectionnez **Sélectionner un rôle**. Choisissez le rôle d’accès approprié pour l’utilisateur :
-   - Sélectionnez **Contributeur** si vous voulez autoriser l’utilisateur à changer les données de référence et à partager des requêtes et des perspectives enregistrées avec d’autres utilisateurs de l’environnement. 
-   - Sinon, sélectionnez **Lecteur** pour autoriser l’utilisateur à interroger les données dans l’environnement et à enregistrer des requêtes personnelles (non partagées) dans l’environnement.
-
-   Sélectionnez **OK** pour confirmer le choix du rôle.
-
-   ![Gérer la source Time Series Insights - Sélectionner un utilisateur](media/data-access/getstarted-grant-data-access3.png)
-
-8. Sélectionnez **OK** dans la page **Sélectionner un rôle utilisateur**.
-
-   ![Gérer la source Time Series Insights - Sélectionner un rôle](media/data-access/getstarted-grant-data-access4.png)
-
-9. La page **Stratégies d’accès aux données** répertorie les utilisateurs, et le ou les rôles pour chaque utilisateur.
-
-   ![Gérer la source Time Series Insights - Résultats](media/data-access/getstarted-grant-data-access5.png)
+[!INCLUDE [iot-tsi-data-access](../../includes/iot-tsi-data-access.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Découvrez le [Guide pratique pour ajouter une source d’événement Event Hub à votre environnement Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
 * [Envoyer des événements](time-series-insights-send-events.md) à la source d’événement.
 * Affichez votre environnement dans [l’explorateur Time Series Insights](https://insights.timeseries.azure.com).

@@ -4,7 +4,7 @@ description: Microsoft Azure Media Services vous permet de fournir des flux MPEG
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 548d1a12-e2cb-45fe-9307-4ec0320567a2
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/09/2017
+ms.date: 09/18/2018
 ms.author: juliako
-ms.openlocfilehash: b22cc44ad1a33f5898790ece7ae7cbaabd55d1e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ddcd93a82c3eea6266275f79f7a34df5a6557ebf
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33780685"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364752"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilisation du chiffrement commun dynamique PlayReady et/ou Widevine
 
@@ -33,7 +33,7 @@ ms.locfileid: "33780685"
 > Pour obtenir la dernière version du kit SDK Java et développer des applications avec Java, consultez [Prise en main du Kit SDK du client Java pour Azure Media Services](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
 > Pour télécharger le dernier kit SDK PHP pour Media Services, recherchez la version 0.5.7 du package Microsoft/WindowsAzure dans le [référentiel Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
  Media Services vous permet de fournir des flux MPEG-DASH, Smooth Streaming et HLS (HTTP Live Streaming) protégés par [la gestion des droits numériques (DRM) PlayReady](https://www.microsoft.com/playready/overview/). Vous pouvez également l’utiliser pour diffuser des flux DASH chiffrés avec des licences Widevine DRM. PlayReady et Widevine sont chiffrés conformément à la spécification de chiffrement commun (ISO/IEC 23001-7 CENC). Vous pouvez utiliser le [SDK .NET Media Services](https://www.nuget.org/packages/windowsazure.mediaservices/) (à compter de la version 3.5.1) ou une API REST pour configurer votre AssetDeliveryConfiguration afin d’utiliser Widevine.
 
@@ -58,7 +58,7 @@ Cet article est utile aux développeurs travaillant sur des applications qui fou
 >[!NOTE]
 >Une fois votre compte Media Services créé, un point de terminaison de streaming par défaut est ajouté à votre compte à l’état « Arrêté ». Pour démarrer la diffusion en continu de votre contenu et tirer parti de l’empaquetage et du chiffrement dynamiques, le point de terminaison de streaming à partir duquel vous souhaitez diffuser du contenu doit se trouver à l’état « En cours d’exécution ». 
 
-## <a name="download-the-sample"></a>Téléchargez l’exemple
+## <a name="download-the-sample"></a>Télécharger l’exemple
 Vous pouvez télécharger l’exemple décrit dans cet article à partir des [exemples Azure sur GitHub](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm).
 
 ## <a name="configure-dynamic-common-encryption-and-drm-license-delivery-services"></a>Configuration du chiffrement commun dynamique et des services de distribution de licences DRM
@@ -137,16 +137,16 @@ Pour savoir comment publier une ressource et générer une URL de diffusion en c
 Obtenez un jeton de test basé sur la restriction par jeton utilisée pour la stratégie d’autorisation de clé.
 
 ```csharp
-    // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
-    // back into a TokenRestrictionTemplate class instance.
-    TokenRestrictionTemplate tokenTemplate =
-        TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
+// Deserializes a string containing an XML representation of a TokenRestrictionTemplate
+// back into a TokenRestrictionTemplate class instance.
+TokenRestrictionTemplate tokenTemplate =
+TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
-    // Generate a test token based on the data in the given TokenRestrictionTemplate.
-    //The GenerateTestToken method returns the token without the word "Bearer" in front,
-    //so you have to add it in front of the token string.
-    string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
-    Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
+// Generate a test token based on the data in the given TokenRestrictionTemplate.
+//The GenerateTestToken method returns the token without the word "Bearer" in front,
+//so you have to add it in front of the token string.
+string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
+Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
 Vous pouvez utiliser le [lecteur Azure Media Services](http://amsplayer.azurewebsites.net/azuremediaplayer.html) pour tester votre flux.
@@ -157,10 +157,10 @@ Vous pouvez utiliser le [lecteur Azure Media Services](http://amsplayer.azureweb
 
 2. Ajoutez les éléments suivants aux **appSettings** définis dans votre fichier app.config :
 
-```xml
-        <add key="Issuer" value="http://testacs.com"/>
-        <add key="Audience" value="urn:test"/>
-```
+    ```xml
+    <add key="Issuer" value="http://testissuer.com"/>
+    <add key="Audience" value="urn:test"/>
+    ```
 
 ## <a name="example"></a>Exemples
 

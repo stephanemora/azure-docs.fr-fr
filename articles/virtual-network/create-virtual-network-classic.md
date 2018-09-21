@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 06/15/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: a2e2075a735b63588352f3bcdc97e2d6410660fe
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bede78782154e014d4ffad949f9ebd1a44eb2c4c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365421"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35770234"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Créer un réseau virtuel (Classic) comprenant plusieurs sous-réseaux
 
@@ -63,7 +63,7 @@ Vous pouvez créer un réseau virtuel (Classic) à l’aide du [portail Azure](#
 9. **Facultatif** : à l’issue de ce didacticiel, vous pouvez supprimer les ressources créées afin d’éviter la facturation liée à leur utilisation :
     - Dans le volet **myVnet**, cliquez sur **Vue d’ensemble**.
     - Dans le volet **myVnet**, cliquez sur l’icône **Supprimer**.
-    - Pour confirmer la suppression, dans la zone **Supprimer le réseau virtuel**, cliquez sur **Oui**.
+    - Pour confirmer la suppression, cliquez sur **Oui** dans la zone **Supprimer le réseau virtuel**.
 
 ## <a name="azure-cli"></a>Azure CLI
 

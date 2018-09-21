@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577303"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580431"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Prise en main du Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -102,7 +102,7 @@ L’objet `JobHost` est le conteneur d’exécution pour les fonctions : il éco
 
 ## <a name="enable-console-logging"></a>Activer la journalisation de console
 
-Il existe plusieurs options de journalisation dans le projet de Kit de développement logiciel (SDK) WebJobs. Nous vous recommandons l’option [framework de journalisation qui a été développée pour ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). Cette infrastructure offre de meilleures performances et une plus grande souplesse dans le support de stockage et le filtrage. 
+Il existe plusieurs options de journalisation dans le projet de Kit de développement logiciel (SDK) WebJobs. Nous vous recommandons l’option [framework de journalisation qui a été développée pour ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). Cette infrastructure offre de meilleures performances et une plus grande souplesse dans le support de stockage et le filtrage. 
 
 Dans cette section, vous allez configurer la journalisation de console qui utilise la nouvelle infrastructure.
 

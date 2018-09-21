@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441440"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576865"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Créer une alerte de journal avec un modèle Resource Manager
 Cet article explique comment gérer des [alertes de journal](monitor-alerts-unified-log.md) par programmation à grande l’échelle, dans Azure à l’aide d’un [modèle Azure Resource Manager](..//azure-resource-manager/resource-group-authoring-templates.md) par le biais d’[Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) et [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Actuellement, Azure Alerts prend en charge les alertes de journal sur des requêtes provenant d’[Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) et d’[Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
@@ -35,12 +35,12 @@ L’API REST d’alerte Log Analytics est un service RESTful qui est accessible 
 Pour en savoir plus, consultez l’article [Créer et gérer des règles d’alerte dans Log Analytics avec l’API REST](../log-analytics/log-analytics-api-alerts.md), qui contient notamment des exemples d’accès à l’API à partir de Powershell.
 
 ## <a name="managing-log-alert-on-application-insights"></a>Gestion des alertes de journal sur Application Insights
-Les alertes de journal pour Azure Application Insights ont été introduites dans le cadre des nouvelles alertes Azure dans Azure Monitor. Par conséquent, elles s’exécutent sous l’API Azure Monitor en tant que groupe d’opérations REST de [règles de requêtes planifiées](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+Les alertes de journal pour Azure Application Insights ont été introduites dans le cadre des nouvelles alertes Azure dans Azure Monitor. Par conséquent, elles s’exécutent sous l’API Azure Monitor en tant que groupe d’opérations REST de [règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
 ### <a name="using-azure-resource-manager-template"></a>Utilisation d’un modèle Azure Resource Manager
-Les alertes de journal pour les ressources Application Insights ont le type `Microsoft.Insights/scheduledQueryRules/`. Pour plus d’informations sur ce type de ressource, consultez [Azure Monitor - Référence de l’API des règles de requêtes planifiées](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+Les alertes de journal pour les ressources Application Insights ont le type `Microsoft.Insights/scheduledQueryRules/`. Pour plus d’informations sur ce type de ressource, consultez [Azure Monitor - Référence de l’API des règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-Voici la structure pour un modèle de ressource basé sur la [création de règles de requêtes planifiées](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate), avec un exemple de jeu de données en tant que variables.
+Voici la structure pour un modèle de ressource basé sur la [création de règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate), avec un exemple de jeu de données en tant que variables.
 
 ```json
 {
@@ -113,7 +113,7 @@ Voici la structure pour un modèle de ressource basé sur la [création de règl
 }
 ```
 > [!IMPORTANT]
-> Le champ Tag avec hidden-link vers la ressource cible est obligatoire en cas d’utilisation d’appel d’API de [règles de requêtes planifiées](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) ou de modèle de ressource. 
+> Le champ Tag avec hidden-link vers la ressource cible est obligatoire en cas d’utilisation d’appel d’API de [règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) ou de modèle de ressource. 
 
 L’exemple json ci-dessus peut par exemple être enregistré en tant que sampleScheduledQueryRule.json pour les besoins de cette procédure pas à pas, et peut être déployé à l’aide d’[Azure Resource Manager dans le portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

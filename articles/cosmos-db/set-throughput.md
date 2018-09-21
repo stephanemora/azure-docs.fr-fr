@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: andrl
-ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038171"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734469"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Définir et obtenir le débit des conteneurs Azure Cosmos DB et de base de données
 
@@ -61,7 +61,7 @@ Dans les prochaines sections, vous apprendrez à configurer du débit à différ
 2. Dans le volet de navigation de gauche, sélectionnez **Toutes les ressources** et recherchez votre compte Azure Cosmos DB.  
 3. Vous pouvez configurer le débit lors de la création d’une base de données ou mettre à jour le débit d’une base de données existante.  
 4. Pour affecter un débit lors de la création d’une base de données, ouvrez le panneau **Explorateur de données** et sélectionnez **Nouvelle base de données**  
-5. Spécifiez la valeur **ID de base de données**, cochez la case **Provisionner le débit**, puis configurez la valeur de débit. Une base de données peut être provisionnée avec une valeur de débit minimum de 50 000 RU/s.  
+5. Spécifiez la valeur **ID de base de données**, cochez la case **Provisionner le débit**, puis configurez la valeur de débit.  
 
    ![Définir le débit avec l’option Nouvelle base de données](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -74,7 +74,7 @@ Dans les prochaines sections, vous apprendrez à configurer du débit à différ
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
 2. Dans le volet de navigation de gauche, sélectionnez **Toutes les ressources** et recherchez votre compte Azure Cosmos DB.  
 3. Créez une base de données et affectez-lui un débit. Ouvrez le panneau **Explorateur de données** et sélectionnez **Nouvelle base de données**  
-4. Spécifiez la valeur **ID de base de données**, cochez la case **Provisionner le débit**, puis configurez la valeur de débit. Une base de données peut être provisionnée avec une valeur de débit minimum de 50 000 RU/s.  
+4. Spécifiez la valeur **ID de base de données**, cochez la case **Provisionner le débit**, puis configurez la valeur de débit.  
 
    ![Définir le débit avec l’option Nouvelle base de données](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -107,33 +107,6 @@ Approvisionnez le débit sur un conteneur individuel dans les cas suivants :
 * Vous avez moins de conteneurs Azure Cosmos DB.  
 
 * Vous souhaitez obtenir le débit garanti sur un conteneur donné soutenu par un contrat SLA.
-
-## <a name="throughput-ranges"></a>Plages de débit
-
-Le tableau suivant répertorie les débits disponibles pour les conteneurs :
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Conteneur à partition unique</strong></p></td>
-            <td valign="top"><p><strong>Conteneur partitionné</strong></p></td>
-            <td valign="top"><p><strong>Ensemble de conteneurs</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Débit minimal</p></td>
-            <td valign="top"><p>400 unités de demande par seconde</p></td>
-            <td valign="top"><p>1 000 unités de demande par seconde</p></td>
-            <td valign="top"><p>50 000 unités de demande par seconde</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Débit maximal</p></td>
-            <td valign="top"><p>10 000 unités de demande par seconde</p></td>
-            <td valign="top"><p>Illimité</p></td>
-            <td valign="top"><p>Illimité</p></td>
-        </tr>
-    </tbody>
-</table>
 
 <a id="set-throughput-sdk"></a>
 

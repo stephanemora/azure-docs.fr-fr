@@ -6,16 +6,16 @@ author: hning86
 ms.author: haining
 manager: mwinkle
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: 6085762f9f3874df8dd90866e387a581915dbbaf
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9c135c1db557393a26e6e071f92b61fcbf3ae477
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831599"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632848"
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Nouveautés dans Azure Machine Learning
 
@@ -236,7 +236,7 @@ Pour plus d’informations sur la création de cibles de calcul, consultez [Conf
 Dans cette version, nous avons amélioré la sécurité, la stabilité et la maintenabilité de l’application Workbench, de l’interface CLI et de la couche des services backend. Merci beaucoup pour les sourires et les smileys mécontents que vous nous envoyez. La plupart des mises à jour ci-dessous sont les résultats directs de vos commentaires. Continuez à en envoyer !
 
 ### <a name="notable-new-features"></a>Nouvelles fonctionnalités notables
-- Azure ML est maintenant disponible dans deux nouvelles régions Azure : l’**Europe de l’Ouest** et le **Sud-Est asiatique**. Elles rejoignent les autres régions déjà présentes, **États-Unis de l’Est 2**, **Centre-Ouest des États-Unis** et **Est de l’Australie**, ce qui porte à cinq le nombre total de régions déployées.
+- Azure ML est maintenant disponible dans deux nouvelles régions Azure :**Europe Ouest** et **Asie Sud-Est**. Elles rejoignent les autres régions déjà présentes, **USA Est 2**, **USA Centre-Ouest** et **Australie Est**, ce qui porte à cinq le nombre total de régions déployées.
 - Nous avons activé la coloration syntaxique du code Python dans l’application Workbench pour faciliter la lecture et l’édition du code source Python. 
 - Vous pouvez maintenant lancer votre IDE favori directement à partir d’un fichier, et non plus à partir de l’ensemble du projet.  Si vous ouvrez un fichier dans Workbench et si vous cliquez sur Modifier, votre IDE (pour le moment, VS Code et PyCharm sont pris en charge) se lance à partir du fichier et du projet actifs.  Vous pouvez également cliquer sur la flèche près du bouton Modifier pour modifier le fichier dans l’éditeur de texte de Workbench.  Les fichiers sont en lecture seule jusqu’à ce que vous cliquiez sur Modifier, ce qui permet d’empêcher les changements accidentels.
 - La célèbre bibliothèque de traçage `matplotlib` version 2.1.0 est fournie désormais avec l’application Workbench.
@@ -326,7 +326,7 @@ Vous trouverez ci-dessous une liste des mises à jour détaillées de chaque zon
 - Désormais, le serveur Jupyter se ferme correctement quand l’utilisateur se déconnecte de l’application.
 
 #### <a name="azure-portal"></a>Portail Azure
-- Vous pouvez maintenant créer un compte Expérimentation et un compte Gestion des modèles dans deux nouvelles régions Azure : l’Europe de l’Ouest et le Sud-Est asiatique.
+- Vous pouvez maintenant créer un compte Expérimentation et un compte Gestion des modèles dans deux nouvelles régions Azure : Europe Ouest et Asie Sud-Est.
 - Désormais, le plan DevTest du compte Gestion des modèles est disponible uniquement s’il est le premier à être créé dans l’abonnement. 
 - Le lien d’aide du portail Azure a été mis à jour pour pointer vers la page de documentation appropriée.
 - Le champ Description a été supprimé de la page des détails de l’image Docker, car il est non applicable.

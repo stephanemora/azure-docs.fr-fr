@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
 ms.custom: it-pro
-ms.openlocfilehash: 8cdf30ed09601a31529073eaedd4ab53780157d5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: a34fa2b8c2d966af108664c219a222fb9a5b7abc
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077714"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35769198"
 ---
 # <a name="how-to-add-your-organizations-privacy-info-in-azure-active-directory"></a>Guide pratique pour ajouter les informations de confidentialité de votre organisation dans Azure Active Directory
 Cet article explique comment un administrateur de locataires peut ajouter des informations de confidentialité au locataire Azure Active Directory (Azure AD) d’une organisation, par le biais du portail Azure.
@@ -55,4 +55,4 @@ Nous vous recommandons vivement d’ajouter votre contact international chargé 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Utilisation d’invitations Azure Active Directory B2B Collaboration](https://aka.ms/b2bredemption)
-- [Ajouter ou modifier les informations de profil pour un utilisateur dans Azure Active Directory](/active-directory-users-profile-azure-portal.md)
+- [Ajouter ou modifier les informations de profil pour un utilisateur dans Azure Active Directory](fundamentals/active-directory-users-profile-azure-portal.md)

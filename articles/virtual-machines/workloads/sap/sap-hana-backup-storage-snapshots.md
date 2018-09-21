@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: c5066d23705ca84febaa0ba527a01259134146c0
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 031cb10e476ba068f7e3d7baf3b19f7703caf170
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358979"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580035"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Sauvegarde SAP HANA à partir de captures instantanées de stockage
 
@@ -88,8 +88,8 @@ Le service Sauvegarde Azure se décompose en quatre grandes phases :
 
 Pour plus d’informations sur l’emplacement où copier ces scripts et des détails sur le fonctionnement de Sauvegarde Azure, consultez les articles suivants :
 
-- [Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
-- [Sauvegarde cohérente des applications des machines virtuelles Linux Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
+- [Planification de votre infrastructure de sauvegarde de machines virtuelles dans Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
+- [Sauvegarde cohérente des applications des machines virtuelles Linux Azure](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)
 
 
 

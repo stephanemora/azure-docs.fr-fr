@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 09/11/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: e3b22c0c602e8f3d47fbfc179fb8d0fb985d55d6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 57f4fa0179668bccc39098a1eb9816403d00db57
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619319"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716568"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Développer des applications métier pour Azure Active Directory
 Ce guide fournit une vue d’ensemble du développement d’applications métier pour Azure Active Directory. Il s’adresse aux administrateurs généraux de systèmes Active Directory/Office 365.
@@ -80,4 +80,4 @@ Pour en savoir plus sur le consentement de l’utilisateur et sur l’expérienc
 ## <a name="related-articles"></a>Articles connexes
 * [Offrir un accès à distance sécurisé aux applications locales](manage-apps/application-proxy.md)
 * [Gestion de l’accès aux applications](manage-apps/what-is-access-management.md)
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 00c67503f5b9e0027cbb62520e392f56420a75e6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5b10ff3574259fcad329dfb5c7a5bc86861258c5
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701632"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575862"
 ---
 # <a name="optimize-sql-server-performance"></a>Optimiser les performances de SQL Server
 
@@ -145,7 +145,7 @@ Certains déploiements peuvent bénéficier de plus grands avantages en termes d
 
 - **Sauvegarde vers le** **stockage Azure.** Durant la création de sauvegardes pour un serveur SQL Server s’exécutant sur des machines virtuelles Azure Stack, vous pouvez vous référer à Sauvegarde de SQL Server vers une URL. Cette fonctionnalité est disponible à partir de SQL Server 2012 SP1 CU2, et recommandée pour la sauvegarde vers les disques de données attachés.
 
-    Durant la sauvegarde ou la restauration à l’aide du stockage Azure, suivez les suggestions indiquées dans [Meilleures pratiques et dépannage de sauvegarde SQL Server vers une URL](https://msdn.microsoft.com/library/jj919149.aspx) et [Restauration à partir de sauvegardes stockées dans Microsoft Azure](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup).
+    Durant la sauvegarde ou la restauration à l’aide du stockage Azure, suivez les suggestions indiquées dans [Meilleures pratiques et dépannage de sauvegarde SQL Server vers une URL](https://msdn.microsoft.com/library/jj919149.aspx) et [Restauration à partir de sauvegardes stockées dans Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure?view=sql-server-2017). Vous pouvez également automatiser ces sauvegardes en utilisant la [Sauvegarde automatisée pour SQL Server dans les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup).
 
 -   **Sauvegarde vers le stockage Azure Stack.** Vous pouvez effectuer une sauvegarde vers le stockage Azure Stack de la même manière qu’une sauvegarde vers le stockage Azure. Quand vous créez une sauvegarde dans SQL Server Management Studio (SSMS), vous devez entrer manuellement les informations de configuration. Vous ne pouvez pas utiliser SSMS pour créer le conteneur de stockage ou la signature d’accès partagé. SSMS se connecte uniquement à des abonnements Azure, pas à des abonnements Azure Stack. Au lieu de cela, vous devez créer le compte de stockage, le conteneur et la signature d’accès partagé dans le portail Azure Stack ou avec PowerShell.
 

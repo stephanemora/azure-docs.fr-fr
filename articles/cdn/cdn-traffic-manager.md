@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-deasim
 ms.custom: ''
-ms.openlocfilehash: b52cad1f32cc3d16cf70bb81640dcb1d9f8614bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 88739cb299e453e32c69f5d0d0189da849b345a7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133363"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573873"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurer le basculement entre plusieurs points de terminaison Azure CDN avec Azure Traffic Manager
 
@@ -46,7 +46,7 @@ Créez un profil Azure Traffic Manager et configurez l’équilibrage de charge 
 
     Pour **Méthode de routage**, sélectionnez **Priorité**.
 
-2. Ajoutez vos points de terminaison CDN dans votre profil Traffic Manager en suivant les étapes décrites pour l’[ajout de points de terminaison Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints).
+2. Ajoutez vos points de terminaison CDN dans votre profil Traffic Manager en suivant les étapes décrites pour l’[ajout de points de terminaison Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints).
 
     Pour **Type**, sélectionnez **Points de terminaison externes**. Pour **Priorité**, entrez un nombre.
 
@@ -92,7 +92,7 @@ Après avoir configuré vos profils CDN et Traffic Manager, suivez ces étapes p
 Après avoir effectué ces étapes, votre service multi-CDN avec des fonctionnalités de basculement est configuré avec Azure Traffic Manager. Vous aurez accès aux URL de test à partir de votre domaine personnalisé. Pour tester la fonctionnalité, désactivez le point de terminaison CDN principal et vérifiez que la requête est correctement déplacée sur le point de terminaison CDN secondaire. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez également configurer d’autres méthodes de routage, telles que le routage géographique, pour équilibrer la charge entre les différents points de terminaison CDN. Pour plus d’informations, voir [Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+Vous pouvez également configurer d’autres méthodes de routage, telles que le routage géographique, pour équilibrer la charge entre les différents points de terminaison CDN. Pour plus d’informations, voir [Configurer la méthode de routage du trafic géographique à l’aide de Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
 
 

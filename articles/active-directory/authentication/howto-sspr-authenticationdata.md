@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: eb3c1177f86f4c595280521f4dbcbe8081f68895
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159564"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296242"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Déployer la réinitialisation du mot de passe sans demander l’inscription de l’utilisateur final
 
 Pour déployer la réinitialisation du mot de passe libre-service (SSPR) d’Azure Active Directory (Azure AD), les données d’authentification doivent être présentes. Certaines organisations demandent à leurs utilisateurs d’entrer leurs données d’authentification eux-mêmes, mais la plupart préfèrent synchroniser avec des données qui existent déjà dans Active Directory. Les données synchronisées sont mises à disposition d’Azure AD et de la réinitialisation du mot de passe libre-service sans nécessiter l’intervention de l’utilisateur si vous :
    * Mettez correctement en forme les données dans votre annuaire local.
-   * Configurez [Azure AD Connect en utilisant les paramètres express](./../connect/active-directory-aadconnect-get-started-express.md).
+   * Configurez [Azure AD Connect en utilisant les paramètres express](../hybrid/how-to-connect-install-express.md).
 
 Pour que tout fonctionne correctement, les numéros de téléphone doivent être au format *+CodePays NuméroTéléphone*, par exemple : +1 4255551234.
 

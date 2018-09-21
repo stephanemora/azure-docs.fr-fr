@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 398594c37cb01cd337da983307a5f56753e54fd2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051523"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574757"
 ---
 # <a name="azure-database-security-overview"></a>Vue d’ensemble de la sécurité des bases de données Azure
 
@@ -69,7 +69,7 @@ Vous pouvez prendre plusieurs précautions pour sécuriser la base de données. 
 
 Une solution consiste à chiffrer les données sensibles dans la base de données et à protéger les clés qui sont utilisées pour chiffrer les données avec un certificat. Cette solution empêche toute personne ne possédant pas les clés d’utiliser les données, mais ce type de protection doit être planifié.
 
-Pour résoudre ce problème, SQL Server et SQL Database prennent en charge la fonctionnalité [TDE (Transparent Data Encryption)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). Celle-ci chiffre les fichiers de données SQL Server et SQL Database, au cours d’une phase appelée chiffrement des données au repos.
+Pour résoudre ce problème, SQL Server et SQL Database prennent en charge la fonctionnalité [TDE (Transparent Data Encryption)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). Celle-ci chiffre les fichiers de données SQL Server et SQL Database, au cours d’une phase appelée chiffrement des données au repos.
 
 Ce chiffrement transparent des données vous protège contre le risque d’activités malveillantes. Il assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux des transactions au repos, sans que cela nécessite de modifier l’application.  
 

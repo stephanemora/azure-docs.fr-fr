@@ -1,6 +1,7 @@
 ---
 title: 'Démarrage rapide : Utiliser le kit de développement logiciel de l’API Recherche Web Bing pour C#'
-description: Apprenez à utiliser le kit de développement logiciel de l’API Recherche Web Bing pour C#.
+titleSuffix: Azure Cognitive Services
+description: Le kit de développement logiciel de l’API Recherche Web Bing simplifie l’intégration de l’API dans votre application C#. Dans ce démarrage rapide, vous allez apprendre à instancier un client, envoyer une requête et imprimer la réponse.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -9,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: ed958f4a691b878cfa7ff9766a0fb72857cce5db
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: cebeab562a54ec68b69eb6422685cc4b596ac223
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186794"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127876"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Démarrage rapide : Utiliser le kit de développement logiciel de l’API Recherche Web Bing pour C#
 
@@ -403,7 +404,7 @@ Cet exemple utilise les paramètres `answer_count`, `promote` et `safe_search` p
     ```
 3. Exécutez l'application.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous avez terminé ce projet, veillez à supprimer votre clé d’abonnement dans le code de l’application.
 

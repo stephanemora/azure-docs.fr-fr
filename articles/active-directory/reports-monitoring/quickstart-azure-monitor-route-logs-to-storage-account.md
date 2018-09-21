@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 061a4f2d1b6a1661e341166ec0a1541af073c1f5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 08e4525e7dcf8edafc8819416b9d77e76fd78a65
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41917677"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363426"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Didacticiel : Archiver des journaux Azure AD dans un compte de stockage Azure (préversion)
 
@@ -77,4 +77,4 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 * [Interpréter le schéma des journaux d’audit dans Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpréter le schéma des journaux de connexion dans Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Questions fréquentes et problèmes connus](overview-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Questions fréquentes et problèmes connus](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)

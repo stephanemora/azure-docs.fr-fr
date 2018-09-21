@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347118"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717216"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Déploiement zip pour Azure Functions
 
@@ -89,9 +89,6 @@ Quand vous utilisez Azure CLI sur votre ordinateur local, `<zip_file_path>` est 
 ## <a name="run-functions-from-the-deployment-package"></a>Exécuter des fonctions à partir du package de déploiement
 
 Vous pouvez également choisir d’exécuter vos fonctions directement à partir du fichier de package de déploiement. Cette méthode permet d’éviter l’étape de déploiement qui consiste à copier des fichiers du package vers le répertoire `wwwroot` de votre application de fonction. Au lieu de cela, le fichier de package est monté par le runtime Functions, et le contenu du répertoire `wwwroot` passe en lecture seule.  
-
-> [!NOTE]
-> La fonctionnalité permettant d’exécuter votre application de fonction à partir du package de déploiement est en préversion.
 
 Le déploiement zip s’intègre à cette fonctionnalité, que vous pouvez activer en définissant le paramètre d’application de fonction `WEBSITE_RUN_FROM_PACKAGE` sur la valeur `1`. Pour plus d’informations, consultez [Exécuter vos fonctions Azure à partir d’un fichier de package](run-functions-from-deployment-package.md).
 

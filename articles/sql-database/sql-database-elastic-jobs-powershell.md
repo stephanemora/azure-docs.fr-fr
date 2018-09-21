@@ -7,16 +7,20 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: d1869dd689ef090978c3835e0a16fec82dfb5c05
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3efee2f9a4b205b87a65eb473271b0ab5e58046d
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648684"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498417"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Création et gestion de tâches de bases de données SQL élastiques à l’aide de PowerShell (version préliminaire)
+
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
 
 Les API PowerShell pour les **tâches de bases de données élastiques** (en version préliminaire) vous permettent de définir quels scripts seront exécutés pour quel groupe de bases de données. Cet article vous montre comment créer et gérer des **tâches de bases de données élastiques** à l’aide de PowerShell. Voir [Vue d’ensemble des tâches de base de données élastiques](sql-database-elastic-jobs-overview.md). 
 
@@ -209,7 +213,7 @@ Voici quelques bonnes pratiques de sécurité pour les tâches de bases de donn�
 * Les informations d'identification doivent avoir les privilèges minimaux requis pour effectuer la tâche.  Pour plus d’informations, consultez l’article MSDN [Autorisations](https://msdn.microsoft.com/library/bb669084.aspx) sur SQL Server.
 
 ### <a name="to-create-an-encrypted-credential-for-job-execution-across-databases"></a>Créer des informations d’identification chiffrées pour l’exécution d’une tâche dans des bases de données
-Pour créer de nouvelles informations d’identification chiffrées, [**l’applet de commande Get-Credential**](https://technet.microsoft.com/library/hh849815.aspx) demande un nom d’utilisateur et un mot de passe qui peuvent être transmis à [**l’applet de commande New-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
+Pour créer de nouvelles informations d’identification chiffrées, [**l’applet de commande Get-Credential**](/powershell/module/microsoft.powershell.security/get-credential) demande un nom d’utilisateur et un mot de passe qui peuvent être transmis à [**l’applet de commande New-AzureSqlJobCredential**](/powershell/module/elasticdatabasejobs/new-azuresqljobcredential).
 
     $credentialName = "{Credential Name}"
     $databaseCredential = Get-Credential

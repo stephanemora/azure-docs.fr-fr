@@ -10,22 +10,22 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 4f4c2ada08c69b6602ff5a300a15c4ca57090a8e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816051"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295833"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
-Avoir un utilitaire de réinitialisation de mot de passe basé sur le cloud est très utile, mais la plupart des entreprises disposent toujours d’un répertoire local contenant leurs utilisateurs. Comment Microsoft gère-t-il la synchronisation d’Active Directory (AD) sur site avec les modifications de mot de passe dans le cloud ? La réécriture du mot de passe est une fonctionnalité activée avec [Azure AD Connect](./../connect/active-directory-aadconnect.md) qui permet aux modifications de mot de passe dans le cloud d’être réécrites sur un répertoire local existant en temps réel.
+Avoir un utilitaire de réinitialisation de mot de passe basé sur le cloud est très utile, mais la plupart des entreprises disposent toujours d’un répertoire local contenant leurs utilisateurs. Comment Microsoft gère-t-il la synchronisation d’Active Directory (AD) sur site avec les modifications de mot de passe dans le cloud ? La réécriture du mot de passe est une fonctionnalité activée avec [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) qui permet aux modifications de mot de passe dans le cloud d’être réécrites sur un répertoire local existant en temps réel.
 
 La réécriture du mot de passe est prise en charge dans les environnements qui utilisent :
 
-* [Active Directory Federation Services](../connect/active-directory-aadconnect-federation-management.md)
-* [Synchronisation de hachage de mot de passe](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Authentification directe](../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
+* [Synchronisation de hachage de mot de passe](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [Authentification directe](../hybrid/how-to-connect-pta.md)
 
 La réécriture du mot de passe permet :
 

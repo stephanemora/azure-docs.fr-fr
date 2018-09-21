@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480881"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575987"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -58,7 +58,7 @@ Pour ce tutoriel, vous devez créer un seul réseau virtuel avec trois sous-rés
 
 ![Tutoriel relatif à l’infrastructure réseau](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-Ce tutoriel utilise une configuration réseau simplifiée pour faciliter le déploiement. Pour les déploiements de production, un [modèle Hub and Spoke](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) est recommandé, dans lequel le pare-feu est dans son propre réseau virtuel, et les serveurs de la charge de travail se trouvent dans des réseaux virtuels homologués dans la même région avec un ou plusieurs sous-réseaux.
+Ce tutoriel utilise une configuration réseau simplifiée pour faciliter le déploiement. Pour les déploiements de production, un [modèle Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) est recommandé, dans lequel le pare-feu est dans son propre réseau virtuel, et les serveurs de la charge de travail se trouvent dans des réseaux virtuels homologués dans la même région avec un ou plusieurs sous-réseaux.
 
 
 

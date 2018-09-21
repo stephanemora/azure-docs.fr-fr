@@ -9,12 +9,12 @@ ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: ecbf583a9b64868004b246bb01e7f174a21496b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4fb8d45c285ee3c1651039619808b8964c5313cd
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607462"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983078"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Utiliser le portail Azure pour sauvegarder plusieurs machines virtuelles
 
@@ -47,10 +47,10 @@ Le coffre Recovery Services contient les données de sauvegarde et la stratégie
     - Dans le champ **Nom**, tapez *myRecoveryServicesVault*,
     - L’ID d’abonnement actuel apparaît dans **Abonnement**. Si vous avez des abonnements supplémentaires, vous pouvez en choisir un autre pour le nouveau coffre.
     - Pour **Groupe de ressources**, sélectionnez **Utiliser l’existant**, puis choisissez *myResourceGroup*. Si *myResourceGroup* n’existe pas, sélectionnez **Créer un nouveau**, puis tapez *myResourceGroup*.
-    - Dans le menu déroulant **Emplacement**, choisissez *Europe de l’Ouest*.
+    - Dans le menu déroulant **Emplacement**, choisissez *Europe Ouest*.
     - Cliquez sur **Créer** pour créer votre coffre Recovery Services.
 
-Un coffre Recovery Services doit être situé dans le même emplacement que les machines virtuelles protégées. Si vous possédez des machines virtuelles dans plusieurs régions, créez un coffre Recovery Services dans chacune d’elles. Ce didacticiel crée un coffre Recovery Services *Europe de l’Ouest* car c’est là que la machine virtuelle *myVM* a été créée avec le démarrage rapide.
+Un coffre Recovery Services doit être situé dans le même emplacement que les machines virtuelles protégées. Si vous possédez des machines virtuelles dans plusieurs régions, créez un coffre Recovery Services dans chacune d’elles. Ce didacticiel crée un coffre Recovery Services *Europe Ouest* car c’est là que la machine virtuelle *myVM* a été créée avec le démarrage rapide.
 
 La création du coffre Recovery Services peut prendre plusieurs minutes. Surveillez les notifications d'état dans l'angle supérieur droit du portail. Une fois votre archivage créé, il apparaît dans la liste des archivages de Recovery Services.
 
@@ -134,7 +134,7 @@ Pour exécuter un travail de sauvegarde à la demande :
 
     ![Vignette Travaux de sauvegarde](./media/tutorial-backup-vm-at-scale/initial-backup-complete.png)
   
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Si vous souhaitez suivre les didacticiels suivants, ne nettoyez pas les ressources créées dans celui-ci. Sinon, effectuez les opérations suivantes pour supprimer toutes les ressources créées au cours de ce didacticiel dans le portail Azure.
 
@@ -163,7 +163,7 @@ Si vous souhaitez suivre les didacticiels suivants, ne nettoyez pas les ressourc
  
 7. Une fois l’élément de sauvegarde vérifié (une coche s’affiche), le bouton **Arrêter la sauvegarde** est activé. Cliquez sur **Arrêter la sauvegarde** pour arrêter la stratégie et supprimer les points de restauration. 
 
-    ![Cliquer sur Arrêter la sauvegarde pour supprimer le coffre](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
+    ![Cliquer sur Arrêter la sauvegarde pour supprimer le coffre](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
 8. Dans le menu **myRecoveryServicesVault**, cliquez sur **Supprimer**.
 

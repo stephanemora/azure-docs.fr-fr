@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1188ff040c12fd431cfcef5eea982647df6b9a71
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888430"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576389"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Générer et déployer des modèles de classification d’images avec Azure Machine Learning
 
@@ -174,7 +174,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Augmenter les images
 
-Le [module `augmentation`](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) fournit la possibilité d’augmenter un objet dataset en utilisant toutes les transformations décrites dans la bibliothèque [imgaug](https://github.com/aleju/imgaug). Les transformations d’image peuvent être regroupées dans un pipeline unique, dans ce cas toutes les transformations contenues dans le pipeline sont appliquées simultanément à chaque image. 
+Le [module `augmentation`](https://docs.microsoft.com/python/api/cvtk.augmentation) fournit la possibilité d’augmenter un objet dataset en utilisant toutes les transformations décrites dans la bibliothèque [imgaug](https://github.com/aleju/imgaug). Les transformations d’image peuvent être regroupées dans un pipeline unique, dans ce cas toutes les transformations contenues dans le pipeline sont appliquées simultanément à chaque image. 
 
 Si vous souhaitez appliquer séparément différentes étapes d’augmentation, ou les appliquer d’une autre manière, vous pouvez configurer plusieurs pipelines et les transmettre à la fonction *augment_dataset*. Pour obtenir plus d’informations et d’autres exemples d’augmentation d’image, consultez la [documentation imgaug](https://github.com/aleju/imgaug).
 
@@ -425,7 +425,7 @@ Dès que votre modèle est formé, vous pouvez le déployer comme service web po
 + Pour afficher le compte de gestion des modèles actif, utilisez la commande :
   <br>`az ml account modelmanagement show`
 
-**Créer et configurer votre environnement de déploiement de cluster**
+**Création et configuration de votre environnement de déploiement de cluster**
 
 Vous n’avez besoin de configurer votre environnement de déploiement qu’une seule fois. Si vous n’en possédez pas déjà un, configurez votre environnement de déploiement maintenant en suivant [ces instructions](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
 

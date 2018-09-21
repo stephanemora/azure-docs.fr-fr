@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: a85cd5287f6947ec17dc19291a70d6dd081e1827
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035858"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578495"
 ---
 # <a name="determine-your-publishing-option"></a>Déterminer votre option de publication
 L’option de publication que vous choisissez pour votre offre est directement liée aux conditions d’éligibilité et aux avantages GTM propres à la place de marché. Plus important encore, la sélection de l’option de publication et du type d’offre dans le portail Cloud Partner définit comment les utilisateurs vont interagir avec votre offre sur la place de marché.
@@ -80,7 +80,7 @@ Avant de pouvoir créer une offre, vous devez choisir un type d’offre. Le type
 
 Un type d’offre unique peut être configuré différemment dans le portail Cloud Partner pour proposer différents appels à l’action, options de publication, configurations et tarifs. L’option de publication et la configuration du type d’offre s’alignent également sur les exigences techniques et les conditions d’éligibilité de l’offre. 
 
-Veillez à passer en revue les conditions d’éligibilité de la vitrine et du type d’offre fournies dans ce [Guide de l’éditeur](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide), ainsi que les exigences techniques de publication avant de créer votre offre.
+Veillez à passer en revue les conditions d’éligibilité de la vitrine et du type d’offre fournies dans ce [Guide de l’éditeur](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide), ainsi que les exigences techniques de publication avant de créer votre offre.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

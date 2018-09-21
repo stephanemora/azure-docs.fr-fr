@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: c5621d5e16e31104ee28cc521386a5c0ca290a8b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 66494ca6bd9b4d8276469e85f4c6bb435ae245f7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187697"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716398"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>Questions fréquentes (FAQ) sur les accélérateurs de solution IoT
 
@@ -73,10 +73,6 @@ Deux. Vous pouvez créer uniquement deux cartes Bing - Transactions internes - N
 > Microsoft Azure pour DreamSpark s’appelle désormais Microsoft Imagine pour les étudiants.
 
 Il n’est pas possible de créer un accélérateur de solution avec un compte [Microsoft Azure pour DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/). Vous pouvez toutefois créer en quelques minutes un [compte d’essai gratuit pour Azure](https://azure.microsoft.com/free/), que vous pouvez utiliser pour créer un accélérateur de solution.
-
-### <a name="can-i-create-a-solution-accelerator-if-i-have-cloud-solution-provider-csp-subscription"></a>Puis-je créer un accélérateur de solution si je dispose d’un abonnement Fournisseur de solutions Cloud ?
-
-Vous ne pouvez pas créer d’accélérateur de solution avec un abonnement Fournisseur de solutions Cloud. Vous pouvez toutefois créer en quelques minutes un [compte d’essai gratuit pour Azure](https://azure.microsoft.com/free/), que vous pouvez utiliser pour créer un accélérateur de solution.
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>Comment supprimer un client AAS ?
 

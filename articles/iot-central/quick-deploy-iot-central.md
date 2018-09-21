@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 51c6753b1e4f2b08e93214abfcd7e18cb2e66613
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318311"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465603"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Créer une application Azure IoT Central
 
@@ -52,78 +52,6 @@ Pour créer une nouvelle application Azure IoT Central :
 1. Sélectionnez ensuite **Créer**.
 
 ![Page de création d’une application Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate.png)
-
-## <a name="navigate-to-the-application"></a>Accéder à l’application
-
-Lorsque votre application est prête, la **page d’accueil** de votre application s’affiche. Le _mode Création_ en haut à droite peut être activé ou désactivé pour modifier la page d’accueil. L’URL de l’application est l’URL que vous avez spécifiée à l’étape précédente :
-
-![Page Générateur d’applications](media/quick-deploy-iot-central/apphome.png)
-
-Utilisez le _menu de navigation gauche_ pour accéder aux différentes zones de votre nouvelle application Azure IoT Central :
-
-![Menu de navigation gauche](media/quick-deploy-iot-central/navbar.png)
-
-Pour afficher les modèles d’appareil et les appareils dans votre application, choisissez **Device Explorer** dans le menu de navigation gauche. L’exemple d’application inclut le modèle d’appareil **Machine de distribution réfrigérée**. Trois appareils simulés sont déjà créés à partir de ce modèle d’appareil :
-
-![Explorateur d’appareils](media/quick-deploy-iot-central/deviceexplorer.png)
-
-## <a name="view-the-device-template-and-devices"></a>Afficher le modèle d’appareil et les appareils
-
-Effectuez les étapes suivantes pour afficher un réfrigérateur qui a été créé à partir du modèle d’appareil **Machine de distribution réfrigérée**. Un modèle d’appareil définit :
-
-* Des _mesures_, telles que les données de télémétrie de température, envoyées à partir d’un appareil.
-* Des _paramètres_, telles que la vitesse du ventilateur, qui permettent de contrôler l’appareil.
-* Des _propriétés_, telles que le numéro de série, qui stockent des informations sur l’appareil.
-* Des [règles](howto-create-telemetry-rules.md) qui vous permettent d’automatiser des actions en fonction du comportement de l’appareil.
-* Un _tableau de bord_ personnalisable qui affiche des informations sur l’appareil.
-
-Vous pouvez créer des appareils simulés et réels à partir d’un modèle d’appareil.
-
-### <a name="measurements"></a>Mesures
-
-La page **Mesures** de l’appareil **Réfrigérateur 1** s’affiche. Vous pouvez consulter la liste des mesures envoyés à partir de l’appareil simulé. La page affiche également un graphique personnalisable de toutes les mesures visibles :
-
-![Page Mesures](media/quick-deploy-iot-central/measurements.png)
-
-Vous pouvez activer ou désactiver la visibilité des éléments individuels et personnaliser le graphique. Le graphique actuel montre la télémétrie d’un appareil simulé. Vous pouvez ajouter de nouvelles mesures au modèle d’appareil si vous disposez des autorisations appropriées.
-
-> [!NOTE]
-> Vous devrez peut-être attendre avant que les données simulées apparaissent sur le graphique.
-
-### <a name="settings"></a>Paramètres
-
-Choisissez **Paramètres**. Sur la page **Paramètres**, vous pouvez contrôler l’appareil. Par exemple, vous pouvez mettre à jour la vitesse du ventilateur sur le réfrigérateur :
-
-![Paramètres](media/quick-deploy-iot-central/settings.png)
-
-Un paramètre s’affiche comme étant **synchronisé** lorsqu’un appareil accuse réception de la modification.
-
-### <a name="properties"></a>properties
-
-Choisissez **Propriétés**. Sur la page **Propriétés**, vous pouvez :
-
-* Gérer les informations sur votre appareil, comme le nom du client.
-* Afficher les valeurs de propriété signalées par l’appareil, comme une alerte de mouvement.
-
-![properties](media/quick-deploy-iot-central/properties.png)
-
-### <a name="dashboard"></a>tableau de bord
-
-Choisissez **Tableau de bord**. Le tableau de bord est une vue personnalisée d’informations sur votre appareil, comme des mesures, propriétés et indicateurs de performance clés :
-
-![tableau de bord](media/quick-deploy-iot-central/dashboard.png)
-
-## <a name="view-analytics"></a>Afficher l’analyse
-
-La section précédente vous a montré comment afficher des informations sur un appareil individuel. Vous pouvez utiliser des [ensembles d’appareils](howto-use-device-sets.md) et une [analyse](howto-create-analytics.md) pour afficher des informations consolidées de plusieurs appareils.
-
-Un ensemble d’appareils utilise une requête pour sélectionner de manière dynamique un ensemble d’appareils qui correspondent à des critères. Par exemple, l’ensemble d’appareils **Machines à Seattle** sélectionne les réfrigérateurs dont l’emplacement est Seattle. Pour afficher l’ensemble d’appareils **Machines à Seattle**, choisissez **Device Sets** (Ensembles d’appareils) dans le menu de navigation gauche, puis **Machines à Seattle** :
-
-![Ensemble d’appareils Machines à Seattle](media/quick-deploy-iot-central/deviceset.png)
-
-Vous pouvez afficher les données d’analyse des appareils d’un ensemble d’appareils sur la page **Analyse** :
-
-![Analyse des machines à Seattle](media/quick-deploy-iot-central/analytics.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

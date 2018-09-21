@@ -4,22 +4,21 @@ description: Cette rubrique montre comment implémenter un scénario de basculem
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: fc45d849-eb0d-4739-ae91-0ff648113445
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 9ea18d4131705ac1e7ba12ed6af6d8202e766abd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783698"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124608"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implémentation d’un basculement de diffusion en continu avec Azure Media Services
 
@@ -51,13 +50,7 @@ Les considérations suivantes s'appliquent :
 * Les ressources de stockage chiffrées (AssetCreationOptions.StorageEncrypted) ne sont pas prises en charge pour la réplication (puisque la clé de chiffrement est différente dans les deux comptes Media Services). 
 * Si vous souhaitez tirer parti de l’empaquetage dynamique, assurez-vous que le point de terminaison de streaming à partir duquel vous souhaitez diffuser votre contenu se trouve à l’état **En cours d’exécution**.
 
-> [!NOTE]
-> Vous pouvez également utiliser l’ [outil de réplication](http://replicator.codeplex.com/) Media Services pour implémenter manuellement un scénario de basculement de diffusion en continu. Cet outil vous permet de répliquer des ressources entre deux comptes Media Services.
-> 
-> 
-
 ## <a name="prerequisites"></a>Prérequis
-
 * Deux comptes Media Services dans un abonnement Azure nouveau ou existant. Consultez [Comment créer un compte Media Services](media-services-portal-create-account.md).
 * Systèmes d’exploitation : Windows 7, Windows 2008 R2 ou Windows 8.
 * .NET Framework 4.5 ou .NET Framework 4.

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a428f76f1239e7e67b99d05b96d26abd601e89c6
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331518"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498689"
 ---
 # <a name="media-intelligence"></a>Intelligence multimédia
 
@@ -50,9 +50,9 @@ La sortie inclut un fichier JSON (insights.json) contenant tous les insights tro
 |NOM|Description|
 |---|---|
 |id|ID de la ligne.|
-|text|La transcription proprement dite.|
+|texte|La transcription proprement dite.|
 |Langage|La langue de la transcription. Permet de prendre en charge la transcription lorsque chaque ligne peut avoir une langue différente.|
-|instances|Liste des intervalles de temps pendant lesquels cette ligne est apparue. Si l’instance est une transcription, il n’y aura qu’1 seule instance.|
+|instances|Liste des intervalles de temps pendant lesquels cette ligne est apparue. Si l’instance est un attribut transcript, il n’y a qu’une seule instance.|
 
 Exemple :
 
@@ -88,7 +88,7 @@ Exemple :
 |NOM|Description|
 |---|---|
 |id|ID de la ligne ROC.|
-|text|Texte de l’OCR.|
+|texte|Texte de l’OCR.|
 |confidence|Degré de confiance de la reconnaissance.|
 |Langage|Langue de l’OCR.|
 |instances|Liste des intervalles de temps au cours desquels cette OCR est apparue (la même OCR peut apparaître plusieurs fois).|
@@ -126,54 +126,6 @@ Exemple :
   ],
 ```
 
-### <a name="keywords"></a>mots clés
-
-|NOM|Description|
-|---|---|
-|id|ID du mot clé.|
-|text|Texte du mot clé.|
-|confidence|Degré de confiance de la reconnaissance du mot clé.|
-|Langage|Langue du mot clé (si traduction).|
-|instances|Liste des intervalles de temps pendant lesquels ce mot clé est apparu (un mot clé peut apparaître plusieurs fois).|
-
-```json
-"keywords": [
-{
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
-}
-] 
-
-```
-
 ### <a name="faces"></a>visages
 
 |NOM|Description|
@@ -181,13 +133,13 @@ Exemple :
 |id|ID du visage.|
 |Nom|Nom du visage. Il peut avoir la valeur 'Unknown #0' ou il peut s’agit d’une célébrité identifiée ou une personne formée par le client.|
 |confidence|Degré de confiance de l’identification du visage.|
-|description|Dans le cas d’une célébrité, sa description. |
-|thumbnalId|ID de l’image miniature de ce visage.|
-|knownPersonId|Dans le cas d’une personne connue, son ID interne.|
-|referenceId|Dans le cas d’une célébrité Bing, son ID Bing.|
+|description|Description de la célébrité. |
+|thumbnalId|ID de la miniature de ce visage.|
+|knownPersonId|S’il s’agit d’une personne connue, c’est son ID interne.|
+|referenceId|Dans le cas d’une célébrité Bing, il s’agit de son ID Bing.|
 |referenceType|Bing uniquement (pour le moment).|
-|title|Dans le cas d’une célébrité, son titre (par exemple « PDG de Microsoft »).|
-|imageUrl|Dans le cas d’une célébrité, l’URL de l’image associée.|
+|title|Dans le cas d’une célébrité, il s’agit de son poste (par exemple « PDG de Microsoft »).|
+|imageUrl|Dans le cas d’une célébrité, il s’agit de l’URL de l’image associée.|
 |instances|Instances où la visage est apparu dans l’intervalle de temps donné. Chaque instance possède également un thumbnailsId. |
 
 ```json
@@ -217,6 +169,111 @@ Exemple :
         "end": "00:10:39.2390000"
     }]
 }]
+```
+
+### <a name="shots"></a>captures
+
+|NOM|Description|
+|---|---|
+|id|ID de la capture.|
+|keyFrames|Liste des images clés au sein de la capture (chacune possède un ID et une liste d’intervalles de temps d’instances). Les instances des images clés comptent un champ thumbnailId pourvu de l’ID de miniature de l’élément keyFrame.|
+|instances|Liste des intervalles de temps de cette capture (les captures n’ont qu’1 seule instance).|
+
+```json
+"Shots": [
+    {
+      "id": 0,
+      "keyFrames": [
+        {
+          "id": 0,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
+              "start": "00: 00: 00.1670000",
+              "end": "00: 00: 00.2000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
+          "start": "00: 00: 00.2000000",
+          "end": "00: 00: 05.0330000"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "keyFrames": [
+        {
+          "id": 1,
+          "instances": [
+            {
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
+              "start": "00: 00: 05.2670000",
+              "end": "00: 00: 05.3000000"
+            }
+          ]
+        }
+      ],
+      "instances": [
+        {
+      "thumbnailId": "00000000-0000-0000-0000-000000000000",
+          "start": "00: 00: 05.2670000",
+          "end": "00: 00: 10.3000000"
+        }
+      ]
+    }
+  ]
+```
+
+### <a name="statistics"></a>statistics
+
+|NOM|Description|
+|---|---|
+|CorrespondenceCount|Nombre de correspondances contenues dans la vidéo.|
+|WordCount|Nombre de mots par intervenant.|
+|SpeakerNumberOfFragments|Quantité de fragments de l’intervenant dans une vidéo.|
+|SpeakerLongestMonolog|Monologue le plus long de l’intervenant. Si le monologue de l’intervenant comporte des silences, ils sont inclus. Les silences du début et de la fin du monologue sont supprimés.| 
+|SpeakerTalkToListenRatio|Le calcul est basé sur le temps passé sur le monologue de l’intervenant (sans les silences intermédiaires) divisé par la durée totale de la vidéo. L’heure est arrondie à la troisième décimale.|
+
+
+### <a name="sentiments"></a>sentiments
+
+Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/négatif). Par exemple, 0-0.1, 0.1-0.2.
+
+|NOM|Description|
+|---|---|
+|id|ID du sentiment.|
+|averageScore |Moyenne de tous les résultats obtenus pour toutes les instances de ce type de sentiment : neutre/positif/négatif|
+|instances|Liste des intervalles de temps au cours desquels ce sentiment est apparu.|
+|sentimentType |Le type peut être « Positive », « Neutral » ou «Negative ».|
+
+```json
+"sentiments": [
+{
+    "id": 0,
+    "averageScore": 0.87,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:23",
+        "end": "00:00:41"
+    }
+    ]
+}, {
+    "id": 1,
+    "averageScore": 0.11,
+    "sentimentType": "Positive",
+    "instances": [
+    {
+        "start": "00:00:13",
+        "end": "00:00:21"
+    }
+    ]
+}
+]
 ```
 
 ### <a name="labels"></a>étiquettes
@@ -278,94 +335,92 @@ Exemple :
   ] 
 ```
 
-### <a name="shots"></a>captures
+### <a name="keywords"></a>mots clés
 
 |NOM|Description|
 |---|---|
-|id|ID de la capture.|
-|keyFrames|Liste des images clés au sein de la capture (chacune possède un ID et une liste d’intervalles de temps d’instances).|
-|instances|Liste des intervalles de temps de cette capture (les captures n’ont qu’1 seule instance).|
+|id|ID du mot clé.|
+|texte|Texte du mot clé.|
+|confidence|Degré de confiance de la reconnaissance du mot clé.|
+|Langage|Langue du mot clé (si traduction).|
+|instances|Liste des intervalles de temps pendant lesquels ce mot clé est apparu (un mot clé peut apparaître plusieurs fois).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
-```
-
-
-### <a name="sentiments"></a>sentiments
-
-Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/négatif). Par exemple, 0-0.1, 0.1-0.2.
-
-|NOM|Description|
-|---|---|
-|id|ID du sentiment.|
-|averageScore |Moyenne de tous les résultats obtenus pour toutes les instances de ce type de sentiment : neutre/positif/négatif|
-|instances|Liste des intervalles de temps au cours desquels ce sentiment est apparu.|
-
-```json
-"sentiments": [
+"keywords": [
 {
     "id": 0,
-    "averageScore": 0.87,
+    "text": "office",
+    "confidence": 1.6666666666666667,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:23",
-        "end": "00:00:41"
+        "start": "00:00:00.5100000",
+        "end": "00:00:02.7200000"
+    },
+    {
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
     }
     ]
-}, {
+},
+{
     "id": 1,
-    "averageScore": 0.11,
+    "text": "icons",
+    "confidence": 1.4,
+    "language": "en-US",
     "instances": [
     {
-        "start": "00:00:13",
-        "end": "00:00:21"
+        "start": "00:00:03.9600000",
+        "end": "00:00:12.2700000"
+    },
+    {
+        "start": "00:00:13.9900000",
+        "end": "00:00:15.6100000"
     }
     ]
 }
-]
+] 
 ```
 
+#### <a name="visualcontentmoderation"></a>visualContentModeration
+
+Le bloc visualContentModeration contient des intervalles de temps qui sont susceptibles de contenir des éléments pour adultes selon Video Indexer. Si ce bloc est vide, aucun contenu pour adultes n’a donc été identifié.
+
+Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants peuvent être disponibles pour un affichage privé uniquement. Les utilisateurs peuvent soumettre une demande de révision manuelle du contenu, auquel cas l’attribut IsAdult contient le résultat de la révision manuelle.
+
+|NOM|Description|
+|---|---|
+|id|ID de modération du contenu visuel.|
+|adultScore|Degré du contenu pour adultes (d’après Content Moderator).|
+|racyScore|Degré du contenu choquant (d’après Content Moderator).|
+|instances|Liste des intervalles de temps où cette modération du contenu visuel est affichée.|
+
+```json
+"VisualContentModeration": [
+{
+    "id": 0,
+    "adultScore": 0.00069,
+    "racyScore": 0.91129,
+    "instances": [
+    {
+        "start": "00:00:25.4840000",
+        "end": "00:00:25.5260000"
+    }
+    ]
+},
+{
+    "id": 1,
+    "adultScore": 0.99231,
+    "racyScore": 0.99912,
+    "instances": [
+    {
+        "start": "00:00:35.5360000",
+        "end": "00:00:35.5780000"
+    }
+    ]
+}
+] 
+```
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]

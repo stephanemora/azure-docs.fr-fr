@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: de3f23f58ef34bdd5f9769f820d64ed7e00ca7d8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702059"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715072"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Transferts, verrouillages et règlement des messages
 
@@ -62,7 +62,7 @@ for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Il est important de savoir que tous les modèles de programmation asynchrones utilisent une forme de file d’attente de travail masquée et basée sur la mémoire, qui contient les opérations en attente. Quand [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) ou **Send** (Java) retourne le résultat, le travail d’envoi est mis dans cette file d’attente de travail, mais le protocole commence son action uniquement quand c’est au tour de ce travail d’être exécuté. Si vous utilisez du code qui envoie (push) souvent des rafales de messages et pour lequel la fiabilité est un critère important, évitez de lancer l’envoi d’un trop grand nombre de messages à la fois, car tous les messages envoyés restent en mémoire jusqu’à ce qu’ils soient réellement mis sur le réseau.
@@ -79,7 +79,7 @@ for (int i = 0; i < 100; i++)
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Les applications ne doivent **jamais** démarrer une opération d’envoi asynchrone en mode « Fire and Forget » sans récupérer le résultat de l’opération. En effet, cela risque d’entraîner le chargement de la file d’attente de travail interne et masquée jusqu’à épuisement de la mémoire et d’empêcher l’application de détecter les erreurs d’envoi :

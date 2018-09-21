@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063540"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576468"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notes de publication pour Azure BizTalk Services
 
@@ -66,11 +66,11 @@ Vous « générez » la solution dans Visual Studio avec succès. Ensuite, vou
   Impossible de copier le fichier <Path to DLL> dans « bin\Debug\NomFichier.dll ». Le processus ne peut pas accéder au fichier « bin\Debug\FileName.dll », car il est utilisé par un autre processus.  
 
 #### <a name="workaround"></a>Solution de contournement
-* Si [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) est installé, vous disposez des deux options suivantes :
+* Si [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) est installé, vous disposez des deux options suivantes :
   
   * Redémarrer Visual Studio ou
   * Redémarrer la solution. Effectuez ensuite une seule compilation de la solution.  
-* Si [Visual Studio 2012 Update 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) n’est pas installé, ouvrez le Gestionnaire des tâches, cliquez sur l’onglet Processus et cliquez sur le processus MSBuild.exe, puis cliquez sur le bouton Terminer le processus.  
+* Si [Visual Studio 2012 Update 3](https://docs.microsoft.com/visualstudio/releasenotes/vs2012-update3-vs) n’est pas installé, ouvrez le Gestionnaire des tâches, cliquez sur l’onglet Processus et cliquez sur le processus MSBuild.exe, puis cliquez sur le bouton Terminer le processus.  
 
 ### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>L’acheminement vers les points de terminaison BasicHttpRelay n’est pas pris en charge à partir de ponts ou du portail BizTalk Services si les caractères non imprimables sont utilisés en tant qu’en-têtes HTTP
 Si vous utilisez des caractères non imprimables dans le cadre des propriétés promues des messages, ces messages ne peuvent pas être acheminés vers les destinations de relais qui utilisent la liaison BasicHttpRelay. En outre, les propriétés promues disponibles dans le cadre du suivi sont codées URL pour les objets blob et non codés pour les destinations.  

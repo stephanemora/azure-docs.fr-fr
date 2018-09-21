@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: ebe8745db06113d0508d86554bf031a4235c8e44
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045947"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577130"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article fournit des réponses aux questions fréquemment posées sur Azure Data Factory.  
@@ -82,7 +82,7 @@ Depuis la préversion publique initiale de 2017, les fonctionnalités suivantes 
 -   Azure SQL DB avec des points de terminaison de service de réseau virtuel
 -   Managed Instance (MI)
 -   Pool élastique
--   Prise en charge pour un réseau virtuel Azure Resource Manager sur un réseau virtuel classique qui sera dépréciée dans le futur : ceci vous permet d’injecter/joindre votre runtime d’intégration Azure-SSIS à un réseau virtuel qui est configuré pour Azure SQL DB avec des points de terminaison de service de réseau virtuel/MI/accès aux données locales. Consultez https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
+-   Prise en charge pour un réseau virtuel Azure Resource Manager sur un réseau virtuel classique qui sera dépréciée dans le futur : ceci vous permet d’injecter/joindre votre runtime d’intégration Azure-SSIS à un réseau virtuel qui est configuré pour Azure SQL DB avec des points de terminaison de service de réseau virtuel/MI/accès aux données locales. Consultez https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
 -   Prise en charge de l’authentification Azure Active Directory (AAD) sur l’authentification SQL pour se connecter à votre SSISDB : ceci vous permet d’utiliser l’authentification AAD avec votre identité de service géré d’Azure Data Factory
 -   Prise en charge de votre propre licence SQL Server locale pour réaliser des économies substantielles avec l’option Azure Hybrid Benefit
 -   Prise en charge de l’édition Entreprise du runtime d’intégration Azure-SSIS, qui vous permet d’utiliser des fonctionnalités avancées/Premium, un programme d’installation personnalisé pour installer des composants/extensions supplémentaires, et écosystème de tiers. Consultez https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
@@ -140,7 +140,7 @@ Un service lié est également un paramètre fortement typé qui contient des in
 Les flux de contrôle orchestrent des activités de pipeline telles que le chaînage des activités en une séquence, la création de branche, des paramètres que vous définissez au niveau du pipeline, et des arguments que vous transmettez lors de l’appel du pipeline à la demande ou à partir d’un déclencheur. Les flux de contrôle incluent également la transmission d’états personnalisés et le bouclage des conteneurs (autrement dit, des itérateurs for-each).
 
 
-Pour plus d’informations sur les concepts de Data Factory, consultez les articles suivants :
+Pour plus d’informations sur les concepts de Data Factory, consultez les articles suivants :
 
 - [Jeux de données et services liés](concepts-datasets-linked-services.md)
 - [Pipelines et activités](concepts-pipelines-activities.md)

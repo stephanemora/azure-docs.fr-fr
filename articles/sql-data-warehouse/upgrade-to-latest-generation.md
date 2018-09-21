@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306978"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580546"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimiser les performances en mettant à niveau SQL Data Warehouse
 Mettez à niveau Azure SQL Data Warehouse vers la dernière génération de l’architecture matérielle et de stockage Azure.
@@ -34,7 +34,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 > [!NOTE]
-> Si votre entrepôt de données de niveau Gen1 optimisé pour le calcul existant ne se trouve pas dans une région où le niveau Gen2 optimisé pour le calcul est disponible, vous pouvez effectuer une [géo-restauration](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) par le biais de PowerShell dans une région prise en charge.
+> Si votre entrepôt de données de niveau Gen1 optimisé pour le calcul existant ne se trouve pas dans une région où le niveau Gen2 optimisé pour le calcul est disponible, vous pouvez effectuer une [géo-restauration](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) par le biais de PowerShell dans une région prise en charge.
 > 
 >
 

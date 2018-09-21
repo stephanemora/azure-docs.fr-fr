@@ -15,18 +15,20 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: de1ba8b8560e65586ac59f9a04165a93492f3e05
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2acdc2cc7397e169a32a0257c0fc6020338c944f
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190805"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604482"
 ---
 # <a name="working-with-strings-in-log-analytics-queries"></a>Utilisation de chaînes dans des requêtes Log Analytics
 
 
 > [!NOTE]
 > Vous devez suivre [Bien démarrer avec le portail Analytics](get-started-analytics-portal.md) et [Bien démarrer avec les requêtes](get-started-queries.md) avant d’effectuer ce tutoriel.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Cet article décrit comment modifier et comparer des chaînes ainsi qu’effectuer des recherches et de nombreuses autres opérations sur celles-ci. 
 
@@ -36,13 +38,13 @@ Chaque caractère dans une chaîne a un numéro d’index, en fonction de son em
 ## <a name="strings-and-escaping-them"></a>Chaînes et échappement
 Les valeurs de chaîne sont entourées de guillemets simples ou doubles. La barre oblique inverse (\) est utilisée pour échapper les caractères vers le caractère suivant, comme \t pour la tabulation, \n pour le saut de ligne et \" pour le guillemet lui-même.
 
-```OQL
+```KQL
 print "this is a 'string' literal in double \" quotes"
 ```
 
 Pour empêcher « \\ » d’agir comme un caractère d’échappement, ajoutez « @ » en tant que préfixe à la chaîne :
 
-```OQL
+```KQL
 print @"C:\backslash\not\escaped\with @ prefix"
 ```
 
@@ -106,7 +108,7 @@ Le nombre de fois où la chaîne de recherche peut être mise en correspondance 
 
 #### <a name="plain-string-matches"></a>Correspondances de chaînes simples
 
-```OQL
+```KQL
 print countof("The cat sat on the mat", "at");  //result: 3
 print countof("aaa", "a");  //result: 3
 print countof("aaaa", "aa");  //result: 3 (not 2!)
@@ -116,7 +118,7 @@ print countof("ababa", "aba");  //result: 2
 
 #### <a name="regex-matches"></a>Correspondances d’expression régulière
 
-```OQL
+```KQL
 print countof("The cat sat on the mat", @"\b.at\b", "regex");  //result: 3
 print countof("ababa", "aba", "regex");  //result: 1
 print countof("abcabc", "a.c", "regex");  // result: 2
@@ -129,7 +131,7 @@ Obtient une correspondance pour une expression régulière à partir d’une cha
 
 ### <a name="syntax"></a>Syntaxe
 
-```OQL
+```KQL
 extract(regex, captureGroup, text [, typeLiteral])
 ```
 
@@ -147,7 +149,7 @@ Si aucune correspondance n’est trouvée ou si la conversion de type échoue, l
 ### <a name="examples"></a>Exemples
 
 L’exemple suivant extrait le dernier octet de *ComputerIP* à partir d’un enregistrement de pulsation :
-```OQL
+```KQL
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -155,7 +157,7 @@ Heartbeat
 ```
 
 L’exemple suivant extrait le dernier octet, le caste en type *real* (nombre) et calcule la valeur d’adresse IP suivante
-```OQL
+```KQL
 Heartbeat
 | where ComputerIP != "" 
 | take 1
@@ -165,7 +167,7 @@ Heartbeat
 ```
 
 Dans l’exemple ci-dessous, une définition de « Duration » est recherchée dans la chaîne *Trace*. La correspondance est castée en *real* et multipliée par une constante de temps (1 s) *qui caste Duration en type timespan*.
-```OQL
+```KQL
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567
 print Duration_seconds =  extract("Duration=([0-9.]+)", 1, Trace, typeof(real)) * time(1s);  //result: 00:09:27
@@ -186,7 +188,7 @@ isnotempty(value)
 
 ### <a name="examples"></a>Exemples
 
-```OQL
+```KQL
 print isempty("");  // result: true
 
 print isempty("0");  // result: false
@@ -211,7 +213,7 @@ parseurl(urlstring)
 
 ### <a name="examples"></a>Exemples
 
-```OQL
+```KQL
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
 ```
 
@@ -251,7 +253,7 @@ Texte après le remplacement de toutes les correspondances de l’expression ré
 
 ### <a name="examples"></a>Exemples
 
-```OQL
+```KQL
 SecurityEvent
 | take 1
 | project Activity 
@@ -282,7 +284,7 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="examples"></a>Exemples
 
-```OQL
+```KQL
 print split("aaa_bbb_ccc", "_");    // result: ["aaa","bbb","ccc"]
 print split("aa_bb", "_");          // result: ["aa","bb"]
 print split("aaa_bbb_ccc", "_", 1); // result: ["bbb"]
@@ -301,7 +303,7 @@ strcat("string1", "string2", "string3")
 ```
 
 ### <a name="examples"></a>Exemples
-```OQL
+```KQL
 print strcat("hello", " ", "world") // result: "hello world"
 ```
 
@@ -316,7 +318,7 @@ strlen("text_to_evaluate")
 ```
 
 ### <a name="examples"></a>Exemples
-```OQL
+```KQL
 print strlen("hello")   // result: 5
 ```
 
@@ -337,7 +339,7 @@ substring(source, startingIndex [, length])
 - `length` - Paramètre facultatif qui permet de spécifier la longueur demandée de la sous-chaîne retournée.
 
 ### <a name="examples"></a>Exemples
-```OQL
+```KQL
 print substring("abcdefg", 1, 2);   // result: "bc"
 print substring("123456", 1);       // result: "23456"
 print substring("123456", 2, 2);    // result: "34"
@@ -356,7 +358,7 @@ toupper("value")
 ```
 
 ### <a name="examples"></a>Exemples
-```OQL
+```KQL
 print tolower("HELLO"); // result: "hello"
 print toupper("hello"); // result: "HELLO"
 ```

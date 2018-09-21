@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2018
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: d64830d8664ab65bbd9dbe3bc40eb997007d8910
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 77b1de3a9def525fbffb2a0ae49bbcbaea835c58
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267235"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35769888"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Paramètres de pare-feu ou VPN tiers suggérés par la communauté pour la passerelle VPN Azure
 
@@ -46,7 +46,7 @@ Le tableau suivant répertorie plusieurs périphériques courants et l’aide as
 |Palo       |[Solutions suggérées par la communauté pour Palo sur Azure VPN](https://live.paloaltonetworks.com/t5/forums/searchpage/tab/message?q=Azure+VPN)        |
 |Watchguard |[Solutions suggérées par la communauté pour Watchguard sur Azure VPN](http://watchguardsupport.force.com/SupportSearch#q=Azure%20VPN&t=All&sort=relevancy)  |
 
-## <a name="next-step"></a>Étapes suivantes
+## <a name="next-step"></a>Étape suivante
 
 [Paramètres de passerelle Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#a-nameipsecaipsecike-parameters)
 
