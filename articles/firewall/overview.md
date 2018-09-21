@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 7/16/2018
 ms.author: victorh
-ms.openlocfilehash: 3657b619dc57b994158c711c46d4db6924aa2930
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5e8048dc6b49a0f6c9a465e82a7278e491351034
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089819"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574128"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -61,14 +61,14 @@ Les problèmes connus de la préversion publique du service Pare-feu Azure sont 
 |---------|---------|---------|
 |Interopérabilité avec les groupes NSG     |Si un groupe de sécurité réseau (NSG) est appliqué sur le sous-réseau du pare-feu, il peut bloquer la connectivité Internet sortante, même si le groupe NSG est configuré pour autoriser un accès Internet sortant. Les connexions Internet sortantes sont marquées comme provenant d’un réseau virtuel, et la destination est Internet. Un groupe de sécurité réseau a un accès de type *autoriser* de réseau virtuel à réseau virtuel par défaut, mais pas si la destination est Internet.|Pour atténuer le problème, ajoutez la règle de trafic entrant suivante au groupe NSG qui est appliqué sur le sous-réseau du pare-feu :<br><br>Source : réseau virtuel Ports source : n’importe lequel <br><br>Destination : n’importe laquelle Ports de Destination : n’importe lequel <br><br>Protocole : tous Accès : autoriser|
 |Conflit avec la fonctionnalité JIT d’Azure Security Center (ASC)|Si une machine virtuelle est accessible à l’aide de la fonctionnalité juste-à-temps (JIT) et se trouve dans un sous-réseau dont l’itinéraire défini par l’utilisateur pointe vers le service Pare-feu d’Azure en tant que passerelle par défaut, la fonctionnalité JIT d’ASC ne fonctionne pas. Il s’agit du résultat d’un routage asymétrique : un paquet entre via l’adresse IP publique de la machine virtuelle (JIT a ouvert l’accès), mais le chemin d’accès de retour passe via le pare-feu, ce qui supprime le paquet, car aucune session n’est établie sur le pare-feu.|Pour contourner ce problème, placez les machines virtuelles JIT sur un sous-réseau distinct dépourvu d’itinéraire défini par l’utilisateur vers le pare-feu.|
-|Le modèle Hub-and-Spoke ne fonctionne pas avec Peering mondial|Le modèle Hub-and-Spoke n’est pas pris en charge. Il s’agit du modèle où le hub et le pare-feu sont déployés dans une région Azure, tandis que les rayons le sont dans une autre région Azure et sont connectés au hub via Global VNet Peering.|Pour plus d’informations, consultez [Créer, modifier ou supprimer une homologation de réseau virtuel](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints).|
-Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exemple ICMP) ne fonctionnent pas pour le trafic lié à Internet.|Les règles de filtrage réseau pour les protocoles autres que TCP/UDP ne fonctionnent pas avec SNAT pour votre adresse IP publique. Les protocoles autres que TCP/UDP sont pris en charge entre les sous-réseaux du rayon et les réseaux virtuels.|Le service Pare-feu Azure utilise Standard Load Balancer, [qui ne prend pas en charge SNAT pour les protocoles IP pour le moment](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-standard-overview#limitations). Nous étudions les possibilités de prendre en charge ce scénario dans une prochaine version.
+|Le modèle Hub-and-Spoke ne fonctionne pas avec Peering mondial|Le modèle Hub-and-Spoke n’est pas pris en charge. Il s’agit du modèle où le hub et le pare-feu sont déployés dans une région Azure, tandis que les rayons le sont dans une autre région Azure et sont connectés au hub via Global VNet Peering.|Pour plus d’informations, consultez [Créer, modifier ou supprimer une homologation de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints).|
+Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exemple ICMP) ne fonctionnent pas pour le trafic lié à Internet.|Les règles de filtrage réseau pour les protocoles autres que TCP/UDP ne fonctionnent pas avec SNAT pour votre adresse IP publique. Les protocoles autres que TCP/UDP sont pris en charge entre les sous-réseaux du rayon et les réseaux virtuels.|Le service Pare-feu Azure utilise Standard Load Balancer, [qui ne prend pas en charge SNAT pour les protocoles IP pour le moment](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Nous étudions les possibilités de prendre en charge ce scénario dans une prochaine version.
 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Didacticiel : Déployer et configurer Pare-feu Azure à l’aide du portail Azure](tutorial-firewall-deploy-portal.md)
+- [Tutoriel : Déployer et configurer Pare-feu Azure avec le portail Azure](tutorial-firewall-deploy-portal.md)
 - [Déployer Pare-feu Azure à l’aide d’un modèle](deploy-template.md)
 - [Créer un environnement de test pour Pare-feu Azure](scripts/sample-create-firewall-test.md)
 

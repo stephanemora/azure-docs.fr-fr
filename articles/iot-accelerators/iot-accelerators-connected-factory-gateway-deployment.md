@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3a68a4a132302051b04b69cc794f5327a82f7639
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626902"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604049"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Déployer une passerelle de périmètre pour l’accélérateur de solution d’usine connectée sur Windows ou Linux
 
@@ -93,13 +93,13 @@ Avant d’installer les composants OPC, effectuez les étapes suivantes pour pr�
 Pour exécuter l’Éditeur d’OPC, exécutez la commande suivante depuis une invite de commandes :
 
 ```cmd/sh
-docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/corefx/cryptography/x509stores --network iot_edge --name publisher -h publisher -p 62222:62222 --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-publisher:2.1.3 publisher "<IoTHubOwnerConnectionString>" --lf /docker/publisher.log.txt --as true --si 1 --ms 0 --tm true --vc true --di 30
+docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/corefx/cryptography/x509stores --network iot_edge --name publisher -h publisher -p 62222:62222 --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-publisher:2.1.4 publisher "<IoTHubOwnerConnectionString>" --lf /docker/publisher.log.txt --as true --si 1 --ms 0 --tm true --vc true --di 30
 ```
 
 - Le [dépôt GitHub de l’Éditeur d’OPC](https://github.com/Azure/iot-edge-opc-publisher) et le [guide de référence sur la commande docker run](https://docs.docker.com/engine/reference/run/) fournissent plus d’informations sur les éléments suivants :
 
-  - Les options de ligne de commande Docker spécifiées avant le nom du conteneur (`microsoft/iot-edge-opc-publisher:2.1.3`)
-  - La signification des paramètres de ligne de commande de l’Éditeur d’OPC spécifiés après le nom du conteneur (`microsoft/iot-edge-opc-publisher:2.1.3`)
+  - Les options de ligne de commande Docker spécifiées avant le nom du conteneur (`microsoft/iot-edge-opc-publisher:2.1.4`)
+  - La signification des paramètres de ligne de commande de l’Éditeur d’OPC spécifiés après le nom du conteneur (`microsoft/iot-edge-opc-publisher:2.1.4`)
 
 - `<IoTHubOwnerConnectionString>` est la chaîne de connexion **iothubowner** de stratégie d’accès partagé à partir du portail Azure. Vous avez copié cette chaîne de connexion à l’étape précédente. Vous n’avez besoin de cette chaîne de connexion que pour la première exécution de l’Éditeur d’OPC. Pour les exécutions suivantes, vous devez l’omettre, car elle présente un risque de sécurité.
 
@@ -123,7 +123,7 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 Pour exécuter le Proxy OPC, exécutez la commande suivante depuis une invite de commandes :
 
 ```cmd/sh
-docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.4 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db
 ```
 
 Vous ne devez exécuter l’installation qu’une seule fois sur un système.
@@ -131,7 +131,7 @@ Vous ne devez exécuter l’installation qu’une seule fois sur un système.
 Utilisez la commande suivante pour exécuter le Proxy OPC :
 
 ```cmd/sh
-docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.2 -D /mapped/cs.db
+docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.4 -D /mapped/cs.db
 ```
 
 Le Proxy OPC enregistre la chaîne de connexion pendant l’installation. Pour les exécutions suivantes, vous devez omettre la chaîne de connexion, car elle présente un risque de sécurité.

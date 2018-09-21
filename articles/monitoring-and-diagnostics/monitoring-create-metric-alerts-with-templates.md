@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 7289259214f90507c5b9cf527f19f0cf7026798c
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: be0ec31a05c0c1454e1af58b4a9c4ca959acbecf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391451"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577121"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Créer une alerte de mesure avec un modèle Resource Manager
 Cet article explique comment vous pouvez utiliser un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour configurer les [alertes de métriques plus récentes](monitoring-near-real-time-metric-alerts.md) dans Azure Monitor. Les modèles Resource Manager vous permettent de configurer des alertes par programmation de manière cohérente et reproductible dans vos environnements. Les alertes de métrique plus récentes sont disponibles pour [cet ensemble de types de ressources](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
@@ -184,7 +184,7 @@ Enregistrez le code JSON ci-après sous le nom simplemetricalert.json pour les b
 }
 ```
 
-Une explication du schéma et des propriétés pour une règle d’alerte [est disponible ici](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate).
+Une explication du schéma et des propriétés pour une règle d’alerte [est disponible ici](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 
 Vous pouvez définir les valeurs des paramètres sur la ligne de commande ou par le biais d’un fichier de paramètres. Vous trouverez ci-après un exemple de fichier de paramètres. 
 

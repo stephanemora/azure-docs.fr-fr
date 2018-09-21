@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c805416b71e7cdb7ce3cdef84baf1167694eda12
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2a90e70a9e7951b298be408992ee5e5fc6332131
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703363"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729315"
 ---
 # <a name="integrate-azure-ad-logs-with-sumologic-by-using-azure-monitor-preview"></a>Intégrer des journaux Azure AD avec SumoLogic à l’aide d’Azure Monitor (préversion)
 
@@ -45,4 +45,4 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 * [Interpréter le schéma des journaux d’audit dans Azure Monitor](reference-azure-monitor-audit-log-schema.md)
 * [Interpréter le schéma des journaux de connexion dans Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Questions fréquentes et problèmes connus](overview-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Questions fréquentes et problèmes connus](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: barbkess
-ms.openlocfilehash: d39df136c6c81e380ccbe7fa2c050d906dc4c182
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: cec1b3089403966cbf738b372a4380bdacf264b7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367043"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718276"
 ---
 # <a name="managing-access-to-apps"></a>Gestion de l’accès aux applications
 La gestion de l’accès, l’évaluation de l’utilisation et la création de rapports en continu demeurent un défi quand une application vient d’être intégrée au système d’identité de votre organisation. Dans de nombreux cas, les administrateurs informatiques ou le support technique doivent en permanence jouer un rôle actif dans la gestion de l’accès à vos applications. Parfois, l’affectation est effectuée par une équipe informatique générale ou rattachée à une division. Souvent, il revient au décideur d’entreprise de décider d’une affectation, que l’équipe informatique ne pourra mettre en œuvre qu’avec son approbation.  D’autres organisations investissent dans l’intégration à un système automatisé de gestion des identités et des accès, tel que le contrôle d’accès en fonction du rôle (RBAC) ou le contrôle d’accès en fonction de l’attribut (ABAC). L’intégration et le développement de règles ont tous deux tendance à être spécialisés et coûteux. Quelle que soit la méthode de gestion, l’analyse ou la création de rapports suppose un investissement distinct, coûteux et complexe.
@@ -54,7 +54,5 @@ Dans ce cas, tous les utilisateurs affectés sont automatiquement approvisionné
 Les administrateurs peuvent utiliser l’ [accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md) pour définir des stratégies d’accès pour des rôles spécifiques. Ces stratégies peuvent indiquer si l’accès est autorisé en dehors de l’environnement de l’entreprise, et même inclure des exigences Multi-Factor Authentication ou liées aux appareils déterminant l’octroi de l’accès dans divers cas.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](../active-directory-apps-index.md)
 * [Protection des applications avec accès conditionnel](../active-directory-conditional-access-azure-portal.md)
 * [Gestion des groupes en libre service/accès aux applications en libre-service](../users-groups-roles/groups-self-service-management.md)

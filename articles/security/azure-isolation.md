@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018409"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579838"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 ##  <a name="introduction"></a>Introduction
@@ -127,7 +127,7 @@ Si un lecteur de disque utilisé pour le stockage rencontre une défaillance mat
 Microsoft Azure propose divers services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise. Ces services et instances de calcul offrent une isolation à plusieurs niveaux pour sécuriser les données sans compromettre la flexibilité de la configuration exigée par les clients.
 
 ### <a name="isolated-virtual-machine-sizes"></a>Tailles de machine virtuelle isolées
-Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client.  Ces tailles de machines virtuelles conviennent mieux aux charges de travail qui nécessitent un niveau élevé d’isolation par rapport aux autres clients pour les charges de travail qui impliquent des éléments tels que les exigences réglementaires et de conformité.  Les clients peuvent également choisir de subdiviser les ressources de ces machines virtuelles isolées à l’aide de la [prise en charge d’Azure pour les machines virtuelles imbriquées](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/).
+Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client.  Ces tailles de machines virtuelles conviennent mieux aux charges de travail qui nécessitent un niveau élevé d’isolation par rapport aux autres clients pour les charges de travail qui impliquent des éléments tels que les exigences réglementaires et de conformité.  Les clients peuvent également choisir de subdiviser les ressources de ces machines virtuelles isolées à l’aide de la [prise en charge d’Azure pour les machines virtuelles imbriquées](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
 L’utilisation d’une taille isolée garantit que votre machine virtuelle sera la seule en cours d’exécution sur cette instance de serveur spécifique.  Les offres actuelles de machines virtuelles isolées sont les suivantes :
 * Standard_E64is_v3
@@ -138,7 +138,7 @@ L’utilisation d’une taille isolée garantit que votre machine virtuelle sera
 * Standard_DS15_v2
 * Standard_D15_v2
 
-Plus d’informations sur chaque taille isolée disponible, consultez [ce lien](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory).
+Plus d’informations sur chaque taille isolée disponible, consultez [ce lien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Isolation de systèmes d’exploitation racine et Hyper-V entre des machines virtuelles racine et des machines virtuelles invitées
 La plateforme de calcul Azure repose sur la virtualisation des machines, ce qui signifie que tout le code client s’exécute dans une machine virtuelle Hyper-V. Sur chaque nœud Azure (ou point de terminaison réseau), il existe un hyperviseur qui s’exécute directement sur le matériel et divise un nœud en un nombre variable de machines virtuelles invitées.

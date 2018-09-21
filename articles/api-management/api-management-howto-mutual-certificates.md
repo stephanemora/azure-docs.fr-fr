@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 2b0db6f9a1e9cd660ce1b1e7af3e7e1c85815c16
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5983e6236d1aee80b2cc5b83b65dd2f7945039a1
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045246"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579959"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Comment sécuriser les services principaux à l'aide d'une authentification par certificat client dans la Gestion des API Azure
 
 Le service Gestion des API permet de sécuriser l’accès au service principal d’une API en utilisant des certificats clients. Ce guide montre comment gérer les certificats de l’instance de service Gestion des API Azure dans le Portail Azure. Il explique également comment configurer une API pour utiliser un certificat et ainsi accéder à un service principal.
 
-Pour en savoir plus sur la gestion des certificats à l’aide de l’API REST de gestion des API, consultez <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Entité de certificat API REST de gestion des API Azure</a>.
+Pour en savoir plus sur la gestion des certificats à l’aide de l’API REST de gestion des API, consultez <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Entité de certificat API REST de gestion des API Azure</a>.
 
 ## <a name="prerequisites"> </a>Prérequis
 

@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3b4c9de16c7248cbd3087689544d70fe22c858fd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140488"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296411"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configuration d’un accès conditionnel en local à l’aide du service Azure Active Directory Device Registration
 Quand vous demandez aux utilisateurs de joindre leurs appareils à l’espace de travail du service Azure Active Directory Device Registration, leurs appareils peuvent être marqués comme étant connus de votre organisation. Vous trouverez ci-dessous un guide pas à pas visant à activer l’accès conditionnel pour des applications locales à l’aide des services de fédération Active Directory (AD FS) dans Windows Server 2012 R2.
@@ -88,7 +88,7 @@ Suivez les étapes de la liste de vérification pour activer et configurer le se
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>3ème partie : Activer l'écriture différée des appareils dans Azure AD
 | Tâche | Informations de référence |
 | --- | --- |
-| Terminez la 2ème partie de l’activation de l’écriture différée des appareils dans Azure AD Connect. Une fois cette tâche terminée, revenez à ce guide. |[Activation de l’écriture différée des appareils dans Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
+| Terminez la 2ème partie de l’activation de l’écriture différée des appareils dans Azure AD Connect. Une fois cette tâche terminée, revenez à ce guide. |[Activation de l’écriture différée des appareils dans Azure AD Connect](hybrid/how-to-connect-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Facultatif] 4ème partie : Activer l’authentification multifacteur
 Nous vous recommandons vivement de configurer l’une des différentes options d’authentification multifacteur. Si vous voulez imposer l’authentification multifacteur, consultez [Choisissez la solution de sécurité Azure Multi-Factor Authentication qui vous convient](authentication/concept-mfa-whichversion.md). Cette rubrique inclut une description de chaque solution et des liens pour vous aider à configurer la solution de votre choix.
@@ -107,9 +107,9 @@ Le déploiement est maintenant terminé ; vous pouvez tester certains scénario
 
 **Consultez les pages suivantes :**
 
-- [Intégrer des répertoires locaux à Azure Active Directory](./connect/active-directory-aadconnect.md) (informations conceptuelles).
+- [Intégrer des répertoires locaux à Azure Active Directory](hybrid/whatis-hybrid-identity.md) (informations conceptuelles).
 
-- [Installation personnalisée d’Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) (instructions d’installation).
+- [Installation personnalisée d’Azure AD Connect](hybrid/how-to-connect-install-custom.md) (instructions d’installation).
 
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Mettre à niveau le schéma des services de domaine Active Directory

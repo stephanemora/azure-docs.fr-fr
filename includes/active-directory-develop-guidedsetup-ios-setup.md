@@ -1,3 +1,27 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 4ed4f7e15a21e1565031994bd377c15aebd535bc
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466142"
+---
 ## <a name="setting-up-your-ios-application"></a>Configuration de votre application iOS
 
 Cette section fournit des instructions détaillées sur la façon de créer un projet pour illustrer comment intégrer une application iOS (Swift) avec l’option *Se connecter avec Microsoft* pour pouvoir interroger des API web qui nécessitent un jeton.

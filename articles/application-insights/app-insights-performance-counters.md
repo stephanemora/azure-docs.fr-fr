@@ -1,8 +1,8 @@
 ---
-title: "Compteurs de performances dans Application Insights | Microsoft Docs"
-description: "Surveillez les compteurs de performances système et .NET personnalisés dans Application Insights."
+title: Compteurs de performances dans Application Insights | Microsoft Docs
+description: Surveillez les compteurs de performances système et .NET personnalisés dans Application Insights.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: 40821d32c5bdfe51bb3cb205660d6f25b2c3fadc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 7ac0a5c00e0badf8882010ae0643f8ead98b56e0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35636756"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 Windows offre un large éventail de [compteurs de performance](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) tels que le niveau d’occupation du processeur, la mémoire, le disque et l’utilisation du réseau. Vous pouvez également définir les vôtres. [Application Insights](app-insights-overview.md) peut afficher ces compteurs de performance si votre application est exécutée sous IIS sur un hôte ou une machine virtuelle local sur lequel vous disposez d’un accès administratif. Les graphiques indiquent les ressources disponibles pour votre application active, et peuvent vous aider à identifier l’équilibrage de charge entre les instances de serveur.

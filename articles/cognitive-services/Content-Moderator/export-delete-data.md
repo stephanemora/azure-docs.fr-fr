@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1dbb645a033c6db5ffa9003a53f30fd927131298
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb496837560fe28f1a2e53d8c4ca67e23ada8f64
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370504"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576797"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>Exporter ou supprimer vos données dans Content Moderator
 
-Content Moderator collecte des données utilisateur pour faire fonctionner le service, mais les clients contrôlent totalement l’affichage, l’exportation et la suppression des données à l’aide de la [l’interface utilisateur de révision](http://contentmoderator.cognitive.microsoft.com/) et des [API](https://docs.microsoft.com/en-us/azure/cognitive-services/content-moderator/api-reference).
+Content Moderator collecte des données utilisateur pour faire fonctionner le service, mais les clients contrôlent totalement l’affichage, l’exportation et la suppression des données à l’aide de la [l’interface utilisateur de révision](http://contentmoderator.cognitive.microsoft.com/) et des [API](https://docs.microsoft.com/azure/cognitive-services/content-moderator/api-reference).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 65bcb92b8e97b09ca961aa02cd5891419c2cddb2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295254"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580648"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Générer et déployer des modèles de détection d’objet avec Azure Machine Learning
 
@@ -126,7 +126,7 @@ _ = data_train.images[2].visualize_bounding_boxes(image_size = (10,10))
 
 ## <a name="define-a-model"></a>Définir un modèle
 
-Dans cet exemple, le modèle R-CNN plus rapide est utilisé. Différents paramètres peuvent être fournis lors de la définition de ce modèle. La signification de ces paramètres, ainsi que les paramètres utilisés pour l’apprentissage (voir la section suivante) sont accessibles dans la documentation de l’API CVTK ou sur le [site web de détection d’objet Tensorflow](https://github.com/tensorflow/models/tree/master/research/object_detection). Vous trouverez plus d’informations sur le modèle R-CNN plus rapide avec [ce lien](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Ce modèle est basé sur R-CNN rapide et plus d’informations sont accessibles [ici](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
+Dans cet exemple, le modèle R-CNN plus rapide est utilisé. Différents paramètres peuvent être fournis lors de la définition de ce modèle. La signification de ces paramètres, ainsi que les paramètres utilisés pour l’apprentissage (voir la section suivante) sont accessibles dans la documentation de l’API CVTK ou sur le [site web de détection d’objet Tensorflow](https://github.com/tensorflow/models/tree/master/research/object_detection). Vous trouverez plus d’informations sur le modèle R-CNN plus rapide avec [ce lien](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Ce modèle est basé sur R-CNN rapide et plus d’informations sont accessibles [ici](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
 
 
 ```python
@@ -143,10 +143,10 @@ Le modèle R-CNN plus rapide formé avec COCO avec ResNet50 est utilisé comme p
 
 Pour former le détecteur, le nombre d’étapes d’apprentissage dans le code est défini sur 350, afin que l’apprentissage s’exécute plus rapidement (~5 minutes avec une GPU). Dans la pratique, affectez-lui une valeur égale à au moins 10 fois le nombre d’images dans le jeu d’apprentissage.
 
-Dans cet exemple, le nombre d’étapes d’apprentissage du détecteur est défini sur 350 pour un apprentissage rapide. Toutefois, dans la pratique, une règle empirique consiste à définir les étapes égale à au moins 10 fois le nombre d’images dans le jeu d’apprentissage.
+Dans cet exemple, le nombre d’étapes d’apprentissage du détecteur est défini sur 350 pour un apprentissage rapide. Toutefois, dans la pratique, une règle empirique consiste à définir les étapes à une valeur égale à au moins 10 fois le nombre d’images dans le jeu d’apprentissage.
 
 Deux paramètres clés pour l’apprentissage sont :
-- Nombre d’étapes pour former le modèle, représenté par l’argument num_seps. Chaque étape effectue l’apprentissage du modèle avec un minilot de taille de lot une.
+- Nombre d’étapes pour former le modèle, représenté par l’argument num_seps. Chaque étape effectue l’apprentissage du modèle avec un mini-lot d'un lot taille un.
 - Taux d’apprentissage, qui peut être défini avec initial_learning_rate
 
 ```python
@@ -374,7 +374,7 @@ Dès que votre modèle est formé, vous pouvez le déployer comme service web po
 + Pour afficher le compte de gestion des modèles actif, utilisez la commande :
   <br>`az ml account modelmanagement show`
 
-**Créer et configurer votre environnement de déploiement de cluster**
+**Création et configuration de votre environnement de déploiement de cluster**
 
 Vous n’avez besoin de configurer votre environnement de déploiement qu’une seule fois. Si vous n’en possédez pas déjà un, configurez votre environnement de déploiement maintenant en suivant [ces instructions](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
 

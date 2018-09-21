@@ -7,17 +7,17 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: ff80130ebb9c4095d4a20202cdfabd9aaf1b1992
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d9fee56d7748cdfd34f982fe79467f7d61c54926
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832004"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632263"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Informations de référence sur l’API de collecte de données de modèle Azure Machine Learning
 

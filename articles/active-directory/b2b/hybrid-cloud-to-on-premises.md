@@ -4,18 +4,18 @@ description: Montre comment accorder aux utilisateurs B2B cloud L4ACC7S AUX appl
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346336"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297212"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Accorder aux utilisateurs B2B dans Azure AD l’accès à vos applications locales
 
@@ -63,7 +63,7 @@ Le diagramme suivant fournit une vue d’ensemble globale du Proxy d’applicati
 Vous pouvez gérer les objets utilisateur B2B locaux par le biais de stratégies de gestion du cycle de vie. Par exemple : 
 
 - Vous pouvez définir des stratégies d’authentification multifacteur (MFA) pour l’utilisateur invité afin que l’authentification multifacteur soit utilisée lors de l’authentification du Proxy d’application. Pour plus d’informations, consultez la page [Accès conditionnel pour les utilisateurs B2B Collaboration](conditional-access.md).
-- Les parrainages, révisions d’accès, vérifications de compte, etc. effectués pour l’utilisateur B2B cloud s’appliquent aux utilisateurs locaux. Par exemple, si l’utilisateur cloud est supprimé via vos stratégies de gestion du cycle de vie, l’utilisateur local est également supprimé par la synchronisation MIM ou via la synchronisation Azure AD Connect. Pour plus d’informations, consultez [Gérer l’accès invité avec les révisions d’accès Azure AD](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md).
+- Les parrainages, révisions d’accès, vérifications de compte, etc. effectués pour l’utilisateur B2B cloud s’appliquent aux utilisateurs locaux. Par exemple, si l’utilisateur cloud est supprimé via vos stratégies de gestion du cycle de vie, l’utilisateur local est également supprimé par la synchronisation MIM ou via la synchronisation Azure AD Connect. Pour plus d’informations, consultez [Gérer l’accès invité avec les révisions d’accès Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>Créer des objets utilisateur invité B2B via MIM (préversion)
 
@@ -85,5 +85,5 @@ Assurez-vous que vous disposez des licences d’accès client (CAL) appropriées
 
 - [Azure Active Directory B2B Collaboration pour les organisations hybrides](hybrid-organizations.md)
 
-- Pour obtenir une vue d’ensemble d’Azure AD Connect, consultez [Intégrer des répertoires locaux à Azure Active Directory](../connect/active-directory-aadconnect.md).
+- Pour obtenir une vue d’ensemble d’Azure AD Connect, consultez [Intégrer des répertoires locaux à Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

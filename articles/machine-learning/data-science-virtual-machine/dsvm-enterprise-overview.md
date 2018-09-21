@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 8486b0be1fb5e1385da3c7ad55f6410a1059df93
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: ea8d53ee71e9272167a045e2ea1780828f974d30
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309246"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573589"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Environnement analytique d’équipe et d’intelligence artificielle basé sur Data Science Virtual Machine 
 La machine virtuelle [Data Science Virtual Machine](overview.md) (DSVM) fournit un environnement riche dans la plateforme Azure avec des logiciels prédéfinis pour l’intelligence artificielle (AI) et l’analytique données. 
@@ -51,4 +51,4 @@ Cette série d’articles contient des conseils et des pointeurs qui couvrent ch
 * [Chiffrement](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Découverte et gouvernance des données](https://docs.microsoft.com/azure/data-catalog/)
 
-Le [Centre des architectures Azure](https://docs.microsoft.com/en-us/azure/architecture/) fournit une architecture de bout en bout et des modèles détaillés pour la création et la gestion de votre infrastructure d’analyse basée sur le cloud. 
+Le [Centre des architectures Azure](https://docs.microsoft.com/azure/architecture/) fournit une architecture de bout en bout et des modèles détaillés pour la création et la gestion de votre infrastructure d’analyse basée sur le cloud. 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 4467c193b5ff70a304b4ec5f632276ca14551b08
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d30d164a3e2896b1a300bf665ca09f57ce97fdf3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501989"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295867"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Services de domaine Azure Active Directory (AD)
 ## <a name="overview"></a>Vue d’ensemble
@@ -65,7 +65,7 @@ Voici quelques aspects fondamentaux du domaine géré configuré par les service
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Services de domaine Azure AD pour les entreprises hybrides
 Les entreprises dotées d’une infrastructure informatique hybride consomment à la fois des ressources de cloud et des ressources locales. Ces entreprises synchronisent les informations d’identité de leur annuaire local vers avec le locataire Azure AD. Comme les entreprises hybrides cherchent à migrer davantage d’applications locales vers le cloud, en particulier les applications héritées orientées annuaire, les services de domaine Azure AD peuvent leur être utiles.
 
-La société Litware Corporation a déployé [Azure AD Connect](../active-directory/active-directory-aadconnect.md)afin de synchroniser les informations d’identité de l’annuaire local avec le locataire Azure AD. Ces informations d’identité incluent les comptes utilisateur, les hachages d’informations d’identification pour l’authentification (synchronisation de mot de passe) et les appartenances aux groupes.
+La société Litware Corporation a déployé [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)afin de synchroniser les informations d’identité de l’annuaire local avec le locataire Azure AD. Ces informations d’identité incluent les comptes utilisateur, les hachages d’informations d’identification pour l’authentification (synchronisation de mot de passe) et les appartenances aux groupes.
 
 > [!NOTE]
 > **La synchronisation de mot de passe est obligatoire pour les entreprises hybrides qui veulent utiliser les services de domaine Azure AD**. Cette exigence est due au fait que les informations d’identification des utilisateurs sont obligatoires dans le domaine géré fourni par les services de domaine Azure AD afin d’authentifier les utilisateurs via les méthodes d’authentification NTLM ou Kerberos.

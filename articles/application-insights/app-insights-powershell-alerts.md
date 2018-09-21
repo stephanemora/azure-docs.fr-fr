@@ -1,8 +1,8 @@
 ---
-title: "Utilisation de PowerShell pour la configuration d’alertes dans Application Insights | Microsoft Docs"
-description: "Automatisez la configuration d’Application Insights pour recevoir des e-mails retraçant les modifications des métriques."
+title: Utilisation de PowerShell pour la configuration d’alertes dans Application Insights | Microsoft Docs
+description: Automatisez la configuration d’Application Insights pour recevoir des e-mails retraçant les modifications des métriques.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b90a540afd1c2815db8f5a99ee210ce21ea4d874
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8e317d44b7fdff1ef244e2e549fbbebf3f829740
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35632735"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilisation de PowerShell pour la configuration d’alertes dans Application Insights
 Vous pouvez automatiser la configuration des [alertes](app-insights-alerts.md) dans [Application Insights](app-insights-overview.md).
