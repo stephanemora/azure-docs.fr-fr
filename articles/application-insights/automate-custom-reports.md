@@ -1,6 +1,6 @@
 ---
 title: Automatiser des rapports personnalisés avec des données Azure Application Insights
-description: Automatiser des rapports quotidiens/hebdomadaires/mensuels personnalisés avec des données Azure Application Insights
+description: Automatiser des rapports quotidients/hebdomadaires/mensuels personnalisés avec des données Azure Application Insights
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: c8cff54c67ab2c9c3d09f9261617b6312cc4434a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: a3f2021a1a1e0a0ff97c5966e151894fd7b6743b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025188"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574639"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatiser des rapports personnalisés avec des données Azure Application Insights
 
@@ -116,7 +116,7 @@ availabilityResults
     * SendGridAPI = Clé API SendGrid
 
     > [!NOTE]
-    > Si vous ne possédez pas de compte SendGrid, vous pouvez en créer un. La documentation relative à SendGrid pour Azure Functions est disponible [ici](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-sendgrid). Si une brève explication concernant la configuration de SendGrid et la génération d’une clé API vous suffit, reportez-vous à la fin de cet article. 
+    > Si vous ne possédez pas de compte SendGrid, vous pouvez en créer un. La documentation relative à SendGrid pour Azure Functions est disponible [ici](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Si une brève explication concernant la configuration de SendGrid et la génération d’une clé API vous suffit, reportez-vous à la fin de cet article. 
 
 9. Sélectionnez **Integrate** et sous Sorties, cliquez sur **SendGrid ($return)**.
 

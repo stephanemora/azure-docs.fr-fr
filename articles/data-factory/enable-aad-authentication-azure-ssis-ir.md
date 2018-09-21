@@ -12,18 +12,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: 93d3e25957fb1f04400fa78423a5658d32f7d5fd
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: aa06110a6f6fe668388c6aecd98c1ddeeae37edd
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749716"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576627"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Activer l’authentification Azure Active Directory pour le runtime d’intégration Azure-SSIS
 
 Cet article vous montre comment créer un runtime d’intégration Azure-SSIS avec l’identité de service Azure Data Factory. L’authentification Azure Active Directory (Azure AD) avec Managed Service Identity (MSI) pour le runtime d’intégration Azure-SSIS vous permet d’utiliser le MSI Data Factory au lieu de l’authentification SQL pour créer un runtime d’intégration Azure-SSIS.
 
-Pour plus d’informations sur le MSI Data Factory, consultez [Identité de service Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity).
+Pour plus d’informations sur le MSI Data Factory, consultez [Identité de service Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity).
 
 > [!NOTE]
 > Si vous avez déjà créé un runtime d’intégration Azure-SSIS avec l’authentification SQL, vous ne pouvez pas pour l’instant reconfigurer le runtime d’intégration pour utiliser l’authentification Azure AD avec PowerShell.
@@ -53,7 +53,7 @@ Vous pouvez utiliser un groupe Azure AD existant ou en créer un à l’aide d�
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Ajoutez le MSI Data Factory au groupe. Vous pouvez suivre [Identité de service Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity) pour obtenir l’ID d’IDENTITÉ DE SERVICE principal (par exemple 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mais n’utilisez pas l’ID d’APPLICATION d’IDENTITÉ DE SERVICE à cette fin).
+3.  Ajoutez le MSI Data Factory au groupe. Vous pouvez suivre [Identité de service Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) pour obtenir l’ID d’IDENTITÉ DE SERVICE principal (par exemple 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mais n’utilisez pas l’ID d’APPLICATION d’IDENTITÉ DE SERVICE à cette fin).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -71,7 +71,7 @@ Azure SQL Database prend en charge la création d’une base de données avec un
 
 ### <a name="enable-azure-ad-authentication-for-the-azure-sql-database"></a>Activer l’authentification Azure AD pour Azure SQL Database
 
-Vous pouvez [configurer l’authentification Azure AD pour la base de données SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) en suivant ces étapes :
+Vous pouvez [configurer l’authentification Azure AD pour la base de données SQL](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) en suivant ces étapes :
 
 1.  Dans le portail Azure, dans le volet de navigation gauche, sélectionnez **Tous les services** -> **Serveurs SQL**.
 
@@ -93,7 +93,7 @@ Pour cette nouvelle étape, vous avez besoin de [Microsoft SQL Server Management
 
 2.  Dans la boîte de dialogue **Se connecter au serveur**, dans le champ **Nom du serveur**, entrez le nom de votre serveur SQL.
 
-3.  Dans le champ **Authentification**, sélectionnez **Active Directory - Authentification universelle avec prise en charge de MFA**. (Vous pouvez également utiliser deux autres types d’authentification Active Directory. Consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database, Managed Instance ou SQL Data Warehouse](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure).)
+3.  Dans le champ **Authentification**, sélectionnez **Active Directory - Authentification universelle avec prise en charge de MFA**. (Vous pouvez également utiliser deux autres types d’authentification Active Directory. Consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database, Managed Instance ou SQL Data Warehouse](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).)
 
 4.  Dans le champ **Nom d’utilisateur**, entrez le nom du compte Azure AD que vous avez défini en tant qu’administrateur du serveur, par exemple testuser@xxxonline.com.
 
@@ -123,7 +123,7 @@ Pour cette nouvelle étape, vous avez besoin de [Microsoft SQL Server Management
 
 Azure SQL Database Managed Instance ne prend pas en charge la création d’une base de données avec un autre utilisateur que l’administrateur Active Directory. Vous devez donc définir le groupe Azure AD comme administrateur Active Directory. Vous n’avez pas besoin de créer l’utilisateur contenu.
 
-Vous pouvez [configurer l’authentification Azure AD pour le serveur SQL Database Managed Instance](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) en suivant ces étapes :
+Vous pouvez [configurer l’authentification Azure AD pour le serveur SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure) en suivant ces étapes :
 
 7.  Dans le portail Azure, dans le volet de navigation gauche, sélectionnez **Tous les services** -> **Serveurs SQL**.
 
@@ -141,7 +141,7 @@ Vous pouvez [configurer l’authentification Azure AD pour le serveur SQL Databa
 
 Quand vous provisionnez votre runtime d’intégration Azure-SSIS avec le portail Azure, dans la page **Paramètres SQL**, cochez l’option « Utiliser l’authentification AAD avec votre MSI Azure Data Factory ». (La capture d’écran suivante montre les paramètres pour le runtime d’intégration avec Azure SQL Database. Pour le runtime d’intégration avec Managed Instance, la propriété « Niveau de service de la base de données du catalogue » n’est pas disponible ; les autres paramètres sont identiques.)
 
-Pour plus d’informations sur la création d’un runtime d’intégration Azure-SSIS, consultez [Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+Pour plus d’informations sur la création d’un runtime d’intégration Azure-SSIS, consultez [Créer un runtime d’intégration Azure-SSIS dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
 ![Paramètres pour le runtime d’intégration Azure-SSIS](media/enable-aad-authentication-azure-ssis-ir/enable-aad-authentication.png)
 

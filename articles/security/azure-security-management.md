@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 21ad417b9b3b8d0354333962c4e811d0eebba4e9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: efab734cc7d6facf82f622b95c12a1a27e99c5f7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159331"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575930"
 ---
 # <a name="security-management-in-azure"></a>Gestion de la sécurité dans Azure
 Les abonnés Azure peuvent gérer leurs environnements cloud à partir de différents périphériques, comme les stations de travail de gestion, les ordinateurs de développement ou encore les périphériques d’utilisateurs finaux privilégiés, qui disposent d’autorisations spécifiques. Dans certains cas, les fonctions d’administration sont effectuées par le biais de consoles Web, comme le [portail Azure](https://azure.microsoft.com/features/azure-portal/). Des connexions directes peuvent aussi être établies avec Azure à partir de systèmes locaux sur des réseaux privés virtuels (VPN), Terminal Services, des protocoles d’application cliente ou l’API de gestion des services Azure (SMAPI) (par programmation). Par ailleurs, les points de terminaison de client peuvent être joints au domaine ou isolés et non gérés, comme les tablettes ou les smartphones.
@@ -225,7 +225,7 @@ Les ressources suivantes fournissent des informations générales sur les servic
 
 * [Sécurisation de l’accès privilégié](https://technet.microsoft.com/library/mt631194.aspx) : obtenez les détails techniques de conception et de création d’une station de travail d’administration sécurisée pour la gestion Azure
 * [Centre de gestion de la confidentialité Microsoft](https://microsoft.com/en-us/trustcenter/cloudservices/azure) : approfondissez vos connaissances sur les fonctionnalités de la plateforme Azure qui protègent la structure Azure et les charges de travail s’exécutant sur Azure
-* [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/en-us/security/dn440717.aspx) : les vulnérabilités de sécurité Microsoft, y compris les problèmes avec Azure, peuvent être rapportées ou signalées par courrier électronique à l’adresse [secure@microsoft.com](mailto:secure@microsoft.com)
+* [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/security/dn440717.aspx) : les vulnérabilités de sécurité Microsoft, y compris les problèmes avec Azure, peuvent être rapportées ou signalées par courrier électronique à l’adresse [secure@microsoft.com](mailto:secure@microsoft.com)
 * [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : restez informé des toutes dernières actualités sur la sécurité Azure
 
 <!--Image references-->

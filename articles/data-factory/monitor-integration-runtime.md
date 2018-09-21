@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 59c2f865ae5e056b0fabb360712f6eb622943145
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128447"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574618"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory  
 Le **runtime d’intégration** est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Azure Data Factory propose trois types de runtimes d’intégration :
@@ -87,7 +87,7 @@ La valeur par défaut de la limite de tâches simultanées est définie selon la
 
 Vous montez en charge en augmentant le nombre de nœuds. Lorsque vous augmentez le nombre de nœuds, la limite de tâches simultanées est constituée par la somme des valeurs de limite de tâches simultanées de tous les nœuds disponibles.  Par exemple, si un seul nœud vous permet d’exécuter un maximum de douze tâches simultanées, l’ajout de trois nœuds similaires supplémentaires vous permet d’exécuter un maximum de 48 tâches simultanées (c’est-à-dire 4 x 12). Nous vous recommandons d’augmenter la limite de tâches simultanées uniquement lorsque vous constatez une faible utilisation des ressources avec des valeurs par défaut sur chaque nœud.
 
-Vous pouvez remplacer la valeur par défaut calculée dans le portail Azure. Sélectionnez Auteur > Connexions > Runtimes d’intégration > Modifier > Nœuds > Modifier la valeur de tâches simultanées par nœud. Vous pouvez également utiliser la commande PowerShell [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples).
+Vous pouvez remplacer la valeur par défaut calculée dans le portail Azure. Sélectionnez Auteur > Connexions > Runtimes d’intégration > Modifier > Nœuds > Modifier la valeur de tâches simultanées par nœud. Vous pouvez également utiliser la commande PowerShell [update-azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples).
   
 ### <a name="status-per-node"></a>État (par nœud)
 Le tableau suivant indique les états possibles d’un nœud de runtime d’intégration Azure auto-hébergé :

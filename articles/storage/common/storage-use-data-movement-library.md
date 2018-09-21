@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: ee24a055c6a3c53b9753728e13a7687e722c1c91
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e62023f5aeca73973598430ed357e8e9800a17f8
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526213"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732241"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transférer des données avec la bibliothèque de déplacement des données du Stockage Microsoft Azure
 
@@ -35,10 +35,10 @@ Ce document montre comment créer une application de console .NET Core qui s’e
 **Ce dont vous avez besoin :**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* Un [compte de stockage Azure](storage-create-storage-account.md#create-a-storage-account)
+* Un [compte de stockage Azure](storage-quickstart-create-account.md)
 
 > [!NOTE]
-> Ce guide part du principe que vous êtes déjà familiarisé avec [Azure Storage](https://azure.microsoft.com/services/storage/). Sinon, il est utile de lire la documentation [Introduction au Stockage Azure](storage-introduction.md). Plus important encore, vous devez [créer un compte de Stockage](storage-create-storage-account.md#create-a-storage-account) pour pouvoir utiliser la bibliothèque de déplacement des données.
+> Ce guide part du principe que vous êtes déjà familiarisé avec [Azure Storage](https://azure.microsoft.com/services/storage/). Sinon, il est utile de lire la documentation [Introduction au Stockage Azure](storage-introduction.md). Plus important encore, vous devez [créer un compte de Stockage](storage-quickstart-create-account.md) pour pouvoir utiliser la bibliothèque de déplacement des données.
 > 
 > 
 

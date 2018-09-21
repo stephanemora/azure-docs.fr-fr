@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights pour les serveurs Windows et les rôles de travail | Microsoft Docs"
-description: "Ajoutez manuellement le Kit de développement logiciel (SDK) Application Insights à votre application ASP.NET pour analyser l’utilisation, la disponibilité et les performances."
+title: Azure Application Insights pour les serveurs Windows et les rôles de travail | Microsoft Docs
+description: Ajoutez manuellement le Kit de développement logiciel (SDK) Application Insights à votre application ASP.NET pour analyser l’utilisation, la disponibilité et les performances.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: bf7921926c69fff214e94a2d0edc22b28fb8eac0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3f2f0925cf6ec612b84765e42217723d8c8729c6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35632255"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>Configurer manuellement Application Insights pour des applications .NET
 
@@ -111,11 +112,11 @@ Un décompte des événements envoyés s'affiche dans Visual Studio.
 ## <a name="monitor"></a> Affichage de vos données de télémétrie
 Revenez au [portail Azure](https://portal.azure.com/) et accédez à votre ressource Application Insights.
 
-Recherchez des données dans les graphiques de présentation. Au début, seuls un ou deux points s'affichent. Par exemple :
+Recherchez des données dans les graphiques de présentation. Au début, seuls un ou deux points s'affichent. Par exemple : 
 
 ![Cliquez sur d'autres éléments pour afficher plus de données](./media/app-insights-windows-services/12-first-perf.png)
 
-Cliquez sur un des graphiques pour afficher des métriques plus détaillées. [En savoir plus sur les mesures.](app-insights-web-monitor-performance.md)
+Cliquez sur un des graphiques pour afficher des mesures plus détaillées. [En savoir plus sur les mesures.](app-insights-web-monitor-performance.md)
 
 ### <a name="no-data"></a>Pas de données ?
 * Utilisez l'application en ouvrant différentes pages pour générer des données de télémétrie.

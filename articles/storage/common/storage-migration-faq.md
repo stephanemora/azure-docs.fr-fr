@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: ecc5948c84f7659e950c360c3b19d1985b0ab81c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3c671fe6dcb1af25bfb0aa09fecf8ad5e5ceb97b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521487"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732258"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -256,7 +256,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
 -   Utilisez un jeton avec signature d'accès partagé SAS (Shared Access Signature) pour fournir l'accès à une ressource. 
 
--   Fournissez à un utilisateur la clé primaire ou secondaire du compte de stockage. Pour plus d’informations, voir [Gérer votre compte de stockage](storage-create-storage-account.md#manage-your-storage-account).
+-   Fournissez à un utilisateur la clé primaire ou secondaire du compte de stockage. Pour plus d’informations, voir [Gérer votre compte de stockage](storage-account-manage.md#access-keys).
 
 -   Modifiez la stratégie d'accès pour autoriser un accès anonyme. Pour plus d'informations, voir [Accorder à des utilisateurs anonymes des autorisations d’accès aux conteneurs et objets blob](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 

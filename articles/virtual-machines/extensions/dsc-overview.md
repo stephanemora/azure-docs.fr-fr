@@ -3,7 +3,7 @@ title: Vue d’ensemble de la configuration d’état souhaité pour Azure
 description: Apprenez à utiliser le gestionnaire d’extensions Microsoft Azure pour la configuration d’état souhaité (DSC) PowerShell. Cet article décrit la configuration requise et l’architecture, et contient des applets de commande.
 services: virtual-machines-windows
 documentationcenter: ''
-author: DCtheGeek
+author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: dacoulte
-ms.openlocfilehash: 60560a4a656d0ad5df15208261ab8462f4271ec5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: robreed
+ms.openlocfilehash: 18d6478763fd6551cc8baac6ea54e8d91f1a28e6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012442"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629966"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
 

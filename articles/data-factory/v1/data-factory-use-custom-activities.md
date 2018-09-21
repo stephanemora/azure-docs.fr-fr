@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 044d47a294df4e218c84a928a63426dde4f8373b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 580dd5bf6a7e905927189f4b1ae42ab49a1cbc80
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053131"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730710"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](data-factory-use-custom-activities.md)
-> * [Version 2 (version actuelle)](../transform-data-using-dotnet-custom-activity.md)
+> * [Version 1](data-factory-use-custom-activities.md)
+> * [Version 2 (version actuelle)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez [Activités personnalisées dans V2](../transform-data-using-dotnet-custom-activity.md).
@@ -445,7 +445,7 @@ Les services liés se chargent de lier des magasins de données ou des services 
 2. Cliquez sur **Nouvelle banque de données** dans la barre de commandes et choisissez **Stockage Azure**. Le script JSON de création d’un service lié Stockage Microsoft Azure doit apparaître dans l’éditeur.
     
     ![Nouveau magasin de données - Stockage Azure](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Remplacez `<accountname>` par le nom de votre compte de stockage Azure et `<accountkey>` par la clé d’accès du compte de stockage Azure. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Remplacez `<accountname>` par le nom de votre compte de stockage Azure et `<accountkey>` par la clé d’accès du compte de stockage Azure. Pour savoir comment obtenir votre clé d’accès de stockage, voir [Affichage, copie et régénération de clés d’accès de stockage](../../storage/common/storage-account-manage.md#access-keys).
 
     ![Service lié Stockage Azure](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Cliquez sur l’option **Déployer** de la barre de commandes pour déployer le service lié.

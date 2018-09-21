@@ -4,18 +4,18 @@ description: Découvrez les aspects liés à la sécurité d’Azure SQL Databas
 services: sql-database
 author: giladm
 manager: craigg
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: 929c05901c54ef0e7fe0d4af28c5ba45c92091f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 27870b5ab36cb9bbd191c130ab9035ad00205404
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021138"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716908"
 ---
 # <a name="securing-your-sql-database"></a>Sécurisation de votre base de données SQL
 

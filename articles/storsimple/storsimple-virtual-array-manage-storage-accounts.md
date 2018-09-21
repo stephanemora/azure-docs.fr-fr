@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: a4ce2d329d0e1399cffaf886adf2b95e34b9cd7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d2b6b7a5d2baf9e46cca18aec97f31beda1e2a38
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111707"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736731"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Utilisation de StorSimple Device Manager pour gérer les informations d’identification du compte de stockage pour StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 La section **Configuration** du panneau du service StorSimple Device Manager de votre instance StorSimple Virtual Array présente les paramètres de service globaux pouvant être créés dans le service StorSimple Manager. Ces paramètres peuvent être appliqués à tous les appareils connectés au service et incluent les éléments suivants :
 
 * Informations d’identification du compte de stockage
@@ -69,13 +69,13 @@ Appliquez les procédures suivantes pour ajouter les informations d’identifica
 
 1. Accédez au service Device Manager, sélectionnez-le et double-cliquez. Cette opération provoque l’ouverture du panneau **Vue d’ensemble**.
 2. Sélectionnez **Informations d’identification du compte de stockage** dans la section **Configuration**.
-3. Cliquez sur **Ajouter**.
+3. Cliquez sur **Add**.
 4. Dans le panneau **Ajouter un compte de stockage**, procédez comme suit :
    
     1. Pour **Abonnement**, sélectionnez **Actuel**.
     2. Fournissez le nom de votre compte de stockage Azure.
     3. Sélectionnez **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre appareil StorSimple et le cloud. Sélectionnez **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
-    4. Cliquez sur **Ajouter**. Un message s’affiche pour vous informer une fois le compte de stockage correctement créé.<br></br>
+    4. Cliquez sur **Add**. Un message s’affiche pour vous informer une fois le compte de stockage correctement créé.<br></br>
    
         ![Ajouter une information d’identification de compte de stockage existant](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
@@ -83,7 +83,7 @@ Appliquez les procédures suivantes pour ajouter les informations d’identifica
 
 1. Accédez au service Device Manager, sélectionnez-le et double-cliquez. Cette opération provoque l’ouverture du panneau **Vue d’ensemble**.
 2. Sélectionnez **Informations d’identification du compte de stockage** dans la section **Configuration**. Ici sont répertoriées les informations d’identification de compte de stockage existantes associées au service StorSimple Device Manager.
-3. Cliquez sur **Ajouter**.
+3. Cliquez sur **Add**.
 4. Dans le panneau **Ajouter un compte de stockage**, procédez comme suit :
    
     1. Pour **Abonnement**, sélectionnez **Autre**.
@@ -94,7 +94,7 @@ Appliquez les procédures suivantes pour ajouter les informations d’identifica
    
     4. Pour activer le mode SSL, cliquez sur le bouton **Activer** afin de créer un canal sécurisé pour la communication réseau entre votre service StorSimple Device Manager et le cloud. Cliquez sur le bouton **Désactiver** uniquement si vous évoluez au sein d’un cloud privé.
    
-    5. Cliquez sur **Ajouter**. Un message s’affiche pour vous informer de la création des informations d’identification du compte de stockage.
+    5. Cliquez sur **Add**. Un message s’affiche pour vous informer de la création des informations d’identification du compte de stockage.
 
 5. Les informations d’identification de compte de stockage nouvellement créées s’affiche sur le panneau du service Device Manager, sous **Informations d’identification du compte de stockage**.
    
@@ -110,7 +110,7 @@ Vous pouvez modifier des informations d’identification du compte de stockage u
 4. Dans le panneau **Propriétés** des informations d’identification du compte de stockage, procédez comme suit :
    
    1. Si nécessaire, vous pouvez modifier le réglage de l’option **Activer le mode SSL**.
-   2. Vous pouvez choisir de régénérer les clés d’accès de vos informations d’identification de compte de stockage. Pour plus d’informations, consultez [Régénération des clés de compte de stockage](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys). Fournissez la nouvelle clé des informations d’identification de compte de stockage. Pour un compte de stockage Azure, il s’agit de la clé d’accès primaire.
+   2. Vous pouvez choisir de régénérer les clés d’accès de vos informations d’identification de compte de stockage. Pour plus d’informations, consultez [Régénération des clés de compte de stockage](../storage/common/storage-account-manage.md#access-keys). Fournissez la nouvelle clé des informations d’identification de compte de stockage. Pour un compte de stockage Azure, il s’agit de la clé d’accès primaire.
    3. Pour enregistrer les paramètres, cliquez sur **Enregistrer** en haut du panneau **Propriétés**. Les paramètres sont mis à jour sur le panneau **Informations d’identification du compte de stockage**.
       
       ![Modification des informations d’identification de compte de stockage](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

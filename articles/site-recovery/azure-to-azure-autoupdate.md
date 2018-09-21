@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922747"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574400"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service Mobilité dans la réplication Azure à Azure
 
@@ -79,8 +79,8 @@ Si le bouton de réparation n’est pas disponible, consultez le message d’err
 
  - **Erreur** : Le compte d’identification n’a pas l’autorisation d’accéder à la ressource Recovery Services.
 
-    **Action recommandée** : supprimez puis [recréez le compte d’identification](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) ou vérifiez que le compte d’identification Automation de l’application Azure Active Directory a accès à la ressource Recovery Services.
+    **Action recommandée** : supprimez puis [recréez le compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account) ou vérifiez que le compte d’identification Automation de l’application Azure Active Directory a accès à la ressource Recovery Services.
 
 - **Erreur** : Le compte d’identification est introuvable. Un de ces éléments a été supprimé ou n’a pas été créé : Application Azure Active Directory, Principal du service, Rôle, Ressource de certificat Automation, Ressource de connexion Automation, ou l’empreinte numérique n’est pas identique entre le certificat et la connexion. 
 
-    **Action recommandée** : supprimez [puis recréez le compte d’identification](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **Action recommandée** : supprimez [puis recréez le compte d’identification](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

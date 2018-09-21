@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970881"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576695"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 
@@ -310,7 +310,7 @@ Le serveur de sauvegarde Azure et Data Protection Manager partagent des lignes d
 
 ## <a name="add-backup-storage"></a>Ajouter de l’espace de stockage pour la sauvegarde
 
-La première copie de sauvegarde est conservée sur l’espace de stockage associé à l’ordinateur du serveur de sauvegarde Azure. Pour plus d’informations sur l’ajout de disques, consultez [Ajouter un stockage de sauvegarde moderne](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
+La première copie de sauvegarde est conservée sur l’espace de stockage associé à l’ordinateur du serveur de sauvegarde Azure. Pour plus d’informations sur l’ajout de disques, consultez [Ajouter un stockage de sauvegarde moderne](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > Vous devez ajouter un stockage de sauvegarde même si vous prévoyez d’envoyer des données à Azure. Dans l’architecture du serveur de sauvegarde Azure, le coffre Recovery Services conserve la *deuxième* copie des données, tandis que le stockage local conserve la première copie de sauvegarde (obligatoire).
@@ -360,10 +360,10 @@ Vous pouvez également vous reporter au [FAQ relatives à la sauvegarde Azure](b
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’article [Préparation de votre environnement pour DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) contient des informations sur les configurations de serveur de sauvegarde Azure prises en charge.
+L’article [Préparation de votre environnement pour DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) contient des informations sur les configurations de serveur de sauvegarde Azure prises en charge.
 
 Vous pouvez utiliser les articles suivants pour mieux appréhender la notion de protection des charges de travail à l’aide du serveur de sauvegarde Microsoft Azure.
 
-- [Sauvegarde SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
-- [Sauvegarde de serveur SharePoint](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Sauvegarde SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [Sauvegarde de serveur SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Sauvegarde sur un autre serveur](backup-azure-alternate-dpm-server.md)

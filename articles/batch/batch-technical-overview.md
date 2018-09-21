@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: b784e64962569f22cba3bc52b6a4e9443a4587d5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311989"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35621277"
 ---
 # <a name="what-is-azure-batch"></a>Présentation d’Azure Batch
 
@@ -61,7 +61,7 @@ Des fonctionnalités de niveau supérieur, spécifiques à la charge de travail 
 * Azure Batch prend en charge les [charges de travail de rendu](batch-rendering-service.md) à grande échelle avec les outils de rendu notamment Autodesk Maya, 3ds Max, Arnold et V-Ray. 
 * Les utilisateurs R peuvent installer le [package doAzureParallel R](https://github.com/Azure/doAzureParallel) pour augmenter facilement la taille de l’exécution d’algorithmes R sur les pools Batch.
 
-Vous pouvez également exécuter des travaux Batch dans le cadre d’un plus grand flux de travail Azure pour transformer des données, gérées par des outils comme [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
+Vous pouvez également exécuter des travaux Batch dans le cadre d’un plus grand flux de travail Azure pour transformer des données, gérées par des outils comme [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 
 
 ## <a name="how-it-works"></a>Fonctionnement

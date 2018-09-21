@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617113"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579183"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Sauvegarder des fichiers sur Azure Stack
 Vous pouvez utiliser Sauvegarde Azure pour protéger (ou sauvegarder) des fichiers et applications sur Azure Stack. Pour sauvegarder des fichiers et applications, installez un serveur Sauvegarde Microsoft Azure en tant que machine virtuelle s’exécutant sur Azure Stack. Vous pouvez protéger les fichiers sur n’importe quel serveur Azure Stack du même réseau virtuel. Après avoir installé un serveur de sauvegarde Azure, ajoutez des disques Azure pour augmenter le stockage local disponible pour les données de sauvegarde à court terme. Un serveur de sauvegarde Azure utilise un stockage Azure pour la rétention à long terme.
@@ -49,7 +49,7 @@ Pour configurer le serveur de sauvegarde Azure afin de protéger les fichiers da
 
     ![L’assistant Création d’un nouveau groupe de protection s’ouvre](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft recommande de placer toutes les données qui partageront la même stratégie de protection dans un seul groupe de protection. Pour des informations complètes sur la planification et le déploiement des groupes de protection, consultez l’article System Center DPM, [Déployer des groupes de protection](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft recommande de placer toutes les données qui partageront la même stratégie de protection dans un seul groupe de protection. Pour des informations complètes sur la planification et le déploiement des groupes de protection, consultez l’article System Center DPM, [Déployer des groupes de protection](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. Dans l’écran **Sélectionner la méthode de protection des données**, entrez le nom du groupe de protection. Cochez la case **I want short-term protection using:** (Je souhaite une protection à court terme avec :) et **I want online protection** (Je souhaite une protection en ligne). Cliquez sur **Suivant**.
 
@@ -135,5 +135,5 @@ Pour afficher les entités du serveur de sauvegarde Azure sur le Portail Azure, 
 
 ## <a name="see-also"></a>Voir aussi
 Pour plus d’informations sur l’utilisation d’un serveur de sauvegarde Azure pour protéger d’autres charges de travail, voir les articles suivants :
-- [Sauvegarder un batterie de serveurs SharePoint](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [Sauvegarder SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Sauvegarder un batterie de serveurs SharePoint](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Sauvegarder SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

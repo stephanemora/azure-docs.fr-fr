@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 8b6c8220bd009505f683ce888558e612aebdc0b3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6eb2452507c3adcb8532a0dd2e50ad701e35cd7f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048102"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579221"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Planifier des tâches U-SQL à l’aide de SQL Server Integration Services (SSIS)
 
@@ -63,7 +63,7 @@ En mode création du package SSIS, ajoutez une **tâche de système de fichiers 
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Configurer une tâche de système de fichiers Azure Data Lake Storage
 
 1. Définissez **Opération** sur **CopyFromADLS**.
-2. Configurez **AzureDataLakeConnection** ; pour en savoir plus, consultez [Gestionnaire de connexions Azure Data Lake Storage](https://docs.microsoft.com/en-us/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
+2. Configurez **AzureDataLakeConnection** ; pour en savoir plus, consultez [Gestionnaire de connexions Azure Data Lake Storage](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017).
 3. Définissez **AzureDataLakeDirectory**. Pointez sur le dossier de stockage de vos scripts U-SQL. Utilisez le chemin relatif qui est relatif au dossier racine du compte Azure Data Lake Storage.
 4. Définissez **Destination** sur un dossier qui met en cache les scripts U-SQL téléchargés. Ce chemin du dossier est utilisé dans le conteneur de boucle Foreach pour la soumission de tâches U-SQL. 
 
@@ -106,7 +106,7 @@ En mode création du package SSIS, ajoutez une **tâche de système de fichiers 
 
 3. Définissez **AzureDataLakeAnalyticsConnection** sur le compte Azure Data Lake Analytics auquel vous souhaitez envoyer des tâches. En savoir plus sur le [Gestionnaire de connexions Azure Data Lake Analytics](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-analytics-connection-manager?view=sql-server-2017).
 
-4. Définissez d’autres configurations de tâche. [En savoir plus](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017)
+4. Définissez d’autres configurations de tâche. [En savoir plus](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017)
 
 5. Utilisez **Expressions** pour définir dynamiquement le nom de la tâche U-SQL :
 
@@ -119,7 +119,7 @@ En mode création du package SSIS, ajoutez une **tâche de système de fichiers 
 
 Vous pouvez utiliser les fichiers U-SQL dans le Stockage Blob Azure par le biais d’une **tâche de téléchargement d’objet blob Azure** dans le Feature Pack Azure. Cette approche vous permet d’utiliser les scripts sur le cloud.
 
-Les étapes sont similaires au [Scénario 2 : Utilisation des fichiers U-SQL dans Azure Data Lake Storage](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Changez la tâche de système de fichiers Azure Data Lake Storage en tâche de téléchargement d’objet blob Azure. [En savoir plus sur la tâche de téléchargement d’objet blob Azure](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+Les étapes sont similaires au [Scénario 2 : Utilisation des fichiers U-SQL dans Azure Data Lake Storage](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Changez la tâche de système de fichiers Azure Data Lake Storage en tâche de téléchargement d’objet blob Azure. [En savoir plus sur la tâche de téléchargement d’objet blob Azure](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 Le flux de contrôle ressemble à ce qui suit.
 
@@ -164,11 +164,11 @@ Dans certains cas, vous pouvez souhaiter définir dynamiquement la valeur de la 
 - Définissez de façon dynamique les variables des chemins de fichier d’entrée et de sortie, en fonction de la date et de l’heure actuelles.
 - Définissez le paramètre pour les procédures stockées.
 
-[En savoir plus sur la définition des paramètres du script U-SQL](https://docs.microsoft.com/en-us/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
+[En savoir plus sur la définition des paramètres du script U-SQL](https://docs.microsoft.com/sql/integration-services/control-flow/azure-data-lake-analytics-task?view=sql-server-2017#parameter-mapping-page-configuration).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Exécuter des packages SSIS dans Azure](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 - [Feature Pack Azure pour Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-2017#scenario-managing-data-in-the-cloud)
-- [Planifier des tâches U-SQL avec Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-data-lake-analytics)
+- [Planifier des tâches U-SQL avec Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics)
 

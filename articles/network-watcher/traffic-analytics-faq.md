@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903745"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578308"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour l’analyse de trafic
 
@@ -58,7 +58,7 @@ Pour vérifier les rôles attribués à un utilisateur pour un abonnement :
 
 3. Pour répertorier tous les rôles attribués à un utilisateur donné, utilisez **Get-AzureRmRoleAssignment -SignInName [e-mail utilisateur] -IncludeClassicAdministrators**. 
 
-Si vous ne voyez aucune sortie, contactez l’administrateur de l’abonnement pour qu’il vous donne les droits d’accès nécessaires pour exécuter les commandes. Pour plus d’informations, consultez [Gérer le contrôle d’accès en fonction du rôle avec Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+Si vous ne voyez aucune sortie, contactez l’administrateur de l’abonnement pour qu’il vous donne les droits d’accès nécessaires pour exécuter les commandes. Pour plus d’informations, consultez [Gérer le contrôle d’accès en fonction du rôle avec Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Dans quelles régions l’analytique du trafic est-elle disponible ?
@@ -196,7 +196,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 L’analytique du trafic est mesurée. Les mesures sont basées sur le traitement des données de journal de flux par le service et sur le stockage des journaux améliorés résultants dans un espace de travail Log Analytics. 
 
-Par exemple, conformément au [plan de tarification](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), concernant la région USA Centre-Ouest, si des données de journal de flux stockées dans un compte de stockage traité par Traffic Analytics ont un volume de 10 Go et que les journaux améliorés ingérés dans l’espace de travail Log Analytics ont un volume de 1 Go, les charges applicables sont les suivantes : 10 x 2.3$ + 1 x 2.76$ = 25.76$
+Par exemple, conformément au [plan de tarification](https://azure.microsoft.com/pricing/details/network-watcher/), concernant la région USA Centre-Ouest, si des données de journal de flux stockées dans un compte de stockage traité par Traffic Analytics ont un volume de 10 Go et que les journaux améliorés ingérés dans l’espace de travail Log Analytics ont un volume de 1 Go, les charges applicables sont les suivantes : 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Comment faire pour naviguer dans la vue de la carte géographique à l’aide du clavier ?
 

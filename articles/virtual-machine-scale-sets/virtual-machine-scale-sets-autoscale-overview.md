@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48e64f0cc65ade870425f73989209e8bef8ec8d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630284"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717299"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Vue d’ensemble de la mise à l’échelle automatique avec des groupes de machines virtuelles identiques Azure
 Un groupe de machines virtuelles identiques Azure peut augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle qui exécutent votre application. Ce comportement élastique et automatisé réduit la charge de gestion pour analyser et optimiser les performances de votre application. Vous créez des règles qui définissent les performances acceptables pour une expérience utilisateur positive. Lorsque les seuils définis sont respectés, les règles de mise à l’échelle automatique prennent des mesures pour ajuster la capacité de votre groupe identique. Vous pouvez également planifier des événements qui augmentent ou diminuent automatiquement la capacité de votre groupe identique à des moments donnés. Cet article fournit une vue d’ensemble des mesures de performance disponibles et des actions réalisables par la mise à l’échelle automatique.
@@ -106,7 +106,7 @@ Lorsqu’une règle de mise à l’échelle automatique est déclenchée, votre 
 | Augmenter le nombre de   | Un nombre fixe d’instances de machines virtuelles à créer. Utile dans des groupes identiques avec un petit nombre de machines virtuelles.                                           |
 | Augmenter le pourcentage de | Une augmentation basée sur des pourcentages des instances de machine virtuelle. Utile dans des groupes identiques plus grands, lorsqu’une augmentation fixe peut ne pas améliorer considérablement les performances. |
 | Augmenter le nombre à   | Créer le nombre d’instances de machines virtuelles requis pour atteindre le nombre maximal souhaité.                                                            |
-| Réduire le nombre à   | Un nombre fixe d’instances de machines virtuelles à supprimer. Utile dans des groupes identiques avec un petit nombre de machines virtuelles.                                           |
+| Diminuer le nombre de   | Un nombre fixe d’instances de machines virtuelles à supprimer. Utile dans des groupes identiques avec un petit nombre de machines virtuelles.                                           |
 | Diminuer le pourcentage de | Une diminution basée sur des pourcentages des instances de machines virtuelles. Utile dans des groupes identiques plus grands, lorsqu’une augmentation fixe peut ne pas réduire considérablement la consommation de ressources et les coûts. |
 | Réduire le nombre à   | Supprimer le nombre d’instances de machines virtuelles requis pour atteindre le nombre minimal souhaité.                                                            |
 

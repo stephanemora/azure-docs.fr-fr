@@ -9,12 +9,12 @@ ms.component: bing-visual-search
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 9bc3c180f108025f442343d8c5356982a83826a6
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: dd51ed7c710cc51a9fe0e63e55aa0d2c4ea24bee
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958401"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574487"
 ---
 # <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Tutoriel : Résultats et zone de rognage de l’image du SDK de recherche visuelle Bing
 Le SDK de recherche visuelle inclut une option pour sélectionner une zone d’une image et rechercher des images en ligne qui sont similaires à la zone de rognage de l’image plus grande.  Cet exemple spécifie la zone de rognage montrant une personne d’une image qui contient plusieurs personnes.  Le code envoie la zone de rognage et l’URL de l’image plus grande, puis retourne des résultats qui incluent les URL de recherche Bing et les URL des images similaires disponibles en ligne.
@@ -28,7 +28,7 @@ Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.micr
 ## <a name="application-dependencies"></a>Dépendances de l’application
 Pour configurer une application console à l’aide du kit Web Search SDK Bing, accédez à l’option Gérer les packages NuGet à partir de l’Explorateur de solutions dans Visual Studio. Ajoutez le package Microsoft.Azure.CognitiveServices.Search.VisualSearch.
 
-L’installation du package Web Search SDK NuGet installe également les dépendances, notamment :
+L’installation du package du Kit de développement logiciel (SDK) Recherche Web NuGet installe également les dépendances, notamment :
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
@@ -44,7 +44,7 @@ Cet exemple utilise une zone de rognage de l’image précédente qui spécifie 
 
 ```
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
-string imageURL = "https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg;
+string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg;
 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
 
 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
@@ -58,7 +58,7 @@ var visualSearchResults = client.Images.VisualSearchMethodAsync(knowledgeRequest
 ```
 
 ## <a name="get-the-url-data-from-imagemoduleaction"></a>Obtenir les données d’URL d’ImageModuleAction
-Les résultats de recherche visuelle sont des objets `ImageTag`.  Chaque balise contient une liste d’objets `ImageAction`.  Chaque `ImageAction` contient un champ `Data` qui est une liste de valeurs qui varient selon le type d’action :
+Les résultats de Recherche visuelle sont des objets `ImageTag`.  Chaque balise contient une liste d’objets `ImageAction`.  Chaque `ImageAction` contient un champ `Data` qui est une liste de valeurs qui varient selon le type d’action :
 
 Vous pouvez obtenir les différents types avec le code suivant :
 ```
@@ -128,7 +128,7 @@ namespace VisualSearchFeatures
                 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
                 
                 // The ImageInfo struct specifies the crop area in the image and the URL of the larger image. 
-                string imageURL = "https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
+                string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
                 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
                 
                 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
@@ -182,4 +182,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-[Réponse de recherche visuelle](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Réponse de recherche visuelle](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)
