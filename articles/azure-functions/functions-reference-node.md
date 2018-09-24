@@ -96,7 +96,7 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informe le runtime que votre code est terminé. Si votre fonction utilise la déclaration `async function` (disponible avec 8 nœuds ou plus dans Functions version 2.x), vous n’avez pas besoin d’utiliser `context.done()`. Le rappel `context.done` est appelé de manière implicite.
+Informe le runtime que votre code est terminé. Si votre fonction utilise la déclaration `async function` (disponible avec Node.js 8 ou plus dans Functions version 2.x), vous n’avez pas besoin d’utiliser `context.done()`. Le rappel `context.done` est appelé de manière implicite.
 
 Si votre fonction n’est pas une fonction asynchrone, **vous devez appeler `context.done`** pour indiquer au runtime que votre fonction est terminée. Sinon, l’exécution arrivera à expiration.
 
@@ -268,7 +268,7 @@ Lorsque vous travaillez avec des déclencheurs HTTP, trois méthodes vous permet
     context.done(null, res);   
     ```  
 
-## <a name="node-version-and-package-management"></a>Version du nœud et gestion des packages
+## <a name="node-version-and-package-management"></a>Version de Node.js et gestion des packages
 
 Le tableau suivant montre la version de Node.js qui est utilisée par chaque version majeure du runtime Functions :
 
