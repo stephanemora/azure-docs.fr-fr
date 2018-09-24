@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 4502be9e8891ac7bc39d8ce909e4662f19677bbc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9ea9fbdbe07013131f35a7a0c3d6ab4af19f7056
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109476"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990941"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Apache Hive sur Azure HDInsight
 
@@ -45,7 +45,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 * **Base de données SQL Azure**. Vous allez utiliser une base de données SQL Azure comme magasin de données cible. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started.md).
 
-* **Azure CLI 2.0**. Si vous n’avez pas installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour connaître les étapes à suivre.
+* **Azure CLI**. Si vous n’avez pas installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour connaître les étapes à suivre.
 
 * **Un client SSH**. Pour en savoir plus, consultez la page [Se connecter à HDInsight (Hadoop) à l’aide de SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 

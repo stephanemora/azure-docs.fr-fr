@@ -11,8 +11,7 @@
 # Prise en main
 ## [En passant par le portail Azure](data-lake-store-get-started-portal.md)
 ## [Utilisation de Microsoft Azure PowerShell](data-lake-store-get-started-powershell.md)
-## [Utilisation de l’interface de ligne de commande Azure 2.0](data-lake-store-get-started-cli-2.0.md)
-
+## [Utilisation de l’interface de ligne de commande Azure](data-lake-store-get-started-cli-2.0.md)
 
 # Procédures
 ## Charger et déplacer des données

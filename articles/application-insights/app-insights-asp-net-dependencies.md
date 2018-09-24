@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f2ebd2a021d3803b6e3f7d805b9253d181cb16c3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293637"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999687"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurer Application Insights : suivi des dépendances
 Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](app-insights-overview.md) mesure combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue. Vous pouvez examiner des appels spécifiques et les associer à des demandes et des exceptions.
@@ -133,7 +133,7 @@ Accédez à une occurrence d’une demande ayant échoué et examinez les évén
 ![Cliquez sur un type de demande, cliquez sur l’instance pour obtenir une vue différente de la même instance, cliquez dessus pour obtenir des informations relatives à l’exception.](./media/app-insights-asp-net-dependencies/07-faildetail.png)
 
 ## <a name="analytics"></a>Analytics
-Vous pouvez suivre les dépendances dans le [langage de requête Log Analytics](https://docs.loganalytics.io/). Voici quelques exemples.
+Vous pouvez suivre les dépendances dans le [langage de requête Log Analytics](https://aka.ms/LogAnalyticsLanguage). Voici quelques exemples.
 
 * Rechercher les appels de dépendances ayant échoué :
 

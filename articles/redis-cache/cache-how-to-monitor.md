@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 14854960aa8db50507b407d4fab7c4113618235c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 03c6d45cb3a20244ddbb9c0aec693f7802a95b22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071544"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976356"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Surveillance du cache Redis Azure
 Le cache Redis Azure utilise [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) afin d’offrir plusieurs possibilités de surveillance de vos instances de cache. Vous pouvez afficher les mesures, épingler des graphiques de mesure au Tableau d’accueil, personnaliser la plage de date et d’heure des graphiques de surveillance, ajouter et supprimer des mesures dans les graphiques et définir des alertes lorsque certaines conditions sont remplies. Ces outils vous permettent de surveiller l’intégrité de vos instances Cache Redis Azure et vous aident à gérer vos applications de mise en cache.
@@ -61,7 +61,7 @@ Pour plus d’informations sur l’utilisation des mesures à l’aide d’Azure
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exporter les mesures de cache
-Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive) , puis supprimées. Pour conserver vos mesures de cache pendant plus de 30 jours, vous pouvez [désigner un compte de stockage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) et spécifiez une stratégie de **Rétention (jours)** pour vos mesures de cache. 
+Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../monitoring/monitoring-data-collection.md#metrics) , puis supprimées. Pour conserver vos mesures de cache pendant plus de 30 jours, vous pouvez [désigner un compte de stockage](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md) et spécifiez une stratégie de **Rétention (jours)** pour vos mesures de cache. 
 
 Pour configurer un compte de stockage pour vos mesures de cache :
 
@@ -75,11 +75,11 @@ Pour configurer un compte de stockage pour vos mesures de cache :
 ![Diagnostics Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser en continu vers un Hub d’événements ou les envoyer vers Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
+>En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser en continu vers un Hub d’événements ou les envoyer vers Log Analytics](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md#retrieve-metric-values).
 >
 >
 
-Pour accéder à vos mesures, vous pouvez les afficher dans le portail Azure, comme décrit précédemment dans cet article. Vous pouvez également y accéder à l’aide de l’ [API REST Azure Monitor Metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Pour accéder à vos mesures, vous pouvez les afficher dans le portail Azure, comme décrit précédemment dans cet article. Vous pouvez également y accéder à l’aide de l’ [API REST Azure Monitor Metrics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 
 > [!NOTE]
 > Si vous changez de compte de stockage, les données du compte de stockage configuré précédemment restent disponibles en téléchargement, mais elles ne sont pas affichées dans le portail Azure.  

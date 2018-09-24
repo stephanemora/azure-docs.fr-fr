@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 421c4e0464eac22a7feba01e2e84660b02a32455
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174647"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958099"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Démarrage rapide : Configurer Azure DNS pour la résolution de nom à l’aide du portail Azure
 
@@ -24,7 +24,7 @@ Dans ce guide de démarrage rapide, vous créez un domaine de test, puis un enre
 Il est important de savoir que tous les noms et toutes les adresses IP utilisés dans ce guide de démarrage rapide sont des exemples et ne sont pas destinés à représenter un scénario réel. Toutefois, le cas échéant, des scénarios réels sont également décrits.
 
 <!---
-You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI](dns-getstarted-cli.md).
 --->
 
 Une zone DNS permet d’héberger les entrées DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque entrée DNS (ou enregistrement) de votre domaine est ensuite créée à l’intérieur de cette zone DNS. Les étapes suivantes montrent comment effectuer cette opération.
@@ -46,7 +46,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
    |**Name**|contoso.xyz|Nom de la zone DNS pour cet exemple. Vous pouvez utiliser n’importe quelle valeur pour ce démarrage rapide, tant qu’elle n’est pas déjà configurée sur les serveurs Azure DNS. Une valeur réelle est un domaine que vous avez acheté auprès d’un bureau d’enregistrement de nom de domaine.|
    |**Abonnement**|[Votre abonnement]|Sélectionnez un abonnement pour y créer la zone DNS.|
    |**Groupe de ressources**|**Créer :** dns-test|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. |
-   |**Lieu**|Est des États-Unis||
+   |**Lieu**|USA Est||
 
 La création de la zone peut prendre plusieurs minutes.
 

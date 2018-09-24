@@ -11,18 +11,22 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 09d8e3da543cdf4433d986b321697abcad88eb22
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8e8944a9bdfa2b75f6442e03d45dfb6977c2a122
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157988"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974355"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Guide pratique pour utiliser des GPU dans Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Les processeurs graphiques (GPU) sont largement utilisés pour traiter des tâches exigeant beaucoup de ressources de calcul, notamment lors de l’apprentissage de certains modèles de réseau neuronal profond. L’utilisation de GPU vous permet de réduire considérablement la durée d’apprentissage des modèles. Dans ce document, vous allez apprendre à configurer Azure Machine Learning Workbench pour utiliser une instance [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) dotée de processeurs graphiques en tant que cible d’exécution. 
 
 ## <a name="prerequisites"></a>Prérequis
-- Pour parcourir ce guide pratique, vous devez d’abord [installer Azure Machine Learning Workbench](../service/quickstart-installation.md).
+- Pour parcourir ce guide pratique, vous devez d’abord [installer Azure Machine Learning Workbench](quickstart-installation.md).
 - Vous devez avoir accès à des ordinateurs équipés de processeurs graphiques (GPU) NVidia.
     - Vous pouvez exécuter vos scripts directement sur l’ordinateur local (Windows ou MacOS) équipé de GPU.
     - Vous pouvez également exécuter des scripts dans un conteneur Docker sur un ordinateur Linux équipé de GPU.

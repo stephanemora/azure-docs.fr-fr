@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: dfaed2222d16564cd1f573b4e9038b7019780944
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 5d6e9e4a8770e71dad48f3c3495001813a2e7c50
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744162"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971941"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-cli"></a>Démarrage rapide : créer un Event Hub à l’aide d’Azure CLI
 
@@ -27,7 +27,7 @@ Pour suivre ce guide de démarrage rapide, vous devez avoir un abonnement Azure.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser Azure CLI localement, vous devez exécuter Azure CLI version 2.0.4 ou ultérieure pour ce tutoriel. Exécutez `az --version` pour vérifier votre version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser Azure CLI localement, vous devez exécuter Azure CLI version 2.0.4 ou ultérieure pour ce tutoriel. Exécutez `az --version` pour vérifier votre version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="log-on-to-azure"></a>Se connecter à Azure
 
@@ -293,6 +293,6 @@ Dans cet article, vous avez créé un espace de noms Event Hubs et d’autres re
 > [Visualiser les anomalies de données sur les flux de données Event Hubs](event-hubs-tutorial-visualize-anomalies.md)
 
 [créez un compte gratuit]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install Azure CLI 2.0]: /cli/azure/install-azure-cli
-[az group create]: /cli/azure/group#az-group-create
+[Install the Azure CLI]: /cli/azure/install-azure-cli
+[az group create]: /cli/azure/group#az_group_create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

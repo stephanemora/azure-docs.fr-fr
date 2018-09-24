@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f5773d2f6634d1de9674351ff30a15b488bdd672
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f3925c26e2b7e4044daf5ac4e94fbb24393a4ddc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597461"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999883"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Didacticiel : surveiller et mettre à jour une machine virtuelle Linux dans Azure
 
@@ -40,7 +40,7 @@ Pour vérifier que vos machines virtuelles dans Azure fonctionnent correctement,
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-vm"></a>Créer une machine virtuelle
 
@@ -312,7 +312,7 @@ Après quelques minutes, la nouvelle machine virtuelle s’affiche dans l’espa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez configuré, examiné et géré les mises à jour pour une machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez configuré, examiné et géré les mises à jour pour une machine virtuelle. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Activer les diagnostics de démarrage sur la machine virtuelle

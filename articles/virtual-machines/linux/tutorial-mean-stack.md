@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8b472c5f1175f006e4c7a6574135460540bf2283
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a23dd71b9453a11298192fc909c5a3c9708f11b0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720650"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962298"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Didacticiel : créer une pile MongoDB, Express, AngularJS et Node.js (MEAN) sur une machine virtuelle Linux dans Azure
 
@@ -33,11 +33,11 @@ Ce didacticiel montre comment implémenter une pile MongoDB, Express, AngularJS 
 > * Installer MongoDB et configurer le serveur
 > * Installer Express et définir les itinéraires au serveur
 > * Accéder aux itinéraires avec AngularJS
-> * Exécution de l’application
+> * Exécution de l'application
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Créer une machine virtuelle Linux
@@ -316,7 +316,7 @@ sudo apt-get install -y nodejs
     </html>
     ```
 
-##  <a name="run-the-application"></a>Exécution de l’application
+##  <a name="run-the-application"></a>Exécution de l'application
 
 1. Changez le répertoire de sauvegarde pour *Books* (`cd ..`) et démarrez le serveur en exécutant la commande suivante :
 
@@ -340,7 +340,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez créé une application web qui effectue le suivi d’enregistrements de livre à l’aide d’une pile MEAN sur une machine virtuelle Linux. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez créé une application web qui effectue le suivi d’enregistrements de livre à l’aide d’une pile MEAN sur une machine virtuelle Linux. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle Linux
@@ -348,7 +348,7 @@ Dans ce didacticiel, vous avez créé une application web qui effectue le suivi 
 > * Installer MongoDB et configurer le serveur
 > * Installer Express et définir les itinéraires au serveur
 > * Accéder aux itinéraires avec AngularJS
-> * Exécution de l’application
+> * Exécution de l'application
 
 Passez au didacticiel suivant pour savoir comment mieux protéger les serveurs SSL à l’aide des certificats SSL.
 

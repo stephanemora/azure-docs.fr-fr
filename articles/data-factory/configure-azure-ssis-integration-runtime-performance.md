@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ac53e1a8a7c6c1b2c2959b92e14c7911065aed6d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2592c81947f48c10891fe920647612d5c30af64f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052026"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989074"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configurer Azure-SSIS Integration Runtime pour de hautes performances
 
@@ -51,7 +51,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Database Managed Instance
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>"
 ```
@@ -95,7 +95,7 @@ Si vous avez beaucoup de packages à exécuter et que vous vous souciez surtout 
 Lorsque vous utilisez déjà un nœud de rôle de travail puissant pour exécuter des packages, l’augmentation de **AzureSSISMaxParallelExecutionsPerNode** peut augmenter le débit global du runtime d’intégration. Pour les nœuds Standard_D1_v2, 1 à 4 exécutions parallèles par nœud sont prises en charge. Pour tous les autres types de nœuds, 1 à 8 exécutions parallèles par nœud sont prises en charge.
 Vous pouvez estimer la valeur appropriée sur la base du coût de votre package et sur les configurations suivantes des nœuds de rôle de travail. Pour plus d’informations, consultez [Tailles de machines virtuelles à usage général](../virtual-machines/windows/sizes-general.md).
 
-| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
+| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde MBps de lecture / MBps d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Performance réseau attendue (Mbits/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
 | Standard\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2 / 2 x 500                         | 2 / 750                                        |
 | Standard\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4 x 500                         | 2 / 1 500                                       |

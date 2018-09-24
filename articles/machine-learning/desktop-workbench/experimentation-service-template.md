@@ -9,14 +9,17 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 24ed164f4a1dfdb9a3913efa78fe58fab2b53696
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146517"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991961"
 ---
 # <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configurer le service Azure Machine Learning - Expérimentation
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
 Un espace de travail, un projet et un compte de service Azure Machine Learning - Expérimentation sont des ressources Azure. Vous pouvez donc les déployer à l’aide de modèles Resource Manager. Les modèles Azure Resource Manager sont des fichiers JSON qui définissent les ressources nécessaires au déploiement de votre solution. Pour comprendre les concepts associés au déploiement et à la gestion de vos solutions Azure, voir [Présentation d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
@@ -158,4 +161,4 @@ Vous pouvez changer trois valeurs.
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Créer et installer Azure Machine Learning](../service/quickstart-installation.md)
+* [Créer et installer Azure Machine Learning](quickstart-installation.md)

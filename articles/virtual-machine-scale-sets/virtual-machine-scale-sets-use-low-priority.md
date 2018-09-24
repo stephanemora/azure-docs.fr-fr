@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: memccror
-ms.openlocfilehash: 5c0726ea0da288d5306e28b101e4d3b59605b443
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0b4e3e0a924c1353f7732737670dee7ed45a62a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894896"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953869"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Machines virtuelles basse priorité dans des groupes identiques (préversion)
 
@@ -43,7 +43,7 @@ Si vous souhaitez que les machines virtuelles dans votre groupe identique basse 
 
 Pour déployer des machines virtuelles basse priorité dans des groupes identiques, définissez le nouvel indicateur *Priority* sur *Low*. Toutes les machines virtuelles dans votre groupe identique sont alors configurées en basse priorité. Pour créer un groupe identique avec des machines virtuelles basse priorité, utilisez l’une des méthodes suivantes :
 - [Portail Azure](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+- [interface de ligne de commande Azure](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Modèles Microsoft Azure Resource Manager](#use-azure-resource-manager-templates)
 
@@ -51,7 +51,7 @@ Pour déployer des machines virtuelles basse priorité dans des groupes identiqu
 
 Le processus de création d’un groupe identique utilisant des machines virtuelles basse priorité est identique à celui décrit dans [l’article de démarrage rapide](quick-create-portal.md). Quand vous déployez un groupe identique, vous pouvez choisir de définir l’indicateur de basse priorité et la stratégie d’éviction : ![Créer un groupe identique avec des machines virtuelles basse priorité](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
 
-## <a name="use-the-azure-cli-20"></a>Utiliser Azure CLI 2.0
+## <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
 
 Le processus de création d’un groupe identique avec des machines virtuelles basse priorité est identique à celui décrit dans [l’article de démarrage rapide](quick-create-cli.md). Ajoutez simplement le paramètre '--Priority' à l’appel CLI et définissez-le sur *Low*, comme indiqué dans l’exemple ci-dessous :
 
@@ -86,7 +86,7 @@ Le processus de création d’un groupe identique avec des machines virtuelles b
 
 Pour configurer la stratégie d’éviction avec suppression, ajoutez le paramètre 'evictionPolicy' défini sur *delete*.
 
-L’exemple suivant crée un groupe identique basse priorité pour Linux, nommé *myScaleSet*, dans la région *West Central US*, avec *suppression* des machines virtuelles du groupe identique qui sont évincées :
+L’exemple suivant crée un groupe identique basse priorité pour Linux, nommé *myScaleSet*, dans la région *USA Centre-Ouest*, avec *suppression* des machines virtuelles du groupe identique qui sont évincées :
 
 ```json
 {

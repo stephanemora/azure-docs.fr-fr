@@ -16,12 +16,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6cc4ae4a0b77aeb27c0fbde23dfd0dd65604ccf1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 81077e25dfdafae163490aae01266f4742f520c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30280902"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993831"
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>Créer une application web avec un déploiement à partir de GitHub
 
@@ -31,7 +31,7 @@ Cet exemple de script crée une application web dans App Service avec ses ressou
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez utiliser Azure CLI 2.0 ou version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez utiliser Azure CLI 2.0 ou version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exemple de script
 

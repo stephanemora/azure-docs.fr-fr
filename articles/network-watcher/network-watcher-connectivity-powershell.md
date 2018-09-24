@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 7e8c04fd2284a3a00d4847f39fd34982a543cc29
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aac23f616cb9d7c3fb29e516cfa2daa47c00e8e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181859"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989258"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Résoudre les problèmes associés aux connexions avec Azure Network Watcher à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
 > - [Portail](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [CLI 2.0](network-watcher-connectivity-cli.md)
+> - [interface de ligne de commande Azure](network-watcher-connectivity-cli.md)
 > - [API REST Azure](network-watcher-connectivity-rest.md)
 
 Découvrez comment utiliser la résolution des problèmes associés aux connexions pour vérifier si une connexion TCP directe entre une machine virtuelle et un point de terminaison donné peut être établie.

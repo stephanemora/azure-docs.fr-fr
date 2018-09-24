@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: d433eeb7d63282868b8919ee8c53283080bf8b59
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 421be020ae0fb7cf9f3dc4ee02be9dd65dea8b16
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701056"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982509"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB : Bien démarrer avec l’API SQL et .NET Core
 
@@ -27,7 +27,6 @@ ms.locfileid: "43701056"
 > * [Java](sql-api-java-get-started.md)
 > * [Java asynchrone](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
-> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Bienvenue dans le didacticiel Bien démarrer avec l’API SQL pour Azure Cosmos DB avec .NET Core À la fin de ce didacticiel, vous disposerez d’une application de console qui crée et interroge des ressources Azure Cosmos DB.
@@ -136,7 +135,7 @@ private async Task GetStartedDemo()
 }
 ```
 
-Ajoutez le code suivant pour exécuter votre tâche asynchrone à partir de la méthode **Main** . La méthode **Main** intercepte les exceptions et les consignes dans la console.
+Ajoutez le code suivant pour exécuter votre tâche asynchrone à partir de la méthode **Main** . La méthode **Main** intercepte les exceptions et les consigne dans la console.
 
 ```csharp
 static void Main(string[] args)

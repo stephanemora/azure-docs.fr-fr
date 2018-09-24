@@ -7,14 +7,14 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 09/24/2018
 ms.author: v-jerkin
-ms.openlocfilehash: c26aeb1d29c3b2c8b5b43d1a1face818295e9d2f
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 169d421ddccf33ac239b69ab78ca7dca0f0b8261
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122080"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958411"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>À propos du Kit de développement logiciel (SDK) Speech de Cognitive Services
 
@@ -35,7 +35,7 @@ Pour Windows, nous prenons en charge les langages suivants :
   Le Kit de développement logiciel (SDK) peut être installé dans Visual Studio à l’aide de NuGet. Recherchez simplement `Microsoft.CognitiveServices.Speech`.
 
 * Java : vous pouvez référencer et utiliser la dernière version de notre package Maven du Kit de développement logiciel (SDK) de reconnaissance vocale, qui prend en charge Windows x64.
-  Dans votre projet Maven, ajoutez `https://csspeechstorage.blob.core.windows.net/maven/` comme référentiel supplémentaire, puis référencez `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` comme dépendance. 
+  Dans votre projet Maven, ajoutez `https://csspeechstorage.blob.core.windows.net/maven/` comme référentiel supplémentaire, puis référencez `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0` comme dépendance. 
 
 ### <a name="linux"></a>Linux
 
@@ -53,11 +53,11 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
   Pour référencer le Kit de développement logiciel (SDK), ajoutez la référence de package suivante à votre projet :
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="0.6.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.0.0" />
   ```
 
 * Java : vous pouvez référencer et utiliser la dernière version de notre package Maven du Kit de développement logiciel (SDK) de reconnaissance vocale.
-  Dans votre projet Maven, ajoutez `https://csspeechstorage.blob.core.windows.net/maven/` comme référentiel supplémentaire, puis référencez `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0` comme dépendance. 
+  Dans votre projet Maven, ajoutez `https://csspeechstorage.blob.core.windows.net/maven/` comme référentiel supplémentaire, puis référencez `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0` comme dépendance. 
 
 * C++ : téléchargez le SDK en tant que [package .tar](https://aka.ms/csspeech/linuxbinary) et décompressez les fichiers dans un répertoire de votre choix. Le tableau suivant montre la structure de dossiers du Kit de développement logiciel.
 
@@ -74,7 +74,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 ### <a name="android"></a>Android
 
 Le Kit de développement logiciel (SDK) Java pour Android est empaqueté sous forme de package [AAR (bibliothèque Android)](https://developer.android.com/studio/projects/android-library), qui inclut les bibliothèques nécessaires ainsi que les autorisations Android requises pour son utilisation.
-Il est hébergé dans un référentiel Maven dans `https://csspeechstorage.blob.core.windows.net/maven/`, en tant que package `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`.
+Il est hébergé dans un référentiel Maven dans `https://csspeechstorage.blob.core.windows.net/maven/`, en tant que package `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`.
 Pour utiliser le package dans votre projet Android Studio, effectuez les modifications suivantes :
 
 * Dans le fichier `build.gradle` au niveau du projet, ajoutez le texte suivant à la section `repository` :
@@ -86,7 +86,7 @@ Pour utiliser le package dans votre projet Android Studio, effectuez les modific
 * Dans le fichier `build.gradle` au niveau du module, ajoutez le texte suivant à la section `dependencies` :
 
   ```text
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.6.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.0.0'
   ```
 
 Le Kit de développement logiciel (SDK) Java fait aussi partie du [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).

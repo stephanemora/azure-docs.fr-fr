@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 548c94ce502da8c6a8d208daafb5b0fb624de1e1
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b56a75074af239f60b82edbe1d074c6384c4aef1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603927"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982974"
 ---
 # <a name="get-started-with-queries-in-log-analytics"></a>Bien démarrer avec les requêtes dans Log Analytics
 
@@ -50,7 +50,7 @@ Les requêtes peuvent commencer par un nom de table ou la commande *search*. Vou
 ### <a name="table-based-queries"></a>Requêtes basées sur une table
 Azure Log Analytics organise les données en tables, chacune composée de plusieurs colonnes. Toutes les tables et colonnes sont affichées dans le volet Schéma du portail Analytics. Identifiez une table qui vous intéresse et jetez un œil à une partie des données :
 
-```KQL
+```Kusto
 SecurityEvent
 | take 10
 ```
@@ -66,7 +66,7 @@ Nous pourrions exécuter la requête sans ajouter `| take 10` : elle serait touj
 ### <a name="search-queries"></a>Requêtes de recherche
 Les requêtes de recherche sont moins structurées et généralement plus adaptées pour rechercher des enregistrements qui incluent une valeur spécifique dans une de leurs colonnes :
 
-```KQL
+```Kusto
 search in (SecurityEvent) "Cryptographic"
 | take 10
 ```
@@ -79,7 +79,7 @@ Cette requête recherche dans la table *SecurityEvent* les enregistrements qui c
 ## <a name="sort-and-top"></a>Sort et top
 Bien que **take** soit utile pour obtenir quelques enregistrements, les résultats ne sont pas sélectionnés et affichés dans un ordre particulier. Pour obtenir un affichage ordonné, vous pourriez **trier** (sort) en fonction de la colonne par défaut :
 
-```
+```Kusto
 SecurityEvent   
 | sort by TimeGenerated desc
 ```
@@ -88,7 +88,7 @@ Cette opération pourrait cependant retourner trop de résultats et également p
 
 La meilleure façon d’obtenir uniquement les 10 enregistrements les plus récents consiste à utiliser **top**, qui trie la table entière côté serveur, puis retourne les premiers enregistrements :
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 ```
@@ -103,7 +103,7 @@ Les filtres, comme leur nom l’indique, filtrent les données en fonction d’u
 
 Pour ajouter un filtre à une requête, utilisez l’opérateur **where** suivi d’une ou plusieurs conditions. Par exemple, la requête suivante retourne uniquement des enregistrements *SecurityEvent* dans lesquels _Level_ est égal à _8_ :
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8
 ```
@@ -119,14 +119,14 @@ Quand vous écrivez des conditions de filtre, vous pouvez utiliser les expressio
 
 Pour filtrer en fonction de plusieurs conditions, vous pouvez utiliser **and** :
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8 and EventID == 4672
 ```
 
 Ou enchaîner plusieurs éléments **where** avec le caractère barre verticale :
 
-```KQL
+```Kusto
 SecurityEvent
 | where Level == 8 
 | where EventID == 4672
@@ -146,7 +146,7 @@ Le sélecteur d’heure se trouve dans le coin supérieur gauche ; il indique qu
 ### <a name="time-filter-in-query"></a>Filtre de temps dans la requête
 Vous pouvez également définir votre propre intervalle de temps en ajoutant un filtre de temps à la requête. Il est préférable de placer le filtre de temps immédiatement après le nom de la table : 
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(30m) 
 | where toint(Level) >= 10
@@ -158,7 +158,7 @@ Dans le filtre de temps ci-dessus, `ago(30m)` signifie « il y a 30 minutes » ;
 ## <a name="project-and-extend-select-and-compute-columns"></a>Project et Extend : sélectionner et calculer des colonnes
 Utilisez **project** pour sélectionner les colonnes à inclure dans les résultats :
 
-```KQL
+```Kusto
 SecurityEvent 
 | top 10 by TimeGenerated 
 | project TimeGenerated, Computer, Activity
@@ -175,7 +175,7 @@ Vous pouvez également utiliser **project** pour renommer des colonnes et en dé
 * Créer une colonne nommée *EventCode*. La fonction **substring()** est utilisée pour obtenir uniquement les quatre premiers caractères du champ Activity.
 
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated 
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
@@ -183,7 +183,7 @@ SecurityEvent
 
 **extend** conserve toutes les colonnes d’origine dans le jeu de résultats et en définit de nouvelles. La requête suivante utilise **extend** pour ajouter une colonne *localtime* qui contient une valeur TimeGenerated localisée.
 
-```KQL
+```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
 | extend localtime = TimeGenerated-8h
@@ -193,7 +193,7 @@ SecurityEvent
 Utilisez **summarize** pour identifier des groupes d’enregistrements, en fonction d’une ou plusieurs colonnes, et leur appliquer des agrégations. L’utilisation la plus courante de **summarize** est *count*, qui retourne le nombre de résultats contenus dans chaque groupe.
 
 La requête suivante passe en revue tous les enregistrements *Perf* générés au cours de la dernière heure, les regroupe par *ObjectName* et compte les enregistrements dans chaque groupe : 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName
@@ -201,7 +201,7 @@ Perf
 
 Parfois, il est judicieux de définir les groupes au moyen de plusieurs dimensions. Chaque combinaison unique de ces valeurs définit un groupe distinct :
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize count() by ObjectName, CounterName
@@ -209,7 +209,7 @@ Perf
 
 Une autre utilisation courante consiste à effectuer des calculs mathématiques ou statistiques sur chaque groupe. Par exemple, ce qui suit calcule la moyenne de *CounterValue* pour chaque ordinateur :
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer
@@ -217,7 +217,7 @@ Perf
 
 Malheureusement, les résultats de cette requête n’ont aucune signification dans la mesure où nous avons combiné différents compteurs de performances. Pour que les résultats de cette requête soient plus explicites, nous devons calculer la moyenne séparément pour chaque combinaison de *CounterName* et *Computer* :
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1h)
 | summarize avg(CounterValue) by Computer, CounterName
@@ -228,7 +228,7 @@ Le regroupement des résultats peut également reposer sur une colonne de temps 
 
 Pour créer des groupes basés sur des valeurs continues, il convient de diviser la plage en unités gérables à l’aide de **bin**. La requête suivante analyse les enregistrements *Perf* qui mesurent la mémoire disponible (*Available MBytes*) sur un ordinateur spécifique. Elle calcule la valeur moyenne pour chaque période de 1 heure, au cours des 2 derniers jours :
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(2d)
 | where Computer == "ContosoAzADDS2" 

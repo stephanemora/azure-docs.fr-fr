@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: f11d08e56fe1970aa7a0d82f368eb73589ece2fe
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 08fcb244ada319dccf62c134a0155dd117e79184
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412297"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977030"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-linux-vms"></a>Utiliser Azure Policy pour restreindre l’installation d’extensions sur les machines virtuelles Linux
 
 Si vous souhaitez empêcher l’utilisation ou l’installation de certaines extensions sur vos machines virtuelles Linux, vous pouvez créer une stratégie Azure à l’aide de l’interface de ligne de commande (CLI) afin de restreindre les extensions pour les machines virtuelles d’un groupe de ressources. 
 
-Ce didacticiel utilise l’interface CLI disponible dans Azure Cloud Shell, qui est constamment mise à jour vers la dernière version. Pour exécuter l’interface Azure CLI localement, vous devez installer la version 2.0.26 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Ce didacticiel utilise l’interface CLI disponible dans Azure Cloud Shell, qui est constamment mise à jour vers la dernière version. Pour exécuter l’interface Azure CLI localement, vous devez installer la version 2.0.26 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="create-a-rules-file"></a>Créer un fichier de règles
 

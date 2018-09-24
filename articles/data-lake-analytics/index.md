@@ -8,12 +8,12 @@ ms.author: jasonh
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.openlocfilehash: 7ae53700a2957d8cb6056c19bc96db83b7417020
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: a7947186af485070d32ec61dc080fa6ae102749a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185949"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959697"
 ---
 # <a name="azure-data-lake-analytics-documentation"></a>Documentation Azure Data Lake Analytics
 
@@ -67,7 +67,7 @@ Apprenez à utiliser Azure Data Lake Analytics pour exécuter des travaux d’an
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Prise en main d’Azure Data Lake Analytics à l’aide du Portail Azure</h3>
+                        <h3>Prise en main d’Azure Data Lake Analytics à l’aide du portail Azure</h3>
                     </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@ Apprenez à utiliser Azure Data Lake Analytics pour exécuter des travaux d’an
         <td><a href="data-lake-analytics-data-lake-tools-get-started.md">Visual Studio</a></td>
         <td><a href="data-lake-analytics-data-lake-tools-for-vscode.md">Visual Studio Code</a></td>
         <td><a href="data-lake-analytics-get-started-powershell.md">PowerShell</a></td>
-        <td><a href="data-lake-analytics-get-started-cli2.md">Azure CLI 2.0</a></td>
+        <td><a href="data-lake-analytics-get-started-cli.md">interface de ligne de commande Azure</a></td>
     </tr>
 </table>
 
@@ -108,8 +108,8 @@ Apprenez à utiliser Azure Data Lake Analytics pour exécuter des travaux d’an
                 <div class="card">
                     <div class="cardText">
                         <h3>Ligne de commande</h3>
-                        <p><a href="/powershell/module/azurerm.datalakeanalytics">PowerShell</a></p>
-                        <p><a href="/cli/azure/dla">CLI 2.0</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.datalakeanalytics/v2.3.0/azurerm.datalakeanalytics">PowerShell</a></p>
+                        <p><a href="/cli/azure/dla">interface de ligne de commande Azure</a></p>
                     </div>
                 </div>
             </div>

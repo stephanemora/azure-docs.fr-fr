@@ -9,19 +9,19 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: c4af99055753a11a8258a4347a885e0d60e3d286
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b7230b5fdc519809463e3ee176aa14fa1553a48d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399105"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960309"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # <a name="quickstart-upload-list-and-delete-blobs-using-javascripthtml-in-the-browser"></a>Démarrage rapide : Télécharger, répertorier et supprimer des objets blob à l’aide de JavaScript/HTML dans le navigateur
 Ce guide de démarrage rapide explique comment gérer des objets blob à partir d’un code s’exécutant entièrement dans le navigateur. L’approche utilisée ici montre comment utiliser des mesures de sécurité requises pour sécuriser l’accès à votre compte de stockage Blob. Pour suivre ce guide de démarrage rapide, vous devez disposer d’un [abonnement Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configuration des règles CORS du compte de stockage 
 Avant que votre application Web puisse accéder à un stockage d’objets BLOB à partir du client, le compte doit être configuré pour activer le [partage des ressources cross-origin](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services), ou CORS. 
@@ -246,7 +246,7 @@ document.getElementById('delete-button').addEventListener('click', () => {
 > [!WARNING]
 > Pour que cet exemple de code fonctionne, vous devez fournir une valeur de chaîne pour *blobName*.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Pour supprimer les ressources créées au cours de ce démarrage rapide, revenez au [portail Azure](https://portal.azure.com) et sélectionnez votre compte de stockage. Une fois sélectionné, vous pouvez supprimer le compte de stockage en accédant à : **Vue d’ensemble > Supprimer le compte de stockage**.
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: c9ade4d61a1b95d5041a13f9436f0d02a7951758
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715827"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981649"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>S’authentifier auprès d’Azure Container Registry à partir d’Azure Kubernetes Service
 
@@ -21,7 +21,7 @@ Quand vous utilisez Azure Container Registry (ACR) avec Azure Kubernetes Service
 
 ## <a name="grant-aks-access-to-acr"></a>Accorder à AKS un accès à ACR
 
-Lorsque vous créez un cluster AKS, Azure crée également un principal du service pour prendre en charge le bon fonctionnement du cluster avec d’autres ressources Azure. Vous pouvez aussi utiliser ce principal du service généré automatiquement pour l’authentification sur un registre ACR. Pour ce faire, vous devez créer une [attribution de rôle](../role-based-access-control/overview.md#role-assignment) Azure AD qui accorde au principal du service du cluster l’accès au registre de conteneurs.
+Lorsque vous créez un cluster AKS, Azure crée également un principal du service pour prendre en charge le bon fonctionnement du cluster avec d’autres ressources Azure. Vous pouvez aussi utiliser ce principal du service généré automatiquement pour l’authentification sur un registre ACR. Pour ce faire, vous devez créer une [attribution de rôle](../role-based-access-control/overview.md#role-assignments) Azure AD qui accorde au principal du service du cluster l’accès au registre de conteneurs.
 
 Utilisez le script suivant pour accorder au principal du service généré par AKS l’accès à un registre de conteneurs Azure. Modifiez les variables `AKS_*` et `ACR_*` de votre environnement avant d’exécuter le script.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049122"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954838"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
@@ -76,7 +76,7 @@ Les ressources Azure émettent deux types de données de surveillance :
 Ces deux types de données sont envoyés à un hub d’événements à l’aide d’un paramètre de diagnostic des ressources. [Suivez ce guide](./monitoring-stream-diagnostic-logs-to-event-hubs.md) pour définir un paramètre de diagnostic dans une ressource particulière. Définissez un paramètre de diagnostic des ressources pour chacune des ressources dont vous voulez collecter les journaux.
 
 > [!TIP]
-> Vous pouvez utiliser Azure Policy pour faire en sorte que toutes les ressources de l’étendue spécifiée soient toujours configurées avec un paramètre de diagnostic [à l’aide de l’effet DeployIfNotExists de la règle de stratégie](../azure-policy/policy-definition.md#policy-rule). À l’heure actuelle, DeployIfNotExists est uniquement pris en charge dans les stratégies prédéfinies.
+> Vous pouvez utiliser Azure Policy pour faire en sorte que toutes les ressources de l’étendue spécifiée soient toujours configurées avec un paramètre de diagnostic [à l’aide de l’effet DeployIfNotExists de la règle de stratégie](../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## <a name="guest-os-data"></a>Données du système d’exploitation invité
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: willzhan;juliako
-ms.openlocfilehash: 3a33c4b157ded3162919494d27488285e52fdd3b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 724d9779293a520cf843013d096f8a99f6b06c0f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529686"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952122"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès 
 
@@ -303,9 +303,9 @@ Que se passe-t-il si la substitution de la clé a lieu après qu’Azure AD a g�
 Une clé pouvant être substituée à tout moment, il y a toujours plusieurs clés publiques valides disponibles dans le document de métadonnées de la fédération. La distribution de licences Media Services peut utiliser n’importe quelle clé spécifiée dans le document. Puisqu’une clé peut être rapidement changée, une autre peut être utilisée en remplacement et ainsi de suite.
 
 ### <a name="where-is-the-access-token"></a>Où se trouve le jeton d’accès ?
-Si vous regardez comment une application web appelle une application API sous [Identité d’application avec octroi d’informations d’identification client OAuth 2.0](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), vous obtenez le flux d’authentification suivant :
+Si vous regardez comment une application web appelle une application API sous [Identité d’application avec octroi d’informations d’identification client OAuth 2.0](../../active-directory/develop/web-api.md), vous obtenez le flux d’authentification suivant :
 
-* Un utilisateur se connecte à Azure AD dans l’application web. Pour plus d’informations, voir la rubrique [Navigateur web vers application web](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
+* Un utilisateur se connecte à Azure AD dans l’application web. Pour plus d’informations, voir la rubrique [Navigateur web vers application web](../../active-directory/develop/web-app.md).
 * Le point de terminaison d’autorisation Azure AD redirige l’agent utilisateur vers l’application cliente avec un code d’autorisation. L’agent utilisateur renvoie le code d’autorisation à l’URI de redirection de l’application cliente.
 * L’application web doit obtenir un jeton d’accès pour pouvoir s’authentifier auprès de l’API web et extraire la ressource souhaitée. Elle envoie une demande au point de terminaison du jeton Azure AD et fournit les informations d’identification, l’ID client et l’URI ID d’application de l’API web. Elle présente le code d’autorisation pour prouver que l’utilisateur a donné son consentement.
 * Azure AD authentifie l’application et renvoie un jeton d’accès JWT, qui est utilisé pour appeler l’API web.

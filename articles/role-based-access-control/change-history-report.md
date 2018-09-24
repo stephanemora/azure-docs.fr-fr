@@ -15,12 +15,12 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 10e0df78d75763dfcf8636983c9f9092b78b9c3b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: d5a67cdcef7f39830b747dec5f2c980483e1ab91
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437646"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978333"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>Afficher les journaux d’activité des changements de contrôle d’accès en fonction du rôle
 
@@ -125,7 +125,7 @@ Voici les étapes de base pour bien démarrer :
 
    ![Option Log Analytics dans le portail](./media/change-history-report/azure-log-analytics-option.png)
 
-1. Éventuellement, utilisez la page [Recherche dans les journaux](../log-analytics/log-analytics-log-search.md) ou le [portal Analytique avancée](https://docs.loganalytics.io/docs/Learn) pour interroger et afficher les journaux. Pour plus d’informations sur ces deux options, consultez la [page Recherche dans les journaux ou le portail Analytique avancée](../log-analytics/log-analytics-log-search-portals.md).
+1. Éventuellement, utilisez la page [Recherche dans les journaux](../log-analytics/log-analytics-log-search.md) ou le [portal Analytique avancée](../log-analytics/query-language/get-started-analytics-portal.md) pour interroger et afficher les journaux. Pour plus d’informations sur ces deux options, consultez la [page Recherche dans les journaux ou le portail Analytique avancée](../log-analytics/log-analytics-log-search-portals.md).
 
 Voici une requête qui retourne les nouvelles attributions de rôle organisées par fournisseur de ressources cible :
 

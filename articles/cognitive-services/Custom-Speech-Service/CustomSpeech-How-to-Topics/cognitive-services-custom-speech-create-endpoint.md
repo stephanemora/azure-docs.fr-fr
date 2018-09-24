@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: 99bc275db1f0c1b45b3db440d2e03d0db9ab5cf6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: ed93afa8e10fdfbb0d45f4500b4a648716e25e00
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368009"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952220"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Créer un point de terminaison de reconnaissance vocale personnalisé
 Une fois que vous avez créé des modèles acoustiques ou des modèles de langage personnalisés, vous pouvez déployer ces derniers dans un point de terminaison de reconnaissance vocale personnalisé. 
@@ -33,7 +34,7 @@ Le tableau suivant montre comment mapper des unités d’échelle vers des requ�
 | Unité d'échelle | Nombre de requêtes simultanées |
 | ------ | ----- |
 | 0 | 1 |
-| 1 | 5 |
+| 1 | 5. |
 | 2 | 10 |
 | 3 | 15 |
 | n | 5 * n |
@@ -69,7 +70,7 @@ Quand le déploiement est prêt, le nom du déploiement devient un lien. En cliq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus de tutoriels, consultez :
+Pour les autres tutoriels, consultez :
 * [Utiliser un point de terminaison de reconnaissance vocale personnalisé](cognitive-services-custom-speech-use-endpoint.md)
 * [Créer un modèle acoustique personnalisé](cognitive-services-custom-speech-create-acoustic-model.md)
 * [Créer un modèle de langage personnalisé](cognitive-services-custom-speech-create-language-model.md)

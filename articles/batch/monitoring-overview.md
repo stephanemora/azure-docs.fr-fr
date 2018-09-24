@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 885deca5efbd72b3d641c8c94837851340d752b9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957827"
 ---
 # <a name="monitor-batch-solutions"></a>Solutions Monitor Batch
 
@@ -34,7 +34,7 @@ L’une des méthodes pour récupérer des événements dans votre journal d’a
 
 ## <a name="batch-account-level-monitoring"></a>Surveillance au niveau du compte Batch
 
-Surveillez chaque compte Batch à l’aide des fonctionnalités d’[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor collecte des [métriques](../monitoring-and-diagnostics/monitoring-overview-metrics.md) et éventuellement des [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) pour les ressources au niveau du compte Batch, comme les pools, les travaux et les tâches. Collectez et utilisez ces données manuellement ou par programmation pour surveiller les activités dans votre compte Batch et diagnostiquer les problèmes. Pour plus d’informations, consultez [Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance](batch-diagnostics.md).
+Surveillez chaque compte Batch à l’aide des fonctionnalités d’[Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../monitoring/monitoring-data-collection.md#metrics) et éventuellement des [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) pour les ressources au niveau du compte Batch, comme les pools, les travaux et les tâches. Collectez et utilisez ces données manuellement ou par programmation pour surveiller les activités dans votre compte Batch et diagnostiquer les problèmes. Pour plus d’informations, consultez [Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance](batch-diagnostics.md).
  
 > [!NOTE]
 > Les métriques sont disponibles par défaut dans votre compte Batch sans configuration supplémentaire, et elles ont un historique roulant de 30 jours. Vous devez activer la journalisation des diagnostics pour un compte Batch. Le stockage ou le traitement des données du journal de diagnostic peut induire des frais supplémentaires. 

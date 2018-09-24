@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 72859f68fc1bb76a6c71bbd7b98cd713f1f0fe02
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8161fda80b5fa498f9321371c9ad2c8a2d97441a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296398"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962417"
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navigation et tableaux de bord dans le portail Application Insights
 Une fois que vous avez [configuré Application Insights sur votre projet](app-insights-overview.md), les données de télémétrie relatives aux performances et à l’utilisation de votre application apparaissent dans les ressources Application Insights de votre projet dans le [portail Azure](https://portal.azure.com).
@@ -63,7 +63,7 @@ Le graphique est automatiquement actualisé à une fréquence qui varie selon l�
 * Intervalle de temps supérieur à 24 heures : (intervalle de temps)/60.
 
 ### <a name="pin-any-query-in-analytics"></a>Épinglez n’importe quelle requête dans Analytics
-Vous pouvez également [épingler des graphiques Analytics](app-insights-analytics-using.md#pin-to-dashboard) à un tableau de bord [partagé](#share-dashboards-with-your-team). Ainsi, vous pouvez ajouter les graphiques de toute requête arbitraire en parallèle des mesures standards. 
+Vous pouvez également [épingler des graphiques Analytics](../log-analytics/query-language/get-started-analytics-portal.md) à un tableau de bord [partagé](#share-dashboards-with-your-team). Ainsi, vous pouvez ajouter les graphiques de toute requête arbitraire en parallèle des mesures standards. 
 
 Les résultats sont recalculés automatiquement toutes les heures. Cliquez sur l’icône Actualiser du graphique pour recalculer immédiatement. (L’actualisation du navigateur ne permet pas de lancer un nouveau calcul.)
 

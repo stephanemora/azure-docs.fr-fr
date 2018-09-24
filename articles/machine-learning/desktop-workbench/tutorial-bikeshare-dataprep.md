@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/21/2017
-ms.openlocfilehash: 2a50350b9ba49d82a20b92804ffb92ec6906186d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: cae80408a7440136b504647596c84a459a0d679c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439898"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971703"
 ---
 # <a name="tutorial-use-azure-machine-learning-workbench-for-advanced-data-preparation-bike-share-data"></a>Didacticiel : Préparation de données avancée avec Azure Machine Learning Workbench (données BikeShare)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (préversion) constitue une solution d’analytique avancée et de science des données de bout en bout intégrée, destinée aux chercheurs de données professionnels pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
 Dans ce didacticiel, vous utilisez les services Machine Learning (préversion) pour apprendre à effectuer les tâches suivantes :
@@ -36,7 +40,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Installation locale d’Azure Machine Learning Workbench. Pour plus d’informations, suivez le [Guide de démarrage rapide sur l’installation](../service/quickstart-installation.md).
+* Installation locale d’Azure Machine Learning Workbench. Pour plus d’informations, suivez le [Guide de démarrage rapide sur l’installation](quickstart-installation.md).
 * Si Azure CLI n’est pas installé, suivez les instructions pour [installer la dernière version d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Un [cluster HDInsight Spark](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal) créé dans Azure.
 * Un compte de stockage Azure.

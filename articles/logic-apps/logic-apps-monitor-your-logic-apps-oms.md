@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/19/2018
-ms.openlocfilehash: 1aa55728b222c2838026cf5b06175736c5c84194
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 75094ad17474cd07039724fb0b5e5e377808b51f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123288"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956645"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Surveiller et comprendre les exécutions de votre application logique à l’aide de Log Analytics
 
@@ -135,7 +135,7 @@ Si vous avez déjà activé Log Analytics lors de la création de votre applicat
      ![Affichage des actions et des détails relatifs à une exécution d’application logique](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
      
      Dans la page Azure Log Analytics, vous pouvez mettre à jour des requêtes et afficher les résultats dans un tableau. 
-     Cette requête utilise le [langage de requête Kusto](https://docs.loganalytics.io/docs/Language-Reference), que vous pouvez modifier si vous souhaitez afficher des résultats différents. 
+     Cette requête utilise le [langage de requête Kusto](https://aka.ms/LogAnalyticsLanguageReference), que vous pouvez modifier si vous souhaitez afficher des résultats différents. 
 
      ![Azure Log Analytics - Vue de la requête](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

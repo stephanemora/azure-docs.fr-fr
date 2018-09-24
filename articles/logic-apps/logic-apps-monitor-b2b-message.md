@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: decc0271ae0e7c359f72648d7c4d0076892285da
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125173"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948007"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Surveiller les messages B2B et configurer la journalisation pour les comptes d’intégration dans Azure Logic Apps
 
@@ -32,7 +32,7 @@ Une fois la communication B2B configurée entre deux processus ou applications d
 
 ## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>Activer la journalisation des diagnostics pour votre compte d’intégration
 
-Vous pouvez activer la journalisation directement à partir de votre compte d’intégration ou [via le service Azure Monitor](#azure-monitor-service). Azure Monitor exerce une surveillance de base avec des données de niveau de l’infrastructure. En savoir plus sur [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md).
+Vous pouvez activer la journalisation directement à partir de votre compte d’intégration ou [via le service Azure Monitor](#azure-monitor-service). Azure Monitor exerce une surveillance de base avec des données de niveau de l’infrastructure. En savoir plus sur [Azure Monitor](../azure-monitor/overview.md).
 
 ### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>Activer la journalisation des diagnostics directement à partir de votre compte d’intégration
 

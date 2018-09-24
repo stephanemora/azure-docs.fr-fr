@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 30b0c1bdd23858b5cc6224deb2698b5f180359eb
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 124653f95dedbb1606e85cbfcd8229c026cf7341
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288228"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960649"
 ---
 # <a name="check-resource-usage-against-limits"></a>Vérifier l’utilisation des ressources par rapport aux limites
 
@@ -72,7 +72,7 @@ Network Watchers                   1     1
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI en local, vous devez également exécuter `az login` pour vous connecter à Azure.
+Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI en local, vous devez également exécuter `az login` pour vous connecter à Azure.
 
 Consultez votre utilisation par rapport aux limites avec [az network list-usages](/cli/azure/network?view=azure-cli-latest#az-network-list-usages). L’exemple suivant obtient l’utilisation des ressources dans l’emplacement USA Est :
 

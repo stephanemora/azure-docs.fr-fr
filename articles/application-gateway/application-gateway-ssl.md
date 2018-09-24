@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
-ms.openlocfilehash: e620730b86d648c1ac9db7a9e6faa7a2d206b46e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 782e5c4b33cc62ab5af80e823dc63b3e79a707b3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205378"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980523"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurer une passerelle d’application pour le déchargement SSL en utilisant le modèle de déploiement classique
 
@@ -27,7 +27,7 @@ ms.locfileid: "33205378"
 > * [Portail Azure](application-gateway-ssl-portal.md)
 > * [Commandes PowerShell pour Azure Resource Manager](application-gateway-ssl-arm.md)
 > * [Azure Classic PowerShell](application-gateway-ssl.md)
-> * [Azure CLI 2.0](application-gateway-ssl-cli.md)
+> * [interface de ligne de commande Azure](application-gateway-ssl-cli.md)
 
 Il est possible de configurer Azure Application Gateway de façon à mettre fin à la session SSL (Secure Sockets Layer) sur la passerelle pour éviter les tâches de déchiffrement SSL coûteuses au niveau de la batterie de serveurs web. Le déchargement SSL simplifie aussi la configuration de serveur principal et la gestion de l’application web.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 2f5396826da88fd2efdd3588babdbdfdeb42252a
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 690b527f11fc47260635a09af6f9b4db97b42a7a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026141"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964872"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du kit de développement logiciel Java V7
 
@@ -31,7 +31,7 @@ Ce didacticiel utilise [Eclipse](http://www.eclipse.org/downloads/) avec la conf
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 
@@ -181,7 +181,7 @@ downloadedFile = new File(sourceFile.getParentFile(), "downloadedFile.txt");
 blob.downloadToFile(downloadedFile.getAbsolutePath());
 ```
 
-### <a name="clean-up-resources"></a>Supprimer les ressources
+### <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer le conteneur à l’aide de [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists#com_microsoft_azure_storage_blob__cloud_blob_container_deleteIfExists). Cela supprime également les fichiers dans le conteneur.
 

@@ -16,14 +16,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
-ms.openlocfilehash: edc3fc5e2a625a14bcb48b03f32cd99069a0ad53
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 8533023a16cb350828127d0603e6add0876b37a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142789"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948847"
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classification des revenus avec un projet Team Data Science Process (TDSP)
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="introduction"></a>Introduction
 
@@ -55,7 +60,7 @@ Consultez [Cycle de vie du processus TDSP (Team Data Science Process)](https://g
 1. Un [abonnement](https://azure.microsoft.com) Azure. Vous pouvez également obtenir un [abonnement gratuit](https://azure.microsoft.com/free/?v=17.16&WT.srch=1&WT.mc_id=AID559320_SEM_cZGgGOIg) pour exécuter cet exemple.
 2. Une [machine virtuelle de science des données (DSVM) Azure Windows Server 2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm) (taille de la machine virtuelle : [DS3_V2](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), avec 4 processeurs virtuels et 14 Go de RAM). Bien que testé sur une machine virtuelle de science des données Azure, cet exemple devrait fonctionner sur n’importe quelle machine Windows 10.
 3. Passez en revue la documentation sur Azure Machine Learning et ses services associés (voir les liens ci-dessous).
-4. Assurez-vous que vous avez correctement installé Azure Machine Learning conformément aux instructions du [guide d’installation de démarrage rapide](../service/quickstart-installation.md).
+4. Assurez-vous que vous avez correctement installé Azure Machine Learning conformément aux instructions du [guide d’installation de démarrage rapide](quickstart-installation.md).
 
 Le jeu de données pour cet exemple est extrait du référentiel ML de l’UCI [[lien]](https://archive.ics.uci.edu/ml/datasets/adult). Il provient de la base de données de recensement des États-Unis de 1994 et contient des données de recensement et des informations sur les revenus concernant environ 50 000 personnes. Il s’agit d’un jeu de données structuré avec des caractéristiques numériques et catégorielles, et une cible catégorielle constituée de deux catégories de revenus (« > 50 K » ou « < = 50 K »). 
 
@@ -65,7 +70,7 @@ Si vous souhaitez enregistrer et gérer les versions de votre projet et son cont
 ### <a name="informational-about-azure-machine-learning"></a>Informations sur Azure Machine Learning
 * [FAQ - Guide pratique pour bien démarrer](frequently-asked-questions.md)
 * [Vue d’ensemble](../service/overview-what-is-azure-ml.md)
-* [Installation](../service/quickstart-installation.md)
+* [Installation](quickstart-installation.md)
 * [Exécution](experimentation-service-configuration.md)
 * [Utilisation de TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Lire et écrire des fichiers](how-to-read-write-files.md)

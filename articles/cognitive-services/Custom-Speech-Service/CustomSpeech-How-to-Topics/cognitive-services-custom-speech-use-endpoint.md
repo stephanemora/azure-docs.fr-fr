@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: d28065d7962ee660cafd4b3321abdd6a8f94abcb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 55583952df3b83331f1f622a4fce269713ecf2a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368129"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966518"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Utiliser un point de terminaison de reconnaissance vocale personnalisé
 Vous pouvez envoyer des requêtes à un point de terminaison de reconnaissance vocale Azure Custom Speech Service de la même façon que vous pouvez le faire sur le point de terminaison vocal Cognitive Services par défaut. Ces points de terminaison sont identiques en termes de fonction aux points de terminaison par défaut de l’API Microsoft Speech. Ainsi, cette même fonctionnalité, disponible via la bibliothèque de client ou l’API REST pour l’API Microsoft Speech, est également disponible pour votre point de terminaison personnalisé.

@@ -11,16 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.openlocfilehash: 101c47f4916ca3fab56800eaf012c55150769302
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7084251102984445e7c2341b78b44f85811ebea7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35637643"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958218"
 ---
 # <a name="logging-api-reference"></a>Informations de référence sur l’API de journalisation
 
-La bibliothèque de journalisation d’Azure ML permet au programme d’émettre des métriques et des fichiers dont le suivi est assuré par le service d’historique à des fins d’analyse. Actuellement, quelques types de métriques et de fichiers de base sont pris en charge. Ce nombre augmentera dans les futures versions du package Python.
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+La bibliothèque de journalisation d’Azure ML permet au programme d’émettre des métriques et des fichiers dont le suivi est assuré par le service d’historique à des fins d’analyse. 
 
 ## <a name="uploading-metrics"></a>Téléchargement des métriques
 

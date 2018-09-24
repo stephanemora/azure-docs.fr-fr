@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: c69aefa6271f9766687ce3b63f959dd4e414b98c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 99accb8a822aedc387bbe137e8e80e298fe7cd1d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696674"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991179"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Didacticiel NoSQL : Créer une application console Java avec l’API SQL
 
@@ -26,7 +26,6 @@ ms.locfileid: "43696674"
 > * [Java](sql-api-java-get-started.md)
 > * [Java asynchrone](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
-> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Bienvenue dans le didacticiel NoSQL de l’API SQL pour le SDK Java Azure Cosmos DB ! À la fin de ce didacticiel, vous disposerez d’une application de console qui crée et interroge des ressources Azure Cosmos DB.

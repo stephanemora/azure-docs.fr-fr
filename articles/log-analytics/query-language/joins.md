@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: c24d79d6983f7c32f5c563192bcfe412da586ef2
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 39a461a27e8d9d6d1b9712449586bfabf6124d22
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603485"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989445"
 ---
 # <a name="joins-in-log-analytics-queries"></a>Jointures dans des requêtes Log Analytics
 
@@ -32,7 +32,7 @@ ms.locfileid: "45603485"
 Les jointures vous permettent d’analyser les données provenant de plusieurs tables, dans la même requête. Elles fusionnent les lignes de deux jeux de données en faisant correspondre les valeurs des colonnes spécifiées.
 
 
-```KQL
+```Kusto
 SecurityEvent 
 | where EventID == 4624     // sign-in events
 | project Computer, Account, TargetLogonId, LogonTime=TimeGenerated
@@ -64,7 +64,7 @@ on $left.key1 == $right.key2
 ## <a name="lookup-tables"></a>Tables de recherche
 Une utilisation courante des jointures est l’emploi de mappage statique de valeurs à l’aide de `datatable` qui permet de rendre les résultats plus présentables, par exemple pour enrichir les données d’événements de sécurité avec le nom de l’événement pour chaque ID d’événement.
 
-```KQL
+```Kusto
 let DimTable = datatable(EventID:int, eventName:string)
   [
     4625, "Account activity",
