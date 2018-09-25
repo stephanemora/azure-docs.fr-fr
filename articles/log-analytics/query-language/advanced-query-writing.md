@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f7594b7d1eb7d41508be435cdd0a6203433727c1
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603054"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958547"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>Écriture de requêtes avancées dans Log Analytics
 
@@ -32,7 +32,7 @@ ms.locfileid: "45603054"
 ## <a name="reusing-code-with-let"></a>Réutilisation du code avec let
 Utilisez `let` pour affecter des résultats à une variable et y faire référence ultérieurement dans la requête :
 
-```KQL
+```Kusto
 // get all events that have level 2 (indicates warning level)
 let warning_events=
 Event
@@ -44,7 +44,7 @@ warning_events
 
 Vous pouvez également affecter des valeurs constantes aux variables. Cette opération prend en charge une méthode permettant de configurer des paramètres pour les champs que vous devez modifier chaque fois que vous exécutez la requête. Modifiez ces paramètres selon vos besoins. Par exemple, pour calculer l’espace disque libre et la mémoire disponible (en centiles), dans une fenêtre de temps donnée :
 
-```KQL
+```Kusto
 let startDate = datetime(2018-08-01T12:55:02);
 let endDate = datetime(2018-08-02T13:21:35);
 let FreeDiskSpace =
@@ -65,7 +65,7 @@ Il est ainsi facile de modifier l’heure de début ou de fin la prochaine fois 
 ### <a name="local-functions-and-parameters"></a>Paramètres et fonctions locales
 Utilisez des instructions `let` pour créer des fonctions qui peuvent être utilisées dans la même requête. Par exemple, définissez une fonction qui prend un champ datetime (au format UTC) et le convertit en un format des États-Unis standard. 
 
-```KQL
+```Kusto
 let utc_to_us_date_format = (t:datetime)
 {
   strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ",
@@ -80,7 +80,7 @@ Event
 ## <a name="functions"></a>Fonctions
 Vous pouvez enregistrer une requête avec un alias de fonction pour que d’autres requêtes puissent la référencer. Par exemple, la requête standard suivante retourne toutes les mises à jour de sécurité manquantes signalées le dernier jour :
 
-```KQL
+```Kusto
 Update
 | where TimeGenerated > ago(1d) 
 | where Classification == "Security Updates" 
@@ -89,7 +89,7 @@ Update
 
 Vous pouvez enregistrer cette requête en tant que fonction et lui donner un alias tel que _security_updates_last_day_. Vous pouvez ensuite l’utiliser dans une autre requête pour rechercher les mises à jour de sécurité nécessaires relatives à SQL :
 
-```KQL
+```Kusto
 security_updates_last_day | where Title contains "SQL"
 ```
 
@@ -102,7 +102,7 @@ Pour enregistrer une requête en tant que fonction, sélectionnez le bouton **En
 ## <a name="print"></a>Print
 `print` retourne une table avec une seule colonne et une seule ligne, qui affiche le résultat d’un calcul. Cette commande est souvent utilisée dans les cas où vous avez besoin d’un calcul simple. Par exemple, pour trouver l’heure actuelle en PST et ajouter une colonne avec EST :
 
-```KQL
+```Kusto
 print nowPst = now()-8h
 | extend nowEst = nowPst+3h
 ```
@@ -110,7 +110,7 @@ print nowPst = now()-8h
 ## <a name="datatable"></a>Datatable
 `datatable` vous permet de définir un ensemble de données. Vous fournissez un schéma et un ensemble de valeurs, puis dirigez la table dans tous les autres éléments de requête. Par exemple, pour créer une table de l’utilisation de mémoire RAM et calculer la valeur moyenne par heure :
 
-```KQL
+```Kusto
 datatable (TimeGenerated: datetime, usage_percent: double)
 [
   "2018-06-02T15:15:46.3418323Z", 15.5,
@@ -127,7 +127,7 @@ datatable (TimeGenerated: datetime, usage_percent: double)
 
 Les constructions Datatable sont également très utiles lors de la création d’une table de recherche. Par exemple, pour mapper des données de table comme des ID d’événement de la table _SecurityEvent_ aux types d’événements listés ailleurs, créez une table de recherche avec les types d’événements à l’aide de `datatable` et joignez ce datatable aux données _SecurityEvent_ :
 
-```KQL
+```Kusto
 let eventCodes = datatable (EventID: int, EventType:string)
 [
     4625, "Account activity",

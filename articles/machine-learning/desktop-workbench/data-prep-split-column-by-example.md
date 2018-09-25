@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 5fe292b92557b4786d638ac21c7adb1f50566feb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3edf49484e5bc05a297b8d8969632fb902aa1714
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35637793"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953733"
 ---
 # <a name="split-column-by-example-transformation"></a>Transformation Fractionner des colonnes par exemple
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Cette transformation fractionne de manière prédictive le contenu d’une colonne sur des limites significatives sans nécessiter d’intervention de l’utilisateur. L’algorithme de fractionnement sélectionne les limites après avoir analysé le contenu de la colonne. Ces limites peuvent être définies par
 * Un délimiteur fixe
 * Plusieurs délimiteurs arbitraires apparaissant dans des contextes particuliers
@@ -182,4 +187,4 @@ Dans l’exemple suivant, nous souhaitons séparer les valeurs de poids des unit
 
 ## <a name="technical-notes"></a>Notes techniques
 
-La fonctionnalité de transformation de fractionnement est basée sur la technique de **synthèse de programme prédictive**. Avec cette technique, les programmes de transformation de données sont appris automatiquement, en fonction des données d’entrée. Les programmes sont synthétisés dans un langage propre à un domaine. Ce langage est basé sur les délimiteurs et les champs qui se produisent dans des contextes d’expression régulière particuliers. Vous trouverez plus d’informations sur cette technologie dans une [publication récente](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 
+La fonctionnalité de transformation de fractionnement est basée sur la technique de **synthèse de programme prédictive**. Avec cette technique, les programmes de transformation de données sont appris automatiquement, en fonction des données d’entrée. Les programmes sont synthétisés dans un langage propre à un domaine. Ce langage est basé sur les délimiteurs et les champs qui se produisent dans des contextes d’expression régulière particuliers. Vous trouverez plus d’informations sur cette technologie dans une [publication récente](https://www.microsoft.com/research/publication/automated-data-extraction-using-predictive-program-synthesis/). 

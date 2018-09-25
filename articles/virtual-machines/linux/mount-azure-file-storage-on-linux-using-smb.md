@@ -14,15 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 2019324030b2e4c469d0b9ba937fb40a9d0675f1
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099709"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982203"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Monter le stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB
-
 
 Cet article vous montre comment utiliser le service de stockage de fichiers Azure sur une machine virtuelle Linux à l’aide d’un montage SMB avec Azure CLI. Le stockage de fichiers Azure propose des partages de fichiers dans le cloud s’appuyant sur le protocole SMB standard. 
 
@@ -30,7 +29,7 @@ Le stockage de fichiers propose des partages de fichiers dans le cloud qui utili
 
 Un bon moyen de déboguer les journaux consiste à déplacer les fichiers vers un montage SMB hébergé sur le stockage de fichiers à partir d’une machine virtuelle. Un même partage SMB peut être monté localement sur votre station de travail Windows, Linux ou Mac. SMB ne constitue pas la meilleure solution pour transmettre en continu des journaux d’applications ou Linux en temps réel, car le protocole SMB n’est pas conçu pour gérer des tâches de journalisation aussi lourdes. Un outil de couche de journalisation unifié et dédié comme Fluentd représente un meilleur choix que SMB pour collecter la sortie de journalisation d’applications et Linux.
 
-Ce guide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Pour déterminer la version, exécutez la commande **az --version**. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Ce guide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Pour déterminer la version, exécutez la commande **az --version**. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: babanisa
-ms.openlocfilehash: ce0e766a07fd19f523f1f35b9a3cbc865cfb8c71
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144210"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965449"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -39,7 +39,7 @@ Si vous utilisez un autre type de point de terminaison, comme une fonction Azure
 
 2. **Établissement de liaison ValidationURL (établissement manuel)** : dans certains cas, vous ne contrôlez pas le code source du point de terminaison et ne pouvez donc pas implémenter l’établissement de liaison en fonction de ValidationCode. Par exemple, si vous utilisez un service tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous risquez de ne pas pouvoir renvoyer le code de validation par programmation. Par conséquent, à compter de la version 2018-05-01-preview, EventGrid prend désormais en charge un établissement de liaison de validation manuel. Si vous créez un abonnement d’événement à l’aide de kits de développement logiciel/outils qui utilisent cette nouvelle version d’API (2018-05-01-preview), EventGrid envoie une propriété `validationUrl` (en plus de la propriété `validationCode`) incluse dans la partie des données de la validation d’abonnement d’événement. Pour terminer l’établissement de liaison, il vous suffit d’envoyer une requête GET sur cette URL, via un client REST ou à l’aide de votre navigateur web. L’URL de validation fournie est valide uniquement pendant 10 minutes environ. Pendant ce temps, l’état d’approvisionnement de l’abonnement aux événements est `AwaitingManualAction`. Si vous n’effectuez pas la validation manuelle dans les 10 minutes, l’état d’approvisionnement est défini sur `Failed`. Vous devrez retentez la création de l’abonnement aux événements avant d’essayer d’effectuer la validation manuelle à nouveau.
 
-Le mécanisme de validation manuelle est en préversion. Pour l’utiliser, vous devez installer [l’extension Event Grid](/cli/azure/azure-cli-extensions-list) pour [AZ CLI 2.0](/cli/azure/install-azure-cli). Vous pouvez l’installer avec `az extension add --name eventgrid`. Si vous utilisez l’API REST, assurez-vous d’utiliser `api-version=2018-05-01-preview`.
+Le mécanisme de validation manuelle est en préversion. Pour l’utiliser, vous devez installer [l’extension Event Grid](/cli/azure/azure-cli-extensions-list) pour [Azure CLI](/cli/azure/install-azure-cli). Vous pouvez l’installer avec `az extension add --name eventgrid`. Si vous utilisez l’API REST, assurez-vous d’utiliser `api-version=2018-05-01-preview`.
 
 ### <a name="validation-details"></a>Détails de validation
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 5fd823e9105157f8292d5a9554850b0f4338a392
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: beacb39752b2af51aba4ddeb41c9bff68803df1b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398850"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954770"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure
 
@@ -118,7 +118,7 @@ Pour supprimer le paramètre de domaine personnalisé, effectuez la procédure s
 
 Une fois le domaine personnalisé supprimé, une notification de portail apparaît, indiquant que votre compte de stockage a été correctement mis à jour.
 
-### <a name="azure-cli-20"></a>Azure CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Utilisez la commande d’interface de ligne de commande [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) et spécifiez une chaîne vide (`""`) pour la valeur d’argument `--custom-domain` afin de supprimer une inscription de domaine personnalisé.
 

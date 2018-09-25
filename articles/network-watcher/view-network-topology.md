@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "35771128"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992200"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Afficher la topologie d’un réseau virtuel Azure
 
@@ -52,7 +52,7 @@ Les ressources affichées dans le diagramme sont un sous-ensemble des composants
 
 Vous pouvez exécuter les commandes dans les étapes qui suivent :
 - Dans Azure Cloud Shell, en sélectionnant **Essayer** en haut à droite d’une commande. Azure Cloud Shell est un interpréteur de commandes interactif gratuit dans lequel les outils Azure communs ont été préinstallés et configurés pour pouvoir être utilisés avec votre compte.
-- En exécutant l’interface de ligne de commande depuis votre ordinateur. Si vous exécutez l’interface CLI depuis votre ordinateur, les étapes décrites dans cet article nécessitent la version 2.0.31 d’Azure CLI ou une version ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+- En exécutant l’interface de ligne de commande depuis votre ordinateur. Si vous exécutez l’interface CLI depuis votre ordinateur, les étapes décrites dans cet article nécessitent la version 2.0.31 d’Azure CLI ou une version ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 Le compte que vous utilisez doit disposer des [autorisations](required-rbac-permissions.md) nécessaires.
 
@@ -103,7 +103,7 @@ Le compte que vous utilisez doit disposer des [autorisations](required-rbac-perm
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Récupérez une instance de Network Watcher avec [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher). L’exemple suivant permet de récupérer un observateur réseau dans la région Est des États-Unis :
+3. Récupérez une instance de Network Watcher avec [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher). L’exemple suivant permet de récupérer un observateur réseau dans la région USA Est :
 
     ```azurepowershell-interactive
     $nw = Get-AzurermResource `

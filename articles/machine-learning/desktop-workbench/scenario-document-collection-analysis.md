@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ROBOTS: NOINDEX
+ms.openlocfilehash: 762955103aeb48eb8a9b62f4e3ffe193bba71a38
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861105"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947215"
 ---
 # <a name="document-collection-analysis"></a>Analyse d’une collection de documents
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Ce scénario montre comment effectuer la synthèse et l’analyse d’une grande collection de documents, en utilisant des techniques telles que l’apprentissage des expressions, la modélisation des thèmes et l’analyse du modèle thématique à l’aide d’Azure ML Workbench. Azure Machine Learning Workbench facilite la mise à l’échelle de grandes collections de documents et fournit les mécanismes nécessaires pour former et optimiser des modèles dans divers contextes de calcul, allant du calcul local aux machines virtuelles DSVM et au cluster Spark. Le développement s’effectue simplement par le biais des notebooks Jupyter dans Azure Machine Learning Workbench.
 
@@ -28,7 +33,7 @@ Le dépôt GitHub public correspondant à ce scénario réel contient tous les s
 
 [https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis](https://github.com/Azure/MachineLearningSamples-DocumentCollectionAnalysis)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La quantité de données collectées quotidiennement est énorme (en particulier, les données texte non structurées). L’organisation, la recherche et l’analyse de grandes collections de documents sont aujourd’hui un enjeu majeur pour les entreprises. Ce scénario d’analyse d’une collection de documents illustre un workflow de bout en bout performant et automatisé pour analyser une grande collection de documents et effectuer des tâches NLP en aval.
 
@@ -60,7 +65,7 @@ Ce scénario utilise les techniques et algorithmes d’apprentissage automatique
 
 Cet exemple nécessite les prérequis suivants :
 
-* Vérifiez que vous avez correctement installé [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) selon les instructions du [Guide de démarrage rapide Installer et créer](../service/quickstart-installation.md).
+* Vérifiez que vous avez correctement installé [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) selon les instructions du [Guide de démarrage rapide Installer et créer](quickstart-installation.md).
 
 * Vous pouvez exécuter cet exemple dans n’importe quel contexte de calcul. Toutefois, nous vous recommandons d’utiliser une machine multicœur ayant au minimum 16 Go de mémoire et 5 Go d’espace disque.
 
@@ -90,12 +95,12 @@ Le fichier de données contient neuf champs de données, répertoriés et décr
 | `ID` | Chaîne | ID de la loi ou résolution. Format de ce champ : [type_loi][numéro]-[congrès]. Par exemple, dans « hconres1-93 », le type de loi est « hconres » (pour House Concurrent Resolution, comme indiqué dans [ce document](https://github.com/unitedstates/congress/wiki/bills#basic-information)), le numéro de loi est « 1 » et le numéro de congrès est « 93 ». | Non  |
 | `Text` | Chaîne | Texte de la loi ou résolution. | Non  |
 | `Date` | Chaîne | Date à laquelle la loi ou résolution a été initialement proposée. Format : « aaaa-mm-jj ». | Non  |
-| `SponsorName` | Chaîne | Nom du promoteur principal ayant proposé la loi ou résolution. | OUI |
-| `Type` | Chaîne | Titre du promoteur principal : « rep » (représentant) ou « sen » (sénateur). | OUI |
-| `State` | Chaîne | État du promoteur principal. | OUI |
-| `District` | Entier  | Numéro du district du promoteur principal si le promoteur a le titre de représentant. | OUI |
-| `Party` | Chaîne | Parti du promoteur principal. | OUI |
-| `Subjects` | Chaîne | Termes des sujets de la loi successivement ajoutés dans la Bibliothèque du Congrès. Les termes sont séparés par des virgules. Ces termes sont ajoutés manuellement dans la Bibliothèque du Congrès. Ils ne figurent généralement pas dans les informations sur la loi initialement publiées. Ils peuvent être ajoutés à tout moment. Ils peuvent aussi ne plus être pertinents à un moment du cycle de vie de la loi. | OUI |
+| `SponsorName` | Chaîne | Nom du promoteur principal ayant proposé la loi ou résolution. | Oui |
+| `Type` | Chaîne | Titre du promoteur principal : « rep » (représentant) ou « sen » (sénateur). | Oui |
+| `State` | Chaîne | État du promoteur principal. | Oui |
+| `District` | Entier  | Numéro du district du promoteur principal si le promoteur a le titre de représentant. | Oui |
+| `Party` | Chaîne | Parti du promoteur principal. | Oui |
+| `Subjects` | Chaîne | Termes des sujets de la loi successivement ajoutés dans la Bibliothèque du Congrès. Les termes sont séparés par des virgules. Ces termes sont ajoutés manuellement dans la Bibliothèque du Congrès. Ils ne figurent généralement pas dans les informations sur la loi initialement publiées. Ils peuvent être ajoutés à tout moment. Ils peuvent aussi ne plus être pertinents à un moment du cycle de vie de la loi. | Oui |
 
 ## <a name="scenario-structure"></a>Structure du scénario
 

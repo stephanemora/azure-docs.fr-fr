@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: 7c7b50098cfd1bcac534156dd905b37affab80bd
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0210e65c0859b00caac0fe66baa1c73063f644c8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35635595"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947939"
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Prédiction de l’attrition des clients à l’aide d’Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 En moyenne, la rétention des clients existants coûte cinq fois moins cher que la recherche de nouveaux clients. Cela explique pourquoi les responsables marketing cherchent souvent à évaluer la probabilité d’attrition de leurs clients et à mettre en place des actions appropriées pour minimiser le taux d’attrition.
 
@@ -61,7 +66,7 @@ Dans cette solution, nous allons utiliser un exemple concret de création d’un
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles)
 
-* Une copie [d’Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installée selon les instructions du [guide d’installation et de démarrage rapide](../service/quickstart-installation.md) pour installer le programme et créer un espace de travail
+* Une copie [d’Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installée selon les instructions du [guide d’installation et de démarrage rapide](quickstart-installation.md) pour installer le programme et créer un espace de travail
 
 * Pour l’opérationnalisation, nous vous recommandons d’avoir un moteur Docker installé et exécuté localement. Sinon, vous pouvez utiliser l’option cluster, mais tenez compte du fait que l’exécution d’un cluster Azure Container Service (ACS) peut être coûteuse.
 

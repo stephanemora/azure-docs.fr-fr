@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4a49ccff68003cf7b81a7d945176992a2893d1ac
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ROBOTS: NOINDEX
+ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38973171"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950620"
 ---
 # <a name="consuming-web-services"></a>Utilisation de services web
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Après avoir déployé un modèle en tant que service web en temps réel, vous pouvez lui envoyer des données et obtenir les prédictions de diverses plateformes et applications. Le service web en temps réel expose une API REST pour obtenir les prédictions. Vous pouvez envoyer des données au service web dans un format à une ou plusieurs lignes pour obtenir une ou plusieurs prédictions à la fois.
 
 Avec le [service web Azure Machine Learning](model-management-service-deploy.md), une application externe communique de manière synchrone avec un modèle prédictif en adressant un appel HTTP POST à l’URL du service. Pour appeler un service web, l’application cliente doit spécifier la clé d’API qui est créée au moment où vous déployez une prédiction et placer les données de la demande dans le corps de la demande POST.

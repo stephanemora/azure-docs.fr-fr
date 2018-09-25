@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: fa6c95c3986a398bdb4593235116b305a80616fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04a172c40c24e4e0daaf17b495d2320f3a897a47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653791"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975253"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Appliquer des stratégies aux machines virtuelles Linux avec Azure Resource Manager
 Avec les stratégies, une organisation peut appliquer différentes conventions et règles à travers l'entreprise. L’application du comportement souhaité peut vous aider à atténuer les risques tout en contribuant à la réussite de l'organisation. Dans cet article, nous expliquons comment utiliser les stratégies d’Azure Resource Manager pour définir le comportement souhaité pour les machines virtuelles de votre organisation.
@@ -89,7 +89,7 @@ Utilisez un caractère générique pour modifier la stratégie précédente afin
 }
 ```
 
-Pour plus d’informations sur les champs de la stratégie, consultez les [alias de stratégie](../../azure-policy/policy-definition.md#aliases).
+Pour plus d’informations sur les champs de la stratégie, consultez les [alias de stratégie](../../governance/policy/concepts/definition-structure.md#aliases).
 
 ## <a name="managed-disks"></a>Disques gérés
 

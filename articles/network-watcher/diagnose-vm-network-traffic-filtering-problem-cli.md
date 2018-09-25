@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2f6011103c86895c455b284a0982636a0d31fbe7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4be1fac519ee0a7bcd61bd4cced4d829c275679d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180468"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990108"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle avec Azure CLI
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.28 d’Azure CLI, ou une version ultérieure. Pour trouver la version installée, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Après avoir vérifié la version CLI, exécutez `az login` pour créer une connexion avec Azure. Les commandes CLI dans ce guide de démarrage rapide sont mises en forme de manière à s’exécuter dans un interpréteur de commandes Bash.
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.28 d’Azure CLI, ou une version ultérieure. Pour trouver la version installée, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). Après avoir vérifié la version CLI, exécutez `az login` pour créer une connexion avec Azure. Les commandes CLI dans ce guide de démarrage rapide sont mises en forme de manière à s’exécuter dans un interpréteur de commandes Bash.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -60,7 +60,7 @@ Pour tester une communication réseau avec Network Watcher, commencez par active
 
 ### <a name="enable-network-watcher"></a>Activer l’observateur réseau
 
-Si vous disposez déjà d’un observateur réseau activé dans la région États-Unis de l’Est, passez à l’étape [Utiliser la vérification des flux IP](#use-ip-flow-verify). Utilisez la commande [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) pour créer un observateur réseau dans la région États-Unis de l’Est :
+Si vous disposez déjà d’un observateur réseau activé dans la région USA Est, passez à l’étape [Utiliser la vérification des flux IP](#use-ip-flow-verify). Utilisez la commande [az network watcher configure](/cli/azure/network/watcher#az-network-watcher-configure) pour créer un observateur réseau dans la région États-Unis de l’Est :
 
 ```azurecli-interactive
 az network watcher configure \
@@ -240,7 +240,7 @@ La règle **DenyAllInBound** est appliquée, car comme indiqué dans la sortie, 
 
 Les vérifications de ce guide de démarrage rapide ont permis de tester la configuration Azure. Si les vérifications effectuées retournent les résultats attendus alors que vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [az group delete](/cli/azure/group#az_group_delete) pour le supprimer, ainsi que toutes les ressources qu’il contient :
 

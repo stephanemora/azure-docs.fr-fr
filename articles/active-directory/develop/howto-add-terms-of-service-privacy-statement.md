@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: cb05139241f92eb930a99c387e2f06cabac35caf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 21cd4990e2117cef2d36fa2607a601afd1a4c4e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580128"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990499"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Conditions d’utilisation et déclaration de confidentialité des applications Azure Active Directory inscrites
 
@@ -54,12 +54,14 @@ Exemples : `https://myapp.com/terms-of-service` et `https://myapp.com/privacy-st
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Ajout de liens aux conditions d’utilisation et à la déclaration de confidentialité
 
 Quand les conditions d’utilisation et la déclaration de confidentialité sont prêtes, vous pouvez ajouter des liens vers ces documents dans votre application à l’aide de l’une des méthodes suivantes :
+
 * [À l’aide du portail Azure](#registered-in-azure-portal)
 * [Dans le portail d’inscription des applications ou le Centre de développement](#registered-in-app-reg-portal)
 * [À l’aide de l’objet JSON de l’application](#app-object-json)
 * [À l’aide de l’API REST de MSGraph version bêta](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Si vous avez inscrit votre application dans le portail Azure
+
 Si vous avez inscrit votre application dans le portail Azure, effectuez les étapes suivantes.
 
 1. Connectez-vous au  [portail Azure](https://portal.azure.com/).
@@ -68,9 +70,10 @@ Si vous avez inscrit votre application dans le portail Azure, effectuez les éta
 4. Remplissez les champs  **URL des conditions de service**  et  **URL de la déclaration de confidentialité** .
 5. Enregistrez vos modifications.
 
-![Section des propriétés de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Section des propriétés de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>Si vous avez inscrit votre application dans le portail d’inscription des applications
+
 Si vous avez inscrit votre application dans le portail d’inscription des applications ou dans le Centre de développement, effectuez les étapes suivantes.
 
 1. Connectez-vous au  [portail d’inscription des applications](https://apps.dev.microsoft.com/).
@@ -78,9 +81,10 @@ Si vous avez inscrit votre application dans le portail d’inscription des appli
 3. Remplissez les champs  **URL des conditions de service**  et  **URL de la déclaration de confidentialité** .
 4. Enregistrez vos modifications.
 
-![Section du profil de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![Section du profil de l’application avec les URL des conditions d’utilisation et de la déclaration de confidentialité](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>À l’aide de l’objet JSON de l’application
+
 Si vous préférez modifier directement l’objet JSON de l’application, vous pouvez utiliser l’éditeur de manifeste dans le portail Azure ou le portail d’inscription des applications pour inclure des liens vers les conditions d’utilisation et la déclaration de confidentialité de votre application.
 
 ```json
@@ -91,6 +95,7 @@ Si vous préférez modifier directement l’objet JSON de l’application, vous 
 ```
 
 ### <a name="msgraph-beta-rest-api"></a>À l’aide de l’API REST de MSGraph version bêta
+
 Pour mettre à jour toutes vos applications par programmation, vous pouvez utiliser l’API REST de MSGraph version bêta afin d’inclure des liens vers les documents des conditions d’utilisation et de la déclaration de confidentialité de votre application.
 
 ```

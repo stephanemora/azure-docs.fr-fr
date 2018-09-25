@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: aa25c0e636c36422cb6b576d0ca8ebc899b2a2dc
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: deddfe16e4ad3eeee099ce1d7b53b9f15cbf85d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163071"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956681"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>Créer une application de fonction se connectant à un compte de stockage Azure
 
@@ -29,7 +29,7 @@ Cet exemple de script Azure Functions crée une application de fonction et conne
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous utilisez l’interface de ligne de commande en local, veillez à exécuter Azure CLI 2.0 ou une version plus récente. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Si vous utilisez l’interface de ligne de commande en local, veillez à exécuter Azure CLI 2.0 ou une version plus récente. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exemple de script
 

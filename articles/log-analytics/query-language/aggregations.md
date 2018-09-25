@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 764c43a382442096a5d130334e54afdc135ba419
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603671"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966674"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Agrégations dans des requêtes Log Analytics
 
@@ -37,13 +37,13 @@ Cet article décrit les fonctions d’agrégation dans des requêtes Log Analyti
 Comptez le nombre de lignes du jeu de résultats une fois que tous les filtres sont appliqués. L’exemple suivant retourne le nombre total de lignes dans la table _Perf_ au cours des 30 dernières minutes. Le résultat est retourné dans une colonne nommée *count_*, sauf si vous lui attribuez un nom spécifique :
 
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -51,7 +51,7 @@ Perf
 
 Une visualisation de graphique temporel peut être utile pour voir une tendance au fil du temps :
 
-```KQL
+```Kusto
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -66,7 +66,7 @@ La sortie de cet exemple affiche la courbe de tendance du nombre d’enregistrem
 ### <a name="dcount-dcountif"></a>dcount, dcountif
 Utilisez `dcount` et `dcountif` pour compter des valeurs distinctes dans une colonne spécifique. La requête suivante évalue le nombre d’ordinateurs distincts qui ont envoyé des pulsations dans la dernière heure :
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -74,7 +74,7 @@ Heartbeat
 
 Pour compter uniquement les ordinateurs Linux qui ont envoyé des pulsations, utilisez `dcountif` :
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -83,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>Évaluation des sous-groupes
 Pour effectuer un compte ou d’autres agrégations de sous-groupes dans vos données, utilisez le mot clé `by`. Par exemple, pour compter le nombre d’ordinateurs Linux distincts qui ont envoyé des pulsations dans chaque pays :
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -100,7 +100,7 @@ Heartbeat
 
 Pour analyser des sous-groupes encore plus petits de vos données, ajoutez des noms de colonnes supplémentaires à la section `by`. Par exemple, vous pouvez peut-être compter le nombre d’ordinateurs distincts de chaque pays par OSType :
 
-```KQL
+```Kusto
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -112,7 +112,7 @@ Lors de l’évaluation de valeurs numériques, il est courant d’en calculer l
 ### <a name="percentile"></a>Percentile
 Pour rechercher la valeur médiane, utilisez la fonction `percentile` avec une valeur pour spécifier le centile :
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -121,7 +121,7 @@ Perf
 
 Vous pouvez également spécifier différents centiles afin d’obtenir un résultat agrégé pour chacun :
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -133,7 +133,7 @@ Cela peut indiquer que quelques UC d’ordinateur ont des valeurs médianes simi
 ### <a name="variance"></a>Variance
 Pour évaluer directement la variance d’une valeur, utilisez les méthodes de variance et d’écart type :
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -142,7 +142,7 @@ Perf
 
 Un bon moyen d’analyser la stabilité de l’utilisation de l’UC consiste à combiner stdev avec le calcul de la valeur médiane :
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

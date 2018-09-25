@@ -11,14 +11,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
-ms.openlocfilehash: a713f5fcde31e0e25de080a65b71209011ef551d
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: eceeeb30331031c51e5208e301441d17096b4a00
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35637134"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972978"
 ---
 # <a name="data-preparations-python-extensions"></a>Extensions Python Data Preparations
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 Afin de combler les lacunes de fonctionnalité qui existent entre les fonctions intégrées, Azure Machine Learning Data Preparations offre des possibilités d’extension à plusieurs niveaux. Ce document décrit l’extensibilité via un script Python. 
 
 ## <a name="custom-code-steps"></a>Étapes de code personnalisé 

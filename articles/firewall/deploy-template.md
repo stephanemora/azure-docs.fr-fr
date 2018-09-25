@@ -8,22 +8,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 7/11/2018
 ms.author: victorh
-ms.openlocfilehash: 1a732e22d72c36afe11030e42bae529baa35df1a
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: d32e6e29c287d140c28206743e36dc025b26158b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992258"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991332"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Déployer un pare-feu Azure à l’aide d’un modèle
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Les exemples des articles sur le service Pare-feu Azure supposent que vous avez déjà activé la préversion publique de Pare-feu Azure. Pour plus d’informations, consultez [Activer la préversion publique de Pare-feu Azure](public-preview.md).
-
 Ce modèle crée un pare-feu et un environnement réseau de test. Le réseau dispose d’un réseau virtuel, doté de trois sous-réseaux : *AzureFirewallSubnet*, *ServersSubnet* et *JumpboxSubnet*. ServersSubnet et JumpboxSubnet sont chacun équipés d’un serveur Windows Server à 2 cœurs.
 
-Le pare-feu se trouve dans AzureFirewallSubnet et est configuré au moyen d’un regroupement de règles d’application avec une seule règle qui autorise l’accès à www.microsoft.com.
+Le pare-feu se trouve dans AzureFirewallSubnet et est configuré à l’aide d’une collection de règles d’application avec une seule règle qui autorise l’accès à www.microsoft.com.
 
 Un itinéraire défini par l’utilisateur est créé : à partir de ServersSubnet, il pointe en direction du trafic réseau via le pare-feu, où les règles de pare-feu sont appliquées.
 

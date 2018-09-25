@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8f14a7aabbdf815992e0777eaf5335a69570ce2e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d22661c0d07ce446ea0ad345a1e9629f6e2f0d6c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429248"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995888"
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Déployer et utiliser Azure Container Registry
 
@@ -33,7 +33,7 @@ Dans les didacticiels suivants, cette instance ACR est intégrée à un cluster 
 
 Dans le [didacticiel précédent](./container-service-tutorial-kubernetes-prepare-app.md), une image conteneur a été créée pour une application Azure Vote. Si vous n’avez pas créé l’image de l’application Azure Vote, retournez au [Didacticiel 1 : Créer des images conteneur](./container-service-tutorial-kubernetes-prepare-app.md).
 
-Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="deploy-azure-container-registry"></a>Déployer Azure Container Registry
 
@@ -71,7 +71,7 @@ Pour afficher la liste des images actuelles, utilisez la commande [docker images
 docker images
 ```
 
-Output:
+Sortie :
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -100,7 +100,7 @@ Une fois le marquage effectué, exécutez [docker images] (https://docs.docker.c
 docker images
 ```
 
-Output:
+Sortie :
 
 ```bash
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
@@ -130,7 +130,7 @@ Pour retourner une liste d’images qui ont été déplacées dans le registre d
 az acr repository list --name <acrName> --output table
 ```
 
-Output:
+Sortie :
 
 ```azurecli
 Result

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 58e913aa2b4a89a573f6d901803979e662c27af2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420720"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954039"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Configuration de Cache Redis Azure
 Cette rubrique décrit les configurations disponibles pour vos instances de Cache Redis Azure. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de Cache Redis Azure.
@@ -60,7 +60,7 @@ Vous pouvez afficher et configurer les paramètres suivants à l’aide du **Men
 * [Administration](#administration)
     * [Importer des données](#importexport)
     * [Exporter des données](#importexport)
-    * [Reboot](#reboot)
+    * [Redémarrage](#reboot)
 * [Surveillance](#monitoring)
     * [Mesures Redis](#redis-metrics)
     * [Règles d'alerte](#alert-rules)
@@ -70,7 +70,7 @@ Vous pouvez afficher et configurer les paramètres suivants à l’aide du **Men
     * [Nouvelle demande de support](#new-support-request)
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La **Vue d’ensemble** fournit des informations de base sur votre cache, notamment le nom, les ports, le niveau tarifaire et des mesures de cache sélectionnées.
 
@@ -302,7 +302,7 @@ Les paramètres de la section **Administration** vous permettent d’effectuer l
 
 * [Importer des données](#importexport)
 * [Exporter des données](#importexport)
-* [Reboot](#reboot)
+* [Redémarrage](#reboot)
 
 
 ### <a name="importexport"></a>Importation/Exportation
@@ -353,10 +353,10 @@ Cliquez sur **Règles d’alerte** pour configurer des alertes en fonction des m
 
 ### <a name="diagnostics"></a>Diagnostics
 
-Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#store-and-archive), puis supprimées. Pour prolonger vos mesures de cache sur plus de 30 jours, cliquez sur **Diagnostics** pour [configurer le compte de stockage](cache-how-to-monitor.md#export-cache-metrics) utilisé pour stocker les diagnostics de cache.
+Par défaut, les mesures de cache dans Azure Monitor sont [stockées pendant 30 jours](../monitoring/monitoring-data-collection.md#metrics), puis supprimées. Pour prolonger vos mesures de cache sur plus de 30 jours, cliquez sur **Diagnostics** pour [configurer le compte de stockage](cache-how-to-monitor.md#export-cache-metrics) utilisé pour stocker les diagnostics de cache.
 
 >[!NOTE]
->En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser vers un Hub d’événements ou les envoyer vers Log Analytics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#export-metrics).
+>En plus d’archiver vos mesures de cache vers le stockage, vous pouvez également [les diffuser vers un Hub d’événements ou les envoyer vers Log Analytics](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md).
 >
 >
 
