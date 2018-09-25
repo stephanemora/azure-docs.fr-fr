@@ -4,6 +4,7 @@ description: Utilisez les fonctionnalités de Cortana Intelligence pour obtenir 
 services: machine-learning
 documentationcenter: ''
 author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 09fad60b-2f48-488b-8a7e-47d1f969ec6f
@@ -14,20 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-ms.openlocfilehash: fc8dfbbfc40db33f19d2b183546ed9c6df0159fa
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 02a12e917ed36367ffac1ac2e7a1fef1c6098ea7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836400"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985365"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook"></a>Manuel de la solution Vehicle Telemetry Analytics
 Ce menu contient des liens vers les chapitres de ce manuel : 
 
 [!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Aujourd’hui, les superordinateurs ne se trouvent plus dans des laboratoires mais dans des garages. Ils sont désormais placés dans des automobiles de pointe qui contiennent une multitude de capteurs. Ce capteurs leur offrent la possibilité de suivre et d’analyser des millions d’événements par seconde. D’ici 2020, la plupart de ces véhicules seront connectés à Internet. Le potentiel qu’offrent toutes ces données permet d’améliorer la sécurité, la fiabilité et le plaisir de la conduite. Microsoft fait de ce rêve une réalité en développant Cortana Intelligence.
 
 Cortana Intelligence est une suite de traitement du Big Data et d’analyse avancée entièrement gérée, qui vous permet de convertir vos données en action intelligente. Le modèle de la solution Cortana Intelligence Vehicle Telemetry Analytics montre comment les concessionnaires, les constructeurs automobiles et les compagnies d’assurance peuvent obtenir des informations en temps réel et prédictives sur l’état des véhicules et les habitudes de conduite.

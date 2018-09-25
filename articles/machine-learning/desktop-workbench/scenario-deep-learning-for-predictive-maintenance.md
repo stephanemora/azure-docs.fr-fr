@@ -13,14 +13,19 @@ ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 83e1f14db317f59ab2063a9d020adbdb6fe78e5f
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d52433a32d8dc764c7535dacf5872e55f0082ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35637985"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995514"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>L’apprentissage profond pour des scénarios réels de maintenance prédictive
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 L’apprentissage profond, l’une des tendances les plus populaires de l’apprentissage machine, possède des applications dans plusieurs domaines, notamment :
 - la robotique et les voitures sans pilote ;
@@ -75,7 +80,7 @@ Cette commande fournit une clé d’authentification que vous devez utiliser ave
 az ml experiment prepare --target docker --run-configuration docker
 ```
 
-Il est préférable d’exécuter une [machine virtuelle Science des données (DSVM) pour Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) afin de répondre aux exigences en termes de mémoire et d’espace disque. Une fois la machine virtuelle DSVM configurée, préparez l’environnement Docker à distance avec les deux commandes suivantes :
+Il est préférable d’exécuter une [machine virtuelle Science des données (DSVM) pour Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) afin de répondre aux exigences en termes de mémoire et d’espace disque. Une fois la machine virtuelle DSVM configurée, préparez l’environnement Docker à distance avec les deux commandes suivantes :
 
 ```
 az ml computetarget attach remotedocker --name [Connection_Name] --address [VM_IP_Address] --username [VM_Username] --password [VM_UserPassword]

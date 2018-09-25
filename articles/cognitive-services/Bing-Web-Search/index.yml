@@ -1,32 +1,53 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9c9c5671e835e3402fe4dfbf45b295256009caa6
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 7eb8996e786d7ee97569c84d70b808cc4210c947
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185277"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987303"
 documentType: LandingData
-title: Documentation Recherche web Bing
+title: Documentation de l’API Recherche Web Bing
 metadata:
   document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
-  title: Documentation Recherche Web Bing - Tutoriels, démarrages rapides, références sur les API | Microsoft Docs
+  title: Documentation de l’API Recherche Web Bing - Tutoriels, guides de démarrage rapide, informations de référence sur l’API | Microsoft Docs
   description: Découvrez comment utiliser l’API Recherche Web Bing pour obtenir des résultats à partir du Web pertinents pour les requêtes utilisateur. Ces tutoriels vous montrent comment créer des applications qui utilisent le service.
   services: cognitive-services
-  author: v-jerkin
+  author: nitinme
   manager: cgronlun
   ms.service: bing-web-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/10/2017
-  ms.author: v-jerkin
+  ms.date: 9/24/2018
+  ms.author: nitinme
 abstract:
   description: L’API Recherche Web Bing fournit une expérience similaire à Bing en renvoyant les résultats de recherche identifiés par Bing comme pertinents pour une requête de l’utilisateur. Les résultats incluent des pages Web et peuvent également inclure des images, des vidéos et bien plus encore.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-web-search/overview
+      html: <p>Découvrez l’API Recherche Web Bing</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Qu’est-ce que la Recherche web Bing ?
+    - href: /azure/cognitive-services/bing-web-search/search-responses
+      html: <p>Comprendre le corps de la réponse d’une API Recherche Web Bing</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Réponses de Recherche Web
+    - href: /azure/cognitive-services/bing-web-search/autosuggest-bing-search-terms
+      html: <p>Découvrez comment la suggestion automatique fonctionne pour votre requête de recherche</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Suggestion automatique pour les requêtes Bing
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: 'Prise en main à l’aide de l’API Recherche Web Bing en faisant une requête et en affichant la réponse JSON :'
+    text: 'Bien démarrer avec l’API Recherche Web Bing en faisant une requête et en affichant la réponse JSON :'
   - type: list
     style: icon48
     items:
@@ -58,22 +79,34 @@ sections:
         src: media/index/logo_ruby.svg
       href: quickstarts/ruby
       text: Ruby
-- title: Didacticiels pas à pas
+- title: Tutoriels pas à pas
   items:
   - type: paragraph
     text: 'Découvrez comment développer des applications à l’aide de l’API Recherche Web Bing :'
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-web-search-single-page-app">Application web à page unique</a> &#124; <a href="tutorial-bing-web-search-single-page-app-source">code source</a>
-    - html: <a href="computer-vision-web-search-tutorial.md">Application mobile Recherche visuelle</a>
+    - html: <a href="tutorial-bing-web-search-single-page-app">Application web à page unique</a>
+- title: Exemples
+  items:
+  - type: paragraph
+    text: 'Trouvez des exemples pour l’API Recherche Web Bing :'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://github.com/Azure-Samples/cognitive-services-REST-api-samples">Exemples REST</a>
+    - html: <a href="sdk-samples.md">Exemples du SDK</a>
 - title: Informations de référence
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: API
+    - title: REST
       html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference">API Recherche Web Bing v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference/">API Recherche Web Bing v5</a></p>
     - title: Kits de développement logiciel (SDK)
-      html: <p><a href="sdk-samples.md">Exemples de Kit de développement logiciel (SDK) Recherche Web Bing</a></p>
+      html: <p><a href="sdk-samples.md">Informations de référence et exemples du SDK</a></p>
+    - title: PowerShell
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+    - title: Interface de ligne de commande
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">interface de ligne de commande Azure</a></p>

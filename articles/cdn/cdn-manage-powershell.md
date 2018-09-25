@@ -3,8 +3,8 @@ title: Gérer Azure CDN avec PowerShell | Microsoft Docs
 description: Apprenez à utiliser des applets de commande Azure PowerShell pour gérer Azure CDN.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: fb6f57a5-6e26-4847-8fd9-b51fb05a79eb
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
-ms.author: mazha
-ms.openlocfilehash: 15feb7b1d2873bc3f088eaad78079df2e063d73b
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.date: 09/13/2018
+ms.author: magattus
+ms.openlocfilehash: d6a67bef831028426dec660a1c79feb4ab9340d1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114070"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957708"
 ---
 # <a name="manage-azure-cdn-with-powershell"></a>Gérer Azure CDN avec PowerShell
 PowerShell fournit une des méthodes les plus flexibles pour gérer vos points de terminaison et profils Azure CDN.  Vous pouvez utiliser PowerShell de manière interactive ou en écrivant des scripts pour automatiser les tâches de gestion.  Ce didacticiel illustre plusieurs des tâches les plus courantes que vous pouvez accomplir avec PowerShell pour gérer vos points de terminaison et profils Azure CDN.
@@ -144,10 +144,8 @@ Get-AzureRmCdnProfile | Get-AzureRmCdnEndpoint | Where-Object { $_.ResourceState
 - Premium_Verizon
 - Custom_Verizon
 - Standard_Akamai
+- Standard_Microsoft
 - Standard_ChinaCdn
-
-> [!NOTE]
-> La référence (SKU) Standard_Microsoft n’est pas prise en charge tant qu’elle est en préversion.
 
 ```powershell
 # Create a new profile

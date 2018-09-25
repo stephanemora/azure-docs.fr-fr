@@ -1,84 +1,93 @@
+items:
 - name: Documentation Recherche personnalisée Bing
   href: index.yml
-- name: Vue d'ensemble
-  expanded: true
+- name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce que la Recherche personnalisée Bing\_?"
-      href: overview.md
+  - name: Qu’est-ce que la Recherche personnalisée Bing ?
+    href: overview.md
+  expanded: true
 - name: Démarrages rapides de l’API REST
+  items:
+  - name: Créer une première instance
+    href: quick-start.md
+  - name: C#
+    href: call-endpoint-csharp.md
+  - name: Java
+    href: call-endpoint-java.md
+  - name: Node.js
+    href: call-endpoint-nodejs.md
+  - name: Python
+    href: call-endpoint-python.md
   expanded: true
+- name: Guides de démarrage rapide du kit SDK
   items:
-    - name: Créer une première instance
-      href: quick-start.md
-    - name: 'C#'
-      href: call-endpoint-csharp.md
-    - name: Java
-      href: call-endpoint-java.md
-    - name: Node.js
-      href: call-endpoint-nodejs.md
-    - name: Python
-      href: call-endpoint-python.md
-- name: Démarrages rapides du kit de développement logiciel (SDK)
+  - name: Démarrage rapide du SDK C#
+    href: sdk-csharp-quick-start.md
+- name: Tutoriels
   items:
-    - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
-      href: sdk.md
-    - name: 'Démarrage rapide C# du SDK Recherche personnalisée'
-      href: custom-search-sdk-quickstart.md
-- name: Didacticiels
-  items:
-    - name: Gréer une page web de Recherche personnalisée
-      href: ./tutorials/custom-search-web-page.md
+  - name: Créer une page web Recherche personnalisée
+    href: ./tutorials/custom-search-web-page.md
 - name: Exemples
   items:
-    - name: Exemples de code
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search'
+  - name: Exemples de code
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search
 - name: Procédures
   items:
-    - name: Configurer l’expérience de recherche personnalisée
-      href: define-your-custom-view.md
-    - name: Appel de la recherche personnalisée
-      href: search-your-custom-view.md
-    - name: Configurer l’expérience d’interface utilisateur hébergée
-      href: hosted-ui.md
-    - name: Partager la recherche personnalisée
-      href: share-your-custom-search.md
-    - name: Configurer l’expérience de suggestion automatique personnalisée
-      href: define-custom-suggestions.md
-    - name: Obtenir des suggestions personnalisées
-      href: get-custom-suggestions.md
-    - name: Gérer la mise en surbrillance des correspondances
-      href: hit-highlighting.md
-    - name: Paginer des pages web
-      href: page-webpages.md
+  - name: Configurer l’expérience de recherche personnalisée
+    href: define-your-custom-view.md
+  - name: Appel de la recherche personnalisée
+    href: search-your-custom-view.md
+  - name: Configurer l’expérience d’interface utilisateur hébergée
+    href: hosted-ui.md
+  - name: Partager la recherche personnalisée
+    href: share-your-custom-search.md
+  - name: Obtenir des images à partir de votre instance
+    href: get-images-from-instance.md
+  - name: Obtenir des vidéos à partir de votre instance
+    href: get-videos-from-instance.md
+  - name: Configurer l’expérience de suggestion automatique personnalisée
+    href: define-custom-suggestions.md
+  - name: Gérer la mise en surbrillance des correspondances
+    href: hit-highlighting.md
+  - name: Paginer des pages web
+    href: page-webpages.md
 - name: Informations de référence
   items:
-    - name: Référence de l’API Suggestion automatique personnalisée Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference'
-    - name: Référence de l’API Recherche d’images personnalisée Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference'
-    - name: Référence de l’API Recherche personnalisée Bing
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference'
-    - name: Conditions d’utilisation et d’affichage de l’API Recherche Bing
-      href: use-and-display-requirements.md
+  - name: Référence de l’API Suggestion automatique personnalisée Bing
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference
+  - name: Référence de l’API Recherche d’images personnalisée Bing
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference
+  - name: Référence de l’API Recherche personnalisée Bing
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
+  - name: Informations de référence sur l’API Recherche de vidéos personnalisée Bing
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference
+  - name: Conditions d’utilisation et d’affichage de l’API Recherche Bing
+    href: use-and-display-requirements.md
 - name: Ressources
   items:
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598147-bing-custom-search-api'
-    - name: Dépassement de capacité de la pile
-      href: 'https://stackoverflow.com/search?q=bing+custom+search'
-    - name: Disponibilité régionale
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Base de connaissances
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
-    - name: Obtenir la clé API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api'
-    - name: "Essayez\_!"
-      href: 'https://aka.ms/bingcustomsearchtryit'
-    - name: Point de terminaison Recherche personnalisée Bing
-      href: endpoint-custom.md
-    - name: Marchés et pays pris en charge
-      href: supported-countries-markets.md
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=bing+custom+search
+  - name: Disponibilité régionale
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Base de connaissances
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: Obtenir la clé API
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api
+  - name: Essayez !
+    href: https://aka.ms/bingcustomsearchtryit
+  - name: Point de terminaison Recherche personnalisée Bing
+    href: endpoint-custom.md
+  - name: Marchés et pays pris en charge
+    href: supported-countries-markets.md
+ms.openlocfilehash: 2617e733aaae4a78d064e734ab440a03954930c9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999662"

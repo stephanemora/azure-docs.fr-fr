@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: 883e3d2c5945a38c8fbca5c9f0f5e8a1e4093be1
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35637398"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46968711"
 ---
 # <a name="model-management-setup"></a>Installation de la gestion des modèles
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 ## <a name="overview"></a>Vue d’ensemble
 Ce document montre comment utiliser la gestion des modèles Azure ML pour déployer et gérer vos modèles d’apprentissage automatique en tant que services web. 

@@ -13,14 +13,19 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: e4db8d70d2a96fe3ad24797d7a32d75e1a792e32
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7536e67d0ae4973008c8acc91a99a7d0d286f9b8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632724"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988731"
 ---
 # <a name="data-preparations-user-guide"></a>Guide de l’utilisateur Data Preparations 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 L’expérience Azure Machine Learning Data Preparations fournit de nombreuses fonctionnalités enrichies. Cet article décrit les parties plus avancées de l’expérience.
 
 ### <a name="step-execution-history-and-caching"></a>Exécution des étapes, historique et mise en cache 

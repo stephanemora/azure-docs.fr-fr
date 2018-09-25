@@ -16,14 +16,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: miprasad
-ms.openlocfilehash: 97e3a621e291935db2e0c70eb2b596e77c7bffb7
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: e2fbb0b7b0dede198be0e57ffcd2b58a7da7fce7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35637817"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947769"
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Analyse des sentiments à l’aide de l’apprentissage profond dans Azure Machine Learning
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 L’analyse des sentiments est une tâche bien connue dans le domaine du traitement du langage naturel. Elle a pour but de déterminer le sentiment d’un texte à partir d’un ensemble de données texte. L’objectif de cette solution est d’utiliser l’apprentissage profond pour prédire les sentiments en se basant sur des critiques de films.
 
@@ -45,7 +50,7 @@ Pour tirer parti de l’analyse des sentiments, les entreprises doivent être ca
 
 * Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
 
-* Une copie [d’Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installée selon les instructions du [guide d’installation et de démarrage rapide](../service/quickstart-installation.md) pour installer le programme et créer un espace de travail.
+* Une copie [d’Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installée selon les instructions du [guide d’installation et de démarrage rapide](quickstart-installation.md) pour installer le programme et créer un espace de travail.
 
 * Pour l’opérationnalisation, nous vous recommandons d’avoir un moteur Docker installé et exécuté localement. Sinon, vous pouvez utiliser l’option cluster. Sachez toutefois que l’exécution d’un service ACS (Azure Container Service) peut être coûteuse.
 

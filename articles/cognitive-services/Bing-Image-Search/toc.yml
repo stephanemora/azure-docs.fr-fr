@@ -1,11 +1,12 @@
 items:
-- name: Documentation Recherche d’images Bing
+- name: Documentation de l’API Recherche d’images Bing
   href: index.yml
 - name: Vue d’ensemble
   items:
   - name: Qu’est-ce que la Recherche d’images Bing ?
     href: overview.md
-- name: Démarrages rapides
+  expanded: true
+- name: Guides de démarrage rapide
   items:
   - name: Envoyer des requêtes de recherche à l’aide de l’API REST
     items:
@@ -21,7 +22,6 @@ items:
       href: quickstarts/python.md
     - name: Utilisation de Ruby
       href: quickstarts/ruby.md
-    expanded: true
   - name: Recherchez des images à l’aide du kit de développement logiciel (SDK)
     items:
     - name: Utilisation de C#
@@ -32,7 +32,7 @@ items:
       href: image-sdk-python-quickstart.md
     - name: Utilisation de Java
       href: image-sdk-java-quickstart.md
-- name: Didacticiels
+- name: Tutoriels
   items:
   - name: Créer une application web de recherche d’images
     href: tutorial-bing-image-search-single-page-app.md
@@ -68,9 +68,9 @@ items:
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
   - name: API Recherche d’images Bing v5
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
-  - name: Référence Azure Cognitive Services PowerShell
+  - name: Référence Azure PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: Référence de l’interface de ligne de commande Azure Cognitive Services
+  - name: Informations de référence sur Azure CLI
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
 - name: Ressources
   items:
@@ -80,7 +80,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/555907-bing-search
-  - name: Dépassement de capacité de la pile
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/global-infrastructure/services/
@@ -100,9 +100,9 @@ items:
     href: UseAndDisplayRequirements.md
   - name: Analytique pour l’API Recherche d’images Bing
     href: bing-image-stats.md
-ms.openlocfilehash: 74cc9f56aa4d559c7e2644fc6866ae3d97f158f6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2b7b4bc8fb79687d032de52e3ac2ecbe4e944a8c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296292"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967351"

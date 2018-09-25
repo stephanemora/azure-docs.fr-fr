@@ -12,14 +12,19 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 026ffed925606e2fdf31461035c9a0d73ad609e9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ROBOTS: NOINDEX
+ms.openlocfilehash: 311fd39792274ef01b1b03fdf8252eb7ac93c922
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059221"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978849"
 ---
 # <a name="derive-column-by-example-transformation"></a>Transformation Dériver des colonnes par exemple
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 La transformation **Dériver des colonnes par exemple** permet aux utilisateurs de créer un dérivé d’une ou plusieurs colonnes existantes à l’aide d’exemples du résultat dérivé fournis par l’utilisateur. Le dérivé peut être n’importe quelle combinaison des transformations de Chaîne, Date et Nombre prise en charge. 
 
@@ -391,5 +396,5 @@ Ces mappages entre des dates/heures et des périodes ont été effectués à l�
 ### <a name="conditional-transformations"></a>Transformations conditionnelles
 Dans certains cas, il est impossible de trouver une seule transformation qui satisfait aux exemples donnés. Dans ce cas, la transformation Dériver une colonne par exemple tente de grouper les entrées en fonction d’un modèle et d’apprendre une transformation distincte pour chaque groupe. Nous appelons cela la **transformation conditionnelle**. Une tentative de **transformation conditionnelle** est effectuée uniquement pour les transformations avec une seule colonne d’entrée. 
 
-### <a name="reference"></a>Référence
+### <a name="reference"></a>Informations de référence
 Vous trouverez plus d’informations sur la technologie de transformation de chaîne par exemple dans [cette publication](https://www.microsoft.com/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/).

@@ -11,14 +11,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
-ms.openlocfilehash: f6bb6f3fbafe9b529d483af8edd55e16a35e703a
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a486da73d00ddaebee5c1fe32fc6112c177f01e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632772"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992335"
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Déploiement d’un modèle d’apprentissage automatique comme service web
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 La gestion des modèles Azure Machine Learning fournit des interfaces permettant de déployer des modèles sous forme de services web en conteneur basés sur Docker. Vous pouvez déployer les modèles que vous créez en utilisant des frameworks tels que Spark, Microsoft Cognitive Toolkit (CNTK), Keras, Tensorflow et Python. 
 
