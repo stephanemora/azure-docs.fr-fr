@@ -51,8 +51,7 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 ### <a name="application-2"></a>2ème application : 
 Suivez les mêmes étapes que pour la 1ère application, avec les exceptions suivantes : 
 
-**Étape 5** : l’URL interne doit maintenant être l’URL QlikSense avec le port d’authentification utilisé par l’application. La valeur par défaut est **4244** pour HTTPS et 4248 pour HTTP. Par exemple, **https&#58;//demo.qlik.com:4244**</br></br> 
-**Étape 10 :** ne configurez pas l’authentification unique et laissez **l’authentification unique désactivée**
+**Étape 5** : l’URL interne doit maintenant être l’URL QlikSense avec le port d’authentification utilisé par l’application. La valeur par défaut est **4244** pour HTTPS et 4248 pour HTTP. Par exemple, **https&#58;//demo.qlik.com:4244**</br></br>**Étape 10 :** ne configurez pas l’authentification unique et laissez **l’authentification unique désactivée**
  
  
 ## <a name="testing"></a>Test 
