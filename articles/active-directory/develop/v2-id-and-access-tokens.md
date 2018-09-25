@@ -17,22 +17,22 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 815311797e1897259b961debc8a0f81157495570
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 23d041311c33110bf11efc78d162243a4bb25778
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596498"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997758"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Informations de référence sur les jetons Azure Active Directory v2.0
+
 Le point de terminaison Azure Active Directory (Azure AD) v2.0 émet plusieurs types de jeton de sécurité dans chaque [flux d’authentification](v2-app-types.md). Ces informations de référence décrivent le format, les caractéristiques en matière de sécurité et le contenu de chaque type de jeton.
 
 > [!NOTE]
 > Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
->
->
 
 ## <a name="types-of-tokens"></a>Types de jetons
+
 Le point de terminaison v2.0 prend en charge le [protocole d’autorisation OAuth 2.0](active-directory-v2-protocols.md) qui utilise des jetons d’accès et des jetons d’actualisation. Le point de terminaison v2.0 prend également en charge l’authentification et la connexion à l’aide [d’OpenID Connect](active-directory-v2-protocols.md). OpenID Connect introduit un troisième type de jeton, le jeton d’ID. Chacun de ces jetons est représenté en tant que jeton du *porteur*.
 
 Un jeton du porteur est un jeton de sécurité léger qui octroie au porteur l’accès à une ressource protégée. En ce sens, le porteur désigne toute partie qui peut présenter le jeton. Même si une partie doit s’authentifier auprès d’Azure AD pour recevoir le jeton du porteur, si les mécanismes nécessaires à la sécurité du jeton lors de la transmission et du stockage ne sont pas en place, il peut être intercepté et utilisé par une partie non autorisée. Bien que certains jetons de sécurité intègrent un mécanisme de protection contre l’utilisation par des parties non autorisées, les jetons du porteur n’en sont pas dotés et doivent donc être acheminés sur un canal sécurisé, par exemple à l’aide du protocole TLS (HTTPS). Si un jeton du porteur est transmis sans ce type de sécurité, une partie malveillante peut utiliser une attaque de l’intercepteur « man in the middle » pour acquérir le jeton et l’utiliser pour accéder sans autorisation à une ressource protégée. Les mêmes principes de sécurité s’appliquent au stockage ou à la mise en cache des jetons porteurs pour une utilisation ultérieure. Veillez systématiquement à ce que votre application transmette et stocke les jetons du porteur. Pour en savoir plus sur les aspects de sécurité des jetons du porteur, consultez [RFC 6750 Section 5](http://tools.ietf.org/html/rfc6750).
@@ -40,6 +40,7 @@ Un jeton du porteur est un jeton de sécurité léger qui octroie au porteur l�
 De nombreux jetons émis par le point de terminaison v2.0 sont implémentés en tant que jetons JSON Web Token (JWT). Un jeton JWT constitue un moyen compact et sécurisé pour les URL de transférer des informations entre deux parties. Les informations contenues dans un jeton JWT sont appelées une *revendication*. Il s’agit d’une assertion d’informations concernant le porteur et le sujet du jeton. Les revendications contenues dans un jeton JWT sont des objets JSON (JavaScript Object Notation) encodés et sérialisés pour la transmission. Comme les jetons JWT émis par le point de terminaison v2.0 sont signés, mais pas chiffrés, vous pouvez facilement inspecter leur contenu à des fins de débogage. Pour plus d’informations sur les jetons JWT, consultez les [spécifications des jetons JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
 ### <a name="id-tokens"></a>Jetons d’ID
+
 Un jeton d’ID est une forme de jeton de sécurité de connexion que votre application reçoit quand elle procède à l’authentification à l’aide [d’OpenID Connect](active-directory-v2-protocols.md). Les jetons d’ID sont représentés en tant que [jetons JWT](#types-of-tokens) et contiennent des revendications que vous pouvez utiliser pour connecter l’utilisateur à votre application. Vous pouvez utiliser les revendications d’un jeton d’ID de différentes façons. En règle générale, les administrateurs utilisent les jetons d’ID pour afficher les informations de compte ou pour prendre des décisions de contrôle d’accès dans une application. Le point de terminaison v2.0 émet un seul type de jeton d’ID, dont le jeu de revendications est cohérent quel que soit le type d’utilisateur connecté. Le format et le contenu des jetons d’ID sont identiques pour les utilisateurs titulaires d’un compte Microsoft personnel et d’un compte professionnel ou scolaire.
 
 Pour le moment, les jetons d’ID sont signés, mais pas chiffrés. Quand votre application reçoit un jeton d’ID, elle doit [valider la signature](#validating-tokens) pour prouver l’authenticité du jeton et valider certaines revendications du jeton pour prouver sa validité. Les revendications validées par une application varient selon les spécifications du scénario, mais il existe certaines [validations de revendication communes](#validating-tokens) auxquelles votre application doit procéder dans chaque scénario.
@@ -47,16 +48,16 @@ Pour le moment, les jetons d’ID sont signés, mais pas chiffrés. Quand votre 
 Outre un exemple de jeton d’ID, nous vous indiquons les détails complets sur les revendications des jetons d’ID. Les revendications contenues dans les jetons d’ID ne sont pas retournées dans un ordre spécifique. En outre, de nouvelles revendications peuvent être introduites dans les jetons d’ID à tout moment. Votre application ne doit pas s’arrêter lorsque de nouvelles revendications sont ajoutées. La liste suivante répertorie les revendications qui sont correctement interprétées par votre application. Vous trouverez des informations supplémentaires dans les [spécifications OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html).
 
 #### <a name="sample-id-token"></a>Exemple de jeton d’ID
+
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSJ9.eyJhdWQiOiI2NzMxZGU3Ni0xNGE2LTQ5YWUtOTdiYy02ZWJhNjkxNDM5MWUiLCJpc3MiOiJodHRwczovL2xvZ2luLm1pY3Jvc29mdG9ubGluZS5jb20vYjk0MTk4MTgtMDlhZi00OWMyLWIwYzMtNjUzYWRjMWYzNzZlL3YyLjAiLCJpYXQiOjE0NTIyODUzMzEsIm5iZiI6MTQ1MjI4NTMzMSwiZXhwIjoxNDUyMjg5MjMxLCJuYW1lIjoiQmFiZSBSdXRoIiwibm9uY2UiOiIxMjM0NSIsIm9pZCI6ImExZGJkZGU4LWU0ZjktNDU3MS1hZDkzLTMwNTllMzc1MGQyMyIsInByZWZlcnJlZF91c2VybmFtZSI6InRoZWdyZWF0YmFtYmlub0BueXkub25taWNyb3NvZnQuY29tIiwic3ViIjoiTUY0Zi1nZ1dNRWppMTJLeW5KVU5RWnBoYVVUdkxjUXVnNWpkRjJubDAxUSIsInRpZCI6ImI5NDE5ODE4LTA5YWYtNDljMi1iMGMzLTY1M2FkYzFmMzc2ZSIsInZlciI6IjIuMCJ9.p_rYdrtJ1oCmgDBggNHB9O38KTnLCMGbMDODdirdmZbmJcTHiZDdtTc-hguu3krhbtOsoYM2HJeZM3Wsbp_YcfSKDY--X_NobMNsxbT7bqZHxDnA2jTMyrmt5v2EKUnEeVtSiJXyO3JWUq9R0dO-m4o9_8jGP6zHtR62zLaotTBYHmgeKpZgTFB9WtUq8DVdyMn_HSvQEfz-LWqckbcTwM_9RNKoGRVk38KChVJo4z5LkksYRarDo8QgQ7xEKmYmPvRr_I7gvM2bmlZQds2OeqWLB1NSNbFZqyFOCgYn3bAQ-nEQSKwBaA36jYGPOVG2r2Qv1uKcpSOxzxaQybzYpQ
 ```
 
 > [!TIP]
 > Pour vous entraîner, inspectez les revendications de l’exemple de jeton d’ID, puis collez-le dans [jwt.ms](http://jwt.ms/).
->
->
 
 #### <a name="claims-in-id-tokens"></a>Revendications des jetons d’ID
+
 | NOM | Revendication | Exemple de valeur | Description |
 | --- | --- | --- | --- |
 | audience |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Identifie le destinataire du jeton. Dans les jetons d’ID, l’audience est l’ID attribué à votre application dans le portail d’inscription des applications Microsoft. Votre application doit valider cette valeur et rejeter le jeton si la valeur ne correspond pas. |
@@ -82,22 +83,25 @@ Le point de terminaison v2.0 permet aux applications tierces qui sont inscrites 
 Quand vous demandez un jeton d’accès auprès du point de terminaison v2.0, ce dernier retourne également des métadonnées sur le jeton d’accès que votre application peut utiliser. Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide. Votre application utilise ces métadonnées pour effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser.
 
 ### <a name="refresh-tokens"></a>Jetons d’actualisation
+
 Les jetons d’actualisation sont des jetons de sécurité que votre application peut utiliser pour obtenir de nouveaux jetons d’accès dans un flux OAuth 2.0. Votre application peut utiliser des jetons d’actualisation pour obtenir un accès à long terme à des ressources au nom d’un utilisateur, et ce sans nécessiter l’intervention de l’utilisateur.
 
 Les jetons d’actualisation prennent en charge plusieurs ressources. Un jeton d’actualisation reçu au cours d’une demande de jeton pour une ressource peut être échangé contre des jetons d’accès à une ressource complètement différente.
 
 Pour recevoir une actualisation dans une réponse de jeton, votre application doit demander et se voir accorder l’étendue `offline_access`. Pour en savoir plus sur l’étendue `offline_access`, consultez [l’article sur le consentement et les étendues](v2-permissions-and-consent.md).
 
-Les jetons d’actualisation sont, et seront toujours, entièrement opaques pour votre application. Émis par le point de terminaison Azure AD v2.0, ils ne peuvent être inspectés et interprétés que par le point de terminaison v2.0. Les jetons d’actualisation sont de longue durée. Toutefois, quand vous écrivez votre application, faites en sorte qu’elle n’attende pas un jeton d’actualisation d’une durée particulière. Les jetons d’actualisation peuvent être rendus non valides à tout moment pour diverses raisons (voir [Révocation de jetons](v1-id-and-access-tokens.md#token-revocation)). Pour savoir si un jeton d’actualisation est valide, votre application doit tenter de l’échanger en faisant une demande de jeton auprès du point de terminaison v2.0. C'est la seule façon de faire.
+Les jetons d’actualisation sont, et seront toujours, entièrement opaques pour votre application. Émis par le point de terminaison Azure AD v2.0, ils ne peuvent être inspectés et interprétés que par le point de terminaison v2.0. Les jetons d’actualisation sont de longue durée. Toutefois, quand vous écrivez votre application, faites en sorte qu’elle n’attende pas un jeton d’actualisation d’une durée particulière. Les jetons d’actualisation peuvent être rendus non valides à tout moment pour diverses raisons (voir [Révocation de jetons](access-tokens.md#revocation)). Pour savoir si un jeton d’actualisation est valide, votre application doit tenter de l’échanger en faisant une demande de jeton auprès du point de terminaison v2.0. C'est la seule façon de faire.
 
 Quand vous échangez un jeton d’actualisation contre un nouveau jeton d’accès (et si l’étendue `offline_access` a été accordée à votre application), vous recevez un nouveau jeton d’actualisation dans la réponse du jeton. Enregistrez le jeton d’actualisation nouvellement émis pour remplacer celui que vous avez utilisé dans la demande. Vous avez ainsi la garantie que vos jetons d’actualisation resteront valides le plus longtemps possible.
 
 ## <a name="validating-tokens"></a>Validation des jetons
+
 Pour le moment, la seule opération de validation que vos applications doivent effectuer est la validation des jetons d’ID. Pour valider un jeton d’ID, votre application doit valider à la fois la signature du jeton d’ID et les revendications qu’il contient.
 
 <!-- TODO: Link -->Microsoft fournit des bibliothèques et des exemples de code qui vous montrent comment gérer facilement la validation des jetons. Dans les sections suivantes, nous décrivons le processus sous-jacent. Plusieurs bibliothèques open source tierces sont également disponibles pour la validation de jetons JWT. Il existe au moins une bibliothèque pour la plupart des plateformes et langues.
 
 ### <a name="validate-the-signature"></a>valider la signature
+
 Un jeton JWT contient trois segments séparés par le caractère `.` . Le premier segment est appelé *l’en-tête*, le deuxième le *corps*, et le troisième la *signature*. Le segment de signature peut être utilisé pour valider l’authenticité du jeton d’ID afin qu’il soit approuvé par votre application.
 
 Les jetons d’ID sont signés à l’aide d’algorithmes de chiffrement asymétrique standard, tels que RSA 256. L’en-tête du jeton d’ID contient des informations sur la clé et la méthode de chiffrement utilisées pour signer le jeton. Par exemple : 
@@ -131,6 +135,7 @@ Ce document de métadonnées est un objet JSON qui contient diverses information
 La procédure de validation des signatures n’est pas indiquée dans ce document. De nombreuses bibliothèques open source sont disponibles pour vous aider à ce sujet.
 
 ### <a name="validate-the-claims"></a>Valider les revendications
+
 Quand votre application reçoit un jeton d’ID lors de la connexion de l’utilisateur, elle doit également procéder à quelques vérifications sur les revendications du jeton d’ID. Ces vérifications portent notamment sur les revendications suivantes :
 
 * Revendication **audience** : il s’agit de vérifier que le jeton d’ID était bien destiné à votre application.
@@ -143,6 +148,7 @@ Pour obtenir la liste complète des revendications que votre application doit va
 Les valeurs attendues pour ces revendications sont détaillées dans la section [Jetons d’ID](# ID tokens).
 
 ## <a name="token-lifetimes"></a>Durées de vie des jetons
+
 Nous indiquons les durées de vie des jetons ci-après uniquement à des fins d’information. Ces informations peuvent vous aider à développer et déboguer des applications. Quand vous écrivez vos applications, faites en sorte qu’elles n’attendent pas des durées de vie constantes, car les durées de vie des jetons peuvent changer à tout moment.
 
 | par jeton | Durée de vie | Description |

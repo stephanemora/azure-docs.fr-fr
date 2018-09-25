@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/24/2017
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: b1dd37c07f3c887005d87e3231f62a4bca2f4a3d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 893495a5c37495438d9620595719ca6e733df012
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093113"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958116"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -35,7 +35,7 @@ L’échantillonnage réduit les coûts du trafic et des données, et vous aide 
 * Vous pouvez également définir l’échantillonnage manuellement, sur la page Utilisation et estimation des coûts du portail, dans le fichier .config du Kit de développement logiciel (SDK) ASP.NET ou dans le fichier ApplicationInsights.xml du Kit SDK Java, pour réduire également le trafic réseau.
 * Si vous consignez des événements personnalisés et que vous souhaitez vous assurer qu’un ensemble d’événements soit conservé ou ignoré conjointement, faites en sorte qu’ils aient la même valeur OperationId.
 * Le diviseur d’échantillonnage *n* est signalé dans chaque enregistrement de la propriété `itemCount`, qui dans la recherche s’affiche sous le nom convivial « nombre de demandes » ou « nombre d’événements ». Lorsque l’échantillonnage n’est pas en cours d’utilisation, `itemCount==1`.
-* Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](app-insights-analytics-tour.md#counting-sampled-data). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
+* Si vous écrivez des requêtes Analytics, vous devez [tenir compte de l’échantillonnage](../log-analytics/query-language/aggregations.md). En particulier, au lieu de compter simplement les enregistrements, vous devez utiliser `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Types d’échantillonnage
 Il existe trois autres méthodes d’échantillonnage :

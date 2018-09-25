@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: acf51056a084abc08bda2d7f73b561f442f57784
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: e63345c0265d52fdd80fe4542efb7f13324926cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605524"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989616"
 ---
 # <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Création de graphiques et de diagrammes à partir de requêtes Log Analytics
 
@@ -34,7 +34,7 @@ Cet article décrit plusieurs visualisations dans Azure Log Analytics pour affic
 ## <a name="charting-the-results"></a>Affichage des résultats dans un graphique
 Commencez par passer en revue le nombre d’ordinateurs par système d’exploitation au cours de la dernière heure :
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -52,7 +52,7 @@ Pour obtenir un meilleur affichage, sélectionnez **Graphique**, puis choisissez
 ## <a name="timecharts"></a>Graphiques temporels
 Affichez la moyenne, le 50e et le 95e centiles de temps processeur dans des intervalles de 1 heure. La requête génère plusieurs séries et vous pouvez ensuite sélectionner les séries à afficher dans le graphique de temps :
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -67,7 +67,7 @@ Sélectionnez l’option d’affichage de graphique **Courbes** :
 
 Une ligne de référence peut vous aider à identifier facilement si la métrique a dépassé un seuil spécifique. Pour ajouter une ligne à un graphique, étendez le jeu de données avec une colonne constante :
 
-```KQL
+```Kusto
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -80,7 +80,7 @@ Perf
 ## <a name="multiple-dimensions"></a>Plusieurs dimensions
 Plusieurs expressions de la clause `by` de `summarize` créent plusieurs lignes dans les résultats, une pour chaque combinaison de valeurs.
 
-```KQL
+```Kusto
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)

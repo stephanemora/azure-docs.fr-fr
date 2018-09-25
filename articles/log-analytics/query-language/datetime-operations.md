@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 3a0e2b78de8cea3929ac457bab3d5e07a2b85401
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9b0c58fdbfb0d55b3b8998f4edfc1222b9a3d4aa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603377"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988595"
 ---
 # <a name="working-with-date-time-values-in-log-analytics-queries"></a>Utilisation des valeurs de date et d’heure dans des requêtes Log Analytics
 
@@ -49,33 +49,33 @@ Les types timespan sont exprimés en tant que valeur décimale suivie d’une un
 
 Les types datetime peuvent être créés en castant une chaîne avec l’opérateur `todatetime`. Par exemple, pour passer en revue les pulsations de machine virtuelle envoyées dans un laps de temps spécifique, vous pouvez utiliser [l’opérateur between](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator) qui est pratique pour spécifier une plage de temps.
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
 Un autre scénario courant est la comparaison d’une valeur datetime au présent. Par exemple, pour afficher toutes les pulsations au cours des deux dernières minutes, vous pouvez utiliser l’opérateur `now` avec une valeur timespan qui représente deux minutes :
 
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now() - 2m
 ```
 
 Un raccourci est également disponible pour cette fonction :
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
 La méthode la plus rapide et la plus lisible consiste cependant à utiliser l’opérateur `ago` :
-```KQL
+```Kusto
 Heartbeat
 | where TimeGenerated > ago(2m)
 ```
 
 Supposons qu’au lieu de connaître l’heure de début et de fin, vous connaissiez l’heure de début et la durée. Vous pouvez réécrire la requête comme suit :
 
-```KQL
+```Kusto
 let startDatetime = todatetime("2018-06-30 20:12:42.9");
 let duration = totimespan(25m);
 Heartbeat
@@ -86,7 +86,7 @@ Heartbeat
 ## <a name="converting-time-units"></a>Conversion des unités de temps
 Il peut être utile d’exprimer une valeur datetime ou timespan dans une unité de temps autre que celle par défaut. Par exemple, supposons que vous examinez les événements d’erreur des 30 dernières minutes et avez besoin d’une colonne calculée qui affiche le temps écoulé depuis que l’événement s’est produit :
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -95,7 +95,7 @@ Event
 
 Vous pouvez voir que la colonne _timeAgo_ contient des valeurs telles que « 00:09:31.5118992 », ce qui signifie qu’elles sont mises en forme comme hh:mm:ss.fffffff. Si vous souhaitez mettre en forme ces valeurs selon le _numver_ de minutes depuis l’heure de début, il suffit de diviser cette valeur par « 1 minute » :
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -109,7 +109,7 @@ Un autre scénario très courant est la nécessité d’obtenir des statistiques
 
 Utilisez la requête suivante pour obtenir le nombre d’événements qui se sont produits toutes les 5 minutes pendant la dernière demi-heure :
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(30m)
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
@@ -127,7 +127,7 @@ Cela produit le tableau suivant :
 
 Une autre façon de créer des compartiments de résultats consiste à utiliser des fonctions, telles que `startofday` :
 
-```KQL
+```Kusto
 Event
 | where TimeGenerated > ago(4d)
 | summarize events_count=count() by startofday(TimeGenerated) 
@@ -147,7 +147,7 @@ Cela génère les résultats suivants :
 ## <a name="time-zones"></a>Fuseaux horaires
 Dans la mesure où toutes les valeurs datetime sont exprimées au format UTC, il est souvent utile de les convertir dans le fuseau horaire local. Par exemple, utilisez ce calcul pour convertir les heures UTC en PST :
 
-```KQL
+```Kusto
 Event
 | extend localTimestamp = TimeGenerated - 8h
 ```

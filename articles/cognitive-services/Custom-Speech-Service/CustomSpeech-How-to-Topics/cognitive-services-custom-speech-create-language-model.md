@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ms.openlocfilehash: 599302cbf614f800d35a9a8c6a401c9692fc2e39
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ROBOTS: NOINDEX
+ms.openlocfilehash: 29f5c5efb78e85e265b56cba9ba20daa123d334e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268278"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961040"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Didacticiel : Créer un modèle de langage personnalisé
 
@@ -22,7 +23,7 @@ Dans ce didacticiel, vous créez un modèle de langage personnalisé pour les re
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> * Préparation des données
+> * Préparer les données
 > * Importer le jeu de données de langage
 > * Créer le modèle de langage personnalisé
 
@@ -36,7 +37,7 @@ Si aucun abonnement n’est répertorié, un compte Cognitive Services peut êtr
 
 Pour plus d’informations sur la création d’un abonnement Custom Search Service dans le portail Azure, consultez [Créer un compte d’API Cognitive Services sur le Portail Azure](../../cognitive-services-apis-create-account.md).
 
-## <a name="prepare-the-data"></a>Préparation des données
+## <a name="prepare-the-data"></a>Préparer les données
 
 Pour créer un modèle de langage personnalisé pour votre application, vous devez fournir une liste d’exemples d’énoncés au système, par exemple :
 

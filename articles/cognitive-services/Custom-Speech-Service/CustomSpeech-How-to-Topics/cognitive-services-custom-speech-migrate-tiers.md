@@ -9,12 +9,13 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ms.openlocfilehash: 6d92459deb3464cd97c215cbf9a8320628b6da80
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 44411e0c92f4e24e274761821dd99efbe60c5f5d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368540"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964971"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Migrer les déploiements vers le nouveau modèle de fixation des prix
 À compter du mois de juillet 2017, Custom Speech Service offre un [nouveau modèle de fixation des prix](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). Le nouveau modèle est *plus facile à comprendre*, *plus simple pour calculer les coûts* et *plus souple* en matière de mise à l’échelle. Pour la mise à l’échelle, Microsoft a introduit le concept d’une unité d’échelle. Chaque unité d’échelle peut gérer cinq demandes simultanées. La mise à l’échelle des demandes simultanées de l’ancien modèle a été définie à 5 demandes simultanées pour le niveau S0, et à 12 pour le niveau S1. Nous avons ouvert ces limites pour vous offrir une plus grande flexibilité dans la gestion de vos besoins en cas d’usage.
@@ -29,7 +30,7 @@ La correspondance entre les anciens niveaux et les unités d’échelle est indi
 
 | Niveau | Demandes simultanées (ancien modèle) | Migration | Demandes simultanées |
 |----- | ----- | ---- | ---- |
-| S0 |  5   |   => **S2** avec 1 unité d’échelle |   5 |
+| S0 |  5.   |   => **S2** avec 1 unité d’échelle |   5. |
 | S1 |  12  |   => **S2** avec 3 unités d’échelle |  15 |
 
 Pour migrer vers le nouveau niveau, effectuez les actions suivantes :
