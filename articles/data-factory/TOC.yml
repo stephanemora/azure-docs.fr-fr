@@ -65,7 +65,7 @@ items:
         href: tutorial-incremental-copy-multiple-tables-portal.md
       - name: Azure PowerShell
         href: tutorial-incremental-copy-multiple-tables-powershell.md
-    - name: 3 - Utiliser des fonctions de suivi des modification
+    - name: 3 - Utiliser des fonctions de suivi des modifications
       items:
       - name: Interface utilisateur (IU)
         href: tutorial-incremental-copy-change-tracking-feature-portal.md
@@ -89,7 +89,7 @@ items:
       href: tutorial-transform-data-hive-virtual-network-portal.md
     - name: Azure PowerShell
       href: tutorial-transform-data-hive-virtual-network.md
-  - name: Ajouter des branche et des chaînes
+  - name: Ajouter des branches et des chaînes
     items:
     - name: Interface utilisateur (IU)
       href: tutorial-control-flow-portal.md
@@ -223,9 +223,6 @@ items:
       href: connector-odbc.md
     - name: Office 365
       href: connector-office-365.md
-      items:
-      - name: Guide pour charger les données Office 365
-        href: load-office-365-data.md
     - name: Oracle
       href: connector-oracle.md
     - name: Oracle Eloqua
@@ -297,6 +294,8 @@ items:
       href: load-azure-sql-data-warehouse.md
     - name: Charger Data Lake Storage Gen1
       href: load-azure-data-lake-store.md
+    - name: Charger des données Office 365
+      href: load-office-365-data.md
     - name: Lire ou écrire des données partitionnées
       href: how-to-read-write-partitioned-data.md
     - name: Prise en charge du format et de la compression
@@ -454,9 +453,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Options de support
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 1c19765dfc3912e8c0899ec7020668fbe0d454ba
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 80111dc5f2bdb3adee23be7e56bb0341898179ce
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367690"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041895"
