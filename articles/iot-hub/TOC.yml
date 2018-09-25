@@ -29,7 +29,7 @@ items:
     href: quickstart-control-device-java.md
   - name: Contrôler un appareil (Python)
     href: quickstart-control-device-python.md
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: Routage des messages
     href: tutorial-routing.md
@@ -55,9 +55,9 @@ items:
     href: iot-hub-protocol-gateway.md
   - name: Comparer le message et le routage d’événement
     href: iot-hub-event-grid-routing-comparison.md
-  - name: Bonnes pratiques pour la configuration d’appareil
+  - name: Meilleures pratiques en matière de configuration d’appareil
     href: iot-hub-configuration-best-practices.md
-  - name: Prise en charge des plateformes par les kits SDK Azure IoT
+  - name: Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT
     href: iot-hub-device-sdk-platform-support.md
   - name: Guide du développeur
     href: iot-hub-devguide.md
@@ -134,12 +134,12 @@ items:
   items:
   - name: Développement
     items:
-    - name: Utiliser les kits SDK de services et d’appareils
+    - name: Utiliser les Kits de développement logiciel (SDK) de services et d’appareils
       href: iot-hub-devguide-sdks.md
       items:
-      - name: Prise en charge des plateformes par les kits SDK Azure IoT
+      - name: Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT
         href: iot-hub-device-sdk-platform-support.md
-      - name: Utiliser le kit Azure IoT Device SDK pour C
+      - name: Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C
         href: iot-hub-device-sdk-c-intro.md
         items:
         - name: Utiliser IoTHubClient
@@ -308,8 +308,6 @@ items:
       items:
       - name: Gérer la messagerie de périphérique cloud avec Azure IoT Toolkit pour VS Code
         href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
-      - name: Enregistrer les messages IoT Hub dans le stockage d’objets blob Azure
-        href: iot-hub-store-data-in-azure-table-storage.md
       - name: Visualisation des données dans Power BI
         href: iot-hub-live-data-visualization-in-power-bi.md
       - name: Visualisation des données avec des applications web
@@ -342,7 +340,7 @@ items:
     href: https://docs.microsoft.com/javascript/api/azure-iot-device/
   - name: Node.js (service)
     href: https://docs.microsoft.com/javascript/api/azure-iothub/
-  - name: Kit Device SDK pour C
+  - name: C (Kit de développement logiciel (SDK) de l’appareil)
     href: https://azure.github.io/azure-iot-sdk-c/index.html
   - name: Azure IoT Edge
     href: http://azure.github.io/iot-edge/
@@ -378,7 +376,7 @@ items:
     items:
     - name: IoT Edge
       href: /azure/iot-edge
-    - name: Kits IoT Device SDK
+    - name: Kits de développement logiciel (SDK) IoT Device
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Ressources
   items:
@@ -416,15 +414,15 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=iot-hub
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: http://stackoverflow.com/questions/tagged/azure-iot-hub
   - name: Études de cas techniques
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Vidéos
+  - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 4ee7c63cf452dd93e8b23dccf376497f883cd6b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57ffc64e9c644e27f24ada67366f820708860660
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971057"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064124"
