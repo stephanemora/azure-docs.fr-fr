@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 ms.openlocfilehash: 68a431418292cd5b1aaff376c4e20a95d0e20c57
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35624183"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092568"
 documentType: LandingData
 title: Documentation Recherche d’actualités Bing
 metadata:
@@ -22,7 +22,7 @@ metadata:
 abstract:
   description: L’API Recherche d’actualités Bing offre une expérience similaire à Bing Actualités et retourne les articles identifiés par Bing comme ayant un rapport avec la requête d’un utilisateur.
 sections:
-- title: Guides de démarrage rapide de 5 minutes
+- title: Démarrages en 5 minutes
   items:
   - type: paragraph
     text: 'Pour commencer à utiliser l’API Recherche d’actualités Bing, faites une requête et examinez la réponse JSON :'
@@ -53,7 +53,7 @@ sections:
         src: media/index/logo_ruby.svg
       href: ruby
       text: Ruby
-- title: Tutoriels pas à pas
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
     text: 'Développez des applications à l’aide de l’API Recherche d’actualités Bing :'

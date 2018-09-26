@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 ms.openlocfilehash: 99ddb641cefc0f31316a8de2f363b95afff0d053
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35624302"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093076"
 documentType: LandingData
 title: Documentation Recherche visuelle Bing
 metadata:
@@ -23,7 +23,7 @@ metadata:
 abstract:
   description: L’API Recherche visuelle Bing offre une expérience similaire à Bing.com/images et retourne des insights sur une image, notamment des images visuellement similaires, des magasins où acheter les produits figurant dans l’image et des recherches associées.
 sections:
-- title: Guides de démarrage rapide de 5 minutes
+- title: Démarrages en 5 minutes
   items:
   - type: paragraph
     text: 'Pour commencer à utiliser l’API Recherche visuelle Bing, envoyez une image à Bing et récupérez des insights sur cette image :'
@@ -45,7 +45,7 @@ sections:
       - href: quickstarts/java
       - href: quickstarts/nodejs
       - href: quickstarts/python
-- title: Tutoriels pas à pas
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
     text: 'Découvrez comment développer des applications à l’aide de l’API Recherche visuelle Bing :'

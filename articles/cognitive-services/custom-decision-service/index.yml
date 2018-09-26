@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 ms.openlocfilehash: 3314df7dc932553f56e0c937c8065f55f9dc50a3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35624190"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090773"
 documentType: LandingData
 title: Documentation du service Décision personnalisée
 metadata:
@@ -23,17 +23,17 @@ metadata:
 abstract:
   description: Le service Décision personnalisée Azure vous permet de créer des systèmes intelligents avec une API contextuelle d’aide à la prise de décision basée sur le cloud qui devient de plus en plus affûtée au fil du temps. Le service Décision personnalisée exploite la puissance de l’apprentissage par renforcement et adapte le contenu de votre application pour optimiser l’engagement global des utilisateurs. Le système incorpore en temps réel les commentaires des utilisateurs dans ses décisions et répond aux tendances émergentes et aux dernières histoires en quelques minutes. Utilisez ces guides de démarrage rapide pour découvrir comment inscrire votre application et comment appeler l’API à partir d’un navigateur ou d’une application. Utilisez ensuite les tutoriels pour personnaliser vos articles et représenter votre contenu sous la forme de « caractéristiques » prêtes pour l’apprentissage automatique.
 sections:
-- title: Guides de démarrage rapide de 5 minutes
+- title: Démarrages en 5 minutes
   items:
   - type: paragraph
     text: 'Inscrivez votre application et appelez l’API du service Décision personnalisée Azure directement à partir de votre navigateur ou d’une application pour smartphone :'
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-register">Inscrire votre application</a>
+    - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-register">Inscrivez votre application</a>
     - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-browser">Appeler des API à partir d’un navigateur</a>
     - html: <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-get-started-app">Appeler des API à partir d’une application</a>
-- title: Tutoriels pas à pas
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
     text: 'Utilisez les API du service Décision personnalisée pour personnaliser vos articles dans la première page d’un site web et spécifier votre contenu sous la forme de « caractéristiques » prêtes pour l’apprentissage automatique :'
