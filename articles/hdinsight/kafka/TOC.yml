@@ -19,7 +19,7 @@ items:
     href: apache-kafka-quickstart-powershell.md
   - name: Créer un cluster Kafka - Modèle
     href: apache-kafka-quickstart-resource-manager-template.md
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: 1 - Utiliser Spark Structured Streaming
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
@@ -33,7 +33,7 @@ items:
     href: apache-kafka-streams-api.md
 - name: Concepts
   items:
-  - name: Planification de la capacité
+  - name: planification de la capacité
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
   - name: Stockage et évolutivité
@@ -116,18 +116,18 @@ items:
       maintainContext: true
     - name: Bring Your Own Key (BYOK)
       href: apache-kafka-byok.md
-  - name: Gérer
+  - name: gérer
     items:
     - name: Créer des clusters Linux
       href: ../hdinsight-hadoop-provision-linux-clusters.md
       items:
-      - name: Utiliser Azure PowerShell
+      - name: Utilisation d'Azure PowerShell
         href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
         maintainContext: true
       - name: Utiliser cURL et l’API REST Azure
         href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
         maintainContext: true
-      - name: Utiliser le kit SDK .NET
+      - name: Utiliser le kit de développement logiciel (SDK) .NET
         href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
         maintainContext: true
       - name: Utiliser Azure Classic CLI
@@ -143,10 +143,10 @@ items:
     - name: Gérer des clusters Hadoop
       href: ../hdinsight-administer-use-portal-linux.md
       items:
-      - name: Utiliser le kit SDK .NET
+      - name: Utilisation du Kit de développement logiciel (SDK) .NET
         href: ../hdinsight-administer-use-dotnet-sdk.md
         maintainContext: true
-      - name: Utiliser Azure PowerShell
+      - name: Utilisation d'Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
       - name: Utiliser Azure Classic CLI
@@ -244,6 +244,14 @@ items:
     href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
+  - name: Kit de développement logiciel (SDK) .NET
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+  - name: Kit de développement logiciel (SDK) Python
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: Kit de développement logiciel (SDK) Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+  - name: Kit de développement logiciel (SDK) Go
+    href: ../hdinsight-go-sdk-overview.md
   - name: REST
     href: /rest/api/hdinsight/
   - name: REST (Spark)
@@ -263,9 +271,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 173f3cbc5b0bf24e756998d60a7810834d874fd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e39b711eb5b4d3156447c7a9772517ca76d2ae0f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998200"
+ms.locfileid: "47038712"

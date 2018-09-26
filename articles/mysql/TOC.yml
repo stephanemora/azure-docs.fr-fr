@@ -1,5 +1,5 @@
 items:
-- name: Documentation sur Azure DB pour MySQL
+- name: Base de données Azure pour les documents MySQL
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -32,7 +32,7 @@ items:
     - name: MySQL Workbench
       href: connect-workbench.md
   expanded: true
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: 1 - Concevoir une base de données
     items:
@@ -74,8 +74,8 @@ items:
     items:
     - name: Règles de pare-feu
       href: concepts-firewall-rules.md
-    - name: Configuration de SSL
-      href: concepts-ssl-connection-security.md
+    - name: Protection avancée contre les menaces
+      href: concepts-data-access-and-security-threat-protection.md
     - name: Réseau virtuel
       href: concepts-data-access-and-security-vnet.md
   - name: Continuité de l’activité
@@ -156,12 +156,10 @@ items:
       href: howto-data-in-replication.md
     - name: Créer des réplicas en lecture dans le portail Azure
       href: howto-read-replicas-portal.md
-  - name: Résolution des problèmes
+  - name: Protection avancée contre les menaces
     items:
-    - name: Dépannage de la performance des requêtes
-      href: howto-troubleshoot-query-performance.md
-    - name: Utilisation des vues dans le schéma sys
-      href: howto-troubleshoot-sys-schema.md
+    - name: Portail Azure
+      href: howto-database-threat-protection-portal.md
   - name: Réseau virtuel
     items:
     - name: Portail Azure
@@ -186,9 +184,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/mysql/
   - name: Forum MSDN
     href: https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: http://stackoverflow.com/questions/tagged/azure-database-mysql
-  - name: Vidéos
+  - name: vidéos
     items:
     - name: Vidéos de produit
       href: videos.md
@@ -214,9 +212,9 @@ items:
     href: partners-migration-mysql.md
   - name: Guide pour la migration de base de données
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 7c2ba8eecdf39d1e00abe91d9918fdaf2f1cec88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c4ce15c7c6260b179bf54f7f8bd78fcee735e3ac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980795"
+ms.locfileid: "47036862"

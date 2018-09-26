@@ -36,7 +36,7 @@ items:
     - name: Collecter - Ordinateur Windows
       href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
   expanded: true
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: 1 - Analyser les données
     href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
@@ -65,7 +65,7 @@ items:
 - name: Concepts
   items:
   - name: Gestion d’Azure
-    href: ../monitoring/index.md?toc=/azure/azure-monitor/toc.json
+    href: azure-management.md?toc=/azure/azure-monitor/toc.json
   - name: Données de surveillance
     items:
     - name: Métriques et journaux
@@ -102,10 +102,10 @@ items:
         href: ../application-insights/distributed-tracing.md?toc=/azure/azure-monitor/toc.json
       - name: Métriques basées sur le journal et pré-agrégées
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
-    - name: Conteneurs
-      href: https://aka.ms/AzureMonitorContainers
-    - name: Machines virtuelles
-      href: https://aka.ms/AzureMonitorVirtualMachines
+    - name: Containers
+      href: ../monitoring/monitoring-container-insights-overview.md?toc=/azure/azure-monitor/toc.json
+    - name: Virtual Machines
+      href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Solutions de supervision
       href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
   - name: Analyser des données
@@ -129,7 +129,7 @@ items:
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts-classic.md?toc=/azure/azure-monitor/toc.json
     - name: Groupes intelligents
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json
-    - name: Mettre à l’échelle automatiquement
+    - name: Autoscale
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
     - name: Alertes de métrique
       href: ../monitoring-and-diagnostics/alert-metric-overview.md?toc=/azure/azure-monitor/toc.json
@@ -181,7 +181,7 @@ items:
         items:
         - name: Utiliser le portail Azure
           href: ../log-analytics/log-analytics-quick-create-workspace.md?toc=/azure/azure-monitor/toc.json
-        - name: Utiliser Azure CLI
+        - name: Utiliser l’interface de ligne de commande Microsoft Azure
           href: ../log-analytics/log-analytics-quick-create-workspace-cli.md?toc=/azure/azure-monitor/toc.json
         - name: Utilisation d'Azure PowerShell
           href: ../log-analytics/log-analytics-quick-create-workspace-posh.md?toc=/azure/azure-monitor/toc.json
@@ -504,8 +504,16 @@ items:
         href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=/azure/azure-monitor/toc.json
     - name: Analyser les conteneurs
       items:
-      - name: Vue d’ensemble de la surveillance des conteneurs
-        href: ../monitoring/monitoring-container-overview.md?toc=/azure/azure-monitor/toc.json
+      - name: Azure Monitor pour des conteneurs
+        items:
+        - name: Intégrer
+          href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Analyser
+          href: ../monitoring/monitoring-container-insights-analyze.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Arrêter la supervision
+          href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Résolution de problèmes
+          href: ../monitoring/monitoring-container-insights-troubleshoot.md
       - name: Intégrité du conteneur AKS
         href: ../monitoring/monitoring-container-health.md?toc=/azure/azure-monitor/toc.json
       - name: Surveillance de Docker et du conteneur Windows
@@ -538,6 +546,22 @@ items:
           href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
     - name: Surveillance des machines virtuelles
       items:
+      - name: Azure Monitor pour machines virtuelles
+        items:
+        - name: Problèmes connus
+          href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
+        - name: Forum Aux Questions
+          href: ../monitoring/monitoring-vminsights-faq.md?toc=/azure/azure-monitor/toc.json
+        - name: Intégrer
+          href: ../monitoring/monitoring-vminsights-onboard.md?toc=/azure/azure-monitor/toc.json
+        - name: Surveiller l’intégrité
+          href: ../monitoring/monitoring-vminsights-health.md?toc=/azure/azure-monitor/toc.json
+        - name: Mapper des dépendances
+          href: ../monitoring/monitoring-vminsights-maps.md?toc=/azure/azure-monitor/toc.json
+        - name: Analyser les performances
+          href: ../monitoring/monitoring-vminsights-performance.md?toc=/azure/azure-monitor/toc.json
+        - name: Interroger des données avec Log Analytics
+          href: ../monitoring/monitoring-vminsights-log-search.md?toc=/azure/azure-monitor/toc.json
       - name: Agent Health
         href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: Capacité et performances
@@ -595,7 +619,7 @@ items:
       items:
       - name: Journaux
         href: ../log-analytics/log-analytics-dashboards.md?toc=/azure/azure-monitor/toc.json
-      - name: Applications
+      - name: APPLICATIONS
         href: ../application-insights/app-insights-dashboards.md?toc=/azure/azure-monitor/toc.json
     - name: Power BI
       href: ../monitoring-and-diagnostics/monitor-send-to-grafana.md?toc=/azure/azure-monitor/toc.json
@@ -651,8 +675,18 @@ items:
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+      - name: Référence sur le langage
+        items:
+        - name: Référence sur le langage
+          href: https://aka.ms/LogAnalyticsLanguageReference
+        - name: expression de l’application
+          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
+        - name: expression de l’espace de travail
+          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
       - name: Données d'application
         href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+      - name: Propriétés standard
+        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Recherches inter-ressources
         href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
       - name: Agir à partir des résultats de recherche
@@ -751,7 +785,7 @@ items:
         href: ../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=/azure/azure-monitor/toc.json
       - name: Comprendre les paramètres de mise à l’échelle automatique
         href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
-      - name: Bonnes pratiques
+      - name: Meilleures pratiques
         href: ../monitoring-and-diagnostics/insights-autoscale-best-practices.md?toc=/azure/azure-monitor/toc.json
       - name: Métriques courantes
         href: ../monitoring-and-diagnostics/insights-autoscale-common-metrics.md?toc=/azure/azure-monitor/toc.json
@@ -849,9 +883,9 @@ items:
         href: ../monitoring/monitoring-solutions-resources-automation.md?toc=/azure/azure-monitor/toc.json
       - name: Recherches dans les journaux et alertes
         href: ../monitoring/monitoring-solutions-resources-searches-alerts.md?toc=/azure/azure-monitor/toc.json
-      - name: Vues
+      - name: Views
         href: ../monitoring/monitoring-solutions-resources-views.md?toc=/azure/azure-monitor/toc.json
-      - name: Bonnes pratiques
+      - name: Meilleures pratiques
         href: ../monitoring/monitoring-solutions-best-practices.md?toc=/azure/azure-monitor/toc.json
       - name: Collecter les données de surveillance à partir d’un runbook
         href: ../monitoring/monitoring-runbook-datacollect.md?toc=/azure/azure-monitor/toc.json
@@ -942,13 +976,13 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=monitor
   - name: Modèles de démarrage rapide
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: c5f69264c293cb5e10c016fc79bc86dd091da533
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0706842080ab163e74e0eb085c8e80bd01800e7
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981812"
+ms.locfileid: "47056724"

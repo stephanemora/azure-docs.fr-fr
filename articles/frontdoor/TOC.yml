@@ -13,6 +13,8 @@ items:
   items:
   - name: Ajouter un domaine personnalisé à votre Front Door
     href: front-door-custom-domain.md
+  - name: Activer le protocole HTTPS pour un domaine personnalisé
+    href: front-door-custom-domain-https.md
 - name: Exemples
   items:
   - name: Modèles de Gestionnaire des ressources
@@ -21,8 +23,8 @@ items:
   items:
   - name: Pools de serveurs principaux et de serveur principal
     href: front-door-backend-pool.md
-  - name: Protection DDoS et sécurité de couche Application
-    href: front-door-ddos-security.md
+  - name: Sécurité de la couche Application
+    href: front-door-application-security.md
   - name: Équilibrage de charge avec la suite de livraison d’application Azure
     href: front-door-lb-with-azure-app-delivery-suite.md
   - name: Routage d’architecture
@@ -43,6 +45,20 @@ items:
     href: front-door-http-headers-protocol.md
   - name: Surveillance
     href: front-door-diagnostics.md
+- name: Procédures
+  items:
+  - name: Résolution des problèmes
+    items:
+    - name: Résoudre les problèmes de routage
+      href: front-door-troubleshoot-routing.md
+    - name: Autorités de certification autorisées
+      href: front-door-troubleshoot-allowed-ca.md
+- name: Informations de référence
+  items:
+  - name: Azure PowerShell
+    href: front-door-powershell-reference.md
+  - name: API REST
+    href: front-door-rest-api.md
 - name: Ressources
   items:
   - name: Feuille de route Azure
@@ -53,9 +69,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Mises à jour de service
     href: https://azure.microsoft.com/updates/?product=frontdoor
-ms.openlocfilehash: e44b12e49ea03cb344288367f1f9a97e195f39a4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ef2336af29de4fd7f707041d2b730b40cc7536fe
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949126"
+ms.locfileid: "47037760"

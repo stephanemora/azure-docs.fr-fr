@@ -20,7 +20,7 @@ items:
     href: apache-hadoop-linux-create-cluster-get-started-portal.md
   - name: Créer un cluster Hadoop - Gestionnaire des ressources
     href: apache-hadoop-linux-tutorial-get-started.md
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: Effectuer des opérations ETL
     href: ../hdinsight-analyze-flight-delay-data-linux.md
@@ -81,11 +81,11 @@ items:
         href: apache-hadoop-use-mapreduce-ssh.md
       - name: Utilisation de curl
         href: apache-hadoop-use-mapreduce-curl.md
-      - name: Utiliser Azure PowerShell
+      - name: Utilisation d'Azure PowerShell
         href: apache-hadoop-use-mapreduce-powershell.md
       - name: Utiliser le Bureau à distance
         href: apache-hadoop-use-mapreduce-remote-desktop.md
-      - name: Utiliser le kit SDK .NET
+      - name: Utilisation du Kit de développement logiciel (SDK) .NET
         href: apache-hadoop-use-mapreduce-dotnet-sdk.md
       - name: Exécuter les exemples MapReduce
         href: apache-hadoop-run-samples-linux.md
@@ -94,9 +94,9 @@ items:
       items:
       - name: Utiliser SSH et Pig
         href: apache-hadoop-use-pig-ssh.md
-      - name: Utiliser Azure PowerShell
+      - name: Utilisation d'Azure PowerShell
         href: apache-hadoop-use-pig-powershell.md
-      - name: Utiliser le kit SDK .NET
+      - name: Utiliser le kit de développement logiciel (SDK) .NET
         href: apache-hadoop-use-pig-dotnet-sdk.md
       - name: Utilisation de curl
         href: apache-hadoop-use-pig-curl.md
@@ -443,8 +443,14 @@ items:
     href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
-  - name: .NET (Hadoop)
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet
+  - name: Kit de développement logiciel (SDK) .NET
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+  - name: Kit de développement logiciel (SDK) Python
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: Kit de développement logiciel (SDK) Java
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+  - name: Kit de développement logiciel (SDK) Go
+    href: ../hdinsight-go-sdk-overview.md
   - name: .NET (HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
@@ -530,9 +536,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: d4b73fcfa0db7ebad74bd8b1e4b1e3c1928f9e36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 18460ce48c4358e6beb87de2704d2d3423b198f9
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995249"
+ms.locfileid: "47037556"
