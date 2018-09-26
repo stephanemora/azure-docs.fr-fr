@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 1c25ae1acb112221047876ea6dd360c6d3bb2817
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946236"
+documentType: LandingData
+title: 'Gestion de Azure : Gouvernance'
+metadata:
+  title: 'Gestion de Azure : Gouvernance'
+  description: Découvrez-en davantage concernant les concepts et les services Azure disponibles pour la gestion de votre environnement avec cohérence, à l’aide d’une conception et de règles explicites et sur la manière d’effectuer les audits de la conformité.
+  services: governance
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: governance
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Azure Governance est une collection de concepts et de services qui sont conçus pour activer la gestion de vos diverses ressources Azure à l’échelle. Ces services offrent la possibilité d’organiser et de structurer vos abonnements de façon logique, de créer et de déployer des packages Azure de ressources natifs et réutilisables, de définir, d’effectuer des audits et de corriger vos ressources, et bien plus encore. Utilisez cette page pour en savoir plus sur ces concepts et les services, et comment activer et utiliser chacun d’eux dans votre environnement aujourd'hui.
+sections:
+- title: Composants et Services
+- items:
+  - type: list
+    style: cards
+    className: cardsD
+    columns: 2
+    items:
+    - href: ./management-groups/overview
+      html: <p>Découvrez-en davantage concernant le regroupement et l’organisation de vos abonnements dans une hiérarchie logique qui prend en charge le déploiement d’autres services de gouvernance de façon structurée.<br /></p>
+      image:
+        src: ./media/management-groups-illustration.svg
+      title: Groupes d'administration
+    - href: ./resource-graph/
+      html: <p>Utilisez un puissant outil de commande en ligne (prend en charge Azure CLI et Azure PowerShell) pour interroger rapidement des détails complexes concernant vos ressources Azure. Recherchez et exposez des informations qui nécessitaient auparavant des scripts complexes et itératifs pour découvrir ces ressources à l’échelle.</p>
+      image:
+        src: ./media/resource-graph-illustration.svg
+      title: Graphe des ressources
+    - href: ./policy/
+      html: <p>Définissez et appliquez des standards aux ressources dans votre environnement. Empêchez la création de ressources indésirables, améliorez les nouvelles ressources avec des éléments supplémentaires, réalisez un audit et corrigez les ressources déjà présentes dans votre environnement.</p>
+      image:
+        src: ./media/policy-illustration.svg
+      title: Stratégie
+    - href: ./blueprints/
+      html: <p>Créez un package Azure natif d’<i>artefacts</i> (groupes de ressources, stratégies, attributions de rôles, modèles de gestionnaire des ressources et bien plus encore) qui peut être déployé dynamiquement vers des abonnements afin de créer des environnements cohérents et reproductibles.</p>
+      image:
+        src: ./media/blueprints-illustration.svg
+      title: Blueprints
+- title: Implémentations
+- items:
+  - type: list
+    style: cards
+    className: cardsZ
+    columns: 3
+    items:
+    - href: /azure/architecture/cloud-adoption/governance/what-is-governance?toc=/azure/governance/toc.json
+      html: <p>Par le passé, elles étaient propriétaires et responsables de tous les niveaux technologiques, des infrastructures aux logiciels. À présent, le cloud offre la possibilité de changer de façon d’utiliser les technologies en approvisionnant et en consommant les ressources nécessaires.</p>
+      title: Adoption du cloud d’entreprise
+    - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+      html: <p>Il permet aux administrateurs de s’assurer que les charges de travail correspondent à la configuration minimale requise en matière de gouvernance d’une organisation sans empêcher les groupes professionnels et les développeurs d’atteindre rapidement leurs objectifs.<br /><br /></p>
+      title: Entreprise Scaffold
+- title: Informations de référence
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Stratégie
+      html: <p>Ligne de commande<ul><li><a href="/cli/azure/policy">interface de ligne de commande Azure</a></li></ul></p><p>PowerShell<ul><li><a href="/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></li></ul></p><p>API REST<ul><li><a href="/rest/api/policy-insights/policyevents">Événements</a></li><li><a href="/rest/api/policy-insights/policystates">États</a></li><li><a href="/rest/api/resources/policyassignments">Affectations</a></li><li><a href="/rest/api/resources/policydefinitions">Définitions de stratégies</a></li><li><a href="/rest/api/resources/policysetdefinitions">Définitions d’initiatives</a></li></ul></p>

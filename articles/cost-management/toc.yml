@@ -1,63 +1,112 @@
+items:
 - name: Documentation Gestion des coûts Azure
   href: index.yml
-- name: Vue d'ensemble
   items:
-    - name: "Qu’est-ce que la gestion des coûts\_?"
-      href: overview.md
-- name: Démarrages rapides
-  expanded: true
-  items:
-    - name: Afficher les données de coût
-      href: quick-register-azure-sub.md
-    - name: Afficher les données de coût - EA
-      href: quick-register-ea.md
-    - name: Afficher les données de coût - CSP
-      href: quick-register-csp.md
-- name: Didacticiels
-  items:
-    - name: 1- Examiner l’utilisation et les coûts
-      href: tutorial-review-usage.md
-    - name: 2 - Prévoir les dépenses
-      href: tutorial-forecast-spending.md
-    - name: 3 - Gérez les coûts
-      href: tutorial-manage-costs.md
-    - name: 4 - Optimiser les instances réservées
-      href: tutorial-optimize-reserved-instances.md
-    - name: 5 - Contrôler l’accès aux données
-      href: tutorial-user-access.md
-- name: Concepts
-  items:
-    - name: Compréhension des rapports sur les coûts
-      href: understanding-cost-reports.md
-- name: Procédures
-  items:
-    - name: Activer des abonnements et comptes Azure
-      href: activate-subs-accounts.md
-    - name: Ajouter des métriques étendues pour les machines virtuelles
-      href: azure-vm-extended-metrics.md
-    - name: Connecter un compte Google actif
-      href: connect-google-account.md
-    - name: Connecter un compte AWS
-      href: connect-aws-account.md
-    - name: Configurer des comptes de stockage
-      href: storage-accounts.md
-    - name: Utiliser les rapports Azure Cost Management
-      href: use-reports.md
-    - name: Utiliser les tableaux de bord
-      href: dashboards.md
-    - name: Gérer les budgets
-      href: manage-budgets.md
-- name: Ressources
-  items:
-    - name: Vidéos Gestion des coûts
-      href: ref-videos.md
+  - name: Vue d’ensemble
+    items:
+    - name: Qu’est-ce que la gestion des coûts ?
+      href: overview-cost-mgt.md
+  - name: Démarrages rapides
+    items:
+    - name: Démarrer l’analyse des coûts
+      href: quick-acm-cost-analysis.md
+    expanded: true
+  - name: Didacticiels
+    items:
+    - name: '1 : Créer et gérer des budgets'
+      href: tutorial-acm-create-budgets.md
+    - name: '2 : Exporter des données'
+      href: tutorial-export-acm-data.md
+    - name: 3 - Suggestions d’optimisation
+      href: tutorial-acm-opt-recommendations.md
+  - name: Concepts
+    items:
+    - name: Meilleures pratiques de Azure Cost Management
+      href: cost-mgt-best-practices.md
+  - name: Informations de référence
+    items:
+    - name: Présentation de l’API Azure Consumption
+      href: ../billing/billing-consumption-api-overview.md
+      items:
+      - name: API REST d’Azure Consumption
+        href: https://docs.microsoft.com/rest/api/consumption
     - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
+      href: https://azure.microsoft.com/roadmap/
+  - name: Ressources
+    items:
+    - name: Développer vos compétences avec Microsoft Learn
+      href: /learn/browse/?products=azure-cost-management
+    - name: Feuille de route Azure
+      href: https://azure.microsoft.com/roadmap/
     - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/cost-management'
+      href: https://azure.microsoft.com/pricing/details/cost-management
     - name: Disponibilité régionale
-      href: 'https://azure.microsoft.com/en-us/regions/services/'
-    - name: Forum Aux Questions
-      href: cost-mgt-faq.md
-    - name: Contacter le support technique
-      href: support-request-cost-management.md
+      href: https://azure.microsoft.com/regions/services/
+  - name: Cloudyn
+    items:
+    - name: Vue d’ensemble
+      items:
+      - name: Qu’est-ce que Cloudyn ?
+        href: overview.md
+    - name: Démarrages rapides
+      items:
+      - name: Afficher les données de coût
+        href: quick-register-azure-sub.md
+      - name: Afficher les données de coût - EA
+        href: quick-register-ea.md
+      - name: Afficher les données de coût - CSP
+        href: quick-register-csp.md
+    - name: Didacticiels
+      items:
+      - name: 1- Examiner l’utilisation et les coûts
+        href: tutorial-review-usage.md
+      - name: 2 - Prévoir les dépenses
+        href: tutorial-forecast-spending.md
+      - name: 3 - Gérez les coûts
+        href: tutorial-manage-costs.md
+      - name: 4 - Optimiser les instances réservées
+        href: tutorial-optimize-reserved-instances.md
+      - name: 5 - Contrôler l’accès aux données
+        href: tutorial-user-access.md
+    - name: Concepts
+      items:
+      - name: Compréhension des rapports sur les coûts
+        href: understanding-cost-reports.md
+    - name: Procédures
+      items:
+      - name: Activer des abonnements et comptes Azure
+        href: activate-subs-accounts.md
+      - name: Ajouter des métriques étendues pour les machines virtuelles
+        href: azure-vm-extended-metrics.md
+      - name: Connecter un compte Google actif
+        href: connect-google-account.md
+      - name: Connecter un compte AWS
+        href: connect-aws-account.md
+      - name: Configurer des comptes de stockage
+        href: storage-accounts.md
+      - name: Utiliser des rapports Cloudyn
+        href: use-reports.md
+      - name: Utiliser les tableaux de bord
+        href: dashboards.md
+      - name: Gérer les budgets
+        href: manage-budgets.md
+    - name: Ressources
+      items:
+      - name: Vidéos Cloudyn
+        href: ref-videos.md
+      - name: Feuille de route Azure
+        href: https://azure.microsoft.com/roadmap/
+      - name: Tarification de Cloudyn
+        href: https://azure.microsoft.com/pricing/details/cost-management
+      - name: Disponibilité régionale Cloudyn
+        href: https://azure.microsoft.com/regions/services/
+      - name: FAQ Cloudyn
+        href: cost-mgt-faq.md
+      - name: Contacter le support technique Cloudyn
+        href: support-request-cost-management.md
+ms.openlocfilehash: 8bce54dbde8acd8fb8d03479036c934242d434cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972451"

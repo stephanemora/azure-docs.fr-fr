@@ -1,0 +1,223 @@
+items:
+- name: Documentation Azure Policy
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+  - name: Présentation de la stratégie Azure
+    href: overview.md
+- name: Démarrages rapides
+  items:
+  - name: Attribuer une stratégie - Portail
+    href: assign-policy-portal.md
+  - name: Attribuer une stratégie - PowerShell
+    href: assign-policy-powershell.md
+  - name: Attribuer une stratégie - Azure CLI
+    href: assign-policy-azurecli.md
+  expanded: true
+- name: Didacticiels
+  items:
+  - name: Créer et gérer une stratégie Azure
+    href: ./tutorials/create-and-manage.md
+- name: Exemples
+  href: ./samples/index.md
+  items:
+  - name: Généralités
+    items:
+    - name: Dénomination
+      items:
+      - name: Autoriser plusieurs modèles de nom
+        href: samples/allow-multiple-name-patterns.md
+      - name: Exiger le modèle de similitude
+        href: samples/enforce-like-pattern.md
+      - name: Exiger le modèle de correspondance
+        href: samples/enforce-match-pattern.md
+      - name: Exiger le modèle de correspondance de balise
+        href: samples/enforce-tag-match-pattern.md
+    - name: Balises
+      items:
+      - name: Appliquer une étiquette et sa valeur par défaut
+        href: samples/apply-tag-def-val.md
+      - name: Initiative de la stratégie de facturation en fonction d’étiquettes
+        href: samples/billing-tags-policy-init.md
+      - name: Enforce tag and its value
+        href: samples/enforce-tag-val.md
+      - name: Forcer l’application d’une étiquette et de sa valeur sur des groupes de ressources
+        href: samples/enforce-tag-rg.md
+    - name: Emplacements
+      items:
+      - name: Emplacements autorisés
+        href: samples/allowed-locs.md
+    - name: Types de ressources
+      items:
+      - name: Types de ressources autorisés
+        href: samples/allowed-res-types.md
+      - name: Types de ressources non autorisés
+        href: samples/not-allowed-res-type.md
+  - name: Calcul
+    items:
+    - name: Machines virtuelles
+      items:
+      - name: Autoriser une image de machine virtuelle personnalisée à partir d’un groupe de ressources
+        href: samples/allow-custom-vm-image.md
+      - name: Références (SKU) autorisées pour les comptes de stockage et les machines virtuelles
+        href: samples/allowed-skus-storage.md
+      - name: Images de machine virtuelle approuvées
+        href: samples/allowed-custom-images.md
+      - name: Vérifier si une extension n’existe pas
+        href: samples/audit-ext-not-exist.md
+      - name: Extensions de machine virtuelle non autorisées
+        href: samples/not-allowed-vm-ext.md
+    - name: 'Groupes identiques de machines virtuelles '
+      items:
+      - name: Auditer lorsque la machine virtuelle n’utilise pas de disque managé
+        href: samples/create-vm-managed-disk.md
+      - name: Créer une machine virtuelle en utilisant un disque managé
+        href: samples/use-managed-disk-vm.md
+      - name: Refuser Hybrid Use Benefit
+        href: samples/deny-hybrid-use.md
+      - name: Autoriser seulement une certaine image de plateforme de machine virtuelle
+        href: samples/allow-certain-vm-image.md
+  - name: Data Lake
+    items:
+    - name: Appliquer le chiffrement Data Lake Store
+      href: samples/enforce-datalakestore-encryption.md
+  - name: Surveillance
+    items:
+    - name: Auditer le paramètre de diagnostic
+      href: samples/audit-diag-setting.md
+  - name: Réseau
+    items:
+    - name: Interfaces réseau
+      items:
+      - name: NSG X sur chaque carte réseau
+        href: samples/nsg-on-nic.md
+      - name: Utiliser un sous-réseau approuvé pour les interfaces réseau de machine virtuelle
+        href: samples/use-approved-subnet-vm-nics.md
+      - name: Utiliser un réseau virtuel approuvé pour les interfaces réseau de machine virtuelle
+        href: samples/use-approved-vnet-vm-nics.md
+    - name: Réseaux virtuels
+      items:
+      - name: Références (SKU) de passerelles d’application autorisées
+        href: samples/allowed-app-gate-sku.md
+      - name: Pas d’appairage réseau à un réseau ER
+        href: samples/no-peering-er-net.md
+      - name: Aucune table d’itinéraires définie par l’utilisateur
+        href: samples/no-user-def-route-table.md
+      - name: NSG X sur chaque sous-réseau
+        href: samples/nsg-on-subnet.md
+      - name: Utiliser un sous-réseau approuvé pour les interfaces réseau de machine virtuelle
+        href: samples/use-approved-subnet-vm-nics.md
+      - name: Utiliser un réseau virtuel approuvé pour les interfaces réseau de machine virtuelle
+        href: samples/use-approved-vnet-vm-nics.md
+    - name: Groupes de sécurité réseau
+      items:
+      - name: NSG X sur chaque carte réseau
+        href: samples/nsg-on-nic.md
+      - name: NSG X sur chaque sous-réseau
+        href: samples/nsg-on-subnet.md
+    - name: Express Routes
+      items:
+      - name: Bande passante Express Route autorisée
+        href: samples/allowed-er-band.md
+      - name: Références (SKU) d’Express Route autorisées
+        href: samples/allowed-er-skus.md
+      - name: Emplacement d’appairage autorisé pour Express Route
+        href: samples/allowed-peering-er.md
+    - name: Network Watchers
+      items:
+      - name: Vérifier si Network Watchers n’est pas activé pour une région
+        href: samples/net-watch-not-enabled.md
+    - name: Passerelles d’application
+      items:
+      - name: Références (SKU) de passerelles d’application autorisées
+        href: samples/allowed-app-gate-sku.md
+  - name: SQL
+    items:
+    - name: Serveurs SQL
+      items:
+      - name: Aucun audit sur administrateur Azure Active Directory
+        href: samples/audit-no-aad-admin.md
+      - name: Auditer le paramètre de détection de menaces au niveau du serveur
+        href: samples/audit-sql-ser-threat-det-setting.md
+      - name: Auditer les paramètres d’audit de SQL Server
+        href: samples/sql-server-audit.md
+      - name: Auditer le paramètre d’audit de niveau de SQL Server
+        href: samples/audit-sql-ser-leve-audit-setting.md
+      - name: Nécessitent SQL Server version 12.0
+        href: samples/req-sql-12.md
+    - name: BASES DE DONNÉES SQL
+      items:
+      - name: Références (SKU) de base de données SQL autorisées
+        href: samples/allowed-sql-db-skus.md
+      - name: Auditer le paramètre de détection de menaces au niveau de la base de données SQL
+        href: samples/audit-db-threat-det-setting.md
+      - name: Auditer le chiffrement de base de données SQL
+        href: samples/sql-database-encryption-audit.md
+      - name: Auditer le paramètre d’audit de niveau de la base de données SQL
+        href: samples/audit-sql-db-audit-setting.md
+      - name: Auditer l’état du chiffrement transparent des données
+        href: samples/audit-trans-data-enc-status.md
+  - name: Stockage
+    items:
+    - name: Références SKU autorisées pour le compte de stockage et les machines virtuelles
+      href: samples/allowed-skus-storage.md
+    - name: Références SKU de compte de stockage autorisées
+      href: samples/allowed-stor-acct-skus.md
+    - name: Refuser les niveaux d’accès réduits pour les comptes de stockage
+      href: samples/deny-cool-access-tiering.md
+    - name: Autoriser seulement le trafic HTTPS pour le compte de stockage
+      href: samples/ensure-https-stor-acct.md
+    - name: Appliquer le chiffrement des fichiers de stockage
+      href: samples/ensure-store-file-enc.md
+    - name: Nécessitent le chiffrement du compte de stockage
+      href: samples/req-store-acct-enc.md
+- name: Concepts
+  items:
+  - name: Structure de définition Azure Policy
+    href: ./concepts/definition-structure.md
+  - name: Comprendre les effets de Policy
+    href: ./concepts/effects.md
+- name: Procédures
+  items:
+  - name: Créer des stratégies par programmation
+    href: ./how-to/programmatically-create.md
+  - name: Obtention de données de conformité
+    href: ./how-to/getting-compliance-data.md
+  - name: Remédier aux ressources non conformes
+    href: ./how-to/remediate-resources.md
+- name: Informations de référence
+  items:
+  - name: Azure CLI
+    href: /cli/azure/policy
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.resources/#policies
+  - name: API REST
+    items:
+    - name: Événements
+      href: /rest/api/policy-insights/policyevents
+    - name: États
+      href: /rest/api/policy-insights/policystates
+    - name: Affectations
+      href: /rest/api/resources/policyassignments
+    - name: Définitions de stratégies
+      href: /rest/api/resources/policydefinitions
+    - name: Définitions d’initiatives
+      href: /rest/api/resources/policysetdefinitions
+- name: Ressources
+  items:
+  - name: GitHub - Exemples Azure Policy
+    href: https://github.com/Azure/azure-policy
+  - name: Vidéo - Version 2018
+    href: https://channel9.msdn.com/events/Build/2018/THR2030
+  - name: Vidéo - Ignite 2017
+    href: https://myignite.microsoft.com/videos/54781
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Calculatrice de prix
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: e433ad5418f2c97890332548ae8d05196117bbd4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962689"

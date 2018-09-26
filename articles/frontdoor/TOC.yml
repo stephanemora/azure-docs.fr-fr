@@ -1,0 +1,61 @@
+items:
+- name: Documentation de Front Door Service
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+  - name: Qu’est-ce que le service Azure Front Door Service ?
+    href: front-door-overview.md
+- name: Démarrages rapides
+  items:
+  - name: Créer une Front Door
+    href: quickstart-create-front-door.md
+- name: Didacticiels
+  items:
+  - name: Ajouter un domaine personnalisé à votre Front Door
+    href: front-door-custom-domain.md
+- name: Exemples
+  items:
+  - name: Modèles de Gestionnaire des ressources
+    href: front-door-quickstart-template-samples.md
+- name: Concepts
+  items:
+  - name: Pools de serveurs principaux et de serveur principal
+    href: front-door-backend-pool.md
+  - name: Protection DDoS et sécurité de couche Application
+    href: front-door-ddos-security.md
+  - name: Équilibrage de charge avec la suite de livraison d’application Azure
+    href: front-door-lb-with-azure-app-delivery-suite.md
+  - name: Routage d’architecture
+    href: front-door-routing-architecture.md
+  - name: Méthodes de routage du trafic
+    href: front-door-routing-methods.md
+  - name: Exploitation du routage pour une requête par Front Door
+    href: front-door-route-matching.md
+  - name: Sondes d’intégrité
+    href: front-door-health-probes.md
+  - name: Réécrire URL
+    href: front-door-url-rewrite.md
+  - name: Mise en cache avec Front Door
+    href: front-door-caching.md
+  - name: Assistance HTTP/2
+    href: front-door-http2.md
+  - name: Prise en charge de protocole d’en-têtes HTTP
+    href: front-door-http-headers-protocol.md
+  - name: Surveillance
+    href: front-door-diagnostics.md
+- name: Ressources
+  items:
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/frontdoor/
+  - name: Calculatrice de prix
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Mises à jour de service
+    href: https://azure.microsoft.com/updates/?product=frontdoor
+ms.openlocfilehash: e44b12e49ea03cb344288367f1f9a97e195f39a4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949126"

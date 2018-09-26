@@ -11,7 +11,7 @@ items:
     href: environment/intro.md
   - name: Comparer les options d’hébergement
     href: choose-web-site-cloud-service-vm.md
-- name: Guides de démarrage rapide
+- name: Démarrages rapides
   items:
   - name: Créer une application .NET Core
     href: app-service-web-get-started-dotnet.md
@@ -25,10 +25,10 @@ items:
     href: app-service-web-get-started-java.md
   - name: Créer un site HTML statique
     href: app-service-web-get-started-html.md
-  - name: Exécuter un conteneur Windows personnalisé
+  - name: Exécuter un conteneur Windows
     href: app-service-web-get-started-windows-container.md
   expanded: true
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: Application avec base de données
     items:
@@ -42,6 +42,8 @@ items:
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: Java avec MySQL
       href: app-service-web-tutorial-java-mysql.md
+  - name: Personnaliser Windows (conteneur)
+    href: app-service-web-tutorial-windows-containers-custom-fonts.md
   - name: Accéder à la base de données SQL en toute sécurité
     href: app-service-web-tutorial-connect-msi.md
   - name: Héberger des API RESTful
@@ -207,6 +209,8 @@ items:
     href: /rest/api/appservice/
 - name: Ressources
   items:
+  - name: Développer vos compétences avec Microsoft Learn
+    href: /learn/browse/
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/
   - name: Tarifs
@@ -241,7 +245,7 @@ items:
       href: https://msdn.microsoft.com/library/azure/dn407359.aspx
     - name: Kit de développement logiciel (SDK) Azure pour .NET 2.0
       href: https://msdn.microsoft.com/library/azure/dn169556.aspx
-  - name: Bonnes pratiques
+  - name: Meilleures pratiques
     href: app-service-best-practices.md
   - name: Exemples
     href: https://azure.microsoft.com/resources/samples/?service=app-service
@@ -283,9 +287,9 @@ items:
       href: ip-address-change-outbound.md
     - name: Adresse SSL
       href: ip-address-change-ssl.md
-ms.openlocfilehash: 76411487d956b107097453a157993351c2ca8b1d
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9fe97e720ed1f4807a9eb00ae88633bff7cbeaf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715242"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980319"

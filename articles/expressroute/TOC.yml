@@ -42,6 +42,8 @@ items:
     href: expressroute-qos.md
   - name: À propos de la migration des circuits d’un déploiement classique vers Resource Manager
     href: expressroute-move.md
+  - name: À propose de ExpressRoute Direct
+    href: expressroute-erdirect-about.md
 - name: Procédures
   items:
   - name: Créer et modifier un circuit
@@ -68,6 +70,8 @@ items:
       href: expressroute-howto-linkvnet-arm.md
     - name: Azure CLI
       href: howto-linkvnet-cli.md
+  - name: Lier des circuits ExpressRoute pour activer Global Reach
+    href: expressroute-global-reach.md
   - name: Configurer un réseau VPN de site à site via l’homologation Microsoft
     href: site-to-site-vpn-over-microsoft-peering.md
   - name: Configurer une passerelle de réseau virtuel pour ExpressRoute
@@ -78,6 +82,8 @@ items:
       href: expressroute-howto-add-gateway-resource-manager.md
   - name: Configurer la coexistence de connexions de site à site et ExpressRoute
     href: expressroute-howto-coexist-resource-manager.md
+  - name: Configurer ExpressRoute Direct
+    href: expressroute-howto-erdirect.md
   - name: Configurer des filtres de routage pour l’homologation Microsoft
     items:
     - name: Portail Azure
@@ -102,8 +108,12 @@ items:
       href: expressroute-config-samples-routing.md
     - name: Exemples de configuration de routeur pour NAT
       href: expressroute-config-samples-nat.md
-  - name: Configurer Network Performance Monitor pour ExpressRoute
-    href: how-to-npm.md
+  - name: Surveillance
+    items:
+    - name: Supervision, métriques et alertes ExpressRoute
+      href: expressroute-monitoring-metrics-alerts.md
+    - name: Configurer Network Performance Monitor pour ExpressRoute
+      href: how-to-npm.md
   - name: Articles sur le modèle de déploiement classique
     items:
     - name: Modifier un circuit
@@ -191,9 +201,9 @@ items:
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: Configurer l’homologation publique pour votre circuit
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: 3353f2399d258ad8fcba4ea3cae6ff2d7db42271
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: effc8fc979bf516838418bd3b3805d791d8f3e68
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41929433"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989091"

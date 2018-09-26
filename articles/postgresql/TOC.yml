@@ -1,175 +1,200 @@
+items:
 - name: Base de données Azure pour les documents PostgreSQL
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
-    - name: Base de données Azure pour PostgreSQL
-      href: overview.md
+  - name: Base de données Azure pour PostgreSQL
+    href: overview.md
 - name: Démarrages rapides
-  expanded: true
   items:
-    - name: Créer une base de données - Portail
-      href: quickstart-create-server-database-portal.md
-    - name: Créer une base de données - Interface de ligne de commande Azure
-      href: quickstart-create-server-database-azure-cli.md
-    - name: Connexion et requête
-      items:
-        - name: Python
-          href: connect-python.md
-        - name: Node.js
-          href: connect-nodejs.md
-        - name: Java
-          href: connect-java.md
-        - name: Ruby
-          href: connect-ruby.md
-        - name: PHP
-          href: connect-php.md
-        - name: .NET
-          href: connect-csharp.md
-        - name: Go
-          href: connect-go.md
+  - name: Créer une base de données - Portail
+    href: quickstart-create-server-database-portal.md
+  - name: Créer une base de données - Interface de ligne de commande Azure
+    href: quickstart-create-server-database-azure-cli.md
+  - name: Connexion et requête
+    items:
+    - name: Python
+      href: connect-python.md
+    - name: Node.js
+      href: connect-nodejs.md
+    - name: Java
+      href: connect-java.md
+    - name: Ruby
+      href: connect-ruby.md
+    - name: PHP
+      href: connect-php.md
+    - name: .NET
+      href: connect-csharp.md
+    - name: Go
+      href: connect-go.md
+  expanded: true
 - name: Didacticiels
   items:
-    - name: 1 - Concevoir une base de données
-      items:
-        - name: Portail Azure
-          href: tutorial-design-database-using-azure-portal.md
-        - name: Azure CLI
-          href: tutorial-design-database-using-azure-cli.md
-    - name: 2 - Concevoir une application web - Python
-      href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+  - name: 1 - Concevoir une base de données
+    items:
+    - name: Portail Azure
+      href: tutorial-design-database-using-azure-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-using-azure-cli.md
+  - name: 2 - Concevoir une application web - Python
+    href: ../app-service-web/app-service-web-tutorial-docker-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
+  - name: 3 - Surveiller et régler
+    href: tutorial-monitor-and-tune.md
 - name: Exemples
   items:
-    - name: Azure CLI
-      href: sample-scripts-azure-cli.md
+  - name: Azure CLI
+    href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
-    - name: Base de données et serveurs
-      items:
-        - name: Serveurs
-          href: concepts-servers.md
-        - name: Versions prises en charge
-          href: concepts-supported-versions.md
-        - name: Extensions PostgreSQL
-          href: concepts-extensions.md
-        - name: Journaux des serveurs
-          href: concepts-server-logs.md
-        - name: Haute disponibilité
-          href: concepts-high-availability.md
-    - name: Ressources
-      items:
-        - name: Niveaux de tarification
-          href: concepts-pricing-tiers.md
-        - name: limites
-          href: concepts-limits.md
-    - name: Accès aux données et sécurité
-      items:
-        - name: Règles de pare-feu
-          href: concepts-firewall-rules.md
-        - name: Configuration du chiffrement SSL
-          href: concepts-ssl-connection-security.md
-        - name: Réseau virtuel
-          href: concepts-data-access-and-security-vnet.md
-    - name: Continuité de l’activité
-      items:
-        - name: Vue d'ensemble
-          href: concepts-business-continuity.md
-        - name: Sauvegarde et restauration
-          href: concepts-backup.md
-    - name: Surveiller
+  - name: Base de données et serveurs
+    items:
+    - name: Serveurs
+      href: concepts-servers.md
+    - name: Versions prises en charge
+      href: concepts-supported-versions.md
+    - name: Extensions PostgreSQL
+      href: concepts-extensions.md
+    - name: Journaux des serveurs
+      href: concepts-server-logs.md
+    - name: Haute disponibilité
+      href: concepts-high-availability.md
+  - name: Ressources
+    items:
+    - name: Niveaux de tarification
+      href: concepts-pricing-tiers.md
+    - name: limites
+      href: concepts-limits.md
+  - name: Accès aux données et sécurité
+    items:
+    - name: Règles de pare-feu
+      href: concepts-firewall-rules.md
+    - name: Configuration du chiffrement SSL
+      href: concepts-ssl-connection-security.md
+    - name: Réseau virtuel
+      href: concepts-data-access-and-security-vnet.md
+  - name: Continuité de l’activité
+    items:
+    - name: Vue d’ensemble
+      href: concepts-business-continuity.md
+    - name: Sauvegarde et restauration
+      href: concepts-backup.md
+  - name: Surveiller et régler
+    items:
+    - name: Surveiller et régler
       href: concepts-monitoring.md
-    - name: Développement
+    - name: Magasin de requêtes
       items:
-        - name: Bibliothèques de connexions
-          href: concepts-connection-libraries.md
+      - name: Magasin de requêtes
+        href: concepts-query-store.md
+      - name: Scénarios d’utilisation du magasin de requêtes
+        href: concepts-query-store-scenarios.md
+      - name: Meilleures pratiques relatives au magasin de requêtes
+        href: concepts-query-store-best-practices.md
+    - name: Query Performance Insight
+      href: concepts-query-performance-insight.md
+    - name: Recommandations en matière de performances
+      href: concepts-performance-recommendations.md
+  - name: Développement
+    items:
+    - name: Bibliothèques de connexions
+      href: concepts-connection-libraries.md
 - name: Procédures
   items:
-    - name: Créer des utilisateurs
-      href: howto-create-users.md
-    - name: Gérer le pare-feu
-      items:
-        - name: Portail Azure
-          href: howto-manage-firewall-using-portal.md
-        - name: Azure CLI
-          href: howto-manage-firewall-using-cli.md
-    - name: Restaurer un serveur
-      items:
-        - name: Portail Azure
-          href: howto-restore-server-portal.md
-        - name: Azure CLI
-          href: howto-restore-server-cli.md
-    - name: Migrer une base de données
-      items:
-        - name: Vider et restaurer
-          href: howto-migrate-using-dump-and-restore.md
-        - name: Importer et exporter
-          href: howto-migrate-using-export-and-import.md
-        - name: Migration avec temps d’arrêt minimal
-          href: howto-migrate-online.md
-    - name: Configurer les paramètres du serveur
-      items:
-        - name: Portail Azure
-          href: howto-configure-server-parameters-using-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-parameters-using-cli.md
-    - name: Accéder aux journaux du serveur
-      items:
-        - name: Portail Azure
-          href: howto-configure-server-logs-in-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-using-cli.md
-    - name: Surveiller
-      items:
-        - name: Créer des alertes sur les mesures
-          href: howto-alert-on-metric.md
-    - name: Réseau virtuel
-      items:
-        - name: Portail Azure
-          href: howto-manage-vnet-using-portal.md
-        - name: Azure CLI
-          href: howto-manage-vnet-using-cli.md
+  - name: Créer des utilisateurs
+    href: howto-create-users.md
+  - name: Gérer le pare-feu
+    items:
+    - name: Portail Azure
+      href: howto-manage-firewall-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-using-cli.md
+  - name: Restaurer un serveur
+    items:
+    - name: Portail Azure
+      href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
+  - name: Migrer une base de données
+    items:
+    - name: Vider et restaurer
+      href: howto-migrate-using-dump-and-restore.md
+    - name: Importer et exporter
+      href: howto-migrate-using-export-and-import.md
+    - name: Migration avec temps d’arrêt minimal
+      href: howto-migrate-online.md
+  - name: Configurer les paramètres du serveur
+    items:
+    - name: Portail Azure
+      href: howto-configure-server-parameters-using-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-using-cli.md
+  - name: Accéder aux journaux du serveur
+    items:
+    - name: Portail Azure
+      href: howto-configure-server-logs-in-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-logs-using-cli.md
+  - name: Surveiller
+    items:
+    - name: Créer des alertes sur les mesures
+      href: howto-alert-on-metric.md
+  - name: Réseau virtuel
+    items:
+    - name: Portail Azure
+      href: howto-manage-vnet-using-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-using-cli.md
 - name: Informations de référence
   items:
-    - name: Azure CLI
-      href: /cli/azure/postgres
-    - name: de l’API REST
-      href: /rest/api/postgresql
+  - name: Azure CLI
+    href: /cli/azure/postgres
+  - name: API REST
+    href: /rest/api/postgresql
 - name: Ressources
   items:
-    - name: Modèles de déploiement
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/postgresql/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
-    - name: Dépassement de capacité de la pile
-      href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
-    - name: vidéos
+  - name: Développer vos compétences avec Microsoft Learn
+    href: /learn/browse/
+  - name: Modèles de déploiement
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/postgresql/
+  - name: Forum MSDN
+    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL
+  - name: Dépassement de capacité de la pile
+    href: http://stackoverflow.com/questions/tagged/azure-database-postgresql
+  - name: vidéos
+    items:
+    - name: Vidéos de produit
+      href: videos.md
+    - name: Série de vidéos sur la procédure à suivre
       items:
-        - name: Vidéos de produit
-          href: videos.md
-        - name: Série de vidéos sur la procédure à suivre
-          items:
-            - name: Découvrir les avantages et les fonctionnalités du produit
-              href: 'https://aka.ms/postg-intro-vid'
-            - name: Migrer une application PostgreSQL vers Azure
-              href: 'https://aka.ms/postg-migrate-vid'
-            - name: Créer des applications intelligentes avec Cognitive Services
-              href: 'https://aka.ms/postg-cogsvs-vid'
-            - name: Connecter des conteneurs à l’aide d’Open Service Broker pour Azure
-              href: 'https://aka.ms/postg-osba-vid'
-            - name: Connecter les données d’une application à Power BI
-              href: 'https://aka.ms/postg-powerbi-vid'
-    - name: Forum de commentaires
-      href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
-    - name: Disponibilité des régions
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Options de support
-      href: 'https://azure.microsoft.com/support/options/'
-    - name: Témoignages client
-      href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'
-    - name: Partenaires
-      href: partners-migration-postgresql.md
-    - name: Guide pour la migration de base de données
-      href: 'https://datamigration.microsoft.com/'
+      - name: Découvrir les avantages et les fonctionnalités du produit
+        href: https://aka.ms/postg-intro-vid
+      - name: Migrer une application PostgreSQL vers Azure
+        href: https://aka.ms/postg-migrate-vid
+      - name: Créer des applications intelligentes avec Cognitive Services
+        href: https://aka.ms/postg-cogsvs-vid
+      - name: Connecter des conteneurs à l’aide d’Open Service Broker pour Azure
+        href: https://aka.ms/postg-osba-vid
+      - name: Connecter les données d’une application à Power BI
+        href: https://aka.ms/postg-powerbi-vid
+  - name: Forum de commentaires
+    href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
+  - name: Disponibilité des régions
+    href: https://azure.microsoft.com/regions/services/
+  - name: Options de support
+    href: https://azure.microsoft.com/support/options/
+  - name: Témoignages client
+    href: https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"
+  - name: Partenaires
+    href: partners-migration-postgresql.md
+  - name: Guide pour la migration de base de données
+    href: https://datamigration.microsoft.com/
+ms.openlocfilehash: c6e7a97d384fa6f8cbc82ed2c7722f1f93085153
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967827"

@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 8f8e0b35291c7284305d156aee66cb707d0c4cc7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958579"
+documentType: LandingData
+title: Documentation Azure Policy
+metadata:
+  title: Documentation sur Azure Policy - Tutoriels, informations de référence sur l’API
+  description: Azure Policy permet de gérer et d’éviter des problèmes informatiques avec des définitions de stratégies qui appliquent des règles et des effets pour vos ressources. Lorsque vous utilisez Azure Policy, les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service. Découvrez comment créer, assigner et gérer des définitions de stratégies avec nos démarrages rapides, nos didacticiels et nos exemples.
+  services: azure-policy
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: azure-policy
+  ms.topic: landing-page
+  ms.date: 09/18/2018
+  ms.author: dacoulte
+abstract:
+  description: Azure Policy permet de gérer et d’éviter des problèmes informatiques avec des définitions de stratégies qui appliquent des règles et des effets pour vos ressources. Lorsque vous utilisez Azure Policy, les ressources restent conformes à vos normes d’entreprise et contrats de niveau de service. Découvrez comment créer, assigner et gérer des définitions de stratégies avec nos démarrages rapides, nos didacticiels et nos exemples.
+sections:
+- title: Démarrages en 5 minutes
+  items:
+  - type: paragraph
+    text: Découvrez comment créer, assigner et gérer des définitions de stratégies dans Azure.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/portal.svg
+      text: Portail Azure
+      href: ./assign-policy-portal
+    - image:
+        src: ./media/powershell.svg
+      text: Azure PowerShell
+      href: ./assign-policy-powershell
+    - image:
+        src: ./media/cli.svg
+      text: Azure CLI
+      href: ./assign-policy-azurecli
+- title: Didacticiels pas à pas
+  items:
+  - type: paragraph
+    text: Découvrez comment créer, assigner et gérer des définitions de stratégies dans Azure.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Créer et gérer Azure Policy</a>
+- title: Exemples
+  items:
+  - type: paragraph
+    text: Utilisez les exemples JSON suivants pour vous aider à créer des définitions de stratégies dans Azure.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/governance/policy/samples/index">Azure PowerShell</a>
+- title: Informations de référence
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Ligne de commande
+      html: <p><a href="/cli/azure/policy">interface de ligne de commande Azure</a></p>
+    - title: PowerShell
+      html: <p><a href="/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></p>
+    - title: API REST
+      html: <p><a href="/rest/api/policy-insights/policyevents">Événements</a></p><p><a href="/rest/api/policy-insights/policystates">États</a></p><p><a href="/rest/api/resources/policyassignments">Affectations</a></p><p><a href="/rest/api/resources/policydefinitions">Définitions de stratégies</a></p><p><a href="/rest/api/resources/policysetdefinitions">Définitions d’initiatives</a></p>

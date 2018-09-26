@@ -55,6 +55,8 @@ items:
       href: module-edgeagent-edgehub.md
   - name: Déploiements
     href: module-deployment-monitoring.md
+  - name: Fonctionnalités hors ligne
+    href: offline-capabilities.md
   - name: Appareil IoT Edge en tant que passerelle
     href: iot-edge-as-gateway.md
   - name: Sécurité
@@ -95,7 +97,9 @@ items:
       href: how-to-auto-provision-simulated-device-linux.md
     - name: Windows
       href: how-to-auto-provision-simulated-device-windows.md
-  - name: Développer et déboguer des modules
+  - name: Développer et déboguer des modules dans VS 2017
+    href: how-to-visual-studio-develop-csharp-module.md
+  - name: Développer et déboguer des modules dans VS Code
     items:
     - name: Azure Functions
       href: how-to-develop-csharp-function.md
@@ -135,6 +139,12 @@ items:
       href: how-to-create-transparent-gateway-windows.md
     - name: Passerelle de protocole Modbus
       href: deploy-modbus-gateway.md
+  - name: Configurer une prise en charge de proxy
+    href: how-to-configure-proxy-support.md
+  - name: Stocker des données en périphérie
+    items:
+    - name: Stockage d’objets Blob Azure sur IoT Edge
+      href: how-to-store-data-blob.md
   - name: Intégration et déploiement continus dans Azure DevOps
     href: how-to-ci-cd.md
   - name: Résolution des problèmes
@@ -207,9 +217,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: d2dcc4e642e997903c01b6b375505e88e412d57b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c3d63ebefed6258798540bdf95f2469b11a89160
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294473"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984175"

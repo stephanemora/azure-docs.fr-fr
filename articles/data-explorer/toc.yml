@@ -1,0 +1,62 @@
+items:
+- name: Documentation de l’Explorateur de données Azure
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+  - name: Qu’est-ce que l'Explorateur de données ?
+    href: data-explorer-overview.md
+- name: Démarrages rapides
+  items:
+  - name: 'Créer un cluster : portail Azure'
+    href: create-cluster-database-portal.md
+  - name: Réception de données
+    items:
+    - name: 'Diffusion en continu de données : Event Hub'
+      href: ingest-data-event-hub.md
+    - name: 'Traitement par lots de données : Python'
+      href: python-ingest-data.md
+    expanded: true
+  - name: Données de requête
+    items:
+    - name: Interface utilisateur web
+      href: web-query-data.md
+    - name: Python
+      href: python-query-data.md
+    expanded: true
+  expanded: true
+- name: Didacticiels
+  items:
+  - name: 'Visualiser des données : Power BI'
+    href: visualize-power-bi.md
+- name: Concepts
+  items:
+  - name: Vue d’ensemble de l’ingestion de données
+    href: ingest-data-overview.md
+- name: Procédures
+  items:
+  - name: Rédiger des requêtes
+    href: write-queries.md
+  - name: Ingérer des exemples de données
+    href: ingest-sample-data.md
+  - name: Gérer des autorisations de base de données
+    href: manage-database-permissions.md
+  - name: Vérifier l’intégrité des clusters
+    href: check-cluster-health.md
+  - name: Résolution de problèmes
+    items:
+    - name: Création d’un cluster
+      href: troubleshoot-create-cluster.md
+    - name: Connexion à un cluster
+      href: troubleshoot-connect-cluster.md
+    - name: Travailler avec des bases de données et des tableaux
+      href: troubleshoot-database-table.md
+- name: Informations de référence
+  items:
+  - name: Référence sur le langage
+    href: https://aka.ms/kustolangref
+ms.openlocfilehash: 6373afdadf9d3916cb8e10be976d141ba55177cf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964937"

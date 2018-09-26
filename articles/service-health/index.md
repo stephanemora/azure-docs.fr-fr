@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/27/2018
 ms.author: carolz
-ms.openlocfilehash: ff22fb228b2b3fc2c456fbf272f0696136d35c38
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ab00f53b6fa6338e999590ccfc6e6bfff84c2276
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30262736"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949449"
 ---
 # <a name="azure-service-health-documentation"></a>Documentation Azure Service Health
 
@@ -121,7 +121,24 @@ Ensemble, ces expériences vous donnent une vue complète de l’intégrité d�
         </div>
         </a>
     </li>
-
+    <li>
+        <a href="./resource-health-alert-arm-template-guide.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/article.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Recevoir une notification quand votre ressource Azure devient indisponible</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---

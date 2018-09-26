@@ -1,0 +1,45 @@
+items:
+- name: Documentations Azure Blueprints
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+  - name: Vue d’ensemble de Azure Blueprints
+    href: overview.md
+  expanded: true
+- name: Démarrages rapides
+  items:
+  - name: 'Créer un blueprint : portail'
+    href: create-blueprint-portal.md
+  - name: 'Créer un blueprint : API REST'
+    href: create-blueprint-rest-api.md
+  expanded: true
+- name: Concepts
+  items:
+  - name: Cycle de vie d’un blueprint
+    href: ./concepts/lifecycle.md
+  - name: Paramètres dynamiques dans un blueprint
+    href: ./concepts/parameters.md
+  - name: Ordre de séquencement du déploiement de blueprint
+    href: ./concepts/sequencing-order.md
+  - name: Verrouillage de ressources dans les Blueprints
+    href: ./concepts/resource-locking.md
+  expanded: true
+- name: Procédures
+  items:
+  - name: Mettre à jour des attributions existantes
+    href: ./how-to/update-existing-assignments.md
+  expanded: true
+- name: Résolution des problèmes
+  href: ./troubleshoot/general.md
+- name: Ressources
+  items:
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Calculatrice de prix
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 25a4453dc1387d26cdd8c6d3cf6a5da0360df221
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982152"
