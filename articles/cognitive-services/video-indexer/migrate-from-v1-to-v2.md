@@ -1,20 +1,21 @@
 ---
-title: Migrer de l’API Azure Video Indexer v1 vers v2 | Microsoft Docs
+title: Migrer de l’API Azure Video Indexer v1 vers la version v2
+titlesuffix: Azure Cognitive Services
 description: Cette rubrique explique comment migrer de l’API Azure Video Indexer v1 vers la version v2.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/25/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: b1737960a4142f5c0d949ce8c2524c34fe9cd79e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 3c70bbe11d94e6b03d615b8d1394ccdca6bd3790
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40187370"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985627"
 ---
 # <a name="migrate-from-the-video-indexer-api-v1-to-v2"></a>Migrer à partir de l’API Video Indexer v1 vers la version v2
 
@@ -65,7 +66,7 @@ Video Indexer a maintenant un modèle de données simplifié pour fournir des in
 
 ### <a name="swagger"></a>Swagger
 
-Les définitions de l’API Video Indexer ont été mises à jour en conséquence et sont disponibles en téléchargement via le [portail de l’API](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
+Les définitions de l’API Video Indexer ont été mises à jour en conséquence et sont disponibles en téléchargement via le [Portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token).
 
 
 ### <a name="v1-vs-v2-examples"></a>Exemples entre la V1 et la V2

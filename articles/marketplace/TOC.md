@@ -19,12 +19,14 @@
 #### [Applications Azure : applications gérées](./marketplace-managed-apps.md)
 #### [Applications SaaS](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Containers](./marketplace-containers.md)
+#### [Modules IoT Edge](./iot-edge-module.md) 
 #### [Service de conseil](./consulting-services.md)  
 #### [Guide de publication Office 365, Dynamics 365 et Power BI](./appsource-offer-publishing-guide.md)
 #### [Activer une liste Microsoft AppSource et Place de marché Microsoft Azure à l’aide d’Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Développer votre activité avec la Place de marché](./grow-your-business-with-azure-marketplace.md)  
 #### [Solutions recommandées](./preferred-solutions.md) 
+#### [Validation du contenu Place de marché](./marketplace-criteria-content-validation.md)
 
 ### [Support pour la Place de marché Microsoft Azure et Microsoft AppSource](./support-azure-marketplace.md)  
 

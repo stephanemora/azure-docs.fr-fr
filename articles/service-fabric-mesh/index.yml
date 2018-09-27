@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3425a7b65ce81ca3d45a0ccdfe613ffdfef4f90f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 14938e25cc41ea11baef94b6a9e01e070ffac654
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953611"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158188"
 documentType: LandingData
 title: Documentation Azure Service Fabric Mesh
 metadata:
@@ -20,7 +20,7 @@ metadata:
   ms.date: 07/26/2018
   ms.author: ryanwi
 abstract:
-  description: Azure Service Fabric Mesh est un service entièrement géré qui permet aux développeurs de créer et déployer des applications de missions critiques sans avoir à gérer aucune infrastructure.  Utilisez Service Fabric Mesh pour créer et exécuter des application de microservices distribuées et sécurisées pour des mises à l’échelle à la demande. Découvrez comment utiliser Service Fabric Mesh avec nos guides de démarrage rapide et nos didacticiels.  Pour en savoir plus, consultez la <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Vue d’ensemble de Service Fabric Mesh</a>.
+  description: Azure Service Fabric Mesh est un service entièrement géré qui permet aux développeurs de créer et déployer des applications de missions critiques sans avoir à gérer aucune infrastructure.  Utilisez Service Fabric Mesh pour créer et exécuter des applications de microservices distribuées et sécurisées pour des mises à l’échelle à la demande. Découvrez comment utiliser Service Fabric Mesh avec nos guides de démarrage rapide et nos didacticiels.  Pour en savoir plus, consultez la <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Vue d’ensemble de Service Fabric Mesh</a>.
 sections:
 - title: Démarrages en 5 minutes
   items:
@@ -40,11 +40,12 @@ sections:
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
-    text: Découvrez comment générer et déployer une application de maillage avec Visual Studio.
+    text: Découvrez comment générer et déployer une application de maillage avec Visual Studio ou Azure CLI.
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Créer, déboguer, déployer et mettez à niveau une application web multiservice dans Service Fabric mesh</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">Créez, déboguez, déployez et mettez à niveau une application web multiservice dans Service Fabric Mesh avec Visual Studio.</a>
+    - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app">Déployez, mettez à l’échelle et mettez à jour une application de maillage de Service Fabric à l’aide d’un modèle.</a>
 - title: Informations de référence
   items:
   - type: list

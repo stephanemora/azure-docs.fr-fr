@@ -1,47 +1,52 @@
 ---
-title: Incorporer des widgets de Azure Video Indexer dans vos applications | Microsoft Docs
-description: ''
+title: 'Exemple : Incorporer des widgets Video Indexer dans vos applications'
+titlesuffix: Azure Cognitive Services
+description: Découvrez comment incorporer des widgets Video Indexer dans vos applications.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 08/25/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: b8de9e8d73ba899fb7f3036d871c5d30daf101de
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 0d75a58ddf0607286d41867828119fdd05e07d22
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049354"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985578"
 ---
-# <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
+# <a name="example-embed-video-indexer-widgets-into-your-applications"></a>Exemple : Incorporer des widgets Video Indexer dans vos applications
 
-Video Indexer prend en charge l’incorporation de deux types de widgets dans votre application : **Insight cognitifs** et **Lecteur**. 
+Cet article vous explique comment incorporer des widgets Video Indexer dans vos applications. Video Indexer prend en charge l’incorporation de deux types de widgets dans votre application : **Insight cognitifs** et **Lecteur**. 
+## <a name="widget-types"></a>Types de widgets
 
-* Un widget **Insight cognitifs** inclut tous les insights visuels extraits à partir du processus d’indexation de votre vidéo. 
-    Le widget Insights prend en charge les paramètres d’URL facultatifs suivants :
+### <a name="cognitive-insights-widget"></a>Widget Insight cognitifs
 
-    |NOM|Définition|Description|
-    |---|---|---|
-    |widgets|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/>Exemple : **widgets = people,brands** affichera uniquement les insights vidéo d’IU des marques (brands) et des personnes (people)<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search) | 
-* Un widget **Lecteur** vous permet de diffuser la vidéo en continu à l’aide d’une vitesse de transmission adaptative.
+Un widget **Insight cognitifs** inclut tous les insights visuels extraits à partir du processus d’indexation de votre vidéo. Le widget Insights prend en charge les paramètres d’URL facultatifs suivants :
 
-    Le widget Lecteur prend en charge les paramètres d’URL facultatifs suivants :
+|NOM|Définition|Description|
+|---|---|---|
+|widgets|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/>Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` affichera uniquement les insights d’IU des marques (brands) et des personnes (people)<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search).<br/>non pris en charge via l’URL dans la version=2<br/><br/>**Remarque :** le paramètre d’URL des **widgets** n’est pas pris en charge si la **version=2** est utilisée. |
+|version|Versions du widget **Insight cognitifs**|Pour obtenir les dernières mises à jour du widget Insight, ajoutez le paramètre de requête `?version=2` à l’URL incorporée. Par exemple, `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Pour obtenir la version antérieure, supprimez simplement le `version=2` de l’URL.
 
-    |NOM|Définition|Description|
-    |---|---|---|
-    |t|Secondes depuis le début|Fait démarrer le lecteur à partir d’un instant donné.<br/>Exemple : t=60|
-    |captions|Code de langue|Extrait les sous-titres dans la langue spécifiée pendant le chargement du widget pour les rendre disponibles dans le menu des sous-titres.<br/>Exemple : captions=en-Us|
-    |showCaptions|Une valeur booléenne|Permet de charger le lecteur avec les sous-titres déjà activés.<br/>Exemple : showCaptions=true|
-    |Type||Active une apparence du lecteur audio (la partie vidéo est supprimée).<br/>Exemple : type=audio|
-    |autoplay|Une valeur booléenne|Établit si le lecteur doit commencer la lecture de la vidéo après le chargement (la valeur par défaut est true).<br/>Exemple : autoplay=false|
-    |Langage|Code de langue|Contrôle la localisation du lecteur (la valeur par défaut est en-US)<br/>Exemple : language=de-DE|
+### <a name="player-widget"></a>Widget Lecteur
+
+Un widget **Lecteur** vous permet de diffuser la vidéo en continu à l’aide d’une vitesse de transmission adaptative. Le widget Lecteur prend en charge les paramètres d’URL facultatifs suivants :
+
+|NOM|Définition|Description|
+|---|---|---|
+|t|Secondes depuis le début|Fait démarrer le lecteur à partir d’un instant donné.<br/>Exemple : t=60|
+|captions|Code de langue|Extrait les sous-titres dans la langue spécifiée pendant le chargement du widget pour les rendre disponibles dans le menu des sous-titres.<br/>Exemple : captions=en-US|
+|showCaptions|Une valeur booléenne|Permet de charger le lecteur avec les sous-titres déjà activés.<br/>Exemple : showCaptions=true|
+|Type||Active une apparence du lecteur audio (la partie vidéo est supprimée).<br/>Exemple : type=audio|
+|autoplay|Une valeur booléenne|Indique si le lecteur doit commencer la lecture de la vidéo après le chargement (la valeur par défaut est true).<br/>Exemple : autoplay=false|
+|Langage|Code de langue|Détermine la langue du lecteur (la valeur par défaut est en-US)<br/>Exemple : language=de-DE|
 
 ## <a name="embedding-public-content"></a>Incorporation de contenu public
 
-1. Connectez-vous à votre compte [Video Indexer](https://api-portal.videoindexer.ai/). 
+1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
 2. Cliquez sur le bouton « Incorporer » qui s’affiche sous la vidéo.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
@@ -60,7 +65,7 @@ Vous pouvez obtenir des codes incorporés à partir de fenêtres contextuelles d
 
 Si vous souhaitez incorporer une vidéo **privée**, vous devez passer un jeton d’accès dans l’attribut **src** de **iframe** :
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<VideoId>/?accessToken=<accessToken>
+     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
     
 Utilisez l’API [**Obtenir le widget Insight**](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) pour obtenir le contenu du widget Insight cognitifs, ou utilisez [**Obtenir un jeton d’accès vidéo**](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) et ajoutez-le comme paramètre de requête à l’URL comme indiqué ci-dessus. Spécifiez cette URL comme la valeur **src** de **iframe**.
 
@@ -216,24 +221,24 @@ Vous pouvez choisir les types d’insights que vous souhaitez en les spécifiant
 
 Les valeurs possibles sont : personnes, mots clés, sentiments, transcription, recherche.
 
-Par exemple, si vous souhaitez incorporer un widget contenant uniquement des insights de personnes et de recherche, l’URL incorporée d’iframe ressemblera à ceci : https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?widgets=people,search
+Par exemple, si vous souhaitez incorporer un widget contenant uniquement des insights de personnes et de recherche, l’URL incorporée d’iframe ressemblera à ceci : https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search
 
-Le titre de la fenêtre d’iframe peut également être personnalisé en ajoutant **& title=**<YourTitle> à l’URL d’iframe. (Cela personnalisera la valeur HTML \<title >).
-Par exemple, si vous souhaitez donner à votre fenêtre d’iframe le titre « MyInsights », l’URL ressemblera à ceci : https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?title=MyInsights. Notez que cette option n’est utile que les cas où vous avez besoin d’ouvrir les insights dans une nouvelle fenêtre.
+Le titre de la fenêtre d’iframe peut également être personnalisé en ajoutant **&title=**<YourTitle> à l’URL d’iframe. (Cela personnalisera la valeur HTML \<title >).
+Par exemple, si vous souhaitez donner à votre fenêtre d’iframe le titre « MyInsights », l’URL ressemblera à ceci : https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights. Notez que cette option n’est utile que les cas où vous avez besoin d’ouvrir les insights dans une nouvelle fenêtre.
 
 ### <a name="player-widget"></a>Widget Lecteur
 Si vous incorporez le lecteur Video Indexer, vous pouvez choisir la taille du lecteur en spécifiant la taille de l’iframe.
 
-Par exemple :
+Par exemple : 
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
+    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
 
 Par défaut, le lecteur par défaut Video Indexer disposera de sous-titres générés automatiquement en fonction de la transcription de la vidéo extraite avec la langue source sélectionnée lors du chargement de la vidéo.
 
-Si vous souhaitez incorporer dans une langue différente, vous pouvez ajouter **&captions=< Language | ”all” | “false” >** à l’URL du lecteur incorporé ou saisissez la valeur « all » si vous souhaitez que les sous-titres de toutes les langues soient disponibles.
-Si vous souhaitez que les sous-titres soient affichés par défaut, vous pouvez passer **& showCaptions=true**
+Si vous souhaitez incorporer dans une langue différente, vous pouvez ajouter **&captions=< Language | ”all” | “false” >** à l’URL du lecteur incorporé ou saisissez la valeur « all » si vous souhaitez que les sous-titres de toutes les langues soient disponibles.
+Si vous souhaitez que les sous-titres soient affichés par défaut, vous pouvez passer **&showCaptions=true**
 
-L’URL d’incorporation se présentera ainsi : https://www.videoindexer.ai/embed/player/9a296c6ec3/?captions=italian. Si vous souhaitez désactiver les sous-titres, vous pouvez passer « false » comme valeur pour les paramètres de sous-titre.
+L’URL d’incorporation se présentera ainsi : https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian. Si vous souhaitez désactiver les sous-titres, vous pouvez passer « false » comme valeur pour les paramètres de sous-titre.
 
 Lecture d’automatique : par défaut, le lecteur démarrera la lecture de la vidéo. Vous pouvez choisir de ne pas passer &autoplay=false dans l’URL d’incorporation ci-dessus.
 

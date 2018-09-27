@@ -28,6 +28,8 @@ items:
     href: tutorial-url-route-cli.md
   - name: Rediriger le trafic web
     href: tutorial-url-redirect-cli.md
+  - name: Mise à l’échelle et redondant dans une zone
+    href: tutorial-autoscale-ps.md
 - name: Exemples
   items:
   - name: Azure PowerShell
@@ -128,8 +130,6 @@ items:
       href: create-web-app.md
   - name: Rediriger le trafic web avec Azure PowerShell
     href: tutorial-url-redirect-powershell.md
-  - name: Créer une passerelle d’application redondante dans une zone
-    href: create-zone-redundant.md
   - name: Sondes personnalisées
     items:
     - name: Portail
@@ -180,9 +180,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-application-gateway
   - name: Forum Aux Questions
     href: application-gateway-faq.md
-ms.openlocfilehash: ae7eb1ff103326cfd1b5e24a3918e6b02666aaac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2ba24e8ae2a83175a8099ed3739831a66cedf1f9
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964036"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393133"

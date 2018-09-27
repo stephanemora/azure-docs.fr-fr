@@ -7,7 +7,8 @@
 # Didacticiels
 ## [Migration de SQL Server vers Azure SQL DB hors connexion](tutorial-sql-server-to-azure-sql.md)
 ## [Migration de SQL Server vers Azure SQL DB en ligne](tutorial-sql-server-azure-sql-online.md)
-## [Migration de SQL Server vers une instance Azure SQL Database Managed Instance](tutorial-sql-server-to-managed-instance.md)
+## [Migration de SQL Server vers une instance Azure SQL Database Managed Instance hors ligne](tutorial-sql-server-to-managed-instance.md)
+## [Migration de SQL Server vers une instance Azure SQL DB Managed Instance en ligne](tutorial-sql-server-managed-instance-online.md)
 ## [Migration de MySQL vers Azure DB pour MySQL en ligne](tutorial-mysql-azure-mysql-online.md)
 ## [Migrer PostgreSQL vers Azure DB pour PostgreSQL en ligne](tutorial-postgresql-azure-postgresql-online.md)
 

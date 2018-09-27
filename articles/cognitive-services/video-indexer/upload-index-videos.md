@@ -1,22 +1,23 @@
 ---
-title: Charger et indexer vos vidéos avec Azure Video Indexer | Microsoft Docs
-description: Cette rubrique montre comment utiliser les API pour charger et indexer vos vidéos avec Azure Video Indexer
+title: 'Exemple : Charger et indexer des vidéos avec Video Indexer'
+titlesuffix: Azure Cognitive Services
+description: Cette rubrique montre comment utiliser les API pour charger et indexer vos vidéos avec Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 08/17/2018
+ms.component: video-indexer
+ms.topic: sample
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664443"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983883"
 ---
-# <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
+# <a name="example-upload-and-index-your-videos"></a>Exemple : Charger et indexer vos vidéos  
 
 Cet article montre comment charger une vidéo avec Azure Video Indexer. L’API Video Indexer fournit deux options de chargement : 
 
@@ -33,7 +34,7 @@ L’article aborde également certains des paramètres que vous pouvez définir 
 ## <a name="uploading-considerations"></a>Éléments à prendre en compte pour le chargement
     
 - Lors du chargement de votre vidéo à partir de l’URL (par défaut), le point de terminaison doit être sécurisé avec TLS 1.2 (ou version ultérieure)
-- L’option de tableau d’octets est limitée à 4 Go et expire après 30 minutes
+- L’option de tableau d’octets est limitée à 2 Go et expire après 30 minutes
 - L’URL fournie dans le paramètre `videoURL` doit être encodée
 
 ## <a name="configurations-and-params"></a>Configurations et paramètres

@@ -1,25 +1,27 @@
 ---
-title: Afficher et modifier les insights Azure Video Indexer | Microsoft Docs
+title: Afficher et modifier les insights Video Indexer
+titlesuffix: Azure Cognitive Services
 description: Cette rubrique montre comment afficher et modifier les insights Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/31/2018
+ms.component: video-indexer
+ms.topic: conceptual
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 797c09d72402cfc1ee2524e7792cc1310a53fb1e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c9b229e2fb3297d724ec8de02bf54e9765689ab7
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399475"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984536"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Afficher et modifier les insights Video Indexer
 
 Cette rubrique vous montre comment afficher et modifier les insights Video Indexer pour une vidéo.
 
-1. Connectez-vous à votre compte [Video Indexer](https://api-portal.videoindexer.ai/).
+1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
 2. Rechercher une vidéo à partir de laquelle vous souhaitez créer vos insights Video Indexer. Pour plus d’informations, consultez [Rechercher des instants précis dans les vidéos](video-indexer-search.md).
 3. Appuyez sur **Lecture**.
 

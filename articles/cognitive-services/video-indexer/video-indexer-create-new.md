@@ -1,26 +1,27 @@
 ---
-title: Utiliser Azure Video Indexer pour créer des insights vidéo à partir de vidéos existantes | Microsoft Docs
-description: Cette rubrique vous montre comment créer et publier des insights vidéo à partir d’autres vidéos.
+title: 'Tutoriel : Créer des insights vidéo à partir de vidéos existantes'
+titlesuffix: Azure Cognitive Services
+description: Cette rubrique vous montre comment créer et publier des insights vidéo à partir de fichiers vidéo existants.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/25/2018
+ms.component: video-indexer
+ms.topic: tutorial
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 161a47f72a0f8038a515c09f25ec2a8e8a520547
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 3a3e5c62d9eb96563d395106db62cc91a8307658
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390838"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983915"
 ---
-# <a name="create-highlights-from-existing-videos"></a>Créer des points importants à partir de vidéos existantes
+# <a name="tutorial-create-highlights-from-existing-videos"></a>Tutoriel : Créer des points importants à partir de vidéos existantes
 
 Cette rubrique vous montre comment créer et publier des insights vidéo à partir d’autres vidéos.
 
-1. Connectez-vous à votre compte [Video Indexer](https://api-portal.videoindexer.ai/).
+1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
 2. Recherchez une vidéo à partir de laquelle vous souhaitez créer vos insights vidéo.
 3. Appuyez sur **Lecture**.
 

@@ -1,51 +1,52 @@
 ---
-title: Comment s’inscrire à Azure Video Indexer et charger votre première vidéo | Microsoft Docs
-description: Cette rubrique montre comment s’inscrire et charger votre première vidéo à l’aide du portail Video Indexer.
+title: 'Tutoriel : S’inscrire à Video Indexer et charger votre première vidéo'
+titlesuffix: Azure Cognitive Services
+description: Découvrez comment s’inscrire et charger votre première vidéo à l’aide du portail Video Indexer.
 services: cognitive services
-documentationcenter: ''
 author: juliako
-manager: erikre
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 07/25/2018
+ms.component: video-indexer
+ms.topic: tutorial
+ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: a05b7b71cf7af54140167c99ea6cc2d7e306d2de
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f7c86985d12d52ac2dc8b4d2952f048969d3c339
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390856"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984472"
 ---
-# <a name="how-to-sign-up-and-upload-your-first-video"></a>Comment s’inscrire et charger votre première vidéo
+# <a name="tutorial-how-to-sign-up-and-upload-your-first-video"></a>Tutoriel : Comment s’inscrire et charger votre première vidéo
 
-Ce court didacticiel de démarrage vous montre comment vous connecter à Video Indexer et charger votre première vidéo.
+Ce tutoriel de démarrage vous montre comment vous connecter au site web Video Indexer et charger votre première vidéo.
 
-> [!Note]
-> Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). <br/>Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. <br/>Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte média. 
+Lorsque vous créez un compte Video Indexer, vous pouvez choisir un compte d’essai gratuit (où vous obtenez un certain nombre de minutes d’indexation gratuites) ou une option payante (où vous n’êtes pas limités par le quota). Avec l’essai gratuit, Video Indexer fournit jusqu’à 600 heures d’indexation gratuite aux utilisateurs du site web et jusqu’à 2 400 heures d’indexation gratuite aux utilisateurs de l’API. Avec l’option payante, vous créez un compte Video Indexer [connecté à votre abonnement Azure et un compte Azure Media Services](connect-to-azure.md). Vous payez pour les minutes indexées, ainsi que pour les frais liés au compte Azure Media Services. 
 
-## <a name="sign-up-and-sign-in"></a>Inscription et connexion
+## <a name="sign-up-for-video-indexer"></a>S’inscrire à Video Indexer
 
-Pour commencer à développer avec Video Indexer, vous devez d’abord vous inscrire et vous connecter au portail [Video Indexer](https://api-portal.videoindexer.ai/). 
-     
-Pour plus d’informations, consultez [Commencer à utiliser des API](video-indexer-use-apis.md).
+Pour commencer à développer avec Video Indexer, accédez au site web [Video Indexer](https://www.videoindexer.com) et inscrivez-vous.
 
-## <a name="upload-a-video-using-the-video-indexer-portal"></a>Charger une vidéo à l’aide du portail Video Indexer
+## <a name="upload-a-video-using-the-video-indexer-website"></a>Charger une vidéo à l’aide du site web Video Indexer
 
-1. Connectez-vous à [https://www.videoindexer.ai/](https://www.videoindexer.ai/).
-2. Pour charger une vidéo, appuyez sur le bouton ou le lien Charger.
+1. Connectez-vous au site web [Video Indexer](https://www.videoindexer.ai/).
+2. Pour charger une vidéo, appuyez sur le bouton ou le lien **Charger**.
 
- ![Télécharger](./media/video-indexer-get-started/video-indexer-upload.png)
+    ![Télécharger](./media/video-indexer-get-started/video-indexer-upload.png)
 
-Une fois votre vidéo chargée, Video Indexer démarre l’indexation et l’analyse.
+    Une fois votre vidéo chargée, Video Indexer démarre l’indexation et l’analyse.
 
-![Téléchargé](./media/video-indexer-get-started/video-indexer-uploaded.png) 
+    ![Téléchargé](./media/video-indexer-get-started/video-indexer-uploaded.png) 
 
-Une fois l’analyse terminée par Video Indexer, vous obtiendrez une notification contenant un lien vers votre vidéo et une brève description des éléments découverts dedans. Par exemple : personnes, rubriques, OCR.
+    Une fois l’analyse terminée par Video Indexer, vous obtiendrez une notification contenant un lien vers votre vidéo et une brève description des éléments découverts dedans. Par exemple : personnes, rubriques, OCR.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez maintenant utiliser l’[API](video-indexer-use-apis.md) ou le [portail Video Indexer](video-indexer-view-edit.md) pour afficher les insights de la vidéo. 
+Vous pouvez maintenant utiliser site web [Video Indexer](video-indexer-view-edit.md) ou le [Portail des développeurs Video Indexer](video-indexer-use-apis.md) pour afficher les insights de la vidéo. 
 
 ## <a name="see-also"></a>Voir aussi
 
 [Présentation de Video Indexer](video-indexer-overview.md)
+
+[Commencer à utiliser des API](video-indexer-use-apis.md).
+
