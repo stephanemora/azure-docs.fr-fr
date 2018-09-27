@@ -25,7 +25,7 @@ ms.locfileid: "43669289"
 > [!NOTE]
 > Les fonctionnalités décrites dans cet article sont actuellement en préversion. Elles ne sont pas disponibles dans Functions sur Linux.
 
-Dans Azure, vous pouvez exécuter vos fonctions directement depuis un fichier de package de déploiement de votre application de fonction. L’autre option consiste à déployer vos fichiers projet de fonction dans le répertoire `d:\home\site\wwwroot` de votre application de fonction.
+Dans Azure, vous pouvez exécuter vos fonctions directement depuis un fichier de package de déploiement de votre application de fonction. L’autre option consiste à déployer vos fichiers dans le répertoire d:\home\site\wwwroot de votre application de fonction.
 
 Cet article décrit les avantages que présente l’exécution de vos fonctions à partir d’un package. Il explique également comment activer cette fonctionnalité dans votre application de fonction.
 
