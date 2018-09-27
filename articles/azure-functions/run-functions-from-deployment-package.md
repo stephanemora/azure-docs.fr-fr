@@ -25,7 +25,7 @@ ms.locfileid: "43669289"
 > [!NOTE]
 > Les fonctionnalités décrites dans cet article sont actuellement en préversion. Elles ne sont pas disponibles dans Functions sur Linux.
 
-Dans Azure, vous pouvez exécuter vos fonctions directement dans un fichier de package de déploiement de votre application de fonction. L’autre option consiste à déployer vos fichiers projet de fonction dans le répertoire `d:\home\site\wwwroot` de votre application de fonction.
+Dans Azure, vous pouvez exécuter vos fonctions directement depuis un fichier de package de déploiement de votre application de fonction. L’autre option consiste à déployer vos fichiers dans le répertoire d:\home\site\wwwroot de votre application de fonction.
 
 Cet article décrit les avantages que présente l’exécution de vos fonctions à partir d’un package. Il explique également comment activer cette fonctionnalité dans votre application de fonction.
 
@@ -48,7 +48,7 @@ Pour permettre à votre application de fonction de s’exécuter à partir d’u
 | Valeur  | Description  |
 |---------|---------|
 |**`<url>`**  | Emplacement d’un fichier de package que vous souhaitez exécuter. Lorsque vous utilisez le stockage Blob, vous devez utiliser un conteneur privé avec une [signature d’accès partagé (SAP)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) pour permettre au runtime Functions d’accéder au package. Vous pouvez utiliser [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des fichiers de package sur votre compte Stockage Blob.         |
-| **`1`**  | Lancez l’exécution à partir d’un fichier de package dans le dossier `d:\home\data\SitePackages` de votre application de fonction. Ave cette option, le dossier doit contenir également un fichier nommé `packagename.txt`. Ce fichier contient uniquement le nom du fichier de package du dossier, sans espace. |
+| **`1`**  | Lancez l’exécution à partir d’un fichier de package dans le dossier `d:\home\data\SitePackages` de votre application de fonction. Avec cette option, le dossier doit contenir également un fichier nommé `packagename.txt`. Ce fichier contient uniquement le nom du fichier de package du dossier, sans espace. |
 
 L’exemple suivant montre une application de fonction configurée pour s’exécuter à partir d’un fichier zip hébergé dans le stockage Blob Azure :
 
