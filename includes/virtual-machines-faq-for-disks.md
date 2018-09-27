@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: c0c215c4c599bbd5551891cdf6f999719983d31e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40237543"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060623"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -33,11 +33,11 @@ Un disque géré standard créé à partir d’un disque dur virtuel de 80 Go e
 
 Oui. Vous êtes facturé pour chaque transaction. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
-**Pour un disque managé standard, serai-je facturé pour la taille réelle des données sur le disque ou pour la capacité provisionnée du disque ?**
+**Pour un disque standard géré, serai-je facturé pour la taille réelle des données sur le disque ou pour la capacité configurée du disque ?**
 
-Vous êtes facturé en fonction de la capacité provisionnée du disque. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
+Vous êtes facturé en fonction de la capacité configurée du disque. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/storage).
 
-**En quoi les tarifs appliqués aux disques managés Premium sont-ils différents de ceux associés aux disques non managés ?**
+**En quoi la tarification appliquée aux disques gérés Premium est-elle différente de celle associée aux disques non gérés ?**
 
 La tarification de ces 2 types de disques est identique.
 
@@ -101,7 +101,7 @@ Les clients peuvent prendre une capture instantanée de leurs disques gérés, q
 
 Oui, les disques managés et non managés sont pris en charge. Nous vous recommandons d’utiliser des disques gérés pour les nouvelles charges de travail et de migrer vos charges de travail en cours vers des disques gérés.
 
-**Si je crée un disque de 128 Go et que j’augmente la taille à 130 Go, serai-je facturé en fonction de la taille de disque supérieure (256 Go) ?**
+**Si je crée un disque de 128 Gio et que j’augmente la taille à 130 Gio, suis-je facturé en fonction de la taille de disque supérieure (256 Gio) ?**
 
 Oui.
 
@@ -137,10 +137,10 @@ Non, quand le nouveau disque est créé, il constitue à ce moment-là une copie
 
 Vous ne pouvez pas renommer les disques managés. Par contre, vous pouvez renommer les disques non managés tant qu’ils ne sont pas attachés à une machine virtuelle ou un disque dur virtuel.
 
-## <a name="standard-ssd-disks-preview"></a>Disques SSD Standard (préversion)
+## <a name="standard-ssd-disks"></a>Disques SSD Standard
 
 **Qu’est-ce qu’un disque SSD Standard Azure (préversion)**
-Les disques SSD Standard sont des disques standard à semi-conducteur, optimisés en tant que stockage économique pour les charges de travail nécessitant des performances soutenues à des niveaux d’IOPS plus faibles. Dans leur préversion, ils sont disponibles dans un nombre limité de régions, avec une facilité de gestion limitée (disponible via les modèles Resource Manager).
+Les disques SSD Standard sont des disques standard à semi-conducteur, optimisés en tant que stockage économique pour les charges de travail nécessitant des performances soutenues à des niveaux d’IOPS plus faibles.
 
 <a id="standard-ssds-azure-regions"></a>**Quelles sont les régions actuellement prises en charge pour les disques SSD Standard ?**
 Toutes les régions Azure prennent actuellement en charge les disques SSD Standard.
@@ -275,7 +275,7 @@ Il existe un coût fixe pour chaque taille de disque. Il s’ajoute aux limites 
 
 **Quelles sont les limites d’E/S par seconde et de débit associées à la mise en cache sur disque ?**
 
-Les limites combinées pour le cache et le disque SSD local d’une machine de la série DS sont de 4 000 E/S par cœur et de 33 Mo par seconde par cœur. La série GS offre 5 000 E/S par seconde par cœur et 50 Mo par seconde par cœur.
+Les limites combinées pour le cache et le disque SSD local d’une machine de la série DS sont de 4 000 E/S par cœur et de 33 Mio par seconde par cœur. La série GS offre 5 000 E/S par seconde par cœur et 50 Mio par seconde par cœur.
 
 **Le disque local SSD est-il pris en charge pour les machines virtuelles Managed Disks ?**
 
@@ -287,38 +287,60 @@ Il n’existe aucun inconvénient à l’utilisation de TRIM sur des disques Azu
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>Nouvelles tailles de disque : gérés et non-gérés
 
-**Quelle est la plus grande taille de disque prise en charge pour le système d’exploitation et les disques de données ?**
+**Quelle est la plus grande taille de disque managé prise en charge pour les disques de système d’exploitation et de données ?**
 
-Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 To. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 2 To. Azure prend en charge jusqu’à 4 To pour les disques de données. 
+Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 2 Tio. Azure prend en charge jusqu’à 32 Tio pour les disques de données managés. Les tailles de disque managé supérieures à 4 Tio sont en préversion. Pour plus d’informations, [lisez notre billet de blog](http://aka.ms/azure-large-disk-32TB-preview-blog).
+
+**Quelle est la plus grande taille de disque non managé prise en charge pour les disques de système d’exploitation et de données ?**
+
+Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque non managé de système d’exploitation est de 2 Tio. Azure prend en charge jusqu’à 4 Tio pour les disques de données non managés.
 
 **Quelle est la plus grande taille d’objet blob de page prise en charge ?**
 
-La plus grande taille de blob de page prise en charge par Azure est de 8 To (8 191 Go). La taille de blob de page maximale en cas d’attachement à une machine virtuelle en tant que disques de données ou de système d’exploitation est de 4 To (4 095 Go).
+La plus grande taille d’objet blob de pages prise en charge par Azure est de 8 Tio (8 191 Gio). La taille d’objet blob de pages maximale en cas d’attachement à une machine virtuelle en tant que disques de données ou de système d’exploitation est de 4 Tio (4 095 Gio).
 
-**Dois-je utiliser une nouvelle version des outils Azure pour créer, joindre, redimensionner et télécharger des disques de taille supérieure à 1 To ?**
+**Dois-je utiliser une nouvelle version des outils Azure pour créer, joindre, redimensionner et charger des disques de taille supérieure à 1 Tio ?**
 
-Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour créer, joindre ou redimensionner des disques de taille supérieure à 1 To. Pour télécharger votre fichier de disque dur virtuel en local directement vers Azure en tant qu’objet blob de pages ou disque non géré, vous devez utiliser l’ensemble d’outils le plus récent :
+Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour créer, joindre ou redimensionner des disques de taille supérieure à 1 Tio. Pour charger votre fichier de disque dur virtuel en local directement vers Azure en tant qu’objet blob de pages ou disque non managé, vous devez utiliser l’ensemble d’outils le plus récent indiqué ci-dessous. Nous prenons en charge les chargements de disque dur virtuel uniquement jusqu’à 8 To.
 
 |Outils Azure      | Versions prises en charge                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Numéro de version 4.1.0 : version de juin 2017 ou version ultérieure|
 |Azure CLI v1     | Numéro de version 0.10.13 : version de mai 2017 ou version ultérieure|
+|Azure CLI v2     | Numéro de version 2.0.12 : version de juillet 2017 ou version ultérieure|
 |AzCopy           | Numéro de version 6.1.0 : version de juin 2017 ou version ultérieure|
-
-La prise en charge d’Azure CLI v2 et l’explorateur de stockage Microsoft Azure sera bientôt disponible. 
 
 **Les tailles de disque P4 et P6 sont-elles prises en charge pour les disques non gérés ou les objets blob de pages ?**
 
-Non. Les tailles de disque P4 (32 Go) et P6 (64 Go) sont prises en charge uniquement pour les disques gérés. La prise en charge des disques non gérés et des objets BLOB de page sera bientôt disponible.
+Les tailles de disque P4 (32 Gio) et P6 (64 Gio) ne sont pas prises en charge en tant que niveaux de disque par défaut pour les disques non managés et les objets blob de pages. Vous devez explicitement [définir le niveau d’objets blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) sur P4 et P6 pour que votre disque soit mappé à ces niveaux. Si vous déployez un objet blob de pages ou un disque non managé avec une taille de disque ou une longueur de contenu inférieure à 32 Gio ou entre 32 Gio et 64 Gio sans définir le niveau de l’objet blob, vous continuez à utiliser P10 avec 500 IOPS et 100 Mio/s et le niveau tarifaire mappé.
 
-**Si mon disque géré Premium de moins de 64 Go a été créé avant l’activation du petit disque (aux environs du 15 juin 2017), comment est-il facturé ?**
+**Si mon disque managé Premium de moins de 64 Gio a été créé avant l’activation du petit disque (aux environs du 15 juin 2017), comment est-il facturé ?**
 
-Les disques Premium de petite taille de moins de 64 Go continuent à être facturés selon le niveau de tarification P10. 
+Les disques Premium de petite taille de moins de 64 Gio continuent à être facturés selon le niveau de tarification P10.
 
-**Comment puis-je changer la couche de disque de petits disques Premium inférieurs à 64 Go de P10 à P4 ou P6 ?**
+**Comment puis-je changer la couche de disque de petits disques Premium inférieurs à 64 Gio en la faisant passer de P10 à P4 ou P6 ?**
 
-Vous pouvez prendre un instantané de vos disques de petite taille et ensuite créer un disque pour changer automatiquement le niveau de tarification vers P4 ou P6 selon la taille fournie. 
+Vous pouvez prendre un instantané de vos disques de petite taille et ensuite créer un disque pour changer automatiquement le niveau de tarification vers P4 ou P6 selon la taille fournie.
 
+**Est-il possible de redimensionner des disques managés existants à partir de tailles de moins de 4 Tio pour les nouvelles tailles de disque jusqu’à 32 Tio ?**
+
+Les nouvelles tailles de disque managé 8 Tio, 16 Tio et 32 Tio sont actuellement en préversion. Nous ne prenons pas encore en charge le redimensionnement des tailles de disque existantes vers les nouvelles tailles de disque.
+
+**Quelle est les plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery ?**
+
+La plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery est de 4 Tio.
+
+**Quels sont les tailles de machines virtuelles recommandées pour les disques de grande taille (> 4 Tio) pour les disques SSD Standard et HDD Standard afin de bénéficier d’IOPS et d’une bande passante optimisées ?**
+
+Pour atteindre le débit de disque des disques SSD Standard et HDD Standard de plus grande taille (> 4 To) au-delà de 500 IOPS et 60 Mio/s, vous devez utiliser une des tailles de machines virtuelles suivantes pour optimiser vos performances : série B, série DSv2, série Dsv3, série ESv3, série Fs, série Fsv2, série M, série GS, série NCv2, série NCv3 ou série Ls.
+
+**Dans quelles régions les tailles de disques managés supérieures à 4 Tio sont-elles prises en charge ?**
+
+À ce stade dans la préversion, les tailles de disque managé sont prises en charge dans la région USA Centre Ouest uniquement.
+
+**Prenez-vous en charge l’activation de la mise en cache de l’hôte sur les tailles de disque plus récentes ?**
+
+Nous prenons en charge la mise en cache d’hôte en lecture seule et en lecture/écriture sur les tailles de disque inférieures à 4 Tio. Pour les tailles de disque supérieures à 4 Tio, nous ne prenons en charge que la mise en cache définie sur None (Aucun). Nous vous recommandons de tirer parti de la mise en cache pour les plus petites tailles de disque, où vous pouvez vous attendre à observer une amélioration des performances avec les données mises en cache dans la machine virtuelle.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Que dois-je faire si je n’ai pas trouvé de réponse à ma question ici ?
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: ab085d6a5cb38c46cf46a51da6d294732e2fd879
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979468"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060854"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Stockage Standard économique et disques de machine virtuelle Azure gérés et non gérés
 
@@ -25,7 +25,7 @@ Cet article se concentre sur l’utilisation de disques SSD et HDD Standard. Pou
 
 Il existe deux façons de créer des disques Standard pour les machines virtuelles Azure :
 
-**Disques non managés** : avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 256 To de stockage par machine virtuelle.
+**Disques non managés** : avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 256 Pio de stockage par machine virtuelle. Si vous utilisez les tailles de disque en préversion, vous pouvez avoir jusqu’à environ 2 Pio de stockage par machine virtuelle. 
 
 [**Disques gérés Azure**](../articles/virtual-machines/windows/managed-disks-overview.md) : cette fonctionnalité gère les comptes de stockage que vous utilisez pour les disques de machines virtuelles. Vous spécifiez le type (SSD Premium, SSD Standard ou HDD Standard) et la taille de disque dont vous avez besoin, et Azure crée et gère le disque pour vous. Vous n’avez pas à vous occuper de placer les disques sur plusieurs comptes de stockage pour être sûr de rester dans les limites de scalabilité des comptes de stockage : Azure le fait pour vous.
 
@@ -36,15 +36,15 @@ Pour une prise en main du stockage Standard Azure, consultez [Évaluation d’un
 Pour plus d’informations sur la création d’une machine virtuelle Managed Disks, consultez l’un des articles suivants.
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
-* [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)](../articles/virtual-machines/linux/quick-create-cli.md)
 
-## <a name="standard-storage-features"></a>Fonctionnalités du stockage Standard 
+## <a name="standard-storage-features"></a>Fonctionnalités du stockage Standard
 
 Examinons certaines des fonctionnalités du stockage Standard. Pour plus d’informations, consultez [Introduction à Microsoft Azure Storage](../articles/storage/common/storage-introduction.md).
 
 **Stockage Standard** : le stockage Standard Azure prend en charge les disques Azure, les objets blob Azure, les fichiers Azure, les tables Azure et les files d’attente Azure. Pour utiliser les services de stockage Standard, commencez par [Créer un compte de stockage Azure](../articles/storage/common/storage-quickstart-create-account.md).
 
-**Disques SSD Standard** : ces disques offrent des performances plus fiables que les disques HDD Standard et sont actuellement disponibles en préversion. Pour plus d’informations sur la disponibilité dans la région des disques SSD Standard, consultez [Disponibilité dans la région des disques SSD Standard (préversion)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Disques SSD Standard** : ces disques offrent des performances plus fiables que les disques HDD Standard et sont actuellement disponibles. Pour plus d’informations sur la disponibilité dans les régions des disques SSD Standard, consultez [Disponibilité dans les régions des disques SSD Standard](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
 **Disques HDD Standard** : ces disques peuvent être attachés à toutes les machines virtuelles Azure, y compris les machines virtuelles de tailles utilisées avec le Stockage Premium, comme les séries DSv2 et GS. Un disque HDD Standard ne peut être attaché qu’à une seule machine virtuelle. Toutefois, vous pouvez associer un ou plusieurs de ces disques à une machine virtuelle, jusqu’au nombre maximal de disques défini pour cette taille de machine virtuelle. La section suivante sur les objectifs de performance et d’extensibilité du stockage Standard décrit ces spécifications plus en détail.
 
@@ -81,11 +81,11 @@ Contrairement aux disques Premium, les opérations d’entrée/sortie par second
 
 | **Niveau Machine Virtuelle**            | **Niveau de base - Machine virtuelle** | **Niveau standard - Machine virtuelle** |
 |------------------------|-------------------|----------------------|
-| Taille maximale du disque          | 4095 Go           | 4095 Go              |
-| Max 8 Ko d’E/S par seconde par disque | Jusqu’à 300         | Jusqu’à 500            |
-| Bande passante maximale par disque | Jusqu’à 60 Mo/s     | Jusqu’à 60 Mo/s        |
+| Taille maximale du disque          | 32 767 Gio           | 32 767 Gio        |
+| Max 8 Ko d’E/S par seconde par disque | Jusqu’à 2 000         | Jusqu’à 2 000        |
+| Bande passante maximale par disque | Jusqu’à 500 Mo/s     | Jusqu’à 500 Mo/s      |
 
-Si votre charge de travail exige la prise en charge des disques hautes performances à faible latence, vous devez envisager d’utiliser le stockage Premium. Pour en savoir plus les avantages du stockage Premium, visitez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md). 
+Si votre charge de travail exige la prise en charge des disques hautes performances à faible latence, vous devez envisager d’utiliser le stockage Premium. Pour en savoir plus les avantages du stockage Premium, visitez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 ## <a name="snapshots-and-copy-blob"></a>Captures instantanées et copie d’objets blob
 
@@ -121,9 +121,9 @@ Les considérations de facturation suivantes s’appliquent à l’utilisation d
 
 **Disques managés** : la facturation des disques managés standard dépend du provisionnement de leur taille. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille provisionnée de 200 Gio, vous êtes facturé le prix du type de disque S15.
 
-| **Type de disque managé<br> HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
-|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
-| Taille du disque        | 32 Gio  | 64 Gio  | 128 Go | 256 Gio | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 
+| **Type de disque managé<br> HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
+| Taille du disque        | 32 Gio  | 64 Gio  | 128 Go | 256 Gio | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 8 192 Gio (8 Tio) | 16 385 Gio (16 Tio) | 32 767 Gio (32 Tio) |
 
 
 **Captures instantanées** : les captures instantanées des disques Standard sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d'informations sur les captures instantanées, consultez [Création d'un instantané d'objet blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
@@ -138,7 +138,7 @@ Pour plus d’informations sur la tarification du stockage Standard, des machine
 * [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Tarification des disques gérés](https://azure.microsoft.com/pricing/details/managed-disks)
 
-## <a name="azure-backup-service-support"></a>Prise en charge du service Azure Backup 
+## <a name="azure-backup-service-support"></a>Prise en charge du service Azure Backup
 
 Les machines virtuelles avec disques non gérés peuvent être sauvegardées à l’aide de Sauvegarde Azure. [Détails supplémentaires](../articles/backup/backup-azure-vms-first-look-arm.md).
 
@@ -154,4 +154,4 @@ Vous pouvez également utiliser le service Sauvegarde Azure avec Managed Disks
 
 * [Créer une machine virtuelle à l’aide de Resource Manager et de PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 
-* [Créer une machine virtuelle Linux à l’aide d’Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
+* [Création d'une machine virtuelle Linux à l’aide de l'interface de ligne de commande Azure (CLI)](../articles/virtual-machines/linux/quick-create-cli.md)

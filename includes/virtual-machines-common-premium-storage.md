@@ -5,26 +5,26 @@ services: storage
 author: ramankumarlive
 ms.service: storage
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ea312002a9a1a39505cd4748864ca9dfc1da43dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40238303"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060345"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques gérés pour machines virtuelles
+
 Le stockage Premium Azure offre une prise en charge très performante et à faible latence des disques pour les machines virtuelles avec des charges de travail qui utilisent beaucoup d’entrée/sortie (E/S). Les disques de machine virtuelle qui utilisent le stockage Premium stockent les données sur des disques SSD. Pour tirer parti de la vitesse et des performances des disques de stockage Premium, vous pouvez migrer les disques de machines virtuelles existantes vers le stockage Premium.
 
-Dans Azure, vous pouvez associer plusieurs disques de stockage Premium à une machine virtuelle. L’utilisation de plusieurs disques permet à vos applications d’atteindre 256 To de stockage par machine virtuelle. Avec le stockage Premium, vos applications peuvent réaliser jusqu’à 80 000 opérations E/S par seconde par machine virtuelle et obtenir un débit de disque maximum de 2 000 mégaoctets par seconde (Mo/s) par machine virtuelle. Les opérations de lecture offrent une latence très faible.
+Dans Azure, vous pouvez associer plusieurs disques de stockage Premium à une machine virtuelle. L’utilisation de plusieurs disques offre à vos applications jusqu’à 256 To de stockage par machine virtuelle. Si vous utilisez les tailles en préversion, votre application peut avoir jusqu’à environ 2 Pio de stockage par machine virtuelle. Avec le stockage Premium, vos applications peuvent réaliser jusqu’à 80 000 opérations E/S par seconde par machine virtuelle et obtenir un débit de disque maximum de 2 000 mégaoctets par seconde (Mo/s) par machine virtuelle. Les opérations de lecture offrent une latence très faible.
 
 Avec le stockage Premium, Azure offre la possibilité de réellement migrer vers le cloud les applications d’entreprise exigeantes comme Dynamics AX, Dynamics CRM, Exchange Server, SAP Business Suite et les batteries de serveurs SharePoint. Vous pouvez exécuter des charges de travail de bases de données intensives et exigeantes dans des applications comme SQL Server, Oracle, MongoDB, MySQL et Redis, qui nécessitent continuellement des performances élevées et une faible latence.
 
 > [!NOTE]
 > Pour que votre application bénéficie de performances optimales, nous vous recommandons de migrer les disques de machine virtuelle nécessitant un nombre élevé d’E/S par seconde dans le stockage Premium. Si votre disque ne nécessite pas une valeur élevée d’E/S par seconde, vous pouvez limiter les coûts en le maintenant en Stockage Azure standard. Dans le cadre d’un stockage standard, les données de disque des machines virtuelles sont stockées sur des disques durs au lieu de disques SSD.
-> 
 
 Azure propose deux façons de créer des disques de Stockage Premium pour les machines virtuelles :
 
@@ -44,7 +44,6 @@ Pour plus d’informations sur la migration de vos machines virtuelles existante
 
 > [!NOTE]
 > Le stockage Premium est disponible dans la plupart des régions. Pour obtenir la liste des régions disponibles, consultez la ligne dédiée au **Stockage sur disque** de la section [Disponibilité des produits par région](https://azure.microsoft.com/regions/#services).
-> 
 
 ## <a name="features"></a>Caractéristiques
 
@@ -52,7 +51,7 @@ Voici certaines des fonctionnalités du stockage Premium :
 
 * **Disques de stockage Premium**
 
-    Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique. Le Stockage Premium prend en charge un large éventail de machines virtuelles Azure. Vous avez le choix entre huit tailles de disque : P4 (32 Go), P6 (64 Go), P10 (128 Go), P15 (256 Go), P20 (512 Go), P30 (1 024 Go), P40 (2 048 Go) et P50 (4 095 Go). Les tailles de disque P4 et P6 ne sont actuellement prises en charge que par Managed Disks. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle. Nous donnons plus de détails sur ces spécifications dans [Objectifs de performance et d’extensibilité du stockage Premium](#scalability-and-performance-targets).
+    Le stockage Premium prend en charge les disques de machines virtuelles pouvant être associés à des machines virtuelles de taille spécifique. Le Stockage Premium prend en charge un large éventail de machines virtuelles Azure. Vous avez le choix parmi 8 tailles de disque en disponibilité générale : P4 (32 Gio), P6 (64 Gio), P10 (128 Gio), P15 (256 Gio), P20 (512 Gio), P30 (1 024 Gio), P40 (2 048 Gio), P50 (4 095 Gio). Ainsi que 3 tailles de disques en préversion : P60 de 8 192 Gio (8 Tio), P70 de 16 348 Gio (16 Tio), P80 de 32 767 Gio (32 Tio). Les tailles de disque P4, P6, P60, P70 et P80 ne sont actuellement prises en charge que par Managed Disks. Chaque taille de disque a ses propres spécifications en matière de performances. Selon les besoins de votre application, vous pouvez associer un ou plusieurs disques à votre machine virtuelle. Nous donnons plus de détails sur ces spécifications dans [Objectifs de performance et d’extensibilité du stockage Premium](#scalability-and-performance-targets).
 
 * **Objets blob de pages Premium**
 
@@ -152,16 +151,11 @@ Si vous utilisez des comptes de stockage Premium pour des disques non gérés et
 ### <a name="premium-storage-disk-limits"></a>Limites des disques de stockage Premium
 Lorsque vous configurez un disque de stockage Premium, la taille du disque détermine la valeur maximale d’E/S par seconde et le débit (bande passante). Azure propose huit types de disques de stockage premium : P4 (Managed Disks uniquement), P6 (Managed Disks uniquement), P10, P15, P20, P30, P40 et P50. Chaque type de disque de stockage Premium a des limites d’E/S par seconde et de débit spécifiques. Les limites pour ces types de disques sont décrites dans le tableau suivant :
 
-| Type de disque Premium  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Taille du disque           | 32 Go| 64 Go| 128 Go| 256 Go| 512 Go            | 1024 Go (1 To)    | 2 048 Go (2 To)    | 4 095 Go (4 To)    | 
-| IOPS par disque       | 120   | 240   | 500   | 1100   | 2 300              | 5 000              | 7500              | 7500              | 
-| Débit par disque | 25 Mo par seconde  | 50 Mo par seconde  | 100 Mo par seconde | 125 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde | 
+| Type Disques Premium | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | P60   | P70   | P80   | |---------------------|-------|-------|-------|-------|-------|-------|-------|-------||-------||-------||-------| | Taille de disque           | 32 Gio| 64 Gio| 128 Gio| 256 Gio| 512 Gio            | 1 024 Gio (1 Tio)    | 2 048 Gio (2 Tio)    | 4 095 Gio (4 Tio)    | 8 192 Gio (8 Tio)    | 16 384 Gio (16 Tio)    | 32 767 Gio (32 Tio)    | | IOPS par disque       | 120   | 240   | 500   | 1 100   | 2 300              | 5 000              | 7 500              | 7 500              | 12 500              | 15 000              | 20 000              | | Débit par disque | 25 Mo par seconde | 50 Mo par seconde  | 100 Mo par seconde | 125 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde | 480 Mo par seconde | 750 Mo par seconde | 750 Mo par seconde |
 
 > [!NOTE]
 > Assurez-vous que suffisamment de bande passante soit disponible sur votre machine virtuelle pour le trafic du disque, comme décrit dans [Machines virtuelles prises en charge par le stockage Premium](#premium-storage-supported-vms). Dans le cas contraire, votre débit de disque et les E/S par seconde sont limités à des valeurs moindres. Le débit maximal et les E/S par seconde sont basés sur les limites de la machine virtuelle, pas sur les limites du disque décrites dans le tableau précédent.  
-> 
-> 
+> Azure a conçu une plate-forme Premium Storage hautement parallèle. Concevoir une application multi-thread vous aide à atteindre la cible de hautes performances proposée sur les tailles de disque supérieures.
 
 Voici quelques éléments importants à connaître sur les objectifs de performances et d’extensibilité du stockage Premium :
 
@@ -172,11 +166,10 @@ Voici quelques éléments importants à connaître sur les objectifs de performa
 * **Taille du disque**
 
     Azure mappe la taille du disque (arrondie à la valeur supérieure) sur l’option de disque de stockage Premium la plus proche, comme indiqué dans le tableau dans la section précédente. Par exemple, une taille de disque de 100 Go correspond à l’option P10. Elle peut effectuer jusqu’à 500 E/S par seconde, avec un débit maximum de 100 Mo/s. De même, une taille de disque de 400 Go correspond à l’option P20. Elle peut effectuer jusqu’à 2 300 E/S par seconde, avec un débit de 150 Mo/s.
-    
+
     > [!NOTE]
     > Vous pouvez facilement augmenter la taille des disques existants. Par exemple, vous pouvez augmenter la taille d’un disque de 30 Go à 128 Go ou même 1 To. Ou bien, vous pouvez convertir votre disque P20 en disque P30, si vous avez besoin de davantage de capacités ou de plus d’E/S par seconde et de débit. 
-    > 
- 
+
 * **Taille des E/S**
 
     La taille d’une E/S est de 256 Ko. Si la taille des données transférées est inférieure à 256 Ko, elles sont considérées comme 1 unité d’E/S. Les tailles d’E/S supérieures sont divisées en plusieurs unités d’E/S de 256 Ko. Par exemple, 1 100 Ko d’E/S correspondent à 5 unités d’E/S.
@@ -193,9 +186,10 @@ Voici quelques éléments importants à connaître sur les objectifs de performa
 
 * **Présences dans le cache**
 
-    Les présences dans le cache ne sont pas limitées par les E/S par seconde ou le débit alloués du disque. Par exemple, quand vous utilisez un disque de données avec le paramètre de cache **ReadOnly** sur une machine virtuelle prise en charge par le stockage Premium, les lectures effectuées à partir du cache ne sont pas soumises aux limites d’E/S par seconde et de débit du disque. Si la charge de travail d’un disque concerne essentiellement des lectures, vous pouvez obtenir un très haut débit. Le cache est soumis à des limites d’E/S par seconde et de débit séparées au niveau de la machine virtuelle, en fonction de la taille de celle-ci. Les machines virtuelles DS exécutent environ 4 000 E/S par seconde et ont un débit de 33 Mo/s par cœur pour les E/S du cache et du disque SSD local. Les machines virtuelles GS ont une limite de 5 000 E/S par seconde et un débit de 50 Mo/s par cœur pour les E/S du cache et du disque SSD local. 
+    Les présences dans le cache ne sont pas limitées par les E/S par seconde ou le débit alloués du disque. Par exemple, quand vous utilisez un disque de données avec le paramètre de cache **ReadOnly** sur une machine virtuelle prise en charge par le stockage Premium, les lectures effectuées à partir du cache ne sont pas soumises aux limites d’E/S par seconde et de débit du disque. Si la charge de travail d’un disque concerne essentiellement des lectures, vous pouvez obtenir un très haut débit. Le cache est soumis à des limites d’E/S par seconde et de débit séparées au niveau de la machine virtuelle, en fonction de la taille de celle-ci. Les machines virtuelles DS exécutent environ 4 000 E/S par seconde et ont un débit de 33 Mo/s par cœur pour les E/S du cache et du disque SSD local. Les machines virtuelles GS ont une limite de 5 000 E/S par seconde et un débit de 50 Mo/s par cœur pour les E/S du cache et du disque SSD local.
 
 ## <a name="throttling"></a>Limitation
+
 La limitation peut se produire si les E/S par seconde de votre application ou son débit dépassent les limites allouées à un disque de stockage Premium. La limitation peut également survenir si le trafic total sur tous les disques de la machine virtuelle dépasse la limite de bande passante disque disponible pour la machine virtuelle. Pour éviter cette situation, nous vous recommandons de limiter le nombre de demandes d’E/S en attente pour le disque. Utilisez une limite basée sur les objectifs d’évolutivité et de performances pour le disque que vous avez configuré et sur la bande passante disque disponible pour la machine virtuelle.  
 
 Quand votre application est conçue pour éviter les limitations, elle bénéficie d'une latence moindre. Toutefois, si le nombre de demandes d’E/S en attente est trop faible, votre application ne peut pas bénéficier des niveaux maximum de débit et d’E/S par seconde disponibles sur le disque.
@@ -203,17 +197,19 @@ Quand votre application est conçue pour éviter les limitations, elle bénéfic
 Les exemples suivants montrent comment calculer les niveaux de limitation. Tous les calculs sont basés sur une taille d’unité d’E/S de 256 Ko.
 
 ### <a name="example-1"></a>Exemple 1
+
 Votre application a traité 495 unités d’E/S d’une taille de 16 Ko par seconde sur un disque P10. Les unités d’E/S correspondent à 495 E/S par seconde. Si vous tentez une E/S de 2 Mo dans la même seconde, le total d’unités d’E/S est égal à 495 + 8 E/S par seconde. En effet, une E/S de 2 Mo = 2 048 Ko / 256 Ko = 8 unités d’E/S, avec une taille d’unité d’E/S égale à 256 Ko. Étant donné que la somme de 495 + 8 dépasse la limite de 500 E/S par seconde du disque, il se produit une limitation.
 
 ### <a name="example-2"></a>Exemple 2
+
 Votre application a traité 400 unités d’E/S de 256 Ko sur un disque P10. La bande passante totale consommée est de (400 &#215; 256) / 1 024 Ko = 100 Mo/s. Un disque P10 a une limite de débit de 100 Mo/s. Si votre application tente d’effectuer davantage d’opérations d’E/S dans la même seconde, elle sera limitée, car elle dépassera la limite allouée.
 
 ### <a name="example-3"></a>Exemple 3
+
 Vous avez une machine virtuelle DS4 avec deux disques P30. Chaque disque P30 peut gérer un débit de 200 Mo/s. Toutefois, une machine virtuelle DS4 a une bande passante disque maximale de 256 Mo/s. Vous ne pouvez pas obtenir un débit maximal sur les deux disques de cette machine virtuelle DS4 en même temps. La solution consiste à maintenir un trafic de 200 Mo/s sur un disque et un trafic de 56 Mo/s sur l’autre disque. Si la somme de votre trafic de disques excède 256 Mo/s, il est limité.
 
 > [!NOTE]
 > Si votre trafic de disque consiste essentiellement en des E/S de petite taille, il est probable que votre application atteigne la limite d’E/S par seconde avant la limite de débit. Toutefois, si le trafic du disque consiste essentiellement en des E/S de grande taille, il est probable que votre application atteigne la limite de débit avant la limite d’E/S par seconde. Vous pouvez optimiser les E/S par seconde et la capacité de débit de votre application à l’aide des tailles d’E/S optimales. Vous pouvez également limiter le nombre de demandes d’E/S en attente pour un disque.
-> 
 
 Pour en savoir plus sur la conception appropriée permettant des performances élevées à l’aide du stockage Premium, consultez [Conception optimisée pour les performances avec le stockage Premium](../articles/virtual-machines/windows/premium-storage-performance.md).
 
@@ -292,13 +288,13 @@ Les considérations de facturation suivantes s’appliquent lorsque vous utilise
 
 * **Taille de disque de stockage Premium et de l’objet blob**
 
-    La facturation pour un disque de stockage Premium ou un objet blob dépend de la taille provisionnée du disque ou de l’objet blob. Azure fait correspondre la taille provisionnée (arrondie à la valeur supérieure) à l’option de disque de stockage Premium la plus proche. Pour plus d’informations, consultez le tableau dans [Objectifs de performance et d’extensibilité du stockage Premium](#premium-storage-scalability-and-performance-targets). Chaque disque mappe sur une taille de disque provisionnée prise en charge et est facturé en conséquence. La facturation de n’importe quel disque provisionné est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous provisionnez un disque P10 et le supprimez au bout de 20 heures, vous êtes facturé 20 heures pour l'offre P10. Le montant facturé est indépendant de la quantité de données écrites sur le disque ou de la quantité de débit et E/S par seconde utilisés.
+    La facturation pour un disque de stockage Premium ou un objet blob dépend de la taille configurée du disque ou de l’objet blob. Azure mappe la taille configurée (arrondie à la valeur supérieure) à l’option de disque de stockage Premium la plus proche. Pour plus d’informations, consultez le tableau dans [Objectifs de performance et d’extensibilité du stockage Premium](#premium-storage-scalability-and-performance-targets). Chaque disque mappe sur une taille de disque configurée prise en charge et est facturé en conséquence. La facturation de n’importe quel disque configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous configurez un disque P10 et le supprimez au bout de 20 heures, vous êtes facturé 20 heures pour l'offre P10. Le montant facturé est indépendant de la quantité de données écrites sur le disque ou de la quantité de débit et E/S par seconde utilisés.
 
 * **Captures instantanées de disques non gérés Premium**
 
     Les captures instantanées sur les disques non gérés Premium sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d’informations sur les captures instantanées, consultez [Créer un instantané d’objet blob](/rest/api/storageservices/Snapshot-Blob).
 
-* **Captures instantanées de disques managés Premium**
+* **Captures instantanées de disques gérés Premium**
 
     Une capture instantanée d’un disque géré est une copie en lecture seule du disque. Le disque est stocké comme un disque géré standard. Le coût d’une capture instantanée est le même que celui d’un disque géré Standard. Par exemple, si vous avez une capture instantanée d’un disque géré Premium de 128 Go, le coût de la capture instantanée équivaut à celui d’un disque géré Standard de 128 Go.  
 
@@ -312,11 +308,12 @@ Pour plus d’informations sur la tarification du stockage Premium, les machines
 * [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * [Tarification des disques gérés](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-## <a name="azure-backup-support"></a>Support Sauvegarde Azure 
+## <a name="azure-backup-support"></a>Support Sauvegarde Azure
 
 Pour la récupération d’urgence régionale, vous devez sauvegarder vos disques de machines virtuelles dans une autre région à l’aide de [Sauvegarde Azure](../articles/backup/backup-introduction-to-azure-backup.md) et d’un compte de stockage GRS comme coffre de sauvegarde.
 
 Pour créer une tâche de sauvegarde avec des sauvegardes périodiques, une restauration facile des machines virtuelles et des stratégies de rétention de sauvegarde, utilisez Sauvegarde Azure. Vous pouvez utiliser la sauvegarde avec des disques gérés et non gérés. Pour plus d’informations, consultez [Sauvegarde Azure de machines virtuelles avec des disques non gérés](../articles/backup/backup-azure-vms-first-look-arm.md) et [Sauvegarde Azure de machines virtuelles avec des disques gérés](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup). 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur le stockage Premium, voir les articles suivants.
