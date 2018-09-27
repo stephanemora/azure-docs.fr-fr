@@ -1,11 +1,11 @@
-# Vue d'ensemble
+# Vue d’ensemble
 ## [À propos du portail Azure](../azure-portal-overview.md)
 # Didacticiels
 ## [DevOps avec le portail Azure](tutorial-azureportal-devops.md)
 # Concepts
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Raccourcis clavier](azure-portal-keyboard-shortcuts.md)
-## [Navigateurs et appareils pris en charge](../azure-preview-portal-supported-browsers-devices.md)
+## [Navigateurs et appareils pris en charge](azure-portal-supported-browsers-devices.md)
 ## [Structure des tableaux de bord Azure](azure-portal-dashboards-structure.md)
 # Procédures
 ## Déployer
