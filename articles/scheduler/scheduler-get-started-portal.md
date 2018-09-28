@@ -1,155 +1,152 @@
 ---
-title: Prise en main d’Azure Scheduler dans le portail Azure | Microsoft Docs
-description: Prise en main d’Azure Scheduler dans le portail Azure
+title: Créer des travaux planifiés avec Azure Scheduler - Portail Azure | Microsoft Docs
+description: Découvrez comment créer, planifier et exécuter votre premier travail automatisé avec Azure Scheduler dans le portail Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/10/2016
+ms.suite: infrastructure-services
+author: derek1ee
 ms.author: deli
-ms.openlocfilehash: f03ddb475835b30e9b931b7f057c062b57ac45f3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: klam
+ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.topic: hero-article
+ms.date: 09/17/2018
+ms.openlocfilehash: f1f7e67fbd5d8a9ebfae03c00eb0de36e86d9a97
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31413428"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949585"
 ---
-# <a name="get-started-with-azure-scheduler-in-azure-portal"></a>Prise en main d’Azure Scheduler dans le portail Azure
-Vous pouvez facilement créer des tâches planifiées dans Azure Scheduler. Ce didacticiel vous guide dans la création d’un travail. Vous y découvrirez également les fonctionnalités de gestion et de surveillance de Scheduler.
+# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Créer et planifier votre premier travail avec Azure Scheduler - Portail Azure
 
-## <a name="create-a-job"></a>Création d’un travail
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).  
-2. Cliquez sur **+Nouveau**, entrez *Scheduler* dans la zone de recherche, sélectionnez **Scheduler** dans la liste de résultats, puis cliquez sur **Créer**.
-   
-    ![][marketplace-create]
-3. Nous allons créer un travail qui accède simplement à http://www.microsoft.com/ avec une requête GET. Dans l’écran **Tâche du planificateur** , entrez les informations suivantes :
-   
-   1. **Nom :**`getmicrosoft`  
-   2. **Abonnement :** votre abonnement Azure.   
-   3. **Collection de tâches :** sélectionnez une collection de tâches existante, ou cliquez sur **Créer** et entrez un nom.
-4. Ensuite, dans **Paramètres d’action**, définissez les valeurs suivantes :
-   
-   1. **Type d’action :**` HTTP`  
-   2. **Méthode :**`GET`  
-   3. **URL :**` http://www.microsoft.com`  
-      
-      ![][action-settings]
-5. Pour finir, nous allons définir une planification. Il est possible de définir un travail ponctuel, mais nous allons ici sélectionner une planification périodique :
-   
-   1. **Récurrence** : `Recurring`
-   2. **Début**: date du jour
-   3. **Répéter toutes les** : `12 Hours`
-   4. **Fin**: deux jours à compter de la date du jour  
-      
-      ![][recurrence-schedule]
-6. Cliquez sur **Créer**
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en cours de retrait. Pour planifier des travaux, [essayez à la place Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-## <a name="manage-and-monitor-jobs"></a>Gestion et surveillance des travaux
-Une fois créé, le travail apparaît dans le tableau de bord principal d’Azure. Cliquez sur le travail pour ouvrir une nouvelle fenêtre avec les onglets suivants :
+Ce tutoriel montre comment vous pouvez créer et planifier facilement un travail, puis surveiller et gérer ce travail. 
 
-1. properties  
-2. Paramètres d’action  
-3. Planification  
-4. Historique
-5. Utilisateurs
+Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+
+## <a name="create-job"></a>Créer un travail
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).  
+
+1. Dans le menu principal d’Azure, choisissez **Créer une ressource**. Dans la zone de recherche, entrez « planificateur ». Dans la liste des résultats, sélectionnez **Planificateur**, puis choisissez **Créer**.
+
+   ![Créer une ressource Scheduler](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
+
+   Créez maintenant une tâche qui envoie une demande GET à cette URL : `http://www.microsoft.com/` 
+
+1. Sous **Tâche du planificateur**, entrez ces informations :
+
+   | Propriété | Exemple de valeur | Description |
+   |----------|---------------|-------------| 
+   | **Name** | getMicrosoft | Nom pour votre travail | 
+   | **Collection de travaux** | <*job-collection-name*> | Créez une collection de travaux ou sélectionnez une collection existante. | 
+   | **Abonnement** | <*Azure-subscription-name*> | Nom de votre abonnement Azure. | 
+   |||| 
+
+1. Sélectionnez **Paramètres d’action - Configurer**, spécifiez ces informations, puis choisissez **OK** quand vous avez terminé :
+
+   | Propriété | Exemple de valeur | Description |
+   |----------|---------------|-------------| 
+   | **Action** | **HTTP** | Type d’action à exécuter | 
+   | **Méthode** | **Get** | Méthode à appeler | 
+   | **URL** | **http://www.microsoft.com** | URL de destination | 
+   |||| 
    
-   ![][job-overview]
+   ![Définir un travail](./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png)
+
+1. Sélectionnez **Planification - Configurer**, définissez la planification, puis sélectionnez **OK** quand vous avez terminé :
+
+   Bien qu’il soit possible de créer un travail ponctuel, cet exemple configure une planification périodique.
+
+   | Propriété | Exemple de valeur | Description |
+   |----------|---------------|-------------| 
+   | **Périodicité** | **Récurrent** | Un travail ponctuel ou récurrent | 
+   | **Commencent le** | <*date du jour*> | Date de début du travail | 
+   | **Tous les** | **1 heure** | Intervalle et fréquence de la récurrence | 
+   | **Fin** | **Fin le** deux jours à compter de la date du jour | Date de fin du travail | 
+   | **Décalage UTC** | **UTC +08:00** | La différence de temps entre le temps universel coordonné (UTC) et l’heure observée à votre emplacement | 
+   |||| 
+
+   ![Définir la planification](./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png)
+
+1. Une fois ces opérations effectuées, sélectionnez **Créer**.
+
+   Une fois que vous avez créé votre travail, Azure déploie votre travail, qui apparaît sur le tableau de bord Azure. 
+
+1. Quand Azure affiche une notification indiquant que le déploiement a réussi, choisissez **Épingler au tableau de bord**. Sinon, choisissez l’icône **Notifications** (cloche) dans la barre d’outils Azure, puis choisissez **Épingler au tableau de bord**.
+
+## <a name="monitor-and-manage-jobs"></a>Surveiller et gérer les travaux
+
+Pour examiner, surveiller et gérer votre travail, choisissez votre travail dans le tableau de bord Azure. Sous **Paramètres**, voici les zones que vous pouvez examiner et gérer pour votre travail :
+
+![Paramètres d’un travail](./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png)
+
+Pour plus d’informations sur ces zones, sélectionnez une zone :
+
+* [**Propriétés**](#properties)
+* [**Paramètres d’action**](#action-settings)
+* [**Planification**](#schedule)
+* [**Historique**](#history)
+* [**Utilisateurs**](#users)
+
+<a name="properties"></a>
 
 ### <a name="properties"></a>properties
-Ces propriétés en lecture seule décrivent les métadonnées de gestion du travail Scheduler.
 
-   ![][job-properties]
+Pour voir les propriétés en lecture seule qui décrivent les métadonnées de gestion pour votre travail, sélectionnez **Propriétés**.
+
+![Afficher les propriétés du travail](./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png)
+
+<a name="action-settings"></a>
 
 ### <a name="action-settings"></a>Paramètres d’action
-Cliquez sur un travail dans l’écran **Travaux** pour configurer ce travail. Cela vous permet de configurer les paramètres avancés, si vous ne les avez pas encore configurés dans l’Assistant de création rapide.
 
-Pour tous les types d’action, vous pouvez modifier la stratégie de nouvelle tentative et l’action d’erreur.
+Pour modifier les paramètres avancés de votre travail, sélectionnez **Paramètres d’action**. 
 
-Pour les types d'action de travail HTTP et HTTPS, vous pouvez modifier la méthode de tout verbe HTTP autorisé. Vous pouvez également ajouter, supprimer ou modifier les en-têtes et les informations d'authentification de base.
+![Examiner les paramètres d’action](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-Pour les types d'action de file d'attente de stockage, vous pouvez modifier le compte de stockage, le nom de file d'attente, le jeton SAS et le corps.
+| Type d’action | Description | 
+|-------------|-------------| 
+| Tous les types | Vous pouvez modifier les paramètres **Stratégie de nouvelle tentative** et **Action d’erreur**. | 
+| HTTP et HTTPS | Vous pouvez changer **Méthode** pour n’importe quelle méthode autorisée. Vous pouvez également ajouter, supprimer ou modifier les en-têtes et les informations d’authentification de base. | 
+| File d’attente de stockage| Vous pouvez modifier le compte de stockage, le nom de la file d’attente, le jeton SAP et le corps. | 
+| Service Bus | Vous pouvez modifier l’espace de noms, le chemin de la rubrique ou de la file d’attente, les paramètres d’authentification, le type de transport, les propriétés du message et le corps du message. | 
+||| 
 
-Pour les types d’action Service Bus, vous pouvez modifier l’espace de noms, chemin d’accès de la rubrique/file d’attente, les paramètres d’authentification, le type de transport, les propriétés du message et le corps du message.
-
-   ![][job-action-settings]
+<a name="schedule"></a>
 
 ### <a name="schedule"></a>Planification
-Cet onglet vous permet de reconfigurer la planification, si vous souhaitez modifier la planification que vous avez créée dans l’Assistant de création rapide.
 
-Vous pouvez en profiter pour [créer des planifications complexes et une périodicité avancée dans votre tâche](scheduler-advanced-complexity.md)
+Si vous configurez une planification via l’Assistant Travail, vous pouvez modifier cette planification, comme la date et l’heure de début, la planification de la récurrence, et la date et l’heure de fin pour les tâches récurrentes.
+Vous pouvez aussi créer des [planifications plus complexes et des récurrences avancées](scheduler-advanced-complexity.md).
 
-Vous pouvez modifier la date et l'heure de début, la planification de périodicité et la date et l'heure de fin (si le travail est périodique).
+Pour modifier l’affichage ou la planification de votre travail, sélectionnez **planification** :
 
-   ![][job-schedule]
+![Afficher la planification du travail](./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png)
+
+<a name="history"></a>
 
 ### <a name="history"></a>Historique
-L’onglet **Historique** affiche les mesures sélectionnées pour chaque exécution de la tâche dans le système pour la tâche sélectionnée. Ces mesures fournissent des valeurs en temps réel concernant l’intégrité de votre Scheduler :
 
-1. Statut  
-2. Détails  
-3. Nouvelles tentatives
-4. Occurrence : 1er, 2e, 3e, etc.
-5. Heure de début de l’exécution  
-6. Heure de fin de l’exécution
-   
-   ![][job-history]
+Pour afficher des métriques relatives à chaque exécution pour un travail sélectionné, sélectionnez **Historique**. Ces métriques fournissent des valeurs en temps réel sur l’intégrité de votre travail, comme l’état, le nombre de nouvelles tentatives, le nombre d’occurrences, l’heure de début et l’heure de fin.
 
-Vous pouvez cliquer sur une exécution pour afficher les **détails de l’historique**, et notamment l’ensemble de la réponse obtenue pour chaque exécution. Cette boîte de dialogue vous permet également de copier la réponse dans le Presse-papiers.
+![Afficher l’historique et les métriques des travaux](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png)
 
-   ![][job-history-details]
+Pour afficher les détails de l’historique pour chaque exécution, comme la réponse complète pour chaque exécution, sous **Historique**, sélectionnez chaque exécution. 
+
+![Afficher les détails de l’historique d’un travail](./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png)
+
+<a name="users"></a>
 
 ### <a name="users"></a>Utilisateurs
-Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure Scheduler. Pour savoir comment utiliser l’onglet Utilisateurs, reportez-vous à [Contrôle d’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md)
 
-## <a name="see-also"></a>Voir aussi
- [Présentation d'Azure Scheduler](scheduler-intro.md)
+Vous pouvez gérer l’accès à Azure Scheduler pour chaque utilisateur à un niveau granulaire avec le contrôle d’accès en fonction du rôle (RBAC) Azure. Pour découvrir comment configurer l’accès en fonction des rôles, consultez [Gérer l’accès avec RBAC](../role-based-access-control/role-assignments-portal.md)
 
- [Concepts, terminologie et hiérarchie d’entités de Scheduler](scheduler-concepts-terms.md)
+## <a name="next-steps"></a>Étapes suivantes
 
- [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
-
- [Comment créer des planifications complexes et une périodicité avancée avec Azure Scheluler](scheduler-advanced-complexity.md)
-
- [Informations de référence sur l’API REST de Scheduler](https://msdn.microsoft.com/library/mt629143)
-
- [Informations de référence sur les applets de commande PowerShell de Scheduler](scheduler-powershell-reference.md)
-
- [Haute disponibilité et fiabilité de Scheduler](scheduler-high-availability-reliability.md)
-
- [Limites, valeurs par défaut et codes d’erreur de Scheduler](scheduler-limits-defaults-errors.md)
-
- [Authentification sortante de Scheduler](scheduler-outbound-authentication.md)
-
-[marketplace-create]: ./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png
-[action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-action-settings.png
-[recurrence-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-recurrence-schedule.png
-[job-properties]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-properties.png
-[job-overview]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-overview-1.png
-[job-action-settings]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png
-[job-schedule]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-schedule.png
-[job-history]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history.png
-[job-history-details]: ./media/scheduler-get-started-portal/scheduler-v2-portal-job-history-details.png
-
-
-[1]: ./media/scheduler-get-started-portal/scheduler-get-started-portal001.png
-[2]: ./media/scheduler-get-started-portal/scheduler-get-started-portal002.png
-[3]: ./media/scheduler-get-started-portal/scheduler-get-started-portal003.png
-[4]: ./media/scheduler-get-started-portal/scheduler-get-started-portal004.png
-[5]: ./media/scheduler-get-started-portal/scheduler-get-started-portal005.png
-[6]: ./media/scheduler-get-started-portal/scheduler-get-started-portal006.png
-[7]: ./media/scheduler-get-started-portal/scheduler-get-started-portal007.png
-[8]: ./media/scheduler-get-started-portal/scheduler-get-started-portal008.png
-[9]: ./media/scheduler-get-started-portal/scheduler-get-started-portal009.png
-[10]: ./media/scheduler-get-started-portal/scheduler-get-started-portal010.png
-[11]: ./media/scheduler-get-started-portal/scheduler-get-started-portal011.png
-[12]: ./media/scheduler-get-started-portal/scheduler-get-started-portal012.png
-[13]: ./media/scheduler-get-started-portal/scheduler-get-started-portal013.png
-[14]: ./media/scheduler-get-started-portal/scheduler-get-started-portal014.png
-[15]: ./media/scheduler-get-started-portal/scheduler-get-started-portal015.png
+* Découvrir plus d’informations sur les [concepts, la terminologie et la hiérarchie des entités](scheduler-concepts-terms.md)
+* [Créer des planifications complexes et des récurrences avancées](scheduler-advanced-complexity.md)
+* Découvrir plus d’informations sur la [haute disponibilité et la fiabilité pour Scheduler](scheduler-high-availability-reliability.md)
+* Découvrir plus d’informations sur les [limites, les quotas, les valeurs par défaut et les codes d’erreur](scheduler-limits-defaults-errors.md)

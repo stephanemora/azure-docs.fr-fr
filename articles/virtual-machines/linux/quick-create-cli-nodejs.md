@@ -1,6 +1,6 @@
 ---
-title: Création d’une machine virtuelle Linux à l’aide d’Azure CLI 1.0 | Microsoft Docs
-description: Créer une machine virtuelle Linux sur Azure à l’aide de l’interface Azure CLI 1.0
+title: Créer une machine virtuelle Linux à l’aide d’Azure Classic CLI | Microsoft Docs
+description: Créer une machine virtuelle Linux sur Azure à l’aide d’Azure Classic CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
 ms.author: v-livech
-ms.openlocfilehash: ea9eab1a02a29005917848ed54ab8ba160b89b63
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 94362256dfb5b8deff233f7c575d0720f29eec5c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30901807"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987848"
 ---
-# <a name="create-a-linux-vm-using-the-azure-cli-10"></a>Création d'une machine virtuelle Linux à l’aide d’Azure CLI 1.0
+# <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Créer une machine virtuelle Linux à l’aide d’Azure Classic CLI
 
 Cet article explique comment déployer rapidement une machine virtuelle Linux sur Azure à l’aide de la commande `azure vm quick-create` dans l’interface de ligne de commande (CLI) Azure. La commande `quick-create` déploie une machine virtuelle à l’intérieur d’une infrastructure sécurisée de base que vous pouvez utiliser comme prototype ou pour tester rapidement un concept.
 
 > [!NOTE]
-Pour créer une machine virtuelle à l’aide d’Azure CLI 2.0, consultez [Créer une machine virtuelle à l’aide de l’interface de ligne de commande (CLI) Azure](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Pour créer une machine virtuelle à l’aide d’Azure CLI, consultez [Créer une machine virtuelle à l’aide d’Azure CLI](../windows/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 Vous pouvez également déployer rapidement une machine virtuelle Linux à l’aide du [Portail Azure](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

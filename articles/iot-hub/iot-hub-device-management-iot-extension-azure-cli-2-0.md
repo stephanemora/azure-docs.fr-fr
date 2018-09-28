@@ -1,6 +1,6 @@
 ---
-title: Gestion des appareils Azure IoT avec l’extension IoT pour Azure CLI 2.0 | Microsoft Docs
-description: Utilisez l’extension IoT de l’outil Azure CLI 2.0 pour la gestion des appareils Azure IoT Hub, avec les méthodes directes et les options de gestion des propriétés souhaitées du jumeau.
+title: Gestion des appareils Azure IoT avec l’extension IoT pour Azure CLI | Microsoft Docs
+description: Utilisez l’outil Extension IoT pour Azure CLI permettant la gestion des appareils Azure IoT Hub, avec les méthodes Direct et les options de gestion des propriétés souhaitées du jumeau.
 author: chrissie926
 manager: ''
 keywords: gestion des appareils iot azure, gestion des appareils azure iot hub, gestion des appareils iot, gestion des appareils iot hub
@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: dc96e70a031d6080217e71b829ec5de3c64e4cf7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e36b8a680f0dc5bf6b438ab00620d4f2a5b9770c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971752"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980591"
 ---
-# <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>Utiliser l’extension IoT d’Azure CLI 2.0 pour la gestion des appareils Azure IoT Hub
+# <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>Utiliser l’extension IoT pour Azure CLI permettant la gestion des appareils Azure IoT Hub
 
 ![Diagramme de bout en bout](media/iot-hub-get-started-e2e-diagram/2.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[L’extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) est une nouvelle extension IoT open source qui étend les fonctionnalités [d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0 comprend des commandes permettant d’interagir avec Azure Resource Manager et les points de terminaison de gestion. Par exemple, vous pouvez l’utiliser pour créer une machine virtuelle Azure ou un hub IoT. Une extension de l’interface CLI permet à un service Azure d’enrichir l’interface CLI, donnant ainsi accès à des fonctionnalités supplémentaires propres au service. L’extension IoT offre aux développeurs IoT un accès en ligne de commande à toutes les fonctionnalités d’IoT Hub, d’IoT Edge et du service IoT Hub Device Provisioning.
+[L’extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) est une nouvelle extension IoT open source qui étend les fonctionnalités de [l’interface Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest). L’interface Azure CLI comprend des commandes permettant d’interagir avec les points de terminaison de gestion et ceux d’Azure Resource Manager. Par exemple, vous pouvez utiliser Azure CLI pour créer une machine virtuelle Azure ou un hub IoT. Une extension de l’interface CLI permet à un service Azure d’enrichir l’interface CLI, donnant ainsi accès à des fonctionnalités supplémentaires propres au service. L’extension IoT offre aux développeurs IoT un accès en ligne de commande à toutes les fonctionnalités d’IoT Hub, d’IoT Edge et du service IoT Hub Device Provisioning.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -41,11 +41,11 @@ Les représentations d’appareil sont des documents JSON qui stockent des infor
 
 ## <a name="what-you-learn"></a>Contenu
 
-Vous allez apprendre à utiliser l’extension IoT pour Azure CLI 2.0 avec différentes options de gestion sur votre ordinateur de développement.
+Vous allez apprendre à utiliser l’extension IoT pour Azure CLI avec différentes options de gestion sur votre machine de développement.
 
 ## <a name="what-you-do"></a>Procédure
 
-Exécutez Azure CLI 2.0 et l’extension IoT pour Azure CLI 2.0 avec différentes options de gestion.
+Exécutez Azure CLI et l’extension IoT pour Azure CLI avec différentes options de gestion.
 
 ## <a name="what-you-need"></a>Ce dont vous avez besoin
 
@@ -57,9 +57,7 @@ Exécutez Azure CLI 2.0 et l’extension IoT pour Azure CLI 2.0 avec différente
 - Vérifiez que votre appareil exécute l’application cliente tout au long de ce didacticiel.
 
 - [Python 2.7x ou Python 3.x](https://www.python.org/downloads/)
-
-- Installez Azure CLI 2.0. Pour une installation sur Windows, le plus simple consiste à télécharger et à installer le [MSI](https://aka.ms/InstallAzureCliWindows). Vous pouvez également suivre les instructions d’installation sur [Microsoft Docs](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour configurer Azure CLI 2.0 dans votre environnement. La version d’Azure CLI 2.0 doit être au minimum 2.0.24. Utilisez `az –version` pour valider. 
-
+- l’interface de ligne de commande Azure. Si vous devez l’installer, consultez [Installer l’interface Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Vous devez utiliser Azure CLI version 2.0.24 ou ultérieure. Utilisez `az –version` pour valider. 
 - Installez l’extension IoT. Le plus simple consiste à exécuter `az extension add --name azure-cli-iot-ext`. Le [Lisez-moi de l’extension IoT](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) décrit différentes manières d’installer l’extension.
 
 

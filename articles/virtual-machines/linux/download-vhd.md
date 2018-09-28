@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 1c6751d980a7bb28e58a3aa00514411959f515d7
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 5f269f074236beef3e213c888e540bcf18238be1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725864"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953699"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Télécharger un disque VHD Linux à partir d’Azure
 
 Dans cet article, vous allez découvrir comment télécharger un fichier de [disque dur virtuel (VHD) Linux](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) à partir d’Azure à l’aide d’Azure CLI et du portail Azure. 
 
-Si ce n’est déjà fait, installez [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Si vous ne l’avez pas déjà fait, installez [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 ## <a name="stop-the-vm"></a>Arrêtez la machine virtuelle.
 
@@ -86,6 +86,6 @@ Pour télécharger le fichier VHD, vous devez générer une URL de [signature d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI 2.0](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+- Découvrez comment [charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 - [Gestion des disques Azure avec l’interface de ligne de commande Azure](tutorial-manage-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

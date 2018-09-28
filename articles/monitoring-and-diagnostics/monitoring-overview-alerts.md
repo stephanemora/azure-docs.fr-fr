@@ -1,78 +1,184 @@
 ---
-title: Vue d’ensemble des alertes classiques dans Microsoft Azure et Azure Monitor
-description: Les alertes vous permettent d’analyser des mesures de ressources, événements ou journaux Azure, puis d’envoyer des alertes quand une condition spécifiée est remplie.
+title: Vue d’ensemble des alertes et de la surveillance des notifications dans Azure
+description: Vue d’ensemble des alertes dans Azure. Alertes, alertes classiques, interface d’alertes.
 author: rboucher
-services: azure-monitor
+services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: a0abcbdaa7e998413efb717be6e0addc5607ec5c
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7565c536b5d24c859b164a960f74bd1e2ce97b63
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114009"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960632"
 ---
-# <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
+# <a name="overview-of-alerts-in-microsoft-azure"></a>Vue d’ensemble des alertes dans Microsoft Azure 
 
-> [!NOTE]
-> Cet article décrit comment créer des alertes de métrique classiques plus anciennes. Azure Monitor prend désormais en charge de [nouvelles alertes de métrique quasi en temps réel et une nouvelle expérience d’alertes](monitoring-overview-unified-alerts.md). 
->
-
-L’utilisation d’alertes vous permet de configurer des conditions sur des données, et d’être informé quand les conditions correspondent aux dernières données de surveillance.
+Cet article décrit les alertes Microsoft Azure ainsi que leurs avantages, et comment commencer à les utiliser.  
 
 
-## <a name="alerts-on-azure-monitor-data"></a>Alertes pour des données Azure Monitor
-Deux types d’alertes classiques sont disponibles : les alertes de métrique et les alertes de journal d’activité.
+## <a name="what-are-alerts-in-microsoft-azure"></a>Que sont les alertes dans Microsoft Azure ?
+Les alertes vous avertissent de façon proactive lorsque des conditions significatives sont détectées dans vos données de surveillance. Elles permettent d’identifier et de résoudre les problèmes avant que les utilisateurs de votre système ne les remarquent. 
 
-* **Alertes de métrique classiques** : ces alertes se déclenchent quand la valeur d’une métrique spécifiée dépasse le seuil que vous définissez. L’alerte génère une notification quand elle est « activée » (quand le seuil est atteint et que la condition d’alerte est remplie). Elle génère également une notification quand elle est « résolue » (quand le seuil n’est plus atteint et que la condition n’est plus remplie). 
+Cet article décrit l’expérience d’alerte unifiée dans Azure Monitor, qui inclut maintenant Log Analytics et Application Insights. La [précédente expérience d’alerte](monitoring-overview-alerts.md)et les anciens types d’alerte sont appelés **alertes classiques**. Vous pouvez afficher cette expérience antérieure et les type d’alerte plus anciens en cliquant sur **Afficher les alertes classiques** en haut de la page d’alerte. 
 
-* **Alertes de journal d’activité classiques** : cette alerte du journal de diffusion en continu se déclenche quand un événement du journal d’activité généré répond aux critères de filtre que vous avez définis. Ces alertes ne peuvent être qu’à l’état « activé », car le moteur d’alerte ne fait qu’appliquer les critères de filtre aux nouveaux événements. Ces alertes peuvent vous informer quand un nouvel incident d’état du service se produit ou quand un utilisateur ou une application effectue une opération dans votre abonnement (par exemple, « Supprimer la machine virtuelle »).
 
-Pour recevoir les données du journal de diagnostic disponibles via Azure Monitor, acheminez-les vers Log Analytics (anciennement Operations Management Suite) et utilisez une alerte de requête Log Analytics. Log Analytics utilise désormais la [nouvelle méthode d’alerte](monitoring-overview-unified-alerts.md). 
+## <a name="overview"></a>Vue d’ensemble
 
-Le diagramme suivant récapitule les sources de données d’Azure Monitor, et suggère comment alerter à partir de ces données.
+Le diagramme ci-dessous représente les conditions générales et le flux d’alertes. 
 
-![Alertes expliquées](./media/monitoring-overview-alerts/Alerts_Overview_Resource_v4.png)
+![Flux d’alertes](media/monitoring-overview-alerts/Azure-Monitor-Alerts.svg)
 
-## <a name="taxonomy-of-azure-monitor-alerts-classic"></a>Taxonomie des alertes Azure Monitor (classiques)
-Azure utilise les termes suivants pour décrire les alertes classiques et leurs fonctions :
-* **Alerte** : définition de critères (une ou plusieurs règles ou conditions) qui est activée lorsque les critères sont remplis.
-* **Active** : état qui se produit lorsque les critères définis par une alerte classique sont remplis.
-* **Résolue** : état qui se produit lorsque les critères définis par une alerte classique ne sont plus remplis après l’avoir été.
-* **Notification** : action effectuée quand une alerte classique devient active.
-* **Action** : appel spécifique adressé au destinataire d’une notification (par exemple, par e-mail ou via une publication sur une URL de webhook). Les notifications peuvent généralement déclencher plusieurs actions.
+Les règles d’alerte sont séparées des alertes et de l’action effectuée lorsqu’une alerte se déclenche. 
 
-## <a name="how-do-i-receive-notifications-from-an-azure-monitor-classic-alert"></a>Comment recevoir une notification d’une alerte classique Azure Monitor ?
-Auparavant, les alertes Azure des différents services utilisaient leurs propres méthodes de notification intégrées. 
+- **Règle d’alerte** : la règle d’alerte capture la cible et les critères d’alerte. La règle d’alerte peut être activée ou désactivée. Les alertes se déclenchent uniquement lorsqu’elles sont activées. Les principaux attributs des règles d’alerte sont les suivants :
+    - **Ressource cible** : une cible peut être n’importe quelle ressource Azure. Une ressource cible définit l’étendue et les signaux disponibles pour les fonctions de génération d’alertes. Exemples de cibles : une machine virtuelle, un compte de stockage, un groupe de machines virtuelles identiques, un espace de travail Log Analytics ou une ressource Application Insights. Pour certaines ressources (par exemple, les machines virtuelles), vous pouvez spécifier plusieurs ressources comme cible d’une règle d’alerte.
+    - **Signal** : des signaux sont émis par la ressource cible. Ils peuvent être de plusieurs types (Métrique, Journal d’activité, Application Insights et Journal).
+    - **Critères** : les critères sont une combinaison du signal et de la logique appliqués à une ressource cible. Exemples : 
+         - Pourcentage d’UC > 70 %
+         - Temps de réponse du serveur > 4 ms 
+         - Nombre de résultats d’une requête de journal > 100
+- **Nom de l’alerte** : nom spécifique pour la règle d’alerte configurée par l’utilisateur
+- **Description de l’alerte** : description de la règle d’alerte configurée par l’utilisateur
+- **Gravité** : gravité de l’alerte une fois que les critères spécifiés dans la règle d’alerte sont remplis. La gravité peut être comprise entre 0 et 4.
+- **Action** : action spécifique mise en œuvre quand l’alerte est déclenchée. Pour plus d’informations, consultez Groupes d’actions.
 
-À présent, Azure Monitor propose un regroupement de notifications réutilisable appelé *groupe d’actions*. Les groupes d’actions spécifient un ensemble de destinataires pour une notification. Quand une alerte est activée, qui référence le groupe d’actions, tous les destinataires reçoivent la notification. Cette fonctionnalité vous permet de réutiliser un groupe de destinataires (par exemple, votre liste d’ingénieurs techniques) pour plusieurs objets d’alerte. Les groupes d’actions prennent en charge la notification via différentes méthodes. Ces méthodes peuvent être une publication sur une URL de webhook, l’envoi d’e-mails ou de SMS, et plusieurs autres actions. Pour plus d’informations, voir [Créer et gérer des groupes d’actions dans le portail Azure](monitoring-action-groups.md). 
+## <a name="what-you-can-alert-on"></a>Sur quoi portent les alertes ?
 
-Les alertes de journal d’activité classiques plus anciennes utilisent des groupes d’actions.
+Vous pouvez définir des alertes sur des métriques et des journaux, comme décrit dans les [sources de données de surveillance](monitoring-data-sources.md). Ces vérifications portent notamment sur les revendications suivantes :
+- Valeurs de métrique
+- Requêtes de recherche de journal
+- Événements du journal d'activité
+- Contrôle d’intégrité de la plateforme Azure sous-jacente
+- Tests de disponibilité des sites web
 
-En revanche, les alertes de métrique plus anciennes n’utilisent pas de groupes d’actions. Au lieu de cela, vous pouvez configurer les actions suivantes : 
-* envoyer des notifications par courrier électronique à l’administrateur de service, aux coadministrateurs ou à des adresses e-mail supplémentaires que vous spécifiez ;
-* appeler un webhook, qui permet de lancer des actions d’automatisation supplémentaires.
 
-Webhook permet l’automatisation et la correction, par exemple, à l’aide des services suivants :
-- Runbook Azure Automation
-- Azure Functions
-- Application logique Azure
-- Service tiers
+
+## <a name="manage-alerts"></a>Gérer les alertes
+Vous pouvez définir l’état d’une alerte afin d’indiquer où elle se situe dans le processus de résolution. Lorsque les critères spécifiés dans la règle d’alerte sont remplis, une alerte est créée ou déclenchée, et elle a le statut *Nouveau*. Vous pouvez changer son état après l’avoir reconnue ou fermée. Les changements d’état sont stockés dans l’historique de l’alerte.
+
+Les états d’alerte suivants sont pris en charge.
+
+| État | Description |
+|:---|:---|
+| Nouveau | Le problème vient d’être détecté et n’a pas encore été examiné. |
+| Reconnu | Un administrateur a révisé l’alerte et a commencé à travailler sur celle-ci. |
+| Fermés | Le problème a été résolu. Après qu’une alerte a été fermée, vous pouvez la rouvrir en modifiant son état. |
+
+L’état d’une alerte est différent de la condition d’analyse. L’état d’alerte est défini par l’utilisateur et est indépendant de la condition d’analyse. Lorsque la condition sous-jacente de l’alerte déclenchée disparaît, la condition de surveillance de l’alerte est considérée comme résolue. Bien que le système puisse définir la condition de surveillance comme résolue, l’état d’alerte ne change pas tant que l’utilisateur ne le modifie pas. Découvrez comment [modifier l’état de vos alertes et de vos groupes intelligents](https://aka.ms/managing-alert-smart-group-states).
+
+## <a name="smart-groups"></a>Groupes intelligents 
+Les groupes intelligents sont disponibles dans la préversion. 
+
+Les groupes intelligents sont des agrégations d’alertes reposant sur des algorithmes d’apprentissage machine qui permettent de réduire le bruit des alertes et de faciliter la résolution des problèmes. [En savoir plus sur les groupes intelligents](https://aka.ms/smart-groups) et sur [leur gestion](https://aka.ms/managing-smart-groups).
+
+
+## <a name="alerts-experience"></a>Expérience d’alertes 
+La page des alertes par défaut fournit un résumé des alertes qui sont créées dans une fenêtre de temps spécifique. Elle affiche le nombre total d’alertes pour chaque niveau de gravité avec des colonnes identifiant le nombre total d’alertes dans chaque état pour chaque niveau de gravité. Sélectionnez l’un des niveaux de gravité pour ouvrir la page [Toutes les alertes](#all-alerts-page) filtrée sur ce niveau de gravité.
+
+Elle n’affiche pas et ne suit pas les [alertes classiques](#classic-alerts) plus anciennes. Vous pouvez modifier les abonnements ou filtrer des paramètres pour mettre à jour la page. 
+
+![Page des alertes](media/monitoring-overview-alerts/alerts-page.png)
+
+Vous pouvez filtrer cet affichage en sélectionnant des valeurs dans les menus déroulants en haut de la page.
+
+| Colonne | Description |
+|:---|:---|
+| Abonnement | Sélectionnez jusqu’à cinq abonnements Azure. Seules les alertes dans les abonnements sélectionnés sont incluses dans la vue. |
+| Groupe de ressources | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
+| Période | Seules les alertes déclenchées dans la fenêtre de temps sélectionnée seront incluses dans l’affichage. Les valeurs prises en charge sont : dernière heure, dernières 24 heures, 7 derniers jours et 30 derniers jours. |
+
+Sélectionnez les valeurs suivantes en haut de la page Alertes pour ouvrir une autre page.
+
+| Valeur | Description |
+|:---|:---|
+| Nombre total d’alertes | Nombre total d’alertes correspondant aux critères sélectionnés. Sélectionnez cette valeur pour ouvrir l’affichage Toutes les alertes sans filtre. |
+| Groupes intelligents | Nombre total de groupes intelligents créés par les alertes correspondant aux critères sélectionnés. Sélectionnez cette valeur pour ouvrir la liste des groupes intelligents dans l’affichage Toutes les alertes.
+| Nombre total de règles d’alerte | Nombre total de règles d’alerte dans l’abonnement et le groupe de ressources sélectionnés. Sélectionnez cette valeur pour ouvrir l’affichage Règles, filtré sur l’abonnement et le groupe de ressources sélectionnés.
+
+
+## <a name="manage-alert-rules"></a>Gérer les règles d’alerte
+Cliquez sur **Gérer les règles d’alerte** pour afficher la page **Règles**. La page **Règles** est un emplacement unique permettant de gérer toutes les règles d’alerte de vos abonnements Azure. Elle répertorie toutes les règles d’alerte et peut être triée en fonction des ressources cibles, des groupes de ressources, du nom de règle ou de l’état. Les règles d’alerte peuvent également être modifiées, activées ou désactivées à partir de cette page.  
+
+ ![alertes-règles](./media/monitoring-overview-alerts/alerts-preview-rules.png)
+
+
+## <a name="create-an-alert-rule"></a>Création d'une règle d'alerte
+Les alertes peuvent être créées de manière homogène, quel que soit le service de surveillance ou le type de signal. Toutes les alertes déclenchées et les détails connexes sont disponibles sur une seule page.
+ 
+Vous créez une nouvelle règle d’alerte à l’aide des trois étapes suivantes :
+1. Choisissez la _cible_ de l’alerte.
+1. Sélectionnez le _signal_ parmi les signaux disponibles pour la cible.
+1. Spécifiez la _logique_ à appliquer aux données du signal.
+ 
+Ce processus de création simplifié ne nécessite plus que vous connaissiez la source de la surveillance ou les signaux pris en charge avant de sélectionner une ressource Azure. La liste des signaux disponibles est automatiquement filtrée en fonction de la ressource cible sélectionnée, et vous guide dans la définition de la logique de la règle d’alerte.
+
+Pour plus d’informations sur la création de règles d’alerte, voir [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](monitor-alerts-unified-usage.md).
+
+Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour plus d’informations sur la façon d’utiliser chacun de ces services et le moment opportun pour le faire, voir [Surveillance des applications et des ressources Azure](./monitoring-overview.md). Le tableau suivant fournit la liste des types de règles d’alerte disponibles dans Azure. Il répertorie aussi les éléments actuellement pris en charge dans chaque expérience d’alerte.
+
+Par le passé, Azure Monitor, Application Insights, Log Analytics et Service Health avaient des fonctionnalités d’alerte distinctes. Au fil du temps, Azure a amélioré et combiné l’interface utilisateur et les différentes méthodes d’alerte. Cette consolidation est toujours en cours. Par conséquent, certaines fonctionnalités ne sont pas encore disponibles dans le nouveau système d’alertes.  
+
+| **Source de la surveillance** | **Type de signal**  | **Description** | 
+|-------------|----------------|-------------|
+| État d’intégrité du service | Journal d’activité  | Non pris en charge. Consultez [Créer des alertes de journal d’activité sur les notifications de service](monitoring-activity-log-alerts-on-service-notifications.md).  |
+| Application Insights | Tests de disponibilité web | Non pris en charge. Consultez [Alertes de test web](../application-insights/app-insights-monitor-web-app-availability.md). Disponibles pour tout site web instrumenté pour envoyer des données à Application Insights. Réception d’une notification lorsque la réactivité ou la disponibilité d’un site web est inférieure aux attentes. |
+
+
+## <a name="all-alerts-page"></a>Page Toutes les alertes 
+Cliquez sur Nombre total d’alertes pour afficher la page Toutes les alertes. Vous obtenez une liste des alertes qui ont été créées dans la fenêtre de temps sélectionnée. Vous pouvez afficher une liste des alertes individuelles ou une liste des groupes intelligents contenant les alertes. Sélectionnez la bannière en haut de la page pour basculer entre les affichages.
+
+![Page Toutes les alertes](media/monitoring-overview-alerts/all-alerts-page.png)
+
+Vous pouvez filtrer l’affichage en sélectionnant les valeurs suivantes dans les menus déroulants en haut de la page.
+
+| Colonne | Description |
+|:---|:---|
+| Abonnement | Sélectionnez jusqu’à cinq abonnements Azure. Seules les alertes dans les abonnements sélectionnés sont incluses dans la vue. |
+| Groupe de ressources | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
+| Type de ressource | Sélectionnez un ou plusieurs types de ressources. Seules les alertes avec des cibles du type sélectionné sont incluses dans la vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. |
+| Ressource | Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. |
+| Severity | Sélectionnez un niveau de gravité d’alerte ou *Tous* pour inclure les alertes de tous les niveaux de gravité. |
+| Condition de surveillance | Sélectionnez une condition de surveillance ou *Tous* pour inclure les alertes de conditions. |
+| État d’alerte | Sélectionnez un état d’alerte ou *Tous* pour inclure les alertes d’états. |
+| Service de surveillance | Sélectionnez un service ou *Tous* pour inclure tous les services. Seules les alertes créées par des règles utilisant ce service comme cible sont incluses. |
+| Période | Seules les alertes déclenchées dans la fenêtre de temps sélectionnée seront incluses dans l’affichage. Les valeurs prises en charge sont : dernière heure, dernières 24 heures, 7 derniers jours et 30 derniers jours. |
+
+Cliquez sur **Colonnes** en haut de la page pour sélectionner les colonnes à afficher. 
+
+## <a name="alert-detail-page"></a>Page Détails de l’alerte
+La page Détails de l’alerte s’affiche lorsque vous sélectionnez une alerte. Elle fournit des détails de l’alerte et vous permet d’en modifier l’état.
+
+![Détails de l’alerte](media/monitoring-overview-alerts/alert-detail2.png)
+
+La page Détails de l’alerte comprend les sections suivantes.
+
+| Section | Description |
+|:---|:---|
+| Essentials | Affiche les propriétés et autres informations importantes sur l’alerte. |
+| Historique | Répertorie chaque action effectuée par l’alerte et toutes les modifications apportées à l’alerte. Il se limite actuellement aux changements d’état. |
+| Groupe intelligent | Informations sur le groupe intelligent dans lequel l’alerte se trouve. Le *nombre d’alertes* fait référence au nombre d’alertes incluses dans le groupe intelligent. Il inclut les autres alertes incluses dans le même groupe intelligent qui ont été créées au cours des 30 derniers jours.  Et ceci, quel que soit le filtre de temps dans la page de la liste des alertes. Sélectionnez une alerte pour afficher ses détails. |
+| Détails supplémentaires | Affiche des informations contextuelles supplémentaires sur l’alerte, qui sont généralement spécifiques du type de source ayant créé l’alerte. |
+
+
+## <a name="classic-alerts"></a>Alertes classiques 
+
+Les métriques Azure Monitor et la fonctionnalité d’alerte du journal d'activité avant juin 2018 sont appelées « Alertes classiques ». 
+
+Pour plus d’informations, voir [Alertes classiques](./monitoring-overview-alerts-classic.md).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
-Accédez à des informations sur les règles d’alerte et la manière de les configurer en utilisant la documentation suivante :
 
-* En savoir plus sur les [métriques](monitoring-overview-metrics.md).
-* Configurer [des alertes de métrique classiques à l’aide du portail Azure](insights-alerts-portal.md)
-* Configurer [des alertes de métrique classiques à l’aide de PowerShell](insights-alerts-powershell.md)
-* Configurer [des alertes de métrique classiques à l’aide d’Azure CLI](insights-alerts-command-line-interface.md)
-* Configurer [des alertes de métrique classiques à l’aide de l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* En savoir plus sur les [Journaux d’activité](monitoring-overview-activity-logs.md)
-* Configurer [des alertes de journal d’activité à l’aide du portail Azure](monitoring-activity-log-alerts.md)
-* Configurer [des alertes de journal d’activité à l’aide du Gestionnaire des ressources](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
-* Consulter le [schéma de webhook d’alerte de journal d’activité](monitoring-activity-log-alerts-webhook.md)
-* En savoir plus sur les [groupes d’actions](monitoring-action-groups.md)
-* Configurer [des alertes plus récentes](monitor-alerts-unified-usage.md)
+- [En savoir plus sur les groupes intelligents](https://aka.ms/smart-groups)
+- [En savoir plus sur les groupes d’actions](monitoring-action-groups.md)
+- [Gestion des instances d’alertes dans Azure](https://aka.ms/managing-alert-instances)
+- [Gestion des groupes intelligents](https://aka.ms/managing-smart-groups)
+
+
+
+
+

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1a5df1081edeb8b8e7520064a71534f70a9a9d33
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344298"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954396"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -27,11 +27,11 @@ La gestion automatique des appareils dans Azure IoT Hub automatise une grande pa
 ## <a name="automatic-device-configuration"></a>Configuration automatique des appareils
 Le backend de la solution peut utiliser des [configurations automatiques des appareils](iot-hub-auto-device-config.md) pour affecter des propriétés souhaitées à un ensemble de [jumeaux d’appareil](#device-twin) et signaler l’état à l’aide de métriques système et de métriques personnalisées. 
 
-## <a name="azure-cli"></a>Azure CLI
-[Azure CLI](../cli-install-nodejs.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI est implémentée à l’aide de Node.js.
+## <a name="azure-classic-cli"></a>Azure classic CLI
+[Azure CLI Classic](../cli-install-nodejs.md) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, et servant à créer et à gérer des ressources dans Microsoft Azure. Cette version de l’interface CLI doit être uniquement utilisée pour les déploiements classiques.
 
-## <a name="azure-cli-20"></a>Azure CLI 2.0
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure. Cette version préliminaire de l’interface CLI est implémentée à l’aide de Python.
+## <a name="azure-cli"></a>Azure CLI
+[Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) est un outil de commande multiplateforme, open source, basé sur un interpréteur de commandes, servant à créer et à gérer des ressources dans Microsoft Azure.
 
 
 ## <a name="azure-iot-device-sdks"></a>Kits Azure IoT device SDK
@@ -185,8 +185,8 @@ Le [langage de requête IoT Hub](iot-hub-devguide-query-language.md) est un lang
 ## <a name="iot-solution-accelerators"></a>Accélérateurs de solution IoT
 Les accélérateurs de solution Azure IoT regroupent plusieurs services Azure dans des solutions. Ces solutions vous permettent de démarrer rapidement avec des implémentations de bout en bout de scénarios IoT courants. Pour plus d’informations, consultez [Présentation des accélérateurs de solution Azure IoT](../iot-accelerators/about-iot-accelerators.md).
 
-## <a name="the-iot-extension-for-azure-cli-20"></a>Extension IoT pour Azure CLI 2.0
-[L’extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension) est un outil de ligne de commande multiplateforme. Cet outil vous permet de gérer vos appareils dans le [registre des identités](#identity-registry), d’envoyer et de recevoir des messages et des fichiers sur vos appareils, et de surveiller les opérations de votre IoT Hub.
+## <a name="the-iot-extension-for-azure-cli"></a>Extension IoT pour Azure CLI 
+[L’extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) est un outil de ligne de commande multiplateforme. Cet outil vous permet de gérer vos appareils dans le [registre des identités](#identity-registry), d’envoyer et de recevoir des messages et des fichiers sur vos appareils, et de surveiller les opérations de votre IoT Hub.
 
 ## <a name="job"></a>Travail
 Votre serveur principal de solution peut utiliser des [travaux](iot-hub-devguide-jobs.md) pour planifier et suivre des activités sur un ensemble d’appareils inscrits auprès de votre IoT Hub. Ces activités comprennent la mise à jour des [propriétés souhaitées](#desired-properties) de l’appareil, la mise à jour des [balises](#tags) de jumeau d’appareil et l’appel de [méthodes directes](#direct-method). [IoT Hub](#iot-hub) utilise également des travaux pour [importer dans et exporter](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) depuis le [registre des identités](#identity-registry).

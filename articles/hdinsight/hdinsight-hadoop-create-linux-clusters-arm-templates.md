@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: 9a48b3ff9769e2757ac7930feb14d6537d96fae3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4cf516550e9f9852ec50981932c2df8f236d0358
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109236"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961312"
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Créer des clusters Hadoop dans HDInsight avec des modèles Resource Manager
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -27,7 +27,7 @@ Vous trouverez dans cet article différentes façons de créer des clusters Azur
 Pour suivre les instructions de cet article, il vous faut :
 
 * Un [abonnement Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* L’interface de ligne de commande Azure ou Azure PowerShell.
+* Azure PowerShell et/ou Azure Classic CLI.
 
 ### <a name="resource-manager-templates"></a>Modèles Resource Manager
 Un modèle Resource Manager facilite la création des ressources suivantes pour votre application en une seule opération coordonnée :
@@ -49,7 +49,7 @@ Resource Manager vous permet d’exporter un modèle Resource Manager à partir 
 
 - Portail Azure : consultez [Exporter un modèle Azure Resource Manager à partir de ressources existantes](../azure-resource-manager/resource-manager-export-template.md).
 - Azure PowerShell : consultez [Exporter des modèles Azure Resource Manager avec PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md).
-- Azure CLI : consultez [Exporter des modèles Azure Resource Manager avec Azure CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
+- Azure Classic CLI : consultez [Exporter des modèles Azure Resource Manager avec Azure Classic CLI](../azure-resource-manager/resource-manager-export-template-cli.md).
 
 
 ## <a name="deploy-using-the-portal"></a>Procéder à un déploiement à l’aide du portail
@@ -60,9 +60,9 @@ Vous pouvez déployer un modèle Resource Manager à l’aide du portail Azure. 
 
 Vous pouvez déployer un modèle Resource Manager à l’aide d’Azure PowerShell. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) et [Déployer un modèle Resource Manager privé avec un jeton SAP et Azure PowerShell](../azure-resource-manager/resource-manager-powershell-sas-token.md).
 
-## <a name="deploy-using-cli"></a>Déployer à l’aide de l’interface CLI
+## <a name="deploy-using-azure-cli"></a>Déployer à l’aide d’Azure CLI
 
-Vous pouvez déployer un modèle Resource Manager à l’aide d’Azure CLI. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) et [Déployer un modèle Resource Manager privé avec un jeton SAP et Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
+Vous pouvez déployer un modèle Resource Manager à l’aide d’Azure Classic CLI. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et d’Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) et [Déployer un modèle Resource Manager privé avec un jeton SAP et Azure CLI](../azure-resource-manager/resource-manager-cli-sas-token.md).
 
 ## <a name="deploy-using-the-rest-api"></a>Procéder à un déploiement à l’aide de l’API REST
 Vous pouvez déployer un modèle Resource Manager à l’aide de l’API REST. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md).

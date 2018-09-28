@@ -1,6 +1,6 @@
 ---
 title: Utiliser l’extension de machine virtuelle Azure Docker | Microsoft Docs
-description: Découvrez comment utiliser l’extension de machine virtuelle Docker sur Azure pour déployer un environnement Docker rapidement et en toute sécurité dans Azure en utilisant des modèles Resource Manager et Azure CLI 2.0
+description: Découvrez comment utiliser l’extension de machine virtuelle Docker pour déployer de manière rapide et sécurisée un environnement Docker dans Azure en utilisant des modèles Resource Manager et Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 44c307a5f21937cd2a3ef345fd4573c67efdaf59
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 59dbbb8374455088d759a5e837b8d3bc22145d3e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928616"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981295"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Création d’un environnement Docker dans Azure à l’aide de l’extension Docker VM
-Docker est une solution courante de gestion de conteneurs et une plateforme de création d’images qui permet de travailler rapidement avec des conteneurs sous Linux. Dans Azure, il existe différentes méthodes pour déployer Docker selon vos besoins. Cet article se concentre sur l’utilisation de l’extension de machine virtuelle Docker et des modèles Azure Resource Manager avec Azure CLI 2.0. 
+
+Docker est une solution courante de gestion de conteneurs et une plateforme de création d’images qui permet de travailler rapidement avec des conteneurs sous Linux. Dans Azure, il existe différentes méthodes pour déployer Docker selon vos besoins. Cet article se concentre sur l’utilisation de l’extension de machine virtuelle Docker et des modèles Azure Resource Manager avec Azure CLI. 
 
 > [!WARNING]
 > L’extension de machine virtuelle Azure Docker pour Linux est déconseillée et sera mise hors service en novembre 2018.
@@ -38,7 +39,7 @@ Pour plus d’informations sur les différentes méthodes de déploiement, y com
 
 
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Déployer un modèle avec l’extension de machine virtuelle Azure Docker
-Nous allons utiliser un modèle de démarrage rapide existant pour créer une machine virtuelle Ubuntu qui utilise l’extension Azure Docker VM pour installer et configurer l’hôte Docker. Vous pouvez voir le modèle ici : [Simple deployment of an Ubuntu VM with Docker (Déploiement simple d’une machine virtuelle Ubuntu avec Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login).
+Nous allons utiliser un modèle de démarrage rapide existant pour créer une machine virtuelle Ubuntu qui utilise l’extension Azure Docker VM pour installer et configurer l’hôte Docker. Vous pouvez voir le modèle ici : [Simple deployment of an Ubuntu VM with Docker (Déploiement simple d’une machine virtuelle Ubuntu avec Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Vous devez avoir la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et être connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
 
 Tout d’abord, créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create). L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *eastus* :
 

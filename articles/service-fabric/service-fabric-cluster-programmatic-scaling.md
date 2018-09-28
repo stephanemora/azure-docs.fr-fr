@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: dcf4721012fb8ec39bcd1de02c294747357b3539
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213059"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949608"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Mettre à l’échelle un cluster Service Fabric par programmation 
 
 Les clusters Service Fabric s’exécutant dans Azure s’appuient sur les groupes de machines virtuelles identiques.  La [mise à l’échelle du cluster](./service-fabric-cluster-scale-up-down.md) décrit comment les clusters Service Fabric peuvent être mis à l’échelle manuellement ou selon des règles de mise à l’échelle automatique. Cet article décrit comment gérer les informations d’identification et monter ou réduire en puissance un cluster à l’aide du Kit de développement logiciel (SDK) Azure Fluent, qui est un scénario plus avancé. Pour obtenir une vue d’ensemble, consultez les [méthodes de programmation de coordination des opérations de mise à l’échelle Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 ## <a name="manage-credentials"></a>Gérer les informations d’identification
-Un service chargé de gérer la mise à l’échelle doit pouvoir accéder aux ressources d’un groupe de machines virtuelles identiques, sans ouverture de session interactive. L’accès au cluster Service Fabric est simple si le service de mise à l’échelle modifie sa propre application Service Fabric, mais des informations d’identification sont nécessaires pour accéder au groupe identique. Pour vous connecter, vous pouvez utiliser un [principal de service](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) créé avec [Azure CLI 2.0](https://github.com/azure/azure-cli).
+Un service chargé de gérer la mise à l’échelle doit pouvoir accéder aux ressources d’un groupe de machines virtuelles identiques, sans ouverture de session interactive. L’accès au cluster Service Fabric est simple si le service de mise à l’échelle modifie sa propre application Service Fabric, mais des informations d’identification sont nécessaires pour accéder au groupe identique. Pour vous connecter, vous pouvez utiliser un [principal de service](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) créé avec l’[interface de ligne de commande Azure](https://github.com/azure/azure-cli).
 
 Pour créer un principal de service, procédez comme suit :
 

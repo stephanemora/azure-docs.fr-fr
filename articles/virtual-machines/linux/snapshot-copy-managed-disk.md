@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9fbbbb4f73b5295b648008878c8145fe926fbaad
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007003"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974389"
 ---
 # <a name="create-a-snapshot"></a>Créer un instantané 
 
@@ -26,7 +26,7 @@ Prenez une capture instantanée d’un système d’exploitation ou d’un disqu
 
 ## <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure 
 
-L’exemple suivant requiert que vous utilisiez [Cloud Shell](https://shell.azure.com/bash) ou qu’Azure CLI 2.0 soit installé. Pour déterminer la version, exécutez la commande **az --version**. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+L’exemple suivant nécessite l’utilisation de [Cloud Shell](https://shell.azure.com/bash) ou l’installation d’Azure CLI.
 
 Les étapes suivantes montrent comment effectuer une capture instantanée à l’aide de la commande **az snapshot create** avec le paramètre **--source-disk**. L’exemple suivant suppose qu’il existe une machine virtuelle nommée *myVM* dans le groupe de ressources *myResourceGroup*.
 

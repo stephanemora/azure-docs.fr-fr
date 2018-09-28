@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 563194ea0b3e4bda2021c75c544d068f00d74ba7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293619"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963830"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Intégrité du serveur principal, journaux de diagnostic et métriques pour la passerelle Application Gateway
 
@@ -58,7 +58,7 @@ Le code PowerShell suivant montre comment afficher l’intégrité du serveur pr
 Get-AzureRmApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
 ```
 
-### <a name="view-back-end-health-through-azure-cli-20"></a>Affichage de l’intégrité du serveur principal via Azure CLI 2.0
+### <a name="view-back-end-health-through-azure-cli"></a>Affichage de l’intégrité du serveur principal via Azure CLI
 
 ```azurecli
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
@@ -311,6 +311,10 @@ Vous pouvez également vous connecter à votre compte de stockage et récupérer
 > Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans GitHub.
 > 
 > 
+
+#### <a name="analyzing-access-logs-through-goaccess"></a>Analyse des journaux d’accès via GoAccess
+
+Nous avons publié un modèle Resource Manager qui installe et exécute le célèbre analyseur de journal [GoAccess](https://goaccess.io/) pour les journaux d’accès Application Gateway. GoAccess fournit des statistiques de trafic HTTP précieuses telles que les visiteurs uniques, les fichiers demandés, les hôtes, les systèmes d’exploitation, les navigateurs ou les codes d’état HTTP. Pour plus d’informations, consultez le [fichier Lisez-moi dans le dossier de modèles Resource Manager dans GitHub](https://aka.ms/appgwgoaccessreadme).
 
 ## <a name="metrics"></a>Mesures
 

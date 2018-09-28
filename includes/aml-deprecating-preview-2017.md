@@ -1,0 +1,2 @@
+>[!Note]
+>**Cet article est déprécié.** La prise en charge des versions antérieures de ce service va prendre fin progressivement. [Afficher la chronologie de la prise en charge](../articles/machine-learning/service/overview-what-happened-to-workbench.md#timeline). Commencer à utiliser la dernière version avec ce guide de [démarrage rapide](../articles/machine-learning/service/index.yml).

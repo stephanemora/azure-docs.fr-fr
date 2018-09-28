@@ -1,6 +1,6 @@
 ---
-title: Capturer l’image d’une machine virtuelle Linux dans Azure à l’aide de l’interface CLI 2.0 | Microsoft Docs
-description: Capturez une image d’une machine virtuelle Azure à utiliser pour les déploiements de masse à l’aide de l’interface Azure CLI 2.0.
+title: Capturer l’image d’une machine virtuelle Linux dans Azure à l’aide d’Azure CLI | Microsoft Docs
+description: Capturez l’image d’une machine virtuelle Azure et utilisez-la pour les déploiements de masse à l’aide d’Azure CLI.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: ea202cad06130cfaaa134cad94ac08bede2f41a9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 98d98c1337830ce54c7ff96c19812169be129584
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867699"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946814"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Créer une image d’une machine virtuelle ou d’un disque dur virtuel
 
@@ -38,7 +38,7 @@ Assurez-vous de satisfaire les prérequis suivants :
 
 * Vous avez besoin d’une machine virtuelle Azure créée avec le modèle de déploiement Resource Manager à l’aide de disques managés. Si vous n’avez pas créé de machine virtuelle Linux, vous pouvez utiliser le [portail](quick-create-portal.md), l’interface [Azure CLI](quick-create-cli.md) ou les [modèles Resource Manager](create-ssh-secured-vm-from-template.md). Configurez la machine virtuelle en fonction de vos besoins. Par exemple, [ajoutez des disques de données](add-disk.md), appliquez des mises à jour et installez des applications. 
 
-* Vous devez également disposer de la dernière version d’[Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login).
+* Vous devez aussi installer la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="quick-commands"></a>Commandes rapides
 
@@ -62,7 +62,7 @@ Déprovisionnez la machine virtuelle à l’aide de l’agent de machine virtuel
 4. Une fois la commande terminée, tapez **exit**. Cette étape ferme le client SSH.
 
 ## <a name="step-2-create-vm-image"></a>Étape 2 : Créer une image de machine virtuelle
-Utilisez l’interface Azure CLI 2.0 pour marquer la machine virtuelle comme étant généralisée et capturer l’image. Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myVnet* et *myVM*.
+Utilisez Azure CLI pour marquer la machine virtuelle comme étant généralisée et capturer l’image. Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup*, *myVnet* et *myVM*.
 
 1. Libérez la machine virtuelle dont vous avez annulé le déploiement à l’aide de la commande [az vm deallocate](/cli//azure/vm#deallocate). L’exemple suivant libère la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
    
@@ -146,4 +146,4 @@ Vous pouvez créer plusieurs machines virtuelles à partir de votre image de mac
 - Suivez de nouveau ces étapes pour annuler le déploiement, libérer, généraliser et créer une image.
 - Utilisez cette nouvelle image pour les déploiements futurs. Si vous le souhaitez, supprimez l’image d’origine.
 
-Pour plus d’informations sur la gestion de vos machines virtuelles avec l’interface de ligne de commande, consultez [Azure CLI 2.0](/cli/azure).
+Pour plus d’informations sur la gestion de vos machines virtuelles avec l’interface CLI, consultez [Azure CLI](/cli/azure).

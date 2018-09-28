@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca089672cf645af58952205dada66aa96ba0b65d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e8bd5ddab4553807f59b7afdf32fbfc1703e3d75
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578241"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949523"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One sur les machines virtuelles Azure
 Ce document fournit des conseils pour déployer SAP Business One sur des machines virtuelles Azure. Ce document n’est pas un substitue au document d’installation pour SAP Business One. Le document doit couvrir la planification de base et les instructions de déploiement pour que l’infrastructure Azure exécute des applications Business One.
@@ -39,7 +39,7 @@ Pour utiliser ce guide, vous devez disposer des connaissances de base quant aux 
 - [Machines virtuelles Azure sur Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Mise en réseau Azure et gestion des réseaux virtuels avec PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-virtual-network)
 - [Mise en réseau et réseaux virtuels Azure avec CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Gestion des disques Azure avec Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Gérer des disques Azure avec Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Même si vous êtes intéressé uniquement par Business One, le document [Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) peut constituer une bonne source d’informations.
 

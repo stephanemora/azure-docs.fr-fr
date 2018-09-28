@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: abad57856db63c954f963a28b1dbd3c95395c9bd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8b3956860a38057771770b965006606ffb3e24f8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652584"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963779"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
 
 Lorsque vous déployez un groupe de machines virtuelles identiques Azure via le portail, certaines propriétés de réseau sont définies par défaut, comme un équilibrage de charge Azure avec des règles NAT entrantes. Cet article explique comment utiliser certaines des fonctionnalités avancées de mise en réseau, que vous pouvez configurer avec les groupes identiques.
 
-Vous pouvez configurer toutes les fonctionnalités abordées dans cet article à l’aide des modèles Azure Resource Manager. Des exemples d’interfaces de ligne de commande Azure et Powershell sont également inclus pour les fonctionnalités sélectionnées. Utilisez CLI 2.10 et PowerShell 4.2.0 ou version ultérieure.
+Vous pouvez configurer toutes les fonctionnalités abordées dans cet article à l’aide des modèles Azure Resource Manager. Des exemples d’interfaces de ligne de commande Azure et Powershell sont également inclus pour les fonctionnalités sélectionnées. Utilisez Azure CLI 2.0.10 ou version ultérieure et PowerShell 4.2.0 ou version ultérieure.
 
 ## <a name="accelerated-networking"></a>Mise en réseau accélérée
 La mise en réseau accélérée Azure améliore les performances du réseau en activant la virtualisation d’E/S de racine unique (SR-IOV) sur une machine virtuelle. Pour plus d’informations sur la mise en réseau accélérée, consultez Mise en réseau accélérée pour machines virtuelles [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md) ou [Linux](../virtual-network/create-vm-accelerated-networking-cli.md). Pour utiliser la mise en réseau accélérée avec des groupes identiques, définissez enableAcceleratedNetworking sur **true** dans les paramètres networkInterfaceConfigurations du groupe identique. Par exemple : 
@@ -48,7 +48,7 @@ La mise en réseau accélérée Azure améliore les performances du réseau en a
 ```
 
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Créer un groupe identique qui fait référence à un équilibrage de charge Azure existant
-Lorsqu’un groupe identique est créé à l’aide du portail Azure, un nouvel équilibrage de charge est créé pour la plupart des options de configuration. Si vous créez un groupe identique qui doit faire référence à un équilibrage de charge existant, vous pouvez le faire à l’aide d’une interface CLI. L’exemple de script suivant crée un équilibrage de charge et crée ensuite un groupe identique qui y fait référence :
+Lorsqu’un groupe identique est créé à l’aide du portail Azure, un nouvel équilibrage de charge est créé pour la plupart des options de configuration. Si vous créez un groupe identique qui doit référencer un équilibreur de charge existant, vous pouvez le faire à l’aide de l’interface CLI. L’exemple de script suivant crée un équilibrage de charge et crée ensuite un groupe identique qui y fait référence :
 ```bash
 az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
 
@@ -79,7 +79,7 @@ Pour créer un groupe identique qui utilise une passerelle d’application, réf
 Par défaut, les groupes identiques adoptent les paramètres DNS spécifiques du réseau virtuel et du sous-réseau dans lesquels ils ont été créés. Toutefois, vous pouvez configurer les paramètres DNS directement pour un groupe identique.
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Création d’un groupe identique avec les serveurs DNS configurables
-Pour créer un groupe identique avec une configuration DNS personnalisée à l’aide de CLI 2.0, ajoutez l’argument **--dns-servers** à la commande **vmss create**, suivi des adresses IP des serveurs, séparées par un espace. Par exemple : 
+Pour créer un groupe identique avec une configuration DNS personnalisée à l’aide d’Azure CLI, ajoutez l’argument **--dns-servers** à la commande **vmss create**, suivi des adresses IP des serveurs, séparées par un espace. Par exemple : 
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
@@ -91,7 +91,7 @@ Pour configurer des serveurs DNS personnalisés dans un modèle Azure, ajoutez u
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Création d’un groupe identique avec des noms de domaine de machines virtuelles configurables
-Pour créer un groupe identique avec un nom DNS personnalisé pour des machines virtuelles avec CLI 2.0, ajoutez l’argument **--vm-domain-name** à la commande **vmss create**, suivi d’une chaîne représentant le nom de domaine.
+Pour créer un groupe identique avec un nom DNS personnalisé pour des machines virtuelles avec l’interface CLI, ajoutez l’argument **--vm-domain-name** à la commande **vmss create**, suivi d’une chaîne représentant le nom de domaine.
 
 Pour définir le nom de domaine dans un modèle Azure, ajoutez une propriété **dnsSettings** à la section **networkInterfaceConfigurations** du groupe identique. Par exemple : 
 
@@ -136,7 +136,7 @@ En règle générale, les machines virtuelles des groupes identiques Azure ne n�
 Toutefois, dans certains cas, les machines virtuelles de groupes identiques doivent posséder leurs propres adresses IP publiques. Par exemple, dans le cas des jeux vidéo, lorsqu’une console doit être directement connectée à une machine virtuelle sur Cloud qui procède à un traitement physique du jeu. Autre exemple : lorsque des machines virtuelles doivent établir des connexions externes entre elles, dans différentes régions, dans une base de données distribuée.
 
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Création d’un groupe identique avec IP public par machine virtuelle
-Pour créer un groupe identique qui attribue une adresse IP publique à chaque machine virtuelle avec CLI 2.0, ajoutez le paramètre **--public-ip-per-vm** à la commande **vmss create**. 
+Pour créer un groupe identique qui attribue une adresse IP publique à chaque machine virtuelle avec l’interface CLI, ajoutez le paramètre **--public-ip-per-vm** à la commande **vmss create**. 
 
 Pour créer un groupe identique à l’aide d’un modèle Azure, assurez-vous que la version API de la ressource Microsoft.Compute/virtualMachineScaleSets correspond au moins à la version du **30/03/2017**, et ajoutez une propriété JSON **publicIpAddressConfiguration** à la section ipConfigurations du groupe identique. Par exemple : 
 
@@ -151,7 +151,7 @@ Pour créer un groupe identique à l’aide d’un modèle Azure, assurez-vous q
 Exemple de modèle : [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Interrogation des adresses IP publiques des machines virtuelles dans un groupe identique
-Pour répertorier les adresses IP publiques attribuées à des machines virtuelles d’un groupe identique avec CLI 2.0, utilisez la commande **az vmss list-instance-public-ips**.
+Pour répertorier les adresses IP publiques attribuées à des machines virtuelles d’un groupe identique avec l’interface CLI, utilisez la commande **az vmss list-instance-public-ips**.
 
 Pour répertorier les adresses IP publiques d’un groupe identique à l’aide de PowerShell, utilisez la commande _Get-AzureRmPublicIpAddress_. Par exemple : 
 ```PowerShell

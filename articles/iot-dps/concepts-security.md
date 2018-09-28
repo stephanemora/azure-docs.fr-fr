@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 82548ef8fd3f992eedd77c93be47cb5328a584c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92a30f0754decc3052bf53a64da13325ddc4f954
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628638"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946559"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Concepts de sécurité du service IoT Hub Device Provisioning 
 
@@ -26,9 +26,11 @@ Le mécanisme d’attestation est la méthode utilisée pour confirmer l’ident
 > [!NOTE]
 > IoT Hub utilise un « schéma d’authentification » pour un concept semblable dans ce service.
 
-Le service Device Provisioning prend en charge deux formes d’attestation :
+Le service Device Provisioning prend en charge les formes d’attestation suivantes :
 * **Certificats X.509** basés sur le flux d’authentification de certificat X.509 standard.
-* **Module de plateforme sécurisée (TPM)** basé sur un défi nonce, utilisant la norme de module de plateforme sécurisée (TPM) pour les clés afin de présenter un jeton de signature d’accès partagé (SAS) signé. Il n’est pas nécessaire d’avoir un TPM physique sur l’appareil, mais le service utilise pour l’attestation la paire de clés de type EK conformément à la [spécification TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Module de plateforme sécurisée (TPM)** basé sur un défi nonce, utilisant la norme de module de plateforme sécurisée (TPM) pour les clés afin de présenter un jeton de signature d’accès partagé (SAS) signé. Cette forme d’attestation ne nécessite pas d’avoir un TPM physique sur l’appareil, mais le service utilise pour l’attestation la paire de clés de type EK conformément à la [spécification TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Clé symétrique** basée sur des [jetons de sécurité](../iot-hub/iot-hub-devguide-security.md#security-tokens) avec signature d’accès partagé (SAP), qui incluent une signature hachée et un délai d’expiration incorporé. Pour plus d’informations, consultez [Attestation de clé symétrique](concepts-symmetric-key-attestation.md).
+
 
 ## <a name="hardware-security-module"></a>Module de sécurité matériel
 
@@ -55,7 +57,7 @@ La clé racine de stockage est stockée dans le module TPM et est utilisée pour
 
 ## <a name="x509-certificates"></a>Certificats X.509
 
-Utiliser des certificats X.509 comme mécanisme d’attestation est un excellent moyen de mettre à l’échelle la production et de simplifier le provisionnement des appareils. Les certificats X.509 sont généralement organisés en une chaîne d’approbation de confiance dans laquelle chaque certificat est signé par la clé privée du certificat plus élevé suivant, et ainsi de suite, pour aboutir à un certificat racine auto-signé. Il en résulte une chaîne déléguée de confiance allant du certificat racine généré par une autorité de certification (CA) racine approuvée jusqu’au certificat « feuille » d’entité finale installé sur un appareil, en passant par chaque autorité de certification intermédiaire. Pour plus d’informations, consultez [Authentification des appareils à l’aide de certificats d’autorité de certification X.509](/azure/iot-hub/iot-hub-x509ca-overview). 
+Utiliser des certificats X.509 comme mécanisme d’attestation est un excellent moyen de mettre à l’échelle la production et de simplifier le provisionnement des appareils. Les certificats X.509 sont généralement organisés en une chaîne d’approbation de confiance dans laquelle chaque certificat est signé par la clé privée du certificat plus élevé suivant, et ainsi de suite, pour aboutir à un certificat racine auto-signé. Cette organisation établit une chaîne déléguée de confiance allant du certificat racine généré par une autorité de certification (CA) racine approuvée jusqu’au certificat « feuille » d’entité finale installé sur un appareil, en passant par chaque autorité de certification intermédiaire. Pour plus d’informations, consultez [Authentification des appareils à l’aide de certificats d’autorité de certification X.509](/azure/iot-hub/iot-hub-x509ca-overview). 
 
 La chaîne d’approbation représente souvent une hiérarchie logique ou physique associée aux appareils. Par exemple, un fabricant peut :
 - émettre un certificat d’autorité de certification racine autosigné,

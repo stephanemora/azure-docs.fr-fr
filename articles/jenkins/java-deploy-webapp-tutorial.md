@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: b1af82060d316a18cd6427f70695ca4fa982064d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 81959159d4860512c184ada25930da814b5ae044
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106795"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946576"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Configurer l’intégration et le déploiement continus d’Azure App Service avec Jenkins
 
@@ -35,7 +35,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * [Jenkins](https://jenkins.io/) avec les outils JDK et Maven configurés. Si vous n’avez pas de système Jenkins, créez-en un maintenant dans Azure à partir du [modèle de solution Jenkins](/azure/jenkins/install-jenkins-solution-template).
 * Un compte [GitHub](https://github.com).
-* [Azure CLI 2.0](/cli/azure), à partir de votre ligne de commande locale ou dans [Azure Cloud Shell](/azure/cloud-shell/overview).
+* [Azure CLI](/cli/azure), à partir de votre ligne de commande locale ou dans [Azure Cloud Shell](/azure/cloud-shell/overview).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

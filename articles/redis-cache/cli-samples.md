@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: wesmc
-ms.openlocfilehash: 4450a8f7f16e3503626c9ee0ca125fc2b1ed9052
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 01773e1ec24e6ab7d1899df6774230b7ce5b5676
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27909837"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957895"
 ---
 # <a name="azure-cli-samples-for-azure-redis-cache"></a>Exemples de CLI pour le Cache Redis Azure
 
@@ -38,4 +38,4 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | [Supprimer un cache](./scripts/delete-cache.md) | Supprime une instance du Cache Redis Azure  |
 | | |
 
-Pour plus d’informations sur Azure CLI 2.0, voir [Installer Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) et [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+Pour plus d’informations sur l’interface de ligne de commande Azure, consultez [Installer Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) et [Bien démarrer avec Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).

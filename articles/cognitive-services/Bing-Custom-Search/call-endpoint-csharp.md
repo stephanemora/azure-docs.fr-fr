@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 32644fe0cf0a6e1666d2d1ee6efb826bf753f001
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ed00b75fa956d0197d3672d84b097f99ec3c35ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956375"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Appeler le point de terminaison Recherche personnalisée Bing (C#)
 
@@ -22,31 +22,32 @@ Ce guide de démarrage rapide montre comment demander les résultats de la reche
 
 ## <a name="prerequisites"></a>Prérequis
 
--  Une instance de recherche personnalisée prête à l’emploi. Consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).
--  [.NET core](https://www.microsoft.com/net/download/core) installé.
-- Un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.  
+Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
-  >[!NOTE]  
-  >Les clients actuels de la Recherche personnalisée Bing qui ont provisionné une clé en préversion avant le 15 octobre 2017 (inclus) peuvent l’utiliser jusqu’au 30 novembre 2017 ou jusqu’à l’expiration du nombre maximal de requêtes autorisées. Après cette date, ils doivent migrer vers la version mise à la disposition générale sur Azure. 
- 
+- Une instance de recherche personnalisée prête à l’emploi. Consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).
+- [.NET core](https://www.microsoft.com/net/download/core) installé.
+- Une clé d’abonnement Vous pouvez obtenir une clé d’abonnement quand vous activez votre [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ou vous pouvez utiliser une clé d’abonnement payant de votre tableau de bord Azure (voir [Compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+
+
 ## <a name="run-the-code"></a>Exécuter le code
 
 Pour exécuter cet exemple, suivez ces étapes :
 
-1. Créez un dossier pour votre code.
-2. À partir d’un terminal ou d’une invite de commandes, accédez au dossier que vous venez de créer.
+1. Créez un dossier pour votre code.  
+  
+2. À partir d’un terminal ou d’une invite de commandes, accédez au dossier que vous venez de créer.  
+  
 3. Exécutez les commandes suivantes :
     ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
     dotnet add package Newtonsoft.Json
     dotnet restore
-   ```
+    ```
+  
+4. Copiez le code suivant dans Program.cs. Remplacez **YOUR-SUBSCRIPTION-KEY** et **YOUR-CUSTOM-CONFIG-ID** par votre clé d’abonnement et votre ID de configuration.
 
-4. Copiez le code suivant dans Program.cs.
-5. Remplacez **YOUR-SUBSCRIPTION-KEY** et **YOUR-CUSTOM-CONFIG-ID** par votre clé et votre ID de configuration.
-
-    ``` CSharp
+    ```csharp
     using System;
     using System.Net.Http;
     using System.Web;
@@ -118,13 +119,13 @@ Pour exécuter cet exemple, suivez ces étapes :
         }
     }
     ```
-6. Créez l’application à l’aide de la commande suivante. Notez le chemin de la dll qui est référencé par la sortie de commande.
+6. Créez l’application à l’aide de la commande suivante. Notez le chemin de la DLL qui est référencé par la sortie de commande.
 
     <pre>
     dotnet build 
     </pre>
     
-7. Exécutez l’application à l’aide de la commande suivante en remplaçant **PATH TO OUTPUT** par le chemin référencé par l’étape de génération.
+7. Exécutez l’application à l’aide de la commande suivante en remplaçant **PATH TO OUTPUT** par le chemin de la DLL référencé dans l’étape 6.
 
     <pre>    
     dotnet **PATH TO OUTPUT**

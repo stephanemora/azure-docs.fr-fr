@@ -10,21 +10,20 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 951dcca562c08698b4ce4528d005fc91152ea337
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: af5a0843acced4611b219088b7662f9ea4b32beb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30235523"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969578"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux du serveur à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux des erreurs du serveur PostgreSQL à l’aide de l’interface de ligne de commande (Azure CLI). Toutefois, l’accès aux journaux des transactions n’est pas pris en charge. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Un serveur Azure Database pour PostgreSQL](quickstart-create-server-database-azure-cli.md)
-- L’utilitaire de la ligne de commande [Azure CLI 2.0](/cli/azure/install-azure-cli) ou Azure Cloud Shell dans le navigateur
+- L’utilitaire en ligne de commande [Azure CLI](/cli/azure/install-azure-cli) ou Azure Cloud Shell dans le navigateur
 
 ## <a name="configure-logging-for-azure-database-for-postgresql"></a>Configuration de la journalisation pour Azure Database pour PostgreSQL
 Vous pouvez configurer le serveur afin d’accéder aux journaux de requêtes et aux journaux d’erreurs. Les journaux des erreurs peuvent contenir des informations sur le nettoyage automatique, la connexion et les points de contrôle.

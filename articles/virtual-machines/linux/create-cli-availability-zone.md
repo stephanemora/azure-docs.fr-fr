@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 512b6cde1a1de70f020a9af1254d2bc8e78f1b5f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c202379f236bcd2fea05ad9d135096bc724898e7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905514"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956419"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Créer une machine virtuelle Linux dans une zone de disponibilité avec l’interface de ligne de commande Azure
 
@@ -29,7 +29,7 @@ Cet article aborde l’utilisation de l’interface de ligne de commande Azure p
 
 Pour utiliser une zone de disponibilité, créez votre machine virtuelle dans une [région Azure prise en charge](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
-Assurez-vous que vous avez installé la dernière version de [l’interface de ligne de commande Azure 2.0](/cli/azure/install-az-cli2) et que vous vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
+Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
 
 
 ## <a name="check-vm-sku-availability"></a>Vérifier la disponibilité de la référence SKU de machine virtuelle
@@ -64,7 +64,7 @@ virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2
 
 Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az_group_create).  
 
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus2*. États-Unis de l’Est 2 est l’une des régions Azure qui prend en charge les zones de disponibilité.
+Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Un groupe de ressources doit être créé avant les machines virtuelles. Dans cet exemple, un groupe de ressources nommé *myResourceGroupVM* est créé dans la région *eastus2*. USA Est 2 est l’une des régions Azure qui prend en charge les zones de disponibilité.
 
 ```azurecli 
 az group create --name myResourceGroupVM --location eastus2

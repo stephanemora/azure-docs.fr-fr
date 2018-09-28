@@ -8,7 +8,6 @@ ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
-ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
@@ -16,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.openlocfilehash: 05cb2a62cf0f001012f5faa022de233d7cbdce97
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146630"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970921"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Structurer des projets avec le modèle de processus TDSP (Team Data Science Process)
 
-Ce document fournit des instructions sur la création de projets de science des données dans Azure Machine Learning avec des modèles de processus TDSP. Ces modèles permettent de structurer des projets à des fins de collaboration et de reproductibilité. 
+Ce document fournit des instructions sur la création de projets de science des données dans Azure Machine Learning en utilisant des modèles de processus TDSP. Ces modèles permettent de structurer des projets à des fins de collaboration et de reproductibilité. 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
 
 ## <a name="what-is-the-team-data-science-process"></a>Qu’est-ce que le processus Team Data Science Process ?
 Le processus TDSP (Team Data Science Process) est un processus de science des données agile et itératif qui permet d’exécuter et de proposer des solutions d’analyse avancées. Il est conçu pour améliorer la collaboration et l’efficacité des équipes de science des données au sein des entreprises. Il tient ces objectifs avec quatre composants clés :
@@ -52,7 +53,7 @@ Nous avons précédemment publié un [référentiel GitHub pour la structure et 
 * Examinez le [modèle](https://aka.ms/tdspamlgithubrepo) Machine Learning TDSP.
 * La taille du contenu (autre que celui déjà présent dans le dossier « docs ») doit être inférieure à 25 Mo. Consultez la remarque qui suit cette liste.
 * Le dossier sample\_data est uniquement destiné aux petits fichiers de données (de taille inférieure à 5 Mo) avec lesquels vous pouvez tester votre code ou démarrer les premières phases du développement.
-* Le stockage de certains fichiers, tels que des fichiers de type Word et PowerPoint, peut augmenter sensiblement la taille du dossier « docs ». Nous vous conseillons de trouver un Wiki collaboratif, une ressource [SharePoint](https://products.office.com/en-us/sharepoint/collaboration) ou toute autre ressource collaborative pour stocker ces fichiers.
+* Le stockage de certains fichiers, tels que des fichiers de type Word et PowerPoint, peut augmenter sensiblement la taille du dossier « docs ». Nous vous conseillons de trouver un Wiki collaboratif, une ressource [SharePoint](https://products.office.com/sharepoint/collaboration) ou toute autre ressource collaborative pour stocker ces fichiers.
 * Pour plus d’informations sur le traitement des fichiers volumineux et des sorties dans Machine Learning, consultez l’article [Persistance des modifications et traitement de fichiers volumineux](http://aka.ms/aml-largefiles).
 
 > [!NOTE]

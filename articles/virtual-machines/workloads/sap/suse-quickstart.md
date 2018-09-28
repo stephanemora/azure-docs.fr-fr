@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/14/2017
 ms.author: hermannd
-ms.openlocfilehash: cc4438a770a8092275373ccf8da9cc9951a1f906
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8a16fa9f639a6a4a17d6904d6bc9a0e31f774e0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858610"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950044"
 ---
 # <a name="running-sap-netweaver-on-microsoft-azure-suse-linux-vms"></a>Exécution de SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux
 Cet article décrit les divers éléments à prendre en compte lorsque vous exécutez SAP NetWeaver sur des machines virtuelles Microsoft Azure SUSE Linux. À compter du 19 mai 2016, SAP NetWeaver est officiellement pris en charge sur les machines virtuelles SUSE Linux dans Azure. Vous trouverez tous les détails concernant les versions de Linux et les versions du noyau SAP, ainsi que d’autres prérequis, dans la note SAP 1928533 « SAP Applications on Azure: Supported Products and Azure VM types » (Applications SAP sur Azure : produits et types de machines virtuelles pris en charge).
@@ -119,7 +119,7 @@ Pour créer des machines virtuelles SUSE, vous devez utiliser les fichiers de mo
    ```
 Pour plus d’informations sur les fichiers de modèle JSON, consultez [Création de modèles Azure Resource Manager](../../../resource-group-authoring-templates.md) et [Modèles de démarrage rapide Microsoft Azure](https://azure.microsoft.com/documentation/templates/).
 
-Pour plus d’informations sur l’interface de ligne de commande et sur Azure Resource Manager, consultez [Utiliser l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
+Pour plus d’informations sur Azure Classic CLI et Azure Resource Manager, consultez [Utiliser Azure Classic CLI pour Mac, Linux et Windows avec Azure Resource Manager](../../../xplat-cli-azure-resource-manager.md).
 
 ## <a name="sap-license-and-hardware-key"></a>Licence SAP et clé matérielle
 Pour la certification SAP-Azure officielle, un nouveau mécanisme a été introduit afin de calculer la clé matérielle SAP utilisée pour la licence SAP. Le noyau SAP a dû être adapté pour utiliser le nouvel algorithme. Les anciennes versions du noyau SAP pour Linux n’incluent pas cette modification du code. Ainsi, dans certaines situations (par exemple, en cas de redimensionnement de machine virtuelle Azure), la clé matérielle SAP est modifiée, et la licence SAP risque de ne plus être valide. Une solution est fournie avec les derniers noyaux SAP Linux.  Les correctifs des noyaux SAP détaillés sont documentés dans la note SAP 1928533.

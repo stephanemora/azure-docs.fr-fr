@@ -1,6 +1,6 @@
 ---
 title: Autoriser les utilisateurs pour Ambari Views - Azure HDInsight
-description: Guide pratique pour gérer les autorisations des utilisateurs et des groupes des clusters HDInsight joints à un domaine.
+description: Guide pratique pour gérer les autorisations des utilisateurs et des groupes pour les clusters HDInsight avec le Pack Sécurité Entreprise activé.
 services: hdinsight
 author: maxluk
 ms.reviewer: jasonh
@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: f1aa80ec9df8faee4cf5ea98910e28cfc11a7920
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4e05d4ff9c090fac0242921e15ef16439d3ed27f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782125"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954447"
 ---
 # <a name="authorize-users-for-ambari-views"></a>Autoriser les utilisateurs à accéder à Ambari Views
 
-Les [clusters HDInsight joints à un domaine](./domain-joined/apache-domain-joined-introduction.md) offrent des fonctionnalités de qualité professionnelle, notamment l’authentification par le biais d’Azure Active Directory. Vous pouvez synchroniser [de nouveaux utilisateurs](hdinsight-sync-aad-users-to-cluster.md) ajoutés aux groupes Azure AD qui ont accès au cluster, permettant ainsi à ces utilisateurs d’effectuer certaines actions. L’utilisation d’utilisateurs, de groupes et d’autorisations dans Ambari est prise en charge à la fois pour les clusters joints à un domaine HDInsight et pour les clusters HDInsight standard.
+Les [clusters HDInsight avec le Pack Sécurité Entreprise (PSE) activé](./domain-joined/apache-domain-joined-introduction.md) offrent des fonctionnalités d’entreprise, notamment l’authentification par le biais d’Azure Active Directory. Vous pouvez synchroniser [de nouveaux utilisateurs](hdinsight-sync-aad-users-to-cluster.md) ajoutés aux groupes Azure AD qui ont accès au cluster, permettant ainsi à ces utilisateurs d’effectuer certaines actions. L’utilisation d’utilisateurs, de groupes et d’autorisations dans Ambari est prise en charge à la fois pour les clusters HDInsight standards et pour les clusters HDInsight avec le Pack Sécurité Entreprise activé.
 
 Les utilisateurs Active Directory peuvent se connecter aux nœuds de cluster à l’aide de leurs informations d’identification de domaine. Ils ont également la possibilité d’utiliser ces identifiants pour authentifier les interactions du cluster auprès d’autres points de terminaison approuvés, comme Hue, Ambari Views, ODBC, JDBC, PowerShell et les API REST.
 
 > [!WARNING]
 > Ne modifiez pas le mot de passe pour l’agent de surveillance Ambari (hdinsightwatchdog) sur votre cluster HDInsight basé sur Linux. La modification du mot de passe élimine la possibilité d’utiliser les actions de script ou d’effectuer des opérations de mise à l’échelle sur votre cluster.
 
-Si ce n’est pas encore fait, suivez [ces instructions](./domain-joined/apache-domain-joined-configure.md) pour configurer un nouveau cluster joint à un domaine.
+Si ce n’est déjà fait, suivez [ces instructions](./domain-joined/apache-domain-joined-configure.md) pour provisionner un nouveau cluster PSE.
 
 ## <a name="access-the-ambari-management-page"></a>Accéder à la page de gestion Ambari
 
@@ -116,7 +116,7 @@ Le mode Liste propose des fonctionnalités de modification rapide dans deux cat�
 
     ![Mode Liste Rôles - utilisateurs](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* La catégorie Groupes du mode Liste affiche tous les groupes, ainsi que le rôle affecté à chacun. Dans notre exemple, la liste des groupes est synchronisée à partir des groupes Azure Active Directory spécifiés dans la propriété **Accéder au groupe d’utilisateurs** des paramètres de domaine du cluster. Voir [Créer un cluster HDInsight joint à un domaine](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
+*  La catégorie Groupes du mode Liste affiche tous les groupes, ainsi que le rôle affecté à chacun. Dans notre exemple, la liste des groupes est synchronisée à partir des groupes Azure Active Directory spécifiés dans la propriété **Accéder au groupe d’utilisateurs** des paramètres de domaine du cluster. Consultez [Créer un cluster HDInsight avec le Pack Sécurité Entreprise activé](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
 
     ![Mode Liste Rôles - groupes](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 
@@ -136,7 +136,7 @@ Nous avons affecté le rôle *Utilisateur du cluster* à notre utilisateur de do
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Configurer les stratégies Hive dans HDInsight joint à un domaine](./domain-joined/apache-domain-joined-run-hive.md)
-* [Gérer des clusters HDInsight joints à un domaine](./domain-joined/apache-domain-joined-manage.md)
+* [Configurer des stratégies Hive dans HDInsight avec le Pack Sécurité Entreprise activé](./domain-joined/apache-domain-joined-run-hive.md)
+* [Gérer des clusters HDInsight avec le Pack Sécurité Entreprise activé](./domain-joined/apache-domain-joined-manage.md)
 * [Utiliser l’affichage Hive avec Hadoop dans HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [Synchroniser les utilisateurs Azure AD sur le cluster](hdinsight-sync-aad-users-to-cluster.md)

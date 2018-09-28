@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: e65fc329af0af585caf20c26bd2ef79a1f39d501
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a2b6fbae4a7b49c5596d5f2a6f9305181a0717d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140480"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979962"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métriques Azure Event Hubs dans Azure Monitor (préversion)
 
@@ -29,7 +29,7 @@ Azure Monitor fournit des interfaces utilisateur unifiées pour la surveillance 
 
 ## <a name="access-metrics"></a>Accéder aux mesures
 
-Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder à ces métriques depuis le [portail Azure](https://portal.azure.com), ou utiliser les API d’Azure Monitor (REST et .Net) et les solutions d’analyse comme Operation Management Suite et Event Hub. Pour plus d’informations, voir [Mesures Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor propose plusieurs méthodes d’accès aux mesures. Vous pouvez accéder à ces métriques depuis le [portail Azure](https://portal.azure.com), ou utiliser les API d’Azure Monitor (REST et .Net) et les solutions d’analyse comme Operation Management Suite et Event Hub. Pour plus d’informations, consultez [Supervision des données collectées par Azure Monitor](../monitoring/monitoring-data-collection.md).
 
 Les métriques sont activées par défaut, et vous pouvez accéder aux 30 derniers jours de données. Si vous souhaitez conserver des données sur une période plus longue, vous pouvez archiver les données de mesures dans un compte de stockage Azure. Celui-ci est configuré dans les [paramètres de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) dans Azure Monitor.
 

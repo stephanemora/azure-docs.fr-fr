@@ -1,5 +1,5 @@
 ---
-title: Guide de démarrage rapide - Créer un groupe de machines virtuelles identiques avec Azure CLI 2.0 | Microsoft Docs
+title: Démarrage rapide - Créer un groupe de machines virtuelles identiques avec Azure CLI | Microsoft Docs
 description: Apprendre à créer rapidement un groupe de machines virtuelles identiques avec Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,21 +16,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/18
 ms.author: cynthn
-ms.openlocfilehash: 9df1ce48f3851fb0d5576315ac63f9f923059ffa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 348074592da8465762b178b49af4713aadcc8c8d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630112"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970655"
 ---
-# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Guide de démarrage rapide - Créer un groupe de machines virtuelles identiques avec Azure CLI 2.0
-Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles de mise à l’échelle automatique en fonction de l’utilisation des ressources telles que l’UC, la demande de mémoire ou le trafic réseau. Un équilibreur de charge Azure distribue ensuite le trafic vers les instances de machine virtuelle du groupe identique. Dans cet article de démarrage rapide, vous créez un groupe de machines virtuelles identiques et déployez un exemple d’application avec Azure CLI 2.0.
+# <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Démarrage rapide : créer un groupe de machines virtuelles identiques avec Azure CLI
+Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles de mise à l’échelle automatique en fonction de l’utilisation des ressources telles que l’UC, la demande de mémoire ou le trafic réseau. Un équilibreur de charge Azure distribue ensuite le trafic vers les instances de machine virtuelle du groupe identique. Dans ce guide de démarrage rapide, vous allez créer un groupe de machines virtuelles identiques et déployer un exemple d’application avec Azure CLI.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.29 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.29 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="create-a-scale-set"></a>Créer un groupe identique

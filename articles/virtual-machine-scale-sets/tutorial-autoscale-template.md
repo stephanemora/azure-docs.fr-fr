@@ -16,15 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: da4f06ff4e1478043bc147c2c08083e118bccbe4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4532355130fff987e25c5c804630fb6bdd7699df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723117"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959833"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Didacticiel : mettre automatiquement à l’échelle un groupe de machines virtuelles identiques avec un modèle Azure
-Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Utiliser la mise à l’échelle automatique avec un groupe identique
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.29 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.29 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="define-an-autoscale-profile"></a>Définir un profil de mise à l’échelle automatique
@@ -272,7 +272,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à mettre automatiquement à l’échelle un groupe identique avec Azure CLI 2.0 :
+Dans ce tutoriel, vous avez appris à mettre automatiquement à l’échelle un groupe identique avec Azure CLI :
 
 > [!div class="checklist"]
 > * Utiliser la mise à l’échelle automatique avec un groupe identique
@@ -280,7 +280,7 @@ Dans ce didacticiel, vous avez appris à mettre automatiquement à l’échelle 
 > * Effectuer un test de contrainte sur les instances de machine virtuelle et déclencher des règles de mise à l’échelle automatique
 > * Remettre à l’échelle automatiquement en cas de baisse de la demande
 
-Pour plus d’exemples de groupes identiques de machines virtuelles en action, consultez les exemples suivants de scripts Azure CLI 2.0 :
+Pour plus d’exemples de groupes de machines virtuelles identiques en action, consultez les exemples suivants de scripts Azure CLI :
 
 > [!div class="nextstepaction"]
-> [Exemples de scripts de groupe identique pour Azure CLI 2.0](cli-samples.md)
+> [Exemples de scripts de groupe identique pour Azure CLI](cli-samples.md)

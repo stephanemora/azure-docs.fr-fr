@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 0c5081960345e84cf48cb1ec07713cdaec8833a5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 26930ccb80545b80ab047ef9bc51b7122009ec1f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008023"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967334"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : mettre à l’échelle un cluster Service Fabric dans Azure
 
@@ -45,7 +45,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Installez le [module Azure PowerShell version 4.1 ou ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI 2.0](/cli/azure/install-azure-cli).
+* Installez le [module Azure PowerShell 4.1 ou version ultérieure](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [Azure CLI](/cli/azure/install-azure-cli).
 * Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure
 * Si vous déployez un cluster Windows, configurez un environnement de développement Windows. Installez les charges de travail [Visual Studio 2017](http://www.visualstudio.com) et le **développement Azure**, **ASP.NET et le développement web**, ainsi que **Développement multiplateforme .NET Core**.  Ensuite, configurez un [environnement de développement .NET](service-fabric-get-started.md).
 * Si vous déployez un cluster Linux, configurez un environnement de développement Java sur [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Installez l’[interface de ligne de commande (CLI) de Service Fabric](service-fabric-cli.md).

@@ -1,6 +1,6 @@
 ---
-title: Charger un disque Linux personnalisé avec Azure CLI 2.0 | Microsoft Docs
-description: Créer et charger un disque dur virtuel vers Azure en utilisant le modèle de déploiement Resource Manager et Azure CLI 2.0
+title: Charger un disque Linux personnalisé avec Azure CLI | Microsoft Docs
+description: Créer et charger un disque dur virtuel dans Azure en utilisant le modèle de déploiement Resource Manager et Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,22 +15,23 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 4b05c4c7db1e1c1953af2466d2c6a277baa07082
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737343"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966501"
 ---
-# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI 2.0
-Cet article indique comment charger un disque dur virtuel dans un compte de stockage Azure avec Azure CLI 2.0 et comment créer des machines virtuelles Linux à partir de ce disque personnalisé. Cette fonctionnalité vous permet d’installer et de configurer une distribution Linux selon vos besoins, puis d’utiliser ce disque dur virtuel pour créer rapidement des machines virtuelles Azure.
+# <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Charger et créer une machine virtuelle Linux à partir d’un disque personnalisé avec Azure CLI
+
+Cet article indique comment charger un disque dur virtuel dans un compte de stockage Azure avec Azure CLI et comment créer des machines virtuelles Linux à partir de ce disque personnalisé. Cette fonctionnalité vous permet d’installer et de configurer une distribution Linux selon vos besoins, puis d’utiliser ce disque dur virtuel pour créer rapidement des machines virtuelles Azure.
 
 Cette rubrique utilise des comptes de stockage pour les disques durs virtuels finaux, mais vous pouvez également effectuer ces étapes avec [des disques gérés](upload-vhd.md). 
 
 ## <a name="quick-commands"></a>Commandes rapides
 Si vous avez besoin d’accomplir rapidement cette tâche, la section suivante décrit les commandes de base permettant de charger un disque dur virtuel dans Azure. Pour obtenir plus d’informations et davantage de contexte pour chaque étape, lisez la suite de ce document, [à partir de cette section](#requirements).
 
-Assurez-vous que vous avez installé la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login).
+Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `mystorageaccount` et `mydisks`.
 
@@ -96,7 +97,7 @@ Pour effectuer les étapes suivantes, vous avez besoin des éléments suivants 
   * Créer un compte de stockage et un conteneur pour stocker les machines virtuelles créées et votre disque personnalisé
   * Après avoir créé toutes vos machines virtuelles, vous pouvez supprimer votre disque en toute sécurité.
 
-Assurez-vous que vous avez installé la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login).
+Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
 
 Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Exemples de noms de paramètre : `myResourceGroup`, `mystorageaccount` et `mydisks`.
 

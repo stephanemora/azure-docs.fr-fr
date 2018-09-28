@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: bd77a56acee948995bb2fcbb5beea60f69cda9ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 354ef48f7935536864cde9dc0d9a130fa5aeb865
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630151"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972859"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>Concepts d’appareil du service IoT Hub Device Provisioning
 
@@ -28,9 +28,10 @@ Le mécanisme d’attestation est la méthode utilisée pour confirmer l’ident
 > [!NOTE]
 > IoT Hub utilise un « schéma d’authentification » pour un concept semblable dans ce service.
 
-Le service Device Provisioning prend en charge deux formes d’attestation :
+Le service Device Provisioning prend en charge les formes d’attestation suivantes :
 * **Certificats X.509** basés sur le flux d’authentification de certificat X.509 standard.
 * **Module de plateforme sécurisée (TPM)** basé sur un défi nonce, utilisant la norme de module de plateforme sécurisée (TPM) pour les clés afin de présenter un jeton de signature d’accès partagé (SAS) signé. Il n’est pas nécessaire d’avoir un TPM physique sur l’appareil, mais le service utilise pour l’attestation la paire de clés de type EK conformément à la [spécification TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Clé symétrique** basée sur des [jetons de sécurité](../iot-hub/iot-hub-devguide-security.md#security-tokens) avec signature d’accès partagé (SAP), qui incluent une signature hachée et un délai d’expiration incorporé. Pour plus d’informations, consultez [Attestation de clé symétrique](concepts-symmetric-key-attestation.md).
 
 ## <a name="hardware-security-module"></a>Module de sécurité matériel
 

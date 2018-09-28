@@ -15,18 +15,18 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2360c5a672975cec48f5c17b098125b8287799c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493694"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950146"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gérer les ressources Batch avec Azure CLI
 
-Azure CLI 2.0 est l’expérience de ligne de commande d’Azure pour gérer les ressources Azure. Elle peut être utilisée sur macOS, Linux et Windows. Azure CLI 2.0 est optimisé pour gérer et administrer les ressources Azure à partir de la ligne de commande. Vous pouvez utiliser cette interface pour gérer vos comptes Azure Batch et des ressources telles que les pools, les travaux et les tâches. Avec l’interface de ligne de commande Azure, vous pouvez écrire le script de nombre des tâches que vous réalisez avec les API Batch, le portail Azure et les applets de commande PowerShell pour Batch.
+L’interface de ligne de commande Azure (Azure CLI) est l’expérience de ligne de commande d’Azure pour gérer les ressources Azure. Elle peut être utilisée sur macOS, Linux et Windows. Azure CLI est optimisé pour gérer et administrer les ressources Azure à partir de la ligne de commande. Vous pouvez utiliser cette interface pour gérer vos comptes Azure Batch et des ressources telles que les pools, les travaux et les tâches. Avec l’interface de ligne de commande Azure, vous pouvez écrire le script de nombre des tâches que vous réalisez avec les API Batch, le portail Azure et les applets de commande PowerShell pour Batch.
 
-Cet article fournit une vue d’ensemble de l’utilisation de [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure) avec Batch. Consultez la page [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) pour une vue d’ensemble de l’utilisation de l’interface de ligne de commande avec Azure.
+Cet article fournit une vue d’ensemble de l’utilisation de [Azure CLI version 2.0](https://docs.microsoft.com/cli/azure) avec Batch. Consultez [Bien démarrer avec Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) pour une vue d’ensemble de l’utilisation de l’interface de ligne de commande avec Azure.
 
 ## <a name="set-up-the-azure-cli"></a>Configuration de l’interface de ligne de commande Azure
 
@@ -47,12 +47,9 @@ Vous pouvez afficher le texte d’aide de toutes les commandes de l’interface 
 
 En cas de doute, utilisez l’option de ligne de commande `-h` pour obtenir de l’aide sur toute commande de l’interface de ligne de commande Azure.
 
-> [!NOTE]
-> Les versions antérieures d’Azure CLI faisaient précéder les commandes CLI de `azure`. Dans la version 2.0, toutes les commandes sont désormais précédées de `az`. Veillez à mettre à jour vos scripts pour utiliser la nouvelle syntaxe avec la version 2.0.
->
->  
 
-Consultez également la documentation de référence Azure CLI pour plus d’informations sur les [commandes Azure CLI pour Batch](https://docs.microsoft.com/cli/azure/batch). 
+
+Consultez également la documentation de référence Azure CLI pour plus d’informations sur les [commandes Azure CLI pour Batch](/cli/azure/batch). 
 
 ## <a name="log-in-and-authenticate"></a>Connexion et authentification
 
@@ -63,7 +60,7 @@ Pour utiliser Azure CLI avec Batch, vous devez vous connecter et vous authentifi
 
 ### <a name="log-in-to-azure"></a>Connexion à Azure
 
-Il existe différentes façons de se connecter à Azure, décrites en détail dans la rubrique [Se connecter avec Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) :
+Il existe différentes façons de se connecter à Azure, décrites en détail dans [Se connecter avec Azure CLI](/cli/azure/authenticate-azure-cli) :
 
 1. [Connexion interactive](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Connectez-vous de manière interactive lorsque vous exécutez des commandes Azure CLI vous-même à partir de la ligne de commande.
 2. [Connexion avec un principal de service](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Connectez-vous avec un principal de service lorsque vous exécutez des commandes Azure CLI à partir d’un script ou d’une application.
@@ -101,9 +98,9 @@ Deux options s’offrent à vous pour l’authentification sur votre compte Batc
     az batch account login -g myresource group -n mybatchaccount
     ```
 
-- **Via l’authentification par clé partagée.**
+- **Via l’authentification par clé partagée**
 
-    [L’authentification par clé partagée](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) utilise des clés d’accès à votre compte pour authentifier les commandes Azure CLI pour le service Batch.
+    [L’authentification par clé partagée](/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service#authentication-via-shared-key) utilise des clés d’accès à votre compte pour authentifier les commandes Azure CLI pour le service Batch.
 
     Si vous créez des scripts Azure CLI pour automatiser l’appel des commandes Batch, vous pouvez utiliser soit l’authentification par clé partagée, soit un principal de service Azure AD. Dans certains scénarios, le recours à l’authentification par clé partagée peut être plus simple que la création d’un principal de service.  
 
@@ -173,7 +170,6 @@ Les conseils suivants peuvent vous aider lors de la résolution de problèmes su
 * Utilisez `-v` et `-vv` pour afficher la sortie de la commande **verbose**. Lorsque l’indicateur `-vv` est inclus, Azure CLI affiche les requêtes REST réelles et les réponses correspondantes. Ces commutateurs sont pratiques pour afficher une sortie complète des erreurs.
 * L’option `--json` permet d’afficher la **sortie de commande au format JSON**. Par exemple, `az batch pool show pool001 --json` affiche les propriétés de pool001 au format JSON. Vous pouvez ensuite copier et modifier cette sortie pour l’utiliser dans un `--json-file` (voir la section [Fichiers JSON](#json-files) plus haut dans cet article).
 <!---Loc Comment: Please, check link [JSON files] since it's not redirecting to any location.--->
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

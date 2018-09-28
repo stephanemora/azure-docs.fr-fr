@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: jasonh
-ms.openlocfilehash: c10ff022d54510c4fb81bf1f922aeaaf4e9036bb
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 33458794ad74b367f1278364d7b4ace30f7d13a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104852"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953582"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Hadoop dans HDInsight
 
@@ -208,13 +208,13 @@ Dans l’interface utilisateur web d’Ambari, sélectionnez le service dont vou
 
 La taille d’un nœud n’est sélectionnable que lors de la création du cluster. Pour obtenir la liste des différentes tailles de machine virtuelle disponibles pour HDInsight, voir la page [Tarification de HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Les informations suivantes aident à spécifier la taille avec le [Portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et [l’interface de ligne de commande Azure][azure-cli] :
+Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Lisez les informations suivantes pour savoir comment définir la taille dans le [portail Azure][preview-portal], [Azure PowerShell][azure-powershell] et [Azure Classic CLI][azure-cli] :
 
 * **Portail Azure** : à la création d’un cluster, vous pouvez définir la taille des nœuds utilisés par le cluster :
 
     ![Image de l'Assistant de création de cluster avec sélection de taille de nœud](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Interface de ligne de commande Azure** : lorsque vous utilisez la commande `azure hdinsight cluster create`, vous pouvez définir la taille des nœuds principaux, de travail et ZooKeeper en utilisant les paramètres `--headNodeSize`, `--workerNodeSize` et `--zookeeperNodeSize`.
+* **Azure Classic CLI** : quand vous utilisez la commande `azure hdinsight cluster create`, vous pouvez définir la taille des nœuds principaux, de travail et ZooKeeper en utilisant les paramètres `--headNodeSize`, `--workerNodeSize` et `--zookeeperNodeSize`.
 
 * **Azure PowerShell** : lorsque vous utilisez l’applet de commande `New-AzureRmHDInsightCluster`, vous pouvez définir la taille des nœuds principaux, de travail et ZooKeeper en utilisant les paramètres `-HeadNodeVMSize`, `-WorkerNodeSize` et `-ZookeeperNodeSize`.
 
@@ -223,7 +223,7 @@ Lorsque vous créez un cluster, vous pouvez spécifier la taille des nœuds. Les
 Utilisez les liens suivants pour en savoir plus sur les éléments mentionnés dans ce document.
 
 * [Référence REST Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Installation et configuration Azure CLI](../cli-install-nodejs.md)
+* [Installer et configurer Azure Classic CLI](../cli-install-nodejs.md)
 * [Installation et configuration d'Azure PowerShell](/powershell/azure/overview)
 * [Gestion de HDInsight à l'aide d'Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Approvisionnement de clusters HDInsight sous Linux](hdinsight-hadoop-provision-linux-clusters.md)

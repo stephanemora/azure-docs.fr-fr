@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 6ed1ef6019e339768c4ba6a62d8b4d99d844f254
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820313"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949519"
 ---
 # <a name="azure-and-linux"></a>Azure et Linux
 Microsoft Azure propose une collection croissante de services cloud publics intégrés, comprenant des analyses, des machines virtuelles, des bases de données, des services mobiles, la mise en réseau, le stockage et le web.&mdash;En d’autres termes, il s’agit de la méthode idéale pour héberger vos solutions.  Microsoft Azure fournit une plateforme de calcul scalable qui vous permet de payer uniquement ce que vous utilisez, quand vous le souhaitez, sans avoir à investir dans du matériel en local.  Azure permet de faire face à toutes les exigences en matière de montée en puissance de vos solutions ou d’augmentation de la taille des instances.
@@ -37,7 +37,7 @@ Azure a annoncé un contrat de niveau de service de pointe pour machine virtuell
 
 ## <a name="managed-disks"></a>Managed Disks
 
-Managed Disks se charge de la création et de la gestion du compte de stockage Azure en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez la taille du disque et le niveau de performances (Standard ou Premium) et Azure crée et gère le disque. Lorsque vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé. Si vous créez de nouvelles machines virtuelles, [utilisez Azure CLI 2.0](quick-create-cli.md) ou le portail Azure pour créer des machines virtuelles avec des disques de système d’exploitation et de données gérés. Si vous avez des machines virtuelles qui utilisent des disques non gérés, vous pouvez [convertir vos machines virtuelles pour qu’elles soient sauvegardées avec Managed Disks](convert-unmanaged-to-managed-disks.md).
+Managed Disks se charge de la création et de la gestion du compte de stockage Azure en arrière-plan, éliminant les préoccupations liées aux limites d’extensibilité du compte de stockage. Vous spécifiez la taille du disque et le niveau de performances (Standard ou Premium) et Azure crée et gère le disque. Lorsque vous ajoutez des disques ou faites monter ou descendre en puissance la machine virtuelle, vous n’avez pas à vous soucier du stockage utilisé. Si vous créez de nouvelles machines virtuelles, [utilisez Azure CLI](quick-create-cli.md) ou le Portail Azure pour créer des machines virtuelles avec des disques de système d’exploitation et de données managés. Si vous avez des machines virtuelles qui utilisent des disques non gérés, vous pouvez [convertir vos machines virtuelles pour qu’elles soient sauvegardées avec Managed Disks](convert-unmanaged-to-managed-disks.md).
 
 Vous pouvez également gérer vos images personnalisées dans un compte de stockage par région Azure et les utiliser pour créer des centaines de machines virtuelles dans le même abonnement. Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble des disques gérés](../linux/managed-disks-overview.md).
 
@@ -91,7 +91,7 @@ Pour commencer à utiliser Azure, vous avez besoin d’un compte Azure, de l’i
 La première étape pour utiliser Azure Cloud consiste à créer un compte Azure.  Accédez sur la page [Création d’un compte Azure](https://azure.microsoft.com/pricing/free-trial/) pour commencer.
 
 ### <a name="install-the-cli"></a>Installer l’interface de ligne de commande
-Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [Azure CLI 2.0](/cli/azure/install-azure-cli) sur votre station de travail Mac ou Linux.
+Avec votre nouveau compte Azure, vous pouvez commencer immédiatement à utiliser le portail Azure, qui est un panneau d’administration web.  Pour gérer Azure Cloud via la ligne de commande, installez l’ `azure-cli`.  Installez [Azure CLI](/cli/azure/install-azure-cli) sur votre station de travail Mac ou Linux.
 
 ### <a name="create-an-ssh-key-pair"></a>Création d’une paire de clés SSH
 Vous avez maintenant un compte Azure, le portail web Azure et l’interface de ligne de commande Azure.  L’étape suivante consiste à créer une paire de clés SSH utilisée pour exécuter SSH dans Linux sans utiliser de mot de passe.  [Créez des clés SSH sur Linux et Mac](mac-create-ssh-keys.md) pour activer les connexions sans mot de passe et améliorer la sécurité.

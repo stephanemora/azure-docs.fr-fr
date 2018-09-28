@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: ef7eae503eaf8194b287b9f080d8f635d9b3a485
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2c78e1d39227153dd65f145512fab4769b09e5c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094780"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966556"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Liaisons Azure Event Hubs pour Azure Functions
 
@@ -129,14 +129,15 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 L’exemple suivant illustre une liaison de déclencheur de hub d’événements dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction consigne le corps du message du déclencheur de hub d’événements.
 
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 1.x, tandis que le second concerne Functions 2.x. 
+Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x, tandis que le second concerne Functions 1.x. 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -145,7 +146,7 @@ Les exemples suivants illustrent les données de liaison Event Hubs dans le fich
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -203,14 +204,15 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction F#](functions-reference-fsharp.md) qui utilise la liaison. La fonction consigne le corps du message du déclencheur de hub d’événements.
 
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 1.x, tandis que le second concerne Functions 2.x. 
+Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x, tandis que le second concerne Functions 1.x. 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -219,7 +221,7 @@ Les exemples suivants illustrent les données de liaison Event Hubs dans le fich
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -235,14 +237,15 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction lit les [métadonnées d’événement](#trigger---event-metadata) et enregistre le message.
 
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 1.x, tandis que le second concerne Functions 2.x. 
+Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x, tandis que le second concerne Functions 1.x. 
+
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -251,7 +254,7 @@ Les exemples suivants illustrent les données de liaison Event Hubs dans le fich
   "type": "eventHubTrigger",
   "name": "myEventHubMessage",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -269,14 +272,14 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-Pour recevoir les événements dans un lot, définissez `cardinality` sur `many` dans le fichier *function.json*, comme le montrent les exemples suivants. Le premier exemple concerne Functions 1.x, tandis que le second concerne Functions 2.x. 
+Pour recevoir les événements dans un lot, définissez `cardinality` sur `many` dans le fichier *function.json*, comme le montrent les exemples suivants. Le premier exemple concerne Functions 2.x, tandis que le second concerne Functions 1.x. 
 
 ```json
 {
   "type": "eventHubTrigger",
   "name": "eventHubMessages",
   "direction": "in",
-  "path": "MyEventHub",
+  "eventHubName": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -286,7 +289,7 @@ Pour recevoir les événements dans un lot, définissez `cardinality` sur `many`
   "type": "eventHubTrigger",
   "name": "eventHubMessages",
   "direction": "in",
-  "eventHubName": "MyEventHub",
+  "path": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -426,13 +429,13 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 L’exemple suivant illustre une liaison de déclencheur de hub d’événements dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction écrit un message dans un hub d’événements.
 
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 1.x, tandis que le second concerne Functions 2.x. 
+Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x, tandis que le second concerne Functions 1.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -441,7 +444,7 @@ Les exemples suivants illustrent les données de liaison Event Hubs dans le fich
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -476,13 +479,13 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction F#](functions-reference-fsharp.md) qui utilise la liaison. La fonction écrit un message dans un hub d’événements.
 
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 1.x, tandis que le second concerne Functions 2.x. 
+Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x, tandis que le second concerne Functions 1.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -491,7 +494,7 @@ Les exemples suivants illustrent les données de liaison Event Hubs dans le fich
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -510,13 +513,13 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction écrit un message dans un hub d’événements.
 
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 1.x, tandis que le second concerne Functions 2.x. 
+Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x, tandis que le second concerne Functions 1.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "path": "myeventhub",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -525,7 +528,7 @@ Les exemples suivants illustrent les données de liaison Event Hubs dans le fich
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
+    "path": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }

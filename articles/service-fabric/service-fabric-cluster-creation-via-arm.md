@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: aab985270cf17b94d6353536c96a3825b5e3b73f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b71c1d75dc9d988c7b26f9720cc03d9fee9109b1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287340"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46970309"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Créer un cluster Service Fabric à l’aide d’Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -34,11 +34,11 @@ La sécurité du cluster est configurée lorsque le cluster configuré pour la p
 
 Si vous créez un cluster de production pour exécuter des charges de travail de production, nous vous recommandons de commencer par lire la [liste de vérification de disponibilité de la production](service-fabric-production-readiness-checklist.md).
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Prérequis 
 Dans cet article, utilisez les modules de gestionnaire de ressources Service Fabric Powershell ou Azure CLI pour déployer un cluster :
 
 * [Azure PowerShell 4.1 et versions ultérieures][azure-powershell]
-* [Azure CLI 2.0 et versions ultérieures][azure-CLI]
+* [Azure CLI 2.0 et versions ultérieures][azure-CLI]
 
 Vous trouverez la documentation de référence pour les modules Service Fabric ici :
 * [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric)

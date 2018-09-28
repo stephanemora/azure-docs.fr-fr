@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 7fe4fdbf6c6b3cbbd6d01ef5309699c3d3991d53
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3a74450ca8025f07b00dc18c9b81b147afa7439c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003812"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46975296"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure
 
@@ -35,7 +35,7 @@ Avant de suivre les étapes décrites dans les sections de cet article, accompli
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
 - Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce tutoriel requiert le module Azure PowerShell version 5.7.0 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
-- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel requiert Azure CLI version 2.0.31 ou ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans [Autorisations relatives à l’interface réseau](virtual-network-network-interface.md#permissions).
 
@@ -188,7 +188,7 @@ Chaque interface réseau doit avoir une configuration IP [principale](#primary) 
 Vous pouvez assigner zéro ou une adresse [IPv6](#ipv6) privée à une configuration IP secondaire d’une interface réseau. L’interface réseau ne peut pas déjà avoir de configuration IP secondaire. Vous ne pouvez pas ajouter de configuration IP avec une adresse IPv6 à l’aide du portail. Pour ajouter une configuration IP avec une adresse IPv6 privée à une interface réseau existante, utilisez PowerShell ou l’interface CLI. L’interface réseau ne peut pas être attachée à une machine virtuelle existante.
 
 > [!NOTE]
-> Bien que vous puissiez créer une interface réseau avec une adresse IPv6 à l’aide du portail, il vous est impossible de l’utiliser pour ajouter une interface réseau existante à un ordinateur virtuel nouveau ou existant. Utilisez PowerShell ou Azure CLI 2.0 pour créer une interface réseau avec une adresse IPv6 privée, puis attachez l’interface réseau lors de la création d’une machine virtuelle. Vous ne pouvez pas attacher d’interface réseau, avec une adresse IPv6 privée qui lui est assignée, à une machine virtuelle existante. Vous ne pouvez pas ajouter d’adresse IPv6 privée à la configuration IP d’une interface réseau attachée à une machine virtuelle, quel que soit l’outil utilisé (portail, CLI ou PowerShell).
+> Bien que vous puissiez créer une interface réseau avec une adresse IPv6 à l’aide du portail, il vous est impossible de l’utiliser pour ajouter une interface réseau existante à un ordinateur virtuel nouveau ou existant. Utilisez PowerShell ou Azure CLI pour créer une interface réseau avec une adresse IPv6 privée, puis attachez l’interface réseau pendant la création d’une machine virtuelle. Vous ne pouvez pas attacher d’interface réseau, avec une adresse IPv6 privée qui lui est assignée, à une machine virtuelle existante. Vous ne pouvez pas ajouter d’adresse IPv6 privée à la configuration IP d’une interface réseau attachée à une machine virtuelle, quel que soit l’outil utilisé (portail, CLI ou PowerShell).
 
 Vous ne pouvez pas assigner d’adresse IPv6 publique à une configuration IP principale ou secondaire.
 
