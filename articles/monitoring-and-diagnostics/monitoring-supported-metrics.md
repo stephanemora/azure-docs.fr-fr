@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 03/30/2018
+ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 3219f8e61a0aa469775a972e6b240eb2069c2cd9
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 15cac40e743f44ea7e0954c94683674ad9372a7a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929965"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962945"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compris en créant des graphiques dans le portail, en y accédant via l’API REST ou en envoyant des requêtes avec PowerShell ou l’interface CLI. Voici une liste complète de toutes les métriques actuellement offertes par le pipeline de métrique d’Azure Monitor. D’autres métriques peuvent être disponibles dans le portail ou via les API héritées. La liste ci-dessous englobe uniquement les métriques disponibles en utilisant le pipeline de métriques Azure Monitor consolidé. Pour rechercher ces métriques et y accéder, veuillez utiliser [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions).
@@ -83,7 +83,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |FailedRequests|Demandes de la passerelle ayant échoué|Count|Total|Nombre de défaillances des demandes de la passerelle|Emplacement, nom d’hôte|
 |OtherRequests|Autres demandes de la passerelle|Count|Total|Nombre d’autres demandes de la passerelle|Emplacement, nom d’hôte|
 |Duration|Durée globale des demandes de passerelle|Millisecondes|Moyenne|Durée globale des demandes de passerelle en millisecondes|Emplacement, nom d’hôte|
-|Capacité|Capacité (préversion)|Pourcentage|Moyenne|Métrique d’utilisation pour le service ApiManagement|Emplacement|
+|Capacité|Capacité|Pourcentage|Moyenne|Métrique d’utilisation pour le service ApiManagement|Lieu|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -119,34 +119,44 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |PoolResizeCompleteEvent|Événements de fin de redimensionnement de pool|Count|Total|Nombre total de redimensionnements de pool terminés|Aucune dimension|
 |PoolDeleteStartEvent|Événements de démarrage de suppression de pool|Count|Total|Nombre total de suppressions de pool ayant démarré|Aucune dimension|
 |PoolDeleteCompleteEvent|Événements de suppression de pool terminés|Count|Total|Nombre total de suppressions de pool terminées|Aucune dimension|
+|JobDeleteCompleteEvent|Événements de fin de suppression de travail|Count|Total|Nombre total de travaux correctement supprimés.|Aucune dimension|
+|JobDeleteStartEvent|Événements de démarrage de suppression de travail|Count|Total|Nombre total de travaux demandés pour être supprimés.|Aucune dimension|
+|JobDisableCompleteEvent|Événements de fin de désactivation de travail|Count|Total|Nombre total de travaux correctement désactivés.|Aucune dimension|
+|JobDisableStartEvent|Événements de démarrage de désactivation de travail|Count|Total|Nombre total de travaux demandés pour être désactivés.|Aucune dimension|
+|JobStartEvent|Événements de démarrage de travail|Count|Total|Nombre total de travaux correctement démarrés.|Aucune dimension|
+|JobTerminateCompleteEvent|Événements de fin de travail terminé|Count|Total|Nombre total de travaux correctement terminés.|Aucune dimension|
+|JobTerminateCompleteEvent|Événements de démarrage de fin de travail|Count|Total|Nombre total de travaux demandés pour être terminés.|Aucune dimension|
 
 ## <a name="microsoftcacheredis"></a>Microsoft.Cache/redis
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|connectedclients|Clients connectés|Count|Maximale||Aucune dimension|
-|totalcommandsprocessed|Total des opérations|Count|Total||Aucune dimension|
-|cachehits|Présences dans le cache|Count|Total||Aucune dimension|
-|cachemisses|Absences dans le cache|Count|Total||Aucune dimension|
-|getcommands|Gets|Count|Total||Aucune dimension|
-|setcommands|Sets|Count|Total||Aucune dimension|
-|operationsPerSecond|Opérations par seconde|Count|Total||Aucune dimension|
-|evictedkeys|Clés exclues|Count|Total||Aucune dimension|
-|totalkeys|Nombre total de clés|Count|Maximale||Aucune dimension|
-|expiredkeys|Clés expirées|Count|Total||Aucune dimension|
-|usedmemory|Mémoire utilisée|Octets|Maximale||Aucune dimension|
-|usedmemoryRss|Taille de la mémoire résidente utilisée|Octets|Maximale||Aucune dimension|
-|serverLoad|Charge du serveur|Pourcentage|Maximale||Aucune dimension|
-|cacheWrite|Cache d’écriture|BytesPerSecond|Maximale||Aucune dimension|
-|cacheRead|Lecture du cache|BytesPerSecond|Maximale||Aucune dimension|
-|percentProcessorTime|UC|Pourcentage|Maximale||Aucune dimension|
+|connectedclients|Clients connectés|Count|Maximale||ShardId|
+|totalcommandsprocessed|Total des opérations|Count|Total||ShardId|
+|cachehits|Présences dans le cache|Count|Total||ShardId|
+|cachemisses|Absences dans le cache|Count|Total||ShardId|
+|getcommands|Gets|Count|Total||ShardId|
+|setcommands|Sets|Count|Total||ShardId|
+|operationsPerSecond|Opérations par seconde|Count|Maximale||ShardId|
+|evictedkeys|Clés exclues|Count|Total||ShardId|
+|totalkeys|Nombre total de clés|Count|Maximale||ShardId|
+|expiredkeys|Clés expirées|Count|Total||ShardId|
+|usedmemory|Mémoire utilisée|Octets|Maximale||ShardId|
+|usedmemorypercentage|Pourcentage de mémoire utilisé|Pourcentage|Maximale||ShardId|
+|usedmemoryRss|Taille de la mémoire résidente utilisée|Octets|Maximale||ShardId|
+|serverLoad|Charge du serveur|Pourcentage|Maximale||ShardId|
+|cacheWrite|Cache d’écriture|BytesPerSecond|Maximale||ShardId|
+|cacheRead|Lecture du cache|BytesPerSecond|Maximale||ShardId|
+|percentProcessorTime|UC|Pourcentage|Maximale||ShardId|
+|cacheLatency|Latence de cache en microsecondes (préversion)|Count|Moyenne||ShardId, SampleType|
+|errors|Errors|Count|Maximale||ShardId, ErrorType|
 |connectedclients0|Clients connectés (Shard 0)|Count|Maximale||Aucune dimension|
 |totalcommandsprocessed0|Total des opérations (Shard 0)|Count|Total||Aucune dimension|
 |cachehits0|Présences dans le cache (Shard 0)|Count|Total||Aucune dimension|
 |cachemisses0|Absences dans le cache (Shard 0)|Count|Total||Aucune dimension|
 |getcommands0|Gets (Shard 0)|Count|Total||Aucune dimension|
 |setcommands0|Sets (Shard 0)|Count|Total||Aucune dimension|
-|operationsPerSecond0|Opérations par seconde (Partition 0)|Count|Total||Aucune dimension|
+|operationsPerSecond0|Opérations par seconde (Partition 0)|Count|Maximale||Aucune dimension|
 |evictedkeys0|Clés exclues (Shard 0)|Count|Total||Aucune dimension|
 |totalkeys0|Nombre total de clés (Shard 0)|Count|Maximale||Aucune dimension|
 |expiredkeys0|Clés expirées (Shard 0)|Count|Total||Aucune dimension|
@@ -162,7 +172,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cachemisses1|Absences dans le cache (Shard 1)|Count|Total||Aucune dimension|
 |getcommands1|Gets (Shard 1)|Count|Total||Aucune dimension|
 |setcommands1|Sets (Shard 1)|Count|Total||Aucune dimension|
-|operationsPerSecond1|Opérations par seconde (Partition 1)|Count|Total||Aucune dimension|
+|operationsPerSecond1|Opérations par seconde (Partition 1)|Count|Maximale||Aucune dimension|
 |evictedkeys1|Clés exclues (Shard 1)|Count|Total||Aucune dimension|
 |totalkeys1|Nombre total de clés (Shard 1)|Count|Maximale||Aucune dimension|
 |expiredkeys1|Clés expirées (Shard 1)|Count|Total||Aucune dimension|
@@ -178,7 +188,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cachemisses2|Absences dans le cache (Shard 2)|Count|Total||Aucune dimension|
 |getcommands2|Gets (Shard 2)|Count|Total||Aucune dimension|
 |setcommands2|Sets (Shard 2)|Count|Total||Aucune dimension|
-|operationsPerSecond2|Opérations par seconde (Partition 2)|Count|Total||Aucune dimension|
+|operationsPerSecond2|Opérations par seconde (Partition 2)|Count|Maximale||Aucune dimension|
 |evictedkeys2|Clés exclues (Shard 2)|Count|Total||Aucune dimension|
 |totalkeys2|Nombre total de clés (Shard 2)|Count|Maximale||Aucune dimension|
 |expiredkeys2|Clés expirées (Shard 2)|Count|Total||Aucune dimension|
@@ -194,7 +204,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cachemisses3|Absences dans le cache (Shard 3)|Count|Total||Aucune dimension|
 |getcommands3|Gets (Shard 3)|Count|Total||Aucune dimension|
 |setcommands3|Sets (Shard 3)|Count|Total||Aucune dimension|
-|operationsPerSecond3|Opérations par seconde (Partition 3)|Count|Total||Aucune dimension|
+|operationsPerSecond3|Opérations par seconde (Partition 3)|Count|Maximale||Aucune dimension|
 |evictedkeys3|Clés exclues (Shard 3)|Count|Total||Aucune dimension|
 |totalkeys3|Nombre total de clés (Shard 3)|Count|Maximale||Aucune dimension|
 |expiredkeys3|Clés expirées (Shard 3)|Count|Total||Aucune dimension|
@@ -210,7 +220,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cachemisses4|Absences dans le cache (Shard 4)|Count|Total||Aucune dimension|
 |getcommands4|Gets (Shard 4)|Count|Total||Aucune dimension|
 |setcommands4|Sets (Shard 4)|Count|Total||Aucune dimension|
-|operationsPerSecond4|Opérations par seconde (Partition 4)|Count|Total||Aucune dimension|
+|operationsPerSecond4|Opérations par seconde (Partition 4)|Count|Maximale||Aucune dimension|
 |evictedkeys4|Clés exclues (Shard 4)|Count|Total||Aucune dimension|
 |totalkeys4|Nombre total de clés (Shard 4)|Count|Maximale||Aucune dimension|
 |expiredkeys4|Clés expirées (Shard 4)|Count|Total||Aucune dimension|
@@ -226,7 +236,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cachemisses5|Absences dans le cache (Shard 5)|Count|Total||Aucune dimension|
 |getcommands5|Gets (Shard 5)|Count|Total||Aucune dimension|
 |setcommands5|Sets (Shard 5)|Count|Total||Aucune dimension|
-|operationsPerSecond5|Opérations par seconde (Partition 5)|Count|Total||Aucune dimension|
+|operationsPerSecond5|Opérations par seconde (Partition 5)|Count|Maximale||Aucune dimension|
 |evictedkeys5|Clés exclues (Shard 5)|Count|Total||Aucune dimension|
 |totalkeys5|Nombre total de clés (Shard 5)|Count|Maximale||Aucune dimension|
 |expiredkeys5|Clés expirées (Shard 5)|Count|Total||Aucune dimension|
@@ -242,7 +252,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cachemisses6|Absences dans le cache (Shard 6)|Count|Total||Aucune dimension|
 |getcommands6|Gets (Shard 6)|Count|Total||Aucune dimension|
 |setcommands6|Sets (Shard 6)|Count|Total||Aucune dimension|
-|operationsPerSecond6|Opérations par seconde (Partition 6)|Count|Total||Aucune dimension|
+|operationsPerSecond6|Opérations par seconde (Partition 6)|Count|Maximale||Aucune dimension|
 |evictedkeys6|Clés exclues (Shard 6)|Count|Total||Aucune dimension|
 |totalkeys6|Nombre total de clés (Shard 6)|Count|Maximale||Aucune dimension|
 |expiredkeys6|Clés expirées (Shard 6)|Count|Total||Aucune dimension|
@@ -258,7 +268,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cachemisses7|Absences dans le cache (Shard 7)|Count|Total||Aucune dimension|
 |getcommands7|Gets (Shard 7)|Count|Total||Aucune dimension|
 |setcommands7|Sets (Shard 7)|Count|Total||Aucune dimension|
-|operationsPerSecond7|Opérations par seconde (Partition 7)|Count|Total||Aucune dimension|
+|operationsPerSecond7|Opérations par seconde (Partition 7)|Count|Maximale||Aucune dimension|
 |evictedkeys7|Clés exclues (Shard 7)|Count|Total||Aucune dimension|
 |totalkeys7|Nombre total de clés (Shard 7)|Count|Maximale||Aucune dimension|
 |expiredkeys7|Clés expirées (Shard 7)|Count|Total||Aucune dimension|
@@ -274,7 +284,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cachemisses8|Absences dans le cache (Shard 8)|Count|Total||Aucune dimension|
 |getcommands8|Gets (Shard 8)|Count|Total||Aucune dimension|
 |setcommands8|Sets (Shard 8)|Count|Total||Aucune dimension|
-|operationsPerSecond8|Opérations par seconde (Partition 8)|Count|Total||Aucune dimension|
+|operationsPerSecond8|Opérations par seconde (Partition 8)|Count|Maximale||Aucune dimension|
 |evictedkeys8|Clés exclues (Shard 8)|Count|Total||Aucune dimension|
 |totalkeys8|Nombre total de clés (Shard 8)|Count|Maximale||Aucune dimension|
 |expiredkeys8|Clés expirées (Shard 8)|Count|Total||Aucune dimension|
@@ -290,7 +300,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |cachemisses9|Absences dans le cache (Shard 9)|Count|Total||Aucune dimension|
 |getcommands9|Gets (Shard 9)|Count|Total||Aucune dimension|
 |setcommands9|Sets (Shard 9)|Nombre|Total||Aucune dimension|
-|operationsPerSecond9|Opérations par seconde (Partition 9)|Count|Total||Aucune dimension|
+|operationsPerSecond9|Opérations par seconde (Partition 9)|Count|Maximale||Aucune dimension|
 |evictedkeys9|Clés exclues (Shard 9)|Count|Total||Aucune dimension|
 |totalkeys9|Nombre total de clés (Shard 9)|Count|Maximale||Aucune dimension|
 |expiredkeys9|Clés expirées (Shard 9)|Count|Total||Aucune dimension|
@@ -317,13 +327,13 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|Percentage CPU|Percentage CPU|Pourcentage|Moyenne|Pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles.|Aucune dimension|
-|Network In|Network In|Octets|Total|Nombre d’octets reçus sur toutes les interfaces réseau par les machines virtuelles (trafic entrant).|Aucune dimension|
-|Network Out|Network Out|Octets|Total|Nombre d’octets envoyés sur toutes les interfaces réseau par les machines virtuelles (trafic sortant).|Aucune dimension|
-|Disk Read Bytes/Sec|Lecture du disque|BytesPerSecond|Moyenne|Moyenne d’octets lus à partir du disque pendant la période d’analyse.|Aucune dimension|
-|Disk Write Bytes/Sec|Écriture sur le disque|BytesPerSecond|Moyenne|Moyenne d’octets écrits sur le disque pendant la période d’analyse.|Aucune dimension|
-|Disk Read Operations/Sec|Disk Read Operations/Sec|CountPerSecond|Moyenne|E/S de lecture disque par seconde.|Aucune dimension|
-|Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Moyenne|E/S d’écriture sur disque par seconde.|Aucune dimension|
+|Percentage CPU|Percentage CPU|Pourcentage|Moyenne|Pourcentage d’unités de calcul affectées actuellement utilisées par des machines virtuelles.|RoleInstanceId|
+|Network In|Network In|Octets|Total|Nombre d’octets reçus sur toutes les interfaces réseau par les machines virtuelles (trafic entrant).|RoleInstanceId|
+|Network Out|Network Out|Octets|Total|Nombre d’octets envoyés sur toutes les interfaces réseau par les machines virtuelles (trafic sortant).|RoleInstanceId|
+|Disk Read Bytes/Sec|Lecture du disque|BytesPerSecond|Moyenne|Moyenne d’octets lus à partir du disque pendant la période d’analyse.|RoleInstanceId|
+|Disk Write Bytes/Sec|Écriture sur le disque|BytesPerSecond|Moyenne|Moyenne d’octets écrits sur le disque pendant la période d’analyse.|RoleInstanceId|
+|Disk Read Operations/Sec|Disk Read Operations/Sec|CountPerSecond|Moyenne|E/S de lecture disque par seconde.|RoleInstanceId|
+|Disk Write Operations/Sec|Disk Write Operations/Sec|CountPerSecond|Moyenne|E/S d’écriture sur disque par seconde.|RoleInstanceId|
 
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
@@ -337,10 +347,11 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |ClientErrors|Erreurs de client|Count|Total|Nombre d’appels avec erreur côté client (code de réponse HTTP : 4xx).|Aucune dimension|
 |DataIn|Données entrantes|Octets|Total|Taille des données entrantes en octets.|Aucune dimension|
 |DataOut|Données sortantes|Octets|Total|Taille des données sortantes en octets.|Aucune dimension|
-|Latency|Latency|Millisecondes|Moyenne|Latence en millisecondes.|Aucune dimension|
+|Latence|Latence|Millisecondes|Moyenne|Latence en millisecondes.|Aucune dimension|
 |CharactersTranslated|Caractères traduits|Count|Total|Nombre total de caractères dans la requête de texte entrante.|Aucune dimension|
 |SpeechSessionDuration|Durée de la session vocale|Secondes|Total|Durée totale de la session vocale en secondes.|Aucune dimension|
-|TotalTransactions|Nombre total de transactions|Count|Total|Nombre total de transactions|Aucune dimension|
+|TotalTransactions|Nombre total de transactions|Count|Total|Nombre total de transactions.|Aucune dimension|
+|TotalTokenCalls|Total d’appels de jeton|Count|Total|Nombre total d’appels de jeton.|Aucune dimension|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
@@ -420,6 +431,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |CpuUsage|Utilisation du processeur|Count|Moyenne|Utilisation du processeur sur tous les cœurs en millicores.|containerName|
 |MemoryUsage|Utilisation de la mémoire|Octets|Moyenne|Utilisation de la mémoire totale en octets.|containerName|
+|NetworkBytesReceivedPerSecond|Octets réseau reçus par seconde|Octets|Moyenne|Octets réseau reçus par seconde.|Aucune dimension|
+|NetworkBytesTransmittedPerSecond|Octets réseau transmis par seconde|Octets|Moyenne|Octets réseau transmis par seconde.|Aucune dimension|
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
@@ -507,6 +520,24 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |WriteRequests|Demandes d’écriture|Count|Total|Nombre de demandes d’écriture de données sur le compte.|Aucune dimension|
 |ReadRequests|Demandes de lecture|Count|Total|Nombre de demandes de lecture de données sur le compte.|Aucune dimension|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|cpu_percent|Pourcentage d’UC|Pourcentage|Moyenne|Pourcentage d’UC|Aucune dimension|
+|memory_percent|Pourcentage de mémoire|Pourcentage|Moyenne|Pourcentage de mémoire|Aucune dimension|
+|io_consumption_percent|Pourcentage d’E/S|Pourcentage|Moyenne|Pourcentage d’E/S|Aucune dimension|
+|storage_percent|Pourcentage de stockage|Pourcentage|Moyenne|Pourcentage de stockage|Aucune dimension|
+|storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|Aucune dimension|
+|storage_limit|Limite de stockage|Octets|Moyenne|Limite de stockage|Aucune dimension|
+|serverlog_storage_percent|Pourcentage de stockage du journal du serveur|Pourcentage|Moyenne|Pourcentage de stockage du journal du serveur|Aucune dimension|
+|serverlog_storage_usage|Stockage du journal du serveur utilisé|Octets|Moyenne|Stockage du journal du serveur utilisé|Aucune dimension|
+|serverlog_storage_limit|Limite de stockage du journal du serveur|Octets|Moyenne|Limite de stockage du journal du serveur|Aucune dimension|
+|active_connections|Connexions actives|Count|Moyenne|Connexions actives|Aucune dimension|
+|connections_failed|Connexions ayant échoué|Count|Total|Connexions ayant échoué|Aucune dimension|
+|network_bytes_egress|Network Out|Octets|Total|Sortie réseau entre connexions actives|Aucune dimension|
+|network_bytes_ingress|Network In|Octets|Total|Entrée réseau entre connexions actives|Aucune dimension|
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -520,8 +551,11 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |serverlog_storage_percent|Pourcentage de stockage du journal du serveur|Pourcentage|Moyenne|Pourcentage de stockage du journal du serveur|Aucune dimension|
 |serverlog_storage_usage|Stockage du journal du serveur utilisé|Octets|Moyenne|Stockage du journal du serveur utilisé|Aucune dimension|
 |serverlog_storage_limit|Limite de stockage du journal du serveur|Octets|Moyenne|Limite de stockage du journal du serveur|Aucune dimension|
-|active_connections|Nombre total de connexions actif|Count|Moyenne|Nombre total de connexions actif|Aucune dimension|
-|connections_failed|Total de connexions ayant échoué|Count|Total|Total de connexions ayant échoué|Aucune dimension|
+|active_connections|Connexions actives|Count|Moyenne|Connexions actives|Aucune dimension|
+|connections_failed|Connexions ayant échoué|Count|Total|Connexions ayant échoué|Aucune dimension|
+|seconds_behind_master|Décalage de la réplication en secondes|Count|Moyenne|Décalage de la réplication en secondes|Aucune dimension|
+|network_bytes_egress|Network Out|Octets|Total|Sortie réseau entre connexions actives|Aucune dimension|
+|network_bytes_ingress|Network In|Octets|Total|Entrée réseau entre connexions actives|Aucune dimension|
 
 ## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
 
@@ -536,8 +570,10 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |serverlog_storage_percent|Pourcentage de stockage du journal du serveur|Pourcentage|Moyenne|Pourcentage de stockage du journal du serveur|Aucune dimension|
 |serverlog_storage_usage|Stockage du journal du serveur utilisé|Octets|Moyenne|Stockage du journal du serveur utilisé|Aucune dimension|
 |serverlog_storage_limit|Limite de stockage du journal du serveur|Octets|Moyenne|Limite de stockage du journal du serveur|Aucune dimension|
-|active_connections|Nombre total de connexions actif|Count|Total|Nombre total de connexions actif|Aucune dimension|
-|connections_failed|Total de connexions ayant échoué|Count|Total|Total de connexions ayant échoué|Aucune dimension|
+|active_connections|Connexions actives|Count|Moyenne|Connexions actives|Aucune dimension|
+|connections_failed|Connexions ayant échoué|Count|Total|Connexions ayant échoué|Aucune dimension|
+|network_bytes_egress|Network Out|Octets|Total|Sortie réseau entre connexions actives|Aucune dimension|
+|network_bytes_ingress|Network In|Octets|Total|Entrée réseau entre connexions actives|Aucune dimension|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices/IotHubs
 
@@ -548,25 +584,25 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |c2d.commands.egress.complete.success|Commandes terminées|Count|Total|Nombre de commandes cloud vers appareil terminées avec succès par l’appareil|Aucune dimension|
 |c2d.commands.egress.abandon.success|Commandes abandonnées|Count|Total|Nombre de commandes cloud vers appareil abandonnées par l’appareil|Aucune dimension|
 |c2d.commands.egress.reject.success|Commandes rejetées|Count|Total|Nombre de commandes cloud vers appareil rejetées par l’appareil|Aucune dimension|
-|devices.totalDevices|Nombre total d’appareils|Count|Total|Nombre d’appareils enregistrés sur votre hub IoT|Aucune dimension|
-|devices.connectedDevices.allProtocol|Appareils connectés|Count|Total|Nombre d’appareils connectés à votre hub IoT|Aucune dimension|
-|d2c.telemetry.egress.success|Messages de télémétrie remis|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison (total)|Aucune dimension|
-|d2c.telemetry.egress.dropped|Messages supprimés|Count|Total|Nombre de messages ignorés, car le point de terminaison de livraison était indisponible|Aucune dimension|
-|d2c.telemetry.egress.orphaned|Messages orphelins|Count|Total|Nombre de messages ne correspondant à aucun itinéraire, itinéraire de secours compris|Aucune dimension|
-|d2c.telemetry.egress.invalid|Messages non valides|Count|Total|Nombre de messages non remis en raison d’une incompatibilité avec le point de terminaison|Aucune dimension|
-|d2c.telemetry.egress.fallback|Messages correspondant à une condition de secours|Count|Total|Nombre de messages écrits au point de terminaison de secours|Aucune dimension|
-|d2c.endpoints.egress.eventHubs|Messages remis aux points de terminaison Event Hub|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison Event Hub|Aucune dimension|
-|d2c.endpoints.latency.eventHubs|Latence des messages des points de terminaison Event Hub|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison Event Hub, en millisecondes|Aucune dimension|
-|d2c.endpoints.egress.serviceBusQueues|Messages remis aux points de terminaison de file d’attente Service Bus|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de file d’attente Service Bus|Aucune dimension|
-|d2c.endpoints.latency.serviceBusQueues|Latence des messages des points de terminaison de files d’attente Service Bus|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de file d’attente Service Bus, en millisecondes|Aucune dimension|
-|d2c.endpoints.egress.serviceBusTopics|Messages remis aux points de terminaison de rubrique Service Bus|Count|Total|Nombre de fois où des messages ont été écrits aux points de terminaison de rubrique Service Bus|Aucune dimension|
-|d2c.endpoints.latency.serviceBusTopics|Latence des messages des points de terminaison de rubriques Service Bus|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison de rubrique Service Bus, en millisecondes|Aucune dimension|
-|d2c.endpoints.egress.builtIn.events|Messages remis au point de terminaison intégré (messages/événements)|Count|Total|Nombre de fois où des messages ont été écrits au point de terminaison intégré (messages/événements)|Aucune dimension|
-|d2c.endpoints.latency.builtIn.events|Latence de message pour le point de terminaison intégré (messages/événements)|Millisecondes|Moyenne|Latence moyenne entre les entrées de messages vers l’IoT Hub et dans un point de terminaison prédéfini (messages/événements), en millisecondes |Aucune dimension|
-|d2c.endpoints.egress.storage|Messages remis aux points de terminaison de stockage|Count|Total|Nombre de fois où des messages ont correctement été écrits sur des points de terminaison de stockage|Aucune dimension|
-|d2c.endpoints.latency.storage|Latence des messages pour les points de terminaison de stockage|Millisecondes|Moyenne|Latence moyenne entre l’entrée des messages dans IoT Hub et l’entrée des message dans un point de terminaison de stockage, en millisecondes|Aucune dimension|
-|d2c.endpoints.egress.storage.bytes|Données écrites dans le stockage|Octets|Total|Volume de données, en octets, écrites sur des points de terminaison de stockage|Aucune dimension|
-|d2c.endpoints.egress.storage.blobs|Objets blob écrits dans le stockage|Count|Total|Nombre d’objets blob écrits sur des points de terminaison de stockage|Aucune dimension|
+|devices.totalDevices|Nombre total d’appareils (déconseillé)|Count|Total|Nombre d’appareils enregistrés sur votre hub IoT|Aucune dimension|
+|devices.connectedDevices.allProtocol|Appareils connectés (déconseillé) |Count|Total|Nombre d’appareils connectés à votre hub IoT|Aucune dimension|
+|d2c.telemetry.egress.success|Routage : messages de télémétrie remis|Count|Total|Nombre de fois où des messages ont été correctement remis à tous les points de terminaison à l’aide du routage IoT Hub. Si un message est routé vers plusieurs points de terminaison, cette valeur augmente d’une unité pour chaque remise réussie. Si un message est routé plusieurs fois vers le même point de terminaison, cette valeur augmente d’une unité pour chaque remise réussie.|Aucune dimension|
+|d2c.telemetry.egress.dropped|Routage : messages de télémétrie annulés |Count|Total|Nombre de fois où des messages ont été annulés par le routage IoT Hub en raison de points de terminaison morts. Cette valeur ne compte pas les messages remis à un itinéraire de secours, car les messages annulés n’y sont pas remis.|Aucune dimension|
+|d2c.telemetry.egress.orphaned|Routage : messages de télémétrie orphelins |Count|Total|Nombre de fois où des messages ont été définis comme orphelins par le routage IoT Hub car ils ne correspondaient à aucune règle de routage (y compris la règle de secours). |Aucune dimension|
+|d2c.telemetry.egress.invalid|Routage : messages de télémétrie incompatibles|Count|Total|Nombre de fois où le routage IoT Hub n’a pas réussi à remettre des messages en raison d’une incompatibilité avec le point de terminaison. Cette valeur n’inclut pas les nouvelles tentatives.|Aucune dimension|
+|d2c.telemetry.egress.fallback|Routage : messages remis à l’itinéraire de secours|Count|Total|Nombre de fois où le routage IoT Hub a remis des messages au point de terminaison associé à l’itinéraire de secours.|Aucune dimension|
+|d2c.endpoints.egress.eventHubs|Routage : messages remis à Event Hub|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison Event Hub.|Aucune dimension|
+|d2c.endpoints.latency.eventHubs|Routage : latence des messages d’Event Hub|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et dans un point de terminaison Event Hub.|Aucune dimension|
+|d2c.endpoints.egress.serviceBusQueues|Routage : messages remis à la file d’attente Service Bus|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages aux points de terminaison de file d’attente Service Bus.|Aucune dimension|
+|d2c.endpoints.latency.serviceBusQueues|Routage : latence des messages de la file d’attente Service Bus|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de file d’attente Service Bus.|Aucune dimension|
+|d2c.endpoints.egress.serviceBusTopics|Routage : messages remis à la rubrique Service Bus|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison de rubrique Service Bus.|Aucune dimension|
+|d2c.endpoints.latency.serviceBusTopics|Routage : latence des messages de la rubrique Service Bus|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de rubrique Service Bus.|Aucune dimension|
+|d2c.endpoints.egress.builtIn.events|Routage : messages remis à des messages/événements|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages au point de terminaison intégré (messages/événements).|Aucune dimension|
+|d2c.endpoints.latency.builtIn.events|Routage : latence des messages de messages/d’événements|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans le point de terminaison intégré (messages/événements).|Aucune dimension|
+|d2c.endpoints.egress.storage|Routage : messages remis au stockage|Count|Total|Nombre de fois où le routage IoT Hub a correctement remis des messages à des points de terminaison de stockage.|Aucune dimension|
+|d2c.endpoints.latency.storage|Routage : latence des messages du stockage|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de stockage.|Aucune dimension|
+|d2c.endpoints.egress.storage.bytes|Routage : données remises au stockage|Octets|Total|Quantité de données (octets) que le routage IoT Hub a remis aux points de terminaison de stockage.|Aucune dimension|
+|d2c.endpoints.egress.storage.blobs|Routage : objets blob remis au stockage|Count|Total|Nombre de fois où le routage IoT Hub a remis des objets blob à des points de terminaison de stockage.|Aucune dimension|
 |d2c.twin.read.success|Lectures de représentations réussies d’appareils|Count|Total|Total des lectures de représentations réussies initiées par un appareil.|Aucune dimension|
 |d2c.twin.read.failure|Lectures de représentations d’appareils en échec|Count|Total|Total des lectures de représentations en échec initiées par un appareil.|Aucune dimension|
 |d2c.twin.read.size|Taille de la réponse des lectures de représentations des appareils|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un appareil.|Aucune dimension|
@@ -600,7 +636,11 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |jobs.failed|Travaux en échec|Count|Total|Total des travaux en échec.|Aucune dimension|
 |d2c.telemetry.ingress.sendThrottle|Nombre d’erreurs de limitation|Count|Total|Nombre d’erreurs de limitation causées par des limitations de débit d’appareil|Aucune dimension|
 |dailyMessageQuotaUsed|Nombre total de messages utilisés|Count|Moyenne|Nombre total de messages utilisés aujourd’hui. Il s’agit d’une valeur cumulative qui est réinitialisée sur zéro à 00h00 UTC chaque jour.|Aucune dimension|
-|deviceDataUsage|Utilisation totale des données d’appareil|Count|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
+|deviceDataUsage|Utilisation totale des données d’appareil (déconseillé)|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
+|deviceDataUsageV2|Utilisation totale des données d’appareil (préversion)|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
+|totalDeviceCount|Nombre total d’appareils (préversion)|Count|Moyenne|Nombre d’appareils enregistrés sur votre hub IoT|Aucune dimension|
+|connectedDeviceCount|Appareils connectés (préversion)|Count|Moyenne|Nombre d’appareils connectés à votre hub IoT|Aucune dimension|
+|configurations|Métriques de configuration|Count|Total|Métriques pour les opérations de configuration|Aucune dimension|
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
@@ -614,18 +654,45 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|MetadataRequests|Demandes de métadonnées|Count|Count|Nombre de demandes de métadonnées. Cosmos DB gère la collection des métadonnées système pour chaque compte, ce qui vous permet d’énumérer les collections, les bases de données, etc., ainsi que leur configuration, et ce gratuitement.|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
-|MongoRequestCharge|Frais des requêtes Mongo|Count|Total|Unités de requête Mongo consommées|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|MongoRequests|Requêtes Mongo|Count|Count|Nombre de requêtes Mongo effectuées|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, CommandName, ErrorCode|
-|TotalRequestUnits|Unités de requête totales|Count|Total|Unités de requête consommées|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
-|TotalRequests|Total de requêtes|Count|Count|Nombre de requêtes effectuées|GlobalDatabaseAccountName, DatabaseName, CollectionName, Region, StatusCode|
+|MetadataRequests|Demandes de métadonnées|Count|Count|Nombre de demandes de métadonnées. Cosmos DB gère la collection des métadonnées système pour chaque compte, ce qui vous permet d’énumérer les collections, les bases de données, etc., ainsi que leur configuration, et ce gratuitement.|DatabaseName, CollectionName, Region, StatusCode|
+|MongoRequestCharge|Frais des requêtes Mongo|Count|Total|Unités de requête Mongo consommées|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
+|MongoRequests|Requêtes Mongo|Count|Count|Nombre de requêtes Mongo effectuées|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
+|TotalRequestUnits|Unités de requête totales|Count|Total|Unités de requête consommées|DatabaseName, CollectionName, Region, StatusCode|
+|TotalRequests|Total de requêtes|Count|Count|Nombre de requêtes effectuées|DatabaseName, CollectionName, Region, StatusCode|
 
+
+## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|PublishSuccessCount|Événements publiés|Count|Total|Nombre total d’événements publiés dans cette rubrique|Aucune dimension|
+|PublishFailCount|Événements ayant échoué|Count|Total|Nombre total d’événements ayant échoué à publier dans cette rubrique|ErrorType, Error|
+|UnmatchedEventCount|Événements sans correspondance|Count|Total|Nombre total d’événements ne correspondant à aucun des abonnements aux événements pour cette rubrique|Aucune dimension|
+
+## <a name="microsofteventgrideventsubscriptions"></a>Microsoft.EventGrid/eventSubscriptions
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|MatchedEventCount|Événements correspondants|Count|Total|Nombre total d’événements correspondant à cet abonnement aux événements|Aucune dimension|
+|DeliveryAttemptFailCount|Événements d’échec de la remise|Count|Total|Nombre total d’événements ayant échoué dans la remise à cet abonnement aux événements|Error, ErrorType|
+|DeliverySuccessCount|Événements remis|Count|Total|Nombre total d’événements remis à cet abonnement aux événements|Aucune dimension|
+|DestinationProcessingDurationInMs|Durée du traitement de la destination|Millisecondes|Moyenne|Durée du traitement de la destination en millisecondes|Aucune dimension|
+|DroppedEventCount|Événements annulés|Count|Total|Nombre total d’événements annulés correspondant à cet abonnement aux événements|Aucune dimension|
+|DeadLetteredCount|Événements de lettres mortes|Count|Total|Nombre total d’événements de lettres mortes correspondant à cet abonnement aux événements|DeadLetterReason|
+
+## <a name="microsofteventgridextensiontopics"></a>Microsoft.EventGrid/extensionTopics
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|PublishSuccessCount|Événements publiés|Count|Total|Nombre total d’événements publiés dans cette rubrique|Aucune dimension|
+|PublishFailCount|Événements ayant échoué|Count|Total|Nombre total d’événements ayant échoué à publier dans cette rubrique|ErrorType, Error|
+|UnmatchedEventCount|Événements sans correspondance|Count|Total|Nombre total d’événements ne correspondant à aucun des abonnements aux événements pour cette rubrique|Aucune dimension|
 
 ## <a name="microsofteventhubnamespaces"></a>Microsoft.EventHub/namespaces
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Requêtes ayant réussi (préversion)|Count|Total|Requête réussies pour Microsoft.EventHub. (Préversion)|EntityName|
+|SuccessfulRequests|Requêtes ayant réussi (préversion)|Count|Total|Requêtes réussies pour Microsoft.EventHub. (Préversion)|EntityName|
 |ServerErrors|Erreurs de serveur. (Préversion)|Count|Total|Erreurs de serveur pour Microsoft.EventHub. (Préversion)|EntityName|
 |UserErrors|Erreurs d’utilisateur. (Préversion)|Count|Total|Erreurs d’utilisateur pour Microsoft.EventHub. (Préversion)|EntityName|
 |QuotaExceededErrors|Erreurs de dépassement de quota. (Préversion)|Count|Total|Erreurs de dépassement de quota pour Microsoft.EventHub. (Préversion)|EntityName|
@@ -660,6 +727,29 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |EHAMSGS|Archiver les messages|Count|Total|Messages archivés Event Hub dans un espace de noms|Aucune dimension|
 |EHAMBS|Débit message archive|Octets|Total|Débit de messages archivés Event Hub dans un espace de noms|Aucune dimension|
 
+## <a name="microsofteventhubclusters"></a>Microsoft.EventHub/clusters
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|SuccessfulRequests|Requêtes ayant réussi (préversion)|Count|Total|Requête réussies pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|ServerErrors|Erreurs de serveur. (Préversion)|Count|Total|Erreurs de serveur pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|UserErrors|Erreurs d’utilisateur. (Préversion)|Count|Total|Erreurs d’utilisateur pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|QuotaExceededErrors|Erreurs de dépassement de quota. (Préversion)|Count|Total|Erreurs de dépassement de quota pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|ThrottledRequests|Demandes limitées. (Préversion)|Count|Total|Demandes limitées pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|IncomingRequests|Demandes entrantes (préversion)|Count|Total|Demandes entrantes pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|IncomingMessages|Messages entrants (préversion)|Count|Total|Messages entrants pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|OutgoingMessages|Messages sortants (préversion)|Count|Total|Messages sortants pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|IncomingBytes|Octets entrants. (Préversion)|Octets|Total|Octets entrants pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|OutgoingBytes|Octets sortants. (Préversion)|Octets|Total|Octets sortants pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|ActiveConnections|ActiveConnections (préversion)|Count|Moyenne|Nombre total de connexions actives pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|ConnectionsOpened|Connexions ouvertes. (Préversion)|Count|Moyenne|Connexions ouvertes pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|ConnectionsClosed|Connexions fermées. (Préversion)|Count|Moyenne|Connexions fermées pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|CaptureBacklog|Backlog des captures. (Préversion)|Count|Total|Backlog des captures de Microsoft.EventHub. (Préversion)|Aucune dimension|
+|CapturedMessages|Messages capturés. (Préversion)|Count|Total|Messages capturés pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|CapturedBytes|Octets capturés. (Préversion)|Octets|Total|Octets capturés pour Microsoft.EventHub. (Préversion)|Aucune dimension|
+|UC|UC (Préversion)|Pourcentage|Maximale|Utilisation de l’UC en pourcentage du cluster Event Hub|Rôle|
+|AvailableMemory|Mémoire disponible (Préversion)|Count|Maximale|Mémoire disponible en octets pour le cluster Event Hub|Rôle|
+
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -676,6 +766,41 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |ObservedCapacity|Capacité observée|Count|Moyenne|Capacité envoyée à la mise à l’échelle automatique lors de l’exécution.|Aucune dimension|
 |ScaleActionsInitiated|Actions de mise à l’échelle initiées|Count|Total|Direction de l’opération de mise à l’échelle.|ScaleDirection|
 
+## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+(Préversion publique)
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|availabilityResults/duration|Durée du test|Millisecondes|Moyenne|Durée du test|availabilityResult/name, availabilityResult/location, availabilityResult/success|
+|billingMeters/telemetryCount|Nombre de points de données|Count|Total|Nombre de points de données envoyés à cette ressource Application Insights. Cette métrique est traitée avec une latence pouvant atteindre deux heures.|billing/telemetryItemType, billing/telemetryItemSource|
+|billingMeters/telemetrySize|Volume de point de données|Octets|Total|Volume de données envoyé à cette ressource Application Insights. Cette métrique est traitée avec une latence pouvant atteindre deux heures.|billing/telemetryItemType, billing/telemetryItemSource|
+|browserTimings/networkDuration|Temps de connexion au réseau pour le chargement de page|Millisecondes|Moyenne|Temps écoulé entre la requête de l’utilisateur et la connexion réseau. Inclut la connexion de recherche DNS et de transport.|Aucune dimension|
+|browserTimings/processingDuration|Temps de traitement du client|Millisecondes|Moyenne|Temps écoulé entre la réception du dernier octet d’un document et le chargement du modèle DOM. Les demandes asynchrones peuvent encore être en cours de traitement.|Aucune dimension|
+|browserTimings/receiveDuration|Temps de réception de réponse|Millisecondes|Moyenne|Temps écoulé entre le premier et le dernier octet, ou jusqu’à la déconnexion.|Aucune dimension|
+|browserTimings/sendDuration|Temps d’envoi de demande|Millisecondes|Moyenne|Temps écoulé entre la connexion réseau et la réception du premier octet.|Aucune dimension|
+|browserTimings/totalDuration|Temps de chargement de la page de navigateur|Millisecondes|Moyenne|Temps s’écoulant entre la demande de l’utilisateur et le chargement du DOM, des feuilles de style, des scripts et des images.|Aucune dimension|
+|dependencies/count|Appels de dépendance|Count|Count|Nombre d’appels effectués par l’application à des ressources externes.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|dependencies/duration|Durée de la dépendance|Millisecondes|Moyenne|Durée des appels effectués par l’application aux ressources externes.|dependency/type, dependency/performanceBucket, dependency/success, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|dependencies/failed|Défaillances de dépendance|Count|Count|Nombre d’échecs des appels de dépendance effectués par l’application à des ressources externes.|dependency/type, dependency/performanceBucket, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|pageViews/count|Affichages de page|Count|Count|Nombre de pages consultées.|operation/synthetic|
+|pageViews/duration|Temps de chargement de la page consultée|Millisecondes|Moyenne|Temps de chargement de la page consultée|operation/synthetic|
+|performanceCounters/requestExecutionTime|Durée d’exécution de la requête HTTP|Millisecondes|Moyenne|Durée d’exécution de la demande la plus récente.|cloud/roleInstance|
+|performanceCounters/requestsInQueue|Requêtes HTTP dans la file d’attente de l’application|Count|Moyenne|Longueur de la file d'attente des demandes d'application.|cloud/roleInstance|
+|performanceCounters/requestsPerSecond|Taux de requêtes HTTP|CountPerSecond|Moyenne|Taux par seconde de l'ensemble des demandes à l'application provenant d'ASP.NET.|cloud/roleInstance|
+|performanceCounters/exceptionsPerSecond|Taux d’exceptions|CountPerSecond|Moyenne|Nombre d’exceptions prises en charge et non prises en charge signalées à Windows, notamment les exceptions .NET et les exceptions non managées converties en exceptions .NET.|cloud/roleInstance|
+|performanceCounters/processIOBytesPerSecond|Taux d’E/S du processus|BytesPerSecond|Moyenne|Nombre total d’octets par seconde lus et écrits sur des fichiers, un réseau et des appareils.|cloud/roleInstance|
+|performanceCounters/processCpuPercentage|Processeur de processus|Pourcentage|Moyenne|Temps écoulé en pourcentage que tous les threads de processus a passé à utiliser le processeur pour exécuter des instructions. Il peut varier de 0 à 100. Cette métrique indique les performances du processus w3wp uniquement.|cloud/roleInstance|
+|performanceCounters/processorCpuPercentage|Temps processeur|Pourcentage|Moyenne|Temps en pourcentage que le processus a passé dans des threads actifs.|cloud/roleInstance|
+|performanceCounters/memoryAvailableBytes|Mémoire disponible|Octets|Moyenne|Mémoire physique prête à être allouée immédiatement pour un processus ou pour le système.|cloud/roleInstance|
+|performanceCounters/processPrivateBytes|Octets privés du processus|Octets|Moyenne|Mémoire allouée exclusivement aux processus de l’application analysée.|cloud/roleInstance|
+|requests/duration|Temps de réponse du serveur|Millisecondes|Moyenne|Temps écoulé entre la réception d'une requête HTTP et la fin de l'envoi de la réponse.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
+|requests/count|Requêtes serveur|Count|Count|Nombre de requêtes HTTP terminées.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, request/success, cloud/roleName|
+|requests/failed|Demandes ayant échoué|Count|Count|Nombre de requêtes HTTP marquées comme ayant échoué. Dans la plupart des cas, il s’agit de requêtes avec un code de réponse >= 400 et différent de 401.|request/performanceBucket, request/resultCode, operation/synthetic, cloud/roleInstance, cloud/roleName|
+|exceptions/count|Exceptions|Count|Total|Nombre combiné de toutes les exceptions non interceptées.|cloud/roleName, cloud/roleInstance, client/type|
+|exceptions/browser|Exceptions du navigateur|Count|Total|Nombre d’exceptions non interceptées levées dans le navigateur.|Aucune dimension|
+|exceptions/server|Exceptions de serveur|Count|Total|Nombre d’exceptions non interceptées levées dans l’application serveur.|cloud/roleName, cloud/roleInstance|
+|traces/count|Nombre de traces|Count|Total|Nombre de documents de traces|trace/severityLevel, operation/synthetic, cloud/roleName, cloud/roleInstance|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
@@ -684,11 +809,25 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |ServiceApiLatency|Latence globale de l'API de service|Millisecondes|Moyenne|Latence globale des demandes de l'API de service|ActivityType, ActivityName, StatusCode|
 |ServiceApiResult|Résultats totaux de l'API de service|Count|Count|Nombre total de résultats de l'API de service|ActivityType, ActivityName, StatusCode|
 
+## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|ClusterDataCapacityFactor|Utilisation du cache|Pourcentage|Moyenne|Niveau d’utilisation dans l’étendue du cluster|Aucune dimension|
+|QueryDuration|Durée de la requête|Millisecondes|Moyenne|Durée des requêtes en secondes|QueryStatus|
+|IngestionsLoadFactor|Utilisation de l’ingestion|Pourcentage|Moyenne|Ratio d’emplacements d’ingestion utilisés dans le cluster|Aucune dimension|
+|IsEngineAnsweringQuery|Connexion persistante|Count|Moyenne|Contrôle d’intégrité indiquant que le cluster répond aux requêtes|Aucune dimension|
+|IngestCommandOriginalSizeInMb|Volume d’ingestion (en Mo)|Count|Total|Volume total de données ingérées dans le cluster (en Mo)|Aucune dimension|
+|EventAgeSeconds|Latence d’ingestion (en secondes)|Secondes|Moyenne|Durée d’ingestion entre la source (par ex., message dans Event Hub) et le cluster en secondes|Aucune dimension|
+|EventRecievedFromEventHub|Événements traités (pour Event Hubs)|Count|Total|Nombre d’événements traités par le cluster lors de l’ingestion à partir d’Event Hub|Aucune dimension|
+|IngestionResult|Résultat de l’ingestion|Count|Count|Nombre d’opérations d’ingestion|IngestionResultDetails|
+|EngineCPU|UC|Pourcentage|Moyenne|Niveau d’utilisation de l’UC|Aucune dimension|
+
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|Latency|Latency|Millisecondes|Moyenne|Durée des appels d’API|OperationName, OperationResult|
+|Usage|Usage|Count|Count|Nombre d’appels d’API|ApiCategory, ApiName|
 
 ## <a name="microsoftlogicworkflows"></a>Microsoft.Logic/workflows
 
@@ -724,17 +863,71 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |BillableActionExecutions|Exécutions d’actions facturables|Count|Total|Nombre d’exécutions d’actions de flux de travail facturées.|Aucune dimension|
 |BillableTriggerExecutions|Exécutions de déclencheurs facturables|Count|Total|Nombre d’exécutions de déclencheurs de flux de travail facturées.|Aucune dimension|
 |TotalBillableExecutions|Nombre total d’exécutions facturables|Count|Total|Nombre d’exécutions de flux de travail facturées.|Aucune dimension|
+|BillingUsageNativeOperation|Utilisation de la facturation pour les exécutions d’opérations natives|Count|Total|Nombre d’exécutions d’opérations natives facturées.|Aucune dimension|
+|BillingUsageStandardConnector|Utilisation de la facturation pour les exécutions de connecteurs Standard|Count|Total|Nombre d’exécutions de connecteurs Standard facturées.|Aucune dimension|
+|BillingUsageStorageConsumption|Utilisation de la facturation pour les exécutions de consommation du stockage|Count|Total|Nombre d’exécutions de consommation du stockage facturées.|Aucune dimension|
+|BillingUsageNativeOperation|Utilisation de la facturation pour les exécutions d’opérations natives|Count|Total|Nombre d’exécutions d’opérations natives facturées.|Aucune dimension|
+|BillingUsageStandardConnector|Utilisation de la facturation pour les exécutions de connecteurs Standard|Count|Total|Nombre d’exécutions de connecteurs Standard facturées.|Aucune dimension|
+|BillingUsageStorageConsumption|Utilisation de la facturation pour les exécutions de consommation du stockage|Count|Total|Nombre d’exécutions de consommation du stockage facturées.|Aucune dimension|
+
+## <a name="microsoftnetappnetappaccountscapacitypoolsvolumes"></a>Microsoft.NetApp/netAppAccounts/capacityPools/Volumes
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|AverageOtherLatency|Autre latence moyenne|ms/op|Moyenne|Autre latence moyenne (qui n’est pas en lecture ou écriture) en millisecondes par opération|Aucune dimension|
+|AverageReadLatency|Latence de lecture moyenne|ms/op|Moyenne|Latence de lecture moyenne en millisecondes par opération|Aucune dimension|
+|AverageTotalLatency|Latence totale moyenne|ms/op|Moyenne|Latence totale moyenne en millisecondes par opération|Aucune dimension|
+|AverageWriteLatency|Latence d’écriture moyenne|ms/op|Moyenne|Latence d’écriture moyenne en millisecondes par opération|Aucune dimension|
+|FilesystemOtherOps|Autres opérations du système de fichiers|ops|Moyenne|Nombre d’autres opérations du système de fichiers (qui ne sont pas en lecture ou écriture)|Aucune dimension|
+|FilesystemReadOps|Opérations de lecture du système de fichiers|ops|Moyenne|Nombre d’opérations de lecture du système de fichiers|Aucune dimension|
+|FilesystemTotalOps|Nombre total d’opérations du système de fichiers|ops|Moyenne|Somme de toutes les opérations du système de fichiers|Aucune dimension|
+|FilesystemWriteOps|Opérations d’écriture du système de fichiers|ops|Moyenne|Nombre d’opérations d’écriture du système de fichiers|Aucune dimension|
+|IoBytesPerOtherOps|Octets d’E/S par autres opérations|octets/op|Moyenne|Nombre d’octets d’E/S par autres opérations (qui ne sont pas en lecture ou écriture)|Aucune dimension|
+|IoBytesPerReadOps|Octets d’E/S par opérations de lecture|octets/op|Moyenne|Nombre d’octets d’E/S par opération de lecture|Aucune dimension|
+|IoBytesPerTotalOps|Octets d’E/S par opération pour toutes les opérations|octets/op|Moyenne|Somme de tous les octets d’E/S d’opération|Aucune dimension|
+|IoBytesPerWriteOps|Octets d’E/S par opérations d’écriture|octets/op|Moyenne|Nombre d’octets d’E/S par opération d’écriture|Aucune dimension|
+|OtherIops|Autres E/S par seconde|opérations/seconde|Moyenne|Autre opération d’E/S par seconde|Aucune dimension|
+|OtherThroughput|Autre débit|Mbits/s|Moyenne|Autre débit (qui n’est pas en lecture ou écriture) en mégaoctets par seconde|Aucune dimension|
+|ReadIops|E/S par seconde en lecture|opérations/seconde|Moyenne|Opérations d’E/S en lecture par seconde|Aucune dimension|
+|ReadThroughput|Débit de lecture|Mbits/s|Moyenne|Débit de lecture en mégaoctets par seconde|Aucune dimension|
+|TotalIops|Nombre total d’E/S par seconde|opérations/seconde|Moyenne|Somme de toutes opérations d’E/S en lecture par seconde|Aucune dimension|
+|TotalThroughput|Débit total|Mbits/s|Moyenne|Somme de tout le débit en mégaoctets par seconde|Aucune dimension|
+|VolumeAllocatedSize|Taille allouée de volume|octets|Moyenne|Taille allouée du volume (pas les octets utilisés réels)|Aucune dimension|
+|VolumeLogicalSize|Taille logique du volume|octets|Moyenne|Taille logique du volume (octets utilisés)|Aucune dimension|
+|VolumeSnapshotSize|Taille d’instantané du volume|octets|Moyenne|Taille de tous les instantanés dans le volume|Aucune dimension|
+|WriteIops|E/S par seconde en écriture|opérations/seconde|Moyenne|Opérations d’E/S en écriture par seconde|Aucune dimension|
+|WriteThroughput|Débit d’écriture|Mbits/s|Moyenne|Débit d’écriture en mégaoctets par seconde|Aucune dimension|
+
+## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft.NetApp/netAppAccounts/capacityPools
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|VolumePoolAllocatedSize|Taille allouée du pool de volumes|octets|Moyenne|Taille allouée du pool (pas les octets utilisés réels)|Aucune dimension|
+|VolumePoolAllocatedUsed|Taille allouée utilisée du pool de volumes|octets|Moyenne|Taille allouée utilisée du pool|Aucune dimension|
+|VolumePoolTotalLogicalSize|Taille logique totale du pool de volumes|octets|Moyenne|Somme de la taille logique de tous les volumes appartenant au pool|Aucune dimension|
+|VolumePoolTotalSnapshotSize|Taille d’instantané totale du pool de volumes|octets|Moyenne|Somme de tous les instantanés dans le pool|Aucune dimension|
+
+## <a name="microsoftnetworknetworkinterfaces"></a>Microsoft.Network/networkInterfaces
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|BytesSentRate|Octets envoyés|Count|Total|Nombre d’octets envoyés par l’interface réseau|Aucune dimension|
+|BytesReceivedRate|Octets reçus|Count|Total|Nombre d’octets reçus par l’interface réseau|Aucune dimension|
+|PacketsSentRate|Paquets envoyés|Count|Total|Nombre de paquets envoyés par l’interface réseau|Aucune dimension|
+|PacketsReceivedRate|Paquets reçus|Count|Total|Nombre de paquets reçus par l’interface réseau|Aucune dimension|
 
 ## <a name="microsoftnetworkloadbalancers"></a>Microsoft.Network/loadBalancers
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|VipAvailability|Disponibilité VIP|Count|Moyenne|Disponibilité des points de terminaison VIP, en fonction des résultats du sondage|VipAddress, VipPort|
-|DipAvailability|Disponibilité DIP|Count|Moyenne|Disponibilité des points de terminaison DIP, en fonction des résultats du sondage|ProtocolType, DipPort, VipAddress, VipPort, DipAddress|
-|ByteCount|Nombre d’octets|Count|Total|Nombre total d’octets transmis dans une période de temps|VipAddress, VipPort, Direction|
-|PacketCount|Nombre de paquets|Count|Total|Nombre total de paquets transmis dans une période de temps|VipAddress, VipPort, Direction|
-|SYNCount|Nombre de SYN|Count|Total|Nombre total de paquets SYN transmis dans une période de temps|VipAddress, VipPort, Direction|
-|SnatConnectionCount|Nombre de connexions SNAT|Count|Total|Nombre total de connexions SNAT créées dans une période de temps|VipAddress, DipAddress, ConnectionState|
+|VipAvailability|Disponibilité du chemin d’accès aux données|Count|Moyenne|Disponibilité du chemin d’accès aux données d’équilibreur de charge moyenne par durée|FrontendIPAddress, FrontendPort|
+|DipAvailability|État de la sonde d’intégrité|Count|Moyenne|État de la sonde d’intégrité d’équilibreur de charge moyen par durée|ProtocolType, BackendPort, FrontendIPAddress, FrontendPort, BackendIPAddress|
+|ByteCount|Nombre d’octets|Count|Total|Nombre total d’octets transmis dans une période de temps|FrontendIPAddress, FrontendPort, Direction|
+|PacketCount|Nombre de paquets|Count|Total|Nombre total de paquets transmis dans une période de temps|FrontendIPAddress, FrontendPort, Direction|
+|SYNCount|Nombre de SYN|Count|Total|Nombre total de paquets SYN transmis dans une période de temps|FrontendIPAddress, FrontendPort, Direction|
+|SnatConnectionCount|Nombre de connexions SNAT|Count|Total|Nombre total de connexions SNAT créées dans une période de temps|FrontendIPAddress, BackendIPAddress, ConnectionState|
+|AllocatedSnatPorts|Ports SNAT alloués (Préversion)|Count|Total|Nombre total de ports SNAT alloués pendant la période|FrontendIPAddress, BackendIPAddress, ProtocolType|
+|UsedSnatPorts|Ports SNAT utilisés (Préversion)|Count|Total|Nombre total de ports SNAT utilisés pendant une période|FrontendIPAddress, BackendIPAddress, ProtocolType|
 
 ## <a name="microsoftnetworkdnszones"></a>Microsoft.Network/dnszones
 
@@ -770,7 +963,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |DDoSTriggerTCPPackets|Paquets TCP entrants pour déclencher l’atténuation DDoS|CountPerSecond|Maximale|Paquets TCP entrants pour déclencher l’atténuation DDoS|Aucune dimension|
 |DDoSTriggerUDPPackets|Paquets UDP entrants pour déclencher l’atténuation DDoS|CountPerSecond|Maximale|Paquets UDP entrants pour déclencher l’atténuation DDoS|Aucune dimension|
 |DDoSTriggerSYNPackets|Paquets SYN entrants pour déclencher l’atténuation DDoS|CountPerSecond|Maximale|Paquets SYN entrants pour déclencher l’atténuation DDoS|Aucune dimension|
-|VipAvailability|Disponibilité|Count|Moyenne|Disponibilité moyenne de l’adresse IP dans une période de temps|Port|
+|VipAvailability|Disponibilité du chemin d’accès aux données|Count|Moyenne|Disponibilité d’adresse IP moyenne par durée|Port|
 |ByteCount|Nombre d’octets|Count|Total|Nombre total d’octets transmis dans une période de temps|Port, Direction|
 |PacketCount|Nombre de paquets|Count|Total|Nombre total de paquets transmis dans une période de temps|Port, Direction|
 |SynCount|Nombre de SYN|Count|Total|Nombre total de paquets SYN transmis dans une période de temps|Port, Direction|
@@ -780,17 +973,20 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |Throughput|Débit|BytesPerSecond|Total|Nombre d’octets par seconde servis par Application Gateway|Aucune dimension|
-|UnhealthyHostCount|Nombre d’hôtes non intègres|Count|Moyenne|Nombre d’hôtes principaux non intègres. Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.|BackendSettingsPool|
-|HealthyHostCount|Nombre d’hôtes intègres|Count|Moyenne|Nombre d’hôtes principaux intègres. Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.|BackendSettingsPool. |
+|UnhealthyHostCount|Nombre d’hôtes non intègres|Count|Moyenne|Nombre d’hôtes principaux non intègres|BackendSettingsPool|
+|HealthyHostCount|Nombre d’hôtes intègres|Count|Moyenne|Nombre d’hôtes principaux intègres|BackendSettingsPool|
 |TotalRequests|Total de requêtes|Count|Total|Nombre de requêtes réussies servies par Application Gateway|BackendSettingsPool|
 |FailedRequests|Demandes ayant échoué|Count|Total|Nombre de requêtes en échec servies par Application Gateway|BackendSettingsPool|
-|ResponseStatus|État de la réponse|Count|Total|État de la réponse HTTP retourné par Application Gateway. La distribution du code d’état de la réponse peut être ultérieurement classée par catégorie afin d’afficher les réponses dans les catégories 2xx, 3xx, 4xx et 5xx.|HttpStatusGroup|
+|ResponseStatus|État de la réponse|Count|Total|État de la réponse HTTP retourné par Application Gateway|HttpStatusGroup|
 |CurrentConnections|Connexions courantes|Count|Total|Nombre de connexions courantes établies avec Application Gateway|Aucune dimension|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
+|AverageBandwidth|Bande passante S2S de passerelle|BytesPerSecond|Moyenne|Bande passante site à site moyenne d’une passerelle en octets par seconde|Aucune dimension|
+|P2SBandwidth|Bande passante P2S de passerelle|BytesPerSecond|Moyenne|Bande passante point à site moyenne d’une passerelle en octets par seconde|Aucune dimension|
+|P2SConnectionCount|Nombre de connexions P2S|Count|Maximale|Nombre de connexions point à site d’une passerelle|Protocole|
 |TunnelAverageBandwidth|Bande passante de tunnel|BytesPerSecond|Moyenne|Bande passante moyenne d’un tunnel en octets par seconde|ConnectionName, RemoteIP|
 |TunnelEgressBytes|Octets de sortie de tunnel|Octets|Total|Octets sortants d’un tunnel|ConnectionName, RemoteIP|
 |TunnelIngressBytes|Octets d’entrée de tunnel|Octets|Total|Octets entrants d’un tunnel|ConnectionName, RemoteIP|
@@ -800,6 +996,20 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |TunnelIngressPacketDropTSMismatch|Rejet de paquets TS d’entrée de tunnel pour incompatibilité|Count|Total|Nombre de rejets de paquets entrants du sélecteur de trafic pour incompatibilité dans un tunnel|ConnectionName, RemoteIP|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Moyenne|Bits entrant dans Azure par seconde|Aucune dimension|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Moyenne|Bits sortant d’Azure par seconde|Aucune dimension|
+
+## <a name="microsoftnetworkexpressroutecircuitspeerings"></a>Microsoft.Network/expressRouteCircuits/peerings
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|BitsInPerSecond|BitsInPerSecond|CountPerSecond|Moyenne|Bits entrant dans Azure par seconde|Aucune dimension|
+|BitsOutPerSecond|BitsOutPerSecond|CountPerSecond|Moyenne|Bits sortant d’Azure par seconde|Aucune dimension|
+
+## <a name="microsoftnetworkconnections"></a>Microsoft.Network/connections
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
@@ -819,6 +1029,19 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |---|---|---|---|---|---|
 |ProbesFailedPercent|% de sondes ayant échoué|Pourcentage|Moyenne|% de sondes de surveillance de connectivité ayant échoué|Aucune dimension|
 |AverageRoundtripMs|Avg. Durée aller-retour (ms)|Millisecondes|Moyenne|Durée aller-retour réseau moyenne (ms) pour les sondes de surveillance de connectivité envoyées entre la source et la destination|Aucune dimension|
+
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|RequestCount|Nombre de requêtes|Count|Total|Nombre de requêtes clients prises en charge par le proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|RequestSize|Taille de la requête|Octets|Total|Nombre d’octets envoyés en tant que requêtes de clients au proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|ResponseSize|Taille de la réponse|Octets|Total|Nombre d’octets envoyés en tant que réponses du proxy HTTP/S aux clients|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|BackendRequestCount|Nombre de requêtes de serveur principal|Count|Total|Nombre de requêtes envoyées du proxy HTTP/S aux serveurs principaux|HttpStatus, HttpStatusGroup, Backend|
+|BackendRequestLatency|Latence de requête de serveur principal|Millisecondes|Moyenne|Temps calculé à partir du moment où la requête est envoyée par le proxy HTTP/S au serveur principal jusqu’à ce que le proxy HTTP/S reçoive le dernier octet de la réponse du serveur principal|Backend|
+|TotalLatency|Latence totale|Millisecondes|Moyenne|Temps calculé à partir du moment où la requête du client est reçue par le proxy HTTP/S jusqu’à ce que le client accuse réception du dernier octet de la réponse du proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
+|BackendHealthPercentage|Pourcentage d’intégrité du serveur principal|Pourcentage|Moyenne|Pourcentage de sondes d’intégrité réussies du proxy HTTP/S vers les serveurs principaux|Backend, BackendPool|
+|WebApplicationFirewallRequestCount|Nombre de requêtes du pare-feu d’applications web|Count|Total|Nombre de requêtes clients traitées par le pare-feu d’applications web|PolicyName, RuleName, Action|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -888,72 +1111,80 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |incoming.all.failedrequests|Toutes les requêtes entrantes ayant échoué|Count|Total|Nombre total des demandes entrantes ayant échoué pour un hub de notification|Aucune dimension|
 
 ## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.OperationalInsights/workspaces
-(Préversion publique)
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-Inodes libres Average_%|% Free Inodes|Count|Moyenne|Inodes libres Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Free Space|% Free Space|Count|Moyenne|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Inodes utilisés Average_%|% Used Inodes|Count|Moyenne|Inodes utilisés Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Inodes utilisés Average_%|% Used Space|Count|Moyenne|Inodes utilisés Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Octets de lecture/s Average_Disk|Nb d’octets de lecture de disque/s |Count|Moyenne|Octets de lecture/s Average_Disk|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk Reads/sec|Nb d’opérations de lectures de disque/s |Count|Moyenne|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk Transfers/sec|Disk Transfers/sec|Count|Moyenne|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Octets d’écriture/s Average_Disk|Nb d’octets d’écriture de disque/s|Count|Moyenne|Octets d’écriture/s Average_Disk|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Disk Writes/sec|Nb d’opération d’écriture de disque/s|Count|Moyenne|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Mégaoctets Average_Free|Free Megabytes|Count|Moyenne|Mégaoctets Average_Free|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Logical Disk Bytes/sec|Logical Disk Bytes/sec|Count|Moyenne|Average_Logical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Available Memory|% Available Memory|Count|Moyenne|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Available Swap Space|% Available Swap Space|Count|Moyenne|Average_% Available Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Used Memory|% Used Memory|Count|Moyenne|Average_% Used Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Used Swap Space|% Used Swap Space|Count|Moyenne|Average_% Used Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Available MBytes Memory|Available MBytes Memory|Count|Moyenne|Average_Available MBytes Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Available MBytes Swap|Available MBytes Swap|Count|Moyenne|Average_Available MBytes Swap|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Page Reads/sec|Page Reads/sec|Count|Moyenne|Average_Page Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Page Writes/sec|Page Writes/sec|Count|Moyenne|Average_Page Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Pages/sec|Pages/sec|Count|Moyenne|Average_Pages/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Used MBytes Swap Space|Available MBytes Memory|Count|Moyenne|Average_Used MBytes Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Used Memory MBytes|Available MBytes Swap|Count|Moyenne|Average_Used Memory MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Bytes Transmitted|Total Bytes Transmitted|Count|Moyenne|Average_Total Bytes Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Bytes Received|Total Bytes Received|Count|Moyenne|Average_Total Bytes Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Bytes|Total Bytes|Count|Moyenne|Average_Total Bytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Packets Transmitted|Total Packets Transmitted|Count|Moyenne|Average_Total Packets Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Bytes Received|Total Packets Received|Count|Moyenne|Average_Total Bytes Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Rx Errors|Total Rx Errors|Count|Moyenne|Average_Total Rx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Rx Errors|Total Tx Errors|Count|Moyenne|Average_Total Rx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Total Collisions|Total Collisions|Count|Moyenne|Average_Total Collisions|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Avg. Disk sec/Read|Avg. Disk sec/Read|Count|Moyenne|Average_Avg. Disk sec/Read|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Avg. Disk sec/Transfer|Avg. Disk sec/Transfer|Count|Moyenne|Average_Avg. Disk sec/Transfer|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Avg. Disk sec/Write|Avg. Disk sec/Write|Count|Moyenne|Average_Avg. Disk sec/Write|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Physical Disk Bytes/sec|Physical Disk Bytes/sec|Count|Moyenne|Average_Physical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Pct Privileged Time|Pct Privileged Time|Count|Moyenne|Average_Pct Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Pct User Time|Pct User Time|Count|Moyenne|Average_Pct User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Used Memory MBytes|Used Memory kBytes|Count|Moyenne|Average_Used Memory MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Virtual Shared Memory|Virtual Shared Memory|Count|Moyenne|Average_Virtual Shared Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% DPC Time|% DPC Time|Count|Moyenne|Average_% DPC Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Idle Time|% Idle Time|Count|Moyenne|Average_% Idle Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Interrupt Time|% Interrupt Time|Count|Moyenne|Average_% Interrupt Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% IO Wait Time|% IO Wait Time|Count|Moyenne|Average_% IO Wait Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Nice Time|% Nice Time|Count|Moyenne|Average_% Nice Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% Privileged Time|% Privileged Time|Count|Moyenne|Average_% Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Temps processeur Average_%|% temps processeur|Count|Moyenne|Temps processeur Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_% User Time|% User Time|Count|Moyenne|Average_% User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Free Physical Memory|Free Physical Memory|Count|Moyenne|Average_Free Physical Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Free Space in Paging Files|Free Space in Paging Files|Count|Moyenne|Average_Free Space in Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Free Virtual Memory|Free Virtual Memory|Count|Moyenne|Average_Free Virtual Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Processes|Processus|Count|Moyenne|Average_Processes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Size Stored In Paging Files|Size Stored In Paging Files|Count|Moyenne|Average_Size Stored In Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Uptime|Uptime|Count|Moyenne|Average_Uptime|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Users|Utilisateurs|Count|Moyenne|Average_Users|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Longueur de file d’attente du disque Average_Current|Longueur de file d’attente actuelle du disque|Count|Moyenne|Longueur de file d’attente du disque Average_Current|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Available MBytes|Nombre d’octets disponibles|Count|Moyenne|Average_Available MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Octets validés en cours d’utilisation Average_%|% d’octets validés utilisés|Count|Moyenne|Octets validés en cours d’utilisation Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Bytes Received/sec|Octets reçus/s|Count|Moyenne|Average_Bytes Received/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Bytes Sent/sec|Octets envoyés/s|Count|Moyenne|Average_Bytes Sent/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Average_Bytes Total/sec|Nombre total d’octets/s|Count|Moyenne|Average_Bytes Total/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-Heartbeat|Heartbeat|Count|Moyenne|Heartbeat|Computer, OSType, Version, SourceComputerId|
-Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Classification, UpdateState, Optional, Approved|
-Événement|Événement|Count|Moyenne|Événement|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
+|Inodes libres Average_%|% Free Inodes|Count|Moyenne|Inodes libres Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Free Space|% Free Space|Count|Moyenne|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Inodes utilisés Average_%|% Used Inodes|Count|Moyenne|Inodes utilisés Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Inodes utilisés Average_%|% Used Space|Count|Moyenne|Inodes utilisés Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Octets de lecture/s Average_Disk|Nb d’octets de lecture de disque/s |Count|Moyenne|Octets de lecture/s Average_Disk|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|Nb d’opérations de lectures de disque/s |Count|Moyenne|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Transfers/sec|Disk Transfers/sec|Count|Moyenne|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Octets d’écriture/s Average_Disk|Nb d’octets d’écriture de disque/s|Count|Moyenne|Octets d’écriture/s Average_Disk|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|Nb d’opération d’écriture de disque/s|Count|Moyenne|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Mégaoctets Average_Free|Free Megabytes|Count|Moyenne|Mégaoctets Average_Free|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Logical Disk Bytes/sec|Logical Disk Bytes/sec|Count|Moyenne|Average_Logical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Available Memory|% Available Memory|Count|Moyenne|Average_% Available Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Available Swap Space|% Available Swap Space|Count|Moyenne|Average_% Available Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Memory|% Used Memory|Count|Moyenne|Average_% Used Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Swap Space|% Used Swap Space|Count|Moyenne|Average_% Used Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes Memory|Available MBytes Memory|Count|Moyenne|Average_Available MBytes Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes Swap|Available MBytes Swap|Count|Moyenne|Average_Available MBytes Swap|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page Reads/sec|Page Reads/sec|Count|Moyenne|Average_Page Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page Writes/sec|Page Writes/sec|Count|Moyenne|Average_Page Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pages/sec|Pages/sec|Count|Moyenne|Average_Pages/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used MBytes Swap Space|Used MBytes Swap Space|Count|Moyenne|Average_Used MBytes Swap Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used Memory MBytes|Used Memory MBytes|Count|Moyenne|Average_Used Memory MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Transmitted|Total Bytes Transmitted|Count|Moyenne|Average_Total Bytes Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Received|Total Bytes Received|Count|Moyenne|Average_Total Bytes Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes|Total Bytes|Count|Moyenne|Average_Total Bytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Packets Transmitted|Total Packets Transmitted|Count|Moyenne|Average_Total Packets Transmitted|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Received|Total Packets Received|Count|Moyenne|Average_Total Bytes Received|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Rx Errors|Total Rx Errors|Count|Moyenne|Average_Total Rx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Rx Errors|Total Tx Errors|Count|Moyenne|Average_Total Rx Errors|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Collisions|Total Collisions|Count|Moyenne|Average_Total Collisions|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Read|Avg. Disk sec/Read|Count|Moyenne|Average_Avg. Disk sec/Read|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Transfer|Avg. Disk sec/Transfer|Count|Moyenne|Average_Avg. Disk sec/Transfer|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Write|Avg. Disk sec/Write|Count|Moyenne|Average_Avg. Disk sec/Write|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Physical Disk Bytes/sec|Physical Disk Bytes/sec|Count|Moyenne|Average_Physical Disk Bytes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct Privileged Time|Pct Privileged Time|Count|Moyenne|Average_Pct Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct User Time|Pct User Time|Count|Moyenne|Average_Pct User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used Memory MBytes|Used Memory kBytes|Count|Moyenne|Average_Used Memory MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Virtual Shared Memory|Virtual Shared Memory|Count|Moyenne|Average_Virtual Shared Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% DPC Time|% DPC Time|Count|Moyenne|Average_% DPC Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Idle Time|% Idle Time|Count|Moyenne|Average_% Idle Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Interrupt Time|% Interrupt Time|Count|Moyenne|Average_% Interrupt Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% IO Wait Time|% IO Wait Time|Count|Moyenne|Average_% IO Wait Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Nice Time|% Nice Time|Count|Moyenne|Average_% Nice Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Privileged Time|% Privileged Time|Count|Moyenne|Average_% Privileged Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Temps processeur Average_%|% temps processeur|Count|Moyenne|Temps processeur Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% User Time|% User Time|Count|Moyenne|Average_% User Time|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Physical Memory|Free Physical Memory|Count|Moyenne|Average_Free Physical Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Space in Paging Files|Free Space in Paging Files|Count|Moyenne|Average_Free Space in Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Virtual Memory|Free Virtual Memory|Count|Moyenne|Average_Free Virtual Memory|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Processes|Processus|Count|Moyenne|Average_Processes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Size Stored In Paging Files|Size Stored In Paging Files|Count|Moyenne|Average_Size Stored In Paging Files|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Uptime|Uptime|Count|Moyenne|Average_Uptime|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Users|Utilisateurs|Count|Moyenne|Average_Users|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Read|Avg. Disk sec/Read|Count|Moyenne|Average_Avg. Disk sec/Read|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Write|Avg. Disk sec/Write|Count|Moyenne|Average_Avg. Disk sec/Write|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Longueur de file d’attente du disque Average_Current|Longueur de file d’attente actuelle du disque|Count|Moyenne|Longueur de file d’attente du disque Average_Current|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|Nb d’opérations de lectures de disque/s |Count|Moyenne|Average_Disk Reads/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Transfers/sec|Disk Transfers/sec|Count|Moyenne|Average_Disk Transfers/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|Nb d’opération d’écriture de disque/s|Count|Moyenne|Average_Disk Writes/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Mégaoctets Average_Free|Free Megabytes|Count|Moyenne|Mégaoctets Average_Free|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Free Space|% Free Space|Count|Moyenne|Average_% Free Space|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes|Nombre d’octets disponibles|Count|Moyenne|Average_Available MBytes|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Octets validés en cours d’utilisation Average_%|% d’octets validés utilisés|Count|Moyenne|Octets validés en cours d’utilisation Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Received/sec|Octets reçus/s|Count|Moyenne|Average_Bytes Received/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Sent/sec|Octets envoyés/s|Count|Moyenne|Average_Bytes Sent/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Total/sec|Nombre total d’octets/s|Count|Moyenne|Average_Bytes Total/sec|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Temps processeur Average_%|% temps processeur|Count|Moyenne|Temps processeur Average_%|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Longueur de la file d’attente Average_Processor|Longueur de la file d’attente du processeur|Count|Moyenne|Longueur de la file d’attente Average_Processor|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Heartbeat|Heartbeat|Count|Total|Heartbeat|Computer, OSType, Version, SourceComputerId|
+|Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Classification, UpdateState, Optional, Approved|
+|Événement|Événement|Count|Moyenne|Événement|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
@@ -996,10 +1227,10 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|SuccessfulRequests|Requêtes ayant réussi (préversion)|Count|Total|Nombre total de demandes ayant réussi pour un espace de noms (préversion)|EntityName, |
-|ServerErrors|Erreurs de serveur. (Préversion)|Count|Total|Erreurs de serveur pour Microsoft.ServiceBus. (Préversion)|EntityName, |
-|UserErrors|Erreurs d’utilisateur. (Préversion)|Count|Total|Erreurs d’utilisateur pour Microsoft.ServiceBus. (Préversion)|EntityName, |
-|ThrottledRequests|Demandes limitées. (Préversion)|Count|Total|Demandes limitées pour Microsoft.ServiceBus. (Préversion)|EntityName, |
+|SuccessfulRequests|Requêtes ayant réussi (préversion)|Count|Total|Nombre total de demandes ayant réussi pour un espace de noms (préversion)|EntityName|
+|ServerErrors|Erreurs de serveur. (Préversion)|Count|Total|Erreurs de serveur pour Microsoft.ServiceBus. (Préversion)|EntityName|
+|UserErrors|Erreurs d’utilisateur. (Préversion)|Count|Total|Erreurs d’utilisateur pour Microsoft.ServiceBus. (Préversion)|EntityName|
+|ThrottledRequests|Demandes limitées. (Préversion)|Count|Total|Demandes limitées pour Microsoft.ServiceBus. (Préversion)|EntityName|
 |IncomingRequests|Demandes entrantes (préversion)|Count|Total|Demandes entrantes pour Microsoft.ServiceBus. (Préversion)|EntityName|
 |IncomingMessages|Messages entrants (préversion)|Count|Total|Messages entrants pour Microsoft.ServiceBus. (Préversion)|EntityName|
 |OutgoingMessages|Messages sortants (préversion)|Count|Total|Messages sortants pour Microsoft.ServiceBus. (Préversion)|EntityName|
@@ -1014,15 +1245,12 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|ConnectionCount|Nombre de connexions|Count|Maximale|Nombre de connexions utilisateur|Aucune dimension|
-|ConnectionCountPerSecond|Nombre de connexions par seconde|CountPerSecond|Moyenne|Nombre moyen de connexions par seconde|Aucune dimension|
-|MessageCount|Nombre de messages|Count|Maximale|Nombre total de messages au cours du mois|Aucune dimension|
-|MessageCountPerSecond|Nombre de messages par seconde|CountPerSecond|Moyenne|Nombre moyen de messages|Aucune dimension|
-|MessageUsed|Message utilisé|Pourcentage|Maximale|Pourcentage de messages utilisés au cours du mois|Aucune dimension|
-|ConnectionUsed|Connexion utilisée|Pourcentage|Maximale|Pourcentage de connexions utilisées|Aucune dimension|
+|ConnectionCount|Nombre de connexions|Count|Maximale|Nombre de connexions utilisateur|Point de terminaison|
+|MessageCount|Nombre de messages|Count|Total|Nombre total de messages.|Aucune dimension|
+|InboundTraffic|Trafic entrant|Octets|Total|Trafic entrant de service|Aucune dimension|
+|OutboundTraffic|Trafic sortant|Octets|Total|Trafic sortant de service|Aucune dimension|
 |UserErrors|Erreurs d’utilisateur|Pourcentage|Maximale|Pourcentage d’erreurs d’utilisateur|Aucune dimension|
 |SystemErrors|Erreurs système|Pourcentage|Maximale|Pourcentage d’erreurs système|Aucune dimension|
-|SystemLoad|Charge du système|Pourcentage|Maximale|Pourcentage de charge du système|Aucune dimension|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
@@ -1066,24 +1294,29 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 |storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|Aucune dimension|
 |xtp_storage_percent|Pourcentage de stockage OLTP en mémoire|Pourcentage|Moyenne|Pourcentage de stockage OLTP en mémoire|Aucune dimension|
 
-## <a name="microsoftsqlservers"></a>Microsoft.Sql/servers
+## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|dtu_consumption_percent|Pourcentage DTU|Pourcentage|Moyenne|Pourcentage DTU|ElasticPoolResourceId|
-|storage_used|Stockage utilisé|Octets|Moyenne|Stockage utilisé|ElasticPoolResourceId|
+|virtual_core_count|Nombre de cœurs virtuels|Count|Moyenne|Nombre de cœurs virtuels|Aucune dimension|
+|avg_cpu_percent|Pourcentage d’UC moyenne|Pourcentage|Moyenne|Pourcentage d’UC moyenne|Aucune dimension|
+|reserved_storage_mb|Espace de stockage réservé|Count|Moyenne|Espace de stockage réservé|Aucune dimension|
+|storage_space_used_mb|Espace de stockage utilisé|Count|Moyenne|Espace de stockage utilisé|Aucune dimension|
+|io_requests|Nombre de requêtes d’E/S|Count|Moyenne|Nombre de requêtes d’E/S|Aucune dimension|
+|io_bytes_read|Nombre d’octets lus|Octets|Moyenne|Octets d’E/S lus|Aucune dimension|
+|io_bytes_written|Octets d’E/S écrits|Octets|Moyenne|Octets d’E/S écrits|Aucune dimension|
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|UsedCapacity|Capacité utilisée|Octets|Moyenne|Capacité de compte utilisée|Aucune dimension|
-|Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName|
-|Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType, ApiName|
-|Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType, ApiName|
-|SuccessServerLatency|Latence du serveur avec requête réussie|Millisecondes|Moyenne|Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency.|GeoType, ApiName|
-|SuccessE2ELatency|Latence E2E de réussite|Millisecondes|Moyenne|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName|
-|Disponibilité|Disponibilité|Pourcentage|Moyenne|Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris celles qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée.|GeoType, ApiName|
+|UsedCapacity|Capacité utilisée|Octets|Total|Capacité de compte utilisée|Aucune dimension|
+|Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName, Authentication|
+|Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType, ApiName, Authentication|
+|Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType, ApiName, Authentication|
+|SuccessServerLatency|Latence du serveur avec requête réussie|Millisecondes|Moyenne|Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency.|GeoType, ApiName, Authentication|
+|SuccessE2ELatency|Latence E2E de réussite|Millisecondes|Moyenne|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName, Authentication|
+|Disponibilité|Disponibilité|Pourcentage|Moyenne|Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris celles qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
@@ -1092,40 +1325,12 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 |BlobCapacity|Capacité d’objet blob|Octets|Total|Quantité de stockage utilisée par le service BLOB du compte de stockage, en octets.|/BlobType|
 |BlobCount|Nombre d’objets blob|Count|Total|Nombre d’objets blob dans le service BLOB du compte de stockage.|/BlobType|
 |ContainerCount|Nombre de conteneurs d’objets blob|Count|Moyenne|Nombre de conteneurs d’objets blob dans le service BLOB du compte de stockage.|Aucune dimension|
-|Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName|
-|Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType, ApiName|
-|Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType, ApiName|
-|SuccessServerLatency|Latence du serveur avec requête réussie|Millisecondes|Moyenne|Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency.|GeoType, ApiName|
-|SuccessE2ELatency|Latence E2E de réussite|Millisecondes|Moyenne|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName|
-|Disponibilité|Disponibilité|Pourcentage|Moyenne|Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris celles qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée.|GeoType, ApiName|
-
-## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
-
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|
-|TableCapacity|Capacité de la table|Octets|Moyenne|Quantité de stockage utilisée par le service de Table du compte de stockage, en octets.|Aucune dimension|
-|TableCount|Nombre de tables|Count|Moyenne|Nombre de tables dans le service de Table du compte de stockage.|Aucune dimension|
-|TableEntityCount|Nombre d’entités de table|Count|Moyenne|Nombre d’entités de table dans le service de Table du compte de stockage.|Aucune dimension|
-|Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName|
-|Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType, ApiName|
-|Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType, ApiName|
-|SuccessServerLatency|Latence du serveur avec requête réussie|Millisecondes|Moyenne|Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency.|GeoType, ApiName|
-|SuccessE2ELatency|Latence E2E de réussite|Millisecondes|Moyenne|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName|
-|Disponibilité|Disponibilité|Pourcentage|Moyenne|Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris celles qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée.|GeoType, ApiName|
-
-## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
-
-|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
-|---|---|---|---|---|---|
-|QueueCapacity|Capacité de la file d’attente|Octets|Moyenne|Quantité de stockage utilisée par le service de File d’attente du compte de stockage, en octets.|Aucune dimension|
-|QueueCount|Nombre de files d’attente|Count|Moyenne|Nombre de files d’attente dans le service de File d’attente du compte de stockage.|Aucune dimension|
-|QueueMessageCount|Nombre de messages dans la file d’attente|Count|Moyenne|Nombre approximatif de messages en file d’attente dans le service de File d’attente du compte de stockage.|Aucune dimension|
-|Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName|
-|Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType, ApiName|
-|Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType, ApiName|
-|SuccessServerLatency|Latence du serveur avec requête réussie|Millisecondes|Moyenne|Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency.|GeoType, ApiName|
-|SuccessE2ELatency|Latence E2E de réussite|Millisecondes|Moyenne|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName|
-|Disponibilité|Disponibilité|Pourcentage|Moyenne|Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris celles qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée.|GeoType, ApiName|
+|Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName, Authentication|
+|Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType, ApiName, Authentication|
+|Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType, ApiName, Authentication|
+|SuccessServerLatency|Latence du serveur avec requête réussie|Millisecondes|Moyenne|Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency.|GeoType, ApiName, Authentication|
+|SuccessE2ELatency|Latence E2E de réussite|Millisecondes|Moyenne|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName, Authentication|
+|Disponibilité|Disponibilité|Pourcentage|Moyenne|Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris celles qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
@@ -1134,12 +1339,40 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 |FileCapacity|Capacité de fichiers|Octets|Moyenne|Quantité de stockage utilisée par le service de Fichier du compte de stockage, en octets.|Aucune dimension|
 |FileCount|Nombre de fichiers|Count|Moyenne|Nombre de fichiers dans le service de Fichier du compte de stockage.|Aucune dimension|
 |FileShareCount|Nombre de partages de fichiers|Count|Moyenne|Nombre de partage de fichiers dans le service de Fichier du compte de stockage.|Aucune dimension|
-|Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName|
-|Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType, ApiName|
-|Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType, ApiName|
-|SuccessServerLatency|Latence du serveur avec requête réussie|Millisecondes|Moyenne|Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency.|GeoType, ApiName|
-|SuccessE2ELatency|Latence E2E de réussite|Millisecondes|Moyenne|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName|
-|Disponibilité|Disponibilité|Pourcentage|Moyenne|Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris celles qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée.|GeoType, ApiName|
+|Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName, Authentication|
+|Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType, ApiName, Authentication|
+|Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType, ApiName, Authentication|
+|SuccessServerLatency|Latence du serveur avec requête réussie|Millisecondes|Moyenne|Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency.|GeoType, ApiName, Authentication|
+|SuccessE2ELatency|Latence E2E de réussite|Millisecondes|Moyenne|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName, Authentication|
+|Disponibilité|Disponibilité|Pourcentage|Moyenne|Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris celles qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée.|GeoType, ApiName, Authentication|
+
+## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|QueueCapacity|Capacité de la file d’attente|Octets|Moyenne|Quantité de stockage utilisée par le service de File d’attente du compte de stockage, en octets.|Aucune dimension|
+|QueueCount|Nombre de files d’attente|Count|Moyenne|Nombre de files d’attente dans le service de File d’attente du compte de stockage.|Aucune dimension|
+|QueueMessageCount|Nombre de messages dans la file d’attente|Count|Moyenne|Nombre approximatif de messages en file d’attente dans le service de File d’attente du compte de stockage.|Aucune dimension|
+|Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName, Authentication|
+|Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType, ApiName, Authentication|
+|Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType, ApiName, Authentication|
+|SuccessServerLatency|Latence du serveur avec requête réussie|Millisecondes|Moyenne|Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency.|GeoType, ApiName, Authentication|
+|SuccessE2ELatency|Latence E2E de réussite|Millisecondes|Moyenne|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName, Authentication|
+|Disponibilité|Disponibilité|Pourcentage|Moyenne|Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris celles qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée.|GeoType, ApiName, Authentication|
+
+## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
+
+|Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
+|---|---|---|---|---|---|
+|TableCapacity|Capacité de la table|Octets|Moyenne|Quantité de stockage utilisée par le service de Table du compte de stockage, en octets.|Aucune dimension|
+|TableCount|Nombre de tables|Count|Moyenne|Nombre de tables dans le service de Table du compte de stockage.|Aucune dimension|
+|TableEntityCount|Nombre d’entités de table|Count|Moyenne|Nombre d’entités de table dans le service de Table du compte de stockage.|Aucune dimension|
+|Transactions|Transactions|Count|Total|Nombre de requêtes envoyées à un service de stockage ou à l’opération API spécifiée. Ce nombre inclut les requêtes réussies et celles ayant échoué, ainsi que les requêtes qui ont généré des erreurs. Utilisez la dimension ResponseType pour connaître le nombre des différents types de réponses.|ResponseType, GeoType, ApiName, Authentication|
+|Entrée|Entrée|Octets|Total|Quantité de données d’entrée, en octets. Ce nombre inclut les entrées d’un client externe dans Stockage Microsoft Azure ainsi que les entrées dans Azure.|GeoType, ApiName, Authentication|
+|Sortie|Sortie|Octets|Total|Quantité de données de sortie, en octets. Ce nombre inclut les sorties d’un client externe dans Stockage Microsoft Azure ainsi que les sorties dans Azure. Par conséquent, ce nombre ne reflète pas les sorties facturables.|GeoType, ApiName, Authentication|
+|SuccessServerLatency|Latence du serveur avec requête réussie|Millisecondes|Moyenne|Latence moyenne utilisée par Stockage Microsoft Azure pour traiter une requête réussie, en millisecondes. Cette valeur n’inclut pas la latence réseau spécifiée dans AverageE2ELatency.|GeoType, ApiName, Authentication|
+|SuccessE2ELatency|Latence E2E de réussite|Millisecondes|Moyenne|Latence moyenne de bout en bout des requêtes réussies envoyées à un service de stockage ou à l’opération API spécifiée, en millisecondes. Cette valeur inclut le temps de traitement requis au sein de Stockage Microsoft Azure pour lire la requête, envoyer la réponse et recevoir un accusé de réception de la réponse.|GeoType, ApiName, Authentication|
+|Disponibilité|Disponibilité|Pourcentage|Moyenne|Pourcentage de disponibilité pour le service de stockage ou l’opération API spécifiée. La disponibilité est calculée en prenant la valeur TotalBillableRequests puis en la divisant par le nombre de requêtes applicables, y compris celles qui ont généré des erreurs inattendues. Toutes erreurs inattendues réduisent la disponibilité du service de stockage ou de l’opération API spécifiée.|GeoType, ApiName, Authentication|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
@@ -1157,7 +1390,8 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 |AMLCalloutFailedRequests|Requêtes de fonction ayant échoué|Count|Total|Requêtes de fonction ayant échoué|Aucune dimension|
 |AMLCalloutInputEvents|Événements de fonction|Count|Total|Événements de fonction|Aucune dimension|
 |DeserializationError|Erreurs de désérialisation d’entrée|Count|Total|Erreurs de désérialisation d’entrée|Aucune dimension|
-|EarlyInputEvents|Événements dont l’heure d’application est antérieure à leur heure d’arrivée.|Count|Total|Événements dont l’heure d’application est antérieure à leur heure d’arrivée.|Aucune dimension|
+|EarlyInputEvents|Événements d’entrée précoces|Count|Total|Événements d’entrée précoces|Aucune dimension|
+|OutputWatermarkDelaySeconds|Délai en filigrane|Secondes|Maximale|Délai en filigrane|Aucune dimension|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
@@ -1199,7 +1433,7 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |CpuTime|Temps processeur|Secondes|Total|Temps processeur|Instance|
-|Requests|Requests|Count|Total|Requests|Instance|
+|Demandes|Demandes|Count|Total|Requests|Instance|
 |BytesReceived|Données entrantes|Octets|Total|Données entrantes|Instance|
 |BytesSent|Données sortantes|Octets|Total|Données sortantes|Instance|
 |Http101|HTTP 101|Count|Total|HTTP 101|Instance|
@@ -1217,6 +1451,7 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 |AppConnections|connexions|Count|Moyenne|connexions|Instance|
 |Handles|Nombre de descripteurs|Count|Moyenne|Nombre de descripteurs|Instance|
 |Threads|Nombre de threads|Count|Moyenne|Nombre de threads|Instance|
+|PrivateBytes|Octets privés|Octets|Moyenne|Octets privés|Instance|
 |IoReadBytesPerSecond|Octets lus par seconde (E/S)|BytesPerSecond|Total|Octets lus par seconde (E/S)|Instance|
 |IoWriteBytesPerSecond|Octets écrits par seconde (E/S)|BytesPerSecond|Total|Octets écrits par seconde (E/S)|Instance|
 |IoOtherBytesPerSecond|Autres octets par seconde (E/S)|BytesPerSecond|Total|Autres octets par seconde (E/S)|Instance|
@@ -1242,6 +1477,7 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 |AverageMemoryWorkingSet|Plage de travail moyenne de la mémoire|Octets|Moyenne|Plage de travail moyenne de la mémoire|Instance|
 |FunctionExecutionUnits|Unités d’exécution de fonctions|Count|Total|Unités d’exécution de fonctions|Instance|
 |FunctionExecutionCount|Nombre d’exécutions de fonctions|Count|Total|Nombre d’exécutions de fonctions|Instance|
+|PrivateBytes|Octets privés|Octets|Moyenne|Octets privés|Instance|
 |IoReadBytesPerSecond|Octets lus par seconde (E/S)|BytesPerSecond|Total|Octets lus par seconde (E/S)|Instance|
 |IoWriteBytesPerSecond|Octets écrits par seconde (E/S)|BytesPerSecond|Total|Octets écrits par seconde (E/S)|Instance|
 |IoOtherBytesPerSecond|Autres octets par seconde (E/S)|BytesPerSecond|Total|Autres octets par seconde (E/S)|Instance|
@@ -1261,7 +1497,7 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
 |CpuTime|Temps processeur|Secondes|Total|Temps processeur|Instance|
-|Requests|Requests|Count|Total|Requests|Instance|
+|Demandes|Demandes|Count|Total|Requests|Instance|
 |BytesReceived|Données entrantes|Octets|Total|Données entrantes|Instance|
 |BytesSent|Données sortantes|Octets|Total|Données sortantes|Instance|
 |Http101|HTTP 101|Count|Total|HTTP 101|Instance|
@@ -1281,6 +1517,7 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 |AppConnections|connexions|Count|Moyenne|connexions|Instance|
 |Handles|Nombre de descripteurs|Count|Moyenne|Nombre de descripteurs|Instance|
 |Threads|Nombre de threads|Count|Moyenne|Nombre de threads|Instance|
+|PrivateBytes|Octets privés|Octets|Moyenne|Octets privés|Instance|
 |IoReadBytesPerSecond|Octets lus par seconde (E/S)|BytesPerSecond|Total|Octets lus par seconde (E/S)|Instance|
 |IoWriteBytesPerSecond|Octets écrits par seconde (E/S)|BytesPerSecond|Total|Octets écrits par seconde (E/S)|Instance|
 |IoOtherBytesPerSecond|Autres octets par seconde (E/S)|BytesPerSecond|Total|Autres octets par seconde (E/S)|Instance|
@@ -1299,7 +1536,7 @@ Mettre à jour|Mettre à jour|Count|Moyenne|Mettre à jour|Computer, Product, Cl
 
 |Métrique|Nom d’affichage de la métrique|Unité|Type d’agrégation|Description|Dimensions|
 |---|---|---|---|---|---|
-|Requests|Requests|Count|Total|Requests|Instance|
+|Demandes|Demandes|Count|Total|Requests|Instance|
 |BytesReceived|Données entrantes|Octets|Total|Données entrantes|Instance|
 |BytesSent|Données sortantes|Octets|Total|Données sortantes|Instance|
 |Http101|HTTP 101|Count|Total|HTTP 101|Instance|

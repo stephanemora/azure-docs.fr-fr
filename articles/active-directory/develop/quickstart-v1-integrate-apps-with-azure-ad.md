@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b799cde0a696b4a764893c545a8d55d363a4800
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188238"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989020"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Intégration d’applications dans Azure Active Directory
-[!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 Les développeurs et les fournisseurs de logiciels en tant que service (SaaS) peuvent développer des services cloud commerciaux ou des applications métier qui peuvent être intégrés à Azure Active Directory (Azure AD) pour fournir un processus de connexion et d’autorisation sécurisé à leurs services. Pour intégrer une application ou un service à Azure AD, le développeur doit d’abord enregistrer l’application auprès de Azure AD.
 
@@ -33,9 +34,11 @@ Cet article vous montre comment ajouter, mettre à jour ou supprimer l’enregis
 Pour plus d’informations sur les deux objets Azure AD qui représentent une application enregistrée ainsi que sur leur relation, consultez [Objets principal du service et application](app-objects-and-service-principals.md). Pour connaître les directives de personnalisation à utiliser lors du développement d’applications avec Azure Active Directory, consultez [Instructions de personnalisation pour les applications intégrées](howto-add-branding-in-azure-ad-apps.md).
 
 ## <a name="adding-an-application"></a>Ajout d'une application
+
 Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d’abord être enregistrée dans un locataire Azure AD. Le processus d'enregistrement implique de fournir à Azure AD des informations sur votre application, notamment l'URL où elle est située, l'URL à laquelle envoyer une réponse après avoir authentifié un utilisateur, l'URI qui identifie l'application, et ainsi de suite.
 
 ### <a name="to-register-a-new-application-using-the-azure-portal"></a>Enregistrement d’une nouvelle application à l’aide du portail Azure
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis cliquez sur **Nouvelle inscription d’application**.
@@ -59,10 +62,9 @@ Toute application qui souhaite utiliser les fonctionnalités d’Azure AD doit d
 
   > [!NOTE]
   > Par défaut, une application web nouvellement inscrite est configurée pour autoriser **uniquement** les utilisateurs du même locataire à se connecter à votre application.
-  > 
-  > 
 
 ## <a name="updating-an-application"></a>Mise à jour d’une application
+
 Une fois votre application inscrite avec Azure AD, il est possible qu’elle doive être mise à jour pour fournir un accès aux API web, être mise à la disposition d'autres organisations, et plus encore. Cette section décrit les différents scénarios dans lesquels vous pouvez configurer davantage votre application. Tout d’abord, commençons par une vue d’ensemble de l’infrastructure de consentement qu’il est important de comprendre lors de la création d’applications devant être utilisées par d’autres utilisateurs ou applications.
 
 ### <a name="overview-of-the-consent-framework"></a>Vue d’ensemble de l’infrastructure de consentement
@@ -93,7 +95,7 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
    
   ![Expérience de consentement de l'utilisateur](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-5. Une fois que l'utilisateur a donné son consentement, un code d'autorisation est retourné à votre application, qui est utilisé pour acquérir un jeton d'accès et un jeton d'actualisation. Pour plus d’informations sur ce flux, consultez la [section Application web vers API web dans Scénarios d’authentification pour Azure AD](authentication-scenarios.md#web-application-to-web-api).
+5. Une fois que l'utilisateur a donné son consentement, un code d'autorisation est retourné à votre application, qui est utilisé pour acquérir un jeton d'accès et un jeton d'actualisation. Pour plus d’informations sur ce flux, consultez [Web API]](web-api.md).
 
 6. En tant qu’administrateur, vous pouvez également donner votre consentement pour les autorisations déléguées d’une application pour le compte de tous les utilisateurs de votre client. Le consentement administrateur empêche l’affichage d’une boîte de dialogue pour chaque utilisateur dans le locataire, ce qui peut être fait dans le [portail Azure](https://portal.azure.com) par les utilisateurs avec le rôle administrateur. Dans la page **Paramètres** de votre application, cliquez sur **Autorisations requises**, puis sur le bouton **Accorder des autorisations**. 
 
@@ -103,6 +105,7 @@ Les étapes suivantes vous montrent comment l’expérience de consentement fonc
   > Pour les applications monopages (SPA) qui utilisent ADAL.js, vous devez accorder un consentement explicite à l’aide du bouton **Accorder des autorisations**. Sinon, l’application échoue lorsque le jeton d’accès est demandé. 
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Configurer une application cliente pour accéder aux API web
+
 Une application cliente web/confidentielle doit établir des informations d’identification sécurisées afin de pouvoir participer à un flux d’octroi d’autorisations qui requiert une authentification. La méthode d’authentification par défaut prise en charge par le portail Azure est l’ID Client + la clé secrète. Cette section décrit les étapes de configuration requises pour fournir les informations d’identification de votre client avec la clé secrète.
 
 En outre, avant qu’un client puisse accéder à une API web exposée par une application de ressources (comme l’API Microsoft Graph), l’infrastructure de consentement permet au client d’obtenir l’autorisation nécessaire en fonction des autorisations demandées. Par défaut, toutes les applications peuvent choisir des autorisations à partir de « Azure Active Directory Windows » (API Graph) et « API Gestion des services Azure  Windows». L’[autorisation « Connexion et lecture du profil utilisateur » de API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) est également sélectionnée par défaut. Si votre client est en cours d’enregistrement dans un locataire possédant des comptes inscrits à Office 365, vous aurez également la possibilité de sélectionner les API web et les autorisations pour Exchange Online et SharePoint. Vous pouvez choisir à partir de [deux types d’autorisations](developer-glossary.md#permissions) pour chaque API web souhaitée :
@@ -115,6 +118,7 @@ En outre, avant qu’un client puisse accéder à une API web exposée par une a
   > L’ajout d’une autorisation déléguée à une application n’accorde pas automatiquement un consentement aux utilisateurs du client. Les utilisateurs doivent donner manuellement leur consentement pour les autorisations déléguées ajoutées lors de l’exécution, à moins que l’administrateur ne donne son consentement au nom de tous les utilisateurs.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Pour ajouter des informations d’identification d’application ou des autorisations pour accéder aux API web
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis trouvez/cliquez sur l’application que vous souhaitez configurer.
@@ -213,8 +217,6 @@ Pour découvrir une description complète des étendues exposées par l’API Mi
 
 > [!NOTE]
 > En raison d'une limitation actuelle, les applications clientes natives ne peuvent appeler l'API Graph Azure AD que si elles utilisent l'autorisation « Accéder au répertoire de votre organisation ». Cette restriction ne s'applique pas aux applications web.
-> 
-> 
 
 ### <a name="configuring-multi-tenant-applications"></a>Configuration d'applications multilocataires
 
@@ -260,9 +262,9 @@ Pour plus d’informations sur les modifications d’application requises pour p
 - La liste des [exemples de code de l’architecture multilocataire](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant). 
 - [Démarrage rapide : Ajouter la marque de votre société à votre page de connexion dans Azure AD](../fundamentals/customize-branding.md)
 
-### <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Activation de l’accord implicite OAuth 2.0 pour les applications à page unique
+### <a name="enabling-oauth-20-implicit-grant-for-single-page-applications"></a>Activation de l’octroi implicite OAuth 2.0 pour les applications monopages
 
-Les applications à page unique (SPA) se composent généralement d’une partie frontale reposant largement sur JavaScript qui s’exécute dans le navigateur. Celle-ci appelle l’API web principale de l’application pour effectuer sa logique métier. Pour les applications à page unique hébergées dans Azure AD, l’accord implicite OAuth 2.0 permet d’authentifier l’utilisateur auprès de Azure AD et d’obtenir un jeton qui peut servir à sécuriser les appels du client JavaScript de l’application à son API web principale. 
+Les applications monopages (SPA) se composent généralement d’une partie frontale reposant largement sur JavaScript qui s’exécute dans le navigateur. Celle-ci appelle l’API web principale de l’application pour effectuer sa logique métier. Pour les applications à page unique hébergées dans Azure AD, l’accord implicite OAuth 2.0 permet d’authentifier l’utilisateur auprès de Azure AD et d’obtenir un jeton qui peut servir à sécuriser les appels du client JavaScript de l’application à son API web principale. 
 
 Une fois que l’utilisateur a donné son consentement, ce même protocole d’authentification peut servir à obtenir des jetons pour sécuriser les appels entre le client et d’autres ressources API web configurées pour l’application. Pour plus d’informations sur l’octroi d’autorisation implicite et pour vous aider à décider si cette méthode est adaptée à votre scénario d’application, consultez [Comprendre le flux d’octroi implicite OAuth2 dans Azure Active Directory (AD)](v1-oauth2-implicit-grant-flow.md).
 
@@ -272,7 +274,6 @@ Par défaut, l’accord implicite OAuth 2.0 est désactivé pour les applicatio
 
 > [!NOTE]
 > Pour plus d’informations sur la façon de modifier le manifeste d’application, assurez-vous de revoir d’abord la section précédente, [Configuration d’une application de ressource pour exposer des API web](#configuring-a-resource-application-to-expose-web-apis).
->
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
@@ -285,12 +286,15 @@ Par défaut, l’accord implicite OAuth 2.0 est désactivé pour les applicatio
 5. Enregistrez le manifeste mis à jour. Une fois l’enregistrement effectué, votre API web est configurée pour utiliser l’accord implicite OAuth 2.0 pour authentifier les utilisateurs.
 
 ## <a name="removing-an-application"></a>Suppression d'une application
+
 Cette section décrit comment supprimer l’inscription d’une application de votre locataire Azure AD.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Suppression d’une application créée par votre organisation
+
 Les applications inscrites par votre organisation sont affichées sous le filtre « Mes applications » sur la page « inscriptions d’application » principale de votre locataire. Ces applications sont celles que vous avez inscrites soit manuellement au moyen du portail Azure, soit par un programme par le biais de PowerShell ou de l’API Graph. Plus précisément, ces applications sont représentées dans votre locataire par des objets Application et Principal du service. Pour plus d’informations, voir [Objets principal du service et application](app-objects-and-service-principals.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Pour supprimer une application à locataire unique de votre répertoire
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis trouvez/cliquez sur l’application que vous souhaitez configurer. Vous accédez à la page d’inscription principale de l’application, qui ouvre la page **Paramètres** pour l’application.
@@ -298,6 +302,7 @@ Les applications inscrites par votre organisation sont affichées sous le filtre
 5. Cliquez sur **Oui** dans le message de confirmation.
 
 #### <a name="to-remove-a-multi-tenant-application-from-its-home-directory"></a>Pour supprimer une application multilocataire de son répertoire de base
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Si votre compte vous propose plusieurs accès, cliquez sur votre compte en haut à droite et définissez votre session de portail pour le locataire de Azure AD souhaité.
 3. Dans le volet de navigation gauche, cliquez sur le service **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis trouvez/cliquez sur l’application que vous souhaitez configurer. Vous accédez à la page d’inscription principale de l’application, qui ouvre la page **Paramètres** pour l’application.
@@ -306,15 +311,16 @@ Les applications inscrites par votre organisation sont affichées sous le filtre
 6. Cliquez sur **Oui** dans le message de confirmation.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Suppression d’une application multilocataire autorisée par une autre organisation
+
 Un sous-ensemble des applications qui s’affichent sous le filtre « Toutes les applications » (en excluant les inscriptions de « Mes applications ») sur la page « Inscriptions d’application » principale de votre locataire, est constitué des applications multilocataires. En termes techniques, ces applications multilocataires proviennent d’un autre locataire et ont été enregistrées dans votre locataire au cours du processus de consentement. Ces applications sont représentées dans votre locataire par un objet principal du service, sans objet d’application correspondant. Pour plus d’informations sur les différences entre les objets de principal du service et d’application, consultez [Objets application et principal du service dans Azure AD](app-objects-and-service-principals.md).
 
 Afin de pouvoir supprimer l’accès d’une application multilocataires à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit supprimer son principal du service. L’administrateur doit avoir un accès d’administrateur général et peut supprimer ou utiliser les [applets de commande PowerShell Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Pour plus d'informations sur le fonctionnement de l'authentification dans Azure AD, consultez la section [Scénarios d'authentification pour Azure AD](authentication-scenarios.md).
 - Consultez les [instructions de personnalisation pour applications intégrées](howto-add-branding-in-azure-ad-apps.md) afin d’obtenir des conseils sur l’aide visuelle pour votre application.
 - Consultez la rubrique [Objets principal du service et application](app-objects-and-service-principals.md) pour plus d’informations sur la relation existant entre les objets principal du service et application de l’application.
 - Pour en savoir plus sur le rôle joué par le manifeste d’application, consultez [Connaître le manifeste d’application Azure Active Directory](reference-app-manifest.md).
 - Consultez le [glossaire du développeur Azure AD](developer-glossary.md) pour connaître les définitions de certains des principaux concepts de développement Azure AD.
 - Consultez le [guide du développeur Active Directory](azure-ad-developers-guide.md) pour avoir une vue d’ensemble du contenu associé au développement.
-

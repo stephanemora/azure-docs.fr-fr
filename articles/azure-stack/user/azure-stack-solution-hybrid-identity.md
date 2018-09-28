@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/22/2018
+ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: a57afb4a90da5877879afddc35545e0bfef622a7
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: bed67c0213ed5715b8b3d8fd393d8d856e0ea15b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808160"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964988"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Didacticiel : configurer l’identité de cloud hybride pour des applications Azure et Azure Stack
 
@@ -37,10 +37,17 @@ Les principaux du service vous permettent d’accorder l’accès à vos applica
 Dans ce tutoriel, vous créez un exemple d’environnement pour :
 
 > [!div class="checklist"]
-> * établir une identité hybride dans Azure global et Azure Stack ;
-> * récupérer un jeton pour accéder à l’API Azure Stack.
+> - établir une identité hybride dans Azure global et Azure Stack ;
+> - récupérer un jeton pour accéder à l’API Azure Stack.
 
 Les étapes de ce didacticiel exigent des autorisations d’opérateur Azure Stack.
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tous lieux.  
+> 
+> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
+
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>Créer un principal du service pour Azure AD sur le portail
 

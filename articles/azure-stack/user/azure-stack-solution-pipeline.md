@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697745"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951999"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Didacticiel : déployer des applications sur Azure et Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -30,7 +30,7 @@ Découvrez comment déployer une application sur Azure et Azure Stack à l’aid
 Dans ce didacticiel, vous allez créer un exemple d’environnement pour :
 
 > [!div class="checklist"]
-> * Lancer une nouvelle build basée sur des validations de code dans votre dépôt VSTS (Visual Studio Team Services).
+> * Lancer une nouvelle build basée sur des validations de code dans votre référentiel Azure DevOps Services.
 > * Déployer automatiquement votre application sur Azure mondial pour le test d’acceptation des utilisateurs.
 > * Lorsque votre code réussit le test, déployez automatiquement l’application sur Azure Stack.
 
@@ -47,6 +47,12 @@ Pour en savoir plus sur CI et CD, consultez :
 
 * [Qu’est-ce que l’intégration continue ?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
 * [Qu’est-ce que la livraison continue ?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tous lieux.  
+> 
+> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -81,30 +87,30 @@ Ce tutoriel suppose que vous disposez de connaissances de base sur Azure et Azur
  * Créez des [plans/offres](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) dans Azure Stack.
  * Créez un [abonnement de locataire](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) dans Azure Stack.
  * Créez une application web dans l’abonnement de locataire. Notez l’URL de la nouvelle application web, car elle sera utilisée plus tard.
- * Déployez la machine virtuelle VSTS dans l’abonnement de locataire.
+ * Déployez une machine virtuelle Windows Serveur 2012 dans l’abonnement de locataire. Ce serveur vous servira de serveur de builds et vous permettra d’exécuter Azure DevOps Services.
 * Fournissez une image Windows Server 2016 avec .NET 3.5 pour une machine virtuelle. Cette machine virtuelle est créée sur votre service Azure Stack en tant qu’agent de build privé.
 
 ### <a name="developer-tool-requirements"></a>Configuration requise de l’outil de développeur
 
-* Créez un [espace de travail VSTS](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). Le processus d’inscription crée un projet nommé **MyFirstProject**.
-* [Installez Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio), puis [connectez-vous à VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* Créez un [espace de travail Azure DevOps Services](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). Le processus d’inscription crée un projet nommé **MyFirstProject**.
+* [Installez Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio), puis [connectez-vous à Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Connectez-vous à votre projet et [clonez-le localement](https://www.visualstudio.com/docs/git/gitquickstart).
 
  > [!Note]
  > Votre environnement Azure Stack a besoin des images correctes syndiquées pour exécuter Windows Server et SQL Server. Le service App Service doit également y être déployé.
 
-## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Préparer l’agent de build et de mise en production privée pour l’intégration de Visual Studio Team Services
+## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Préparer l’agent Azure Pipelines privé pour l’intégration d’Azure DevOps Services
 
 ### <a name="prerequisites"></a>Prérequis
 
-Visual Studio Team Services (VSTS) s’authentifie sur Azure Resource Manager avec un principal du service. VSTS doit disposer du rôle **Contributeur** pour provisionner des ressources dans un abonnement Azure Stack.
+Azure DevOps Services s’authentifie auprès d’Azure Resource Manager à l’aide d’un principal de service. Azure DevOps Services doit disposer du rôle **Contributeur** pour approvisionner des ressources dans un abonnement Azure Stack.
 
 Les étapes suivantes décrivent ce qui est nécessaire pour configurer l’authentification :
 
 1. Créez un principal du service, ou utilisez un principal du service existant.
 2. Créez des clés d’authentification pour le principal du service.
 3. Validez l’abonnement Azure Stack via le contrôle d’accès en fonction du rôle (RBAC) pour autoriser le nom du principal du service (SPN) à faire partie du rôle Contributeur.
-4. Créez une nouvelle définition de service dans VSTS avec les points de terminaison Azure Stack et les informations du SPN.
+4. Créez une nouvelle définition de service dans Azure DevOps Services avec les points de terminaison Azure Stack et les informations du SPN.
 
 ### <a name="create-a-service-principal"></a>Créer un principal du service
 
@@ -122,7 +128,7 @@ Un principal du service nécessite une clé pour l’authentification. Procédez
 
     ![Sélectionner l’application](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2. Notez la valeur de **l’ID d’application**. Vous devez utiliser cette valeur lors de la configuration du point de terminaison du service dans VSTS.
+2. Notez la valeur de **l’ID d’application**. Vous l’utiliserez lors de la configuration du point de terminaison du service dans Azure DevOps Services.
 
     ![ID de l'application](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
@@ -144,7 +150,7 @@ Un principal du service nécessite une clé pour l’authentification. Procédez
 
 ### <a name="get-the-tenant-id"></a>Obtenir l’ID de locataire
 
-Dans le cadre de la configuration du point de terminaison de service, VSTS nécessite **l’ID de locataire** qui correspond à l’annuaire AAD sur lequel votre pile Azure Stack est déployée. Procédez comme suit pour obtenir l’ID de locataire.
+Dans le cadre de la configuration du point de terminaison de service, Azure DevOps Services requiert **l’ID de locataire** qui correspond à l’annuaire AAD sur lequel votre pile Azure Stack est déployée. Procédez comme suit pour obtenir l’ID de locataire.
 
 1. Sélectionnez **Azure Active Directory**.
 
@@ -194,20 +200,21 @@ Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ress
 
 Le contrôle d’accès en fonction du rôle (RBAC) Azure offre une gestion précise de l’accès pour Azure. Grâce à RBAC, vous pouvez contrôler le niveau d’accès dont les utilisateurs ont besoin pour faire leur travail. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Gérer l’accès aux ressources d’un abonnement Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
-### <a name="vsts-agent-pools"></a>Pools d’agents VSTS
+### <a name="azure-devops-services-agent-pools"></a>Pools d'agents Azure DevOps Services
 
-Au lieu de gérer chaque agent séparément, vous pouvez organiser les agents en pools d’agents. Un pool d’agents définit la limite de partage pour tous les agents de ce pool. Dans VSTS, les pools d’agents sont délimités au niveau du compte VSTS, ce qui signifie que vous pouvez partager un pool d’agents entre des projets d’équipe. Pour en savoir plus sur les pools d’agents, consultez [Create Agent Pools and Queue](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts) (Créer des pools d’agents et des files d’attente).
+Au lieu de gérer chaque agent séparément, vous pouvez organiser les agents en pools d’agents. Un pool d’agents définit la limite de partage pour tous les agents de ce pool. Dans Azure DevOps Services, les pools d’agents s’appliquent à l’organisation Azure DevOps Services. En d’autres termes, vous pouvez partager un pool d’agents sur plusieurs projets. Pour en savoir plus sur les pools d’agents, consultez [Create Agent Pools and Queue](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts) (Créer des pools d’agents et des files d’attente).
 
 ### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Ajouter un jeton d’accès personnel (PAT) pour Azure Stack
 
-Créez un jeton d’accès personnel pour accéder à VSTS.
+Créez un jeton d’accès personnel pour accéder à Azure DevOps Services.
 
-1. Connectez-vous à votre compte VSTS et sélectionnez le nom de votre profil de compte.
+1. Connectez-vous à votre organisation Azure DevOps Services et sélectionnez le nom de profil de votre organisation.
+
 2. Sélectionnez **Gérer la sécurité** pour accéder à la page de création d’un jeton d’accès.
 
     ![Connexion de l’utilisateur](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![Sélectionner un projet d’équipe](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Sélectionner un projet](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
     ![Ajouter un jeton d’accès personnel](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
@@ -220,7 +227,7 @@ Créez un jeton d’accès personnel pour accéder à VSTS.
 
     ![Jeton d’accès personnel](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
-### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Installer l’agent de build VSTS sur le service Azure Stack hébergé par le serveur de build
+### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Installer l’agent de build Azure DevOps Services sur le serveur de builds hébergé sur Azure Stack
 
 1. Connectez-vous au serveur de build que vous avez déployé sur l’hôte Azure Stack.
 2. Téléchargez et déployez l’agent de build en tant que service avec votre jeton d’accès personnel, et exécutez-le en tant que compte d’administrateur de la machine virtuelle.
@@ -233,21 +240,21 @@ Créez un jeton d’accès personnel pour accéder à VSTS.
 
     ![Inscrire l’agent de build](media\azure-stack-solution-hybrid-pipeline\000_21.png)
 
-4. Une fois l’exécutée de config.cmd terminée, le dossier de l’agent de build est mis à jour avec des fichiers supplémentaires. Le dossier avec le contenu extrait doit se présenter comme suit :
+4. Une fois l’exécution de config.cmd terminée, le dossier de l’agent de build est mis à jour avec des fichiers supplémentaires. Le dossier avec le contenu extrait doit se présenter comme suit :
 
     ![Mise à jour du dossier de l’agent de build](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    Vous pouvez voir l’agent dans le dossier VSTS.
+    Vous pouvez voir l’agent dans le dossier Azure DevOps Services.
 
 ## <a name="endpoint-creation-permissions"></a>Autorisations de création des points de terminaison
 
-Grâce à la création de points de terminaison, une build de Visual Studio Online (VSTO) peut déployer des applications Azure Service dans Azure Stack. VSTS se connecte à l’agent de build, qui se connecte à Azure Stack.
+Grâce à la création de points de terminaison, une build de Visual Studio Online (VSTO) peut déployer des applications Azure Service dans Azure Stack. Azure DevOps Services se connecte à l’agent de build, qui se connecte à Azure Stack.
 
 ![Exemple d’application NorthwindCloud dans VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. Connectez-vous à VSTO et accédez à la page de paramètres de l’application.
 2. Dans **Paramètres**, sélectionnez **Sécurité**.
-3. Dans **Groupes VSTS**, sélectionnez **Créateurs de points de terminaison**.
+3. Dans **Groupes Azure DevOps Services**, sélectionnez **Créateurs de points de terminaison**.
 
     ![Créateurs de points de terminaison NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
@@ -257,7 +264,7 @@ Grâce à la création de points de terminaison, une build de Visual Studio Onli
 
 5. Dans **Ajouter des utilisateurs et groupes**, entrez un nom d’utilisateur et sélectionnez cet utilisateur dans la liste des utilisateurs.
 6. Sélectionnez **Enregistrer les modifications**.
-7. Dans la liste **Groupes VSTS**, sélectionnez **Administrateurs du point de terminaison**.
+7. Dans la liste **Groupes Azure DevOps Services**, sélectionnez **Administrateurs de points de terminaison**.
 
     ![Administrateurs du point de terminaison NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
@@ -265,6 +272,7 @@ Grâce à la création de points de terminaison, une build de Visual Studio Onli
 9. Dans **Ajouter des utilisateurs et groupes**, entrez un nom d’utilisateur et sélectionnez cet utilisateur dans la liste des utilisateurs.
 10. Sélectionnez **Enregistrer les modifications**.
 
+Maintenant que les informations du point de terminaison existent, la connexion de Azure DevOps Services à Azure Stack est prête à être utilisée. Dans Azure Stack, l’agent de build reçoit des instructions d’Azure DevOps Services, puis il transmet les informations du point de terminaison pour la communication avec Azure Stack.
 ## <a name="create-an-azure-stack-endpoint"></a>Créer un point de terminaison Azure Stack
 
 Pour créer une connexion au service avec un principal du service existant, suivez les instructions dans l’article [Créer une connexion au service Azure Resource Manager avec un principal du service existant](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) et utilisez le mappage suivant :
@@ -285,18 +293,18 @@ Maintenant que le point de terminaison est créé, la connexion de VSTS à Azure
 
 Dans cette partie du didacticiel, vous allez :
 
-* Ajouter du code à un projet VSTS.
+* Ajouter du code à un projet Azure DevOps Services.
 * Créer un déploiement d’application web autonome.
 * Configurer le processus de déploiement continu
 
 > [!Note]
  > Votre environnement Azure Stack a besoin des images correctes syndiquées pour exécuter Windows Server et SQL Server. Le service App Service doit également y être déployé. Lisez la section « Prérequis » de la documentation d’App Service pour connaître la configuration requise de l’opérateur Azure Stack.
 
-La CI/CD hybride peut s’appliquer au code d’application et au code d’infrastructure. Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) comme code d’application web de VSTS pour déployer dans les deux clouds.
+La CI/CD hybride peut s’appliquer au code d’application et au code d’infrastructure. Utilisez des [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) comme code d’application web d’Azure DevOps Services pour déployer dans les deux clouds.
 
-### <a name="add-code-to-a-vsts-project"></a>Ajouter du code à un projet VSTS
+### <a name="add-code-to-an-azure-devops-services-project"></a>Ajouter du code à un projet Azure DevOps Services
 
-1. Connectez-vous à VSTS avec un compte disposant des droits de création de projet sur Azure Stack. La capture d’écran suivante montre comment se connecter au projet HybridCICD.
+1. Connectez-vous à Azure DevOps Services à l’aide d’une organisation disposant des droits de création de projet sur Azure Stack. La capture d’écran suivante montre comment se connecter au projet HybridCICD.
 
     ![Se connecter à un projet](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
@@ -310,37 +318,38 @@ La CI/CD hybride peut s’appliquer au code d’application et au code d’infra
 
     ![Configurer Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. Utilisez Team Explorer pour archiver le code dans VSTS.
+2. Utilisez Team Explorer pour archiver le code dans Azure DevOps Services.
 
-3. Vérifiez que le code d’application a été archivé dans Visual Studio Team Services.
+3. Vérifiez que le code d’application a été archivé dans Azure DevOps Services.
 
-### <a name="create-the-build-definition"></a>Créer la définition de build
+### <a name="create-the-build-pipeline"></a>Créer le pipeline de build
 
-1. Connectez-vous à VSTS avec un compte permettant de créer une définition de build.
-2. Accédez à la page **Build Web Application** (Créer une application web) du projet.
+1. Connectez-vous à Azure DevOps Services à l’aide d’une organisation disposant des droits de création de pipeline de build.
+
+2. Accédez à la page **Build Web Applicaiton** (Créer une application web) du projet.
 
 3. Dans **Arguments**, ajoutez le code **-r win10-x64**. Cette action est requise pour déclencher un déploiement autonome avec .NET Core.
 
-    ![Ajouter une définition de build d’argument](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Ajouter un pipeline de build d’argument](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
 4. Exécutez la build. Le processus de [build de déploiement autonome](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) publie des artefacts qui peuvent s’exécuter sur Azure et Azure Stack.
 
 ### <a name="use-an-azure-hosted-build-agent"></a>Utiliser un agent de build hébergé Azure
 
-L’utilisation d’un agent de build hébergé dans VSTS est une option pratique pour la création et le déploiement d’applications web. La maintenance et les mises à niveau de l’agent sont effectuées automatiquement par Microsoft Azure, ce qui permet un cycle de développement continu et sans interruption.
+L’utilisation d’un agent de build hébergé dans Azure DevOps Services est une option pratique pour créer et déployer des applications web. La maintenance et les mises à niveau de l’agent sont effectuées automatiquement par Microsoft Azure, ce qui permet un cycle de développement continu et sans interruption.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Configurer le processus de déploiement continu (CD)
 
-Visual Studio Team Services (VSTS) et Team Foundation Server (TFS) fournissent un pipeline hautement configurable et gérable pour des mises en production sur plusieurs environnements, comme de développement, de préproduction, d’assurance qualité (AQ) et de production. Ce processus peut inclure la nécessite d’approbations à des étapes spécifique du cycle de vie de l’application.
+Azure DevOps Services et Team Foundation Server (TFS) fournissent un pipeline hautement configurable et gérable pour des mises en production sur plusieurs environnements (développement, préproduction, assurance qualité (AQ) et production, par exemple). Ce processus peut inclure la nécessite d’approbations à des étapes spécifique du cycle de vie de l’application.
 
-### <a name="create-release-definition"></a>Créer une définition de mise en production
+### <a name="create-release-pipeline"></a>Créer un pipeline de mise en production
 
-La création d’une définition de mise en production est la dernière étape de votre processus de création d’application. Cette définition de mise en production est utilisée pour créer une mise en production et déployer une build.
+La création d’un pipeline de mise en production est la dernière étape du processus de création d’application. Ce pipeline de mise en production est utilisé pour créer une mise en production et déployer une build.
 
-1. Connectez-vous à VSTS et accédez à **Build et mise en production** pour votre projet.
+1. Connectez-vous à Azure DevOps Services et accédez aux **Pipelines Azure** pour votre projet.
 2. Sous l’onglet **Versions**, sélectionnez  **\[ +]**, puis choisissez **Créer une définition de mise en production**.
 
-   ![Créer une définition de mise en production](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Créer un pipeline de mise en production](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. Sous **Sélectionner un modèle**, choisissez **Déploiement d'Azure App Service**, puis sélectionnez **Appliquer**.
 
@@ -427,17 +436,17 @@ La création d’une définition de mise en production est la dernière étape d
 23. Enregistrez toutes vos modifications.
 
 > [!Note]
-> Certains paramètres des tâches de mise en production peuvent avoir été automatiquement définis en tant que [variables d’environnement](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) lorsque vous avez créé une définition de mise en production à partir d’un modèle. Ces paramètres ne peuvent pas être modifiés dans les paramètres de tâche. Toutefois, vous pouvez modifier ces paramètres dans les éléments d’environnement parent.
+> Il se peut que certains paramètres des tâches de mise en production aient été définis automatiquement en tant que [variables d’environnement](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables) lors de la création du pipeline de mise en production à partir d’un modèle. Ces paramètres ne peuvent pas être modifiés dans les paramètres de tâche. Toutefois, vous pouvez modifier ces paramètres dans les éléments d’environnement parent.
 
 ## <a name="create-a-release"></a>Créer une mise en production
 
-Maintenant que vous avez terminé les modifications de la définition de mise en production, il est temps de commencer le déploiement. Pour cela, vous créez une mise en production à partir de la définition de mise en production. Une mise en production peut être créée automatiquement ; par exemple, le déclencheur de déploiement continu est défini dans la définition de mise en production. Cela signifie que la modification du code source démarre une nouvelle build et, à partir de celle-ci, une nouvelle mise en production. Dans cette section, vous créez manuellement une nouvelle mise en production.
+Maintenant que vous avez terminé les modifications du pipeline de mise en production, il est temps de commencer le déploiement. Pour ce faire, vous devez créer une mise en production à partir du pipeline de mise en production. Une mise en production peut être créée automatiquement ; par exemple, le déclencheur de déploiement continu est défini dans le pipeline de mise en production. Cela signifie que la modification du code source démarre une nouvelle build et, à partir de celle-ci, une nouvelle mise en production. Dans cette section, vous créez manuellement une nouvelle mise en production.
 
 1. Sous l’onglet **Pipeline**, ouvrez la liste déroulante **Version finale** et choisissez **Créer une mise en production**.
 
     ![Créer une mise en production](media\azure-stack-solution-hybrid-pipeline\200.png)
 
-2. Entrez une description pour la mise en production, vérifiez que les artefacts corrects sont sélectionnés, puis choisissez **Créer**. Après quelques instants, une bannière s’affiche, indiquant que la nouvelle mise en production a été créée ; le nom de la mise en production est affiché sous forme de lien. Choisissez le lien pour afficher la page récapitulative de la mise en production.
+2. Entrez une description pour la mise en production, vérifiez que les artefacts corrects sont sélectionnés, puis choisissez **Créer**. Après quelques instants, une bannière s’affiche, indiquant que la nouvelle mise en production a été créée ; le nom de la mise en production est affichée sous forme de lien. Choisissez le lien pour afficher la page récapitulative de la mise en production.
 
     ![Bannière de création de mise en production](media\azure-stack-solution-hybrid-pipeline\201.png)
 

@@ -12,48 +12,68 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/21/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: f83ca06843b94aecf44a4e4a58959d35f00532c2
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125114"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960326"
 ---
-# <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Étendues, autorisations et consentement dans le point de terminaison Azure Active Directory v2.0
+# <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Autorisations et consentement dans le point de terminaison Azure Active Directory v2.0
 
-Les applications intégrées à Azure Active Directory (Azure AD) suivent un modèle d’autorisation, qui permet aux utilisateurs de contrôler le mode d’accès d’une application à leurs données. L’implémentation v2.0 de ce modèle d’autorisation a été mise à jour, et elle modifie la façon dont une application doit interagir avec Azure AD. Cet article aborde les concepts de base de ce modèle d’autorisation, notamment les étendues, les autorisations et le consentement.
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
+Les applications qui s’intègrent à la plateforme d’identité Microsoft suivent un modèle d’autorisation permettant aux utilisateurs et aux administrateurs de contrôler l’accès aux données. L’implémentation de ce modèle d’autorisation a été mise à jour sur le point de terminaison v2.0, et elle modifie la façon dont une application doit interagir avec la plateforme d’identité Microsoft. Cet article aborde les concepts de base de ce modèle d’autorisation, notamment les étendues, les autorisations et le consentement.
 
 > [!NOTE]
-> Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
+> Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scénarios et fonctionnalités. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
 
 ## <a name="scopes-and-permissions"></a>Étendues et autorisations
 
-Azure AD implémente le protocole d’autorisation [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 est une méthode par le biais de laquelle une application tierce peut accéder aux ressources hébergées sur le web au nom d’un utilisateur. Les ressources hébergées sur le web qui s’intègrent à Azure AD présentent un identificateur de ressource, également appelé *URI d’ID d’application*. Voici, par exemple, quelques-unes des ressources hébergées sur le Web de Microsoft :
+La plateforme d’identité Microsoft implémente le protocole d’autorisation [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 est une méthode par le biais de laquelle une application tierce peut accéder aux ressources hébergées sur le web au nom d’un utilisateur. Les ressources hébergées sur le web qui s’intègrent à la plateforme d’identité Microsoft présentent un identificateur de ressource, également appelé *URI d’ID d’application*. Voici, par exemple, quelques-unes des ressources hébergées sur le Web de Microsoft :
 
-* L’API de messagerie unifiée Office 365 : `https://outlook.office.com`
-* L’API Graph Azure AD : `https://graph.windows.net`
 * Microsoft Graph : `https://graph.microsoft.com`
+* API de messagerie Office 365 : `https://outlook.office.com`
+* Azure AD Graph : `https://graph.windows.net`
 
-Cela s’applique également aux ressources tierces intégrées à Azure AD. Ces ressources peuvent également définir un ensemble d’autorisations à utiliser pour diviser la fonctionnalité de cette ressource en fragments plus réduits. Par exemple, [Microsoft Graph](https://graph.microsoft.io) a défini des autorisations pour effectuer les tâches suivantes, entre autres :
+> [!NOTE]
+> Nous vous recommandons fortement d’utiliser Microsoft Graph au lieu d’Azure AD Graph, l’API de messagerie Office 365, etc.
+
+Cela s’applique également aux ressources tierces intégrées à la plateforme d’identité Microsoft. Ces ressources peuvent également définir un ensemble d’autorisations à utiliser pour diviser la fonctionnalité de cette ressource en fragments plus réduits. Par exemple, [Microsoft Graph](https://graph.microsoft.com) a défini des autorisations pour effectuer les tâches suivantes, entre autres :
 
 * Lire le calendrier d’un utilisateur
 * Écrire dans le calendrier d’un utilisateur
 * Envoi de messages en tant qu’utilisateur
 
-En définissant ces types d’autorisation, la ressource dispose d’un contrôle affiné sur ses données et sur leur exposition. Une application tierce peut demander ces autorisations à un utilisateur d’application. L’utilisateur d’application doit approuver les autorisations pour que l’application puisse agir pour le compte de l’utilisateur. En fragmentant les fonctionnalités de la ressource en ensembles plus réduits d’autorisations, il est possible de créer des applications tierces pour qu’elles demandent uniquement les autorisations nécessaires à leur fonctionnement. Les utilisateurs de l’application savent avec précision la manière dont les applications utilisent leurs données, et s’inquiètent moins de leur éventuelle intention malveillante.
+En définissant ces types d’autorisations, la ressource dispose d’un contrôle précis sur ses données et sur l’exposition de la fonctionnalité d’API. Une application tierce peut demander ces autorisations à des utilisateurs et des administrateurs. Ces derniers doivent approuver la requête avant que l’application puisse accéder aux données ou agir pour le compte d’un utilisateur. En fragmentant les fonctionnalités de la ressource en ensembles plus réduits d’autorisations, il est possible de créer des applications tierces pour qu’elles demandent uniquement les autorisations nécessaires à leur fonctionnement. Les utilisateurs et les administrateurs peuvent connaître avec précision les données auxquelles l’application a accès, et être ainsi moins inquiets quant à une éventuelle intention malveillante. Les développeurs doivent toujours respecter le concept de moindre privilège et demander uniquement les autorisations dont ils ont besoin pour faire fonctionner leurs applications.
 
-Dans Azure AD et OAuth, ces types d’autorisation sont appelés des *étendues*. Ils sont également parfois désignés sous le nom *d’autorisations oAuth2*. Une étendue est représentée dans Azure AD en tant que valeur de chaîne. Toujours dans l’exemple Microsoft Graph, la valeur d’étendue pour chaque autorisation est la suivante :
+Dans OAuth, ces types d’autorisations sont appelés des *étendues*. On y fait également référence simplement sous le nom d’*autorisations*. Une autorisation est représentée dans la plateforme d’identité Microsoft sous forme de valeur de chaîne. Toujours dans l’exemple Microsoft Graph, la valeur de chaîne pour chaque autorisation est la suivante :
 
 * Lire le calendrier d’un utilisateur en utilisant `Calendars.Read`
 * Écrire dans le calendrier d’un utilisateur en utilisant `Calendars.ReadWrite`
 * Envoi de messages en tant qu’utilisateur en utilisant `Mail.Send`
 
-Une application peut demander ces autorisations en spécifiant les étendues dans les requêtes dirigées vers le point de terminaison v2.0.
+Généralement, une application peut demander ces autorisations en spécifiant les étendues dans les requêtes dirigées vers le point de terminaison d’autorisation v2.0. Toutefois, certaines autorisations à privilèges élevés peuvent uniquement être accordées par le biais du consentement de l’administrateur. Elles sont généralement demandées/accordées à l’aide du [point de terminaison de consentement de l’administrateur](v2-permissions-and-consent.md#admin-restricted-scopes). Lisez la suite pour en savoir plus.
+
+## <a name="permission-types"></a>Types d'autorisations
+
+La plateforme d’identité Microsoft prend en charge deux types d’autorisations : les **autorisations déléguées** et les **autorisations d’application**.
+
+- Les **autorisations déléguées** sont utilisées par les applications pour lesquelles un utilisateur est connecté et présent. Pour ces applications, l’utilisateur ou un administrateur accorde les autorisations que l’application demande. Ensuite, l’application se voit déléguer une autorisation d’agir pour le compte de l’utilisateur connecté lors des appels à une ressource cible. Certaines autorisations déléguées peuvent être accordées par des utilisateurs non administrateurs, mais certaines autorisations à privilèges élevés requièrent le [consentement de l’administrateur](v2-permissions-and-consent.md#admin-restricted-scopes).  
+
+- Les **autorisations d’application** sont utilisées par les applications qui s’exécutent sans qu’un utilisateur soit connecté et présent (les applications qui s’exécutent en tant que services ou démons en arrière-plan, par exemple).  Les autorisations de l’application peuvent uniquement être [accordées par un administrateur](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). 
+
+Les _autorisations effectives_ correspondent aux autorisations accordées à votre application lorsqu’elle envoie des requêtes à une ressource cible. Vous devez comprendre la différence entre les autorisations déléguées, les autorisations d’application et les autorisations effectives que votre application reçoit lorsqu’elle interroge la ressource cible.
+
+- Pour les autorisations déléguées, les _autorisations effectives_ de votre application correspondent au niveau de privilège le moins élevé entre les autorisations déléguées que l’application a reçues (par le biais d’un consentement) et les privilèges de l’utilisateur actuellement connecté. Votre application ne peut jamais avoir plus de privilèges que l’utilisateur connecté. Au sein des organisations, les privilèges de l’utilisateur connecté peuvent être déterminés par la stratégie ou l’appartenance à un ou plusieurs rôles d’administrateur. Pour obtenir plus d’informations sur les rôles d’administrateur, consultez l’article [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+  Supposons que votre application ait reçu l’autorisation déléguée _User.ReadWrite.All_. Cette autorisation permet nominalement à votre application de lire et mettre à jour le profil de chaque utilisateur dans une organisation. Si l’utilisateur connecté est un administrateur général, votre application est en mesure de mettre à jour le profil de chaque utilisateur de l’organisation. Toutefois, si l’utilisateur connecté n’a pas de rôle d’administrateur, votre application peut uniquement mettre à jour le profil de l’utilisateur connecté. Elle ne peut pas mettre à jour les profils des autres utilisateurs de l’organisation, car l’utilisateur pour lequel elle est autorisée à agir n’a pas ces privilèges.
+  
+- Pour les autorisations d’application, les _autorisations effectives_ de votre application correspondent au niveau complet des privilèges impliqués par l’autorisation. Par exemple, une application disposant de l’autorisation d’application _User.ReadWrite.All_ peut mettre à jour le profil de chaque utilisateur de l’organisation. 
 
 ## <a name="openid-connect-scopes"></a>Étendues OpenId Connect
 
@@ -69,7 +89,7 @@ L’étendue `email` peut être utilisée avec l’étendue `openid` ainsi que d
 
 ### <a name="profile"></a>Profil
 
-L’étendue `profile` peut être utilisée avec l’étendue `openid` ainsi que d’autres. Elle permet à l’application d’accéder à une quantité d’informations importante sur l’utilisateur, notamment le prénom de l’utilisateur, son nom de famille, son nom d’utilisateur privilégié et l’ID d’objet. Pour obtenir la liste complète des revendications de profil disponibles dans le paramètre id_token pour un utilisateur donné, consultez la page [de référence sur les jetons v2.0](v2-id-and-access-tokens.md).
+L’étendue `profile` peut être utilisée avec l’étendue `openid` ainsi que d’autres. Elle permet à l’application d’accéder à une quantité importante d’informations sur l’utilisateur, notamment le prénom de l’utilisateur, son nom de famille, son nom d’utilisateur privilégié et l’ID d’objet. Pour obtenir la liste complète des revendications de profil disponibles dans le paramètre id_token pour un utilisateur donné, consultez la page [de référence `id_tokens`](id-tokens.md).
 
 ### <a name="offlineaccess"></a>offline_access
 
@@ -78,19 +98,6 @@ L’étendue `profile` peut être utilisée avec l’étendue `openid` ainsi que
 Si votre application ne sollicite pas l’étendue `offline_access`, elle ne reçoit pas de jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans le [flux de code d’autorisation OAuth 2.0](active-directory-v2-protocols.md), vous recevez uniquement un jeton d’accès du point de terminaison `/token`. Le jeton d’accès est valide pendant une courte durée : il arrive généralement à expiration en une heure. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Pendant ce réacheminement, en fonction du type d’application, l’utilisateur peut devoir entrer à nouveau ses informations d’identification ou accepter une nouvelle fois les autorisations.
 
 Pour en savoir plus sur la récupération et l’utilisation des jetons d’actualisation, consultez la page de [référence sur les protocoles v2.0](active-directory-v2-protocols.md).
-
-## <a name="accessing-v10-resources"></a>Accès aux ressources de la version 1.0
-Les applications v2.0 peuvent demander des jetons et accepter les applications version 1.0 (telles que l’API Power BI `https://analysis.windows.net/powerbi/api` ou l’API Sharepoint `https://{tenant}.sharepoint.com`).  Pour ce faire, vous pouvez référencer la chaîne d’URI et d’étendue de l’application dans le paramètre `scope`.  Par exemple, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` demande l’autorisation PowerBI `View all Datasets` pour votre application. 
-
-Pour demander plusieurs autorisations, ajoutez l’URI complet avec un espace ou `+`, par exemple `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Ainsi, les deux autorisations `View all Datasets` et `View all Reports` sont demandées.  Notez que comme avec toutes les étendues et autorisations Azure AD, les applications peuvent uniquement effectuer une demande pour une seule ressource à la fois ; ainsi, la demande `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, qui concerne à la fois l’autorisation PowerBI `View all Datasets` et l’autorisation Skype Entreprise `Initiate conversations`, est rejetée car elle porte sur deux ressources différentes.  
-
-### <a name="v10-resources-and-tenancy"></a>Locataires et ressources v1.0
-Les protocoles Azure AD v1.0 et v2.0 utilisent un paramètre `{tenant}` incorporé dans l’URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Quand vous utilisez le point de terminaison v2.0 pour accéder à une ressource d’organisation v1.0, les locataires `common` et `consumers` ne peuvent pas être utilisés, car ces ressources sont uniquement accessibles à l’aide de comptes d’organisation (Azure AD).  Ainsi, quand vous accédez à ces ressources, seul le GUID du locataire ou `organizations` peut être utilisé comme paramètre `{tenant}`.  
-
-Si une application tente d’accéder à une ressource d’organisation v1.0 à l’aide d’un locataire incorrect, une erreur similaire à celle ci-dessous s’affiche. 
-
-`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
-
 
 ## <a name="requesting-individual-user-consent"></a>Demande de consentement d’utilisateur individuel
 
@@ -108,47 +115,58 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-Le paramètre `scope` est une liste d’étendues séparées par des espaces, demandées par l’application. Chaque étendue est indiquée par l’ajout de la valeur correspondante à l’identificateur de la ressource (URI d’ID d’application). Dans l’exemple de requête, l’application nécessite l’autorisation de lecture du calendrier de l’utilisateur et d’envoi de messages au nom de l’utilisateur.
+Le paramètre `scope` correspond à une liste d’autorisations déléguées séparées par des espaces, demandées par l’application. Chaque autorisation est indiquée par l’ajout de la valeur correspondante à l’identificateur de la ressource (URI d’ID d’application). Dans l’exemple de requête, l’application nécessite l’autorisation de lecture du calendrier de l’utilisateur et d’envoi de messages au nom de l’utilisateur.
 
-Une fois que l’utilisateur a entré ses informations d’identification, le point de terminaison v2.0 recherche un enregistrement correspondant de *consentement d’utilisateur*. Si l’utilisateur n’a accepté aucune des autorisations sollicitées par le passé, le point de terminaison v2.0 demande à l’utilisateur d’octroyer les autorisations demandées.
+Une fois que l’utilisateur a entré ses informations d’identification, le point de terminaison v2.0 recherche un enregistrement correspondant de *consentement d’utilisateur*. Si, par le passé, l’utilisateur n’a jamais accepté les autorisations demandées et qu’un administrateur n’a jamais accepté ces autorisations pour le compte de toute l’organisation, le point de terminaison v2.0 demande à l’utilisateur d’accorder les autorisations demandées.
 
 ![Consentement dans le compte professionnel](./media/v2-permissions-and-consent/work_account_consent.png)
 
-Lorsque l’utilisateur approuve l’autorisation, le consentement est enregistré de manière à ce que l’utilisateur ne doive pas le fournir à nouveau lors des connexions suivantes au compte.
+Lorsque l’utilisateur approuve la demande d’autorisation, le consentement est enregistré de manière à ce que l’utilisateur n’ait pas à le fournir à nouveau lors des connexions suivantes à l’application.
 
 ## <a name="requesting-consent-for-an-entire-tenant"></a>Demande de consentement d’un client entier
 
-Souvent, lorsqu’une organisation achète une licence ou un abonnement à une application, elle souhaite la configurer entièrement pour ses employés. Dans le cadre de cette procédure, un administrateur peut autoriser l’application à agir au nom de n’importe quel employé. Si l’administrateur donne son consentement pour le client entier, les employés de l’organisation ne voient pas de page de consentement pour l’application.
+Souvent, lorsqu’une organisation achète une licence ou un abonnement à une application, elle souhaite configurer proactivement l’application afin que tous les membres de l’organisation puissent l’utiliser. Dans le cadre de cette procédure, un administrateur peut autoriser l’application à agir au nom de n’importe quel utilisateur au sein du locataire. Si l’administrateur donne son consentement pour l’intégralité du locataire, les utilisateurs de l’organisation ne voient pas de page de consentement pour l’application.
 
-Pour demander le consentement pour tous les utilisateurs d’un client, votre application peut utiliser le point de terminaison de consentement de l’administrateur.
+Pour demander le consentement pour les autorisations déléguées pour tous les utilisateurs d’un locataire, votre application peut utiliser le point de terminaison de consentement de l’administrateur.
 
-## <a name="admin-restricted-scopes"></a>Étendues limitées aux administrateurs
+En outre, les applications doivent utiliser le point de terminaison de consentement de l’administrateur pour demander les autorisations d’application.
 
-Certaines autorisations à privilège élevé de l’écosystème Microsoft peuvent être définies sur *restreintes aux administrateurs*. Des exemples de ces types d’étendue incluent les autorisations suivantes :
+## <a name="admin-restricted-permissions"></a>Autorisations restreintes aux administrateurs
 
-* Lire le répertoire d’une organisation à l’aide de `Directory.Read`
-* Écrire des données dans le répertoire d’une organisation à l’aide de `Directory.ReadWrite`
-* Lire des groupes de sécurité dans le répertoire d’une organisation à l’aide de `Groups.Read.All`
+Certaines autorisations à privilège élevé de l’écosystème Microsoft peuvent être définies sur *restreintes aux administrateurs*. Ces types d’autorisations peuvent être illustrés par ces exemples :
+
+* Lire les profils complets de tous les utilisateurs à l’aide de `User.Read.All`
+* Écrire des données dans le répertoire d’une organisation à l’aide de `Directory.ReadWrite.All`
+* Lire tous les groupes dans le répertoire d’une organisation à l’aide de `Groups.Read.All`
 
 Si un utilisateur consommateur peut accorder à une application l’accès à ce type de données, les utilisateurs d’organisation sont limités lorsqu’il s’agit d’octroyer l’accès au même jeu de données d’entreprise sensibles. Si votre application requiert l’accès à l’une de ces autorisations d’un utilisateur de l’organisation, ce dernier recevra un message erreur indiquant qu’il n’est pas autorisé à donner son consentement pour les autorisations de votre application.
 
 Si votre application requiert l’accès aux étendues restreintes aux administrateurs pour les organisations, vous devez demander l’autorisation directement à un administrateur d’entreprise également à l’aide du point de terminaison de consentement de l’administrateur, décrit ci-dessous.
 
-Lorsqu’un administrateur accorde ces autorisations via le point de terminaison de consentement de l’administrateur, le consentement est accordé à tous les utilisateurs dans le client.
+Si l’application demande des autorisations déléguées à privilèges élevés et qu’un administrateur accorde ces autorisations via le point de terminaison de consentement de l’administrateur, le consentement est accordé à tous les utilisateurs du locataire.
+
+Si l’application demande des autorisations d’application et qu’un administrateur accorde ces autorisations via le point de terminaison de consentement de l’administrateur, cette attribution n’est pas effectuée pour le compte d’un utilisateur spécifique. L’application cliente reçoit les autorisations *directement*. Ces types d’autorisations sont généralement uniquement utilisés par les services démon et d’autres applications non interactives qui s’exécutent en arrière-plan.
 
 ## <a name="using-the-admin-consent-endpoint"></a>Utilisation du point de terminaison de consentement administrateur
 
-Si vous suivez ces étapes, votre application peut rassembler les autorisations pour tous les utilisateurs dans un client, notamment les étendues restreintes aux administrateurs. Pour voir un exemple de code qui implémente les étapes, consultez [l’exemple d’étendues restreintes aux administrateurs](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
+Lorsqu’un administrateur d’entreprise utilise votre application et qu’il est dirigé vers le point de terminaison d’autorisation, la plateforme d’identité Microsoft détecte le rôle de l’utilisateur et lui demande s’il souhaite donner son consentement pour le compte de l’intégralité du locataire pour les autorisations que vous avez demandées. Toutefois, il existe également un point de terminaison de consentement de l’administrateur dédié que vous pouvez utiliser si vous souhaitez demander proactivement qu’un administrateur accorde son autorisation pour le compte de l’intégralité du locataire. Vous devez également utiliser ce point de terminaison pour demander des autorisations d’application (qui ne peuvent pas être demandées à l’aide du point de terminaison d’autorisation).
+
+Si vous suivez ces étapes, votre application peut demander des autorisations pour tous les utilisateurs d’un locataire, notamment les étendues restreintes aux administrateurs. Il s’agit d’une opération à privilèges élevés qui doit être effectuée uniquement si elle est nécessaire dans votre scénario.
+
+Pour voir un exemple de code qui implémente les étapes, consultez [l’exemple d’étendues restreintes aux administrateurs](https://github.com/Azure-Samples/active-directory-dotnet-admin-restricted-scopes-v2).
 
 ### <a name="request-the-permissions-in-the-app-registration-portal"></a>Demander les autorisations dans le portail d’inscription de l’application
 
+Le consentement de l’administrateur n’accepte de paramètre d’étendue. Ainsi, toute autorisation demandée doit être définie de manière statique dans l’inscription de l’application. En général, il est recommandé de veiller à ce que les autorisations définies de manière statique pour une application donnée constituent un sur-ensemble des autorisations qui seront demandées de façon dynamique/incrémentielle.
+
+Pour configurer la liste des autorisations demandées de manière statique pour une application : 
 1. Accédez à votre application dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ou [créez une application](quickstart-v2-register-an-app.md) si ce n’est déjà fait.
 2. Recherchez la section **Autorisations pour Microsoft Graph**, puis ajoutez les autorisations nécessaires à votre application.
 3. **Enregistrez** l’inscription de l’application.
 
 ### <a name="recommended-sign-the-user-in-to-your-app"></a>Recommandé : connectez l’utilisateur à votre application
 
-En général, lorsque vous créez une application qui utilise le point de terminaison de consentement de l’administrateur, l’application doit disposer d’une page ou vue dans laquelle l’administrateur peut approuver ses autorisations. Cette page peut faire partie du flux d’inscription de l’application, des paramètres de l’application, ou ce peut être un flux de connexion dédié. Dans de nombreux cas, il est judicieux pour l’application d’afficher la vue de « connexion » uniquement après qu’un utilisateur se soit connecté avec un compte Microsoft professionnel ou scolaire.
+En général, lorsque vous créez une application qui utilise le point de terminaison de consentement de l’administrateur, l’application doit disposer d’une page ou vue dans laquelle l’administrateur peut approuver ses autorisations. Cette page peut faire partie du flux d’inscription de l’application, des paramètres de l’application, ou ce peut être un flux de connexion dédié. Dans de nombreux cas, il est judicieux pour l’application d’afficher la vue de « connexion » uniquement après qu’un utilisateur s’est connecté avec un compte Microsoft professionnel ou scolaire.
 
 Lorsque vous connectez l’utilisateur à votre application, vous pouvez identifier l’organisation à laquelle l’administrateur appartient, avant de lui demander d’approuver les autorisations nécessaires. Même si cela n’est pas strictement nécessaire, cela peut vous aider à créer une expérience plus intuitive pour les utilisateurs de l’organisation. Pour connecter l’utilisateur, suivez nos [didacticiels sur le protocole v2.0](active-directory-v2-protocols.md).
 
@@ -233,3 +251,7 @@ Content-Type: application/json
 Vous pouvez utiliser le jeton d’accès obtenu dans les requêtes HTTP transmises à la ressource. Il indique de façon fiable à la ressource que votre application dispose de l’autorisation appropriée pour effectuer une tâche spécifique. 
 
 Pour en savoir plus sur le protocole OAuth 2.0 et sur le mode d’obtention des jetons d’accès, consultez la page de [référence sur les protocoles du point de terminaison v2.0](active-directory-v2-protocols.md).
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+Si vous, ou les utilisateurs de votre application, constatez des erreurs inattendues au cours du processus de consentement, consultez cet article pour connaître les étapes de dépannage : [Erreur inattendue lors du consentement à une application](../manage-apps/application-sign-in-unexpected-user-consent-error.md).

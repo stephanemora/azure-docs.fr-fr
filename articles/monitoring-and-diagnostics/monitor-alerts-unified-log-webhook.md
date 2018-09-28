@@ -8,32 +8,32 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426691"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989292"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
-Quand une [alerte est créée dans Azure](monitor-alerts-unified-usage.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](monitoring-action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
+Quand une [alerte de journal est créée dans Azure](alert-log.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](monitoring-action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.
 
 
 ## <a name="webhook-actions"></a>Actions de webhook
 
-Les actions de webhook permettent d’appeler un processus externe par le biais d’une simple requête HTTP POST.  Le service appelé doit prendre en charge les webhooks et déterminer comment il doit utiliser toute charge utile qu’il reçoit.   Les exemples d’utilisation d’un webhook en réponse à une alerte envoient un message dans [Slack](http://slack.com) ou créent un incident dans [PagerDuty](http://pagerduty.com/).  
+Les actions de webhook permettent d’appeler un processus externe par le biais d’une simple requête HTTP POST.  Le service appelé doit prendre en charge les webhooks et déterminer comment il doit utiliser toute charge utile qu’il reçoit.    
 
 Les propriétés requises par les actions webhook sont décrites dans le tableau suivant :
 
 | Propriété | Description |
 |:--- |:--- |
 | URL du webhook |URL du webhook. |
-| Charge utile JSON personnalisée |Charge utile personnalisée à envoyer avec le webhook, lorsque vous choisissez cette option au moment de la création de l’alerte. Détails disponibles sur la page [Gérer des alertes à l’aide d’Alertes Azure](monitor-alerts-unified-usage.md) |
+| Charge utile JSON personnalisée |Charge utile personnalisée à envoyer avec le webhook, lorsque vous choisissez cette option au moment de la création de l’alerte. Détails disponibles dans [Gérer les alertes de journal](alert-log.md) |
 
 > [!NOTE]
-> L’utilisation du bouton Tester le Webhook avec l’option *Inclure une charge utile Json personnalisée pour webhook* pour Alerte du journal, déclenche un appel fictif pour tester l’URL du webhook. Il ne contient aucune donnée réelle et représentative du schéma JSON utilisé pour les alertes de journal. 
+> L’utilisation du bouton Afficher le Webhook avec l’option *Inclure une charge utile Json personnalisée pour webhook* pour Alerte du journal affiche un exemple de charge utile de webhook pour la personnalisation fournie. Il ne contient aucune donnée réelle et représentative du schéma JSON utilisé pour les alertes de journal. 
 
-Les webhooks incluent une URL et une charge utile au format JSON qui correspond aux données envoyées au service externe.  Par défaut, la charge utile comprend les valeurs indiquées dans le tableau suivant : vous pouvez choisir de remplacer cette charge utile par des données personnalisées de votre choix.  Dans ce cas, vous pouvez reprendre les variables de chacun des paramètres indiquées dans le tableau pour inclure les valeurs correspondantes dans votre charge utile personnalisée.
+Les webhooks incluent une URL et une charge utile au format JSON qui correspond aux données envoyées au service externe.  Par défaut, la charge utile comprend les valeurs indiquées dans le tableau suivant : vous pouvez choisir de remplacer cette charge utile par des données personnalisées de votre choix.  Dans ce cas, vous pouvez reprendre les variables de chacun des paramètres indiqués dans le tableau pour inclure les valeurs correspondantes dans votre charge utile personnalisée.
 
 
 | Paramètre | Variable | Description |
@@ -54,7 +54,7 @@ Les webhooks incluent une URL et une charge utile au format JSON qui correspond 
 | Identifiant d’abonnement |#subscriptionid |ID de l’abonnement Azure utilisé avec Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults passe des paramètres comme SearchQuery, Search Interval StartTime et Search Interval End Time dans l’URL au portail Azure pour les afficher dans la section Analytics. Le portail Azure limite la taille des URI à environ 2 000 caractères et s’ouvre si les valeurs des paramètres dépassent ladite limite. Les utilisateurs peuvent entrer manuellement des détails pour afficher les résultats dans le portail Analytics ou utiliser [l’API REST Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou [l’API REST Log Analytics](https://dev.loganalytics.io/reference) pour récupérer les résultats par programmation. 
+> LinkToSearchResults passe des paramètres comme SearchQuery, Search Interval StartTime et Search Interval End Time dans l’URL au portail Azure pour les afficher dans la section Analytics. Le portail Azure limite la taille des URI à environ 2 000 caractères et n’ouvre *pas* le lien fourni dans les alertes si les valeurs des paramètres dépassent ladite limite. Les utilisateurs peuvent entrer manuellement des détails pour afficher les résultats dans le portail Analytics ou utiliser [l’API REST Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) ou [l’API REST Log Analytics](https://dev.loganalytics.io/reference) pour récupérer les résultats par programmation. 
 
 Par exemple, vous pouvez spécifier la charge utile personnalisée suivante qui inclut un paramètre unique appelé *text*.  Le service appelé par ce webhook s’attendrait à recevoir ce paramètre.
 
@@ -76,7 +76,7 @@ Comme toutes les variables dans un webhook personnalisé doivent être spécifi�
 Pour inclure les résultats de la recherche dans une charge utile personnalisée, vérifiez que **IncudeSearchResults** est défini comme une propriété de niveau supérieur dans la charge utile json. 
 
 ## <a name="sample-payloads"></a>Exemples de charges utiles
-Cette section présente une exemple de charge utile de webhook pour les alertes de journal, notamment lorsque la charge utile est standard et quand elle est personnalisée.
+Cette section présente un exemple de charge utile de webhook pour les alertes de journal, notamment lorsque la charge utile est standard et quand elle est personnalisée.
 
 > [!NOTE]
 > Pour garantir la compatibilité descendante, la charge utile de webhook standard pour les alertes utilisant Azure Log Analytics est identique à celle de la [gestion des alertes Log Analytics](../log-analytics/log-analytics-alerts-creating.md). Mais pour les alertes de journal utilisant [Application Insights](../application-insights/app-insights-analytics.md), la charge utile de webhook standard est basée sur le schéma du Groupe d’actions.
@@ -198,6 +198,7 @@ Voici un exemple de charge utile pour une action de webhook personnalisée pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [Alertes de journal dans Alertes Azure](monitor-alerts-unified-log.md)
+- Comprendre la [gestion des alertes de journal dans Azure](alert-log.md)
 - Créer et gérer des [groupes d’actions dans Azure](monitoring-action-groups.md)
 - En savoir plus sur [Application Insights](../application-insights/app-insights-analytics.md)
 - En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md). 

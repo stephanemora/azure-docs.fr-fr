@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
 ms.component: autoscale
-ms.openlocfilehash: b303632c236e492bbf57ee60d5e7b0cc7b2f9e5c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e96e3abc05353aa3ea134b7d11256a29fe64c300
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448966"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989224"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Bien démarrer avec la mise à l’échelle automatique dans Azure
 Cet article décrit comment configurer vos paramètres de mise à l’échelle automatique pour votre ressource dans le portail Microsoft Azure.
 
-La mise à l’échelle automatique Azure Monitor s’applique uniquement aux jeux de mise à l’échelle de machines virtuelles, services cloud, plans Azure App Service et environnements App Service. 
+La mise à l’échelle automatique Azure Monitor s’applique uniquement à [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services Gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="discover-the-autoscale-settings-in-your-subscription"></a>Découvrir les paramètres de mise à l’échelle automatique dans votre abonnement
 Vous pouvez découvrir toutes les ressources pour lesquelles la mise à l’échelle automatique est applicable dans Azure Monitor. Pour une procédure pas à pas, procédez comme suit :
@@ -41,14 +41,14 @@ Pour chaque ressource, vous trouverez le nombre d’instances en cours ainsi que
 
 Suivons maintenant une procédure simple pour créer votre premier paramètre de mise à l’échelle automatique.
 
-1. Ouvrez la panneau **Mise à l’échelle automatique** dans Azure Monitor et sélectionnez une ressource à mettre à l’échelle. (les étapes ci-dessous utilisent un plan App Service associé à une application Web. Vous pouvez [créer votre première application Web ASP.NET dans Azure en 5 minutes][4])
+1. Ouvrez le panneau **Mise à l’échelle automatique** dans Azure Monitor et sélectionnez une ressource à mettre à l’échelle. (les étapes ci-dessous utilisent un plan App Service associé à une application Web. Vous pouvez [créer votre première application Web ASP.NET dans Azure en 5 minutes][4])
 1. Notez que le nombre d’instances actuel est 1. Cliquez sur **Activer la mise à l’échelle automatique**.
   ![Paramètre d’échelle pour la nouvelle application web][5]
 1. Fournissez un nom pour le paramètre de mise à l’échelle, puis cliquez sur **Ajouter une règle**. Notez les options de règle de mise à l’échelle qui s’ouvrent dans un volet contextuel dans la partie droite. Par défaut, l’option de mise à l’échelle du nombre d’instances est définie sur 1 si le pourcentage processeur de la ressource dépasse 70 %. Laissez les valeurs par défaut et cliquez sur **Ajouter**.
   ![Créer le paramètre de mise à l’échelle pour une application web][6]
 1. Vous avez créé votre première règle de mise à l’échelle. Notez que l’expérience utilisateur recommande les meilleures pratiques et indique « qu’il est recommandé d’avoir au moins une règle de mise à l’échelle. » Pour ce faire :
-  
-    a. Cliquez sur **Ajouter une règle**. 
+
+    a. Cliquez sur **Ajouter une règle**.
 
     b. Définissez **Opérateur** sur **moins de**.
 
@@ -62,7 +62,7 @@ Suivons maintenant une procédure simple pour créer votre premier paramètre de
 
 Félicitations ! Vous avez maintenant correctement créé votre premier paramètre de mise à l’échelle pour mettre à l’échelle automatiquement votre application Web en fonction de l’utilisation du processeur.
 
-> [!NOTE] 
+> [!NOTE]
 > Les mêmes étapes sont applicables pour bien démarrer avec un jeu de mise à l’échelle de machines virtuelles ou un rôle de service cloud.
 
 ## <a name="other-considerations"></a>Autres points à considérer
@@ -105,8 +105,8 @@ Il peut arriver que vous souhaitiez désactiver vos paramètres actuels de mise 
 Cliquez sur le bouton **Désactiver la mise à l’échelle automatique** en haut.
 ![Désactiver la mise à l’échelle automatique][13]
 
-> [!NOTE] 
-> Cette option désactive votre configuration. Toutefois, vous pouvez revenir dessus une fois que vous activez à nouveau la mise à l’échelle automatique. 
+> [!NOTE]
+> Cette option désactive votre configuration. Toutefois, vous pouvez revenir dessus une fois que vous activez à nouveau la mise à l’échelle automatique.
 
 Vous pouvez maintenant définir le nombre d’instances à mettre à l’échelle sur manuellement.
 
@@ -133,4 +133,3 @@ Vous pouvez toujours revenir à la mise à l’échelle automatique en cliquant 
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
-

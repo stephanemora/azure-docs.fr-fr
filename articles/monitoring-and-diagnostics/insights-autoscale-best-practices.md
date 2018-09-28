@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: e9fc5a4c5d2e23750493cc320dffa380724347fb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30210d15950302ead0a2406ffb59a61a28d4e54e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262441"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997311"
 ---
 # <a name="best-practices-for-autoscale"></a>Meilleures pratiques pour la mise à l’échelle automatique
-Cet article présente les bonnes pratiques relatives à la mise à l’échelle automatique dans Azure. La mise à l’échelle automatique Azure Monitor s’applique uniquement aux [jeux de mise à l’échelle de machine virtuelle](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [services cloud](https://azure.microsoft.com/services/cloud-services/) et à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Les autres services Azure utilisent des méthodes de mise à l’échelle différentes.
+La mise à l’échelle automatique Azure Monitor s’applique uniquement à [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services Gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## <a name="autoscale-concepts"></a>Concepts de la mise à l’échelle automatique
 * Une ressource ne peut avoir qu’ *un* paramètre de mise à l’échelle automatique
@@ -24,9 +24,9 @@ Cet article présente les bonnes pratiques relatives à la mise à l’échelle 
 * Un paramètre de mise à l’échelle automatique met à l’échelle les instances horizontalement, c’est-à-dire vers *l’extérieur* en augmentant la taille des instances et vers *l’intérieur* en diminuant la taille des instances.
   Un paramètre de mise à l’échelle automatique a une valeur d’instances maximum, minimum et par défaut.
 * Une tâche de mise à l’échelle automatique lit la mesure associée à mettre à l’échelle, en vérification qu’elle a dépassé le seuil configuré pour l’augmentation ou la diminution de taille d’instance. Vous pouvez afficher une liste des mesures pour la mise à l’échelle automatique dans la rubrique [Mesures courantes de mise à l’échelle automatique Azure Monitor](insights-autoscale-common-metrics.md).
-* Tous les seuils sont calculés au niveau de l’instance. Par exemple, « l’augmentation de la taille des instances de 1 instance lorsque la moyenne du processeur est supérieure à 80 % quand le nombre d’instances est égal à 2 » signifie l’augmentation de la taille des instances lorsque la moyenne du processeur sur toutes les instances est supérieure à 80 %.
-* Tous les échecs de mise à l’échelle automatique sont enregistrés dans le journal d’activité. Vous pouvez ensuite configurer une [alerte de journal d’activité](./monitoring-activity-log-alerts.md) pour être informé par courrier électronique, SMS, webhook, etc., à chaque fois qu’un échec de mise à l’échelle automatique se produit.
-* De même, toutes les opérations de mise à l’échelle réussies sont consignées dans le journal d’activité. Vous pouvez ensuite configurer une alerte de journal d’activité pour être informé par courrier électronique, SMS, webhook, etc., à chaque fois qu’une opération de mise à l’échelle automatique se termine avec succès. Vous pouvez également configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie via l’onglet Notifications du paramètre de mise à l’échelle automatique.
+* Tous les seuils sont calculés au niveau de l’instance. Par exemple, « l’augmentation de la taille des instances d’une instance lorsque l’UC moyenne est supérieure à 80 % quand le nombre d’instances est égal à 2 » signifie l’augmentation de la taille des instances lorsque l’UC moyenne sur toutes les instances est supérieure à 80 %.
+* Tous les échecs de mise à l’échelle automatique sont enregistrés dans le journal d’activité. Vous pouvez ensuite configurer une [alerte de journal d’activité](./monitoring-activity-log-alerts.md) pour être informé par e-mail, SMS ou webhooks à chaque fois qu’un échec de mise à l’échelle automatique se produit.
+* De même, toutes les opérations de mise à l’échelle réussies sont consignées dans le journal d’activité. Vous pouvez ensuite configurer une alerte de journal d’activité pour être informé par e-mail, SMS ou webhooks à chaque fois qu’une opération de mise à l’échelle automatique se termine avec succès. Vous pouvez également configurer des notifications par e-mail ou webhook pour être averti en cas d’action de mise à l’échelle réussie via l’onglet Notifications du paramètre de mise à l’échelle automatique.
 
 ## <a name="autoscale-best-practices"></a>Meilleures pratiques relatives à la mise à l’échelle automatique
 Utilisez les meilleures pratiques suivantes lorsque vous utilisez la mise à l’échelle automatique.
@@ -35,10 +35,10 @@ Utilisez les meilleures pratiques suivantes lorsque vous utilisez la mise à l�
 Si le paramètre a une valeur minimum = 2, une valeur maximum = 2 et que le nombre d’instances actuel est égal à 2, aucune action de mise à l’échelle ne peut se produire. Conservez une marge suffisante entre les nombres d’instances minimum et maximum, qui sont inclusifs. La mise à l’échelle agit toujours entre ces limites.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>La mise à l’échelle manuelle est réinitialisée par les valeurs min et max de mise à l’échelle
-Si vous mettez à jour manuellement le nombre d’instances avec une valeur inférieure au minimum ou supérieure au maximum, le moteur de mise à l’échelle s’ajuste automatiquement à la valeur minimale (si elle est inférieure) ou à la valeur maximale (le cas ci-dessus). Par exemple, vous définissez la plage entre 3 et 6. Si vous avez une seule instance en cours d’exécution, le moteur de mise à l’échelle automatique met à l’échelle sur 3 instances lors de sa prochaine exécution. De même, si vous définissez manuellement l’échelle sur 8 instances, l’échelle sera redéfinie sur 6 instances lors de la prochaine exécution.  La mise à l’échelle manuelle est temporaire, sauf si vous réinitialisez aussi les règles de mise à l’échelle.
+Si vous mettez à jour manuellement le nombre d’instances avec une valeur inférieure au minimum ou supérieure au maximum, le moteur de mise à l’échelle s’ajuste automatiquement à la valeur minimale (si elle est inférieure) ou à la valeur maximale (le cas ci-dessus). Par exemple, vous définissez la plage entre 3 et 6. Si vous avez une seule instance en cours d’exécution, le moteur de mise à l’échelle automatique effectue la mise à l’échelle sur trois instances lors de sa prochaine exécution. De même, si vous définissez manuellement la mise à l’échelle sur huit instances, la mise à l’échelle sera redéfinie sur six instances lors de la prochaine exécution.  La mise à l’échelle manuelle est temporaire, sauf si vous réinitialisez aussi les règles de mise à l’échelle.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Utilisez toujours une combinaison de règle d’augmentation et de diminution de la taille des instances qui exécute une augmentation et une diminution
-Si vous n’utilisez qu’une partie de la combinaison, la mise à l’échelle automatique augmente ou diminue la taille des instances uniquement pour cette partie jusqu’à ce que la valeur maximum ou minimum soit atteinte.
+Si vous utilisez uniquement une partie de la combinaison, la mise à l’échelle automatique n’effectue l’action que dans une direction (augmentation ou diminution de la taille des instances) jusqu’à ce qu’elle atteigne le nombre d’instances minimum ou maximum défini dans le profil. Cette configuration n’est pas optimale ; dans l’idéal, vous souhaiteriez que votre ressource puisse monter en puissance lors des périodes de forte utilisation afin d’assurer la disponibilité. De même, lors des périodes de faible utilisation, vous souhaitez que votre ressource descende en puissance pour vous permettre de réduire vos coûts.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>Sélection de la statistique appropriée pour votre mesure de diagnostic
 Pour les mesures de diagnostics, vous pouvez choisir entre *Moyen*, *Minimum*, *Maximum* et *Total* comme mesure de mise à l’échelle. La statistique la plus courante est *Moyen*.
@@ -53,11 +53,11 @@ Nous vous *déconseillons* de choisir des paramètres de mise à l’échelle te
 
 Examinons un exemple de ce qui peut entraîner un comportement qui peut sembler déroutant. Examinez la séquence suivante.
 
-1. Supposons qu’il existe 2 instances pour commencer et ensuite, le nombre moyen de threads par instance atteint 625.
-2. La mise à l’échelle automatique augmente la taille des instances en ajoutant une 3ème instance.
+1. Supposons qu’il existe deux instances pour commencer, puis que le nombre moyen de threads par instance atteigne 625.
+2. La mise à l’échelle automatique augmente la taille des instances en ajoutant une troisième instance.
 3. Ensuite, supposons que le nombre de threads moyen entre les instances diminue pour atteindre 575.
 4. Avant la descente en puissance, la mise à l’échelle automatique essaye d’estimer quel sera l’état final en cas de diminution de la taille des instances. Par exemple, 575 x 3 (nombre d’instances actuel) = 1 725 / 2 (nombre final d’instances lors de la descente en puissance) = 862,5 threads. Cela signifie que la mise à l’échelle automatique augmenterait immédiatement la taille des instances même après la diminution des instances, si le nombre moyen de threads reste le même ou même baisse d’une petite quantité. Toutefois, en cas de nouvelle montée en puissance, l’ensemble du processus se répète, menant à une boucle infinie.
-5. Pour éviter ce problème , la mise à l’échelle automatique ne descend pas du tout en puissance. Au lieu de cela, elle ignore et réévalue la condition lors de la prochaine exécution de la tâche du service. Cela peut perturber de nombreuses personnes, car la mise à l’échelle automatique semble ne pas fonctionner lorsque le nombre moyen de threads est de 575.
+5. Pour éviter ce problème, la mise à l’échelle automatique ne descend pas du tout en puissance. Au lieu de cela, elle ignore et réévalue la condition lors de la prochaine exécution de la tâche du service. Cela peut perturber de nombreuses personnes, car la mise à l’échelle automatique semble ne pas fonctionner lorsque le nombre moyen de threads est de 575.
 
 Lors d’une mise à l’échelle, l’estimation permet d’éviter les situations de « bagottement », où la taille des instances est continuellement modifiée (diminuée puis augmentée, et inversement). Gardez ce comportement à l’esprit lorsque vous choisissez les mêmes seuils pour la diminution et l’augmentation de la taille des instances.
 
@@ -75,7 +75,7 @@ Dans ce cas
 5. Lors de la vérification de mise à l’échelle de temps suivante, l’UC continue sa diminution à 50. Une nouvelle estimation est effectuée : 3 x 50 instances = 150 / 2 instances = 75, ce qui est inférieur au seuil d’augmentation de la taille des instances qui est de 80, la diminution de la taille des instances s’exécute pour obtenir 2 instances.
 
 ### <a name="considerations-for-scaling-threshold-values-for-special-metrics"></a>Considérations relatives aux valeurs de seuil de la mise à l’échelle pour les mesures spéciales
- Pour les mesures spéciales, telles que les mesures de longueur de file d’attente Service Bus ou de stockage, le seuil correspond au nombre moyen de messages disponibles en fonction du nombre actuel d’instances. Choisissez soigneusement la valeur de seuil pour ce métrique.
+ Pour les mesures spéciales, telles que les mesures de longueur de file d’attente Service Bus ou de stockage, le seuil correspond au nombre moyen de messages disponibles en fonction du nombre actuel d’instances. Choisissez soigneusement la valeur de seuil pour cette métrique.
 
 Examinons un exemple qui vous permettra de mieux comprendre ce comportement.
 
@@ -84,11 +84,11 @@ Examinons un exemple qui vous permettra de mieux comprendre ce comportement.
 
 Examinez la séquence suivante :
 
-1. Il existe 2 instances de file d’attente de stockage.
+1. Il existe deux instances de file d’attente de stockage.
 2. Les messages continuent d’arriver et lorsque vous examinez la file d’attente de stockage, le nombre total est de 50. Vous pourriez supposer que la mise à l’échelle automatique devrait démarrer une action de montée en charge. Toutefois, notez que le nombre de messages par instance est de 50/2 = 25 messages. Par conséquent, la montée en charge ne se produit pas. Pour que la montée en charge se produise, le nombre total de messages dans la file d’attente de stockage doit être égal à 100.
 3. Ensuite, supposons que le nombre total de messages atteigne 100.
 4. Une 3e instance de file d'attente de stockage est ajoutée en raison d’une action de montée en charge.  La prochaine action de montée en charge ne se produira que lorsque le nombre total de messages dans la file d’attente atteindra 150, car 150/3 = 50.
-5. Maintenant, le nombre de messages dans la file d’attente diminue. Avec 3 instances, la première action de diminution de la taille des instances se produit lorsque le nombre total de messages dans la file d’attente atteint 30, ce qui donne 30/3=10 messages par instance, ce qui correspond au seuil de diminution de la taille des instances.
+5. Maintenant, le nombre de messages dans la file d’attente diminue. Avec trois instances, la première action de diminution de la taille des instances se produit lorsque le nombre total de messages dans toutes les files d’attente atteint 30, car 30/3 donne 10 messages par instance, ce qui correspond au seuil de diminution de la taille des instances.
 
 ### <a name="considerations-for-scaling-when-multiple-profiles-are-configured-in-an-autoscale-setting"></a>Considérations relatives à la mise à l’échelle lorsque plusieurs profils sont configurés dans un paramètre de mise à l’échelle automatique
 Dans un paramètre de mise à l’échelle automatique, vous pouvez choisir un profil par défaut, qui est toujours appliqué indépendamment de toute planification ou de l’heure, ou vous pouvez choisir un profil récurrent ou un profil pour une durée fixe avec une plage de dates et d’heures.
@@ -103,9 +103,9 @@ Si une condition de profil est remplie, la mise à l’échelle automatique ne v
 
 Examinons cela à l’aide d’un exemple :
 
-L’image ci-dessous illustre un paramètre de mise à l’échelle automatique avec un profil par défaut d’instances minimum = 2 et d’instances maximum = 10. Dans cet exemple, les règles sont configurées pour la montée en charge lorsque le nombre de messages dans la file d’attente est supérieur à 10 et une diminution de la taille des instances lorsque le nombre de messages dans la file d’attente est inférieur à 3. À présent, la ressource peut évoluer entre 2 et 10 instances.
+L’image ci-dessous illustre un paramètre de mise à l’échelle automatique avec un profil par défaut d’instances minimum = 2 et d’instances maximum = 10. Dans cet exemple, les règles sont configurées pour la montée en charge lorsque le nombre de messages dans la file d’attente est supérieur à 10 et la diminution de la taille des instances lorsque le nombre de messages dans la file d’attente est inférieur à trois. À présent, la ressource peut être mise à l’échelle entre deux et dix instances.
 
-En outre, il existe un profil récurrent défini pour Lundi. Il est défini pour des instances minimum = 3 et des instances maximum = 10. Cela signifie que le lundi, la première fois que la mise à l’échelle automatique vérifie cette condition, si le nombre d’instances est égal à 2, il est mis à l’échelle pour correspondre au nouveau niveau minimum de 3. Tant que la mise à l’échelle automatique rencontre cette condition de profil respectée (lundi), elle ne traite que les règles de montée/descente en puissance basées sur le processeur configurées pour ce profil. À ce stade, elle ne vérifie pas la longueur de la file d’attente. Toutefois, si vous souhaitez également que la condition de longueur de la file d’attente soit vérifiée, vous devez inclure les règles du profil par défaut dans votre profil de Lundi.
+En outre, il existe un profil récurrent défini pour Lundi. Il est défini pour des instances minimum = 3 et des instances maximum = 10. Cela signifie que le lundi, la première fois que la mise à l’échelle automatique vérifie cette condition, si le nombre d’instances est égal à deux, il est mis à l’échelle pour correspondre au nouveau niveau minimum de trois. Tant que la mise à l’échelle automatique rencontre cette condition de profil respectée (lundi), elle ne traite que les règles de montée/descente en puissance basées sur le processeur configurées pour ce profil. À ce stade, elle ne vérifie pas la longueur de la file d’attente. Toutefois, si vous souhaitez également que la condition de longueur de la file d’attente soit vérifiée, vous devez inclure les règles du profil par défaut dans votre profil de Lundi.
 
 De même, lorsque la mise à l’échelle automatique bascule vers le profil par défaut, elle vérifie d’abord si les conditions minimales et maximales sont remplies. Si le nombre d’instances à ce moment-là est égal à 12, la taille des instances diminue jusqu’à 10, le maximum autorisé pour le profil par défaut.
 
@@ -117,7 +117,7 @@ Il existe des cas où vous devrez définir plusieurs règles dans un profil. L�
 Pour *l’augmentation de la taille des instances*, la mise à l’échelle automatique s’exécute si une règle est respectée.
 Pour la *diminution de la taille des instances*, la mise à l’échelle automatique nécessite que toutes les règles soient respectées.
 
-Pour illustrer cela, supposons que vous disposez des 4 règles de mise à l’échelle automatique suivantes :
+Pour illustrer cela, supposons que vous disposez des quatre règles de mise à l’échelle automatique suivantes :
 
 * Si UC < 30 %, diminuer la taille des instances de 1
 * Si Mémoire < 50 %, diminuer la taille des instances de 1

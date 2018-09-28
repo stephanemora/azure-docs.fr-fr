@@ -5,37 +5,35 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 8/13/2018
+ms.date: 9/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: a63a12658bd0a4b4d018d51824af9814691a3cbf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 4c6aaea836302732b1af3d22923c965575cfc9d2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40183314"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47020470"
 ---
 ### <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
-Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu entièrement avec état, pourvu d’une haute disponibilité intégrée et de l’extensibilité sans limites du cloud. Vous pouvez créer, appliquer et consigner des stratégies de connectivité réseau et d’application de façon centralisée entre les abonnements et les réseaux virtuels. Pare-feu Azure est actuellement disponible en préversion publique.
+Pare-feu Azure est un service de sécurité réseau informatique géré qui protège vos ressources Réseau virtuel Azure. Il s’agit d’un service de pare-feu entièrement avec état, pourvu d’une haute disponibilité intégrée et de l’extensibilité sans limites du cloud. Vous pouvez créer, appliquer et consigner des stratégies de connectivité réseau et d’application de façon centralisée entre les abonnements et les réseaux virtuels.
 
-### <a name="which-capabilities-are-supported-in-the-azure-firewall-public-preview-release"></a>Quelles fonctionnalités sont prises en charge dans la préversion publique de Pare-feu Azure ?  
+### <a name="what-capabilities-are-supported-in-azure-firewall"></a>Quelles fonctionnalités sont prises en charge dans Pare-feu Azure ?  
 
 * Service de pare-feu avec état
 * Haute disponibilité intégrée avec extensibilité sans limites du cloud
-* Filtrage des noms de domaine complets 
+* Filtrage des noms de domaine complets
+* Balises FQDN
 * Règles de filtrage du trafic réseau
 * Prise en charge du mode SNAT sortant
-* Possibilité de créer, d’appliquer et de consigner des stratégies de connectivité réseau et d’application de façon centralisée entre les abonnements et les réseaux virtuels
+* Prise en charge du trafic DNAT entrant
+* Création, application et journalisation centralisées de stratégies de connectivité réseau et d’application entre les abonnements et les réseaux virtuels Azure
 * Intégration totale avec Azure Monitor pour la journalisation et l’analytique 
-
-### <a name="how-can-i-join-the-azure-firewall-public-preview"></a>Comment rejoindre la préversion publique de Pare-feu Azure ?
-
-Pare-feu Azure est actuellement une préversion publique managée que vous pouvez rejoindre en utilisant la commande PowerShell Register-AzureRmProviderFeature. Cette commande est expliquée dans la documentation de la préversion publique de Pare-feu Azure.
 
 ### <a name="what-is-the-pricing-for-azure-firewall"></a>Quels sont les tarifs de Pare-feu Azure ?
 
-Pare-feu Azure présente un coût fixe et un coût variable. Les prix sont indiqués ci-dessous ; la préversion publique bénéficie en plus d’une remise supplémentaire de 50 %.
+Pare-feu Azure présente un coût fixe + coût variable :
 
 * Frais fixes : 1,25 USD/pare-feu/heure
 * Frais variables : 0,03 USD/Go traité par le pare-feu (en entrée ou en sortie)
@@ -50,7 +48,7 @@ Vous pouvez installer Pare-feu Azure via le Portail Microsoft Azure, PowerShell,
 
 ### <a name="what-are-some-azure-firewall-concepts"></a>Quels sont les concepts de Pare-feu Azure ?
 
-Pare-feu Azure prend en charge les règles et les regroupements de règles. Un regroupement de règles est un ensemble de règles qui partagent le même ordre et la même priorité. Les regroupements de règles sont exécutés dans l’ordre de leur priorité. Ainsi, les regroupements de règles Réseau sont prioritaires pas rapport aux regroupements de règles Application, et toutes les règles se terminent.
+Pare-feu Azure prend en charge les règles et les regroupements de règles. Un regroupement de règles est un ensemble de règles qui partagent le même ordre et la même priorité. Les regroupements de règles sont exécutés dans l’ordre de leur priorité. Ainsi, les regroupements de règles Réseau sont prioritaires par rapport aux regroupements de règles Application, et toutes les règles se terminent.
 
 Il existe deux types de regroupement de règles :
 
@@ -59,7 +57,7 @@ Il existe deux types de regroupement de règles :
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Pare-feu Azure prend-il en charge le filtrage du trafic entrant ?
 
-La préversion publique de Pare-feu Azure prend en charge le filtrage en sortie uniquement. La protection en entrée pour les protocoles autres que HTTP/S (par exemple, RDP, SSH ou FTP) est provisoirement prévue pour la version généralement disponible de Pare-feu Azure.  
+Pare-feu Azure prend en charge le filtrage du trafic entrant et sortant. La protection du trafic entrant concerne les protocoles non HTTP/S. Par exemple, les protocoles RDP, SSH et FTP.
  
 ### <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Quels sont les services de journalisation et d’analyse pris en charge par Pare-feu d’Azure ?
 
@@ -106,7 +104,15 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### <a name="what-are-the-known-service-limits"></a>Quelles sont les limites connues du service ?
 
-* Pare-feu Azure a une limite logicielle de 1000 To par pare-feu et par mois. 
+* Pare-feu Azure a une limite logicielle de 1 000 To par pare-feu et par mois. 
 * Une instance Pare-feu Azure qui s’exécute dans un réseau virtuel central est soumise aux limitations du peering des réseaux virtuels, avec un maximum de 50 réseaux virtuels spoke.  
 * Le pare-feu Azure n’étant pas compatible avec le Peering mondial, les clients doivent disposer d’au moins un déploiement de pare-feu par région.
 * Pare-feu Azure prend en charge 10 000 règles d’application et 10 000 règles de réseau.
+
+### <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Dans un réseau virtuel de hub, Pare-feu Azure peut-il envoyer et filtrer le trafic réseau entre deux réseaux virtuels spoke ?
+
+Oui, vous pouvez utiliser Pare-feu Azure dans un réseau virtuel de hub pour acheminer et filtrer le trafic entre deux réseaux virtuels spoke. Afin de fonctionner, les sous-réseaux dans chaque réseau virtuel spoke doivent disposer de routes définies par l’utilisateur pointant vers le Pare-feu Azure en tant que passerelle par défaut pour ce scénario.
+
+### <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network"></a>Pare-feu Azure peut-il envoyer et filtrer le trafic réseau entre des sous-réseaux dans le même réseau virtuel ?
+
+Le trafic entre sous-réseaux dans le même réseau virtuel ou dans un réseau virtuel appairé est acheminé directement, même si la route définie par l’utilisateur pointe vers le Pare-feu Azure en tant que passerelle par défaut. La méthode recommandée pour la segmentation interne d’un réseau est d’utiliser des groupes de sécurité réseau. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, la route définie par l’utilisateur doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.

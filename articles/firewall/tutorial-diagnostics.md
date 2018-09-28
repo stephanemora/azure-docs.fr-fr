@@ -1,27 +1,22 @@
 ---
-title: 'Didacticiel : Surveiller les journaux de Pare-feu Azure'
-description: Dans ce didacticiel, vous allez apprendre à activer et à gérer les journaux de Pare-feu Azure.
+title: Didacticiel - Surveiller les journaux de Pare-feu Azure et les métriques
+description: Dans ce didacticiel, vous allez apprendre à activer et à gérer les journaux de Pare-feu Azure et les métriques.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/11/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: a4922fda80b957138a9929090f9d3c349348185d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991860"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991043"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs"></a>Didacticiel : Surveiller les journaux de Pare-feu Azure
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Didacticiel : surveiller les journaux de Pare-feu Azure et les métriques
 
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Les exemples indiqués dans les articles relatifs à Pare-feu Azure supposent que vous avez déjà activé la préversion publique de Pare-feu Azure. Pour plus d’informations, consultez [Activer la préversion publique de Pare-feu Azure](public-preview.md).
-
-Vous pouvez surveiller le service Pare-feu Azure à l’aide des journaux de pare-feu. Vous pouvez également utiliser les journaux d’activité pour auditer les opérations sur les ressources de Pare-feu Azure.
+Vous pouvez surveiller le service Pare-feu Azure à l’aide des journaux de pare-feu. Vous pouvez également utiliser les journaux d’activité pour auditer les opérations sur les ressources de Pare-feu Azure. Grâce aux métriques, vous pouvez afficher des compteurs de performances dans le portail. 
 
 Vous pouvez accéder à certains de ces journaux via le portail. Les journaux peuvent être envoyés vers les services [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Stockage et Event Hubs, puis analysés dans Log Analytics ou par différents outils comme Excel et Power BI.
 
@@ -32,69 +27,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Activation de la journalisation avec PowerShell
 > * Afficher et analyser le journal d’activité
 > * Afficher et analyser les journaux de règles et d’application et de réseau
+> * Afficher les mesures
 
-## <a name="diagnostic-logs"></a>Journaux de diagnostic
+## <a name="prerequisites"></a>Prérequis
 
- Les journaux de diagnostic suivants sont disponibles pour Pare-feu Azure :
+Avant de commencer ce didacticiel, vous devez lire [Azure Firewall logs and metrics](logs-and-metrics.md) (Journaux de Pare-feu Azure et métriques) pour obtenir une vue d’ensemble des journaux de diagnostic et des métriques disponibles pour le Pare-feu Azure.
 
-* **Journal de règles d’application**
-
-   Le journal de règles d’application est enregistré dans un compte de stockage, transmis en continu au service Event Hubs et/ou envoyé vers Log Analytics uniquement si vous l’avez activé pour chaque Pare-feu Azure. Chaque nouvelle connexion qui correspond à l’une de vos règles d’application configurées entraîne un journal pour la connexion acceptée/refusée. Les données sont consignées au format JSON, comme indiqué dans l’exemple suivant :
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-   {
-    "category": "AzureFirewallApplicationRule",
-    "time": "2018-04-16T23:45:04.8295030Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallApplicationRuleLog",
-    "properties": {
-        "msg": "HTTPS request from 10.1.0.5:55640 to mydestination.com:443. Action: Allow. Rule Collection: collection1000. Rule: rule1002"
-    }
-   }
-   ```
-
-* **Journal de règles de réseau**
-
-   Le journal de règles de réseau est enregistré dans un compte de stockage, transmis en continu au service Event Hubs et/ou envoyé vers Log Analytics uniquement si vous l’avez activé pour chaque Pare-feu Azure. Chaque nouvelle connexion qui correspond à l’une de vos règles de réseau configurées entraîne un journal pour la connexion acceptée/refusée. Les données sont consignées au format JSON, comme indiqué dans l’exemple suivant :
-
-   ```
-   Category: access logs are either application or network rule logs.
-   Time: log timestamp.
-   Properties: currently contains the full message. 
-   note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
-   ```
-
-   ```json
-  {
-    "category": "AzureFirewallNetworkRule",
-    "time": "2018-06-14T23:44:11.0590400Z",
-    "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/AZUREFIREWALLS/{resourceName}",
-    "operationName": "AzureFirewallNetworkRuleLog",
-    "properties": {
-        "msg": "TCP request from 111.35.136.173:12518 to 13.78.143.217:2323. Action: Deny"
-    }
-   }
-
-   ```
-
-Pour stocker vos journaux, vous disposez de trois options :
-
-* **Compte de stockage** : les comptes de stockage conviennent parfaitement aux journaux lorsqu’ils sont stockés pour une durée plus longue et consultés lorsque nécessaire.
-* **Concentrateurs d’événements** : les concentrateurs d’événements constituent une excellente solution pour l’intégration avec d’autres outils SEIM (Security Information and Event Management) afin de recevoir des alertes sur vos ressources.
-* **Log Analytics** : Log Analytics convient parfaitement pour la surveillance en temps réel générale de votre application ou la recherche de tendances.
-
-## <a name="activity-logs"></a>Journaux d’activité
-
-   Les entrées du journal d’activité sont recueillies par défaut et vous pouvez les afficher dans le Portail Azure.
-
-   Vous pouvez utiliser les [journaux d’activité Azure](../azure-resource-manager/resource-group-audit.md) (anciennement journaux des opérations et journaux d’audit) pour afficher toutes les opérations soumises à votre abonnement Azure.
 
 ## <a name="enable-diagnostic-logging-through-the-azure-portal"></a>Activer la journalisation des diagnostics via le portail Azure
 
@@ -105,8 +43,8 @@ L’affichage des données dans vos journaux peut prendre quelques minutes aprè
 
    Pour le service Pare-feu Azure, les journaux propres à deux services sont disponibles :
 
-   * Journal de règles d’application
-   * Journal de règles de réseau
+   * AzureFirewallApplicationRule
+   * AzureFirewallNetworkRule
 
 3. Cliquez sur **Activer les diagnostics** pour démarrer la collecte de données.
 4. La page **Paramètres de diagnostic** contient les paramètres des journaux de diagnostic. 
@@ -163,6 +101,8 @@ Vous pouvez également vous connecter à votre compte de stockage et récupérer
 > [!TIP]
 > Si vous savez utiliser Visual Studio et les concepts de base de la modification des valeurs de constantes et variables en C#, vous pouvez utiliser les [outils de convertisseur de journaux](https://github.com/Azure-Samples/networking-dotnet-log-converter) disponibles dans GitHub.
 
+## <a name="view-metrics"></a>Afficher les mesures
+Accédez à un Pare-feu Azure, sous **Supervision** cliquez sur **Métriques**. Pour afficher les valeurs disponibles, sélectionnez la liste déroulante **MÉTRIQUE**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
