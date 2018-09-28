@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: a2611f89d9eef1ec6bac34389fa4db833aecc087
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 21b0029ff12915c8416ad2366fbf6c45ddfaa288
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264086"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978416"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -29,37 +29,7 @@ Azure Monitor Metrics Explorer est un composant du portail Microsoft Azure qui p
 
 Les métriques dans Microsoft Azure sont les séries de valeurs et de comptes mesurés qui sont collectées et stockées au fil du temps. Il existe des métriques standard (ou de « plateforme ») et des métriques personnalisées. Les métriques standards vous sont fournies par la plateforme Azure elle-même. Les métriques standards reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. Tandis que des métriques personnalisées sont envoyés à Azure par vos applications à l’aide de l’[API Application Insights pour les événements personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Les métriques personnalisées sont stockées dans les ressources d’Application Insights avec d’autres métriques spécifiques d’application.
 
-## <a name="what-are-multi-dimensional-metrics"></a>Que sont les métriques multidimensionnelles ?
 
-De nombreuses ressources d’Azure exposent désormais des métriques multidimensionnelles. Ces métriques suivent plusieurs séries de valeurs pour une ou plusieurs dimensions nommées. Par exemple, une métrique « Espace disque disponible » peut avoir une dimension nommée « Lecteur » avec les valeurs « C: » et « D: », qui permet d’afficher l’espace disque disponible sur les deux lecteurs ou sur chaque lecteur individuellement. 
-
-L’exemple ci-dessous illustre deux jeux de données pour une métrique hypothétique nommée « Débit réseau ». Le premier jeu de données n’a pas de dimensions. Le deuxième jeu de données affiche les valeurs avec deux dimensions, « Adresse IP » et « Direction » :
-
-### <a name="network-throughput"></a>Débit réseau
-(Cette métrique n’a pas de dimensions)
-
- |Timestamp        | Valeur de métrique | 
-   | ------------- |:-------------| 
-   | 9/8/2017 8:14 | 1 331,8 Kbits/s | 
-   | 9/8/2017 8:15 | 1 141,4 Kbits/s |
-   | 9/8/2017 8:16 | 1 110,2 Kbits/s |
-
-Cette métrique sans dimensions peut répondre uniquement à une question de base telle que « quel est mon débit réseau à un moment donné ? ».
-
-### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Débit réseau + deux dimensions (« IP » et « Direction »)
-
-| Timestamp          | Dimension « IP » | Dimension « Direction » | Valeur de métrique| 
-   | ------------- |:-----------------|:------------------- |:-----------|  
-   | 9/8/2017 8:14 | IP="192.168.5.2" | Direction="Send"    | 646,5 Kbits/s |
-   | 9/8/2017 8:14 | IP="192.168.5.2" | Direction="Receive" | 420,1 Kbits/s |
-   | 9/8/2017 8:14 | IP="10.24.2.15"  | Direction="Send"    | 150,0 Kbits/s | 
-   | 9/8/2017 8:14 | IP="10.24.2.15"  | Direction="Receive" | 115,2 Kbits/s |
-   | 9/8/2017 8:15 | IP="192.168.5.2" | Direction="Send"    | 515,2 Kbits/s |
-   | 9/8/2017 8:15 | IP="192.168.5.2" | Direction="Receive" | 371,1 Kbits/s |
-   | 9/8/2017 8:15 | IP="10.24.2.15"  | Direction="Send"    | 155,0 Kbits/s |
-   | 9/8/2017 8:15 | IP="10.24.2.15"  | Direction="Receive" | 100,1 Kbits/s |
-
-Cette métrique peut répondre à des questions telles que « quel était le débit réseau pour chaque adresse IP ? » et « quelle quantités de données ont été envoyées et reçues ? ». Les métriques multidimensionnelles incluent des valeurs d’analyse et de diagnostic supplémentaires par rapport aux métriques sans dimensions. 
 
 ## <a name="how-do-i-create-a-new-chart"></a>Comment créer un graphique ?
 
@@ -69,24 +39,24 @@ Cette métrique peut répondre à des questions telles que « quel était le d�
 1. Ouvrez le portail Azure
 2. Accédez au nouvel onglet **Moniteur**, puis sélectionnez **Métriques (préversion)**.
 
-   ![Image Métriques (préversion)](./media/monitoring-metric-charts/001.png)
+   ![Image Métriques (préversion)](./media/monitoring-metric-charts/0001.png)
 
 3. Le **sélecteur de métriques** est ouvert automatiquement pour vous. Choisissez une ressource dans la liste pour afficher les métriques qui y sont associées. Seules les ressources auxquelles des métriques sont associées figurent dans la liste.
 
-   ![Image Métriques (préversion)](./media/monitoring-metric-charts/002.png)
+   ![Image Métriques (préversion)](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
    >Si vous avez plus d’un abonnement Azure, Metrics Explorer extrait les ressources de tous les abonnements sélectionnés dans la liste Paramètres du portail -> Filtrer par abonnements. Pour modifier cela, cliquez sur l’icône d’engrenage des paramètres du portail en haut de l’écran, puis sélectionnez les abonnements à utiliser.
 
-4. Pour certains types de ressources (par exemple, les comptes de stockage et les machines virtuelles), avant de sélectionner une métrique, vous devez choisir un **Sous-service**. Chaque sous-service inclut son propre ensemble de métriques pertinentes uniquement pour ce sous-service et pas pour d’autres.
+4. Pour certains types de ressources (par exemple, les comptes de stockage et les machines virtuelles), avant de sélectionner une métrique, vous devez choisir un **espace de noms**. Chaque espace de noms inclut son propre ensemble de métriques pertinentes uniquement pour cet espace de noms et pas pour d’autres.
 
    Par exemple, chaque Stockage Azure a des métriques pour les sous-services « Objets blob », « Fichiers », « Files d’attente » et « Tables », qui font tous partie du compte de stockage. Toutefois, la métrique « Nombre de messages en file d’attente » est naturellement applicable au sous-service « File d’attente » et non à d’autres sous-services du compte de stockage.
 
-   ![Image Métriques (préversion)](./media/monitoring-metric-charts/003.png)
+   ![Image Métriques (préversion)](./media/monitoring-metric-charts/0003.png)
 
 5. Sélectionnez une métrique dans la liste. Si vous connaissez une partie du nom de la métrique souhaitée, vous pouvez commencer à la taper pour afficher une liste filtrée des métriques disponibles :
 
-   ![Image Métriques (préversion)](./media/monitoring-metric-charts/004.png)
+   ![Image Métriques (préversion)](./media/monitoring-metric-charts/0004.png)
 
 6. Après sélection d’une métrique, le graphique est rendu avec l’agrégation par défaut pour la métrique sélectionnée. À ce stade, vous pouvez simplement cliquer à côté du **sélecteur de métriques** pour fermer celui-ci. Vous pouvez également basculer le graphique vers une autre agrégation. Pour certaines métriques, un basculement d’agrégation permet de choisir la valeur que vous souhaitez afficher sur le graphique. Par exemple, vous pouvez basculer entre les valeurs moyennes, minimales et maximales. 
 
@@ -105,15 +75,15 @@ Vous pouvez appliquer des filtres à des graphiques qui montrent des métriques 
 
 2. Sélectionnez la dimension (propriété) que vous souhaitez filtrer.
 
-   ![image de métrique](./media/monitoring-metric-charts/006.png)
+   ![image de métrique](./media/monitoring-metric-charts/0006.png)
 
 3. Sélectionnez les valeurs de dimension que vous souhaitez inclure lors du traçage du graphique (cet exemple illustre le filtrage des transactions de stockage qui ont réussi) :
 
-   ![image de métrique](./media/monitoring-metric-charts/007.png)
+   ![image de métrique](./media/monitoring-metric-charts/0007.png)
 
 4. Après avoir sélectionné les valeurs de filtre, cliquez à côté du sélecteur de filtre pour fermer celui-ci. Le graphique montre à présent le nombre de transactions de stockage qui ont échoué :
 
-   ![image de métrique](./media/monitoring-metric-charts/008.png)
+   ![image de métrique](./media/monitoring-metric-charts/0008.png)
 
 5. Vous pouvez répéter les étapes 1 à 4 pour appliquer plusieurs filtres aux mêmes graphiques.
 
@@ -130,11 +100,11 @@ Vous pouvez fractionner une métrique par dimension afin de visualiser la façon
 
 2. Choisissez la dimension sur laquelle vous souhaitez segmenter votre graphique : 
 
-   ![image de métrique](./media/monitoring-metric-charts/010.png)
+   ![image de métrique](./media/monitoring-metric-charts/0010.png)
 
    Le graphique montre à présent plusieurs lignes, une par segment de la dimension :
 
-   ![image de métrique](./media/monitoring-metric-charts/012.png)
+   ![image de métrique](./media/monitoring-metric-charts/0012.png)
 
 3. Cliquez à côté du **sélecteur de regroupement** pour fermer celui-ci.
 
@@ -149,7 +119,7 @@ Pour épingler un graphique configuré à un tableau de bord :
 
 Après avoir configuré votre graphique, cliquez sur le menu **Actions** dans l’angle supérieur droit du graphique, puis sur **Épingler au tableau de bord**.
 
-   ![image de métrique](./media/monitoring-metric-charts/013.png)
+   ![image de métrique](./media/monitoring-metric-charts/0013.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

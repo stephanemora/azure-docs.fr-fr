@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/25/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 72c5c4b0f0ab752bb02e6bee7cd038afca44ee1b
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 652d39b4d15569b9365543e02f170664a88715fa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605193"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953257"
 ---
 # <a name="tutorial-configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Tutoriel : Configurer l’identité de cloud hybride avec Azure et Azure Stack
 
@@ -32,6 +32,13 @@ Dans ce tutoriel, vous créez un exemple d’environnement pour :
 > [!div class="checklist"]
 > - Conserver les données localement pour le respect de la confidentialité ou des obligations réglementaires, tout en gardant l’accès aux ressources Azure globales.
 > - Gérer un système hérité tout en utilisant un déploiement d’application avec une mise à l’échelle dans le cloud et des ressources dans Azure global.
+
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tous lieux.  
+> 
+> Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
+
 
 ## <a name="prerequisites"></a>Prérequis
 

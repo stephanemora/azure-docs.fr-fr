@@ -6,27 +6,27 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/16/2017
+ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 47fb598e9a0e722d51493fda1ff5180d4b022524
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 2c3b2ecc1467a09ae490d23c45e7a000f4afe49a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262196"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976892"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versions et historique des schémas de configuration de l’extension Azure Diagnostics
 Cette page est un index des versions de schémas d’extension Azure Diagnostics fournies avec le kit Microsoft Azure SDK.  
 
 > [!NOTE]
 > L’Extension Microsoft Azure Diagnostics est le composant utilisé pour collecter les compteurs de performances et d’autres statistiques à partir de :
-> - Machines virtuelles Azure 
+> - Machines virtuelles Azure
 > - Virtual Machine Scale Sets
-> - Service Fabric 
-> - Cloud Services 
+> - Service Fabric
+> - Cloud Services
 > - Network Security Group
-> 
+>
 > Cette page vous concerne uniquement si vous utilisez l’un de ces services.
 
 L’extension Azure Diagnostics est utilisée avec d’autres produits de diagnostic Microsoft tels que Azure Monitor, Application Insights et Log Analytics. Pour plus d’informations, voir [Vue d’ensemble des outils d’analyse Microsoft](monitoring-overview.md).
@@ -46,7 +46,7 @@ L’extension Azure Diagnostics est utilisée avec d’autres produits de diagno
 |2.96              |1.8                            |"|
 |2.96              |1.8.1                          |"|
 |2.96              |1.9                            |"|
-
+|2.96              |1.11                           |"|
 
 
  La version d’Azure Diagnostics 1.0 était fournie initialement avec un modèle de plug-in, ce qui signifie que lorsque vous installiez le Kit de développement logiciel (SDK) Azure, vous receviez avec celui-ci la version d’Azure Diagnostics.  
@@ -54,7 +54,7 @@ L’extension Azure Diagnostics est utilisée avec d’autres produits de diagno
  À compter de la version 2.5 du kit SDK (version 1.2 d’Azure Diagnostics), Azure Diagnostics est passé à un modèle d’extension. Les outils permettant d’utiliser les nouvelles fonctionnalités sont disponibles uniquement dans les Kits de développement logiciel (SDK) Azure plus récents, mais tout service utilisant Azure Diagnostics sélectionne la dernière version directement dans Azure. Par exemple, toute personne utilisant encore le kit SDK 2.5 chargerait la version la plus récente indiquée dans le tableau précédent, qu’elle utilise ou non les fonctionnalités plus récentes.  
 
 ## <a name="schemas-index"></a>Index des schémas  
-Les différentes versions d’Azure Diagnostics utilisent des schémas de configuration différents. 
+Les différentes versions d’Azure Diagnostics utilisent des schémas de configuration différents.
 
 [Schéma de configuration des diagnostics 1.0](azure-diagnostics-schema-1dot0.md)  
 
@@ -64,12 +64,61 @@ Les différentes versions d’Azure Diagnostics utilisent des schémas de config
 
 ## <a name="version-history"></a>Historique des versions
 
+### <a name="diagnostics-extension-111"></a>Extension Diagnostics 1.11
+Ajout de la prise en charge du récepteur Azure Monitor. Ce récepteur s’applique uniquement aux compteurs de performances. Permet d’envoyer les compteurs de performances collectés sur votre machine virtuelle, groupe de machines virtuelles identiques (VMSS) ou service cloud à Azure Monitor sous la forme de métriques personnalisées. Le récepteur Azure Monitor prend en charge ce qui suit :
+* Récupération de tous les compteurs de performances envoyés à Azure Monitor via les [API de métriques Azure Monitor.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
+* Génération d’alertes sur l’ensemble des compteurs de performances envoyés à Azure Monitor via la nouvelle [expérience d’alerte unifiée](monitoring-overview-unified-alerts.md) dans Azure Monitor.
+* Traitement de l’opérateur générique des compteurs de performances comme dimension « Instance » sur votre métrique. Par exemple, si vous avez collecté le compteur « LogicalDisk(\*)/DiskWrites/sec », vous pouvez filtrer et fractionner sur la dimension « Instance » pour tracer ou générer des alertes sur le nombre d’écritures/s de chaque disque logique (C:, D:, etc.)
 
-### <a name="diagnostics-extension-19"></a>Extension d’Azure Diagnostics 1.9 
+Définir Azure Monitor comme nouveau récepteur dans votre configuration d’extension Diagnostics
+```json
+"SinksConfig": {
+    "Sink": [
+        {
+            "name": "AzureMonitorSink",
+            "AzureMonitor": {}
+        },
+    ]
+}
+```
+
+```XML
+<SinksConfig>  
+  <Sink name="AzureMonitorSink">
+      <AzureMonitor/>
+  </Sink>
+</SinksConfig>
+```
+> [!NOTE]
+> Pour configurer le récepteur Azure Monitor pour des machines virtuelles classiques et un service cloud classique, vous devez définir plus de paramètres dans la configuration privée de l’extension Diagnostics.
+>
+> Pour plus d’informations, consultez [la documentation détaillée sur le schéma d’extension Diagnostics.](azure-diagnostics-schema-1dot3-and-later.md)
+
+Ensuite, vous pouvez configurer vos compteurs de performances pour qu’ils soient acheminés vers le récepteur Azure Monitor.
+```json
+"PerformanceCounters": {
+    "scheduledTransferPeriod": "PT1M",
+    "sinks": "AzureMonitorSink",
+    "PerformanceCounterConfiguration": [
+        {
+            "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+            "sampleRate": "PT1M",
+            "unit": "percent"
+        }
+    ]
+},
+```
+```XML
+<PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
+  <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
+</PerformanceCounters>
+```
+
+### <a name="diagnostics-extension-19"></a>Extension d’Azure Diagnostics 1.9
 Prise en charge de Docker ajoutée.
 
 
-### <a name="diagnostics-extension-181"></a>Extension d’Azure Diagnostics 1.8.1 
+### <a name="diagnostics-extension-181"></a>Extension d’Azure Diagnostics 1.8.1
 Peut spécifier un jeton SAP au lieu d’une clé de compte de stockage dans la configuration privée. Si un jeton SAP est fourni, la clé de compte de stockage est ignorée.
 
 
@@ -100,7 +149,7 @@ Peut spécifier un jeton SAP au lieu d’une clé de compte de stockage dans la 
 ```
 
 
-### <a name="diagnostics-extension-18"></a>Extension d’Azure Diagnostics 1.8 
+### <a name="diagnostics-extension-18"></a>Extension d’Azure Diagnostics 1.8
 Type de stockage ajouté à PublicConfig. Le type de stockage (StorageType) peut être *Table*, *Blob* ou *TableAndBlob*. *Table* est la valeur par défaut.
 
 
@@ -122,13 +171,13 @@ Type de stockage ajouté à PublicConfig. Le type de stockage (StorageType) peut
 ```
 
 
-### <a name="diagnostics-extension-17"></a>Extension d’Azure Diagnostics 1.7 
+### <a name="diagnostics-extension-17"></a>Extension d’Azure Diagnostics 1.7
 Possibilité ajoutée de router vers eventHub.
 
 ### <a name="diagnostics-extension-15"></a>Extension de diagnostic 1.5
 Ajouté de l’élément sinks et de la possibilité d’envoyer des données de diagnostic à [Application Insights](../application-insights/app-insights-cloudservices.md), facilitant ainsi le diagnostic des problèmes sur votre application, ainsi qu’au niveau du système et de l’infrastructure.
 
-### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Extension 1.3 d’Azure Diagnostics et du kit Azure SDK 2.6 
+### <a name="azure-sdk-26-and-diagnostics-extension-13"></a>Extension 1.3 d’Azure Diagnostics et du kit Azure SDK 2.6
 Pour les projets de service cloud dans Visual Studio, les modifications suivantes ont été apportées. Ces modifications s’appliquent également aux versions ultérieures du kit Azure SDK.
 
 * L’émulateur local prend désormais en charge les diagnostics. Cette modification signifie que vous pouvez collecter les données de diagnostic et vérifier que votre application crée les traces appropriées lorsque vous développez et testez dans Visual Studio. La chaîne de connexion `UseDevelopmentStorage=true` permet la collecte des données de diagnostic lorsque vous exécutez votre projet de service cloud dans Visual Studio à l’aide de l’émulateur de stockage Azure. Toutes les données de diagnostic sont collectées dans le compte de stockage (stockage de développement).
@@ -149,7 +198,7 @@ Lors d’une migration du Kit de développement logiciel (SDK) Azure 2.5 vers l
 * Si aucune chaîne de connexion des diagnostics n’est spécifiée dans le fichier .cscfg, Visual Studio utilise à nouveau le compte de stockage spécifié dans le fichier .wadcfgx pour configurer l’extension des diagnostics lors de la publication et de la génération des fichiers xml de configuration publique durant l’empaquetage.
 * La chaîne de connexion des diagnostics dans le fichier .cscfg est prioritaire sur le compte de stockage dans le fichier .wadcfgx. Si une chaîne de connexion des diagnostics est spécifiée dans le fichier .cscfg, Visual Studio l’utilise et ignore le compte de stockage dans .wadcfgx.
 
-#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>Quel est le rôle de la case à cocher « Mettre à jour les chaînes de connexion du stockage de développement…»  ?
+#### <a name="what-does-the-update-development-storage-connection-strings-checkbox-do"></a>Que fait la case à cocher « Mettre à jour les chaînes de connexion du stockage de développement…» ?
 La case à cocher **Mettre à jour les chaînes de connexion de stockage de développement pour les diagnostics et la mise en cache avec les informations d’identification du compte de stockage Microsoft Azure lors de la publication vers Microsoft Azure** offre un moyen pratique pour mettre à jour toute chaîne de connexion de compte de stockage de développement avec le compte de stockage Azure spécifié lors de la publication.
 
 Par exemple, supposons que vous activiez cette case à cocher et que la chaîne de connexion des diagnostics spécifie `UseDevelopmentStorage=true`. Lorsque vous publiez le projet sur Azure, Visual Studio met automatiquement à jour la chaîne de connexion des diagnostics avec le compte de stockage que vous avez spécifié dans l’Assistant Publication. Toutefois, si un compte de stockage réel a été spécifié comme chaîne de connexion des diagnostics, ce compte est utilisé à la place.
@@ -161,4 +210,3 @@ Si vous mettez à niveau votre projet du Kit de développement logiciel (SDK) Az
 * **Les diagnostics pour les applications du service cloud peuvent uniquement être configurés au niveau du rôle, pas au niveau de l’instance.**
 * **Chaque fois que vous déployez votre application, la configuration des diagnostics est mise à jour** : cela peut occasionner des problèmes de parité si vous modifiez votre configuration des diagnostics à partir de l’Explorateur de serveurs, puis redéployez votre application.
 * **Dans le Kit de développement logiciel (SDK) Azure 2.5 et les versions ultérieures, les vidages sur incident sont configurés dans le fichier de configuration des diagnostics, pas dans le code** : si vous avez des vidages sur incident configurés dans le code, vous devez transférer la configuration manuellement du code vers le fichier de configuration, car les vidages sur incident ne sont pas transférés durant la migration vers le Kit de développement logiciel (SDK) Azure 2.6.
-

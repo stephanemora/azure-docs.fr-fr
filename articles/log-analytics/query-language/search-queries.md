@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6a375da3c97790bd6a7a6fa505de82b2fc298385
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 250eddb043ccf9fa0b1bb92a298900f8ad820140
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145632"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992267"
 ---
 # <a name="search-queries-in-log-analytics"></a>Requêtes de recherche dans Log Analytics
 
 > [!NOTE]
-> Vous devez suivre le tutoriel [Bien démarrer avec les requêtes dans Log Analytics](get-started-queries.md) avant d’effectuer ce tutoriel.
+> Vous devez suivre le tutoriel [Bien démarrer avec les requêtes dans Log Analytics](get-started-queries.md) avant de suivre cette leçon.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Les requêtes Azure Log Analytics peuvent commencer par un nom de table ou une commande search. Ce tutoriel couvre les requêtes basées sur la recherche. Chaque méthode présente des avantages.
 
@@ -34,7 +36,7 @@ Les requêtes basées sur une table commencent par définir l’étendue de la r
 ## <a name="search-a-term"></a>Rechercher un terme
 La commande **search** est généralement utilisée pour rechercher un terme spécifique. Dans l’exemple suivant, le terme « error » est recherché dans toutes les colonnes de toutes les tables :
 
-```OQL
+```Kusto
 search "error"
 | take 100
 ```
@@ -44,13 +46,13 @@ Bien qu’elles soient faciles à utiliser, les requêtes non délimitées comme
 ### <a name="table-scoping"></a>Étendue de table
 Pour rechercher un terme dans une table spécifique, ajoutez `in (table-name)` juste après l’opérateur **search** :
 
-```OQL
+```Kusto
 search in (Event) "error"
 | take 100
 ```
 
 Ou dans plusieurs tables :
-```OQL
+```Kusto
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -58,7 +60,7 @@ search in (Event, SecurityEvent) "error"
 ### <a name="table-and-column-scoping"></a>Étendue de table et de colonne
 Par défaut, la commande **search** évalue toutes les colonnes du jeu de données. Pour effectuer une recherche uniquement dans une colonne spécifique, utilisez la syntaxe suivante :
 
-```OQL
+```Kusto
 search in (Event) Source:"error"
 | take 100
 ```
@@ -69,7 +71,7 @@ search in (Event) Source:"error"
 ## <a name="case-sensitivity"></a>Sensibilité à la casse
 Par défaut, la recherche de termes n’est pas sensible à la casse, donc si vous recherchez « dns », vous obtenez des résultats comme « DNS », « dns » ou « Dns ». Pour que la recherche soit sensible à la casse, utilisez l’option `kind` :
 
-```OQL
+```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -78,26 +80,26 @@ search kind=case_sensitive in (Event) "DNS"
 La commande **search** prend en charge les caractères génériques, au début, à la fin ou au milieu d’un terme.
 
 Pour rechercher les termes qui commencent par « win » :
-```OQL
+```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
 Pour rechercher les termes qui se terminent par « .com » :
-```OQL
+```Kusto
 search in (Event) "*.com"
 | take 100
 ```
 
 Pour rechercher les termes qui contiennent « www » :
-```OQL
+```Kusto
 search in (Event) "*www*"
 | take 100
 ```
 
 Pour rechercher les termes qui commencent par « corp » et se terminent par « .com », tels que « corp.mydomain.com » :
 
-```OQL
+```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -110,21 +112,21 @@ Vous pouvez également récupérer tout le contenu d’une table à l’aide d�
 ## <a name="add-and--or-to-search-queries"></a>Ajouter *and* / *or* aux requêtes de recherche
 Utilisez **and** pour rechercher les enregistrements qui contiennent plusieurs termes :
 
-```OQL
+```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
 Utilisez **or** pour obtenir les enregistrements qui contiennent au moins un des termes :
 
-```OQL
+```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
 Si vous avez plusieurs conditions de recherche, vous pouvez les combiner dans la même requête à l’aide de parenthèses :
 
-```OQL
+```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -134,7 +136,7 @@ Le résultat de cet exemple comprend les enregistrements qui contiennent le term
 ## <a name="pipe-search-queries"></a>Compléter les requêtes de recherche
 Comme toute autre commande, la commande **search** peut être complétée de manière à filtrer, trier et agréger les résultats de la recherche. Par exemple, pour obtenir le nombre d’enregistrements de la table *Event* qui contiennent « win » :
 
-```OQL
+```Kusto
 search in (Event) "win"
 | count
 ```
@@ -144,4 +146,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez plus de tutoriels sur le [site de langage de requête Log Analytics](https://docs.loganalytics.io).
+- Découvrez plus de tutoriels sur le [site de langage de requête Log Analytics](https://aka.ms/LogAnalyticsLanguage).

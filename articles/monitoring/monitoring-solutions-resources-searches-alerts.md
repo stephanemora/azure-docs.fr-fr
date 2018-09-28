@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c29d6cb0da2e394912a2584b0d3c3cedf13f054c
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304070"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999509"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
 
@@ -90,7 +90,7 @@ Chaque propriété d’une recherche enregistrée est décrite dans le tableau s
 Des [alertes Azure Log](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) sont créées par des règles Azure Alert qui exécutent des requêtes de journal spécifiées à intervalles réguliers.  Si les résultats de la requête correspondent aux critères spécifiés, un enregistrement d’alerte est créé, et une ou plusieurs actions sont exécutées à l’aide de [Groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> À compter du 14 mai 2018, toutes les alertes d’un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> À compter du 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Les règles d’alerte d’une solution de gestion sont constituées des trois ressources suivantes.
 
@@ -130,9 +130,9 @@ Les propriétés des ressources de planification sont décrites dans le tableau 
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Activé       | OUI | Spécifie si l’alerte est activée lors de sa création. |
-| interval      | OUI | La fréquence d’exécution de la requête (en minutes). |
-| queryTimeSpan | OUI | Durée sur laquelle les résultats sont évalués (en minutes). |
+| Activé       | Oui | Spécifie si l’alerte est activée lors de sa création. |
+| interval      | Oui | La fréquence d’exécution de la requête (en minutes). |
+| queryTimeSpan | Oui | Durée sur laquelle les résultats sont évalués (en minutes). |
 
 La ressource de planification doit dépendre de la recherche enregistrée, de sorte qu’elle soit créée avant la planification.
 
@@ -146,7 +146,7 @@ Une planification peut avoir plusieurs actions. Une action peut définir un ou p
 Les actions peuvent être définies à l’aide de la ressource [Groupe d’actions] ou de la ressource d’action.
 
 > [!NOTE]
-> À compter du 14 mai 2018, toutes les alertes d’un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> À compter du 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 La propriété **Type** spécifie deux types de ressources d’action.  Une planification nécessite une action **Alert** qui définit les détails de la règle d’alerte et les actions appliquées lors de la création d’une alerte. Les ressources d’action ont un type `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -190,10 +190,10 @@ Les propriétés des ressources d’action d’alerte sont décrites dans les ta
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| type | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
-| NOM | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
+| type | Oui | Type de l’action.  **Alert** pour les actions d’alerte. |
+| NOM | Oui | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
 | Description | Non  | La description facultative de l’alerte. |
-| Severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
+| Severity | Oui | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Seuil
@@ -201,8 +201,8 @@ Cette section est obligatoire.  Elle définit les propriétés du seuil d’aler
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Valeur | OUI | La valeur par rapport à laquelle les résultats doivent être comparés. |
+| Operator | Oui | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| Valeur | Oui | La valeur par rapport à laquelle les résultats doivent être comparés. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Cette section est facultative.  Vous devez l’inclure pour une alerte relative aux mesures métriques.
@@ -212,9 +212,9 @@ Cette section est facultative.  Vous devez l’inclure pour une alerte relative 
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| TriggerCondition | OUI | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
-| Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Valeur | OUI | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
+| TriggerCondition | Oui | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
+| Operator | Oui | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| Valeur | Oui | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
 
 
 #### <a name="throttling"></a>Limitation
@@ -232,7 +232,7 @@ Pour les utilisateurs qui ont étendu leurs alertes dans Azure, une planificatio
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| AzNsNotification | OUI | ID de ressource du groupe d’actions Azure à associer à l’alerte pour entreprendre les actions nécessaires lorsque les critères d’alerte sont remplis. |
+| AzNsNotification | Oui | ID de ressource du groupe d’actions Azure à associer à l’alerte pour entreprendre les actions nécessaires lorsque les critères d’alerte sont remplis. |
 | CustomEmailSubject | Non  | Ligne d’objet personnalisée de l’e-mail envoyé à toutes les adresses spécifiées dans le groupe d’actions associé. |
 | CustomWebhookPayload | Non  | Charge utile personnalisée à envoyer à tous les points de terminaison Webhook définis dans le groupe d’actions associé. Le format dépend de ce qu’attend le Webhook, et doit être un JSON sérialisé valide. |
 
@@ -242,15 +242,15 @@ Pour les utilisateurs qui ont étendu leurs alertes dans Azure, une planificatio
 Chaque planification est associée à une action **Alert**.  Ceci définit les détails de l’alerte et, éventuellement, les actions de notification et de correction.  Une notification envoie un e-mail à une ou plusieurs adresses.  Une correction démarre un runbook dans Azure Automation pour tenter de résoudre le problème détecté.
 
 > [!NOTE]
-> À compter du 14 mai 2018, toutes les alertes d’un espace de travail seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> À compter du 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics seront automatiquement étendues à Azure. Un utilisateur peut volontairement étendre des alertes à Azure avant le 14 mai 2018. Pour plus d’informations, consultez [Extend (copy) alerts from OMS portal into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Étendre (copier) des alertes du portail OMS dans Azure). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Cette section est facultative. Insérez-la si vous souhaitez que l’alerte envoie un e-mail à un ou plusieurs destinataires.
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Destinataires | OUI | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Objet | OUI | La ligne d’objet du message. |
+| Destinataires | Oui | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| Objet | Oui | La ligne d’objet du message. |
 | Pièce jointe | Non  | Actuellement, les pièces jointes ne sont pas prises en charge.  Si cet élément est inclus, il doit avoir la valeur **None**. |
 
 
@@ -259,8 +259,8 @@ Cette section est facultative. Insérez-la si vous souhaitez qu’un runbook dé
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| RunbookName | OUI | Le nom du runbook à démarrer. |
-| WebhookUri | OUI | L’URI du webhook pour le runbook. |
+| RunbookName | Oui | Le nom du runbook à démarrer. |
+| WebhookUri | Oui | L’URI du webhook pour le runbook. |
 | Expiry | Non  | La date et l’heure d’expiration de la correction. |
 
 ##### <a name="webhook-actions"></a>Actions de webhook
@@ -289,9 +289,9 @@ Les propriétés des ressources d’action Webhook sont décrites dans les table
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Type | OUI | Type de l’action.  **Webhook** pour les actions de webhook. |
-| Nom | OUI | Le nom d’affichage de l’action.  Il n’est pas affiché dans la console. |
-| wehookUri | OUI | L’URI du webhook. |
+| Type | Oui | Type de l’action.  **Webhook** pour les actions de webhook. |
+| Nom | Oui | Le nom d’affichage de l’action.  Il n’est pas affiché dans la console. |
+| wehookUri | Oui | L’URI du webhook. |
 | customPayload | Non  | Charge utile personnalisée à envoyer au webhook. Le format dépend de ce que le webhook attend. |
 
 

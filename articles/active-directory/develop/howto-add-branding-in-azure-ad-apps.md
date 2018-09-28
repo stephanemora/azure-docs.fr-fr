@@ -10,30 +10,37 @@ ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/27/2017
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 6edcd5b3df7c3c58c6568434f82fbc52cb9e28df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "43185418"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46958864"
 ---
 # <a name="branding-guidelines-for-applications"></a>Directives de personnalisation des applications
 
-Cet article décrit les directives de personnalisation que vous devez suivre lors du développement d’applications avec Azure Active Directory (Azure AD). Ces directives vous permettent de diriger vos clients quand ils souhaitent utiliser leur compte professionnel ou scolaire géré dans Azure AD ou leur compte personnel pour s’inscrire et se connecter à votre application.
+Lorsque vous développez des applications avec Azure Active Directory (Azure AD), vous devez orienter vos clients quand ils souhaitent utiliser leur compte professionnel ou scolaire (géré dans Azure AD) ou leur compte personnel pour s’inscrire et se connecter à votre application.
+
+En lisant cet article, vous pourrez :
+
+- En savoir plus sur les deux types de compte utilisateur gérés par Microsoft et sur la façon de faire référence aux comptes Azure AD dans votre application
+- Découvrir ce dont vous avez besoin pour ajouter le logo Microsoft en vue de son utilisation dans votre application
+- Télécharger les images **Se connecter** ou **Se connecter avec Microsoft** officielles en vue de leur utilisation dans votre application
+- En savoir plus sur les choses à faire et à éviter en matière de personnalisation et de navigation
 
 ## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Comptes personnels et comptes professionnels/scolaires de Microsoft
 
 Microsoft gère deux types de compte d’utilisateur :
 
-* **Comptes personnels** (anciennement Windows Live ID). Ces comptes représentent la relation entre des utilisateurs *individuels* et Microsoft et sont utilisés pour accéder aux services et appareils de Microsoft destinés au grand public. Ces comptes sont prévus pour un usage personnel.
-* **Comptes professionnels ou scolaires.** Ces comptes sont gérés par Microsoft pour le compte d’organisations qui utilisent Azure Active Directory. Ces comptes sont utilisés pour se connecter à Office 365 et d’autres services métier de Microsoft.
+- **Comptes personnels** (anciennement Windows Live ID). Ces comptes représentent la relation entre des utilisateurs *individuels* et Microsoft et sont utilisés pour accéder aux services et appareils de Microsoft destinés au grand public. Ces comptes sont prévus pour un usage personnel.
+- **Comptes professionnels ou scolaires.** Ces comptes sont gérés par Microsoft pour le compte d’organisations qui utilisent Azure Active Directory. Ces comptes sont utilisés pour se connecter à Office 365 et d’autres services métier de Microsoft.
 
 Les comptes professionnels ou scolaires Microsoft sont généralement affectés à des utilisateurs finaux (employés, étudiants, fonctionnaires) par leurs organisations (entreprise, école, administration). Ces comptes sont régis directement dans le cloud (dans la plateforme Azure AD) ou synchronisés avec Azure AD à partir d’un annuaire local tel que Windows Server Active Directory. Microsoft est le *responsable* des comptes professionnels ou scolaires, mais ces comptes sont détenus et contrôlés par l’organisation.
 
@@ -41,8 +48,8 @@ Les comptes professionnels ou scolaires Microsoft sont généralement affectés 
 
 Microsoft n’expose pas les utilisateurs finaux aux noms de marque Azure ou Active Directory et il doit en être de même pour vous.
 
-* Une fois que les utilisateurs sont connectés, utilisez le nom et le logo de l’organisation autant que possible. Cela est préférable à l’utilisation de termes génériques tels que « votre organisation ».
-* Quand les utilisateurs ne sont pas connectés, vous devez faire référence à leurs comptes en parlant de « comptes professionnels ou scolaires » et utiliser le logo Microsoft pour indiquer que ces comptes sont gérés par Microsoft. N’utilisez pas de termes tels que « compte d’entreprise » et « compte commercial », car ils embrouillent les utilisateurs.
+- Une fois que les utilisateurs sont connectés, utilisez le nom et le logo de l’organisation autant que possible. Cela est préférable à l’utilisation de termes génériques tels que « votre organisation ».
+- Quand les utilisateurs ne sont pas connectés, vous devez faire référence à leurs comptes en parlant de « comptes professionnels ou scolaires » et utiliser le logo Microsoft pour indiquer que ces comptes sont gérés par Microsoft. N’utilisez pas de termes tels que « compte d’entreprise » et « compte commercial », car ils embrouillent les utilisateurs.
 
 ## <a name="user-account-pictogram"></a>Pictogramme de compte d’utilisateur
 
@@ -94,7 +101,6 @@ Pour télécharger les images Microsoft officielles afin de les utiliser dans vo
 | Se connecter avec Microsoft (thème clair) | ![Bouton Se connecter, thème clair PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Bouton Se connecter avec Microsoft, thème clair SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
 | Se connecter (thème sombre)                 | ![Bouton Se connecter, version courte, thème sombre PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Bouton Se connecter, version courte, thème sombre SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
 | Se connecter (thème clair)                | ![Bouton Se connecter, version courte, thème clair PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Bouton Se connecter, version courte, thème clair SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
-
 
 ## <a name="branding-dos-and-donts"></a>Choses à faire et à éviter en matière de personnalisation
 

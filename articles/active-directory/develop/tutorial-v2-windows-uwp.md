@@ -16,14 +16,18 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 48d03b590d718cf82d692dc177a69f6d54de43d1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495913"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966382"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
+
+
+> [!div renderon="docs"]
+> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Ce guide explique comment une application de plateforme Windows universelle (UWP) native peut demander un jeton d’accès, puis appeler l’API Microsoft Graph. Ce guide s’applique également aux autres API qui nécessitent des jetons d’accès du point de terminaison Azure Active Directory v2.
 
@@ -71,11 +75,14 @@ Avec ce guide, vous allez créer une application qui affiche un bouton permettan
 2. Copiez et collez la commande suivante dans la fenêtre **Console du Gestionnaire de package** :
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > Cette commande installe [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquiert, met en cache et actualise les jetons utilisateur qui accèdent aux API protégées par Azure Active Directory v2.
+
+> [!NOTE]
+> Ce didacticiel n’utilise pas encore la dernière version de MSAL.NET, mais nous travaillons à sa mise à jour.
 
 ## <a name="initialize-msal"></a>Initialiser MSAL
 Cette étape vous aide à créer une classe pour gérer l’interaction avec MSAL, telle que la gestion des jetons.

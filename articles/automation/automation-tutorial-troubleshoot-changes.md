@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: modification, suivi, automatisation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 08/27/2018
+ms.date: 09/12/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: fd94fd234067f63eab424c7f757d4adf842e7b46
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 16d5a025f0c0ff571298e0f528fb9119e37950f3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43120583"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995250"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
@@ -32,6 +32,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > * Activer la connexion du journal d’activité
 > * Déclencher un événement
 > * Afficher les modifications
+> * Configurer des alertes
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -41,7 +42,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 * Un [compte Automation](automation-offering-get-started.md) qui contiendra les runbooks Watcher et d’action, ainsi que la tâche d’observateur.
 * Une [machine virtuelle](../virtual-machines/windows/quick-create-portal.md) à intégrer.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 Connectez-vous au portail Azure sur http://portal.azure.com.
 
@@ -52,12 +53,12 @@ Pour ce didacticiel, vous devez d’abord activer Suivi des modifications et inv
 1. Dans le menu de gauche, sélectionnez **Machines virtuelles**, puis choisissez une machine virtuelle dans la liste
 1. Dans le menu de gauche, dans la section **OPÉRATIONS**, cliquez sur **Inventaire**. La page **Suivi des modifications** s’ouvre.
 
-![Activer la modification](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) L’écran **Change Tracking** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
+![Activer la modification](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) L’écran **Change Tracking** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espaces de travail et compte Automation doivent être utilisés.
 
 Un espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme l’inventaire.
 L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
 
-Au cours de l’intégration, la machine virtuelle est approvisionnée avec le Microsoft Monitoring Agent (MMA) et un Worker hybride.
+Au cours de l’intégration, la machine virtuelle est approvisionnée avec l’agent Microsoft Monitoring Agent (MMA) et un Worker hybride.
 Cet agent sert à communiquer avec la machine virtuelle et à obtenir des informations sur les logiciels installés.
 
 L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur.
@@ -66,20 +67,22 @@ Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données so
 
 ## <a name="using-change-tracking-in-log-analytics"></a>Utiliser le suivi des modifications dans Log Analytics
 
-Le suivi des modifications génère des données de journal qui sont envoyées à Log Analytics. Pour rechercher les journaux en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Suivi des modifications**.
-Les données de suivi des modifications sont stockées sous le type **ConfigurationData**. L’exemple de requête Log Analytics ci-après renvoie tous les services Windows arrêtés.
+Le suivi des modifications génère des données de journal qui sont envoyées à Log Analytics.
+Pour rechercher les journaux en exécutant des requêtes, sélectionnez **Log Analytics** en haut de la fenêtre **Suivi des modifications**.
+Les données de suivi des modifications sont stockées sous le type **ConfigurationData**.
+L’exemple de requête Log Analytics ci-après renvoie tous les services Windows arrêtés.
 
 ```
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans Log Analytics, consultez [Azure Log Analytics](https://docs.loganalytics.io/index).
+Pour en savoir plus sur l’exécution et la recherche de fichiers journaux dans Log Analytics, consultez [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ## <a name="configure-change-tracking"></a>Configurer le suivi des modifications
 
 Le suivi des modifications vous donne la possibilité d’effectuer le suivi des changements de configuration apportés à votre machine virtuelle. Les étapes suivantes vous montrent comment configurer le suivi des clés de Registre et des fichiers.
- 
+
 Pour choisir les fichiers et clés de Registre à collecter et dont effectuer le suivi, sélectionnez **Modifier les paramètres** en haut de la page **Suivi des modifications**.
 
 > [!NOTE]
@@ -92,7 +95,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 1. Dans l’onglet **Registre Windows**, sélectionnez **Ajouter**.
     La fenêtre **Ajouter le Registre Windows pour le suivi des modifications**.
 
-3. Dans la fenêtre **Ajouter le Registre Windows pour le suivi des modifications**, entrez les informations correspondant à la clé à suivre et cliquez sur **Enregistrer**.
+1. Dans la fenêtre **Ajouter le Registre Windows pour le suivi des modifications**, entrez les informations correspondant à la clé à suivre et cliquez sur **Enregistrer**.
 
 |Propriété  |Description  |
 |---------|---------|
@@ -112,7 +115,7 @@ Dans la fenêtre **Configuration de l’espace de travail**, ajoutez les clés d
 |activé     | Détermine si le paramètre est appliqué.        |
 |Item Name     | Nom convivial du fichier à suivre.        |
 |Groupe     | Nom de groupe pour le regroupement logique des fichiers.        |
-|Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « c:\temp\\\*.txt ».<br>Vous pouvez également utiliser des variables d’environnement telles que « %winDir%\System32\\\*.* »         |
+|Entrer le chemin     | Chemin d’accès pour rechercher le fichier. Exemple : « c:\temp\\\*.txt »<br>Vous pouvez également utiliser des variables d’environnement telles que « %winDir%\System32\\\*.* »         |
 |Récursivité     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Télécharger le contenu du fichier pour tous les paramètres| Active ou désactive le chargement du contenu du fichier pour le suivi des modifications. Options disponibles : **True** ou **False**.|
 
@@ -168,6 +171,49 @@ En sélectionnant une modification **WindowsServices**, vous ouvrez la fenêtre 
 
 ![Comment afficher le détail des modifications dans le portail](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
+## <a name="configure-alerts"></a>Configurer des alertes
+
+L’affichage des modifications dans le Portail Azure est pratique, mais pouvoir être averti d’une modification (l’arrêt d’un service, par exemple) peut être bien plus avantageux.
+
+Pour ajouter une alerte associée à l’arrêt d’un service, accédez à **Surveiller** dans le Portail Azure. Sous **Services partagés**, sélectionnez **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**.
+
+Sous **1. Définissez la condition de l’alerte**, puis cliquez sur **+ Sélectionner la cible**. Sous **Filtrer par type de ressource**, sélectionnez **Log Analytics**. Sélectionnez votre espace de travail Log Analytics, puis sélectionnez **Terminé**.
+
+![Sélectionner une ressource](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+
+Sélectionnez **+ Ajouter des critères**.
+Sous **Configurer la logique du signal**, dans le tableau, sélectionnez **Recherche de journal personnalisée**. Entrez la requête suivante dans la zone de texte de la requête de recherche :
+
+```loganalytics
+ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+```
+
+Cette requête renvoie les ordinateurs dont le service W3SVC s’est arrêté au cours de l’intervalle spécifié.
+
+Sous **Logique d’alerte**, pour **Seuil**, entrez **0**. Quand vous avez terminé, cliquez sur **Terminé**.
+
+![Configurer la logique du signal](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+
+Sous **2. Définissez les détails de l’alerte**, entrez un nom et une description pour l’alerte. Définissez le niveau de **Gravité** sur **Information (gravité 2)**, **Avertissement (gravité 1)** ou **Critique (gravité 0)**.
+
+![Définir les détails de l’alerte](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
+
+Sous **3. Définissez un groupe d’actions**, sélectionnez **Nouveau groupe d’actions**. Un groupe d’actions est un groupe que vous pouvez utiliser dans plusieurs alertes. Les actions peuvent inclure, sans s’y limiter, les notifications par e-mail, les runbooks, les webhooks et bien plus encore. Pour en savoir plus sur les groupes d’actions, consultez [Créer et gérer des groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md).
+
+Dans la zone **Nom du groupe d’actions** , entrez un nom pour l’alerte et un nom court. Le nom court est utilisé à la place du nom complet du groupe d’actions lorsque les notifications sont envoyées à l’aide de ce groupe.
+
+Sous **Actions**, entrez un nom pour l’action, tel que **Administrateurs de la messagerie**. Sous **TYPE D’ACTION**, sélectionnez **E-mail/SMS/Push/Voix**. Sous **DÉTAILS**, sélectionnez **Modifier les détails**.
+
+![Ajouter un groupe d'actions](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+Dans le volet **E-mail/SMS/Push/Voix**, entrez un nom. Sélectionnez la case à cocher **E-mail**, puis entrez une adresse e-mail valide. Cliquez sur **OK** dans la page **E-mail/SMS/Push/Voix**, puis sur **OK** dans la page **Ajouter un groupe d’actions**.
+
+Pour personnaliser l’objet de l’e-mail d’alerte, sous **Créer une règle** > **Personnaliser les actions**, sélectionnez **Objet de l’e-mail**. Lorsque vous avez terminé, cliquez sur **Créer une règle d’alerte**. L’alerte vous avertit quand un déploiement de mises à jour s’est correctement déroulé et précise quelles machines en ont bénéficié.
+
+L’illustration suivante est un exemple d’e-mail reçu lorsque le service W3SVC s’arrête.
+
+![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
@@ -179,6 +225,7 @@ Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :
 > * Activer la connexion du journal d’activité
 > * Déclencher un événement
 > * Afficher les modifications
+> * Configurer des alertes
 
 Accédez ensuite à la vue d’ensemble de la solution de suivi des modifications et d’inventaire pour en savoir plus.
 

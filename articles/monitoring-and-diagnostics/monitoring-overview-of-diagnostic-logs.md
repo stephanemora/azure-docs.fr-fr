@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 630c8e5f48ba475755c3c9ffe632fcba086437e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248164"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983110"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Collecter et utiliser des données de journaux à partir de vos ressources Azure
 
@@ -45,7 +45,7 @@ Voici ce que vous pouvez faire avec les journaux de diagnostic :
 Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hubs qui n’est pas dans le même abonnement que celui générant des journaux. L’utilisateur qui configure le paramètre doit disposer d’un accès RBAC approprié aux deux abonnements.
 
 > [!NOTE]
->  Actuellement, vous ne pouvez pas archiver les données vers un stockage situé derrière un réseau virtuel sécurisé.
+>  Actuellement, il n’est pas possible d’archiver les journaux du flux du réseau vers un compte de stockage situé derrière un réseau virtuel sécurisé.
 
 > [!WARNING]
 > À compter du 1er novembre 2018, le format des données de journal dans le compte de stockage deviendra JSON Lines. [Consultez cet article pour en savoir plus sur les conséquences liées à ce changement et pour découvrir comment mettre à jour vos outils pour qu’ils gèrent ce nouveau format.](./monitor-diagnostic-logs-append-blobs.md) 
@@ -145,9 +145,9 @@ Vous pouvez combiner ces paramètres pour activer plusieurs options de sortie.
 
 Actuellement, vous ne pouvez pas configurer les paramètres de diagnostic de locataire à l’aide d’Azure PowerShell.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Activer la collecte des journaux de diagnostic des ressources par l’intermédiaire d’Azure CLI 2.0
+### <a name="enable-collection-of-resource-diagnostic-logs-via-the-azure-cli"></a>Activer la collecte des journaux de diagnostic des ressources par l’intermédiaire d’Azure CLI
 
-Pour activer la collecte des journaux de diagnostic des ressources par l’intermédiaire d’Azure CLI 2.0, utilisez la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
+Pour activer la collecte des journaux de diagnostic des ressources par l’intermédiaire d’Azure CLI, utilisez la commande [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
 Pour activer le stockage des journaux de diagnostic dans un compte de stockage :
 

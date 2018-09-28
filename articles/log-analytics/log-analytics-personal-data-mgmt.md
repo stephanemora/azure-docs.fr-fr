@@ -15,16 +15,19 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 3692c83a4991fc67ec176687bd076ab14e4c640d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 9ea004a35f739a8c4f7ee1ed320bd6657ed4e820
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129368"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957912"
 ---
-# <a name="guidance-for-personal-data-stored-in-log-analytics"></a>Guide pour les données personnelles stockées dans Log Analytics
+# <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Guide pour les données personnelles stockées dans Log Analytics et Application Insights
 
-Log Analytics est une banque de données pouvant contenir des données personnelles. Cet article explique où se trouvent généralement ces données dans Log Analytics, ainsi que les fonctionnalités disponibles pour gérer ces données.
+Log Analytics est une banque de données pouvant contenir des données personnelles. Application Insights stocke ses données dans une partition Log Analytics. Cet article explique où se trouvent généralement ces données dans Log Analytics et Application Insights, ainsi que les fonctionnalités disponibles pour gérer ces données.
+
+> [!NOTE]
+> Dans le cadre de cet article, les _données de journal_ font référence aux données envoyées à un espace de travail Log Analytics, tandis que les _données d’application_ font référence aux données collectées par Application Insights.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -39,6 +42,8 @@ S’il dépend au final de vous et de votre entreprise de déterminer la straté
 ## <a name="where-to-look-for-private-data-in-log-analytics"></a>Où rechercher des données privées dans Log Analytics ?
 
 Log Analytics est un store flexible qui, tout en prescrivant un schéma pour vos données, vous permet de remplacer chaque champ par des valeurs personnalisées. En outre, tous les schémas personnalisés peuvent être ingérés. Ainsi, il est impossible de dire exactement où les données privées se trouvent dans votre espace de travail spécifique. Cependant, les emplacements suivants constituent de bons points de départ pour votre inventaire :
+
+### <a name="log-data"></a>Données de journal
 
 * *Adresses IP* : Log Analytics collecte plusieurs informations sur les adresses IP dans plusieurs tables différentes. Par exemple, la requête suivante affiche toutes les tables où des adresses IPv4 ont été collectées au cours des dernières 24 heures :
     ```
@@ -55,15 +60,34 @@ N’oubliez pas de rechercher non seulement les noms d’utilisateur explicites,
 * *Données personnalisées* : Log Analytics permet la collecte selon différentes méthodes : journaux personnalisés et champs personnalisés, [l’API du collecteur de données HTTP](log-analytics-data-collector-api.md) et les données personnalisées collectées dans le cadre de journaux des événements système. Tous ces éléments sont susceptibles de contenir des données privées et ils doivent être examinés pour vérifier si de telles données s’y trouvent.
 * *Données capturées par les solutions* : comme le mécanisme des solutions est ouvert, nous vous recommandons d’examiner toutes les tables générées par les solutions pour vérifier leur conformité.
 
+### <a name="application-data"></a>Données d'application
+
+* *Adresses IP* : par défaut, Application Insights définit tous les champs d’adresse IP sur « 0.0.0.0 », mais il est assez courant de remplacer cette valeur par l’adresse IP réelle de l’utilisateur afin de gérer les informations de la session. La requête Analytics ci-dessous permet de rechercher dans la colonne des adresses IP toutes les tables contenant des valeurs autres que « 0.0.0.0 », au cours des 24 heures :
+    ```
+    search client_IP != "0.0.0.0"
+    | where timestamp > ago(1d)
+    | summarize numNonObfuscatedIPs_24h = count() by $table
+    ```
+* *ID d’utilisateur* : par défaut, Application Insights utilise les ID générés de manière aléatoire pour effectuer le suivi des utilisateurs et des sessions. Toutefois, il est courant de remplacer ces champs par un ID plus représentatif de l’application. Par exemple : noms d’utilisateurs, GUID AAD, etc. Ces ID sont souvent considérés comme faisant partie de l’étendue car ce sont des données personnelles et, par conséquent, ils doivent être gérés de façon appropriée. Nous vous recommandons de toujours masquer ou anonymiser ces ID. Ces valeurs sont couramment utilisées dans les champs tels que session_Id, user_Id, user_AuthenticatedId, user_AccountId et customDimensions.
+* *Données personnalisées* : Application Insights vous permet d’ajouter un ensemble de dimensions personnalisées à n’importe quel type de données. Ces dimensions peuvent représenter *n’importe quelle* donnée. Utilisez la requête suivante pour identifier toutes les dimensions personnalisées collectées au cours des dernières 24 heures :
+    ```
+    search * 
+    | where isnotempty(customDimensions)
+    | where timestamp > ago(1d)
+    | project $table, timestamp, name, customDimensions 
+    ```
+* *Données en mémoire et en transit* : Application Insights effectuera le suivi des exceptions, requêtes, appels de dépendance et traces. Les données privées peuvent souvent être collectées au niveau du code et des appels HTTP. Examinez les tables contenant des exceptions, requêtes, dépendances et traces pour identifier ces données. Utilisez si possible des [initialiseurs de télémétrie](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling) afin de brouiller ces données.
+* *Captures du débogueur de capture instantanée* : la fonctionnalité [Débogueur de capture instantanée](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) d’Application Insights vous permet de collecter des instantanés de débogage chaque fois qu’une exception est interceptée sur l’instance de production de votre application. Les instantanés exposeront la trace de pile complète conduisant à des exceptions, ainsi que les valeurs des variables locales à chaque étape de la pile. Malheureusement, cette fonctionnalité ne permet pas la suppression sélective de points d’ancrage, ou l’accès par programme aux données de l’instantané. Par conséquent, si le taux de rétention des instantanés par défaut ne répond pas à vos exigences de conformité, il est recommandé de désactiver cette fonctionnalité.
+
 ## <a name="how-to-export-and-delete-private-data"></a>Comment exporter et supprimer des données privées
 
-Comme mentionné plus haut dans la section [Stratégie de gestion des données personnelles](#strategy-for-personal-data-handling), il est __fortement__ recommandé (si c’est possible) de restructurer votre stratégie de collecte des données pour éviter la collecte de données privées, de les masquer ou de les anonymiser, ou à défaut d’éviter qu’elles soient considérées comme « privées ». Une gestion des données va avant tout générer des coûts pour vous et votre équipe, pour définir et automatiser une stratégie et créer une interface destinée à vos clients qui leur permette d’interagir avec leurs données, ainsi que des coûts liés à la maintenance. De plus, elle est coûteuse en termes de ressources informatiques pour Log Analytics, et un grand nombre d’appels d’API de requête ou de vidage simultanés peut avoir un impact potentiellement négatif sur toutes les autres interactions avec les fonctionnalités de Log Analytics. Cela étant dit, il existe en effet des scénarios valides où des données privées doivent être collectées. Dans ces cas, les données doivent être gérées comme décrit dans cette section.
+Comme mentionné plus haut dans la section [Stratégie de gestion des données personnelles](#strategy-for-personal-data-handling), il est __fortement__ recommandé (si c’est possible) de restructurer votre stratégie de collecte des données pour éviter la collecte de données privées, de les masquer ou de les anonymiser, ou à défaut d’éviter qu’elles soient considérées comme « privées ». Une gestion des données va avant tout générer des coûts pour vous et votre équipe, pour définir et automatiser une stratégie et créer une interface destinée à vos clients qui leur permette d’interagir avec leurs données, ainsi que des coûts liés à la maintenance. De plus, elle est coûteuse en termes de ressources informatiques pour Log Analytics et Application Insights, et un grand nombre d’appels d’API de requête ou de vidage simultanés peut avoir un impact potentiellement négatif sur toutes les autres interactions avec les fonctionnalités de Log Analytics. Cela étant dit, il existe en effet des scénarios valides où des données privées doivent être collectées. Dans ces cas, les données doivent être gérées comme décrit dans cette section.
 
 [!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="view-and-export"></a>Afficher et exporter
 
-Pour les demandes de visualisation et d’exportation de données, vous devez utiliser [l’API de requête](https://dev.loganalytics.io/). L’implémentation de la logique pour convertir la forme des données selon un format approprié pour vos utilisateurs dépend de vous. [Azure Functions](https://azure.microsoft.com/services/functions/) est l’endroit idéal pour héberger cette logique.
+Pour les requêtes d’affichage et d’exportation des données, vous devez utiliser l’[API de requête Log Analytics](https://dev.loganalytics.io/) ou l’[API de requête Application Insights](https://dev.applicationinsights.io/quickstart). L’implémentation de la logique pour convertir la forme des données selon un format approprié pour vos utilisateurs dépend de vous. [Azure Functions](https://azure.microsoft.com/services/functions/) est l’endroit idéal pour héberger cette logique.
 
 ### <a name="delete"></a>Supprimer
 
@@ -76,6 +100,8 @@ Le vidage est une opération nécessitant des privilèges élevés, qu’aucune 
 
 Une fois que le rôle Azure Resource Manager a été affecté, deux nouveaux chemins d’API sont disponibles : 
 
+#### <a name="log-data"></a>Données de journal
+
 * [POST purge] (https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - prend un objet spécifiant les paramètres des données à supprimer et retourne un GUID de référence 
 * GET purge status - l’appel de POST purge retourne un en-tête « x-ms-état-location » qui inclut une URL que vous pouvez appeler pour déterminer l’état de votre API de vidage. Par exemple : 
 
@@ -83,7 +109,21 @@ Une fois que le rôle Azure Resource Manager a été affecté, deux nouveaux che
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperatonalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
 
-Alors que nous nous attendons à ce que la grande majorité des opérations de vidage soient effectuées beaucoup plus rapidement que ce que prévoit notre contrat SLA, en raison de leur impact important sur la plateforme de données utilisée par Log Analytics, le contrat SLA formel pour la réalisation des opérations de vidage est défini à 30 jours. 
+> [!IMPORTANT]
+>  Alors que nous nous attendons à ce que la grande majorité des opérations de vidage soient effectuées beaucoup plus rapidement que ce que prévoit notre contrat SLA, en raison de leur impact important sur la plateforme de données utilisée par Log Analytics, **le contrat SLA formel pour la réalisation des opérations de vidage est défini à 30 jours**. 
+
+#### <a name="application-data"></a>Données d'application
+
+* [POST purge](https://docs.microsoft.com/rest/api/application-insights/components/purge) - prend un objet spécifiant les paramètres des données à supprimer et retourne un GUID de référence
+* GET purge status - l’appel de POST purge retourne un en-tête « x-ms-état-location » qui inclut une URL que vous pouvez appeler pour déterminer l’état de votre API de vidage. Par exemple : 
+
+   ```
+   x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01
+   ```
+
+> [!IMPORTANT]
+>  Alors que la grande majorité des opérations de vidage peuvent être effectuées beaucoup plus rapidement que ce que prévoit le contrat SLA, en raison de leur impact important sur la plateforme de données utilisée par Application Insights, **le contrat SLA formel pour la réalisation des opérations de vidage est défini à 30 jours**.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la façon dont les données sont collectées, traitées et sécurisées, consultez [Sécurité des données Log Analytics](log-analytics-data-security.md).
+- Pour plus d’informations sur la façon dont les données Log Analytics sont collectées, traitées et sécurisées, consultez [Sécurité des données Log Analytics](log-analytics-data-security.md).
+- Pour plus d’informations sur la façon dont les données Application Insights sont collectées, traitées et sécurisées, consultez [Sécurité des données Application Insights](../application-insights/app-insights-data-retention-privacy.md).

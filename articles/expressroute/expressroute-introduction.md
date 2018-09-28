@@ -1,25 +1,18 @@
 ---
 title: 'Présentation d’ExpressRoute : étendre votre réseau local à Azure via une connexion privée | Microsoft Docs'
-description: Cette présentation technique d’ExpressRoute détaille le fonctionnement d’une connexion ExpressRoute pour étendre votre réseau local à Azure via une connexion privée.
-documentationcenter: na
+description: La présentation technique d’ExpressRoute détaille le fonctionnement d’une connexion ExpressRoute pour étendre votre réseau local à Azure via une connexion privée.
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: fd95dcd5-df1d-41d6-85dd-e91d0091af05
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.topic: overview
+ms.date: 09/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 75d69669945d31fbc9876d0c1e709b37f96aee6d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f1bc447f73912ccf04f0c0cf7d6460d472bace4c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29940159"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46961902"
 ---
 # <a name="expressroute-overview"></a>Présentation d’ExpressRoute
 Microsoft Azure ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure, Office 365 et Dynamics 365.
@@ -68,7 +61,13 @@ Vous pouvez vous connecter à Microsoft dans un de nos [emplacements d’homolog
 Par exemple, si vous êtes connecté via ExpressRoute à Microsoft, à Amsterdam, vous aurez accès à tous les services cloud Microsoft hébergés en Europe du Nord et en Europe occidentale. Pour obtenir une vue d’ensemble des régions géopolitiques, des zones de cloud Microsoft associées et des emplacements d’homologation ExpressRoute correspondants, consultez l’article [Partenaires ExpressRoute et emplacements d’homologation](expressroute-locations.md).
 
 ### <a name="global-connectivity-with-expressroute-premium-add-on"></a>Connectivité globale avec le module complémentaire ExpressRoute premium
-Vous pouvez activer la fonctionnalité du module complémentaire ExpressRoute premium pour étendre la connectivité au-delà des limites géopolitiques. Par exemple, si vous êtes connecté à Microsoft à Amsterdam via ExpressRoute, vous aurez accès à tous les services de cloud Microsoft hébergés dans toutes les régions du monde (à l’exception des clouds nationaux). Vous pouvez accéder aux services déployés en Amérique du Sud ou en Australie de la même façon que vous accédez aux régions d’Europe du Nord et d’Europe occidentales.
+Vous pouvez activer la fonctionnalité du module complémentaire ExpressRoute premium pour étendre la connectivité au-delà des limites géopolitiques. Par exemple, si vous êtes connecté à Microsoft à Amsterdam via ExpressRoute, vous aurez accès à tous les services de cloud Microsoft hébergés dans toutes les régions du monde (à l’exception des clouds nationaux). Vous pouvez accéder aux services déployés en Amérique du Sud ou en Australie de la même façon que vous accédez aux régions Europe Nord et Europe Ouest.
+
+### <a name="across-on-premises-connectivity-with-expressroute-global-reach"></a>Connectivité locale avec ExpressRoute Global Reach
+
+Vous pouvez activer ExpressRoute Global Reach pour échanger des données entre vos sites distants en connectant vos différents circuits ExpressRoute. Par exemple, si vous disposez d’un centre de données privé en Californie, connecté à ExpressRoute dans la Silicon Valley, et un autre centre de données privé au Texas, connecté à ExpressRoute à Dallas, ExpressRoute Global Reach vous permet de connecter vos différents centres de données privés par le biais de deux circuits ExpressRoute. Le trafic entre vos centres de données transitera par réseau Microsoft.
+
+Pour plus d’informations, consultez [ExpressRoute Global Reach](expressroute-global-reach.md).
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>Riche écosystème de partenaires de connectivité
 ExpressRoute offre un écosystème sans cesse croissant de fournisseurs de connectivité et de partenaires intégrateurs de systèmes. Vous pouvez consulter l’article [Partenaires ExpressRoute et emplacements d’homologation](expressroute-locations.md) pour obtenir les dernières informations.
@@ -76,12 +75,24 @@ ExpressRoute offre un écosystème sans cesse croissant de fournisseurs de conne
 ### <a name="connectivity-to-national-clouds"></a>Connectivité aux clouds nationaux
 Microsoft gère des environnements de cloud isolés dans des régions géopolitiques et des segments de clientèle spécifiques. Reportez-vous à la page [Fournisseurs et emplacements ExpressRoute](expressroute-locations.md) pour obtenir la liste des clouds nationaux et des fournisseurs.
 
+### <a name="expressroute-direct"></a>ExpressRoute Direct
+
+ExpressRoute Direct offre aux clients la possibilité de se connecter directement à un réseau global Microsoft à des emplacements d’homologation répartis stratégiquement à travers le monde. ExpressRoute Direct fournit une connectivité 100Gbps double avec prise en charge de la connectivité actif/actif et mise à l’échelle. 
+
+Les principales fonctionnalités fournies par ExpressRoute Direct incluent, entre autres :
+
+* Ingestion de données massive dans des services comme le stockage et Cosmos DB 
+* Isolation physique pour les secteurs réglementés qui nécessitent une connectivité dédiée et isolée, par exemple la banque, les organismes gouvernementaux et la vente au détail 
+* Contrôle précis de la distribution du circuit en fonction de l’unité commerciale
+
+Pour plus d’informations, consultez [A propos d’ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
+
 ### <a name="bandwidth-options"></a>Options de bande passante
 Vous pouvez acheter des circuits ExpressRoute pour un large éventail de bandes passantes. Les bandes passantes prises en charge sont répertoriées ci-dessous. Veillez à vérifier auprès de votre fournisseur de connectivité la liste des bandes passantes prises en charge qu'il propose.
 
 * 50 Mbits/s
-* 100 Mbits/s
-* 200 Mbits/s
+* 100 Mbits/s
+* 200 Mbits/s
 * 500 Mbits/s
 * 1 Gbit/s
 * 2 Gbit/s
@@ -98,7 +109,7 @@ Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisi
 * **Données limitées**. Le circuit ExpressRoute est facturé sur une base mensuelle. Tous les transferts de données entrants sont gratuits. Chaque transfert de données sortant est facturé par Go de données transférées. Les taux de transfert de données varient selon la région.
 * **Module complémentaire ExpressRoute premium**. Le module complémentaire ExpressRoute premium est un module qui s’ajoute au circuit ExpressRoute Le module complémentaire ExpressRoute premium offre les fonctionnalités suivantes : 
   * Augmentation de 4 000 à 10 000 routages des limites de routage pour les homologations publiques et privées Azure.
-  * Connectivité globale des services. Un circuit ExpressRoute créé dans une région quelconque (à l'exclusion des clouds nationaux) a accès aux ressources de n'importe quelle autre région dans le monde. Par exemple, un réseau virtuel créé en l'Europe occidentale est accessible via un circuit ExpressRoute configuré dans la Silicon Valley.
+  * Connectivité globale des services. Un circuit ExpressRoute créé dans une région quelconque (à l'exclusion des clouds nationaux) a accès aux ressources de n'importe quelle autre région dans le monde. Par exemple, un réseau virtuel créé dans la région Europe Ouest est accessible via un circuit ExpressRoute configuré dans la Silicon Valley.
   * Augmentation de 10 à une limite supérieure du nombre de liens de réseaux virtuels par circuit ExpressRoute, selon la bande passante du circuit.
 
 ## <a name="faq"></a>Forum Aux Questions

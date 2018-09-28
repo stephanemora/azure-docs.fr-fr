@@ -1,9 +1,9 @@
 ---
-title: En quoi le point de terminaison Azure AD v2.0 est-il différent ? | Microsoft Docs
-description: Une comparaison entre la version Azure AD d’origine et les points de terminaison v2.0.
+title: Comparer le point de terminaison Azure AD v2.0 avec le point de terminaison v1.0 | Microsoft Docs
+description: Découvrez les différences entre les points de terminaison Azure AD v2.0 et v1.0.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
+author: andretms
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,131 +13,219 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
-ms.author: celested
-ms.reviewer: elisol, jmprieur, hirsin
+ms.date: 09/21/2018
+ms.author: andret
+ms.reviewer: hirsin, celested
 ms.custom: aaddev
-ms.openlocfilehash: 0e344f6e9dfee3793320dc9cb79e3231c2eeda87
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580252"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948951"
 ---
-# <a name="whats-different-about-the-v20-endpoint"></a>Quelles sont les particularités du point de terminaison v2.0 ?
+# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Comparer le point de terminaison Azure AD v2.0 avec le point de terminaison v1.0
 
-Si vous connaissez bien le service Azure Active Directory (Azure AD) ou si vous avez déjà intégré des applications à Azure AD, certaines différences dans le point de terminaison v2.0 pourraient vous surprendre. Cet article détaille ces différences afin de clarifier les choses.
+Lorsque vous développez une nouvelle application, vous devez connaître les différences entre les points de terminaison v1.0 et v2.0. Les principales différences sont répertoriées ici, accompagnées de certaines limitations qui s’appliquent au point de terminaison v2.0.
 
 > [!NOTE]
-> Les scénarios et les fonctionnalités d’Azure AD ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](active-directory-v2-limitations.md).
->
+> Les scénarios et les fonctionnalités d’Azure AD ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](#limitations).
 
-## <a name="microsoft-accounts-and-azure-ad-accounts"></a>Comptes Microsoft et comptes Azure AD
+## <a name="who-can-sign-in"></a>Utilisateurs autorisés à se connecter
 
-Le point de terminaison v2.0 permet aux développeurs d’écrire des applications qui prennent en charge la connexion à partir de comptes Microsoft et de comptes Azure AD, à l’aide d’un seul point de terminaison d’authentification. Ces applications peuvent donc être parfaitement indépendantes du type de compte avec lequel l’utilisateur se connecte. Il est possible de faire en sorte qu’elles reconnaissent le type de compte utilisé dans une session particulière, mais ce n’est pas obligatoire.
+![Utilisateurs autorisés à se connecter avec les points de terminaison v1.0 et v2.0](media/azure-ad-endpoint-comparison/who-can-sign-in.png)
 
-Par exemple, si votre application appelle [Microsoft Graph](https://graph.microsoft.io), certaines fonctionnalités et données supplémentaires seront disponibles pour les utilisateurs de l’entreprise, telles que leurs sites SharePoint ou les données Directory. Néanmoins, pour de nombreuses actions, telles que la [lecture du courrier d’un utilisateur](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), le code peut être exactement le même pour les comptes Microsoft et Azure AD. 
+* Le point de terminaison v1.0 permet uniquement aux comptes professionnels et scolaires de se connecter à votre application (Azure AD).
 
-L’intégration de votre application aux comptes Microsoft et Azure AD est désormais un simple processus. Vous pouvez utiliser un seul et même ensemble de points de terminaison, une seule et même bibliothèque et une seule et même inscription d’application pour accéder aux mondes des consommateurs et de l’entreprise. Pour en savoir plus sur le point de terminaison v2.0, consultez [la vue d’ensemble](active-directory-appmodel-v2-overview.md).
+* Le point de terminaison v2.0 permet aux comptes professionnels et scolaires d’Azure Active Directory et aux comptes personnels (MSA) (hotmail.com, outlook.com, msn.com) de se connecter.
 
-## <a name="new-app-registration-portal"></a>Nouveau portail d’inscription des applications
+* Tous deux (v1.0 et v2.0) acceptent des connexions d’*[utilisateurs invités](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* issus d’un répertoire Azure AD pour les applications configurées en tant que *[mono-locataire](single-and-multi-tenant-apps.md)* ou pour les applications *multi-locataire* configurées de manière à pointer vers le point de terminaison spécifique au locataire (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-Pour inscrire une application qui fonctionne avec le point de terminaison v2.0, vous devrez utiliser le portail d’inscription des applications Microsoft : [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Il s’agit du portail où vous pouvez obtenir un ID d’application, personnaliser l’apparence de la page de connexion de votre application, et bien plus encore. Pour accéder au portail, vous devez avoir un compte Microsoft alimenté : compte personnel ou professionnel/scolaire.
+Le point de terminaison v2.0 vous permet d’écrire des applications qui acceptent des connexions à partir de comptes professionnels et scolaires, ce qui vous donne la possibilité d’écrire votre application sans vous soucier du type de compte. Par exemple, si votre application appelle [Microsoft Graph](https://graph.microsoft.io), certaines fonctionnalités et données supplémentaires seront disponibles pour les comptes professionnels (leurs sites SharePoint ou les données du répertoire, par exemple). Mais pour de nombreuses actions, comme la [lecture du courrier d’un utilisateur](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), vous pouvez utiliser le même code pour accéder à la messagerie, aussi bien pour les comptes professionnels que scolaires.
 
-## <a name="one-app-id-for-all-platforms"></a>Un ID d’application pour toutes les plateformes
+Pour le point de terminaison v2.0, vous pouvez utiliser une bibliothèque unique (MSAL) pour accéder aux différents univers (consommation, scolaire ou professionnel).
 
-Si vous avez déjà utilisé Azure AD, vous avez probablement inscrit plusieurs applications différentes pour un seul et même projet. Par exemple, si vous avez créé un site web et une application iOS, vous avez dû les inscrire séparément, en utilisant deux ID d’application différents. Le portail d’inscription des applications Azure AD vous a obligé à faire cette distinction pendant l’inscription :
-
-![Ancienne interface utilisateur de l’inscription des applications](./media/azure-ad-endpoint-comparison/old_app_registration.PNG)
-
-De même, si vous aviez un site web et une API web principale, vous avez pu les inscrire chacun en tant qu’application distincte dans Azure AD. Si vous aviez une application iOS et une application Android, vous pouvez également avoir inscrit deux applications différentes. L’inscription des différents composants d’une application a entraîné des comportements inattendus pour les développeurs et leurs clients :
-
-* Chaque composant apparaissait comme une application distincte dans le locataire (tenant) Azure AD de chaque client.
-* Lorsqu’un administrateur client souhaitait appliquer des stratégies pour gérer l’accès à une application ou supprimer une application, il devait le faire pour chaque composant de l’application.
-* Lorsque les clients donnaient leur consentement pour une application, chaque composant apparaissait dans l’écran de consentement comme une application distincte.
-
-Avec le point de terminaison v2.0, vous pouvez maintenant inscrire tous les composants de votre projet comme une seule et même application, et utiliser un ID d’application unique pour l’ensemble du projet. Vous pouvez ajouter plusieurs « plateformes » pour chaque projet, et fournir les données appropriées pour chaque plateforme ajoutée. Bien entendu, vous pouvez créer autant d’applications que vous le souhaitez selon vos besoins, mais pour la plupart des cas, un seul ID d’application est nécessaire.
-
-Notre objectif est de simplifier encore davantage la gestion des applications et l’expérience de développement, et de créer une vue plus consolidée d’un seul et même projet sur lequel vous travaillez peut-être.
-
-## <a name="scopes-not-resources"></a>Des étendues, pas des ressources
-
-Dans Azure AD, une application peut se comporter comme une **ressource** ou comme un destinataire de jetons. Une ressource peut définir plusieurs **étendues** ou **oAuth2Permissions** qu’elle comprend, permettant ainsi aux applications clientes de demander des jetons pour cette ressource pour un ensemble d’étendues donné. Prenez comme exemple de ressource l’API Graph d’Azure AD :
-
-* Identificateur de ressource, ou `AppID URI` : `https://graph.windows.net/`
-* Étendues, ou `OAuth2Permissions` : `Directory.Read`, `Directory.Write`, etc. 
-
-Tout ceci est vrai pour le point de terminaison v2.0. Une application peut toujours se comporter comme une ressource, définir des étendues et être identifiée par un URI. Les applications clientes peuvent toujours demander l’accès à ces étendues. Toutefois, la manière dont le client demande ces autorisations a changé. Dans le passé, une demande d’autorisation OAuth 2.0 à Azure AD pouvait ressembler à ceci :
-
-```
-GET https://login.microsoftonline.com/common/oauth2/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&resource=https%3A%2F%2Fgraph.windows.net%2F
-...
-```
-
-où le paramètre de **ressource** indiquait la ressource pour laquelle l’application cliente demandait une autorisation. Azure AD calculait les autorisations requises par l’application en fonction de la configuration statique définie sur le Portail Azure, puis émettait les jetons en conséquence. Désormais, la même demande d’autorisation OAuth 2.0 ressemble à ceci :
-
-```
-GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
-client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
-...
-```
-
-où le paramètre d’ **étendue** indique la ressource et les autorisations pour lesquelles l’application demande une autorisation. La ressource souhaitée est toujours présente dans la demande ; elle est simplement englobée dans chacune des valeurs du paramètre d’étendue. L’utilisation du paramètre d’étendue de cette manière permet au point de terminaison v2.0 d’être plus conforme à la spécification OAuth 2.0, et elle est en harmonie plus étroite avec les pratiques courantes du secteur. Elle permet également aux applications d’effectuer un [consentement incrémentiel](#incremental-and-dynamic-consent), qui est décrit dans la section suivante.
+ Le point de terminaison Azure AD v1.0 accepte les connexions uniquement depuis des comptes professionnels et scolaires.
 
 ## <a name="incremental-and-dynamic-consent"></a>Consentement incrémentiel et dynamique
 
-Les applications inscrites dans Azure AD devaient auparavant spécifier leurs autorisations OAuth 2.0 requises sur le Portail Azure au moment de leur création :
+Les applications qui utilisent le point de terminaison Azure AD v1.0 doivent spécifier à l’avance les autorisations OAuth 2.0 requises, par exemple :
 
-![Interface utilisateur de l’inscription des autorisations](./media/azure-ad-endpoint-comparison/app_reg_permissions.PNG)
+![Interface utilisateur de l’inscription des autorisations](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
-Les autorisations requises par une application étaient configurées **statiquement**. Si cela permettait à la configuration de l’application de se trouver sur le Portail Azure tout en préservant la simplicité du code, cela présentait quelques problèmes pour les développeurs :
+Les autorisations qui sont directement définies sur l’inscription d’application sont **statiques**. Bien que les autorisations statiques de l’application soient définies sur le Portail Azure et préservent la simplicité du code, elles présentent quelques problèmes pour les développeurs :
 
-* L’application devait connaître toutes les autorisations dont elle aurait besoin lors de sa création. L’ajout d’autorisations au fil du temps était un processus difficile.
-* Une application devait connaître au préalable l’ensemble des ressources auxquelles elle aurait accès. Il était difficile de créer des applications pouvant accéder à un nombre arbitraire de ressources.
-* Une application devait demander toutes les autorisations dont elle aurait besoin dès la première connexion de l’utilisateur. Dans certains cas, il en résultait une longue liste d’autorisations, qui dissuadait les utilisateurs finaux d’approuver l’accès de l’application à la connexion initiale.
+* Au moment de sa création, l’application doit connaître toutes les autorisations dont elle aura besoin. L’ajout d’autorisations au fil du temps était un processus difficile.
 
-Avec le point de terminaison v2.0, vous pouvez spécifier les autorisations dont votre application a besoin **dynamiquement**, lors de l’exécution, pendant l’utilisation régulière de votre application. Pour ce faire, vous pouvez spécifier les étendues nécessaires à votre application, à un moment donné, en les incluant dans le paramètre `scope` d’une demande d’autorisation :
+* L’application doit connaître au préalable l’ensemble des ressources auxquelles elle est susceptible d’avoir accès. Il était difficile de créer des applications pouvant accéder à un nombre arbitraire de ressources.
 
-```
-GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
+* L’application doit demander toutes les autorisations dont elle est susceptible d’avoir besoin dès la première connexion de l’utilisateur. Dans certains cas, il en résultait une longue liste d’autorisations, qui dissuadait les utilisateurs finaux d’approuver l’accès de l’application à la connexion initiale.
+
+Avec le point de terminaison v2.0, vous pouvez ignorer les autorisations statiques qui sont définies dans les informations de l’inscription d’application du Portail Azure. Vous pouvez spécifier les autorisations dont votre application a besoin de façon **dynamique** lors de son exécution, pendant une utilisation normale, indépendamment des autorisations statiques qui sont définies dans les informations de l’inscription d’application.
+
+Pour ce faire, vous pouvez spécifier les étendues dont votre application a besoin à des moments précis dans votre temps d'application. Vous devez inclure les nouvelles étendues dans le paramètre `scope` lorsque vous demandez un jeton d’accès (vous n’avez pas besoin de les définir au préalable dans les informations de l’inscription d’application).
+
+Si l’utilisateur n’a pas encore accepté les nouvelles étendues ajoutées à la requête, il est invité à donner son consentement uniquement pour les nouvelles autorisations. Pour en savoir plus, consultez les [autorisations, consentements et étendues](v2-permissions-and-consent.md).
+
+En permettant à l’application de demander des autorisations de façon dynamique grâce au paramètre `scope`, les développeurs maîtrisent totalement l’expérience de vos utilisateurs. Si vous le souhaitez, vous pouvez également choisir d’anticiper l’expérience de consentement et récolter toutes les autorisations dans une demande d’autorisation initiale. Si votre application nécessite un grand nombre d’autorisations, vous pouvez choisir de rassembler celles de l’utilisateur de façon incrémentielle lorsqu’il essaie d’utiliser certaines fonctionnalités de votre application au fil du temps.
+
+Remarque : lorsqu’il est recueilli pour le compte d’une organisation, le consentement administrateur utilise toujours les autorisations statiques qui sont enregistrées pour l’application. Par conséquent, nous vous recommandons de définir ces autorisations à l’aide du point de terminaison v2.0 si vous souhaitez qu’un administrateur donne son consentement pour le compte d’une organisation. Ainsi, les cycles nécessaires à l’administrateur de l’organisation pour configurer l’application sont réduits.
+
+## <a name="scopes-not-resources"></a>Des étendues, pas des ressources
+
+Lorsqu’elle utilise le point de terminaison v1.0, une application peut se comporter comme une **ressource** ou comme un destinataire de jetons. Une ressource peut définir plusieurs **étendues** ou **oAuth2Permissions** qu’elle comprend, permettant ainsi aux applications clientes de demander des jetons pour cette ressource pour un ensemble d’étendues donné. Prenez comme exemple de ressource l’API Graph d’Azure AD :
+
+* Identificateur de ressource, ou `AppID URI` : `https://graph.windows.net/`
+
+* Étendues ou `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, et ainsi de suite.
+
+Tout ceci est vrai pour le point de terminaison v2.0. Une application peut toujours se comporter comme une ressource, définir des étendues et être identifiée par un URI. Les applications clientes peuvent toujours demander l’accès à ces étendues. Toutefois, la manière dont le client demande ces autorisations a changé. Pour le point de terminaison v1.0, une demande d’autorisation OAuth 2.0 à Azure AD pouvait ressembler à ceci :
+
+```text
+GET https://login.microsoftonline.com/common/oauth2/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
-&scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read%20https%3A%2F%2Fgraph.windows.net%2Fdirectory.write
+&resource=https://graph.windows.net/
 ...
 ```
 
-Le paramètre ci-dessus demande l’autorisation pour l’application de lire les données d’annuaire d’un utilisateur d’Azure AD et d’écrire des données dans son annuaire. Si l’utilisateur a déjà accepté ces autorisations pour cette application, il entrera ses informations d’identification et se connectera à l’application. Si l’utilisateur n’a accepté aucune de ces autorisations, le point de terminaison v2.0 lui demande de corriger ce manquement. Pour en savoir plus, consultez les [autorisations, consentements et étendues](v2-permissions-and-consent.md).
+où le paramètre de **ressource** indiquait la ressource pour laquelle l’application cliente demandait une autorisation. Azure AD calculait les autorisations requises par l’application en fonction de la configuration statique définie sur le Portail Azure, puis émettait les jetons en conséquence. Pour les applications utilisant le point de terminaison v2.0, cette même demande d’autorisation OAuth 2.0 ressemble à ceci :
 
-En autorisant l’application à demander des autorisations dynamiquement grâce au paramètre `scope`, vous pourrez contrôler totalement l’expérience de vos utilisateurs. Si vous le souhaitez, vous pouvez choisir d’anticiper votre expérience de consentement et demander toutes les autorisations dans une demande d’autorisation initiale. Si votre application nécessite un grand nombre d’autorisations, vous pouvez choisir de rassembler celles de l’utilisateur de façon incrémentielle lorsqu’il essaie d’utiliser certaines fonctionnalités de votre application au fil du temps.
+```text
+GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
+client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
+&scope=https://graph.windows.net/directory.read%20https://graph.windows.net/directory.write
+...
+```
+
+où le paramètre d’**étendue** indique la ressource et les autorisations pour lesquelles l’application demande une autorisation. La ressource souhaitée est toujours présente dans la demande ; elle est simplement englobée dans chacune des valeurs du paramètre d’étendue. L’utilisation du paramètre d’étendue de cette manière permet au point de terminaison v2.0 d’être plus conforme à la spécification OAuth 2.0, et elle est en harmonie plus étroite avec les pratiques courantes du secteur. Elle permet également aux applications d’effectuer un [consentement incrémentiel](#incremental-and-dynamic-consent), qui est décrit précédemment.
 
 ## <a name="well-known-scopes"></a>Étendues connues
 
 ### <a name="offline-access"></a>Accès hors connexion
 
-Les applications qui utilisent le point de terminaison v2.0 peuvent nécessiter l’utilisation d’une nouvelle autorisation bien connue pour les applications : l’étendue `offline_access`. Toutes les applications doivent demander cette autorisation si elles doivent accéder aux ressources au nom d’un utilisateur pendant une période prolongée, même si l’utilisateur n’utilise peut-être pas activement l’application donnée. L’étendue `offline_access` apparaît à l’utilisateur dans la boîte de dialogue de consentement « Accéder aux données hors connexion », que l’utilisateur doit accepter. Demander l’autorisation `offline_access` permet à votre application web de recevoir les jetons d’actualisation OAuth 2.0 du point de terminaison v2.0. Les jetons d’actualisation sont de longue durée, et peuvent être échangés contre les nouveaux jetons d’accès OAuth 2.0 pour des périodes d’accès prolongées. 
+Les applications qui utilisent le point de terminaison v2.0 peuvent nécessiter l’utilisation d’une nouvelle autorisation bien connue pour les applications : l’étendue `offline_access`. Toutes les applications doivent demander cette autorisation si elles doivent accéder aux ressources au nom d’un utilisateur pendant une période prolongée, même si l’utilisateur n’utilise peut-être pas activement l’application donnée. L’étendue `offline_access` apparaît à l’utilisateur dans la boîte de dialogue de consentement **Accéder aux données à tout moment**, que l’utilisateur doit accepter. Demander l’autorisation `offline_access` permet à votre application web de recevoir les jetons d’actualisation OAuth 2.0 du point de terminaison v2.0. Les jetons d’actualisation ont une durée de vie assez longue, et peuvent être échangés contre les nouveaux jetons d’accès OAuth 2.0 pour des périodes d’accès prolongées.
 
-Si votre application ne sollicite pas l’étendue `offline_access`, elle ne reçoit pas les jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans un flux de code d’autorisation OAuth 2.0, vous recevez uniquement un jeton d’accès du point de terminaison `/token`. Ce jeton d’accès demeure valide pendant une courte période (généralement une heure), avant d’arriver à expiration. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Pendant cette redirection, il peut être demandé à l’utilisateur d’entrer à nouveau ses informations d’identification ou d’accepter une nouvelle fois les autorisations, en fonction du type d’application.
+Si votre application ne sollicite pas l’étendue `offline_access`, elle ne reçoit pas de jetons d’actualisation. Ainsi, lorsque vous échangez un code d’autorisation dans un flux de code d’autorisation OAuth 2.0, vous recevez uniquement un jeton d’accès du point de terminaison `/token`. Ce jeton d’accès demeure valide pendant une courte période (généralement une heure), avant d’arriver à expiration. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Pendant cette redirection, il peut être demandé à l’utilisateur d’entrer à nouveau ses informations d’identification ou d’accepter une nouvelle fois les autorisations, en fonction du type d’application.
 
-Pour en savoir plus sur OAuth 2.0, les jetons d’actualisation et les jetons d’accès, consultez [Informations de référence sur les protocoles du point de terminaison v2.0](active-directory-v2-protocols.md).
+Pour en savoir plus sur OAuth 2.0, `refresh_tokens`, et `access_tokens`, consultez les [références sur les protocoles v2.0](active-directory-v2-protocols.md).
 
 ### <a name="openid-profile-and-email"></a>OpenID, profil et e-mail
 
-Historiquement, le flux de connexion OpenID Connect le plus simple avec Azure AD fournissait de nombreuses informations sur l’utilisateur dans l’élément id_token qui en résultait. Les revendications contenues dans un paramètre id_token peuvent inclure différentes informations utilisateur : son nom, son nom d’utilisateur par défaut, son adresse de messagerie, son ID objet, etc.
+Historiquement, le flux de connexion OpenID Connect le plus simple avec Azure AD fournissait de nombreuses informations sur l’utilisateur dans l’élément *id_token* qui en résultait. Les revendications contenues dans un paramètre *id_token* peuvent inclure différentes informations utilisateur : son nom, son nom d’utilisateur par défaut, son adresse de messagerie, son ID objet, etc.
 
 Les informations auxquelles l’étendue `openid` permet à votre application d’accéder sont maintenant restreintes. L’étendue `openid` ne l’autorisera qu’à connecter l’utilisateur et à recevoir un identificateur propre à l’application pour l’utilisateur. Si vous souhaitez obtenir des données personnelles sur l’utilisateur dans votre application, celle-ci devra lui demander des autorisations supplémentaires. Deux nouvelles étendues, `email` et `profile`, vous permettront de le faire.
 
-L’étendue `email` permet à votre application d’accéder à l’adresse e-mail principale de l’utilisateur par le biais de la revendication `email` contenue dans id_token. 
-
-L’étendue `profile` permet à votre application d’accéder à toutes les autres informations de base sur l’utilisateur (nom, nom d’utilisateur par défaut, ID objet, etc.).
+L’étendue `email` permet à votre application d’accéder à l’adresse e-mail principale de l’utilisateur par le biais de la revendication `email` contenue dans id_token. L’étendue `profile` permet à votre application d’accéder à toutes les autres informations de base sur l’utilisateur (nom, nom d’utilisateur par défaut, ID objet, etc.).
 
 Vous pouvez ainsi coder votre application en en divulguant le moins possible : vous pouvez vous contenter de demander à l’utilisateur les informations nécessaires à l’exécution de votre application. Pour plus d’informations sur ces étendues, voir [Référence sur les étendues v2.0](v2-permissions-and-consent.md).
 
 ## <a name="token-claims"></a>Demandes de jetons
 
-Les revendications des jetons émis par le point de terminaison v2.0 ne seront pas identiques aux jetons émis par les points de terminaison Azure AD mis à la disposition générale. Les applications qui passent au nouveau service ne doivent pas partir du principe que chaque revendication sera présente dans id_tokens ou access_tokens. Pour en savoir plus sur les demandes spécifiques émises dans les jetons v2.0, consultez [Informations de référence sur les jetons v2.0](v2-id-and-access-tokens.md).
+Les revendications des jetons émis par le point de terminaison v2.0 ne seront pas identiques aux jetons émis par les points de terminaison Azure AD mis à la disposition générale. Les applications qui passent au nouveau service ne doivent pas partir du principe que chaque revendication sera présente dans id_tokens ou access_tokens. Pour plus d’informations sur les différents types de jetons utilisés dans le point de terminaison v2.0, consultez les articles de référence au [jeton d'accès](access-tokens.md) et à [`id_token`](id-tokens.md).
 
 ## <a name="limitations"></a>Limites
 
-Il existe quelques restrictions à connaître lors de l’utilisation du point v2.0. Pour savoir si ces restrictions s’appliquent à votre scénario, voir le [document relatif aux limites v2.0](active-directory-v2-limitations.md).
+Il existe quelques restrictions à connaître lors de l’utilisation de v2.0.
+
+Lorsque vous créez des applications qui s’intègrent dans la plateforme d’identité Microsoft, vous devez déterminer si les protocoles d’authentification et le point de terminaison v2.0 répondent à vos besoins. Le point de terminaison et la plateforme v1.0 sont toujours intégralement pris en charge. À certains égards, ils sont plus riches en fonctionnalités que la v2.0. Toutefois, la v2.0 [présente des avantages significatifs](azure-ad-endpoint-comparison.md) pour les développeurs.
+
+Voici une suggestion simplifiée pour les développeurs à ce stade :
+
+* Si vous devez prendre en charge des comptes Microsoft personnels dans votre application, utilisez la v2.0. Mais avant cela, tenez compte des limitations abordées dans cet article.
+
+* Si votre application ne doit prendre en charge que des comptes Microsoft professionnels et scolaires, n’utilisez pas la v2.0. Consultez plutôt le [guide relatif à la v1.0](azure-ad-developers-guide.md).
+
+Le point de terminaison v2.0 va évoluer et les restrictions répertoriées ici seront éliminées. Ainsi, vous n’aurez qu’à utiliser le point de terminaison v2.0. En attendant, cet article est là pour vous aider à déterminer si le point de terminaison v2.0 répond à vos besoins. Nous continuerons à mettre à jour cet article pour refléter l’état actuel du point de terminaison v2.0. Consultez-le régulièrement pour réévaluer vos besoins par rapport aux fonctionnalités de la version 2.0.
+
+### <a name="restrictions-on-app-types"></a>Restrictions concernant les types d’applications
+
+Actuellement, les types d’applications suivants ne sont pas pris en charge par le point de terminaison v2.0. Pour obtenir une description des types d’applications pris en charge, consultez l’article relatif aux [types d’application dans la v2.0](v2-app-types.md).
+
+#### <a name="standalone-web-apis"></a>API Web autonome
+
+Vous pouvez utiliser le point de terminaison v2.0 pour [générer une API web sécurisée avec OAuth 2.0](v2-app-types.md#web-apis). Toutefois, cette API web peut recevoir uniquement les jetons d’une application ayant le même ID d’application. Vous ne pouvez pas accéder à une API web à partir d’un client qui a un ID d’application différent. Ce client ne pourra pas demander ou obtenir d’autorisation d’accès à votre API web.
+
+Pour savoir comment créer une API web qui accepte des jetons d’un client ayant le même ID d’application, consultez les exemples d’API web de point de terminaison v2.0 de la section [Prise en main v2.0](v2-overview.md#getting-started).
+
+### <a name="restrictions-on-app-registrations"></a>Restrictions sur les inscriptions d’application
+
+À l’heure actuelle, pour chaque application que vous souhaitez intégrer au point de terminaison v2.0, vous devez créer une inscription d’application dans le nouveau [portail d’inscription des applications Microsoft](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Les applications de compte Microsoft ou Azure AD existantes ne sont pas compatibles avec le point de terminaison v2.0. Les applications qui sont inscrites dans un portail autre que le portail d’inscription des applications ne sont pas compatibles avec le point de terminaison v2.0.
+
+De plus, les inscriptions d’applications que vous créez dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ont les caractéristiques suivantes :
+
+* Seuls deux secrets d’application sont autorisés par ID d’application.
+
+* Une application inscrite par un utilisateur dans un compte Microsoft personnel ne peut être affichée et gérée que par un compte de développeur. Elle ne peut pas être partagée entre plusieurs développeurs. Si vous souhaitez partager votre inscription d’application avec plusieurs développeurs, vous pouvez créer l’application en vous connectant au portail d’inscription avec un compte Azure AD.
+
+* Il existe plusieurs restrictions quant au format de l’URL de redirection autorisé. Pour plus d’informations sur les URL de redirection, consultez la section suivante.
+
+### <a name="restrictions-on-redirect-urls"></a>Restrictions concernant les URL de redirection
+
+Les applications inscrites dans le portail d’inscription des applications sont limitées à un jeu restreint de valeurs d’URL de redirection. L’URL de redirection pour les services et applications web doit commencer par le schéma `https`, et toutes les valeurs d’URL de redirection doivent partager un seul domaine DNS. Par exemple, vous ne pouvez pas inscrire une application web contenant l’une de ces URL de redirection :
+
+* `https://login-east.contoso.com`  
+* `https://login-west.contoso.com`
+
+Le système d’inscription compare le nom DNS complet de l’URL de redirection existante au nom DNS de l’URL de redirection que vous ajoutez. La demande d’ajout du nom DNS échoue si l’une des conditions suivantes est remplie :  
+
+* Le nom DNS complet de la nouvelle URL de redirection ne correspond pas au nom DNS de l’URL de redirection existante.
+
+* Le nom DNS complet de la nouvelle URL de redirection n’est pas un sous-domaine de l’URL de redirection existante.
+
+Par exemple, si l’application a cette URL de redirection :
+
+`https://login.contoso.com`
+
+Vous pouvez la compléter comme suit :
+
+`https://login.contoso.com/new`
+
+Dans ce cas, le nom DNS correspond exactement. Vous pouvez aussi définir l’URI suivant :
+
+`https://new.login.contoso.com`
+
+Dans ce cas, vous faites référence à un sous-domaine DNS de login.contoso.com. Si vous souhaitez que votre application utilise les URL de redirection `login-east.contoso.com` et `login-west.contoso.com`, vous devez ajouter ces URL de redirection dans cet ordre :
+
+`https://contoso.com`  
+`https://login-east.contoso.com`  
+`https://login-west.contoso.com`  
+
+Vous pouvez ajouter les deux dernières, car ce sont des sous-domaines de la première URL de redirection, contoso.com. Cette limitation sera supprimée dans une version ultérieure.
+
+Notez également qu’une même application ne peut avoir que 20 URL de réponse.
+
+Pour savoir comment inscrire une application dans le portail d’inscription des applications, consultez [Inscription d’une application avec le point de terminaison v2.0](quickstart-v2-register-an-app.md).
+
+### <a name="restrictions-on-libraries-and-sdks"></a>Restrictions concernant les bibliothèques et les SDK
+
+Actuellement, la prise en charge des bibliothèques pour le point de terminaison v2.0 est limitée. Si vous souhaitez utiliser le point de terminaison v2.0 dans une application de production, vous disposez des options suivantes :
+
+* Si vous générez une application web, vous pouvez en toute sécurité utiliser le middleware Microsoft mis à la disposition générale côté serveur pour vous connecter et procéder à la validation des jetons. Vous recourrez notamment au middleware OWIN Open ID Connect pour ASP.NET et au plug-in Node.js Passport. Pour obtenir des exemples de code qui utilisent le middleware Microsoft, consultez la section [Prise en main v2.0](v2-overview.md#getting-started).
+
+* Si vous créez une application mobile ou de bureau, vous pouvez utiliser l’une de nos bibliothèques d’authentification Microsoft (MSAL). Bien qu’il s’agisse de versions préliminaires, ces bibliothèques sont utilisables dans des applications de production. Pour plus d’informations sur les conditions d’utilisation de la préversion et sur les bibliothèques disponibles, consultez la [documentation de référence sur les bibliothèques d’authentification](reference-v2-libraries.md).
+
+* Vous pouvez intégrer les plateformes non couvertes par les bibliothèques Microsoft, dans le point de terminaison v2.0 en envoyant et en recevant directement des messages de protocole dans le code de votre application. Les protocoles v2.0 OpenID Connect et OAuth [sont explicitement documentés](active-directory-v2-protocols.md) pour vous aider à effectuer une telle intégration.
+
+* Pour finir, vous pouvez utiliser les bibliothèques open source Open ID Connect et OAuth pour procéder à l’intégration avec le point de terminaison v2.0. Le protocole v2.0 devrait être compatible avec de nombreuses bibliothèques de protocole open source sans modification majeure. La disponibilité de ces types de bibliothèques varie en fonction de la langue et de la plateforme. Les sites web [Open ID Connect](http://openid.net/connect/) et [OAuth 2.0](http://oauth.net/2/) contiennent une liste à jour des implémentations les plus courantes. Pour plus d’informations, consultez [Azure Active Directory v2.0 et bibliothèques d’authentification](reference-v2-libraries.md), ainsi que la liste des bibliothèques clientes open source et des exemples qui ont été testés avec le point de terminaison v2.0.
+
+* Pour référence, le point de terminaison `.well-known` pour le point de terminaison v2.0 commun est `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`.  Remplacez `common` par votre ID de locataire pour obtenir des données spécifiques à votre locataire.  
+
+### <a name="restrictions-on-protocols"></a>Restrictions sur les protocoles
+
+Le point de terminaison 2.0 ne prend pas en charge SAML ou WS-Federation, mais uniquement Open ID Connect et OAuth 2.0. Certaines fonctionnalités des protocoles OAuth n’ont pas été intégrées dans le point de terminaison v2.0.
+
+Les fonctionnalités de protocole suivantes *ne sont pas disponibles* dans le point de terminaison v2.0 :
+
+* Actuellement, la revendication `email` est retournée uniquement si une revendication facultative est configurée, et si scope=email a été spécifié dans la requête. Toutefois, ce comportement va changer avec la mise à jour du point de terminaison v2.0 en vue d’une meilleure conformité aux nomes Open ID Connect et OAuth 2.0.
+
+* Le point de terminaison v2.0 ne prend pas en charge l’émission de revendications de rôle ou de groupe dans les jetons d’ID.
+
+* Le point de terminaison v2.0 ne prend pas en charge l’[octroi des informations de mot de passe du propriétaire de la ressource OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3).
+
+De plus, il ne prend en charge aucun protocole SAML ou WS-Federation.
+
+Pour mieux comprendre l’étendue de la fonctionnalité de protocole prise en charge dans le point de terminaison v2.0, consultez notre page de [référence sur les protocoles OAuth 2.0 et OpenID Connect](active-directory-v2-protocols.md).
+
+#### <a name="saml-restrictions"></a>Restrictions SAML
+
+Si vous avez utilisé la bibliothèque ADAL (Active Directory Authentication Library) dans des applications Windows, vous avez peut-être tiré parti de l’authentification intégrée Windows, qui utilise l’octroi d’assertions SAML (Security Assertion Markup Language). Avec cet octroi, les utilisateurs de locataires Azure AD fédérés peuvent s’authentifier en mode silencieux auprès de leur instance d’Active Directory locale sans entrer leurs informations d’identification. À l’heure actuelle, l’octroi d’assertion SAML n’est pas pris en charge sur le point de terminaison v2.0.

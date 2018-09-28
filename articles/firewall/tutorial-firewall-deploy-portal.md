@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 7/11/2018
+ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 05959143431a2cc11d79a4012f45eb565c1c91f2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575987"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983512"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -31,7 +31,9 @@ Le trafic réseau est soumis aux règles de pare-feu configurées lorsque vous r
 
 Les règles de réseau et d’application sont stockées dans les *regroupements de règles*. Un regroupement de règles est une liste de règles qui partagent la même action et la même priorité.  Un regroupement de règles de réseau est une liste de règles de réseau, et un regroupement de règles d’application est une liste de règles d’application.
 
-Les regroupements de règles de réseau sont toujours traités avant les regroupements de règles d’application. Toutes les règles sont en train de se terminer, donc si une correspondance est trouvée dans un regroupement de règles de réseau, les regroupements de règles d’application suivants pour la session ne sont pas traités.
+Les concepts de règles d’entrée et de sortie ne s’appliquent pas au Pare-feu Azure. Il existe des règles d’application et des règles de réseau, qui s’appliquent à tout le trafic qui entre dans le pare-feu. Les règles de réseau sont appliquées en premier, puis les règles d’application. L’application de règles est alors terminée.
+
+Par exemple, si une règle de réseau est mise en correspondance, le paquet n’est pas évalué par les règles d’application. En l’absence de correspondance de règle de réseau, si le protocole du paquet est HTTP/HTTPS, le paquet est évalué par les règles d’application. Si aucune correspondance n’est trouvée, le paquet est alors évalué selon la collection de règles de l’infrastructure. S’il n’existe toujours pas de correspondance, le paquet est refusé par défaut.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -46,10 +48,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-[!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
-
-Les exemples des articles sur le service Pare-feu Azure supposent que vous avez déjà activé la préversion publique de Pare-feu Azure. Pour plus d’informations, consultez [Activer la préversion publique du Pare-feu Azure](public-preview.md).
 
 Pour ce tutoriel, vous devez créer un seul réseau virtuel avec trois sous-réseaux :
 - **FW-SN** : le pare-feu est dans ce sous-réseau.
@@ -83,9 +81,7 @@ Tout d’abord, créez un groupe de ressources qui contiendra les ressources né
 7. Pour **Abonnement**, sélectionnez votre abonnement.
 8. Pour **Groupe de ressources**, sélectionnez **Existant** puis **Test-FW-RG**.
 9. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
-10. Sous **Sous-réseau**, pour **Nom**, entrez **AzureFirewallSubnet**.
-
-    Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
+10. Sous **Sous-réseau**, pour **Nom**, entrez **AzureFirewallSubnet**. Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
 11. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.
 12. Utilisez les autres paramètres par défaut, puis cliquez sur **Créer**.
 
@@ -207,25 +203,21 @@ Pour le sous-réseau **Workload-SN**, vous devez configurer l’itinéraire sort
 
 
 1. Ouvrez **Test-FW-RG**, et cliquez sur le pare-feu **Test-FW01**.
-1. Sur la page **Test-FW01**, sous **Paramètres**, cliquez sur **Règles**.
-2. Cliquez sur **Ajouter un regroupement de règles d’application**.
-3. Pour **Nom**, entrez **App-Coll01**.
-1. Pour **Priorité**, entrez **200**.
-2. Pour **Action**, sélectionnez **Autoriser**.
+2. Sur la page **Test-FW01**, sous **Paramètres**, cliquez sur **Règles**.
+3. Cliquez sur **Ajouter un regroupement de règles d’application**.
+4. Pour **Nom**, entrez **App-Coll01**.
+5. Pour **Priorité**, entrez **200**.
+6. Pour **Action**, sélectionnez **Autoriser**.
+7. Sous **Règles**, pour **Nom**, entrez **AllowGH**.
+8. Pour **Adresses sources**, entrez **10.0.2.0/24**.
+9. Pour **Protocol:port**, entrez **http, https**. 
+10. Pour **Noms de domaine complets (FQDN) cibles**, entrez **github.com**
+11. Cliquez sur **Add**.
 
-6. Sous **Règles**, pour **Nom**, entrez **AllowGH**.
-7. Pour **Adresses sources**, entrez **10.0.2.0/24**.
-8. Pour **Protocol:port**, entrez **http, https**. 
-9. Pour **Noms de domaine complets (FQDN) cibles**, entrez **github.com**
-10. Cliquez sur **Add**.
+Le Pare-feu Azure comprend un regroupement de règles intégré pour les noms de domaine complets d’infrastructure qui sont autorisés par défaut. Ces noms de domaine complets sont spécifiques à la plateforme et ne peuvent pas être utilisés à d’autres fins. Pour plus d’informations, consultez [Noms de domaine complets d’infrastructure](infrastructure-fqdns.md).
 
-> [!NOTE]
-> Le Pare-feu Azure comprend un regroupement de règles intégré pour les noms de domaine complets d’infrastructure qui sont autorisés par défaut. Ces noms de domaine complets sont spécifiques à la plateforme et ne peuvent pas être utilisés à d’autres fins. Les noms de domaine complets d’infrastructure autorisés incluent :
->- l’accès Compute au référentiel d’images de la plateforme (PIR) de stockage ;
->- l’accès de stockage de l’état des disques managés.
->- Diagnostics Windows
->
-> Vous pouvez remplacer ce regroupement de règles d’infrastructure intégré en créant un regroupement de règles d’application *Refuser tout* qui sera traité en dernier. Il sera toujours traité avant le groupe de règles d’infrastructure. Tout ce qui ne se trouve pas dans le regroupement de règles d’infrastructure est refusé par défaut.
+> [!Note]
+> Actuellement, les balises FQDN peuvent être configurées avec Azure PowerShell et REST uniquement. Cliquez [ici](https://aka.ms/firewallapplicationrule) pour en savoir plus. 
 
 ## <a name="configure-network-rules"></a>Configurer des règles de réseau
 
@@ -273,7 +265,7 @@ Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 - Vous pouvez accéder au nom de domaine complet autorisé, mais pas à d’autres.
 - Vous pouvez résoudre les noms DNS à l’aide du serveur DNS externe configuré.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **Test-FW-RG** pour supprimer toutes les ressources associées au pare-feu.
 

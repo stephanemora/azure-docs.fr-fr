@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: eb26101229ad60abae7a8a84f8dfa496488e84ba
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d77af898d5baef4fa7970132b0eb8deddb8f68cb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579001"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981795"
 ---
 # <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>Demander un jeton d’accès à l’aide d’OAuth 2.0 pour accéder aux applications et API web sécurisées par Azure Active Directory
 
@@ -75,12 +75,12 @@ Une réponse de jeton correcte contient un jeton JWT et doit ressembler à l’e
 ```
 | Paramètre     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| access_token  | Le jeton d’accès demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, par exemple une API Web.                                                                                                                                                                                                                                                                                                                                    |
+| access_token  | [Jeton d’accès](access-tokens.md) demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, par exemple une API Web.                                                                                                                                                                                                                                                                                                                                    |
 | token_type    | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur.                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | La durée de validité (en secondes) du jeton d’accès.                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | L’étendue de validité du jeton d’accès.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel. Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. Pour plus d'informations, consultez la page de [référence sur les jetons v2.0](v2-id-and-access-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `offline_access` a été demandée.                                               |
-| id_token      | Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton, afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité. Pour en savoir plus sur les id_tokens, consultez la [référence sur les jetons du point de terminaison v2.0](v2-id-and-access-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `openid` a été demandée. |
+| refresh_token | Un jeton d’actualisation OAuth 2.0. L’application peut utiliser ce jeton pour acquérir des jetons d’accès supplémentaires après l’expiration du jeton d’accès actuel. Les jetons d’actualisation sont durables, et peuvent être utilisés pour conserver l’accès aux ressources pendant des périodes prolongées. Pour en savoir plus, consultez la page de [référence sur l’octroi du code v2.0](v2-oauth2-auth-code-flow.md#refresh-the-access-token). <br> **Remarque :** Fourni uniquement si l’étendue `offline_access` a été demandée.                                               |
+| id_token      | Un jeton Web JSON non signé (JWT). L’application peut décoder les segments de ce jeton, afin de demander des informations relatives à l’utilisateur qui s’est connecté. L’application peut mettre en cache les valeurs et les afficher, mais ne peut aucunement les utiliser pour les limites d’autorisation ou de sécurité. Pour en savoir plus sur id_tokens, consultez [`id_token reference`](id-tokens.md). <br> **Remarque :** Fourni uniquement si l’étendue `openid` a été demandée. |
 
 
 

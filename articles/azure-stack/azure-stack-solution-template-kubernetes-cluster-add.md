@@ -1,6 +1,6 @@
 ---
-title: Ajouter un cluster Kubernetes sur la Place de marché Azure Stack | Microsoft Docs
-description: Découvrez comment ajouter un cluster Kubernetes sur la Place de marché Azure Stack.
+title: Ajouter Kubernetes sur la Place de marché Azure Stack | Microsoft Docs
+description: Découvrez comment ajouter Kubernetes sur la Place de marché Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,30 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 09/25/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: bff0140d173fc3393ac56ec3d709c3c067842a2a
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 69bf788ef30a18bbe70e251fdd6a814d0f528f55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41946443"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994562"
 ---
-# <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Ajouter un cluster Kubernetes sur la Place de marché Azure Stack
+# <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Ajouter Kubernetes sur la Place de marché Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!note]  
-> Le Kubernetes AKS (Azure Kubernetes Services) sur Azure Stack est disponible en préversion privée. Pour obtenir l’accès à l’élément Kubernetes sur la Place de marché afin de pouvoir suivre les instructions données dans cet article, [envoyez une demande d’accès](https://aka.ms/azsk8).
+> Kubernetes sur Azure Stack est en préversion. Pour obtenir l’accès à l’élément Cluster Kubernetes sur la Place de marché afin de pouvoir suivre les instructions données dans cet article, [envoyez une demande d’accès](https://aka.ms/azsk8).
 
-Vous pouvez créer une offre de cluster Kubernetes et la mettre à disposition des utilisateurs en tant qu’élément de la Place de marché. Les utilisateurs peuvent alors déployer Kubernetes en une seule opération coordonnée.
+Vous pouvez créer une offre Kubernetes et la mettre à disposition des utilisateurs en tant qu’élément de la Place de marché. Les utilisateurs peuvent alors déployer Kubernetes en une seule opération coordonnée.
 
-L’article suivant décrit comment utiliser un modèle Azure Resource Manager pour déployer et provisionner les ressources d’un cluster Kubernetes autonome. Avant de commencer, vérifiez les paramètres Azure Stack et les paramètres du locataire Azure global. Collectez les informations sur Azure Stack requises. Ajoutez les ressources nécessaires à votre locataire et à la Place de marché Azure Stack. Le cluster dépend d’un serveur Ubuntu, du script personnalisé et des éléments du cluster Kubernetes à ajouter à la Place de marché.
+L’article suivant décrit comment utiliser un modèle Azure Resource Manager pour déployer et provisionner les ressources d’un cluster Kubernetes autonome. Avant de commencer, vérifiez les paramètres Azure Stack et les paramètres du locataire Azure global. Collectez les informations sur Azure Stack requises. Ajoutez les ressources nécessaires à votre locataire et à la Place de marché Azure Stack. Le cluster dépend d’un serveur Ubuntu, du script personnalisé et des éléments Kubernetes à ajouter à la Place de marché.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Créer un plan, une offre et un abonnement
 
-Créez un plan, une offre et un abonnement pour l’élément cluster Kubernetes de la Place de marché. Vous pouvez également utiliser un plan et une offre existants.
+Créez un plan, une offre et un abonnement pour l’élément Kubernetes de la Place de marché. Vous pouvez également utiliser un plan et une offre existants.
 
 1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
 
@@ -48,7 +48,7 @@ Créez un plan, une offre et un abonnement pour l’élément cluster Kubernetes
 
 1. Sélectionnez **Changer l’état**. Sélectionnez **Public**.
 
-1. Sélectionnez **+ Nouveau** > **Offres et plans** > **Abonnement** pour créer un abonnement.
+1. Sélectionnez **+ Créer une ressource** > **Offres et plans** > **Abonnement** pour créer un abonnement.
 
     a. Entrez un **nom d’affichage**.
 
@@ -66,30 +66,26 @@ Ajoutez l’image de serveur Ubuntu suivante sur la Place de marché :
 
 1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
 
-1. Sélectionnez **Autres services** > **Gestion de la Place de marché**.
+1. Sélectionnez **Tous les services**, puis, dans la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché**.
 
 1. Sélectionnez **+ Ajouter à partir d’Azure**.
 
 1. Entrez `UbuntuServer`.
 
-1. Sélectionnez le serveur avec le profil suivant :
+1. Sélectionnez la dernière version du serveur avec le profil suivant :
     - **Publisher** (Serveur de publication) : Canonical
     - **Offer** (Offre) : UbuntuServer
     - **SKU** : 16.04-LTS
-    - **Version** : 16.04.201802220
-
-    > [!Note]  
-    > Plusieurs versions d’Ubuntu Server 16.04 LTS peuvent être répertoriées. Vous devez ajouter la version appropriée. Le cluster Kubernetes requiert la version appropriée de l’élément.
 
 1. Sélectionnez **Télécharger**.
 
 ## <a name="add-a-custom-script-for-linux"></a>Ajouter un script personnalisé pour Linux
 
-Ajoutez le cluster Kubernetes à partir de la Place de marché :
+Ajoutez Kubernetes à partir de la Place de marché :
 
 1. Ouvrez le [portail d’administration](https://adminportal.local.azurestack.external).
 
-1. Sélectionnez **Autres services** > **Gestion de la Place de marché**.
+1. Sélectionnez **Tous les services**, puis, dans la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché**.
 
 1. Sélectionnez **+ Ajouter à partir d’Azure**.
 
@@ -97,24 +93,24 @@ Ajoutez le cluster Kubernetes à partir de la Place de marché :
 
 1. Sélectionnez le script avec le profil suivant :
     - **Offer** (Offre) : script personnalisé pour Linux 2.0
-    - **Version** : 2.0.3
+    - **Version** : 2.0.6
     - **Publisher** (Serveur de publication) : Microsoft Corp
 
     > [!Note]  
-    > Plusieurs versions d’un script personnalisé pour Linux peuvent être répertoriées. Vous devez ajouter la version appropriée. Le cluster Kubernetes requiert la version appropriée de l’élément.
+    > Plusieurs versions d’un script personnalisé pour Linux peuvent être répertoriées. Vous devez ajouter la version appropriée. Kubernetes requiert la version appropriée de l’élément.
 
 1. Sélectionnez **Télécharger**.
 
 
-## <a name="add-the-kubernetes-cluster-to-the-marketplace"></a>Ajouter le cluster Kubernetes sur la Place de marché
+## <a name="add-kubernetes-to-the-marketplace"></a>Ajouter Kubernetes sur la Place de marché
 
 1. Ouvrez le [portail d’administration](https://adminportal.local.azurestack.external).
 
-1. Sélectionnez **Autres services** > **Gestion de la Place de marché**.
+1. Sélectionnez **Tous les services**, puis, dans la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché**.
 
 1. Sélectionnez **+ Ajouter à partir d’Azure**.
 
-1. Entrez `Kubernetes Cluster`.
+1. Entrez `Kubernetes`.
 
 1. Sélectionnez `Kubernetes Cluster`.
 
@@ -123,29 +119,29 @@ Ajoutez le cluster Kubernetes à partir de la Place de marché :
     > [!note]  
     > L’affichage de l’élément sur la Place de marché peut prendre jusqu’à cinq minutes.
 
-    ![Cluster Kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
 
-## <a name="update-or-remove-the-kubernetes-cluster"></a>Mettre à jour ou supprimer le cluster Kubernetes 
+## <a name="update-or-remove-the-kubernetes"></a>Mettre à jour ou supprimer Kubernetes 
 
-Quand vous mettez à jour l’élément Cluster Kubernetes, vous devez supprimer l’élément existant sur la Place de marché. Vous pouvez ensuite suivre les instructions fournies dans cet article pour ajouter le cluster Kubernetes sur la Place de marché.
+Quand vous mettez à jour l’élément Kubernetes, vous devez supprimer l’élément existant sur la Place de marché. Vous pouvez ensuite suivre les instructions fournies dans cet article pour ajouter Kubernetes sur la Place de marché.
 
-Pour supprimer l’élément Cluster Kubernetes :
+Pour supprimer l’élément Kubernetes :
 
-1. Notez le nom de l’élément actuel (par exemple, `Microsoft.AzureStackKubernetesCluster.0.1.0`)
+1. Notez le nom de l’élément actuel (par exemple, `Microsoft.AzureStackKubernetesCluster.0.2.0`)
 
 1. Connectez-vous à Azure Stack à l’aide de PowerShell.
 
 1. Pour supprimer l’élément, utilisez l’applet de commande PowerShell suivante :
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.1.0"
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Déployer un cluster Kubernetes dans Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+[Déployer Kubernetes sur Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
 
 

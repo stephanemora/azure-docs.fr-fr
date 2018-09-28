@@ -12,28 +12,83 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 06b30d1381d8fba1d6f053576f6556e6d02f2ae9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128528"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949160"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
 
+
+## <a name="new-logs-experience"></a>Nouvelle expérience de journaux
+
+### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>Q : Quelle est la différence entre la nouvelle expérience de journaux et Log Analytics ?
+
+R : Ils sont identiques. [Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor](../azure-monitor/azure-monitor-rebrand.md) pour fournir une expérience de surveillance plus uniforme. La nouvelle expérience de journaux dans Azure Monitor est strictement identique aux requêtes Log Analytics déjà utilisées par de nombreux clients.
+
+### <a name="q-can-i-still-use-log-search"></a>Q : Puis-je continuer à utiliser Recherche dans les journaux ? 
+
+R : Recherche dans les journaux est actuellement toujours disponible dans le portail OMS et dans le portail Azure sous le nom **Journaux (classique)**. Le portail OMS sera officiellement mis hors-service le 15 janvier 2019. L’expérience de journaux classique dans le portail Azure sera progressivement retirée et remplacée par la nouvelle expérience de journaux. 
+
+### <a name="q-can-i-still-use-advanced-analytics-portal"></a>Q. Puis-je continuer à utiliser le portail Advanced Analytics ? 
+La nouvelle expérience de journaux dans le portail Azure est basée sur le [portail Advanced Analytics](https://portal.loganalytics.io/), mais vous pouvez toujours y accéder en dehors du portail Azure. La feuille de route de suppression de ce portail externe sera bientôt annoncée.
+
+### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>Q. Pourquoi ne puis-je pas voir les boutons Explorateur de requêtes et Enregistrer dans la nouvelle expérience de journaux ?
+
+Les boutons **Explorateur de requêtes**, **Enregistrer** et **Définir l’alerte** ne sont pas disponibles lorsque vous explorez des journaux dans le contexte d’une ressource spécifique. Pour créer des alertes, enregistrer ou charger une requête, l’étendue des journaux doit être un espace de travail. Pour ouvrir des journaux dans le contexte de l’espace de travail, sélectionnez **Tous les services** > **Surveiller** > **Journaux**. Le dernier espace de travail utilisée est sélectionné, mais vous pouvez sélectionner n’importe quel autre espace de travail. Consultez [Affichage et analyse de données dans Log Analytics](../log-analytics/log-analytics-log-search-portals.md) pour plus d’informations.
+
+### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>Q. Comment extraire des champs personnalisés dans la nouvelle expérience de journaux ? 
+
+R : l’extraction de champs personnalisée est actuellement prise en charge dans l’expérience de journaux classique. 
+
+### <a name="q-where-do-i-find-list-view-in-the-new-logs"></a>Q. Où trouver le mode liste dans les nouveaux journaux ? 
+
+R : le mode liste n’est pas disponible dans les nouveaux journaux. Il existe une flèche à gauche de chaque enregistrement dans le tableau des résultats. Cliquez sur cette flèche pour ouvrir les détails de l’enregistrement correspondant. 
+
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>Q. Après avoir exécuté une requête, une liste de filtres suggérées s’affiche, mais elle n’inclut pas tous les filtres. Comment voir les autres ? 
+
+R : ce que vous voyez actuellement est une préversion de nouvelle implémentation des filtres. Elle est désormais basée sur votre jeu de résultats complet plutôt que restreinte selon la limite de 10 000 enregistrements de l’interface utilisateur. Il s’agit actuellement d’une liste des filtres les plus populaires et des 10 valeurs les plus courantes pour chaque filtre. 
+
+### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>Q. Pourquoi est-ce que je reçois l’erreur « Inscrivez le fournisseur de ressources 'Microsoft.Insights' pour cet abonnement afin d’activer cette requête » dans les journaux après une exploration à partir d’une machine virtuelle ? 
+
+R : Par défaut, de nombreux fournisseurs de ressources sont inscrits automatiquement ; toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Ceci configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Pour plus d’informations, consultez [Fournisseurs et types de ressources](../azure-resource-manager/resource-manager-supported-services.md#portal).
+
+### <a name="q-why-am-i-am-getting-no-access-error-message-when-accessing-logs-from-a-vm-page"></a>Q. Pourquoi est-ce que je ne reçois aucun message d’erreur d’accès lorsque j’accède aux journaux à partir d’une page de machine virtuelle ? 
+
+R : Pour afficher les journaux de machine virtuelle, vous devez disposer de l’autorisation de lecture sur les espaces de travail qui stockent les journaux de machine virtuelle. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure.
+
+### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>Q. Pourquoi puis-je accéder à mon espace de travail dans le portail OMS, mais que je reçois l’erreur « Vous n’avez aucun accès » dans le portail Azure ?  
+
+R : Pour accéder à un espace de travail dans Azure, des autorisations Azure doivent vous être assignées. Dans certains cas, vous ne disposerez peut-être pas des autorisations d’accès appropriées. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure. Consultez [Migration du portail OMS vers Azure](../log-analytics/log-analytics-oms-portal-transition.md) pour plus d’informations.
+
+### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. Pourquoi ne puis-je pas voir l’entrée Concepteur de vues dans les journaux ? 
+R : le Concepteur de vues n’est disponible dans les journaux que pour les utilisateurs auxquels des autorisations Contributeur ou supérieures ont été assignées.
+
+
 ## <a name="general"></a>Généralités
+
+### <a name="q-how-can-i-see-my-views-and-solutions-in-azure-portal"></a>Q. Comment puis-je voir mes vues et solutions dans le portail Azure ? 
+
+R : Les listes des vues et des solutions installées sont disponibles dans le portail Azure. Cliquez sur **Tous les services**. Dans la liste des ressources, sélectionnez **Surveiller**, puis cliquez sur **...Plus**. Le dernier espace de travail utilisée est sélectionné, mais vous pouvez sélectionner n’importe quel autre espace de travail. 
+
+### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>Q. Pourquoi ne puis-je pas créer des espaces de travail dans la région ouest USA Centre-Ouest ? 
+
+R : Cette région a une limite de capacité temporaire. Une solution à la limite est prévue au cours du premier semestre 2019.
+
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Log Analytics utilise-t-il le même agent qu’Azure Security Center ?
 
-R. Au début du mois de juin 2017, Azure Security Center a commencé à utiliser Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Forum aux questions sur la migration de plateforme Azure Security Center](../security-center/security-center-platform-migration-faq.md).
+R : Au début du mois de juin 2017, Azure Security Center a commencé à utiliser Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Forum aux questions sur la migration de plateforme Azure Security Center](../security-center/security-center-platform-migration-faq.md).
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>Q. Quels sont les contrôles effectués par les solutions AD et SQL Assessment ?
 
-R. La requête suivante comporte une description de tous les contrôles effectués actuellement :
+R : La requête suivante comporte une description de tous les contrôles effectués actuellement :
 
 ```
 (Type=SQLAssessmentRecommendation OR Type=ADAssessmentRecommendation) | dedup RecommendationId | select FocusArea, ActionArea, Recommendation, Description | sort Type, FocusArea,ActionArea, Recommendation
@@ -41,7 +96,7 @@ R. La requête suivante comporte une description de tous les contrôles effectu�
 
 Les résultats peuvent ensuite être exportés vers Excel pour être examinés.
 
-### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>Q : Pourquoi vois-je autre chose qu’OMS dans la console System Center Operations Manager ?
+### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>Q. Pourquoi vois-je autre chose qu’OMS dans la console System Center Operations Manager ?
 
 R : Selon le correctif cumulatif d’Operations Manager que vous utilisez, vous pouvez voir un nœud pour *System Center Advisor*, *Operational Insights* ou *Log Analytics*.
 

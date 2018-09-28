@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 21ba95a7b3efff177afe63d22da3f6ba9848ded2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301029"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990233"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Étendre des alertes à partir de Log Analytics vers Azure Alerts
 La fonctionnalité des alertes dans Azure Log Analytics est remplacée par Azure Alerts. Dans le cadre de cette transition, les alertes que vous avez configurées à l’origine dans Log Analytics vont être étendues à Azure. Si vous ne souhaitez pas attendre qu’elles soient déplacées automatiquement dans Azure, vous pouvez lancer le processus :
@@ -22,7 +22,7 @@ La fonctionnalité des alertes dans Azure Log Analytics est remplacée par Azure
 - Par programmation en utilisant l’API AlertsVersion  
 
 > [!NOTE]
-> Depuis le 14 mai 2018, Microsoft étend automatiquement à Azure Alerts les alertes créées dans Log Analytics, selon une série répétée jusqu’à ce que la migration soit terminée. Microsoft planifie la migration des alertes vers Azure, et pendant cette transition, les alertes peuvent être gérées à partir du portail Operations Management Suite et du portail Azure. Ce processus ne détruit ni n’interrompt rien.  
+> Depuis le 14 mai 2018, Microsoft étend automatiquement à Azure Alerts les alertes créées dans des instances publiques de Log Analytics, selon une série répétée jusqu’à ce que la migration soit terminée. Si vous rencontrez des problèmes pour créer des [groupes d’actions](monitoring-action-groups.md), utilisez [ces étapes correctives](monitoring-alerts-extend-tool.md#troubleshooting) afin de créer automatiquement des groupes d’actions. Vous pouvez utiliser ces étapes jusqu’au 5 juillet 2018. *Non applicable aux utilisateurs cloud d’Azure Government et Sovereign de Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Option 1 : Lancement à partir du portail Operations Management Suite
 Les étapes suivantes expliquent comment étendre les alertes pour l’espace de travail à partir du portail Operations Management Suite.  
@@ -457,7 +457,7 @@ Le script est détaillé et génère les étapes au fur et à mesure qu’il s�
 Pendant le processus d’extension des alertes, des problèmes peuvent empêcher le système de créer les [groupes d’actions](monitoring-action-groups.md) nécessaires. Dans ce cas, un message d’erreur s’affiche sous forme de bannière dans la section **Alerte** du portail Operations Management Suite ou dans l’appel GET à l’API.
 
 > [!IMPORTANT]
-> Si vous n’effectuez pas les étapes de correction suivantes avant le 5 juillet 2018, les alertes s’exécuteront dans Azure, mais elles ne déclencheront aucune action ni notification. Pour obtenir des notifications d’alertes, vous devez modifier et ajouter manuellement des [groupes d’actions](monitoring-action-groups.md), ou utiliser le précédent [script PowerShell personnalisé](#option-3---using-custom-powershell-script).
+> Si les utilisateurs de Log Analytics basé sur le cloud public Azure n’effectuent pas les étapes de correction suivantes avant le 5 juillet 2018, les alertes s’exécuteront dans Azure, mais elles ne déclencheront aucune action ni notification. Pour obtenir des notifications d’alertes, vous devez modifier et ajouter manuellement des [groupes d’actions](monitoring-action-groups.md), ou utiliser le précédent [script PowerShell personnalisé](#option-3---using-custom-powershell-script).
 
 Voici les étapes de correction pour chaque erreur :
 - **Erreur : Scope Lock est présent au niveau de l’abonnements/du groupe de ressources pour les opérations d’écriture** :   ![Capture d’écran de la page des paramètres d’alerte du portail Operations Management Suite, avec le message d’erreur Scope Lock sélectionné](./media/monitor-alerts-extend/ErrorScopeLock.png)

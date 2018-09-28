@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 796f63a77e90c729edae7b11adf3c7be807db5f4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2fc25235325db8a403c2b258dd5e4b3effc46ace
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670909"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971958"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
 
@@ -87,7 +87,7 @@ Pour cet exercice, vous pouvez combiner des configurations ou choisir simplement
 
 ### <a name="before-you-begin"></a>Avant de commencer
 
-Avant de commencer, installez la dernière version des commandes CLI (version 2.0 ou ultérieure). Pour plus d’informations sur l’installation des commandes CLI consultez l’article [Installer l’interface de ligne de commande Azure 2.0](/cli/azure/install-azure-cli).
+Avant de commencer, installez la dernière version des commandes CLI (version 2.0 ou ultérieure). Pour plus d’informations sur l’installation des commandes CLI, consultez l’article [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
 
 ### <a name="Plan"></a>Panifier vos plages d’adresses IP
 
@@ -99,7 +99,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 
 * Nom du réseau virtuel : TestVNet1
 * Groupe de ressources : TestRG1
-* Emplacement : Est des États-Unis
+* Emplacement : USA Est
 * TestVNet1 : 10.11.0.0/16 et 10.12.0.0/16
 * FrontEnd : 10.11.0.0/24
 * BackEnd : 10.12.0.0/24
@@ -118,7 +118,7 @@ Nous utilisons les valeurs suivantes dans les exemples :
 * Serveur principal : 10.42.0.0/24
 * Sous-réseau de passerelle : 10.42.255.0/27
 * Groupe de ressources : TestRG4
-* Emplacement : États-Unis de l’Ouest
+* Emplacement : USA Ouest
 * Nom de la passerelle : VNet4GW
 * Adresse IP publique : VNet4GWIP
 * Type de VPN : RouteBased
@@ -286,7 +286,7 @@ Lors de la création de connexions supplémentaires, il est important de s’ass
 
 * Nom du réseau virtuel : TestVNet5
 * Groupe de ressources : TestRG5
-* Emplacement : Japon de l’Est
+* Emplacement : Japon Est
 * TestVNet5 : 10.51.0.0/16 et 10.52.0.0/16
 * Serveur frontal : 10.51.0.0/24
 * Serveur principal : 10.52.0.0/24

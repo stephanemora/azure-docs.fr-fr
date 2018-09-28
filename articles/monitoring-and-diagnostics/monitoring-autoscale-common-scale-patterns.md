@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 84727ec3694f64d40ad002a248a255df9074d7f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c7084a10aceafcdd1039893b810fcbd8b74b874b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263259"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967402"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>Vue d’ensemble des modèles courants de mise à l’échelle automatique
 Cet article décrit certains des modèles courants de mise à l’échelle de vos ressources dans Azure.
 
-La mise à l’échelle automatique Azure Monitor s’applique uniquement aux jeux de mise à l’échelle de machine virtuelle, services cloud, plans App Service et environnements App Service. 
+La mise à l’échelle automatique Azure Monitor s’applique uniquement à [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), aux [services cloud](https://azure.microsoft.com/services/cloud-services/), à [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et aux [services Gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 # <a name="lets-get-started"></a>Prise en main
 
@@ -26,10 +26,10 @@ Cet article suppose que vous êtes familiarisé avec la mise à l’échelle aut
 
 ## <a name="scale-based-on-cpu"></a>Mise à l’échelle en fonction du processeur
 
-Vous avez une application web (/VMSS/rôle de service cloud) et 
+Vous avez une application web (/VMSS/rôle de service cloud) et
 
 - Vous souhaitez faire augmenter/diminuer les tailles d’instance sur la base du processeur.
-- Vous souhaitez en outre vous assurer qu’il existe un nombre minimal d’instances. 
+- Vous souhaitez en outre vous assurer qu’il existe un nombre minimal d’instances.
 - Vous souhaitez aussi vous assurer que vous définissez une limite maximale pour le nombre d’instances, vers lequel vous pouvez faire évoluer.
 
 ![Mise à l’échelle en fonction du processeur][2]
@@ -45,7 +45,7 @@ Vous avez une application web (/VMSS/rôle de service cloud) et
 
 ## <a name="scale-differently-during-holidays"></a>Mettre à l’échelle différemment pendant les jours fériés
 
-Vous avez une application web (/VMSS/rôle de service cloud) et 
+Vous avez une application web (/VMSS/rôle de service cloud) et
 
 - Vous souhaitez augmenter/diminuer la taille des instances en fonction de l’utilisation du processeur par défaut
 - Toutefois, pendant les vacances (ou des jours spécifiques qui sont importants pour votre entreprise), vous souhaitez remplacer les valeurs par défaut et avoir plus de capacité à votre disposition.
@@ -54,7 +54,7 @@ Vous avez une application web (/VMSS/rôle de service cloud) et
 
 ## <a name="scale-based-on-custom-metric"></a>Mise à l’échelle en fonction de métriques personnalisées
 
-Vous avez un site web frontal et un niveau d’API qui communique avec le serveur principal. 
+Vous avez un site web frontal et un niveau d’API qui communique avec le serveur principal.
 
 - Vous souhaitez mettre à l’échelle le niveau API sur la base d’événements personnalisés sur le serveur frontal (exemple : vous souhaitez mettre à l’échelle de votre processus de validation en fonction du nombre d’éléments dans le panier d’achat)
 

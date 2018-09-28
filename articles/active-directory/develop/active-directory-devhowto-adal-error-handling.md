@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: db1d2f16c6497ce3c14d162a9c354dda995058f6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593041"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974780"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Meilleures pratiques de gestion des erreurs pour les clients Azure Active Directory Authentication Library (ADAL)
 
@@ -182,7 +182,7 @@ Le système d’exploitation peut également générer un ensemble d’erreurs n
 
 - Applications clientes natives (iOS, Android, .NET Desktop ou Xamarin)
 - Applications web appelant une ressource API (.NET)
-- Applications à page unique (JavaScript)
+- Applications monopages (JavaScript)
 - Applications service à service (.NET, Java)
   - Tous les scénarios, y compris On-Behalf-Of
   - Scénarios spécifiques On-Behalf-Of
@@ -365,9 +365,9 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Cas d’erreur et étapes possibles : Applications à page unique (adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Cas d’erreur et étapes possibles : Applications monopages (adal.js)
 
-Si vous créez une application à page unique à l’aide d’adal.js avec AcquireToken, le code de gestion des erreurs est similaire à celui d’un appel en mode silencieux classique. Plus spécifiquement dans adal.js, AcquireToken n’affiche jamais d’interface utilisateur. 
+Si vous créez une application monopage à l’aide d’adal.js avec AcquireToken, le code de gestion des erreurs est similaire à celui d’un appel en mode silencieux classique. Plus spécifiquement dans adal.js, AcquireToken n’affiche jamais d’interface utilisateur. 
 
 Un échec AcquireToken inclut les cas suivants :
 

@@ -1,6 +1,6 @@
 ---
-title: Prise en main de la page Log Analytics dans le portail Azure | Microsoft Docs
-description: Cet article explique comment écrire des requêtes à partir de la page Log Analytics.
+title: Prise en main de Log Analytics dans le Portail Azure | Microsoft Docs
+description: Cet article fournit un didacticiel dédié à l’écriture de requêtes dans le Portail Azure à l’aide de Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,14 +15,16 @@ ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3bcc5368a99dc7c7c32381ca0226119d81fc2c0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42139890"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978197"
 ---
-# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Prise en main de la page Log Analytics dans le portail Azure
+# <a name="get-started-with-log-analytics-in-the-azure-portal"></a>Prise en main de Log Analytics dans le Portail Azure
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Dans ce didacticiel, vous allez apprendre à écrire des requêtes Log Analytics à partir de la page Log Analytics du portail Azure (actuellement en préversion). Au terme du tutoriel, vous saurez :
 
@@ -45,7 +47,7 @@ La page Log Analytics est un outil web utilisé pour écrire et exécuter des re
 ## <a name="basic-queries"></a>Requêtes de base
 Les requêtes peuvent être utilisées pour rechercher des termes, identifier des tendances, analyser des modèles et fournissent de nombreux autres insights basés sur vos données. Démarrez avec une requête de base :
 
-```OQL
+```Kusto
 Event | search "error"
 ```
 
@@ -55,7 +57,7 @@ Les requêtes peuvent commencer par un nom de table ou une commande **search**. 
 
 Une autre façon d’écrire cette même requête serait :
 
-```OQL
+```Kusto
 search in (Event) "error"
 ```
 
@@ -79,7 +81,7 @@ Dans chaque table, les données sont organisées en colonnes avec différents ty
 ## <a name="filter-the-results"></a>Filtrer les résultats
 Commencez par récupérer tout le contenu de la table _Event_.
 
-```OQL
+```Kusto
 Event
 ```
 
@@ -133,7 +135,7 @@ Si la requête contient explicitement un filtre pour _TimeGenerated_, le titre d
 ## <a name="charts"></a>Graphiques
 Les résultats des requêtes peuvent être présentés sous la forme d’une table, mais également sous forme graphique. Utilisez la requête suivante en guise d’exemple :
 
-```OQL
+```Kusto
 Event 
 | where EventLevelName == "Error" 
 | where TimeGenerated > ago(1d) 

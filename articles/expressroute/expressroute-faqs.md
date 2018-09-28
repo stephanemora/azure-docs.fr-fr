@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2a7842a50690049507e00b85c8736e63da002503
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302294"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950163"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -66,15 +66,25 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 >L’homologation publique a été désactivée sur les nouveaux circuits ExpressRoute. Les services Azure sont disponibles sur l’homologation Microsoft.
 >
 
+* Power BI
+* Dynamics 365 for Finance and Operations (anciennement Dynamics AX Online)
+* La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br>
+  Les services suivants ne sont PAS pris en charge :
+    * CDN
+    * Test de charge d’Azure DevOps Services
+    * Multi-Factor Authentication
+    * Traffic Manager
+
 ### <a name="microsoft-peering"></a>Homologation Microsoft
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Test de charge Visual Studio Team Services
+* Test de charge d’Azure DevOps Services
 * La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br>Les services suivants ne sont **pas pris en charge** :
     * CDN
+    * Test de charge d’Azure DevOps Services
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -337,3 +347,11 @@ Votre circuit existant continuera à publier des préfixes pour Office 365 et Dy
 * L’homologation Microsoft des circuits ExpressRoute ayant été configurés avant le 1er août 2017 entraînera la publication de tous les préfixes de service via l’homologation Microsoft, même si les filtres d’itinéraire ne sont pas définis.
 
 * L’homologation Microsoft des circuits ExpressRoute configurés à partir du 1er août 2017 n’entraînera la publication d’aucun préfixe tant qu’un filtre de routage sera joint au circuit. Aucun préfixe par défaut ne s’affichera.
+
+## <a name="globalreach"></a>ExpressRoute Direct (préversion)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-direct-faq-include.md)]
+
+## <a name="globalreach"></a>Global Reach (préversion)
+
+[!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

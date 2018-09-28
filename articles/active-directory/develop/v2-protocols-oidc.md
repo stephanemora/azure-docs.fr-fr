@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4c7b46972a8c07675e1318a900c1f07043beb3de
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 51c7bacbfa30a74aef89abba133e48c483375032
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591933"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971448"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 et le protocole OpenID Connect
 
@@ -139,7 +139,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 
 | Paramètre | Description |
 | --- | --- |
-| id_token |Le jeton d'ID que l’application a demandé. Vous pouvez utiliser le paramètre `id_token` pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour plus d’informations sur les jetons d’ID et leur contenu, consultez la [documentation de référence sur les jetons de point de terminaison v2.0](v2-id-and-access-tokens.md). |
+| id_token |Le jeton d'ID que l’application a demandé. Vous pouvez utiliser le paramètre `id_token` pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour plus d’informations sur les jetons d’ID et leur contenu, consultez les [références `id_tokens`](id-tokens.md). |
 | state |Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques. |
 
 ### <a name="error-response"></a>Réponse d’erreur
@@ -175,20 +175,18 @@ Le tableau suivant décrit les codes d’erreur qui peuvent être retournés dan
 
 ## <a name="validate-the-id-token"></a>Validation du jeton d’ID
 
-La réception d’un jeton d’ID n’est pas suffisante pour authentifier l’utilisateur. Vous devez également valider la signature du jeton d’ID et vérifier les revendications du jeton selon les besoins de votre application. Le point de terminaison v2.0 utilise les [jetons web JSON (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
+La réception du jeton id_token ne suffit pas à authentifier l’utilisateur. Vous devez valider la signature du jeton id_token et vérifier la conformité des revendications du jeton par rapport à la configuration requise de votre application. Le point de terminaison v2.0 utilise les [jetons web JSON (JWT)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) et le chiffrement de clés publiques pour signer les jetons et vérifier leur validité.
 
-Vous pouvez décider de valider le jeton d'ID dans le code du client, mais une pratique courante consiste à envoyer le jeton d'ID vers un serveur principal, afin d’y appliquer la validation. Après avoir validé la signature du jeton d'ID, vous devrez vérifier quelques revendications. Pour plus d’informations, consultez la [page de référence sur les jetons v2.0](v2-id-and-access-tokens.md), notamment les sections [Validation des jetons](v2-id-and-access-tokens.md#validating-tokens) et [Informations importantes sur la substitution des clés de signature](v2-id-and-access-tokens.md#validating-tokens). Nous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il existe au moins une de ces bibliothèques pour la plupart des langages et plateformes.
+Vous pouvez décider de valider l’élément `id_token` dans le code du client, mais une pratique courante consiste à envoyer l’élément `id_token` vers un serveur principal, afin d’y appliquer la validation. Une fois que vous avez validé la signature du jeton id_token, il vous faudra vérifier quelques revendications. Pour plus d’informations, consultez la page de [référence `id_token`](id-tokens.md), notamment les sections [Validation des jetons](id-tokens.md#validating-idtokens) et [Informations importantes sur la substitution des clés de signature](active-directory-signing-key-rollover.md). Nous vous recommandons d’utiliser une bibliothèque pour analyser et valider les jetons. Il en existe au moins une pour la plupart des langages et plateformes.
 <!--TODO: Improve the information on this-->
 
 En fonction de votre scénario, vous pouvez également valider des revendications supplémentaires. Voici quelques validations courantes :
 
-* Vérifier que l’utilisateur ou l’organisation s’est inscrit pour l’application.
-* Vérifier que l’utilisateur dispose des privilèges ou autorisations nécessaires.
+* S’assurer que l’utilisateur/l’organisation s’est inscrit pour l’application.
+* S’assurer que l’utilisateur dispose de l’autorisation/des privilèges appropriés.
 * S’assurer de l’utilisation d’une force certaine d’authentification, comme une authentification multifacteur.
 
-Pour plus d’informations sur les revendications dans un jeton d'ID, consultez la page de [référence sur les jetons du point de terminaison v2.0](v2-id-and-access-tokens.md).
-
-Une fois que vous avez validé le jeton d’ID, vous pouvez démarrer une session avec l’utilisateur. Utilisez les revendications dans le jeton d’ID pour obtenir des informations sur l’utilisateur dans votre application. Vous pouvez utiliser ces informations pour l’affichage, les enregistrements, les autorisations, etc.
+Une fois que vous avez complètement validé le jeton id_token, vous pouvez démarrer une session avec l’utilisateur et utiliser les revendications du jeton id_token pour récupérer les informations sur l’utilisateur dans votre application. Ces informations peuvent être utilisées pour l’affichage, les enregistrements, la personnalisation, etc.
 
 ## <a name="send-a-sign-out-request"></a>Envoi d’une demande de déconnexion
 
@@ -257,7 +255,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 
 | Paramètre | Description |
 | --- | --- |
-| id_token |Le jeton d'ID que l’application a demandé. Vous pouvez utiliser le jeton d'ID pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour plus de détails sur les jetons d'ID et leur contenu, consultez la page de [référence des jetons de point de terminaison v2.0](v2-id-and-access-tokens.md). |
+| id_token |Le jeton d'ID que l’application a demandé. Vous pouvez utiliser le jeton d'ID pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour plus de détails sur les jetons d'ID et leur contenu, consultez la page de [référence `id_tokens`](id-tokens.md). |
 | code |Le code d’autorisation demandé par l’application. L’application peut utiliser ce code d’autorisation pour demander un jeton d’accès pour la ressource cible. La durée de vie d'un code d’autorisation est très courte. En règle générale, un code d’autorisation expire au bout de 10 minutes environ. |
 | state |Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques. |
 
@@ -280,4 +278,4 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 Pour obtenir une description des codes d’erreur éventuels et connaître les réponses client recommandées associées, consultez [Codes d’erreur pour les erreurs de point de terminaison d’autorisation](#error-codes-for-authorization-endpoint-errors).
 
-Une fois que vous avez obtenu un code d'autorisation et un jeton d'ID, vous pouvez connecter l’utilisateur et obtenir des jetons d’accès pour son compte. Pour connecter l’utilisateur, vous devez valider le jeton d'ID [exactement comme décrit](#validate-the-id-token). Pour obtenir des jetons d’accès, suivez la procédure décrite dans la [documentation du protocole OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).
+Une fois que vous avez obtenu un code d'autorisation et un jeton d'ID, vous pouvez connecter l’utilisateur et obtenir des jetons d’accès pour son compte. Pour connecter l’utilisateur, vous devez valider le jeton d'ID [exactement comme décrit](id-tokens.md#validating-idtokens). Pour obtenir des jetons d’accès, suivez la procédure décrite dans la [documentation du flux de code OAuth](v2-oauth2-auth-code-flow.md#request-an-access-token).

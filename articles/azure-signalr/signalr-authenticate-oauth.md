@@ -14,16 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667648"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974321"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Didacticiel : Authentification par le service Azure SignalR
-
-Le service Microsoft Azure SignalR est actuellement disponible en [version préliminaire publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ce didacticiel s’appuie sur l’application de salle de conversation présentée dans le démarrage rapide. Si vous n’avez pas effectué l’exercice de [création de salle de conversation avec le service SignalR](signalr-quickstart-dotnet-core.md), exécutez-le dans un premier temps. 
 
@@ -396,7 +394,7 @@ Dans cette section, vous allez activer l’authentification réelle en ajoutant 
 
 Dans cette section, vous allez utiliser l’interface de ligne de commande (CLI) d’Azure Cloud Shell afin de créer une [nouvelle application web Azure](https://docs.microsoft.com/azure/app-service/) hébergeant votre application ASP.NET dans Azure. L’application web sera configurée pour l’utilisation du déploiement local Git. L’application web sera également configurée avec votre chaîne de connexion SignalR, les secrets d’application GitHub OAuth et un utilisateur de déploiement.
 
-Les étapes de cette section utilisent l’extension *signalr* pour l’interface Azure CLI. Exécutez la commande suivante pour installer l’extension *signalr* pour l’interface Azure CLI 2.0 :
+Les étapes de cette section utilisent l’extension *signalr* pour l’interface Azure CLI. Exécutez la commande suivante pour installer l’extension *signalr* pour l’interface Azure CLI :
 
 ```azurecli-interactive
 az extension add -n signalr

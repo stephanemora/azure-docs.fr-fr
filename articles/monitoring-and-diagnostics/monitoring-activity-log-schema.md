@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d267ffd5085c27c60e9eb229e2d9026fa83ef848
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003829"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998225"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schéma d’événements du journal d’activité
 Le **Journal d’activité Azure** est un journal qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Cet article décrit le schéma d’événements par catégorie de données. Le schéma des données varie selon que vous lisez les données dans le portail, dans PowerShell, dans l’interface CLI, ou directement dans l’API REST, au lieu de [diffuser en continu les données vers le stockage ou vers des Event Hubs à l’aide d’un profil de journal](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). Les exemples ci-dessous montrent le schéma, tel qu’il se présente dans le portail, PowerShell, l’interface CLI et l’API REST. Un mappage de ces propriétés vers le [schéma des journaux de diagnostic Azure](./monitoring-diagnostic-logs-schema.md) est fourni à la fin de cet article.
@@ -192,6 +192,95 @@ Cette catégorie contient l’enregistrement de tout incident de l’état d’i
 }
 ```
 Reportez-vous à l’article [Notifications d’intégrité du service](./monitoring-service-notifications.md) pour plus d’informations sur les valeurs dans les propriétés.
+
+## <a name="resource-health"></a>Intégrité des ressources
+Cette catégorie contient l’enregistrement de tout événement d’intégrité de la ressource survenu dans vos ressources Azure. Par exemple, cette catégorie peut comporter le type d’événement suivant : « L’état d’intégrité de la machine virtuelle est passé à Indisponible ». Les événements d’intégrité de ressource peuvent représenter l’un des quatre états d’intégrité : Disponible, Indisponible, Détérioré et Inconnu. En outre, les événements d’intégrité de ressource peuvent être initiés par la plateforme ou initiés par l’utilisateur.
+
+### <a name="sample-event"></a>Exemple d’événement
+
+```json
+{
+    "channels": "Admin, Operation",
+    "correlationId": "28f1bfae-56d3-7urb-bff4-194d261248e9",
+    "description": "",
+    "eventDataId": "a80024e1-883d-37ur-8b01-7591a1befccb",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "ResourceHealth",
+        "localizedValue": "Resource Health"
+    },
+    "eventTimestamp": "2018-09-04T15:33:43.65Z",
+    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "level": "Critical",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Resourcehealth/healthevent/Activated/action",
+        "localizedValue": "Health Event Activated"
+    },
+    "resourceGroupName": "<resource group>",
+    "resourceProviderName": {
+        "value": "Microsoft.Resourcehealth/healthevent/action",
+        "localizedValue": "Microsoft.Resourcehealth/healthevent/action"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
+    "subscriptionId": "<subscription Id>",
+    "properties": {
+        "stage": "Active",
+        "title": "Virtual Machine health status changed to unavailable",
+        "details": "Virtual machine has experienced an unexpected event",
+        "healthStatus": "Unavailable",
+        "healthEventType": "Downtime",
+        "healthEventCause": "PlatformInitiated",
+        "healthEventCategory": "Unplanned"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="property-descriptions"></a>Description des propriétés
+| Nom de l’élément | Description |
+| --- | --- |
+| channels | Toujours « Admin, opération » |
+| correlationId | Un GUID au format chaîne. |
+| description |Description textuelle statique de l’événement d’alerte. |
+| eventDataId |Identificateur unique de l'événement d’alerte. |
+| category | Toujours « ResourceHealth » |
+| eventTimestamp |Horodatage lorsque l’événement a été généré par le service Azure traitant la demande correspondant à l’événement. |
+| level |Niveau de l’événement. L’une des valeurs suivantes : « Critical », « Error », « Warning », « Informational » et « Verbose ». |
+| operationId |Un GUID partagé par les événements correspondant à une opération unique. |
+| operationName |Nom de l’opération. |
+| nom_groupe_ressources |Nom du groupe de ressources qui contient la ressource. |
+| resourceProviderName |Toujours « Microsoft.Resourcehealth/healthevent/action ». |
+| resourceType | Type de ressource affecté par un événement Resource Health. |
+| ResourceId | Nom de l’ID de ressource de la ressource affectée. |
+| status |Chaîne décrivant l’état de l’événement d’intégrité. Les valeurs peuvent être : Active, Resolved, InProgress, Updated. |
+| subStatus | Généralement, nul pour les alertes. |
+| submissionTimestamp |Horodatage lorsque l’événement est devenu disponible pour l’interrogation. |
+| subscriptionId |ID d’abonnement Azure. |
+| properties |Jeu de paires `<Key, Value>` (c’est-à-dire Dictionary) décrivant les détails de l’événement.|
+| properties.title | Chaîne conviviale qui décrit l’état d’intégrité de la ressource. |
+| properties.details | Chaîne conviviale qui fournit des informations supplémentaires sur l’événement. |
+| properties.currentHealthStatus | État d’intégrité actuel de la ressource. L’une des valeurs suivantes : « Available », « Unavailable », « Available » et « Unknown ». |
+| properties.previousHealthStatus | État d’intégrité précédent de la ressource. L’une des valeurs suivantes : « Available », « Unavailable », « Available » et « Unknown ». |
+| properties.type | Description du type d’événement d’intégrité de la ressource. |
+| properties.cause | Description de la cause de l’événement d’intégrité de la ressource. « UserInitiated » ou « PlatformInitiated ». |
+
 
 ## <a name="alert"></a>Alerte
 Cette catégorie contient l’enregistrement de toutes les activations des alertes Azure. Un exemple du type d’événement que vous pouvez voir dans cette catégorie est « % du processeur sur myVM a été supérieur à 80 pour les 5 dernières minutes. » Une variété de systèmes Azure possèdent un concept d’alertes : vous pouvez définir une règle quelconque et recevoir une notification lorsque les conditions correspondent à cette règle. Chaque fois qu’un type d’alerte Azure pris en charge « s’active » ou si les conditions sont remplies pour générer une notification, un enregistrement de l’activation est également envoyé à cette catégorie du journal d’activité.

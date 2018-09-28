@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 1686c283b0aa9f0713317b22e2ef2abd16e6b187
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579905"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983682"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivage des journaux de diagnostic Azure
 
@@ -81,7 +81,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | RetentionEnabled |Non  |Valeur booléenne indiquant si une stratégie de rétention est activée pour cette ressource. |
 | RetentionInDays |Non  |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie. |
 
-## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Archivage des journaux de diagnostic à l’aide d’Azure CLI 2.0
+## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>Archivage des journaux de diagnostic à l’aide d’Azure CLI
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

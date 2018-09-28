@@ -12,27 +12,32 @@ ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/27/2018
+ms.topic: conceptual
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 735c5a3645f5e2e0f31bac4d4b2f61d73dfe069e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 93bc3db2b7cf3002efc93f1e8006c5362eddab9f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128777"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959969"
 ---
-# <a name="permissions-in-azure-active-directory"></a>Autorisations dans Azure Active Directory
+# <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0
 
-Azure Active Directory (Azure AD) utilise très souvent des autorisations pour les flux OAuth et OpenID Connect (OIDC). Quand votre application reçoit un jeton d’accès d’Azure AD, ce jeton inclut des revendications qui décrivent les autorisations dont dispose votre application par rapport à une ressource particulière. Les autorisations, également appelées étendues, facilitent l’autorisation pour la ressource, car cette dernière a uniquement besoin de vérifier que le jeton contient l’autorisation appropriée pour l’API appelée par l’application. 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
+Azure Active Directory (Azure AD) utilise très souvent des autorisations pour les flux OAuth et OpenID Connect (OIDC). Quand votre application reçoit un jeton d’accès d’Azure AD, ce jeton inclut des revendications qui décrivent les autorisations dont dispose votre application par rapport à une ressource particulière.
+
+Les *autorisations*, également appelées *étendues*, facilitent l’autorisation pour la ressource, car cette dernière a uniquement besoin de vérifier que le jeton contient l’autorisation appropriée pour l’API appelée par l’application.
 
 ## <a name="types-of-permissions"></a>Types d’autorisations
 
-Azure AD définit deux types d’autorisations : 
-* **Autorisations déléguées** : utilisées par les applications qui ont un utilisateur connecté présent. Pour ces applications, l’utilisateur ou un administrateur accorde les autorisations que l’application demande. Ensuite, l’application se voit déléguer une autorisation d’agir en tant qu’utilisateur connecté lors des appels à une API. En fonction de l’API, l’utilisateur peut ne pas être en mesure de donner son consentement à l’API directement et [avoir besoin d’un « consentement de l’administrateur ».](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
-* **Autorisations d’application** : utilisées par les applications qui s’exécutent sans utilisateur connecté présent ; par exemple, les applications qui s’exécutent en tant que services ou démons en arrière-plan. Les autorisations d’application peuvent uniquement être [consenties par un administrateur](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant), car elles sont généralement puissantes et permettent d’accéder à des données situées au-delà des limites de l’utilisateur ou à des données normalement réservées aux seuls administrateurs. 
+Azure AD définit deux types d’autorisations :
+
+* **Autorisations déléguées** : utilisées par les applications qui ont un utilisateur connecté présent. Pour ces applications, l’utilisateur ou un administrateur accorde les autorisations que l’application demande. Ensuite, l’application se voit déléguer une autorisation d’agir en tant qu’utilisateur connecté lors des appels à une API. En fonction de l’API, l’utilisateur peut ne pas être en mesure de donner son consentement à l’API directement et [avoir besoin d’un « consentement de l’administrateur »](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+* **Autorisations d’application** : utilisées par les applications qui s’exécutent sans utilisateur connecté présent ; par exemple, les applications qui s’exécutent en tant que services ou démons en arrière-plan. Les autorisations d’application peuvent uniquement être [consenties par un administrateur](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant), car elles sont généralement puissantes et permettent d’accéder à des données situées au-delà des limites de l’utilisateur ou à des données normalement réservées aux seuls administrateurs.
 
 Les autorisations effectives sont celles qu’a votre application lors des requêtes faites à une API. 
 
