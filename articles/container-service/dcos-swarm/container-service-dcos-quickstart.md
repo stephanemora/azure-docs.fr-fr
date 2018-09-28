@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c2c1ef83ade7040e16f54b87f63f6eb27714bf2a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 4cd7f2284f3449fe8abdf1a6f8e85b9b0b712d7a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42022684"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998557"
 ---
 # <a name="deploy-a-dcos-cluster"></a>Déployer un cluster DC/OS
 
@@ -22,7 +22,7 @@ DC/OS propose une plateforme distribuée destinée à exécuter des applications
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Ce didacticiel requiert Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Ce tutoriel nécessite Azure CLI 2.0.4 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="log-in-to-azure"></a>Connexion à Azure 
 
@@ -165,7 +165,7 @@ az group delete --name myResourceGroup --no-wait
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez déployé un cluster DC/OS et exécuté un conteneur Docker simple sur le cluster. Pour en savoir plus sur Azure Container Service, passez aux didacticiels ACS.
+Dans ce démarrage rapide, vous avez déployé un cluster DC/OS et exécuté un conteneur Docker simple sur le cluster. Pour en savoir plus sur Azure Container Service, passez aux tutoriels ACS.
 
 > [!div class="nextstepaction"]
 > [Gérer un cluster ACS DC/OS](container-service-dcos-manage-tutorial.md)

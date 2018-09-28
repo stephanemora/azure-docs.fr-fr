@@ -1,23 +1,23 @@
 ---
-title: Créer une demande de support pour Azure Cost Management | Documents Microsoft
-description: Cet article vous indique comment créer une demande de support pour Cost Management.
+title: Créer une demande de support pour Cloudyn dans Azure | Documents Microsoft
+description: Cet article vous indique comment créer une demande de support pour Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 35d3153cb485f11fe17689f1ff1d3d88961878d3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d074b263d11c6b12a4283d2ff479a5b3dc1d6908
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296689"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952441"
 ---
-# <a name="create-a-support-request-for-cost-management"></a>Créer une demande de support pour Cost Management
+# <a name="create-a-support-request-for-cloudyn"></a>Créer une demande de support pour Cloudyn
 
 Vous pouvez ouvrir une demande de support si vous ne trouvez pas les informations que vous recherchez. Ou, si vous pensez être confronté à une interruption de service ou à un bogue. Quand vous ouvrez un ticket de support, veillez à ne l’ouvrir que pour un seul problème. Procéder ainsi permet d’acheminer rapidement le problème signalé.
 
@@ -48,4 +48,4 @@ Pour vérifier l’état d’un incident que vous avez archivé, consultez [Tout
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur Azure Cost Management, poursuivez avec le didacticiel [Examen de l’utilisation et des coûts](tutorial-review-usage.md) pour Cost Management.
+- Pour en savoir plus sur Cloudyn, suivez le tutoriel [Vérifier l’utilisation et les coûts](tutorial-review-usage.md) sur Cloudyn.

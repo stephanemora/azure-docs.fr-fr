@@ -74,8 +74,8 @@ items:
       href: service-fabric-tutorial-scale-cluster.md
     - name: 3 - Mettre à niveau le runtime du cluster
       href: service-fabric-tutorial-upgrade-cluster.md
-    - name: 4 - Déployer la gestion des API avec Service Fabric
-      href: service-fabric-tutorial-deploy-api-management.md
+    - name: 4- Supprimer un cluster
+      href: service-fabric-tutorial-delete-cluster.md
   - name: Créer un cluster autonome sur AWS
     items:
     - name: 1- Créer l’infrastructure réseau sur AWS
@@ -430,6 +430,8 @@ items:
       href: service-fabric-get-started-tomcat.md
     - name: Configurer la sécurité
       items:
+      - name: Intégration avec la gestion des API
+        href: service-fabric-tutorial-deploy-api-management.md
       - name: Gérer des secrets d’application
         href: service-fabric-application-secret-management.md
       - name: Configurer le proxy inverse pour une communication sécurisée
@@ -588,8 +590,6 @@ items:
         href: service-fabric-cluster-rollover-cert-cn.md
       - name: Gérer les certificats de cluster
         href: service-fabric-cluster-security-update-certs-azure.md
-      - name: Supprimer
-        href: service-fabric-cluster-delete.md
       - name: Se connecter à distance à la machine virtuelle du nœud de cluster
         href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
     - name: Clusters autonomes
@@ -757,9 +757,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: b204469b3d3dba8a9e8da870bcb3264e5089c4ca
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 7bd6ee339aa1eafbf260e9df4925f50cba49bdf8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380316"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406055"

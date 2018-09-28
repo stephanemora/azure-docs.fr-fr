@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248585"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966543"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Questions fréquentes sur l’accélérateur de solution d’usine connectée
 
@@ -111,7 +111,7 @@ La simulation inscrit elle-même les appareils suivants :
 * publisher.rio.corp.contoso
 * publisher.seattle.corp.contoso
 
-À l’aide de l’outil [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou [l’extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension), vous pouvez identifier les appareils inscrits auprès du hub IoT utilisé par votre solution. Pour utiliser l’explorateur d’appareils, vous avez besoin de la chaîne de connexion du hub IoT de votre déploiement. Pour utiliser l’extension IoT pour Azure CLI 2.0, vous avez besoin de votre nom d’IoT Hub.
+À l’aide de l’outil [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) ou de [l’extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension), vous pouvez identifier les appareils inscrits auprès du hub IoT utilisé par votre solution. Pour utiliser l’explorateur d’appareils, vous avez besoin de la chaîne de connexion du hub IoT de votre déploiement. Pour utiliser l’extension IoT pour Azure CLI, vous avez besoin de votre nom d’IoT Hub.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Comment obtenir les données de journal des composants de simulation ?
 

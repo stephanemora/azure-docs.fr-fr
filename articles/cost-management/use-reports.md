@@ -1,29 +1,31 @@
 ---
-title: Utiliser des rapports de gestion des coûts dans Azure Cost Management | Microsoft Docs
-description: Cet article décrit comment utiliser les différents rapports Azure Cost Management dans le portail Cloudyn.
+title: Utiliser des rapports Cloudyn dans Azure | Microsoft Docs
+description: Cet article décrit comment utiliser différents rapports dans le portail Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 055584bd27c978fb71e6c09995c28be7348acda8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906375"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976783"
 ---
-# <a name="use-cost-management-reports"></a>Utiliser les rapports de gestion des coûts
+# <a name="use-cloudyn-reports"></a>Utiliser des rapports Cloudyn
 
-Cet article décrit l’objectif des rapports de gestion des coûts inclus dans le portail Cloudyn. Il explique également comment utiliser efficacement les rapports. La plupart des rapports sont intuitifs et ont une apparence similaire. L’essentiel des actions possibles dans un rapport est également réalisable dans d’autres rapports. Pour une vue d’ensemble de l’utilisation des rapports de gestion des coûts, y compris la personnalisation et l’enregistrement ou la planification, voir [Comprendre les rapports de coûts](understanding-cost-reports.md).
+Cet article décrit l’objectif des rapports Cloudyn inclus dans le portail Cloudyn. Il explique également comment utiliser efficacement les rapports. La plupart des rapports sont intuitifs et ont une apparence similaire. L’essentiel des actions possibles dans un rapport est également réalisable dans d’autres rapports. Pour une vue d’ensemble de l’utilisation des rapports Cloudyn, y compris la personnalisation et l’enregistrement ou la planification, consultez [Comprendre les rapports de coûts](understanding-cost-reports.md).
+
+Azure Cost Management offre des fonctionnalités similaires à Cloudyn. Azure Cost Management est une solution native de gestion des coûts Azure. Il vous permet d’analyser les coûts, de créer et de gérer des budgets, d’exporter des données, ainsi que de consulter des recommandations d’optimisation et d’agir en conséquence pour dépenser moins. Pour plus d’informations, consultez [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="report-types"></a>Types de rapports
 
-Il existe trois types de rapports de gestion des coûts :
+Il existe trois types de rapports Cloudyn :
 
 - Les rapports d’évolution dans le temps, par exemple, le rapport des coûts dans le temps. Les rapports d’évolution dans le temps présentent une série chronologique de données sur un intervalle sélectionné avec une résolution prédéfinie, ainsi qu’une résolution hebdomadaire pour les deux derniers mois. Vous pouvez utiliser le regroupement et le filtrage pour faire un zoom avant sur différents points de données.
   - Les rapports d’évolution dans le temps peuvent être utiles pour afficher les tendances et détecter des pics ou des anomalies.
@@ -49,7 +51,7 @@ Les rapports _d’analyse des coûts_ présentent les données de facturation é
 
 Certains rapports _d’analyse des coûts_ ne regroupent pas les coûts par balises de ressources. Par ailleurs, les informations de facturation avec balise n’apparaissent dans les rapports qu’une fois les coûts affectés suivant un modèle de coûts créé avec [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-Les rapports _d’affectation des coûts_ sont disponibles après création du modèle de coûts avec [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cost Management traite les données de coût et de facturation et les fait _correspondre_ aux données d’utilisation et de balises de vos comptes cloud. L’accès à vos données d’utilisation est requis pour cette mise en correspondance. Les comptes pour lesquels il manque les informations d’identification sont étiquetés comme _ressources sans catégorie_.
+Les rapports _d’affectation des coûts_ sont disponibles après création du modèle de coûts avec [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn traite les données de coût et de facturation et les _fait correspondre_ aux données d’utilisation et d’étiquette de vos comptes cloud. Pour faire correspondre les données, Cloudyn requiert un accès à vos données d’utilisation. Les comptes pour lesquels il manque les informations d’identification sont étiquetés comme _ressources sans catégorie_.
 
 ## <a name="dashboards"></a>Tableaux de bord
 
@@ -57,7 +59,7 @@ Les tableaux de bord de Cloudyn offrent une vue d’ensemble des rapports. Les t
 
 ## <a name="budget-information-in-reports"></a>Informations budgétaires dans les rapports
 
-De nombreux rapports de gestion des coûts ne présentent des informations budgétaires qu’après création manuelle d’un budget, et pas avant. Pour plus d’informations, voir [Paramètres budgétaires](#budget-settings).
+De nombreux rapports Cloudyn ne présentent des informations budgétaires qu’après création manuelle d’un budget, et pas avant. Pour plus d’informations, voir [Paramètres budgétaires](#budget-settings).
 
 ## <a name="reports-and-reporting-features"></a>Rapports et fonctionnalités de génération de rapports
 
@@ -81,7 +83,7 @@ Le rapport d’analyse des coûts est un calcul de facturation interne et de 	r�
 
 Les stratégies définies dans [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) sont utilisées dans le rapport d’analyse des coûts ; les résultats sont ensuite combinés avec des informations provenant des données brutes du fournisseur cloud.
 
-Comment ce rapport est-il calculé ? Le service Cost Management fait en sorte que l’affectation conserve l’intégrité de chaque compte lié en appliquant une _affinité de compte_. Cette affinité garantit qu’aucun coût n’est affecté à un compte pour un service qu’il n’utilise pas. Les coûts à payer dans ce compte restent dans ce compte et ne sont pas calculés par les stratégies d’affectation. Par exemple, vous pouvez avoir cinq comptes liés. Si seulement trois d’entre eux utilisent des services de stockage, alors le coût des services de stockage est affecté uniquement aux balises de ces trois comptes.
+Comment ce rapport est-il calculé ? Le service Cloudyn garantit que l’affectation conserve l’intégrité de chaque compte lié en appliquant une _affinité de compte_. Cette affinité garantit qu’aucun coût n’est affecté à un compte pour un service qu’il n’utilise pas. Les coûts à payer dans ce compte restent dans ce compte et ne sont pas calculés par les stratégies d’affectation. Par exemple, vous pouvez avoir cinq comptes liés. Si seulement trois d’entre eux utilisent des services de stockage, alors le coût des services de stockage est affecté uniquement aux balises de ces trois comptes.
 
 Utilisez le rapport d’analyse des coûts pour :
 
@@ -147,7 +149,7 @@ Cet ensemble de rapports des coûts amortis indique les frais de service linéar
 - Les frais d’achat d’instances réservées
 - Certains articles de la Place de marché Azure
 
-Dans le fichier de facturation, les frais ponctuels se caractérisent par le fait que les dates de début et de fin (timestamp) de la consommation de services ont des valeurs égales. Le service Cost Management les identifie comme frais ponctuels amortis. Les autres services liés à la consommation présentant des coûts d’utilisation à la demande ne peuvent pas être amortis.
+Dans le fichier de facturation, les frais ponctuels se caractérisent par le fait que les dates de début et de fin (timestamp) de la consommation de services ont des valeurs égales. Le service Cloudyn les identifie comme frais ponctuels amortis. Les autres services liés à la consommation présentant des coûts d’utilisation à la demande ne peuvent pas être amortis.
 
 Les rapports de coûts amortis sont les suivants :
 
@@ -158,9 +160,9 @@ Les rapports de coûts amortis sont les suivants :
 
 Le rapport d’analyse des coûts fournit un aperçu de votre consommation cloud et des dépenses pendant un laps de temps sélectionné. Les stratégies définies dans [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) sont utilisées dans le rapport d’analyse des coûts.
 
-Comment Cost Management calcule-t-il ce rapport ?
+Comment Cloudyn calcule ce rapport ?
 
-Cost Management fait en sorte que l’affectation conserve l’intégrité de chaque compte lié en appliquant une _affinité de compte_. Cette affinité garantit également qu’aucun coût n’est affecté à un compte pour un service qu’il n’utilise pas. Les coûts à payer dans ce compte restent dans ce compte et ne sont pas calculés par les stratégies d’affectation. Par exemple, vous pouvez avoir cinq comptes liés. Si seulement trois d’entre eux utilisent des services de stockage, alors le coût des services de stockage est affecté uniquement aux balises de ces trois comptes.
+Cloudyn garantit que l’affectation conserve l’intégrité de chaque compte lié en appliquant une _affinité de compte_. Cette affinité garantit également qu’aucun coût n’est affecté à un compte pour un service qu’il n’utilise pas. Les coûts à payer dans ce compte restent dans ce compte et ne sont pas calculés par les stratégies d’affectation. Par exemple, vous pouvez avoir cinq comptes liés. Si seulement trois d’entre eux utilisent des services de stockage, alors le coût des services de stockage est affecté uniquement aux balises de ces trois comptes.
 
 Utilisez le rapport d’analyse des coûts pour :
 
@@ -206,7 +208,7 @@ Les frais personnalisés apparaissent dans les rapports de coûts. Par exemple, 
 
 Cost Allocation 360 permet de créer des modèles d’affectation des coûts personnalisés pour affecter les coûts à des ressources du cloud consommées. De nombreux rapports comportent des informations provenant de modèles de coûts personnalisés. Par ailleurs, certains d’entre eux ne présentent des informations qu’après création d’un modèle de coûts personnalisé avec affectation des coûts.
 
-Pour plus d’informations sur la création de modèles de coûts personnalisés, voir [Tutoriel : Gérer les coûts avec Azure Cost Management](tutorial-manage-costs.md).
+Pour plus d’informations sur la création de modèles de coûts personnalisés, consultez [Tutoriel : Gérer les coûts avec Cloudyn](tutorial-manage-costs.md).
 
 ### <a name="cost-vs-budget-over-time-report"></a>Rapport comparatif des coûts et du budget dans le temps
 
@@ -248,11 +250,11 @@ Une fois terminé, votre budget apparaît dans les rapports d’analyse des coû
 
 ### <a name="azure-resource-explorer-report"></a>Rapport Azure Resource Explorer
 
-Le rapport Azure Resource Explorer présente la liste en bloc de toutes les ressources Azure disponibles dans Cost Management. Les indicateurs étendus doivent être activés sur vos comptes Azure pour que vous puissiez utiliser efficacement ce rapport. Ils permettent à Cost Management d’accéder à vos machines virtuelles Azure. Pour plus d’informations, voir [Ajouter des indicateurs étendus pour les machines virtuelles Azure](azure-vm-extended-metrics.md).
+Le rapport Azure Resource Explorer présente la liste en bloc de toutes les ressources Azure disponibles dans Cloudyn. Les indicateurs étendus doivent être activés sur vos comptes Azure pour que vous puissiez utiliser efficacement ce rapport. Ils permettent à Cloudyn d’accéder à vos machines virtuelles Azure. Pour plus d’informations, voir [Ajouter des indicateurs étendus pour les machines virtuelles Azure](azure-vm-extended-metrics.md).
 
 ### <a name="azure-resources-over-time-report"></a>Rapport des ressources Azure dans le temps
 
-Le rapport des ressources Azure dans le temps présente la répartition de toutes les ressources en cours d’exécution sur une période spécifique. Les indicateurs étendus doivent être activés sur vos comptes Azure pour que vous puissiez utiliser efficacement ce rapport. Ils permettent à Cost Management d’accéder à vos machines virtuelles Azure. Pour plus d’informations, voir [Ajouter des indicateurs étendus pour les machines virtuelles Azure](azure-vm-extended-metrics.md).
+Le rapport des ressources Azure dans le temps présente la répartition de toutes les ressources en cours d’exécution sur une période spécifique. Les indicateurs étendus doivent être activés sur vos comptes Azure pour que vous puissiez utiliser efficacement ce rapport. Ils permettent à Cloudyn d’accéder à vos machines virtuelles Azure. Pour plus d’informations, voir [Ajouter des indicateurs étendus pour les machines virtuelles Azure](azure-vm-extended-metrics.md).
 
 ### <a name="instance-explorer-report"></a>Rapport de l’Explorateur d’instances
 
@@ -355,7 +357,7 @@ Il existe trois options de paiement pour les instances réservées :
 - Pas de paiement initial : versements mensuels couvrant le coût de l’instance réservée sur toute la durée de cette instance (remise la plus faible).
 - Paiement initial partiel : règlement à l’avance du quart ou de la moitié du prix et versements mensuels pour le reste (remise inférieure, mais de peu, à celle du paiement initial intégral).
 
-Cost Management évalue la durée de fonctionnement de chaque machine sur les 30 derniers jours. Il recommande l’achat d’instances réservées lorsqu’il est plus rentable d’exécuter la machine avec une instance réservée pour la durée de fonctionnement actuelle.
+Cloudyn évalue la durée de fonctionnement de chaque machine sur les 30 derniers jours. Il recommande l’achat d’instances réservées quand il est plus rentable d’exécuter la machine avec une instance réservée pour la durée de fonctionnement actuelle.
 
 Le rapport présente la justification de ses recommandations visant à maximiser les économies sur l’année. Les recommandations suggèrent de remplacer les instances à la demande par des instances réservées. Il est possible d’acheter directement des instances réservées à partir du rapport.
 
@@ -363,9 +365,9 @@ Chaque onglet représente un rapport complet. Voici les sections principales de 
 
 - **Impact de l’achat d’instances réservées EC2** : cette section présente une simulation de la différence entre les instances à la demande et les instances réservées. Cliquez sur **Zoom avant** pour voir le rapport complet d’impact de l’achat d’instances réservées EC2 avec les filtres déjà définis pour votre recommandation. Ce rapport présente l’impact de tous les achats potentiels d’instances réservées. Vous pouvez ajuster la durée de fonctionnement moyenne attendue pour voir les économies potentiellement réalisables en achetant des instances réservées EC2.
 
-- **Analyse des économies** : cette section présente les économies potentielles et le mois pendant lequel les économies sont actualisées en suivant les recommandations de Cost Management. Les économies réelles et le pourcentage d’économies apparaissent en rouge.
+- **Analyse des économies** : cette section présente les économies potentielles et le mois pendant lequel les économies sont actualisées en suivant les recommandations de Cloudyn. Les économies réelles et le pourcentage d’économies apparaissent en rouge.
 
-- **Comparaison du type d’instance réservée EC2** : cette section met l’accent sur le retour sur investissement du déploiement recommandé par Cost Management, avec toutes les options pertinentes. Les résultats de ce rapport supposent que la machine a une durée de fonctionnement de 100 %. Cliquez sur **Zoom avant** pour ouvrir le rapport détaillé.
+- **Comparaison du type d’instance réservée EC2** : cette section met l’accent sur le retour sur investissement du déploiement recommandé de Cloudyn, avec toutes les options pertinentes. Les résultats de ce rapport supposent que la machine a une durée de fonctionnement de 100 %. Cliquez sur **Zoom avant** pour ouvrir le rapport détaillé.
 
 - **Instances dans le temps** : cette section présente la répartition de toutes les instances associées à la recommandation (à la demande, réservées et spot). Cliquez sur **Zoom avant** pour ouvrir le rapport détaillé.
 - **Seuils de rentabilité** : cette section présente un tableau de tous les déploiements recommandés possibles, du retour sur investissement et du mois associé. Cliquez sur **Zoom avant** pour ouvrir le rapport détaillé.
@@ -394,7 +396,7 @@ Le rapport des recommandations d’achat d’instances réservées RDS indique q
 Chaque onglet représente un rapport complet. Voici les sections principales de ces onglets :
 
 - **Impact de l’achat d’instances réservées RDS** : cette section présente une simulation de la différence entre les instances à la demande et les instances réservées. Cliquez sur **Zoom avant** pour voir le rapport complet de l’impact de l’achat d’instances réservées RDS avec les filtres déjà définis pour votre recommandation. Ce rapport permet de voir l’impact de tous les achats potentiels d’instances réservées.  Vous pouvez ajuster la durée de fonctionnement moyenne attendue et voir les économies réalisables en achetant des instances réservées.
-- **Analyse des économies** : cette section présente les économies potentielles et le mois pendant lequel les économies sont actualisées en suivant les recommandations de Cost Management. Les économies réelles et le pourcentage d’économies apparaissent en rouge.
+- **Analyse des économies** : cette section présente les économies potentielles et le mois pendant lequel les économies sont actualisées en suivant les recommandations de Cloudyn. Les économies réelles et le pourcentage d’économies apparaissent en rouge.
 
 - **Comparaison du type d’instance réservée RDS** : cette section met l’accent sur le retour sur investissement du déploiement recommandé, avec toutes les options pertinentes. Les résultats de ce rapport supposent que la machine a une durée de fonctionnement de 100 %. Cliquez sur **Zoom avant** pour ouvrir le rapport détaillé de la machine sélectionnée.
 - **Instances dans le temps** : cette section présente la répartition de toutes les instances associées à la recommandation (à la demande, réservées et spot). Cliquez sur **Zoom avant** pour ouvrir le rapport détaillé.
@@ -417,7 +419,7 @@ Il n’est pas possible de télécharger la liste des ID des instances pour lesq
 
 Prenons les exemples de downsizing suivant :
 
-Vous avez six instances m3.xlarge en cours d’exécution. L’analyse Cost Management montre que cinq d’entre elles affichent une faible utilisation du processeur. Envisagez un downsizing pour celles-ci.
+Vous avez six instances m3.xlarge en cours d’exécution. L’analyse Cloudyn montre que cinq d’entre elles affichent une faible utilisation du processeur. Envisagez un downsizing pour celles-ci.
 
 La section Impact sur les coûts calcule l’impact sur les coûts. Dans cet exemple, en développant l’élément de ligne, vous pouvez voir qu’une instance m3.xlarge (Linux/Unix) coûte actuellement 0,266 $/heure et une instance m3.large (Linux/Unix) 0,133 $/heure. Par conséquent, le coût annuel est de 11,651 $ pour cinq instances m3.xlarge utilisées à 100 %. Il est de 5,825 $ pour cinq instances m3.large utilisées à 100 %. Les économies potentielles s’élèvent à 5,825 $.
 
@@ -425,7 +427,7 @@ Si vous souhaitez afficher les justifications du dimensionnement rentable, cliqu
 
 - La section **Justification des recommandations** présente le déploiement actuel et le nombre d’instances pour lesquelles un downsizing est recommandé.
 - La section **Impact sur les coûts** présente le calcul utilisé pour déterminer les économies potentielles.
-- La section **Économies annuelles potentielles** présente les économies annuelles potentielles du downsizing recommandé par Cost Management.
+- La section **Économies annuelles potentielles** présente les économies annuelles potentielles du downsizing recommandé par Cloudyn.
 
 ### <a name="all-sizing-recommendations-report"></a>Rapport de l’ensemble des recommandations de dimensionnement
 
@@ -483,11 +485,11 @@ Pour afficher l’évolution des indicateurs d’une instance spécifique au fil
 
 ### <a name="rds-sizing-recommendations-report"></a>Rapport des recommandations de dimensionnement RDS
 
-Le rapport des recommandations de dimensionnement RDS présente des recommandations de dimensionnement RDS pour optimiser l’utilisation du cloud. Il donne la liste des instances sous-utilisées candidates au downsizing. Les recommandations de Cost Management s’appuient sur les données de performances et d’utilisation des 30 derniers jours. Vous pouvez filtrer les recommandations par nom de compte, région, type d’instance et état.
+Le rapport des recommandations de dimensionnement RDS présente des recommandations de dimensionnement RDS pour optimiser l’utilisation du cloud. Il donne la liste des instances sous-utilisées candidates au downsizing. Les recommandations de Cloudyn s’appuient sur les données de performances et d’utilisation des 30 derniers jours. Vous pouvez filtrer les recommandations par nom de compte, région, type d’instance et état.
 
 ### <a name="sizing-threshold-manager-report"></a>Rapport du gestionnaire de seuils de dimensionnement
 
-Les recommandations de dimensionnement intégrées de Cost Management sont calculées suivant un algorithme complexe pour présenter des suggestions de dimensionnement précises. Il est possible d’ajuster les seuils des recommandations de downsizing.
+Les recommandations de dimensionnement intégrées de Cloudyn sont calculées suivant un algorithme complexe pour présenter des suggestions de dimensionnement précises. Il est possible d’ajuster les seuils des recommandations de downsizing.
 
 Pour ajuster manuellement les seuils des recommandations de dimensionnement :
 

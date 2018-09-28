@@ -1,69 +1,69 @@
 ---
-title: Vidéos de formation sur Azure Cost Management | Microsoft Docs
-description: Les vidéos de formation sur Azure Cost Management aident à bien démarrer et à utiliser ses fonctionnalités.
+title: Vidéos de formation sur Cloudyn dans Azure | Microsoft Docs
+description: Les vidéos de formation sur Cloudyn aident à bien démarrer et à utiliser ses fonctionnalités.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: 197eac4b6904bbbf55e7233e113e64e3af528b3e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fb20661ddf8a92ac0f5ba4141c28111b117c85a6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163331"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972213"
 ---
-# <a name="cost-management-training-videos"></a>Vidéos de formation sur la gestion des coûts
+# <a name="cloudyn-training-videos"></a>Vidéos de formation sur Cloudyn
 
-Les vidéos suivantes offrent des démonstrations utiles qui vous guident à travers la mise en route de la gestion des coûts et l’utilisation de ses fonctionnalités. La gestion des coûts prend en charge le suivi et l’optimisation des coûts multicloud, y compris Microsoft Azure, Amazon Web Services et Google Cloud Platform.
+Les vidéos suivantes offrent des démonstrations utiles qui vous guident à travers la prise en main de Cloudyn et l’utilisation de ses fonctionnalités. Cloudyn prend en charge le suivi et l’optimisation des coûts multicloud, y compris Microsoft Azure, Amazon Web Services et Google Cloud Platform.
 
-[Présentation d’Azure Cost Management](https://youtu.be/NWIRny6Wpsk)
+[Présentation de Cloudyn](https://youtu.be/NWIRny6Wpsk)
 
 >[!VIDEO https://www.youtube.com/embed/NWIRny6Wpsk]
 
-[Analyser les données de facturation cloud en fonction du temps avec Azure Cost Management](https://youtu.be/7LsVPHglM0g)
+[Analyser les données de facturation cloud en fonction du temps avec Cloudyn](https://youtu.be/7LsVPHglM0g)
 
 >[!VIDEO https://www.youtube.com/embed/7LsVPHglM0g]
 
-[Ajouter des utilisateurs à Azure Cost Management](https://youtu.be/Nzn7GLahx30)
+[Ajouter des utilisateurs à Cloudyn](https://youtu.be/Nzn7GLahx30)
 
 >[!VIDEO https://www.youtube.com/embed/Nzn7GLahx30?ecver=1]
 
-[Créer une hiérarchie d’entités de coût dans Azure Cost Management](https://youtu.be/dAd9G7u0FmU)
+[Créer une hiérarchie d’entités de coût dans Cloudyn](https://youtu.be/dAd9G7u0FmU)
 
 >[!VIDEO https://www.youtube.com/embed/dAd9G7u0FmU?ecver=1]
 
-[Optimiser la taille des machines virtuelles dans Azure Cost Management](https://youtu.be/1xaZBNmV704)
+[Optimiser la taille de machine virtuelle dans Cloudyn](https://youtu.be/1xaZBNmV704)
 
 >[!VIDEO https://www.youtube.com/embed/1xaZBNmV704?ecver=1]
 
-[Définir un modèle d’affectation des coûts dans Azure Cost Management](https://youtu.be/FJzof_agKHY)
+[Définir un modèle d’affectation des coûts dans Cloudyn](https://youtu.be/FJzof_agKHY)
 
 >[!VIDEO https://www.youtube.com/embed/FJzof_agKHY?ecver=1]
 
-[Définir des frais personnalisés dans Azure Cost Management](https://youtu.be/3HcgkGPQjXE)
+[Définir des frais personnalisés dans Cloudyn](https://youtu.be/3HcgkGPQjXE)
 
 >[!VIDEO https://www.youtube.com/embed/3HcgkGPQjXE?ecver=1]
 
-[Guide pratique pour trouver son ID d’inscription EA et la clé API à utiliser dans Azure Cost Management](https://youtu.be/u_phLs_udig)
+[Guide pratique pour trouver son ID d’inscription EA et la clé API à utiliser dans Cloudyn](https://youtu.be/u_phLs_udig)
 
 >[!VIDEO https://www.youtube.com/embed/u_phLs_udig?ecver=1]
 
-[Trouver son GUID de répertoire et l’ID de taux à utiliser dans Azure Cost Management](https://youtu.be/PaRjnyaNGMI)
+[Trouver son GUID de répertoire et l’ID de taux à utiliser dans Cloudyn](https://youtu.be/PaRjnyaNGMI)
 
 >[!VIDEO https://www.youtube.com/embed/PaRjnyaNGMI?ecver=1]
 
-[Affecter des comptes et des abonnements aux entités de coût dans Azure Cost Management](https://youtu.be/d9uTWSdoQYo)
+[Affecter des comptes et des abonnements aux entités de coût dans Cloudyn](https://youtu.be/d9uTWSdoQYo)
 
 >[!VIDEO https://www.youtube.com/embed/d9uTWSdoQYo?ecver=1]
 
-[Se connecter à Azure Resource Manager avec Azure Cost Management](https://youtu.be/oCIwvfBB6kk)
+[Se connecter à Azure Resource Manager avec Cloudyn](https://youtu.be/oCIwvfBB6kk)
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
-[Analyser ses données de facturation cloud avec Azure Cost Management](https://youtu.be/G0pvI3iLH-Y)
+[Analyser les données de facturation cloud avec Cloudyn](https://youtu.be/G0pvI3iLH-Y)
 
 >[!VIDEO https://www.youtube.com/embed/G0pvI3iLH-Y?ecver=1]

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: d554cdf5e89898874811ea113985fac4b332fac6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109929"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948116"
 ---
 # <a name="scale-hdinsight-clusters"></a>Mettre à l’échelle les clusters HDInsight
 
@@ -28,11 +28,13 @@ Par exemple, si vous effectuez un traitement par lots une fois par jour ou une f
     Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
     ```
     
-* Pour mettre l’échelle votre cluster via l[’interface CLI Azure](hdinsight-administer-use-command-line.md) :
+* Pour mettre votre cluster à l’échelle via [Azure Classic CLI](hdinsight-administer-use-command-line.md) :
 
     ```
     azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
     ```
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
     
 * Pour mettre à l’échelle votre cluster via le [portail Azure](https://portal.azure.com), ouvrez le volet de votre cluster HDInsight, sélectionnez **Mettre à l’échelle le cluster** dans le menu de gauche, puis dans le volet Mettre à l’échelle le cluster, entrez le nombre de nœuds de travail, puis sélectionnez Enregistrer.
 

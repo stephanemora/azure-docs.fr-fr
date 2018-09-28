@@ -1,36 +1,38 @@
 ---
-title: Inscrire votre Accord Entreprise Azure auprès du service Gestion des coûts Azure | Microsoft Docs
-description: Utilisez votre Accord Entreprise pour vous inscrire auprès du service Azure Cost Management.
+title: Inscrire votre contrat Entreprise Azure auprès de Cloudyn | Microsoft Docs
+description: Utilisez votre contrat Entreprise pour l’inscrire auprès de Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/14/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: 0a687d9f48a068260044a6ba91d5af20e61014b6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bed1ea3785c35d1053a0ff2147c3bdd797e28581
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237624"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996626"
 ---
-# <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Inscrire un Accord Entreprise Azure et afficher les données de coût
+# <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Inscrire un contrat Entreprise Azure et afficher les données de coût
 
-Vous utilisez votre Accord Entreprise Azure pour vous inscrire auprès du service Azure Cost Management. Votre inscription vous donne accès au portail Cloudyn. Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn. Il explique également comment afficher immédiatement des données de coût.
+Utilisez votre contrat Entreprise Azure pour l’inscrire auprès de Cloudyn. Votre inscription vous donne accès au portail Cloudyn. Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn. Il explique également comment afficher immédiatement des données de coût.
+
+Azure Cost Management offre des fonctionnalités similaires à Cloudyn. Azure Cost Management est une solution de gestion des coûts Azure native. Il vous permet d’analyser les coûts, de créer et de gérer des budgets, d’exporter des données, et de consulter des recommandations d’optimisation et d’agir en conséquence pour dépenser moins. Pour plus d’informations, consultez [Azure Cost Management](overview-cost-mgt.md).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
 - Connectez-vous au portail Azure sur http://portal.azure.com.
 
-## <a name="register-with-azure-cost-management"></a>S’inscrire à Azure Cost Management
+## <a name="register-with-cloudyn"></a>S’inscrire auprès de Cloudyn
 
 1. Dans le portail Azure, cliquez sur **Gestion des coûts + Facturation** dans la liste des services.
-2. Sous **Vue d’ensemble**, cliquez sur **Gestion des coûts**.  
-    ![Page Gestion des coûts](./media/quick-register-ea/cost-mgt-billing-service.png)
-3. Sur la page **Gestion des coûts**, cliquez sur le bouton d’**accès à la Gestion des coûts** pour ouvrir la page d’inscription de Cloudyn dans une nouvelle fenêtre.
+2. Sous **Vue d’ensemble**, cliquez sur **Cloudyn**.  
+    ![Page de Cloudyn](./media/quick-register-ea/cost-mgt-billing-service.png)
+3. Dans la page **Cloudyn**, cliquez sur **Accéder à Cloudyn** pour ouvrir la page d’inscription de Cloudyn dans une nouvelle fenêtre.
 4. Sur la page d’inscription à une évaluation du portail Cloudyn, tapez le nom de votre société, sélectionnez **Azure Individual Subscription Owner** (Propriétaire d’abonnement individuel Azure).  
     ![inscription à une évaluation](./media/quick-register-ea/trial-reg.png)
 5. Entrez votre clé d’API d’inscription au portail d’entreprise. Si vous n’avez pas votre clé, cliquez sur le [Enterprise Portal](https://ea.azure.com) lier et procédez comme suit :
@@ -42,13 +44,13 @@ Vous utilisez votre Accord Entreprise Azure pour vous inscrire auprès du servic
 7. L’option pour **inviter d’autres parties prenantes** permet d’ajouter des utilisateurs en tapant leurs adresses e-mail. Lorsque vous avez terminé, cliquez sur **Suivant**. Selon la taille de votre inscription Azure, jusqu’à 24 heures peuvent être nécessaires pour que toutes vos données de facturation soient ajoutées à Cloudyn.
 8. Cliquez sur le bouton d’**accès à Cloudyn** pour ouvrir le portail Cloudyn. La page de **gestion des comptes cloud** devrait alors afficher les informations de votre compte EA inscrit.
 
-Pour visionner un didacticiel vidéo sur l’inscription de votre Contrat Entreprise, consultez [Comment trouver l’ID d’inscription EA et la clé API à utiliser dans Azure Cost Management](https://youtu.be/u_phLs_udig).
+Pour regarder la vidéo d’un tutoriel sur l’inscription de votre contrat Entreprise, consultez [How to Find Your EA Enrollment ID and API Key for use in Cloudyn](https://youtu.be/u_phLs_udig).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé les informations de votre Accord Entreprise Azure pour vous inscrire au service Gestion des coûts. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur Azure Cost Management, poursuivez avec le didacticiel sur Cost Management.
+Dans ce guide de démarrage rapide, vous avez utilisé les informations de votre contrat Entreprise Azure pour vous inscrire auprès de Cloudyn. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur Cloudyn, suivez le tutoriel sur Cloudyn.
 
 > [!div class="nextstepaction"]
 > [Réviser l’utilisation et les coûts](./tutorial-review-usage.md)

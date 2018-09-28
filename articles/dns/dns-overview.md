@@ -5,14 +5,14 @@ author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 6/7/2018
+ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 0812f5e3e23fbf49afec91524b4de2ff0eb7cd9a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e3e04bf7e35b22a56465810f476323ed217e047a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574179"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967623"
 ---
 # <a name="what-is-azure-dns"></a>Présentation d’Azure DNS
 
@@ -45,13 +45,21 @@ Le service Azure DNS peut gérer les enregistrements DNS de vos services Azure
 
 La facturation DNS est basée sur le nombre de zones DNS hébergées dans Azure et le nombre de requêtes DNS. Pour en savoir plus sur la tarification, consultez [Tarification d’Azure DNS](https://azure.microsoft.com/pricing/details/dns/).
 
-Vos domaines et enregistrements peuvent être gérés via le portail Azure, des cmdlets Azure PowerShell et l’interface CLI Azure multiplateforme. Les applications nécessitant une gestion automatisée de DNS peuvent s’intégrer au service par le biais de l’API REST et des Kits de développement logiciel (SDK).
+Vos domaines et enregistrements peuvent être gérés via le portail Azure, des applets de commande Azure PowerShell et l’interface CLI Azure multiplateforme. Les applications nécessitant une gestion automatisée de DNS peuvent s’intégrer au service par le biais de l’API REST et des kits SDK.
 
 ## <a name="customizable-virtual-networks-with-private-domains"></a>Réseaux virtuels personnalisables avec des domaines privés
 
 Azure DNS prend également en charge les domaines DNS privés (actuellement en préversion publique). Cela vous permet d’utiliser vos propres noms de domaine personnalisés dans vos réseaux virtuels privés au lieu des noms fournis par Azure.
 
 Pour plus d’informations, consultez [Utilisation d’Azure DNS pour les domaines privés](private-dns-overview.md).
+
+## <a name="alias-records"></a>Enregistrements d’alias
+
+Azure DNS prend en charge les jeux d’enregistrements d’alias. Vous pouvez utiliser un jeu d’enregistrements d’alias pour faire référence à une ressource Azure, comme une adresse IP publique Azure ou un profil Traffic Manager. Si l’adresse IP de la ressource sous-jacente change, le jeu d’enregistrements d’alias se met à jour de façon fluide pendant la résolution DNS. Le jeu d’enregistrements d’alias pointe vers l’instance du service, laquelle est associée à une adresse IP. 
+
+Par ailleurs, vous pouvez maintenant pointer votre apex ou votre domaine nu (par exemple, contoso.com) vers un profil Traffic Manager avec un enregistrement d’alias.
+
+Pour plus d’informations, consultez [Vue d’ensemble des enregistrements d’alias Azure DNS](dns-alias.md).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

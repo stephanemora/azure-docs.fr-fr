@@ -1,0 +1,97 @@
+---
+title: Opérations d’upsert de données dans l’API Cassandra Azure Cosmos DB à partir de Spark
+description: Cet article explique comment effectuer un upsert dans des tables au sein de l’API Cassandra Azure Cosmos DB à partir de Spark
+services: cosmos-db
+author: anagha-microsoft
+ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
+ms.devlang: spark-scala
+ms.topic: conceptual
+ms.date: 09/24/2018
+ms.author: ankhanol
+ms.openlocfilehash: cb6f120e28fc17b413bceab945b3569cb10912f1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986436"
+---
+# <a name="upsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Opérations d’upsert de données dans l’API Cassandra Azure Cosmos DB à partir de Spark
+
+Cet article explique comment effectuer un upsert de données dans l’API Cassandra Azure Cosmos DB à partir de Spark.
+
+## <a name="cassandra-api-configuration"></a>Configuration de l’API Cassandra
+
+```scala
+import org.apache.spark.sql.cassandra._
+//datastax Spark connector
+import com.datastax.spark.connector._
+import com.datastax.spark.connector.cql.CassandraConnector
+
+//CosmosDB library for multiple retry
+import com.microsoft.azure.cosmosdb.cassandra
+
+//Connection-related
+spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
+spark.conf.set("spark.cassandra.connection.port","10350")
+spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
+spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
+spark.conf.set("spark.cassandra.auth.password","YOUR_ACCOUNT_KEY")
+spark.conf.set("spark.cassandra.connection.factory", "com.microsoft.azure.cosmosdb.cassandra.CosmosDbConnectionFactory")
+//Throughput-related...adjust as needed
+spark.conf.set("spark.cassandra.output.batch.size.rows", "1")
+spark.conf.set("spark.cassandra.connection.connections_per_executor_max", "10")
+spark.conf.set("spark.cassandra.output.concurrent.writes", "1000")
+spark.conf.set("spark.cassandra.concurrent.reads", "512")
+spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
+spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
+```
+
+## <a name="dataframe-api"></a>API Dataframe
+
+### <a name="create-a-dataframe"></a>Créer un dataframe 
+
+```scala
+// (1) Update: Changing author name to include prefix of "Sir"
+// (2) Insert: adding a new book
+
+val booksUpsertDF = Seq(
+    ("b00001", "Sir Arthur Conan Doyle", "A study in scarlet", 1887),
+    ("b00023", "Sir Arthur Conan Doyle", "A sign of four", 1890),
+    ("b01001", "Sir Arthur Conan Doyle", "The adventures of Sherlock Holmes", 1892),
+    ("b00501", "Sir Arthur Conan Doyle", "The memoirs of Sherlock Holmes", 1893),
+    ("b00300", "Sir Arthur Conan Doyle", "The hounds of Baskerville", 1901),
+    ("b09999", "Sir Arthur Conan Doyle", "The return of Sherlock Holmes", 1905)
+    ).toDF("book_id", "book_author", "book_name", "book_pub_year")
+booksUpsertDF.show()
+```
+
+### <a name="upsert-data"></a>Effectuer un upsert de données
+
+```scala
+// Upsert is no different from create
+booksUpsertDF.write
+  .mode("append")
+  .format("org.apache.spark.sql.cassandra")
+  .options(Map( "table" -> "books", "keyspace" -> "books_ks"))
+  .save()
+```
+
+### <a name="update-data"></a>Mettre à jour des données
+
+```scala
+//This runs on the driver, leverage only for one off updates
+cdbConnector.withSessionDo(session => session.execute("update books_ks.books set book_price=99.33 where book_id ='b00300';"))
+```
+
+## <a name="rdd-api"></a>API RDD
+> [!NOTE]
+> L’upsert à partir de l’API RDD est identique à l’opération de création 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Passez aux articles suivants pour effectuer d’autres opérations sur les données stockées dans des tables de l’API Cassandra Azure Cosmos DB :
+ 
+* [Opérations de suppression](cassandra-spark-delete-ops.md)
+* [Opérations d’agrégation](cassandra-spark-aggregation-ops.md)
+* [Opérations de copie de table](cassandra-spark-table-copy-ops.md)

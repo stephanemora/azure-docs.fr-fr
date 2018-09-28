@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: b735f93b2d7ad093ef752fd5f26be729a1157b37
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 15d2e40127579fbd278cc3dc18653d782a515caa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090675"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957310"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Langages pris en charge dans Azure Functions
 
@@ -31,23 +31,23 @@ Il existe trois niveaux de prise en charge :
 
 ## <a name="languages-in-runtime-1x-and-2x"></a>Langages dans les runtimes 1.x et 2.x
 
-[Deux versions du runtime Azure Functions](functions-versions.md) sont disponibles. Le runtime 1.x est en disponibilité générale. Il s’agit du seul runtime approuvé pour les applications de production. Le runtime 2.x est actuellement en préversion. Les langages qu’il prend en charge sont donc en préversion. Le tableau suivant montre les langages qui sont pris en charge dans chaque version du runtime.
+[Deux versions du runtime Azure Functions](functions-versions.md) sont disponibles. Le tableau suivant montre les langages qui sont pris en charge dans chaque version du runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 ### <a name="experimental-languages"></a>Langages expérimentaux
 
-Les langages expérimentaux dans la version 1.x ne sont pas très propices à la mise à l’échelle et ne prennent pas en charge toutes les liaisons. Par exemple, Python est lent car le runtime Functions exécute *python.exe* à chaque appel de fonction. Et bien que Python prenne en charge les liaisons HTTP, il ne peut pas accéder à l’objet de requête.
+Les langages expérimentaux dans la version 1.x ne sont pas très propices à la mise à l’échelle et ne prennent pas en charge toutes les liaisons. Par exemple, Python 1.x est lent car le runtime Functions exécute *python.exe* à chaque appel de fonction. Et bien que Python prenne en charge les liaisons HTTP, il ne peut pas accéder à l’objet de requête.
 
-La prise en charge expérimentale pour PowerShell est limitée à la version 5.1, car c’est ce qui est installé par défaut sur les machines virtuelles sur lesquelles les applications de fonction s’exécutent. Si vous souhaitez exécuter des scripts PowerShell, utilisez [Azure Automation](https://azure.microsoft.com/services/automation/).
+La prise en charge expérimentale pour PowerShell dans 1.x est limitée à la version 5.1, car c’est ce qui est installé par défaut sur les machines virtuelles sur lesquelles les applications de fonction s’exécutent. Si vous souhaitez exécuter des scripts PowerShell, utilisez [Azure Automation](https://azure.microsoft.com/services/automation/).
 
-Si vous souhaitez utiliser l’un des langages disponibles uniquement dans la version 1.x, conservez le runtime 1.x. Mais, n’utilisez pas de langages expérimentaux pour tout ce qui est essentiel, car il n’existe aucune prise en charge officielle pour eux. Vous pouvez demander de l’aide en [créant des problèmes GitHub](https://github.com/Azure/azure-webjobs-sdk-script/issues), mais les cas de support technique ne doivent pas être ouverts pour des problèmes liés aux langages expérimentaux. 
+N’utilisez pas de langages expérimentaux pour tout ce qui est essentiel, car il n’existe aucune prise en charge officielle pour eux. Évitez d’ouvrir des cas de support pour les problèmes liés aux langages expérimentaux. 
 
 Le runtime en version 2.x ne prend pas en charge les langages expérimentaux. La prise en charge de nouveaux langages est ajoutée uniquement lorsque le langage peut être pris en charge dans les environnements de production. 
 
 ### <a name="language-extensibility"></a>Extensibilité de langage
 
-Le runtime 2.x est conçu pour offrir une [extensibilité de langage](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Parmi les premiers langages basés sur ce modèle d’extensibilité figure Java, qui est en Préversion dans le runtime 2.x.
+Le runtime 2.x est conçu pour offrir une [extensibilité de langage](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Les langages JavaScript et Java dans le runtime 2.x sont générés avec cette extensibilité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

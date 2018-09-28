@@ -1,6 +1,6 @@
 ---
-title: Utilisation de la CLI Azure 1.0 avec Azure Storage | Microsoft Docs
-description: Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure 1.0 (CLI Azure) avec Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure. L’interface de ligne de commande Azure est un outil multiplateforme.
+title: Utilisation d’Azure Classic CLI avec le Storage Azure | Microsoft Docs
+description: Découvrez comment utiliser l’interface de ligne de commande Azure CLI avec le Stockage Azure pour créer et gérer des comptes de stockage, et utiliser des fichiers et des objets blob Azure.
 services: storage
 author: seguler
 ms.service: storage
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: f406f12b3313670e8e2d89296f7c24478bb58c6c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521504"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979326"
 ---
-# <a name="using-the-azure-cli-10-with-azure-storage"></a>Utilisation de l’interface de ligne de commande Azure 1.0 avec Azure Storage
+# <a name="using-the-azure-classic-cli-with-azure-storage"></a>Utilisation d’Azure Classic CLI avec le Stockage Azure
 
 ## <a name="overview"></a>Vue d’ensemble
 
-La CLI Microsoft Azure offre un ensemble de commandes multiplateforme open source pour l’utilisation de la plateforme Microsoft Azure. Elle offre des fonctionnalités similaires à celles du [portail Azure](https://portal.azure.com) , ainsi que des fonctions étendues d’accès aux données.
+Azure Classic CLI offre un ensemble de commandes multiplateforme open source à utiliser avec la plateforme Azure. Elle offre des fonctionnalités similaires à celles du [portail Azure](https://portal.azure.com) , ainsi que des fonctions étendues d’accès aux données.
 
-Dans ce guide, nous allons explorer l’utilisation de l’[interface de ligne de commande Azure](../../cli-install-nodejs.md) pour effectuer diverses tâches de développement et d’administration avec Azure Storage. Nous vous recommandons de télécharger et d’installer ou de mettre à niveau la CLI Azure vers la dernière version avant d’utiliser ce guide.
+Dans ce guide, nous découvrons comment utiliser [Azure Classic CLI](../../cli-install-nodejs.md) pour effectuer différentes tâches de développement et d’administration avec le Stockage Azure. Nous vous recommandons de télécharger et d’installer la dernière version d’Azure Classic CLI, ou d’effectuer la mise à niveau vers cette version, avant d’utiliser ce guide.
 
-Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il contient un certain nombre de scripts, qui illustrent l’utilisation de la CLI Azure avec Microsoft Azure Storage. N’oubliez pas de mettre à jour les variables du script en fonction de votre configuration avant d’exécuter ce dernier.
+Ce guide part du principe que vous comprenez les concepts de base de Microsoft Azure Storage. Il contient un certain nombre de scripts qui illustrent l’utilisation d’Azure Classic CLI avec le Stockage Azure. N’oubliez pas de mettre à jour les variables du script en fonction de votre configuration avant d’exécuter ce dernier.
 
 > [!NOTE]
-> Le guide fournit des exemples de commande et de script de la CLI Azure pour les comptes de stockage en mode classique. Pour obtenir la liste des commandes de CLI Azure pour les comptes de stockage en mode Resource Manager, voir [Utilisation de l’interface de ligne de commande Azure pour Mac, Linux et Windows avec Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) .
+> Le guide fournit des exemples de commande et de script Azure Classic CLI pour les comptes de stockage classiques. Consultez [Utilisation d’Azure CLI pour Mac, Linux et Windows avec Azure Resource Management](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects) afin de connaître les commandes Azure Classic CLI pour les compte de stockage Resource Manager.
 >
 >
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
-## <a name="get-started-with-azure-storage-and-the-azure-cli-in-5-minutes"></a>Prise en main de Microsoft Azure Storage et de la CLI Azure en 5 minutes
+## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Bien démarrer avec le Stockage Azure et Azure Classic CLI en 5 minutes
 Ce guide inclut des exemples basés sur Ubuntu, mais les résultats devraient être les mêmes sur d’autres plates-formes.
 
 **Nouveautés de Microsoft Azure :** obtenez un abonnement à Microsoft Azure, ainsi qu’un compte Microsoft associé. Pour en savoir plus sur les options d’achat de Microsoft Azure, voir [Essai gratuit](https://azure.microsoft.com/pricing/free-trial/), [Options d’achat](https://azure.microsoft.com/pricing/purchase-options/) et [Offres spéciales membres](https://azure.microsoft.com/pricing/member-offers/) (pour les membres de MSDN, Microsoft Partner Network et BizSpark, ainsi que d’autres programmes Microsoft).
@@ -41,12 +41,12 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
 
 **Une fois le compte et l’abonnement à Microsoft Azure créés :**
 
-1. Téléchargez et installez la CLI Azure en suivant les instructions fournies dans la section [Installer la CLI Azure](../../cli-install-nodejs.md).
-2. Une fois la CLI Azure installée, vous serez à même d’utiliser la commande azure à partir de l’interface de ligne de commande (invite de ligne de commande, interpréteur de commandes, terminal) afin d’accéder aux commandes de la CLI Azure. Saisissez la commande _azure_. La sortie suivante doit s’afficher.
+1. Téléchargez et installez Azure Classic CLI en suivant les instructions fournies dans la section [Installer Azure Classic CLI](../../cli-install-nodejs.md).
+2. Une fois Azure Classic CLI installé, vous pouvez utiliser la commande azure à partir de votre interface de ligne de commande (Bash, Terminal, Invite de commande) pour accéder aux commandes Azure Classic CLI. Saisissez la commande _azure_. La sortie suivante doit s’afficher.
 
     ![Sorte de commande Microsoft Azure](./media/storage-azure-cli/azure_command.png)   
-3. Dans l’interface de ligne de commande, saisissez `azure storage` pour répertorier toutes les commandes Microsoft Azure Storage et obtenir une première impression des fonctionnalités fournies par la CLI Azure. Vous pouvez saisir le nom de la commande avec le paramètre **-h** (par exemple, `azure storage share create -h`) pour afficher les détails de la syntaxe de commande.
-4. À présent, voici un script simple, qui affiche les commandes de base de la CLI Azure permettant d’accéder à Azure Storage. Ce script vous demande tout d’abord de définir deux variables pour votre clé et votre compte de stockage. Ensuite, le script crée un conteneur dans ce nouveau compte, puis charge un fichier image existant (blob) dans ce conteneur. Une fois qu’il a répertorié tous les objets blob de ce conteneur, il télécharge le fichier image dans le répertoire de destination existant sur l’ordinateur local.
+3. Dans l’interface de ligne de commande, tapez `azure storage` pour lister toutes les commandes du Stockage Azure et obtenir une première impression des fonctionnalités offertes par Azure Classic CLI. Vous pouvez saisir le nom de la commande avec le paramètre **-h** (par exemple, `azure storage share create -h`) pour afficher les détails de la syntaxe de commande.
+4. À présent, voici un script simple qui indique les commandes de base d’Azure Classic CLI permettant d’accéder au Stockage Azure. Ce script vous demande tout d’abord de définir deux variables pour votre clé et votre compte de stockage. Ensuite, le script crée un conteneur dans ce nouveau compte, puis charge un fichier image existant (blob) dans ce conteneur. Une fois qu’il a répertorié tous les objets blob de ce conteneur, il télécharge le fichier image dans le répertoire de destination existant sur l’ordinateur local.
 
     ```azurecli
     #!/bin/bash
@@ -88,9 +88,9 @@ Pour plus d’informations sur les abonnements Azure, consultez la section [Attr
 
 Après l’exécution du script, vous devez avoir un dossier local de destination qui inclut le fichier image téléchargé.
 
-## <a name="manage-storage-accounts-with-the-azure-cli"></a>Gérer les comptes de stockage avec la CLI Azure
+## <a name="manage-storage-accounts-with-the-azure-classic-cli"></a>Gérer les comptes de stockage avec Azure Classic CLI
 ### <a name="connect-to-your-azure-subscription"></a>Connectez-vous à un abonnement Azure
-Bien que la plupart des commandes de stockage fonctionnent sans abonnement à Azure, nous vous recommandons de vous connecter à votre abonnement à partir de l’interface CLI Azure. Pour configurer l’interface de ligne de commande Azure avec votre abonnement, suivez les étapes indiquées dans [Se connecter à un abonnement Azure à partir de l’interface CLI Azure](/cli/azure/authenticate-azure-cli).
+Bien que la plupart des commandes de stockage fonctionnent sans abonnement Azure, nous vous recommandons de vous connecter à votre abonnement à partir d’Azure Classic CLI.
 
 ### <a name="create-a-new-storage-account"></a>Création d’un nouveau compte de stockage
 Pour utiliser Azure Storage, vous avez besoin d’un compte de stockage. Vous pouvez créer un nouveau compte de stockage Azure après avoir configuré votre ordinateur pour qu’il se connecte à votre abonnement.
@@ -102,7 +102,7 @@ azure storage account create <account_name>
 Le nom du compte de stockage doit inclure entre 3 et 24 caractères et utiliser uniquement des lettres en minuscules et des nombres.
 
 ### <a name="set-a-default-azure-storage-account-in-environment-variables"></a>Définir un compte Azure Storage par défaut dans les variables d’environnement
-Vous pouvez disposer de plusieurs comptes de stockage dans votre abonnement. Vous pouvez en choisir un et le définir comme compte de stockage par défaut pour toutes les commandes de stockage, au cours de la même session, dans les variables d’environnement. Cela vous permet d’exécuter les commandes de stockage de la CLI Azure sans spécifier de manière explicite la clé et le compte de stockage.
+Vous pouvez disposer de plusieurs comptes de stockage dans votre abonnement. Vous pouvez en choisir un et le définir comme compte de stockage par défaut pour toutes les commandes de stockage, au cours de la même session, dans les variables d’environnement. Cela vous permet d’exécuter les commandes de stockage Azure Classic CLI sans spécifier de manière explicite la clé et le compte de stockage.
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
@@ -177,7 +177,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>Créer et gérer des partages de fichiers
-Azure Files propose un stockage partagé pour les applications utilisant le protocole SMB standard. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via la CLI Azure. Pour plus d’informations sur Azure Files, voir [Présentation d’Azure Files](../files/storage-files-introduction.md).
+Azure Files propose un stockage partagé pour les applications utilisant le protocole SMB standard. Les services cloud et les machines virtuelles Microsoft Azure, ainsi que les applications locales, peuvent partager des données de fichiers via des partages montés. Vous pouvez gérer des partages de fichiers et des données de fichiers via Azure Classic CLI. Pour plus d’informations sur Azure Files, voir [Présentation d’Azure Files](../files/storage-files-introduction.md).
 
 ### <a name="create-a-file-share"></a>Créer un partage de fichiers
 Un partage de fichiers Azure correspond à un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage de fichiers. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans les limites de capacité du compte de stockage. L’exemple suivant détaille la création d’un partage de fichiers nommé **MonPartage**.
@@ -214,7 +214,7 @@ azure storage file list myshare myDir
 Notez que le nom du répertoire est facultatif pour l’opération de création de liste. En cas d’omission, la commande répertorie le contenu du répertoire racine du partage.
 
 ### <a name="copy-files"></a>Copie des fichiers
-Depuis la version 0.9.8 de l’interface de ligne de commande Azure, vous pouvez copier un fichier dans un autre, un fichier dans un objet blob ou un objet blob dans un fichier. Ci-dessous, nous montrons comment effectuer ces opérations de copie à l’aide de commandes de l’interface de ligne de commande. Copie d'un fichier vers le nouveau répertoire :
+À partir de la version 0.9.8 d’Azure Classic CLI, vous pouvez copier un fichier dans un autre, un fichier dans un objet blob ou un objet blob dans un fichier. Ci-dessous, nous montrons comment effectuer ces opérations de copie à l’aide de commandes de l’interface de ligne de commande. Copie d'un fichier vers le nouveau répertoire :
 
 ```azurecli
 azure storage file copy start --source-share srcshare --source-path srcdir/hello.txt --dest-share destshare
@@ -230,9 +230,9 @@ azure storage file copy start --source-container srcctn --source-blob hello2.txt
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez trouver la référence des commandes de la CLI Azure 1.0 pour travailler avec des ressources de stockage ici :
+Les informations de référence sur les commandes Azure Classic CLI permettant d’utiliser les ressources de stockage sont disponibles ici :
 
-* [Commandes de la CLI Azure en mode Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
-* [Commandes de la CLI Azure en mode Azure Service Management (ASM)](../../cli-install-nodejs.md)
+* [Commandes Azure Classic CLI en mode Resource Manager](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)
+* [Commandes Azure Classic CLI en mode de gestion des services Azure](../../cli-install-nodejs.md)
 
-Vous pouvez également essayer [Azure CLI 2.0](../storage-azure-cli.md), une interface Azure CLI nouvelle génération écrite en Python à utiliser pour le modèle de déploiement Resource Manager.
+Vous pouvez aussi essayer la dernière version [d’Azure CLI](../storage-azure-cli.md) avec le modèle de déploiement Resource Manager.

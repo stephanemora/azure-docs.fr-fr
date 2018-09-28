@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: jasonh
 ms.custom: hdinsightactive
-ms.openlocfilehash: db460c6ebe934fa9ca9b6b42d517f39acbecf0c9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 54e5a5b72627dc9cd2d842ccb24d10e2f9ab9dce
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105311"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46957174"
 ---
 # <a name="install-or-update-mono-on-hdinsight"></a>Installation ou mise à jour de Mono sur HDInsight
 
@@ -44,7 +44,7 @@ __Conditions requises__ :
 
 ## <a name="to-use-the-script"></a>Pour utiliser le script
 
-Pour plus d’informations sur l’utilisation de ce script avec HDInsight, consultez le document [Personnalisation de clusters HDInsight basés sur Linux à l'aide d'une action de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster). Vous pouvez utiliser le script avec le portail Azure, Azure PowerShell ou l’interface de ligne de commande Azure.
+Pour plus d’informations sur l’utilisation de ce script avec HDInsight, consultez le document [Personnalisation de clusters HDInsight basés sur Linux à l'aide d'une action de script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster). Vous pouvez utiliser le script dans le portail Azure, Azure PowerShell ou Azure Classic CLI.
 
 Tout en respectant le document d’action de script, utilisez l’URI suivant :
 

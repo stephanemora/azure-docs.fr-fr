@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b206d93d7c72f5d8ff3dd3baa277cd0db33ba583
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811911"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978902"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -105,13 +105,13 @@ Vous ne pouvez pas spécifier **Homologation de réseau virtuel** ou **VirtualNe
 
 Le nom affiché et référencé pour les types de tronçon suivants diffère entre le portail Azure et les outils en ligne de commande, et entre Azure Resource Manager et les modèles de déploiement classique. Le tableau suivant répertorie les noms utilisés pour faire référence à chaque type de tronçon suivant avec les différents outils et [modèles de déploiement](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
-|Type de tronçon suivant                   |Azure CLI 2.0 et PowerShell (Gestionnaire des ressources) |Azure CLI 1.0 et PowerShell (classique)|
+|Type de tronçon suivant                   |Azure CLI et PowerShell (Gestionnaire des ressources) |Azure CLI classique and PowerShell (classique)|
 |-------------                   |---------                                       |-----|
 |Passerelle de réseau virtuel         |VirtualNetworkGateway                           |VPNGateway|
-|Réseau virtuel                 |VnetLocal                                       |VNETLocal (non disponible dans la CLI 1.0 en mode asm)|
-|Internet                        |Internet                                        |Internet (non disponible dans la CLI 1.0 en mode asm)|
+|Réseau virtuel                 |VnetLocal                                       |VNETLocal (non disponible dans la CLI classique en mode asm)|
+|Internet                        |Internet                                        |Internet (non disponible dans la CLI classique en mode asm)|
 |Appliance virtuelle               |VirtualAppliance                                |VirtualAppliance|
-|Aucun                            |Aucun                                            |Null (non disponible dans la CLI 1.0 en mode asm)|
+|Aucun                            |Aucun                                            |Null (non disponible dans la CLI classique en mode asm)|
 |Homologation de réseaux virtuels         |Homologation de réseaux virtuels                                    |Non applicable|
 |Point de terminaison de service de réseau virtuel|VirtualNetworkServiceEndpoint                   |Non applicable|
 

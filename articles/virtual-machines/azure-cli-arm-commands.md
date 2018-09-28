@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5aecb218b66c06c87446e35e5c7c9ca8108b956c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30839142"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995548"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Commandes de l’interface de ligne de commande Azure en mode Resource Manager
 Cet article fournit la syntaxe et les options des commandes de l’interface de ligne de commande Azure régulièrement utilisées pour créer et gérer les ressources Azure dans le modèle de déploiement Azure Resource Manager. Pour accéder à ces commandes, exécutez l’interface de ligne de commande en mode Resource Manager (arm). Il ne s’agit pas d’une référence complète, et votre version de l’interface de ligne de commande peut présenter des commandes ou paramètres légèrement différents. Pour obtenir une vue d'ensemble des ressources et groupes de ressources Azure, consultez [Vue d'ensemble d'Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> Cet article illustre les commandes du mode Resource Manager dans l’interface de ligne de commande Azure, parfois appelée Azure CLI 1.0. Pour travailler dans le modèle Resource Manager, vous pouvez également essayer [Azure CLI 2.0](/cli/azure/install-az-cli2), notre nouvelle génération d’interface CLI multiplateforme.
+> Cet article illustre les commandes du mode Resource Manager dans Azure CLI, parfois appelé Azure Classic CLI. Pour travailler dans le modèle Resource Manager, vous pouvez aussi essayer [Azure CLI](/cli/azure/install-az-cli2), notre interface CLI nouvelle génération multiplateforme.
 >En savoir plus sur [les ancienne et nouvelle interfaces de ligne de commande Azure](/cli/azure/old-and-new-clis).
 >
 
@@ -321,7 +321,7 @@ Options de paramètre :
 **Commandes pour gérer les réseaux virtuels**
 
     network vnet create [options] <resource-group> <name> <location>
-Créer un réseau virtuel. Dans l'exemple suivant, nous créons un réseau virtuel nommé newvnet pour le groupe de ressources myresourcegroup dans la région Ouest des États-Unis.
+Créer un réseau virtuel. Dans l'exemple suivant, nous créons un réseau virtuel nommé newvnet pour le groupe de ressources myresourcegroup dans la région USA Ouest.
 
     azure network vnet create myresourcegroup newvnet "west us"
     info:    Executing command network vnet create

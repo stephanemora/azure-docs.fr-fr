@@ -1,38 +1,38 @@
 ---
-title: Connecter un compte Google Cloud Platform à Azure Cost Management | Microsoft Docs
-description: Connectez un compte Google Cloud Platform pour afficher les données de coût et d’utilisation dans les référentiels Cost Management.
+title: Connecter un compte Google Cloud Platform à Cloudyn dans Azure | Microsoft Docs
+description: Connectez un compte Google Cloud Platform pour afficher les données de coût et d’utilisation dans les rapports Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: d4b906bd966da66659d23b935f7dbbd44b33899a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 09035146fe3211f9fc46d3ad51326a6e76921b7d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296439"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46977296"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Connecter un compte Google Cloud Platform
 
-Vous pouvez connecter votre compte Google Cloud Platform existant à Azure Cost Management. Une fois votre compte connecté à Cost Management, les données de coût et d’utilisation sont disponibles dans les rapports de Cost Management. Cet article vous aide à configurer et à connecter votre compte Google à Cost Management.
+Vous pouvez connecter votre compte Google Cloud Platform existant à Cloudyn. Une fois votre compte connecté à Cloudyn, les données de coût et d’utilisation sont disponibles dans les rapports Cloudyn. Cet article vous aide à configurer et à connecter votre compte Google à Cloudyn.
 
 ## <a name="collect-project-information"></a>Collecter des informations sur le projet
 
 Vous commencez par collecter les informations sur votre projet.
 
 1. Connectez-vous à la console Google Cloud Platform à l’adresse [https://console.cloud.google.com](https://console.cloud.google.com).
-2. Passez en revue les informations du projet que vous souhaitez intégrer à Cost Management, puis notez le **Nom du projet** et l’**ID du projet**. Conservez les informations à portée de main pour les étapes ultérieures.  
+2. Passez en revue les informations du projet que vous souhaitez intégrer à Cloudyn, puis notez le **Nom du projet** et l’**ID du projet**. Conservez les informations à portée de main pour les étapes ultérieures.  
     ![Console Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
 3. Si la facturation n’est pas activée et liée à votre projet, créez un compte de facturation. Pour plus d’informations, voir [Créer un compte de facturation](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create\_a\_new\_billing\_account).
 
 ## <a name="enable-storage-bucket-billing-export"></a>Activer l’exportation de la facturation du compartiment de stockage
 
-Cost Management récupère vos données de facturation Google à partir d’un compartiment de stockage. Conservez les informations **Nom du compartiment** et **Préfixe du rapport** à portée de main en vue d’un usage ultérieur lors de l’inscription de Cost Management.
+Cloudyn récupère vos données de facturation Google à partir d’un compartiment de stockage. Conservez les informations **Nom du compartiment** et **Préfixe du rapport** à portée de main en vue d’un usage ultérieur au moment de l’inscription auprès de Cloudyn.
 
 L’utilisation de Google Cloud Storage pour stocker les rapports d’utilisation occasionne un minimum de frais. Pour plus d’informations, voir [Tarifs de Cloud Storage](https://cloud.google.com/storage/pricing).
 
@@ -42,7 +42,7 @@ L’utilisation de Google Cloud Storage pour stocker les rapports d’utilisatio
 
 ## <a name="enable-google-cloud-platform-apis"></a>Activez les API Google Cloud Platform
 
-Pour collecter les informations sur les actifs et l’utilisation, Cost Management a besoin que les API Google Cloud Platform suivantes soient activée :
+Pour collecter les informations sur les actifs et l’utilisation, Cloudyn a besoin que les API Google Cloud Platform suivantes soient activée :
 
 - API BigQuery
 - Google Cloud SQL
@@ -53,12 +53,12 @@ Pour collecter les informations sur les actifs et l’utilisation, Cost Manageme
 
 ### <a name="enable-or-verify-apis"></a>API Activer ou Vérifier
 
-1. Dans la console Google Cloud Platform, sélectionnez le projet que vous souhaitez inscrire auprès de Cost Management.
+1. Dans la console Google Cloud Platform, sélectionnez le projet que vous souhaitez inscrire auprès de Cloudyn.
 2. Accédez à **API et Services** > **Bibliothèque**.
 3. Utilisez une recherche pour trouver chaque API.
 4. Pour chaque API, vérifiez que l’option **API activée** est sélectionnée. Autrement, cliquez sur **ACTIVER**.
 
-## <a name="add-a-google-cloud-account-to-cost-management"></a>Ajouter un compte Google Cloud à Cost Management
+## <a name="add-a-google-cloud-account-to-cloudyn"></a>Ajouter un compte Google Cloud à Cloudyn
 
 1. Ouvrez le portail Cloudyn à partir du portail Azure ou accédez à [https://azure.cloudyn.com](https://azure.cloudyn.com/) et connectez-vous.
 2. Cliquez sur **Paramètres** (symbole de roue dentée), puis sélectionnez **Comptes cloud**.
@@ -70,8 +70,8 @@ Pour collecter les informations sur les actifs et l’utilisation, Cost Manageme
 
 Votre compte Google apparaît dans la liste des comptes, et devrait indiquer **Authentifié**. Sous celui-ci devraient apparaître le nom et l’ID de votre projet Google, ainsi qu’un symbole de coche verte. L’état du compte devrait être **Terminé**.
 
-Après quelques heures, les rapports Cost Management affichent les informations de coût et d’utilisation de Google.
+Après quelques heures, les rapports Cloudyn affichent les informations de coût et d’utilisation de Google.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur Azure Cost Management, poursuivez avec le didacticiel [Examen de l’utilisation et des coûts](./tutorial-review-usage.md) pour Cost Management.
+- Pour en savoir plus sur Cloudyn, suivez le tutoriel [Vérifier l’utilisation et les coûts](./tutorial-review-usage.md) sur Cloudyn.

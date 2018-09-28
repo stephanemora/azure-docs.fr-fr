@@ -1,22 +1,22 @@
 ---
-title: Créer une zone privée Azure DNS à l’aide d’Azure CLI
-description: Dans ce tutoriel, vous pourrez créer et tester une zone privée DNS et faire un enregistrement dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone privée DNS et de votre premier enregistrement à l’aide d’Azure CLI.
+title: Créer une zone privée Azure DNS avec Azure CLI
+description: Dans ce tutoriel, vous pourrez créer et tester une zone DNS privée et faire un enregistrement dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone privée DNS et de votre premier enregistrement à l’aide d’Azure CLI.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
 ms.date: 7/25/2018
 ms.author: victorh
-ms.openlocfilehash: 023a1ecb6afc49dd20a14d57558d72a44779dbe9
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 27a27cfb81362b070deb0bad367ff62e8c39460c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257563"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46964379"
 ---
-# <a name="create-an-azure-dns-private-zone-using-azure-cli"></a>Créer une zone privée Azure DNS à l’aide d’Azure CLI
+# <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>Créer une zone privée Azure DNS avec Azure CLI
 
-Ce didacticiel vous indique la procédure à suivre pour créer votre première zone privée DNS et enregistrement à l’aide d’Azure CLI.
+Ce tutoriel vous indique la procédure à suivre pour créer votre première zone et votre premier enregistrement DNS privé avec Azure CLI.
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
@@ -39,7 +39,7 @@ Si vous préférez, vous pouvez effectuer ce didacticiel en utilisant [Azure Pow
 
 ## <a name="create-the-resource-group"></a>Créer le groupe de ressources
 
-Tout d’abord créez, un groupe de ressources pour contenir la zone DNS : 
+Tout d’abord, créez un groupe de ressources pour contenir la zone DNS : 
 
 ```azurecli
 az group create --name MyAzureResourceGroup --location "East US"
@@ -147,7 +147,7 @@ Maintenant vous pouvez désormais tester la résolution de noms pour votre zone 
 
 Vous pouvez utiliser la commande test ping pour tester la résolution de nom. Par conséquent, configurez le pare-feu sur les deux machines virtuelles pour autoriser les paquets ICMP entrants.
 
-1. Se connecter à myVM01 et ouvrez une fenêtre Windows PowerShell avec les privilèges d’administrateur.
+1. Connectez-vous à myVM01 et ouvrez une fenêtre Windows PowerShell avec les privilèges d’administrateur.
 2. Exécutez la commande suivante :
 
    ```powershell

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: 6df6a3a5242e0a5fc5c03136e1cd20967a93487a
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8512c04cb0efc698ca688724c3806291bb02d200
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386518"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947637"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Effectuer un déploiement avec Terraform à partir de Bash dans Azure Cloud Shell
 Cet article vous guide dans la création d’un groupe de ressources avec le [fournisseur Terraform AzureRM](https://www.terraform.io/docs/providers/azurerm/index.html). 
@@ -26,9 +26,9 @@ Cet article vous guide dans la création d’un groupe de ressources avec le [fo
 [Hashicorp Terraform](https://www.terraform.io/) est un outil open source qui codifie les API dans des fichiers de configuration déclaratifs qui peuvent être partagés entre les membres d’une équipe, qui peuvent les modifier, les réviser et gérer leurs versions. Le fournisseur Microsoft AzureRM est utilisé pour interagir avec les ressources prises en charge par Azure Resource Manager via les API AzureRM. 
 
 ## <a name="automatic-authentication"></a>Authentification automatique
-Terraform est installé par défaut dans Bash dans Cloud Shell. Cloud Shell authentifie automatiquement votre abonnement Azure CLI 2.0 par défaut pour déployer des ressources via les modules Terraform Azure.
+Terraform est installé par défaut dans Bash dans Cloud Shell. Cloud Shell authentifie automatiquement votre abonnement Azure CLI par défaut pour déployer des ressources via les modules Terraform Azure.
 
-Terraform utilise l’abonnement Azure CLI 2.0 par défaut qui est défini. Pour mettre à jour les abonnements par défaut, exécutez :
+Terraform utilise l’abonnement Azure CLI par défaut qui est défini. Pour mettre à jour les abonnements par défaut, exécutez :
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
@@ -144,7 +144,7 @@ Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 
 La [commande terraform apply](https://www.terraform.io/docs/commands/apply.html) est utilisée pour appliquer les modifications nécessaires permettant d’atteindre l’état souhaité de la configuration.
 
-### <a name="verify-deployment-with-azure-cli-20"></a>Vérifier le déploiement avec Azure CLI 2.0
+### <a name="verify-deployment-with-azure-cli"></a>Vérifier le déploiement avec Azure CLI
 Exécutez `az group show -n myRgName` pour vérifier que la ressource a été correctement provisionnée.
 
 ```azcliinteractive
@@ -187,6 +187,6 @@ Destroy complete! Resources: 1 destroyed.
 
 Vous avez créé une ressource Azure via Terraform. Consultez les étapes suivantes pour continuer à découvrir Cloud Shell.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus sur le fournisseur Terraform Azure](https://www.terraform.io/docs/providers/azurerm/#)<br>
 [Démarrage rapide de Bash dans Cloud Shell](quickstart.md)

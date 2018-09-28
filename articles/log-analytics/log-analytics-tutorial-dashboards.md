@@ -16,12 +16,12 @@ ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: a4b1e59ff9ac4d7f455c87e821fb014ba238d3c9
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2c7c1e71830eb3fe4f7240195dac828ac9dfed3a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127473"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951559"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Créer et partager des tableaux de bord de données Log Analytics
 
@@ -56,7 +56,7 @@ Vous êtes invité à choisir un abonnement et un groupe de ressources dans lesq
 
 Vous pouvez créer des requêtes de base sur une seule ligne à partir du portail de recherche dans les journaux, dans le portail Azure. Il est possible d’utiliser le portail de recherche dans les journaux sans lancer un portail externe. Vous pouvez en outre l’utiliser pour exécuter diverses fonctions avec des recherches dans les journaux, y compris la création de règles d’alerte, la création de groupes d’ordinateurs et l’exportation de résultats de la requête. 
 
-Le [portail d’analytique avancée](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) est un portail dédié qui propose des fonctionnalités avancées non disponibles dans le portail de recherche dans les journaux. Ces fonctionnalités incluent la possibilité de modifier une requête sur plusieurs lignes et d’exécuter de façon sélective du code, des données Intellisense contextuelles et Smart Analytics. Dans le portail d’analytique avancée, vous allez créer une vue des performances sous forme graphique, l’enregistrer pour une recherche ultérieure et l’épingler au tableau de bord partagé créé précédemment.   
+Le [portail Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md) est un portail dédié qui propose des fonctionnalités avancées non disponibles dans le portail de recherche dans les journaux. Ces fonctionnalités incluent la possibilité de modifier une requête sur plusieurs lignes et d’exécuter de façon sélective du code, des données Intellisense contextuelles et Smart Analytics. Dans le portail d’analytique avancée, vous allez créer une vue des performances sous forme graphique, l’enregistrer pour une recherche ultérieure et l’épingler au tableau de bord partagé créé précédemment.   
 
 Lancez le portail Analytics avancé à partir d’un lien du portail de recherche dans les journaux.<br> ![Lancer le portail d’analytique avancée](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-01.png)
 

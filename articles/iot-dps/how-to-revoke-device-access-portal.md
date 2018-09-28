@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: d0720c23e0831b446a92855383fab06b0bfacbc7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e66d896a7df48645dad39b5b978c4f7c2f8d8cb9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525465"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954549"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Révoquer l’accès d’un appareil du service Azure IoT Hub Device Provisioning Service
 
@@ -34,9 +34,12 @@ Pour mettre provisoirement l’appareil sur liste rouge en désactivant son entr
 2. Dans la liste des ressources, sélectionnez le service de provisionnement pour lequel vous souhaitez mettre votre appareil sur liste rouge.
 3. Dans votre service de provisionnement, sélectionnez **Gérer les inscriptions**, puis sélectionnez l’onglet **Inscriptions individuelles**.
 4. Sélectionnez l’entrée d’inscription de l’appareil à mettre sur liste rouge. 
-5. Faites défiler vers le bas, sélectionnez **Désactiver** sur le commutateur **Activer l’entrée**, puis sélectionnez **Enregistrer**.  
 
-   [![Désactiver une entrée d’inscription individuelle dans le portail](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+    ![Sélectionner votre inscription individuelle](./media/how-to-revoke-device-access-portal/select-individual-enrollment.png)
+
+5. Faites défiler la page de votre abonnement vers le bas, sélectionnez **Désactiver** pour le commutateur **Activer l’entrée**, puis sélectionnez **Enregistrer**.  
+
+   ![Désactiver une entrée d’inscription individuelle dans le portail](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
 
 Pour mettre définitivement l’appareil sur liste rouge en supprimant son entrée d’inscription
 
@@ -47,7 +50,8 @@ Pour mettre définitivement l’appareil sur liste rouge en supprimant son entr�
 5. Sélectionnez **Supprimer** en haut de la fenêtre, puis sélectionnez **Oui** pour confirmer que vous voulez supprimer l’inscription. 
 
    ![Supprimer une entrée d’inscription individuelle dans le portail](./media/how-to-revoke-device-access-portal/delete-individual-enrollment.png)
-    
+
+
 Une fois la procédure terminée, vous devriez constater que votre entrée a été supprimée de la liste des inscriptions individuelles.  
 
 ## <a name="blacklist-an-x509-intermediate-or-root-ca-certificate-by-using-an-enrollment-group"></a>Mettre sur liste rouge un certificat d’autorité de certification racine ou intermédiaire X.509 à l’aide d’un groupe d’inscription
@@ -91,14 +95,18 @@ Pour mettre sur liste rouge un appareil individuel dans un groupe d’inscriptio
 1. Connectez-vous au portail Azure et sélectionnez **Toutes les ressources** dans le menu de gauche.
 2. Dans la liste des ressources, sélectionnez le service de provisionnement qui contient le groupe d’inscription de l’appareil à mettre sur liste rouge.
 3. Dans votre service de provisionnement, sélectionnez **Gérer les inscriptions**, puis sélectionnez l’onglet **Inscriptions individuelles**.
-4. Sélectionnez le bouton **Ajouter** en haut. 
-5. Sélectionnez **X.509** comme mécanisme d’attestation pour l’appareil et chargez le certificat de l’appareil. Il s’agit du certificat d’entité finale signé installé sur l’appareil. L’appareil l’utilise pour générer des certificats pour l’authentification.
-6. Dans **ID de l’appareil IoT Hub** entrez l’ID de l’appareil. 
-7. Sélectionnez **Désactiver** sur le commutateur **Activer l’entrée**, puis sélectionnez **Enregistrer**. 
+4. Sélectionnez le bouton **Ajouter une inscription individuelle** en haut. 
+5. Dans la page **Ajouter une inscription**, sélectionnez **X.509** comme **Mécanisme** d’attestation pour l’appareil.
+
+    Chargez le certificat de l’appareil, puis entrez l’ID de l’appareil à ajouter à la liste rouge. Pour le certificat, utilisez le certificat d’entité finale signé qui est installé sur l’appareil. L’appareil utilise ce certificat pour l’authentification.
+
+    ![Définir les propriétés de l’appareil mis sur liste rouge](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group-1.png)
+
+6. Faites défiler la page **Ajouter une inscription** vers le bas, sélectionnez **Désactiver** pour le commutateur **Activer l’entrée**, puis sélectionnez **Enregistrer**. 
 
     [![Utiliser l’entrée d’inscription individuelle désactivée pour désactiver l’appareil de l’inscription de groupe, dans le portail](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
-Une fois votre inscription créée, votre appareil doit apparaître sous l’onglet **Inscriptions individuelles**.
+Une fois votre inscription créée, vous devez normalement voir l’inscription désactivée de votre appareil sous l’onglet **Inscriptions individuelles**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

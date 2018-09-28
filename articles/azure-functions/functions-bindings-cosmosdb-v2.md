@@ -1,5 +1,5 @@
 ---
-title: Liaisons Azure Cosmos DB pour Functions 2.x (Préversion)
+title: Liaisons Azure Cosmos DB pour Azure Functions 2.x
 description: Découvrez comment utiliser des déclencheurs et liaisons Azure Cosmos DB dans Azure Functions.
 services: functions
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: ea1403ed8afe6e84a3118d891e8c2d34b390d158
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093428"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953471"
 ---
-# <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Liaisons Azure Cosmos DB pour Azure Functions 2.x (Préversion)
+# <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Liaisons Azure Cosmos DB pour Azure Functions 2.x
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1 - Disponibilité générale](functions-bindings-cosmosdb.md)
@@ -27,7 +27,7 @@ ms.locfileid: "44093428"
 Cet article explique comment utiliser des liaisons [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) dans Azure Functions 2.x. Azure Functions prend en charge les liaisons de déclencheur, d’entrée et de sortie pour Azure Cosmos DB.
 
 > [!NOTE]
-> Cet article concerne la [version des Azure Functions 2.x](functions-versions.md), disponible en préversion.  Pour plus d’informations sur l’utilisation de ces liaisons dans Functions 1.x, consultez [Liaisons Azure Cosmos DB pour Azure Functions 1.x](functions-bindings-cosmosdb.md).
+> Cet article concerne [Azure Functions version 2.x](functions-versions.md).  Pour plus d’informations sur l’utilisation de ces liaisons dans Functions 1.x, consultez [Liaisons Azure Cosmos DB pour Azure Functions 1.x](functions-bindings-cosmosdb.md).
 >
 > Cette liaison était nommée à l’origine DocumentDB. Dans Functions version 2.x, le déclencheur, les liaisons et le package sont tous renommés Cosmos DB.
 

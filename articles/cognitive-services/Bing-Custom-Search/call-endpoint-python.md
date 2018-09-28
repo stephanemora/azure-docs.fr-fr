@@ -9,45 +9,43 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 3666e92372e9bed80e5c0c7991dcac730cebb588
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504965"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967589"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Appeler le point de terminaison Recherche personnalisée Bing (Python)
 
 Ce guide de démarrage rapide montre comment demander les résultats de la recherche à partir de votre instance de recherche personnalisée en utilisant Python pour appeler le point de terminaison Recherche personnalisée Bing. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
+
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
-- Une instance de recherche personnalisée. Consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).
+- Une instance de recherche personnalisée prête à l’emploi. Consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).
+- [Python](https://www.python.org/) (déjà installé).
+- Une clé d’abonnement Vous pouvez obtenir une clé d’abonnement quand vous activez votre [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ou vous pouvez utiliser une clé d’abonnement payant de votre tableau de bord Azure (voir [Compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
--  [Python](https://www.python.org/) (déjà installé).
-
-- Un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure. 
 
 ## <a name="run-the-code"></a>Exécuter le code
 
-Pour appeler le point de terminaison Recherche personnalisée Bing, effectuez les étapes suivantes :
+Pour exécuter cet exemple, suivez ces étapes :
 
-1. Créez un dossier pour votre code.
-
-2. À partir d’un terminal ou d’une invite de commandes en mode administrateur, accédez au dossier que vous venez de créer.
-
-3. Installez le module Python **requests** :
-
+1. Créez un dossier pour votre code.  
+  
+2. À partir d’un terminal ou d’une invite de commandes en mode administrateur, accédez au dossier que vous venez de créer.  
+  
+3. Installez le module Python **requests** :  
+  
     <pre>
     pip install pipenv
     pipenv install requests
-    </pre>
-    
-7. Créez le fichier BingCustomSearch.py et copiez-y le code ci-dessous.
-
-8. Remplacez **YOUR-SUBSCRIPTION-KEY** et **YOUR-CUSTOM-CONFIG-ID** par votre clé et votre ID de configuration (voir l’étape 1).
-
+    </pre>  
+      
+4. Créez un fichier nommé BingCustomSearch.py dans le dossier que vous avez créé et copiez-y le code suivant. Remplacez **YOUR-SUBSCRIPTION-KEY** et **YOUR-CUSTOM-CONFIG-ID** par votre clé d’abonnement et votre ID de configuration.  
+  
     ``` Python
     import json
     import requests
@@ -59,8 +57,10 @@ Pour appeler le point de terminaison Recherche personnalisée Bing, effectuez le
     url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=' + searchTerm + '&customconfig=' + customConfigId
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
-    ```
-9. Exécutez le code à l’aide de la commande suivante.
+    ```  
+  
+7. Exécutez le code à l’aide de la commande suivante.  
+  
     ```
     python BingCustomSearch.py
     ```

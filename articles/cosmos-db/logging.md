@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: acc327bd9fa6828a65243b6d0ad0c6da4b98f48d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857097"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963387"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Journalisation des diagnostics Azure Cosmos DB
 
@@ -29,9 +29,9 @@ L’illustration suivante montre les différents types de journaux Azure disponi
 
 ![Les différents types de journaux Azure](./media/logging/azurelogging.png)
 
-Sur l’image, les **Ressources de calcul** représentent les ressources Azure pour lesquelles vous pouvez accéder au système d’exploitation invité Microsoft. Par exemple, les machines virtuelles Azure, les groupes de machines virtuelles identiques et Azure Container Service sont considérés comme des ressources de calcul. Les ressources de calcul génèrent des journaux d’activité, de diagnostic et des applications. Pour plus d’informations, consultez l’article [Azure Monitoring : ressources de calcul](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---compute-subset).
+Sur l’image, les **Ressources de calcul** représentent les ressources Azure pour lesquelles vous pouvez accéder au système d’exploitation invité Microsoft. Par exemple, les machines virtuelles Azure, les groupes de machines virtuelles identiques et Azure Container Service sont considérés comme des ressources de calcul. Les ressources de calcul génèrent des journaux d’activité, de diagnostic et des applications. Pour plus d’informations, reportez-vous à l’article [Sources de données de supervision dans Azure](../monitoring/monitoring-data-sources.md#).
 
-Les **ressources non liées au calcul** sont des ressources dans lesquelles il n’est pas possible d’accéder au système d’exploitation sous-jacent et de les utiliser directement, par exemple, les Groupes de sécurité réseau, Logic Apps, etc. Azure Cosmos DB en est une. Vous pouvez afficher les journaux des ressources non liées au calcul dans le journal d’activité ou activer l’option Journaux de diagnostic sur le portail. Pour plus d’informations, consultez l’article [Azure Monitoring : ressources non liées au calcul](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md#azure-monitor-sources---everything-else).
+Les **ressources non liées au calcul** sont des ressources dans lesquelles il n’est pas possible d’accéder au système d’exploitation sous-jacent et de les utiliser directement, par exemple, les Groupes de sécurité réseau, Logic Apps, etc. Azure Cosmos DB en est une. Vous pouvez afficher les journaux des ressources non liées au calcul dans le journal d’activité ou activer l’option Journaux de diagnostic sur le portail. Pour plus d’informations, reportez-vous à l’article [Sources de données dans Azure Monitor](../monitoring/monitoring-data-sources.md).
 
 Le journal d’activité enregistre les opérations au niveau de l’abonnement pour Azure Cosmos DB. Les opérations comme ListKeys et Write DatabaseAccounts sont journalisées par exemple. Les journaux de diagnostic assurent une journalisation plus précise et permettent de consigner des DataPlaneRequests (Create, Read, Query, etc.) et MongoRequests.
 
@@ -164,7 +164,7 @@ Pour plus d’informations sur la configuration d’Azure PowerShell, consultez 
 ### <a id="storage"></a>Création d’un nouveau compte de stockage pour vos journaux
 Bien que vous puissiez utiliser un compte de stockage existant pour vos journaux, dans ce didacticiel nous en créons un nouveau qui sera dédié à vos journaux Azure Cosmos DB. Pour plus de commodité, nous stockons les détails du compte de stockage dans une variable nommée **sa**.
 
-Pour faciliter encore la gestion, dans ce didacticiel nous utilisons le groupe de ressources qui contient la base de données Azure Cosmos DB. Remplacez les valeurs des paramètres **ContosoResourceGroup**, **contosocosmosdblogs** et **Nord du centre des États-Unis**, comme il convient :
+Pour faciliter encore la gestion, dans ce didacticiel nous utilisons le groupe de ressources qui contient la base de données Azure Cosmos DB. Remplacez les valeurs des paramètres **ContosoResourceGroup**, **contosocosmosdblogs** et **USA Centre Nord**, comme il convient :
 
 ```powershell
 $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
@@ -461,7 +461,7 @@ Le tableau suivant décrit le contenu de chaque entrée de journal.
 
 - Pour comprendre comment activer la journalisation, mais aussi les métriques et les catégories de journaux prises en charge par les différents services Azure, consultez les articles [Vue d’ensemble des métriques dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md) et [Présentation des journaux de diagnostic Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 - Pour en savoir plus sur les concentrateurs d’événements, lisez les articles suivants :
-   - [Nouveautés des concentrateurs d'événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
+   - [Nouveautés des concentrateurs d’événements Azure ?](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [Prise en main des hubs d’événements](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - Consultez [Télécharger les journaux de métriques et diagnostics de Stockage Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
 - Consultez [Présentation des recherches dans les journaux dans Log Analytics](../log-analytics/log-analytics-log-search-new.md).

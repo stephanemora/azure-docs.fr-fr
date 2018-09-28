@@ -11,14 +11,18 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4a2dff4dd57bdb0b010bbb4568d796f1e197a728
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906325"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971499"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Persistance des changements et utilisation de fichiers volumineux
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Le service Azure Machine Learning - Expérimentation vous permet de configurer des cibles d’exécution variées. Certaines cibles sont locales, comme un ordinateur local ou un conteneur Docker sur un ordinateur local. D’autres sont distantes, comme un conteneur Docker sur un ordinateur distant ou un cluster HDInsight. Pour plus d’informations, consultez [Présentation du service d’exécution d’expérience Azure Machine Learning](experimentation-service-configuration.md). 
 
 Pour exécuter des scripts sur une cible, vous devez au préalable copier le dossier du projet dans la cible de calcul. Cette opération est obligatoire, même si vous avez une exécution locale qui utilise un dossier temporaire local à cet effet. 
@@ -48,6 +52,9 @@ Les cas d’utilisation courants sont les suivants :
 * Training a model
 * Création d’un jeu de données
 * Traçage d’un graphe comme fichier image dans le cadre de l’exécution de l’apprentissage du modèle 
+
+>[!Note]
+> La taille maximale du fichier suivi dans le dossier de sortie après une exécution est de 512 Mo. Autrement dit, si votre script génère un fichier de plus de 512 Mo dans le dossier de sortie, ce fichier n’est pas collecté. 
 
 Vous pouvez également comparer les sorties d’une exécution à l’autre, sélectionner un fichier de sortie (par exemple, un modèle) produit par une exécution précédente et l’utiliser pour une autre tâche (par exemple, pour une notation).
 

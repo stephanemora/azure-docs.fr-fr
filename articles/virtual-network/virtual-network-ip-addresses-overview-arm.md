@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: f55dfa8ffadc4ddee1ff3861682e5596b675f0d0
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 65dc420b6832b7b0a4cf14d63203d4c66e2a4254
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325283"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993593"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -28,6 +28,8 @@ Vous pouvez affecter des adresses IP à des ressources Azure pour communiquer av
 
 * **Adresses IP publiques** : Elles sont utilisées pour la communication avec Internet, notamment les services Azure accessibles au public.
 * **Adresses IP privées** : utilisées pour la communication au sein d’un réseau virtuel Azure (VNet) et de votre réseau local quand vous faites appel à une passerelle VPN ou à un circuit ExpressRoute pour étendre votre réseau à Azure.
+
+Vous pouvez également créer une plage contiguë d’adresses IP publiques statiques par le biais d’un préfixe d’adresse IP publique. [Découvrez ce qu’est un préfixe d’adresse IP publique.](public-ip-address-prefix.md)
 
 > [!NOTE]
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  Cet article traite de l’utilisation du modèle de déploiement Resource Manager que Microsoft recommande pour la plupart des nouveaux déploiements à la place du [modèle de déploiement classique](virtual-network-ip-addresses-overview-classic.md).

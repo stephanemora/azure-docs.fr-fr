@@ -1,24 +1,25 @@
 ---
-title: Intégrer LUIS avec un bot à l’aide du Kit SDK Bot Builder pour Node.js dans Azure | Microsoft Docs
-description: Générez un bot intégré à une application LUIS à l’aide de Bot Framework.
+title: Bot LUIS avec Node.js - Bot d’application web - Bot Framework SDK 3.0
+titleSuffix: Azure Cognitive Services
+description: Créer un bot intégré avec une application LUIS à l’aide de Bot Framework.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6d6937105b11d94138b51660dc9f3c5e682e19bc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 4967c6c8eb9f849006beb78cfd2e41eba53b6867
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224073"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952968"
 ---
-# <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Intégrer LUIS avec un bot à l’aide du Kit SDK Bot Builder pour Node.js
+# <a name="luis-bot-in-nodejs"></a>Bot LUIS dans Node.js
 
-Ce tutoriel explique pas à pas comment générer un bot avec [Bot Framework][BotFramework], intégré avec une application LUIS.
+À l’aide de Node.js, créez un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot conversationnel utilise le domaine HomeAutomation prédéfini pour implémenter rapidement une solution de bot. Le bot est créé avec Bot Framework 3.x et le bot d’application web Azure.
 
 ## <a name="prerequisite"></a>Configuration requise
 
@@ -45,7 +46,10 @@ Le bot répond aux intentions du domaine HomeAutomation qui se trouvent dans l�
 3. Dans le panneau **Bot Service**, indiquez les informations requises, puis sélectionnez **Créer** pour créer et déployer le service Bot Service et l’application LUIS sur Azure. Si vous souhaitez utiliser la [préparation vocale](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming), consultez les [conditions régionales](luis-resources-faq.md#what-luis-regions-support-bot-framework-speech-priming) avant de créer votre bot. 
     * Dans **Nom de l’application**, entrez le nom de votre bot. Il sera utilisé comme sous-domaine lors du déploiement de votre bot sur le cloud (par exemple, mynotesbot.azurewebsites.net). <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
     * Sélectionnez l’abonnement, le [groupe de ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), le plan App Service et [l’emplacement](https://azure.microsoft.com/regions/).
-    * Sélectionnez le modèle **Language Understanding (Node.js)** pour le champ **Modèle de bot**.
+    * Pour **Modèle de bot**, sélectionnez :
+        * **SDK v3**
+        * **Node.JS**
+        * **Language Understanding**
     * Sélectionnez **l’emplacement de l’application LUIS**. L’application sera créée dans cette [région][LUIS].
     * Cochez la case de confirmation de la mention légale. Les conditions de la mention légale figurent sous la case à cocher.
 

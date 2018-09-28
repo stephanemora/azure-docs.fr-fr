@@ -12,18 +12,18 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: d208a4b72a27eb288d46ee591f42a8f6b71c4f70
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d1062b3a873462443e0e91085850658e04d5ab0a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094057"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974185"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Créer votre première fonction à l’aide du Portail Azure
 
 Azure Functions vous permet d’exécuter votre code dans un environnement [sans serveur](https://azure.microsoft.com/overview/serverless-computing/) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable. Dans cette rubrique, vous allez découvrir comment utiliser Functions pour créer une fonction « hello world » dans le portail Azure.
 
-![Créer une Function App dans le Portail Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
+![Créer une application de fonction dans le portail Azure](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,15 +36,15 @@ Connectez-vous au portail Azure sur <http://portal.azure.com> avec votre compte 
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 
-Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. Une Function App vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. 
+Vous devez disposer d’une application de fonction pour héberger l’exécution de vos fonctions. Une application de fonction vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-Créez ensuite une fonction dans la nouvelle Function App.
+Créez ensuite une fonction dans la nouvelle application de fonction.
 
 ## <a name="create-function"></a>Créer une fonction déclenchée via HTTP
 
-1. Développez votre nouvelle Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**.
+1. Développez votre nouvelle application de fonction, puis cliquez sur le bouton **+** en regard de **Fonctions**.
 
 2.  Sur la page **Commencez rapidement**, sélectionnez **WebHook + API**, **choisissez le langage** de votre fonction, puis cliquez sur **Créer cette fonction**. 
    
@@ -78,11 +78,11 @@ Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête H
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez créé une Function App avec une simple fonction déclenchée via HTTP.  
+Vous avez créé une application de fonction avec une simple fonction déclenchée via HTTP.  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Pour plus d’informations, consultez [Liaisons HTTP et webhook Azure Functions](functions-bindings-http-webhook.md).
+Pour plus d’informations, consultez [Liaisons HTTP Azure Functions](functions-bindings-http-webhook.md).
 
 
 

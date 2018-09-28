@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: 4236372370858e940d7e3a1671c0e8a8278796fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 1986c19e6625df7c281f7de9b322124da6a12c45
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42146167"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973834"
 ---
 # <a name="sql-database-application-development-overview"></a>Vue d’ensemble du développement de base de données SQL
 Cet article explique les aspects de base qu’un développeur doit prendre en compte lors de l’écriture de code permettant d’établir une connexion à la base de données SQL Azure.
@@ -36,9 +36,9 @@ Vous pouvez tirer parti des outils open source comme [cheetah](https://github.co
 La base de données SQL Azure gère les ressources disponibles pour une base de données à l’aide de deux mécanismes différents : la gouvernance des ressources et l’application de limites. Pour plus d'informations, consultez les pages suivantes :
 
 - [Limites de modèle de ressources basées sur des unités DTU : base de données unique](sql-database-dtu-resource-limits-single-databases.md)
-- [Limites de modèle de ressources basées sur des unités DTU : pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md)
+- [Limites de modèle de ressources basées sur des unités DTU - Pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md)
 - [Limites de modèle de ressources basées sur des vCore : base de données unique](sql-database-vcore-resource-limits-single-databases.md)
-- [Limites de ressources basées sur des vCore : pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)
+- [Limites de ressources basées sur des vCore - Pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Sécurité
 La base de données SQL Azure fournit des ressources permettant de limiter l’accès, de protéger les données et de surveiller les activités sur une base de données SQL.

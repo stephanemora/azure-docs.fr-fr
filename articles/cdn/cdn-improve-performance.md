@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/13/2018
 ms.author: magattus
-ms.openlocfilehash: c3a20bd4fa1cccdca7cba0de52620f09fe01abc5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2468462170f970cd597dd1296417d5b93a88c2ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140666"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997267"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Compression des fichiers dans Azure CDN pour améliorer les performances
 La compression de fichiers est une méthode simple et efficace qui vise à améliorer la vitesse de transfert des fichiers et à accroître les performances de chargement des pages en réduisant la taille des fichiers avant leur envoi à partir du serveur. La compression de fichiers peut réduire les coûts de bande passante et offre à vos utilisateurs davantage de réactivité.
@@ -102,13 +102,14 @@ Les niveaux Standard et Premium de CDN fournissent les mêmes fonctionnalités, 
 
 ### <a name="azure-cdn-standard-from-microsoft-profiles"></a>Profils CDN Azure Standard fourni par Microsoft
 
-Pour les profils **CDN Azure Standard fourni par Microsoft**, tous les fichiers sont éligibles à la compression. Cependant, un fichier doit être de type MIME et [configuré pour la compression](#enabling-compression).
+Pour les profils du **CDN Azure Standard fourni par Microsoft**, seuls les fichiers éligibles sont compressés. Pour être éligible pour la compression, un fichier doit : -Être d’un type MIME [configuré pour la compression](#enabling-compression).
+-Avoir une taille supérieure à 1 Ko. -Avoir une taille inférieure à 8 Mo.
 
 Ces profils prennent en charge les encodages de compression suivants :
 - gzip (GNU zip)
 - brotli 
  
-Si la requête prend en charge plusieurs types de compression, ces types de compression sont prioritaires sur la compression brotli.
+Si la requête prend en charge plusieurs types de compression, la compression brotli est prioritaire.
 
 Lorsqu’une demande liée à un composant spécifie la compression gzip et que cette demande cause une absence dans le cache, le CDN Azure effectue une compression gzip du composant directement sur le serveur POP. Ensuite, le fichier compressé est servi à partir du cache.
 

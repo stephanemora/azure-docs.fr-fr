@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 027204065429a9eebd2e8121cbac8bc18b9d9ce6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 91be34468dae0fb1c24080fbe53c3c8056e8c1a3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091433"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967845"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -133,11 +133,11 @@ Si vous avez [installé et configuré Azure PowerShell][powershell-install], vou
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
-### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
+### <a name="use-azure-classic-cli"></a>Utiliser Azure Classic CLI
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-Si vous avez [installé et configuré l’interface de ligne de commande Azure](../cli-install-nodejs.md), la commande suivante peut être utilisée sur un compte de stockage et un conteneur.
+Si vous avez [installé et configuré Azure Classic CLI](../cli-install-nodejs.md), vous pouvez utiliser la commande suivante sur un compte de stockage et un conteneur.
 
     azure storage account create <storageaccountname> --type LRS
 
@@ -264,24 +264,24 @@ $clusterName = "<HDInsightClusterName>"
 
     Invoke-AzureRmHDInsightHiveJob -Defines $defines -Query "dfs -ls wasb://$undefinedContainer@$undefinedStorageAccount.blob.core.windows.net/;"
 
-### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
+### <a name="use-azure-classic-cli"></a>Utiliser Azure Classic CLI
 Utilisez la commande suivante pour répertorier les commandes relatives aux objets blob :
 
     azure storage blob
 
-**Exemple d’utilisation de l’interface de ligne de commande Azure pour charger un fichier**
+**Exemple d’utilisation d’Azure Classic CLI pour charger un fichier**
 
     azure storage blob upload <sourcefilename> <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Exemple d’utilisation de l’interface de ligne de commande Azure pour télécharger un fichier**
+**Exemple d’utilisation d’Azure Classic CLI pour télécharger un fichier**
 
     azure storage blob download <containername> <blobname> <destinationfilename> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Exemple d’utilisation de l’interface de ligne de commande Azure pour supprimer un fichier**
+**Exemple d’utilisation d’Azure Classic CLI pour supprimer un fichier**
 
     azure storage blob delete <containername> <blobname> --account-name <storageaccountname> --account-key <storageaccountkey>
 
-**Exemple d’utilisation de l’interface de ligne de commande Azure pour répertorier des fichiers**
+**Exemple d’utilisation d’Azure Classic CLI pour répertorier des fichiers**
 
     azure storage blob list <containername> <blobname|prefix> --account-name <storageaccountname> --account-key <storageaccountkey>
 

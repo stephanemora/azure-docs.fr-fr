@@ -1,6 +1,6 @@
 ---
 title: Réinitialiser l’accès à une machine virtuelle Linux Azure | Microsoft Docs
-description: Guide pratique pour gérer les utilisateurs administratifs et réinitialiser l’accès sur des machines virtuelles Linux à l’aide de l’extension VMAccess et Azure CLI 2.0
+description: Comment gérer les utilisateurs administratifs et réinitialiser l’accès sur des machines virtuelles Linux à l’aide de l’extension VMAccess et d’Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: zroiy
@@ -15,21 +15,20 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e878f5c9f923b55a1eb94cefb1ecf021c81e884e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415892"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998625"
 ---
-# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Gérer les utilisateurs administratifs, SSH et vérifier ou réparer les disques de machines virtuelles Linux à l’aide de l’extension VMAccess avec Azure CLI 2.0
-## <a name="overview"></a>Vue d'ensemble
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Gérer les utilisateurs administratifs, SSH, et vérifier ou réparer les disques de machines virtuelles Linux à l’aide de l’extension VMAccess avec Azure CLI
+## <a name="overview"></a>Vue d’ensemble
 Le disque de votre machine virtuelle Linux affiche des erreurs. Vous avez d'une certaine manière réinitialisé le mot de passe racine de votre machine virtuelle Linux ou supprimé accidentellement votre clé privée SSH. Dans les anciens centres de données, vous deviez aller sur place et ouvrir le KVM pour accéder à la console du serveur. Considérez l’extension Azure VMAccess comme ce commutateur KVM qui vous permet d’accéder à la console pour réinitialiser l’accès à Linux ou effectuer la maintenance au niveau du disque.
 
 Cet article vous explique comment utiliser l’extension Azure VMAccess pour vérifier ou réparer un disque, réinitialiser l’accès des utilisateurs administratifs, gérer les comptes d’utilisateur ou mettre à jour la configuration SSH sous Linux lors de leur exécution en tant que machines virtuelles Azure Resource Manager. Si vous avez besoin de gérer des machines virtuelles classiques, vous pouvez suivre les instructions figurant dans la [Documentation de la machine virtuelle classique](../linux/classic/reset-access-classic.md). 
 
 ## <a name="prerequisites"></a>Prérequis
-
 ### <a name="operating-system"></a>Système d’exploitation
 
 L’extension d’accès aux machines virtuelles peut être exécutée sur ces distributions de Linux :
@@ -48,10 +47,10 @@ L’extension d’accès aux machines virtuelles peut être exécutée sur ces d
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Méthodes d’utilisation de l’extension VMAccess
 Il existe deux façons d’utiliser l’extension VMAccess sur vos machines virtuelles Linux :
 
-* À l’aide de l’interface Azure CLI 2.0 et des paramètres requis.
+* Utiliser Azure CLI et les paramètres nécessaires.
 * [À l’aide de fichiers JSON bruts que l’extension VMAccess va traiter](#use-json-files-and-the-vmaccess-extension) et exploiter.
 
-Les exemples suivants utilisent des commandes [az vm user](/cli/azure/vm/user). Pour suivre ces étapes, vous devez disposer de la dernière version [d’Azure CLI 2.0](/cli/azure/install-az-cli2) et vous connecter à un compte Azure avec la commande [az login](/cli/azure/reference-index#az_login).
+Les exemples suivants utilisent des commandes [az vm user](/cli/azure/vm/user). Pour suivre ces étapes, vous avez besoin de la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et devez vous connecter à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
 
 ## <a name="update-ssh-key"></a>Mettre à jour la clé SSH
 L’exemple suivant met à jour la clé SSH pour l’utilisateur `azureuser` sur la machine virtuelle `myVM` :

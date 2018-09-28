@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fe8b2cc09c7a08ab6d897a0fe1f1204d1903eca
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dbb21e63a25d6e357287f2f91181f2326850a898
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952849"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -73,6 +73,10 @@ Tirez parti des mesures défensives déjà fournies pour les composants que vous
 ## <a name="scalability-best-practices"></a>Bonnes pratiques relatives à l’extensibilité
 
 Il existe un certain nombre de facteurs qui ont un impact sur la façon dont les instances de votre application de fonction se mettent à l’échelle. Les détails sont fournis dans la documentation sur la [mise à l’échelle de fonction](functions-scale.md).  Voici quelques-unes des bonnes pratiques assurant l’extensibilité optimale d’une application de fonction.
+
+### <a name="share-and-manage-connections"></a>Partager et gérer des connexions
+
+Réutilisez les connexions à des ressources externes chaque fois que possible.  Consultez [Guide pratique pour gérer les connexions dans Azure Functions](./manage-connections.md).
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Ne pas mélanger code de test et code de production dans la même application de fonction
 

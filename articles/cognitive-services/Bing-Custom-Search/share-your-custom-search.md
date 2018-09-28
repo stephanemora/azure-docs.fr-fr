@@ -9,20 +9,29 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7e513b3e565e5edf06dae8f11404203b4154e182
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4a9761ce0671b57d802fe332c92e32d1f410fa6f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368824"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960955"
 ---
 # <a name="share-your-custom-search-instance"></a>Partager votre instance de Recherche personnalisée
-Vous pouvez partager votre instance de Recherche personnalisée avec d’autres personnes par le simple biais de leur adresse e-mail. Le fait de partager vos instances de Recherche personnalisée permet à d’autres utilisateurs de les modifier. Connectez-vous à [Custom Search](https://customsearch.ai) (Recherche personnalisée), sélectionnez une instance de Recherche personnalisée et cliquez sur l’icône des paramètres (symbolisée par un engrenage). Dans la section **Share Your Instance** (Partager votre Instance), entrez l’adresse e-mail de la personne avec qui partager votre instance et cliquez sur **Share** (Partager). L’adresse e-mail s’affiche dans la liste intitulée **Instance shared with** (Instance partagée avec). Répétez cette opération pour chaque personne avec qui vous voulez partager votre recherche personnalisée. 
+
+Vous pouvez facilement autoriser des modifications et des tests collaboratifs sur votre instance en la partageant avec les membres de votre équipe. Vous pouvez partager votre instance avec d’autres personnes en utilisant juste leur adresse e-mail. Pour partager une instance :
+
+- Connectez-vous à [Recherche personnalisée](https://customsearch.ai).
+- Sélectionnez une instance Recherche personnalisée.
+- Cliquez sur l’icône des paramètres (sous forme d’engrenage). 
+- Sous **Share Your Instance** (Partager votre Instance), entrez l’adresse e-mail de la personne avec qui vous partagez votre instance et cliquez sur **Share** (Partager). 
+
+Après avoir ajouté l’adresse e-mail, la personne est ajoutée à la liste **Instance shared with** (Instance partagée avec). Répétez le processus pour chaque personne avec laquelle vous voulez partager votre instance. 
 
 Pour ajouter à la liste l’adresse e-mail d’un utilisateur, il n’est pas nécessaire qu’il soit détenteur d’un compte Recherche personnalisée. Par contre, il doit s’inscrire à la Recherche personnalisée avant de procéder à des modifications de configuration. Après avoir partagé une instance avec une personne, celle-ci la voit dans sa liste d’instances de Recherche personnalisée. Une seule personne à la fois peut modifier une instance. Si vous essayez d’apporter des modifications à une instance qu’une autre personne est en train de modifier, un avertissement s’affiche. Une instance peut être partagée avec 10 utilisateurs maximum.
 
 ## <a name="stop-sharing"></a>Cesser le partage
-Pour mettre fin au partage d’une instance avec une personne, utilisez l’icône de suppression pour supprimer son adresse e-mail de la liste.
+
+Pour mettre fin au partage d’une instance avec une personne, utilisez l’icône de suppression pour supprimer son adresse e-mail de la liste. Cette opération supprime également l’instance de leur liste d’instances.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

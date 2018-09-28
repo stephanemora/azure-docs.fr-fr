@@ -5,36 +5,36 @@ services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 08/19/2018
-ms.openlocfilehash: 7e002a43c774bd1a6df9cfe46207ddebd02284b3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 09/24/2018
+ms.openlocfilehash: b63f2566220d556f9695687dc743a7d47e27acf1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104221"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984311"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchroniser des utilisateurs Azure Active Directory vers un cluster HDInsight
 
-Les [clusters HDInsight joints à un domaine](hdinsight-domain-joined-introduction.md) peuvent utiliser l’authentification forte avec les utilisateurs Azure Active Directory (Azure AD), ainsi que des stratégies de *contrôle d’accès en fonction du rôle* (RBAC). À mesure que vous ajoutez des utilisateurs et des groupes à Azure AD, vous pouvez synchroniser les utilisateurs qui ont besoin d’accéder à votre cluster.
+Les [clusters HDInsight avec le Pack Sécurité Entreprise (ESP) activé](hdinsight-domain-joined-introduction.md) peuvent utiliser l’authentification forte pour les utilisateurs d’Azure Active Directory (Azure AD), et également des stratégies de *contrôle d’accès en fonction du rôle* (RBAC). À mesure que vous ajoutez des utilisateurs et des groupes à Azure AD, vous pouvez synchroniser les utilisateurs qui ont besoin d’accéder à votre cluster.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Si ce n’est déjà fait, [créez un cluster HDInsight joint au domaine](hdinsight-domain-joined-configure.md).
+Si ce n’est déjà fait, [créez un cluster HDInsight avec le Pack Sécurité Entreprise activé](hdinsight-domain-joined-configure.md).
 
 ## <a name="add-new-azure-ad-users"></a>Ajouter de nouveaux utilisateurs Azure AD
 
 Pour afficher vos hôtes, ouvrez l’interface utilisateur web d’Ambari. Chaque nœud est actualisé avec de nouveaux paramètres de mise à niveau sans assistance.
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez au répertoire Azure AD associé à votre cluster joint au domaine.
+1. Dans le [portail Azure](https://portal.azure.com), accédez à l’annuaire Azure AD associé à votre cluster PSE.
 
 2. Sélectionnez **Tous les utilisateurs** dans le menu de gauche, puis sélectionnez **Nouvel utilisateur**.
 
     ![Volet Tous les utilisateurs](./media/hdinsight-sync-aad-users-to-cluster/aad-users.png)
 
-3. Remplissez le formulaire du nouvel utilisateur. Sélectionnez les groupes que vous avez créés pour l’attribution d’autorisations basées sur le cluster. Dans cet exemple, créez un groupe nommé « HiveUsers », auquel vous pouvez attribuer de nouveaux utilisateurs. Les [exemples d’instructions](hdinsight-domain-joined-configure.md) pour la création d’un cluster joint à un domaine comprennent l’ajout de deux groupes, `HiveUsers` et `AAD DC Administrators`.
+3. Remplissez le formulaire du nouvel utilisateur. Sélectionnez les groupes que vous avez créés pour l’attribution d’autorisations basées sur le cluster. Dans cet exemple, créez un groupe nommé « HiveUsers », auquel vous pouvez attribuer de nouveaux utilisateurs. Les [exemples d’instructions](hdinsight-domain-joined-configure.md) pour la création d’un cluster PSE comprennent l’ajout de deux groupes, `HiveUsers` et `AAD DC Administrators`.
 
     ![Volet Nouvel utilisateur](./media/hdinsight-sync-aad-users-to-cluster/aad-new-user.png)
 
@@ -148,6 +148,6 @@ Quand le nouvel utilisateur (ou tout autre utilisateur du domaine) se connecte �
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Configurer les stratégies Hive dans HDInsight joint à un domaine](hdinsight-domain-joined-run-hive.md)
-* [Gérer des clusters HDInsight joints à un domaine](hdinsight-domain-joined-manage.md)
+* [Configurer des stratégies Hive dans HDInsight avec le Pack Sécurité Entreprise activé](hdinsight-domain-joined-run-hive.md)
+* [Gérer des clusters HDInsight avec le Pack Sécurité Entreprise activé](hdinsight-domain-joined-manage.md)
 * [Autoriser les utilisateurs à accéder à Ambari](hdinsight-authorize-users-to-ambari.md)

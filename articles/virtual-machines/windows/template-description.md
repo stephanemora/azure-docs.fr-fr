@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 18a9709893533c2c0b606077a126437282f9195e
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: eb88501c5daf0b79d22f4407a372c4606a173db1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42140250"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987694"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Machines virtuelles dans un modèle Azure Resource Manager
 
@@ -164,7 +164,7 @@ Utilisez ces opportunités pour obtenir les dernières versions de l'API :
 
 - API REST - [Répertorier tous les fournisseurs de ressources](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
 - PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI 2.0 - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
 
 ## <a name="parameters-and-variables"></a>Paramètres et variables
 
@@ -442,7 +442,7 @@ Vous pouvez consulter l’état des extensions installées à l'aide des paramè
 
 ![Obtenir l’état de l’extension](./media/template-description/virtual-machines-show-extensions.png)
 
-Vous pouvez également obtenir des informations sur l’extension à l’aide de la commande PowerShell **Get-AzureRmVMExtension**, de la commande Azure CLI 2.0 **vm extension get**, ou de l’API REST **Obtenir des informations sur l’extension**.
+Vous pouvez aussi obtenir des informations sur l’extension à l’aide de la commande PowerShell **Get-AzureRmVMExtension**, de la commande Azure CLI **vm extension get** ou de l’API REST **Obtenir des informations sur l’extension**.
 
 ## <a name="deployments"></a>Déploiements
 

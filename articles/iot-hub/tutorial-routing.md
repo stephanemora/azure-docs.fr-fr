@@ -6,21 +6,21 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: a52ab4ff65312088e65d56006b6f99a7470b88f6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287248"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946933"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Didacticiel : Configurer le routage des messages avec IoT Hub
 
-Le routage des messages vous permet d’envoyer des données de télémétrie de vos appareils IoT à des points de terminaison compatibles avec Event Hub intégrés ou à des points de terminaison personnalisés comme le stockage d’objets blob, la file d’attente Service Bus, la rubrique Service Bus et Event Hubs. Lors de la configuration du routage des messages, vous pouvez créer des règles d’acheminement pour personnaliser l’itinéraire qui correspond à une certaine règle. Une fois la configuration effectuée, les données entrantes sont automatiquement acheminées vers les points de terminaison par l’IoT Hub. 
+Le [routage des messages](iot-hub-devguide-messages-d2c.md) vous permet d’envoyer des données de télémétrie de vos appareils IoT à des points de terminaison compatibles avec Event Hub intégrés ou à des points de terminaison personnalisés, comme le stockage d’objets blob, la file d’attente Service Bus, la rubrique Service Bus et Event Hubs. Lors de la configuration du routage des messages, vous pouvez créer des [requêtes de routage](iot-hub-devguide-routing-query-syntax.md) pour personnaliser la route qui correspond à une certaine condition. Une fois la configuration effectuée, les données entrantes sont automatiquement acheminées vers les points de terminaison par l’IoT Hub. 
 
-Dans ce didacticiel, vous allez apprendre à configurer et utiliser des règles d’acheminement avec IoT Hub. Vous allez acheminer des messages à partir d’un appareil IoT vers un ou plusieurs services, y compris le stockage d’objets blob et une file d’attente Service Bus. Les messages envoyés vers la file d’attente Service Bus seront récupérés par une application logique et envoyés par e-mail. Les messages dont le routage n’a pas été spécifiquement configuré sont envoyés au point de terminaison par défaut et affichés dans une visualisation Power BI.
+Dans ce tutoriel, vous apprenez à configurer et à utiliser des requêtes de routage avec IoT Hub. Vous allez acheminer des messages à partir d’un appareil IoT vers un ou plusieurs services, y compris le stockage d’objets blob et une file d’attente Service Bus. Les messages envoyés vers la file d’attente Service Bus seront récupérés par une application logique et envoyés par e-mail. Les messages dont le routage n’a pas été spécifiquement configuré sont envoyés au point de terminaison par défaut et affichés dans une visualisation Power BI.
 
 Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
@@ -39,58 +39,35 @@ Dans ce didacticiel, vous allez effectuer les tâches suivantes :
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Installez [Visual Studio pour Windows](https://www.visualstudio.com/). 
+- Installer [Visual Studio](https://www.visualstudio.com/). 
 
 - Un compte Power BI pour examiner l’analytique du flux de données du point de terminaison par défaut. ([Essayez Power BI gratuitement](https://app.powerbi.com/signupredirect?pbi_source=web)).
 
 - Un compte Office 365 pour envoyer des e-mails de notification. 
 
-Vous avez besoin d’Azure CLI ou d’Azure PowerShell pour effectuer les étapes de configuration de ce didacticiel. 
-
-Pour utiliser Azure CLI, alors que vous pouvez l’installer localement, nous vous recommandons d’utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter des scripts Azure CLI. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte ; vous n’avez donc pas besoin de les installer en local. 
-
-Pour utiliser PowerShell, installez-le en local en suivant les instructions ci-dessous. 
-
-### <a name="azure-cloud-shell"></a>Azure Cloud Shell
-
-Cloud Shell peut être ouvert de plusieurs façons :
-
-|  |   |
-|-----------------------------------------------|---|
-| Sélectionnez **Essayer** dans le coin supérieur droit d’un bloc de code. | ![Cloud Shell dans cet article](./media/tutorial-routing/cli-try-it.png) |
-| Ouvrez Cloud Shell dans votre navigateur. | [![https://shell.azure.com/bash](./media/tutorial-routing/launchcloudshell.png)](https://shell.azure.com) |
-| Sélectionnez le bouton **Cloud Shell** du menu situé en haut à droite du [portail Azure](https://portal.azure.com). |    ![Cloud Shell dans le portail](./media/tutorial-routing/cloud-shell-menu.png) |
-|  |  |
-
-### <a name="using-azure-cli-locally"></a>Utilisation d’Azure CLI en local
-
-Si vous préférez utiliser Azure CLI en local plutôt que Cloud Shell, vous devez disposer du module Azure CLI version 2.0.30.0 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
-
-### <a name="using-powershell-locally"></a>Utilisation de PowerShell en local
-
-Pour ce didacticiel, le module Azure PowerShell version 5.7 ou ultérieure est nécessaire. Exécutez `Get-Module -ListAvailable AzureRM` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="set-up-resources"></a>Configurer des ressources
 
-Pour ce didacticiel, vous avez besoin d’un IoT Hub, d’un compte de stockage et d’une file d’attente Service Bus. Ces ressources peuvent toutes être créées à l’aide d’Azure CLI ou d’Azure PowerShell. Utilisez le même groupe de ressources et le même emplacement pour toutes les ressources. Puis à la fin, vous pouvez supprimer tous les éléments en une seule fois en supprimant le groupe de ressources.
+Pour ce didacticiel, vous avez besoin d’un IoT Hub, d’un compte de stockage et d’une file d’attente Service Bus. Ces ressources peuvent être créées avec Azure CLI ou Azure PowerShell. Utilisez le même groupe de ressources et le même emplacement pour toutes les ressources. Puis à la fin, vous pouvez supprimer tous les éléments en une seule fois en supprimant le groupe de ressources.
 
 Les sections suivantes expliquent comment effectuer ces étapes. Suivez les instructions relatives à Azure CLI *ou* à PowerShell.
 
 1. Créez un [groupe de ressources](../azure-resource-manager/resource-group-overview.md). 
 
-    <!-- When they add the Basic tier, change this to use Basic instead of Standard. -->
+2. Créez un IoT Hub dans le niveau S1. Ajoutez un groupe de consommateurs à votre IoT Hub. Le groupe de consommateurs est utilisé par Azure Stream Analytics lors de la récupération des données.
 
-1. Créez un IoT Hub dans le niveau S1. Ajoutez un groupe de consommateurs à votre IoT Hub. Le groupe de consommateurs est utilisé par Azure Stream Analytics lors de la récupération des données.
+3. Créez un compte de stockage V1 standard avec la réplication Standard_LRS.
 
-1. Créez un compte de stockage V1 standard avec la réplication Standard_LRS.
+4. Créez un espace de noms et une file d’attente Service Bus. 
 
-1. Créez un espace de noms et une file d’attente Service Bus. 
+5. Créez une identité d’appareil pour l’appareil simulé qui envoie des messages à votre Hub. Enregistrez la clé pour la phase de test.
 
-1. Créez une identité d’appareil pour l’appareil simulé qui envoie des messages à votre Hub. Enregistrez la clé pour la phase de test.
+### <a name="set-up-your-resources-using-azure-cli"></a>Configurer vos ressources avec Azure CLI
 
-### <a name="azure-cli-instructions"></a>Instructions Azure CLI
+Copiez et collez ce script dans Cloud Shell. En supposant que vous êtes déjà connecté, il exécute le script, ligne par ligne. 
 
-La méthode la plus simple pour utiliser ce script est de le copier, puis de le coller dans Cloud Shell. En supposant que vous êtes déjà connecté, il exécutera le script, ligne par ligne. 
+Les variables qui doivent être globalement uniques sont concaténées avec la chaîne `$RANDOM`. Quand le script est exécuté et que les variables sont définies, une chaîne numérique aléatoire est générée et ajoutée à la fin de la chaîne fixe, la rendant ainsi unique.
 
 ```azurecli-interactive
 
@@ -182,9 +159,11 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 ```
 
-### <a name="powershell-instructions"></a>Instructions PowerShell
+### <a name="set-up-your-resources-using-azure-powershell"></a>Configurer vos ressources avec Azure PowerShell
 
-La méthode la plus simple pour utiliser ce script consiste à ouvrir [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise?view=powershell-6), à copier le script dans le Presse-papiers, puis à le coller en intégralité dans la fenêtre de script. Vous pouvez ensuite modifier les valeurs des noms de ressource (si vous le souhaitez) et exécuter le script en intégralité. 
+Copiez et collez ce script dans Cloud Shell. En supposant que vous êtes déjà connecté, il exécute le script, ligne par ligne.
+
+Les variables qui doivent être globalement uniques sont concaténées avec la chaîne `$(Get-Random)`. Quand le script est exécuté et que les variables sont définies, une chaîne numérique aléatoire est générée et ajoutée à la fin de la chaîne fixe, la rendant ainsi unique.
 
 ```azurepowershell-interactive
 # Log into Azure account.
@@ -265,15 +244,15 @@ Ensuite, créez une identité d’appareil et enregistrez sa clé pour une utili
 
 1. Ouvrez le [portail Azure](https://portal.azure.com) et connectez-vous à votre compte Azure.
 
-1. Cliquez sur **Groupes de ressources** et sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**.
+2. Cliquez sur **Groupes de ressources** et sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**.
 
-1. Dans la liste des ressources, cliquez sur votre IoT Hub. Ce didacticiel utilise **ContosoTestHub**. Sélectionnez **Appareils IoT** dans le volet Hub.
+3. Dans la liste des ressources, cliquez sur votre IoT Hub. Ce didacticiel utilise **ContosoTestHub**. Sélectionnez **Appareils IoT** dans le volet Hub.
 
-1. Cliquez sur **+ Ajouter**. Dans le volet Ajouter un appareil, indiquez l’ID d’appareil. Ce didacticiel utilise **Contoso-Test-Device**. N’indiquez pas de clés et cochez l’option **Générer automatiquement les clés**. Vérifiez que l’option **Connecter l’appareil à IoT Hub** est activée. Cliquez sur **Enregistrer**.
+4. Cliquez sur **+ Ajouter**. Dans le volet Ajouter un appareil, indiquez l’ID d’appareil. Ce didacticiel utilise **Contoso-Test-Device**. N’indiquez pas de clés et cochez l’option **Générer automatiquement les clés**. Vérifiez que l’option **Connecter l’appareil à IoT Hub** est activée. Cliquez sur **Enregistrer**.
 
    ![Capture d’écran montrant l’écran d’ajout de l’appareil.](./media/tutorial-routing/add-device.png)
 
-1. Une fois l’opération de création terminée, cliquez sur l’appareil pour voir les clés générées. Cliquez sur l’icône de copie de la clé primaire et enregistrez-la quelque part (dans le bloc-notes par exemple) pour l’utiliser lors de la phase de test dans ce didacticiel.
+5. Une fois l’opération de création terminée, cliquez sur l’appareil pour voir les clés générées. Cliquez sur l’icône de copie de la clé primaire et enregistrez-la quelque part (dans le bloc-notes par exemple) pour l’utiliser lors de la phase de test dans ce didacticiel.
 
    ![Capture d’écran présentant les détails de l’appareil, y compris les clés.](./media/tutorial-routing/device-details.png)
 
@@ -289,69 +268,85 @@ Vous vous apprêtez à acheminer les messages vers différentes ressources en fo
 
 ### <a name="routing-to-a-storage-account"></a>Routage vers un compte de stockage 
 
-Configurez maintenant le routage pour le compte de stockage. Définissez un point de terminaison, puis configurez un itinéraire pour ce point de terminaison. Les messages pour lesquels la propriété **level** est définie sur **storage** sont automatiquement écrits dans un compte de stockage.
+Configurez maintenant le routage pour le compte de stockage. Vous accédez au volet Routage des messages, puis vous ajoutez une route. Lors de l’ajout de la route, définissez un nouveau point de terminaison pour la route. Une fois ceci configuré, les messages pour lesquels la propriété **level** est définie sur **storage** sont automatiquement écrits dans un compte de stockage.
 
-1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Groupes de ressources**, puis sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**. Dans la liste des ressources, cliquez sur l’IoT Hub. Ce didacticiel utilise **ContosoTestHub**. Cliquez sur **Endpoints**. Dans le volet **Points de terminaison**, cliquez sur **+Ajouter**. Entrez les informations suivantes :
+1. Dans le [portail Azure](https://portal.azure.com), cliquez sur **Groupes de ressources**, puis sélectionnez votre groupe de ressources. Ce didacticiel utilise **ContosoResources**. 
 
-   **Nom** : saisissez le nom du point de terminaison. Ce didacticiel utilise **StorageContainer**.
+2. Dans la liste des ressources, cliquez sur l’IoT Hub. Ce didacticiel utilise **ContosoTestHub**. 
+
+3. Cliquez sur **Routage des messages**. Dans le volet **Routage des messages**, cliquez sur +**Ajouter**. Dans le volet **Ajouter une route**, cliquez sur +**Ajouter** en regard du champ Point de terminaison, comme illustré dans l’image suivante :
+
+   ![Capture d’écran montrant comment ajouter un point de terminaison à une route.](./media/tutorial-routing/message-routing-add-a-route-w-storage-ep.png)
+
+4. Sélectionnez **Stockage d’objets blob**. Vous voyez le volet **Ajouter un point de terminaison de stockage**. 
+
+   ![Capture d’écran présentant l’ajout d’un point de terminaison.](./media/tutorial-routing/message-routing-add-storage-ep.png)
+
+5. Entrez un nom pour le point de terminaison. Ce didacticiel utilise **StorageContainer**.
+
+6. Cliquez sur **Choisir un conteneur**. Vous accédez alors à une liste de vos comptes de stockage. Sélectionnez celui que vous avez configuré dans les étapes de préparation. Ce tutoriel utilise **contosostorage**. Il montre une liste de conteneurs dans ce compte de stockage. Sélectionnez le conteneur que vous avez configuré dans les étapes de préparation. Ce didacticiel utilise **contosoresults**. Cliquez sur **Sélectionner**. Vous revenez au volet **Ajouter un point de terminaison**. 
+
+7. Utilisez les valeurs par défaut pour les autres champs. Cliquez sur **Créer** pour créer le point de terminaison de stockage et l’ajouter à la route. Vous revenez au volet **Ajouter une route**.
+
+8.  Complétez maintenant le reste des informations de la requête de routage. Cette requête spécifie les critères pour l’envoi des messages au conteneur de stockage que vous venez d’ajouter comme point de terminaison. Renseignez les champs affichés à l’écran. 
+
+   **Nom** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **StorageRoute**.
+
+   **Point de terminaison** : ce champ montre le point de terminaison que vous venez de configurer. 
    
-   **Type de point de terminaison** : sélectionnez **Conteneur de stockage Azure** dans la liste déroulante.
+   **Source de données** : sélectionnez **Messages de télémétrie des appareils** dans la liste déroulante.
 
-   Cliquez sur **Pick a container** (Choisir un conteneur) pour afficher la liste des comptes de stockage. Sélectionnez votre compte de stockage. Ce tutoriel utilise **contosostorage**. Sélectionnez ensuite le conteneur. Ce didacticiel utilise **contosoresults**. Cliquez sur **Sélectionner**, ce qui vous redirige vers le volet **Ajouter un point de terminaison**. 
+   **Activer la route** : vérifiez que ceci est activé.
    
-   ![Capture d’écran présentant l’ajout d’un point de terminaison.](./media/tutorial-routing/add-endpoint-storage-account.png)
-   
-   Cliquez sur **OK** pour terminer l’ajout du point de terminaison.
-   
-1. Cliquez sur **Itinéraires** dans votre IoT Hub. Vous allez créer une règle d’acheminement qui achemine les messages vers le conteneur de stockage que vous venez d’ajouter en tant que point de terminaison. Cliquez sur **+Ajouter** dans la partie supérieure du volet Itinéraires. Renseignez les champs affichés à l’écran. 
+   **Requête de routage** : entrez `level="storage"` pour la chaîne de requête. 
 
-   **Nom** : saisissez le nom de votre règle d’acheminement. Ce didacticiel utilise **StorageRule**.
-
-   **Source de données** : sélectionnez **Messages des appareils** dans la liste déroulante.
-
-   **Point de terminaison** : sélectionnez le point de terminaison que vous venez de configurer. Ce didacticiel utilise **StorageContainer**. 
+   ![Capture d’écran montrant la création d’une requête de routage pour le compte de stockage.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
    
-   **Chaîne de requête** : entrez `level="storage"` pour la chaîne de requête. 
-
-   ![Capture d’écran montrant la création d’une règle d’acheminement pour le compte de stockage.](./media/tutorial-routing/create-a-new-routing-rule-storage.png)
-   
-   Cliquez sur **Enregistrer**. Une fois l’opération terminée, vous êtes redirigé vers le volet Itinéraires dans lequel vous pouvez voir la nouvelle règle d’acheminement pour le stockage. Fermez le volet Itinéraires, ce qui vous redirige vers la page Groupe de ressources.
+   Cliquez sur **Enregistrer**. Une fois l’opération terminée, vous êtes redirigé vers le volet Routage des messages, où vous pouvez voir la nouvelle requête de routage pour le stockage. Fermez le volet Itinéraires, ce qui vous redirige vers la page Groupe de ressources.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Routage vers une file d’attente Service Bus 
 
-Configurez maintenant le routage pour la file d’attente Service Bus. Définissez un point de terminaison, puis configurez un itinéraire pour ce point de terminaison. Les messages pour lesquels la propriété **level** est définie sur **critical** sont écrits dans la file d’attente Service Bus, qui déclenche une application logique qui envoie ensuite un e-mail avec les informations. 
+Configurez maintenant le routage pour la file d’attente Service Bus. Vous accédez au volet Routage des messages, puis vous ajoutez une route. Lors de l’ajout de la route, définissez un nouveau point de terminaison pour la route. Une fois ceci configuré, les messages pour lesquels la propriété **level** est définie sur **critical** sont écrits dans la file d’attente Service Bus, qui déclenche une application logique qui envoie ensuite un e-mail avec les informations. 
 
-1. Sur la page Groupe de ressources, cliquez sur votre IoT Hub, puis sur **Points de terminaison**. Dans le volet **Points de terminaison**, cliquez sur **+Ajouter**. Entrez les informations ci-après.
+1. Sur la page Groupe de ressources, cliquez sur votre hub IoT, puis sur **Routage des messages**. 
 
-   **Nom** : saisissez le nom du point de terminaison. Ce didacticiel utilise **CriticalQueue**. 
+2. Dans le volet **Routage des messages**, cliquez sur +**Ajouter**. 
 
-   **Type de point de terminaison** : sélectionnez **File d’attente Service Bus** dans la liste déroulante.
+3. Dans le volet **Ajouter une route**, cliquez sur +**Ajouter** en regard du champ Point de terminaison. Sélectionnez **File d’attente Service Bus**. Vous voyez le volet **Ajouter un point de terminaison Service Bus**. 
 
-   **Espace de noms Service Bus** : sélectionnez l’espace de noms Service Bus pour ce didacticiel dans la liste déroulante. Ce didacticiel utilise **ContosoSBNamespace**.
+   ![Capture d’écran montrant l’ajout d’un point de terminaison Service Bus](./media/tutorial-routing/message-routing-add-sbqueue-ep.png)
 
-   **File d’attente Service Bus** : sélectionnez la file d’attente Service Bus dans la liste déroulante. Ce didacticiel utilise **contososbqueue**.
+4. Renseignez les champs :
 
-   ![Capture d’écran présentant l’ajout d’un point de terminaison pour la file d’attente Service Bus.](./media/tutorial-routing/add-endpoint-sb-queue.png)
-
-   Cliquez sur **OK** pour enregistrer le point de terminaison. Une fois l’opération terminée, fermez le volet Points de terminaison. 
-    
-1. Cliquez sur **Itinéraires** dans votre IoT Hub. Vous allez créer une règle d’acheminement qui achemine les messages vers la file d’attente Service Bus que vous venez d’ajouter en tant que point de terminaison. Cliquez sur **+Ajouter** dans la partie supérieure du volet Itinéraires. Renseignez les champs affichés à l’écran. 
-
-   **Nom** : saisissez le nom de votre règle d’acheminement. Ce didacticiel utilise **SBQueueRule**. 
-
-   **Source de données** : sélectionnez **Messages des appareils** dans la liste déroulante.
-
-   **Point de terminaison** : sélectionnez le point de terminaison que vous venez de configurer, **CriticalQueue**.
-
-   **Chaîne de requête** : entrez `level="critical"` pour la chaîne de requête. 
-
-   ![Capture d’écran montrant la création d’une règle d’acheminement pour la file d’attente Service Bus.](./media/tutorial-routing/create-a-new-routing-rule-sbqueue.png)
+   **Nom du point de terminaison** : entrez un nom pour le point de terminaison. Ce didacticiel utilise **CriticalQueue**.
    
-   Cliquez sur **Enregistrer**. Lorsque vous êtes redirigé vers le volet Itinéraires, vous voyez les deux nouvelles règles d’acheminement, comme affiché ici.
+   **Espace de noms Service Bus** : cliquez sur ce champ pour afficher la liste déroulante ; sélectionnez l’espace de noms Service Bus que vous avez configuré dans les étapes de préparation. Ce didacticiel utilise **ContosoSBNamespace**.
 
-   ![Capture d’écran montrant les itinéraires que vous venez de configurer.](./media/tutorial-routing/show-routing-rules-for-hub.png)
+   **File d’attente Service Bus** : cliquez sur ce champ pour afficher la liste déroulante ; sélectionnez-y la file d’attente Service Bus. Ce didacticiel utilise **contososbqueue**.
 
-   Fermez le volet Itinéraires, ce qui vous redirige vers la page Groupe de ressources.
+5. Cliquez sur **Créer** pour ajouter le point de terminaison de file d’attente Service Bus. Vous revenez au volet **Ajouter une route**. 
+
+6.  Vous complétez maintenant le reste des informations de la requête de routage. Cette requête spécifie les critères pour l’envoi des messages à la file d’attente Service Bus que vous venez d’ajouter comme point de terminaison. Renseignez les champs affichés à l’écran. 
+
+   **Nom** : entrez un nom pour votre requête de routage. Ce tutoriel utilise **SBQueueRoute**. 
+
+   **Point de terminaison** : ce champ montre le point de terminaison que vous venez de configurer.
+
+   **Source de données** : sélectionnez **Messages de télémétrie des appareils** dans la liste déroulante.
+
+   **Requête de routage** : entrez `level="critical"` pour la chaîne de requête. 
+
+   ![Capture d’écran montrant la création d’une requête de routage pour la file d’attente Service Bus.](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
+
+7. Cliquez sur **Enregistrer**. Quand vous êtes redirigé vers le volet Routes, vous voyez vos deux nouvelles routes, comme illustré ici.
+
+   ![Capture d’écran montrant les itinéraires que vous venez de configurer.](./media/tutorial-routing/message-routing-show-both-routes.png)
+
+8. Vous pouvez voir les points de terminaison personnalisés que vous avez configurés en cliquant sur l’onglet **Points de terminaison personnalisés**.
+
+   ![Capture d’écran montrant les points de terminaison personnalisés que vous venez de configurer.](./media/tutorial-routing/message-routing-show-custom-endpoints.png)
+
+9. Fermez le volet Routage des messages pour revenir au volet Groupe de ressources.
 
 ## <a name="create-a-logic-app"></a>Créer une application logique  
 

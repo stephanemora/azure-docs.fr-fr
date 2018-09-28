@@ -10,18 +10,18 @@ ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: ec56f9fdf21459857c8115222da921b6681a3ac5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 1726cf947ad027eabd79aa35da92df37e1681003
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247234"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959612"
 ---
-# <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Activer des abonnements et des comptes Azure avec Azure Cost Management
+# <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Activer des abonnements et des comptes Azure avec Cloudyn
 
-L’ajout ou la mise à jour de vos informations d’identification Azure Resource Manager permet à Azure Cost Management de découvrir tous les comptes et abonnements au sein de votre locataire Azure. De plus, si l’extension Azure Diagnostics est activée sur vos machines virtuelles, Azure Cost Management peut collecter les métriques étendues telles que l’utilisation du processeur et de la mémoire. Cet article explique comment activer l’accès à l’aide des API Azure Resource Manager pour les comptes nouveaux et existants. Il indique également comment et résoudre les problèmes de compte courants.
+L’ajout ou la mise à jour de vos informations d’identification Azure Resource Manager permet à Cloudyn de découvrir tous les comptes et abonnements au sein de votre locataire Azure. De plus, si l’extension Azure Diagnostics est activée sur vos machines virtuelles, Cloudyn peut collecter les métriques étendues telles que l’utilisation du processeur et de la mémoire. Cet article explique comment activer l’accès à l’aide des API Azure Resource Manager pour les comptes nouveaux et existants. Il indique également comment et résoudre les problèmes de compte courants.
 
-Azure Cost Management ne peut pas accéder à la plupart des données de votre abonnement Azure quand celui-ci _n’est pas activé_. Vous devez modifier les comptes _non activés_ afin qu’Azure Cost Management puisse y accéder.
+Cloudyn ne peut pas accéder à la plupart des données de votre abonnement Azure quand celui-ci _n’est pas activé_. Vous devez modifier les comptes _non activés_ afin que Cloudyn puisse y accéder.
 
 ## <a name="required-azure-permissions"></a>Autorisations Azure requises
 
@@ -47,17 +47,17 @@ Si le rôle **Collaborateur** est affecté à votre compte, vous ne disposez pas
 
 ## <a name="add-an-account-or-update-a-subscription"></a>Ajouter un compte ou mettre à jour un abonnement
 
-Quand vous ajoutez un compte ou mettez à jour un abonnement, vous accordez à Azure Cost Management l’accès à vos données Azure.
+Quand vous ajoutez un compte ou mettez à jour un abonnement, vous accordez à Cloudyn l’accès à vos données Azure.
 
 ### <a name="add-a-new-account-subscription"></a>Ajouter un nouveau compte (abonnement)
 
-1. Dans le portail Azure Cost Management, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Comptes cloud**.
+1. Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Cloud Accounts** (Comptes cloud).
 2. Cliquez sur **Ajouter un compte** ; la boîte de dialogue **Ajouter un compte** s’affiche. Entrez les informations requises.  
     ![Boîte de dialogue Ajouter un nouveau compte](./media/activate-subs-accounts//add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Mettre à jour un abonnement
 
-1. Si vous souhaitez mettre à jour un abonnement _non activé_ qui existe déjà dans la section de gestion des comptes d’Azure Cost Management, cliquez sur le symbole crayon (modification) à droite du _GUID de locataire_ parent. Les abonnements sont regroupés sous un locataire parent, évitez donc d’activer les abonnements individuellement.
+1. Si vous souhaitez mettre à jour un abonnement _non activé_ qui existe déjà dans la section de gestion des comptes de Cloudyn, cliquez sur le symbole crayon (modification) à droite du _GUID de locataire_ parent. Les abonnements sont regroupés sous un locataire parent, évitez donc d’activer les abonnements individuellement.
     ![Redécouvrir les abonnements](./media/activate-subs-accounts/existing-sub.png)
 2. Si nécessaire, entrez l’ID de locataire. Si vous ne le connaissez pas, effectuez les étapes suivantes pour le rechercher :
     1. Connectez-vous au [Portail Azure](https://portal.azure.com).
@@ -71,39 +71,42 @@ Quand vous ajoutez un compte ou mettez à jour un abonnement, vous accordez à A
     3. Sous **Mes abonnements**, sélectionnez l’abonnement.
     4. Votre code produit est affiché sous **ID de l’offre**. Copiez l’ID de l’offre de l’abonnement.
 4. Dans la boîte de dialogue Ajouter un compte (ou Modifier l’abonnement), cliquez sur **Enregistrer** (ou **Suivant**). Vous êtes redirigé vers le portail Azure.
-5. Connectez-vous au portail. Cliquez sur **Accepter** pour autoriser Azure Cost Management Collector à accéder à votre compte Azure.
+5. Connectez-vous au portail. Cliquez sur **Accepter** pour autoriser Cloudyn Collector à accéder à votre compte Azure.
 
-    Vous êtes redirigé vers la page de gestion des comptes Azure Cost Management et votre abonnement est mis à jour avec un état du compte **actif**. Il doit afficher un symbole de coche verte dans la colonne Resource Manager.
+    Vous êtes redirigé vers la page de gestion des comptes Cloudyn et votre abonnement est mis à jour avec un état du compte **actif**. Il doit afficher un symbole de coche verte dans la colonne Resource Manager.
 
     Si vous ne voyez pas un symbole de coche verte pour un ou plusieurs des abonnements, cela signifie que vous n’avez pas d’autorisations pour créer l’application de lecteur (le CloudynCollector) pour l’abonnement. Un utilisateur avec des autorisations plus élevées pour l’abonnement doit répéter ce processus.
 
-Pour une présentation de ce processus, regardez la vidéo [Connecting to Azure Resource Manager with Azure Cost Management](https://youtu.be/oCIwvfBB6kk).
+Pour une présentation de ce processus, regardez la vidéo [Connecting to Azure Resource Manager with Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
 >[!VIDEO https://www.youtube.com/embed/oCIwvfBB6kk?ecver=1]
 
 ## <a name="resolve-common-indirect-enterprise-set-up-problems"></a>Résoudre des problèmes courants de configuration d’entreprise indirecte
 
-Quand vous utilisez le portail Azure Cost Management pour la première fois, les messages suivants peuvent s’afficher si vous disposez d’un contrat Entreprise ou de fournisseur de solutions cloud (CSP) :
+Lorsque vous utilisez le portail Cloudyn pour la première fois, les messages suivants peuvent s’afficher si vous disposez d’un contrat Entreprise ou de fournisseur de solutions cloud (CSP) :
 
-- *La clé d’API spécifiée n’est pas une clé d’inscription de niveau supérieur*, dans l’Assistant **Configurer Azure Cost Management**.
+- *La clé d’API spécifiée n’est pas une clé d’inscription de niveau supérieur* dans l’Assistant **Configurer Cloudyn**.
 - *Inscription directe – Non*, sur le portail Contrat Entreprise.
-- *Aucune donnée d’utilisation trouvée pour les 30 derniers jours. Contactez votre distributeur pour vous assurer que le balisage a été activé pour votre compte Azure*, sur le portail Azure Cost Management.
+- *Aucune donnée d’utilisation trouvée pour les 30 derniers jours. Contactez votre distributeur pour vous assurer que le balisage a été activé pour votre compte Azure* s’affiche dans le portail Cloudyn.
 
-Ces messages indiquent que vous avez acheté un Contrat Entreprise Azure via un revendeur ou un CSP. Votre revendeur ou CSP doit activer le _balisage_ pour votre compte Azure afin que vous puissiez afficher vos données dans Azure Cost Management.
+Ces messages indiquent que vous avez acheté un Contrat Entreprise Azure via un revendeur ou un CSP. Votre revendeur ou CSP doit activer le _balisage_ pour votre compte Azure afin que vous puissiez afficher vos données dans Cloudyn.
 
 Voici comment corriger les problèmes :
 
 1. Votre revendeur doit activer le _balisage_ pour votre compte. Consultez les instructions sous [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide) (Guide d’intégration de client indirecte).
-2. Vous générez la clé Azure Enterprise Agreement à utiliser avec Azure Cost Management. Pour connaître les instructions, consultez [Inscrire un Accord Entreprise Azure et afficher les données de coût](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
+2. Vous générez la clé Azure Enterprise Agreement à utiliser avec Cloudyn. Pour connaître les instruction, consultez [Inscrire un Accord Entreprise Azure et afficher les données de coût](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
-Afin de pouvoir générer la clé API Azure Enterprise Agreement pour configurer Azure Cost Management, activez l’API de facturation Azure en suivant les instructions sous :
+Afin de pouvoir générer la clé API Azure Enterprise Agreement pour configurer Cloudyn, activez l’API de facturation Azure en suivant les instructions sous :
 
 - [Vue d’ensemble des API de création de rapports pour les clients Enterprise](../billing/billing-enterprise-api.md)
 - [API de création de rapports Microsoft Azure Enterprise Portal](https://ea.azure.com/helpdocs/reportingAPI) sous **Autoriser l’API à accéder aux données**
 
 Vous devrez peut-être également accorder aux administrateurs de service, propriétaires de compte et administrateurs d’entreprise l’autorisation _d’afficher les frais_ avec l’API de facturation.
 
-Seul un administrateur de service Azure peut activer la Gestion des coûts. Les autorisations de coadministrateur sont insuffisantes. Vous pouvez toutefois contourner l’exigence de l’administrateur. Vous pouvez demander à votre administrateur Azure Active Directory qu’il vous accorde une autorisation afin d’autoriser le **CloudynAzureCollector** avec un script PowerShell. Le script suivant accorde l’autorisation d’inscrire le principal du service Azure Active Directory **CloudynAzureCollector**. Une fois l’opération exécutée avec succès, le navigateur affiche l’URL http://localhost:8080/CloudynJava.
+<<<<<<< HEAD Seul un administrateur de service Azure peut activer Cost Management. Les autorisations de coadministrateur sont insuffisantes. Vous pouvez toutefois contourner l’exigence de l’administrateur. Vous pouvez demander à votre administrateur Azure Active Directory qu’il vous accorde une autorisation afin d’autoriser le **CloudynAzureCollector** avec un script PowerShell. Le script suivant accorde l’autorisation d’inscrire le principal du service Azure Active Directory **CloudynAzureCollector**. Une fois l’opération exécutée avec succès, le navigateur affiche l’URL http://localhost:8080/CloudynJava.
+======= Seul un administrateur de service Azure peut activer Cloudyn. Les autorisations de coadministrateur sont insuffisantes. Vous pouvez toutefois contourner l’exigence de l’administrateur. Vous pouvez demander à votre administrateur Azure Active Directory qu’il vous accorde une autorisation afin d’autoriser le **CloudynAzureCollector** avec un script PowerShell. Le script suivant accorde l’autorisation d’inscrire le principal du service Azure Active Directory **CloudynAzureCollector**.
+
+>>>>>>> 9f3b4a46614ba7306c044dce8be6ee7cc3bf101d
 
 ```
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
@@ -132,4 +135,4 @@ $url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&res
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous n’avez pas encore suivi le premier didacticiel de Cost Management, consultez-le dans [Réviser l’utilisation et les coûts](tutorial-review-usage.md).
+- Si vous n’avez pas encore suivi le premier tutoriel de Cloudyn, consultez-le dans [Réviser l’utilisation et les coûts](tutorial-review-usage.md).

@@ -1,82 +1,78 @@
 ---
-title: Haute disponibilité et fiabilité de Scheduler
-description: Haute disponibilité et fiabilité de Scheduler
+title: Haute disponibilité et fiabilité - Azure Scheluler
+description: En savoir plus sur la haute disponibilité et la fiabilité dans Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 5ec78e60-a9b9-405a-91a8-f010f3872d50
 ms.topic: article
 ms.date: 08/16/2016
-ms.author: deli
-ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d647de379972bac317a213e2f8925c0ff8c3372c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23039904"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947922"
 ---
-# <a name="scheduler-high-availability-and-reliability"></a>Haute disponibilité et fiabilité de Scheduler
-## <a name="azure-scheduler-high-availability"></a>Haute disponibilité d'Azure Scheduler
-En tant que service central de la plateforme Microsoft Azure, Azure Scheduler est hautement disponible et propose le déploiement de service géo-redondant et la réplication de travail géo-régionale.
+# <a name="high-availability-and-reliability-for-azure-scheduler"></a>Haute disponibilité et fiabilité pour Azure Scheluler
+
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en cours de retrait. Pour planifier des travaux, [essayez Azure Logic Apps à la place](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+Azure Scheduler assure à la fois la [haute disponibilité](https://docs.microsoft.com/azure/architecture/guide/pillars#availability) et la fiabilité pour vos travaux. Pour plus d’informations, consultez [Contrat SLA pour Scheduler](https://azure.microsoft.com/support/legal/sla/scheduler).
+
+## <a name="high-availability"></a>Haute disponibilité
+
+Azure Scheduler est [hautement disponible] et utilise le déploiement de service géo-redondant et la réplication de travail géo-régionale.
 
 ### <a name="geo-redundant-service-deployment"></a>Déploiement de service géo-redondant
-Azure Scheduler est disponible par le biais de l'interface utilisateur dans presque chaque région géographique incluse dans Azure actuellement. La liste des régions dans lesquelles Azure Scheduler est disponible est [répertoriée ici](https://azure.microsoft.com/regions/#services). Si un centre de données dans une région hébergé devient indisponible, les fonctionnalités de basculement d'Azure Scheduler sont telles que le service est disponible à partir d'un autre centre de données.
+
+Azure Scheduler est disponible sur le portail Azure dans presque [toutes les régions géographiques actuellement prises en charge par Azure](https://azure.microsoft.com/global-infrastructure/regions/#services). Ainsi, si un centre de données Azure situé dans une région hébergée devient indisponible, vous pouvez continuer à utiliser Azure Scheduler, car les fonctionnalités de basculement du service vous permettent d’accéder à Scheduler via un autre centre de données.
 
 ### <a name="geo-regional-job-replication"></a>Réplication de travail géo-régionale
-Le composant frontal Azure Scheduler est non seulement disponible pour les requêtes de gestion, mais votre propre travail est également répliqué au niveau géographique. En cas de panne dans une région, Azure Scheduler bascule et garantit que le travail est exécuté à partir d'un autre centre de données dans la région géographique associée.
 
-Par exemple, si vous avez créé un travail dans le Centre-Sud des États-Unis, Azure Scheduler réplique automatiquement ce travail dans le Centre-Nord des États-Unis. En cas de défaillance dans le Centre-Sud des États-Unis, Azure Scheduler s'assure que le travail est exécuté depuis le Centre-Nord des États-Unis. 
+Vos propres travaux dans Azure Scheduler sont répliqués entre les régions Azure. Ainsi, en cas de panne dans une région, Azure Scheduler bascule et garantit l’exécution de vos travaux à partir d'un autre centre de données dans la région géographique associée.
 
-![][1]
+Par exemple, si vous créez un travail dans la région USA Centre Sud, Azure Scheduler réplique automatiquement ce travail dans la région USA Centre Nord. Si une défaillance se produit dans la région USA Centre Sud, Azure Scheduler exécute le travail dans la région USA Centre Nord. 
 
-Par conséquent, Azure Scheduler garantit que vos données restent dans la même région géographique plus large en cas de défaillance d'Azure. Donc, vous n'avez pas besoin de dupliquer votre travail uniquement pour ajouter une haute disponibilité. Azure Scheduler fournit automatiquement des fonctionnalités de haute disponibilité pour vos travaux.
+![Réplication de travail géo-régionale](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png)
 
-## <a name="azure-scheduler-reliability"></a>Fiabilité d'Azure Scheduler
-Azure Scheduler garantit sa propre haute disponibilité et adopte une approche différente pour les travaux créés par l'utilisateur. Par exemple, votre travail peut appeler un point de terminaison HTTP qui n'est pas disponible. Azure Scheduler tente néanmoins d'exécuter votre travail avec succès, en vous proposant des options alternatives pour gérer les défaillances. Azure Scheduler effectue cette opération de deux manières :
+Azure Scheduler garantit également que vos données resteront dans la même région géographique, mais élargie, au cas où une défaillance se produirait dans Azure. Par conséquent, vous n’êtes pas tenu de dupliquer vos travaux lorsque vous souhaitez simplement bénéficier d’une haute disponibilité. Azure Scheduler fournit automatiquement la haute disponibilité pour vos travaux.
 
-### <a name="configurable-retry-policy-via-retrypolicy"></a>Stratégie de nouvelle tentative configurable avec « retryPolicy »
-Azure Scheduler vous permet de configurer une stratégie de nouvelle tentative. Par défaut, si un travail échoue, Azure Scheduler tente d'exécuter le travail encore quatre fois, à des intervalles de 30 secondes. Vous pouvez reconfigurer cette stratégie de nouvelle tentative pour qu'elle soit plus agressive (par exemple, dix fois, à des intervalles de 30 secondes) ou plus souple (par exemple, deux fois, à des intervalles quotidiens).
+## <a name="reliability"></a>Fiabilité
 
-Pour illustrer quand cette fonction peut s'avérer utile, vous pouvez créer un travail qui s'exécute une fois par semaine et appelle un point de terminaison HTTP. Si le point de terminaison HTTP est à l'arrêt pendant quelques heures lorsque votre travail s'exécute, il est possible que vous ne vouliez pas attendre une semaine de plus pour réexécuter le travail dans la mesure où même la stratégie de nouvelle tentative par défaut échouera. Dans ce cas, vous pouvez reconfigurer la stratégie de nouvelle tentative standard pour réessayer toutes les trois heures (par exemple) au lieu de toutes les 30 secondes.
+Azure Scheduler garantit sa propre haute disponibilité mais adopte une approche différente pour les travaux créés par l'utilisateur. Par exemple, supposons que votre travail appelle un point de terminaison HTTP qui n'est pas disponible. Azure Scheduler tente d’exécuter votre travail avec succès en vous offrant des méthodes alternatives pour gérer les défaillances : 
 
-Pour savoir comment configurer une stratégie de nouvelle tentative, consultez [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+* Configurez des stratégies de nouvelle tentative.
+* Configurez d’autres points de terminaison.
 
-### <a name="alternate-endpoint-configurability-via-erroraction"></a>Capacité de configuration du point de terminaison alternatif avec « errorAction »
-Si le point de terminaison cible pour votre travail Azure Scheduler reste inaccessible, Azure Scheduler revient au point de terminaison alternatif de traitement des erreurs après avoir appliqué sa stratégie de nouvelle tentative. Si un point de terminaison alternatif de traitement des erreurs est configuré, Azure Scheduler l'appelle. Avec un point de terminaison alternatif, vos propres travaux sont hautement disponibles en cas de défaillance.
+<a name="retry-policies"></a>
 
-Par exemple, dans le diagramme ci-dessous, Azure Scheduler suit sa stratégie de nouvelle tentative pour atteindre un service Web de New York. Lorsque les nouvelles tentatives échouent, il vérifie s'il existe une alternative. Ensuite, il commence à effectuer des requêtes auprès du point de terminaison alternatif avec la même stratégie de nouvelle tentative.
+### <a name="retry-policies"></a>Stratégies de nouvelle tentative
 
-![][2]
+Azure Scheduler vous permet de configurer des stratégies de nouvelle tentative. Si un travail échoue, Scheduler tente par défaut de l'exécuter encore quatre fois, à des intervalles de 30 secondes. Vous pouvez rendre cette stratégie de nouvelle tentative plus agressive, en spécifiant 10 nouvelles tentatives à 30 secondes d’intervalle, ou moins agressive, avec deux nouvelles tentatives à un jour d’intervalle.
 
-Notez que la même stratégie de nouvelle tentative s'applique à l'action d'origine et à l'action d'erreur alternative. Le type d'action de l'action d'erreur alternative peut également être différent du type d'action de l'action principale. Par exemple, tandis que l’action principale peut appeler un point de terminaison HTTP, l’action d’erreur peut, quant à elle, être une action de file d’attente de stockage, de file d’attente Service Bus ou de rubrique Service Bus qui effectue la journalisation des erreurs.
+Par exemple, supposons que vous créez un travail hebdomadaire qui appelle un point de terminaison HTTP. Si le point de terminaison HTTP devient indisponible pendant quelques heures lorsque votre travail s’exécute, vous ne voudrez vraisemblablement pas attendre une semaine pour réexécuter le travail, ce qui est le cas puisque la stratégie de nouvelle tentative par défaut ne fonctionne pas dans ce cas. Par conséquent, vous pouvez modifier la stratégie de nouvelle tentative standard pour que les nouvelles tentatives se produisent, par exemple, toutes les trois heures, plutôt que toutes les 30 secondes. 
 
-Pour savoir comment configurer un point de terminaison alternatif, consultez [errorAction](scheduler-concepts-terms.md#action-and-erroraction).
+Pour découvrir comment configurer une stratégie de nouvelle tentative, consultez [retryPolicy](scheduler-concepts-terms.md#retrypolicy).
+
+### <a name="alternate-endpoints"></a>Autres points de terminaison
+
+Si votre travail Azure Scheduler appelle un point de terminaison inaccessible, même après avoir appliqué la stratégie de nouvelle tentative, Scheduler bascule vers un autre point de terminaison qui peut gérer ces erreurs. Par conséquent, si vous configurez ce point de terminaison, Scheduler appelle ce point de terminaison, ce qui rend vos propres travaux hautement disponibles en cas de défaillances.
+
+Par exemple, le diagramme suivant montre comment Scheduler suit la stratégie de nouvelle tentative lors de l’appel d’un service web à New York. Si les nouvelles tentatives échouent, Scheduler recherche un autre point de terminaison. Si le point de terminaison existe, Scheduler commence à envoyer des demandes à l’autre point de terminaison. La même stratégie de nouvelle tentative s'applique à l'action d'origine et à l'autre action.
+
+![Comportement de Scheduler avec la stratégie de nouvelle tentative et l’autre point de terminaison](./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png)
+
+Le type d’action pour l’autre action peut différer de l’action d’origine. Par exemple, bien que l’action d’origine appelle un point de terminaison HTTP, l’autre action peut consigner les erreurs à l’aide d’une action de file d’attente de stockage, de file d’attente Service Bus ou de rubrique Service Bus.
+
+Pour découvrir comment configurer un autre point de terminaison, consultez [errorAction](scheduler-concepts-terms.md#error-action).
 
 ## <a name="see-also"></a>Voir aussi
- [Présentation d'Azure Scheduler](scheduler-intro.md)
 
- [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
-
- [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
-
- [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
-
- [Comment créer des planifications complexes et une périodicité avancée avec Azure Scheluler](scheduler-advanced-complexity.md)
-
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
-
- [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
-
- [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
-
- [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
-
-[1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
-
-[2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
+* [Présentation d’Azure Scheduler](scheduler-intro.md)
+* [Concepts, terminologie et hiérarchie d’entités](scheduler-concepts-terms.md)
+* [Créer des planifications complexes et des récurrences avancées](scheduler-advanced-complexity.md)
+* [Limites, quotas, valeurs par défaut et codes d’erreur](scheduler-limits-defaults-errors.md)

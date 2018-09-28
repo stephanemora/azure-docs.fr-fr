@@ -1,6 +1,6 @@
 ---
-title: Exemple de script Azure CLI - Mettre manuellement à l’échelle une application web à l’aide d’Azure CLI 2.0 | Microsoft Docs
-description: Exemple de script Azure CLI - Mettre manuellement à l’échelle une application web à l’aide d’Azure CLI 2.0
+title: Exemple de script Azure CLI - Mettre à l’échelle manuellement une application web avec Azure CLI | Microsoft Docs
+description: Exemple de script Azure CLI - Mettre à l’échelle manuellement une application web avec Azure CLI
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 844250dce567bac280ae3a9a688cc8e5bc5852c9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 28ca20d44d18e8fe25153b7f9298d5174412ad79
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282444"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46988578"
 ---
 # <a name="scale-a-web-app-manually"></a>Mettre manuellement à l’échelle une application web
 
@@ -31,7 +31,7 @@ Cet exemple de script crée un groupe de ressources, un plan App Service et une 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez utiliser Azure CLI 2.0 ou version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez utiliser Azure CLI 2.0 ou version ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exemple de script
 
