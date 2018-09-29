@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 84b73d3f1481c0c1a551da50b9f6292cd835d567
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: cwatson
+ms.openlocfilehash: ab0b48f8c8579af8a3314bad14dafbe79f9a9781
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32773740"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393738"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Créer des services inclus avec un compte gratuit Azure
 
@@ -27,7 +27,7 @@ Le compte gratuit Azure inclut une quantité limitée de services gratuits penda
 Nous vous recommandons d’utiliser la [page des services gratuits](https://go.microsoft.com/fwlink/?linkid=859151) pour créer des services. Vous pouvez aussi vous connecter au [portail Azure](http://portal.azure.com), sélectionner **Tous les services** à gauche et rechercher **services gratuits**. 
 
 ## <a name="services-can-be-created-in-any-region"></a>Vous pouvez créer des services dans n’importe quelle région
-Tant que vous êtes dans les limites, vous pouvez créer des services gratuitement dans n’importe quelle région où les services sont disponibles. Par exemple, vous bénéficiez de 750 heures de machine virtuelle Windows B1S gratuites chaque mois avec un compte gratuit Azure. Vous pouvez créer la machine virtuelle dans n’importe quelle région où les machines virtuelles de série B sont disponibles. Azure ne vous facture que si vous dépassez 750 heures. Par exemple, un client aux États-Unis peut provisionner une machine virtuelle Windows B1S en Europe de l’Ouest et l’utiliser gratuitement pendant 750 heures. 
+Tant que vous êtes dans les limites, vous pouvez créer des services gratuitement dans n’importe quelle région où les services sont disponibles. Par exemple, vous bénéficiez de 750 heures de machine virtuelle Windows B1S gratuites chaque mois avec un compte gratuit Azure. Vous pouvez créer la machine virtuelle dans n’importe quelle région où les machines virtuelles de série B sont disponibles. Azure ne vous facture que si vous dépassez 750 heures. Par exemple, un client aux États-Unis peut provisionner une machine virtuelle Windows B1S dans la région Europe Ouest et l’utiliser gratuitement pendant 750 heures. 
 
 Pour en savoir plus sur la disponibilité des services Azure par région, consultez [Disponibilité des produits par région](https://azure.microsoft.com/regions/services/).
 

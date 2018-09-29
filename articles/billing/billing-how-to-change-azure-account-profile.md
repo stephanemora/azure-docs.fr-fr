@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bce9e7de13ff95024685ccf916541357f5362727
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 622a8777f5ed329636c7023bb52790756f8d7206
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070649"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422624"
 ---
 # <a name="change-your-azure-account-profile-information-such-as-contact-email-address-and-phone-number"></a>Modifiez les informations de profil de votre compte Azure, comme l'e-mail de contact, l'adresse et le numéro de téléphone
 
@@ -55,10 +55,6 @@ Pour découvrir comment mettre à jour vos informations de facturation, consulte
 ### <a name="why-cant-i-update-the-country"></a>Pourquoi ne puis-je pas mettre à jour le pays ?
 
 En raison de contraintes techniques, nous ne pouvons modifier le pays d'un compte existant. Toutefois, vous pouvez créer un compte dans le pays de votre choix, puis contacter le support Azure afin de migrer vos services vers ce compte.
-
-### <a name="what-email-address-does-the-azure-billing-alerts-preview-feature-use"></a>Quelle adresse de messagerie la fonctionnalité d'aperçu des alertes de facturation Azure utilise-t-elle ?
-
-Vous recevez des notifications d’alerte à l’adresse de messagerie que vous indiquez lorsque vous vous inscrivez aux alertes. L’adresse de messagerie utilisée pour les alertes est différente de celle de l’administrateur du compte. Pour plus d’informations, consultez [Configurer des alertes de facturation pour vos abonnements Microsoft Azure](billing-set-up-alerts.md).
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contactez le support technique.
 

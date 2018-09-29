@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 3559a25f3073f88e99379e98bc4562209b0c0825
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f80c0f3cdc114b53c002266820e8d9b8773acc5d
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42108442"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432187"
 ---
 # <a name="about-the-speech-translation-api"></a>À propos de l’API Traduction vocale
 
@@ -32,7 +32,7 @@ L’API Traduction vocale utilise des technologies qui soutiennent différents p
 
 Deux approches sont sous-jacentes au moteur de traduction de Microsoft : la traduction automatique statistique (SMT) et la traduction automatique neuronale (NMT). La deuxième, une approche d’intelligence artificielle utilisant des réseaux neuronaux, est l’approche plus moderne de la traduction automatique. La NMT fournit de meilleures traductions, pas simplement plus précises, mais également plus fluides et naturelles. La cause principale de cette fluidité est que la NMT utilise le contexte entier d’une phrase pour traduire des mots.
 
-Aujourd’hui, Microsoft a migré vers la NMT pour les langues les plus répandues, et n’utilise la SMT que pour les langues moins fréquemment utilisées. Tous les [langues disponibles pour la traduction de parole en parole](supported-languages.md#speech-translation) sont alimentées par la NMT. La traduction de parole en texte peut utiliser la SMT ou la NMT en fonction de la paire de langues. Si la langue cible est prise en charge par la NMT, la traduction complète s’appuie sur NMT. Si la langue cible n’est pas prise en charge par la NMT, la traduction est un hybride de NMT et SMT, utilisant l’anglais comme langue « pivot » entre les deux langues.
+Aujourd’hui, Microsoft a migré vers la NMT pour les langues les plus répandues, et n’utilise la SMT que pour les langues moins fréquemment utilisées. Tous les [langues disponibles pour la traduction de parole en parole](language-support.md#speech-translation) sont alimentées par la NMT. La traduction de parole en texte peut utiliser la SMT ou la NMT en fonction de la paire de langues. Si la langue cible est prise en charge par la NMT, la traduction complète s’appuie sur NMT. Si la langue cible n’est pas prise en charge par la NMT, la traduction est un hybride de NMT et SMT, utilisant l’anglais comme langue « pivot » entre les deux langues.
 
 Les différences entre les modèles sont internes au moteur de traduction. Les utilisateurs finaux constatent uniquement la meilleure qualité de la traduction, en particulier pour le chinois, le japonais et l’arabe.
 

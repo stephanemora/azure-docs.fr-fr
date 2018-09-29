@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1a18b6f627a28b912baeda6f180297dc703e665e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634085"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031201"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>Didacticiel : Envoyer (push) une image mise à jour vers les déploiements régionaux
 
@@ -79,7 +79,7 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 ## <a name="push-image-to-azure-container-registry"></a>Envoyer l’image à Azure Container Registry
 
-Ensuite, envoyez l’image conteneur *acr-helloworld* mise à jour dans votre registre géorépliqué. Ici, vous exécutez une seule commande `docker push` pour déployer l’image mise à jour sur les réplicas de registre, à la fois dans les régions *Ouest des États-Unis* et *Est des États-Unis*.
+Ensuite, envoyez l’image conteneur *acr-helloworld* mise à jour dans votre registre géorépliqué. Ici, vous exécutez une seule commande `docker push` pour déployer l’image mise à jour sur les réplicas de registre, à la fois dans les régions *USA Ouest* et *USA Est*.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
@@ -108,9 +108,9 @@ Pour voir les webhooks régionaux qui ont été créés lorsque vous avez déplo
 
 ![Webhooks de registre de conteneurs dans le portail Azure][tutorial-portal-01]
 
-Sélectionnez chaque webhook pour consulter l’historique des appels et des réponses. Vous devez voir une ligne pour l’action **push** dans les journaux des deux webhooks. Ici, le journal pour le webhook qui se trouve dans la région *Ouest des États-Unis* montre l’action **push** déclenchée par le `docker push` à l’étape précédente :
+Sélectionnez chaque webhook pour consulter l’historique des appels et des réponses. Vous devez voir une ligne pour l’action **push** dans les journaux des deux webhooks. Ici, le journal pour le webhook qui se trouve dans la région *USA Ouest* montre l’action **push** déclenchée par le `docker push` à l’étape précédente :
 
-![Journal des webhooks de registre de conteneurs dans le portail Azure (Ouest des États-Unis)][tutorial-portal-02]
+![Journal des webhooks de registre de conteneurs dans le portail Azure (USA Ouest)][tutorial-portal-02]
 
 ## <a name="view-the-updated-web-app"></a>Afficher l’application web mise à jour
 
@@ -120,13 +120,13 @@ Vérifiez que l’application a été mise à jour dans les deux déploiements e
 
 ![Vue d’ensemble de App Service dans le portail Azure][tutorial-portal-03]
 
-Pour voir l’application mise à jour, sélectionnez le lien dans la vue d’ensemble d’App Service. Voici une vue d’exemple de l’application en cours d’exécution dans la région *Ouest des États-Unis* :
+Pour voir l’application mise à jour, sélectionnez le lien dans la vue d’ensemble d’App Service. Voici une vue d’exemple de l’application en cours d’exécution dans la région *USA Ouest* :
 
-![Affichage du navigateur de l’application web modifiée en cours d’exécution dans la région Ouest des États-Unis][deployed-app-westus-modified]
+![Affichage du navigateur de l’application web modifiée en cours d’exécution dans la région USA Ouest][deployed-app-westus-modified]
 
-Vérifiez que l’image de conteneur mise à jour a également été déployée sur le déploiement *États-Unis* en l’affichant dans votre navigateur.
+Vérifiez que l’image de conteneur mise à jour a également été déployée sur le déploiement *USA Est* en l’affichant dans votre navigateur.
 
-![Affichage du navigateur de l’application web modifiée en cours d’exécution dans la région Est des États-Unis][deployed-app-eastus-modified]
+![Affichage du navigateur de l’application web modifiée en cours d’exécution dans la région USA Est][deployed-app-eastus-modified]
 
 Avec une seule commande `docker push`, vous avez automatiquement mis à jour l’application web exécutée dans les deux déploiements d’application web régionaux. De plus, Azure Container Registry a distribué les images conteneurs des référentiels les plus proches de chaque déploiement.
 
@@ -138,7 +138,7 @@ Dans ce didacticiel, vous avez mis à jour et envoyé une nouvelle version du co
 
 Outre la géoréplication, ACR Build est une autre fonctionnalité d’Azure Container Registry vous permettant d’optimiser votre pipeline de déploiement de conteneurs. Commencez par consulter la vue d’ensemble d’ACR Build pour connaître ses fonctionnalités dans les grandes lignes :
 
-[Automatiser les mises à jour correctives du système d’exploitation et de l’infrastructure avec ACR Build](container-registry-build-overview.md)
+[Automatiser les mises à jour correctives du système d’exploitation et de l’infrastructure avec ACR Build](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

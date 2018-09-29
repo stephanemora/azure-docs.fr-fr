@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702525"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433988"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Créer un travail Stream Analytics pour analyser les données d’appel téléphonique et visualiser les résultats dans un tableau de bord Power BI
  
@@ -101,7 +101,7 @@ Avant de démarrer l’application TelcoGenerator, vous devez la configurer pour
 5. Ouvrez ensuite une fenêtre de commande, accédez au dossier où vous avez décompressé l’application TelcoGenerator et entrez la commande suivante :
 
    ```
-   telcodatagen.exe 1000 .2 2
+   telcodatagen.exe 1000 0.2 2
    ```
 
    Cette commande utilise les paramètres suivants :
@@ -228,7 +228,7 @@ Vous pouvez tester une requête à partir de l’éditeur de requête, et que vo
 
 3. Définissez **Minutes** sur 3 et sélectionnez **OK**. Trois minutes de données du flux d’entrée sont échantillonnées et vous êtes informé lorsque les exemples de données sont prêts. Vous pouvez visualiser l’état d’échantillonnage dans la barre de notification. 
 
-   L’exemple de données est stocké temporairement et disponible tant que la fenêtre de requête est ouverte. Si vous la fermez, l’exemple de données est abandonné, et vous devez en créer un autre. Vous pouvez également obtenir un fichier .json qui contient des exemples de données de [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample Data/telco.json), puis charger ce fichier .json dont vous pouvez utiliser les exemples de données pour l’entrée CallStream.  
+   L’exemple de données est stocké temporairement et disponible tant que la fenêtre de requête est ouverte. Si vous la fermez, l’exemple de données est abandonné, et vous devez en créer un autre. Vous pouvez également obtenir un fichier .json qui contient des exemples de données de [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), puis charger ce fichier .json dont vous pouvez utiliser les exemples de données pour l’entrée CallStream.  
 
 4. Sélectionnez **Test** pour tester la requête. Vous devez voir les résultats de sortie comme présenté dans cette capture d’écran :  
 
@@ -262,7 +262,7 @@ Vous pouvez tester une requête à partir de l’éditeur de requête, et que vo
 
 Pour cette partie du didacticiel, vous allez utiliser un exemple d’application web [ASP.NET](http://asp.net/) créé par l’équipe Power BI pour intégrer votre tableau de bord. Pour plus d’informations sur l’intégration de tableaux de bord, consultez l’article [Power BI en mode intégration](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Dans ce didacticiel, nous allons suivre les étapes pour l’utilisateur propriétaire de l’application de données. Pour configurer l’application, accédez au référentiel GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) et suivez les instructions situées sous la section **User Owns Data** (L’utilisateur détient les données) (utilisez les URL de redirection et de page d’accueil de la sous-section **integrate-dashboard-web-app**). Étant donné que nous utilisons l’exemple de tableau de bord, utilisez l’exemple de code integrate-dashboard-web-app situé dans le [référentiel GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User Owns Data/integrate-dashboard-web-app).
+Dans ce didacticiel, nous allons suivre les étapes pour l’utilisateur propriétaire de l’application de données. Pour configurer l’application, accédez au référentiel GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) et suivez les instructions situées sous la section **User Owns Data** (L’utilisateur détient les données) (utilisez les URL de redirection et de page d’accueil de la sous-section **integrate-dashboard-web-app**). Étant donné que nous utilisons l’exemple de tableau de bord, utilisez l’exemple de code integrate-dashboard-web-app situé dans le [référentiel GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Lorsque l’application est en cours d’exécution dans votre navigateur, procédez comme suit pour intégrer le tableau de bord que vous avez créé précédemment dans la page web :
 
 1. Sélectionnez **Se connecter à Power BI**, qui accorde à l’application un accès aux tableaux de bord dans votre compte Power BI.  

@@ -2,19 +2,22 @@
 title: Connecteur Spark avec Azure SQL Database et SQL Server| Microsoft Docs
 description: Découvrez comment utiliser le connecteur Spark pour Azure SQL Database et SQL Server.
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
+ms.subservice: development
 ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2018
+author: allenwux
 ms.author: xiwu
-ms.openlocfilehash: a422f65097466e4bbe5740c449d3ccf88701802b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 04/23/2018
+ms.openlocfilehash: 09035b19ee48602fde70736ab918fccae71108a5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650160"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166234"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Accélérer l’analytique du Big Data en temps réel avec le connecteur Spark pour Azure SQL Database et SQL Server
 
@@ -31,7 +34,7 @@ Pour commencer, téléchargez le connecteur Spark à SQL Database depuis le [dé
 | Scala                                |2.10 ou version ultérieure            |
 | Pilote Microsoft JDBC pour SQL Server |6.2 ou version ultérieure             |
 | Microsoft SQL Server                 |SQL Server 2008 ou version ultérieure |
-| Azure SQL Database                   |Prise en charge                |
+| Azure SQL Database                   |Pris en charge                |
 
 Le connecteur Spark pour Azure SQL Database et SQL Server utilise le pilote Microsoft JDBC pour SQL Server pour déplacer des données entre les nœuds de rôle de travail Spark et les bases de données SQL :
  

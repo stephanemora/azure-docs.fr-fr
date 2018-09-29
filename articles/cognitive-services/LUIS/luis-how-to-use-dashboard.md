@@ -3,18 +3,18 @@ title: Tableau de bord des applications LUIS | Microsoft Docs
 description: Découvrez le tableau de bord d’application, un outil visuel de création de rapports, qui permet de surveiller vos applications en un coup d’œil.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cab07a994f2bdfb7ef8491adbb482c1902e4d4cb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224498"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031983"
 ---
 # <a name="application-dashboard"></a>Tableau de bord d’application
 Le tableau de bord d’application permet de surveiller votre application d’un seul coup d’œil. Le **tableau de bord** s’affiche lorsque vous ouvrez une application en cliquant sur son nom sur la page **Mes applications**, puis choisissez **Tableau de bord** dans le panneau supérieur. 

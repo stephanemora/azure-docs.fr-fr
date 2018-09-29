@@ -2,20 +2,22 @@
 title: Se connecter à SQL Database à l’aide de C et C++ | Microsoft Docs
 description: Utilisez l’exemple de code de ce guide de démarrage rapide pour créer une application moderne utilisant C++ et reposant sur une base de données relationnelle puissante dans le cloud avec Azure SQL Database.
 services: sql-database
-author: edmacauley
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
 ms.devlang: cpp
 ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
+manager: craigg
 ms.date: 04/01/2018
-ms.author: edmacauley
-ms.openlocfilehash: c37fdaa9f7aa2a0d243fe6cbc175060156967c61
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: caa61b4cecce3f0f4c37a0b945b0ca5a2fc619c1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644696"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063643"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Se connecter à SQL Database à l’aide de C et C++
 Cette publication est destinée aux développeurs C et C++ qui essaient de se connecter à Azure SQL DB. Elle est divisée en sections afin de vous permettre d’accéder directement à celle qui vous intéresse. 
@@ -71,7 +73,7 @@ Vous pouvez aussi créer un fichier DSN à l’aide de l’assistant qui est lan
 
 ![Création d’un fichier DSN](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-Félicitations ! Vous avez réussi à vous connecter à Azure SQL à l’aide de C++ et ODBC sur Windows. Vous pouvez poursuivre la lecture pour faire de même sur une plateforme Linux. 
+Félicitations ! Vous avez réussi à vous connecter à Azure SQL à l’aide de C++ et ODBC sur Windows. Vous pouvez poursuivre la lecture pour faire de même sur une plateforme Linux. 
 
 ## <a id="Linux"></a>Étape 5 : connexion à partir d’une application C/C++ Linux
 Si vous ne le saviez pas déjà, Visual Studio permet maintenant de développer également des applications C++ Linux. Vous trouverez plus d’informations sur ce nouveau scénario sur le blog consacré à [Visual C++ pour le développement Linux](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/). Pour générer des applications pour Linux, vous avez besoin d’un ordinateur distant sur lequel s’exécute votre distribution Linux. Si vous n’en avez pas, vous pouvez en configurer un rapidement à l’aide de [machines virtuelles Azure Linux](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -115,7 +117,7 @@ Si votre connexion a réussi, le nom de la base de données actuelle doit être 
 
 ![Sortie de la fenêtre de la Console Linux](./media/sql-database-develop-cplusplus-simple/linuxconsolewindow.png)
 
-Félicitations ! Vous avez terminé le didacticiel et pouvez maintenant vous connecter à votre base de données SQL Azure à partir de C++ sur les plateformes Windows et Linux.
+Félicitations ! Vous avez terminé le didacticiel et pouvez maintenant vous connecter à votre base de données SQL Azure à partir de C++ sur les plateformes Windows et Linux.
 
 ## <a id="GetSolution"></a>Obtenir la solution complète du didacticiel C/C++
 Vous trouverez la solution GetStarted qui contient tous les exemples de cet article sur GitHub :

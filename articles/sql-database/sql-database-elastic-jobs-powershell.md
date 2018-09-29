@@ -2,19 +2,22 @@
 title: Création et gestion de tâches élastiques à l’aide de PowerShell | Microsoft Docs
 description: Gérer la base de données SQL Azure avec PowerShell
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: pwershell
 ms.topic: conceptual
-ms.date: 06/14/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 3efee2f9a4b205b87a65eb473271b0ab5e58046d
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: e5e519cad6c3944e5ebf9936970e8ede1509cf95
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498417"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166960"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Création et gestion de tâches de bases de données SQL élastiques à l’aide de PowerShell (version préliminaire)
 

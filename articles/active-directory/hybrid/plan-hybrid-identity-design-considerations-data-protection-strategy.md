@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 7999dc15fbe1af9d23b47971db03cf6b197f110f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a3cbbf887c4b7df57f2df89dfb8649967d6d9b1b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306108"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434753"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Définir la stratégie de protection des données pour votre solution d’identités hybrides
 Dans cette tâche, vous allez définir la stratégie de protection des données pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise définies dans :
@@ -58,8 +58,6 @@ En fonction des réponses apportées aux questions de la section [Déterminer le
 
 ## <a name="define-content-management-options"></a>Définir les options de gestion de contenu
 
-<a name="one-advantage-of-using-azure-ad-to-manage-a-hybrid-identity-infrastructure-is-that-the-process-is-fully-transparent-from-the-end-users-perspective-the-user-tries-to-access-a-shared-resource-the-resource-requires-authentication-the-user-has-to-send-an-authentication-request-to-azure-ad-in-order-to-obtain-the-token-and-access-the-resource-this-entire-process-happens-in-the-background-without-user-interaction"></a>L’un des avantages de l’utilisation d’Azure AD pour gérer une infrastructure d’identités hybrides est que le processus est entièrement transparent du point de vue de l’utilisateur final. L’utilisateur tente d’accéder à une ressource partagée, la ressource requiert l’authentification, l’utilisateur doit envoyer une demande d’authentification à Azure AD afin d’obtenir le jeton et d’accéder à la ressource. Ce processus se déroule intégralement en arrière-plan, sans intervention de l’utilisateur. 
-=======
 L’un des avantages de l’utilisation d’Azure AD pour gérer une infrastructure d’identités hybrides est que le processus est entièrement transparent du point de vue de l’utilisateur final. L’utilisateur tente d’accéder à une ressource partagée, la ressource requiert l’authentification, l’utilisateur doit envoyer une demande d’authentification à Azure AD afin d’obtenir le jeton et d’accéder à la ressource. Ce processus se déroule intégralement en arrière-plan, sans intervention de l’utilisateur. 
 
 Les organisations préoccupées par la confidentialité des données requièrent généralement la classification des données pour leur solution. Si leur infrastructure locale actuelle est déjà utilisée par la classification des données, il est possible d’utiliser Azure AD comme référentiel principal pour l’identité de l’utilisateur. Le [kit de classification des données](https://msdn.microsoft.com/library/Hh204743.aspx) pour Windows Server 2012 R2 est un outil commun utilisé en local pour la classification des données. Cet outil peut aider à identifier, classer et protéger les données sur les serveurs de fichiers dans votre cloud privé. Il est également possible d’utiliser la [classification automatique des fichiers](https://technet.microsoft.com/library/hh831672.aspx) dans Windows Server 2012 pour accomplir cette tâche.

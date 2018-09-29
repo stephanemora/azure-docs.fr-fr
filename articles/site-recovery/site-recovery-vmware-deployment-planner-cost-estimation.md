@@ -2,24 +2,18 @@
 title: Azure Site Recovery deployment planner pour le déploiement de VMware vers Azure| Microsoft Docs
 description: Il s’agit du guide de l’utilisateur d’Azure Site Recovery deployment planner.
 services: site-recovery
-documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f1d23419df6f66ef430cb57f41a9a70c7babe7df
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a946ecb31697591a7490c80496c02c5f907c6f36
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919137"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182380"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery  
 
@@ -46,7 +40,7 @@ Vous pouvez afficher le coût mensuel ou annuel. En savoir plus sur les [région
 **Coût de stockage Azure par mois/année** Il montre le coût de stockage total qui sera engagé pour le stockage standard et premium pour la réplication et l’extraction de récupération d’urgence.
 
 ## <a name="detailed-cost-analysis"></a>Analyse du coût détaillée
-Les prix Azure de calcul, de stockage, de réseau, etc., varient entre les régions Azure. Vous pouvez générer un rapport d’estimation des coûts avec les prix Azure les plus récents selon votre abonnement, l’offre associée à votre abonnement et pour la région cible Azure dans la devise indiquée. Par défaut, l’outil utilise la région Azure Ouest des États-Unis 2 et la devise dollar américain (USD). Si vous avez utilisé une autre région et devise, la prochaine fois que vous générez un rapport sans ID d’abonnement, ID d’offre, région cible et devise, il utilisera les prix de la dernière région cible utilisée et la dernière devise utilisée pour l’estimation des coûts.
+Les prix Azure de calcul, de stockage, de réseau, etc., varient entre les régions Azure. Vous pouvez générer un rapport d’estimation des coûts avec les prix Azure les plus récents selon votre abonnement, l’offre associée à votre abonnement et pour la région cible Azure dans la devise indiquée. Par défaut, l’outil utilise la région Azure USA Ouest 2 et la devise dollar américain (USD). Si vous avez utilisé une autre région et devise, la prochaine fois que vous générez un rapport sans ID d’abonnement, ID d’offre, région cible et devise, il utilisera les prix de la dernière région cible utilisée et la dernière devise utilisée pour l’estimation des coûts.
 Cette section présente l’ID d’abonnement et l’ID d’offre que vous avez utilisés pour la génération de rapports.  Si aucun n’a été utilisé, il est vide.
 
 Dans l’ensemble du rapport, les cellules marquées en gris sont en lecture seule. Les cellules en blanc peuvent être modifiées selon vos besoins.

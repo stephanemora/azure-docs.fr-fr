@@ -1,22 +1,23 @@
 ---
 title: Restaurer une base de données SQL Azure dans une application SaaS multilocataire | Microsoft Docs
 description: Découvrez comment restaurer une base de données SQL à locataire unique après la suppression accidentelle des données
-keywords: didacticiel sur les bases de données SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 319195ceb98b5b760d4d92055faa6e09c8fb0e3d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644346"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056741"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Restaurer un seul locataire avec une application SaaS de base de données par locataire
 
@@ -51,7 +52,7 @@ Il existe deux modèles simples pour restaurer les données d’un locataire ind
 
 Si la base de données utilise la [géoréplication](sql-database-geo-replication-overview.md) et la restauration en parallèle, nous vous recommandons de copier les données requises de la copie restaurée vers la base de données d’origine. Si vous remplacez la base de données d’origine par la base de données restaurée, vous devez reconfigurer et resynchroniser la géoréplication.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l’application SaaS Wingtip Tickets comportant une base de données par locataire
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l’application de base de données par locataire SaaS Wingtip Tickets
 
 Les scripts et le code source de l’application de base de données multilocataire SaaS Wingtip Tickets sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Pour connaître les étapes de téléchargement et de déblocage des scripts SaaS Wingtip Tickets, consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md).
 
@@ -67,7 +68,7 @@ Pour illustrer ces scénarios de récupération, commencez par supprimer « acci
 
 1. Ouvrez le hub d’événements (http://events.wtp.&lt;user&gt;.trafficmanager.net) et sélectionnez **Contoso Concert Hall**.
 
-   ![Hub d’événements](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
+   ![Concentrateur d’événements](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 
 2. Faites défiler la liste des événements, puis notez le dernier événement de la liste.
 
@@ -131,7 +132,7 @@ Une fois que vous restaurez la base de données, 10 à 15 minutes supplémentair
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 

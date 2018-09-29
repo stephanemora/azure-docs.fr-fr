@@ -8,14 +8,14 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 05c19b2b602e8541a21d5be508e0346c63714544
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ffb7af5cd772f663d71f8641ed79839c3ff9ac6a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700427"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407788"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Démarrage rapide : Envoyer et recevoir des messages à l’aide du portail Azure et de .NET
 
@@ -109,7 +109,7 @@ Pour exécuter le code, procédez comme suit :
 
    ![sortie du programme](./media/service-bus-quickstart-portal/dotnet.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez utiliser le portail pour supprimer le groupe de ressources, l’espace de noms et la file d’attente.
 

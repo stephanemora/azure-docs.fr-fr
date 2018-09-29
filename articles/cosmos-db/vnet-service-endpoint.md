@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109740"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037134"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service Réseau virtuel Azure
 
@@ -25,9 +25,6 @@ Azure Cosmos DB est un service de base de données multimodèle distribué à l�
 ![Architecture de point de terminaison de service de réseau virtuel](./media/vnet-service-endpoint/vnet-service-endpoint-architecture.png)
 
 Une fois qu’un compte Azure Cosmos DB est configuré avec un point de terminaison de service de réseau virtuel, il est accessible uniquement à partir du sous-réseau spécifié ; tout accès Internet/public est impossible. Pour en savoir plus sur les points de terminaison de service, consultez l’article Azure [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
-
-> [!NOTE]
-> Actuellement, les points de terminaison de service de réseau virtuel peuvent être configurés pour les comptes d’API SQL Azure Cosmos DB ou d’API Mongo. La possibilité de configurer des points de terminaison de service pour d’autres API et clouds souverains tels qu’Azure Allemagne ou Azure Government sera prochainement disponible. Si vous avez un pare-feu IP existant configuré pour votre compte Azure Cosmos DB, notez la configuration du pare-feu, supprimez le pare-feu IP, puis configurez la liste ACL du point de terminaison de service. Après avoir configuré le point de terminaison de service, vous pouvez réactiver le pare-feu IP si nécessaire.
 
 ## <a name="configure-service-endpoint-by-using-azure-portal"></a>Configurer le point de terminaison de service à l’aide du portail Azure
 ### <a name="configure-service-endpoint-for-an-existing-azure-virtual-network-and-subnet"></a>Configurer le point de terminaison de service pour un réseau virtuel et un sous-réseau Azure existants

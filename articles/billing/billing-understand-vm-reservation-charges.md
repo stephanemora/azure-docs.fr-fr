@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: yashar
-ms.openlocfilehash: de4a771672b45f930385c2c923b3935c65b6c045
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: cwatson
+ms.openlocfilehash: 460cd3a5b05680563661e2f6519eaa3506eee03b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301644"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392077"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Comprendre comment la remise de réservation Azure est appliquée aux machines virtuelles
 
@@ -55,9 +55,9 @@ Quand vous exécutez des instances de machine virtuelle Windows, la réservation
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les réservations Azure, voir les articles suivants :
+Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-- [Que sont les réservations Azure ?](billing-save-compute-costs-reservations.md)
+- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)

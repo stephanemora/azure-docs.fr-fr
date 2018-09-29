@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Suite et Logic Apps | Microsoft Docs
-description: "Il s’agit d’un didacticiel expliquant comment raccorder des applications logiques à Azure IoT Suite pour les processus d’entreprise."
-services: 
+description: Il s’agit d’un didacticiel expliquant comment raccorder des applications logiques à Azure IoT Suite pour les processus d’entreprise.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4629a7af-56ca-4b21-a769-5fa18bc3ab07
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
 ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47106387"
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Didacticiel : Connecter Logic App à la solution préconfigurée de surveillance à distance IoT Suite
 La solution préconfigurée de surveillance à distance [Microsoft Azure IoT Suite][lnk-internetofthings] est un excellent moyen de commencer rapidement avec un ensemble de fonctionnalités de bout en bout illustrant une solution IoT. Ce didacticiel vous familiarise avec l’ajout de Logic App à votre solution préconfigurée de surveillance à distance Microsoft Azure IoT Suite. Ces étapes montrent comment tirer davantage parti de votre solution IoT en la connectant à un processus d’entreprise.
@@ -42,7 +43,7 @@ Pour commencer, configurez l’application logique à utiliser avec la solution 
 ## <a name="set-up-the-logic-app"></a>Configurer l’application logique
 1. Cliquez sur **Ajouter** en haut du panneau de votre groupe de ressources dans le portail Azure.
 2. Recherchez **l’application logique**, sélectionnez-la, puis cliquez sur **Créer**.
-3. Indiquez le **nom** et utilisez les mêmes **abonnement** et **groupe de ressources** que ceux utilisés lorsque vous avez approvisionné votre solution de surveillance à distance. Cliquez sur **Create**.
+3. Indiquez le **nom** et utilisez les mêmes **abonnement** et **groupe de ressources** que ceux utilisés lorsque vous avez approvisionné votre solution de surveillance à distance. Cliquez sur **Créer**.
    
     ![](media/iot-suite-v1-logic-apps-tutorial/createlogicapp.png)
 4. Une fois le déploiement terminé, vous verrez que l’application logique est répertoriée en tant que ressource dans votre groupe de ressources.
@@ -106,7 +107,7 @@ Pour commencer, configurez l’application logique à utiliser avec la solution 
 ## <a name="set-up-the-eventprocessor-web-job"></a>Configurer la tâche webEventProcessor
 Dans cette section, vous connectez votre solution préconfigurée à l’application logique que vous avez créée. Pour effectuer cette tâche, vous ajoutez l’URL permettant de déclencher l’application logique à l’action qui se déclenche lorsqu’une valeur de capteur d’appareil dépasse un certain seuil.
 
-1. Utilisez votre client git pour cloner la dernière version du [référentiel github azure-iot-remote-monitoring][lnk-rmgithub]. Par exemple :
+1. Utilisez votre client git pour cloner la dernière version du [référentiel github azure-iot-remote-monitoring][lnk-rmgithub]. Par exemple : 
    
     ```cmd
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git

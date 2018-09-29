@@ -2,19 +2,22 @@
 title: Déploiement des mises à niveau d’applications - Azure SQL Database | Microsoft Docs
 description: Découvrez comment utiliser la géo-réplication de la base de données SQL pour prendre en charge les mises à niveau en ligne de votre application cloud.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/23/2018
+author: anosov1960
 ms.author: sashan
-ms.openlocfilehash: 37960995c89c2b30d90ac45dcd8cc44d80088398
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 08/23/2018
+ms.openlocfilehash: 4d518c959943184c38ed78cc8eb5449b306c8b04
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818614"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162302"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Gestion des mises à niveau propagées d’applications cloud à l’aide d’une géoréplication active de SQL Database
 > [!NOTE]
@@ -125,7 +128,7 @@ Si la mise à niveau échoue, par exemple en raison d’une erreur dans le scrip
 Le principal **avantage** de cette option est qu’elle vous permet de mettre à niveau l’application et sa copie géo-redondant en parallèle sans compromettre votre continuité d’activité lors de la mise à niveau. L’ **inconvénient** est qu’elle implique une double redondance de chaque composant de l’application, ce qui augmente le coût total de l’opération. Elle implique également un flux de travail plus complexe. 
 
 ## <a name="summary"></a>Résumé
-Les deux méthodes de mise à niveau décrites dans cet article présentent certaines différences en termes de complexité et de coût, mais les deux visent à réduire la durée pendant laquelle l’utilisateur final est limité aux opérations en lecture seule. Cette durée dépend directement de la durée du script de mise à niveau. Elle ne dépend pas la taille de la base de données, du niveau de service que vous avez choisi, de la configuration du site web ou d’autres facteurs que vous ne pouvez pas facilement contrôler. En effet, toutes les étapes de préparation sont dissociées de la procédure de mise à niveau et peuvent être effectuées sans incidence sur l’application de production. L’efficacité du script de mise à niveau est essentielle pour déterminer l’expérience utilisateur au cours des mises à niveau. La meilleure façon de l’améliorer consiste donc à concentrer vos efforts sur la création d’un script de mise à niveau aussi efficace que possible.  
+Les deux méthodes de mise à niveau décrites dans cet article présentent certaines différences en termes de complexité et de coût, mais les deux visent à réduire la durée pendant laquelle l’utilisateur final est limité aux opérations en lecture seule. Cette durée dépend directement de la durée du script de mise à niveau. Elle ne dépend pas la taille de la base de données, du niveau de service que vous avez choisi, de la configuration du site web ou d’autres facteurs que vous ne pouvez pas facilement contrôler. En effet, toutes les étapes de préparation sont dissociées de la procédure de mise à niveau et peuvent être effectuées sans incidence sur l’application de production. L’efficacité du script de mise à niveau est essentiel pour déterminer l’expérience utilisateur au cours des mises à niveau. La meilleure façon de l’améliorer consiste donc à concentrer vos efforts sur la création d’un script de mise à niveau aussi efficace que possible.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).

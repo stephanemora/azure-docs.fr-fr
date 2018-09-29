@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c99186d73886041d92bea38b0dd4dc17f55001e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a42c13bc0b441074829b1753c1d3cab8fbfaccf
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977857"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407567"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs devops) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
@@ -181,14 +181,8 @@ Azure Monitor a besoin d’accéder à vos ressources Azure pour fournir les ser
 Les données de supervision sont souvent écrites dans un compte de stockage. Vous souhaitez peut-être vous assurer que les données copiées dans un compte de stockage ne sont pas accessibles aux utilisateurs non autorisés. Pour plus de sécurité, vous pouvez verrouiller l’accès réseau pour permettre uniquement à vos ressources autorisées et services Microsoft approuvés d’accéder à un compte de stockage. Pour cela, vous pouvez forcer un compte de stockage à utiliser uniquement les « réseaux sélectionnés ».
 ![Boîte de dialogue des paramètres du Stockage Azure](./media/monitoring-roles-permissions-security/secured-storage-example.png) Azure Monitor est considéré comme l’un de ces « services Microsoft approuvés ». Si vous autorisez les services Microsoft approuvés à accéder à votre stockage sécurisé, Azure Monitor peut accéder à votre compte de stockage sécurisé. Ceci permettra l’écriture de métriques, journaux d’activité et journaux de diagnostic Azure Monitor dans votre compte de stockage conformément à ces conditions de protection. Ceci permet également à Log Analytics de lire les journaux à partir du stockage sécurisé.   
 
+
 Pour plus d’informations, consultez [Network security and Azure Storage](../storage/common/storage-network-security.md) (Sécurité réseau et Stockage Azure).
- 
-### <a name="secured-virtual-networks-with-service-endpoints"></a>Réseaux virtuels sécurisés avec des points de terminaison de service 
-
-Les réseaux virtuels permettent de limiter le trafic de façon à permettre uniquement au trafic spécifié de communiquer avec vos ressources Azure. Vous pouvez spécifier des points de terminaison de service pour étendre votre réseau virtuel de façon à inclure Azure Monitor. Ceci permet à vos ressources de continuer à envoyer des informations de journalisation et de métrique vers Azure Monitor à partir de réseaux virtuels en toute sécurité.  
-
-Pour en savoir plus, consultez [Points de terminaison du service Réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md). 
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [En savoir plus sur RBAC et les autorisations dans Resource Manager](../role-based-access-control/overview.md)

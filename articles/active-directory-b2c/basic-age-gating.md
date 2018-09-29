@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9d24e37642a41e4d60b33f42a60d7e56cb4b35b5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9a9a86d445deaea4872615f443ad53f76638a758
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446722"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056520"
 ---
 #<a name="using-age-gating-in-azure-ad-b2c"></a>Utilisation de la vérification de l’âge dans Azure AD B2C
 
 >[!IMPORTANT]
->Cette fonctionnalité est en préversion privée.  Consultez notre [blog consacré au service](https://blogs.msdn.microsoft.com/azureadb2c/) pour plus d’informations ou contactez AADB2CFeedback@microsoft.com.  Tant que cette fonctionnalité n’est pas disponible généralement, ne l’utilisez PAS dans les répertoires de production. Sinon, cela risque d’entraîner une perte de données, ainsi que des modifications inattendues du comportement.  
+>Cette fonctionnalité est en préversion privée.  Consultez notre [blog consacré au service](https://blogs.msdn.microsoft.com/azureadb2c/) pour plus d’informations ou contactez AADB2CPreview@microsoft.com.  Tant que cette fonctionnalité n’est pas disponible généralement, ne l’utilisez PAS dans les répertoires de production. Sinon, cela risque d’entraîner une perte de données, ainsi que des modifications inattendues du comportement.  
 >
 
 ##<a name="age-gating"></a>Vérification de l’âge
@@ -56,13 +56,3 @@ Pour les flux d’utilisateurs impliquant des opérations de création de compte
 Pour les flux d’utilisateurs impliquant des opérations de création de compte et/ou de connexion, vous pouvez choisir de bloquer les mineurs sans le consentement de votre application.  Il existe deux options pour la gestion des utilisateurs bloqués dans Azure AD B2C :
 * Envoyez du code JSON à l’application : cette option envoie à l’application une réponse indiquant que le mineur a été bloqué.
 * Affichez une page d’erreur : l’utilisateur voit une page l’informant qu’il ne peut pas accéder à l’application
-
-##<a name="known-issues"></a>Problèmes connus
-###<a name="format-for-the-response-when-a-minor-is-blocked"></a>Format de la réponse envoyée lorsqu’un mineur est bloqué.
-Actuellement, la réponse n’est pas correctement mise en forme. Ce bogue sera résolu dans une prochaine mise à jour.
-
-###<a name="deleting-specific-attributes-that-were-added-during-setup-can-make-your-directory-unable-to-use-age-gating"></a>Si vous supprimez des attributs spécifiques qui ont été ajoutés pendant la configuration, il se peut que votre répertoire ne puisse pas utiliser la vérification de l’âge.
-Dans la configuration de la vérification de l’âge, vous avez configuré votre répertoire via une option dans votre `Properties`.  Si vous supprimez `legalCountry` ou `dateOfBirth` à l’aide de Graph, votre répertoire ne peut plus utiliser la vérification de l’âge et ces propriétés ne peuvent pas être recréées.
-
-###<a name="list-of-countries-is-incomplete"></a>La liste des pays est incomplète
-Actuellement, la liste des pays dans legalCountry est incomplète. Nous ajouterons le reste des pays dans une prochaine mise à jour.

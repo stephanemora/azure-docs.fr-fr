@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a734eb7b4efecf14a4d47a660c00d561a5fa6677
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c23646bca6109d27e57b2f928363e65c83c634eb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971805"
+ms.locfileid: "47031150"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Tutoriel : Découvrez comment mettre à niveau une application Service Fabric à l'aide de Visual Studio
 
@@ -46,7 +46,7 @@ Avant de commencer ce tutoriel :
 
 * Si vous n’avez pas déployé l’application de tâches, suivez les instructions fournies dans [Publier une application web Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md).
 
-# <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Mettre à niveau un service Service Fabric Mesh à l’aide de Visual Studio
+## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>Mettre à niveau un service Service Fabric Mesh à l’aide de Visual Studio
 
 Cet article explique comment mettre à niveau de façon indépendante un microservice à l’intérieur d’une application.  Dans cet exemple, nous allons modifier le service `WebFrontEnd` pour afficher une catégorie de tâches. Ensuite, nous allons mettre à niveau le service déployé.
 

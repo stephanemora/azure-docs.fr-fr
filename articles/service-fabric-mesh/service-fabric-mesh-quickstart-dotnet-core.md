@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
 ms.devlang: dotNet
-ms.topic: conceptual
+ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d14420a363cfea23c86f63533a4ea89c5f2fd06f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 7e324b80968017e0160f41b88fa1824669050ac9
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412914"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407397"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>Démarrage rapide : créer et déployer une application web sur Azure Service Fabric mesh
 
@@ -101,7 +101,7 @@ Ouvrez un navigateur web et accédez à l’URL pour voir le site web en cours d
 
 ![Exécution d’une application web Service Fabric mesh](media/service-fabric-mesh-tutorial-deploy-dotnetcore/deployed-web-project.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez toutes les ressources que vous avez créées pour ce démarrage rapide. Étant donné que vous avez créé un groupe de ressources pour héberger les ressources de service d’ACR et de Service Fabric mesh, vous pouvez supprimer ce groupe de ressources en toute sécurité, ce qui est un moyen aisé de supprimer toutes les ressources qui y sont associées.
 

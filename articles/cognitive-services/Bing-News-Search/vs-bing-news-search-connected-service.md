@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.openlocfilehash: 5cfa82067d28b05f32bd87e0e83d55a03da8d508
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38663857"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095427"
 ---
 # <a name="connect-to-bing-news-search-api-by-using-connected-services-in-visual-studio"></a>Se connecter à l’API Recherche d’actualités Bing avec les Services connectés dans Visual Studio
 
@@ -258,7 +258,7 @@ Maintenant que vous avez ajouté la prise en charge de l’API Recherche d’act
 
    ![Capture d’écran des résultats de la Recherche d’actualités Bing](media/vs-bing-news-search-connected-service/Cog-News-Search-Results.PNG)
            
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Dès que le groupe de ressources n’est plus nécessaire, vous pouvez le supprimer. Cette opération supprime le service cognitif et les ressources associées. Pour supprimer le groupe de ressources à l’aide du portail :
 

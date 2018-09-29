@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: f6cfb7bb988b080189da444cb77e0c258417b1ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 9a07fa2010eef22c4d1477641d07dee70ab5a9cb
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574706"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227428"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Guide pratique pour gérer la connectivité et la messagerie fiable à l’aide des kits Azure IoT Hub device SDK
 
@@ -54,7 +54,7 @@ Des échecs de connexion peuvent se produire à de nombreux niveaux :
 - Erreurs au niveau du protocole pour le transport HTTP, AMQP et MQTT, telles que des liens détachés ou des sessions expirées
 - Erreurs au niveau de l’application qui résultent d’erreurs locales, telles que des informations d’identification non valides, ou du comportement des services, tel que le dépassement d’un quota ou d’une limitation
 
-Les kits SDK d’appareil détectent les erreurs dans les trois niveaux.  Les erreurs liées au système d’exploitation et les erreurs matérielles ne sont pas détectées ni gérées par les kits SDK d’appareil.  La conception est basée sur le [Guide de gestion des erreurs temporaires](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) fourni dans le Centre des architectures Azure.
+Les kits SDK d’appareil détectent les erreurs dans les trois niveaux.  Les erreurs liées au système d’exploitation et les erreurs matérielles ne sont pas détectées ni gérées par les kits SDK d’appareil.  La conception est basée sur le [Guide de gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults#general-guidelines) fourni dans le Centre des architectures Azure.
 
 ### <a name="retry-patterns"></a>Modèles de nouvelle tentative
 

@@ -9,24 +9,24 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: dddda5a222bf4e9fd81a3e13987ccdf443302083
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e0294f99d1c2291e84bf2ac5d5b1f771222b551
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978896"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433410"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Qu’est-ce que le service Azure Machine Learning (préversion) ?
 
 Le service Azure Machine Learning (préversion) est un service cloud que vous pouvez utiliser pour développer et déployer des modèles Machine Learning. Avec le service Azure Machine Learning, vous pouvez suivre vos modèles au moment même où vous les créez, entraînez, déployez et gérez, tout cela à l’échelle du cloud.
 
-## <a name="what-is-machine-learning"></a>Qu’est-ce que le machine learning ?
+## <a name="what-is-machine-learning"></a>L’apprentissage automatique - De quoi s’agit-il ?
 
-Le machine learning est une technique de science des données qui permet aux ordinateurs d’utiliser des données existantes afin de prévoir les tendances, les résultats et les comportements futurs. Avec le machine learning, les ordinateurs apprennent sans être explicitement programmés.
+Machine Learning est une technique de science des données qui permet aux ordinateurs d’utiliser des données existantes afin de prévoir les tendances, les résultats et les comportements futurs. Grâce à Machine Learning, les ordinateurs apprennent sans être explicitement programmés.
 
-Les prévisions ou prédictions générées à partir du machine learning peuvent rendre les applications et les appareils plus intelligents. Par exemple, lorsque vous faites vos achats en ligne, le machine learning permet de recommander d’autres produits que vous êtes susceptible d’aimer, en fonction de ce que vous avez acheté. Ou, lorsque vous utilisez votre carte de crédit, le machine learning compare la transaction à une base de données de transactions et aide la banque à détecter des fraudes. Et lorsque votre robot aspirateur nettoie une pièce, le machine learning l’aide à déterminer si le travail est terminé.
+Les prévisions ou prédictions générées à partir de Machine Learning peuvent rendre les applications et les appareils plus intelligents. Par exemple, lorsque vous faites vos achats en ligne, le machine learning permet de recommander d’autres produits que vous êtes susceptible d’aimer, en fonction de ce que vous avez acheté. Ou, lorsque vous utilisez votre carte de crédit, le machine learning compare la transaction à une base de données de transactions et aide la banque à détecter des fraudes. Et lorsque votre robot aspirateur nettoie une pièce, le machine learning l’aide à déterminer si le travail est terminé.
 
-## <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
+## <a name="what-is-azure-machine-learning-service"></a>Qu'est-ce que le service Azure Machine Learning ?
 
 Le service Azure Machine Learning fournit un environnement cloud que vous pouvez utiliser pour développer, entraîner, tester, déployer, gérer et suivre des modèles Machine Learning.
 

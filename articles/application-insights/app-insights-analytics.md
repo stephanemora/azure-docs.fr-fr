@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 170cd76c72e8aeb5de48c711ae4637a0244742fb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6db98332fc7d896613a3318421e9a96bbb50cd15
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294198"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159140"
 ---
 # <a name="analytics-in-application-insights"></a>Analytics dans Application Insights
 Analytics est le puissant outil de recherche et de requête d[’Application Insights](app-insights-overview.md). Analytics étant un outil web, aucune installation n’est nécessaire. Si vous avez déjà configuré Application Insights pour l’une de vos applications, vous pouvez alors analyser les données de votre application en ouvrant Analytics à partir du [panneau Vue d’ensemble](app-insights-dashboards.md) de votre application.
@@ -48,9 +48,9 @@ Nous comptons ensuite le nombre d’enregistrements par pays (ces données se tr
 
 Le langage possède de nombreuses fonctionnalités attrayantes :
 
-* [Filtrer](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) vos données de télémétrie d’application brutes sur tous les champs, y compris les propriétés et métriques personnalisées.
-* [Joindre](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) plusieurs tables ; mettez en corrélation les demandes avec les affichages de page, les appels de dépendance, les exceptions et les suivis du journal.
-* [Agrégations](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions)statistiques puissantes.
+* [Filtrer](/azure/kusto/query/whereoperator) vos données de télémétrie d’application brutes sur tous les champs, y compris les propriétés et métriques personnalisées.
+* [Joindre](/azure/kusto/query/joinoperator) plusieurs tables ; mettez en corrélation les demandes avec les affichages de page, les appels de dépendance, les exceptions et les suivis du journal.
+* [Agrégations](/azure/kusto/query/summarizeoperator)statistiques puissantes.
 * Visualisations immédiates et puissantes.
 * Il existe une [API REST](https://dev.applicationinsights.io/) que vous pouvez utiliser pour exécuter des requêtes par programme, par exemple à partir de PowerShell.
 

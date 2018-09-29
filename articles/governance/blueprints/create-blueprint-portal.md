@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ca3f689ef91c0a1bcb751c78d4fa1d799ed3888b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984623"
+ms.locfileid: "47056435"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Définir et affecter un blueprint Azure dans le portail
 
@@ -119,7 +119,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
 ## <a name="edit-a-blueprint"></a>Modifier un blueprint
 
-Dans [Créer un blueprint](#create_a_blueprint), aucune description n’a été fournie et aucune attribution de rôle n’a été ajoutée au nouveau groupe de ressources. Pour remédier à ces deux problèmes, effectuez les étapes suivantes :
+Dans [Créer un blueprint](#create-a-blueprint), aucune description n’a été fournie et aucune attribution de rôle n’a été ajoutée au nouveau groupe de ressources. Pour remédier à ces deux problèmes, effectuez les étapes suivantes :
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 

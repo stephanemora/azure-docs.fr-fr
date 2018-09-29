@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: manshuk
-ms.openlocfilehash: 1226b2f73d556da2ff7d73f6f322e0bd1590f915
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: cwatson
+ms.openlocfilehash: c81db66637a4c56a36b6995ad8df0fe1967d08ef
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307056"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391660"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Comprendre l’utilisation d’une réservation Azure pour votre abonnement avec paiement à l’utilisation
 
@@ -93,9 +93,9 @@ Filtrez les données sur **Informations supplémentaires**, puis tapez votre **I
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les réservations Azure, voir les articles suivants :
+Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-- [Que sont les réservations Azure ?](billing-save-compute-costs-reservations.md)
+- [Qu’est-ce qu’une réservation Azure ?](billing-save-compute-costs-reservations.md)
 - [Prépayer des machines virtuelles avec des instances de machines virtuelles réservées Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Gérer les réservations Azure](billing-manage-reserved-vm-instance.md)

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: d39c27614fd4d534db36df1af61b2d419493c4d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ea2a58e61d781e6ebfb72b860a3b7aed6ce0c7d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953471"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394473"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Liaisons Azure Cosmos DB pour Azure Functions 2.x
 
@@ -1694,11 +1694,10 @@ Par défaut, lorsque vous écrivez dans le paramètre de sortie de votre fonctio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Accéder à un guide de démarrage rapide qui utilise un déclencheur Cosmos DB](functions-create-cosmos-db-triggered-function.md)
+* [En savoir plus sur le traitement de base de données serverless avec Cosmos DB](..\cosmos-db\serverless-computing-database.md)
+* [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)
 
+<!---
 > [!div class="nextstepaction"]
-> [En savoir plus sur le traitement de base de données serverless avec Cosmos DB](..\cosmos-db\serverless-computing-database.md)
-
-> [!div class="nextstepaction"]
-> [En savoir plus sur les déclencheurs et les liaisons Azure Functions](functions-triggers-bindings.md)
+> [Go to a quickstart that uses a Cosmos DB trigger](functions-create-cosmos-db-triggered-function.md)
+--->
