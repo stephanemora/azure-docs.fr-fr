@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: f4c3cf5329c10cda3691370e946b8397662a8d66
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c21245e05625f65b6b5dcf5f7081f5f5d1abb52
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953410"
+ms.locfileid: "47030595"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Didacticiel : Préparer le déploiement d’Azure Data Box Gateway (préversion)
 
@@ -89,7 +89,7 @@ Avant de commencer, assurez-vous que :
 
 ## <a name="create-a-new-resource"></a>Créer une nouvelle ressource
 
-Une seule instance de la ressource Data Box Gateway peut gérer plusieurs appareils virtuels Data Box Gateway. Pour créer une ressource Data Box Gateway, procédez comme suit. 
+Pour créer une ressource Data Box Gateway, procédez comme suit. 
 
 Si vous disposez d’une ressource Data Box Gateway existante pour gérer vos appareils virtuels, ignorez cette étape et accédez à [Obtenir la clé d’activation](#get-the-activation-key).
 

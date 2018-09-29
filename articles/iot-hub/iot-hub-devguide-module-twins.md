@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 8f567ba43c1657783f9898863aef980627800481
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0df1170079e66bda95e38bcf17dcce738269eeb0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436317"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039375"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Comprendre et utiliser les jumeaux de module dans IoT Hub
 
@@ -250,7 +250,7 @@ Les Tags (balises) ainsi que les propriétés souhaitées (Desired) et signalée
     }
     ```
 
-* Aucune valeur de chaîne ne peut avoir une longueur supérieure à 4 Ko.
+* Aucune valeur de chaîne ne peut avoir une longueur supérieure à 512 octets.
 
 ## <a name="module-twin-size"></a>Taille de jumeau de module
 IoT Hub impose une limite de taille de 8 Ko à chacune des valeurs totales respectives de `tags`, de `properties/desired` et de `properties/reported`, à l’exception des éléments en lecture seule.

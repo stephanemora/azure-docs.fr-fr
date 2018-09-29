@@ -2,20 +2,22 @@
 title: Configurer la rétention des sauvegardes à long terme - Base de données SQL Azure | Microsoft Docs
 description: Découvrez comment stocker des sauvegardes automatisées dans le coffre Azure Recovery Services et comment restaurer des bases de données à partir du coffre Azure Recovery Services
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/08/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c908e73a225f90227f09a8bb806a62c690de7632
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+manager: craigg
+ms.date: 05/08/2018
+ms.openlocfilehash: a9a3d696f1c503969b89795f8c6d86a77bd353e8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718846"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160722"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurer et restaurer à partir de la rétention des sauvegardes à long terme Azure SQL Database à l’aide d’Azure Recovery Services Vault
 

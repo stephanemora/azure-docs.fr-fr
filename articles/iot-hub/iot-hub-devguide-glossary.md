@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 575326ee3bd2cb64b2cb65168f23f7fe97dad029
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52aabcfd908afeea3bb9bf36eefad706b74d8ba9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954396"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227144"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossaire des termes d’IoT Hub
 Cet article répertorie certains termes courants utilisés dans les articles relatifs à IoT Hub.
@@ -219,7 +219,7 @@ Dans le contexte d’un [jumeau d’appareil](iot-hub-devguide-device-twins.md),
 [Azure Resource Manager](#azure-resource-manager) utilise des groupes de ressources pour regrouper des ressources associées. Vous pouvez utiliser un groupe de ressources pour effectuer des opérations simultanément sur toutes les ressources de ce groupe.
 
 ## <a name="retry-policy"></a>Stratégie de nouvelle tentative
-Vous utilisez une stratégie de nouvelle tentative pour gérer des [erreurs temporaires](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) lorsque vous vous connectez à un service cloud.
+Vous utilisez une stratégie de nouvelle tentative pour gérer des [erreurs temporaires](/azure/architecture/best-practices/transient-faults) lorsque vous vous connectez à un service cloud.
 
 ## <a name="routing-rules"></a>Règles de routage
 Vous pouvez configurer des [règles de routage](iot-hub-devguide-messages-read-custom.md) dans votre hub IoT pour acheminer les messages appareil-à-cloud vers un [point de terminaison intégré](#built-in-endpoints) ou vers des [points de terminaison personnalisés](#custom-endpoints) afin qu’ils soient traités par votre back-end de solution.

@@ -2,20 +2,22 @@
 title: Audit d’Azure SQL Database Managed Instance | Microsoft Docs
 description: Découvrez comment prendre en main l’audit d’Azure SQL Database Managed Instance à l’aide de T-SQL
 services: sql-database
-author: giladm
-manager: craigg
-ms.reviewer: vanto
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/28/2018
+author: giladm
 ms.author: giladm
-ms.openlocfilehash: 7671b49921799e63b01d0eb85e90a8b75b2d5a48
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 38dee577ff57e6ba440fb4062315b57e4eb7957b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544292"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162251"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
 
@@ -104,7 +106,7 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
     Si aucune valeur n’est spécifiée, la valeur par défaut du paramètre `RETENTION_DAYS` est 0 (rétention illimitée).
 
     Pour toute information supplémentaire :
-    - [Audit des différences entre Managed Instance, Azure SQL DB et SQL Server](#subheading-3)
+    - [Audit des différences entre Managed Instance, Azure SQL DB et SQL Server](#auditing-differences-between-managed-instance-azure-sql-database-and-sql-server)
     - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
     - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 

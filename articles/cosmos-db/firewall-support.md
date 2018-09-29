@@ -11,18 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: govindk
-ms.openlocfilehash: b21debdd6baa0a6587318ad861a821840ec6879c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ebfba4d54b4d4158a2dc0bc2aed09699012ac157
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666695"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038049"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Prise en charge du pare-feu Azure Cosmos DB
 Pour sécuriser les données stockées dans un compte de base de données Azure Cosmos DB, Azure Cosmos DB assure la prise en charge d’un [modèle d’autorisation](https://msdn.microsoft.com/library/azure/dn783368.aspx) basé sur une clé secrète, qui utilise un code d’authentification de message basé sur le hachage (HMAC) à forte intégrité. Outre le modèle d’autorisations basé sur un secret, Azure Cosmos DB prend désormais en charge les contrôles d’accès basés sur une stratégie IP pour la prise en charge du pare-feu entrant. Ce modèle est semblable aux règles de pare-feu d’un système de base de données classique et renforce la sécurité du compte de base de données Azure Cosmos DB. Avec ce modèle, vous pouvez désormais configurer un compte de base de données Azure Cosmos DB pour qu’il soit accessible uniquement à partir d’un ensemble d’ordinateurs et/ou de services cloud approuvés. L’accès aux ressources Azure Cosmos DB à partir de ces ensembles d’ordinateurs et de services approuvés nécessite toujours que l’appelant présente un jeton d’autorisation valide.
-
-> [!NOTE]
-> À l’heure actuelle, la prise en charge du pare-feu est disponible pour les comptes d’API SQL Azure Cosmos DB et d’API Mongo. La configuration des pare-feu pour d’autres API et clouds souverains, tels qu’Azure Allemagne ou Azure Government, sera prochainement disponible. Si vous envisagez de configurer une liste ACL du point de terminaison de service pour votre compte Azure Cosmos DB et que celui-ci est assorti d’un pare-feu IP, notez la configuration de ce dernier, supprimez-le, puis configurez la liste ACL du point de terminaison de service. Après avoir configuré le point de terminaison de service, vous pouvez réactiver le pare-feu IP si nécessaire.
 
 ## <a name="ip-access-control-overview"></a>Vue d’ensemble du contrôle d’accès IP
 Par défaut, un compte de base de données Azure Cosmos DB est accessible depuis l’Internet public tant que la demande est accompagnée d’un jeton d’autorisation valide. Pour configurer le contrôle d’accès basé sur la stratégie IP, l’utilisateur doit fournir le jeu d’adresses IP ou des plages d’adresses IP au format CIDR pour être ajouté à la liste d’adresses IP clients autorisées pour un compte de base de données donné. Une fois cette configuration appliquée, toutes les demandes provenant d’ordinateurs qui ne figurent pas sur cette liste autorisée sont bloquées par le serveur.  Le flux de traitement des connexions du contrôle d’accès basé sur IP est décrit dans le diagramme suivant :

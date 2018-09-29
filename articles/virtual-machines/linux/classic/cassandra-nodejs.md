@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d99c9732bb1bf494b87d2073ba002264c7a51634
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098938"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221245"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Exécuter un cluster Cassandra sur Linux dans Azure avec Node.js
 
 > [!IMPORTANT] 
 > Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager. Consultez des modèles Resource Manager pour [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) et [Cluster Spark et Cassandra sur CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Microsoft Azure est une plateforme cloud ouverte qui exécute des logiciels Microsoft et non-Microsoft tels que des systèmes d’exploitation, serveurs d’applications, intergiciels de messagerie, ainsi que des bases de données SQL et NoSQL à partir de modèles commerciaux et open source. La création de services résilients sur des clouds publics, y compris Azure, nécessite une planification soignée et une architecture délibérée pour les serveurs d'applications et les niveaux de stockage. L'architecture de stockage distribuée de Cassandra aide naturellement à créer des systèmes hautement disponibles qui offrent une tolérance de panne en cas de défaillance de cluster. Cassandra est une base de données NoSQL à l’échelle du cloud gérée par Apache Software Foundation à l’adresse cassandra.apache.org. Cassandra est écrite en Java. Elle s’exécute donc sur les plateformes Windows et Linux.
 
 L’objectif de cet article est d’illustrer le déploiement de Cassandra sur Ubuntu en tant que cluster à centre de données unique et multiple utilisant des machines virtuelles Azure et des réseaux virtuels. Le déploiement de cluster pour les charges de travail optimisées pour la production est hors de portée de cet article car il nécessite une configuration de nœud à plusieurs disques, une conception de topologie en anneau et une modélisation des données appropriées pour prendre en charge la réplication, une cohérence des données et des exigences de débit et de haute disponibilité.
@@ -85,7 +85,7 @@ Les systèmes déployés sur Azure ne nécessitant pas de haute disponibilité (
 ## <a name="multi-region-deployment"></a>Déploiement dans plusieurs régions
 Le modèle de cohérence et de réplication compatible avec les centres de données Cassandra décrit ci-dessus simplifie le déploiement sur plusieurs régions sans la nécessité de faire appel à des outils externes. Cela est différent des bases de données relationnelles classiques, où la configuration de la mise en miroir de base de données pour les écritures multimaîtres peut être complexe. Cassandra dans une configuration à plusieurs régions peut aider à implémenter les scénarios d’utilisation suivants :
 
-**Déploiement basé sur la proximité :** les applications mutualisées, avec un mappage clair entre les utilisateurs clients et les régions, peuvent tirer parti des faibles latences du cluster à plusieurs régions. Par exemple, des systèmes de gestion de formation pour des établissements d’enseignement peuvent déployer un cluster distribué sur les régions Est et Ouest des États-Unis pour servir les campus respectifs pour les transactions et l’analyse. Les données peuvent être localement cohérentes au moment des lectures et des écritures et peuvent être finalement cohérentes entre les deux régions. Il existe d’autres exemples, tels que la distribution multimédia ou le commerce électronique, et tout ce qui répond aux demandes des bases d’utilisateurs concentrées géographiquement constitue un bon cas d’utilisation pour ce modèle de déploiement.
+**Déploiement basé sur la proximité :** les applications mutualisées, avec un mappage clair entre les utilisateurs clients et les régions, peuvent tirer parti des faibles latences du cluster à plusieurs régions. Par exemple, des systèmes de gestion de formation pour des établissements d’enseignement peuvent déployer un cluster distribué sur les régions USA Ouest et USA Est pour servir les campus respectifs pour les transactions et l’analyse. Les données peuvent être localement cohérentes au moment des lectures et des écritures et peuvent être finalement cohérentes entre les deux régions. Il existe d’autres exemples, tels que la distribution multimédia ou le commerce électronique, et tout ce qui répond aux demandes des bases d’utilisateurs concentrées géographiquement constitue un bon cas d’utilisation pour ce modèle de déploiement.
 
 **Haute disponibilité :** la redondance est un facteur clé dans l’obtention de la haute disponibilité des logiciels et du matériel ; pour plus d’informations, consultez Création de systèmes de cloud fiables sur Microsoft Azure. Sur Microsoft Azure, la seule méthode fiable pour assurer la redondance consiste à déployer un cluster dans plusieurs régions. Vous pouvez déployer les applications en mode actif-actif ou actif-passif et si l’une des régions est défaillante, Microsoft Azure Traffic Manager peut rediriger le trafic vers la région active.  Avec le déploiement dans une seule région, si la disponibilité est de 99,9 %, un déploiement dans deux régions peut atteindre une disponibilité de 99,9999 % calculée par la formule suivante : (1-(1-0.999) * (1-0.999))*100) ; pour plus d’informations, consultez le document ci-dessus.
 
@@ -158,7 +158,7 @@ Entrez les informations suivantes dans l'écran « Configuration de la machine 
 <tr><th>Nom du champ             </th><th> Valeur du champ                       </th><th> Remarques                                 </th></tr>
 <tr><td> SERVICE CLOUD    </td><td> Créer un nouveau service de cloud computing    </td><td>Le service cloud est un conteneur qui calcule des ressources telles que des machines virtuelles</td></tr>
 <tr><td> Nom du cloud Service DNS    </td><td>ubuntu-template.cloudapp.net    </td><td>Donnez un nom d'équilibrage de charge non spécifique à la machine.</td></tr>
-<tr><td> Région/Groupe d'affinités/Réseau virtuel </td><td>    États-Unis de l’Ouest    </td><td> Sélectionnez une région à partir de laquelle vos applications Web auront accès au cluster Cassandra.</td></tr>
+<tr><td> Région/Groupe d'affinités/Réseau virtuel </td><td>    USA Ouest    </td><td> Sélectionnez une région à partir de laquelle vos applications Web auront accès au cluster Cassandra.</td></tr>
 <tr><td>Compte de stockage </td><td>    Utiliser la valeur par défaut    </td><td>Utilisez le compte de stockage par défaut ou un compte de stockage créé au préalable dans une région particulière</td></tr>
 <tr><td>Groupe à haute disponibilité </td><td>    Aucun </td><td>    Laissez cette valeur vide</td></tr>
 <tr><td>Points de terminaison    </td><td>Utiliser la valeur par défaut </td><td>    Utilisez la configuration SSH par défaut </td></tr>
@@ -309,7 +309,7 @@ Ce processus prend quelques secondes et l’image devrait être disponible dans 
 <table>
 <tr><th>Nom d'attribut de machine virtuelle</th><th>Valeur</th><th>Remarques</th></tr>
 <tr><td>NOM</td><td>vnet-cass-west-us</td><td></td></tr>
-<tr><td>Région</td><td>États-Unis de l’Ouest</td><td></td></tr>
+<tr><td>Région</td><td>USA Ouest</td><td></td></tr>
 <tr><td>Serveurs DNS</td><td>Aucun</td><td>Ignorez cet attribut, car nous n'utilisons pas de serveur DNS</td></tr>
 <tr><td>Espace d'adressage</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>Adresse IP de départ</td><td>10.1.0.0</td><td></td></tr>    
@@ -330,13 +330,13 @@ Les sous-réseaux de données et web peuvent être protégés par l'intermédiai
 
 <table>
 <tr><th>Nom de la machine    </th><th>Sous-réseau    </th><th>Adresse IP    </th><th>Groupe à haute disponibilité</th><th>Contrôleur de domaine ou rack</th><th>Initial ?</th></tr>
-<tr><td>hk-c1-west-us    </td><td>données    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1 </td><td>OUI</td></tr>
+<tr><td>hk-c1-west-us    </td><td>données    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1 </td><td>Oui</td></tr>
 <tr><td>hk-c2-west-us    </td><td>données    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1    </td><td>Non  </td></tr>
-<tr><td>hk-c3-west-us    </td><td>données    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>OUI</td></tr>
+<tr><td>hk-c3-west-us    </td><td>données    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>Oui</td></tr>
 <tr><td>hk-c4-west-us    </td><td>données    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>Non  </td></tr>
-<tr><td>hk-c5-west-us    </td><td>données    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>OUI</td></tr>
+<tr><td>hk-c5-west-us    </td><td>données    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>Oui</td></tr>
 <tr><td>hk-c6-west-us    </td><td>données    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>Non  </td></tr>
-<tr><td>hk-c7-west-us    </td><td>données    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>OUI</td></tr>
+<tr><td>hk-c7-west-us    </td><td>données    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>Oui</td></tr>
 <tr><td>hk-c8-west-us    </td><td>données    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>Non  </td></tr>
 <tr><td>hk-w1-west-us    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
 <tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>N/A</td></tr>
@@ -396,7 +396,7 @@ La procédure ci-dessus peut être exécutée à l’aide du portail Azure ; uti
         #Create internal load balancer
         Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
         Write-Host "Created $ilbName"
-        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        #Add the thrift endpoint to the internal load balancer for all the VMs
         foreach($vmName in $vmNames)
         {
             Get-AzureVM -ServiceName $serviceName -Name $vmName |
@@ -468,7 +468,7 @@ Connectez-vous au portail Azure, puis créez un réseau virtuel avec les attribu
 <table>
 <tr><th>Nom de l'attribut    </th><th>Valeur    </th><th>Remarques</th></tr>
 <tr><td>NOM    </td><td>vnet-cass-east-us</td><td></td></tr>
-<tr><td>Région    </td><td>Est des États-Unis</td><td></td></tr>
+<tr><td>Région    </td><td>USA Est</td><td></td></tr>
 <tr><td>Serveurs DNS        </td><td></td><td>Ignorez cet attribut, car nous n'utilisons pas de serveur DNS</td></tr>
 <tr><td>Configurer un réseau VPN de point à site</td><td></td><td>        Ignorez cet attribut</td></tr>
 <tr><td>Configurer un réseau VPN de site à site</td><td></td><td>        Ignorez cet attribut</td></tr>
@@ -493,8 +493,8 @@ Créez deux réseaux locaux avec les détails suivants :
 
 | Nom de réseau | Adresse de la passerelle VPN | Espace d'adressage | Remarques |
 | --- | --- | --- | --- |
-| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |Lors de la création du réseau local, affectez un espace réservé pour l'adresse de passerelle. L'adresse de passerelle réelle est remplie une fois la passerelle créée. Assurez-vous que l'espace d'adressage correspond exactement au réseau virtuel distant approprié ; dans le cas présent, il s'agit du réseau virtuel créé dans la région Est des États-Unis. |
-| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Lors de la création du réseau local, affectez un espace réservé pour l'adresse de passerelle. L'adresse de passerelle réelle est remplie une fois la passerelle créée. Assurez-vous que l'espace d'adressage correspond exactement au réseau virtuel distant approprié ; dans le cas présent, il s'agit du réseau virtuel créé dans la région Ouest des États-Unis. |
+| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |Lors de la création du réseau local, affectez un espace réservé pour l'adresse de passerelle. L'adresse de passerelle réelle est remplie une fois la passerelle créée. Assurez-vous que l'espace d'adressage correspond exactement au réseau virtuel distant approprié ; dans le cas présent, il s'agit du réseau virtuel créé dans la région USA Est. |
+| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Lors de la création du réseau local, affectez un espace réservé pour l'adresse de passerelle. L'adresse de passerelle réelle est remplie une fois la passerelle créée. Assurez-vous que l'espace d'adressage correspond exactement au réseau virtuel distant approprié ; dans le cas présent, il s'agit du réseau virtuel créé dans la région USA Ouest. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>Étape 3 : Mappage du réseau « Local » aux réseaux virtuels respectifs
 À partir du portail Azure, sélectionnez chaque réseau virtuel, cliquez sur Configurer, cochez la case Se connecter au réseau local et sélectionnez les réseaux locaux avec les détails suivants :
@@ -527,12 +527,12 @@ Créez l'image Ubuntu en suivant les mêmes étapes que celles décrites dans la
 
 | Nom de la machine | Sous-réseau | Adresse IP | Groupe à haute disponibilité | Contrôleur de domaine ou rack | Initial ? |
 | --- | --- | --- | --- | --- | --- |
-| hk-c1-east-us |données |10.2.2.4 |hk-c-aset-1 |dc =EASTUS rack =rack1 |OUI |
+| hk-c1-east-us |données |10.2.2.4 |hk-c-aset-1 |dc =EASTUS rack =rack1 |Oui |
 | hk-c2-east-us |données |10.2.2.5 |hk-c-aset-1 |dc =EASTUS rack =rack1 |Non  |
-| hk-c3-east-us |données |10.2.2.6 |hk-c-aset-1 |dc =EASTUS rack =rack2 |OUI |
-| hk-c5-east-us |données |10.2.2.8 |hk-c-aset-2 |dc =EASTUS rack =rack3 |OUI |
+| hk-c3-east-us |données |10.2.2.6 |hk-c-aset-1 |dc =EASTUS rack =rack2 |Oui |
+| hk-c5-east-us |données |10.2.2.8 |hk-c-aset-2 |dc =EASTUS rack =rack3 |Oui |
 | hk-c6-east-us |données |10.2.2.9 |hk-c-aset-2 |dc =EASTUS rack =rack3 |Non  |
-| hk-c7-east-us |données |10.2.2.10 |hk-c-aset-2 |dc =EASTUS rack =rack4 |OUI |
+| hk-c7-east-us |données |10.2.2.10 |hk-c-aset-2 |dc =EASTUS rack =rack4 |Oui |
 | hk-c8-east-us |données |10.2.2.11 |hk-c-aset-2 |dc =EASTUS rack =rack4 |Non  |
 | hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |N/A |N/A |
 | hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |N/A |N/A |
