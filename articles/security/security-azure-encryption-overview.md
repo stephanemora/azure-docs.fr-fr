@@ -1,5 +1,5 @@
 ---
-title: Vue d’ensemble du chiffrement Azure | Microsoft Docs
+title: Vue d’ensemble du chiffrement Azure | Documents Microsoft
 description: En savoir plus sur les différentes options de chiffrement dans Azure
 services: security
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 00c8b30b5351b7a6e4388b186fab70e3a3357ef4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dc1ca62ce184ac290f289975ff609b8240351099
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366305"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035094"
 ---
 # <a name="azure-encryption-overview"></a>Vue d’ensemble du chiffrement Azure
 
@@ -42,7 +42,7 @@ Azure prend en charge plusieurs modèles de chiffrement, notamment le chiffremen
 Le chiffrement côté client est effectué en dehors d’Azure. Il inclut :
 
 - Les données chiffrées par une application qui s’exécute dans le centre de données du client ou par une application de service.
-- Les données qui sont déjà chiffrées quand elles sont reçues par Azure.
+- Les données sont déjà chiffrées lorsqu’elles sont reçues par Azure.
 
 Avec le chiffrement côté client, les fournisseurs de services cloud n’ont pas accès aux clés de chiffrement et ne peuvent pas déchiffrer ces données. Vous conservez un contrôle total des clés.
 

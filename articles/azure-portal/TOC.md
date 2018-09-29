@@ -1,7 +1,5 @@
 # Vue d’ensemble
 ## [À propos du portail Azure](../azure-portal-overview.md)
-# Didacticiels
-## [DevOps avec le portail Azure](tutorial-azureportal-devops.md)
 # Concepts
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 ## [Raccourcis clavier](azure-portal-keyboard-shortcuts.md)

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: e9163b3c29fd304c80eff46426a30c4fa0ce3b15
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 0244673d50e22124e8a0678e202004f06b0bca00
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130341"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182618"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planifier la capacité des machines virtuelles Hyper-V avec la solution Capacité et performances (version préliminaire)
 
@@ -50,9 +50,9 @@ Le tableau suivant décrit les sources connectées qui sont prises en charge par
 
 | Source connectée | Support | Description |
 |---|---|---|
-| [Agents Windows](log-analytics-windows-agent.md) | OUI | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
+| [Agents Windows](log-analytics-windows-agent.md) | Oui | La solution collecte des informations sur la capacité et les données de performances des agents Windows. |
 | [Agents Linux](log-analytics-linux-agents.md) | Non     | La solution ne collecte pas d’informations sur la capacité ni sur les données de performances des agents Linux directs.|
-| [Groupe d’administration SCOM](log-analytics-om-agents.md) | OUI |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
+| [Groupe d’administration SCOM](log-analytics-om-agents.md) | Oui |La solution collecte les données de capacité et de performances des agents dans un groupe d’administration SCOM connecté. Une connexion directe entre l’agent SCOM et Log Analytics n’est pas obligatoire.|
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | Le stockage Azure n’inclut pas de données de performances ni de capacité.|
 
 ## <a name="prerequisites"></a>Prérequis
@@ -128,13 +128,13 @@ Le tableau ci-dessous contient des exemples de recherche dans les journaux pour 
 
 | Requête | Description |
 |:--- |:--- |
-| Toutes les configurations mémoire d’hôte | Perf &#124; où ObjectName == « Capacité et performances » et CounterName == « Mo de mémoire attribuée Mo à l’hôte » &#124; résumer Mo = avg(CounterValue) par InstanceName |
-| Toutes les configurations mémoire de machine virtuelle | Perf &#124; où ObjectName == « Capacité et performance » et CounterName == « Mo de mémoire attribuée à la machine virtuelle » &#124; résumer Mo = avg(CounterValue) par InstanceName |
-| Répartition de toutes les E/S par seconde des disques entre toutes les machines virtuelles | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Lectures/s de disque dur virtuel » ou CounterName == « Écritures/s de disque dur virtuel ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
-| Répartition du débit total des disques entre toutes les machines virtuelles | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Lecture Mo/s de disque dur virtuel » ou CounterName == « Écriture Mo/s de disque dur virtuel ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
-| Répartition de toutes les E/S par seconde entre tous les volumes partagés de cluster | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Lectures/s de volume partagé de cluster » ou CounterName == « Écritures/s de volume partagé de cluster ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
+| Toutes les configurations mémoire d’hôte | Perf & #124 ; où ObjectName == « Capacité et performances » et CounterName == « Mo de mémoire attribuée Mo à l’hôte » & #124 ; résumer Mo = avg(CounterValue) par InstanceName |
+| Toutes les configurations mémoire de machine virtuelle | Perf & #124 ; où ObjectName == « Capacité et performance » et CounterName == « Mo de mémoire attribuée à la machine virtuelle » & #124 ; résumer Mo = avg(CounterValue) par InstanceName |
+| Répartition de toutes les E/S par seconde des disques entre toutes les machines virtuelles | Perf & #124 ; où ObjectName == « Capacité et performance » et (CounterName == « Lectures/s de disque dur virtuel » ou CounterName == « Écritures/s de disque dur virtuel ») & #124 ; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
+| Répartition du débit total des disques entre toutes les machines virtuelles | Perf & #124 ; où ObjectName == « Capacité et performance » et (CounterName == « Lecture Mo/s de disque dur virtuel » ou CounterName == « Écriture Mo/s de disque dur virtuel ») & #124 ; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
+| Répartition de toutes les E/S par seconde entre tous les volumes partagés de cluster | Perf & #124 ; où ObjectName == « Capacité et performance » et (CounterName == « Lectures/s de volume partagé de cluster » ou CounterName == « Écritures/s de volume partagé de cluster ») & #124 ; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
 | Répartition du débit total entre tous les volumes partagés de cluster | Perf &#124; où ObjectName == « Capacité et performance » et (CounterName == « Lectures/s de volume partagé de cluster » ou CounterName == « Écritures/s de volume partagé de cluster ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
-| Répartition de la latence totale entre tous les volumes partagés de cluster | Perf &#124;; où ObjectName == « Capacité et performance » et (CounterName == « Latence de lectures/s de volume partagé de cluster » ou CounterName == « Latence d’écritures/s de volume partagé de cluster ») &#124; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
+| Répartition de la latence totale entre tous les volumes partagés de cluster | Perf & #124 ; où ObjectName == « Capacité et performance » et (CounterName == « Latence de lectures/s de volume partagé de cluster » ou CounterName == « Latence d’écritures/s de volume partagé de cluster ») & #124 ; résumer AggregatedValue = avg(CounterValue) par emplacement (TimeGenerated, 1 h), CounterName, InstanceName |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

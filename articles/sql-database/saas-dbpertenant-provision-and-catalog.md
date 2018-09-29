@@ -1,21 +1,23 @@
 ---
 title: Provisionner de nouveaux locataires dans une application multilocataire utilisant Azure SQL Database | Microsoft Docs
 description: Découvrez comment provisionner et cataloguer de nouveaux locataires dans une application SaaS multilocataire Azure SQL Database.
-keywords: didacticiel sur les bases de données SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 7c526f65be5e4a3ea50de4603441e6184abf8edd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 1f2539ed7ea407e2a1931ab2eb5951e61e4c7b03
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643615"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056265"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Découvrez comment approvisionner de nouveaux locataires et les inscrire dans le catalogue
 
@@ -67,7 +69,7 @@ L’application Wingtip Tickets, qui comporte une base de données par locataire
 Les scripts de provisionnement copient la base de données _basetenantdb_ pour créer une nouvelle base de données de locataire dans un pool élastique. La base de données de locataire est créée dans le serveur du locataire mappé sur l’alias DNS _newtenant_. Cet alias conserve une référence au serveur utilisé pour provisionner de nouveaux locataires et est mis à jour pour pointer vers un serveur de locataire de récupération dans les didacticiels consacrés à la récupération d’urgence ([DR using georestore](saas-dbpertenant-dr-geo-restore.md) (La récupération d’urgence à l’aide de la géorestauration), [DR using georeplication](saas-dbpertenant-dr-geo-replication.md)) (la récupération d’urgence à l’aide de la géoréplication). Ensuite, les scripts initialisent la base de données avec les informations du locataire, et l’inscrivent dans la carte de partitions du catalogue. Les bases de données des locataires portent le nom de leur locataire. Ce schéma de nommage ne constitue pas un élément essentiel du modèle. Le catalogue mappe la clé de locataire dans le nom de la base de données, ce qui permet d’utiliser n’importe quelle convention de nommage. 
 
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l’application SaaS Wingtip Tickets comportant une base de données par locataire
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obtenir les scripts de l’application de base de données par locataire SaaS Wingtip Tickets
 
 Les scripts et le code source de l’application Wingtip Tickets SaaS sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) avant de télécharger et de débloquer les scripts Wingtip Tickets SaaS.
 

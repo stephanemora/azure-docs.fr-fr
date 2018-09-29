@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8a7ae412fc80dff7bd91c1cdc5d4fcd985e07f4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359065"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164785"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Fonctions logiques pour les modèles Azure Resource Manager
 
@@ -40,8 +40,8 @@ Vérifie si les deux valeurs de paramètres sont true.
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
+| arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -102,7 +102,7 @@ Convertit le paramètre en valeur booléenne.
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |chaîne ou entier |La valeur à convertir en booléen. |
+| arg1 |Oui |chaîne ou entier |La valeur à convertir en booléen. |
 
 ### <a name="return-value"></a>Valeur de retour
 Valeur booléenne de la valeur convertie.
@@ -167,9 +167,9 @@ Retourne une valeur indiquant si une condition est true ou false.
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| condition |OUI |booléenne |La valeur pour vérifier si c’est true. |
-| trueValue |OUI | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
-| falseValue |OUI | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
+| condition |Oui |booléenne |La valeur pour vérifier si c’est true. |
+| trueValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
+| falseValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est false. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -239,6 +239,10 @@ Vous pouvez utiliser cette fonction pour définir de manière conditionnelle une
         "noOutput": {
             "type": "string",
             "value": "[if(equals('a', 'b'), 'yes', 'no')]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[if(equals('a', 'a'), json('{\"test\": \"value1\"}'), json('null'))]"
         }
     }
 }
@@ -250,6 +254,7 @@ La sortie de l’exemple précédent est :
 | ---- | ---- | ----- |
 | yesOutput | Chaîne | Oui |
 | noOutput | Chaîne | no |
+| objectOutput | Object | { "test": "value1" } |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -272,7 +277,7 @@ Convertit la valeur booléenne à sa valeur opposée.
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |booléenne |La valeur à convertir. |
+| arg1 |Oui |booléenne |La valeur à convertir. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -367,8 +372,8 @@ Vérifie si l’une des valeurs du paramètre est true.
 
 | Paramètre | Obligatoire | type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |OUI |booléenne |La première valeur pour vérifier si c’est true. |
-| arg2 |OUI |booléenne |La deuxième valeur pour vérifier si c’est true. |
+| arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
+| arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
 
 ### <a name="return-value"></a>Valeur de retour
 

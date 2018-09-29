@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 6decb0e9188db00608be35d9ba4e84df92ceb671
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 02f6e2648c007cfe87984e8de886b8b76e1e8d16
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072332"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409913"
 ---
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>Résolution des problèmes de connectivité entre machines virtuelles Azure
 
@@ -103,7 +103,7 @@ Toutes les machines virtuelles créées dans Azure à l’aide du modèle de dé
 
 ### <a name="step-8-try-to-connect-to-a-vm-network-share"></a>Étape 8 : Essayez de vous connecter à un partage réseau de machine virtuelle
 
-Si vous ne parvenez pas à vous connecter à un partage réseau de machine virtuelle, le problème peut être causé par des cartes réseau non disponibles sur la machine virtuelle. Pour supprimer les cartes réseau non disponibles, consultez [Supprimer les cartes réseau non disponibles](../virtual-machines/windows/reset-network-interface.md#delete-the-unavailable-nics)
+Si vous ne parvenez pas à vous connecter à un partage réseau de machine virtuelle, le problème peut être causé par des cartes réseau non disponibles sur la machine virtuelle. Pour supprimer les cartes réseau non disponibles, consultez [Supprimer les cartes réseau non disponibles](../virtual-machines/troubleshooting/reset-network-interface.md#delete-the-unavailable-nics)
 
 ### <a name="step-9-check-inter-vnet-connectivity"></a>Étape 9 : Vérifiez la connectivité entre réseaux virtuels
 

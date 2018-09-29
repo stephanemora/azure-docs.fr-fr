@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 6e23858bcc288b68a70750e7dbcecdf4b43b8870
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 314b3b5ae331d562b13ba593d5f9b35b87786003
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133376"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225546"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gérer Log Analytics à l’aide de modèles Azure Resource Manager
 Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
@@ -53,7 +53,7 @@ L’exemple suivant crée un espace de travail avec un modèle à partir de votr
 
 Les paramètres suivants sont définis comme une valeur par défaut :
 
-* Emplacement : par défaut, Est des États-Unis
+* Emplacement : par défaut, USA Est
 * Référence (SKU) : la valeur par défaut est le nouveau niveau de tarification par Go publié dans le modèle de tarification d’avril 2018
 
 >[!WARNING]
@@ -97,7 +97,7 @@ Les paramètres suivants sont définis comme une valeur par défaut :
             "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          },
+          }
     },
     "resources": [
         {

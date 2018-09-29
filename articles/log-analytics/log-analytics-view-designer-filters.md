@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: dcdc84f100ce534ea517f0201b0c090c3059a318
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131408"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160926"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtres dans les vues de Log Analytics
 Un **filtre** dans une [vue de Log Analytics](log-analytics-view-designer.md) permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Par exemple, vous pouvez autoriser les utilisateurs de votre vue à filtrer l’affichage des données uniquement à partir d’un ordinateur ou d’un ensemble d’ordinateurs particulier.  Vous pouvez créer plusieurs filtres sur une seule et unique vue pour permettre aux utilisateurs d’effectuer un filtrage avec plusieurs propriétés.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
@@ -49,7 +49,7 @@ Le tableau suivant décrit les paramètres d’un filtre.
 | Paramètre | Description |
 |:---|:---|
 | Nom du champ | Nom du champ utilisé pour le filtrage.  Cela doit correspondre au champ de résumé dans **Requête pour des valeurs**. |
-| Requêtes pour des valeurs | Requête à exécuter pour remplir la liste déroulante de filtre pour l’utilisateur.  Cela doit utiliser [Résumer](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) ou [Distinguer](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) pour fournir des valeurs uniques pour un champ particulier et cela doit correspondre au **Nom du champ**.  Vous pouvez utiliser [Tri](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) pour trier les valeurs affichées à l’utilisateur. |
+| Requêtes pour des valeurs | Requête à exécuter pour remplir la liste déroulante de filtre pour l’utilisateur.  Cela doit utiliser [Résumer](/azure/kusto/query/summarizeoperator) ou [Distinguer](/azure/kusto/query/distinctoperator) pour fournir des valeurs uniques pour un champ particulier et cela doit correspondre au **Nom du champ**.  Vous pouvez utiliser [Tri](/azure/kusto/query/sortoperator) pour trier les valeurs affichées à l’utilisateur. |
 | Tag | Nom du champ qui est utilisé dans les requêtes prenant en charge le filtre et qui s’affiche également à l’utilisateur. |
 
 ### <a name="examples"></a>Exemples
@@ -59,8 +59,8 @@ Le tableau suivant présente quelques exemples de filtres communs.
 | Nom du champ | Requêtes pour des valeurs | Tag |
 |:--|:--|:--|
 | Ordinateur   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Ordinateurs |
-| EventLevelName | Event &#124; distinct EventLevelName | Niveau de gravité |
-| SeverityLevel | Syslog &#124; distinct SeverityLevel | Niveau de gravité |
+| EventLevelName | Event &#124; distinct EventLevelName | Severity |
+| SeverityLevel | Syslog &#124; distinct SeverityLevel | Severity |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |
 
 

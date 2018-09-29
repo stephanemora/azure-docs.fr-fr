@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d467bc88e1ed3b8dbe42a17095e4f0d14f14fe9a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2191ffabee31d12fb5b581280f924546b0078255
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950231"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405462"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Didacticiel : Mettre à niveau le runtime d’un cluster Service Fabric dans Azure
 
@@ -42,7 +42,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure à l’aide d’un modèle
 > * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 > * Mettre à niveau le runtime d’un cluster
-> * [Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+> * [Suppression d'un cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -204,6 +204,3 @@ Dans ce tutoriel, vous avez appris à :
 > * Mettre à niveau le runtime du cluster
 > * Surveiller la mise à niveau
 
-Ensuite, passez au didacticiel suivant pour apprendre à déployer la Gestion des API avec un cluster Service Fabric.
-> [!div class="nextstepaction"]
-> [Déployer la Gestion des API avec Service Fabric](service-fabric-tutorial-deploy-api-management.md)

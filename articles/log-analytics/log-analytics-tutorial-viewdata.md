@@ -15,12 +15,12 @@ ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: b5d7b71b76eebc0c14fe1403791c3d4b6cefd7f4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391329"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161038"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics
 
@@ -85,7 +85,7 @@ Vous pouvez définir le même filtre en sélectionnant **Filtrer** dans le menu 
 
 Seule l’option **Filtrer** s’affiche pour les propriétés dont le nom apparaît en bleu quand vous placez le curseur dessus.  Il s’agit de champs *dans lesquels une recherche peut être effectuée* et qui sont indexés pour les conditions de recherche.  Les champs en gris sont des champs *dans lesquels une recherche en texte libre peut être effectuée*. Ils ont uniquement l’option **Afficher les références**.  Cette option retourne les enregistrements qui ont cette valeur dans une propriété quelconque.
 
-Vous pouvez regrouper les résultats sur une propriété unique en sélectionnant l’option **Regrouper par** dans le menu d’enregistrement.  Cette opération ajoute un opérateur [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) à votre requête qui affiche les résultats dans un graphique.  Vous pouvez regrouper sur plusieurs propriétés, mais vous devrez modifier la requête directement.  Sélectionnez le menu d’enregistrement à côté de la propriété **Computer** et sélectionnez **Regrouper par « Computer »**.  
+Vous pouvez regrouper les résultats sur une propriété unique en sélectionnant l’option **Regrouper par** dans le menu d’enregistrement.  Cette opération ajoute un opérateur [summarize](/azure/kusto/query/summarizeoperator) à votre requête qui affiche les résultats dans un graphique.  Vous pouvez regrouper sur plusieurs propriétés, mais vous devrez modifier la requête directement.  Sélectionnez le menu d’enregistrement à côté de la propriété **Computer** et sélectionnez **Regrouper par « Computer »**.  
 
 ![Regrouper par ordinateur](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 
@@ -130,7 +130,7 @@ Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time
 
 ![Utilisation des processeurs](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
 
-Cela limite les données à un compteur spécifique, mais sous une forme qui n’est encore pas particulièrement utile.  Vous pouvez afficher les données dans un graphique en courbes, mais vous devez d’abord les regrouper par Computer et TimeGenerated.  Pour regrouper sur plusieurs champs, vous devez modifier la requête directement, comme suit.  Cette requête utilise la fonction [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) sur la propriété **CounterValue** pour calculer la valeur moyenne durant chaque heure.
+Cela limite les données à un compteur spécifique, mais sous une forme qui n’est encore pas particulièrement utile.  Vous pouvez afficher les données dans un graphique en courbes, mais vous devez d’abord les regrouper par Computer et TimeGenerated.  Pour regrouper sur plusieurs champs, vous devez modifier la requête directement, comme suit.  Cette requête utilise la fonction [avg](/azure/kusto/query/avg-aggfunction) sur la propriété **CounterValue** pour calculer la valeur moyenne durant chaque heure.
 
 ```
 Perf  
@@ -140,7 +140,7 @@ Perf
 
 ![Graphique de données de performances](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
 
-Maintenant que les données sont regroupées convenablement, vous pouvez les afficher dans un graphique en ajoutant l’opérateur [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator).  
+Maintenant que les données sont regroupées convenablement, vous pouvez les afficher dans un graphique en ajoutant l’opérateur [render](/azure/kusto/query/renderoperator).  
 
 ```
 Perf  

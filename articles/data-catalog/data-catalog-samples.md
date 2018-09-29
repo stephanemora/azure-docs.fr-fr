@@ -2,18 +2,18 @@
 title: Exemples de développement Azure Data Catalog
 description: Cet article offre une vue d’ensemble des exemples de développement disponibles pour l’API REST Data Catalog.
 services: data-catalog
-author: spelluru
-ms.author: spelluru
+author: markingmyname
+ms.author: maghan
 ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 98d17e5fc8b2348887d6a9e361a455474d666db4
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a4f88b63fa91dcec52b86be568ef4c98ee82c277
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053137"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404323"
 ---
 # <a name="data-catalog-developer-samples"></a>Exemples de développement Data Catalog
 Commencez à développer des applications Data Catalog à l’aide de l’API REST Data Catalog. L’API REST Data Catalog est une API REST qui fournit un accès par programme aux ressources Data Catalog pour enregistrer, annoter et rechercher des ressources de données par programmation.

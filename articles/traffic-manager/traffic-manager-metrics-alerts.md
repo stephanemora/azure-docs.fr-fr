@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 424782be2d814df6d598591198b5005fb494d3da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: fe4cc3c06af6868396f5db6fd88804022f5f9793
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302866"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432474"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métriques et alertes Traffic Manager
 
@@ -46,7 +46,7 @@ La figure 2 affiche les mêmes informations, mais réparties cette fois par poin
 *Figure 2 : me mode fractionné avec volume de requêtes indiqué par point de terminaison retourné*
 
 ## <a name="endpoint-status-by-endpoint"></a>État du point de terminaison par point de terminaison
-Utilisez [cette métrique](../monitoring-and-diagnostics/monitoring-supported-metrics.md) pour évaluer l’état d’intégrité des points de terminaison dans le profil. Elle accepte deux valeurs :
+Utilisez [cette métrique](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworktrafficmanagerprofiles) pour évaluer l’état d’intégrité des points de terminaison dans le profil. Elle accepte deux valeurs :
  - utilisez **1** , si le point de terminaison est activé.
  - utilisez **0** si le point de terminaison est arrêté.
 

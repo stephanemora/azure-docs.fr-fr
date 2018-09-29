@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35769595"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096198"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partager des tableaux de bord Azure à l’aide du contrôle d’accès en fonction du rôle
 Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Vous permettez à d’autres utilisateurs de voir votre tableau de bord au moyen du [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) Azure. Vous affectez un utilisateur ou un groupe d’utilisateurs à un rôle, qui définit si ces utilisateurs peuvent visualiser ou modifier le tableau de bord publié. 

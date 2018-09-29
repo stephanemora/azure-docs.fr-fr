@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: ac150b72e94b010457731616784b2a8381c9080c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 385a365ac3b81bca70a71eeed7ca1876c9df49b8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969325"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224994"
 ---
 # <a name="aggregate-operations-on-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Opérations d’agrégation sur des tables de l’API Cassandra Azure Cosmos DB à partir de Spark 
 
@@ -28,7 +28,7 @@ Cet article décrit les opérations d’agrégation de base sur les tables de l�
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 

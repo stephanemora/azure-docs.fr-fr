@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: bd05f1c5c2c8f4c4469a702b73341fd506c54815
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3ac7ab0aac190ab53075a6a4ee24fca3ee7eeb84
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958779"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227518"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Créer, changer ou supprimer un groupe de sécurité réseau
 
@@ -68,7 +68,7 @@ Dans la zone de recherche située en haut du portail, entrez *groupes de sécuri
 1. Dans la zone de recherche située en haut du portail, entrez *groupes de sécurité réseau*. Quand la mention **groupes de sécurité réseau** apparaît dans les résultats de recherche, sélectionnez-la.
 2. Dans la liste, sélectionnez le groupe de sécurité réseau dont vous souhaitez voir les détails. Sous **PARAMÈTRES** vous pouvez voir les **Règles de sécurité de trafic entrant**, les **Règles de sécurité de trafic sortant**, les **Interfaces réseau** et les **Sous-réseaux** auxquels le groupe de sécurité réseau est associé. Vous pouvez également activer ou désactiver les **Journaux de diagnostic** et afficher les **Règles de sécurité effectives**. Pour plus d’informations, consultez [Journaux de diagnostic](virtual-network-nsg-manage-log.md) et [Afficher les règles de sécurité effectives](diagnose-network-traffic-filter-problem.md).
 3. Pour en savoir plus sur les paramètres Azure courants répertoriés, consultez les articles suivants :
-    *   [Journal d’activité](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
+    *   [Journal d’activité](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
     *   [Contrôle d’accès (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
     *   [Balises](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     *   [Verrous](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

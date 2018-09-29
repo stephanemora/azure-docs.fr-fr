@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 07/21/2018
-ms.openlocfilehash: 18f6647a8412477384a48aa777461f99b2fbcb0a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.date: 09/27/2018
+ms.openlocfilehash: 696932135cdd3850e04d25370867c0273b99b3bf
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379536"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423542"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -74,6 +74,11 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Japon Ouest | X | X |
 | Centre de la Corée |  | X |
 | Corée du Sud |  | X |
+| Centre de l’Allemagne |  | X |
+| Centre des États-Unis – US DoD  | X |  |
+| Est des États-Unis – US DoD  | X |  |
+| Gouvernement des États-Unis – Arizona |  | X |
+| Gouvernement des États-Unis – Texas |  | X |
 
 ## <a name="storage"></a>Stockage
 
@@ -120,4 +125,4 @@ Pour obtenir les dernières informations sur la tarification, veuillez consulter
 
 - Découvrez comment [Créer un serveur PostgreSQL dans le portail](tutorial-design-database-using-azure-portal.md).
 - Découvrez comment [Surveiller et mettre à l’échelle un serveur Azure Database pour PostgreSQL à l’aide d’Azure CLI](scripts/sample-scale-server-up-or-down.md).
-- En savoir plus sur les [limitations de service](concepts-limits.md).
+- En savoir plus sur les [limitations de service](concepts-limits.md). 
