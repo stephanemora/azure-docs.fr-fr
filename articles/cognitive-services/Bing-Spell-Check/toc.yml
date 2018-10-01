@@ -1,65 +1,72 @@
+items:
 - name: Documentation de l’API Vérification orthographique Bing
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce que l’API Vérification orthographique Bing\_?"
-      href: proof-text.md
+  - name: Qu’est-ce que l’API Vérification orthographique Bing ?
+    href: proof-text.md
 - name: Démarrages rapides de l’API REST
-  expanded: true
   items:
-    - name: 'C#'
-      href: quickstarts/csharp.md
-    - name: Java
-      href: quickstarts/java.md
-    - name: Node.js
-      href: quickstarts/nodejs.md
-    - name: PHP
-      href: quickstarts/php.md
-    - name: Python
-      href: quickstarts/python.md
-    - name: Ruby
-      href: quickstarts/ruby.md
+  - name: C#
+    href: quickstarts/csharp.md
+  - name: Java
+    href: quickstarts/java.md
+  - name: Node.js
+    href: quickstarts/nodejs.md
+  - name: PHP
+    href: quickstarts/php.md
+  - name: Python
+    href: quickstarts/python.md
+  - name: Ruby
+    href: quickstarts/ruby.md
+  expanded: true
 - name: Démarrages rapides du kit de développement logiciel (SDK)
   items:
-    - name: 'Démarrage rapide C# du SDK'
-      href: sdk-quickstart-spell-check.md
-    - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
-      href: sdk.md
+  - name: Démarrage rapide C# du SDK
+    href: sdk-quickstart-spell-check.md
+  - name: Vue d’ensemble des exemples de kit de développement logiciel (SDK)
+    href: sdk.md
 - name: Didacticiels
   items:
-    - name: Créer une application web de vérification orthographique
-      href: tutorials/spellcheck.md
-    - name: "Code source\_: application web de vérification orthographique"
-      href: tutorials/spellcheck-source.md
+  - name: Créer une application web de vérification orthographique
+    href: tutorials/spellcheck.md
+  - name: 'Code source : application web de vérification orthographique'
+    href: tutorials/spellcheck-source.md
 - name: Procédures
   items:
-    - name: Conditions d’utilisation et d’affichage
-      href: UseAndDisplayRequirements.md
-    - name: Mettre à niveau de v5 vers v7
-      href: bing-spell-check-upgrade-guide-v5-to-v7.md
+  - name: Conditions d’utilisation et d’affichage
+    href: UseAndDisplayRequirements.md
+  - name: Mettre à niveau de v5 vers v7
+    href: bing-spell-check-upgrade-guide-v5-to-v7.md
 - name: Informations de référence
   items:
-    - name: "API Vérification orthographique Bing\_v7"
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference'
-    - name: "API Vérification orthographique Bing\_v5 (ancienne version)"
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
+  - name: API Vérification orthographique Bing v7
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference
+  - name: API Vérification orthographique Bing v5 (ancienne version)
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference
 - name: Ressources
   items:
-    - name: Analytique pour l’API Vérification orthographique Bing
-      href: bing-spell-check-stats.md
-    - name: Forum Aux Questions
-      href: bing-spell-check-resource-faq.md
-    - name: Tarifs
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
-    - name: Disponibilité régionale
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Dépassement de capacité de la pile
-      href: 'https://stackoverflow.com/questions/tagged/bing-api'
-    - name: Clé d’abonnement
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
-    - name: Langues prises en charge
-      href: bing-spell-check-supported-languages.md
-    - name: "Essayez\_!"
-      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+  - name: Analytique pour l’API Vérification orthographique Bing
+    href: bing-spell-check-stats.md
+  - name: Forum Aux Questions
+    href: bing-spell-check-resource-faq.md
+  - name: Prise en charge de la région et de la langue
+    href: language-support.md
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/
+  - name: Disponibilité régionale
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Dépassement de capacité de la pile
+    href: https://stackoverflow.com/questions/tagged/bing-api
+  - name: Clé d’abonnement
+    href: https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api
+  - name: Essayez !
+    href: https://azure.microsoft.com/services/cognitive-services/spell-check/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/598195-bing-spell-check
+ms.openlocfilehash: 539de32b27a8fdb00479b280c0a0a18fe887f2b4
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432679"

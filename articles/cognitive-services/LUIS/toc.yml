@@ -250,8 +250,6 @@ items:
     href: luis-reference-regions.md
   - name: Limites
     href: luis-boundaries.md
-  - name: Langues prises en charge
-    href: luis-supported-languages.md
   - name: Référence d’entité prédéfinie
     items:
     - name: Entités par culture
@@ -356,6 +354,8 @@ items:
   items:
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Prise en charge de la région et de la langue
+    href: luis-language-support.md
   - name: Feuille de route Azure
     href: https://aka.ms/luis-roadmap
   - name: Glossaire
@@ -374,9 +374,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de connaissances
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 13de440bebacc866ee551964ccc5f640892b6eac
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: bf82f62fac518c0442ad67c346c422b06aa73088
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159599"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432765"

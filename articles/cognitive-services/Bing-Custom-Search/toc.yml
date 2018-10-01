@@ -19,11 +19,11 @@ items:
   - name: Python
     href: call-endpoint-python.md
   expanded: true
-- name: Guides de démarrage rapide du kit SDK
+- name: Démarrages rapides du kit de développement logiciel (SDK)
   items:
   - name: Démarrage rapide du SDK C#
     href: sdk-csharp-quick-start.md
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: Créer une page web Recherche personnalisée
     href: ./tutorials/custom-search-web-page.md
@@ -69,7 +69,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598147-bing-custom-search-api
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: https://stackoverflow.com/search?q=bing+custom+search
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/global-infrastructure/services/
@@ -83,11 +83,11 @@ items:
     href: https://aka.ms/bingcustomsearchtryit
   - name: Point de terminaison Recherche personnalisée Bing
     href: endpoint-custom.md
-  - name: Marchés et pays pris en charge
-    href: supported-countries-markets.md
-ms.openlocfilehash: 2617e733aaae4a78d064e734ab440a03954930c9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+  - name: Prise en charge de la région et de la langue
+    href: language-support.md
+ms.openlocfilehash: 62392b7ff226072108c61f10b3f0519677aaba6b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999662"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431978"

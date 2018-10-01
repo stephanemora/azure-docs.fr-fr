@@ -6,7 +6,7 @@ items:
   - name: Qu’est-ce que la Recherche d’images Bing ?
     href: overview.md
   expanded: true
-- name: Guides de démarrage rapide
+- name: Démarrages rapides
   items:
   - name: Envoyer des requêtes de recherche à l’aide de l’API REST
     items:
@@ -32,7 +32,7 @@ items:
       href: image-sdk-python-quickstart.md
     - name: Utilisation de Java
       href: image-sdk-java-quickstart.md
-- name: Tutoriels
+- name: Didacticiels
   items:
   - name: Créer une application web de recherche d’images
     href: tutorial-bing-image-search-single-page-app.md
@@ -80,7 +80,7 @@ items:
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/555907-bing-search
-  - name: Stack Overflow
+  - name: Dépassement de capacité de la pile
     href: https://stackoverflow.com/questions/tagged/bing-search
   - name: Disponibilité régionale
     href: https://azure.microsoft.com/global-infrastructure/services/
@@ -94,15 +94,15 @@ items:
     href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
   - name: Points de terminaison Recherche d’images Bing
     href: image-search-endpoint.md
-  - name: Marchés et pays pris en charge
-    href: supported-countries-markets.md
+  - name: Prise en charge de la région et de la langue
+    href: language-support.md
   - name: Conditions d’utilisation et d’affichage
     href: UseAndDisplayRequirements.md
   - name: Analytique pour l’API Recherche d’images Bing
     href: bing-image-stats.md
-ms.openlocfilehash: 2b7b4bc8fb79687d032de52e3ac2ecbe4e944a8c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 16d2d81731f23ad1293fe405488dd7f3bbfbc854
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967351"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431496"
