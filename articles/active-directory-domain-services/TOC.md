@@ -22,6 +22,8 @@
 ## [Vérifier l’intégrité d’un domaine managé](active-directory-ds-check-health.md)
 ## [Utiliser Azure Active Directory Domain Services dans les abonnements Azure CSP](active-directory-ds-csp.md)
 ## [Activer les services de domaine Azure AD à l’aide de PowerShell](active-directory-ds-enable-using-powershell.md)
+## [Configurer la synchronisation étendue depuis Azure AD vers un domaine managé](active-directory-ds-scoped-synchronization.md)
+## [Sécuriser votre domaine managé](active-directory-ds-secure-your-domain.md)
 ## Joindre un domaine géré
 ### [Machine virtuelle Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
 ### [Machine virtuelle Windows Server issue du modèle](active-directory-ds-join-windows-vm-template.md)
@@ -44,7 +46,6 @@
 ### [Créer un compte de service administré de groupe sur un domaine managé](active-directory-ds-create-gmsa.md)
 ### [Administrer la stratégie de groupe sur un domaine géré](active-directory-ds-admin-guide-administer-group-policy.md)
 ### [Configurer des stratégies de mot de passe sur un domaine géré](active-directory-ds-password-policy.md)
-### [Configurer la synchronisation étendue depuis Azure AD vers un domaine managé](active-directory-ds-scoped-synchronization.md)
 ## [Sélectionner un réseau virtuel](active-directory-ds-networking.md)
 ## Déployer des applications
 ### [Configurer la prise en charge de la synchronisation de profil pour SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)

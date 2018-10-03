@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/18/2018
+ms.date: 9/28/2018
 ms.author: rithorn
-ms.openlocfilehash: d031059f9811cedb703fec4920e00fd1b2e3f877
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6b369c8209e62ff3c98b3fdf78378b403b0a0d2d
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47045343"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017651"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -30,9 +30,9 @@ Vous pouvez créer une structure flexible de groupes d’administration et d’a
 
 ![arborescence](./media/MG_overview.png)
 
-En créant une hiérarchie, comme dans cet exemple, vous pouvez appliquer une stratégie, par exemple les emplacements de machine virtuelle limités à la région USA Ouest sur le groupe « Groupe d’administration de l’équipe d’infrastructure » pour les stratégies de sécurité et de conformité aux réglementations internes. Cette stratégie héritera sur les deux abonnements EA dans ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Comme cette stratégie hérite le groupe d’administration pour les abonnements, cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
+En créant une hiérarchie comme dans cet exemple, vous pouvez appliquer une stratégie, par exemple les emplacements de machine virtuelle limités à la région USA Ouest sur le groupe « Groupe d’administration de l’équipe d’infrastructure », pour activer des stratégies de sécurité et de conformité aux réglementations internes. Cette stratégie héritera sur les deux abonnements EA dans ce groupe d’administration et s’applique à toutes les machines virtuelles dans ces abonnements. Comme cette stratégie hérite le groupe d’administration pour les abonnements, cette stratégie de sécurité ne peut pas être modifiée par le propriétaire de ressources ou d’abonnement permettant une gouvernance améliorée.
 
-Un autre scénario où vous pouvez utiliser les groupes d’administration consiste à fournir un accès utilisateur à plusieurs abonnements. En déplaçant plusieurs abonnements dans ce groupe d’administration, vous avez la possibilité de créer une affectation [RBAC](../../role-based-access-control/overview.md) sur le groupe d’administration, qui héritera de l’accès à tous les abonnements.
+Un autre scénario où vous pouvez utiliser les groupes d’administration consiste à fournir un accès utilisateur à plusieurs abonnements. En déplaçant plusieurs abonnements dans ce groupe d’administration, vous pouvez créer une affectation de [contrôle d’accès en fonction du rôle](../../role-based-access-control/overview.md) (RBAC) dans le groupe d’administration, qui héritera de l’accès à tous les abonnements.
 Sans devoir scripter les affectations RBAC sur plusieurs abonnements, une assignation sur le groupe d’administration peut autoriser les utilisateurs à accéder à tout ce que dont ils ont besoin.
 
 ### <a name="important-facts-about-management-groups"></a>Faits importants sur les groupes d’administration
@@ -62,19 +62,30 @@ Ce groupe d’administration racine est intégré à la hiérarchie et contient 
   - Toute personne ayant accès à un abonnement peut voir où celui-ci se trouve dans la hiérarchie.  
   - Personne ne reçoit par défaut l’accès au groupe d’administration racine. Les administrateurs généraux d’annuaires sont les seuls utilisateurs à pouvoir élever leurs privilèges pour obtenir l’accès.  Une fois l’accès obtenu, les administrateurs d’annuaires peuvent attribuer un rôle RBAC aux autres utilisateurs qu’ils doivent gérer.  
 
-> [!NOTE]
-> Si votre annuaire utilisait déjà le service des groupes d’administration au 25/6/2018, il peut ne pas être configuré avec tous les abonnements de la hiérarchie. L’équipe du groupe d’administration va mettre à jour rétroactivement tous les annuaires qui utilisent les groupes d’administration de la préversion publique depuis une date antérieure au mois de juillet/août 2018. Tous les abonnements des annuaires deviendront des abonnements enfants sous le groupe d’administration racine.
->
-> Si vous avez des questions sur ce processus rétroactif, contactez : managementgroups@microsoft.com  
-  
-## <a name="initial-setup-of-management-groups"></a>Configuration initiale des groupes d’administration
-
-Lorsqu’un utilisateur commence à utiliser les groupes d’administration, un processus de configuration initiale est lancé. La première étape est la création du groupe d’administration racine dans l’annuaire. Une fois le groupe créé, tous les abonnements existants de l’annuaire deviennent des enfants du groupe d’administration racine. Ce processus permet de faire en sorte que l’annuaire ne contienne qu’une seule hiérarchie de groupes gestion. Le fait de n’avoir qu’une seule hiérarchie par annuaire permet aux administrateurs d’appliquer un accès global et des stratégies que les autres utilisateurs de l’annuaire ne peuvent pas contourner. Avec une seule hiérarchie par annuaire, tout élément attribué au niveau racine est appliqué à l’ensemble des groupes d’administration, abonnements, groupes de ressources et ressources de l’annuaire.
-
 > [!IMPORTANT]
 > Les attributions d’accès utilisateur et de stratégies effectuées au niveau du groupe d’administration racine **s’appliquent à toutes les ressources de l’annuaire**.
 > Pour cette raison, tous les utilisateurs doivent évaluer la nécessité de définir des ressources dans cette étendue.
 > Les attributions d’accès utilisateur et de stratégies ne doivent être obligatoires que pour cette étendue.  
+
+## <a name="initial-setup-of-management-groups"></a>Configuration initiale des groupes d’administration
+
+Lorsqu’un utilisateur commence à utiliser les groupes d’administration, un processus de configuration initiale est lancé. La première étape est la création du groupe d’administration racine dans l’annuaire. Une fois le groupe créé, tous les abonnements existants de l’annuaire deviennent des enfants du groupe d’administration racine. Ce processus permet de faire en sorte que l’annuaire ne contienne qu’une seule hiérarchie de groupes gestion. Le fait de n’avoir qu’une seule hiérarchie par annuaire permet aux administrateurs d’appliquer un accès global et des stratégies que les autres utilisateurs de l’annuaire ne peuvent pas contourner. Avec une seule hiérarchie par annuaire, tout élément attribué au niveau racine est appliqué à l’ensemble des groupes d’administration, abonnements, groupes de ressources et ressources de l’annuaire.
+
+## <a name="trouble-seeing-all-subscriptions"></a>Difficultés pour afficher tous les abonnements
+
+Un problème a été constaté sur quelques répertoires ayant commencé à utiliser des groupes d’administration de manière anticipée dans la préversion (25 juin 2018) : tous les abonnements n’étaient pas appliqués dans la hiérarchie.  Ce problème est dû au fait que les processus d’application des abonnements dans la hiérarchie ont été implémentés après l’affectation d’un rôle ou d’une stratégie dans le groupe d’administration racine du répertoire.
+
+### <a name="how-to-resolve-the-issue"></a>Que pouvez-vous faire pour résoudre le problème ?
+
+Deux options vous permettent de résoudre ce problème vous-même.
+
+1. Supprimer toutes les affectations de rôle et de stratégie du groupe d’administration racine
+    1. En supprimant toutes les affectations de stratégie et de rôle du groupe d’administration racine, le service renverra tous les abonnements dans la hiérarchie du prochain cycle pendant la nuit.  Cette vérification vise à garantir qu’aucun accès n’est donné accidentellement et qu’aucune stratégie n’est affectée accidentellement à tous les abonnements de locataires.
+    1. La meilleure méthode pour effectuer ce processus sans affecter vos services consiste à appliquer les affectations de rôle ou de stratégie à un niveau en dessous du groupe d’administration racine. Vous pouvez ensuite supprimer toutes les affectations au niveau de la racine.
+1. Appeler l’API directement afin de démarrer le processus de renvoi
+    1. Tous les clients autorisés dans le répertoire peuvent appeler les API *TenantBackfillStatusRequest* ou *StartTenantBackfillRequest*. Lorsque l’API StartTenantBackfillRequest est appelée, elle lance le processus de configuration initiale de déplacement de tous les abonnements dans la hiérarchie. Ce processus démarre également l’application de tous les nouveaux abonnements en tant qu’enfants du groupe d’administration racine. Ce processus peut être effectué sans modifier les affectations au niveau racine dans la mesure où vous acceptez qu’une affectation de stratégie ou d’accès à la racine puisse être appliquée à tous les abonnements.
+
+Si vous avez des questions sur ce processus de renvoi, veuillez contacter : managementgroups@microsoft.com  
   
 ## <a name="management-group-access"></a>Accès aux groupes d’administration
 

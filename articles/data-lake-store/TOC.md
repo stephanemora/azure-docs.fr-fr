@@ -58,7 +58,7 @@
 ### [Utilisation de Microsoft Azure PowerShell](data-lake-store-performance-tuning-powershell.md)
 ### [Utilisation de Spark sur HDInsight](data-lake-store-performance-tuning-spark.md)
 ### [Utilisation de Hive sur HDInsight](data-lake-store-performance-tuning-hive.md)
-### [Utilisation sur HDInsight](data-lake-store-performance-tuning-mapreduce.md)
+### [Utilisation de MapReduce sur HDInsight](data-lake-store-performance-tuning-mapreduce.md)
 ### [Utilisation de Storm sur HDInsight](data-lake-store-performance-tuning-storm.md)
 
 ## Intégrer avec les services Azure
