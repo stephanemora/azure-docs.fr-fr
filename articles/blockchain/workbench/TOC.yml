@@ -1,0 +1,77 @@
+items:
+- name: Azure Blockchain Workbench (préversion publique)
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+  - name: À propos d’Azure Blockchain Workbench
+    href: overview.md
+  expanded: true
+- name: Concepts
+  items:
+  - name: Architecture
+    href: architecture.md
+  - name: Modèles d’intégration
+    href: integration-patterns.md
+- name: Procédures
+  items:
+  - name: Déployer Workbench
+    href: deploy.md
+  - name: Créer une application blockchain
+    href: create-app.md
+  - name: Gérer les utilisateurs de Workbench
+    href: manage-users.md
+  - name: Utiliser une application blockchain
+    href: use.md
+  - name: Utiliser l’API Workbench
+    href: use-api.md
+  - name: Résolution des problèmes d’applications
+    href: troubleshooting.md
+  - name: Utiliser les données Workbench
+    items:
+    - name: Configurer le pare-feu de la base de données
+      href: database-firewall.md
+    - name: Obtenir des détails sur la base de données
+      href: getdb-details.md
+    - name: Utiliser les données dans Excel
+      href: data-excel.md
+    - name: Utiliser les données dans Power BI
+      href: data-powerbi.md
+    - name: Utiliser les données dans SQL Management Studio
+      href: data-sql-management-studio.md
+  expanded: true
+- name: Informations de référence
+  items:
+  - name: Configuration
+    href: configuration.md
+  - name: Vues de base de données
+    href: database-views.md
+  - name: API de messagerie
+    href: messages-overview.md
+  - name: API REST
+    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+- name: Ressources
+  items:
+  - name: Blog
+    href: https://azure.microsoft.com/blog/topics/blockchain/
+  - name: Exemples de code
+    href: https://github.com/Azure-Samples/blockchain
+  - name: Communauté
+    href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
+  - name: Forum
+    href: https://aka.ms/workbenchforum
+  - name: Commentaires sur le produit
+    href: https://aka.ms/blockchainuservoice
+- name: Modèles de solution
+  items:
+  - name: Ethereum Proof-of-Authority Consortium
+    href: ../templates/ethereum-poa-deployment.md
+  - name: Ethereum Proof-of-Work Consortium
+    href: ../templates/ethereum-deployment.md
+  - name: Consortium de Fabric Hyperledger
+    href: ../templates/hyperledger-fabric-single-member-blockchain.md
+ms.openlocfilehash: de9b0906450f3ba26ebfac6699c07d93039db6a7
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239764"
