@@ -13,19 +13,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 3a43c0cd13300918979ae03c7f6c703796b65dc9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: b2e0b65f210774f760ce2d0898c601115ab3a94d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114223"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960156"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Exécuter un package SSIS avec l’activité Exécuter le Package SSIS dans Azure Data Factory
 Cet article décrit comment exécuter un package SSIS dans un pipeline Azure Data Factory à l’aide d’une activité Exécuter le Package SSIS. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-**Base de données SQL Azure**. La procédure pas à pas dans cet article utilise une base de données Azure SQL qui héberge le catalogue SSIS. Vous pouvez également utiliser Azure SQL Managed Instance (préversion).
+**Base de données SQL Azure**. La procédure pas à pas dans cet article utilise une base de données Azure SQL qui héberge le catalogue SSIS. Vous pouvez également utiliser Azure SQL Database Managed Instance.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Créer un runtime d’intégration Azure-SSIS
 Créez un runtime d’intégration Azure-SSIS si vous n’en avez pas en suivant les instructions pas à pas fournies dans le [Didacticiel : Déployer des packages SSIS](tutorial-create-azure-ssis-runtime-portal.md).
@@ -271,7 +271,7 @@ Au cours de cette étape, vous créez un pipeline avec une activité Execute SSI
                                                    -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
 
-    Voici l’exemple de sortie :
+    Voici l'exemple de sortie :
 
     ```
     PipelineName      : Adfv2QuickStartPipeline

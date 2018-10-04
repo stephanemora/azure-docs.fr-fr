@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ed5da0afe67deaa7000c1bf3b8d75bdea14f2ecd
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7fcf0b924868d755bc76f7d1e695e73afc4eae6a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616324"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993389"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>Démarrage rapide : Déployer une application de services fiables Java sur Service Fabric
 
@@ -101,7 +101,7 @@ Connectez-vous et rejoignez un [cluster Linux](http://aka.ms/tryservicefabric). 
 Service Fabric propose plusieurs outils que vous pouvez utiliser pour gérer un cluster et ses applications :
 
 * Service Fabric Explorer, un outil reposant sur un navigateur.
-* L’interface CLI Service Fabric, qui s’exécute sur Azure CLI 2.0.
+* Interface CLI Service Fabric, qui s’exécute sur Azure CLI.
 * Commandes PowerShell.
 
 Dans ce démarrage rapide, vous utilisez la CLI Service Fabric et Service Fabric Explorer.
