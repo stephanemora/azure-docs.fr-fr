@@ -15,8 +15,6 @@ items:
       href: azure-stack-update-1807.md
     - name: mise à jour 1805
       href: azure-stack-update-1805.md
-    - name: mise à jour 1804
-      href: azure-stack-update-1804.md
 - name: Démarrages rapides
   items:
   - name: Évaluer Microsoft Azure Stack
@@ -382,9 +380,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formation et certification
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 434ca3b33d74e95003daba04614b47b2fcce318a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 7bb089d4a10f6c30318befc5ccca71ac5bdb9017
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391970"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249551"
