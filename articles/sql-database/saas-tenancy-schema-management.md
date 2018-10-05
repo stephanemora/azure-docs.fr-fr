@@ -1,25 +1,26 @@
 ---
-title: Gérer le schéma Azure SQL Database dans une application mutualisée | Microsoft Docs
-description: Gérer un schéma pour plusieurs locataires dans une application mutualisée qui utilise Azure SQL Database
-keywords: didacticiel sur les bases de données SQL
+title: Gérer le schéma Azure SQL Database dans une application monolocataire | Microsoft Docs
+description: Découvrez comment gérer un schéma pour plusieurs locataires dans une application monolocataire qui utilise Azure SQL Database.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 2e4af3e3e1ef1d9da7c66b929885e3ec749b462f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646270"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054844"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gérer le schéma dans une application SaaS à l’aide du modèle de base de données par locataire avec Azure SQL Database
-
+ 
 Etant donné qu’une application de base de données évolue, des modifications doivent inévitablement être effectuées sur le schéma de base de données ou les données de référence.  Des tâches de maintenance de la base de données sont aussi régulièrement nécessaires. La gestion d’une application qui utilise le modèle de base de données par locataire requiert que vous appliquiez ces modifications ou tâches de maintenance sur l’ensemble d’un parc de bases de données de locataire.
 
 Ce didacticiel explore deux scénarios : le déploiement de mises à jour des données de référence pour tous les locataires et la reconstruction d’un index sur la table contenant les données de référence. La fonctionnalité [Travaux élastiques](sql-database-elastic-jobs-overview.md) est utilisée pour exécuter ces actions sur toutes les bases de données de locataire et sur la base de données modèle utilisée pour créer des bases de données de locataire.

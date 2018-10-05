@@ -3,10 +3,8 @@ title: Complément Excel pour les services web Machine Learning | Microsoft Doc
 description: Comment utiliser les services web Azure Machine Learning directement dans Excel sans écrire de code.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
+author: marthalc
+ms.author: marthalc
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
 ms.component: studio
@@ -15,26 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 68e2f72dfd8cc58d42263f4b6378d89304aaaa4d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834190"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095806"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Complément Excel de services web Azure Machine Learning
+# <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Complément Excel de services web Azure Machine Learning Studio
 Excel permet d'appeler facilement des services web directement sans qu'il soit nécessaire d'écrire du code.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Procédure d’utilisation d’un service web existant dans le classeur
 
-1. Ouvrez l’ [exemple de fichier Excel](http://aka.ms/amlexcel-sample-2), qui contient le complément Excel et les données concernant les passagers sur le Titanic.
+1. Ouvrez [l’exemple de fichier Excel](http://aka.ms/amlexcel-sample-2), qui contient le complément Excel et les données concernant les passagers sur le Titanic. 
+ 
+> [!NOTE]
+> Vous pouvez voir la liste des services web associés au fichier. En bas, la case de prédiction automatique s’affiche. Si vous activez la prédiction automatique, les prédictions de **tous** vos services seront mises à jour chaque fois que les entrées sont modifiées. Si la case n’est pas cochée, vous devrez cliquer sur le bouton « Prédire tout » pour actualiser. Pour activer la prédiction automatique au niveau du service, passez à l’étape 6.
+
 2. Choisissez le service web en cliquant dessus : « Titanic Survivor Predictor (exemple de complément Excel) [Score] » dans cet exemple.
    
     ![Sélectionner un service web][01]
 3. Vous accédez alors à la section **Prédire**.  Ce classeur contient déjà des exemples de données mais, pour un classeur vide, vous pouvez également sélectionner une cellule dans Excel et cliquer sur **Utiliser les exemples de données**.
 4. Sélectionnez les données avec les en-têtes et cliquez sur l'icône de plage de données d'entrée.  Assurez-vous que la case « Mes données ont des en-têtes » est activée.
 5. Sous **Sortie**, entrez le numéro de la cellule dans laquelle vous souhaitez insérer le résultat, en l’occurrence, « H1 ».
-6. Cliquez sur **Prédire**.
+6. Cliquez sur **Prédire**. Si vous cochez la case de prédiction automatique, toutes les modifications apportées aux zones sélectionnées (celles spécifiées en tant qu’entrée) déclenchent une requête et une mise à jour des cellules de sortie, sans que vous n’ayez à appuyer sur le bouton de prédiction.
    
     ![Section Prédire][02]
 

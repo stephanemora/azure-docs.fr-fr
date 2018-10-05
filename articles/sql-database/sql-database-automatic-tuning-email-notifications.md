@@ -1,21 +1,23 @@
 ---
 title: Guide de procédures relatives aux notifications par e-mail pour le réglage automatique - Azure SQL Database | Microsoft Docs
-description: Azure SQL Database analyse la requête SQL et s’adapte automatiquement aux charges de travail utilisateur.
+description: Découvrez comment activer les notifications par e-mail pour le paramétrage automatique des requêtes Azure SQL Database.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/05/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 643740ea76769f857e8c99ebaa6d27eceed99067
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644329"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064099"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifications par e-mail pour le réglage automatique
 
@@ -205,12 +207,12 @@ L’étape suivante consiste à ajouter trois tâches (créer, obtenir la sortie
 1. Créez une action pour exécuter le script PowerShell afin de récupérer les recommandations de réglage.
 - Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
 - Dans le champ de recherche, tapez « **automation** » et sélectionnez « **Azure Automation - Créer une tâche** » dans les résultats de recherche.
-- Dans le volet Créer une tâche, configurez les propriétés de la tâche. Pour cette configuration, vous aurez besoin des détails de votre ID d’abonnement Azure, groupe de ressources et compte Automation **notés précédemment** dans le **volet Compte Automation**. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Créer une tâche](https://docs.microsoft.com/connectors/azureautomation/#Create_job).
+- Dans le volet Créer une tâche, configurez les propriétés de la tâche. Pour cette configuration, vous aurez besoin des détails de votre ID d’abonnement Azure, groupe de ressources et compte Automation **notés précédemment** dans le **volet Compte Automation**. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Créer une tâche](https://docs.microsoft.com/connectors/azureautomation/#create-job).
 - Terminez la création de cette action en cliquant sur « **Enregistrer le flux** ».
 
 2. Créez une action pour récupérer la sortie du script PowerShell exécuté.
 - Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
-- Dans le champ de recherche, tapez « **automation** » et sélectionnez « **Azure Automation - Obtenir la sortie de la tâche** » dans les résultats de recherche. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Obtenir la sortie de la tâche](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output).
+- Dans le champ de recherche, tapez « **automation** » et sélectionnez « **Azure Automation - Obtenir la sortie de la tâche** » dans les résultats de recherche. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Obtenir la sortie de la tâche](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
 - Renseignez les champs requis (comme lors de la création de la tâche précédente). Renseignez votre ID d’abonnement Azure, groupe de ressources et compte Automation (tels qu’ils figurent dans le volet Compte Automation).
 - Cliquez dans le champ « **ID de tâche** » pour afficher le menu « **Contenu dynamique** ». Dans ce menu, sélectionnez l’option « **ID de tâche** ».
 - Terminez la création de cette action en cliquant sur « **Enregistrer le flux** ».

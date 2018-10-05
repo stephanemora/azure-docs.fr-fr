@@ -2,23 +2,26 @@
 title: Importer un fichier BACPAC pour créer une base de données SQL Azure | Microsoft Docs
 description: Créez une base de données SQL Azure en important un fichier BACPAC.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: load & move data
-ms.date: 04/10/2018
-ms.author: carlrab
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: d22c9a05d1fe56d71eb901c0a4bf22c179dfe937
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: CarlRabeler
+ms.author: carlrab
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 9de7fe9972f1ae0fca1c4e527f718b31fddf4294
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646913"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161519"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Importer un fichier BACPAC dans une nouvelle base de données SQL Azure
 
-Lorsque vous avez besoin d’importer une base de données à partir d’une archive ou lors de la migration à partir d’une autre plateforme, vous pouvez importer les données et le schéma de base de données à partir d’un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). Un fichier BACPAC est un fichier ZIP avec une extension de fichier BACPAC contenant les métadonnées et les données à partir d’une base de données SQL Server. Il peut être importé à partir du Stockage Blob Azure (stockage standard uniquement) ou à partir du stockage local dans un emplacement local. Pour optimiser la vitesse de l’importation, nous vous recommandons de spécifier un niveau de performances et un niveau de service supérieurs, par exemple P6, puis de descendre en puissance une fois l’importation réussie. En outre, le niveau de compatibilité de la base de données après l’importation est basé sur le niveau de compatibilité de la base de données source. 
+Lorsque vous avez besoin d’importer une base de données à partir d’une archive ou lors de la migration à partir d’une autre plateforme, vous pouvez importer les données et le schéma de base de données à partir d’un fichier [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4). Un fichier BACPAC est un fichier ZIP avec une extension de fichier BACPAC contenant les métadonnées et les données à partir d’une base de données SQL Server. Il peut être importé à partir du Stockage Blob Azure (stockage standard uniquement) ou à partir du stockage local dans un emplacement local. Pour optimiser la vitesse de l’importation, nous vous recommandons de spécifier un niveau de service et une taille de calcul supérieurs, par exemple P6, puis de descendre en puissance une fois l’importation réussie. En outre, le niveau de compatibilité de la base de données après l’importation est basé sur le niveau de compatibilité de la base de données source. 
 
 > [!IMPORTANT] 
 > Après avoir migré votre base de données vers la base de données SQL Azure, vous pouvez choisir d’utiliser la base de données avec son niveau de compatibilité actuel (niveau 100 pour la base de données AdventureWorks2008R2) ou à un niveau supérieur. Pour plus d’informations sur les implications et les options du fonctionnement d’une base de données à un niveau de compatibilité spécifique, consultez [Niveau de compatibilité ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level). Consultez également [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) pour plus d’informations sur des paramètres supplémentaires au niveau de la base de données relatifs aux niveaux de compatibilité.   >
@@ -27,7 +30,7 @@ Lorsque vous avez besoin d’importer une base de données à partir d’une arc
 
 Cet article fournit des instructions pour créer une base de données SQL Azure à partir d’un fichier BACPAC stocké dans le Stockage Blob Azure à l’aide du [portail Azure](https://portal.azure.com). L’importation à l’aide du portail Azure ne prend en charge que l’importation d’un fichier BACPAC à partir du Stockage Blob Azure.
 
-Pour importer une base de données à l’aide du portail Azure, ouvrez la page du serveur auquel associer la base de données, puis cliquez sur **Importer** dans la barre d’outils. Spécifiez le compte de stockage et le conteneur, puis sélectionnez le fichier BACPAC que vous souhaitez importer. Sélectionnez la taille de la base de données (généralement la même que celle d’origine) et indiquez les informations d’identification du serveur SQL Server de destination.  
+Pour importer une base de données à l’aide du Portail Azure, ouvrez la page du serveur (et non la page de la base de données) auquel associer la base de données, puis cliquez sur **Importer** dans la barre d’outils. Spécifiez le compte de stockage et le conteneur, puis sélectionnez le fichier BACPAC que vous souhaitez importer. Sélectionnez la taille de la base de données (généralement la même que celle d’origine) et indiquez les informations d’identification du serveur SQL Server de destination.  
 
    ![Importation de base de données](./media/sql-database-import/import.png)
 
@@ -104,7 +107,7 @@ $importStatus
 Pour un autre exemple de script, consultez [Importation d’une base de données à partir d’un fichier BACPAC](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## <a name="limitations"></a>Limites
-- L’importation dans une base de données d’un pool élastique n’est pas prise en charge. Vous pouvez importer les données dans une base de données singleton, puis déplacer cette dernière vers le pool.
+- L’importation dans une base de données d’un pool élastique n’est pas prise en charge. Vous pouvez importer les données dans une base de données unique, puis déplacer cette dernière vers le pool.
 
 ## <a name="import-using-other-methods"></a>Importation à l’aide d’autres méthodes
 

@@ -1,24 +1,27 @@
 ---
 title: Utiliser le portail Azure pour créer des alertes SQL Database | Microsoft Docs
 description: Utilisez le portail Azure pour créer des alertes SQL Database permettant de déclencher des notifications ou Automation lorsque les conditions spécifiées sont remplies.
-author: aamalvea
-manager: craigg
 services: sql-database
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: aamalvea
 ms.author: aamalvea
-ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648021"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159310"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utiliser le portail Azure pour créer des alertes pour Azure SQL Database et Data Warehouse
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article explique comment configurer des alertes Azure SQL Database et Data Warehouse à l’aide du portail Azure. Il présente également les meilleures pratiques à adopter pour définir les périodes d’alerte.    
 
 Vous pouvez recevoir une alerte en fonction de métriques de surveillance pour vos services Azure ou d'événements sur ces derniers.
@@ -43,7 +46,7 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte av
 1. Sur le [portail](https://portal.azure.com/), localisez la ressource que vous souhaitez surveiller et sélectionnez-la.
 2. Cette étape est différente pour SQL DS et les pools élastiques par rapport à SQL DW : 
 
-   - **SQL DB et pools élastiques UNIQUEMENT** : sélectionnez **Alertes** ou **Règles d’alerte** dans la section SURVEILLANCE. Le texte et l’icône peuvent varier légèrement pour les différentes ressources.  
+   - **SQL DB et pools élastiques UNIQUEMENT** : sélectionnez **Alertes** ou **Règles d’alerte** dans la section SURVEILLANCE. Le texte et l’icône peuvent varier légèrement pour les différentes ressources.  
    
      ![Surveillance](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
   
@@ -108,7 +111,7 @@ Une fois que vous avez créé une alerte, vous pouvez la sélectionner et :
 | Entrepôt de données SQL | connection_successful | Connexions réussies | Total | 10 minutes |
 | Entrepôt de données SQL | connection_failed | Connexions ayant échoué | Total | 10 minutes |
 | Entrepôt de données SQL | blocked_by_firewall | Bloqué par le pare-feu | Total | 10 minutes |
-| Entrepôt de données SQL | service_level_objective | Objectif de niveau de service de la base de données | Total | 10 minutes |
+| Entrepôt de données SQL | service_level_objective | Niveau de service de la base de données | Total | 10 minutes |
 | Entrepôt de données SQL | dwu_limit | limite dwu | Maximale | 10 minutes |
 | Entrepôt de données SQL | dwu_consumption_percent | Pourcentage DWU | Moyenne | 10 minutes |
 | Entrepôt de données SQL | dwu_used | DWU utilisé | Moyenne | 10 minutes |

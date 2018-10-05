@@ -1,21 +1,23 @@
 ---
 title: Applications mutualisées avec une SNL et des outils de base de données élastique | Microsoft Docs
 description: Utilisez les outils de base de données élastique avec une sécurité au niveau des lignes pour générer une application avec une couche Données hautement évolutive.
-metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
-manager: craigg
-author: tmullaney
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: tmullaney
 ms.author: thmullan
-ms.openlocfilehash: 02ad01185a86aa5a975be2a66b54a214029dd73f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645808"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056282"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes
 
@@ -38,7 +40,7 @@ L’objectif est d’utiliser les API de [routage dépendant des données](sql-d
 ### <a name="prerequisites"></a>Prérequis
 
 - Exécuter Visual Studio version 2012 ou plus 
-- Créer trois bases de données SQL Microsoft Azure 
+- Créer trois bases de données SQL Azure 
 - Télécharger un exemple de projet : [Outils de base de données pour base de données SQL Microsoft Azure - Partitions multi-locataires](http://go.microsoft.com/?linkid=9888163)
   - Saisissez les informations sur vos bases de données au début du fichier **Program.cs** 
 

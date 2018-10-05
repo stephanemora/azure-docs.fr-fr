@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
-ms.openlocfilehash: d6d40b1918422dc7e435c020a368f256c859ae27
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4e1444f385859044b2dadd83c8e9841d8fc78bb0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835047"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096409"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gérer un service web à l’aide du portail des services web Azure Machine Learning
 Vous pouvez gérer vos services web Machine Learning nouveaux et classiques à l’aide du portail des services web Microsoft Azure Machine Learning. Étant donné que les services web classiques et nouveaux sont basés sur des technologies différentes , les fonctionnalités de gestion diffèrent légèrement pour chacun d’eux.
@@ -45,11 +45,11 @@ Si l’utilisateur n’a pas les autorisations appropriées pour accéder aux re
 
 Pour plus d'informations sur la création d'un espace de travail, consultez [Créer et partager un espace de travail Azure Machine Learning](create-workspace.md).
 
-Pour plus d’informations sur la définition des autorisations d’accès, consultez la rubrique [Afficher les affectations d’accès des utilisateurs et des groupes sur le Portail Azure - Version préliminaire publique](../../role-based-access-control/role-assignments-users.md).
+Pour plus d’informations sur la définition des autorisations d’accès, consultez l’article [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 
 ## <a name="manage-new-web-services"></a>Gérer de nouveaux services web
-Pour gérer vos nouveaux service web :
+Pour gérer vos nouveaux services web :
 
 1. Connectez-vous au portail [Services web Microsoft Azure Machine Learning](https://services.azureml.net/quickstart) à l’aide de votre compte Microsoft Azure (utilisez le compte associé à l’abonnement Azure).
 2. Dans le menu, cliquez sur **Services Web**.

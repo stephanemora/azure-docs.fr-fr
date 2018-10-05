@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 69ead9e6dae400ce16cb2442c7b1c13e348d1572
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 92422a254bcfd5b31731dda6d1790cc85f467860
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094978"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Créer un ASE à l’aide d’un modèle Azure Resource Manager
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les environnements Azure App Service (ASE, App Service Environment) peuvent être créés avec un point de terminaison accessible via Internet ou un point de terminaison sur une adresse interne d’un réseau virtuel Azure. S’il est créé avec un point de terminaison interne, ce point de terminaison est fourni par un composant Azure appelé équilibreur de charge interne (ILB, Internal Load Balancer). Un ASE sur une adresse IP interne est appelé ASE ILB. Un ASE avec un point de terminaison public est appelé ASE externe. 
 
 Un ASE peut être créé à l’aide du portail Azure ou d’un modèle Azure Resource Manager. Cet article décrit les étapes et la syntaxe nécessaires pour créer un ASE externe ou un ASE ILB à l’aide de modèles Resource Manager. Pour découvrir comment créer un ASE dans le portail Azure, voir [Créer un environnement App Service Environment externe][MakeExternalASE] ou [Créer et utiliser un équilibreur de charge interne avec un environnement Azure App Service Environment][MakeILBASE].
@@ -29,7 +30,7 @@ Un ASE peut être créé à l’aide du portail Azure ou d’un modèle Azure R
 Lorsque vous créez un ASE dans le portail Azure, vous pouvez créer votre réseau virtuel en même temps, ou choisir un réseau virtuel préexistant pour le déploiement. Lorsque vous créez un ASE à partir d’un modèle, vous devez commencer avec : 
 
 * Un réseau virtuel Resource Manager.
-* Un sous-réseau de ce réseau virtuel. Pour le sous-réseau ASE, nous recommandons une taille de  `/25` avec des 128 adresses pour s’adapter à la croissance future. Une fois l’ASE créé, vous ne pouvez plus en modifier la taille.
+* Un sous-réseau de ce réseau virtuel. Pour le sous-réseau ASE, nous recommandons une taille de `/24` avec 256 adresses pour s’adapter à une croissance et une mise à l’échelle futures. Une fois l’ASE créé, vous ne pouvez plus en modifier la taille.
 * L’ID de ressource de votre réseau virtuel. Vous pouvez le trouver sur portail Azure sous les propriétés de votre réseau virtuel Azure.
 * L’abonnement vers lequel vous souhaitez procéder au déploiement.
 * L’emplacement dans lequel vous souhaitez procéder au déploiement.
@@ -82,7 +83,7 @@ Utilisez l’extrait de code PowerShell ci-dessous pour effectuer les opération
 * convertir le fichier .pfx en une chaîne codée en base64 ;
 * enregistrer la chaîne codée en base64 dans un fichier distinct. 
 
-Le code PowerShell pour l’encodage en base64 à été adapté à partir du [Blog relatif aux scripts PowerShell][examplebase64encoding]:
+Le code PowerShell pour l’encodage en base64 a été adapté à partir du [Blog relatif aux scripts PowerShell][examplebase64encoding]:
 
 ```powershell
 $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
@@ -103,7 +104,7 @@ Une fois le certificat SSL généré et converti en chaîne codée en base64, ut
 Les paramètres figurant dans le fichier *azuredeploy.parameters.json* sont répertoriés ci-dessous :
 
 * *appServiceEnvironmentName*: nom de l’ILB ASE configuré.
-* *existingAseLocation*: chaîne de texte contenant la région Azure où l’ILB ASE a été déployé.  Par exemple : « Centre-Sud des États-Unis ».
+* *existingAseLocation*: chaîne de texte contenant la région Azure où l’ILB ASE a été déployé.  Par exemple : « USA Centre Sud ».
 * *pfxBlobString*: représentation sous forme de chaîne codée en base64 du fichier .pfx. Utilisez l’extrait de code présenté précédemment, et copiez la chaîne contenue dans « exportedcert.pfx.b64 ». Collez celle-ci en tant que valeur de l’attribut *pfxBlobString*.
 * *password*: mot de passe utilisé pour sécuriser le fichier .pfx.
 * *certificateThumbprint*: empreinte numérique du certificat. Si vous récupérez cette valeur à partir de Powershell (par exemple, *$certificate.Thumbprint* dans l’extrait de code précédent), vous pouvez utiliser la valeur telle quelle. Si vous copiez la valeur à partir de la boîte de dialogue du certificat Windows, n’oubliez pas de retirer les espaces superflus. La valeur *certificateThumbprint* doit se présenter sous la forme suivante : AF3143EB61D43F6727842115BB7F17BBCECAECAE.
@@ -149,7 +150,7 @@ New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-
 
 L’application de la modification prend environ 40 minutes par serveur frontal ASE. Par exemple, pour un ASE dimensionné par défaut utilisant deux serveurs frontaux, l’application du modèle prend environ une heure et vingt minutes. Lorsque le modèle est en cours d’exécution, l’ASE ne peut pas mettre à l’échelle.  
 
-Une fois l’exécution du modèle terminé, les applications sur l’ILB ASE est accessible via le protocole HTTPS. Les connexions sont sécurisées à l’aide du certificat SSL par défaut. Le certificat SSL par défaut est utilisé lorsque des applications sur l’ASE ILB sont adressée à l’aide d’une combinaison de leur nom et du nom d’hôte par défaut. Par exemple, https://mycustomapp.internal-contoso.com utilise le certificat SSL par défaut pour **.internal-contoso.com*.
+Une fois l’exécution du modèle terminé, les applications sur l’ILB ASE sont accessibles via le protocole HTTPS. Les connexions sont sécurisées à l’aide du certificat SSL par défaut. Le certificat SSL par défaut est utilisé lorsque des applications sur l’ASE ILB sont adressées à l’aide d’une combinaison de leur nom et du nom d’hôte par défaut. Par exemple, https://mycustomapp.internal-contoso.com utilise le certificat SSL par défaut pour **.internal-contoso.com*.
 
 Cependant, comme pour les applications qui s’exécutent sur le service mutualisé public, les développeurs peuvent configurer des noms d’hôtes personnalisés pour des applications individuelles. Ils peuvent également configurer des liaisons de certificat SNI SSL uniques pour différentes applications.
 

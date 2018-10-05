@@ -2,19 +2,22 @@
 title: Limites de ressources par vCore d’Azure SQL Database – pools élastiques | Microsoft Docs
 description: Cette page décrit certaines des limites de ressources courantes par vCore pour des pools élastiques dans Azure SQL Database.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 068ecf8283b92873542a7cb9ab2202212fd2ad2c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 3c85398f140ccd61202c066f4394fa54358e0a1e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495507"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161566"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Limites du modèle d’achat par vCore d’Azure SQL Database pour les pools élastiques
 
@@ -25,17 +28,17 @@ Pour connaître les limites du modèle d’achat par DTU, voir [Limites des ress
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Pool élastique : tailles de stockage et niveaux de performance
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Pool élastique : tailles de stockage et tailles de calcul
 
-Pour les pools élastiques SQL Database, les tableaux suivants indiquent les ressources disponibles à chaque niveau de performance et de service. Vous pouvez définir le niveau de service, le niveau de performance et la quantité de stockage à l’aide du [portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [d’Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) ou de [l’API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+Pour les pools élastiques SQL Database, les tableaux suivants indiquent les ressources disponibles à chaque niveau de service et taille de calcul. Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage à l’aide du [Portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [d’Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) ou de [l’API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
-> Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools qui ont le même niveau de performance. Par exemple, le nombre maximal de workers simultanés dans une base de données GP_Gen4_1 est de 200. Par conséquent, le nombre maximal de workers simultanés pour une base de données dans un pool GP_Gen4_1 est aussi de 200. Notez que le nombre total de workers simultanés dans le pool GP_Gen4_1 est de 210.
+> Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools qui ont la même taille de calcul. Par exemple, le nombre maximal de workers simultanés dans une base de données GP_Gen4_1 est de 200. Par conséquent, le nombre maximal de workers simultanés pour une base de données dans un pool GP_Gen4_1 est aussi de 200. Notez que le nombre total de workers simultanés dans le pool GP_Gen4_1 est de 210.
 
 ### <a name="general-purpose-service-tier"></a>Niveau de service Usage général
 
 #### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
-|Niveau de performance|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|Taille de calcul|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -50,8 +53,8 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|3360|5040|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
-|Densité de pool maximale|100|200|500|500|500|500|
-|Valeurs min/max de pool élastique|0 ; 0,25 ; 0,5 ; 1|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|Nombre maximal de bases de données par pool|100|200|500|500|500|500|
+|Choix de vcore de pool élastique min/max par base de données|0 ; 0,25 ; 0,5 ; 1|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |Nombre de réplicas|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -59,7 +62,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |||
 
 #### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
-|Niveau de performance|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|Taille de calcul|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|5.|
 |vCores|2|4|8|16|24|32|40|80|
@@ -74,8 +77,8 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|2520|3360|4200|8400
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|
-|Densité de pool maximale|100|200|500|500|500|500|500|500|
-|Valeurs min/max de pool élastique|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Nombre maximal de bases de données par pool|100|200|500|500|500|500|500|500|
+|Choix de vcore de pool élastique min/max par base de données|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Nombre de réplicas|1|1|1|1|1|1|1|1|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -85,7 +88,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 ### <a name="business-critical-service-tier"></a>Niveau de service critique pour l’entreprise
 
 #### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
-|Niveau de performance|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|Taille de calcul|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -100,8 +103,8 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|3360|5040|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
-|Densité de pool maximale|N/A|50|100|100|100|100|
-|Valeurs min/max de pool élastique|N/A|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
+|Nombre maximal de bases de données par pool|Seules les bases de données uniques sont prises en charge pour cette taille de calcul|50|100|100|100|100|
+|Choix de vcore de pool élastique min/max par base de données|N/A|0 ; 0,25 ; 0,5 ; 1 ; 2|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |Nombre de réplicas|3|3|3|3|3|3|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
@@ -109,7 +112,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |||
 
 #### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
-|Niveau de performance|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|Taille de calcul|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|5.|
 |vCores|2|4|8|16|24|32|40|80|
@@ -124,8 +127,8 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |IOPS cible (64 ko)|5 000|10000|20000|40000|60000|80000|100000|200000
 |Nombre maximal d’ouvriers simultanés (demandes)|210|420|840|1680|2520|3360|5040|8400|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|
-|Densité de pool maximale|N/A|50|100|100|100|100|100|100|
-|Valeurs min/max de pool élastique|N/A|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
+|Nombre maximal de bases de données par pool|N/A|50|100|100|100|100|100|100|
+|Choix de vcore de pool élastique min/max par base de données|N/A|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8|0 ; 0,25 ; 0,5 ; 1 ; 2 ; 4 ; 8 ; 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |Nombre de réplicas|3|3|3|3|3|3|3|3|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/13/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b1c7323dc108f5ee7a8bf6075abfe2a3e2fb9810
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953138"
+ms.locfileid: "47030844"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutoriel : Créer et gérer des données exportées
 
@@ -31,8 +31,15 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Compte Azure EA
-- Compte de stockage Azure configuré pour le stockage d’objets blob ou de fichiers
+L’exportation de données est disponible pour tous les clients détenant un [Accord Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Les autorisations Azure suivantes sont prises en charge par abonnement chaque pour l’exportation de données par utilisateur et par groupe :
+
+- Propriétaire : peut créer, modifier ou supprimer des exportations planifiées pour un abonnement.
+- Contributeur : peut créer, modifier ou supprimer ses propres exportations planifiées. Peut modifier le nom d’exportations planifiées créées par d’autres utilisateurs.
+- Lecteur : peut planifier des exportations pour lesquelles il dispose des autorisations adéquates.
+
+Pour les comptes Stockage Azure :
+- Des autorisations d’écriture sont requises pour la modification du compte de stockage configuré, quelles que soient les autorisations sur l’exportation.
+- Votre compte de stockage Azure doit être configuré pour le stockage d’objets blob ou de fichiers.
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com/).

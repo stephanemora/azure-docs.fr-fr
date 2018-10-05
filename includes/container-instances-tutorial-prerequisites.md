@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/20/2018
 ms.author: marsma
 ms.custom: include file
-ms.openlocfilehash: 95a8cf4eca7969631d069a31c9d08ba52c8b02b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: be61695cc57eca3ddf2c03aeb4912348e9535741
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30193480"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060795"
 ---
 Pour suivre ce didacticiel, vous devez satisfaire aux exigences suivantes :
 
-**Azure CLI** : Azure CLI version 2.0.29 ou ultérieure doit être installée sur votre ordinateur local. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0][azure-cli-install].
+**Azure CLI** : Azure CLI version 2.0.29 ou ultérieure doit être installée sur votre ordinateur local. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer l’interface de ligne de commande Microsoft Azure][azure-cli-install].
 
 **Docker** : ce didacticiel présuppose une compréhension de base des concepts Docker essentiels, comme les conteneurs, les images de conteneur et les commandes `docker` de base. Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker][docker-get-started].
 

@@ -2,30 +2,26 @@
 title: Exemple Powershell-déplacer une base de données SQL Azure-pool élastique SQL | Microsoft Docs
 description: Exemple de script Azure PowerShell permettant de déplacer une base de données SQL entre des pools élastiques à l’aide de PowerShell
 services: sql-database
-documentationcenter: sql-database
-author: CarlRabeler
-manager: craigg
-editor: carlrab
-tags: azure-service-management
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: monitor & tune, mvc
+ms.subservice: data-movement
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 09/07/2018
+author: CarlRabeler
+ms.reviewer: ''
 ms.author: carlrab
-ms.openlocfilehash: 55ba42bda592652b7921df5f25f9b5747fc9baf2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: e71c1b1f184fe5c240e258295c144db405e25527
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049469"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054827"
 ---
 # <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>Utiliser PowerShell pour créer des pools élastiques et déplacer les bases de données entre les pools élastiques
 
-Cet exemple de script PowerShell crée deux pools élastiques et déplace une base de données d’un pool élastique vers un autre. Puis, il déplace une base de données en dehors d’un pool élastique vers un niveau de performance de base de données unique. 
+Cet exemple de script PowerShell crée deux pools élastiques et déplace une base de données d’un pool élastique vers un autre. Puis, il déplace une base de données en dehors d’un pool élastique vers une taille de calcul de base de données unique. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

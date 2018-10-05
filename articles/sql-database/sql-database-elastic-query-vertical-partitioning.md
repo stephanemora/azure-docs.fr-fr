@@ -2,19 +2,22 @@
 title: Interroger des bases de données cloud de schémas différents | Documents Microsoft Azure
 description: configuration de requêtes de bases de données croisées sur les partitions verticales
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 6b4dd9017c336c2034bac81ba92d219b511a38a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 3d94a52aaafca91d45d7f1a6406d3f998fbffe9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645753"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161758"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Interroger des bases de données cloud de schémas différents (version préliminaire)
 ![Requête sur plusieurs tables dans des bases de données différentes][1]
@@ -25,7 +28,7 @@ Les bases de données partitionnées verticalement utilisent différents ensembl
 * L’utilisateur doit posséder l’autorisation ALTER ANY EXTERNAL DATA SOURCE. Cette autorisation est incluse dans l’autorisation ALTER DATABASE.
 * Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires pour faire référence à la source de données sous-jacente.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 > [!NOTE]
 > Contrairement au partitionnement horizontal, ces instructions DDL ne dépendent pas de la définition d’une couche de données avec un mappage de partition via la bibliothèque client de base de données élastique.
@@ -45,7 +48,7 @@ Les informations d'identification sont utilisées par la requête élastique pou
     [;]
 
 > [!NOTE]
-> Veillez à ce que `<username>` ne contienne pas le suffixe **« @servername »**. 
+> Veillez à ce que `<username>` ne contienne pas de suffixe **"\@servername"**. 
 >
 
 ## <a name="create-external-data-sources"></a>Créer des sources de données externes

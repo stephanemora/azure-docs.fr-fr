@@ -2,24 +2,27 @@
 title: Résolution des différences de T-SQL durant la migration vers Azure SQL Database | Microsoft Docs
 description: Instructions Transact-SQL qui ne sont pas entièrement prises en charge dans Azure SQL Database
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: migrate
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: e89c863ac50a8b906b388c505f444cd60fdbaad3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: dfff51d7541ffdc2d279b238a6d993d5e29515f0
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649072"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160705"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Résolution des différences de Transact-SQL durant la migration vers SQL Database   
 Au moment de [migrer votre base de données](sql-database-cloud-migrate.md) SQL Server vers Azure SQL Server, vous découvrirez peut-être que sa conception est à revoir avant de pouvoir effectuer la migration. Cet article comprend des informations vous permettant d’apporter les révisions nécessaires et de comprendre les raisons sous-jacentes à ces changements. Pour détecter les incompatibilités, utilisez [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 La plupart des fonctionnalités Transact-SQL utilisées par les applications sont entièrement prises en charge dans Microsoft SQL Server et Azure SQL Database. Par exemple, les principaux composants SQL tels que les types de données, les opérateurs ainsi que les fonctions de chaîne, arithmétiques, logiques et de curseur, fonctionnent de la même façon dans SQL Server et SQL Database. Il existe toutefois quelques différences au niveau des éléments du langage de définition de données (DDL) et des éléments du langage de manipulation de données (DML). Ceux-ci génèrent en effet des instructions et des requêtes T-SQL qui ne sont que partiellement prises en charge (nous y reviendrons plus loin dans cet article).
 
 Par ailleurs, Azure SQL Database étant conçu pour isoler les fonctionnalités des dépendances sur la base de données MASTER et le système d’exploitation, certaines fonctionnalités et syntaxes ne sont pas du tout prises en charge. Ainsi, de nombreuses activités de niveau serveur sont inappropriées pour SQL Database. Les instructions et les options T-SQL ne sont pas disponibles si elles configurent des options de niveau serveur et des composants du système d’exploitation, ou spécifient la configuration du système de fichiers. Si de telles fonctionnalités sont nécessaires, vous trouverez la plupart du temps une alternative appropriée en procédant différemment à partir de SQL Database ou d’un autre service/d’une autre fonctionnalité Azure. 
@@ -49,7 +52,7 @@ Outre les instructions Transact-SQL liées aux fonctionnalités non prises en ch
 - Haute disponibilité : syntaxe liée à haute disponibilité, qui est gérée par le biais de votre compte Microsoft Azure. Cela inclut la syntaxe pour la sauvegarde, la restauration, la fonctionnalité AlwaysOn, la mise en miroir de bases de données, la copie des journaux de transaction et les modes de récupération.
 - Lecture du journal : syntaxe reposant sur le lecteur de journal, qui n’est pas disponible dans SQL Database (réplication par émission, modification de la capture de données). SQL Database peut être un abonné d’un article de réplication par émission.
 - Fonctions : `fn_get_sql`, `fn_virtualfilestats`,`fn_virtualservernodes`
-- Matériel : syntaxe pour les paramètres du serveur relatifs au matériel (mémoire, threads de travail, affinité du processeur, indicateurs de trace, etc.). Utilisez plutôt les niveaux de service.
+- Matériel : syntaxe pour les paramètres du serveur relatifs au matériel (mémoire, threads de travail, affinité du processeur, indicateurs de trace, etc.). Utilisez plutôt des niveaux de service et des tailles de calcul.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` et noms en quatre parties
 - .NET Framework : intégration du CLR à SQL Server
