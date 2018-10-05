@@ -29,7 +29,7 @@ Exécutez des commandes relatives à un conteneur sur un nœud de cluster.
 |Commande|Description|
 | --- | --- |
 | invoke-api | Permet d’appeler l’API REST de conteneur. |
-| journaux | Permet de récupérer les journaux de conteneur. |
+| logs | Permet de récupérer les journaux de conteneur. |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl container invoke-api
 Permet d’appeler l’API REST de conteneur.
