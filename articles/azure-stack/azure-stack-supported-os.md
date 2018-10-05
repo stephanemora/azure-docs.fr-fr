@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 09/26/2018
 ms.author: sethm
-ms.reviewer: JeffGoldner
-ms.openlocfilehash: 65e9b4371eab4e4e4978e91184ab9712b9ecc9eb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.reviewer: ''
+ms.openlocfilehash: be4d9b3ea7e5715d7c3a4df11b7e8bab4d1d4ca5
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629361"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405595"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Systèmes d’exploitation invités pris en charge par Azure Stack
 
@@ -40,11 +40,12 @@ Azure Stack prend en charge les systèmes d’exploitation invités Windows rép
 | Windows Server 2008 SP2 | 64 bits |  Apportez votre propre image |
 | Windows 10 *(voir remarque 1)* | 64 bits, Professionnel et Entreprise | Apportez votre propre image |
 
-***Remarque 1 :*** *pour déployer des systèmes d’exploitation clients Windows 10 sur Azure Stack, vous devez disposer d’une [licence Windows par utilisateur](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) ou acheter auprès d’un Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
+> [!NOTE]
+> Pour déployer des systèmes d’exploitation clients Windows 10 sur Azure Stack, vous devez disposer d’une [licence Windows par utilisateur](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) ou en acheter une par le biais du programme Qualified Multitenant Hoster ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).
 
 Les images de la Place de marché sont disponibles avec un système de licence de paiement à l’utilisation ou BYOL (apportez votre propre licence) (EA/SPLA). L’utilisation des deux sur une instance unique d’Azure Stack n’est pas prise en charge. Au cours du déploiement, Azure Stack injecte une version appropriée de l’agent invité dans l’image.
 
- Les éditions de centre de données sont disponibles au téléchargement sur la Place de marché ; Les clients peuvent apporter leurs propres images de serveur, y compris d’autres éditions. Les images des clients Windows ne sont pas disponibles sur la Place de marché.
+Les éditions de centre de données sont disponibles au téléchargement sur la Place de marché ; Les clients peuvent apporter leurs propres images de serveur, y compris d’autres éditions. Les images des clients Windows ne sont pas disponibles sur la Place de marché.
 
 ## <a name="linux"></a>Linux
 
@@ -68,8 +69,13 @@ Les distributions Linux répertoriées comme disponibles sur la Place de marché
 | SLES 12SP3 | 64 bits | SUSE | OUI |
 | Ubuntu 14.04-LTS | 64 bits | Canonical | OUI |
 | Ubuntu 16.04-LTS | 64 bits | Canonical | OUI |
-| Ubuntu 18.04-LTS | 64 bits | Canonical | OUI |
-
-D’autres distributions de Linux pourraient être prises en charge à l’avenir.
+| Ubuntu 18.04-LTS | 64 bits | Canonical | Oui |
 
 Pour plus d’informations sur le support de Red Hat Enterprise Linux, consultez l’article [Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531) (Red Hat et Azure Stack : Forum aux Questions).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour plus d’informations sur la Place de marché Azure Stack, consultez les articles suivants :
+
+[Télécharger des éléments de la Place de marché](azure-stack-download-azure-marketplace-item.md)  
+[Créer et publier un élément de Place de Marché](azure-stack-create-and-publish-marketplace-item.md)

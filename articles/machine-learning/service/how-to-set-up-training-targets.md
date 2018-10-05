@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4af2e570b498e496e80b6aeee2b8aeae23c582cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952407"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452296"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Sélectionner et utiliser une cible de calcul pour entraîner votre modèle
 
@@ -23,7 +23,7 @@ Avec le service Azure Machine Learning, vous pouvez entraîner votre modèle dan
 
 Une cible de calcul est la ressource qui exécute votre script d’entraînement ou qui héberge votre modèle quand il est déployé en tant que service web. Vous pouvez les créer et les gérer à l’aide du SDK Azure Machine Learning ou de l’interface CLI. Si vous avez des cibles de calcul qui ont été créées par un autre processus (par exemple le portail Azure ou Azure CLI), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
 
-Vous pouvez commencer par des exécutions locales sur votre ordinateur, puis monter en puissance et mettre à l’échelle vers d’autres environnements tels que des images DSVM distantes avec GPU ou Azure Batch AI. 
+Vous pouvez commencer par des exécutions locales sur votre ordinateur, puis monter en puissance en passant à d’autres environnements, comme des machines virtuelles DSVM avec GPU ou Azure Batch AI. 
 
 ## <a name="supported-compute-targets"></a>Cibles de calcul prises en charge
 
@@ -90,6 +90,8 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
+
+Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement dans un environnement géré par l’utilisateur, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### <a name="system-managed-environment"></a>Environnement géré par le système
 
@@ -110,6 +112,9 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
+
+Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement dans un environnement géré par le système, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
 Il se peut que votre ordinateur local ne dispose pas des ressources de calcul ou GPU nécessaires pour entraîner le modèle. Dans ce cas, vous pouvez effectuer une montée en charge ou en puissance du processus d’entraînement en ajoutant des cibles de calcul telles que des images DSVM (Data Science Virtual Machines).
@@ -190,6 +195,8 @@ Les étapes suivantes utilisent le SDK pour configurer une DSVM comme cible d’
     dsvm_compute.delete()
     ```
 
+Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement sur une machine virtuelle DSVM, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
+
 ## <a id="batch"></a>Azure Batch AI
 
 Si l’entraînement du modèle prend beaucoup de temps, vous pouvez utiliser Azure Batch AI pour répartir la charge d’entraînement sur un cluster de ressources de calcul dans le cloud. Batch AI peut également être configuré pour activer une ressource GPU.
@@ -232,14 +239,14 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-Pour attacher un cluster Batch AI existant comme cible de calcul, vous devez fournir l’ID de ressource Azure. Pour obtenir l’ID de ressource à partir du portail Azure, vous devez :
+Pour attacher un cluster Batch AI existant comme cible de calcul, vous devez fournir l’ID de ressource Azure. Pour obtenir l’ID de ressource à partir du portail Azure, effectuez les étapes suivantes :
 1. Recherchez le service `Batch AI` sous **Tous les Services**.
 1. Cliquer sur le nom de l’espace de travail auquel appartient votre cluster.
 1. Sélectionner le cluster.
 1. Cliquer sur **Propriétés**.
-1. Copier l’**ID**.
+1. Copiez **l’ID**
 
-L’exemple suivant utilise le SDK pour attacher un cluster à votre espace de travail. Dans l’exemple, remplacez `<name>` par n’importe quel nom pour la cible de calcul. Il ne doit pas obligatoirement correspondre au nom du cluster. Remplacez `<resource-id>` par l’ID de ressource Azure détaillée plus haut :
+L’exemple suivant utilise le SDK pour attacher un cluster à votre espace de travail. Dans l’exemple, remplacez `<name>` par n’importe quel nom pour la cible de calcul. Le nom ne doit pas nécessairement correspondre au nom du cluster. Remplacez `<resource-id>` par l’ID de ressource Azure détaillé plus haut :
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -253,7 +260,9 @@ Vous pouvez également vérifier l’état des travaux et du cluster Batch AI à
 - Vérifiez l’état du cluster. Vous pouvez voir combien de nœuds sont en cours d’exécution à l’aide de `az batchai cluster list`.
 - Vérifiez l’état des travaux. Vous pouvez voir combien de travaux sont en cours d’exécution à l’aide de `az batchai job list`.
 
-La création du cluster Batch AI prend environ cinq minutes.
+La création du cluster Batch AI prend environ cinq minutes.
+
+Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement dans un cluster Batch AI, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
 
 ## <a name='aci'></a>Azure Container Instance (ACI)
 
@@ -296,6 +305,8 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ```
 
 La création d’une cible de calcul ACI peut prendre de quelques secondes à quelques minutes.
+
+Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement sur Azure Container Instances, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
 ## <a id="hdinsight"></a>Attacher un cluster HDInsight 
 
@@ -352,6 +363,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement avec Spark sur HDInsight, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Afficher et configurer la cible de calcul à l’aide du portail Azure
 
 Vous pouvez afficher les cibles de calcul qui sont associées à votre espace de travail à partir du portail Azure. Pour accéder à la liste, effectuez les étapes suivantes :
@@ -403,6 +416,7 @@ Suivez les étapes ci-dessus pour afficher la liste des cibles de calcul, puis p
 Les blocs-notes suivants illustrent les concepts de cet article :
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 * `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
 * `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
 * `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 

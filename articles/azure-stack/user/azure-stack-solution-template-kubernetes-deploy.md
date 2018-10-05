@@ -11,24 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a6e1acf3b9e69f32a8c175310134c534dbf8c561
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977534"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409352"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Déployer Kubernetes sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!Note]  
-> Kubernetes sur Azure Stack est en préversion. Votre opérateur Azure Stack doit demander l’accès à l’élément Cluster Kubernetes sur la Place de marché, nécessaire pour suivre les instructions données dans cet article.
+> Kubernetes sur Azure Stack est en préversion.
 
-L’article suivant décrit l’utilisation d’un modèle de solution Azure Resource Manager pour déployer et approvisionner les ressources pour Kubernetes en une seule opération coordonnée. Vous allez devoir collecter les informations requises sur votre installation d’Azure Stack, générer le modèle, puis le déployer sur votre cloud. Remarque : le modèle n’est pas le même service AKS géré offert dans Azure global, mais ressemble au service ACS.
+L’article suivant décrit l’utilisation d’un modèle de solution Azure Resource Manager pour déployer et approvisionner les ressources pour Kubernetes en une seule opération coordonnée. Vous allez devoir collecter les informations requises sur votre installation d’Azure Stack, générer le modèle, puis le déployer sur votre cloud. Notez que le modèle ne correspond pas au service AKS managé qui est offert dans Azure global.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes et conteneurs
 
@@ -54,7 +54,9 @@ Pour commencer, assurez-vous que vous disposez des autorisations appropriées et
 
 1. Vérifiez que vous avez un abonnement valide dans votre portail de client Azure Stack et que vous disposez d’un nombre suffisant d’adresses IP publiques pour ajouter de nouvelles applications.
 
-    Vous ne pouvez pas déployer le cluster sur un abonnement **Administrateur** Azure Stack. Vous devez utiliser un abonnement Utilisateur**. 
+    Vous ne pouvez pas déployer le cluster sur un abonnement **Administrateur** Azure Stack. Vous devez utiliser un abonnement **Utilisateur**. 
+
+1. Si votre marketplace ne comporte pas de cluster Kubernetes, contactez l’administrateur d’Azure Stack.
 
 ## <a name="create-a-service-principal-in-azure-ad"></a>Créer un principal de service dans Azure AD
 
@@ -113,9 +115,23 @@ Accordez l’accès à votre abonnement au principal de service afin qu’il pui
 
     ![Déployer un modèle de solution](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. Sélectionnez **Bases** dans le volet Créer un cluster Kubernetes.
+### <a name="1-basics"></a>1. Concepts de base
+
+1. Dans le volet Créer un cluster Kubernetes, sélectionnez **Bases**.
 
     ![Déployer un modèle de solution](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+
+1. Sélectionnez votre ID **d’abonnement**.
+
+1. Entrez le nom d’un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Le nom de la ressource doit être alphanumérique et en minuscules.
+
+1. Sélectionnez **l’emplacement** du groupe de ressources. Il s’agit de la région que vous avez choisie pour votre installation Azure Stack.
+
+### <a name="2-kubernetes-cluster-settings"></a>2. Paramètres de cluster Kubernetes
+
+1. Dans le volet Créer un cluster Kubernetes, sélectionnez **Kubernetes Cluster Settings** (Paramètres de cluster Kubernetes).
+
+    ![Déployer un modèle de solution](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
 
 1. Entrez le **nom de l’utilisateur administrateur de la machine virtuelle Linux**. Nom d’utilisateur pour les machines virtuelles Linux qui font partie du cluster Kubernetes et de DVM.
 
@@ -126,28 +142,29 @@ Accordez l’accès à votre abonnement au principal de service afin qu’il pui
     > [!Note]  
     > Pour chaque cluster, utilisez un préfixe DNS de profil principal nouveau et unique.
 
-1. Entrez le **nombre de profils du pool d’agents**. Il s’agit du nombre d’agents dans le cluster. Il peut être compris entre 1 et 4.
+1. Sélectionnez la valeur du champ **Kubernetes Master Pool Profile Count** (Nombre de profils de pool maître Kubernetes). Il s’agit du nombre de nœuds dans le pool maître. Elle peut être comprise entre 1 et 7. Cette valeur doit être un nombre impair.
 
-1. Entrez **l’ID client du principal de service**. Celui-ci est utilisé par le fournisseur cloud d’Azure Kubernetes.
+1. Sélectionnez la valeur du champ **The VMSize of the Kubernetes master VMs** (Taille des machines virtuelles maîtres Kubernetes).
 
-1. Entrez le **Secret client du principal de service** que vous avez créé au moment de la création de l’application du principal de service.
+1. Sélectionnez la valeur du champ **Kubernetes Node Pool Profile Count** (Nombre de profils de pool de nœuds Kubernetes). Il s’agit du nombre d’agents dans le cluster. 
+
+1. Sélectionnez la valeur du champ **Storage Profile** (Profil de stockage). Vous pouvez choisir **Blob Disk** (Disque de blob) ou **Managed Disk** (Disque managé). Cette opération spécifie la taille des machines virtuelles de nœud Kubernetes. 
+
+1. Entrez **l’ID client du principal de service**. Celui-ci est utilisé par le fournisseur cloud d’Azure Kubernetes. Il s’agit de l’ID client identifié en tant qu’ID d’application lorsque vous avez créé votre principal de service.
+
+1. Entrez le **Secret client du principal du service** que vous avez créé au moment de la création de votre principal de service.
 
 1. Entrez la **version du fournisseur cloud d’Azure Kubernetes**. Il s’agit de la version du fournisseur d’Azure Kubernetes. Azure Stack publie une build Kubernetes personnalisée pour chaque version d’Azure Stack.
 
-1. Sélectionnez votre ID **d’abonnement**.
+### <a name="3-summary"></a>3. Résumé
 
-1. Entrez le nom d’un nouveau groupe de ressources ou sélectionnez un groupe de ressources existant. Le nom de la ressource doit être alphanumérique et en minuscules.
+1. Sélectionnez Résumé. Le panneau affiche un message de validation concernant vos paramètres de configuration de cluster Kubernetes.
 
-1. Sélectionnez **l’emplacement** du groupe de ressources. Il s’agit de la région que vous avez choisie pour votre installation Azure Stack.
+    ![Déployer un modèle de solution](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-### <a name="specify-the-azure-stack-settings"></a>Spécifier les paramètres Azure Stack
+2. Passez vos paramètres en revue.
 
-1. Sélectionnez les **Paramètres de tampon Azure Stack**.
-
-    ![Déployer un modèle de solution](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
-
-1. Entrez le **point de terminaison ARM du locataire**. Il s’agit du point de terminaison Azure Resource Manager auquel se connecter pour créer le groupe de ressources pour le cluster Kubernetes. Vous devez obtenir le point de terminaison de votre opérateur Azure Stack pour un système intégré. Pour le Kit de développement Azure Stack (ASDK), vous pouvez utiliser `https://management.local.azurestack.external`.
-
+3. Sélectionnez **OK** pour déployer votre cluster.
 
 ## <a name="connect-to-your-cluster"></a>Se connecter au cluster
 

@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7e27b5117f5f0ea98916ecfefcbb0dac9323e1d9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: a71e867bd23cf64b2ac7fc8cd1c54c55d92ce924
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181236"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431786"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 ## <a name="what-is-project-acoustics"></a>Qu’est-ce que Project Acoustics ?
 
-Le plug-in Project Acoustics Unity est un système d’acoustique qui calcule le comportement des ondes sonores avant l’exécution, un peu comme l’éclairage statique. Le cloud effectuant le plus gros du calcul de physique des ondes au moment du design, le coût d’exécution du processeur est faible.  
+Le plug-in Project Acoustics Unity est un système d’acoustique qui calcule le comportement des ondes sonores avant l’exécution, un peu comme l’éclairage statique. Le cloud effectuant le plus gros des calculs physiques des ondes au moment du design, le coût d’exécution du processeur est faible.  
 
 ## <a name="where-can-i-download-the-plugin"></a>Où puis-je télécharger le plug-in ?
 
@@ -28,7 +28,7 @@ Si vous êtes intéressé par l’évaluation du plug-in Acoustics, inscrivez-vo
 
 ## <a name="is-azure-used-at-runtime"></a>Azure est-il utilisé au moment de l’exécution ?
 
-Non, l’intégration cloud est utilisée uniquement lors de l’étape de précalcul au moment du design.
+Non, l’intégration cloud est utilisée uniquement lors de l’étape de précalcul au moment de la configuration de la scène.
  
 ## <a name="what-is-simulation-input"></a>Qu’est-ce que l’entrée de simulation ? 
 
@@ -71,5 +71,5 @@ Project Acoustics fournit des paramètres acoustique précis et fiables même po
 Le système prend en compte les emplacements de lecteur potentiels afin de générer un ensemble de positions d’échantillons de « sonde » espacées de façon uniforme. Le baking d’un niveau se compose de tâches indépendantes pour chaque sonde : le système considère une « région de simulation » cuboïde centrée sur la sonde et effectue une simulation d’ondes détaillée dans cette région à une résolution allant jusqu’à 25 cm.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Explorez l’[exemple de scène](sample-walkthrough.md)
+* Explorer l’[exemple de scène](sample-walkthrough.md)
 

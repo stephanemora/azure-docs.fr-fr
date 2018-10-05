@@ -3,7 +3,7 @@ title: Mise à jour 1804 d’Azure Stack | Microsoft Docs
 description: Découvrez le contenu de la mise à jour 1804 pour les systèmes intégrés Azure Stack, les problèmes connus et l’emplacement de téléchargement de la mise à jour.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 16f12d8119a14e668a7502d99fa2d9c976d23833
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413513"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393517"
 ---
 # <a name="azure-stack-1804-update"></a>Mise à jour 1804 d’Azure Stack
 
@@ -102,6 +102,9 @@ Après l’installation de la version 1804, installez les correctifs logiciels a
 Les éléments suivants sont des problèmes connus de post-installation pour la build **20180513.1**.
 
 #### <a name="portal"></a>Portail
+
+- La documentation technique Azure Stack s’applique à la dernière version. En raison des changements apportés au portail entre les versions, ce que vous voyez dans les portails Azure Stack peut différer du contenu de la documentation. 
+
 - <!-- TBD - IS ASDK --> Vous ne pouvez pas appliquer les mises à jour de pilote à l’aide d’un package d’extension OEM avec cette version d’Azure Stack.  Il n’existe aucune solution de contournement pour ce problème.
 
 - <!-- 1272111 - IS --> Une fois que vous aurez installé cette version d’Azure Stack ou effectué une mise à jour vers cette version, vous ne pourrez peut-être pas voir les unités d’échelle Azure Stack sur le portail d’administration.  

@@ -2,47 +2,50 @@
 title: Service Azure SQL Database - vCore | Microsoft Docs
 description: Le modèle d’achat vCore vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts.
 services: sql-database
-author: CarlRabeler
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/30/2018
-manager: craigg
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 8266d9e3530969154ac9c8c877badda9f8b4fed3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.reviewer: sashan, moslake
+manager: craigg
+ms.date: 09/26/2018
+ms.openlocfilehash: 3fb1357b7a70579fa527a896d5bd359749b10ad6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307270"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407653"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Choix du niveau de service et des ressources de calcul, de mémoire, de stockage et d’E/S pour vCore
 
 Le modèle d’achat vCore vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Il vous permet également de choisir la génération de matériel :
 - Gen 4 : jusqu'à 24 processeurs logiques basés sur le processeur Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (cœur physique), 7 Go par cœur, disque SSD attaché
-- Gen 5 : jusqu’à 80 processeurs logiques basés sur le processeur Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1. Go par cœur, disque SSD fast eNVM
+- Gen 5 : jusqu'à 80 processeurs logiques basés sur le processeur Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.5. Go par cœur, disque SSD fast eNVM
 
 Le modèle vCore vous permet également d’utiliser [Azure Hybrid Use Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) afin de réduire les coûts.
 
 ## <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
 
-Le modèle vCore fournit deux niveaux de service, Usage général et Critique pour l’entreprise. Chaque niveau de service a son propre niveau de performance, la conception de sa haute disponibilité, son isolation des défaillances, ses types de stockage et sa plage d’E/S. Le client doit configurer séparément le stockage nécessaire et la période de rétention des sauvegardes.
+Le modèle vCore fournit deux niveaux de service, Usage général et Critique pour l’entreprise. Chaque niveau de service se distingue par sa taille de calcul, sa conception de haute disponibilité, son isolation des défaillances, ses types de stockage et sa plage d’E/S. Le client doit configurer séparément le stockage nécessaire et la période de rétention des sauvegardes.
 
 Le tableau suivant montre les différences entre ces deux niveaux :
 
-||**Usage général**|**Critique pour l’entreprise**|
-|---|---|---|
-|Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|
-|Calcul|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|
-|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur |
-|Stockage|[Stockage distant Premium](../virtual-machines/windows/premium-storage.md),<br/>Base de données unique : 5 Go à 4 To<br/>Instance gérée : 32 Go à 8 To |Stockage SSD local,<br/>Base de données unique : 5 Go à 1 To<br/>Instance gérée : 32 Go à 4 To |
-|Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec un maximum de 7 000 IOPS</br>Instance gérée : dépend de la [taille du fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|
-|Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|
-|Sauvegardes|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|
-|En mémoire|N/A|Pris en charge|
+||**Usage général**|**Critique pour l’entreprise**|**Hyperscale (préversion)**|
+|---|---|---|---|
+|Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité|
+|Calcul|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|Gen4 : 1 à 24 vCore<br/>Gen5 : 1 à 80 vCore|
+|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,5 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,5 Go par cœur |Gen4 : 7 Go par cœur<br>Gen5 : 5,5 Go par cœur|
+|Stockage|[Stockage distant Premium](../virtual-machines/windows/premium-storage.md),<br/>Base de données unique : 5 Go à 4 To<br/>Instance gérée : 32 Go à 8 To |Stockage SSD local,<br/>Base de données unique : 5 Go à 4 To<br/>Instance gérée : 32 Go à 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
+|Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec un maximum de 7 000 IOPS</br>Instance gérée : dépend de la [taille du fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|TBD|
+|Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|?|
+|Sauvegardes|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|Sauvegarde basée sur des instantanés dans le stockage distant Azur. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S du calcul. Les restaurations sont très rapides et n’ont pas la taille des opérations de données (en minutes, et non en heures/jours).|
+|En mémoire|Non pris en charge|Pris en charge|Non pris en charge|
 |||
 
-Pour plus d’informations, consultez [Limites de ressources vCore dans une base de données Singleton](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources vCore dans une instance gérée](sql-database-managed-instance.md#vcore-based-purchasing-model). 
+Pour plus d’informations, consultez [Limites de ressources vCore dans une base de données unique](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources vCore dans une instance managée](sql-database-managed-instance.md#vcore-based-purchasing-model). 
 
 > [!IMPORTANT]
 > Si vous avez besoin d’une capacité de calcul inférieure à 1 vCore, utilisez le modèle d’achat DTU.
@@ -51,12 +54,13 @@ Consultez [SQL Database FAQ](sql-database-faq.md) (FAQ de SQL Database) pour obt
 
 ## <a name="storage-considerations"></a>Considérations relatives au stockage
 
+### <a name="general-purpose-and-business-critical-service-tiers"></a>Niveaux de service Usage général et Critique pour l’entreprise
 Tenez compte des éléments suivants :
 - Le stockage alloué est utilisé par les fichiers de données (MDF) et les fichiers journaux (LDF).
-- Chaque niveau de performance d’une base de données unique accepte une taille de base de données maximale, qui correspond, par défaut, à 32 Go.
+- Chaque taille de calcul d’une base de données unique accepte une taille de base de données maximale, qui correspond, par défaut, à 32 Go.
 - Lorsque vous configurez la taille de base de données unique nécessaire (c’est-à-dire, la taille des fichiers MDF), 30 % de stockage supplémentaire sont automatiquement ajoutés pour prendre en charge les fichiers LDF
 - La taille de stockage dans une instance gérée doit être spécifiée en multiples de 32 Go.
-- Vous pouvez choisir n’importe quelle taille de base de données singleton située entre 10 Go et la taille maximale prise en charge
+- Vous pouvez choisir n’importe quelle taille de base de données unique située entre 10 Go et la taille maximale prise en charge.
  - Pour le stockage Standard, augmentez ou diminuez la taille par incréments de 10 Go
  - Pour le stockage Premium, augmentez ou diminuez la taille par incréments de 250 Go
 - Dans le niveau de service Usage général, `tempdb` utilise un disque SSD attaché et le coût de ce stockage est inclus dans le prix du modèle vCore.
@@ -70,12 +74,22 @@ Pour surveiller la taille totale actuelle des fichiers MDF et LDF, utilisez [sp_
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
+### <a name="hyperscale-service-tier-preview"></a>Niveau de service Hyperscale (préversion)
+
+Pour la base de données HyperScale, le stockage est géré automatiquement. Le stockage grandit en fonction des besoins. Stockage de type « Infinite Log » sur les disques SSD de stockage Premium Azure, pour éviter de trop fréquentes troncations du journal.
+
 ## <a name="backups-and-storage"></a>Sauvegardes et stockage
+
+### <a name="general-purpose-and-business-critical-service-tiers"></a>Niveaux de service Usage général et Critique pour l’entreprise
 
 Du stockage de sauvegardes de base de données est alloué pour prendre en charge les fonctionnalités Limite de restauration dans le temps et [Rétention à long terme](sql-database-long-term-retention.md) de SQL Database. Ce stockage est alloué séparément pour chaque base de données. De plus, les fonctionnalités Limite de restauration dans le temps et Conservation à long terme sont, elles aussi, facturées séparément. 
 
 - **Limite de restauration dans le temps** : les sauvegardes de bases de données sont automatiquement copiées vers le [stockage RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md). La taille de stockage augmente dynamiquement avec chaque nouvelle création de sauvegarde.  Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La consommation du stockage dépend du taux de change de la base de données et de la période de rétention. Vous pouvez configurer une période de rétention distincte pour chaque base de données, allant de 7 à 35 jours. Un volume de stockage minimal correspondant à la taille des données est fourni sans frais supplémentaires. Pour la plupart des bases de données, cette quantité est suffisante pour stocker l’équivalent de 7 jours de sauvegardes.
 - **Rétention à long terme** : SQL Database permet de configurer une rétention à long terme des sauvegardes complètes d’une durée de 10 ans. Si la stratégie de rétention à long terme est activée, ces sauvegardes sont stockées automatiquement dans le stockage RA-GRS. Toutefois, vous pouvez contrôler la fréquence à laquelle les sauvegardes sont copiées. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de rétention pour les sauvegardes hebdomadaires, mensuelles ou annuelles. Cette configuration définit la quantité de stockage utilisée pour les sauvegardes de rétention à long terme. Vous pouvez utiliser la calculatrice de prix LTR pour estimer le coût du stockage de rétention à long terme. Pour plus d’informations, consultez [Rétention à long terme](sql-database-long-term-retention.md).
+
+### <a name="hyperscale-service-tier-preview"></a>Niveau de service Hyperscale (préversion)
+
+Dans le niveau de service Hyperscale, les sauvegardes sont basées sur des instantanés et sont stockées dans le stockage distant Azure. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S du calcul. Les restaurations sont très rapides et n’ont pas la taille des opérations de données (en minutes, et non en heures/jours).
 
 ## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
 
@@ -113,13 +127,13 @@ La migration des groupes de basculement comprenant plusieurs bases de données n
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>Création d’une base de données secondaire de géoréplication
 
-Pour créer une base de données secondaire de géoréplication, vous devez utiliser le même niveau de service que la base de données primaire. Pour les bases de données avec un taux élevé de génération de journaux, il est recommandé de créer la base de données secondaire avec le même niveau de performance que la base de données primaire. Si vous créez une base de données secondaire de géoréplication dans le pool élastique pour une base de données primaire, il est conseillé que le paramètre `maxVCore` du pool corresponde au niveau de performance de la base de données primaire. Si vous créez une base de données secondaire de géoréplication dans le pool élastique pour une base de données primaire située dans un autre pool élastique, il est conseillé d’attribuer la même valeur au paramètre `maxVCore` des deux pools.
+Pour créer une base de données secondaire de géoréplication, vous devez utiliser le même niveau de service que la base de données primaire. Pour les bases de données avec un taux élevé de génération de journaux, il est recommandé de créer la base de données secondaire avec la même taille de calcul que la base de données primaire. Si vous créez une base de données secondaire de géoréplication dans le pool élastique pour une base de données primaire unique, le paramètre `maxVCore` du pool doit correspondre à la taille de calcul de la base de données primaire. Si vous créez une base de données secondaire de géoréplication dans le pool élastique pour une base de données primaire située dans un autre pool élastique, il est conseillé d’attribuer la même valeur au paramètre `maxVCore` des deux pools.
 
 ### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Utilisation de la copie de base de données pour convertir une base de données DTU en base de données vCore
 
-Vous pouvez copier n’importe quelle base de données avec niveau de performance DTU vers une base de données avec niveau de performance vCore, sans aucune restriction ni séquencement spécial, tant que le niveau de performance cible prend en charge la taille maximale de la base de données source. En effet, la copie de base de données crée un instantané des données dès que commence l’opération de copie, et elle n’effectue pas de synchronisation des données entre la source et la cible. 
+Vous pouvez copier n’importe quelle base de données avec une taille de calcul DTU vers une base de données avec une taille de calcul vCore, sans aucune restriction ni séquencement spécial, tant que la taille de calcul cible prend en charge la taille maximale de la base de données source. En effet, la copie de base de données crée un instantané des données dès que commence l’opération de copie, et elle n’effectue pas de synchronisation des données entre la source et la cible. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
-- Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les pools élastiques, consultez [Limites des ressources vCoreCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les pools élastiques, consultez [Limites des ressources vCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

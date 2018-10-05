@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kylestorck
-ms.openlocfilehash: b0dd5e0c365c65fc7b29752f7885acb71bdb3df8
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c19b19cab33ae868f11ded0b7ce87dac99269596
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181279"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431975"
 ---
 # <a name="known-issues"></a>Problèmes connus
 Vous pourriez rencontrer les problèmes connus suivants lors de l’utilisation de Designer Preview for Project Acoustics.
@@ -27,7 +27,7 @@ Si vous renommez une scène, tous les paramètres Acoustic qui lui appartiennent
 
 La valeur par défaut est un chemin d’accès relatif pour faciliter le partage des projets entre les collaborateurs. Pour résoudre ce problème, modifiez le chemin d’accès en chemin d’accès relatif vers le répertoire du projet.
 
-## <a name="runtime-voxels-are-a-different-size-than-design-time-voxels"></a>Les voxels Runtime sont de taille différente des voxels au moment de la conception
+## <a name="runtime-voxels-are-a-different-size-than-scene-preview-voxels"></a>Les voxels de runtime sont de taille différente des voxels d’aperçu de la scène
 
 Si vous effectuez une opération **Calculate** dans l’onglet **Probes** et affichez les voxels, puis effectuez une création et affichez les voxels au moment de l’exécution pour la même scène, les voxels sont de tailles différentes. Les voxels affichés avant la création sont les voxels utilisés lors de la simulation. Les voxels affichés lors de l’exécution sont utilisés pour l’interpolation entre les points de la sonde. Cela peut entraîner une incohérence dans laquelle les portails semblent ouverts lors de l’exécution alors qu’ils ne le sont pas réellement.
 

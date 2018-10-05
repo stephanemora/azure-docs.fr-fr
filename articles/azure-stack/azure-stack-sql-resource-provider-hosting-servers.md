@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/27/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.reviewer: quying
+ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842496"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407906"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
 
 Vous pouvez héberger une instance SQL sur une machine virtuelle dans [Azure Stack](azure-stack-poc.md), ou sur une machine virtuelle à l’extérieur de votre environnement Azure Stack, à condition que le fournisseur de ressources SQL puisse se connecter à l’instance.
+
+> [!NOTE]
+> Les bases de données SQL doivent être créées sur le serveur du fournisseur de ressources SQL. Le fournisseur de ressources SQL doit être créé dans l’abonnement fournisseur par défaut, alors que les serveurs d’hébergement SQL doivent être créés dans un abonnement utilisateur facturable. Le serveur du fournisseur de ressources ne doit pas héberger de bases de données utilisateur.
 
 ## <a name="overview"></a>Vue d’ensemble
 
@@ -45,6 +48,9 @@ Avant d’ajouter un serveur d’hébergement SQL, consultez les exigences gén�
 Des images de machines virtuelles IaaS SQL sont disponibles via la fonctionnalité Gestion de la Place de Marché. Ces images sont les mêmes que les machines virtuelles SQL disponibles dans Azure.
 
 Veillez à toujours télécharger la dernière version de **l’extension IaaS SQL** avant de déployer une machine virtuelle SQL à l’aide d’un élément de la Place de marché. L’extension IaaS et les améliorations apportées au portail correspondantes fournissent des fonctionnalités supplémentaires de mise à jour corrective et de sauvegarde automatique. Pour plus d’information sur cette extension, consultez [Automatiser les tâches de gestion sur des machines virtuelles Azure avec l’extension SQL Server Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+
+> [!NOTE]
+> L’extension SQL IaaS est _requise_ pour toutes les images SQL sur Windows dans la Place de marché. Si vous n’avez pas téléchargé cette extension, la machine virtuelle ne pourra pas être déployée. L’extension n’est pas utilisée avec les images de machine virtuelle SQL sur Linux.
 
 Il existe d’autres options pour le déploiement de machines virtuelles SQL, y compris des modèles dans la [Galerie de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -125,7 +131,7 @@ Pour activer l’amorçage automatique sur toutes les instances, modifiez, puis 
   GO
   ```
 
-Notez que le groupe de disponibilité doit être placé entre crochets.
+Le groupe de disponibilité doit être placé entre crochets.
 
 Sur les nœuds secondaires, exécutez la commande SQL suivante :
 

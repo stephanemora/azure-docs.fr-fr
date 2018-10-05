@@ -8,23 +8,23 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: include file
-ms.openlocfilehash: e54813896eee8a58ae456f14f76151318ac1b9fc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7ab67e878e7cf08fe983ab172731209328b1a474
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38766964"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47454547"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Régions et disponibilité des machines virtuelles dans Azure
 Azure fonctionne dans plusieurs centres de données à travers le monde. Ces centres de données sont regroupés en régions géographiques, ce qui vous donne une certaine flexibilité dans le choix de l’emplacement où vous créez vos applications. Il est important de comprendre le fonctionnement des machines virtuelles et de connaître leur emplacement dans Azure, ainsi que les différentes options disponibles pour optimiser les performances, la disponibilité et la redondance. Cet article fournit une vue d’ensemble des fonctionnalités d’optimisation de la disponibilité et de redondance d’Azure.
 
 ## <a name="what-are-azure-regions"></a>Que représentent les régions Azure ?
-Vous créez des ressources Azure dans des régions géographiques définies comme « États-Unis de l'Ouest », « Europe du Nord » ou « Sud-Est asiatique ». Vous pouvez consulter la [liste de ces régions et leurs emplacements](https://azure.microsoft.com/regions/). Chaque région comporte plusieurs centres de données, afin de garantir la redondance et la disponibilité. Lorsque vous concevez vos applications, vous bénéficiez ainsi d’une certaine flexibilité pour créer des machines virtuelles plus proches de vos utilisateurs et pour répondre à n’importe quel besoin juridique, de conformité ou fiscal.
+Vous créez des ressources Azure dans des régions géographiques définies comme « USA Ouest », « Europe Nord » ou « Asie Sud-Est ». Vous pouvez consulter la [liste de ces régions et leurs emplacements](https://azure.microsoft.com/regions/). Chaque région comporte plusieurs centres de données, afin de garantir la redondance et la disponibilité. Lorsque vous concevez vos applications, vous bénéficiez ainsi d’une certaine flexibilité pour créer des machines virtuelles plus proches de vos utilisateurs et pour répondre à n’importe quel besoin juridique, de conformité ou fiscal.
 
 ## <a name="special-azure-regions"></a>Régions Azure spéciales
 Lors de la création de vos applications, vous pouvez utiliser certaines régions Azure spéciales pour répondre à vos besoins de conformité ou juridiques. Ces régions spéciales sont les suivantes :
 
-* **Gouvernement des États-Unis - Virginie** et **Gouvernement des États-Unis - Iowa**
+* **US Gov Virginie** et **US Gov Iowa**
   * Instance physique et logique d’Azure isolée du réseau pour les administrations et les partenaires des États-Unis, gérée par un personnel autorisé aux États-Unis. Inclut des certifications de conformité supplémentaires comme [FedRAMP](https://www.microsoft.com/en-us/TrustCenter/Compliance/FedRAMP) et [DISA](https://www.microsoft.com/en-us/TrustCenter/Compliance/DISA). En savoir plus sur [Azure Government](https://azure.microsoft.com/features/gov/).
 * **Est de la Chine** et **Nord de la Chine**
   * Ces régions sont disponibles grâce à un partenariat unique conclu entre Microsoft et 21Vianet, qui stipule que Microsoft ne gère pas directement les centres de données. En savoir plus sur [Microsoft Azure en Chine](http://www.windowsazure.cn/).
@@ -36,15 +36,15 @@ Chaque région Azure est associée à une autre région au sein de la même rég
 
 * En cas d’une panne Azure plus importante, une région est hiérarchisée dans chaque paire afin de réduire le temps de restauration des applications. 
 * Les mises à jour Azure planifiées sont déployées vers les régions jumelées une par une pour limiter les interruptions de service et les risques de panne de l’application.
-* Les données continuent de résider dans la même zone géographique que la région avec laquelle elle est jumelée (sauf le Sud du Brésil) pour répondre aux exigences en termes d’impôts et d’application de la loi.
+* Les données continuent de résider dans la même zone géographique que la région avec laquelle elle est jumelée (sauf Brésil Sud) pour répondre aux exigences en termes d’impôts et d’application de la loi.
 
 Voici quelques exemples de paires de régions :
 
 | Primaire | Secondaire |
 |:--- |:--- |
-| États-Unis de l’Ouest |Est des États-Unis |
-| Europe du Nord |Europe de l'Ouest |
-| Asie du Sud-Est |Est de l'Asie |
+| USA Ouest |USA Est |
+| Europe Nord |Europe Ouest |
+| Asie Sud-Est |Asie Est |
 
 Vous pouvez afficher la [liste des paires de régions ici](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
@@ -72,8 +72,8 @@ Le tableau suivant fournit une rapide vue d’ensemble des différences entre le
 
 | Stratégie de réplication | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Les données sont répliquées entre plusieurs installations. |Non  |OUI |OUI |OUI |
-| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non  |Non  |Non  |OUI |
+| Les données sont répliquées entre plusieurs installations. |Non  |OUI |OUI |Oui |
+| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non  |Non  |Non  |Oui |
 | Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6. |6. |
 
 Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/common/storage-redundancy.md). Pour plus d’informations sur les disques gérés, consultez [Vue d’ensemble d’Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
@@ -102,8 +102,12 @@ Un domaine d’erreur est un groupe logique de matériels sous-jacents qui parta
 ### <a name="update-domains"></a>Domaines de mise à jour
 Un domaine de mise à jour est un groupe logique de matériels sous-jacents qui peuvent faire l’objet d’une opération de maintenance ou être redémarrés en même temps. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure distribue automatiquement vos machines virtuelles dans ces domaines de mise à jour. Cette approche garantit qu’au moins une instance de votre application reste toujours en cours d’exécution, car la plateforme Azure fait l’objet d’une maintenance périodique. Le redémarrage des domaines de mise à jour peut ne pas suivre un ordre séquentiel au cours de la maintenance planifiée, mais un seul domaine de mise à jour peut être redémarré à la fois.
 
+![Groupes à haute disponibilité](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+
 ### <a name="managed-disk-fault-domains"></a>Domaines d’erreur des disques gérés
 Les machines virtuelles faisant appel à des [disques gérés Azure](../articles/virtual-machines/windows/faq-for-disks.md) sont alignées sur les domaines d’erreur des disques gérés lorsqu’un groupe à haute disponibilité géré est utilisé. Cet alignement garantit que tous les disques gérés attachés à une machine virtuelle se trouvent dans le même domaine d’erreur de disques gérés. Seules des machines virtuelles avec des disques gérés peuvent être créées dans un groupe à haute disponibilité géré. Le nombre de domaines d’erreur de disques gérés varie en fonction de la région (deux ou trois par région). Vous pouvez en savoir plus sur ces domaines d’erreur de disque géré pour [les machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) ou [les machines virtuelles Windows](../articles/virtual-machines/windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+
+![Groupe à haute disponibilité géré](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 ## <a name="availability-zones"></a>Zones de disponibilité
 

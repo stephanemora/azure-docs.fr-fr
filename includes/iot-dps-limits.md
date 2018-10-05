@@ -3,9 +3,9 @@ Le tableau suivant répertorie les limites qui s’appliquent aux ressources du 
 | Ressource | Limite |
 | --- | --- |
 | Nombre maximal de services d’approvisionnement d’appareil par abonnement Azure | 10 |
-| Nombre maximal d’abonnements | 500 000 |
 | Nombre maximal d’inscriptions | 500 000 |
-| Nombre maximal de groupes d’abonnement | 100 |
+| Nombre maximal d’inscriptions | 500 000 |
+| Nombre maximal de groupes d’inscription | 100 |
 | Nombre maximal d’autorités de certification | 25 |
 
 > [!NOTE]
@@ -16,7 +16,8 @@ Le tableau suivant répertorie les limites qui s’appliquent aux ressources du 
 
 Le service d’approvisionnement d’appareil limite les demandes lorsque les quotas suivants sont dépassés :
 
-| Limitation | Valeur par service |
+| Limitation | Valeur par unité |
 | --- | --- |
-| Opérations | 100/min |
-| Inscriptions d’appareil | 100/min |
+| Opérations | 200/min/service |
+| Inscriptions d’appareil | 200/min/service |
+| Opération d’interrogation des appareils | 5/10sec/appareil |

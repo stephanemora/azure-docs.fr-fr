@@ -4,16 +4,16 @@ description: Passez en revue les propriétés spécifiques et les valeurs des ju
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2858179d42ebf51cbb24d95d2e0093f8577bacef
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5e358992661f7bcf06121a07c1bafca0850316b2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030561"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423135"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propriétés des jumeaux de module de l’agent Edge et du hub Edge
 
@@ -23,31 +23,31 @@ Cet article fournit les propriétés souhaitées et signalées des jumeaux de mo
 
 ## <a name="edgeagent-desired-properties"></a>Propriétés souhaitées pour EdgeAgent
 
-La représentation de module de l’agent Edge est appelée `$edgeAgent` et coordonne les communications entre l’agent Edge exécuté sur un appareil et IoT Hub. Les propriétés souhaitées sont définies lors de l’application d’un manifeste de déploiement sur un appareil spécifique dans le cadre d’un déploiement d’appareil unique ou à grande échelle. 
+Le jumeau de module de l’agent Edge est appelé `$edgeAgent` et coordonne les communications entre l’agent Edge exécuté sur un appareil et IoT Hub. Les propriétés souhaitées sont définies lors de l’application d’un manifeste de déploiement sur un appareil spécifique dans le cadre d’un déploiement d’appareil unique ou à grande échelle. 
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| schemaVersion | Doit être "1.0" | OUI |
-| runtime.type | Doit être "docker" | OUI |
-| runtime.settings.minDockerVersion | Définie sur la version Docker minimale requise par ce manifeste de déploiement | OUI |
+| schemaVersion | Doit être "1.0" | Oui |
+| runtime.type | Doit être "docker" | Oui |
+| runtime.settings.minDockerVersion | Définie sur la version Docker minimale requise par ce manifeste de déploiement | Oui |
 | runtime.settings.loggingOptions | Champ de chaîne JSON contenant les options de journalisation du conteneur d’agent Edge. [Options de journalisation Docker][lnk-docker-logging-options] | Non  |
 | runtime.settings.registryCredentials<br>.{registryId}.username | Nom d’utilisateur du registre de conteneurs. Pour Azure Container Registry, le nom d’utilisateur est généralement le nom du registre.<br><br> Les informations d’identification du registre sont nécessaires pour toutes les images de modules qui ne sont pas publiques. | Non  |
 | runtime.settings.registryCredentials<br>.{registryId}.password | Mot de passe du registre de conteneurs. | Non  |
 | runtime.settings.registryCredentials<br>.{registryId}.address | Adresse du registre de conteneurs. Pour Azure Container Registry, l’adresse est généralement *{registryname}.azurecr.io*. | Non  |  
-| systemModules.edgeAgent.type | Doit être "docker" | OUI |
-| systemModules.edgeAgent.settings.image | URI de l’image de l’agent Edge. Actuellement, l’agent Edge ne peut pas se mettre à jour lui-même. | OUI |
+| systemModules.edgeAgent.type | Doit être "docker" | Oui |
+| systemModules.edgeAgent.settings.image | URI de l’image de l’agent Edge. Actuellement, l’agent Edge ne peut pas se mettre à jour lui-même. | Oui |
 | systemModules.edgeAgent.settings<br>.createOptions | Champ de chaîne JSON contenant les options de création du conteneur d’agent Edge. [Options de création Docker][lnk-docker-create-options] | Non  |
 | systemModules.edgeAgent.configuration.id | ID du déploiement ayant déployé ce module. | Cette propriété est définie par IoT Hub quand ce manifeste est appliqué à l’aide d’un déploiement. Ne fait pas partie d’un manifeste de déploiement. |
-| systemModules.edgeHub.type | Doit être "docker" | OUI |
-| systemModules.edgeHub.type | Doit être "running" | OUI |
-| systemModules.edgeHub.restartPolicy | Doit être "always" | OUI |
-| systemModules.edgeHub.settings.image | URI de l’image de Edge Hub. | OUI |
+| systemModules.edgeHub.type | Doit être "docker" | Oui |
+| systemModules.edgeHub.type | Doit être "running" | Oui |
+| systemModules.edgeHub.restartPolicy | Doit être "always" | Oui |
+| systemModules.edgeHub.settings.image | URI de l’image de Edge Hub. | Oui |
 | systemModules.edgeHub.settings<br>.createOptions | Champ de chaîne JSON contenant les options de création du conteneur Edge Hub. [Options de création Docker][lnk-docker-create-options] | Non  |
 | systemModules.edgeHub.configuration.id | ID du déploiement ayant déployé ce module. | Cette propriété est définie par IoT Hub quand ce manifeste est appliqué à l’aide d’un déploiement. Ne fait pas partie d’un manifeste de déploiement. |
-| modules.{moduleId}.version | Chaîne définie par l’utilisateur représentant la version de ce module. | OUI |
-| modules.{moduleId}.type | Doit être "docker" | OUI |
-| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | OUI |
-| modules.{moduleId}.settings.image | URI de l’image du module. | OUI |
+| modules.{moduleId}.version | Chaîne définie par l’utilisateur représentant la version de ce module. | Oui |
+| modules.{moduleId}.type | Doit être "docker" | Oui |
+| modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Oui |
+| modules.{moduleId}.settings.image | URI de l’image du module. | Oui |
 | modules.{moduleId}.settings.createOptions | Champ de chaîne JSON contenant les options de création du conteneur de module. [Options de création Docker][lnk-docker-create-options] | Non  |
 | modules.{moduleId}.configuration.id | ID du déploiement ayant déployé ce module. | Cette propriété est définie par IoT Hub quand ce manifeste est appliqué à l’aide d’un déploiement. Ne fait pas partie d’un manifeste de déploiement. |
 
@@ -94,13 +94,13 @@ Le tableau suivant n’inclut pas les informations copiées à partir des propri
 
 ## <a name="edgehub-desired-properties"></a>Propriétés souhaitées pour EdgeHub
 
-La représentation de module de Edge Hub est appelée `$edgeHub` et coordonne les communications entre Edge Hub exécuté sur un appareil et IoT Hub. Les propriétés souhaitées sont définies lors de l’application d’un manifeste de déploiement sur un appareil spécifique dans le cadre d’un déploiement d’appareil unique ou à grande échelle. 
+Le jumeau de module du hub Edge est appelé `$edgeHub` et coordonne les communications entre Edge Hub exécuté sur un appareil et IoT Hub. Les propriétés souhaitées sont définies lors de l’application d’un manifeste de déploiement sur un appareil spécifique dans le cadre d’un déploiement d’appareil unique ou à grande échelle. 
 
 | Propriété | Description | Requise dans le manifeste de déploiement |
 | -------- | ----------- | -------- |
-| schemaVersion | Doit être "1.0" | OUI |
+| schemaVersion | Doit être "1.0" | Oui |
 | routes.{routeName} | Chaîne représentant un itinéraire Edge Hub. | L’élément `routes` peut être présent mais vide. |
-| storeAndForwardConfiguration.timeToLiveSecs | Durée en secondes pendant laquelle le hub Edge conserve les messages en cas de points de terminaison de routage déconnectés, par exemple, déconnectés d’IoT Hub ou d’un module local | OUI |
+| storeAndForwardConfiguration.timeToLiveSecs | Durée en secondes pendant laquelle le hub Edge conserve les messages en cas de points de terminaison de routage déconnectés, par exemple, déconnectés d’IoT Hub ou d’un module local | Oui |
 
 ## <a name="edgehub-reported-properties"></a>Propriétés signalées pour EdgeHub
 
@@ -109,9 +109,9 @@ La représentation de module de Edge Hub est appelée `$edgeHub` et coordonne le
 | lastDesiredVersion | Cet entier fait référence à la dernière version des propriétés souhaitées traitées par le hub Edge. |
 | lastDesiredStatus.code | Il s’agit du code d’état faisant référence à dernières propriétés souhaitées observées par Edge Hub. Valeurs autorisées : `200` Réussite, `400` Configuration non valide, `500` Échec |
 | lastDesiredStatus.description | Texte de description de l’état |
-| clients.{device or module identity}.status | État de connectivité de cet appareil ou module. Valeurs possibles {"connected" \| "disconnected"}. Seules les identités de module peuvent être à l’état déconnecté. Les appareils en aval se connectant à Edge Hub ne s’affichent que lorsqu’ils sont connectés. |
-| clients.{device or module identity}.lastConnectTime | Dernière connexion de l’appareil ou du module |
-| clients.{device or module identity}.lastDisconnectTime | Dernière déconnexion de l’appareil ou du module |
+| clients.{device or moduleId}.status | État de connectivité de cet appareil ou module. Valeurs possibles {"connected" \| "disconnected"}. Seules les identités de module peuvent être à l’état déconnecté. Les appareils en aval se connectant à Edge Hub ne s’affichent que lorsqu’ils sont connectés. |
+| clients.{device or moduleId}.lastConnectTime | Dernière connexion de l’appareil ou du module |
+| clients.{device or moduleId}.lastDisconnectTime | Dernière déconnexion de l’appareil ou du module |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

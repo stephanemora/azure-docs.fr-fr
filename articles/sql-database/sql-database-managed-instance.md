@@ -2,25 +2,26 @@
 title: Présentation d’Azure SQL Database Managed Instance | Microsoft Docs
 description: Cette rubrique décrit Azure SQL Database Managed Instance et explique son fonctionnement ainsi que ses différences par rapport à une base de données unique dans Azure SQL Database.
 services: sql-database
-author: bonova
-ms.reviewer: carlrab
-manager: craigg
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/30/2018
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/26/2018
+ms.openlocfilehash: 626dd362248027831c78d1505662ca12d2ff334d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287661"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392820"
 ---
-# <a name="what-is-a-managed-instance-preview"></a>Présentation de l’option Managed Instance (préversion)
+# <a name="what-is-a-managed-instance"></a>Présentation de Managed Instance
 
-Azure SQL Database Managed Instance (préversion) est une nouveau modèle de déploiement d’Azure SQL Database, presque 100 % compatible avec le moteur de base de données local SQL Server (Édition Entreprise) le plus récent, qui fournit une implémentation de [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) native qui traite les problèmes de sécurité courants, ainsi qu’un [modèle d’entreprise](https://azure.microsoft.com/pricing/details/sql-database/) favorable aux clients SQL Server locaux. Managed Instance permet aux clients SQL Server existants d’effectuer une migration « lift-and-shift » de leurs applications locales vers le cloud en apportant des modifications minimales aux applications et bases de données. En même temps, Managed Instance conserve toutes les fonctionnalités PaaS (correctifs et mises à jour de versions automatiques, [sauvegardes automatisées](sql-database-automated-backups.md), [haute disponibilité](sql-database-high-availability.md)), ce qui réduit considérablement le temps de gestion et le coût total de possession.
+Azure SQL Database Managed Instance est un nouveau modèle de déploiement d’Azure SQL Database, presque 100 % compatible avec le moteur de base de données local SQL Server (Édition Entreprise) le plus récent, qui fournit une implémentation de [réseau virtuel (VNet)](../virtual-network/virtual-networks-overview.md) native qui traite les problèmes de sécurité courants, ainsi qu’un [modèle d’entreprise](https://azure.microsoft.com/pricing/details/sql-database/) favorable aux clients SQL Server locaux. Managed Instance permet aux clients SQL Server existants d’effectuer une migration « lift-and-shift » de leurs applications locales vers le cloud en apportant des modifications minimales aux applications et bases de données. En même temps, Managed Instance conserve toutes les fonctionnalités PaaS (correctifs et mises à jour de versions automatiques, [sauvegardes automatisées](sql-database-automated-backups.md), [haute disponibilité](sql-database-high-availability.md)), ce qui réduit considérablement le temps de gestion et le coût total de possession.
 
 > [!IMPORTANT]
 > Pour obtenir une liste de régions dans lesquelles Managed Instance est actuellement disponible, consultez [Migrate your databases to a fully managed service with Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
@@ -61,7 +62,7 @@ Le tableau suivant vous aidera à sélectionner la configuration optimale pour v
 ||Gen 4|Gen 5|
 |----|------|-----|
 |Matériel|Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz, disque SSD attaché vCore = 1 PP (cœur physique)|Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz, disque SSD fast eNVM, vCore = 1 LP (hyperthread)|
-|Niveaux de performances|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
+|Tailles de calcul|8, 16, 24 vCores|8, 16, 24, 32, 40, 64, 80 vCores|
 |Mémoire|7 Go par vCore|5,5 Go par vCore|
 ||||
 
@@ -69,7 +70,7 @@ Le tableau suivant vous aidera à sélectionner la configuration optimale pour v
 
 Managed Instance est disponible en deux niveaux de service :
 - **Usage général** : conçu pour des applications avec des exigences de performances et de latence d’E/S standard.
-- **Critique pour l’entreprise** : conçu pour les applications avec des exigences de latence d’E/S faible et un impact minimal des opérations de maintenance sous-jacentes sur la charge de travail.
+- **Critique pour l’entreprise (préversion)** : conçu pour les applications avec des exigences de latence d’E/S faibles et un impact minimal des opérations de maintenance sous-jacentes sur la charge de travail.
 
 Les deux niveaux de service garantissent une disponibilité de 99,99 % et vous permettent de sélectionner la taille de stockage et la capacité de calcul indépendamment. Pour plus d’informations sur l’architecture à haute disponibilité d’Azure SQL Database, voir [Haute disponibilité et Azure SQL Database](sql-database-high-availability.md).
 
@@ -109,7 +110,7 @@ La liste suivante décrit les principales caractéristiques du niveau de service
 
 Pour plus d’informations, consultez [Architecture et disponibilité standard/à usage général](sql-database-high-availability.md#standardgeneral-purpose-availability) dans Azure SQL Database.
 
-### <a name="business-critical-service-tier"></a>Niveau de service critique pour l’entreprise
+### <a name="business-critical-service-tier-preview"></a>Niveau de service Critique pour l’entreprise (préversion)
 
 Le niveau de service Critique pour l’entreprise est conçu pour les applications dont les exigences en termes d’E/S sont élevées. Il offre la meilleure résilience aux échecs en utilisant plusieurs réplicas isolés Always On. 
 
@@ -141,6 +142,9 @@ La liste suivante décrit les principales caractéristiques du niveau de service
 
 Pour plus d’informations, consultez [Architecture et disponibilité Premium/critiques pour l'entreprise](sql-database-high-availability.md#premiumbusiness-critical-availability) dans Azure SQL Database.
 
+> [!IMPORTANT]
+> Le niveau de service **Critique pour l’entreprise** est en préversion.
+
 ## <a name="advanced-security-and-compliance"></a>Sécurité et conformité avancées 
 
 Azure SQL Database Managed Instance combine les fonctionnalités de sécurité avancées fournies par le cloud Azure et le moteur de base de données SQL Server. 
@@ -171,7 +175,7 @@ Azure SQL Database fournit un ensemble de fonctionnalités de sécurité avancé
 - La [Détection de menaces](sql-database-managed-instance-threat-detection.md) complète l’[Audit Managed Instance](sql-database-managed-instance-auditing.md) en fournissant une couche supplémentaire d’informations de sécurité intégrée au service. Elle détecte les tentatives inhabituelles ou potentiellement dangereuses d’accès ou d’exploitation des failles de sécurité des bases de données. Vous êtes alerté en cas d’activités suspectes, de vulnérabilités potentielles, d’attaques par injection de code SQL et de modèles d’accès anormaux à la base de données. Les alertes Threat Detection peuvent être consultées à partir d’[Azure Security Center](https://azure.microsoft.com/services/security-center/). Elles fournissent des détails sur les activités suspectes et recommandent l’action à entreprendre pour analyser et prévenir la menace.  
 - Le [masquage des données dynamiques](/sql/relational-databases/security/dynamic-data-masking) limite l’exposition des données sensibles en les masquant pour les utilisateurs sans privilège. Le masquage des données dynamique contribue à empêcher tout accès non autorisé aux données sensibles en vous permettant d’indiquer la quantité de données sensibles à révéler avec un impact minimal sur la couche Application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête dans les champs de la base de données désignés. Les données de la base de données ne sont pas modifiées. 
 - La [sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security) vous permet de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête (par exemple, appartenance à un groupe ou contexte d’exécution). La sécurité au niveau des lignes (RLS) simplifie la conception et le codage de la sécurité dans votre application. Elle vous permet d’implémenter des restrictions sur l’accès aux lignes de données. Par exemple, en s’assurant que les employés ne peuvent accéder qu’aux lignes de données utiles à leur service, ou en limitant l’accès aux données aux seules données pertinentes. 
-- [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) : également appelé chiffrement des données au repos, chiffre les fichiers de données d’Azure SQL Managed Instance. TDE effectue le chiffrement et le déchiffrement d’E/S en temps réel des données et des fichiers journaux. Le chiffrement utilise une clé de chiffrement de base de données stockée dans l’enregistrement de démarrage de base de données à des fins de disponibilité lors de la récupération. Vous pouvez protéger toutes vos bases de données dans Managed Instance avec un chiffrement transparent des données. Il s’agit de la technologie de chiffrement au repos éprouvée de SQL, qui est requise par de nombreuses normes de conformité comme protection contre le vol d’un support de stockage. Durant la préversion publique, le modèle de gestion automatique des clés (effectuée par la plateforme PaaS) est pris en charge. 
+- [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) : également appelé chiffrement des données au repos, chiffre les fichiers de données d’Azure SQL Database Managed Instance. TDE effectue le chiffrement et le déchiffrement d’E/S en temps réel des données et des fichiers journaux. Le chiffrement utilise une clé de chiffrement de base de données stockée dans l’enregistrement de démarrage de base de données à des fins de disponibilité lors de la récupération. Vous pouvez protéger toutes vos bases de données dans Managed Instance avec un chiffrement transparent des données. Il s’agit de la technologie de chiffrement au repos éprouvée de SQL, qui est requise par de nombreuses normes de conformité comme protection contre le vol d’un support de stockage. Durant la préversion publique, le modèle de gestion automatique des clés (effectuée par la plateforme PaaS) est pris en charge. 
 
 La migration d’une base de données chiffrée vers SQL Managed Instance est prise en charge via Azure Database Migration Service (DMS) ou une restauration native. Si vous envisagez de migrer une base de données chiffrée en utilisant une restauration native, la migration du certificat TDE existant du serveur SQL Server local ou de la machine virtuelle SQL Server vers Managed instance est une étape obligatoire. Pour plus d’informations sur les options de migration, voir [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
@@ -200,9 +204,12 @@ Managed Instance cible des scénarios d’utilisateur impliquant une migration d
 ### <a name="backup-and-restore"></a>Sauvegarde et restauration  
 
 L’approche de la migration s’appuie sur les sauvegardes SQL dans Stockage Blob Azure. Les sauvegardes stockées dans Azure Storage Blob peuvent être directement restaurées dans Managed Instance à l’aide de la [commande T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
-  - Pour suivre un tutoriel montrant comment restaurer le fichier de sauvegarde de base de données Wide World Importers - Standard, consultez [Restaurer un fichier de sauvegarde dans une instance gérée](sql-database-managed-instance-restore-from-backup-tutorial.md). Ce tutoriel vous montre que vous devez charger un fichier de sauvegarde dans Stockage Blob Azure et le sécuriser à l’aide d’une clé de signature d’accès partagé (SAP).
+  - Pour suivre un guide de démarrage rapide montrant comment restaurer le fichier de sauvegarde de base de données Wide World Importers - Standard, consultez [Restaurer un fichier de sauvegarde dans une instance managée](sql-database-managed-instance-get-started-restore.md). Ce guide vous montre que vous devez charger un fichier de sauvegarde dans Stockage Blob Azure et le sécuriser à l’aide d’une clé de signature d’accès partagé (SAP).
   - Pour plus d’informations sur la restauration à partir d’une URL, consultez [Restauration native à partir d’une URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
-  
+
+> [!IMPORTANT]
+> Les sauvegardes d’une instance managée peuvent uniquement être restaurées sur une autre instance managée. Elles ne peuvent pas être restaurées sur un serveur SQL Server local, ni sur une base de données unique ou mise en pool qui serait sur un serveur logique Azure SQL Database.
+
 ### <a name="data-migration-service"></a>Service de migration des données
 
 Azure Database Migration Service est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime. Ce service simplifie les tâches nécessaires pour déplacer des bases de données SQL Server tierces existantes vers Azure. Les options de déploiement incluent Azure SQL Database, Managed Instance et SQL Server dans une machine virtuelle Azure en préversion publique. Consultez [Comment migrer votre base de données locale vers Managed Instance à l’aide de DMS](https://aka.ms/migratetoMIusingDMS).
@@ -226,11 +233,11 @@ Managed Instance tire parti du fait d’être toujours à jour dans le cloud, ce
 - Managed Instance ne permet pas de spécifier des chemins physiques complets si bien que tous les scénarios correspondants doivent être pris en charge différemment : RESTORE DB ne prend pas en charge WITH MOVE, CREATE DB n’autorise pas de chemins physiques, BULK INSERT fonctionne avec les objets blob Azure uniquement, etc. 
 - Managed Instance prend en charge l’[authentification Azure AD](sql-database-aad-authentication.md) en tant qu’alternative cloud à l’authentification Windows. 
 - Managed Instance gère automatiquement le groupe de fichiers et les fichiers XTP des bases de données contenant des objets OLTP In-Memory.
-- Managed Instance prend en charge SSIS (SQL Server Integration Services) et peut héberger le catalogue SSIS (SSISDB) qui stocke les packages SSIS, mais ceux-ci sont exécutés sur une instance Azure-SSIS IR (Integration Runtime) gérée dans ADF (Azure Data Factory). Consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). Pour comparer les fonctionnalités SSIS dans SQL Database et Managed Instance, consultez [Comparer SQL Database et Managed Instance (préversion)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
+- Managed Instance prend en charge SSIS (SQL Server Integration Services) et peut héberger le catalogue SSIS (SSISDB) qui stocke les packages SSIS, mais ceux-ci sont exécutés sur une instance Azure-SSIS IR (Integration Runtime) gérée dans ADF (Azure Data Factory). Consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Pour comparer les fonctionnalités SSIS dans SQL Database et Managed Instance, consultez [Comparer un serveur logique SQL Database et SQL Database Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Fonctionnalités administratives de Managed Instance  
 
-Managed Instance permet aux administrateurs système de se concentrer sur ce qui importe le plus à l’entreprise. De nombreuses activités d’administrateur système/de base de données ne sont pas nécessaires ou sont très simples. Par exemple, l’installation et la mise à jour corrective d’un système d’exploitation/système de gestion de base de données relationnelle, le redimensionnement et la configuration d’une instance dynamique, les sauvegardes, la réplication de base de données (notamment des bases de données système), ainsi que la configuration des flux de données de surveillance de l’intégrité et des performances. 
+Managed Instance permet aux administrateurs système de se concentrer sur ce qui importe le plus à l’entreprise. De nombreuses activités d’administrateur système/de base de données ne sont pas nécessaires ou sont très simples. Par exemple, l’installation et la mise à jour corrective d’un système d’exploitation ou système de gestion de base de données relationnelle, le redimensionnement et la configuration d’une instance dynamique, les sauvegardes, la [réplication de base de données](replication-with-sql-database-managed-instance.md) (notamment des bases de données système), ainsi que la configuration des flux de données de supervision de l’intégrité et des performances. 
 
 > [!IMPORTANT]
 > Pour obtenir la liste des fonctionnalités prises en charge, partiellement prises en charge et non prises en charge, consultez [Fonctionnalités de SQL Database](sql-database-features.md). Pour obtenir la liste des différences de T-SQL entre Managed Instance et SQL Server, consultez [Différences de T-SQL entre Managed Instance et SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -251,6 +258,6 @@ Le tableau suivant montre plusieurs propriétés, accessibles par le biais de Tr
 - Pour savoir comment créer votre première Managed Instance, consultez [Guide de démarrage rapide](sql-database-managed-instance-get-started.md).
 - Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).
 - Pour plus d’informations sur la configuration du réseau virtuel, consultez [Configure a VNet for Azure SQL Database Managed Instance](sql-database-managed-instance-vnet-configuration.md) (Configurer un réseau virtuel pour une option Azure SQL Database Managed Instance).
-- Pour un tutoriel qui crée une option Managed Instance et restaure une base de données à partir d’un fichier de sauvegarde, consultez [Créer une option Managed Instance](sql-database-managed-instance-create-tutorial-portal.md).
+- Pour obtenir un guide de démarrage rapide qui crée une instance managée et restaure une base de données à partir d’un fichier de sauvegarde, consultez [Créer une instance managée](sql-database-managed-instance-get-started.md).
 - Pour un tutoriel utilisant le service Azure Database Migration Service (DMS) pour la migration, consultez [Migrer SQL vers Azure SQL Database Managed Instance](../dms/tutorial-sql-server-to-managed-instance.md).
 - Pour plus d’informations sur la tarification, voir [Tarification de SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).

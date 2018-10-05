@@ -3,7 +3,7 @@ title: Mise à jour 1807 d’Azure Stack | Microsoft Docs
 description: Découvrez les nouveautés de la mise à jour 1807 pour les systèmes intégrés Azure Stack, y compris les problèmes connus et l’emplacement de téléchargement de la mise à jour.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2018
-ms.author: brenduns
+ms.date: 09/26/2018
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: afbe3ff2e6be4e03f8de8ac2490922c3ec788733
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 951c012dd22cf83741211b9601a5e7502de33be6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091378"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393024"
 ---
 # <a name="azure-stack-1807-update"></a>Mise à jour 1807 d’Azure Stack
 
@@ -143,7 +143,11 @@ Pour plus d’informations sur ces vulnérabilités, cliquez sur les liens préc
   > - Atom : https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …
 
 
-- Avant de commencer l’installation de la mise à jour 1807, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une intervention.
+- Avant de démarrer l’installation de cette mise à jour, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) avec les paramètres suivants pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés, y compris tous les avertissements et les échecs. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une intervention.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ### <a name="known-issues-with-the-update-process"></a>Problèmes connus avec le processus de mise à jour
 
@@ -154,20 +158,21 @@ Pour plus d’informations sur ces vulnérabilités, cliquez sur les liens préc
 - <!-- 2830461 - IS --> Dans certaines circonstances quand une mise à jour nécessite une attention particulière, l’alerte correspondante peut ne pas être générée. L’état précis apparaît quand même dans le portail et n’est pas affecté.
 
 ### <a name="post-update-steps"></a>Étapes après la mise à jour
+Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md). 
+- [KB 4464231 – Correctif logiciel Azure Stack 1.1807.1.78]( https://support.microsoft.com/help/4464231)
 
-- <!-- 2933866 – IS --> **État amélioré pour les installations de mise à jour ayant échoué.** Cette version introduit deux nouvelles catégories d’état pour fournir aux opérateurs davantage de détails sur les installations de mise à jour ayant échoué. Ces deux catégories sont *PreparationFailed* et *InstallationFailed*. Après avoir installé cette version, vous pouvez constater que des informations relatives à des échecs d’installation de mise à jour précédents sont révisés de façon à refléter ces nouvelles catégories. 
-
-<!-- *There are no post-update steps for update 1807.* -->
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - Link to KB  
- -->
+ <!-- 2933866 – IS --> Après l’installation de cette mise à jour, vous observerez une **amélioration des informations d’état en cas d’échec d’une installation de mise à jour**. Par exemple, les informations sur les échecs d’installations de mises à jour antérieures ont été modifiées pour refléter les deux nouvelles catégories d’état (STATE). Les nouvelles catégories STATE sont *PreparationFailed* et *InstallationFailed*.  
 
 ## <a name="known-issues-post-installation"></a>Problèmes connus (après l’installation)
 
 Les éléments suivants sont des problèmes connus qui apparaissent après l’installation de cette build.
 
 ### <a name="portal"></a>Portail
+
+- La documentation technique Azure Stack s’applique à la dernière version. En raison des changements apportés au portail entre les versions, ce que vous voyez dans les portails Azure Stack peut différer du contenu de la documentation. 
+
+- L’option pour [ouvrir une nouvelle demande de support à partir de la liste déroulante](azure-stack-manage-portals.md#quick-access-to-help-and-support) dans le portail d’administration n’est pas disponible. À la place, pour les systèmes intégrés Azure Stack, utilisez le lien suivant : [https://aka.ms/newsupportrequest](https://aka.ms/newsupportrequest).
+
 - <!-- 2931230 – IS  ASDK --> Les plans ajoutés à un abonnement utilisateur comme plan d’extension ne peuvent pas être supprimés, même quand vous supprimez le plan de l’abonnement utilisateur. Le plan est conservé jusqu’à ce que les abonnements qui référencent le plan d’extension soient aussi supprimés. 
 
 - <!--2760466 – IS  ASDK --> Quand vous installez un nouvel environnement Azure Stack qui exécute cette version, l’alerte qui indique *Activation requise* peut ne pas s’afficher. L’[activation](azure-stack-registration.md) est nécessaire avant que vous puissiez utiliser la syndication de Place de marché.  

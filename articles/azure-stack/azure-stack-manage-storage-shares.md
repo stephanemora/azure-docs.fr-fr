@@ -6,23 +6,22 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: b0e694e4-3575-424c-afda-7d48c2025a62
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: cdfdaf9195f14e3cbe3db2a4507bd91a3133a26e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071383"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452324"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack
+# <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack 
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -86,10 +85,15 @@ En tant qu’opérateur de cloud, vous pouvez surveiller la capacité de stockag
 - La **capacité utilisée** est la quantité de données (en octets) utilisée par toutes les extensions des fichiers qui stockent les données de locataire et les métadonnées associées.
 
 ### <a name="use-the-administrator-portal"></a>Utiliser le portail d’administration
-En tant qu’opérateur de cloud, vous pouvez utiliser le portail d’administration pour afficher la capacité de stockage de tous les partages. **Accédez à Stockage** > **Partages de fichiers** pour ouvrir la liste de partages de fichiers où vous pouvez consulter les informations d’utilisation.
-![Exemple : partages de fichiers de stockage](media/azure-stack-manage-storage-shares/storage-file-shares.png)
-- **TOTAL** représente l’espace total (en octets) disponible dans le partage. Cet espace est utilisé pour les données et métadonnées gérées par les services de stockage.
-- **UTILISÉ** représente la quantité de données (en octets) utilisée par toutes les extensions des fichiers qui stockent les données de locataire et les métadonnées associées.
+En tant qu’opérateur de cloud, vous pouvez utiliser le portail d’administration pour afficher la capacité de stockage de tous les partages.
+
+1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
+2. Sélectionnez **Tous les services** > **Stockage** pour ouvrir la liste de partages de fichiers où vous pouvez consulter les informations d’utilisation. 
+
+  ![Exemple : partages de fichiers de stockage](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+
+  - **TOTAL** représente l’espace total (en octets) disponible dans le partage. Cet espace est utilisé pour les données et métadonnées gérées par les services de stockage.
+  - **UTILISÉ** représente la quantité de données (en octets) utilisée par toutes les extensions des fichiers qui stockent les données de locataire et les métadonnées associées.
 
 ### <a name="storage-space-alerts"></a>Alertes de l’espace de stockage
 Lorsque vous utilisez le portail d’administration, vous recevez des alertes sur les partages qui manquent d’espace.

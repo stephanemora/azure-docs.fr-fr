@@ -11,26 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 69bf788ef30a18bbe70e251fdd6a814d0f528f55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 978cce4642dc61143bd829fcae03357fd8c969c2
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994562"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405510"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Ajouter Kubernetes sur la Place de marché Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 > [!note]  
-> Kubernetes sur Azure Stack est en préversion. Pour obtenir l’accès à l’élément Cluster Kubernetes sur la Place de marché afin de pouvoir suivre les instructions données dans cet article, [envoyez une demande d’accès](https://aka.ms/azsk8).
+> Kubernetes sur Azure Stack est en préversion.
 
 Vous pouvez créer une offre Kubernetes et la mettre à disposition des utilisateurs en tant qu’élément de la Place de marché. Les utilisateurs peuvent alors déployer Kubernetes en une seule opération coordonnée.
 
-L’article suivant décrit comment utiliser un modèle Azure Resource Manager pour déployer et provisionner les ressources d’un cluster Kubernetes autonome. Avant de commencer, vérifiez les paramètres Azure Stack et les paramètres du locataire Azure global. Collectez les informations sur Azure Stack requises. Ajoutez les ressources nécessaires à votre locataire et à la Place de marché Azure Stack. Le cluster dépend d’un serveur Ubuntu, du script personnalisé et des éléments Kubernetes à ajouter à la Place de marché.
+L’article suivant décrit comment utiliser un modèle Azure Resource Manager pour déployer et provisionner les ressources d’un cluster Kubernetes autonome. L’élément de la Place de marché Cluster Kubernetes version 0.3.0 nécessite Azure Stack 1808. Avant de commencer, vérifiez les paramètres Azure Stack et les paramètres du locataire Azure global. Collectez les informations sur Azure Stack requises. Ajoutez les ressources nécessaires à votre locataire et à la Place de marché Azure Stack. Le cluster dépend d’un serveur Ubuntu, du script personnalisé et des éléments Kubernetes à ajouter à la Place de marché.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Créer un plan, une offre et un abonnement
 
@@ -106,7 +106,7 @@ Ajoutez Kubernetes à partir de la Place de marché :
 
 1. Ouvrez le [portail d’administration](https://adminportal.local.azurestack.external).
 
-1. Sélectionnez **Tous les services**, puis, dans la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché**.
+1. Sélectionnez **Tous les services** et, sous la catégorie **ADMINISTRATION**, sélectionnez **Gestion de la Place de marché**.
 
 1. Sélectionnez **+ Ajouter à partir d’Azure**.
 
@@ -127,14 +127,20 @@ Quand vous mettez à jour l’élément Kubernetes, vous devez supprimer l’él
 
 Pour supprimer l’élément Kubernetes :
 
-1. Notez le nom de l’élément actuel (par exemple, `Microsoft.AzureStackKubernetesCluster.0.2.0`)
+1. Connectez-vous en tant qu’opérateur à Azure Stack à l’aide de PowerShell. Pour plus d’informations, consultez [Se connecter en tant qu’opérateur à Azure Stack à l’aide de PowerShell](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-admin).
 
-1. Connectez-vous à Azure Stack à l’aide de PowerShell.
-
-1. Pour supprimer l’élément, utilisez l’applet de commande PowerShell suivante :
+2. Recherchez l’élément Cluster Kubernetes actuel dans la galerie.
 
     ```PowerShell  
-    $Itemname="Microsoft.AzureStackKubernetesCluster.0.2.0"
+    Get-AzsGalleryItem | Select Name
+    ```
+    
+3. Notez le nom de l’élément actuel (par exemple, `Microsoft.AzureStackKubernetesCluster.0.2.0`)
+
+4. Pour supprimer l’élément, utilisez l’applet de commande PowerShell suivante :
+
+    ```PowerShell  
+    $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname
     ```

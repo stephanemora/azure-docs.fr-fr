@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8914391a586bb508192200beaba7f591649a1e99
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "43050385"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452273"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gérer les comptes de stockage dans Azure Stack
 Découvrez comment gérer les comptes de stockage dans Azure Stack pour rechercher, restaurer et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
@@ -28,19 +27,19 @@ Découvrez comment gérer les comptes de stockage dans Azure Stack pour recherch
 ## <a name="find"></a>Rechercher un compte de stockage
 La liste des comptes de stockage de la région peut être affichée dans Azure Stack comme suit :
 
-1. Dans un navigateur Internet, accédez à https://adminportal.local.azurestack.external.
-2. Connectez-vous au portail d’administration d’Azure Stack comme opérateur cloud (en utilisant les informations d’identification que vous avez fournies lors du déploiement)
-3. Dans le tableau de bord par défaut, recherchez la liste **Gestion des régions** et sélectionnez la région à explorer, par exemple **(local**).
+1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
+
+2. Sélectionnez **Tous les services** > **Gestion des régions** sous **Administration**.
+
+3. Sélectionnez **Stockage** dans la liste **Fournisseurs de ressources**.
    
-   ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Sélectionnez **Stockage** dans la liste **Fournisseurs de ressources**.
+   ![Fournisseur de ressources de stockage](media/azure-stack-manage-storage-accounts/image1.png)
+
+5. Sélectionnez **Comptes de stockage** dans **Stockage**.
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Ensuite, dans le volet de l’administrateur du fournisseur de ressources de stockage, faites défiler jusqu’à l’onglet **Comptes de stockage** et sélectionnez-le.
    
-   ![](media/azure-stack-manage-storage-accounts/image3.png)
-   
-   La page résultante est la liste des comptes de stockage dans cette région.
+   Le panneau affiche la liste des comptes de stockage dans cette région.
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
@@ -76,7 +75,7 @@ Il peut être parfois nécessaire de récupérer un compte supprimé.
 
 Dans Azure Stack, il existe un moyen simple de le faire :
 
-1. Accédez à la liste de comptes de stockage. Pour plus d’informations, consultez [Rechercher un compte de stockage](#find) dans cette rubrique.
+1. Accédez à la liste de comptes de stockage. Pour plus d’informations, consultez [Rechercher un compte de stockage](#find) dans cet article.
 2. Localisez ce compte particulier dans la liste. Il peut être nécessaire de filtrer.
 3. Vérifiez l’*état* du compte. Il doit être **Supprimé**.
 4. Sélectionnez le compte pour ouvrir le volet des détails du compte.
@@ -97,19 +96,18 @@ Dans Azure Stack, il existe un moyen simple de le faire :
   « Hors rétention » signifie que le compte supprimé a dépassé la période de conservation et qu’il n’est peut-être pas récupérable.
 * Votre compte supprimé n’apparaît pas dans la liste des comptes.
   
-  Il se peut que votre compte ne s’affiche pas dans la liste des comptes lorsque les comptes supprimés ont déjà été effacés. Dans ce cas, il ne peut pas être récupéré. Consultez [Récupérer de la capacité](#reclaim) dans cette rubrique.
+  Il se peut que votre compte ne s’affiche pas dans la liste des comptes lorsque les comptes supprimés ont déjà été effacés. Dans ce cas, il ne peut pas être récupéré. Consultez [Récupérer de la capacité](#reclaim) dans cet article.
 
 ## <a name="set-the-retention-period"></a>Définir la période de conservation
 Le paramètre de période de conservation permet à un opérateur cloud de spécifier une période de temps en jours (entre 0 et 9 999 jours) pendant laquelle un compte supprimé peut être récupéré. La période de rétention par défaut est définie sur 0 jour. La valeur « 0 » pour ce paramètre signifie qu’un compte supprimé est immédiatement hors conservation et est marqué pour faire l’objet d’un nettoyage périodique de la mémoire.
 
 **Pour changer la période de conservation :**
 
-1. Dans un navigateur Internet, accédez à https://adminportal.local.azurestack.external.
-2. Connectez-vous au portail d’administration d’Azure Stack comme opérateur cloud (en utilisant les informations d’identification que vous avez fournies lors du déploiement)
-3. Dans le tableau de bord par défaut, recherchez la liste **Gestion des régions** et sélectionnez la région à explorer, par exemple **(local**).
-4. Sélectionnez **Stockage** dans la liste **Fournisseurs de ressources**.
-5. Sélectionnez **Paramètres** en haut pour ouvrir le volet des paramètres.
-6. Sélectionnez **Configuration**, puis modifiez la valeur de la période de conservation.
+1. Connectez-vous au [portail d’administration](https://adminportal.local.azurestack.external).
+2. Sélectionnez **Tous les services** > **Gestion des régions** sous **Administration**.
+3. Sélectionnez **Stockage** dans la liste **Fournisseurs de ressources**.
+4. Sélectionnez **Paramètres** en haut pour ouvrir le volet des paramètres.
+5. Sélectionnez **Configuration**, puis modifiez la valeur de la période de conservation.
 
    Définissez le nombre de jours et enregistrez-le.
    
@@ -142,7 +140,7 @@ Vous pouvez aussi utiliser PowerShell pour remplacer explicitement la période d
    Pour plus d’informations sur les applets de commande Azure Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).
 2. Exécutez les applets de commande suivantes :
 
-> [!NOTE]
+> [!NOTE]  
 > Si vous exécutez ces applets de commande, vous supprimez définitivement le compte et son contenu. Il n’est pas récupérable. Utilisez cette option avec précaution.
 
 ```PowerShell  

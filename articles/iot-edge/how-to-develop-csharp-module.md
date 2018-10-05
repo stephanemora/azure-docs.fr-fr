@@ -6,27 +6,27 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 09/04/2018
+ms.date: 09/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b1c6209c4d589093d7a29cd8a883d3e5d4ca12f9
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 88659d31b64b4a98043606a71602f7c29316a31e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782300"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423287"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code pour développer et déboguer des modules C# pour Azure IoT Edge
 
 Vous pouvez transformer votre logique métier en modules pour Azure IoT Edge. Cet article vous montre comment utiliser Visual Studio Code (VS Code) comme outil principal pour développer et déboguer des modules C#.
 
 ## <a name="prerequisites"></a>Prérequis
-Cet article part du principe que vous utilisez un ordinateur ou une machine virtuelle Windows, macOS ou Linux comme machine de développement. Vous pouvez utiliser un autre appareil physique comme appareil IoT Edge.
 
-> [!NOTE]
-> Cet article décrit deux méthodes classiques pour déboguer votre module C# dans VS Code. Une des méthodes consiste à attacher un processus dans un conteneur de module, tandis que l’autre consiste à lancer le code du module en mode débogage. Si vous n’êtes pas familiarisé avec les fonctionnalités de débogage de Visual Studio Code, découvrez-en plus sur le [débogage](https://code.visualstudio.com/Docs/editor/debugging).
+Vous pouvez utiliser un ordinateur ou une machine virtuelle Windows, macOS ou Linux comme machine de développement. Vous pouvez utiliser un autre appareil physique comme appareil IoT Edge.
 
-Étant donné que cet article utilise Visual Studio Code comme outil de développement principal, installez VS Code. Ensuite, ajoutez les extensions nécessaires :
+Il existe deux façons de déboguer votre module C# dans VS Code. La première consiste à attacher un processus dans un conteneur de module, tandis que la seconde consiste à lancer le code du module en mode débogage. Si vous n’êtes pas familiarisé avec les fonctionnalités de débogage de Visual Studio Code, découvrez-en plus sur le [débogage](https://code.visualstudio.com/Docs/editor/debugging).
+
+Commencez par installer Visual Studio Code, puis ajoutez les extensions nécessaires suivantes :
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Extension Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Extension C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 
@@ -38,29 +38,29 @@ Pour créer un module, vous devez disposer du .NET, pour générer le dossier de
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ou [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Vous pouvez utiliser un registre Docker local pour le prototype et à des fins de test, au lieu d’un registre cloud. 
 
-Afin de configurer l’environnement de développement local pour le débogage, l’exécution et le test de votre solution IoT Edge, vous avez besoin de [l’outil de développement Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/), et d’installer [Python (2.7/3.6) et Pip](https://www.python.org/). Ensuite, installez **iotedgehubdev** en exécutant la commande ci-dessous dans votre terminal.
+Afin de configurer l’environnement de développement local pour le débogage, l’exécution et le test de votre solution IoT Edge, vous avez besoin de [l’outil de développement Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Installez [Python (2.7/3.6) et Pip](https://www.python.org/). Ensuite, installez **iotedgehubdev** en exécutant la commande ci-dessous dans votre terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 
-Pour tester votre module sur un appareil, vous avez besoin d’un hub IoT actif avec au moins un appareil IoT Edge. Pour utiliser votre ordinateur comme appareil IoT Edge, suivez les étapes décrites dans le guide de démarrage rapide pour [Windows](quickstart.md) ou [Linux](quickstart-linux.md). 
+Pour tester votre module sur un appareil, vous avez besoin d’un hub IoT actif avec au moins un ID d’appareil IoT Edge créé. Si vous exécutez le démon IoT Edge sur l’ordinateur de développement, vous devrez peut-être arrêter EdgeHub et EdgeAgent avant de passer à l’étape suivante. 
 
 ## <a name="create-a-new-solution-with-c-module"></a>Créer une solution avec un module C#
 
-Effectuez les étapes suivantes pour créer un module IoT Edge basé sur .NET Core 2.0 à l’aide de Visual Studio Code et de l’extension Azure IoT Edge. Vous commencez par créer une solution, puis vous y générez le premier module. Chaque solution peut contenir plusieurs modules. 
+Effectuez les étapes suivantes pour créer un module IoT Edge basé sur .NET Core 2.1 à l’aide de Visual Studio Code et de l’extension Azure IoT Edge. Vous commencez par créer une solution, puis vous y générez le premier module. Chaque solution peut contenir plusieurs modules. 
 
 1. Dans Visual Studio Code, sélectionnez **Affichage** > **Terminal intégré**.
-3. Sélectionnez **Affichage** > **Palette de commandes**. 
-4. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge : Nouvelle solution IoT Edge**.
+2. Sélectionnez **Affichage** > **Palette de commandes**. 
+3. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge : Nouvelle solution IoT Edge**.
 
    ![Exécuter la nouvelle solution IoT Edge](./media/how-to-develop-csharp-module/new-solution.png)
 
-5. Accédez au dossier dans lequel vous souhaitez créer la solution. Choisissez **Sélectionner un dossier**. 
-6. Entrez un nom pour votre solution. 
-7. Sélectionnez **Module C#** comme modèle pour le premier module de la solution.
-8. Entrez un nom pour votre module. Choisissez un nom qui est unique dans le registre de conteneurs. 
-9. Indiquez le nom du référentiel d’images du module. Par défaut, VS Code nomme le module **localhost:5000**. Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion ressemble à **\<nom du registre\>.azurecr.io**. Remplacez uniquement la partie localhost de la chaîne, ne supprimez pas le nom de votre module.
+4. Accédez au dossier dans lequel vous souhaitez créer la solution. Choisissez **Sélectionner un dossier**. 
+5. Entrez un nom pour votre solution. 
+6. Sélectionnez **Module C#** comme modèle pour le premier module de la solution.
+7. Entrez un nom pour votre module. Choisissez un nom qui est unique dans le registre de conteneurs. 
+8. Indiquez le nom du référentiel d’images du module. Par défaut, VS Code nomme le module **localhost:5000**. Remplacez-le par vos propres informations de registre. Si vous utilisez un registre Docker local à des fins de test, **localhost** convient. Si vous utilisez Azure Container Registry, utilisez le serveur de connexion à partir des paramètres de votre registre. Le serveur de connexion ressemble à **\<nom du registre\>.azurecr.io**. Remplacez uniquement la partie localhost de la chaîne, ne supprimez pas le nom de votre module.
 
    ![Fourniture du référentiel d’images Docker](./media/how-to-develop-csharp-module/repository.png)
 
@@ -69,6 +69,7 @@ Effectuez les étapes suivantes pour créer un module IoT Edge basé sur .NET Co
    ![Afficher la solution IoT Edge](./media/how-to-develop-csharp-module/view-solution.png)
 
 La solution comprend quatre éléments : 
+
 * Un dossier **.vscode**, qui contient les configurations de débogage.
 * Un dossier **modules**, qui contient des sous-dossiers pour chaque module. À ce stade, vous n’en avez qu’un. Toutefois, vous pouvez en ajouter via la palette de commandes avec la commande **Azure IoT Edge : Ajouter un module IoT Edge**. 
 * Un fichier **.env**, qui liste vos variables d’environnement. Si Azure Container Registry est votre registre, celui-ci comprend un nom d’utilisateur et un mot de passe Azure Container Registry. 
@@ -87,7 +88,8 @@ Lorsque vous êtes prêt à personnaliser le modèle C# avec votre propre code, 
 La prise en charge de C# dans VS Code est optimisée pour le développement .NET Core multiplateforme. Pour en savoir plus, consultez l’article décrivant [comment utiliser C# dans VS Code](https://code.visualstudio.com/docs/languages/csharp).
 
 ## <a name="launch-and-debug-module-code-without-container"></a>Lancer et déboguer le code du module sans conteneur
-Le module C# IoT Edge est une application .Net Core. Il dépend du SDK d’appareil Azure IoT C#. Dans le code du module par défaut, vous initialisez un **ModuleClient** avec des paramètres d’environnement et un nom d’entrée, ce qui signifie que le module IoT Edge C# a besoin des paramètres d’environnement pour démarrer et s’exécuter, et vous devez également envoyer ou router les messages vers les canaux d’entrée. Votre module C# par défaut contient un seul canal d’entrée dont le nom est **input1**.
+
+Le module C# IoT Edge est une application .Net Core. Il dépend du SDK d’appareil Azure IoT C#. Dans la mesure où le module IoT C# nécessite des paramètres d’environnement pour démarrer et s’exécuter, dans le code du module par défaut, initialisez un **ModuleClient** avec des paramètres d’environnement et un nom d’entrée. Vous devez également envoyer ou router les messages vers les canaux d’entrée. Votre module C# par défaut contient un seul canal d’entrée dont le nom est **input1**.
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>Configurer un simulateur IoT Edge pour une application à module unique
 
@@ -111,14 +113,16 @@ Le module C# IoT Edge est une application .Net Core. Il dépend du SDK d’appar
     dotnet build
     ```
 
-   > [!TIP]
-   > Vous pouvez aussi utiliser [PostMan](https://www.getpostman.com/) ou d’autres outils d’API pour envoyer des messages à la place de `curl`.
-
 2. Accédez à `program.cs`. Ajoutez un point d’arrêt dans ce fichier.
 
-3. Accédez à la vue de débogage de VS Code. Sélectionnez la configuration de débogage **Débogage local de Nom_Module (.NET Core)**. 
+3. Accédez à la vue de débogage de VS Code : Affichage > Déboguer. Sélectionnez la configuration de débogage **Débogage local de Nom_Module (.NET Core)** dans la liste déroulante. 
+
+  ![Passer en mode de débogage dans VS Code](media/how-to-develop-csharp-module/debug-view.png)
 
 4. Cliquez sur **Démarrer le débogage** ou appuyez sur **F5**. Vous démarrer la session de débogage.
+
+   > [!NOTE]
+   > Si votre `TargetFramework` .Net Core n’est pas cohérent avec votre chemin de programme dans `launch.json`, vous devez mettre à jour manuellement le chemin du programme dans `launch.json` afin de respecter le `TargetFramework` dans votre fichier .csproj. Ainsi, VS Code peut lancer ce programme avec succès.
 
 5. Dans le terminal intégré de VS Code, exécutez la commande suivante pour envoyer un message **Hello World** à votre module. Il s’agit de la commande décrite dans les étapes précédentes de configuration du simulateur IoT Edge.
 
@@ -136,11 +140,11 @@ Le module C# IoT Edge est une application .Net Core. Il dépend du SDK d’appar
 
     ![Surveiller des variables](media/how-to-develop-csharp-module/single-module-variables.png)
 
-7. Pour arrêter une session de débogage, cliquez sur le bouton Arrêter ou appuyez sur **MAJ + F5**. Dans la palette de commandes VS Code, tapez et sélectionnez **Azure IoT Edge : Arrêter le simulateur IoT Edge**.
+7. Pour arrêter une session de débogage, cliquez sur le bouton Arrêter ou appuyez sur **MAJ + F5**. Dans la palette de commandes VS Code, tapez et sélectionnez **Azure IoT Edge : Arrêter le simulateur IoT Edge** pour arrêter et nettoyer le simulateur.
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Générer le conteneur de module pour le débogage et déboguer en mode d’attachement
 
-Votre solution par défaut contient deux modules : un module de capteur de température simulé et un module de canal C#. Le capteur de température simulé envoie des messages au module de canal C#, puis les messages sont dirigés vers IoT Hub. Le dossier du module que vous avez créé contient plusieurs fichiers Docker pour différents types de conteneur. Utilisez l’un des fichiers se terminant par l’extension **.debug** pour générer votre module à des fins de test. Actuellement, les modules C# prennent en charge le débogage seulement dans les conteneurs Linux amd64 en mode d’attachement. 
+Votre solution par défaut contient deux modules : un module de capteur de température simulé et un module de canal C#. Le capteur de température simulé envoie des messages au module de canal C#, puis les messages sont dirigés vers IoT Hub. Le dossier du module que vous avez créé contient plusieurs fichiers Docker pour différents types de conteneur. Utilisez l’un des fichiers se terminant par l’extension **.debug** pour générer votre module à des fins de test. Actuellement, les modules C# prennent en charge le débogage seulement dans les conteneurs Linux amd64 en mode d’attachement.
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>Configurer un simulateur IoT Edge pour une solution IoT Edge
 
@@ -157,22 +161,24 @@ Dans votre machine de développement, vous pouvez démarrer le simulateur IoT Ed
    ![Ajouter **.debug** au nom de votre image](./media/how-to-develop-csharp-module/image-debug.png)
 
 2. Accédez à `program.cs`. Ajoutez un point d’arrêt dans ce fichier.
+
 3. Dans l’Explorateur de fichiers de VS Code, sélectionnez le fichier `deployment.template.json` de votre solution, dans le menu contextuel, cliquez sur **Générer et exécuter la solution IoT Edge dans le simulateur**. Vous pouvez surveiller tous les journaux du conteneur de module dans la même fenêtre. Vous pouvez aussi accéder à l’Explorateur Docker pour surveiller l’état du conteneur.
 
    ![Surveiller des variables](media/how-to-develop-csharp-module/view-log.png)
 
-5. Accédez à la fenêtre de débogage de Visual Studio Code. Sélectionnez le fichier de configuration de débogage de votre module. Le nom de l’option de débogage doit ressembler à **Débogage distant de nom_module (.NET Core)**.
+4. Accédez à la fenêtre de débogage de Visual Studio Code. Sélectionnez le fichier de configuration de débogage de votre module. Le nom de l’option de débogage doit ressembler à **Débogage distant de nom_module (.NET Core)**.
 
    ![Sélectionner une configuration](media/how-to-develop-csharp-module/debug-config.png)
 
-6. Sélectionnez **Démarrer le débogage** ou **F5**. Sélectionnez le processus à attacher.
+5. Sélectionnez **Démarrer le débogage** ou **F5**. Sélectionnez le processus à attacher.
 
-7. Dans l’affichage de débogage de VS Code, les variables apparaissent dans le volet de gauche.
+6. Dans l’affichage de débogage de VS Code, les variables apparaissent dans le volet de gauche.
 
-8. Pour arrêter une session de débogage, cliquez sur le bouton Arrêter ou appuyez sur **MAJ + F5**. Dans la palette de commandes VS Code, tapez et sélectionnez **Azure IoT Edge : Arrêter le simulateur IoT Edge**.
+7. Pour arrêter une session de débogage, cliquez sur le bouton Arrêter ou appuyez sur **MAJ + F5**. Dans la palette de commandes VS Code, tapez et sélectionnez **Azure IoT Edge : Arrêter le simulateur IoT Edge**.
 
-> [!NOTE]
-> L’exemple précédent montre comment déboguer des modules .NET Core IoT Edge dans des conteneurs. Il repose sur la version de débogage de `Dockerfile.debug`, qui inclut le débogueur en ligne de commande .NET Core (VSDBG) dans votre image conteneur lors de sa création. Une fois le débogage de vos modules C# terminé, nous vous recommandons d’utiliser ou de personnaliser directement `Dockerfile` sans VSDBG pour les modules IoT Edge prêts pour la production.
+    > [!NOTE]
+    > L’exemple précédent montre comment déboguer des modules .NET Core IoT Edge dans des conteneurs. Il repose sur la version de débogage de `Dockerfile.debug`, qui inclut le débogueur en ligne de commande .NET Core de Visual Studio (VSDBG) dans votre image conteneur lors de sa création. Une fois le débogage de vos modules C# terminé, nous vous recommandons d’utiliser ou de personnaliser directement `Dockerfile` sans VSDBG pour les modules IoT Edge prêts pour la production.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

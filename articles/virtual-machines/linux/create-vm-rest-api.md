@@ -15,16 +15,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 11d9f5efb452d46e5ca30169861582f6f2bbbd1b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969391"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433478"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Créer une machine virtuelle Linux utilisant l’authentification SSH avec l’API REST
 
-Dans Azure, une machine virtuelle est définie par divers paramètres tels que l’emplacement, la taille du matériel, l’image du système d’exploitation et les informations d’identification d’ouverture de session. Cet article explique comment utiliser l’API REST pour créer une machine virtuelle Linux utilisant l’authentification SSH.
+Une machine virtuelle Linux dans Azure se compose de diverses ressources telles que des disques et des interfaces réseau, et définit des paramètres tels que l’emplacement, la taille, l’image du système d’exploitation et l’authentification.
+
+Vous pouvez créer une machine virtuelle Linux via le portail Azure, Azure CLI 2.0, de nombreux kits SDK Azure, les modèles Azure Resource Manager et un grand nombre d’outils tiers comme Ansible ou Terraform. Tous ces outils utilisent à la fin l’API REST pour créer la machine virtuelle Linux.
+
+Cet article explique comment utiliser l’API REST pour créer une machine virtuelle Linux exécutant Ubuntu 18.04-LTS avec des disques managés et l’authentification SSH.
+
+## <a name="before-you-start"></a>Avant de commencer
+
+Avant de créer et d’envoyer la requête, vous avez besoin des éléments suivants :
+
+* `{subscription-id}` pour votre abonnement
+  * Si vous avez plusieurs abonnements, consultez [Utilisation de plusieurs abonnements](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+* `{resourceGroupName}` que vous avez créé à l’avance
+* [Interface de réseau virtuel](../../virtual-network/virtual-network-network-interface.md) dans le même groupe de ressources
+* Paire de clés SSH (vous pouvez en [générer une](mac-create-ssh-keys.md) si vous n’en avez pas)
+
+## <a name="request-basics"></a>Informations de base de la requête
 
 Pour créer ou mettre à jour une machine virtuelle, utilisez l’opération *PUT* suivante :
 
@@ -32,9 +48,7 @@ Pour créer ou mettre à jour une machine virtuelle, utilisez l’opération *PU
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2017-12-01
 ```
 
-## <a name="create-a-request"></a>Créer une demande
-
-Pour créer la demande *PUT*, vous devez impérativement utiliser le paramètre `{subscription-id}`. Si vous avez plusieurs abonnements, consultez [Utilisation de plusieurs abonnements](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions). Vous devez définir les paramètres `{resourceGroupName}` et `{vmName}` pour vos ressources, ainsi que le paramètre `api-version`. Cet article utilise `api-version=2017-12-01`.
+Outre les paramètres `{subscription-id}` et `{resourceGroupName}`, vous devez spécifier `{vmName}` (`api-version` est facultatif, mais cet article a été testé avec `api-version=2017-12-01`)
 
 Les en-têtes suivants sont requis :
 
@@ -43,7 +57,7 @@ Les en-têtes suivants sont requis :
 | *Content-Type :*  | Requis. Défini sur `application/json`. |
 | *Authorization :* | Requis. Défini sur un [jeton d’accès](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` valide. |
 
-Pour plus d’informations sur la création de la demande, consultez [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse) (Composants d’une demande/réponse de l’API REST).
+Pour obtenir des informations générales sur l’utilisation des requêtes d’API REST, consultez [Composants d’une requête/réponse d’API REST](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
 ## <a name="create-the-request-body"></a>Créer le corps de la demande
 
@@ -58,15 +72,12 @@ Les définitions courantes suivantes permettent de générer un corps de demande
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | Spécifie les paramètres du système d’exploitation de la machine virtuelle. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | Spécifie les interfaces réseau de la machine virtuelle. |
 
-Pour obtenir la liste complète des définitions disponibles dans le corps de la demande, consultez [Virtual machines create or update request body definitions](/rest/api/compute/virtualmachines/createorupdate#definitions) (Création ou mise à jour des définitions de corps de demande par les machines virtuelles).
-
-### <a name="example-request-body"></a>Exemple de corps de demande
-
-L’exemple de corps de demande suivant définit une image Ubuntu LTS-18.04 qui utilise des disques managés Premium. L’authentification par clé publique SSH est utilisée et la machine virtuelle utilise une carte d’interface réseau virtuelle (NIC) existante que vous avez [précédemment créée](../../virtual-network/virtual-network-network-interface.md). Indiquez votre clé publique SSH dans le champ *osProfile.linuxConfiguration.ssh.publicKeys.keyData*. Si nécessaire, vous pouvez [générer une paire de clés SSH](mac-create-ssh-keys.md).
+Un exemple de corps de requête figure ci-dessous. Veillez à spécifier le nom de la machine virtuelle dans les paramètres `{computerName}` et `{name}`, le nom de l’interface réseau que vous avez créée sous `networkInterfaces`, votre nom d’utilisateur dans `adminUsername` et `path`, et la partie *public* de votre paire de clés SSH (qui se trouve dans, par exemple, `~/.ssh/id_rsa.pub`) dans `keyData`. `location` et `vmSize` figurent parmi les autres paramètres que vous pouvez modifier.  
 
 ```json
 {
   "location": "eastus",
+  "name": "{vmName}",
   "properties": {
     "hardwareProfile": {
       "vmSize": "Standard_DS1_v2"
@@ -89,7 +100,7 @@ L’exemple de corps de demande suivant définit une image Ubuntu LTS-18.04 qui 
     },
     "osProfile": {
       "adminUsername": "{your-username}",
-      "computerName": "myVM",
+      "computerName": "{vmName}",
       "linuxConfiguration": {
         "ssh": {
           "publicKeys": [
@@ -105,19 +116,24 @@ L’exemple de corps de demande suivant définit une image Ubuntu LTS-18.04 qui 
     "networkProfile": {
       "networkInterfaces": [
         {
-          "id": "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+          "id": "/subscriptions/{subscription-id}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
           "properties": {
             "primary": true
           }
         }
       ]
     }
-  },
-  "name": "myVM"
+  }
 }
 ```
 
-## <a name="responses"></a>Réponses
+Pour obtenir la liste complète des définitions disponibles dans le corps de la demande, consultez [Virtual machines create or update request body definitions](/rest/api/compute/virtualmachines/createorupdate#definitions) (Création ou mise à jour des définitions de corps de demande par les machines virtuelles).
+
+## <a name="sending-the-request"></a>Envoi de la requête
+
+Vous pouvez utiliser le client de votre choix pour l’envoi de cette requête HTTP. Vous pouvez également utiliser un [outil dans le navigateur](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) en cliquant sur le bouton **Essayer**.
+
+### <a name="responses"></a>Réponses
 
 Il existe deux réponses de réussite pour l’opération de création ou de mise à jour d’une machine virtuelle :
 
@@ -125,10 +141,6 @@ Il existe deux réponses de réussite pour l’opération de création ou de mis
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Créé | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Date de création     |
-
-Pour plus d’informations sur les réponses des API REST, consultez [Process the response message](/rest/api/azure/#process-the-response-message) (Traiter le message de réponse).
-
-### <a name="example-response"></a>Exemple de réponse
 
 Une réponse *201 Créé* condensée à partir de l’exemple de corps de demande précédent qui crée une machine virtuelle affiche un ID *vmId* assigné et l’état *provisioningState* *Creating* :
 
@@ -138,6 +150,8 @@ Une réponse *201 Créé* condensée à partir de l’exemple de corps de demand
     "provisioningState": "Creating"
 }
 ```
+
+Pour plus d’informations sur les réponses des API REST, consultez [Process the response message](/rest/api/azure/#process-the-response-message) (Traiter le message de réponse).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

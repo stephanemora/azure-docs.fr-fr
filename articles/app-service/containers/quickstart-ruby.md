@@ -1,7 +1,7 @@
 ---
-title: Créer une application Ruby et la déployer sur App Service sur Linux | Microsoft Docs
-description: Apprenez à créer des applications Ruby avec App Service sur Linux.
-keywords: azure app service, linux, oss, ruby
+title: Créer une application Ruby on Rails et la déployer sur App Service sur Linux | Microsoft Docs
+description: Apprenez à créer une application Ruby on Rails avec App Service sur Linux.
+keywords: azure app service, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
 author: SyntaxC4
@@ -16,16 +16,19 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 729ed8ac4568f5f39fd62fadbc8d4d0e4595f7b8
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 04025998f78843b1cc69acd663681b9563a531bc
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885287"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47431223"
 ---
-# <a name="create-a-ruby-app-in-app-service-on-linux"></a>Créer une application Ruby dans App Service sur Linux
+# <a name="create-a-ruby-on-rails-app-in-app-service-on-linux"></a>Créer une application Ruby on Rails dans App Service sur Linux
 
 [Azure App Service sur Linux](app-service-linux-intro.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce guide de démarrage rapide vous montre comment créer une application [Ruby on Rails](https://rubyonrails.org/) de base puis la déployer dans Azure en tant que Web App sur Linux.
+
+> [!NOTE]
+> La pile de développement Ruby ne prend en charge que Ruby on Rails pour l’instant. Si vous souhaitez utiliser une autre plateforme, telle que Sinatra, consultez le guide de démarrage rapide pour [Web App pour conteneurs](https://docs.microsoft.com/azure/app-service/containers/).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -48,9 +51,16 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 Exécutez l’application localement pour voir à quoi elle devrait ressembler lorsque vous la déploierez sur Azure. Ouvrez une fenêtre de terminal, accédez au répertoire `hello-world` et utilisez la commande `rails server` pour démarrer le serveur.
 
+La première étape consiste à installer les gems nécessaires. Il est inutile de spécifier les gems à installer, car un `Gemfile` est inclus dans l’exemple. Nous utilisons bundler pour ceci :
+
+```
+bundle install
+```
+
+Une fois les gems installés, nous utilisons bundler pour démarrer l’application :
+
 ```bash
-cd hello-world\bin
-rails server
+bundle exec rails server
 ```
 
 À l’aide de votre navigateur web, accédez à `http://localhost:3000` pour tester l’application en local.

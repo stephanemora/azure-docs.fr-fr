@@ -5,26 +5,22 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 9/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 766ad04251fbe404d43734115e41e23ae0a4be28
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 894389ec07fb8e371a269f895473fe82985de7c3
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982038"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405969"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Didacticiel : Filtrer le trafic entrant avec pare-feu Azure DNAT via le portail Azure
 
-Vous pouvez configurer Azure Firewall Destination Network Address Translation (DNAT) pour traduire et filtrer le trafic entrant vers vos sous-réseaux. Le pare-feu Azure ne comporte pas de concept de règles d’entrée et de sortie. Il existe des règles d’application et des règles de réseau, et elles s’appliquent à tout le trafic qui entre dans le pare-feu. Les règles de réseau sont appliquées en premier, puis les règles d’application. Ensuite, les règles prennent fin.
+Vous pouvez configurer Azure Firewall Destination Network Address Translation (DNAT) pour traduire et filtrer le trafic entrant vers vos sous-réseaux. Lorsque vous configurez le DNAT, l’action de collection de règles NAT est définie sur **Destination Network Address Translation (DNAT)**. Chaque règle de la collection de règles NAT peut ensuite être utilisée pour traduire l’IP et le port publics de votre pare-feu en IP et port privés. Les règles DNAT ajoutent implicitement une règle de réseau correspondante pour autoriser le trafic traduit. Vous pouvez remplacer ce comportement en ajoutant explicitement une collection de règles de réseau avec des règles de refus correspondant au trafic traduit. Pour en savoir plus sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Azure Firewall rule processing logic](rule-processing.md) (Logique de traitement des règles de Pare-feu Azure).
 
->[!NOTE]
->La fonctionnalité de pare-feu DNAT est actuellement disponible dans Azure PowerShell et REST uniquement.
-
-Par exemple, si une règle de réseau est mise en correspondance, le paquet n’est pas évalué par les règles d’application. S’il n’y a pas de correspondance avec les règles de réseau, et si le paquet a un protocole HTTP/HTTPS, il est évalué par les règles d’application. Si aucune correspondance n’est trouvée, le paquet est alors évalué selon la [collection de règles de l’infrastructure ](infrastructure-fqdns.md). S’il n’existe toujours pas de correspondance, le paquet est refusé par défaut.
-
-Lorsque vous configurez le DNAT, l’action de collection de règles NAT est définie sur **Destination Network Address Translation (DNAT)**. L’adresse IP et le port publics du pare-feu se traduisent par une adresse IP et un port privés. Ensuite, les règles sont appliquées normalement : d’abord les règles de réseau, puis les règles d’application. Par exemple, vous pouvez configurer une règle de réseau pour autoriser le trafic du bureau à distance sur le port TCP 3389. La traduction des adresses est effectuée en premier, puis les règles de réseau et les règles d’application sont appliquées en utilisant les adresses traduites.
+> [!NOTE]
+> DNAT ne fonctionne pas pour les ports 80 et 22. Nous nous efforçons de résoudre ce problème dès que possible. En attendant, utilisez un autre port que le port de destination dans les règles NAT. Vous pouvez toujours utiliser le port 80 ou 22 en tant que port traduit. Par exemple, vous pouvez mapper public ip:81 à private ip:80.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -33,7 +29,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Déployer un pare-feu
 > * Créer un itinéraire par défaut
 > * Configurer une règle DNAT
-> * Configurer une règle de réseau
 > * Tester le pare-feu
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -199,48 +194,18 @@ Pour le sous-réseau **SN-Workload**, vous devez configurer l’itinéraire sort
 
 ## <a name="configure-a-dnat-rule"></a>Configurer une règle DNAT
 
-```azurepowershell-interactive
- $rgName  = "RG-DNAT-Test"
- $firewallName = "FW-DNAT-test"
- $publicip = type the Firewall public ip
- $newAddress = type the private IP address for the Srv-Workload virtual machine 
- 
-# Get Firewall
-    $firewall = Get-AzureRmFirewall -ResourceGroupName $rgName -Name $firewallName
-  # Create NAT rule
-    $natRule = New-AzureRmFirewallNatRule -Name RL-01 -SourceAddress * -DestinationAddress $publicip -DestinationPort 3389 -Protocol TCP -TranslatedAddress $newAddress -TranslatedPort 3389
-  # Create NAT rule collection
-    $natRuleCollection = New-AzureRmFirewallNatRuleCollection -Name RC-DNAT-01 -Priority 200 -Rule $natRule
-  # Add NAT Rule collection to firewall:
-    $firewall.AddNatRuleCollection($natRuleCollection)
-  # Save:
-    $firewall | Set-AzureRmFirewall
-```
-## <a name="configure-a-network-rule"></a>Configurer une règle de réseau
-
-1. Ouvrez **RG-DNAT-Test**, puis cliquez sur le pare-feu **FW-DNAT-test**.
-1. Sur la page **FW-DNAT-test**, sous **Paramètres**, cliquez sur **Règles**.
-2. Cliquez sur **Ajouter un regroupement de règles de réseau**.
-
-Configurez la règle à l’aide du tableau suivant, puis cliquez sur **Ajouter** :
-
-
-|Paramètre  |Valeur  |
-|---------|---------|
-|NOM     |**RC-Net-01**|
-|Priorité     |**200**|
-|Action     |**Autoriser**|
-
-Sous **Règles** :
-
-|Paramètre  |Paramètre  |
-|---------|---------|
-|NOM     |**RL-RDP**|
-|Protocole     |**TCP**|
-|Adresses sources     |*|
-|Adresses de destination     |Adresse IP privée **Srv-Workload**|
-|Ports de destination|**3389**|
-
+1. Ouvrez **RG-DNAT-Test**, puis cliquez sur le pare-feu **FW-DNAT-test**. 
+1. Sur la page **FW-DNAT-test**, sous **Paramètres**, cliquez sur **Règles**. 
+2. Cliquez sur **Add DNAT rule collection** (Ajouter une collection de règles DNAT). 
+3. Dans le champ **Nom**, saisissez **RC-DNAT-01**. 
+1. Pour **Priorité**, entrez **200**. 
+6. Sous **Règles**, pour **Nom**, entrez **RL-01**. 
+7. Pour **Adresses sources**, entrez *. 
+8. Dans le champ **Adresses de destination**, tapez l’adresse IP publique du pare-feu. 
+9. Pour **Ports de destination**, entrez **3389**. 
+10. Dans le champ **Adresse traduite**, saisissez l’adresse IP privée de la machine virtuelle Srv-Workload. 
+11. Dans le champ **Port traduit**, tapez **3389**. 
+12. Cliquez sur **Add**. 
 
 ## <a name="test-the-firewall"></a>Tester le pare-feu
 
@@ -249,7 +214,7 @@ Sous **Règles** :
 4. Passez l’action **RC-Net-01** de collection de règles de réseau à **Deny**.
 5. Essayez à nouveau de vous connecter à l’adresse IP publique du pare-feu. Cette fois, l’opération devrait échouer en raison de la règle **Deny**.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **RG-DNAT-Test** pour supprimer toutes les ressources associées au pare-feu.
 
@@ -262,7 +227,6 @@ Dans ce tutoriel, vous avez appris à :
 > * Déployer un pare-feu
 > * Créer un itinéraire par défaut
 > * Configurer une règle DNAT
-> * Configurer une règle de réseau
 > * Tester le pare-feu
 
 Ensuite, vous pouvez surveiller les journaux de Pare-feu Azure.

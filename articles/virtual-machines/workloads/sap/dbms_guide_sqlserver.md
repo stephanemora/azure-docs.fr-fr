@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2018
+ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: db0d796a407c8e33501b0a312c78e8508f17297d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075308"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406914"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -320,7 +320,7 @@ Ce document décrit les différents domaines à prendre en compte lors du déplo
 > 
 >
 
-En règle générale, vous devez penser à utiliser les versions de SQL Server les plus récentes pour exécuter une charge de travail SAP dans Azure IaaS. Les dernières versions de SQL Server offrent une meilleure intégration à certains des services et fonctionnalités Azure. Et elles comportent des modifications qui optimisent les opérations dans une infrastructure Azure IaaS.
+En général, vous devez penser à utiliser les versions de SQL Server les plus récentes pour exécuter une charge de travail SAP dans Azure IaaS. Les dernières versions de SQL Server offrent une meilleure intégration à certains des services et fonctionnalités Azure. Et elles comportent des modifications qui optimisent les opérations dans une infrastructure Azure IaaS.
 
 Avant de continuer, il est recommandé de lire [cette documentation][virtual-machines-sql-server-infrastructure-services].
 
@@ -381,8 +381,10 @@ Les versions SQL Server 2014 et ultérieures permettent de stocker les fichiers 
 
 * Le compte de stockage utilisé doit se trouver dans la même région Azure que celui qui permet de déployer la machine virtuelle sur laquelle SQL Server s’exécute.
 * Les considérations relatives à la répartition de disques VHD sur différents comptes de stockage Azure qui ont été abordées précédemment portent également sur cette méthode de déploiement. Cela signifie que les opérations d’E/S sont concernées par les limites du compte Azure Storage.
-* À la place de la prise en compte du quota d’E/S de stockage des machines virtuelles, c’est le trafic sur les objets blob de stockage représentant les fichiers journaux et de données SQL Server, qui est pris en compte dans la bande passante réseau de du type de machine virtuelle spécifique. Pour connaître la bande passante réseau d’un type particulier de machine virtuelle, consultez l’article [Tailles des machines virtuelles Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* À la place de la prise en compte du quota d’E/S de stockage des machines virtuelles, c’est le trafic sur les objets blob de stockage représentant les fichiers journaux et de données SQL Server, qui est pris en compte dans la bande passante réseau de du type de machine virtuelle spécifique. Pour connaître la bande passante réseau et de stockage d’un type particulier de machine virtuelle, consultez l’article [Tailles des machines virtuelles Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).
+* Quand vous poussez des E/S de fichier au-delà du quota de réseau, vous abandonnez la plupart du quota de stockage et, par conséquent, n’utilisez que partiellement la bande passante de la machine virtuelle.
 * Les objectifs de performances de débit d’IOPS et d’E/S du stockage Premium Azure pour les différentes tailles de disques ne s’appliquent plus, même si les objets blob que vous avez créés sont situés dans le stockage Premium Azure. Les objectifs sont documentés dans l’article [Stockage Premium hautes performances et disques managés pour les machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#scalability-and-performance-targets). Conséquence du placement des fichiers journaux et des fichiers de données SQL Server directement dans les objets blob qui sont stockés dans le stockage Premium Azure, les caractéristiques de performances peuvent être différentes par rapport aux disques durs virtuels situés dans le stockage Premium Azure.
+* La mise en cache basée sur l’hôte, disponible pour les disques de stockage Premium Azure, n’est pas disponible quand vous placez les fichiers de données SQL Server directement sur des objets blob Azure.
 * Sur des machines virtuelles de la série M, l’Accélérateur des écritures Azure ne peut pas être utilisé pour assurer la prise en charge des écritures en moins d’une milliseconde dans le fichier journal de transactions SQL Server. 
 
 Vous trouverez des détails sur cette fonctionnalité dans l’article [Fichiers de données SQL Server dans Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-2017).

@@ -3,7 +3,7 @@ title: Comparer le point de terminaison Azure AD v2.0 avec le point de terminais
 description: Découvrez les différences entre les points de terminaison Azure AD v2.0 et v1.0.
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,31 +13,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948951"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406530"
 ---
-# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Comparer le point de terminaison Azure AD v2.0 avec le point de terminaison v1.0
+# <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparer le point de terminaison Azure AD v2.0 avec le point de terminaison v1.0
 
 Lorsque vous développez une nouvelle application, vous devez connaître les différences entre les points de terminaison v1.0 et v2.0. Les principales différences sont répertoriées ici, accompagnées de certaines limitations qui s’appliquent au point de terminaison v2.0.
 
 > [!NOTE]
-> Les scénarios et les fonctionnalités d’Azure AD ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](#limitations).
+> Les scénarios et les fonctionnalités Azure Active Directory (Azure AD) ne sont pas tous pris en charge par le point de terminaison v2.0. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limites de v2.0](#limitations).
 
-## <a name="who-can-sign-in"></a>Utilisateurs autorisés à se connecter
+## <a name="who-can-sign-in"></a>Qui peut se connecter
 
 ![Utilisateurs autorisés à se connecter avec les points de terminaison v1.0 et v2.0](media/azure-ad-endpoint-comparison/who-can-sign-in.png)
 
 * Le point de terminaison v1.0 permet uniquement aux comptes professionnels et scolaires de se connecter à votre application (Azure AD).
 
-* Le point de terminaison v2.0 permet aux comptes professionnels et scolaires d’Azure Active Directory et aux comptes personnels (MSA) (hotmail.com, outlook.com, msn.com) de se connecter.
+* Le point de terminaison v2.0 permet aux comptes professionnels et scolaires d’Azure AD et aux comptes personnels (MSA) (hotmail.com, outlook.com, msn.com) de se connecter.
 
 * Tous deux (v1.0 et v2.0) acceptent des connexions d’*[utilisateurs invités](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* issus d’un répertoire Azure AD pour les applications configurées en tant que *[mono-locataire](single-and-multi-tenant-apps.md)* ou pour les applications *multi-locataire* configurées de manière à pointer vers le point de terminaison spécifique au locataire (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
@@ -119,9 +119,9 @@ L’étendue `email` permet à votre application d’accéder à l’adresse e-m
 
 Vous pouvez ainsi coder votre application en en divulguant le moins possible : vous pouvez vous contenter de demander à l’utilisateur les informations nécessaires à l’exécution de votre application. Pour plus d’informations sur ces étendues, voir [Référence sur les étendues v2.0](v2-permissions-and-consent.md).
 
-## <a name="token-claims"></a>Demandes de jetons
+## <a name="token-claims"></a>Revendications de jetons
 
-Les revendications des jetons émis par le point de terminaison v2.0 ne seront pas identiques aux jetons émis par les points de terminaison Azure AD mis à la disposition générale. Les applications qui passent au nouveau service ne doivent pas partir du principe que chaque revendication sera présente dans id_tokens ou access_tokens. Pour plus d’informations sur les différents types de jetons utilisés dans le point de terminaison v2.0, consultez les articles de référence au [jeton d'accès](access-tokens.md) et à [`id_token`](id-tokens.md).
+Les revendications des jetons émis par le point de terminaison v2.0 ne seront pas identiques aux jetons émis par les points de terminaison Azure AD mis à la disposition générale. Les applications qui passent au nouveau service ne doivent pas partir du principe que chaque revendication sera présente dans id_tokens ou access_tokens. Pour plus d’informations sur les différents types de jetons utilisés dans le point de terminaison v2.0, consultez les articles de référence au [jeton d’accès](access-tokens.md) et à [`id_token` ](id-tokens.md)
 
 ## <a name="limitations"></a>Limites
 
@@ -214,15 +214,13 @@ Actuellement, la prise en charge des bibliothèques pour le point de terminaison
 
 Le point de terminaison 2.0 ne prend pas en charge SAML ou WS-Federation, mais uniquement Open ID Connect et OAuth 2.0. Certaines fonctionnalités des protocoles OAuth n’ont pas été intégrées dans le point de terminaison v2.0.
 
-Les fonctionnalités de protocole suivantes *ne sont pas disponibles* dans le point de terminaison v2.0 :
+Actuellement, les fonctionnalités de protocole suivantes *ne sont pas disponibles* ou *prises en charge* pour le point de terminaison v2.0 :
 
-* Actuellement, la revendication `email` est retournée uniquement si une revendication facultative est configurée, et si scope=email a été spécifié dans la requête. Toutefois, ce comportement va changer avec la mise à jour du point de terminaison v2.0 en vue d’une meilleure conformité aux nomes Open ID Connect et OAuth 2.0.
+* La revendication `email` est renvoyée uniquement si une revendication facultative est configurée, et si scope=email a été spécifié dans la requête. Toutefois, prenez conscience du fait que ce comportement va changer avec la mise à jour du point de terminaison v2.0 en vue d’une meilleure conformité aux nomes Open ID Connect et OAuth 2.0.
 
 * Le point de terminaison v2.0 ne prend pas en charge l’émission de revendications de rôle ou de groupe dans les jetons d’ID.
 
-* Le point de terminaison v2.0 ne prend pas en charge l’[octroi des informations de mot de passe du propriétaire de la ressource OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3).
-
-De plus, il ne prend en charge aucun protocole SAML ou WS-Federation.
+* Le point de terminaison v2.0 ne prend pas en charge [l’octroi des informations de mot de passe de propriétaire de la ressource OAuth 2.0](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 Pour mieux comprendre l’étendue de la fonctionnalité de protocole prise en charge dans le point de terminaison v2.0, consultez notre page de [référence sur les protocoles OAuth 2.0 et OpenID Connect](active-directory-v2-protocols.md).
 

@@ -1,21 +1,21 @@
 ---
-title: Comment modifier une base de connaissances - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: Comment modifier une base de connaissances
+title: Modifier une base de connaissances - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker vous permet de gérer le contenu de votre base de connaissances en fournissant une expérience d’édition simple d’utilisation.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: eaa65bf3d257399fceadaa42f0d9ddbbf8afe234
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369649"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451882"
 ---
 # <a name="edit-a-knowledge-base"></a>Modifier une base de connaissances
 
@@ -30,8 +30,24 @@ QnA Maker vous permet de gérer le contenu de votre base de connaissances en fou
     ![Mes bases de connaissances](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. Sélectionnez une base de connaissances particulière pour y apporter des modifications.
+ 
+3. Cliquez sur **Paramètres**.
 
-3. Une fois que vous avez terminé d’apporter des modifications à la base de connaissances, cliquez sur **Save and train** (Enregistrer et former) dans le coin supérieur droit de la page afin de conserver les modifications.    
+   Ici, vous pouvez modifier le champ obligatoire Nom du service.
+  
+   Vous pouvez ajouter de nouvelles URL pour ajouter du nouveau contenu de FAQ à la base de connaissances en cliquant sur le lien **Gérer la base de connaissances -> « + Ajouter une URL »**.
+   
+   Vous pouvez supprimer des URL existantes en cliquant sur l’**icône de suppression**.
+   
+   Si vous souhaitez que la base de connaissances analyse le contenu le plus récent des URL existantes, cochez la case **Refresh** (Actualiser) afin de mettre à jour la base de connaissances avec le contenu d’URL le plus récent.
+   
+Vous pouvez ajouter un document pris en charge pour qu’il fasse partie de la base de connaissances en cliquant sur **Manage knowledgebase -> Add File** (Gérer la base de connaissances -> + Ajouter un fichier).
+
+Vous pouvez également importer n’importe quelle base de connaissances existante en cliquant sur le bouton **Import Knowledgebase** (Importer la base de connaissances). 
+   
+La mise à jour de la base de connaissances dépend du **niveau tarifaire de gestion** utilisé lors de la création du service QnA Maker associé à votre base de connaissances. Vous pouvez également mettre à jour le niveau de gestion à partir du portail Azure si nécessaire.
+
+4. Une fois que vous avez terminé d’apporter des modifications à la base de connaissances, cliquez sur **Save and train** (Enregistrer et former) dans le coin supérieur droit de la page afin de conserver les modifications.    
 
     ![Enregistrer et former](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 

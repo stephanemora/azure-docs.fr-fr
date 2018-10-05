@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: ac22ba34bff1d5321c05bc0a0a1b14ca742079a7
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051494"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406003"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Forum aux questions sur l’API d’utilisation d’Azure Stack
 
@@ -29,7 +28,7 @@ Cet article répond à certaines questions fréquentes sur l’API d’utilisati
 ## <a name="what-meter-ids-can-i-see"></a>Quels ID de compteur sont visibles ?
 Des rapports d’utilisation sont générés pour les fournisseurs de ressources suivants :
 
-**Réseau**  
+### <a name="network"></a>Réseau
   
 **ID du compteur** : F271A8A388C44D93956A063E1D2FA80B  
 **Nom du compteur** : Static IP Address Usage  
@@ -41,7 +40,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Unité** : Adresses IP  
 **Remarques** :Nombre d’adresses IP utilisées. Si vous appelez l’API d’utilisation avec une granularité journalière, le compteur retourne l’adresse IP multipliée par le nombre d’heures.  
   
-**Stockage**  
+### <a name="storage"></a>Stockage
   
 **ID du compteur** : B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **Nom du compteur** : TableCapacity  
@@ -107,22 +106,8 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Nom du compteur** : QueueDataTransOut  
 **Unité** : Sortie, en Go  
 **Remarques** : Sortie de données de service de File d’attente, en Go  
-  
-**Sql RP**  
-  
-**ID du compteur** : CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
-**Nom du compteur** : DatabaseSizeHourSqlMeter  
-**Unité** : Mo\*heures  
-**Remarques** : Capacité totale de la base de données à sa création. Si vous appelez l’API d’utilisation avec une granularité journalière, le compteur retourne les Mo multipliés par le nombre d’heures.  
-  
-**MySql RP**  
-  
-**ID du compteur** : E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
-**Nom du compteur** : DatabaseSizeHourMySqlMeter  
-**Unité** : Mo\*heures  
-**Remarques** : Capacité totale de la base de données à sa création. Si vous appelez l’API d’utilisation avec une granularité journalière, le compteur retourne les Mo multipliés par le nombre d’heures.  
-  
-**Calcul**  
+
+### <a name="compute"></a>Calcul 
   
 **ID du compteur** : FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Nom du compteur** : Heures par taille de machine virtuelle de base  
@@ -139,7 +124,122 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Unité** : Heures de machine virtuelle  
 **Remarques** : Capture à la fois la machine virtuelle de base et la machine virtuelle Windows. Ne s’ajuste pas en fonction des cœurs.  
   
-**Key Vault**  
+### <a name="managed-disks"></a>Managed Disks
+
+**ID du compteur** : 5d76e09f-4567-452a-94cc-7d1f097761f0   
+**Nom du compteur** : S4   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Standard (32 Go) 
+
+**ID du compteur** : dc9fc6a9-0782-432a-b8dc-978130457494   
+**Nom du compteur** : S6   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Standard (64 Go) 
+
+**ID du compteur** : e5572fce-9f58-49d7-840c-b168c0f01fff   
+**Nom du compteur** : S10   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Standard (128 Go) 
+
+**ID du compteur** : 9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
+**Nom du compteur** : S15   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Standard (256 Go) 
+
+**ID du compteur** : 5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
+**Nom du compteur** : S20   
+**Unité** : Nombre de disques      
+**Remarques** : Disque managé Standard (512 Go) 
+
+**ID du compteur** : 7705a158-bd8b-4b2b-b4c2-0782343b81e6   
+**Nom du compteur** : S30   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Standard (1 024 Go) 
+
+**ID du compteur** : d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
+**Nom du compteur** : S40   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Standard (2 048 Go) 
+
+**ID du compteur** : a54899dd-458e-4a40-9abd-f57cafd936a7   
+**Nom du compteur** : S50   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Standard (4 096 Go) 
+
+**ID du compteur** : 5c105f5f-cbdf-435c-b49b-3c7174856dcc   
+**Nom du compteur** : P4   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Premium (32 Go) 
+
+**ID du compteur** : 518b412b-1927-4f25-985f-4aea24e55c4f   
+**Nom du compteur** : P6   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Premium (64 Go) 
+
+**ID du compteur** : 5cfb1fed-0902-49e3-8217-9add946fd624   
+**Nom du compteur** : P10   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Premium (128 Go)  
+
+**ID du compteur** : 8de91c94-f740-4d9a-b665-bd5974fa08d4   
+**Nom du compteur** : P15  
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Premium (256 Go) 
+
+**ID du compteur** : c7e7839c-293b-4761-ae4c-848eda91130b   
+**Nom du compteur** : P20   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Premium (512 Go) 
+
+**ID du compteur** : 9f502103-adf4-4488-b494-456c95d23a9f   
+**Nom du compteur** : P30   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Premium (1 024 Go) 
+
+**ID du compteur** : 043757fc-049f-4e8b-8379-45bb203c36b1   
+**Nom du compteur** : P40   
+**Unité** : Nombre de disques    
+**Remarques** : Disque managé Premium (2 048 Go) 
+
+**ID du compteur** : c0342c6f-810b-4942-85d3-6eaa561b6570   
+**Nom du compteur** : P50   
+**Unité** : Nombre de disques   
+**Remarques** : Disque managé Premium (4 096 Go) 
+
+**ID du compteur** : 8a409390-1913-40ae-917b-08d0f16f3c38   
+**Nom du compteur** : ActualStandardDiskSize   
+**Unité** : Octet      
+**Remarques** : Taille réelle du disque managé Standard  
+
+**ID du compteur** : 1273b16f-8458-4c34-8ce2-a515de551ef6  
+**Nom du compteur** : ActualPremiumDiskSize   
+**Unité** : Octet      
+**Remarques** : Taille réelle du disque managé Premium 
+
+**ID du compteur** : 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
+**Nom du compteur** : ActualStandardSnapshotSize   
+**Unité** : Octet   
+**Remarques** : Taille réelle de l’instantané sur le disque managé Standard.  
+
+**ID du compteur** : 95b0c03f-8a82-4524-8961-ccfbf575f536   
+**Nom du compteur** : ActualPremiumSnapshotSize   
+**Unité** : Octet   
+**Remarques** : Taille réelle de l’instantané sur le disque managé Premium.   
+
+### <a name="sql-rp"></a>Sql RP
+  
+**ID du compteur** : CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
+**Nom du compteur** : DatabaseSizeHourSqlMeter  
+**Unité** : Mo\*heures  
+**Remarques** : Capacité totale de la base de données à sa création. Si vous appelez l’API d’utilisation avec une granularité journalière, le compteur retourne les Mo multipliés par le nombre d’heures.  
+  
+### <a name="mysql-rp"></a>MySql RP   
+  
+**ID du compteur** : E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
+**Nom du compteur** : DatabaseSizeHourMySqlMeter  
+**Unité** : Mo\*heures  
+**Remarques** : Capacité totale de la base de données à sa création. Si vous appelez l’API d’utilisation avec une granularité journalière, le compteur retourne les Mo multipliés par le nombre d’heures.    
+### <a name="key-vault"></a>Key Vault   
   
 **ID du compteur** : EBF13B9F-B3EA-46FE-BF54-396E93D48AB4  
 **Nom du compteur** : Transactions Key Vault  
@@ -151,7 +251,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Unité** : 10 000 transactions  
 **Remarques** : RSA 3K/4K, transactions de clés ECC. (préversion).  
   
-*App Service**  
+### <a name="app-service"></a>App Service   
   
 **ID du compteur** : 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **Nom du compteur** : App Service  
@@ -193,7 +293,7 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Unité** : 1 heure  
 **Remarques** : Le calcul dépend de la taille et du nombre d’instances.  
   
-**Niveaux de travail personnalisés**  
+### <a name="custom-worker-tiers"></a>Niveaux de travail personnalisés   
   
 **ID du compteur** : *Niveaux de travail personnalisés*  
 **Nom du compteur** : Niveaux de travail personnalisés  
@@ -221,10 +321,10 @@ Des rapports d’utilisation sont générés pour les fournisseurs de ressources
 **Remarques** : Total d’octets de la réponse à la requête entrante + total d’octets de la requête sortante + total d’octets de la réponse à la demande FTP entrante + total d’octets de la réponse à la requête de déploiement web entrante.  
   
 
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>En quoi les API d’utilisation d’Azure Stack sont-elles comparables aux [API d’utilisation d’Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (actuellement en préversion publique) ?
+## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>En quoi les API d’utilisation d’Azure Stack sont-elles comparables aux [API d’utilisation d’Azure](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (actuellement en préversion publique) ?
 * L’API d’utilisation du locataire est cohérente avec l’API Azure, à une exception près : l’indicateur *showDetails* n’est actuellement pas pris en charge dans Azure Stack.
 * L’API d’utilisation du fournisseur s’applique uniquement à Azure Stack.
-* Actuellement, l’[API RateCard](https://msdn.microsoft.com/library/azure/mt219004.aspx) qui est disponible dans Azure n’est pas disponible dans Azure Stack.
+* Actuellement, l’[API RateCard](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) qui est disponible dans Azure n’est pas disponible dans Azure Stack.
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>Quelle est la différence entre l’Heure d’utilisation et l’Heure du rapport ?
 Les rapports de données d’utilisation comportent deux valeurs de durée principales :

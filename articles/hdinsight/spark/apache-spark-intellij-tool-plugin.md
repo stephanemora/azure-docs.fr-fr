@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: ed0118584d51f08d64a88dc1e7e6e2ba5f95cb0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 07c2b506007daccd53a8b06a43064e6e274ac43b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042589"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433356"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Utiliser le kit de ressources Azure pour IntelliJ pour créer des applications Spark pour un cluster HDInsight
 
@@ -181,8 +181,12 @@ Vous pouvez lier un cluster HDInsight normal en utilisant le nom d’utilisateur
 
         ![Boîte de dialogue Sélectionner la classe principale](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 
-      * Étant donné que le code d’application dans cet exemple n’exige aucun argument de ligne de commande et qu’il ne référence pas de fichiers JAR ou d’autres fichiers, vous pouvez laisser les autres zones vides. Une fois que vous avez renseigné toutes les informations, la boîte de dialogue doit être similaire à l’image suivante.
+      * Vous pouvez fournir les informations souhaitées. Pour **Job configurations** (Configurations des travaux), nous avons la valeur par défaut. Vous pouvez vous référer à [l’API REST Apache Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html) pour plus d’informations sur les clés. Les **arguments de ligne de commande**, les **JAR référencés** et les **fichiers référencés** doivent ressembler à l’image ci-dessous. Vous pouvez vous référer à [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) pour plus d’informations sur les **JAR référencés** et les **fichiers référencés**. Pour que les **JAR référencés** et les **fichiers référencés** fonctionnent bien, vous devez charger les ressources sur le cluster que vous envoyez en premier. Reportez-vous à [Guide pratique pour charger des ressources sur un cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). La boîte de dialogue d’envoi doit ressembler à l’image suivante.
         
+        ![Signification de la configuration du travail dans la boîte de dialogue d’envoi de Spark](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
+
+        ![Signification des fichiers JAR dans la boîte de dialogue d’envoi de Spark](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+
         ![Boîte de dialogue Spark Submission (Envoi Spark)](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
    c. L’onglet **Spark Submission** (Envoi Spark) en bas de la fenêtre doit commencer à afficher la progression. Vous pouvez également arrêter l’application en sélectionnant le bouton rouge dans la fenêtre **Spark Submission** (Envoi Spark).

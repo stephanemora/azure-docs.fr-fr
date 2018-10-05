@@ -7,17 +7,17 @@ manager: carmonm
 editor: tysonn
 ms.service: monitoring
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: d71dc77eac89fef3ae7f8aeb69a05197456ac865
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962928"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406038"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Supervision des données collectées par Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) est un service qui vous permet de surveiller vos applications et les ressources dont elles dépendent. Au cœur de cette fonction se trouve le stockage de données de télémétrie et d’autres données tirées des ressources supervisées. Cet article décrit de manière exhaustive la façon dont ces données sont stockées et utilisées par Azure Monitor.
@@ -103,7 +103,7 @@ Les tâches que vous pouvez effectuer avec les métriques sont les suivantes :
 - Acheminer les métriques vers Log Analytics pour analyser les données métriques avec les données de journal et pour stocker les valeurs métriques pendant plus de 93 jours. 
 - Transmettre en continu les métriques vers un [Event Hub](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) pour les acheminer vers [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) ou vers des systèmes externes.
 - [Archivez](../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md) l’historique des performances ou d’intégrité de votre ressource à des fins de conformité, d’audit ou de création de rapports hors connexion.
-- Accéder aux valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) ou l’[API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
+- Accéder à des valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) ou l’[API REST](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
 
 
@@ -155,7 +155,7 @@ Log Analytics peut collecter des données à partir de diverses sources au sein 
 Les tâches réalisables avec les journaux sont les suivantes :
 
 - Utiliser la [page Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md) du portail Azure pour écrire des requêtes d’analyse des données de journal.  Épingler les résultats affichés sous forme de tableaux ou de graphiques dans un [tableau de bord Azure](../azure-portal/azure-portal-dashboards.md).
-- Configurer une [règle d’alerte de journal](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) qui envoie une notification ou prend une [action de façon automatique](../monitoring-and-diagnostics/monitoring-action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique.
+- Configurer une [règle d’alerte de journal](../monitoring-and-diagnostics/alert-log.md) qui envoie une notification ou prend une [action de façon automatique](../monitoring-and-diagnostics/monitoring-action-groups.md) lorsque les résultats de la requête correspondent à un résultat spécifique.
 - Générer un flux de travail en fonction des données dans Log Analytics à l’aide de [Logic Apps]().
 - Exporter les résultats d’une requête vers [Power BI](../log-analytics/log-analytics-powerbi.md) pour utiliser différentes visualisations et les partager avec les utilisateurs extérieurs à Azure.
 - Accéder à des valeurs métriques à partir d’une ligne de commande ou à l’aide d’une application personnalisée avec les [cmdlets PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) ou l’[API REST](https://dev.loganalytics.io/).
@@ -168,14 +168,14 @@ Toutes les données provenant de Log Analytics sont récupérées au moyen d’u
 ## <a name="convert-monitoring-data"></a>Convertir les données de supervision
 
 ### <a name="metrics-to-logs"></a>Des métriques aux journaux
-Vous pouvez copier les métriques dans Log Analytics pour effectuer une analyse complexe avec d’autres types de données au moyen d’un langage de requête riche. Vous pouvez également conserver des données de journal sur des périodes plus longues que pour les métriques, ce qui vous permet d’analyser une tendance au fil du temps. Lorsque des métriques ou d’autres données de performances sont stockées dans Log Analytics, elles font office de journal. Utilisez des métriques pour prendre en charge l’analyse et la génération d’alertes en temps quasi réel lorsque vous utilisez des journaux à des fins d’analyse et de suivi de tendances avec d’autres données.
+Vous pouvez copier les métriques dans Log Analytics pour effectuer une analyse complexe avec d’autres types de données au moyen d’un langage de requête riche. Vous pouvez également conserver des données de journal sur des périodes plus longues que pour les métriques, ce qui vous permet d’analyser une tendance au fil du temps. Lorsque des métriques ou d’autres données de performances sont stockées dans Log Analytics, elles font office de journal. Utilisez des métriques pour prendre en charge l’analyse et la génération d’alertes en quasi temps réel lorsque vous utilisez des journaux à des fins d’analyse et de suivi de tendances avec d’autres données.
 
 Pour trouver des conseils concernant la collecte de métriques à partir de ressources Azure, voir [Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics](../log-analytics/log-analytics-azure-storage.md). Pour obtenir des conseils concernant la collecte de métriques de ressources Azure PaaS, voir [Configurer la collecte de métriques de ressources Azure PaaS avec Log Analytics](../log-analytics/log-analytics-collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Des journaux aux métriques
 Comme décrit précédemment, les métriques sont plus réactives que les journaux, ce qui vous permet de créer des alertes avec une latence faible et à moindre coût. Log Analytics collecte une quantité significative de données numériques qui seraient appropriées pour des métriques, mais qui ne sont pas stockées dans le magasin de métriques Azure.  Un exemple courant est celui des données de performances collectées auprès d’agents et de solutions de gestion. Certaines de ces valeurs peuvent être copiées dans le magasin de métriques où elles sont disponibles pour la génération d’alertes et pour l’analyse avec Metrics Explorer.
 
-Pour une explication de cette fonctionnalité, voir [alertes Métrique plus rapides pour les journaux désormais en préversion publique limitée](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/). Pour voir la liste des valeurs prises en charge, voir [Métriques et méthodes de création prises en charge pour les nouvelles alertes Métrique](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
+Pour une explication de cette fonctionnalité, voir [Créer des alertes de métrique de journaux dans Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). La liste des valeurs prises en charge est disponible dans le document [Métriques prises en charge avec Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Transmettre des données en continu vers les systèmes externes
 En plus d’utiliser les outils dans Azure pour analyser les données de supervision, vous aurez peut-être besoin de transférer ces données vers un outil externe, comme un produit SIEM (Security Information and Event Management). Ce transfert est le plus souvent effectué directement à partir des ressources supervisées au travers d’[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/). 

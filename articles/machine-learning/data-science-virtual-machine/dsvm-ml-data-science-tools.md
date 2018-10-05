@@ -15,17 +15,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: cf73f792bcce906a673da0c6fb2eec099239c1c2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a9dc868c4f22f95ca5027e3c95513d176c69eac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409548"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392396"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Outils de science des données et d’apprentissage automatique
 La machine virtuelle DSVM (Data Science Virtual Machine) offre un ensemble complet d’outils et de bibliothèques d’apprentissage automatique disponibles dans des langages courants tels que Python, R et Julia. 
 
 Voici quelques-uns des outils et bibliothèques d’apprentissage automatique disponibles sur la machine virtuelle DSVM. 
+
+## <a name="azure-machine-learning-servicehttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>SDK du [service Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml)
+|    |           |
+| ------------- | ------------- |
+| Qu’est-ce que c’est ?   |   Le service Azure Machine Learning (préversion) est un service cloud que vous pouvez utiliser pour développer et déployer des modèles de machine learning.  Vous pouvez suivre vos modèles avec le SDK Python pendant les opérations de création, d’entraînement, de mise à l’échelle et de gestion que vous effectuez sur ceux-ci. Déployez des modèles en tant que conteneurs et exécutez-les sur le cloud, en local ou sur IoT Edge.   |
+| Éditions DSVM prises en charge     | Windows (environnement Conda : AzureML), Linux (environnement Conda : py36)    |
+| Utilisations classiques      | Plateforme de machine learning général      |
+| Comment est-il configuré / installé sur la machine virtuelle DSVM ?      |  Installé avec prise en charge GPU   |
+| Comment l’utiliser/l’exécuter ?      | Comme SDK Python et comme outil de ligne de commande Azure. Activez pour l’environnement conda `AzureML` sur l’édition Windows ou pour `py36` sur l’édition Linux.      |
+| Liens vers des exemples      | Des exemples de notebooks Jupyter sont inclus dans le répertoire `AzureML` sous notebooks  |
+| Outils connexes sur la machine virtuelle DSVM      | Visual Studio Code, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |

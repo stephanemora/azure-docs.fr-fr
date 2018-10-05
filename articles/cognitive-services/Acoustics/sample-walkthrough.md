@@ -9,12 +9,12 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b738cc2fc7db6987b8f4ad54a2c53cc9e69989b3
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: eaf7ff9f7f791fd6d04e6b76d256b4987c50cd13
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181120"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434090"
 ---
 # <a name="unity-sample-walkthrough"></a>Procédure pas à pas pour l’exemple Unity
 Il s’agit d’une procédure pas à pas de l’exemple Project Acoustics. Pour plus d’informations sur Project Acoustics, consultez l’[Introduction à Project Acoustics](what-is-acoustics.md). Pour vous aider à ajouter le package Project Acoustics à un projet Unity existant, utilisez le guide [Bien démarrer](getting-started.md).
@@ -29,13 +29,13 @@ Il s’agit d’une procédure pas à pas de l’exemple Project Acoustics. Pour
 Téléchargez et importez **MicrosoftAcoustics.Sample.unitypackage**. Lors de l’importation, les paramètres de projet tels que **Spatialiseur** et **Version du runtime de script** sont mis à jour pour satisfaire la configuration requise du plug-in. Une fois cette opération terminée, vous verrez une erreur retournée par **AcousticsGeometry.cs** dans la console Unity, concernant le remplacement de la version du Runtime de script par **.NET 4.x Équivalent**. Ce changement de paramètre s’effectue dans le cadre de l’importation de package, mais nécessite un redémarrage de Unity. Redémarrez Unity.
 
 ## <a name="running-the-sample"></a>Exécution de l’exemple
-L’exemple inclut une scène de démonstration, **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Cette scène comporte une seule source audio spatialisée lue à partir d’un cube flottant (nommé **AudioHolder** dans la **Hiérarchie**). Pour aider à créer un script de navigation générique, la caméra principale est un enfant de l’objet CameraHolder. 
+L’exemple inclut une scène de démonstration, **Assets/AcousticsDemo/ProjectAcousticsDemo.unity**. Cette scène a trois sources audio. Par défaut, une seule source audio est en cours de lecture, et les deux autres sont en pause. Elles se trouvent sous **Sound Sources** dans la **Hiérarchie**. Pour aider à créer un script de navigation générique, la caméra principale est un enfant de l’objet CameraHolder. 
 
 ![Vue hiérarchique](media/SampleHierarchyView.png)
 
 La scène a déjà subi un baking et contient un fichier ACE associé à la préfabrication **MicrosoftAcoustics** dans la **Hiérarchie**. 
 
-Écoutez la scène en cliquant sur le bouton de lecture dans l’éditeur Unity. Utilisez W, A, S, D et la souris pour vous déplacer. Pour comparer la scène avec et sans acoustique, cliquez sur le bouton gauche de la souris ou le bouton de commande principal. Pour passer en revue les différentes sources sonores, cliquez sur le bouton droit de la souris ou sur le bouton Précédent de votre commande.
+Écoutez la scène en cliquant sur le bouton de lecture dans l’éditeur Unity. Sur le Bureau, utilisez W, A, S, D et la souris pour vous déplacer. Pour comparer l’audio de la scène avec et sans acoustique, appuyez sur le bouton **R** jusqu’à ce que le texte en superposition s’affiche en rouge et indique « Acoustics: Disabled » (Acoustique : désactivé). Pour afficher les raccourcis clavier des autres contrôles, appuyez sur **F1**. Tous les contrôles sont également utilisables à l’aide de la souris : cliquez avec le bouton droit sur l’action à effectuer pour la sélectionner, puis cliquez avec le bouton gauche pour lancer l’action.
 
 ## <a name="targeting-other-platforms"></a>Ciblage d’autres plateformes
 L’exemple contient des paramètres pour s’exécuter sur Windows Desktop, UWP, Windows Mixed Reality, Android et Oculus Go. Par défaut, le projet est configuré pour Windows Desktop. Pour cibler une plateforme de réalité virtuelle, accédez aux paramètres de lecteur (**Edit > Project Settings > Player**), recherchez **XR Settings** et cochez la case **Virtual Reality Supported**.

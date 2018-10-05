@@ -1,5 +1,5 @@
 ---
-title: Réinitialisation TCP de Load Balancer pendant le délai d’inactivité | Microsoft Docs
+title: Réinitialisation TCP de Load Balancer au terme du délai d’inactivité | Microsoft Docs
 description: Load Balancer avec des paquets TCP RST bidirectionnels pendant le délai d’inactivité
 services: load-balancer
 documentationcenter: na
@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/16/2018
+ms.date: 09/26/2018
 ms.author: kumud
-ms.openlocfilehash: 6ec8754e9a6e1afb9dcb400215570d08ebd4342b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0b533a48e94db880f23d42decc5c3fb39a27e5ac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973726"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47395642"
 ---
-# <a name="load-balancer-with-tcp-reset-on-idle-timeout-public-preview"></a>Load Balancer avec réinitialisation TCP pendant le délai d’inactivité (préversion publique)
+# <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Load Balancer avec réinitialisation TCP au terme du délai d’inactivité (préversion publique)
 
 Vous pouvez utiliser [Standard Load Balancer](load-balancer-standard-overview.md) pour créer un comportement d’application plus prévisible pour vos scénarios au moyen de réinitialisations TCP (paquet TCP RST) bidirectionnelles à chaque délai d’inactivité configurable.  Le comportement par défaut de Load Balancer consiste à supprimer silencieusement des flux lorsque le délai d’inactivité d’un flux est atteint.
+
+![Réinitialisation TCP de Load Balancer](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
 >La fonctionnalité Load Balancer avec réinitialisation TCP pendant un délai d’inactivité est pour l’instant disponible en préversion publique dans un ensemble limité de [régions](#regions). Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -73,6 +75,8 @@ Ce paramètre est en usage actuellement dans les régions suivantes.  Dans les r
 
 | Région |
 |---|
+| Asie du Sud-Est |
+| Europe occidentale |
 | USA Est 2 |
 | Nord du Royaume-Uni |
 | USA Ouest |
@@ -87,4 +91,4 @@ Ce tableau est mis à jour au fur et à mesure que la préversion est étendue �
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [Standard Load Balancer](load-balancer-standard-overview.md).
-- En savoir plus sur les [règles de trafic sortant](https://aka.ms/lboutboundrules).
+- En savoir plus sur les [règles de trafic sortant](load-balancer-outbound-rules-overview.md).

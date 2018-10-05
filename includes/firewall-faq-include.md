@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 9/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 4c6aaea836302732b1af3d22923c965575cfc9d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1242cf80ffd283471eb507612949a81d4b3fd594
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47020470"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401651"
 ---
 ### <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -102,9 +102,12 @@ $azfw.Allocate($vnet,$publicip)
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
 
+> [!NOTE]
+> Vous devez réaffecter un pare-feu et une adresse IP publique au groupe de ressources et à l’abonnement d’origine.
+
 ### <a name="what-are-the-known-service-limits"></a>Quelles sont les limites connues du service ?
 
-* Pare-feu Azure a une limite logicielle de 1 000 To par pare-feu et par mois. 
+* Pare-feu Azure a une limite logicielle de 1000 To par pare-feu et par mois. 
 * Une instance Pare-feu Azure qui s’exécute dans un réseau virtuel central est soumise aux limitations du peering des réseaux virtuels, avec un maximum de 50 réseaux virtuels spoke.  
 * Le pare-feu Azure n’étant pas compatible avec le Peering mondial, les clients doivent disposer d’au moins un déploiement de pare-feu par région.
 * Pare-feu Azure prend en charge 10 000 règles d’application et 10 000 règles de réseau.

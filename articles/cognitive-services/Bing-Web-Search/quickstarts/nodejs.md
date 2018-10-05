@@ -1,23 +1,25 @@
 ---
-title: 'Démarrage rapide : Utiliser Node.js pour appeler l’API Recherche Web Bing'
+title: 'Démarrage rapide : Effectuer une recherche avec Node.js - API Recherche Web Bing'
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous allez apprendre à effectuer votre premier appel vers l’API Recherche Web Bing en utilisant Node.js et vous allez recevoir une réponse JSON.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 9/26/2018
 ms.author: erhopf
-ms.openlocfilehash: 7a46500f7cbf319c788761bccfaa92197ef67490
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: debaa63adeb97063d0ea42e1da36352dc2c9c4e7
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886929"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405854"
 ---
 # <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser Node.js pour appeler l’API Recherche Web Bing  
 
-Utilisez ce guide de démarrage rapide pour effectuer votre premier appel vers l’API Recherche Web Bing et recevoir une réponse JSON en moins de 10 minutes.  
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel vers l’API Recherche Web Bing et recevoir une réponse JSON en moins de 10 minutes.
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -26,102 +28,120 @@ Utilisez ce guide de démarrage rapide pour effectuer votre premier appel vers l
 Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
 * [Node.js 6](https://nodejs.org/en/download/) ou version ultérieure
-* Une clé d’abonnement  
+* Une clé d’abonnement
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Créer un projet et déclarer les modules requis
 
-Créez un projet Node.js dans votre éditeur ou IDE favori. Copiez l’extrait de code ci-dessous dans votre projet. Ce démarrage rapide utilise le mode strict et nécessite le module `https` pour envoyer et recevoir des données.
+Créez un projet Node.js dans votre éditeur ou IDE favori.
+Copiez l’extrait de code ci-dessous dans votre projet, dans un fichier nommé `search.js`.
 
 ```javascript
-// Use strict mode.
-'use strict';
-
-// Require the https module.
-let https = require('https');
+// Use this simple app to query the Bing Web Search API and get a JSON response.
+// Usage: node search.js "your query".
+const https = require('https')
 ```
 
-## <a name="define-variables"></a>Définir des variables
+## <a name="set-the-subscription-key"></a>Définir la clé d’abonnement
 
-Quelques variables doivent être définies avant de continuer. Vérifiez que `host` et `path` sont valides et remplacez la valeur `subscriptionKey` par une clé d’abonnement valide à partir de votre compte Azure. N’hésitez pas à personnaliser la requête de recherche en remplaçant la valeur de `term`.
+Cet extrait de code utilise la variable d’environnement `AZURE_SUBSCRIPTION_KEY` pour stocker votre clé d’abonnement ; c’est une bonne pratique pour éviter l’exposition accidentelle de vos clés lors du déploiement de code. [Cliquez ici](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) pour rechercher votre clé d’abonnement.
+
+Si vous êtes familiarisé avec l’utilisation de variables d’environnement, ou que vous cherchez à exécuter cette application le plus rapidement possible, vous pouvez remplacer `process.env['AZURE_SUBSCRIPTION_KEY']` par votre clé d’abonnement définie comme chaîne.
 
 ```javascript
-// Replace with a valid subscription key.
-let subscriptionKey = 'enter key here';
-
-/*
- * Verify the endpoint URI. If you
- * encounter unexpected authorization errors, double-check this host against
- * the endpoint for your Bing Web search instance in your Azure dashboard.  
- */
-let host = 'api.cognitive.microsoft.com';
-let path = '/bing/v7.0/search';
-let term = 'Microsoft Cognitive Services';
-
-// Validate the subscription key.
-if (subscriptionKey.length === 32) {
-    bing_web_search(term);
-} else {
-    console.log('Invalid Bing Search API subscription key!');
-    console.log('Please paste yours into the source code.');
+const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
+if (!SUBSCRIPTION_KEY) {
+  throw new Error('AZURE_SUBSCRIPTION_KEY is not set.')
 }
 ```
 
-## <a name="create-a-response-handler"></a>Créer un gestionnaire de réponse
+## <a name="create-a-function-to-make-the-request"></a>Créer une fonction pour formuler la requête
 
-Créez un gestionnaire pour enchaîner et analyser la réponse. Le `response_handler` est appelé chaque fois qu’une requête est faite pour l’API Recherche Web Bing, comme vous le verrez dans la section suivante.
+Cette fonction constitue une requête GET sécurisée en enregistrant la requête de recherche comme paramètre de requête dans le chemin. L’élément `encodeURIComponent` est utilisé pour éviter les caractères non valides, et la clé d’abonnement est transmise dans un en-tête. Le rappel reçoit une [réponse](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse) qui s’abonne à l’événement `data` pour agréger le corps JSON, à l’événement `error` pour consigner les problèmes dans un journal, et à l’événement `end` pour savoir à quel moment le message doit être considéré comme terminé. Lorsque vous avez terminé, l’application imprime les en-têtes et corps de message intéressants. Vous pouvez jouer avec les couleurs et définir la profondeur en fonction de vos préférences, une profondeur de `1` fournit un bon résumé de la réponse.
 
 ```javascript
-let response_handler = function (response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        console.log('\nRelevant Headers:\n');
-        for (var header in response.headers)
-            // Headers are lowercased by Node.js.
-            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                 console.log(header + ": " + response.headers[header]);
-        // Stringify and parse the response body.
-        body = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log('\nJSON Response:\n');
-        console.log(body);
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+function bingWebSearch(query) {
+  https.get({
+    hostname: 'api.cognitive.microsoft.com',
+    path:     '/bing/v7.0/search?q=' + encodeURIComponent(query),
+    headers:  { 'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY },
+  }, res => {
+    let body = ''
+    res.on('data', part => body += part)
+    res.on('end', () => {
+      for (var header in res.headers) {
+        if (header.startsWith("bingapis-") || header.startsWith("x-msedge-")) {
+          console.log(header + ": " + res.headers[header])
+        }
+      }
+      console.log('\nJSON Response:\n')
+      console.dir(JSON.parse(body), { colors: false, depth: null })
+    })
+    res.on('error', e => {
+      console.log('Error: ' + e.message)
+      throw e
+    })
+  })
+}
+```
+
+## <a name="get-the-query"></a>Obtenir la requête
+
+Examinons les arguments du programme pour trouver la requête. Le premier argument est le chemin au nœud, le deuxième est notre nom de fichier, et le troisième est votre requête. Si la requête est absente, une requête par défaut de « Microsoft Cognitive Services » est utilisée.
+
+```javascript
+const query = process.argv[2] || 'Microsoft Cognitive Services'
 ```
 
 ## <a name="make-a-request-and-print-the-response"></a>Effectuer une requête et imprimer la réponse
 
-Construisez la requête et effectuez un appel à l’API Recherche Web Bing. Une fois la requête effectuée, la fonction `response_handler` est appelée et la réponse est imprimée.
+Et maintenant que tout est défini, nous allons appeler notre fonction !
 
 ```javascript
-let bing_web_search = function (search) {
-    console.log('Searching the Web for: ' + term);
-        // Declare the method, hostname, path, and headers.
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + '?q=' + encodeURIComponent(search),
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
-    // Request to the Bing Web Search API.
-    let req = https.request(request_params, response_handler);
-    req.end();
-}
+bingWebSearch(query)
 ```
 
 ## <a name="put-it-all-together"></a>Assemblage
 
-La dernière étape consiste à exécuter votre code ! Si vous souhaitez comparer votre code avec le nôtre, [un exemple de code est disponible sur GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
+La dernière étape consiste à exécuter votre code : `node search.js "<your query>"`.
+
+Si vous souhaitez comparer votre code avec le nôtre, voici le programme complet :
+
+```javascript
+const https = require('https')
+const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
+if (!SUBSCRIPTION_KEY) {
+  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment varable')
+}
+function bingWebSearch(query) {
+  https.get({
+    hostname: 'api.cognitive.microsoft.com',
+    path:     '/bing/v7.0/search?q=' + encodeURIComponent(query),
+    headers:  { 'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY },
+  }, res => {
+    let body = ''
+    res.on('data', part => body += part)
+    res.on('end', () => {
+      for (var header in res.headers) {
+        if (header.startsWith("bingapis-") || header.startsWith("x-msedge-")) {
+          console.log(header + ": " + res.headers[header])
+        }
+      }
+      console.log('\nJSON Response:\n')
+      console.dir(JSON.parse(body), { colors: false, depth: null })
+    })
+    res.on('error', e => {
+      console.log('Error: ' + e.message)
+      throw e
+    })
+  })
+}
+const query = process.argv[2] || 'Microsoft Cognitive Services'
+bingWebSearch(query)
+```
 
 ## <a name="sample-response"></a>Exemple de réponse
 
-Les réponses à partir de l’API Recherche Web Bing sont retournées au format JSON. Cet exemple de réponse a été tronqué pour afficher un résultat unique.  
+Les réponses à partir de l’API Recherche Web Bing sont retournées au format JSON. Cet exemple de réponse a été tronqué pour afficher un résultat unique.
 
 ```json
 {
@@ -157,7 +177,7 @@ Les réponses à partir de l’API Recherche Web Bing sont retournées au format
           },
           {
             "name": "Emotion",
-            "url": "https://www.microsoft.com/cognitive-services/en-us/emotion-api",
+            "url": "https://www.microsoft.com/cognitive-services/emotion-api",
             "snippet": "Cognitive Services Emotion API - microsoft.com"
           },
           {

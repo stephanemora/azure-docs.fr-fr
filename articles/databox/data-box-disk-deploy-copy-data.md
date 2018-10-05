@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2018
+ms.date: 09/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841503"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452613"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Didacticiel : Copier des données sur un disque Azure Data Box et procéder à une vérification
 
@@ -30,17 +30,14 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Copier des données sur un disque Data Box
-> * Vérifier l’intégrité des données
+> * Vérifier les données
 
 ## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous que :
 - Vous avez terminé le [Didacticiel : Installer et configurer votre disque Azure Data Box](data-box-disk-deploy-set-up.md).
-- Vos disques sont décompressés et activés.
-- Vous disposez d’un ordinateur hôte pour copier des données sur les disques. Votre ordinateur hôte doit
-    - Exécuter un [système d’exploitation pris en charge](data-box-disk-system-requirements.md)
-    - Avoir [Windows PowerShell 4 installé](https://www.microsoft.com/download/details.aspx?id=40855)
-    - Avoir [.NET Framework 4.5 installé](https://www.microsoft.com/download/details.aspx?id=30653)
+- Vos disques sont déverrouillés et connectés à un ordinateur client.
+- Votre ordinateur client utilisé pour copier des données sur les disques doit exécuter un [système d’exploitation pris en charge](data-box-disk-system-requirements.md).
 
 
 ## <a name="copy-data-to-disks"></a>Copier des données sur des disques
@@ -59,6 +56,7 @@ Procédez comme suit pour vous connecter et copier des données à partir de vot
 
     Suivez les conventions de dénomination Azure pour les noms de conteneur et d’objet blob.
 
+    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>Conventions d’affectation de noms Azure pour les noms de conteneur et d’objet blob
     |Entité   |Conventions  |
     |---------|---------|
     |Noms de conteneur pour l’objet blob de blocs et l’objet blob de pages     |Doit commencer par une lettre ou un chiffre et peut comporter uniquement des lettres minuscules, des chiffres et des traits d’union (-). Chaque trait d’union (-) doit être immédiatement précédé et suivi par une lettre ou un chiffre. Les traits d’union consécutifs ne sont pas autorisés dans les noms. <br>Doit être un nom DNS valide dont la longueur est comprise entre 3 et 63 caractères.          |
@@ -165,17 +163,21 @@ Procédez comme suit pour vous connecter et copier des données à partir de vot
 > -  Lorsque vous copiez des données, vérifiez que la taille des données est conforme aux limites de taille spécifiées dans l’article [Azure storage and Data Box Disk limits](data-box-disk-limits.md) (Limitations relatives au stockage Azure et aux disques Data Box). 
 > - Si les données, qui sont en cours de chargement via Data Box Disk, sont chargées simultanément par d’autres applications en dehors de Data Box Disk, cela pourrait entraîner l’échec du téléchargement ou des corruptions de données.
 
-## <a name="verify-data-integrity"></a>Vérifier l’intégrité des données
+## <a name="verify-data"></a>Vérifier les données 
 
-Pour vérifier l’intégrité des données, procédez comme suit.
+Pour vérifier les données, procédez comme suit.
 
-1. Exécutez `AzureExpressDiskService.ps1` pour valider la somme de contrôle. Dans l’Explorateur de fichiers, accédez au dossier *AzureImportExport* du disque. Cliquez avec le bouton droit et sélectionnez **Exécuter avec PowerShell**. 
+1. Exécutez le fichier `DataBoxDiskValidation.cmd` pour la validation des sommes de contrôle dans le dossier *AzureImportExport* de votre lecteur. 
+    
+    ![Sortie de l’outil de validation Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
-    ![Exécuter la somme de contrôle](media/data-box-disk-deploy-copy-data/data-box-disk-checksum.png)
-
-2. Selon la taille de vos données, cette étape peut prendre un certain temps. Un résumé du processus de vérification de l’intégrité des données, ainsi que le temps d’exécution du processus, s’affichent une fois le script terminé. Vous pouvez appuyer sur **Entrée** pour quitter la fenêtre de commande.
+2. Choisissez l’option appropriée. **Nous vous recommandons de toujours valider les fichiers et générer des sommes de contrôle en sélectionnant l’option 2**. Selon la taille de vos données, cette étape peut prendre un certain temps. Une fois le script exécuté, quittez la fenêtre de commandes. Si des erreurs se produisent pendant la validation et la génération des sommes de contrôle, vous en êtes averti, et un lien d’accès aux journaux des erreurs vous est également fourni.
 
     ![Sortie de la somme de contrôle](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
+
+    > [!TIP]
+    > - Réinitialisez l’outil entre deux exécutions.
+    > - Utilisez l’option 1 pour valider les fichiers en traitant uniquement les jeux de données volumineux contenant de petits fichiers (~Ko). Dans ce cas, la génération des sommes de contrôle peut prendre beaucoup de temps et ralentir considérablement les performances.
 
 3. Si vous utilisez plusieurs disques, exécutez la commande pour chaque disque.
 

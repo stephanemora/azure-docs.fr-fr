@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: d0c6f8723909b71501894c9363932c752c1e130c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989853"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419540"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Didacticiel : configurer Azure Data Box Gateway dans VMware (préversion)
 
@@ -33,9 +33,9 @@ Vous aurez besoin de privilèges d’administrateur pour configurer un appareil 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Vérifier que l’hôte répond aux exigences minimales de l’appareil
-> * Configurer un appareil virtuel dans l'hyperviseur
-> * Démarrer l’appareil virtuel et obtenir l'adresse IP
+> * Vérifier que l’hôte répond à la configuration minimale requise de l’appareil
+> * Approvisionner un appareil virtuel dans VMware
+> * Démarrer l’appareil virtuel et obtenir l’adresse IP
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -50,7 +50,7 @@ Vous trouverez ici les conditions requises pour configurer un appareil virtuel s
 
 Avant de commencer, assurez-vous que :
 
-* Vous avez terminé toutes les étapes de la rubrique [Préparation du portail pour Data Box Gateway](data-box-gateway-deploy-prep.md).
+* Vous avez terminé toutes les étapes de la rubrique [Préparer le portail pour Data Box Gateway](data-box-gateway-deploy-prep.md).
 * Vous avez téléchargé l’image d’appareil virtuel pour VMware à partir du portail Azure comme décrit dans [Préparation du portail pour Data Box Gateway](data-box-gateway-deploy-prep.md).
 
   > [!IMPORTANT]
@@ -74,7 +74,7 @@ Avant de déployer un appareil virtuel, assurez-vous que :
 Avant de commencer :
 
 - Passez en revue les exigences de mise en réseau pour déployer Data Box Gateway et configurer le réseau du centre de données conformément à la configuration requise. Pour plus d’informations, consultez la [Configuration requise du réseau pour Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
-- Assurez-vous que la bande passante Internet minimale est de 20 Mbits/s pour une utilisation optimale de l'appareil.
+- Assurez-vous que la bande passante Internet minimale est de 20 Mbits/s pour un fonctionnement optimal de l’appareil.
 
 ## <a name="check-the-host-system"></a>Vérifier le système hôte
 
@@ -90,7 +90,7 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 * Un client VMware vSphere sur votre système pour gérer l'hôte ESXi.
 
 
-## <a name="provision-a-virtual-device-in-hypervisor"></a>Configurer un appareil virtuel dans l'hyperviseur
+## <a name="provision-a-virtual-device-in-hypervisor"></a>Configurer un appareil virtuel dans l’hyperviseur
 
 Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
@@ -171,7 +171,7 @@ L'étape suivante consiste à mettre cette machine sous tension et à obtenir l'
 > [!NOTE]
 > Nous vous recommandons de ne pas installer les outils VMware sur votre appareil virtuel (configuré plus haut). Cette configuration avec les outils VMware installés n’est pas prise en charge.
 
-## <a name="start-the-virtual-device-and-get-the-ip"></a>Démarrer l’appareil virtuel et obtenir l'adresse IP
+## <a name="start-the-virtual-device-and-get-the-ip"></a>Démarrer l’appareil virtuel et obtenir l’adresse IP
 
 Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
@@ -198,7 +198,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
 6. Les étapes 5 à 7 s’appliquent uniquement lors de l’amorçage dans un environnement non DHCP. Si vous êtes dans un environnement DHCP, ignorez ces étapes et passez à l'étape 8. Si vous avez démarré votre appareil dans un environnement non DHCP, vous voyez un message indiquant : **Utilisez l’applet de commande Set-HcsIPAddress pour configurer le réseau**. 
    
-7. Pour configurer le réseau, dans l’invite de commandes, utilisez la commande `Get-HcsIpAddress` pour répertorier les interfaces réseau activées sur votre appareil virtuel. Si votre appareil possède une seule interface réseau activée, le nom par défaut affecté à cette interface est `DATA1`.
+7. Pour configurer le réseau, dans l’invite de commandes, utilisez la commande `Get-HcsIpAddress` pour répertorier les interfaces réseau activées sur votre appareil virtuel. Si votre appareil possède une seule interface réseau activée, le nom par défaut affecté à cette interface est `Ethernet`.
 
 8. Utilisez l’applet de commande `Set-HcsIpAddress` pour configurer le réseau. Voici un exemple :
 
@@ -208,7 +208,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-Si votre périphérique ne répond pas à la configuration minimale requise, une erreur apparaît dans le texte de bannière (voir ci-dessous). Vous devez modifier la configuration de l'appareil afin qu'il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise à l’ [Étape 1 : Vérifier que le système hôte répond aux exigences minimales de l’appareil virtuel](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Si votre périphérique ne répond pas à la configuration minimale requise, une erreur apparaît dans le texte de bannière (voir ci-dessous). Vous devez modifier la configuration de l'appareil afin qu'il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise dans [Vérifier le système hôte](#check-the-host-system).
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -220,9 +220,9 @@ Si votre périphérique ne répond pas à la configuration minimale requise, une
 Dans ce didacticiel, vous avez approfondi vos connaissances sur Data Box Gateway et avez notamment appris à :
 
 > [!div class="checklist"]
-> * Vérifier que l’hôte répond aux exigences minimales de l’appareil
-> * Configurer un appareil virtuel dans l'hyperviseur
-> * Démarrer l’appareil virtuel et obtenir l'adresse IP
+> * Vérifier que l’hôte répond à la configuration minimale requise de l’appareil
+> * Approvisionner un appareil virtuel dans VMware
+> * Démarrer l’appareil virtuel et obtenir l’adresse IP
 
 Passez au tutoriel suivant pour savoir comment connecter, configurer et activer votre appareil virtuel.
 

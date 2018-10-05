@@ -9,18 +9,18 @@ ms.component: acoustics
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 3b35f78d66a6ae66b0a56818f5d4be455ce00de5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 8f594be67c4677fae00cb01598d3899e30dae1e8
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181278"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433222"
 ---
 # <a name="design-process-overview"></a>Vue d’ensemble du processus de conception
-Vous pouvez exprimer votre intention de conception dans les trois phases du flux de travail Project Acoustics : conception pré-baking, placement de la source audio et conception post-baking. Le processus nécessite moins de balisage associé au placement des volumes de réverbération, tout en laissant au concepteur le contrôle sur l’apparence sonore d’une scène.
+Vous pouvez exprimer votre intention de conception dans les trois phases du flux de travail Project Acoustics : configuration de la scène pré-baking, placement de la source audio et conception post-baking. Le processus nécessite moins de balisage associé au placement des volumes de réverbération, tout en laissant au concepteur le contrôle sur l’apparence sonore d’une scène.
 
 ## <a name="pre-bake-design"></a>Conception pré-baking
-Le processus de conception pré-baking produit la scène et les métadonnées qui sont utilisées pour la simulation des ondes sonores, qui inclut la sélection des éléments de la scène qui participeront à la simulation pour fournir la réverbération, les réflexions et les occlusions. Les métadonnées de la scène sont la sélection des matériaux acoustiques pour chaque élément de la scène. Les matériaux acoustiques contrôlent la quantité d’énergie sonore reflétée par chaque surface.
+Le processus de configuration de la scène pré-baking produit la scène et les métadonnées qui sont utilisées pour la simulation des ondes sonores, qui inclut la sélection des éléments de la scène qui participeront à la simulation pour fournir la réverbération, les réflexions et les occlusions. Les métadonnées de la scène sont la sélection des matériaux acoustiques pour chaque élément de la scène. Les matériaux acoustiques contrôlent la quantité d’énergie sonore reflétée par chaque surface.
 
 Le coefficient d’absorption par défaut pour toutes les surfaces est 0,04, ce qui correspond à une réflexion très élevée. Vous pouvez obtenir des effets esthétiques et de jeu en ajustant les coefficients d’absorption de matières différentes tout au long de la scène, qui sont particulièrement importants pour les auditeurs quand ils entendent les transitions d’une zone de la scène à une autre. Par exemple, effectuer une transition d’une pièce sombre à réverbération vers une scène claire en extérieur sans réverbération améliore l’impact de la transition. Pour obtenir cet effet, paramétrez les coefficients d’absorption sur les matières de la scène en extérieur avec des valeurs plus élevées.
 

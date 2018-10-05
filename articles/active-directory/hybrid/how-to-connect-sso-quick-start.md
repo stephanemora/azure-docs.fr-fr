@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 532a37c5de7b69c44f0f8502613ac534f57c8ef9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306438"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405986"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
@@ -115,7 +115,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 ### <a name="group-policy-option---detailed-steps"></a>Option « Stratégie de groupe » - Procédure détaillée
 
 1. Ouvrez l’outil Éditeur de gestion des stratégies de groupe.
-2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cette exemple utilise la **stratégie de domaine par défaut**.
+2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cet exemple utilise la **stratégie de domaine par défaut**.
 3. Accédez à **Configuration utilisateur** > **Modèles d'administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Activez la stratégie, puis entrez les valeurs suivantes dans la boîte de dialogue :
@@ -124,9 +124,9 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 
     Le résultat ressemble à :
 
-    Valeur: https://autologon.microsoftazuread-sso.com
+    Nom de la valeur : https://autologon.microsoftazuread-sso.com
   
-    Data 1
+    Valeur (données) : 1
 
    >[!NOTE]
    > Si vous souhaitez interdire à certains utilisateurs l’utilisation de l’authentification unique transparente (par exemple, si ces utilisateurs se connectent sur des bornes partagées), définissez les valeurs précédentes sur **4**. Cette opération ajoute l’URL Azure AD à la zone Sites sensibles et rend l’authentification unique transparente inutilisable en permanence.

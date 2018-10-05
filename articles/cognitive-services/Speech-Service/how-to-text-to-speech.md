@@ -7,20 +7,20 @@ author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/08/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d19b71542f032111bbd3d9c7f3fe246110377b5d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5822c313cf0fb5848726cf85c46cda2a3a408264
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127584"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434617"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Utiliser la fonctionnalité Synthèse vocale du service Speech
 
-Le service Speech vous offre une fonctionnalité de synthèse vocale par le biais d’une simple requête HTTP. Vous PUBLIEZ le texte à énoncer sur le point de terminaison approprié, puis le service vous renvoie un fichier audio (`.wav`) contenant la voix de synthèse. Votre application peut ensuite utiliser ce fichier audio selon vos besoins.
+Le service Speech vous offre une fonctionnalité de synthèse vocale par le biais d’une simple requête HTTP. Vous effectuez un `POST` du texte à énoncer sur le point de terminaison approprié, puis le service vous renvoie un fichier audio (`.wav`) contenant la voix de synthèse. Votre application peut ensuite utiliser ce fichier audio selon vos besoins.
 
-Le corps de la requête de publication POST pour la synthèse vocale peut prendre la forme d’un texte brut (ASCII ou UTF8) ou d’un document [SSML](speech-synthesis-markup.md). Les requêtes portant sur un texte brut sont énoncées avec une voix par défaut. Dans la plupart des cas, vous utiliserez un corps SSML. La requête HTTP doit inclure un jeton d’[autorisation](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication). 
+Le corps de la requête de publication POST pour la synthèse vocale peut prendre la forme d’un texte brut (ASCII ou UTF8) ou d’un document [SSML](speech-synthesis-markup.md). Les requêtes portant sur un texte brut sont énoncées avec une voix par défaut. Dans la plupart des cas, vous utiliserez un corps SSML. La requête HTTP doit inclure un jeton d’[autorisation](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication).
 
 Les différents points de terminaison de synthèse vocale régionaux sont indiqués ci-après. Utilisez le point de terminaison adapté à votre abonnement.
 
@@ -38,21 +38,21 @@ Pour spécifier une voix, utilisez la balise [SSML](speech-synthesis-markup.md) 
 </speak>
 ```
 
-Pour obtenir la liste des voix disponibles avec leur nom, consultez la section [Text to Speech voices](supported-languages.md#text-to-speech) (Synthèse vocale).
+Pour obtenir la liste des voix disponibles avec leur nom, consultez la section [Text to Speech voices](language-support.md#text-to-speech) (Synthèse vocale).
 
 ## <a name="make-a-request"></a>Exécuter une requête
 
-Une requête HTTP Synthèse vocale est effectuée en mode POST, le corps de la requête contenant le texte à énoncer. La longueur maximale du corps de la requête HTTP est de 1 024 caractères. La requête doit comporter les en-têtes suivants : 
+Une requête HTTP Synthèse vocale est effectuée en mode POST, le corps de la requête contenant le texte à énoncer. La longueur maximale du corps de la requête HTTP est de 1 024 caractères. La requête doit comporter les en-têtes suivants :
 
 En-tête|Valeurs|Commentaires
 -|-|-
 |`Content-Type` | `application/ssml+xml` | Format du texte d’entrée.
-|`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`audio-16khz-16kbps-mono-siren`<br>`riff-16khz-16kbps-mono-siren`<br>`riff-16khz-16bit-mono-pcm`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | Format audio de sortie.
+|`X-Microsoft-OutputFormat`|     `raw-16khz-16bit-mono-pcm`<br>`riff-16khz-16bit-mono-pcm`<br>`raw-8khz-8bit-mono-mulaw`<br>`riff-8khz-8bit-mono-mulaw`<br>`audio-16khz-128kbitrate-mono-mp3`<br>`audio-16khz-64kbitrate-mono-mp3`<br>`audio-16khz-32kbitrate-mono-mp3`<br>`raw-24khz-16bit-mono-pcm`<br>`riff-24khz-16bit-mono-pcm`<br>`audio-24khz-160kbitrate-mono-mp3`<br>`audio-24khz-96kbitrate-mono-mp3`<br>`audio-24khz-48kbitrate-mono-mp3` | Format audio de sortie.
 |`User-Agent`   |Nom de l’application | Le nom de l’application est requis. Il doit utiliser moins de 255 caractères.
 | `Authorization`   | Jeton d’autorisation obtenu par présentation de votre clé d’abonnement au service de jetons. Chaque jeton a une durée de validité de dix minutes. Consultez la section [REST APIs: Authentication](rest-apis.md#authentication) (API REST : Authentification).
 
 > [!NOTE]
-> Si la voix que vous avez sélectionnée ne présente pas la même vitesse de transmission que le format de sortie spécifié, les données audio sont rééchantillonnées si nécessaire. Les voix à 24 kHz ne prennent pas en charge les formats de sortie `audio-16khz-16kbps-mono-siren` et `riff-16khz-16kbps-mono-siren`. 
+> Si la voix que vous avez sélectionnée ne présente pas la même vitesse de transmission que le format de sortie spécifié, les données audio sont rééchantillonnées si nécessaire.
 
 Voici un exemple de requête.
 
@@ -87,7 +87,8 @@ Si une erreur se produit, les codes d’état ci-après sont utilisés. Le corps
 |-|-|-|
 400 |Demande incorrecte |Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long.
 401|Non autorisé |La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton sont valides.
-413|Entité de requête trop volumineuse|L’entrée SSML comporte plus de 1 024 caractères.
+413|Entité de requête trop volumineuse|Le SSML d’entrée est trop volumineux ou contient plus de trois éléments `<voice>`.
+429|Trop de demandes|Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement.
 |502|Passerelle incorrecte    | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides.
 
 Pour plus d’informations sur l’API REST Synthèse vocale, consultez l’article décrivant les [API REST](rest-apis.md#text-to-speech) associées.

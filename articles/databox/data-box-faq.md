@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: ''
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d0da9107fe1dd34481ca0bf1aa9a0b260bb10951
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e47ffbe15291275a7104d5e201a597d084cdbdd9
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946627"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422862"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum aux Questions
 
@@ -98,7 +98,7 @@ R.  Dans le portail Azure, affichez votre commande Data Box, puis accédez à **
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>Q. Puis-je utiliser un ordinateur hôte Linux pour me connecter et copier les données sur Data Box ?
 R.  Oui. Vous pouvez utiliser Data Box pour vous connecter à des clients SMB et NFS. Pour plus d’informations, accédez à la liste des [systèmes d’exploitation pris en charge](data-box-system-requirements.md) pour votre ordinateur hôte.
 
-### <a name="q-my-data-box-is-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>Q. Ma Data Box a été expédié, mais je souhaite maintenant annuler ma commande. Pourquoi le bouton Annuler n’est-il pas disponible ?
+### <a name="q-my-data-box-is-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>Q. Ma Data Box a été expédiée, mais je souhaite maintenant annuler ma commande. Pourquoi le bouton Annuler n’est-il pas disponible ?
 R.  Vous pouvez annuler votre commande Data Box uniquement si celle-ci n’a pas encore été traitée. Une fois la commande Data Box traitée, vous ne pouvez plus l’annuler. 
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>Q. Puis-je connecter une Data Box à plusieurs ordinateurs hôtes simultanément pour transférer des données ?
@@ -117,7 +117,7 @@ A.
 A.-->
 
 ### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>Q. Le voyant LED indiquant une erreur système est allumé sur le panneau de commande avant. Que dois-je faire ?
-R. L’allumage du voyant LED d’erreur système indique que votre système est défectueux. Contactez le Support Microsoft pour les étapes suivantes.
+R. L’allumage du voyant LED d’erreur système indique que votre système est défectueux. [contactez le support technique Microsoft](data-box-disk-contact-microsoft-support.md) .
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>Q. Impossible d’accéder au mode de passe de déverrouillage Data Box dans le portail Azure. Quel est le problème ?
 R. Si vous ne pouvez pas accéder au mot de passe de déverrouillage dans le portail Azure, vérifiez les autorisations de votre abonnement et de votre compte de stockage. Assurez-vous de disposer des autorisations de collaborateur ou de propriétaire au niveau du groupe de ressources. Si ce n’est pas le cas, vous devez posséder au moins une autorisation de rôle d’opérateur Data Box pour afficher les identifiants d’accès.
@@ -127,8 +127,8 @@ R. Si vous ne pouvez pas accéder au mot de passe de déverrouillage dans le por
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>Q. Comment faire pour suivre la Data Box depuis sa commande jusqu’à son renvoi ? 
 R.  Vous pouvez suivre l’état de la commande Data Box dans le portail Azure. Lorsque vous créez la commande, vous êtes également invité à fournir une adresse e-mail pour recevoir des notifications. Si vous en avez fourni une, vous serez averti par e-mail de toutes les modifications d’état de la commande. Plus d’informations sur la manière de [configurer les notifications par e-mail](data-box-portal-ui-admin.md#edit-notification-details).
 
-### <a name="q-how-do-i-return-the-disks"></a>Q. Comment faire pour renvoyer les disques ? 
-R.  Microsoft affiche une étiquette d’expédition sur l’écran E-ink. Collez l’étiquette sur la boîte d’envoi et déposez le paquet scellé chez votre livreur. Si vous avez endommagé ou perdu l’étiquette, vous pouvez accéder à **Vue d’ensemble > Télécharger une étiquette d'expédition** et télécharger une nouvelle étiquette d’expédition.
+### <a name="q-how-do-i-return-the-device"></a>Q. Comment faire pour renvoyer l’appareil ? 
+R.  Microsoft affiche une étiquette d’expédition sur l’écran E-ink. Si l’étiquette d’expédition n’apparaît pas sur l’écran E-ink, accédez à **Vue d’ensemble > Télécharger une étiquette d’expédition**. Téléchargez et imprimez l’étiquette, insérez-la dans l’onglet en plastique transparent fixé sur l’appareil, puis déposez l’appareil au point de dépôt de votre transporteur. 
 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>Q. J’ai reçu une notification par e-mail que mon appareil est arrivé au centre de données Azure. Comment savoir si le chargement des données est en cours ?
 R. Vous pouvez accéder à votre commande Data Box dans la **vue d’ensemble** du portail Azure. Si le chargement des données vers Azure a démarré, vous verrez la progression de la copie dans le volet droit. 
@@ -182,10 +182,10 @@ R. Si votre appareil est arrivé endommagé ou présente des signes de falsifica
 R. Pour le service Data Box, Microsoft gère la livraison vers et depuis le centre de données Azure. Si vous souhaitez utiliser votre propre transporteur, vous pouvez utiliser le service Azure Import/Export. Pour plus d’informations, consultez [Qu’est-ce que le service Azure Import/Export ?](../storage/common/storage-import-export-service.md)
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>Q. L’écran E-ink n’affiche pas l’étiquette de retour. Que dois-je faire ?
-R. Si l’écran E-ink n’affiche pas l’étiquette de retour, procédez comme suit :
+R. Si l’écran E-ink n’affiche pas l’étiquette de retour, procédez comme suit :
 - Décollez l’ancienne étiquette d’expédition et l’éventuel autocollant du précédent colis.
-- Accédez à votre commande dans le portail Azure. Accédez à Vue d’ensemble, puis téléchargez une étiquette d’expédition. Pour plus d’informations, consultez [Télécharger une étiquette d’expédition](data-box-portal-admin.md#download-shipping-label).
-- Imprimez l’étiquette d’expédition et insérez-la dans la pochette transparente accolée à l’appareil. 
+- Accédez à votre commande dans le portail Azure. Accédez à **Vue d’ensemble**, puis à **Télécharger une étiquette d’expédition**. Pour plus d’informations, consultez [Télécharger une étiquette d’expédition](data-box-portal-admin.md#download-shipping-label).
+- Imprimez l’étiquette d’expédition et insérez-la dans la pochette en plastique transparent accolée à l’appareil. 
 - Vérifiez que l’étiquette d’expédition est clairement visible. 
 
 ### <a name="q-how-is-my-data-protected-during-transit"></a>Q. Comment mes données sont-elles protégées pendant le transfert ? 
@@ -204,12 +204,11 @@ R. Oui. Vous pouvez allumer l’appareil et ajouter d’autres données. Vous de
 R.  Dès que l’état de la commande pour la **copie des données** s’affiche comme **complet**, vous devriez pouvoir accéder à vos données.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>Q. Où se trouvent mes données dans Azure après leur téléchargement ?
-R.  Lorsque vous copiez les données sur Data Box, selon qu’il s’agisse d’objet blob de blocs, d’objets blob de pages ou de fichiers Azure, les données sont téléchargées vers un des chemins d’accès suivants dans votre compte Stockage Azure :
- - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
- - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
- - `<Your_storage_account_name_AzFile>/` 
-
-Sous les partages d’objet blob de blocs et d’objet blob de pages, les entités de premier niveau sont des conteneurs et les entités de second niveau sont des objets blob. Sous les partages Azure Files, les entités de premier niveau sont des partages et les entités de second niveau sont des fichiers.
+R.  Lorsque vous copiez les données sur Data Box, selon qu’il s’agit d’objets blob de blocs, d’objets blob de pages ou de fichiers Azure, les données sont chargées vers l’un des chemins d’accès ci-après dans votre compte Stockage Azure.
+ - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+ -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+ 
+ Vous pouvez également accéder à votre compte de stockage Azure dans le Portail Azure et naviguer à partir de cet emplacement.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>Q. Je viens de remarquer que je n’ai pas suivi les conventions de dénomination pour mes conteneurs Azure. Le chargement de mes données sur Azure risque-t-il d’échouer ?
 R.  Si les noms des conteneurs contiennent des lettres majuscules, celles-ci sont automatiquement converties en minuscules. Si les noms ne sont pas conformes d’une autre manière (caractères spéciaux, autres langues, etc.), le chargement échouera. Pour plus d’informations sur les meilleures pratiques pour nommer les partages, les conteneurs et les fichiers, consultez : 

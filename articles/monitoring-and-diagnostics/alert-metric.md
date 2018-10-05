@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 479fd902ef68bf24306bcd699da0be08415592a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ac31818a68aa2b4624410b423b7559b84275777
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956987"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409369"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
 
@@ -20,7 +20,7 @@ Dans Azure Monitor, les alertes de métrique vous avertissent lorsque l’une de
 
 Vous pouvez en savoir plus sur le fonctionnement des alertes de métrique dans la [vue d’ensemble des alertes de métrique](alert-metric-overview.md).
 
-## <a name="create-a-metric-alert-rule-using-azure-portal"></a>Créer une règle d’alerte de métrique à l’aide du portail Azure
+## <a name="create-with-azure-portal"></a>Créer avec le Portail Azure
 
 La procédure suivante décrit comment créer une règle d’alerte de métrique dans le portail Azure :
 
@@ -58,7 +58,7 @@ La procédure suivante décrit comment créer une règle d’alerte de métrique
 > [!NOTE]
 > Les règles d’alerte de métrique créées via le portail sont créées dans le même groupe de ressources que la ressource cible.
 
-## <a name="view-and-manage-metric-alert-rules-using-azure-portal"></a>Afficher et gérer des règles d’alerte de métrique à l’aide du portail Azure
+## <a name="view-and-manage-with-azure-portal"></a>Afficher et gérer avec le Portail Azure
 
 Vous pouvez afficher et gérer les règles d’alerte de métrique à l’aide du panneau Gérer les règles, sous Alertes. La procédure suivante vous explique comment afficher vos règles d’alerte de métrique et comment en modifier une.
 
@@ -80,7 +80,7 @@ Vous pouvez afficher et gérer les règles d’alerte de métrique à l’aide d
 
 6. Cliquez sur **Terminé** pour enregistrer vos modifications.
 
-## <a name="create-view-and-manage-metric-alert-rules-using-azure-cli"></a>Créer, afficher et gérer des règles d’alerte de métrique à l’aide d’Azure CLI
+## <a name="with-azure-cli"></a>Avec l’interface de ligne de commande Azure
 
 Les sections précédentes décrivaient comment créer, afficher et gérer des règles d’alerte de métrique à l’aide du portail Azure. Cette section décrit comment faire de même à l’aide de l’[interface de ligne de commande Azure](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) multiplateforme. Le plus rapide pour commencer à utiliser Azure CLI est de s’appuyer sur [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest). Pour cet article, nous utiliserons Cloud Shell.
 

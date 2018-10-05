@@ -5,65 +5,72 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 58245478cf49c030c435b487e233bbc893a2b9a3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296354"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423355"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Ajouter des métriques étendues pour les machines virtuelles Azure
 
-Cost Management utilise les données de métriques Azure issues de vos machines virtuelles Azure pour vous montrer des informations détaillées sur leurs ressources. Les données de métriques, également appelées compteurs de performances, permettent à Cost Management de générer des rapports. Toutefois, Cost Management ne collecte pas automatiquement toutes les données de métriques Azure à partir des machines virtuelles invitées ; vous devez activer la collecte de métriques. Cet article vous aide à activer et à configurer des métriques de diagnostics supplémentaires pour vos machines virtuelles Azure.
+Cloudyn utilise les données de métriques Azure issues de vos machines virtuelles Azure pour vous montrer des informations détaillées sur leurs ressources. Les données de métriques, également appelées compteurs de performances, permettent à Cloudyn de générer des rapports. Toutefois, Cloudyn ne collecte pas automatiquement toutes les données de métriques Azure à partir des machines virtuelles invitées : vous devez activer la collecte de métriques. Cet article vous aide à activer et à configurer des métriques de diagnostics supplémentaires pour vos machines virtuelles Azure.
 
 Une fois que vous avez activé la collecte de métriques, vous pouvez :
 
 - Savoir quand vos machines virtuelles atteignent leurs limites en termes de mémoire, disque et UC.
 - Détecter les anomalies et les tendances d’utilisation.
 - Contrôler les coûts en effectuant un redimensionnement en fonction de l’utilisation.
-- Obtenir des recommandations d’optimisation du dimensionnement à moindre frais provenant de Cost Management.
+- Obtenir des recommandations d’optimisation du dimensionnement à moindre frais provenant de Cloudyn.
 
 Par exemple, vous pouvez souhaiter surveiller les pourcentages d’utilisation de l’UC et de la mémoire de vos machines virtuelles Azure. Les métriques des machines virtuelles Azure correspondent à _[Hôte] Pourcentage d’UC_ et _[Invité] Pourcentage de mémoire_.
 
-## <a name="verify-that-metrics-are-enabled-on-vms"></a>Vérifier que les métriques sont activées sur les machines virtuelles
+> [!NOTE]
+> La collecte de données de métriques étendue est prise en charge uniquement avec la supervision d’invités Azure. Cloudyn n’est pas compatible avec l’extension de machine virtuelle Log Analytics.
+
+## <a name="determine-whether-extended-metrics-are-enabled"></a>Déterminer si les métriques étendues sont activées
 
 1. Connectez-vous au portail Azure sur http://portal.azure.com.
 2. Sous **Machines virtuelles**, sélectionnez une machine virtuelle, puis sous **Surveillance**, sélectionnez **Métriques**. Une liste de métriques disponibles s’affiche.
 3. Sélectionnez certaines métriques ; un graphe affiche alors les données correspondantes.  
     ![Exemple de métrique : pourcentage d’UC (hôte)](./media/azure-vm-extended-metrics/metric01.png)
 
-Dans l’exemple précédent, un ensemble limité de métriques standard est disponible pour vos hôtes, mais aucune métrique de mémoire n’est proposée. Les métriques de mémoire font partie des métriques étendues. Vous devez effectuer quelques étapes supplémentaires pour activer les métriques étendues. Les informations suivantes vous expliquent comment les activer.
+Dans l’exemple précédent, un ensemble limité de métriques standard est disponible pour vos hôtes, mais aucune métrique de mémoire n’est proposée. Les métriques de mémoire font partie des métriques étendues. Dans ce cas, les métriques étendues ne sont pas activées pour la machine virtuelle. Vous devez effectuer quelques étapes supplémentaires pour activer les métriques étendues. Les informations suivantes vous expliquent comment les activer.
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Activer les métriques étendues dans le portail Azure
 
 Les métriques standard sont des métriques d’hôte. La métrique _[Hôte] Pourcentage d’UC_ en est un exemple. Il existe également des métriques de base pour les machines virtuelles invitées ; elles sont également appelées « métriques étendues ». Parmi les métriques étendues, citons _[Invité] Pourcentage de mémoire_ et _[Invité] Mémoire disponible_.
 
-L’activation des métriques étendues est simple. Pour chaque machine virtuelle, activez la surveillance d’invités. Quand vous activez la surveillance d’invités, l’agent de diagnostics Azure est installé sur la machine virtuelle. Le processus suivant est le même pour les machines virtuelles classiques et normales et le même pour les machines virtuelles Windows et Linux.
+L’activation des métriques étendues est simple. Pour chaque machine virtuelle, activez la surveillance d’invités. Quand vous activez la surveillance d’invités, l’agent de diagnostics Azure est installé sur la machine virtuelle. Par défaut, un ensemble de métriques étendues de base est ajouté. Le processus suivant est le même pour les machines virtuelles classiques et normales et le même pour les machines virtuelles Windows et Linux.
+
+N’oubliez pas que la supervision d’invités Azure et Linux nécessite un compte de stockage. Quand vous activez la supervision d’invités, si vous ne choisissez pas un compte de stockage existant, un compte de stockage est automatiquement créé.
 
 ### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Activer la surveillance d’invités sur les machines virtuelles existantes
 
 1. Dans **Machines virtuelles**, affichez la liste de vos machines virtuelles, puis sélectionnez une machine virtuelle.
-2. Sous **Surveillance**, sélectionnez **Métriques**.
-3. Cliquez sur **Paramètres de diagnostic**.
-4. Dans la page Paramètres de diagnostic, cliquez sur **Activer la surveillance d’invités**. Les machines virtuelles Linux nécessitent un compte de stockage existant. Si vous ne choisissez pas un compte de stockage pour une machine virtuelle Windows, un compte de stockage est créé pour vous.  
+2. Sous **Supervision**, sélectionnez **Paramètres de diagnostic**.
+3. Dans la page Paramètres de diagnostic, cliquez sur **Activer la surveillance d’invités**.  
     ![Activer la surveillance d’invités](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
-5. Après quelques minutes, l’agent de diagnostics Azure est installé sur la machine virtuelle. Actualisez la page afin de mettre à jour la liste des métriques disponibles avec les métriques d’invité.  
+4. Après quelques minutes, l’agent de diagnostics Azure est installé sur la machine virtuelle. Un ensemble de métriques de base est ajouté. Actualisez la page. Les compteurs de performances ajoutés s’affichent sous l’onglet Vue d’ensemble.
+5. Sous Supervision, sélectionnez **Métriques**.
+6. Dans le graphique des métriques, sous **Espace de noms de la métrique**, sélectionnez **Invité (classique)**.
+7. Dans la liste Métriques, vous pouvez afficher tous les compteurs de performances disponibles pour la machine virtuelle invitée.  
     ![Métriques étendues](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Activer la surveillance d’invités sur des machines virtuelles nouvelles
 
-Quand vous créez des machines virtuelles, vérifiez que vous sélectionnez **Diagnostics du système d’exploitation invité**. Les machines virtuelles Linux nécessitent un compte de stockage existant. Si vous ne choisissez pas un compte de stockage pour une machine virtuelle Windows, un compte de stockage est créé pour vous.
+Quand vous créez des machines virtuelles, sous l’onglet Gestion, sélectionnez **Activé** pour **Diagnostic du système d’exploitation invité**.
 
 ![Activer les diagnostics du système d’exploitation invité](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 ## <a name="resource-manager-credentials"></a>Informations d’identification Resource Manager
 
-Après avoir activé les métriques étendues, vérifiez que Cost Management a accès à vos [informations d’identification Resource Manager](activate-subs-accounts.md). Cost Management a besoin de vos informations d’identification pour collecter et afficher les données de performances de vos machines virtuelles. Elles lui permettent également de créer des recommandations d’optimisation des coûts. Cost Management a besoin d’au moins trois jours de données de performances d’une instance pour déterminer si une diminution des coûts peut être recommandée.
+Après avoir activé les métriques étendues, vérifiez que Cloudyn a accès à vos [Informations d’identification Resource Manager](activate-subs-accounts.md). Cloudyn a besoin de vos informations d’identification pour collecter et afficher les données de performances de vos machines virtuelles. Elles lui permettent également de créer des recommandations d’optimisation des coûts. Cloudyn a besoin d’au moins trois jours de données de performances d’une instance pour déterminer si une diminution des coûts peut être recommandée.
 
 ## <a name="enable-vm-metrics-with-a-script"></a>Activer les métriques de machine virtuelle avec un script
 

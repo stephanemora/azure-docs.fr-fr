@@ -9,16 +9,22 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: be6f3efd74d013e9ddb02c44031dd6a402f00871
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918269"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409488"
 ---
-# <a name="archive-azure-monitoring-data"></a>Archiver les données de surveillance d’Azure
+# <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Archiver les métriques Azure et les journaux de données à l’aide du Stockage Azure
 
-Plusieurs couches de votre environnement Azure génèrent des données de journal et de métrique qui peuvent être archivées sur un compte de stockage Azure. Vous pouvez effectuer cette opération pour conserver un historique des données de surveillance au fil du temps dans un magasin non interrogeable peu coûteux après que les données ont dépassé leur période de rétention dans Log Analytics ou Azure Monitor. Ce didacticiel décrit le processus de configuration de votre environnement Azure pour archiver des données sur un compte de stockage.
+Plusieurs couches de votre environnement Azure génèrent des données de journal et de métrique qui peuvent être archivées dans un compte de stockage Azure. Vous pouvez effectuer cette opération pour conserver un historique des données de supervision au fil du temps dans un magasin non interrogeable peu coûteux après que les données ont dépassé leur période de rétention. 
+
+- Les métriques de plateforme Azure Monitor sont conservés pendant 93 jours. 
+- Les journaux de diagnostic des ressources s’affichent uniquement s’ils sont routés vers Log Analytics, dans lequel ils présentent une période de rétention configurable d’une durée minimale de 30 jours. 
+- Les entrées de journal d’activité sont conservées pendant 90 jours.  
+
+Ce didacticiel décrit le processus de configuration de votre environnement Azure pour archiver des données sur un compte de stockage.
 
 > [!div class="checklist"]
 > * Créer un compte de stockage pour contenir les données de surveillance
@@ -164,7 +170,7 @@ Si vous avez suivi les étapes précédentes, les données ont commencé à circ
 
 Vous avez à présent correctement configuré les données de surveillance à archiver sur un compte de stockage.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 1. Revenez à la section **Exporter le journal d’activité** de l’étape précédente **Router les journaux d’abonnement vers le compte de stockage**, puis cliquez sur **Réinitialiser**.
 

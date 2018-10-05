@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 7cb0257a7302221f80bb90c0a6c3446cde07290a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325334"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434124"
 ---
 # <a name="about-the-speech-to-text-api"></a>À propos de l’API Reconnaissance vocale
 
@@ -26,9 +26,9 @@ L’API **Reconnaissance vocale** offre les fonctionnalités suivantes :
 
 - Reconnaissance continue en temps réel. La **Reconnaissance vocale** permet aux utilisateurs de transcrire de l’audio en texte en temps réel. Elle prend également en charge la réception des résultats intermédiaires des mots déjà reconnus. Le service reconnaît automatiquement à la fin de la parole. Les utilisateurs peuvent également choisir des options de mise en forme supplémentaires, dont la casse et la ponctuation, le masquage des vulgarités et la normalisation du texte inverse.
 
-- Résultats de **reconnaissance vocale** optimisés pour des scénarios interactifs de conversation et de dictée. 
+- Résultats de **reconnaissance vocale** optimisés pour des scénarios interactifs de conversation et de dictée. Les résultats reconnus sont retournés à la fois sous forme Lexicale et Affichage (pour les résultats lexicaux, consultez DetailedSpeechRecognitionResult dans les exemples ou l’API).
 
-- Prise en charge de nombreuses langues parlées et dialectes. Pour obtenir la liste complète des langues prises en charge dans chaque mode de reconnaissance, voir [Langues prises en charge](supported-languages.md#speech-to-text).
+- Prise en charge de nombreuses langues parlées et dialectes. Pour obtenir la liste complète des langues prises en charge dans chaque mode de reconnaissance, voir [Langues prises en charge](language-support.md#speech-to-text).
 
 - Modèles linguistiques et acoustiques personnalisés qui vous permettent d’adapter votre application au vocabulaire spécialisé, au contexte linguistique et à la façon de parler de vos utilisateurs.
 
@@ -36,7 +36,7 @@ L’API **Reconnaissance vocale** offre les fonctionnalités suivantes :
 
 ## <a name="api-capabilities"></a>Fonctionnalités de l’API
 
-Certaines fonctionnalités de l’API **Reconnaissance vocale** ne sont pas disponibles via REST. Le tableau suivant récapitule les fonctionnalités de chaque méthode d’accès à l’API.
+Une grande partie des fonctionnalités de l’API **Reconnaissance vocale** (notamment concernant la personnalisation) sont disponibles par le biais de REST. Le tableau suivant récapitule les fonctionnalités de chaque méthode d’accès à l’API. Pour obtenir une liste complète des fonctionnalités et des détail de l’API, consultez [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/).
 
 | Cas d’utilisation | REST | Kits de développement logiciel (SDK) |
 |-----|-----|-----|----|
@@ -44,6 +44,16 @@ Certaines fonctionnalités de l’API **Reconnaissance vocale** ne sont pas disp
 | Transcrire un énoncé plus long (> 15 s) | Non  | Oui |
 | Transcrire une diffusion audio en continu avec des résultats intermédiaires facultatifs | Non  | Oui |
 | Comprendre les intentions de l’orateur via LUIS | Non\* | Oui |
+| Créer des tests de précision | Oui | Non  |
+| Charger des jeux de données pour l’adaptation de modèle | Oui | Non  |
+| Créer et gérer des modèles vocaux | Oui | Non  |
+| Créer et gérer des déploiements de modèle | Oui | Non  |
+| Gérer les abonnements | Oui | Non  |
+| Créer et gérer des déploiements de modèle | Oui | Non  |
+| Créer et gérer des déploiements de modèle | Oui | Non  |
+
+> [!NOTE]
+> L’API REST implémente une limitation des requêtes d’API à 25 toutes les cinqs secondes. Les en-têtes de messages vous informeront des limites
 
 \* *Les intentions et entités de LUIS peuvent être dérivées à l’aide d’un abonnement LUIS distinct. Avec cet abonnement, le Kit de développement logiciel (SDK) peut appeler LUIS pour vous, et fournir des résultats d’entité et d’intention, ainsi que des transcriptions de la parole. L’API REST vous permet d’appeler LUIS vous-même pour dériver des intentions et des entités avec votre abonnement LUIS.*
 

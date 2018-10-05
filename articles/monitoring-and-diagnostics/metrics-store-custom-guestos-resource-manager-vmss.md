@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: d896cb01c7dc2cd4ed028db418f838809c7ce25c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986997"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434923"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Resource Manager pour un groupe de machines virtuelles identiques Windows
 
@@ -83,7 +83,7 @@ Dans la ressource du groupe de machines virtuelles identiques, recherchez la sec
 
 Dans **extensionProfile**, ajoutez une nouvelle extension au modèle, comme illustré dans la **section VMSS-WAD-extension**.  Cette section correspond à l’extension Managed Service Identity (MSI) qui garantit que les métriques transmises sont acceptées par Azure Monitor. Le champ du **nom** peut contenir n’importe quel nom. 
 
-Le code sous l’extension MSI ajoute également l’extension Diagnostics et la configuration en tant que ressource d’extension à la ressource du groupe de machines virtuelles identiques. N’hésitez pas à ajouter/supprimer des compteurs de performances si nécessaire. 
+Le code ci-après émanant de l’extension MSI ajoute également l’extension Diagnostics et la configuration en tant que ressource d’extension à la ressource du groupe de machines virtuelles identiques. N’hésitez pas à ajouter/supprimer des compteurs de performances si nécessaire. 
 
 ```json
           "extensionProfile": { 

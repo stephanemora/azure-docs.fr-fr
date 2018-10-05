@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: a8821b2e1be10cddafba04109041e76ef65f6a6a
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544275"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433699"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
 Les comptes d’identification dans Azure Automation sont utilisés pour fournir une authentification permettant de gérer des ressources dans Azure avec des applets de commande Azure.
 
-Quand vous créez un compte d’identification, il crée un nouvel utilisateur du principal du service dans Azure Active Directory et attribue le rôle de contributeur à cet utilisateur au niveau de l’abonnement.
+Quand vous créez un compte d’identification, il crée un nouvel utilisateur du principal du service dans Azure Active Directory et attribue le rôle de contributeur à cet utilisateur au niveau de l’abonnement. Pour les runbooks qui utilisent des Runbooks Workers hybrides sur des machines virtuelles Azure, vous pouvez utiliser [des identités managées pour les ressources Azure](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) plutôt que des comptes d’identification pour authentifier vos ressources Azure.
 
 Il existe deux types de comptes d’identification :
 

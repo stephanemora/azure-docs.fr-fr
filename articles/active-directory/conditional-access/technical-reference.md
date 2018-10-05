@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0055968e4333f5ac7653a37fcd728b040024ee55
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e44b68a2ed2786b449e2680ca4a8ca531058b85c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629845"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432793"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -64,7 +64,7 @@ Vous pouvez affecter une stratégie d’accès conditionnel aux applications clo
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio Team Services
+- Azure DevOps
 
 - Microsoft Teams
 
@@ -192,7 +192,7 @@ Ce paramètre a un impact sur les tentatives d’accès provenant des applicatio
 |Application Outlook Mobile|Office 365 Exchange Online|Android, iOS|
 |Application PowerBI|Service PowerBI|Windows 10, Windows 8.1, Windows 7, Android et iOS|
 |Skype Entreprise|Office 365 Exchange Online|Android, IOS |
-|Application Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS, Android|
+|Application Azure DevOps|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS, Android|
 
 
 
@@ -223,6 +223,9 @@ Ce paramètre s’applique aux applications clientes suivantes :
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word
+- Microsoft To-Do
+- Microsoft Stream
+- Microsoft Edge
 
 
 

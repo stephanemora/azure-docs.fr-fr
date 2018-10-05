@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: bf744d2aaab168b8ce918f7b776d8855cdc5ad16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975239"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419693"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Didacticiel : Configurer Azure Data Box Gateway dans Hyper-V (préversion)
 
@@ -74,7 +74,7 @@ Avant de déployer un appareil, assurez-vous que :
 Avant de commencer :
 
 - Passez en revue les exigences de mise en réseau pour déployer Data Box Gateway et configurer le réseau du centre de données conformément à la configuration requise. Pour plus d’informations, consultez la [Configuration requise du réseau pour Data Box Gateway](data-box-gateway-system-requirements.md#networking-requirements).
-- Assurez-vous que la bande passante Internet minimale est de 20 Mbits/s pour une utilisation optimale de l’appareil.
+- Assurez-vous que la bande passante Internet minimale est de 20 Mbits/s pour un fonctionnement optimal de l’appareil.
 
 
 ## <a name="check-the-host-system"></a>Vérifier le système hôte
@@ -87,7 +87,7 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 
     * Un minimum de 4 cœurs.
     * Au moins 8 Go de RAM.
-    * Une interface réseau connectée au réseau et capable d’acheminer le trafic vers Internet. .
+    * Une interface réseau connectée au réseau et capable d’acheminer le trafic vers Internet. 
     * Un disque de système d’exploitation de 250 Go.
     * Un disque virtuel de 2 To pour les données système.
 
@@ -105,9 +105,6 @@ Procédez comme suit pour configurer un appareil dans votre hyperviseur.
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. Dans la page **Avant de commencer** de l’Assistant Nouvel ordinateur virtuel, cliquez sur **Suivant**.
 5. Sur la page **Spécifier le nom et l’emplacement**, indiquez le **Nom** de votre appareil virtuel. Cliquez sur **Suivant**.
-   
-   > [!IMPORTANT]
-   > Dans cette version, vous ne pouvez utiliser que des majuscules pour le nom de votre appareil virtuel.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. Dans la page **Spécifier la génération**, choisissez **Génération 2** pour le type d’image d’appareil .vhdx, puis cliquez sur **Suivant**.    
@@ -171,17 +168,10 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
 3. Vous devrez peut-être patienter 10 à 15 minutes pour que l’appareil soit prêt. Un message d'état s'affiche sur la console pour indiquer la progression. Lorsque l'appareil est prêt, sélectionnez **Action**. Appuyez sur `Ctrl + Alt + Delete` pour vous connecter à l’appareil virtuel. L’utilisateur par défaut est *EdgeUser* et le mot de passe par défaut est *Password1*.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-4. Pour des raisons de sécurité, le mot de passe d’administrateur réseau expire à la première connexion. Vous êtes invité à modifier le mot de passe.
-
-   Entrez un mot de passe contenant au moins 8 caractères. Le mot de passe doit contenir au moins 3 des 4 caractères suivants : majuscules, minuscules, caractères numériques et caractères spéciaux. Entrez de nouveau le mot de passe pour le confirmer. Vous êtes informé de la modification du mot de passe.
    
-5. Une fois le mot de passe modifié, l’appareil virtuel peut redémarrer. Attendez le démarrage de l’appareil.  La console Windows PowerShell de l’appareil s’affiche avec une barre de progression.
-
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image22.png)
-
-6. Les étapes 6 à 8 s’appliquent uniquement lors de l’amorçage dans un environnement non DHCP. Si vous êtes dans un environnement DHCP, ignorez ces étapes et passez à l'étape 9. Si vous avez démarré votre appareil dans un environnement non DHCP, vous verrez un message sur l’effet.
+6. Les étapes 5 à 7 s’appliquent uniquement lors de l’amorçage dans un environnement non DHCP. Si vous vous trouvez dans un environnement DHCP, ignorez ces étapes. Si vous avez démarré votre appareil dans un environnement non DHCP, vous verrez un message sur l’effet.
     
-7. Pour configurer le réseau, utilisez la commande `Get-HcsIpAddress` pour répertorier les interfaces réseau activées sur votre appareil virtuel. Si votre appareil possède une seule interface réseau activée, le nom par défaut affecté à cette interface est `DATA1`.
+7. Pour configurer le réseau, utilisez la commande `Get-HcsIpAddress` pour répertorier les interfaces réseau activées sur votre appareil virtuel. Si votre appareil possède une seule interface réseau activée, le nom par défaut affecté à cette interface est `Ethernet`.
 
 8. Utilisez l’applet de commande `Set-HcsIpAddress` pour configurer le réseau. Voir l’exemple suivant :
 
@@ -192,7 +182,7 @@ Procédez comme suit pour démarrer votre appareil virtuel et vous y connecter.
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-Si votre appareil n’est pas conforme à la configuration minimale requise, une erreur apparaît dans le texte de bannière. Modifier la configuration de l’appareil afin qu’il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise à l’ [Étape 1 : Vérifier que le système hôte répond aux exigences minimales de l’appareil virtuel](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Si votre appareil n’est pas conforme à la configuration minimale requise, une erreur apparaît dans le texte de bannière. Modifier la configuration de l’appareil afin qu’il dispose des ressources nécessaires à la configuration minimale. Vous pouvez ensuite redémarrer et vous connecter à l'appareil. Reportez-vous à la configuration minimale requise décrite à la section [Vérifier le système hôte](#check-the-host-system).
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 

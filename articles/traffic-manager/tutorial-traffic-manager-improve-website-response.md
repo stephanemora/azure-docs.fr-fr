@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 89518d30b862e18fb7c989c95144ffa7f1c294fc
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 087dcda5826d96ad064c472fc897be7e61133387
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024719"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392503"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Didacticiel : Améliorer la réponse d’un site web à l’aide de Traffic Manager 
 
@@ -171,7 +171,7 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en l’envoyan
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | NOM                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
-    | Méthode de routage          | Sélectionnez la méthode de routage en fonction de la **Priorité**.                                       |
+    | Méthode de routage          | Sélectionnez la méthode de routage **Performances**.                                       |
     | Abonnement            | Sélectionnez votre abonnement.                          |
     | Groupe de ressources          | Sélectionnez **Créer** et entrez *myResourceGroupTM1*. |
     | Lieu                | Sélectionnez **USA Est**.  Ce paramètre fait référence à l’emplacement du groupe de ressources et n’a pas d’impact sur le profil Traffic Manager qui sera déployé globalement.                              |

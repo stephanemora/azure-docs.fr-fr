@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 4eeb716e4eeae8dc560f9588c6c3ce252daf741e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309758"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432050"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gérer l’approbation AD FS avec Azure AD à l’aide d’Azure AD Connect
 
@@ -41,7 +41,7 @@ Azure AD Connect gère **uniquement** les paramètres associés à l’approbati
 | Paramètre | Description |
 | :--- | :--- |
 | Certificat de signature de jetons | Vous pouvez utiliser Azure AD Connect pour réinitialiser et recréer l’approbation avec Azure AD. Azure AD Connect effectue une substitution immédiate à usage unique des certificats de signature de jetons pour AD FS et met à jour les paramètres de fédération de domaine Azure AD.|
-| Token signing algorithm (Algorithme de signature de jetons) | Microsoft recommande d’utiliser l’algorithme de signature de jetons SHA-256. Azure AD Connect peut détecter si l’algorithme de signature de jetons est défini sur une valeur moins sécurisée que SHA-256. Si tel est le cas, il redéfinit le paramètre sur SHA-256 au cours de la prochaine opération de configuration possible. |
+| Token signing algorithm (Algorithme de signature de jetons) | Microsoft recommande d’utiliser l’algorithme de signature de jetons SHA-256. Azure AD Connect peut détecter si l’algorithme de signature de jetons est défini sur une valeur moins sécurisée que SHA-256. Si tel est le cas, il redéfinit le paramètre sur SHA-256 au cours de la prochaine opération de configuration possible. L’autre approbation de partie de confiance doit être mise à jour pour utiliser le nouveau certificat de signature de jetons. |
 | Azure AD trust identifier (Identificateur d’approbation Azure AD) | Azure AD Connect définit la valeur d’identificateur correcte pour l’approbation Azure AD. AD FS identifie de manière unique l’approbation Azure AD à l’aide de la valeur d’identificateur. |
 | Points de terminaison Azure AD | Azure AD Connect vérifie que les points de terminaison configurés pour l’approbation Azure AD sont toujours conformes aux dernières valeurs recommandées en matière de résilience et de performances. |
 | Règles de transformation d’émission | Plusieurs règles de revendication sont nécessaires pour optimiser les performances des fonctionnalités d’Azure AD dans un environnement fédéré. Azure AD Connect vérifie que l’approbation Azure AD est toujours configurée avec l’ensemble adéquat de règles de revendication recommandées. |
