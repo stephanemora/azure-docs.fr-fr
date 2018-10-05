@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 44f5bf9a28d56e85bae1d50136c50868ec96eb4e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205439"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452293"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Didacticiel : héberger votre domaine dans Azure DNS
 
@@ -47,7 +47,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
    |**Name**|[votre nom de domaine] |Le nom de domaine que vous avez acheté. Ce didacticiel utilise contoso.net comme exemple.|
    |**Abonnement**|[Votre abonnement]|Sélectionnez l’abonnement dans lequel créer la zone.|
    |**Groupe de ressources**|**Créer :** contosoRG|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. |
-   |**Lieu**|Est des États-Unis||
+   |**Lieu**|USA Est||
 
 > [!NOTE]
 > L’emplacement du groupe de ressources n’a aucun impact sur la zone DNS. L’emplacement de la zone DNS est toujours « global » et n’est pas affiché.
@@ -70,6 +70,9 @@ Azure DNS crée automatiquement des enregistrements NS faisant autorité dans vo
 Maintenant que la zone DNS est créée et que vous disposez des serveurs de noms, vous devez mettre à jour le domaine parent avec les serveurs de noms Azure DNS. Chaque bureau d’enregistrement a ses propres outils de gestion DNS pour modifier les enregistrements de serveur de noms pour un domaine. Dans la page de gestion des DNS du registre, modifiez les enregistrements NS et remplacez-les par ceux créés par les serveurs de noms Azure DNS.
 
 Lors de la délégation d’un domaine à Azure DNS, vous devez utiliser les serveurs de noms fournis par Azure DNS. Nous vous recommandons d’utiliser les quatre serveurs de noms, quel que soit le nom de votre domaine. La délégation de domaine ne requiert pas que le serveur de noms utilise le même domaine de premier niveau que votre domaine.
+
+> [!NOTE]
+> Lorsque vous copiez chaque adresse de serveur de nom, assurez-vous de copier le point final à la fin de l’adresse. Le point final indique la fin d’un nom de domaine complet. Certains bureaux d’enregistrement peuvent ajouter le point final s’il n’est pas présent dans le nom NS. Toutefois, pour être en conformité avec le RFC de DNS, vous êtes tenu d’inclure le point final, car vous ne pouvez pas compter sur les bureaux d’enregistrement pour l’ajouter à votre place.
 
 Les délégations utilisant les serveurs de noms dans votre propre zone (parfois appelés *serveurs de noms de redirection vers un microsite*) ne sont actuellement pas prises en charge dans Azure DNS.
 
@@ -101,7 +104,7 @@ expire = 604800 (7 days)
 default TTL = 300 (5 mins)
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez conserver le groupe de ressources **contosoRG** si vous avez l’intention d’effectuer le didacticiel suivant. Sinon, supprimez le groupe de ressources **contosoRG** pour supprimer les ressources créées dans ce didacticiel. Pour cela, cliquez sur le groupe de ressources **contosoRG**, puis sur **Supprimer le groupe de ressources**. 
 

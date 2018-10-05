@@ -1,5 +1,5 @@
 1. Connectez-vous au [portail Azure][Azure portal].
-2. Dans le menu de gauche, sélectionnez **+ Créer une ressource**. Ensuite, sélectionnez **Entreprise Intégration** > **Relais**.
+2. Dans le menu de gauche, sélectionnez **+ Créer une ressource**. Ensuite, sélectionnez **Intégration** > **Relais**. Si **Relais** ne s’affiche pas dans la liste, sélectionnez **Afficher tout** dans l’angle supérieur droit. 
 3. Sous **Créer un espace de noms**, saisissez un nom d’espace de noms. Le système vérifie immédiatement si le nom est disponible.
 4. Dans la case **Abonnement**, sélectionnez un abonnement Azure dans lequel créer l’espace de noms.
 5. Dans la case [Groupe de ressources](../articles/azure-resource-manager/resource-group-portal.md), sélectionnez un groupe de ressources existant dans lequel placer l’espace de noms, ou créez-en un nouveau.  

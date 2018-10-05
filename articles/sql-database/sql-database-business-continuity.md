@@ -3,21 +3,22 @@ title: Continuité des activités cloud - récupération de base de données - S
 description: Découvrez comment Azure SQL Database prend en charge la continuité des activités cloud et la récupération de base de données et vous aide à maintenir les applications cloud opérationnelles.
 keywords: continuité des activités, continuité des activités cloud, récupération d’urgence de base de données, récupération de base de données
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.workload: On Demand
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444146"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221144"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -59,11 +60,11 @@ Le tableau suivant compare le temps de récupération estimé et l’objectif de
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Récupération d’une base de données sur le serveur existant
 
-SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les heures) et de sauvegardes de fichiers journaux (toutes les 5 à 10 minutes) pour protéger votre entreprise contre la perte de données. Les sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour tous les niveaux de service à l’exception des niveaux de service DTU De base avec lesquels les sauvegardes sont stockées pendant 7 jours. Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md). Vous pouvez restaurer une base de données existante à partir des sauvegardes automatisées à un point antérieur dans le temps en tant que nouvelle base de données sur le même serveur logique à l’aide du portail Azure, de PowerShell ou de l’API REST. Pour plus d’informations, consultez [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL Database effectue automatiquement une combinaison de sauvegardes de bases de données complètes (toutes les semaines), de sauvegardes de bases de données différentielles (toutes les 12 heures) et de sauvegardes de fichiers journaux (toutes les 5 à 10 minutes) pour protéger votre entreprise contre la perte de données. Les sauvegardes sont stockées dans le stockage RA-GRS pendant 35 jours pour tous les niveaux de service à l’exception des niveaux de service DTU De base avec lesquels les sauvegardes sont stockées pendant 7 jours. Pour plus d’informations, consultez la rubrique concernant les [sauvegardes de base de données automatiques](sql-database-automated-backups.md). Vous pouvez restaurer une base de données existante à partir des sauvegardes automatisées à un point antérieur dans le temps en tant que nouvelle base de données sur le même serveur logique à l’aide du portail Azure, de PowerShell ou de l’API REST. Pour plus d’informations, consultez [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Si la période maximale de rétention qui est associée à la limite de restauration dans le temps n’est pas suffisante pour votre application, vous pouvez la rallonger en configurant une stratégie de rétention à long terme (LTR) pour les bases de données. Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
 
-Vous pouvez utiliser ces sauvegardes automatiques pour récupérer une base de données après divers événements d’interruption, à la fois dans votre propre centre de données et dans un autre centre de données. Lorsque vous utilisez des sauvegardes automatiques, le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures. La récupération d’une base de données très volumineuse ou active peut prendre un certain temps. Pour plus d’informations sur le temps de récupération, voir [Temps de récupération de la base de données](sql-database-recovery-using-backups.md#recovery-time). Lorsque vous effectuez une récupération vers une autre région de données, le risque de perte de données est limité à 1 heure par le stockage géo-redondant des sauvegardes de bases de données différentielle (toutes les heures).
+Vous pouvez utiliser ces sauvegardes automatiques pour récupérer une base de données après divers événements d’interruption, à la fois dans votre propre centre de données et dans un autre centre de données. Lorsque vous utilisez des sauvegardes automatiques, le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures. La récupération d’une base de données très volumineuse ou active peut prendre un certain temps. Pour plus d’informations sur le temps de récupération, voir [Temps de récupération de la base de données](sql-database-recovery-using-backups.md#recovery-time). Lorsque vous effectuez une récupération vers une autre région de données, le risque de perte de données est limité à 1 heure avec l’utilisation des sauvegardes géoredondantes.
 
 Utilisez des sauvegardes automatisées et une [limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) comme mécanisme de continuité d’activité et de récupération si votre application :
 
@@ -101,7 +102,7 @@ Cette fonctionnalité sert à vous protéger contre l’interruption de service 
 * Affiche un taux élevé de données modifiées et la perte d’une heure de données n’est pas acceptable.
 * Le coût supplémentaire lié à l'utilisation de la géoréplication est plus faible que la responsabilité financière potentielle et la perte d'activité associée.
 
-Lorsque vous prenez une décision, le délai de la récupération et la quantité de données perdues dépendent de la façon dont vous décidez d’utiliser ces fonctionnalités de continuité d’activité dans votre application. En effet, vous pouvez choisir d’utiliser une combinaison de sauvegardes de bases de données et de géo-réplication active en fonction des besoins de votre application. Pour plus d’informations sur la conception d’applications pour des bases de données autonomes et des pools élastiques à l’aide de ces fonctionnalités de continuité d’activité, consultez [Conception d’applications pour la récupération d’urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Lorsque vous prenez une décision, le délai de la récupération et la quantité de données perdues dépendent de la façon dont vous décidez d’utiliser ces fonctionnalités de continuité d’activité dans votre application. En effet, vous pouvez choisir d’utiliser une combinaison de sauvegardes de bases de données et de géo-réplication active en fonction des besoins de votre application. Pour plus d’informations sur la conception d’applications pour des bases de données autonomes et des pools élastiques à l’aide de ces fonctionnalités de continuité d’activité, consultez les articles [Conception d’applications pour la récupération d’urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 Les sections suivantes fournissent une vue d’ensemble des étapes de la récupération à l’aide de sauvegardes de bases de données ou de la géo-réplication active. Pour des instructions détaillées, y compris les exigences de planification, les étapes de post-récupération et des informations sur la simulation d’une panne pour effectuer un exercice de récupération d’urgence, voir la section [Récupérer une base de données SQL Azure en cas de défaillance](sql-database-disaster-recovery.md).
 
@@ -122,12 +123,10 @@ Si vous utilisez la géo-réplication active et les groupes de basculement autom
 > 
 
 ### <a name="perform-a-geo-restore"></a>Effectuer une restauration géographique
-Si vous utilisez des sauvegardes automatisées avec une réplication de stockage géo-redondant comme mécanisme de récupération, [lancez une récupération de base de données à l’aide de la géo-restauration](sql-database-disaster-recovery.md#recover-using-geo-restore). La récupération intervient sous 12 heures dans la plupart des cas, avec une perte de données de 1 heure maximum, selon le moment où la dernière sauvegarde différentielle horaire a été effectuée et répliquée. Tant que la récupération n’est pas terminée, la base de données ne peut pas enregistrer de transactions ou répondre à des requêtes. Bien que cette opération restaure une base de données à la dernière limite de restauration dans le temps disponible, la restauration de la base de données géo-secondaire à n’importe quelle limite de restauration dans le temps n’est pas actuellement prise en charge.
+Si vous utilisez les sauvegardes automatisées avec stockage géoredondant (activé par défaut), vous pouvez récupérer la base de données à l’aide de la [géo-restauration](sql-database-disaster-recovery.md#recover-using-geo-restore). Dans la plupart des cas, la récupération intervient sous 12 heures, avec une perte de données de 1 heure maximum, selon le moment où la dernière sauvegarde de fichier journal a été effectuée et répliquée. Tant que la récupération n’est pas terminée, la base de données ne peut pas enregistrer de transactions ou répondre à des requêtes. Remarquez que la géo-restauration permet uniquement de restaurer la base de données au dernier point disponible dans le temps.
 
 > [!NOTE]
 > Si le centre de données redevient disponible avant que vous ne transfériez votre application vers la base de données récupérée, vous pouvez annuler la récupération.  
->
->
 
 ### <a name="perform-post-failover--recovery-tasks"></a>Exécution de tâches de post-basculement/récupération
 Après la récupération à l’aide d’un de ces mécanismes de récupération, vous devez effectuer les tâches supplémentaires suivantes afin que les utilisateurs et les applications soient de nouveau opérationnels :
@@ -142,4 +141,4 @@ Après la récupération à l’aide d’un de ces mécanismes de récupération
 Parfois, une application doit être déconnectée en raison d’une maintenance planifiée, par exemple une mise à niveau. [Gestion des mises à niveau des applications](sql-database-manage-application-rolling-upgrade.md) explique comment utiliser la géo-réplication active pour activer les mises à niveau propagées de votre application cloud afin de réduire le temps d’arrêt pendant les mises à niveau et de fournir un chemin de récupération en cas de problème. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur la conception d’applications pour des bases de données autonomes et des pools élastiques, consultez [Conception d’applications pour la récupération d’urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Pour plus d’informations sur la conception d’applications pour des bases de données autonomes et des pools élastiques, consultez les articles [Conception d’applications pour la récupération d’urgence cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) et [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

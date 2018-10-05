@@ -4,17 +4,17 @@ description: Dans ce tutoriel, vous déployez Azure Stream Analytics en tant que
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66d55c07493a540e36a08d48d6abbdc3d082b9b9
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41920697"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422743"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Stream Analytics en tant que module IoT Edge - (prévision)
 
@@ -50,7 +50,7 @@ Un appareil Azure IoT Edge :
 
 Ressources cloud :
 
-* Un niveau standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure. 
+* Un niveau Gratuit [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure. 
 
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Créer un travail Azure Stream Analytics
@@ -70,7 +70,7 @@ Lorsque vous créez un travail Azure Stream Analytics pour s’exécuter sur un 
    | NOM | Fournissez un nom unique pour votre compte de stockage. | 
    | Lieu | Choisissez un emplacement proche de vous. |
    | Abonnement | Choisissez le même abonnement que votre IoT Hub. |
-   | Groupe de ressources | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez pendant les démarrages rapides et les didacticiels IoT Edge. Par exemple, **IoTEdgeResources**. |
+   | Groupe de ressources | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez dans le cadre des démarrages rapides et didacticiels IoT Edge. Par exemple, **IoTEdgeResources**. |
 
 1. Conservez les valeurs par défaut pour les autres champs et sélectionnez **Créer**. 
 
@@ -84,7 +84,7 @@ Lorsque vous créez un travail Azure Stream Analytics pour s’exécuter sur un 
    | ----- | ----- |
    | Nom du travail | Fournissez un nom pour votre travail. Par exemple, **IoTEdgeJob** | 
    | Abonnement | Choisissez le même abonnement que votre IoT Hub. |
-   | Groupe de ressources | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez pendant les démarrages rapides et les didacticiels IoT Edge. Par exemple, **IoTEdgeResources**. |
+   | Groupe de ressources | Nous vous recommandons d’utiliser le même groupe de ressources pour toutes les ressources de test que vous créez dans le cadre des démarrages rapides et didacticiels IoT Edge. Par exemple, utilisez **IoTEdgeResources**. |
    | Lieu | Choisissez un emplacement proche de vous. | 
    | Environnement d’hébergement | Sélectionnez **Edge**. |
  
@@ -229,7 +229,7 @@ Vous devriez voir la température de l’ordinateur augmenter progressivement ju
 
    ![Journal de docker][9]
 
-## <a name="clean-up-resources"></a>Supprimer les ressources 
+## <a name="clean-up-resources"></a>Supprimer des ressources 
 
 Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations que vous avez créées afin de les réutiliser. Vous pouvez également continuer à utiliser le même appareil IoT Edge comme appareil de test. 
 

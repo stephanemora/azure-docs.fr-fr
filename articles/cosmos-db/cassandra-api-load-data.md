@@ -9,22 +9,22 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d659004e94c51f173bc1e9ae42fd9c62ae45912f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 662d4b8812ca4b92c1130b9c2c38771e7ec30a06
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972536"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393985"
 ---
 # <a name="load-sample-data-into-an-azure-cosmos-db-cassandra-api-table"></a>Charger des exemples de données dans une table de l’API Cassandra d’Azure Cosmos DB
 
-Ce tutoriel montre comment charger des exemples de données utilisateur dans une table du compte de l’API Cassandra d’Azure Cosmos DB avec une application Java. L’application Java utilise le [pilote Java Datastax](https://github.com/datastax/java-driver) et charge des données utilisateur, comme l’ID d’utilisateur, le nom d’utilisateur et la localité de l’utilisateur. 
+Ce didacticiel montre comment charger des exemples de données utilisateur dans une table du compte de l’API Cassandra d’Azure Cosmos DB avec une application Java. L’application Java utilise le [pilote Java](https://github.com/datastax/java-driver) et charge des données utilisateur, comme l’ID d’utilisateur, le nom d’utilisateur et la localité de l’utilisateur. 
 
 Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Charger des données dans une table Cassandra
-> * Exécuter l’application
+> * Exécution de l'application
 
 ## <a name="prerequisites"></a>Prérequis
 

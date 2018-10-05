@@ -2,19 +2,22 @@
 title: 'Portail Azure : géoréplication SQL Database | Microsoft Docs'
 description: Configurer la géoréplication pour Azure SQL Database dans le portail Azure et initier le basculement
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
-ms.author: carlrab
-ms.openlocfilehash: 27fb8f369ad23592902c05fe5275fc54bc6cf148
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 592e4c2dc375da34b3a6039bef7ea4da0fa3315b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090467"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163968"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 
@@ -34,7 +37,7 @@ Les étapes suivantes créent une nouvelle base de données secondaire dans un p
 
 Pour ajouter une base de données secondaire, vous devez être le propriétaire ou copropriétaire de l’abonnement.
 
-La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service. La base de données secondaire peut être une base de données autonome ou une base de données dans un pool élastique. Pour plus d’informations, consultez [Modèle d’achat basé sur DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md).
+La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service et la même taille de calcul. La base de données secondaire peut être une base de données autonome ou une base de données dans un pool élastique. Pour plus d’informations, consultez [Modèle d’achat basé sur DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md).
 Une fois la base de données secondaire créée et amorcée, une réplication des données de la base de données primaire vers la base de données secondaire commence.
 
 > [!NOTE]

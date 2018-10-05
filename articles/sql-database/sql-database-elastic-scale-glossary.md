@@ -2,27 +2,29 @@
 title: Glossaire des outils des bases de données élastiques | Microsoft Docs
 description: Explication des termes utilisés pour les outils de base de données élastique
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 4ab938bc556d5e3dea8b7ec093f590ff1746ea29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 354d972e78a7fb7270b1b09f4af5aa95709fcd06
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647542"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162574"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossaire des outils de base de données élastique
 Les termes suivants sont définis pour les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md), une fonction de Base de données SQL Azure. Les outils permettent de gérer les [cartes de partition](sql-database-elastic-scale-shard-map-management.md) et incluent la [bibliothèque cliente](sql-database-elastic-database-client-library.md), [l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md), les [pools élastiques](sql-database-elastic-pool.md) et les [requêtes](sql-database-elastic-query-overview.md). 
 
 Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils de base de données élastique](sql-database-elastic-scale-add-a-shard.md) et [Utiliser la classe RecoveryManager pour résoudre les problèmes de carte de partition](sql-database-elastic-database-recovery-manager.md).
 
-![Termes liés ç l’infrastructure flexible][1]
+![Termes liés à l’infrastructure flexible][1]
 
 **Base de données**: une base de données SQL Azure. 
 
@@ -79,7 +81,7 @@ Voici une représentation de bases de données **partitionnées** de type mono-u
 
 **Fractionner**: action de déplacer plusieurs shardlets d'une partition vers une autre (généralement nouvelle). Une clé de partitionnement est fournie par l'utilisateur comme point de fractionnement.
 
-**Mise à l'échelle verticale**: mise à l'échelle (augmentation ou réduction) du niveau de performances d'une partition individuelle. Par exemple, modifier une partition standard vers l’édition Premium (qui génère plus de ressources informatiques). 
+**Mise à l’échelle verticale**: mise à l’échelle (augmentation ou diminution) de la taille de calcul d’une partition individuelle. Par exemple, modifier une partition standard vers l’édition Premium (qui génère plus de ressources informatiques). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

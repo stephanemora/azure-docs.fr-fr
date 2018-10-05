@@ -1,114 +1,103 @@
 ---
-title: 'Démarrage rapide : reconnaissance vocale dans Java sur Android à l’aide du Kit de développement logiciel (SDK) Speech de Cognitive Services'
+title: 'Démarrage rapide : Reconnaissance vocale dans Java sur Android à l’aide du kit SDK Speech de Cognitive Services'
 titleSuffix: Microsoft Cognitive Services
-description: Reconnaissance vocale dans Java sur Android à l’aide du kit de développement logiciel (SDK) Cognitive Services Speech
+description: Découvrir la reconnaissance vocale dans Java sur Android avec le kit SDK Speech de Cognitive Services
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 07/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 9f761fed46f0730a64a984111da1bae1229cc93d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0a52889ef879aeb8a5a1ed59b74619dc3337e1e9
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127069"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432783"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Démarrage rapide : reconnaissance vocale dans Java sur Android à l’aide du kit de développement logiciel (SDK) Speech
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale dans Java sur Android à l’aide du kit SDK Speech
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer une application Java pour Android à l’aide du Kit de développement logiciel (SDK) Cognitive Services Speech pour transcrire de la parole en texte.
-L’application est basée sur le package Maven du kit SDK Microsoft Cognitive Services version 0.6.0 et Android Studio 3.1.
+L’application est basée sur le package Maven, version 1.0.0, du kit SDK Speech de Microsoft Cognitive Services et sur Android Studio 3.1.
+Le kit SDK Speech est actuellement compatible avec les appareils Android équipés de processeurs ARM 32 bits ou 64 bits.
 
 > [!NOTE]
-> Pour le Kit de développement logiciel (SDK) Speech et l’appareil Roobo, consultez la page [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).
+> Pour le kit SDK Speech Devices et l’appareil Roobo, consultez [Kit SDK Speech Devices](speech-devices-sdk.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Clé d’abonnement pour le service Speech. Consultez l’article [Try the speech service for free](get-started.md) (Essayer le service Speech gratuitement).
-* Un PC (Windows, Linux, Mac) capable d’exécuter Android Studio.
-* La version 3.1 d’[Android Studio](https://developer.android.com/studio/).
-* Un appareil Android ARM (API 23 : Android Marshmallow 6.0 ou version ultérieure) [activé pour le développement](https://developer.android.com/studio/debug/dev-options) et avec un microphone opérationnel.
+Vous avez besoin d’une clé d’abonnement au service Speech pour suivre ce guide de démarrage rapide. Vous pouvez en obtenir une gratuitement. Consultez [Essayer le service Speech gratuitement](get-started.md) pour plus d’informations.
 
-## <a name="create-an-android-studio-project"></a>Créer un projet Android Studio
+## <a name="create-and-configure-a-project"></a>Créer et configurer un projet
 
-Lancez Android Studio, puis sélectionnez **Démarrer un nouveau projet Android Studio**.
+1. Lancez Android Studio, puis choisissez **Start a new Android Studio project** (Démarrer un nouveau projet Android Studio) dans la fenêtre d’accueil.
 
-![](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
+    ![Capture d’écran de la fenêtre d’accueil d’Android Studio](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-Dans l’Assistant **Créer un projet** qui apparaît, choisissez les options suivantes :
+1. L’Assistant **Create New Project** (Créer un projet) s’affiche. Dans l’écran **Create Android Project** (Créer un projet Android), entrez **Quickstart** (Démarrage rapide) en tant que **application name** (nom de l’application), **samples.speech.cognitiveservices.microsoft.com** en tant que **company domain** (domaine d’entreprise) et choisissez un répertoire pour le projet. Laissez les cases à cocher C++ et Kotlin décochées, et sélectionnez **Next** (Suivant).
 
-1. Sur l’écran **Créer un projet Android**, entrez **Démarrage rapide** comme **nom de l’application**, **samples.speech.cognitiveservices.microsoft.com** comme **domaine d’entreprise**, puis choisissez l’emplacement du projet. Laissez les cases à cocher non sélectionnées, puis cliquez sur **Suivant**.
+   ![Capture d’écran de l’Assistant de création d’un projet](media/sdk/qs-java-android-02-create-android-project.png)
 
-   ![](media/sdk/qs-java-android-02-create-android-project.png)
+1. Dans l’écran **Target Android Devices** (Appareils Android cibles), sélectionnez uniquement **Phone and Tablet** (Téléphone et tablette). Dans la liste déroulante en dessous, choisissez **API 23: Android 6.0 (Marshmallow)**, puis sélectionnez **Next** (Suivant).
 
-1. Sur l’écran **Cibler des appareils Android**, sélectionnez l’option **Téléphone et tablette**, choisissez **API 23 : Android 6.0 (Marshmallow)** dans la liste déroulante, puis cliquez sur **Suivant**.
+   ![Capture d’écran de l’Assistant de création d’un projet](media/sdk/qs-java-android-03-target-android-devices.png)
 
-   ![](media/sdk/qs-java-android-03-target-android-devices.png)
+1. Dans l’écran **Add an Activity to Mobile** (Ajouter une activité à l’appareil mobile), sélectionnez **Empty Activity** (Activité vide), puis cliquez sur **Next** (Suivant).
 
-1. Sur l’écran **Ajouter une activité à un mobile**, sélectionnez **Activité vide**, puis cliquez sur **Suivant**.
+   ![Capture d’écran de l’Assistant de création d’un projet](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
 
-   ![](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
+1. Dans l’écran **Configure Activity** (Configurer une activité), utilisez **MainActivity** comme nom d’activité, et **activity\_main** comme nom de disposition. Activez les deux cases à cocher et sélectionnez **Finish** (Terminer).
 
-1. Sur l’écran **Configurer une activité**, utilisez **MainActivity** comme nom de l’activité et **activité\_principale** comme nom de la disposition. Cochez les deux cases, puis cliquez sur **Terminer**.
+   ![Capture d’écran de l’Assistant de création d’un projet](media/sdk/qs-java-android-05-configure-activity.png)
 
-   ![](media/sdk/qs-java-android-05-configure-activity.png)
-
-Après quelques instants, votre nouveau projet Android Studio devrait s’afficher.
-
-## <a name="configure-your-project-for-the-speech-sdk"></a>Configurer votre projet pour le Kit de développement logiciel (SDK) Speech
+Quelques minutes sont nécessaires à Android Studio pour préparer votre nouveau projet Android. Configurez ensuite le projet pour découvrir le kit SDK Speech et utiliser Java 8.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `0.6.0`.
+La version actuelle du kit SDK de reconnaissance vocale Cognitive Services est `1.0.0`.
 
 Le Kit de développement logiciel (SDK) Speech pour Android est empaqueté sous forme de package [AAR (bibliothèque Android)](https://developer.android.com/studio/projects/android-library), qui inclut les bibliothèques nécessaires ainsi que les autorisations Android requises pour son utilisation.
 Il est hébergé dans un référentiel Maven dans https://csspeechstorage.blob.core.windows.net/maven/.
 
-Nous expliquons ci-dessous comment configurer votre projet pour utiliser le Kit de développement logiciel (SDK) Speech.
+Configurez votre projet pour utiliser le kit SDK Speech. Ouvrez la fenêtre de structure du projet en choisissant **File (Fichier)** > **Project Structure (Structure de projet)** dans la barre de menus Android Studio. Dans la fenêtre de structure du projet, apportez les modifications suivantes : 
 
-Ouvrez la fenêtre de la structure du projet sous **Fichier** \> **Structure de projet**.
-Dans la fenêtre qui s’affiche, effectuez les modifications suivantes (cliquez sur **OK** uniquement après avoir terminé toutes les étapes) :
+1. Dans la liste située sur le côté gauche de la fenêtre, sélectionnez **Project** (Projet). Modifiez les paramètres **Default Library Repository** (Référentiel de bibliothèque par défaut) en ajoutant une virgule et l’URL du référentiel Maven, entourée de guillemets simples. 'https://csspeechstorage.blob.core.windows.net/maven/'
 
-1. Sélectionnez **Projet**, puis modifier les paramètres du **référentiel de bibliothèque par défaut** en ajoutant une virgule et l’URL de notre référentiel Maven, entourée de guillemets simples `'https://csspeechstorage.blob.core.windows.net/maven/'` :
+   ![Capture d’écran de la fenêtre de structure d’un projet](media/sdk/qs-java-android-06-add-maven-repository.png)
 
-  ![](media/sdk/qs-java-android-06-add-maven-repository.png)
+1. Dans le même écran, sur le côté gauche, sélectionnez **app** (application). Ensuite, sélectionnez l’onglet **Dependencies** (Dépendances) en haut de la fenêtre. Sélectionnez le signe plus vert (+), puis choisissez **Library dependency** (Dépendance de bibliothèque) dans le menu déroulant.
 
-1. Toujours sur cet écran, sur le côté gauche, sélectionnez le module **App** puis l’onglet **Dépendances** dans la partie supérieure. Cliquez ensuite sur le signe plus vert dans le coin supérieur droit, puis sélectionnez **Dépendance de bibliothèque**.
+   ![Capture d’écran de la fenêtre de structure d’un projet](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-  ![](media/sdk/qs-java-android-07-add-module-dependency.png)
-
-1. Dans la fenêtre qui s’affiche, entrez le nom et la version de notre Kit de développement logiciel (SDK) Speech pour Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`, puis cliquez sur **OK**.
+1. Dans la fenêtre qui s’affiche, entrez le nom et la version du kit SDK Speech pour Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.0.0`. Sélectionnez ensuite **OK**.
    Le Kit de développement logiciel (SDK) Speech devrait à présent apparaître dans la liste des dépendances, comme indiqué ci-dessous :
 
-  ![](media/sdk/qs-java-android-08-dependency-added.png)
+   ![Capture d’écran de la fenêtre de structure d’un projet](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
 
-1. Dans la partie supérieure, sélectionnez l’onglet **Propriétés**. Sélectionnez **1.8** à la fois pour **Compatibilité source** et **Compatibilité cible**.
+1. Sélectionnez l’onglet **Properties** (Propriétés). À la fois pour **Source Compatibility** (Compatibilité source) et pour **Target Compatibility** (Compatibilité cible), sélectionnez **1.8**.
 
-  ![](media/sdk/qs-java-android-09-dependency-added.png)
+   ![](media/sdk/qs-java-android-09-dependency-added.png)
 
-1. Pour finir, cliquez sur **OK** pour fermer la fenêtre **Structure de projet** et appliquer toutes les mises à jour.
+1. Sélectionnez **OK** pour fermer la fenêtre de structure du projet et appliquer vos modifications au projet.
 
-## <a name="create-a-minimal-ui"></a>Créer une interface utilisateur minimale
+## <a name="create-user-interface"></a>Créer une interface utilisateur
 
-Modifiez la disposition de votre activité principale, `activity_main.xml`.
-Par défaut, elle doit s’afficher avec une barre de titre contenant le nom de votre l’application et un TextView indiquant « Hello World! ».
+Nous allons créer une interface utilisateur de base pour l’application. Modifiez la disposition de votre activité principale, `activity_main.xml`. Initialement, la disposition comprend une barre de titre avec le nom de votre application, et un TextView contenant le texte « Hello World! ».
 
-* Cliquez sur le TextView. Remplacez son attribut ID dans le coin supérieur droit par `hello`.
+* Cliquez sur l’élément TextView. Remplacez son attribut ID dans le coin supérieur droit par `hello`.
 
-* Dans la Palette en haut à gauche de votre fenêtre `activity_main.xml`, faites glisser un bouton dans l’espace vide au-dessus du texte.
+* Dans la Palette, en haut à gauche de la fenêtre `activity_main.xml`, faites glisser un bouton dans l’espace vide au-dessus du texte.
 
-* Dans les attributs du bouton à droite, dans la valeur de l’attribut `onClick`, entrez `onSpeechButtonClicked`, qui sera le nom de notre gestionnaire de bouton.
-  Remplacez son attribut ID dans le coin supérieur droit par `button`.
+* Dans les attributs du bouton à droite, entrez `onSpeechButtonClicked` comme valeur de l’attribut `onClick`. Nous allons écrire une méthode portant ce nom pour gérer l’événement de bouton.  Remplacez son attribut ID dans le coin supérieur droit par `button`.
 
-* Utilisez l’icône de baguette magique en haut du concepteur si vous souhaitez que le programme calcule les contraintes de disposition pour vous.
+* Utilisez l’icône de baguette magique en haut du concepteur pour calculer les contraintes de disposition.
 
-  ![](media/sdk/qs-java-android-10-infer-layout-constraints.png)
+  ![Capture d’écran de l’icône de baguette magique](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
-Le texte et la version graphique de votre interface utilisateur devraient maintenant ressembler à ceci :
+Le texte et la représentation graphique de votre interface utilisateur doivent maintenant ressembler à ce qui suit.
 
 <table>
 <tr>
@@ -121,42 +110,46 @@ Le texte et la version graphique de votre interface utilisateur devraient mainte
 </tr>
 </table>
 
-## <a name="add-the-sample-code"></a>Ajouter l’exemple de code
+## <a name="add-sample-code"></a>Ajouter un exemple de code
 
-1. Modifiez le fichier source `MainActivity.java` et remplacez son code par le suivant (sous votre instruction package) :
+1. Ouvrez le fichier source `MainActivity.java`. Remplacez tout le code suivant l’instruction `package` par le code suivant.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
-   * La méthode `onCreate` inclut du code qui demande une autorisation pour accéder au microphone et à Internet, et établit la liaison de la plateforme native. La configuration des liaisons de la plateforme native est nécessaire une seule fois, autrement dit, elle doit être effectuée au début de l’initialisation de l’application.
+   * La méthode `onCreate` inclut du code qui demande une autorisation d’accès au microphone et à Internet, et établit la liaison de la plateforme native. La configuration des liaisons à la plateforme native n’est à effectuer qu’une seule fois. Elle doit être réalisée au début de l’initialisation de l’application.
    
-   * La méthode `onSpeechButtonClicked` était précédemment associée comme gestionnaire du clic de bouton. Une pression sur le bouton déclenche la reconnaissance vocale réelle.
+   * La méthode `onSpeechButtonClicked` est, comme indiqué précédemment, le gestionnaire de clic du bouton. Un appui sur le bouton déclenche la transcription de la reconnaissance vocale.
 
-1. Remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement.
+1. Dans le même fichier, remplacez la chaîne `YourSubscriptionKey` par votre clé d’abonnement.
 
-1. Remplacez la chaîne `YourServiceRegion` par la [région](regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
+1. De même, remplacez la chaîne `YourServiceRegion` par la [région](regions.md) associée à votre abonnement (par exemple, `westus` pour l’abonnement à un essai gratuit).
 
-## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
+## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 
-* Pour créer l’exemple, appuyez sur Ctrl+F9 ou sélectionnez **Build** \> **Créer le projet**.
+1. Connectez votre appareil Android à votre PC de développement. Vérifiez que vous avez activé le [mode de développement et le débogage USB](https://developer.android.com/studio/debug/dev-options) sur l’appareil.
 
-* Connectez votre appareil Android à votre PC de développement. Vérifiez que le [mode de développement et le débogage USB sont activés](https://developer.android.com/studio/debug/dev-options).
+1. Pour générer l’application, appuyez sur les touches Ctrl+F9 ou, dans la barre de menus, choisissez **Build (Générer)** > **Make Project (Créer le projet)**.
 
-* Pour lancer l’application, appuyez sur MAJ+F10 ou sélectionnez **Exécuter** \> **Exécuter « application »**.
+1. Pour lancer l’application, appuyez sur les touches Maj+F10, ou choisissez **Run (Exécuter)** > **Run 'app' (Exécutez 'app')**.
 
-* Dans les fenêtres de la cible de déploiement qui s’affiche, choisissez votre appareil Android.
+1. Dans la fenêtre de la cible de déploiement qui s’affiche, choisissez votre appareil Android.
 
-  ![Lancer l’application en débogage](media/sdk/qs-java-android-12-deploy.png)
+   ![Capture d’écran de la fenêtre de sélection de la cible de déploiement](media/sdk/qs-java-android-12-deploy.png)
 
-* L’application devrait démarrer sur votre appareil.
-  Lorsque vous appuyez sur le bouton, les 15 secondes suivantes seront reconnues et affichées dans l’interface utilisateur (vous devriez également voir la réponse dans votre fenêtre logcat dans Android Studio) :
+Appuyez sur le bouton dans l’application pour commencer une section de reconnaissance vocale. Les 15 secondes suivantes de paroles prononcées en anglais sont envoyées au service Speech et transcrites. Le résultat s’affiche dans l’application Android ainsi que dans la fenêtre logcat d’Android Studio.
 
-  ![Interface utilisateur après une reconnaissance réussie](media/sdk/qs-java-android-13-gui-on-device.png)
+![Capture d’écran de l’application Android](media/sdk/qs-java-android-13-gui-on-device.png)
 
-Cette capture d’écran termine le Démarrage rapide Android. L’exemple de code de projet complet peut être téléchargé à partir du référentiel d’exemples.
-
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Recherchez cet exemple dans le dossier `quickstart/java-android`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez nos exemples](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour Java](how-to-recognize-intents-from-speech-java.md)
+
+## <a name="see-also"></a>Voir aussi
+
+- [Traduction vocale](how-to-translate-speech-csharp.md)
+- [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
+- [Personnaliser les modèles de langage](how-to-customize-language-model.md)

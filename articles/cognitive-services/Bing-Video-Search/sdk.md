@@ -1,22 +1,21 @@
 ---
-title: Kit de développement logiciel (SDK) pour Recherche Bing | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Kit de développement logiciel (SDK) pour Recherche Bing, pour les applications qui recherchent sur le web.
+title: SDK Recherche de vidéos Bing
+titleSuffix: Azure Cognitive Services
+description: SDK Recherche Bing à destination des applications de recherche sur le web.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: ''
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/25/2018
-ms.author: v-gedod
-ms.openlocfilehash: e91b20c1efc7c211ad3f4fc773e029a5e3b9fce1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 3d8656748a9632ac20b6a658e4bcbdd647c0573e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370448"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224676"
 ---
 # <a name="bing-search-sdk"></a>Kit de développement logiciel (SDK) pour Recherche Bing
 Les exemples d’API Recherche de vidéos incluent les scénarios suivants :
@@ -32,7 +31,7 @@ Les Kits de développement logiciel (SDK) pour Recherche Bing rendent les foncti
 * Bien commencer avec les [exemples Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * Voir aussi les [bibliothèques Node.js](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/videoSearch) pour les définitions et les dépendances.
 * Bien commencer avec les [exemples Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * Voir aussi [bibliothèques Java](hhttps://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) pour les définitions et les dépendances.
+    * Voir aussi [bibliothèques Java](h https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) pour les définitions et les dépendances.
 * Bien commencer avec les [exemples Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * Voir aussi les [bibliothèques Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-videosearch) pour les définitions et les dépendances.
 

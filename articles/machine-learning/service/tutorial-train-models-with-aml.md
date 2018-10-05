@@ -1,31 +1,31 @@
 ---
 title: 'Tutoriel : Entraîner un modèle de classification d’images avec Azure Machine Learning'
-description: Découvrez comment entraîner un modèle de classification d’images scikit-learn avec un bloc-notes Jupyter Python. Ce tutoriel est le premier d’une série de deux.
-author: hning86
-ms.author: haining
-ms.topic: conceptual
+description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour effectuer l’apprentissage d’un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le premier d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
+ms.topic: tutorial
+author: hning86
+ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: bed4abcce3019607715416b5194a2ddecc89b76a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966609"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181396"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>Tutoriel 1 : Entraîner un modèle de classification d’images avec Azure Machine Learning
 
-Dans ce tutoriel, vous allez entraîner un modèle Machine Learning à la fois localement et sur des ressources de calcul distantes. Vous utiliserez le workflow de déploiement et d’entraînement pour le service Azure Machine Learning dans un bloc-notes Jupyter Python.  Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
+Dans ce tutoriel, vous allez entraîner un modèle Machine Learning à la fois localement et sur des ressources de calcul distantes. Vous utiliserez le workflow de déploiement et de formation pour le service Azure Machine Learning (préversion) dans un bloc-notes Jupyter Python.  Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
 
 Ce tutoriel entraîne une régression logistique simple à l’aide du jeu de données [MNIST](http://yann.lecun.com/exdb/mnist/) et de [scikit-learn](http://scikit-learn.org) avec Azure Machine Learning.  MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28x28 pixels, représentant un nombre de 0 à 9. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée. 
 
 Découvrez comment :
 
 > [!div class="checklist"]
-> * Configurer votre environnement de développement.
+> * Configuration de l'environnement de développement
 > * Accéder aux données et les examiner.
 > * Entraîner une régression logistique simple localement à l’aide de la bibliothèque de machine learning populaire scikit-learn. 
 > * Entraîner plusieurs modèles sur un cluster distant.
@@ -37,11 +37,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
-Pour des raisons pratiques, ce tutoriel est disponible en tant que bloc-notes Jupyter. Appliquez l’une ou l’autre de ces méthodes pour exécuter le bloc-notes `tutorials/01.train-models.ipynb` :
+Pour des raisons pratiques, ce tutoriel est disponible en tant que notebook Jupyter. Utiliser l’une des deux méthodes ci-dessous pour cloner le [référentiel GitHub d’exemples de blocs-notes Machine Learning](https://github.com/Azure/MachineLearningNotebooks) et exécuter le bloc-notes `tutorials/01.train-models.ipynb` :
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
-## <a name="set-up-your-development-environment"></a>Configurer votre environnement de développement
+## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
 
 Toute la configuration pour votre travail de développement peut être effectuée dans un bloc-notes Python.  La configuration comprend les tâches suivantes :
 
@@ -79,7 +79,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### <a name="create-experiment"></a>Créer une expérience
 
-Créez une expérience pour effectuer le suivi de toutes les exécutions dans votre espace de travail.  
+Créez une expérience pour effectuer le suivi des exécutions dans votre espace de travail. Un espace de travail peut avoir plusieurs expériences. 
 
 ```python
 experiment_name = 'sklearn-mnist'
@@ -105,7 +105,7 @@ batchai_cluster_name = "traincluster"
 try:
     # look for the existing cluster by name
     compute_target = ComputeTarget(workspace=ws, name=batchai_cluster_name)
-    if compute_target is BatchAiCompute:
+    if type(compute_target) is BatchAiCompute:
         print('found compute target {}, just use it.'.format(batchai_cluster_name))
     else:
         print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
@@ -157,7 +157,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>Afficher des exemples d’images
 
-Chargez les fichiers compressés dans des tableaux `numpy`. Utilisez ensuite `matplotlib` pour tracer 30 images aléatoires du jeu de données avec leurs étiquettes au-dessus.
+Chargez les fichiers compressés dans des tableaux `numpy`. Utilisez ensuite `matplotlib` pour tracer 30 images aléatoires du jeu de données avec leurs étiquettes au-dessus. Cette étape nécessite une fonction `load_data` qui est incluse dans le fichier `util.py`. Ce fichier est inclus dans l’exemple de dossier. Vérifiez qu’il se trouve dans le même dossier que ce bloc-notes. La fonction `load_data` analyse les fichiers compressés dans des tableaux Numpy.
 
 
 
@@ -194,7 +194,7 @@ Vous avez maintenant une idée de l’aspect de ces images et du résultat de pr
 
 ### <a name="upload-data-to-the-cloud"></a>Charger des données dans le cloud
 
-Maintenant, vous allez rendre les données accessibles à distance en les chargeant de votre ordinateur local vers le cloud. Elles seront alors accessibles pour l’entraînement à distance. La banque de données est une construction pratique associée à votre espace de travail, dans laquelle vous pouvez charger/télécharger des données et interagir avec elles à partir de vos cibles de calcul distantes. 
+À présent, vous allez rendre les données accessibles à distance en les chargeant de votre ordinateur local vers Azure. Elles seront alors accessibles pour la formation à distance. La banque de données est une construction pratique associée à votre espace de travail, dans laquelle vous pouvez charger/télécharger des données et interagir avec elles à partir de vos cibles de calcul distantes. Elle repose sur un compte de stockage d’objets blob Azure.
 
 Les fichiers MNIST sont chargés dans un répertoire nommé `mnist` à la racine de la banque de données.
 
@@ -238,10 +238,10 @@ En quelques lignes de code, vous avez une précision de 92 %.
 Vous pouvez maintenant étendre ce modèle simple en générant un modèle avec un taux de régularisation différent. Cette fois-ci, vous allez entraîner le modèle sur une ressource distante.  
 
 Pour cette tâche, envoyez le travail au cluster d’entraînement distant défini précédemment.  Pour envoyer un travail, vous devez :
-* Créer un répertoire.
-* Créer un script d’entraînement.
-* Créer un estimateur.
-* Envoyer le travail. 
+* Créer un répertoire
+* Créer un script d’entraînement
+* Créer un estimateur
+* Envoi du travail 
 
 ### <a name="create-a-directory"></a>Créer un répertoire
 
@@ -365,7 +365,7 @@ run = exp.submit(config=est)
 run
 ```
 
-L’appel étant asynchrone, il retourne un état **en cours d’exécution** dès le démarrage du travail.
+L’appel étant asynchrone, il retourne un état **en cours de préparation** ou **en cours d’exécution** dès le démarrage du travail.
 
 ## <a name="monitor-a-remote-run"></a>Superviser une exécution à distance
 
@@ -377,7 +377,7 @@ Voici ce qui se passe pendant que vous attendez :
 
   Cette étape se produit une fois pour chaque environnement Python, puisque le conteneur est mis en cache pour les exécutions suivantes.  Lors de la création d’image, les journaux sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de la création d’image à l’aide de ces journaux.
 
-- **Mise à l’échelle** : si le cluster distant nécessite plus de nœuds que la quantité disponible actuellement, des nœuds supplémentaires sont ajoutés automatiquement. En général, la mise à l’échelle prend **environ cinq minutes.**
+- **Mise à l’échelle** : si le cluster distant nécessite plus de nœuds pour l’exécution que la quantité disponible actuellement, des nœuds supplémentaires sont ajoutés automatiquement. En général, la mise à l’échelle prend **environ cinq minutes.**
 
 - **Exécution** : durant cette étape, les fichiers et les scripts nécessaires sont envoyés à la cible de calcul, les banques de données sont montées/copiées, puis entry_script est exécuté. Pendant que le travail s’exécute, stdout et le répertoire ./logs sont diffusés en continu vers l’historique d’exécutions. Vous pouvez superviser la progression de l’exécution à l’aide de ces journaux.
 
@@ -440,7 +440,7 @@ model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklea
 print(model.name, model.id, model.version, sep = '\t')
 ```
 
-## <a name="clean-up-resources"></a>Nettoyer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
@@ -457,7 +457,7 @@ compute_target.delete()
 Dans ce tutoriel Azure Machine Learning, vous avez utilisé Python pour :
 
 > [!div class="checklist"]
-> * Configurer l’environnement de développement.
+> * Configuration de l'environnement de développement
 > * Accéder aux données et les examiner.
 > * Entraîner une régression logistique simple localement à l’aide de la bibliothèque de machine learning populaire scikit-learn.
 > * Entraîner plusieurs modèles sur un cluster distant.

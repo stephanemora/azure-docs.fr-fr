@@ -2,24 +2,26 @@
 title: Créer et gérer des serveurs et des singletons SQL Azure | Microsoft Docs
 description: En savoir plus sur la création et la gestion de serveurs logiques et de singletons.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: DBs & servers
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/07/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 20039c32ed7bb740ba5d1185d195d7590cff39e2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: c2855a9cdbb2abc01b3d3b55b12b979a2dbbf8bb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051253"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165355"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Créer et gérer des serveurs logiques et des singletons dans Azure SQL Database 
 
-Vous pouvez créer et gérer des serveurs logiques de bases de données et des singletons SQL Azure avec le portail Azure, PowerShell, Azure CLI, l’API REST et Transact-SQL.
+Vous pouvez créer et gérer des serveurs logiques de base de données et des singletons SQL Azure avec le Portail Azure, PowerShell, Azure CLI, l’API REST et Transact-SQL.
 
 ## <a name="azure-portal-manage-logical-servers-and-databases"></a>Portail Azure : gérer des serveurs logiques et des bases de données
 
@@ -90,25 +92,25 @@ Pour créer et gérer un serveur, des bases de données et des pare-feux SQL Az
 
 | Applet de commande | Description |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#az_sql_db_create) |Crée une base de données|
-|[az sql db list](/cli/azure/sql/db#az_sql_db_list)|Répertorie toutes les bases de données et les entrepôts de données d’un serveur, ou toutes les bases de données d’un pool élastique|
-|[az sql db list-editions](/cli/azure/sql/db#az_sql_db_list_editions)|Répertorie les objectifs de service disponibles et les limites de stockage|
-|[az sql db list-usages](/cli/azure/sql/db#az_sql_db_list_usages)|Renvoie les données d’utilisation de la base de données|
-|[az sql db show](/cli/azure/sql/db#az_sql_db_show)|Obtient une base de données ou un entrepôt de données|
-|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Met à jour une base de données|
-|[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Supprime une base de données|
-|[az group create](/cli/azure/group#az_group_create)|Crée un groupe de ressources|
-|[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Crée un serveur|
-|[az sql server list](/cli/azure/sql/server#az_sql_server_list)|Répertorie les serveurs|
-|[az sql server list-usages](/cli/azure/sql/server#az_sql_server_list_usages)|Renvoie les données d’utilisation d’un serveur|
-|[az sql server show](/cli/azure/sql/server#az_sql_server_show)|Obtient un serveur|
-|[az sql server update](/cli/azure/sql/server#az_sql_server_update)|Met à jour un serveur|
-|[az sql server delete](/cli/azure/sql/server#az_sql_server_delete)|Supprime un serveur.|
-|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Crée la règle de pare-feu d’un serveur|
-|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Répertorie les règles de pare-feu sur un serveur|
-|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Affiche les détails d’une règle de pare-feu|
-|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Met à jour une règle de pare-feu|
-|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Supprime une règle de pare-feu|
+|[az sql db create](/cli/azure/sql/db#az-sql-db-create) |Crée une base de données|
+|[az sql db list](/cli/azure/sql/db#az-sql-db-list)|Répertorie toutes les bases de données et les entrepôts de données d’un serveur, ou toutes les bases de données d’un pool élastique|
+|[az sql db list-editions](/cli/azure/sql/db#az-sql-db-list-editions)|Répertorie les objectifs de service disponibles et les limites de stockage|
+|[az sql db list-usages](/cli/azure/sql/db#az-sql-db-list-usages)|Renvoie les données d’utilisation de la base de données|
+|[az sql db show](/cli/azure/sql/db#az-sql-db-show)|Obtient une base de données ou un entrepôt de données|
+|[az sql db update](/cli/azure/sql/db#az-sql-db-update)|Met à jour une base de données|
+|[az sql db delete](/cli/azure/sql/db#az-sql-db-delete)|Supprime une base de données|
+|[az group create](/cli/azure/group#az-group-create)|Crée un groupe de ressources|
+|[az sql server create](/cli/azure/sql/server#az-sql-server-create)|Crée un serveur|
+|[az sql server list](/cli/azure/sql/server#az-sql-server-list)|Répertorie les serveurs|
+|[az sql server list-usages](/cli/azure/sql/server#az-sql-server-list-usages)|Renvoie les données d’utilisation d’un serveur|
+|[az sql server show](/cli/azure/sql/server#az-sql-server-show)|Obtient un serveur|
+|[az sql server update](/cli/azure/sql/server#az-sql-server-update)|Met à jour un serveur|
+|[az sql server delete](/cli/azure/sql/server#az-sql-server-delete)|Supprime un serveur.|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Crée la règle de pare-feu d’un serveur|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Répertorie les règles de pare-feu sur un serveur|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-show)|Affiche les détails d’une règle de pare-feu|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Met à jour une règle de pare-feu|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Supprime une règle de pare-feu|
 
 ## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL : gérer des serveurs logiques et des bases de données
 

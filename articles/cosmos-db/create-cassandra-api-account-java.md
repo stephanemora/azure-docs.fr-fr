@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: af25c52d1300a2daed3542c5cb1db080c505f715
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b412042d0a872443c0b30c774dfd4926555a5a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953121"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221648"
 ---
 # <a name="create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Créer un compte d’API Cassandra, une base de données et une table Azure Cosmos DB avec une application Java
 
-Ce tutoriel explique comment utiliser une application Java pour créer un compte d’API Cassandra dans Azure Cosmos DB, ajouter une base de données (également appelée « espace de clés ») et ajouter une table. L’application Java utilise le [pilote Java Datastax](https://github.com/datastax/java-driver) pour créer une base de données utilisateur qui contient des détails comme l’ID d’utilisateur, le nom d’utilisateur et la localité de l’utilisateur.  
+Ce tutoriel explique comment utiliser une application Java pour créer un compte d’API Cassandra dans Azure Cosmos DB, ajouter une base de données (également appelée « espace de clés ») et ajouter une table. L’application Java utilise le [pilote Java](https://github.com/datastax/java-driver) pour créer une base de données utilisateur qui contient des détails comme l’ID d’utilisateur, le nom d’utilisateur et la localité de l’utilisateur.  
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -91,7 +91,7 @@ Vous pouvez aussi créer l’exemple à partir de zéro.
  
 2. Recherchez le dossier `cassandra-demo`. Avec un éditeur de texte, ouvrez le fichier `pom.xml` qui a été généré. 
 
-   Ajoutez les dépendances de datastax Cassandra et générez les plug-ins nécessaires pour votre projet, comme indiqué dans le fichier [pom.xml](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/pom.xml).  
+   Ajoutez les dépendances de Cassandra et générez les plug-ins nécessaires pour votre projet, comme indiqué dans le fichier [pom.xml](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started/blob/master/java-examples/pom.xml).  
 
 3. Sous le dossier `cassandra-demo\src\main`, créez un dossier nommé `resources`.  Sous le dossier des ressources, ajoutez les fichiers config.properties et log4j.properties :
 

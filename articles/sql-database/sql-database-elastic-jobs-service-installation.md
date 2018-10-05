@@ -2,21 +2,29 @@
 title: Installation de Tâches de bases de données élastiques | Microsoft Docs
 description: Passez en revue l'installation de la fonctionnalité de tâche élastique.
 services: sql-database
-manager: craigg
-author: ddove
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5760ca693f347068e03770b348d88b3b2adbf678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 37052c86736a05012b9bb996f07bbf2568d7c879
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645610"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163160"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Vue d’ensemble de l’installation de Tâches de bases de données élastiques
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+
 Une [**tâche de base de données élastique**](sql-database-elastic-jobs-overview.md) peut être installée à l’aide de PowerShell ou du portail Azure. Vous pouvez y accéder pour créer et gérer des tâches à l’aide de l’API PowerShell uniquement si vous installez le package PowerShell. En outre, les API PowerShell fournissent, à ce stade, beaucoup plus de fonctionnalités que le portail.
 
 Si vous avez déjà installé **Tâche de base de données élastique** via le portail à partir d’un **pool élastique** existant, la dernière version préliminaire de Powershell inclut des scripts pour mettre à niveau votre installation existante. Il est vivement recommandé de mettre à niveau votre installation vers la dernière version des composants de **Tâches de bases de données élastiques** pour tirer parti des nouvelles fonctionnalités exposées via l'API PowerShell.
@@ -71,7 +79,7 @@ Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par le
 
     <tr>
     <td>ResourceGroupLocation</td>
-    <td>Fournit l'emplacement Azure à utiliser pour les composants Azure nouvellement créés. Ce paramètre est défini par défaut sur  l'emplacement du centre des États-Unis.</td>
+    <td>Fournit l'emplacement Azure à utiliser pour les composants Azure nouvellement créés. Ce paramètre est défini par défaut sur l'emplacement USA Centre.</td>
 </tr>
 
 <tr>
@@ -88,7 +96,7 @@ Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par le
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fournit l'objectif de niveau de service d’une édition standard. Ce paramètre est défini par défaut sur la valeur S0. Les valeurs de paramètre S0/S1/S2/S3/S4/S6/S9/S12 sont acceptées, ce qui amène la base de données Microsoft Azure SQL à utiliser l’objectif de niveau de service (SLO) correspondant. Pour plus d’informations sur les objectifs de niveau de service SQL Database, consultez [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fournit la taille de calcul pour une édition Standard. Ce paramètre est défini par défaut sur la valeur S0. Les valeurs de paramètre S0/S1/S2/S3/S4/S6/S9/S12 sont acceptées, ce qui amène la base de données Microsoft Azure SQL à utiliser l’objectif de taille de calcul correspondant. Pour plus d’informations sur les tailles de calcul de SQL Database, consultez l’article [Composants et tarification des tâches de bases de données élastiques](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>

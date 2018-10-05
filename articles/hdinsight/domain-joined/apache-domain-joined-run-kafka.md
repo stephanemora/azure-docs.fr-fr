@@ -8,14 +8,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 5b262204fafa84d72f571e4551ecfd793d865040
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a8f04f39568816252175fc9e0893f1ab3e2cdc6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993882"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224815"
 ---
-# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package"></a>Tutoriel : Configurer des stratégies Kafka dans HDInsight avec le Pack Sécurité Entreprise
+# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Didacticiel : Configurer des stratégies Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
 Découvrez comment configurer des stratégies Apache Ranger pour des clusters Kafka avec le Pack Sécurité Entreprise. Les clusters ESP sont connectés à un domaine permettant aux utilisateurs de s’authentifier avec les informations d’identification du domaine. Dans ce tutoriel, vous créez deux stratégies Ranger pour restreindre l’accès aux rubriques `sales*` et `marketingspend`.
 
@@ -23,7 +23,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer des utilisateurs du domaine
-> * Créer des stratégies Ranger
+> * Création de stratégies Ranger
 > * Créer des rubriques dans un cluster Kafka
 > * Tester des stratégies Ranger
 

@@ -72,6 +72,25 @@ items:
       href: devtest-lab-store-secrets-in-key-vault.md
     - name: Tester votre application dans Azure
       href: test-app-azure.md
+    - name: Configurer une infrastructure DevTest Labs dans votre entreprise
+      href: devtest-lab-guidance-prescriptive-adoption.md
+      items:
+      - name: Prendre en main DevTest Labs
+        href: devtest-lab-guidance-get-started.md
+      - name: Monter votre déploiement DevTest Labs
+        href: devtest-lab-guidance-scale.md
+      - name: Orchestrer l’implémentation de DevTest Labs
+        href: devtest-lab-guidance-orchestrate-implementation.md
+      - name: Gouvernance de l’infrastructure DevTest Labs
+        items:
+        - name: Ressources
+          href: devtest-lab-guidance-governance-resources.md
+        - name: Coût et propriété
+          href: devtest-lab-guidance-governance-cost-ownership.md
+        - name: Politique et conformité
+          href: devtest-lab-guidance-governance-policy-compliance.md
+        - name: Intégration et migration d’applications
+          href: devtest-lab-guidance-governance-application-migration-integration.md
     - name: Utiliser des machines virtuelles dans un laboratoire
       items:
       - name: Créer des machines virtuelles
@@ -194,9 +213,9 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=devtest-lab
   - name: Tarifs
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
-ms.openlocfilehash: c2e701b16c67be86d3e8d2463b8ad45646f0ed0b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 401c41d1b91d6373dfb3c743e0c6f56332030b45
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988629"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247564"

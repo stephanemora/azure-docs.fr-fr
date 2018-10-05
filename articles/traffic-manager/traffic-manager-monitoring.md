@@ -3,8 +3,8 @@ title: Surveillance des points de terminaison Azure Traffic Manager | Microsoft�
 description: Cet article explique comment Traffic Manager utilise la surveillance des points de terminaison et le basculement automatique des points de terminaison pour aider les clients Azure à déployer des applications haute disponibilité
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398833"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221092"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
@@ -32,17 +32,19 @@ Pour configurer la surveillance des points de terminaison, vous devez spécifier
 * **Protocole**. Sélectionnez HTTP, HTTPS ou TCP comme protocole utilisé par Traffic Manager lors de la détection du point de terminaison pour contrôler son intégrité. Notez que la surveillance HTTPS ne vérifie pas si votre certificat SSL est valide, mais uniquement s’il est présent.
 * **Port**. Choisissez le port utilisé pour la requête.
 * **Chemin d’accès**. Ce paramètre de configuration est valide uniquement pour les protocoles HTTP et HTTPS pour lesquels la configuration du chemin est obligatoire. La configuration de ce paramètre pour le protocole de surveillance TCP provoque une erreur. Pour le protocole HTTP et HTTPS, indiquez le chemin relatif et le nom du fichier ou de la page web auxquels la surveillance accède. Une barre oblique (/) est une entrée valide pour le chemin d’accès relatif. Cette valeur indique que le fichier est dans le répertoire racine (par défaut).
+* **Paramètres d’en-tête personnalisé**. Ce paramètre de configuration vous permet d’ajouter des en-têtes HTTP spécifiques aux vérifications d’intégrité que Traffic Manager envoie aux points de terminaison par le biais d’un profil. Les en-têtes personnalisés peuvent être spécifiés au niveau du profil (pour s’appliquer à tous les points de terminaison de ce profil) et/ou au niveau du point de terminaison (applicable uniquement à ce point de terminaison). Vous pouvez utiliser des en-têtes personnalisés pour que les vérifications d’intégrité effectuées sur des points de terminaison d’un environnement multilocataire soient correctement acheminées vers leur destination en spécifiant un en-tête d’hôte. Vous pouvez également utiliser ce paramètre en ajoutant des en-têtes uniques qui peuvent servir à identifier les requêtes HTTP(S) provenant de Traffic Manager et les traiter différemment.
+* **Plages de code d’état prévues**. Ce paramètre vous permet de spécifier plusieurs plages de code de réussite au format 200-299, 301-301. Si, suite au lancement d’une vérification de l’intégrité, un point de terminaison envoie ces codes d’état en tant que réponse, Traffic Manager considère que ces points de terminaison sont sains. Vous pouvez spécifier un maximum de 8 plages de code d’état. Ce paramètre s’applique uniquement aux protocoles HTTP et HTTPS, et à tous les points de terminaison. Ce paramètre se trouve au niveau du profil Traffic Manager. Par défaut, la valeur du code d’état de réussite est définie sur 200.
 * **Intervalle de détection**. Cette valeur spécifie la fréquence à laquelle l’intégrité d’un point de terminaison est contrôlée par un agent de détection Traffic Manager. Vous pouvez spécifier deux valeurs ici : 30 secondes (détection normale) et 10 secondes (détection rapide). Si aucune valeur n’est fournie, le profil définit par défaut la valeur sur 30 secondes. Visitez la page [Tarification de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) pour en savoir plus sur la tarification pour la détection rapide.
 * **Nombre d’échecs tolérés**. Cette valeur spécifie le nombre d’échecs tolérés par un agent de détection de Traffic Manager avant que le point de terminaison soit considéré comme défectueux. La valeur peut être comprise entre 0 et 9. Une valeur égale à 0 signifie qu’il suffit d’un seul échec lors de l’analyse pour que le point de terminaison soit considéré comme défectueux. Si aucune valeur n’est spécifiée, la valeur par défaut est 3.
-* **Délai d’expiration de la surveillance**. Cette propriété spécifie le temps que l’agent de détection de Traffic Manager doit attendre avant de considérer que la procédure comme un échec lorsqu’une sonde de vérification de l’intégrité est envoyée au point de terminaison. Si l’intervalle de détection est défini sur 30 secondes, vous pouvez définir la valeur du délai d’expiration entre 5 et 10 secondes. Si aucune valeur n’est spécifiée, la valeur par défaut est 10 secondes. Si l’intervalle de détection est défini sur 10 secondes, vous pouvez définir la valeur du délai d’expiration entre 5 et 9 secondes. Si aucune valeur n’est spécifiée pour le délai d’expiration, la valeur par défaut est 9 secondes.
+* **Délai d’expiration de la détection**. Cette propriété spécifie le temps que l’agent de détection de Traffic Manager doit attendre avant de considérer que la procédure comme un échec lorsqu’une sonde de vérification de l’intégrité est envoyée au point de terminaison. Si l’intervalle de détection est défini sur 30 secondes, vous pouvez définir la valeur du délai d’expiration entre 5 et 10 secondes. Si aucune valeur n’est spécifiée, la valeur par défaut est 10 secondes. Si l’intervalle de détection est défini sur 10 secondes, vous pouvez définir la valeur du délai d’expiration entre 5 et 9 secondes. Si aucune valeur n’est spécifiée pour le délai d’expiration, la valeur par défaut est 9 secondes.
 
-![Surveillance des points de terminaison Traffic Manager](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+    ![Surveillance des points de terminaison Traffic Manager](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-**Figure 1 : surveillance des points de terminaison Traffic Manager**
+    **Figure : Surveillance des points de terminaison Traffic Manager**
 
 ## <a name="how-endpoint-monitoring-works"></a>Fonctionnement de la surveillance des points de terminaison
 
-Si le protocole de surveillance est défini sur HTTP ou HTTPS, l’agent de détection de Traffic Manager effectue une requête GET vers le point de terminaison à l’aide du protocole, du port et du chemin d’accès relatif donnés. S’il obtient une réponse 200-OK, ce point de terminaison est considéré comme sain. Si la réponse est une valeur différente, ou si aucune réponse n’est reçue dans le délai spécifié, l’agent de détection Traffic Manager refait une tentative en fonction du nombre d’échecs tolérés défini (aucune nouvelle tentative si cette valeur est définie sur 0). Si le nombre d’échecs consécutifs est supérieur au nombre d’échecs tolérés, ce point de terminaison est considéré comme défectueux. 
+Si le protocole de surveillance est défini sur HTTP ou HTTPS, l’agent de détection de Traffic Manager effectue une requête GET vers le point de terminaison à l’aide du protocole, du port et du chemin d’accès relatif donnés. S’il obtient la réponse 200-OK, ou l’une des réponses configurées dans les plages de code d’état prévues, alors ce point de terminaison est considéré comme sain. Si la réponse est une valeur différente, ou si aucune réponse n’est reçue dans le délai spécifié, l’agent de détection Traffic Manager refait une tentative en fonction du nombre d’échecs tolérés défini (aucune nouvelle tentative si cette valeur est définie sur 0). Si le nombre d’échecs consécutifs est supérieur au nombre d’échecs tolérés, ce point de terminaison est considéré comme défectueux. 
 
 Si le protocole de surveillance est TCP, l’agent de détection de Traffic Manager lance une demande de connexion TCP à l’aide du port spécifié. Si le point de terminaison répond positivement à la requête de connexion, le contrôle d’intégrité est considéré comme une réussite et l’agent de détection de Traffic Manager rétablit la connexion TCP. Si la réponse est différente ou si aucune réponse n’est reçue dans le délai spécifié, l’agent de détection Traffic Manager refait une tentative en fonction du nombre d’échecs tolérés défini (aucune nouvelle tentative si cette valeur est définie sur 0). Si le nombre d’échecs consécutifs est supérieur au nombre d’échecs tolérés, ce point de terminaison est considéré comme défectueux.
 
@@ -101,7 +103,7 @@ Traffic Manager vérifie périodiquement l’intégrité de chaque point de term
 
 Un point de terminaison est défectueux lorsque l’un des événements suivants se produit :
 - Si le protocole de surveillance est HTTP ou HTTPS :
-    - Réception d’une réponse autre que 200 (y compris un code 2xx différent ou une redirection 301/302).
+    - Une réponse autre que 200, ou une réponse qui n’inclut pas la plage spécifiée dans le paramètre **Plages de code d’état prévues**, est reçue (y compris un code 2xx différent ou une redirection 301/302).
 - Si le protocole de surveillance est TCP : 
     - Réception d’une réponse autre que ACK ou SYN-ACK, en réponse à la requête SYNC envoyée par Traffic Manager pour tenter d’établir une connexion.
 - Délai d’expiration. 
@@ -109,14 +111,14 @@ Un point de terminaison est défectueux lorsque l’un des événements suivants
 
 Pour plus d’informations sur le dépannage des vérifications en échec, consultez [Résolution des problèmes liés à l’état Détérioré d’Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md). 
 
-La chronologie de la Figure 2 est une description détaillée du processus de surveillance du point de terminaison de Traffic Manager, avec les paramètres suivants : le protocole de surveillance est HTTP, l’intervalle de détection est 30 secondes, le nombre d’échecs tolérés est 3, le délai d’expiration est 10 secondes et la durée de vie DNS est 30 secondes.
+La chronologie de la figure suivante représente une description détaillée du processus de surveillance du point de terminaison de Traffic Manager, avec les paramètres suivants : protocole de surveillance HTTP, intervalle de détection de 3 secondes, nombre d’échecs tolérés égal à 10, délai d’expiration de 30 secondes et durée de vie DNS de 30 secondes.
 
 ![Séquence de basculement et de restauration automatique des points de terminaison Traffic Manager](./media/traffic-manager-monitoring/timeline.png)
 
-**Figure 2 : séquence de basculement et de récupération des points de terminaison Traffic Manager**
+**Figure : Séquence de basculement et de récupération des points de terminaison Traffic Manager**
 
 1. **GET**. Pour chaque point de terminaison, le système de surveillance de Traffic Manager exécute une requête GET sur le chemin d’accès spécifié dans les paramètres de surveillance.
-2. **200 OK**. Le système de surveillance attend un message HTTP 200 OK dans un délai de 10 secondes. Lorsqu’il reçoit cette réponse, il reconnaît que le service est disponible.
+2. **200 OK ou plage de code personnalisée spécifiée dans les paramètres de surveillance du profil Traffic Manager**. Le système de surveillance attend que le message HTTP 200 OK ou celui de la plage de code personnalisée spécifiée dans les paramètres du profil Traffic Manager soit retourné sous 10 secondes. Lorsqu’il reçoit cette réponse, il reconnaît que le service est disponible.
 3. **30 secondes entre les contrôles**. Le contrôle d’intégrité du point de terminaison est répété toutes les 30 secondes.
 4. **Service indisponible**. Le service devient indisponible. Traffic Manager n’est pas averti avant le prochain contrôle d’intégrité.
 5. **Tente d’accéder au chemin d’accès de surveillance**. Le système de surveillance exécute une requête GET, mais ne reçoit pas de réponse au cours du délai d’expiration de 10 secondes (sinon, une réponse autre que 200 peut être reçue). Il effectue ensuite trois essais supplémentaires par intervalles de 30 secondes. Lorsque l’un des essais aboutit, le nombre d’essais est réinitialisé.
@@ -137,6 +139,8 @@ Lorsqu’un point de terminaison est détérioré, il n’est plus renvoyé en r
 * **Pondération**. Le point de terminaison de remplacement est choisi de façon aléatoire parmi tous les points de terminaison disponibles en fonction des pondérations qui leur ont été affectées et des pondérations des autres points de terminaison disponibles.
 * **Performances**. Le point de terminaison le plus proche de l’utilisateur final est renvoyé. Si ce point de terminaison n’est pas disponible, Traffic Manager déplace le trafic vers les points de terminaison dans la région Azure suivante la plus proche. Vous pouvez configurer d’autres plans de basculement pour le routage du trafic à l’aide des [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Géographique**. Le point de terminaison mappé pour servir la zone géographique en fonction de l’adresse IP de la requête est renvoyé. Si ce point de terminaison n’est pas disponible, aucun autre point de terminaison ne sera sélectionné pour le basculement, car un emplacement géographique ne peut être mappé qu’à un seul point de terminaison dans un profil (plus de détails dans la rubrique [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Lorsque le routage géographique est utilisé, nous recommandons aux clients d’utiliser des profiles Traffic Manager imbriqués avec plusieurs points de terminaison comme points de terminaison du profil.
+* **Valeurs multiples** Plusieurs points de terminaison mappés sur des adresses IPv4/IPv6 sont retournés. Lorsqu’une requête est reçue pour ce profil, les points de terminaison sains sont retournés en fonction de la valeur du **nombre maximal d’enregistrements de la réponse** que vous avez spécifiée. Par défaut, le nombre de réponses correspond à deux points de terminaison.
+* **Sous-réseau** Le point de terminaison mappé à un ensemble de plages d’adresses IP est retourné. Lorsqu’une requête est reçue à partir de cette adresse IP, le point de terminaison retourné est celui qui est mappé pour cette adresse IP. 
 
 Pour plus d’informations, consultez la rubrique relative aux [méthodes de routage du trafic dans Traffic Manager](traffic-manager-routing-methods.md).
 

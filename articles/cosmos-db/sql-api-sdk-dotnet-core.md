@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b8004500df2e29ab865a8eb78adf278ef61d5ee8
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7000fc13a792f4f6def592e78dc759c8cf165881
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702433"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451916"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -52,6 +52,24 @@ ms.locfileid: "43702433"
 ## <a name="release-notes"></a>Notes de publication
 
 Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la parité des fonctions avec la dernière version du [kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-sdk-dotnet.md).
+
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
+
+* Ajout de davantage de résilience aux erreurs temporaires sur les requêtes multirégions.
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+
+* Ajout de la prise en charge des écritures multirégions.
+* Amélioration des performances des requêtes sur les partitions croisées avec TOP et MaxBufferedItemCount.
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* Ajout de la prise en charge de l’annulation de demande.
+* Ajout de SetCurrentLocation à ConnectionPolicy, qui remplit automatiquement les emplacements par défaut en fonction de la région.
+* Correction de bogue dans les requêtes entre plusieurs partitions avec Min/Max et un filtre qui correspond à Aucun document sur une partition individuelle.
+* Les méthodes DocumentClient ont désormais une parité avec IDocumentClient.
+* Mise à jour de la pile de transport TCP direct pour réduire le nombre de connexions établies.
+* Ajout de la prise en charge du mode direct TCP pour les clients autres que Windows.
 
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -186,8 +204,9 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
-| [2.0.0-preview2](#2.0.0-preview2) |26 juillet 2018 |--- |
-| [2.0.0-preview](#2.0.0-preview) |11 mai 2018 |--- |
+| [2.1.1](#2.1.1) |27 septembre 2018 |--- |
+| [2.1.0](#2.1.0) |21 septembre 2018 |--- |
+| [2.0.0](#2.0.0) |07 septembre 2018 |--- |
 | [1.9.1](#1.9.1) |09 mars 2018 |--- |
 | [1.8.2](#1.8.2) |21 février 2018 |--- |
 | [1.8.1](#1.8.1) |05 février 2018 |--- |

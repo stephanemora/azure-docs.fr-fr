@@ -1,21 +1,23 @@
 ---
-title: Didacticiel SaaS multi-locataire - Azure SQL Database | Microsoft Docs
+title: Didacticiel SaaS monolocataire – Azure SQL Database | Microsoft Docs
 description: Déployer et explorer une application SaaS à client unique autonome qui utilise Azure SQL Database.
-keywords: didacticiel sur les bases de données SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: sstein
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 1e74a0c915471fecb3b8e0662559eb5bfe189b3d
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644720"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423015"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database
 
@@ -25,7 +27,7 @@ Le modèle application autonome ou d’application par client déploie une insta
 
 Dans le cadre de ce didacticiel, vous allez déployer les trois applications autonomes pour trois clients dans votre abonnement Azure.  Vous avez un accès complet pour explorer et utiliser les composants d’application individuels.
 
-Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp).
+Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp). L’application a été créée à l’aide de Visual Studio 2015. Il est impossible de l’ouvrir ou de la compiler correctement dans Visual Studio 2017 sans la mettre à jour.
 
 
 Ce didacticiel vous apprend à effectuer les opérations suivantes :

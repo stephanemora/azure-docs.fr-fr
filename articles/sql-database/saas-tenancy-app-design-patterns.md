@@ -1,22 +1,23 @@
 ---
 title: Modèles SaaS multi-locataires - Azure SQL Database | Microsoft Docs
 description: Découvrez les exigences et les modèles d’architecture de données les plus courants pour les applications de base de données SaaS (Software as a Service) multi-locataires qui s’exécutent dans l’environnement cloud Azure.
-keywords: didacticiel sur les bases de données SQL
 services: sql-database
-author: billgib
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.reviewer: genemi
-ms.author: billgib
-ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib, sstein
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737678"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227484"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 
@@ -74,7 +75,7 @@ Dans ce modèle, l’application est installée en intégralité à plusieurs re
 
 Chaque instance de l’application est installée dans un groupe de ressources Azure distinct.  Le groupe de ressources peut appartenir à un abonnement dont le propriétaire est l’éditeur du logiciel ou le locataire.  Dans les deux cas, l’éditeur peut gérer le logiciel pour le locataire.  Chaque instance de l’application est configurée pour se connecter à la base de données correspondante.
 
-Chaque base de données de locataire est déployée comme une base de données autonome.  Ce modèle offre le niveau d’isolation de base de données le plus élevé.  Mais l’isolation nécessite que des ressources suffisantes soient allouées à chaque base de données pour gérer les pics de charge.  L’important ici, c’est que les pools élastiques ne peuvent pas être utilisés pour les bases de données déployées sur des groupes de ressources ou des abonnements différents.  En raison de cette limitation, le modèle d’application autonome à locataire unique constitue la solution la plus onéreuse du point de vue du coût global des bases de données.
+Chaque base de données de locataire est déployée en tant que base de données unique.  Ce modèle offre le niveau d’isolation de base de données le plus élevé.  Mais l’isolation nécessite que des ressources suffisantes soient allouées à chaque base de données pour gérer les pics de charge.  L’important ici, c’est que les pools élastiques ne peuvent pas être utilisés pour les bases de données déployées sur des groupes de ressources ou des abonnements différents.  En raison de cette limitation, le modèle d’application autonome à locataire unique constitue la solution la plus onéreuse du point de vue du coût global des bases de données.
 
 #### <a name="vendor-management"></a>Gestion des fournisseurs
 
@@ -131,13 +132,13 @@ Un autre modèle disponible consiste à stocker plusieurs locataires dans une ba
 
 #### <a name="lower-cost"></a>Coûts réduits
 
-En général, les bases de données multi-locataires offrent le coût le plus bas par locataire.  Les coûts des ressources pour une base de données autonome sont inférieurs à ceux d’un pool élastique de taille équivalente.  De plus, pour les scénarios où les locataires ont seulement besoin d’un stockage limité, vous pouvez potentiellement stocker des millions de locataires dans une même base de données.  Un pool élastique ne peut pas contenir des millions de bases de données.  Toutefois, si vous avez une solution contenant 1 000 bases de données par pool et 1 000 pools, vous risquez de vous retrouver avec une solution lourde à gérer composée de millions d’éléments.
+En général, les bases de données multi-locataires offrent le coût le plus bas par locataire.  Les coûts des ressources pour une base de données unique sont inférieurs à ceux d’un pool élastique de taille équivalente.  De plus, pour les scénarios où les locataires ont seulement besoin d’un stockage limité, vous pouvez potentiellement stocker des millions de locataires dans une même base de données.  Un pool élastique ne peut pas contenir des millions de bases de données.  Toutefois, si vous avez une solution contenant 1 000 bases de données par pool et 1 000 pools, vous risquez de vous retrouver avec une solution lourde à gérer composée de millions d’éléments.
 
 Deux variantes du modèle de base de données multi-locataire sont abordées ci-après, le modèle multi-locataire partitionné étant le plus souple et le plus scalable.
 
 ## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. Application multi-locataire avec une base de données multi-locataire unique
 
-Le modèle de base de données multi-locataire le plus simple emploie une base de données autonome unique pour héberger des données pour tous les locataires.  Au fur et à mesure que des locataires sont ajoutés, la base de données est mise à l’échelle verticalement avec davantage de ressources de stockage et de calcul.  Cette mise à l’échelle verticale peut suffire, bien qu’elle soit toujours soumise à une limite.  Cependant, la base de données devient lourde à gérer bien avant que cette limite ne soit atteinte.
+Le modèle de base de données multilocataire le plus simple emploie une base de données unique pour héberger des données pour tous les locataires.  Au fur et à mesure que des locataires sont ajoutés, la base de données est mise à l’échelle verticalement avec davantage de ressources de stockage et de calcul.  Cette mise à l’échelle verticale peut suffire, bien qu’elle soit toujours soumise à une limite.  Cependant, la base de données devient lourde à gérer bien avant que cette limite ne soit atteinte.
 
 Les opérations de gestion qui portent sur des locataires individuels sont plus complexes à implémenter dans une base de données multi-locataire.  Et à grande échelle, ces opérations peuvent devenir beaucoup trop lentes.  C’est le cas par exemple d’une restauration dans le temps des données pour un seul locataire.
 
@@ -173,7 +174,7 @@ Dans le modèle hybride, l’identificateur de locataire est inclus dans le sch�
 
 Vous pouvez à tout moment déplacer un locataire spécifique dans sa propre base de données multi-locataire.  Vous pouvez aussi à tout moment replacer le locataire dans une base de données contenant plusieurs locataires.  Vous pouvez également affecter un locataire à une nouvelle base de données à locataire unique quand vous provisionnez la nouvelle base de données.
 
-Le modèle hybride est particulièrement adapté quand des groupes identifiables de locataires ont des besoins en ressources très différents.  Par exemple, supposons que les locataires qui participent à un essai gratuit ne bénéficient pas systématiquement du même niveau de performance que les locataires abonnés.  La stratégie peut stipuler de stocker les locataires dans la phase d’essai gratuit dans une base de données multi-locataire qui est partagée entre tous les locataires de l’essai gratuit.  Quand un locataire dans la phase d’essai gratuit s’abonne au niveau de service de base, le locataire peut être déplacé dans une autre base de données multi-locataire qui peut contenir moins de locataires.  Un abonné au service premium peut être déplacé dans sa nouvelle base de données à locataire unique.
+Le modèle hybride est particulièrement adapté quand des groupes identifiables de locataires ont des besoins en ressources très différents.  Par exemple, supposons que les locataires qui participent à un essai gratuit ne bénéficient pas systématiquement du même niveau de performance que les locataires abonnés.  La stratégie peut stipuler de stocker les locataires dans la phase d’essai gratuit dans une base de données multi-locataire qui est partagée entre tous les locataires de l’essai gratuit.  Quand un locataire dans la phase d’essai gratuit s’abonne au niveau de service de base, le locataire peut être déplacé dans une autre base de données multilocataire qui peut contenir moins de locataires.  Un abonné au service de niveau premium peut être déplacé dans sa nouvelle base de données à locataire unique.
 
 #### <a name="pools"></a>Pools
 
@@ -186,9 +187,9 @@ Le tableau suivant récapitule les différences entre les principaux modèles de
 | Mesure | Application autonome | Base de données par locataire | Multi-locataire partitionné |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Scale | Moyenne<br />1-Plusieurs centaines | Très élevée<br />1-Plusieurs centaines de milliers | Illimité<br />1-Plusieurs millions |
-| Isolation des locataires | Très élevée | Élevé | Faible ; à l’exception d’un locataire singleton (seul dans une base de données multi-locataire). |
+| Isolation des locataires | Très élevée | Élevé | Faible ; à l’exception d’un locataire unique (seul dans une base de données multilocataire). |
 | Coût de base de données par locataire | Élevé ; dimensionné pour les pics. | Bas ; pools utilisés. | Le plus bas ; pour les petits locataires dans les bases de données multi-locataires. |
-| Surveillance et gestion des performances | Par locataire uniquement | Agrégat + par locataire | Agrégat ; mais par locataire uniquement pour les singletons. |
+| Surveillance et gestion des performances | Par locataire uniquement | Agrégat + par locataire | Agrégat ; mais par locataire uniquement pour les bases de données uniques. |
 | Complexité du développement | Faible | Faible | Moyen ; en raison du partitionnement. |
 | Complexité opérationnelle | Faible-Élevée. Simple au niveau individuel, complexe à grande échelle. | Faible-Moyenne. Les modèles permettent de réduire la complexité à grande échelle. | Faible-Élevée. La gestion des locataires individuels est complexe. |
 | &nbsp; ||||

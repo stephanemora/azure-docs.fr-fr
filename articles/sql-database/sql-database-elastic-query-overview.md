@@ -2,19 +2,22 @@
 title: Vue d’ensemble de la requête élastique Azure SQL Database | Microsoft Docs
 description: Une requête élastique vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données.
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/03/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 52fce1cf1acb5e084c629c9cad6486d6a599b4fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8a7962866b70ae0ec99b8425a365575fbd4e5913
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435764"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164365"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Vue d’ensemble de la requête élastique Azure SQL Database (préversion)
 
@@ -28,7 +31,7 @@ Interrogez plusieurs bases de données SQL Azure entièrement dans T-SQL. Cela p
 
 ### <a name="available-on-standard-tier"></a>Disponible au niveau standard
 
-La fonctionnalité de requête élastique est prise en charge aux niveaux de performance Standard et Premium. Consultez la section sur les limitations de version préliminaire ci-dessous sur les limitations de performances pour les niveaux de performances inférieurs.
+La fonctionnalité de requête élastique est prise en charge aux niveaux de service Standard et Premium. Consultez la section relative aux limitations de la préversion ci-dessous pour connaître les limitations de performances pour les niveaux de service inférieurs.
 
 ### <a name="push-parameters-to-remote-databases"></a>Distribuer les paramètres Push aux bases de données distantes
 
@@ -101,7 +104,7 @@ L’utilisation d’une requête élastique destinée à effectuer des tâches d
 
 > [!NOTE]
 > Une base de données élastique (nœud principal) peut être une base de données distincte, ou la même base de données qui héberge la carte de partitions.
-> Quelle que soit la configuration choisie, assurez-vous que le niveau de service et de performance de cette base de données est suffisamment élevé pour gérer la quantité attendue de demandes de connexion/requête.
+> Quelle que soit la configuration choisie, assurez-vous que le niveau de service et la taille de calcul de cette base de données sont suffisamment élevés pour traiter la quantité attendue de demandes de connexion/requête.
 
 Les étapes suivantes configurent des requêtes de base de données flexibles pour les scénarios de partitionnement horizontal qui requièrent l’accès à un ensemble de tables généralement situées sur plusieurs bases de données SQL distantes :
 
@@ -133,7 +136,7 @@ La requête élastique est incluse dans le coût des bases de données Azure SQL
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
-* L’exécution de votre première requête élastique peut prendre quelques minutes sur la couche de performances Standard. Ce délai est nécessaire au chargement de la fonctionnalité de requête flexible ; les performances de chargement s’améliorent avec les couches de performance supérieures.
+* L’exécution de votre première requête élastique peut prendre quelques minutes sur le niveau de service Standard. Ce délai est nécessaire au chargement de la fonctionnalité de requête flexible ; les performances de chargement s’améliorent avec les niveaux de service et les tailles de calcul supérieurs.
 * La rédaction de script de sources de données externes ou de tables externes à partir de SSMS ou SSDT n’est pas encore prise en charge.
 * L’importation/exportation de base de données de SQL ne prend pas en charge les tables et sources de données externes. Si vous devez utiliser importer/exporter, supprimez ces objets avant l’exportation, puis recréez-les après l’importation.
 * Une requête élastique prend actuellement en charge uniquement les accès en lecture seule à des tables externes. Vous pouvez toutefois utiliser des fonctionnalités T-SQL complètes sur la base de données dans laquelle la table externe est définie. Cela peut être utile, par exemple pour conserver les résultats temporaires à l’aide de SELECT <liste_colonnes> INTO <table_locale>, ou pour définir des procédures stockées dans la base de données de requêtes élastiques qui font référence à des tables externes.
