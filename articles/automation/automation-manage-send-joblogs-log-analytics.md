@@ -9,15 +9,16 @@ ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 12628b5a552b864784d780e5f2adc00aac579911
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 13ba4d774cbc347830c32385ba4927a0df687159
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215031"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035468"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Transférer l’état d’un travail et des flux de travail d’Automation vers Log Analytics
-Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Les journaux de travail et les flux de travail sont visibles dans le portail Azure, ou avec PowerShell, pour des travaux individuels. Cela vous permet d’effectuer des enquêtes simples. Désormais avec Log Analytics, vous pouvez :
+
+Automation peut envoyer un état de tâche du runbook et des flux de tâches à votre espace de travail Log Analytics. Ce processus n’implique aucune liaison d’espace de travail et est complètement indépendant. Les journaux de travail et les flux de travail sont visibles dans le portail Azure, ou avec PowerShell, pour des travaux individuels. Cela vous permet d’effectuer des enquêtes simples. Désormais avec Log Analytics, vous pouvez :
 
 * Obtenir des informations sur vos travaux Automation.
 * Déclencher un e-mail ou une alerte en fonction du statut de votre travail de runbook (par exemple, échec ou état suspendu).
@@ -26,12 +27,12 @@ Automation peut envoyer un état de tâche du runbook et des flux de tâches à 
 * Visualiser votre historique des travaux dans le temps.
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Conditions préalables et considérations relatives au déploiement
+
 Pour commencer à envoyer vos journaux Automation à Log Analytics, vous devez disposer des éléments suivants :
 
 * Version de novembre 2016 ou une version ultérieure d’[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
 * Un espace de travail Log Analytics. Pour plus d’informations, consultez l’article [Prise en main de Log Analytics](../log-analytics/log-analytics-get-started.md). 
 * L’ID de ressource de votre compte Azure Automation.
-
 
 Pour trouver l’ID de ressource de votre compte Azure Automation :
 
@@ -159,7 +160,18 @@ Vous pouvez enfin souhaiter visualiser l’historique de vos travaux dans le tem
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
 <br> ![Graphique de l’état de la tâche historique de Log Analytics](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
+## <a name="remove-diagnostic-settings"></a>Supprimer les paramètres de diagnostic
+
+Pour supprimer les paramètres de diagnostic du compte Automation, exécutez les commandes suivantes :
+
+```powershell-interactive
+$automationAccountId = "[resource id of your automation account]"
+
+Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+```
+
 ## <a name="summary"></a>Résumé
+
 L’envoi de vos données de diffusion en continu et d’état des travaux Automation à Log Analytics permet d’obtenir plus de détails sur l’état de vos travaux Automation en :
 + Configurant des alertes pour vous avertir en cas de problème.
 + Utilisant des vues et des requêtes de recherche personnalisées pour visualiser les résultats de votre runbook, l’état du travail de runbook et d’autres indicateurs ou mesures clés associées.  

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 095da0b2f234fa4c883ff8512516c87fe193fccf
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: bf194e9627f5ad683c854f1c0d9891ba9315e119
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158056"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223031"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder au Stockage Azure par une clé d’accès
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous indique comment utiliser une identité managée attribuée par le système pour une machine virtuelle Linux afin de récupérer les clés d’accès d’un compte de stockage. Vous pouvez utiliser les clés d’accès de stockage comme d’habitude lors de l’exécution d’opérations de stockage, par exemple lors de l’utilisation du SDK Stockage. Pour ce didacticiel, nous chargeons et téléchargeons des objets blob à l’aide de Azure CLI. Vous apprendrez à :
+Ce didacticiel vous indique comment utiliser une identité managée assignée par le système pour une machine virtuelle Linux afin de récupérer les clés d’accès d’un compte de stockage. Vous pouvez utiliser les clés d’accès de stockage comme d’habitude lors de l’exécution d’opérations de stockage, par exemple lors de l’utilisation du SDK Stockage. Pour ce didacticiel, nous chargeons et téléchargeons des objets blob à l’aide de Azure CLI. Vous apprendrez à :
 
 > [!div class="checklist"]
 > * Autoriser votre machine virtuelle à accéder aux clés d’accès de stockage dans le Gestionnaire des ressources 
@@ -41,11 +41,11 @@ Ce didacticiel vous indique comment utiliser une identité managée attribuée p
 
 - [Créez une machine virtuelle Linux](/azure/virtual-machines/linux/quick-create-portal).
 
-- [Activer l’identité managée attribuée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Activer l’identité managée affectée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage. 
 
-Si vous n’en avez pas déjà un, vous allez maintenant créer un compte de stockage.  Vous pouvez également ignorer cette étape, et autoriser votre identité managée attribuée par le système de la machine virtuelle à accéder aux clés d’un compte de stockage existant. 
+Si vous n’en avez pas déjà un, vous allez maintenant créer un compte de stockage.  Vous pouvez également ignorer cette étape, et autoriser votre identité managée affectée par le système de machine virtuelle à accéder aux clés d’un compte de stockage existant. 
 
 1. Cliquez sur le bouton **+/Créer un service** dans l’angle supérieur gauche du portail Azure.
 2. Cliquez sur **Stockage**, puis **Compte de stockage**, et un nouveau panneau « Créer un compte de stockage » s’affiche.

@@ -1,20 +1,21 @@
 ---
-title: Gérer un abonnement de point de terminaison Azure | Microsoft Docs
+title: Gestion des abonnements aux points de terminaison dans LUIS
+titleSuffix: Azure Cognitive Services
 description: Dans cet article, vous créez une clé de point de terminaison facturée à l’usage pour votre compte LUIS afin de fournir un trafic illimité vers votre point de terminaison selon un forfait.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7c6009d9fec14e8633a37e5384dd203f2f5fa60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223277"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040378"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Gérer les clés d’abonnement de point de terminaison Azure
 
@@ -40,8 +41,7 @@ Pour des tests et des prototypes uniquement, utilisez le niveau gratuit (F0). Po
     ![Clés Azure](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Connectez-vous au site web [LUIS](luis-reference-regions.md) de votre région et [ajoutez la nouvelle clé de point de terminaison LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). 
-    > * Vous devez mémoriser le nom du service Azure que vous avez créé pour le sélectionner sur la page de publication [LUIS](luis-reference-regions.md) de la région.  
+    > Connectez-vous au site web [LUIS](luis-reference-regions.md) de votre région et [affectez la nouvelle clé de point de terminaison LUIS](luis-how-to-manage-keys.md#assign-endpoint-key). Vous avez besoin du nom de l’abonnement LUIS obtenu à l’étape 3.
 
 ## <a name="change-luis-pricing-tier"></a>Modifier le niveau tarifaire LUIS
 

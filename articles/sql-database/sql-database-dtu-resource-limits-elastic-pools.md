@@ -2,19 +2,22 @@
 title: Limites de ressources par DTU d’Azure SQL Database pour les pools élastiques | Microsoft Docs
 description: Cette page décrit certaines des limites de ressources courantes par DTU pour des pools élastiques dans Azure SQL Database.
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: elastic-pools
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 0920489daf99445a9d715d0858cf68ae45e6a178
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: b2efdf0b1a8abe91589f56ecbb6dc01f7606f305
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140876"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158985"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU 
 
@@ -25,9 +28,9 @@ Pour connaître les limites de ressources des bases de données uniques du modè
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Pool élastique : tailles de stockage et niveaux de performance
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Pool élastique : tailles de stockage et tailles de calcul
 
-Pour les pools élastiques SQL Database, les tableaux suivants indiquent les ressources disponibles à chaque niveau de performance et de service. Vous pouvez définir le niveau de service, le niveau de performance et la quantité de stockage à l’aide du [portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [d’Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) ou de [l’API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+Pour les pools élastiques SQL Database, les tableaux suivants indiquent les ressources disponibles pour chaque niveau de service et chaque taille de calcul. Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage à l’aide du [Portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [d’Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) ou de [l’API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
 > Les limites de ressources des bases de données individuelles dans les pools élastiques sont généralement identiques à celles des bases de données uniques situées hors des pools. Elles dépendent du nombre de DTU et du niveau de service. Par exemple, le nombre maximal d’ouvriers simultanés dans une base de données S2 est de 120. Par conséquent, le nombre maximal d’ouvriers simultanés d’une base de données dans un pool Standard est également de 120 si le nombre maximal de DTU par base de données dans le pool est de 50 (soit l’équivalent de S2).
@@ -108,7 +111,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 ||||||||
 
 > [!IMPORTANT]
-> Le niveau Premium offre plus de 1 To de stockage dans toutes les régions à l’exception des suivantes : USA Centre-Ouest, Chine Est, USDoDCentral, Allemagne - Centre, USDoDEast, US Gov Sud-Ouest, Allemagne - Nord-Est, US Gov Iowa, Chine Nord. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Le niveau Premium offre plus de 1 To de stockage dans toutes les régions à l’exception des suivantes : USA Centre-Ouest, Chine Est, USDoDCentral, Allemagne - Centre, USDoDEast, US Gov Sud-Ouest, Allemagne - Nord-Est, US Gov Iowa, Chine Nord. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 Si toutes les DTU d’un pool élastique sont utilisées, chaque base de données du pool reçoit une quantité égale de ressources pour traiter les requêtes. Le service de base de données SQL offre un partage équitable des ressources entre les bases de données, garantissant des tranches de temps de calcul égales. Le partage équitable des ressources du pool élastique s’ajoute à n’importe quelle quantité de ressources garantie pour chaque base de données lorsque le nombre minimal de DTU par base de données est défini sur une valeur différente de zéro.
 

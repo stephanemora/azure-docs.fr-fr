@@ -1,21 +1,22 @@
 ---
 title: Surveiller et améliorer les performances - Azure SQL Database | Microsoft Docs
 description: La base de données SQL Azure fournit des outils de performances pour vous aider à identifier les zones susceptibles d’améliorer les performances actuelles des requêtes.
-services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 8a458af27bd517be7c3ce0b5ad30c6d575d494c0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 35af3a926ab3c3a3046eab921e86b6610edc309c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522439"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162953"
 ---
 # <a name="monitor-and-improve-performance"></a>Surveiller et améliorer les performances
 Azure SQL Database identifie les problèmes potentiels de votre base de données et recommande les actions susceptibles d’améliorer les performances de votre charge de travail en fournissant des recommandations et des actions de réglage intelligent.
@@ -56,7 +57,7 @@ Vous trouverez également un historique complet des actions de réglage qui ont 
 Découvrez comment rechercher et appliquer les recommandations relatives aux performances dans l’article [Rechercher et appliquer les recommandations en matière de performances](sql-database-advisor-portal.md).
 
 ## <a name="automatic-tuning"></a>Réglage automatique
-Azure SQL Database peut régler automatiquement les performances de base de données en appliquant les [recommandations relatives aux performances](sql-database-advisor.md). Pour en savoir plus, voir l’article [Automatic tuning (Réglage automatique)](sql-database-automatic-tuning.md). Pour l’activer, lire [How to enable automatic tuning (Activation du réglage automatique)](sql-database-automatic-tuning-enable.md).
+Azure SQL Database peut régler automatiquement les performances des bases de données en appliquant les [recommandations relatives aux performances](sql-database-advisor.md). Pour en savoir plus, voir l’article [Automatic tuning (Réglage automatique)](sql-database-automatic-tuning.md). Pour l’activer, lire [How to enable automatic tuning (Activation du réglage automatique)](sql-database-automatic-tuning-enable.md).
 
 ## <a name="query-performance-insight"></a>Query Performance Insight
 [Query Performance Insight](sql-database-query-performance.md) vous permet de passer moins de temps à résoudre les problèmes de performances des bases de données en fournissant :

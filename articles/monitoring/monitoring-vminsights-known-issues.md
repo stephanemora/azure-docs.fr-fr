@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: magoedte
-ms.openlocfilehash: c03adc239ea7025fe154db315daa17b26f8237f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 819c3e74355cf80c7a998abb8b02b10c9e077059
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980195"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47062766"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>Problèmes connus avec Azure Monitor pour machines virtuelles
 
@@ -39,3 +39,6 @@ Les problèmes suivants concernent la fonctionnalité Health (Intégrité) d’A
 - Les seuils de certains critères d’intégrité de Windows ne sont pas modifiables, comme DNS Client Service Health, car leur état d’intégrité est déjà verrouillé à l’état **en cours d’exécution**, **disponible** du service ou de l’entité suivant le contexte.  Au lieu de cela, la valeur est représentée par le chiffre 4 et sera convertie en la chaîne d’affichage réelle dans une version ultérieure.  
 - Les seuils de certains critères d’intégrité de Linux ne sont pas modifiables, comme Logical Disk Health, car ils sont déjà définis de façon à se déclencher dans un état non intègre.  Ils indiquent si quelque chose est en ligne, hors ligne, activé ou désactivé. De plus, ils sont représentés et indiquent la même chose en affichant la valeur 1 ou 0.
 - Lorsque l’on actualise le filtre Groupe de ressources dans un groupe de ressources en utilisant la fenêtre Azure Monitor -> Machines virtuelles -> Intégrité -> Toutes les listes avec l’abonnement et le groupe de ressources présélectionnés, la fenêtre des listes affiche **aucun résultat**.  Retournez à l’onglet Azure Monitor -> Machines virtuelles -> Intégrité, sélectionnez l’abonnement et le groupe de ressources souhaités, puis accédez à la fenêtre des listes.
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour découvrir les exigences et les méthodes relatives à l’activation de la supervision de vos machines virtuelles, consultez l’article [Intégrer Azure Monitor pour machines virtuelles](monitoring-vminsights-onboard.md).

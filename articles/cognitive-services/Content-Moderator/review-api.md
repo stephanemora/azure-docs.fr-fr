@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator - Tâches de modération et révision par un opérateur humain | Microsoft Docs
+title: Travaux de modération et révisions manuelles - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Appliquez une intervention humaine à une modération assistée par ordinateur pour de meilleurs résultats.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/21/2018
 ms.author: sajagtap
-ms.openlocfilehash: 35b3cdaa410712c3fd08d3df4ebe4c83e3955d50
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b4a2f62b1c9cefb716cb217baf7389c3e7c790b8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368100"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223251"
 ---
-# <a name="moderation-jobs-and-reviews"></a>Tâches de modération et révisions
+# <a name="moderation-jobs-and-reviews"></a>Travaux de modération et révisions
 
 Alliez une modération assistée par ordinateur avec une intervention humaine à l’aide de [l’API Révision](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) d’Azure Content Moderator pour obtenir les meilleurs résultats possibles pour votre entreprise.
 

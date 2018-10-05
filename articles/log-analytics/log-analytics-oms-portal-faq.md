@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 09/25/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 503d5913efe67bd0de738f68921b9631c63acfa8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: ''
+ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116042"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223829"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Questions courantes pour la transition depuis le portail OMS vers le portail Azure pour les utilisateurs de Log Analytics
 Log Analytics utilisait initialement son propre portail appelé portail OMS pour gérer sa configuration et analyser les données collectées.  Toutes les fonctionnalités accessibles depuis ce portail ont été déplacées vers le portail Azure où elles continueront d’être développées.
@@ -83,7 +83,7 @@ Gérez la plupart des paramètres de source connectée dans le menu **Paramètre
 | Stockage Azure     | Menu **Paramètres avancés** de l’espace de travail. |
 | System Center     | Menu **Paramètres avancés** de l’espace de travail. |
 | Office 365        | Consultez la [documentation pour la solution de gestion Office 365](../operations-management-suite/oms-solution-office-365.md) pour plus d’informations de configuration. |
-| Télémétrie Windows | Pas encore disponible dans le portail Azure. |
+| Télémétrie Windows | Menu Paramètres de la solution. Consultez [Analytique de Windows dans le Portail Azure](/windows/deployment/update/windows-analytics-azure-portal) pour plus d’informations sur la configuration. |
 | Connecteur ITSM    | Consultez [Connecter des produits/services ITSM à IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) pour obtenir des instructions sur la connexion de votre service ITSM avec Log Analytics. |
 
 ### <a name="data"></a>Données

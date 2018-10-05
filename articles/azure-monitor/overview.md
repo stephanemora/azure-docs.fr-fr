@@ -10,15 +10,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/14/2018
+ms.topic: conceptual
+ms.date: 09/26/2018
 ms.author: bwren
-ms.openlocfilehash: 97cc6d6e922ab0bedd729eddca754ae016f041bf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0413357b6e17bf66b0ae9b504bc23b9702d03c91
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958014"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220973"
 ---
 # <a name="azure-monitor-overview"></a>Vue d’ensemble d’Azure Monitor
 
@@ -47,7 +47,7 @@ Le langage de requête Log Analytics est adapté aux requêtes simples dans les 
 ![Journaux](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Quelles sont les données collectées par Azure Monitor ?
-Log Analytics peut recueillir des données de diverses sources. Vous pouvez envisager de surveiller les données de vos applications sous forme de niveaux allant de votre application à la plateforme en elle-même, en passant par les systèmes d’exploitation et les services sur lesquels s’appuie votre application. Azure Monitor collecte des données à partir de chacun des niveaux suivants :
+Azure Monitor peut recueillir des données de diverses sources. Vous pouvez envisager de surveiller les données de vos applications sous forme de niveaux allant de votre application à la plateforme en elle-même, en passant par les systèmes d’exploitation et les services sur lesquels s’appuie votre application. Azure Monitor collecte des données à partir de chacun des niveaux suivants :
 
 - **Données de surveillance de l’application** : données concernant les performances et la fonctionnalité du code que vous avez écrit, quelle que soit la plateforme.
 - **Données de surveillance du système d’exploitation invité** : données concernant le système d’exploitation sur lequel votre application est exécutée. Il peut s’agir d’Azure, d’un autre cloud ou d’un système local. 
@@ -74,7 +74,7 @@ La supervision des données est utile uniquement si elle permet d’augmenter vo
 
 ![App Insights](media/overview/app-insights.png)
 
-### <a name="azure-monitor-for-containers"></a>Azure Monitor pour les conteneurs
+### <a name="azure-monitor-for-containers"></a>Azure Monitor pour des conteneurs
 Azure Monitor pour les conteneurs est une fonctionnalité conçue pour surveiller les performances des charges de travail de conteneur déployées sur des clusters Kubernetes managés hébergés sur Azure Kubernetes Service (AKS). Cela vous permet de visualiser les performances en collectant des métriques sur la mémoire et le processeur à partir des contrôleurs, des nœuds et des conteneurs qui sont disponibles dans Kubernetes via l’API Metrics. Les journaux de conteneur sont aussi collectés.  Une fois que vous avez activé la supervision des clusters Kubernetes, ces métriques et ces journaux sont automatiquement collectés à l’aide d’une version conteneurisée de l’agent Log Analytics pour Linux, puis stockés dans Log Analytics.
 
 ![Intégrité du conteneur](media/overview/container-insights.png)
@@ -145,9 +145,6 @@ Plusieurs API sont disponibles pour lire et écrire les métriques et les journa
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus :
 
-* [Azure Monitor](https://azure.microsoft.com/services/monitor/) pour une prise en main de l’analyse principale des mesures et des alertes.
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) si vous essayez de diagnostiquer des problèmes dans votre application web App Service.
-* [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) pour l’analyse des données et des journaux de surveillance collectés.
-
-
-
+* [Métriques et journaux](../monitoring/monitoring-data-collection.md) pour les données collectées par Azure Monitor.
+* [Sources de données](../monitoring/monitoring-data-sources.md) pour découvrir comment les différents composants de votre application envoient des données de télémétrie.
+* [Log Analytics](../log-analytics/log-analytics-queries.md) pour l’analyse des données collectées.

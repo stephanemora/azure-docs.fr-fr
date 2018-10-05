@@ -1,22 +1,23 @@
 ---
-title: Démarrage rapide Java pour Azure Cognitive Services, API Recherche de vidéos Bing | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche de vidéos Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API Recherche de vidéos Bing, Java'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche de vidéos Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: db9bc353c86565956881c90ce3a3b6275e1b8771
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8ec5aa9e832a24fcd3b029727217bffb3b4d94e0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369948"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223234"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-java"></a>Démarrage rapide pour l’API Recherche de vidéos Bing avec Java
+# <a name="quickstart-bing-video-search-api-with-java"></a>Démarrage rapide : API Recherche de vidéos Bing avec Java
 
 Cet article vous montre comment utiliser l’API Recherche Bing qui fait partie de Microsoft Cognitive Services sur Azure. Si d’un côté l’article utilise Java, de l’autre, l’API est un service web RESTful compatible avec n’importe quel langage de programmation dès lors qu’il est capable de formuler des requêtes HTTP et d’analyser un format JSON. 
 

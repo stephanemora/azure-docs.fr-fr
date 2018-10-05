@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 456b28c50bd5e7d69c3f16dd3e76a9ced20112f9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3baa48113022bed1bdc7caa5854a231334c975af
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048860"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224628"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>En quoi consiste la gestion des appareils dans Azure Active Directory ?
 
@@ -121,7 +121,7 @@ Pendant plus de dix ans, de nombreuses organisations ont utilisé la jonction de
 
 En règle générale, les organisations disposant d’empreintes locales s’appuient sur des méthodes de création d’images pour approvisionner les appareils. Ils utilisent souvent **System Center Configuration Manager (SCCM)** ou les **stratégies de groupe** pour les gérer.
 
-Si votre environnement comporte une empreinte locale AD et vous souhaitez également profiter des fonctionnalités proposées par Azure Active Directory, vous pouvez implémenter les appareils joints Azure AD hybrides. Il s’agit d’appareils qui sont à la fois, joints à votre service Active Directory local et à Azure Active Directory.
+Si votre environnement comporte une empreinte locale AD et vous souhaitez également profiter des fonctionnalités proposées par Azure Active Directory, vous pouvez implémenter les appareils joints Azure AD hybrides. Il s’agit d’appareils joints à votre service Active Directory local et inscrits auprès d’Azure Active Directory.
 
 ![Appareils inscrits sur Azure AD](./media/overview/01.png)
 

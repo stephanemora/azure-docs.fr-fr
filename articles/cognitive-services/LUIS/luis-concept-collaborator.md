@@ -1,20 +1,21 @@
 ---
-title: Comprendre la collaboration pour les applications LUIS - Azure | Microsoft Docs
+title: Collaboration d’applications LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Les applications LUIS requièrent un seul propriétaire et des collaborateurs facultatifs.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 38fc33a6fb823e0435a9c96979c5a9a4539cd6ba
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399569"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038768"
 ---
 # <a name="collaborating"></a>Collaboration
 
@@ -30,6 +31,11 @@ Pour plus d’informations sur les comptes d’utilisateur Active Directory, voi
 ## <a name="luis-app-owner"></a>Propriétaire d’application LUIS
 Le compte qui crée une application en est le propriétaire. Chaque application a un seul propriétaire. Le propriétaire apparaît dans les **[Paramètres](luis-how-to-collaborate.md)** de l’application. Il s’agit du compte qui peut supprimer l’application. C’est également le compte qui reçoit un e-mail lorsque le quota du point de terminaison atteint 75 % de la limite mensuelle. 
 
+## <a name="authorization-roles"></a>Rôles d’autorisation
+LUIS ne prend pas en charge des rôles différents pour les propriétaires et collaborateurs, à une exception près. Le propriétaire est le seul compte qui peut supprimer l’application.
+
+Si vous souhaitez pouvoir contrôler l’accès au modèle, découpez-le en applications LUIS plus petites, où chaque petite application a un ensemble plus limité de collaborateurs. Utilisez [Dispatch](https://aka.ms/dispatch-tool) pour autoriser une application LUIS parente à gérer la coordination entre les applications parentes et enfants.
+
 ## <a name="transfer-ownership"></a>Transférer la propriété
 LUIS ne propose pas le transfert de propriété, mais un collaborateur peut exporter l’application, puis créer une application en l’important. Notez que la nouvelle application a un ID d’application différent. La nouvelle application doit être formée, publiée et le nouveau point de terminaison utilisé.
 
@@ -41,7 +47,7 @@ Si vous souhaitez partager plusieurs applications avec des collaborateurs, l’a
 ## <a name="managing-multiple-authors"></a>Gérer plusieurs auteurs
 Le site web [LUIS](luis-reference-regions.md#luis-website) n’offre actuellement pas la création au niveau des transactions. Vous pouvez autoriser les auteurs à travailler sur des versions indépendantes à partir d’une version de base. Deux méthodes différentes sont décrites dans les sections suivantes.
 
-### <a name="manage-multiple-versions-inside-the-same-app"></a>Gérer plusieurs versions dans la même application
+## <a name="manage-multiple-versions-inside-the-same-app"></a>Gérer plusieurs versions dans la même application
 Commencez par le [clonage](luis-how-to-manage-versions.md#clone-a-version), à partir d’une version de base, pour chaque auteur. 
 
 Chaque auteur apporte des modifications à sa propre version de l’application. Une fois que chaque auteur est satisfait du modèle, exportez les nouvelles versions sous forme de fichiers JSON.  
@@ -50,7 +56,7 @@ Les applications exportées sont des fichiers au format JSON, qui peuvent être 
 
 Cette méthode vous permet d’avoir une version active, une version intermédiaire et une version publiée. Vous pouvez comparer les résultats dans le volet de test interactif dans les trois versions.
 
-### <a name="manage-multiple-versions-as-apps"></a>Gérer plusieurs versions en tant qu’applications
+## <a name="manage-multiple-versions-as-apps"></a>Gérer plusieurs versions en tant qu’applications
 [Exportez](luis-how-to-manage-versions.md#export-version) la version de base. Chaque auteur importe la version. La personne qui importe l’application est le propriétaire de la version. Une fois la modification de l’application terminée, exportez la version. 
 
 Les applications exportées sont des fichiers au format JSON, qui peuvent être utilisés pour comparer les modifications avec l’exportation de base. Combinez les fichiers pour créer un seul fichier JSON de la nouvelle version. Modifiez la propriété **versionId** dans le fichier JSON pour indiquer la nouvelle version fusionnée. Importez cette version dans l’application d’origine.

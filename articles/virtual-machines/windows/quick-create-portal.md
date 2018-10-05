@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f5a92d421bbf7bfe485252c148d5f64ae2fb8e23
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 692d8c0a1a427fa65a94d474f78792b1a071de46
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916113"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219717"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Windows sur le Portail Azure
 
@@ -37,23 +37,28 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du Portail Azure.
 
-2. Dans la zone de recherche au-dessus de la liste des ressources de la Place de marché Azure, recherchez et sélectionnez **Windows Server 2016 Datacenter**, puis choisissez **Créer**.
+1. Dans la zone de recherche au-dessus de la liste des ressources de la Place de marché Azure, recherchez et sélectionnez **Windows Server 2016 Datacenter**, puis choisissez **Créer**.
 
-3. Donnez un nom à la machine virtuelle, par exemple, *myVM*, gardez le type de disque *SSD*, puis indiquez un nom d’utilisateur, par exemple, *azureuser*. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer** pour créer un groupe de ressources. Tapez *myResourceGroup* comme nom. 
 
-    ![Saisie des informations de base sur votre machine virtuelle dans le panneau du portail](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
+    ![Créer un groupe de ressources pour votre machine virtuelle](./media/quick-create-portal/project-details.png)
 
-5. Choisissez **Nouveau** pour créer un groupe de ressources, puis indiquez un nom, par exemple, *myResourceGroup*. Choisissez votre **Emplacement** et sélectionnez **OK**.
+1. Sous **Détails de l’instance**, tapez *myVM* comme **Nom de la machine virtuelle**, puis choisissez *USA Est* comme **Emplacement**. Conservez les autres valeurs par défaut.
 
-4. Choisissez la taille de la machine virtuelle. Vous pouvez filtrer par *Type de calcul* ou par *Type de disque*, par exemple. Nous suggérons la taille de machine virtuelle *D2s_v3*. Cliquez sur **Sélectionner** une fois que vous avez choisi une taille.
+    ![Section Détails de l’instance](./media/quick-create-portal/instance-details.png)
 
-    ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
+1. Sous **Compte d’administrateur**, indiquez un nom d’utilisateur (par exemple, *azureuser*) et un mot de passe. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-5. Dans la page **Paramètres**, dans **Réseau** > **Groupe de sécurité réseau** > **Sélectionner des ports d’entrée publics**, sélectionnez **HTTP** et **RDP (3389)** dans le menu déroulant. Laissez les autres valeurs par défaut et sélectionnez **OK**.
+    ![Entrez votre nom d’utilisateur et votre mot de passe.](./media/quick-create-portal/administrator-account.png)
 
-6. Sur la page de résumé, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
+1. Sous **Règles des ports d’entrée**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **RDP (3389)** et **HTTP** dans la liste déroulante.
 
-7. La machine virtuelle est épinglée au tableau de bord du Portail Azure. Une fois le déploiement terminé, le récapitulatif de la machine virtuelle s’ouvre automatiquement.
+    ![Ports ouverts pour RDP et HTTP](./media/quick-create-portal/inbound-port-rules.png)
+
+1. Conservez les valeurs par défaut restantes, puis sélectionnez le bouton **Vérifier + créer** en bas de la page.
+
+    ![Examiner et créer](./media/quick-create-portal/review-create.png)
+
 
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 
@@ -61,11 +66,11 @@ Créez une connexion Bureau à distance à la machine virtuelle. Ces instruction
 
 1. Cliquez sur le bouton **Se connecter** sur la page de propriétés de la machine virtuelle. 
 
-    ![Se connecter à une machine virtuelle Azure à partir du portail](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
+    ![Se connecter à une machine virtuelle Azure à partir du portail](./media/quick-create-portal/portal-quick-start-9.png)
     
 2. Sur la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par nom DNS sur le port 3389 et cliquez sur **Télécharger le fichier RDP**.
 
-2. Ouvrez le fichier RDP téléchargé et cliquez sur **Se connecter** lorsque vous y êtes invité. 
+2. Ouvrez le fichier RDP téléchargé et, à l’invite, cliquez sur **Se connecter**. 
 
 3. Dans la fenêtre **Sécurité Windows**, sélectionnez **Plus de choix**, puis **Utiliser un autre compte**. Tapez le nom d’utilisateur sous la forme *nom_machine_virtuelle*\\*nom_utilisateur*, entrez le mot de passe créé pour la machine virtuelle, puis cliquez sur **OK**.
 
@@ -88,7 +93,7 @@ Dans le portail, sélectionnez la machine virtuelle et dans la vue d’ensemble 
 
 ![Site IIS par défaut](./media/quick-create-powershell/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 

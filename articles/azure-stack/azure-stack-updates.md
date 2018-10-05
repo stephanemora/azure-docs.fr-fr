@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 5b0dbf5ad78ff345d386024ff873618a781917ac
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 67f363d14489340755251369b422475032d1e671
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579035"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222494"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gérer les mises à jour dans Azure Stack - Vue d’ensemble
 
@@ -45,6 +45,13 @@ Lors de l’installation des mises à jour, vous pouvez afficher l’état gén�
 ## <a name="plan-for-updates"></a>Planifier les mises à jour
 
 Nous vous recommandons vivement d’informer les utilisateurs de toutes les opérations de maintenance, et de planifier dans la mesure du possible les fenêtres de maintenance ordinaire pendant les heures creuses. Les opérations de maintenance peuvent affecter les opérations de portail et les charges de travail de locataire.
+
+
+- Avant de démarrer l’installation de cette mise à jour, exécutez [Test-AzureStack](azure-stack-diagnostic-test.md) avec les paramètres suivants pour valider l’état de votre Azure Stack et résoudre les éventuels problèmes opérationnels détectés, y compris tous les avertissements et les échecs. Examinez aussi les alertes actives et résolvez toutes celles qui nécessitent une intervention.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ## <a name="using-the-update-tile-to-manage-updates"></a>Utilisation de la vignette Mise à jour pour gérer les mises à jour
 Vous gérez les mises à jour à partir du portail administrateur. En tant qu’opérateur Azure Stack, vous pouvez utiliser la vignette Mise à jour dans le tableau de bord pour :

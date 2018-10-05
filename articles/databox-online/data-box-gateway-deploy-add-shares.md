@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 44fa19191f08f0e35c06f0b7ea5a3e5e41611de3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9560166f9733e1370f99f5f76a6ca3a58567865e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979115"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220222"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Didacticiel : Transférer des données avec Azure Data Box Gateway (préversion)
 
@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Ajouter un partage
-> * Se connecter à un partage
+> * Vous connecter à un partage
 
 > [!IMPORTANT]
 > - Data Box Gateway est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution. 
@@ -110,7 +110,7 @@ Effectuez ces étapes sur votre client Windows Server connecté à votre apparei
     ```   
 
 
-2. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Cliquez sur **OK**. L’explorateur de fichiers s’affiche. Vous devriez maintenant voir les partages que vous avez créés sous forme de dossiers. Sélectionnez et double-cliquez sur un partage (dossier) pour afficher son contenu.
+2. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Cliquez sur **OK**. L’Explorateur de fichiers s’affiche. Vous devriez maintenant voir les partages que vous avez créés sous forme de dossiers. Sélectionnez et double-cliquez sur un partage (dossier) pour afficher son contenu.
  
     ![Se connecter à un partage SMB](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 

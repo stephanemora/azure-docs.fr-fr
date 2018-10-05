@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f4659d2dc8dfd52ae6f7ec19dc29ec31c9b3ca6b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047340"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391800"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutoriel : Configurer une jonction Azure Active Directory hybride pour les domaines fédérés
 
@@ -122,7 +122,7 @@ Pour configurer une jonction Azure AD hybride avec Azure AD Connect, vous avez b
 
     a. Sélectionnez la forêt.
 
-    b. Sélectionnez le service d’authentification.
+    b. Sélectionnez le service d’authentification. Vous devez sélectionner le serveur AD FS, sauf si votre organisation dispose uniquement de clients Windows 10.
 
     c. Cliquez sur **Ajouter** pour indiquer les informations d’identification de l’administrateur d’entreprise.
 
@@ -170,7 +170,7 @@ La stratégie ci-après doit être définie sur la valeur **Tous** : **Les utili
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurer les paramètres d’intranet local pour l’inscription des appareils
 
-Pour terminer la jonction Azure AD hybride de vos appareils Windows de bas niveau, et éviter les invites de certificat lorsque les appareils s’authentifient auprès d’Azure AD, vous pouvez transmettre une stratégie à vos appareils joints à un domaine, et ajouter les URL ci-après à la zone Intranet local dans Internet Explorer :
+Pour terminer la jonction Azure AD Hybride de vos appareils Windows de bas niveau et éviter les invites de certificat lorsque les appareils s’authentifient auprès d’Azure AD, vous pouvez transmettre une stratégie à vos appareils joints à un domaine afin d’ajouter les URL ci-après à la zone Intranet local dans Internet Explorer :
 
 - `https://device.login.microsoftonline.com`
 

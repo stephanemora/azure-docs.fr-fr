@@ -11,16 +11,18 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 05/22/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7daa3bdf9fb51fee6b0e190625f07e0d14c3d1f4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8c5b20bf837491e8b15f7bc8baa018ead584616b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995140"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159174"
 ---
 # <a name="export-or-delete-your-experimentation-or-model-management-data-in-machine-learning"></a>Exporter ou supprimer des données d’expérimentation ou de gestion des modèles dans Machine Learning
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+>[!Note]
+>**Cet article est déprécié.** La prise en charge des versions antérieures de ce service va prendre fin progressivement. [Afficher la chronologie de la prise en charge](../service/overview-what-happened-to-workbench.md#timeline). Lisez [l’article le plus récent](../service/how-to-export-delete-data.md) à ce sujet.
+
 
 Dans Azure Machine Learning, vous pouvez exporter ou supprimer les données de votre compte associées à l’expérimentation ou à la gestion des modèles avec l’API REST authentifiée. Cet article vous explique comment procéder.
 

@@ -1,3 +1,27 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+ms.openlocfilehash: eead4c6a66a317c7404205415cbf04c442ffe8d1
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060408"
+---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>Ajouter les informations d’inscription de l’application à votre application
 
 Pour cette étape, vous devez configurer l’URL de redirection des informations d’inscription de votre application, puis ajouter l’ID d’application à votre application SPA JavaScript.
@@ -7,26 +31,26 @@ Pour cette étape, vous devez configurer l’URL de redirection des informations
 Configurez le champ `Redirect URL` avec l’URL de la page index.html de votre serveur web, puis cliquez sur *Mettre à jour*.
 
 
-> #### <a name="visual-studio-instructions-for-obtaining-redirect-url"></a>Instructions Visual Studio pour obtenir l’URL de redirection
-> Pour obtenir l’URL de redirection :
-> 1.    Dans *l’Explorateur de solutions*, sélectionnez le projet et examinez la fenêtre `Properties` (si vous ne voyez pas une fenêtre de propriétés, appuyez sur `F4`).
-> 2.    Copiez la valeur de `URL` dans le Presse-papiers :<br/> ![Propriétés du projet](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3.    Collez la valeur comme une `Redirect URL` en haut de la page, puis cliquez sur `Update`.
+> #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>Instructions Visual Studio pour obtenir l’URL de redirection
+> Pour obtenir l’URL de redirection, procédez comme suit :
+> 1.    Dans **l’Explorateur de solutions**, sélectionnez le projet et examinez la fenêtre **Propriétés**. Si vous ne voyez pas de fenêtre **Propriétés**, appuyez sur **F4**.
+> 2.    Copiez la valeur du champ **URL** dans le Presse-papiers :<br/> ![Propriétés du projet](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3.    Collez la valeur dans le champ **URL de redirection** situé en haut de la page, puis cliquez sur **Mettre à jour**.
 
 <p/>
 
-> #### <a name="setting-redirect-url-for-python"></a>Configuration d’une URL de redirection pour Python
-> Pour Python, vous pouvez définir le port du serveur web via la ligne de commande. Cette configuration guidée utilise le port 8080 pour référence, vous pouvez utiliser tout autre port disponible. Dans tous les cas, suivez les instructions suivantes pour configurer une URL de redirection dans les informations d’inscription de l’application :<br/>
-> Définissez `http://localhost:8080/` comme une `Redirect URL` en haut de cette page, ou utilisez `http://localhost:[port]/` si vous utilisez un port TCP personnalisé (où *[port]* correspond au numéro de port TCP personnalisé), puis cliquez sur « Update » (Mettre à jour).
+> #### <a name="setting-redirect-url-for-node"></a>Définition d’une URL de redirection pour Node
+> Pour Node.js, vous pouvez définir le port du serveur web dans le fichier *server.js*. Ce didacticiel utilise le port 30662 pour référence, mais vous pouvez utiliser tout autre port disponible. Suivez les instructions ci-après pour configurer une URL de redirection dans les informations d’inscription d’application :<br/>
+> Définissez `http://localhost:30662/` comme **URL de redirection** en haut de cette page, ou utilisez `http://localhost:[port]/` si vous avez recours à un port TCP personnalisé (où *[port]* correspond au numéro de port TCP personnalisé), puis cliquez sur **Mettre à jour**.
 
 ### <a name="configure-your-javascript-spa-application"></a>Configurer votre application SPA JavaScript
 
-1.  Créez un fichier nommé `msalconfig.js` contenant les informations d’inscription de l’application. Si vous utilisez Visual Studio, sélectionnez le projet (dossier racine du projet), cliquez avec le bouton droit, puis sélectionnez : `Add` > `New Item` > `JavaScript File`. Nommez-le `msalconfig.js`.
-2.  Ajoutez le code suivant à votre fichier `msalconfig.js` :
+1.  Dans le fichier `index.html` créé au cours de la configuration du projet, ajoutez les informations d’inscription d’application. Ajoutez le code ci-après dans la partie supérieure entre les balises `<script></script>` dans le corps de votre fichier `index.html` :
 
 ```javascript
-var msalconfig = {
+var applicationConfig = {
     clientID: "[Enter the application Id here]",
-    redirectUri: location.origin
+    graphScopes: ["user.read"],
+    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
-``` 
+```

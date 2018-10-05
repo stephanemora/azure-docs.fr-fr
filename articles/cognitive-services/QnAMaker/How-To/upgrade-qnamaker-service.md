@@ -1,21 +1,21 @@
 ---
-title: Mise à niveau de votre service QnA Maker - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: Comment mettre à niveau votre service QnA Maker
+title: Mettre à niveau votre service QnA Maker - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Vous pouvez choisir de mettre à niveau des composants individuels de la pile QnA Maker après la création initiale.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: e8d3713d6729c4e30da9a64a382e9d5a647dfefd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 8542b1f6dfe031de58ea6eeb931027ee03bd81f2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369617"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030963"
 ---
 # <a name="upgrade-your-qna-maker-service"></a>Mettre à niveau votre service QnA Maker
 Vous pouvez choisir de mettre à niveau des composants individuels de la pile QnA Maker après la création initiale. Consultez les détails des composants dépendants et la sélection de références SKU [ici](https://aka.ms/qnamaker-docs-capacity).

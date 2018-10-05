@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41919771"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166875"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutoriel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -45,8 +45,6 @@ Déployer la modification de la configuration est la méthode la plus souple pou
    * Indiquez éventuellement une description explicite du profil
    * Plateforme **Windows 10 ou plus**
    * Type de profil **personnalisé**
-
-   ![CreateProfile][CreateProfile]
 
 3. Configurez les **paramètres**
    * **Ajoutez** le paramètre OMA-URI suivant pour activer le lien de réinitialisation du mot de passe
@@ -100,7 +98,6 @@ Maintenant que la stratégie est configurée et attribuée, quelles sont les mod
 ![Écran de connexion][LoginScreen]
 
 Lorsque les utilisateurs tentent de se connecter, ils voient maintenant un lien de réinitialisation du mot de passe qui ouvre l’expérience de réinitialisation de mot de passe libre-service au niveau de l’écran de connexion. Cette fonctionnalité permet aux utilisateurs de réinitialiser leur mot de passe sans avoir à utiliser un autre appareil pour accéder à un navigateur web.
-Lorsque les utilisateurs tentent de se connecter, ils voient maintenant un lien de réinitialisation du mot de passe qui ouvre l’expérience de réinitialisation de mot de passe libre-service au niveau de l’écran de connexion. Cette fonctionnalité permet aux utilisateurs de réinitialiser leur mot de passe sans avoir à utiliser un autre appareil pour accéder à un navigateur web.
 
 Pour en savoir plus sur l’utilisation de cette fonction, les utilisateurs peuvent consulter la section [Réinitialiser ou déverrouiller mon mot de passe d’un compte professionnel ou scolaire](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
@@ -114,9 +111,13 @@ Lorsque vous testez cette fonctionnalité à l’aide du Bureau à distance, le 
 
 * Actuellement, la réinitialisation du mot de passe n’est pas prise en charge à partir d’un Bureau à distance.
 
-Si l’écran de verrouillage Windows est désactivé à l’aide d’une clé de registre ou d’une stratégie de groupe, **Réinitialiser le mot de passe** ne sera pas disponible.
+Si l’écran de verrouillage Windows est désactivé à l’aide d’une clé de registre ou d’une stratégie de groupe, **Réinitialiser le mot de passe** n’est pas disponible.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+Le journal d’audit Azure AD inclut des informations sur l’adresse IP et le ClientType associés à la réinitialisation de mot de passe.
+
+![Exemple de réinitialisation du mot de passe de l’écran d’ouverture de session dans le journal d’audit Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous ne souhaitez plus utiliser la fonctionnalité que vous avez configurée dans le cadre de ce tutoriel, supprimez le profil de configuration d’appareil Intune que vous avez créé ou la clé de Registre.
 
@@ -127,6 +128,5 @@ Dans ce tutoriel, vous avez autorisé les utilisateurs à réinitialiser leurs m
 > [!div class="nextstepaction"]
 > [Évaluer les risques lors de la connexion](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Créer un profil de configuration d’appareil Intune pour activer le lien de réinitialisation du mot de passe sur l’écran de connexion de Windows 10"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Attribuer la stratégie de configuration d’appareil Intune à un groupe d’appareils Windows 10"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Lien de réinitialisation du mot de passe sur l’écran de connexion Windows 10"

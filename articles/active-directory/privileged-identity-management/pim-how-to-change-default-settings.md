@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 09/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665432"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038990"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurer les paramètres des rôles d’annuaire Azure AD dans PIM
 
@@ -63,24 +63,23 @@ Utilisez le commutateur **Authentification multifacteur** pour spécifier si les
 * Les utilisateurs qui disposent de comptes Microsoft pour leurs adresses de messagerie (généralement @outlook.com mais pas toujours) ne peuvent pas s’inscrire à Azure MFA. Si vous souhaitez attribuer des rôles aux utilisateurs disposant de comptes Microsoft, vous devez les rendre administrateurs permanents ou désactiver l’authentification multifacteur pour ce rôle.
 * Vous ne pouvez pas désactiver l’authentification multifacteur pour les rôles à privilèges élevés pour Azure AD et Office 365. Il s’agit d’une fonctionnalité de sécurité car ces rôles doivent être soigneusement protégés :  
   
-  * Administrateur d’application
-  * Administrateur du serveur proxy d’application
-  * Administrateur de facturation  
-  * Administrateur de conformité  
+  * Administrateur de facturation
+  * Administrateur d'applications cloud
+  * Administrateur de conformité
+  * Administrateur de l’accès conditionnel
   * Administrateur de services CRM
-  * Approbateur d’accès au référentiel sécurisé client
-  * Enregistreur de répertoire  
-  * Administrateur Exchange  
+  * Approbateur d’accès à Customer LockBox
+  * Enregistreurs de répertoire
+  * Administrateur Exchange
   * Administrateur général
+  * Administrateur Information Protection
   * Administrateur de services Intune
-  * Administrateur de boîte aux lettres  
-  * Prise en charge de niveau 1 de partenaire  
-  * Prise en charge de niveau 2 de partenaire  
+  * Administrateur du service Power BI
   * Administrateur de rôle privilégié
-  * Administrateur de sécurité  
-  * Administrateur SharePoint  
-  * Administrateur Skype Entreprise  
-  * Administrateur de compte d’utilisateur  
+  * Security Administrator
+  * Administrateur de services SharePoint
+  * Administrateur Skype Entreprise
+  * Administrateur d'utilisateurs
 
 Pour plus d’informations, consultez [Authentification multifacteur (MFA) et PIM](pim-how-to-require-mfa.md).
 

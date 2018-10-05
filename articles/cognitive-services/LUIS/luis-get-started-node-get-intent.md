@@ -1,22 +1,23 @@
 ---
-title: Analyser le texte en langage naturel dans l’API Language Understanding (LUIS) à l’aide de Node.js - Cognitive Services - Azure Cognitive Services | Microsoft Docs
-description: Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. À l’aide de Node.js, envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique. Au point de terminaison, LUIS applique le modèle de l’application publique pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application.
+title: Démarrage rapide pour Node.js - Prédire une intention - LUIS
+titleSuffix: Azure Cognitive Services
+description: Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. À l’aide de Node.js, envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique. Au niveau du point de terminaison, LUIS applique le modèle de l’application publique pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b85b8ef19d4cc46d80d600d1cb4404edd71e2374
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158005"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038916"
 ---
-# <a name="quickstart-analyze-text-using-nodejs"></a>Démarrage rapide : Analyser le texte à l’aide de Node.js
+# <a name="quickstart-get-intent-using-nodejs"></a>Démarrage rapide : Reconnaître l’intention à l’aide de Node.js
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -36,11 +37,11 @@ ms.locfileid: "44158005"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analyser le texte avec le navigateur
+## <a name="get-intent-with-browser"></a>Reconnaître une intention avec le navigateur
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-nodejs"></a>Analyser le texte avec Node.js
+## <a name="get-intent-programmatically"></a>Reconnaître une intention par programmation
 
 Vous pouvez utiliser Node.js pour accéder aux résultats que vous avez vus dans la fenêtre du navigateur à l’étape précédente.
 
@@ -65,7 +66,7 @@ Vous pouvez utiliser Node.js pour accéder aux résultats que vous avez vus dans
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Supprimez le fichier Node.js.
 

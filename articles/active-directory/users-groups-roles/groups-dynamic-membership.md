@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9c0bb676cc59820d3ae83612893c8920d5d0aebe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c3121f8b303d9f82ed949d598a942906d0d24f7e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424369"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041021"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
 Dans Azure Active Directory (Azure AD), vous pouvez créer des règles complexes basées sur des attributs pour activer des appartenances dynamiques pour des groupes. L’appartenance de groupe dynamique réduit la charge administrative d’ajout et de suppression d’utilisateurs. Cet article détaille les propriétés et la syntaxe à utiliser pour créer des règles d’appartenance dynamique pour des utilisateurs ou des appareils. Vous pouvez définir une règle d’appartenance dynamique sur les groupes de sécurité ou Office 365.
 
-Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système évalue toutes les règles de groupe dynamique d’un annuaire pour voir si la modification déclenche des ajouts ou suppressions de groupe. Si un utilisateur ou un appareil respecte une règle d’un groupe, il est ajouté en tant que membre de ce groupe. S’il ne respecte plus la règle, il est supprimé.
+Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système évalue toutes les règles de groupe dynamique d’un annuaire pour voir si la modification déclenche des ajouts ou suppressions de groupe. Si un utilisateur ou un appareil respecte une règle d’un groupe, il est ajouté en tant que membre de ce groupe. S’il ne respecte plus la règle, il est supprimé. Vous ne pouvez pas ajouter ni supprimer manuellement un membre dans un groupe dynamique.
 
 * Vous pouvez créer un groupe dynamique pour les appareils ou utilisateurs, mais vous ne pouvez pas créer une règle qui contient à la fois des utilisateurs et des appareils.
 * Vous ne pouvez pas créer un groupe d’appareils basé sur des attributs des propriétaires d’appareils. Des règles d’appartenance d’appareil ne peuvent référencer que des attributs d’appareils.
@@ -39,10 +39,10 @@ Lorsqu’un attribut d’un utilisateur ou d’un appareil change, le système �
 Une règle d’appartenance qui remplit automatiquement un groupe d’utilisateurs ou d’appareils est une expression binaire qui génère un résultat vrai ou faux. Les trois parties d’une règle simple sont les suivantes :
 
 * Propriété
-* Operateur
+* Operator
 * Valeur
 
-L’ordre des parties au sein d’une expression est importants pour éviter les erreurs de syntaxe.
+L’ordre des parties au sein d’une expression est important pour éviter les erreurs de syntaxe.
 
 ### <a name="rules-with-a-single-expression"></a>Règles avec une expression unique
 
@@ -279,12 +279,12 @@ Les conseils suivants peuvent vous aider à utiliser la règle correctement.
 
 * **Manager ID** est l’ID d’objet du responsable. Il figure dans le **Profil** du responsable.
 * Pour que la règle fonctionne, assurez-vous que la propriété **Manager** est correctement définie pour les utilisateurs dans votre client. Vous pouvez vérifier la valeur actuelle dans le **Profil** de l’utilisateur.
-* Cette règle prend en charge uniquement les collaborateurs directs du responsable. En d’autres termes, vous ne peut pas créer de groupe avec les collaborateurs directs du responsable *et* leurs collaborateurs.
+* Cette règle prend en charge uniquement les collaborateurs directs du responsable. En d’autres termes, vous ne pouvez pas créer de groupe avec les collaborateurs directs du responsable *et* leurs collaborateurs.
 * Cette règle ne peut pas être combinée avec d’autres règles d’appartenance.
 
 ### <a name="create-an-all-users-rule"></a>Créer une règle « Tous les utilisateurs »
 
-Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
+Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieure d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
 
 La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique en utilisant l’opérateur -ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
 

@@ -1,22 +1,23 @@
 ---
-title: Application web à page unique Recherche de vidéos Bing (code source) | Microsoft Docs
+title: 'Tutoriel : Créer une application web à page unique - Recherche de vidéos Bing'
+titlesuffix: Azure Cognitive Services
 description: Code source du didacticiel expliquant comment utiliser l’API Recherche de vidéos Bing dans une application web à page unique.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: bed17c1df2b7c8dff9f874e43be8d67900fd7836
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: rosh
+ms.openlocfilehash: b0856be88382e1bb7a4cc65f5fd05910b814e152
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112458"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223285"
 ---
-# <a name="tutorial-single-page-video-search-app"></a>Didacticiel : Application à page unique Recherche de vidéos
+# <a name="tutorial-single-page-bing-video-search-app"></a>Tutoriel : Application à page unique Recherche de vidéos Bing
 
 Voici le code source complet indiqué dans le [didacticiel de l’application à page unique](tutorial-bing-video-search-single-page-app.md) pour Recherche de vidéos Bing. Pour exécuter l’application, copiez le code source dans le Bloc-notes ou dans un autre éditeur de texte et enregistrez-le sous `bing.html`. Ouvrez ensuite le fichier enregistré dans Microsoft Edge ou dans un autre navigateur courant.
 

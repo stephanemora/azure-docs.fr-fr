@@ -1,21 +1,24 @@
 ---
 title: SQL (PaaS) Database ou SQL Server dans le cloud sur des machines virtuelles (IaaS) | Microsoft Docs
 description: 'Découvrez l’option SQL Server cloud adaptée à votre application : Azure SQL (PaaS) Database ou SQL Server sur les machines virtuelles Azure.'
-services: sql-database, virtual-machines
+services: sql-database
+ms.service: sql-database
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 keywords: Cloud SQL Server, SQL Server dans le cloud, base de données PaaS, cloud SQL Server, DBaaS
 author: CarlRabeler
-manager: craigg
-ms.service: sql-database
-ms.custom: DBs & servers
-ms.topic: conceptual
-ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 0b1eda89d2baaa54b17d8a7c73a2e9c987f0f8eb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a841f2f8e848caaf5174f68bdf3525ebefc73b33
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665983"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162718"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Choisir une option de SQL Server cloud : Base de données SQL Azure (PaaS) ou SQL Server sur des machines virtuelles Azure (IaaS)
 
@@ -24,17 +27,15 @@ Dans Azure, vos charges de travail SQL Server peuvent être exécutées dans une
 - [Base de données SQL Azure](https://azure.microsoft.com/services/sql-database/) : un moteur de base de données SQL basé sur l’édition Entreprise de SQL Server et optimisé pour le développement d’applications modernes. La base de données SQL Azure propose plusieurs options de déploiement :
   - Vous pouvez déployer une base de données unique sur un [serveur logique](sql-database-logical-servers.md).
   - Vous pouvez déployer dans un [pool élastique](sql-database-elastic-pool.md) sur un [serveur logique](sql-database-logical-servers.md) pour partager les ressources et réduire les coûts. 
+  - Vous pouvez également effectuer un déploiement vers [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
+      
+   L’illustration suivante représente ces options de déploiement :
 
-      > [!NOTE]
-      > Une base de données Azure SQL Database contenant des bases de données uniques et regroupées offrent la plupart des fonctionnalités à l’échelle de la base de données de SQL Server.
+     ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
 
-      L’illustration suivante représente ces options de déploiement :
+     > [!NOTE]
+     > Avec ces trois versions, Azure SQL Database ajoute des fonctionnalités qui ne sont pas disponibles dans SQL Server, telles que l’analyse décisionnelle et la gestion intégrées. Un serveur logique qui contient des bases de données uniques et mises en pool propose la plupart des fonctionnalités de base de données de SQL Server. Avec Azure SQL Database Managed Instance, Azure SQL Database propose des ressources partagées pour les bases de données et des fonctionnalités supplémentaires incluses dans l’instance. Azure SQL Database Managed Instance prend en charge la migration de base de données avec des modifications minimes, voire sans aucune modification, de la base de données. 
 
-      ![deployment-options](./media/sql-database-technical-overview/deployment-options.png) 
-  - Vous pouvez également déployer vers [Azure SQL Database Managed Instance (préversion)](sql-database-managed-instance.md). 
-
-      > [!NOTE]
-      > Avec ces deux versions, Azure SQL Database ajoute des fonctionnalités qui ne sont pas disponibles dans SQL Server, telles que l’analyse décisionnelle et la gestion intégrées. Avec la première version d’Azure SQL Database Managed Instance, Azure SQL Database propose des ressources partagées pour les bases de données et des fonctionnalités supplémentaires incluses dans l’instance. Azure SQL Database Managed Instance prend en charge la migration de base de données avec des modifications minimes, voire sans aucune modification, de la base de données.
 - [SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) : SQL Server installé et hébergé dans le cloud sur des machines virtuelles Windows Server ou Linux s’exécutant sur Azure, également appelé infrastructure en tant que service (IaaS). SQL Server sur des machines virtuelles Azure est une bonne option pour la migration de bases de données SQL Server et d’applications locales sans aucune modification de la base de données. Toutes les dernières versions et éditions de SQL Server sont disponibles pour l’installation dans une machine virtuelle IaaS. La différence la plus significative par rapport à SQL Database est que les machines virtuelles SQL Server permettent un contrôle total du moteur de base de données. Vous pouvez choisir quand la maintenance/mise à jour corrective démarrera, de passer d’un mode de récupération simple à un mode utilisant les journaux de transactions pour permettre un chargement plus rapide de moins de journaux, d’arrêter ou de démarrer le moteur quand c’est nécessaire, et vous pouvez personnaliser entièrement le moteur de base de données SQL Server. Ce contrôle supplémentaire est assorti accroît la responsabilité de gestion des machines virtuelles.
 
 Découvrez comment chaque option de déploiement s’inscrit dans la plate-forme de données de Microsoft et obtenez de l’aide sur l’option qui répond aux besoins de votre entreprise. Que vous privilégiiez les économies ou une administration minimale, cet article peut vous aider à déterminer l’approche adaptée en fonction des exigences clients essentielles.
@@ -74,12 +75,12 @@ Le tableau suivant résume les principales caractéristiques de SQL Database et 
 | **Idéal pour :** |Nouvelles applications cloud qui utilisent les dernières fonctionnalités stables de SQL Server et ont des contraintes de délais de développement et de commercialisation. | Nouvelles applications ou applications locales existantes qui utilisent les dernières fonctionnalités stables de SQL Server et sont migrées vers le cloud avec des modifications minimales.  | Applications existantes qui requièrent une migration rapide vers le cloud avec un minimum de modifications, ou sans aucune modification. Scénarios de développement et de test rapides lorsque vous ne souhaitez pas acheter du matériel SQL Server local non destiné à la production. |
 |  | Équipes qui nécessitent une haute disponibilité, une récupération d’urgence et une mise à niveau pour la base de données. | Comme SQL Database. | Équipes qui peuvent configurer, ajuster, personnaliser et gérer une haute disponibilité, une récupération d’urgence et une mise à jour corrective pour SQL Server. Certaines fonctionnalités automatisées simplifient considérablement cette procédure. | |
 |  | Équipes qui ne souhaitent pas gérer le système d’exploitation sous-jacent et les paramètres de configuration. | Comme SQL Database. | Vous avez besoin d’un environnement personnalisé avec des droits d’administration complets. | |
-|  | Bases de données de moins de 4 To ou bases de données plus volumineuses pouvant être [partitionnées horizontalement ou verticalement](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) à l’aide d’un modèle de scale-out. | Comme SQL Database. | Instances SQL Server avec 64 To de stockage maximum. L’instance peut prendre en charge autant de bases de données que nécessaire. |
+|  | Bases de données comprenant jusqu’à 100 To. | Comme SQL Database. | Instances SQL Server avec 64 To de stockage maximum. L’instance peut prendre en charge autant de bases de données que nécessaire. |
 | **Compatibilité** | Prend en charge la plupart des fonctionnalités locales au niveau de la base de données. | Prend en charge presque toutes les fonctionnalités locales au niveau de l’instance et de la base de données. | Prend en charge toutes les fonctionnalités locales. |
 | **Ressources :** | Vous ne souhaitez pas utiliser les ressources informatiques pour la configuration et la gestion de l’infrastructure sous-jacente, mais vous voulez vous concentrer sur la couche d’application. | Comme SQL Database. | Vous disposez de ressources informatiques pour la configuration et la gestion. Certaines fonctionnalités automatisées simplifient considérablement cette procédure. |
 | **Coût total de possession :** | Élimine les coûts matériels et réduit les coûts d’administration. | Comme SQL Database. | Élimine les coûts matériels. |
 | **Continuité des activités :** |Outre les [fonctionnalités intégrées d’infrastructure de tolérance de panne](sql-database-high-availability.md), Azure SQL Database offre des fonctionnalités comme les [sauvegardes automatisées](sql-database-automated-backups.md), la[ limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore), la [géo-restauration](sql-database-recovery-using-backups.md#geo-restore) et les [groupes de basculement ainsi que la géo-réplication active](sql-database-geo-replication-overview.md) afin d’améliorer la continuité de l’activité. Pour plus d’informations, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure](sql-database-business-continuity.md). | Comme SQL Database, plus des sauvegardes en copie seule lancées par l’utilisateur. | L’option SQL Server sur les machines virtuelles Azure vous permet de configurer une solution de haute disponibilité et de récupération d’urgence pour les besoins spécifiques de votre base de données. Vous pouvez donc disposer d'un système hautement optimisé pour votre application. Vous pouvez tester et exécuter des basculements par vous-même si nécessaire. Pour plus d’informations, voir [Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
-| **Cloud hybride :** |Votre application locale peut accéder aux données d’Azure SQL Database. | [Implémentation d’un réseau virtuel natif](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-vnet-configuration) et sa connexion à votre environnement local à l’aide d’Azure Express Route ou d’une passerelle VPN. | Avec l’option SQL Server sur les machines virtuelles Azure, vous pouvez avoir des applications qui s’exécutent en partie dans le cloud et en partie localement. Par exemple, vous pouvez étendre votre réseau local et votre domaine Active Directory au cloud par le biais d’ [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). En outre, vous pouvez stocker des fichiers de données locaux dans Azure Storage en utilisant les [fichiers de données SQL Server dans Azure](http://msdn.microsoft.com/library/dn385720.aspx). Pour plus d’informations, consultez la rubrique [Introduction au cloud hybride SQL Server 2014](http://msdn.microsoft.com/library/dn606154.aspx). |
+| **Cloud hybride :** |Votre application locale peut accéder aux données d’Azure SQL Database. | [Implémentation d’un réseau virtuel natif](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration) et sa connexion à votre environnement local à l’aide d’Azure Express Route ou d’une passerelle VPN. | Avec l’option SQL Server sur les machines virtuelles Azure, vous pouvez avoir des applications qui s’exécutent en partie dans le cloud et en partie localement. Par exemple, vous pouvez étendre votre réseau local et votre domaine Active Directory au cloud par le biais d’ [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). En outre, vous pouvez stocker des fichiers de données locaux dans Azure Storage en utilisant les [fichiers de données SQL Server dans Azure](http://msdn.microsoft.com/library/dn385720.aspx). Pour plus d’informations, consultez la rubrique [Introduction au cloud hybride SQL Server 2014](http://msdn.microsoft.com/library/dn606154.aspx). |
 |  | Prend en charge la [réplication transactionnelle de SQL Server](https://msdn.microsoft.com/library/mt589530.aspx) en tant qu’abonné pour la réplication des données. | La réplication n’est pas prise en charge pour Azure SQL Database Managed Instance. | Prend entièrement en charge la [réplication transactionnelle de SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), les [groupes de disponibilité Always On](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services et la copie des journaux de transaction pour la réplication des données. En outre, les sauvegardes traditionnelles SQL Server sont entièrement prises en charge | |
 |  | | |
 
@@ -89,7 +90,7 @@ Que vous soyez une start-up à court de liquidités ou une équipe dans une soci
 
 #### <a name="billing-and-licensing-basics"></a>Notions de base sur la facturation et les licences
 
-Actuellement, **SQL Database** est vendu comme service comportant plusieurs niveaux de ressources aux prix différents, tous facturés à un tarif horaire fixe en fonction du niveau de service et du niveau de performances choisis. Avec Azure SQL Database Managed Instance, vous pouvez utiliser votre propre licence. Pour plus d’informations sur l’utilisation de votre propre licence, consultez [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Par ailleurs, vous êtes facturé pour le trafic internet sortant aux [tarifs de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)standard. Vous pouvez ajuster les niveaux de service et les niveaux de performances de manière dynamique pour répondre aux besoins de débit variés de votre application. Pour obtenir les dernières informations sur les niveaux de service actuels pris en charge, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md). Vous pouvez également créer des [pools élastiques](sql-database-elastic-pool.md) pour partager des ressources entre des instances de base de données pour réduire les coûts et vous adapter aux pics d’utilisation.
+**SQL Database** propose plusieurs niveaux de service à des prix différents selon les ressources, et qui sont tous facturés à un tarif horaire fixe en fonction du niveau de service et de la taille de calcul choisis. Avec Azure SQL Database Managed Instance, vous pouvez utiliser votre propre licence. Pour plus d’informations sur l’utilisation de votre propre licence, consultez [License Mobility via Software Assurance sur Azure](https://azure.microsoft.com/pricing/license-mobility/). Par ailleurs, vous êtes facturé pour le trafic internet sortant aux [tarifs de transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/)standard. Vous pouvez ajuster les niveaux de service et les tailles de calcul de manière dynamique pour répondre aux besoins de débit variés de votre application. Pour obtenir les dernières informations sur les niveaux de service actuels pris en charge, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md). Vous pouvez également créer des [pools élastiques](sql-database-elastic-pool.md) pour partager des ressources entre des instances de base de données pour réduire les coûts et vous adapter aux pics d’utilisation.
 
 Avec **SQL Database**, Microsoft configure, corrige et met à niveau automatiquement le logiciel de base de données, ce qui réduit vos coûts d’administration. En outre, ses fonctionnalités de [sauvegarde intégrée](sql-database-automated-backups.md) vous permettent de réaliser d’importantes économies, notamment si vous avez un grand nombre de bases de données. 
 
@@ -138,20 +139,6 @@ Pour **SQL Server sur les machines virtuelles Azure**, Microsoft fournit un SLA 
 **SQL Database Managed Instance** simplifie beaucoup la migration d’applications existantes vers Azure SQL Database et vous permet de commercialiser rapidement une base de données migrée dans Azure.
 
 **SQL Server sur des machines virtuelles Azure** est idéale si vos applications nouvelles ou existantes requièrent des bases de données volumineuses ou un accès à toutes les fonctionnalités dans SQL Server ou Windows/Linux et si vous souhaitez éviter la perte de temps et les coûts occasionnés par l’acquisition de nouveau matériel local. Elle convient également si vous souhaitez migrer des applications et des bases de données locales en l’état vers Azure dans les cas où Azure SQL Database Managed Instance n’est pas adaptée. Étant donné que vous n'avez pas besoin de modifier la présentation, l'application et les couches de données, vous économisez en temps et en budget sur le remaniement de votre solution existante. Ainsi, vous pouvez vous concentrer sur la migration de toutes vos solutions vers Azure et sur l’optimisation des performances requises par la plateforme Azure. Pour plus d’informations, consultez [Meilleures pratiques relatives aux performances de SQL Server dans les machines virtuelles Azure](../virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md).
-
-## <a name="summary"></a>Résumé
-Cet article a décrit les options SQL Database et SQL Server sur les machines virtuelles Azure, ainsi que les critères les plus courants susceptibles d’influencer votre décision. Voici un résumé des suggestions à prendre en compte :
-
-Choisissez **Azure SQL Database** dans les cas suivants :
-
-* Vous créez des applications cloud pour réaliser des économies et profiter des fonctionnalités d’optimisation des performances offertes par les services cloud. Cette approche apporte les avantages d’un service cloud entièrement géré, permet de réduire le délai de mise sur le marché et optimise les coûts à long terme.
-* Vous souhaitez que Microsoft effectue des opérations de gestion courantes sur vos bases de données et vous avez besoin d'une plus grande disponibilité offerte par le biais des contrats SLA pour les bases de données.
-* Vous souhaitez migrer une application existante en l’état vers Azure SQL Database Managed Instance et profiter d’une parité supplémentaire avec SQL Server et/ou une sécurité ou bien une mise en réseau avancées. Managed Instance est un bon choix pour les applications nouvelles et existantes.
-
-Choisissez **SQL Server sur les machines virtuelles Azure** dans les cas suivants :
-
-* Vous disposez d’applications locales existantes que vous souhaitez migrer ou étendre dans le cloud, ou vous souhaitez créer des applications d’entreprise de plus de 4 To. Cette approche offre l’avantage d’utiliser la version et l’édition SQL Server de votre choix, une grande capacité de base de données, un contrôle total de SQL Server et de Windows/Linux ainsi qu’un tunneling sécurisé en local. Cette approche réduit les coûts de développement et de modification des applications existantes.
-* Vous disposez de ressources informatiques et vous pouvez bénéficier en fin de compte des correctifs, des sauvegardes et de la haute disponibilité de la base de données. Certaines fonctionnalités automatisées simplifient considérablement ces opérations. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

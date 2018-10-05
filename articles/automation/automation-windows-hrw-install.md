@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e449e6e457c4fa568b5a4de5823014b4dcea82d0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064351"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032986"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Déployer un Runbook Worker hybride Windows
 
@@ -22,7 +22,7 @@ Vous pouvez utiliser la fonctionnalité de Runbook Worker hybride d’Azure Auto
 
 ## <a name="installing-the-windows-hybrid-runbook-worker"></a>Installation de la fonctionnalité Windows Runbook Worker hybride
 
-Il existe deux méthodes pour installer et configurer un Runbook Worker hybride Windows. La méthode recommandée utilise un Runbook Automation afin d’automatiser totalement le processus de configuration d’un ordinateur Windows. La deuxième méthode consiste à suivre la procédure pas à pas pour installer et configurer le rôle manuellement.
+Il existe deux méthodes pour installer et configurer un Runbook Worker hybride Windows. La méthode recommandée utilise un runbook Automation afin d’automatiser totalement le processus de configuration d’un ordinateur Windows. La deuxième méthode consiste à suivre la procédure pas à pas pour installer et configurer le rôle manuellement.
 
 > [!NOTE]
 > Pour gérer la configuration des serveurs qui prennent en charge le rôle Runbook Worker hybride avec Desired State Configuration (DSC), vous devez les ajouter en tant que nœuds DSC.
@@ -30,7 +30,7 @@ Il existe deux méthodes pour installer et configurer un Runbook Worker hybride 
 Voici la configuration minimale requise pour un Runbook Worker hybride Windows :
 
 * Windows Server 2012 ou version ultérieure.
-* Windows PowerShell 4.0 ou version ultérieure ([télécharger WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)). Nous recommandons Windows PowerShell 5.1 ([télécharger WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) pour une plus grande fiabilité.
+* Windows PowerShell 5.1 ou version ultérieure ([télécharger WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
 * .NET Framework 4.6.2 ou ultérieur.
 * 2 cœurs
 * 4 Go de RAM
@@ -41,7 +41,7 @@ Pour connaître les autres exigences relatives au réseau pour le Runbook Worker
 Pour plus d’informations sur l’intégration de serveurs en vue d’une gestion avec DSC, consultez [Gestion de machines avec Azure Automation DSC](automation-dsc-onboarding.md).
 Si vous activez la [solution Update Management](../operations-management-suite/oms-solution-update-management.md), tout ordinateur Windows connecté à votre espace de travail Azure Log Analytics est automatiquement configuré en tant que Runbook Worker hybride pour prendre en charge les runbooks inclus dans cette solution. Toutefois, il n’est inscrit auprès d’aucun des groupes de Workers hybrides déjà définis dans votre compte Automation. 
 
-L’ordinateur peut être ajouté à un groupe de Runbooks Workers hybrides dans votre compte Automation pour prendre en charge des Runbooks Automation, à condition d’utiliser le même compte à la fois pour la solution et pour l’appartenance au groupe de Runbooks Workers hybrides. Cette fonctionnalité a été ajoutée à la version 7.2.12024.0 du groupe de Runbooks Workers hybrides.
+L’ordinateur peut être ajouté à un groupe de Runbooks Workers hybrides dans votre compte Automation pour prendre en charge des runbooks Automation, à condition d’utiliser le même compte à la fois pour la solution et pour l’appartenance au groupe de Runbooks Workers hybrides. Cette fonctionnalité a été ajoutée à la version 7.2.12024.0 du groupe de Runbooks Workers hybrides.
 
 Une fois le Runbook Worker déployé, consultez [Exécuter des runbooks sur un Runbook Worker hybride](automation-hrw-run-runbooks.md) pour apprendre à configurer vos Runbooks en vue d’automatiser les processus de votre centre de données local ou autre environnement cloud.
 
@@ -49,22 +49,22 @@ Une fois le Runbook Worker déployé, consultez [Exécuter des runbooks sur un R
 
 Effectuez les étapes suivantes pour automatiser l’installation et la configuration du rôle Worker hybride Windows :
 
-1. Téléchargez le script New-OnPremiseHybridWorker.ps1 à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript), directement sur l’ordinateur qui exécute le rôle Runbook Worker hybride ou sur un autre ordinateur de votre environnement. Copiez le script dans le Worker.
+1. Téléchargez le script New-OnPremiseHybridWorker.ps1 à partir de [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker), directement sur l’ordinateur qui exécute le rôle Runbook Worker hybride ou sur un autre ordinateur de votre environnement. Copiez le script dans le Worker.
 
    Le script New-OnPremiseHybridWorker.ps1 nécessite les paramètres suivants lors de l’exécution :
 
    * *AutomationAccountName* (obligatoire) : le nom de votre compte Automation.
    * *AAResourceGroupName* (obligatoire) : le nom du groupe de ressources associé à votre compte Automation.
-   * *OMSResourceGroupName* (facultatif) : le nom du groupe de ressources pour l’espace de travail Operations Management Suite. Si ce groupe de ressources n’est pas spécifié, *AAResourceGroupName* est utilisé.
+   * *OMSResourceGroupName* (facultatif) : le nom du groupe de ressources pour l’espace de travail Log Analytics. Si ce groupe de ressources n’est pas spécifié, *AAResourceGroupName* est utilisé.
    * *HybridGroupName* (obligatoire) : le nom d’un groupe de Runbooks Workers hybrides que vous spécifiez comme cible pour les Runbooks prenant en charge ce scénario.
    * *SubscriptionID* (obligatoire) : l’ID de l’abonnement Azure dans lequel se trouve votre compte Automation.
    * *WorkspaceName* (facultatif) : le nom de l’espace de travail Log Analytics. Si vous n’avez pas d’espace de travail Log Analytics, le script en crée un et le configure.
 
      > [!NOTE]
-     > Les seules régions Automation prises en charge pour l’intégration à Log Analytics sont les suivantes : **Sud-Est de l’Australie**, **Est des États-Unis 2**, **Sud-Est asiatique** et **Europe de l’Ouest**. Si votre compte Automation ne se trouve pas dans une de ces régions, le script crée un espace de travail Log Analytics, mais vous avertit qu’il ne peut pas lier les deux.
+     > Les seules régions Automation prises en charge pour l’intégration à Log Analytics sont les suivantes : **Australie Sud-Est**, **USA Est 2**, **Asie Sud-Est** et **Europe Ouest**. Si votre compte Automation ne se trouve pas dans une de ces régions, le script crée un espace de travail Log Analytics, mais vous avertit qu’il ne peut pas lier les deux.
 
-1. Sur votre ordinateur, ouvrez **Windows PowerShell** à partir de l’écran **Démarrer** en mode Administrateur.
-1. À partir de l’interface de ligne de commande PowerShell, accédez au dossier contenant le script que vous avez téléchargé. Modifiez les valeurs des paramètres *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* et *-WorkspaceName*. Ensuite, exécutez le script.
+2. Sur votre ordinateur, ouvrez **Windows PowerShell** à partir de l’écran **Démarrer** en mode Administrateur.
+3. À partir de l’interface de ligne de commande PowerShell, accédez au dossier contenant le script que vous avez téléchargé. Modifiez les valeurs des paramètres *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* et *-WorkspaceName*. Ensuite, exécutez le script.
 
      > [!NOTE]
      > Une fois le script exécuté, vous êtes invité à vous authentifier auprès d’Azure. Vous *devez* vous connecter avec un compte membre du rôle Administrateurs des abonnements et coadministrateur de l’abonnement.
@@ -75,9 +75,9 @@ Effectuez les étapes suivantes pour automatiser l’installation et la configur
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. Vous êtes invité à accepter l’installation de NuGet et à vous authentifier avec vos informations d’identification Azure.
+4. Vous êtes invité à accepter l’installation de NuGet et à vous authentifier avec vos informations d’identification Azure.
 
-1. Une fois le script exécuté, la page **Groupes Worker hybride** affiche le nouveau groupe et le nombre de membres. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner le groupe dans la liste de la page **Groupes de Workers hybrides** et sélectionner la vignette **Workers hybrides**. La page **Workers hybrides** affiche chaque membre du groupe listé.
+5. Une fois le script exécuté, la page **Groupes Worker hybride** affiche le nouveau groupe et le nombre de membres. S’il s’agit d’un groupe existant, le nombre de membres est incrémenté. Vous pouvez sélectionner le groupe dans la liste de la page **Groupes de Workers hybrides** et sélectionner la vignette **Workers hybrides**. La page **Workers hybrides** affiche chaque membre du groupe listé.
 
 ### <a name="manual-deployment"></a>Déploiement manuel
 

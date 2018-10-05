@@ -1,21 +1,23 @@
 ---
 title: Surveiller les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire | Microsoft Docs
 description: Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire
-keywords: didacticiel sur les bases de données SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753442"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055943"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire
 
@@ -44,9 +46,9 @@ La gestion des performances des bases de données se compose des opérations sui
 ### <a name="performance-management-strategies"></a>Stratégies de gestion des performances
 
 * Pour éviter de devoir analyser manuellement les performances, il est plus efficace de **définir des alertes qui se déclenchent si les bases de données s’éloignent des limites normales**.
-* Pour répondre aux fluctuations à court terme du niveau de performances d’une base de données, **vous pouvez augmenter ou diminuer le niveau DTU**. Si cette fluctuation est régulière ou prévisible, **vous pouvez planifier la mise à l’échelle automatique de la base de données**. Par exemple, diminuez la taille du pool lorsque vous savez que votre charge de travail est faible, disons la nuit ou le week-end.
+* Pour répondre aux fluctuations à court terme de la taille de calcul d’une base de données, **vous pouvez augmenter ou diminuer le niveau DTU**. Si cette fluctuation est régulière ou prévisible, **vous pouvez planifier la mise à l’échelle automatique de la base de données**. Par exemple, diminuez la taille du pool lorsque vous savez que votre charge de travail est faible, disons la nuit ou le week-end.
 * Pour répondre aux fluctuations à plus long terme ou aux changements de locataires, **vous pouvez déplacer des locataires spécifiques dans d’autres bases de données**.
-* Pour répondre aux augmentations à court terme de la charge de locataires *spécifiques*, **vous pouvez sortir ceux-ci d’une base de données et leur attribuer un niveau de performance spécifique**. Une fois que la charge est réduite, vous pouvez remettre le locataire dans la base de données multi-locataire. Si vous en avez connaissance à l’avance, vous pouvez déplacer préalablement les locataires pour vérifier que la base de données a toujours les ressources nécessaires et éviter l’impact sur les autres locataires de la base de données multi-locataire. Si ce besoin est prévisible, par exemple un lieu accueillant un événement populaire avec une vente de tickets à grande échelle, ce comportement de gestion peut être intégré à l’application.
+* Pour répondre aux augmentations à court terme de la charge de locataires *spécifiques*, **vous pouvez sortir ceux-ci d’une base de données et leur attribuer une taille de calcul spécifique**. Une fois que la charge est réduite, vous pouvez remettre le locataire dans la base de données multi-locataire. Si vous en avez connaissance à l’avance, vous pouvez déplacer préalablement les locataires pour vérifier que la base de données a toujours les ressources nécessaires et éviter l’impact sur les autres locataires de la base de données multi-locataire. Si ce besoin est prévisible, par exemple un lieu accueillant un événement populaire avec une vente de tickets à grande échelle, ce comportement de gestion peut être intégré à l’application.
 
 Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégrées de surveillance et d’alerte sur la plupart des ressources. Pour SQL Database, la surveillance et les alertes sont disponibles pour les bases de données. Ces fonctionnalités de surveillance et d’alertes intégrées sont propres à la ressource. Par conséquent, il est pratique de les utiliser pour un petit nombre de ressources, mais pas pour de nombreuses ressources.
 
@@ -79,7 +81,7 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simule une charge de tra
 | 2 | Générer une charge d’intensité normale (environ 30 DTU) |
 | 3 | Générer une charge avec des pics plus longs par locataire|
 | 4 | Générer une charge avec des pics de DTU plus élevés par locataire (environ 70 DTU)|
-| 5 | Générer une intensité élevée (environ 90 DTU) sur un locataire unique, plus une charge d’intensité normale sur tous les autres locataires |
+| 5. | Générer une intensité élevée (environ 90 DTU) sur un locataire unique, plus une charge d’intensité normale sur tous les autres locataires |
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en DTU), la durée et les intervalles varient selon les bases de données pour simuler l’activité d’un locataire imprévisible.
 

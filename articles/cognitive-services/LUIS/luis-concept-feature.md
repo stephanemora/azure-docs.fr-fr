@@ -1,20 +1,21 @@
 ---
-title: Comprendre les fonctionnalités dans les applications LUIS dans Azure | Microsoft Docs
-description: En savoir plus sur les fonctionnalités, qui permettent d’améliorer la performance d’une application LUIS. Les fonctionnalités incluent des listes d’expression et des modèles pour la reconnaissance des expressions régulières.
+title: Caractéristiques dans les applications LUIS Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
+description: Ajoutez des fonctionnalités à un modèle de langage afin de fournir des conseils sur la façon de reconnaître les entrées que vous souhaitez étiqueter ou classer. Les caractéristiques aident LUIS à reconnaître les intentions et les entités.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8d3f006f27d1d728f89458deba27e1c1a63b6de5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 015679b6020e9d2a4d702f9d6e723ecd9499d8dc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224926"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034465"
 ---
 # <a name="phrase-list-features-in-luis"></a>Fonctionnalités de liste d’expressions dans LUIS
 

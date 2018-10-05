@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8a8598640e31f59476b5b3351fdb2eab7b66a6c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952917"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160619"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour les machines virtuelles
 Azure comprend plusieurs services qui effectuent individuellement un rôle spécifique ou une tâche dans l’espace de supervision, mais en fournissant une perspective approfondie de l’intégrité du système d’exploitation hébergé sur les machines virtuelles Azure qui n’était pas disponible auparavant.  Bien que vous puissiez surveiller différentes conditions à l’aide de Log Analytics ou d’Azure Monitor, ils n’ont pas été conçus pour modéliser et représenter l’intégrité des composants de base ou l’intégrité globale de la machine virtuelle.  La fonctionnalité de contrôle d’intégrité Azure Monitor pour les machines virtuelles surveille proactivement la disponibilité et les performances du système d'exploitation invité Windows ou Linux avec un modèle qui représente les composants clés et leurs relations (critères spécifiant comment mesurer l’intégrité de ces composants) et vous avertit lorsqu’un problème d’intégrité est détecté.  
 
 L’affichage de l’état d’intégrité global de la machine virtuelle Azure et du système d’exploitation sous-jacente peut être observé sous deux perspectives avec Azure Monitor pour l’intégrité des machines virtuelles, directement à partir de la machine virtuelle ou sur toutes les machines virtuelles dans un groupe de ressources à partir d’Azure Monitor.
 
-Cet article vous aidera à rapidement évaluer, examiner et résoudre les problèmes d’intégrité détectés.
+Cet article vous aide à évaluer, examiner et résoudre rapidement les problèmes d’intégrité détectés.
 
 Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](monitoring-vminsights-onboard.md)(Activer Azure Monitor pour les machines virtuelles).
 
@@ -99,11 +99,11 @@ Les états d’intégrité définis pour une machine virtuelle sont les suivants
 * **Avertissement** : un ou plusieurs problèmes ont été détectés et doivent être corrigés pour éviter que la condition d’intégrité ne devienne critique.  
 * **Inconnu** : si le service n’a pas pu établir de connexion avec la machine virtuelle, l’état passe à Inconnu.  
 
-Sélectionner **Afficher les diagnostics d’intégrité** ouvre une page qui affiche tous les composants de la machine virtuelle, les critères d’intégrité associés, les changements d’état et les autres problèmes importants rencontrés par la supervision des composants liés à la machine virtuelle. Reportez-vous aux [Diagnostics d’intégrité](#health-diagnostics) pour plus d’informations. 
+La sélection du lien **Afficher les diagnostics d’intégrité** ouvre une page qui présente tous les composants de la machine virtuelle, les critères d’intégrité associés, les changements d’état et les autres problèmes importants rencontrés par les composants de supervision liés à la machine virtuelle. Pour plus d’informations, consultez la section [Diagnostics d’intégrité](#health-diagnostics). 
 
 Dans la section **Intégrité des composants**, le tableau présente un état cumulatif de l’intégrité des principales catégories de performance surveillées par les critères d’intégrité pour ces zones, en particulier le **processeur**, la **mémoire**, le **disque** et le **réseau**.  Sélectionner l’un des composants ouvre une page répertoriant tous les aspects de supervision des critères d’intégrité individuels de ce composant, ainsi que l’état d’intégrité respectif de chacun d’eux.  
 
-Lors de l’accès à l’intégrité à partir d’une machine virtuelle Azure exécutant le système d’exploitation Windows, l’état d’intégrité des 5 principaux services Windows est affiché sous la section **Intégrité des services principaux**.  Sélectionner l’un de ces services ouvre une page répertoriant les critères d’intégrité de supervision de ce composant ainsi que son état d’intégrité.  Cliquez sur le nom des critères d’intégrité pour ouvrir le volet des propriétés. À partir de là, vous pouvez consulter les détails de configuration, y compris si une alerte Azure Monitor est définie pour chaque critère d’intégrité. Pour plus d’informations, consultez [Diagnostics d’intégrité et utilisation des critères d’intégrité](#health-diagnostics).  
+Lors de l’accès à l’intégrité à partir d’une machine virtuelle Azure exécutant le système d’exploitation Windows, l’état d’intégrité des 5 principaux services Windows est affiché sous la section **Intégrité des services principaux**.  Sélectionner l’un de ces services ouvre une page répertoriant les critères d’intégrité de supervision de ce composant ainsi que son état d’intégrité.  Cliquez sur le nom des critères d’intégrité pour ouvrir le volet des propriétés. À partir de là, vous pouvez consulter les détails de configuration, y compris si une alerte Azure Monitor est définie pour chaque critère d’intégrité. Pour plus d’informations, consultez les sections concernant [les diagnostics d’intégrité et l’utilisation des critères d’intégrité](#health-diagnostics).  
 
 ## <a name="aggregate-virtual-machine-perspective"></a>Agréger la perspective de la machine virtuelle
 Pour afficher la collection d’intégrité pour l’ensemble de vos machines virtuelles dans un groupe de ressources, à partir de la liste de navigation dans le portail, sélectionnez **Azure Monitor**, puis sélectionnez **Machines virtuelles (préversion)**.  
@@ -136,7 +136,7 @@ Vous pouvez cliquer sur n’importe quel élément de la colonne - **Nombre de m
 
 ![Exemple de rollup des machines virtuelles Red Hat Linux](./media/monitoring-vminsights-health/vminsights-rollup-vm-rehl-01.png)
  
-Sur la page **Machines virtuelles**, si vous sélectionnez le nom d’une machine virtuelle dans la colonne **Nom de machine virtuelle**, vous êtes redirigé vers la page de l’instance de machine virtuelle avec plus de détails sur les alertes et les problèmes de critères d’intégrité identifiés qui affectent la machine virtuelle sélectionnée.  À partir de là, vous pouvez filtrer les détails de l’état d’intégrité en cliquant sur l’icône **État d’intégrité** dans le coin supérieur gauche de la page pour voir quels composants sont défectueux, ou vous pouvez afficher les alertes d’intégrité de la machine virtuelle déclenchées par un composant défectueux classées par gravité de l’alerte.    
+Sur la page **Machines virtuelles**, si vous sélectionnez le nom d’une machine virtuelle dans la colonne **Nom de machine virtuelle**, vous êtes redirigé vers la page de l’instance de machine virtuelle avec plus de détails sur les alertes et les problèmes de critères d’intégrité identifiés qui affectent la machine virtuelle sélectionnée.  À partir de là, vous pouvez filtrer les détails de l’état d’intégrité en cliquant sur l’icône **État d’intégrité** dans le coin supérieur gauche de la page pour connaître les composants défectueux, ou vous pouvez visualiser les alertes d’intégrité de la machine virtuelle déclenchées par un composant défectueux et classées par gravité d’alerte.    
 
 Dans la vue liste de la machine virtuelle, cliquez sur le nom d’une machine virtuelle pour ouvrir la page d’**intégrité** correspondant à cette machine virtuelle sélectionnée, de la même façon que si vous aviez sélectionné **Insights (préversion)** directement depuis la machine virtuelle.
 
@@ -153,10 +153,10 @@ Sélectionnez **Afficher tous les critères d’intégrité** pour ouvrir une pa
 
 * **Catégorie** - Type de critère d’intégrité utilisé pour grouper des critères de type similaire à des fins de création de rapports.  Il s’agit de la **Disponibilité** ou des **Performances**.
 
-Vous pouvez descendre encore plus dans la hiérarchie pour afficher les instances défectueuses en cliquant sur une valeur de la colonne **Composant défectueux**.  Dans la page, un tableau répertorie les composants qui se trouvent dans un état d’intégrité critique.    
+Vous pouvez descendre encore plus dans la hiérarchie pour afficher les instances défectueuses en cliquant sur une valeur de la colonne **Composant défectueux**.  Sur la page, un tableau répertorie les composants qui présentent un état d’intégrité critique.    
 
 ## <a name="health-diagnostics"></a>Diagnostics d'intégrité
-La page **Diagnostics d’intégrité** vous permet de voir tous les composants de la machine virtuelle, les critères d’intégrité associé, les changements d’état et autres problèmes importants rencontrés par la supervision des objets liés à la machine virtuelle. 
+La page **Diagnostics d’intégrité** vous permet de voir tous les composants de la machine virtuelle, les critères d’intégrité associés, les changements d’état et autres problèmes importants rencontrés par la supervision des objets liés à la machine virtuelle. 
 
 ![Exemple de page de Diagnostics d’intégrité pour une machine virtuelle](./media/monitoring-vminsights-health/health-diagnostics-page-01.png)
 
@@ -175,7 +175,7 @@ Les diagnostics d’intégrité classent les informations d’intégrité dans l
  
 Tous les critères d’intégrité définis pour une cible sélectionnée s’affichent dans la catégorie appropriée. 
 
-L’état d’intégrité pour les critères d’intégrité est défini par l’un des trois états suivants : *Critique*, *Avertissement* et *Sain*. Il existe un autre état, *Inconnu*, qui n’est pas associé à l’état d’intégrité, mais correspond à son état de supervision connu par la fonctionnalité.  
+L’état d’intégrité relatif aux critères d’intégrité peut prendre l’une des trois valeurs suivantes : *Critique*, *Avertissement* ou *Sain*. Il existe un autre état, *Inconnu*, qui n’est pas associé à l’état d’intégrité, mais correspond à son état de supervision connu par la fonctionnalité.  
 
 Le tableau suivant fournit des détails sur les États d’intégrité représentés dans les diagnostics d’intégrité.
 
@@ -197,7 +197,7 @@ La page de diagnostics d’intégrité comporte trois sections principales :
 ### <a name="component-model"></a>Modèle de composant
 La colonne la plus à gauche dans la page de diagnostics d’Intégrité est le modèle de composant. Tous les composants ainsi que ses instances détectées associées à la machine virtuelle sont affichés dans cette colonne. 
 
-Dans l’exemple suivant, les composants détectés sont le disque, le disque logique, le processeur, la mémoire et le système d’exploitation. Plusieurs instances de ces composants sont découvertes et affichées dans cette colonne, avec deux instances de disques logiques **/**, **/boot**, et **/mnt/resource**, une instance de la carte réseau **eth0**, deux instances de disque **sda** et **sdb**, deux instances de processeur **0 et 1** et un **Serveur Linux Red Hat Enterprise version 7.4 (Maipo) (système d’exploitation)**. 
+Dans l’exemple suivant, les composants détectés sont le disque, le disque logique, le processeur, la mémoire et le système d’exploitation. Plusieurs instances de ces composants sont découvertes et affichées dans cette colonne, avec deux instances de disque logique **/**, **/boot** et **/mnt/resource**, une instance de la carte réseau **eth0**, deux instances de disque **sda** et **sdb**, deux instances de processeur **0 et 1**, ainsi qu’un **Serveur Red Hat Enterprise Linux version 7.4 (Maipo) (système d’exploitation)**. 
 
 ![Exemple de modèle de composant présenté dans les diagnostics d’intégrité](./media/monitoring-vminsights-health/health-diagnostics-page-component.png)
 
@@ -208,7 +208,7 @@ La colonne centrale de la page de diagnostics d’intégrité est la colonne **C
 
 Un critère d’intégrité mesure l’intégrité de l’instance surveillée selon certains critères, par exemple une valeur de seuil ou l’état d’une entité, etc. Un critère d’intégrité comporte deux ou trois états d’intégrité, comme décrit dans la section ci-dessus. À un moment donné, le critère d’intégrité ne peut être que dans l’un de ses états potentiels. 
 
-L’intégrité globale d’une cible est déterminée à partir de l’intégrité de chacune de ses critères d’intégrité définis dans le modèle d’intégrité. Il s’agit d’une combinaison des critères d’intégrité concernant directement la cible, les critères d’intégrité concernant les composants se regroupant au niveau de la cible via un critère de d’intégrité de dépendance. Cette hiérarchie est illustrée dans la section **Critères d’intégrité** de la page des Diagnostics d’intégrité. La stratégie pour le regroupement de l’intégrité fait partie de la configuration des critères d’intégrité d’agrégat et de dépendance. Vous trouverez une liste de l’ensemble par défaut des critères d’intégrité exécutés dans le cadre de cette fonctionnalité dans la section [Surveillance des détails de configuration](#monitoring-configuration-details).  
+L’intégrité globale d’une cible est déterminée à partir de l’intégrité de chacune de ses critères d’intégrité définis dans le modèle d’intégrité. Il s’agit d’une combinaison des critères d’intégrité concernant directement la cible, les critères d’intégrité concernant les composants se regroupant au niveau de la cible via un critère de d’intégrité de dépendance. Cette hiérarchie est illustrée dans la section **Critères d’intégrité** de la page des Diagnostics d’intégrité. La stratégie de Rollup d’intégrité fait partie intégrante de la configuration des critères d’intégrité d’agrégat et de dépendance. Vous trouverez une liste de l’ensemble par défaut des critères d’intégrité exécutés dans le cadre de cette fonctionnalité dans la section [Surveillance des détails de configuration](#monitoring-configuration-details).  
 
 Dans l’exemple suivant, le critère d’intégrité d’agrégat **Rollup des services Windows principaux** pour une machine virtuelle basée sur Windows, évalue l’intégrité des services Windows les plus importants en fonction des critères d’intégrité de service individuels. L’état de chaque service (DNS, DHCP, etc.) est évalué et l’intégrité est regroupée au niveau du critère d’intégrité du rollup correspondant (comme indiqué ci-dessous).  
 
@@ -228,7 +228,8 @@ Dans le panneau de configuration pour les critères d’intégrité sélectionn�
 
 ![Exemple de configuration d’un critère d’intégrité d’un moniteur d'unités](./media/monitoring-vminsights-health/health-diagnostics-linuxvm-example-04.png)
 
-
+Pour plus d’informations sur l’indicateur d’intégrité, vous pouvez consulter les articles de la base de connaissances qui sont inclus pour vous aider à identifier les problèmes, les causes et les mesures de résolution.  Il vous suffit de cliquer sur le lien **Afficher les informations** figurant sur la page pour que votre navigateur affiche un nouvel onglet vous présentant l’article de la base de connaissances correspondant.  Vous pouvez à tout moment consulter l’ensemble des articles de la base de connaissances relatifs aux critères d’intégrité qui sont disponibles pour la fonctionnalité de contrôle d’intégrité d’Azure Monitor pour les machines virtuelles en cliquant [ici](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+  
 ### <a name="state-changes"></a>Changements d'état
 La colonne la plus à droite dans la page de diagnostics d’intégrité est la colonne **Changements d’état**. Elle répertorie toutes les modifications d’état associées aux critères d’intégrité sélectionnés dans la section **Critères d’intégrité**, ou les modifications d’état de la machine virtuelle si une machine virtuelle était sélectionnée dans le **Modèle de composant** ou la colonne **Critères d’intégrité** de la table. 
 
@@ -273,4 +274,4 @@ La page **Détails de l’alerte** s’affiche lorsque vous sélectionnez une al
 Vous pouvez également modifier l’état de l’alerte pour une ou plusieurs alertes en les sélectionnant puis en sélectionnant **Modifier l’état** depuis la page **Toutes les alertes**, dans le coin supérieur gauche. Dans le volet **Modifier l’état de l’alerte**, sélectionnez l’un des états, ajoutez une description de la modification dans le champ **Commentaire**, puis cliquez sur **Ok** pour valider vos modifications. Pendant que les informations sont vérifiées et les modifications appliquées, vous pouvez suivre la progression sous **Notifications** dans le menu.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour identifier les goulots d’étranglement et les performances d’utilisation globales avec les performances de vos machines virtuelles, consultez [View Azure Monitor for VMs Performance](monitoring-vminsights-performance.md) (Examiner les performances avec Azure Monitor pour les machines virtuelles). Pour afficher les dépendances d’application découvertes, consultez [View Azure Monitor for VMs Map](monitoring-vminsights-maps.md) (Afficher Azure Monitor pour les cartes VM). 
+Pour identifier les goulots d’étranglement et les performances d’utilisation globale avec vos machines virtuelles, consultez l’article indiquant comment [afficher les performances avec Azure Monitor pour les machines virtuelles](monitoring-vminsights-performance.md). Pour visualiser les dépendances d’application découvertes, consultez l’article expliquant comment [afficher la fonctionnalité Map d’Azure Monitor pour les machines virtuelles](monitoring-vminsights-maps.md). 

@@ -1,21 +1,21 @@
 ---
-title: Comment importer une base de connaissances - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: Migrer des bases de connaissances en préversion - Qna Maker
+titleSuffix: Azure Cognitive Services
 description: Comment importer une base de connaissances
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: ce8f98f9bdb37d5f326e942fe5b5e815e5272c56
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35370880"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031626"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 QnA Maker a annoncé la disponibilité générale le 7 mai 2018 à la conférence \\\build\. QnA Maker GA dispose d’une nouvelle architecture qui repose sur Azure. Les bases de connaissances créées avec QnA Maker Free Preview doivent être migrées vers QnA Maker GA. QnA Maker Preview sera déconseillé à partir de novembre 2018. Pour plus d’informations sur les modifications apportées dans QnA Maker GA, consultez le [billet de blog](https://aka.ms/qnamakerga-blog) de QnA Maker.

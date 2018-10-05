@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 05ce8c932e9d3d812e34e23c082d459c3193ea40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f720c8921a9a49e76465cce1c8226232fdb12ea
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608499"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096239"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Démarrage rapide : Intégrer un compte de stockage Azure à Azure CDN
 Dans ce guide de démarrage rapide, vous allez activer [Azure Content Delivery Network (CDN)](cdn-overview.md) pour mettre en cache le contenu du stockage Azure. Azure CDN offre aux développeurs une solution globale pour fournir du contenu à bande passante élevée. Il peut mettre en cache les objets blob et le contenu statique des instances de calcul au niveau de nœuds physiques aux États-Unis, ainsi qu’en Europe, Asie, Australie et Amérique du Sud.
@@ -70,7 +70,7 @@ Vous pouvez utiliser plusieurs méthodes pour créer un compte de stockage, y co
     | -------- | ----- |
     | **Modèle de déploiement** | Utilisez la valeur par défaut. |
     | **Type de compte** | Utilisez la valeur par défaut. |
-    | **Lieu**    | Sélectionnez **Centre des États-Unis** dans la liste déroulante. |
+    | **Lieu**    | Sélectionnez **USA Centre** dans la liste déroulante. |
     | **Réplication** | Utilisez la valeur par défaut. |
     | **Performances** | Utilisez la valeur par défaut. |
     | **Transfert sécurisé requis** | Utilisez la valeur par défaut. |
@@ -84,7 +84,7 @@ Vous pouvez utiliser plusieurs méthodes pour créer un compte de stockage, y co
 
 ## <a name="enable-azure-cdn-for-the-storage-account"></a>Activer Azure CDN pour le compte de stockage
 
-Vous pouvez activer Azure CDN pour votre compte de stockage directement depuis votre compte de stockage. Si vous souhaitez spécifier des paramètres de configuration avancés pour votre point de terminaison CDN, notamment le type d’optimisation, vous pouvez utiliser à la place [l’extension Azure CDN](cdn-create-new-endpoint.md) pour créer un profil CDN ou un point de terminaison CDN.
+Vous pouvez activer Azure CDN pour votre compte de stockage directement depuis votre compte de stockage. Si vous souhaitez spécifier des paramètres de configuration avancés pour votre point de terminaison CDN, notamment [l’optimisation du téléchargement des fichiers volumineux](cdn-optimization-overview.md#large-file-download), vous pouvez utiliser à la place [l’extension Azure CDN](cdn-create-new-endpoint.md) pour créer un profil et un point de terminaison CDN.
 
 1. Sélectionnez un compte de stockage à partir du tableau de bord, puis sélectionnez **Azure CDN** dans le volet gauche. Si le bouton **Azure CDN** n’est pas visible immédiatement, vous pouvez saisir CDN dans la zone de **recherche** du volet gauche pour le trouver.
     
@@ -109,6 +109,9 @@ Vous pouvez activer Azure CDN pour votre compte de stockage directement depuis v
 Sur la page **Azure CDN** du compte de stockage, sélectionnez le point de terminaison CDN dans la liste pour ouvrir la page de configuration du point de terminaison CDN. À partir de cette page, vous pouvez activer des fonctionnalités supplémentaires du CDN pour la livraison, comme la [compression](cdn-improve-performance.md), la [mise en cache des chaînes de requête](cdn-query-string.md) et le [filtrage géographique](cdn-restrict-access-by-country.md). 
     
 ![Configuration du point de terminaison CDN de stockage](./media/cdn-create-a-storage-account-with-cdn/cdn-storage-endpoint-configuration.png)
+
+## <a name="enable-sas"></a>Activer la signature d’accès partagé
+Si vous souhaitez accorder un accès limité à des conteneurs de stockage privé, vous pouvez utiliser la fonctionnalité de signature d’accès partagé (SAP) de votre compte de stockage Azure. Une SAP est un URI qui octroie des droits d’accès restreints à vos ressources Stockage Azure sans exposer votre clé de compte. Pour plus d’informations, consultez [Utilisation d’Azure CDN avec une signature d’accès partagé](cdn-sas-storage-support.md).
 
 ## <a name="access-cdn-content"></a>Accès au contenu du CDN
 Pour accéder au contenu mis en cache sur le CDN, utilisez l’URL CDN fournie dans le portail. L’adresse d’un objet blob mis en cache est au format suivant :
@@ -139,8 +142,8 @@ Au cours des étapes précédentes, vous avez créé un profil et un point de te
 3. Pour supprimer votre compte de stockage, sélectionnez-le dans le tableau de bord, puis sélectionnez **Supprimer** dans le menu supérieur.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur l’ajout d’un domaine personnalisé à votre point de terminaison CDN, consultez le didacticiel suivant :
+Pour en savoir plus sur l’ajout d’un domaine personnalisé et l’activation du protocole HTTPS sur votre point de terminaison CDN, consultez le tutoriel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Ajouter un domaine personnalisé à un point de terminaison Azure CDN](cdn-map-content-to-custom-domain.md)
+> [Tutoriel : Accéder aux objets blob de stockage à l’aide d’un domaine personnalisé Azure CDN sur HTTPS](cdn-storage-custom-domain-https.md)
 

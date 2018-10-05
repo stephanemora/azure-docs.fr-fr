@@ -9,16 +9,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9aa61e95eb808c38646fa9b8cefd4004f5477ee6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2b6dfe7c8f8ac8d7207659b848abecd04f56c232
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974661"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181440"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Développer des fonctions définies par l’utilisateur .NET Standard pour des travaux de périphérie Azure Stream Analytics (préversion)
 
-Azure Stream Analytics offre un langage de requête de type SQL pour effectuer des transformations et des calculs sur des flux de données d’événement. De nombreuses fonctions sont intégrées, mais certains scénarios complexes nécessitent davantage de flexibilité. Avec les fonctions .NET Standard définies par l’utilisateur, vous pouvez appeler vos propres fonctions écrites dans n’importe quel langage .NET Standard (C#, F#, etc.) pour étendre le langage de requête Stream Analytics. Les fonctions définies par l’utilisateur vous permettent d’effectuer des calculs mathématiques complexes, d’importer des modèles Machine Learning personnalisés à l’aide de ML.NET et d’utiliser une logique personnalisée d’imputation pour les données manquantes. La fonctionnalité de fonction définie par l’utilisateur pour les travaux de périphérie Stream Analytics est actuellement disponible en préversion et ne doit pas être utilisée dans les charges de travail de production.
+Azure Stream Analytics offre un langage de requête de type SQL pour effectuer des transformations et des calculs sur des flux de données d’événement. De nombreuses fonctions sont intégrées, mais certains scénarios complexes nécessitent davantage de flexibilité. Avec les fonctions .NET Standard définies par l’utilisateur, vous pouvez appeler vos propres fonctions écrites dans n’importe quel langage .NET Standard (C#, F#, etc.) pour étendre le langage de requête Stream Analytics. Les fonctions définies par l’utilisateur vous permettent d’effectuer des calculs mathématiques complexes, d’importer des modèles Machine Learning personnalisés à l’aide de ML.NET et d’utiliser une logique personnalisée d’imputation pour les données manquantes. La fonctionnalité de fonction définie par l’utilisateur pour les travaux de périphérie Stream Analytics étant disponible en préversion, elle ne doit pas être utilisée dans les charges de travail de production.
 
 ## <a name="overview"></a>Vue d’ensemble
 Grâce aux outils Visual Studio pour Azure Stream Analytics, vous pouvez facilement écrire des fonctions définies par l’utilisateur, tester vos travaux localement (même en mode hors connexion) et publier votre travail Stream Analytics dans Azure. Une fois publié sur Azure, vous pouvez déployer votre travail sur des appareils IoT à l’aide d’IoT Hub.
@@ -31,7 +31,7 @@ Il existe trois façons d’implémenter des fonctions définies par l’utilisa
 
 ## <a name="package-path"></a>Chemin du package
 
-Le format d’un package de fonction définie par l’utilisateur a le chemin `/UserCustomCode/CLR/*`. Les bibliothèques de liens dynamiques (DLL) et les ressources sont copiées sous le dossier `/UserCustomCode/CLR/*`, qui permet d’isoler les DLL utilisateur du système et les DLL Azure Stream Analytics.
+Le format d’un package de fonction définie par l’utilisateur a le chemin `/UserCustomCode/CLR/*`. Les bibliothèques de liens dynamiques (DLL) et les ressources sont copiées sous le dossier `/UserCustomCode/CLR/*`, qui permet d’isoler les DLL utilisateur du système et les DLL Azure Stream Analytics. Ce chemin du package est utilisé pour toutes les fonctions, quelle que soit la méthode d’utilisation choisie.
 
 ## <a name="supported-types-and-mapping"></a>Types pris en charge et mappage
 
@@ -59,10 +59,10 @@ Pour référencer un projet local :
 
 1. Créez une bibliothèque de classes dans votre solution.
 2. Écrivez le code dans votre classe. Toutes les classes doivent être définies comme étant *publiques* et tous les objets comme étant *publics statiques*. 
-3. Générez votre projet.
+3. Générez votre projet. Les outils créent un fichier zip contenant tous les artefacts du dossier bin, puis chargent ce fichier zip dans le compte de stockage. Pour les références externes, utilisez la référence d’assembly au lieu du package NuGet.
 4. Référencez la nouvelle classe dans votre projet Azure Stream Analytics.
 5. Ajoutez une nouvelle fonction dans votre projet Azure Stream Analytics.
-6. Configurez le chemin d’assembly dans le fichier de configuration du travail, `EdgeJobConfig.json`.
+6. Configurez le chemin d’assembly dans le fichier de configuration du travail, `JobConfig.json`. Définissez le chemin d’assembly sur **Référence de projet locale ou code-behind**.
 7. Regénérez le projet de fonction et le projet Azure Stream Analytics.  
 
 ### <a name="example"></a>Exemples
@@ -109,19 +109,19 @@ Vous pouvez créer des fonctions définies par l’utilisateur .NET Standard dan
 
 Une fois les packages zip d’assemblys chargés dans votre compte de stockage Azure, vous pouvez utiliser les fonctions dans des requêtes Azure Stream Analytics. Il vous suffit d’inclure les informations de stockage dans la configuration du travail de périphérie Stream Analytics. Vous ne pouvez pas tester la fonction localement à l’aide de cette option, car les outils Visual Studio ne téléchargent pas votre package. Le chemin du package est analysé directement par le service. 
 
-Pour configurer le chemin d’assembly dans le fichier de configuration du travail, EdgeJobConfig.json :
+Pour configurer le chemin d’assembly dans le fichier de configuration du travail, `JobConfig.json` :
 
-Développez la section **Configuration du code défini par l’utilisateur** et remplissez la configuration avec les valeurs suggérées suivantes :
+Développez la section **Configuration du code défini par l’utilisateur** et remplissez la configuration avec les valeurs suggérées suivantes :
 
  |**Paramètre**  |**Valeur suggérée**  |
  |---------|---------|
- |Source de l’assembly  |  Référence de projet local ou code-behind   |
+ |Source de l’assembly  | Packages d’assembly existants du cloud    |
  |Ressource  |  Choisissez des données du compte actuel   |
  |Abonnement  |  Choisissez votre abonnement.   |
  |Compte de stockage  |  Choisissez votre compte de stockage.   |
  |Conteneur  |  Choisissez le conteneur que vous avez créé dans votre compte de stockage.   |
 
-    ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+![Configuration du travail de périphérie Azure Stream Analytics dans Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
 ## <a name="limitations"></a>Limites
 La préversion des fonctions définies par l’utilisateur a les limitations suivantes :

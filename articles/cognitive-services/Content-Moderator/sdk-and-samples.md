@@ -1,20 +1,21 @@
 ---
-title: Kits de développement logiciel (SDK) et exemples Content Moderator dans Azure Content Moderator | Microsoft Docs
+title: 'SDK et exemples : Content Moderator, Python, Java, Node.js et .NET'
+titlesuffix: Azure Cognitive Services
 description: Obtenir des kits de développement logiciel (SDK) et des exemples Content Moderator
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: sample
 ms.date: 02/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 40b8fc0f63383e837f0813f876f20806e6e8c6eb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a57f6a312b00d7ec3d927c6fda319f1de8663c9c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368080"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220446"
 ---
 # <a name="content-moderator-sdks-and-samples"></a>Kits de développement logiciel (SDK) et exemples Content Moderator
 
@@ -27,36 +28,36 @@ ms.locfileid: "35368080"
 
 ## <a name="net-sdk-samples"></a>Exemples du Kit de développement logiciel .NET
 
-La liste suivante inclut des liens vers des exemples de code générés à l’aide du Kit de développement logiciel (SDK) Azure Content Moderator pour .NET.
+La liste suivante inclut des liens vers des exemples de code générés à l’aide du kit SDK Azure Content Moderator pour .NET.
 
 - **Bibliothèque d’assistance** : [Créer un client Content Moderator pour une utilisation dans d’autres exemples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). Consultez le guide de [démarrage rapide](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="moderation"></a>Modération 
-- **Modération d’image** : [Évaluer le contenu, le texte ou les visages osés ou choquants d’une image](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs). Consultez le guide de [démarrage rapide](image-moderation-quickstart-dotnet.md).
+- **Modération des images** : [Évaluer le contenu, le texte ou les visages osés ou choquants d’une image](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageModeration/Program.cs). Consultez le guide de [démarrage rapide](image-moderation-quickstart-dotnet.md).
 - **Images personnalisées** : [Modérer avec des listes d’images personnalisées](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageListManagement/Program.cs). Consultez le guide de [démarrage rapide](image-lists-quickstart-dotnet.md).
 
 > [!NOTE]
 > Il existe une limite maximale de **5 listes d’images**, chaque liste ne devant **pas dépasser 10 000 images**.
 >
 
-- **Modération de texte** : [Passer au crible du texte pour détecter des vulgarités et des informations d’identification personnelle (PII)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Consultez le guide de [démarrage rapide](text-moderation-quickstart-dotnet.md).
+- **Modération de texte** : [Passer au crible du texte pour détecter les propos injurieux et les informations d’identification personnelle (PII)](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs). Consultez le guide de [démarrage rapide](text-moderation-quickstart-dotnet.md).
 - **Termes personnalisés** : [Modérer avec des listes de termes personnalisés](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs). Consultez le guide de [démarrage rapide](term-lists-quickstart-dotnet.md).
 
 > [!NOTE]
 > Il existe une limite maximale de **5 listes de termes**, chaque liste ne devant **pas dépasser 10 000 termes**.
 >
 
-- **Modération de vidéo** : [Analyser une vidéo pour détecter du contenu osé ou choquant et obtenir des résultats](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Consultez le guide de [démarrage rapide](video-moderation-api.md).
+- **Modération des vidéos** : [Analyser une vidéo pour détecter du contenu osé ou choquant et obtenir des résultats](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoModeration/Program.cs). Consultez le guide de [démarrage rapide](video-moderation-api.md).
 
-### <a name="review"></a>Examen
-- **Travaux d’image** : [Démarrer un travail de modération qui analyse et crée des examens](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Consultez le guide de [démarrage rapide](moderation-jobs-quickstart-dotnet.md).
-- **Examens d’images** : [Créer des examens pour une intervention humaine](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Consultez le guide de [démarrage rapide](moderation-reviews-quickstart-dotnet.md).
-- **Examens de vidéo** : [Créer des examens de vidéo pour une intervention humaine](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Consultez le guide de [démarrage rapide](video-reviews-quickstart-dotnet.md)
-- **Examens de transcription de vidéo** : [Créer des examens de transcription de vidéo pour une intervention humaine.](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs) Consultez le guide de [démarrage rapide](video-reviews-quickstart-dotnet.md)
+### <a name="review"></a>Révision
+- **Travaux d’image** : [Démarrer un travail de modération qui analyse et crée des révisions](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Consultez le guide de [démarrage rapide](moderation-jobs-quickstart-dotnet.md).
+- **Révisions des images** : [Créer des révisions pour une intervention humaine](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Consultez le guide de [démarrage rapide](moderation-reviews-quickstart-dotnet.md).
+- **Révisions des vidéos** : [Créer des révisions des vidéos pour une intervention humaine](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Consultez le guide de [démarrage rapide](video-reviews-quickstart-dotnet.md)
+- **Révisions de la transcription des vidéos** : [Créer des révisions de la transcription des vidéos pour une intervention humaine.](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs) Consultez le guide de [démarrage rapide](video-reviews-quickstart-dotnet.md)
 
 Consultez tous les exemples .NET disponibles dans la rubrique [Exemples .NET Content Moderator sur GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).
 
-## <a name="rest-api-samples-in-c"></a>Exemples d’API REST dans C#
+## <a name="rest-api-samples-in-c"></a>Exemples d’API REST en C#
 
 - [Modération d’image](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/ImageModeration)
 - [Modération de texte](https://github.com/MicrosoftContentModerator/ContentModerator-API-Samples/tree/master/TextModeration)

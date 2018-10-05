@@ -1,21 +1,23 @@
 ---
 title: Détection de menaces - Azure SQL Database | Microsoft Docs
-description: Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données.
+description: Threat Detection permet de détecter les activités de base de données anormales indiquant la présence potentielle de menaces de sécurité pour une base de données unique ou un pool élastique.
 services: sql-database
-author: rmatchoro
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/17/2018
+author: rmatchoro
 ms.author: ronmat
-ms.reviewer: carlrab
-ms.openlocfilehash: 09ba4b3b72d5c82dc42199f2f883cedee6609bd2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: ed7a117d4422b3b3feddd7d2fafa5eabea43f9e5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649541"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164935"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Azure SQL Database Threat Detection
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c2ef24692f9166fdca7eb19f648aee9ed3b0514f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c3b9422ebdb0a5d93f92644d9fea5d9c5ba9fa29
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026277"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47186324"
 ---
 Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
 
@@ -39,12 +39,13 @@ Mise en cache du Stockage Premium : pris en charge
 Les tailles des machines virtuelles de la série ESv3 sont basées sur le processeur Intel XEON® v4-2.0 5GHz (Broadwell) de 2673 GHz, peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0 et utilisent un stockage premium. Les tailles des machines virtuelles de la série ESv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
 
 
-| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / MBps (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_E2s_v3 | 2      | 16          | 32             | 4              | 4 000 / 32 (50)                                                       | 3 200 / 48                                | 2 / 1 000                                   |
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8 000 / 64 (100)                                                      | 6 400 / 96                                | 2 / 2 000                                   |
 | Standard_E8s_v3&nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16 000 / 128 (200)                                                    | 12 800 / 192                              | 4 / 4 000                                       |
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32 000 / 256 (400)                                                    | 25 600 / 384                              | 8 / 8 000                                       |
+| Standard_E20s_v3&nbsp;<sup>2</sup> | 20     | 160         | 320            | 32             | 40 000 / 320 (400)                                                    | 32 000 / 480                              | 8 / 10 000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64 000 / 512 (800)                                                    | 51 200 / 768                              | 8 / 16 000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128 000/1 024 (1 600)                                                   | 80 000 / 1 200                             | 8 / 30 000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128 000/1 024 (1 600)                                                   | 80 000 / 1 200                             | 8 / 30 000                             |
@@ -70,12 +71,13 @@ Les tailles des machines virtuelles de la série Ev3 sont basées sur le proces
 Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format ESv3. Les tarifs et compteurs de facturation pour les tailles ESv3 sont identiques à ceux de la série Ev3. 
 
 
-| Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire local max : E/S par seconde MBps de lecture / MBps d’écriture | Cartes réseau (max)/Bande passante réseau |
+| Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Cartes réseau (max)/Bande passante réseau |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
 | Standard_E2_v3  | 2         | 16          | 50             | 4              | 3000/46/23                                               | 2 / 1 000                 |
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2 / 2 000                 |
 | Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4 / 4 000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8 000                     |
+| Standard_E20_v3 | 20        | 160         | 500            | 32             | 30000/469/234                                            | 8 / 10 000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16 000                 |
 | Standard_E64_v3 | 64        | 432         | 1 600           | 32             | 96000/1000/500                                           | 8 / 30 000           |
 | Standard_E64i_v3&nbsp;<sup>2,&nbsp;3</sup> | 64        | 432         | 1 600           | 32             | 96000/1000/500                                           | 8 / 30 000           |
@@ -97,7 +99,7 @@ Mise en cache du Stockage Premium : pris en charge
 
 Accélérateur d’écriture : [pris en charge](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-| Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / MBps (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+| Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10 000 / 100 (793)  | 5 000  / 125 | 4 / 2 000 |
 | Standard_M16ms&nbsp;<sup>3</sup>   | 16 | 437.5  | 512  | 16 | 20 000 / 200 (1,587) | 10 000 / 250 | 8 / 4 000 |
@@ -133,7 +135,7 @@ Stockage Premium : pris en charge
 
 Mise en cache du Stockage Premium : pris en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / MBps (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10 000 / 100 (264) |5 000 / 125 |2 / 2 000 |
 | Standard_GS2 |4 |56 |112 |16 |20 000 / 200 (528) |10 000 / 250 |2 / 4 000 |
@@ -177,7 +179,7 @@ Stockage Premium : pris en charge
 
 Mise en cache du Stockage Premium : pris en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / MBps (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11_v2&nbsp;<sup>3</sup> |2 |14 |28 |8 |8 000 / 64 (72) |6 400 / 96 |2 / 1 500 |
 | Standard_DS12_v2&nbsp;<sup>3</sup> |4 |28 |56 |16 |16 000 / 128 (144) |12 800 / 192 |4 / 3 000 |

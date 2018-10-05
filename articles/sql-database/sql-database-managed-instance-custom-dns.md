@@ -2,20 +2,22 @@
 title: DNS personnalisé d’Azure SQL Database Managed Instance | Microsoft Docs
 description: Cette rubrique détaille les options de configuration d’un DNS personnalisé avec Azure SQL Database Managed Instance.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/23/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 2d1bb7e8522da32dd33933261ea41b578f8afac1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: craigg
+ms.date: 09/23/2018
+ms.openlocfilehash: f26ea763d48d03fe7e981b7abbbe64e573ec0b3a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949483"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224271"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurer un DNS personnalisé pour Azure SQL Database Managed Instance
 
@@ -36,7 +38,7 @@ Pour rendre une configuration d’un DNS personnalisé compatible avec Managed I
    ![option DNS personnalisé](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Si vous ne renseignez pas le programme de résolution récursif d’Azure dans la liste DNS, Managed Instance renvoie un statut Défectueux. Pour récupérer de ce statut, vous devez créer une nouvelle instance dans un réseau virtuel avec les stratégies réseau conformes, créer des données de niveau d’instance et restaurer vos bases de données. Consultez l’article [Configuration de réseau virtuel](sql-database-managed-instance-vnet-configuration.md).
+   > Si vous ne définissez pas le programme de résolution récursif d’Azure dans la liste DNS, l’instance managée peut connaître une défaillance si les serveurs DNS personnalisés ne sont pas disponibles pour une raison quelconque. Pour récupérer de ce statut, vous devez créer une nouvelle instance dans un réseau virtuel avec les stratégies réseau conformes, créer des données de niveau d’instance et restaurer vos bases de données. Si vous définissez le programme de résolution récursif d’Azure comme la dernière entrée de la liste DNS, les noms publics continueront d’être résolus, même en cas de défaillance des serveurs DNS personnalisés. Consultez l’article [Configuration de réseau virtuel](sql-database-managed-instance-vnet-configuration.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

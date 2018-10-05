@@ -2,23 +2,31 @@
 title: Accès conditionnel - Azure SQL Database et Data Warehouse | Microsoft Docs
 description: Découvrez comment configurer l’accès conditionnel pour Azure SQL Database et Data Warehouse.
 services: sql-database
-author: GithubMirek
-manager: johammer
-ms.custom: security
 ms.service: sql-database
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: GithubMirek
 ms.author: mireks
-ms.openlocfilehash: 83762136659756204aab5da367b905f66e770087
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e7386e2f926132f5657bdb17011dafe1e1c7b101
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647457"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063079"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>Accès conditionnel (MFA) avec Azure SQL Database et Data Warehouse  
 
-SQL Database et SQL Data Warehouse prennent tous deux en charge l’accès conditionnel Microsoft. Les étapes suivantes montrent comment configurer SQL Database pour appliquer une stratégie d’accès conditionnel.  
+[Azure SQL Database](sql-database-technical-overview.md) et [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) prennent tous deux en charge l’accès conditionnel Microsoft. 
+
+> [!NOTE]
+> Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
+
+Les étapes suivantes montrent comment configurer SQL Database pour appliquer une stratégie d’accès conditionnel.  
 
 ## <a name="prerequisites"></a>Prérequis  
 - Vous devez configurer SQL Database ou SQL Data Warehouse pour prendre en charge l’authentification Azure Active Directory. Pour connaître la procédure spécifique, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md).  

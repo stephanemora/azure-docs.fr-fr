@@ -1,20 +1,21 @@
 ---
-title: Modérer du texte à l’aide de l’API Modération du texte dans Azure Content Moderator | Microsoft Docs
+title: Modérer du texte à l’aide de l’API Modération du texte - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Évaluez la modération du texte à l’aide de l’API Modération de texte dans la console en ligne.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: ed696c31a886626819414c45eb7995edaf161fff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95fd5507287a9294f4fca6af9cc5f01f0ea9fe1c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368736"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219785"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Modérer du texte à partir de la console d’API
 
@@ -38,7 +39,7 @@ Pour l’option **Open API testing console** (Ouvrir la console de test d’API)
 
 ## <a name="select-the-inputs"></a>Sélectionner les entrées
 
-### <a name="parameters"></a>Paramètres
+### <a name="parameters"></a>parameters
 Sélectionnez les paramètres de requête que vous voulez utiliser dans le passage au crible de votre texte. Pour cet exemple, utilisez la valeur par défaut pour le paramètre **language**. Vous pouvez également le laisser vide, car l’opération détecte automatiquement la langue probable dans le cadre de son exécution.
 
 > [!NOTE]

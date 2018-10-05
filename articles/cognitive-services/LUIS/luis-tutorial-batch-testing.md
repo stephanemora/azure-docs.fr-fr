@@ -1,51 +1,27 @@
 ---
-title: Utiliser le test par lot pour améliorer les prédictions dans LUIS | Microsoft Docs
-titleSuffix: Azure
-description: Charger le test par lot, examiner les résultats et améliorer les prédictions LUIS à l’aide de modifications.
+title: 'Tutoriel 2 : Tester par lot avec un jeu de 1000 énoncés '
+titleSuffix: Azure Cognitive Services
+description: Ce tutoriel montre comment utiliser des tests par lot pour rechercher et résoudre les problèmes de prédiction d’énoncés dans votre application.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 5abaeaee87d54e82df29e75b89c83522b8746730
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158243"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162536"
 ---
-# <a name="improve-app-with-batch-test"></a>Améliorer l’application avec le test de lot
+# <a name="tutorial-2-batch-test-data-sets"></a>Tutoriel 2 : Tester par lot des jeux de données
 
-Ce tutoriel montre comment utiliser le test par lot pour rechercher des problèmes de prédiction dans les énoncés.  
-
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-* Créer un fichier de test par lot 
-* Exécuter un test par lot
-* Examiner les résultats du test
-* Corriger les erreurs 
-* Tester à nouveau le lot
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Avant de commencer
-
-Si vous ne disposez pas de l’application Ressources humaines du tutoriel [Vérifier les énoncés de point de terminaison](luis-tutorial-review-endpoint-utterances.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application sur le site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
-
-Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `batchtest`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
-
-Effectuez l’apprentissage de l’application.
-
-## <a name="purpose-of-batch-testing"></a>Objectif du test de lot
+Ce tutoriel montre comment utiliser des tests par lot pour rechercher et résoudre les problèmes de prédiction d’énoncés dans votre application.  
 
 Les tests de lots permettent de valider l’état du modèle actif entraîné avec un ensemble connu d’entités et d’énoncés étiquetés. Dans le fichier de lot au format JSON, ajoutez les énoncés et définissez les étiquettes d’entités que vous voulez prédire au sein de l’énoncé. 
-
-<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Si vous utilisez une application autre que ce tutoriel, veillez à *ne pas* exploiter les exemples d’énoncés déjà ajoutés à une intention. Pour confronter les énoncés de votre test de lot aux exemples d’énoncés, [exportez](luis-how-to-start-new-app.md#export-app) l’application. Comparez les exemples d’énoncés de l’application aux énoncés du test de lot. 
 
 Exigences des tests de lots :
 
@@ -53,13 +29,42 @@ Exigences des tests de lots :
 * Pas de doublons. 
 * Types d’entités autorisées : seules les entités apprises automatiquement de type simple, hiérarchique (parent uniquement) et composite. Les tests de lots ne sont utiles que pour les entités et les intentions apprises automatiquement.
 
-## <a name="create-a-batch-file-with-utterances"></a>Créer un fichier de lot avec des énoncés
+Si vous utilisez une application autre que ce tutoriel, *n’utilisez pas* les exemples d’énoncés déjà ajoutés à une intention. 
 
-1. Créez `HumanResources-jobs-batch.json` dans un éditeur de texte comme [VSCode](https://code.visualstudio.com/). 
+**Dans ce tutoriel, vous allez effectuer les tâches suivantes :**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Utiliser l’application de tutoriel existante
+> * Créer un fichier de test par lot 
+> * Exécuter un test par lot
+> * Examiner les résultats du test
+> * Corriger les erreurs 
+> * Tester à nouveau le lot
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Utiliser l’application existante
+
+Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
+
+Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
+
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+
+2. Importez le code JSON dans une nouvelle application.
+
+3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `batchtest`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
+
+4. Effectuez l’apprentissage de l’application.
+
+## <a name="batch-file"></a>Fichier de commandes
+
+1. Créez `HumanResources-jobs-batch.json` dans un éditeur de texte ou [téléchargez-le](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json). 
 
 2. Dans le fichier de lot au format JSON, ajoutez des énoncés avec **l’intention** à prédire dans le test. 
 
-   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>Exécuter le test par lot
 
@@ -73,13 +78,13 @@ Exigences des tests de lots :
 
     [ ![Capture d’écran de l’application LUIS avec Importer le jeu de données en surbrillance](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. Choisissez l’emplacement du fichier `HumanResources-jobs-batch.json` dans le système de fichiers.
+4. Choisissez l’emplacement du fichier `HumanResources-jobs-batch.json`.
 
 5. Nommez le jeu de données `intents only` et sélectionnez **Terminé**.
 
     ![Sélectionner un fichier](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
-6. Sélectionnez le bouton **Exécuter**. Attendez la fin du test.
+6. Sélectionnez le bouton **Exécuter**. 
 
 7. Sélectionnez **Afficher les résultats**.
 
@@ -109,7 +114,7 @@ Comme on peut le constater, les deux intentions comportent le même nombre d’e
 
 Les énoncés correspondant au point le plus élevé de la section **Faux positif** sont `Can I apply for any database jobs with this resume?` et `Can I apply for any database jobs with this resume?`. Dans le premier, le mot `resume` n’a été utilisé que dans **ApplyForJob**. Même chose pour le second, dont le mot `apply` n’a servi que pour l’intention **ApplyForJob**.
 
-## <a name="fix-the-app-based-on-batch-results"></a>Corriger l’application en fonction des résultats du test par lot
+## <a name="fix-the-app"></a>Corriger l’application
 
 L’objectif de cette section est de corriger l’application afin que tous les énoncés soient correctement prédits pour **GetJobInformation**. 
 
@@ -119,7 +124,7 @@ On peut aussi envisager de supprimer des énoncés de **ApplyForJob** jusqu’à
 
 La première correction consiste à ajouter des énoncés à **GetJobInformation**. La deuxième supposera de réduire le poids de mots tels que `resume` et `apply` pour l’intention **ApplyForJob**. 
 
-### <a name="add-more-utterances-to-getjobinformation"></a>Ajoutez des énoncés à **GetJobInformation**.
+### <a name="add-more-utterances"></a>Ajouter des énoncés
 
 1. Fermez le panneau de test de lot en sélectionnant le bouton **Tester** dans le volet de navigation supérieur. 
 
@@ -149,7 +154,7 @@ La première correction consiste à ajouter des énoncés à **GetJobInformation
 
 4. Effectuez l’apprentissage de l’application en sélectionnant **Effectuer l’apprentissage** dans le volet de navigation supérieur droit.
 
-## <a name="verify-the-fix-worked"></a>Vérifier que la correction a fonctionné
+## <a name="verify-the-new-model"></a>Vérifier le nouveau modèle
 
 Pour vérifier que les énoncés du test de lot sont correctement prédits, réexécutez le test de lot.
 
@@ -171,12 +176,12 @@ Il est préférable de commencer à écrire et à tester des fichiers de lots av
 
 La valeur d’une entité **Job**, fournie dans les énoncés de test, est généralement composée d’un ou deux mots, ou plus dans quelques exemples. Si _votre_ application de ressources humaines comporte en général des noms de postes longs, les exemples d’énoncés étiquetés avec l’entité **Job** dans cette application ne fonctionneront pas correctement.
 
-1. Créez `HumanResources-entities-batch.json` dans un éditeur de texte comme [VSCode](https://code.visualstudio.com/). Vous pouvez également télécharger [le fichier](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) dans le référentiel GitHub LUIS-Samples.
+1. Créez `HumanResources-entities-batch.json` dans un éditeur de texte comme [VSCode](https://code.visualstudio.com/) ou [téléchargez-le](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json).
 
 
 2. Dans le fichier de lot au format JSON, ajoutez un tableau d’objets comportant des énoncés liés à **l’Intention** à prédire dans le test, ainsi que les emplacements des éventuelles entités de l’énoncé. Dans la mesure où les entités se présentent sous forme de tokens, commencez-les et terminez-les par un caractère et non par un espace, car cela provoquerait une erreur lors de l’importation du fichier de lot.  
 
-   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
 
 ## <a name="run-the-batch-with-entities"></a>Exécuter le lot avec des entités
@@ -222,15 +227,13 @@ Il ne vous reste plus qu’à effectuer l’une de ces tâches.
 
 Le fait d’ajouter un [modèle](luis-concept-patterns.md) avant que l’entité ne soit correctement prédite ne résoudra pas le problème. En effet, le modèle n’aura pas de correspondance tant que toutes ses entités n’auront pas été détectées. 
 
-## <a name="what-has-this-tutorial-accomplished"></a>Conclusion du tutoriel
-
-La précision des prédictions de l’application a augmenté grâce à l’identification des erreurs dans le lot et à la correction du modèle. 
-
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Le tutoriel a utilisé un test par lot pour rechercher les problèmes au niveau du modèle actuel. Le modèle a été corrigé et retesté avec le fichier de commandes pour vérifier que la modification était correcte.
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur les modèles](luis-tutorial-pattern.md)

@@ -5,28 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/20/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: abd4a3b21ede2ddbdede2ec133938d412d5d4c8d
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 6354d89ff5a23ccb51b85737b3a842c08534683e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248163"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223608"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Utiliser une identité Azure AD pour accéder à Stockage Azure avec CLI ou PowerShell (préversion)
 
-Stockage Azure fournit des extensions en préversion pour Azure CLI et PowerShell qui vous permettent de vous connecter et d’exécuter des commandes de script sous une identité Azure Active Directory (Azure AD). L’identité Azure AD peut être un utilisateur, un groupe ou un principal du service d’application, ou il peut s’agir d’une [identité de service managée](../../active-directory/managed-service-identity/overview.md). Vous pouvez affecter des autorisations d’accès aux ressources de stockage à l’identité Azure AD via le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur les rôles RBAC dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec RBAC (préversion)](storage-auth-aad-rbac.md).
+Stockage Azure fournit des extensions en préversion pour Azure CLI et PowerShell qui vous permettent de vous connecter et d’exécuter des commandes de script sous une identité Azure Active Directory (Azure AD). L’identité Azure AD peut être un utilisateur, un groupe ou un principal du service d’application, ou il peut s’agir d’une [identité de service managée](../../active-directory/managed-identities-azure-resources/overview.md). Vous pouvez affecter des autorisations d’accès aux ressources de stockage à l’identité Azure AD via le contrôle d’accès en fonction du rôle (RBAC). Pour plus d’informations sur les rôles RBAC dans Stockage Azure, consultez [Gérer les droits d’accès aux données Stockage Azure avec RBAC (préversion)](storage-auth-aad-rbac.md).
 
 Lorsque vous vous connectez à Azure CLI ou PowerShell avec une identité Azure AD, un jeton d’accès est retourné pour accéder à Stockage Azure sous cette identité. Ce jeton est ensuite utilisé automatiquement par CLI ou PowerShell pour autoriser les opérations dans Stockage Azure. Pour les opérations prises en charge, vous n’avez plus besoin de fournir une clé de compte ou le jeton SAP avec la commande.
 
-> [!IMPORTANT]
-> Cette préversion est destinée à une utilisation hors production uniquement. Les contrats SLA (contrats de niveau de service) de production ne sont pas disponibles tant que l’intégration d’Azure AD pour le Stockage Azure n’est pas officiellement disponible de manière générale. Si l’intégration d’Azure AD n’est pas encore prise en charge pour votre scénario, continuez à utiliser l’autorisation basée sur une clé partagée ou les jetons SAP dans vos applications. Pour plus d’informations sur la préversion, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory (préversion)](storage-auth-aad.md).
->
-> Pendant la préversion, la propagation des attributions de rôles RBAC peut prendre jusqu’à cinq minutes.
->
-> L’intégration d’Azure AD avec Stockage Azure nécessite l’utilisation d’HTTPS pour les opérations de Stockage Azure.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="supported-operations"></a>Opérations prises en charge
 
@@ -61,40 +56,50 @@ La variable d’environnement associée au paramètre `--auth-mode` est `AZURE_S
 
 ## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>Appeler des commandes PowerShell avec une identité Azure AD
 
+Azure PowerShell prend en charge les connexions avec une identité Azure AD pour l’un des modules en préversion suivants : 
+
+- 4.4.0-preview 
+- 4.4.1-preview 
+
 Pour utiliser Azure PowerShell pour vous connecter avec une identité Azure AD :
 
-1. Vérifiez que la dernière version de PowerShellGet est installée. Exécutez la commande suivante pour installer la dernière version :
+1. Désinstallez les installations précédentes d’Azure PowerShell :
+
+    - Supprimez toutes les anciennes installations d’Azure PowerShell de Windows à l’aide du paramètre **Applications et fonctionnalités** situé sous **Paramètres**.
+    - Supprimez tous les modules **Azure*** de `%Program Files%\WindowsPowerShell\Modules`.
+
+1. Vérifiez que la dernière version de PowerShellGet est installée. Ouvrez une fenêtre Windows PowerShell et exécutez la commande suivante pour installer la dernière version :
  
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber -RequiredVersion "4.4.1-preview"
+    Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+1. Fermez, puis rouvrez la fenêtre PowerShell après l’installation de PowerShellGet. 
 
-2. Désinstallez les installations précédentes d’Azure PowerShell.
-3. Installez AzureRM :
+1. Installez la dernière version d’Azure PowerShell :
 
     ```powershell
     Install-Module AzureRM –Repository PSGallery –AllowClobber
     ```
 
-4. Installez le module en préversion :
+1. Installez l’un des modules en préversion du stockage Azure qui prend en charge Azure AD :
 
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber 
+    Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 
     ```
+1. Fermez, puis rouvrez la fenêtre PowerShell.
+1. Appelez l’applet de commande [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) pour créer un contexte et spécifiez le paramètre `-UseConnectedAccount`. 
+1. Pour appeler une applet de commande avec une identité Azure AD, passez le contexte que vous venez de créer à l’applet de commande.
 
-5. Appelez l’applet de commande [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) pour créer un contexte et spécifiez le paramètre `-UseConnectedAccount`. 
-6. Pour appeler une applet de commande avec une identité Azure AD, passez le contexte à l’applet de commande.
-
-L’exemple suivant montre comment dresser la liste des objets blob d’un conteneur à partir d’Azure PowerShell à l’aide d’une identité Azure AD : 
+L’exemple suivant montre comment dresser la liste des objets blob d’un conteneur à partir d’Azure PowerShell à l’aide d’une identité Azure AD. Veillez à remplacer les espaces réservés correspondant aux noms du compte et du conteneur par vos propres valeurs : 
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -UseConnectedAccount 
-Get-AzureStorageBlob -Container $sample-container -Context $ctx 
+$ctx = New-AzureStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
+Get-AzureStorageBlob -Container sample-container -Context $ctx 
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur les rôles RBAC relatifs au stockage Azure, consultez [Gérer les droits d’accès aux données de stockage avec RBAC (préversion)](storage-auth-aad-rbac.md).
-- Pour plus d’informations sur l’utilisation de Managed Service Identity avec Stockage Azure, consultez [S’authentifier avec Azure AD à partir d’une identité de service managée Azure (préversion)](storage-auth-aad-msi.md).
-- Pour savoir comment autoriser l’accès aux conteneurs et aux files d’attente depuis vos applications de stockage, consultez [Utiliser Azure AD avec les applications de stockage](storage-auth-aad-app.md).
+- Pour plus d’informations sur l’utilisation des identités managées pour les ressources Azure avec le stockage Azure, consultez [S’authentifier auprès d’Azure AD à partir d’une identité Managed Service Identity Azure (préversion)](storage-auth-aad-msi.md).
+- Pour apprendre à autoriser l’accès aux conteneurs et aux files d’attente à partir de vos applications de stockage, consultez [Utiliser Azure AD avec les applications de stockage](storage-auth-aad-app.md).
 - Pour plus d’informations sur l’intégration d’Azure AD pour les objets blob et les files d’attente Azure, consultez le billet de blog de l’équipe Stockage Azure intitulé [Announcing the Preview of Azure AD Authentication for Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

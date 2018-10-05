@@ -1,20 +1,20 @@
 ---
-title: Azure Content Moderator - Modération du texte | Microsoft Docs
+title: Modération de texte - Content Moderator
 description: Utilisez la modération du texte pour détecter le texte indésirable, les informations d’identification personnelle (PII) et les listes de termes personnalisées.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 4c4a0ccfc93a6a48a0178183b94cc03cb576930a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085757"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226566"
 ---
 # <a name="text-moderation"></a>Modération de texte
 
@@ -31,7 +31,7 @@ La réponse du service inclut les informations suivantes :
 - Texte d’origine
 - Langage
 
-## <a name="profanity"></a>Propos injurieux
+## <a name="profanity"></a>Termes vulgaires
 
 Si l’API détecte des termes injurieux dans l’une des [langues prises en charge](Text-Moderation-API-Languages.md), ces termes sont inclus dans la réponse. La réponse contient également leur emplacement (`Index`) dans le texte d’origine. La valeur `ListId` dans l’exemple JSON suivant fait référence à des termes se trouvant dans les [listes de termes personnalisées](try-terms-list-api.md), le cas échéant.
 
@@ -72,7 +72,7 @@ L’extrait suivant de l’extrait de code JSON présente un exemple de sortie :
 - `Category1` se réfère à la présence potentielle de langage pouvant être considéré comme sexuellement explicite ou réservé aux adultes dans certaines situations.
 - `Category2` se réfère à la présence potentielle de langage pouvant être considéré comme sexuellement suggestif ou réservé aux adultes dans certaines situations.
 - `Category3` se réfère à la présence potentielle de langage pouvant être considéré comme choquant dans certaines situations.
-- `Score` est compris entre 0 et 1. Plus le score est élevé, plus le modèle prédit que la catégorie peut être applicable. Cette préversion s’appuie sur un modèle statistique plutôt que sur des résultats codés manuellement. Nous vous recommandons d’effectuer le test avec votre propre contenu afin de déterminer comment chaque catégorie correspond à vos besoins.
+- `Score` est compris entre 0 et 1. Plus le score est élevé, plus le modèle prédit que la catégorie peut être applicable. Cette fonctionnalité s’appuie sur un modèle statistique plutôt que sur des résultats codés manuellement. Nous vous recommandons d’effectuer le test avec votre propre contenu afin de déterminer comment chaque catégorie correspond à vos besoins.
 - La valeur de `ReviewRecommended` est true ou false, selon les seuils de score internes. Les clients doivent évaluer l’opportunité d’utiliser cette valeur ou choisir des seuils personnalisés en fonction de leurs stratégies de contenu.
 
 ## <a name="personally-identifiable-information-pii"></a>Informations d’identification personnelle (PII)

@@ -1,22 +1,23 @@
 ---
-title: Démarrage rapide pour analyser le texte en langage naturel dans l’API Language Understanding (LUIS) à l’aide de PHP - Cognitive Services - Azure Cognitive Services | Microsoft Docs
+title: Démarrage rapide pour PHP - Prédire une intention - LUIS
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. À l’aide de PHP, envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique. Au niveau du point de terminaison, LUIS applique le modèle de l’application publique pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 80d9371cc36ca9ab6b25e79a78e15b7445f0084d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 87c37de611056c5672ed0910afdd344325a0c6f7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160266"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036893"
 ---
-# <a name="quickstart-analyze-text-using-php"></a>Démarrage rapide : Analyser le texte à l’aide de PHP
+# <a name="quickstart-get-intent-using-php"></a>Démarrage rapide : Reconnaître une intention à l’aide de PHP
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -35,11 +36,11 @@ ms.locfileid: "44160266"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analyser le texte avec le navigateur
+## <a name="get-intent-with-browser"></a>Reconnaître une intention avec le navigateur
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-php"></a>Analyser le texte avec PHP 
+## <a name="get-intent-programmatically"></a>Reconnaître une intention par programmation 
 
 Vous pouvez utiliser PHP pour accéder aux résultats que vous avez vus dans la fenêtre du navigateur à l’étape précédente. 
 
@@ -55,7 +56,7 @@ Vous pouvez utiliser PHP pour accéder aux résultats que vous avez vus dans la 
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Supprimez le fichier PHP.
 

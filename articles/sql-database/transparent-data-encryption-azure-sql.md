@@ -2,27 +2,26 @@
 title: Transparent Data Encryption pour Azure SQL Database et Data Warehouse | Microsoft Docs
 description: Présentation de la technologie Transparent Data Encryption pour SQL Database et Data Warehouse. Ce document en décrit les avantages et les options de configuration, notamment le chiffrement transparent des données géré par le service et la prise en charge du service Bring Your Own Key.
 services: sql-database
-author: becczhang
-manager: craigg
-ms.prod: ''
-ms.reviewer: carlrab
-ms.prod_service: sql-database, sql-data-warehouse
 ms.service: sql-database
-ms.tgt_pltfrm: ''
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/09/2018
+author: becczhang
 ms.author: aliceku
-monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: afc53fc1abce74b247ec2e25bc3e4845bc870860
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.reviewer: vanto
+manager: craigg
+ms.date: 07/09/2018
+ms.openlocfilehash: 50b433c65dec1f667f32aaf60148a6e393c67320
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380197"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165924"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption pour SQL Database et Data Warehouse
 
-Transparent Data Encryption (TDE) est une technologie de chiffrement transparent des données qui contribue à protéger Azure SQL Database et Azure Data Warehouse contre les menaces d’activités malveillantes. Il assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux des transactions au repos, sans que cela nécessite de modifier l’application. Par défaut, TDE est activé pour tous les services Azure SQL Database nouvellement déployés. TDE ne permet pas de chiffrer la base de données **MASTER** logique dans SQL Database.  La base de données **MASTER** contient les objets nécessaires à l’exécution des opérations TDE sur les bases de données utilisateur.
+Transparent Data Encryption (TDE) est une technologie de chiffrement transparent des données qui contribue à protéger Azure SQL Database et Azure Data Warehouse contre les menaces d’activités malveillantes. Il assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux des transactions au repos, sans que cela nécessite de modifier l’application. Par défaut, TDE est activé pour toutes les bases de données SQL Azure nouvellement déployées. TDE ne permet pas de chiffrer la base de données **MASTER** logique dans SQL Database.  La base de données **MASTER** contient les objets nécessaires à l’exécution des opérations TDE sur les bases de données utilisateur.
 
 Vous devrez activer TDE manuellement pour les anciennes bases de données ou pour Azure SQL Data Warehouse.  
 

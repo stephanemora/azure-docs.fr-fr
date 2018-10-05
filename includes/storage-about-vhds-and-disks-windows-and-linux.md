@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2ab2ac1e98e25da4065611d32fb50aa8ce809361
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26c3e8a096a3ee7bc5146759f8de62e5c1c7fed1
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060353"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47389959"
 ---
 ## <a name="about-vhds"></a>À propos des VHD
 
@@ -73,4 +73,4 @@ Le tableau suivant offre une comparaison des niveaux HDD Standard, SSD Standard 
 | Scénario  | Charges de travail de production et sensibles aux performances |Serveurs web, applications d’entreprise peu utilisées et Dev/Test| Sauvegarde, non critique, accès peu fréquent
 | Taille du disque | P4 : 32 Gio (Disques managés uniquement)<br>P6 : 64 Gio (Disques managés uniquement)<br>P10 : 128 Gio<br>P15 : 256 Gio (Disques managés uniquement)<br>P20 : 512 Gio<br>P30 : 1 024 Gio<br>P40 : 2 048 Gio<br>P50 : 4,095 Gio<br>P60 : 8 192 Gio * (8 Tio)<br>P70 : 16 384 Gio * (16 Tio)<br>P80 : 32 767 Gio * (32 Tio) |Disques managés uniquement :<br>E10 : 128 Gio<br>E15 : 256 Gio<br>E20 : 512 Gio<br>E30 : 1 024 Gio<br>E40 : 2 048 Gio<br>E50 : 4 095 Gio<br>E60 : 8 192 Gio * (8 Tio)<br>E70 : 16 384 Gio * (16 TiB)<br> E80 : 32 767 Gio * (32 Tio) | Disques non managés : 1 Gio – 4 Tio (4 095 Gio) <br><br>Disques gérés :<br> S4 : 32 Gio <br>S6 : 64 Gio <br>S10 : 128 Gio <br>S15 : 256 Gio <br>S20 : 512 Gio <br>S30 : 1 024 Gio <br>S40 : 2 048 Gio<br>S50 : 4 095 Gio<br>S60 : 8 192 Gio * (8 Tio)<br>S70 : 16 384 Gio * (16 Tio)<br>S80 : 32 384 Gio * (32 Tio)
 | Débit max. par disque | P4 : 25 Mio/s<br> P6 : 50 Mio/s<br> P10 : 100 Mio/s<br> P15 : 200 Mio/s<br> P20 : 150 Mio/s<br> P30 : 200 Mio/s<br> P40-50 : 250 Mio/s<br> P60 : 480 Mio/s<br> P70-80 : 750 Mio/s | E10-E50 : jusqu’à 60 Mio/s<br> E60 : jusqu’à 300 Mio/s *<br> E70-E80 : 500 Mio/s *| S4-S50 : jusqu’à 60 Mio/s<br> S60 : jusqu’à 300 Mio/s *<br> S70-S80 : jusqu’à 500 Mio/s *
-| Nb max. d’E/S par seconde par disque | P4 : 120 IOPS<br> P6 : 240 IOPS<br> P10 : 500 IOPS<br> P15 : 1 100 IOPS<br> P20 : 2 300 IOPS<br> P30 : 500 IOPS<br> P40-P50 : 7 500 IOPS<br> P60 : 12 500 IOPS *<br> P70 : 15 000 IOPS *<br> P80 : 20 000 IOPS * | E10-E50 : jusqu’à 500 IOPS<br> E60 : jusqu’à 1 300 IOPS *<br> E70-E80 : jusqu’à 2 000 IOPS * | S4-S50 : jusqu’à 500 IOPS<br> S60 : jusqu’à 1 300 IOPS *<br> S70-S80 : jusqu’à 2 000 IOPS *
+| Nb max. d’E/S par seconde par disque | P4 : 120 IOPS<br> P6 : 240 IOPS<br> P10 : 500 IOPS<br> P15 : 1 100 IOPS<br> P20 : 2 300 IOPS<br> P30 : 5 000 IOPS<br> P40-P50 : 7 500 IOPS<br> P60 : 12 500 IOPS *<br> P70 : 15 000 IOPS *<br> P80 : 20 000 IOPS * | E10-E50 : jusqu’à 500 IOPS<br> E60 : jusqu’à 1 300 IOPS *<br> E70-E80 : jusqu’à 2 000 IOPS * | S4-S50 : jusqu’à 500 IOPS<br> S60 : jusqu’à 1 300 IOPS *<br> S70-S80 : jusqu’à 2 000 IOPS *

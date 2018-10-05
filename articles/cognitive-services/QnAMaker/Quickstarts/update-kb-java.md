@@ -1,24 +1,27 @@
 ---
-title: Mettre à jour une base de connaissances - Démarrage rapide Java - Azure Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : Mettre à jour avec Java une base de connaissances - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Comment mettre à jour une base de connaissances dans Java pour QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: ea55305479888e678166431123b9bd58188e2d78
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: f78e9bca7b1b4ce048826b887f99c6dc12f596b7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "43769928"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040004"
 ---
 # <a name="update-a-knowledge-base-in-java"></a>Mettre à jour une base de connaissances dans Java
 
 Le code suivant met à jour une base de connaissances à l’aide de la méthode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 Si vous n’avez pas encore de base de connaissances, vous pouvez créer un exemple à utiliser pour ce démarrage rapide : [Créer une base de connaissances](create-new-kb-java.md).
 

@@ -1,20 +1,21 @@
 ---
-title: Points de terminaison de recherche de vidéos | Microsoft Docs
-description: Synthèse sur le point de terminaison de l’API Recherche de vidéos.
+title: Points de terminaison Recherche de vidéos - Recherche de vidéos Bing
+titlesuffix: Azure Cognitive Services
+description: Synthèse sur les points de terminaison de l’API Recherche de vidéos Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2017
-ms.author: v-gedod
-ms.openlocfilehash: 9836d9928362ab37b0a81ff5043d99f9bf353f22
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: c153f577f76944d22f9a1b0fb4b24d332d2a02c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367920"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220769"
 ---
 # <a name="video-search-endpoints"></a>Points de terminaison Recherche de vidéos
 **L’API Recherche de vidéos** inclut trois points de terminaison.  Le point de terminaison 1 renvoie des vidéos issues du web en fonction d’une requête. Le point de terminaison 2 renvoie des insights sur une vidéo basées sur le paramètre d’URL `modules`.  Le point de terminaison 3 renvoie des images populaires.

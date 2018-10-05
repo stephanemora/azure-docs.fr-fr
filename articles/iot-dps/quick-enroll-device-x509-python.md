@@ -1,6 +1,6 @@
 ---
 title: Ce démarrage rapide vous montre comment inscrire des appareils X.509 auprès du service Azure Device Provisioning à l’aide de Python | Microsoft Docs
-description: Dans ce démarrage rapide, vous inscrirez des appareils X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide de Python
+description: Dans ce guide de démarrage rapide, vous allez inscrire des appareils X.509 auprès du service Azure IoT Hub Device Provisioning à l’aide de Python
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/25/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: f6c6c4abf80a67c654b17771787ae530461ca3b4
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 84ec165a78f873f6378e840d7f339cb7590dc098
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42022385"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227382"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Démarrage rapide : inscrire des appareils X.509 auprès du service Device Provisioning à l’aide de Python
 
@@ -136,7 +136,7 @@ Cette section montre comment ajouter les détails de l’approvisionnement de vo
     ![Comment vérifier la réussite de l’inscription du X.509 dans le portail](./media/quick-enroll-device-x509-python/1.png)  
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Si vous prévoyez d’explorer davantage l’exemple de service pour Java, ne nettoyez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
 
 1. Fermez la fenêtre de sortie de l’exemple Java sur votre ordinateur.

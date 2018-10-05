@@ -1,90 +1,104 @@
 ---
-title: Créer une application avec LUIS | Microsoft Docs
+title: Créer une application avec LUIS
 description: Créez et gérez vos applications sur la page web de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3adeecd4a4e2040a92689b7c92be9630c9a0d93b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 401c4fb8942aee73c036ae2b248a030eaea4917a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225412"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031252"
 ---
 # <a name="create-an-app"></a>Créer une application
-Vous créez une application de différentes manières : 
+Il existe deux façons de créer une application LUIS. Vous pouvez créer une application LUIS dans le portail [LUIS](https://www.luis.ai) ou par le biais des [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de création LUIS.
+
+## <a name="using-the-luis-portal"></a>Utilisation du portail LUIS
+Vous pouvez créer une application dans le portail LUIS de plusieurs manières :
 
 * [Démarrez](#create-new-app) avec une application vide et créer des intentions, des énoncés et des entités.
 * [Démarrez](#create-new-app) avec une application vide et ajoutez un [domaine prédéfini](luis-how-to-use-prebuilt-domains.md).
 * [Importez une application LUIS](#import-new-app) à partir d’un fichier JSON qui contient déjà des intentions, des énoncés et des entités.
 
-## <a name="what-is-an-app"></a>Qu’est-ce qu’une application ?
-L’application contient des [versions](luis-how-to-manage-versions.md) de votre modèle, ainsi que tous les [collaborateurs](luis-how-to-collaborate.md) de l’application. Lorsque vous créez l’application, vous sélectionnez la culture ([langage](luis-supported-languages.md)) qui **ne peut pas être modifiée ultérieurement**. 
+## <a name="using-the-authoring-apis"></a>Utilisation des API de création
+Vous pouvez créer une application avec les API de création de deux manières :
 
-La version par défaut d’une nouvelle application est « 0.1 ». 
+* [Démarrez](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) avec une application vide et créer des intentions, des énoncés et des entités.
+* [Démarrez](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/59104e515aca2f0b48c76be5) avec un domaine prédéfini.  
 
-Vous pouvez créer et gérer vos applications sur la page **Mes applications**. Vous pouvez toujours accéder à cette page en sélectionnant **Mes applications** dans la barre de navigation supérieure du site web [LUIS](luis-reference-regions.md). 
 
-[![](media/luis-create-new-app/apps-list.png "Capture d’écran de la liste des applications")](media/luis-create-new-app/apps-list.png#lightbox)
+<a name="export-app"></a>
+<a name="import-new-app"></a>
+<a name="delete-app"></a>
+ 
 
-## <a name="create-new-app"></a>Créer une application
+## <a name="create-new-app-in-luis"></a>Créer une application dans LUIS
 
 1. Sur la page **Mes applications**, sélectionnez **Créer une application**.
+
+    ![Liste des applications LUIS](./media/luis-create-new-app/apps-list.png)
+
+
 2. Dans la boîte de dialogue, nommez votre application « TravelAgent ».
 
     ![Boîte de dialogue Créer une application](./media/luis-create-new-app/create-app.png)
 
 3. Choisissez la culture de votre application (pour l’application TravelAgent, sélectionnez Anglais), puis sélectionnez **Terminé**. 
 
-    >[!NOTE]
-    >La culture ne peut pas être modifiée une fois que l’application est créée. 
+    > [!NOTE]
+    > La culture ne peut pas être modifiée une fois que l’application est créée. 
 
-## <a name="import-new-app"></a>Importer une nouvelle application
-Vous pouvez définir le nom (50 caractères max.), la version (10 caractères max.) et la description d’une application dans le fichier JSON. Des exemples de fichiers d’application JSON sont disponibles dans [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
+    
 
-1. Sur la page **Mes applications**, sélectionnez **Import new app** (Importer une nouvelle application).
-2. Dans la boîte de dialogue **Import new app** (Importer une nouvelle application), sélectionnez le fichier JSON définissant l’application LUIS.
+<!--
 
-    ![Boîte de dialogue d’importation d’une nouvelle application](./media/luis-create-new-app/import-app.png)
+## Import new app
+You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
 
-## <a name="export-app"></a>Exporter l’application
-1. Sur la page **Mes applications**, sélectionnez les points de suspension (***…***) à la fin de la ligne de l’application.
+1. On **My Apps** page, select **Import new app**.
+2. In the **Import new app** dialog, select the JSON file defining the LUIS app.
 
-    [![](media/luis-create-new-app/apps-list.png "Capture d’écran de la boîte de dialogue contextuelle des actions par application")](media/luis-create-new-app/three-dots.png#lightbox)
+    ![Import a new app dialog](./media/luis-create-new-app/import-app.png)
 
-2. Sélectionnez **Export app** (Exportation l’application) dans le menu. 
+## Export app
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row.
 
-## <a name="rename-app"></a>Renommer l’application
+    [![](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
 
-1. Sur la page **Mes applications**, sélectionnez les points de suspension (***…***) à la fin de la ligne de l’application. 
-2. Sélectionnez **Renommer** dans le menu.
-3. Entrez le nouveau nom de l’application et sélectionnez **Terminé**.
+2. Select **Export app** from the menu. 
 
-## <a name="delete-app"></a>Supprimer l’application
+## Rename app
+
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
+2. Select **Rename** from the menu.
+3. Enter the new name of the app and select **Done**.
+
+## Delete app
 
 > [!CAUTION]
-> Vous supprimez l’application pour tous les collaborateurs et le propriétaire. [Exportez](#export-app) l’application avant de la supprimer. 
+> You are deleting the app for all collaborators and the owner. [Export](#export-app) the app before deleting it. 
 
-1. Sur la page **Mes applications**, sélectionnez les points de suspension (***…***) à la fin de la ligne de l’application. 
-2. Sélectionnez **Supprimer** dans le menu.
-3. Sélectionnez **OK** dans la fenêtre de confirmation.
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
+2. Select **Delete** from the menu.
+3. Select **Ok** in the confirmation window.
 
-## <a name="export-endpoint-logs"></a>Exporter les journaux du point de terminaison
-Les journaux contiennent la requête, l’heure UTC et la réponse JSON LUIS.
+## Export endpoint logs
+The logs contain the Query, UTC time, and LUIS JSON response.
 
-1. Sur la page **Mes applications**, sélectionnez les points de suspension (***…***) à la fin de la ligne de l’application. 
-2. Sélectionnez **Export endpoint logs** (Exporter les journaux du point de terminaison) dans le menu.
+1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
+2. Select **Export endpoint logs** from the menu.
 
 ```
 Query,UTC DateTime,Response
 text i'm driving and will be 30 minutes late to the meeting,02/13/2018 15:18:43,"{""query"":""text I'm driving and will be 30 minutes late to the meeting"",""intents"":[{""intent"":""None"",""score"":0.111048922},{""intent"":""SendMessage"",""score"":0.987501}],""entities"":[{""entity"":""i ' m driving and will be 30 minutes late to the meeting"",""type"":""Message"",""startIndex"":5,""endIndex"":58,""score"":0.162995353}]}"
 ```
-
+-->
 ## <a name="next-steps"></a>Étapes suivantes
 
 Votre première tâche dans l’application consiste à [ajouter des intentions](luis-how-to-add-intents.md).

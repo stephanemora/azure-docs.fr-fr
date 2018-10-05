@@ -1,20 +1,21 @@
 ---
-title: Utiliser Microsoft Azure Traffic Manager pour augmenter le quota de points de terminaison de Language Understanding (LUIS) – Azure | Microsoft Docs
-description: Utilisez Microsoft Azure Traffic Manager pour répartir le quota de points de terminaison sur plusieurs abonnements dans Language Understanding (LUIS) de façon à augmenter le quota de points de terminaison.
+title: Utiliser Microsoft Azure Traffic Manager pour augmenter le quota de points de terminaison dans Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**.
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 909c32452db216f79633b94c31f39350b7a6ee20
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248626"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042174"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Utiliser Microsoft Azure Traffic Manager pour gérer le quota de points de terminaison entre les clés
 Language Understanding (LUIS) offre la possibilité d’augmenter le quota de demandes des points de terminaison au-delà du quota d’une seule clé. Il suffit de créer plusieurs clés pour LUIS et de les ajouter à l’application LUIS dans la section **Ressources et clés** de la page **Publier**. 
@@ -44,9 +45,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Capture d’écran du Portail Azure avec deux clés LUIS dans le groupe de ressources luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. Sur la page **Publier** du site web [LUIS][LUIS], ajoutez des clés à l’application et republiez-la. 
-
-    ![Capture d’écran du portail LUIS avec deux clés LUIS sur la page Publier](./media/traffic-manager/luis-keys-in-luis.png)
+2. Dans le site web [LUIS][LUIS], dans la section **Manage** (Gérer), dans la page **Keys and endpoints** (Clés et points de terminaison), affectez des clés à l’application, puis republiez l’application en sélectionnant le bouton **Publish** (Publier) dans le menu en haut à droite. 
 
     L’exemple d’URL dans la colonne **Point de terminaison** utilise une demande GET avec la clé de point de terminaison comme paramètre de requête. Copiez l’URL de point de terminaison des deux nouvelles clés. Elles seront utilisées pour la configuration de Traffic Manager dans la suite de cet article.
 
@@ -350,7 +349,7 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 
 En cas de succès, la réponse avec le point de terminaison LUIS est la suivante :
 
-```cmd
+```json
 [
     {
         value: 'westus.api.cognitive.microsoft.com', 

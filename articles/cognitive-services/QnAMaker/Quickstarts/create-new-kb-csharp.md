@@ -1,24 +1,27 @@
 ---
-title: Créer une base de connaissances - Démarrage rapide de C# pour l’API QnA Maker Microsoft (V4) - Azure Cognitive Services | Microsoft Docs
-description: Créez une base de connaissances dans C# pour conserver votre FAQ ou des manuels de produit, afin de pouvoir utiliser QnA Maker.
+title: 'Démarrage rapide : API et C# - Créer une base de connaissances - QnA Maker'
+titlesuffix: Azure Cognitive Services
+description: Ce démarrage rapide vous guide dans la création d’un exemple de base de connaissances QnA Maker, par programmation, qui apparaîtra dans le tableau de bord Azure de votre compte d’API Cognitive Services.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 16d17a335bb84212497010b3eeb930582fa86dc4
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 8a0840a96f21f76f3a742d973c86dd02929b8e30
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "43769772"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039444"
 ---
 # <a name="create-a-new-knowledge-base-in-c"></a>Créer une base de connaissances dans C#
 
 Ce démarrage rapide vous guide dans la création d’un exemple de base de connaissances QnA Maker, par programmation, qui apparaîtra dans le tableau de bord Azure de votre compte d’API Cognitive Services.
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 Deux exemples d’URL de FAQ sont fournis ci-dessous (« urls » dans la base de connaissances de chaîne). QnA Maker extrait automatiquement les questions et les réponses à partir du contenu semi-structuré, telles que les FAQ, comme expliqué plus en détail dans ce document sur les [sources de données](../Concepts/data-sources-supported.md). Vous pouvez également utiliser vos propres URL de FAQ dans ce démarrage rapide.
 

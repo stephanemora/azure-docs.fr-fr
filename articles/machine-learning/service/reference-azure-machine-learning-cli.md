@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 5d14373b265ea30d235cc5bc7b87ee13c4fd8105
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991791"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158901"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>Qu’est-ce que l’interface CLI Azure Machine Learning ?
 
@@ -42,6 +42,8 @@ Vous pouvez supprimer l’interface CLI à l’aide de cette commande :
 az extension remove -n azure-cli-ml
 ```
 
+Vous pouvez mettre à jour l’interface CLI avec les étapes **supprimer** et **ajouter** ci-dessus.
+
 ## <a name="using-the-cli-vs-the-sdk"></a>Comparaison de l’utilisation de l’interface CLI et du SDK
 L’interface CLI est mieux adaptée à l’automation par une personne des opérations de développement, ou dans le cadre d’un pipeline de livraison et d’intégration continues. Elle est optimisée pour gérer les tâches peu fréquentes et très paramétrables. 
 
@@ -54,6 +56,8 @@ Voici quelques exemples :
 Il est recommandé aux scientifiques des données d’utiliser le SDK Azure ML.
 
 ## <a name="common-machine-learning-cli-commands"></a>Commandes CLI de machine learning courantes
+> [!NOTE]
+> Les exemples de fichiers que vous pouvez utiliser pour exécuter les commandes ci-dessous se trouvent [ici.](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli)
 
 Utilisez les nombreuses commandes `az ml` pour interagir avec le service dans n’importe quel environnement de ligne de commande, dont le service Cloud Shell du portail Azure.
 
@@ -62,16 +66,16 @@ Voici un exemple de commandes courantes :
 ### <a name="workspace-creation--compute-setup"></a>Création d’un espace de travail et configuration du calcul
 
 + Créez un espace de travail Azure Machine Learning, la ressource de niveau supérieur pour le machine learning.
-  ```AzureCLI
-  az ml workspace create -n myworkspace -g myresourcegroup
-  ```
+   ```AzureCLI
+   az ml workspace create -n myworkspace -g myresourcegroup
+   ```
 
 + Définissez l’interface CLI pour utiliser cet espace de travail par défaut.
-```AzureCLI
-az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-```
+   ```AzureCLI
+   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+   ```
 
-+ Créez une machine virtuelle DSVM (machine virtuelle Science des données) pour les modèles d’entraînement. Vous pouvez également créer des clusters BatchAI pour l’entraînement distribué.
++ Créer une machine virtuelle DSVM (Data Science Virtual Machine) Vous pouvez également créer des clusters Batch AI pour l’entraînement distribué ou des clusters AKS pour le déploiement.
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -82,9 +86,10 @@ az configure --defaults aml_workspace=myworkspace group=myresourcegroup
   az ml project attach --experiment-name myhistory
   ```
 
-+ Soumettez une expérimentation sur le service Azure Machine Learning sur la cible de calcul de votre choix (cet exemple utilise une machine virtuelle Data Science VM).
++ Envoyez une expérience sur le service Azure Machine Learning sur la cible de calcul de votre choix. Cet exemple s’exécute sur votre environnement de calcul local. Vérifiez que votre fichier d’environnement Conda capture vos dépendances Python.
+
   ```AzureCLI
-  az ml run submit -c mydsvm train.py
+  az ml run submit -c local train.py
   ```
 
 + Affichez une liste des expérimentations soumises.
@@ -96,17 +101,17 @@ az ml history list
 
 + Inscrivez un modèle dans Azure Machine Learning.
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + Créez une image pour contenir votre modèle Machine Learning et vos dépendances. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m rfmodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + Déployez votre modèle empaqueté sur des cibles, dont ACI et AKS.
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## <a name="full-command-list"></a>Liste complète des commandes

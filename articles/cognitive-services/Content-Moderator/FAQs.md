@@ -1,22 +1,23 @@
 ---
-title: Forum Aux Questions à propos d’Azure Content Moderator | Microsoft Docs
+title: Questions fréquentes (FAQ) - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Obtenez des réponses aux questions fréquentes concernant Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: faq
 ms.date: 11/21/2016
 ms.author: sajagtap
-ms.openlocfilehash: 7bf6c67bd0a83d9455d14253f4f4b2becafd29ba
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ce61a89069caf90695a2cb6c54f61de8fa8cb112
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367984"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226930"
 ---
-# <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
+# <a name="frequently-asked-questions-faq"></a>Questions fréquentes (FAQ)
 
 #### <a name="what-does-my-content-moderator-subscription-include"></a>Quels sont les éléments inclus dans mon abonnement Content Moderator ?
 Votre abonnement Content Moderator inclut l’accès à l’outil de révision et aux API. Selon les besoins de votre entreprise, vous pouvez choisir d’utiliser ces deux accès ou l’un ou l’autre.

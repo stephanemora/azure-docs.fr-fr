@@ -1,21 +1,26 @@
 ---
 title: Package FPGA pour l’accélération matérielle dans Azure Machine Learning
 description: Découvrez les packages python disponibles pour les utilisateurs d’Azure Machine Learning.
+services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
-ms.openlocfilehash: a81f5f811058f3c7940da79419b9801225716e6b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143493"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162183"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Package Accélération matérielle pour Azure Machine Learning
+
+>[!Note]
+>**Cet article est déprécié.** Ce package FPGA a été déprécié. La prise en charge de cette fonctionnalité a été ajoutée au SDK Azure ML. La prise en charge de ce package se terminera de façon incrémentielle. [Afficher la chronologie de la prise en charge](overview-what-happened-to-workbench.md#timeline). Découvrez plus d’informations sur la [prise en charge des FPGA](concept-accelerate-with-fpgas.md).
 
 Le package Accélération matérielle pour Azure Machine Learning est une extension pip-installable de Python pour Azure Machine Learning, qui permet aux scientifiques de données et aux développeurs IA de rapidement :
 
@@ -29,7 +34,7 @@ Le package Accélération matérielle pour Azure Machine Learning est une extens
 
 1. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-1. Vous devez créer un compte de gestion des modèles Azure Machine Learning. Pour obtenir plus d’informations sur la création de ce compte, consultez le [Guide de démarrage rapide d’Azure Machine Learning et l’installation de Workbench](../service/quickstart-installation.md). 
+1. Un compte Gestion des modèles Azure Machine Learning Pour obtenir plus d’informations sur la création de ce compte, consultez le [Guide de démarrage rapide d’Azure Machine Learning et l’installation de Workbench](../desktop-workbench/quickstart-installation.md). 
 
 1. Le package doit être installé. 
 

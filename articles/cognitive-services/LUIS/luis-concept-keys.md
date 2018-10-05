@@ -1,20 +1,21 @@
 ---
-title: Comprendre vos clés LUIS - Azure | Microsoft Docs
-description: Utilisez les clés Language Understanding (LUIS) pour créer votre application et interroger votre point de terminaison.
+title: Comprendre vos clés LUIS
+titleSuffix: Azure Cognitive Services
+description: 'LUIS utilise deux clés : une clé de création et une clé de point de terminaison. La clé de création est générée automatiquement lorsque vous créez votre compte LUIS. Quand vous êtes prêt à publier votre application LUIS, vous devez créer la clé de point de terminaison, l’affecter à votre application LUIS et l’utiliser avec la requête de point de terminaison.'
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b40ca74999be1821ffa329224ff419646591960e
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225174"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034924"
 ---
 # <a name="keys-in-luis"></a>Clés dans LUIS
 LUIS utilise deux clés : [création](#programmatic-key) et [point de terminaison](#endpoint-key). La clé de création est générée automatiquement lorsque vous créez votre compte LUIS. Lorsque vous êtes prêt à publier votre application LUIS, vous devez [créer la clé de point de terminaison](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [l’affecter](luis-how-to-manage-keys.md#assign-endpoint-key) à votre application LUIS et [l’utiliser avec la requête de point de terminaison](#use-endpoint-key-in-query). 
@@ -35,15 +36,15 @@ Pour rechercher la clé de création, connectez-vous à [LUIS](luis-reference-re
 
 ![clé de création](./media/luis-concept-keys/programatic-key.png)
 
-Lorsque vous souhaitez faire des **requêtes de point de terminaison de production**, créez un [abonnement LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) Azure. 
+Quand vous souhaitez faire des **requêtes de point de terminaison de production**, créez l’[abonnement LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) Azure. 
 
 > [!CAUTION]
 > Pour des raisons pratiques, de nombreux exemples utilisent la clé de création, car son [quota](luis-boundaries.md#key-limits) inclut quelques appels de point de terminaison.  
 
 ## <a name="endpoint-key"></a>Clé de point de terminaison
- Lorsque vous avez besoin de **requêtes de point de terminaison de production**, créez une [clé de LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) dans le portail Azure. Mémorisez le nom utilisé pour créer la clé, vous en aurez besoin pour ajouter la clé à l’application...
+ Lorsque vous avez besoin de **requêtes de point de terminaison de production**, créez une [clé de LUIS](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) dans le portail Azure. Mémorisez le nom utilisé pour créer la clé, car vous en aurez besoin pour ajouter la clé à l’application.
 
-Lorsque le processus d’abonnement LUIS est terminé, [ajoutez la clé](luis-how-to-manage-keys.md#assign-endpoint-key) à l’application à la page **Publier**. 
+Quand le processus d’abonnement LUIS est terminé, [affectez la clé](luis-how-to-manage-keys.md#assign-endpoint-key) à l’application. 
 
 La clé de point de terminaison permet un quota d’accès au point de terminaison basé sur le plan de l’utilisation que vous avez spécifié lors de la création de la clé. Consultez [tarification de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) pour des informations sur la tarification.
 
@@ -73,6 +74,10 @@ Les régions de publication sont différentes des régions de création. Veillez
 
 ## <a name="key-limit-errors"></a>Erreurs de limites de clés
 Si vous dépassez votre quota par seconde, vous recevez une erreur HTTP 429. Si vous dépassez votre quota mensuel, vous recevez une erreur HTTP 403. Corrigez ces erreurs en obtenant une clé de [point de terminaison](#endpoint-key) LUIS, en [affectant](luis-how-to-manage-keys.md#assign-endpoint-key) la clé à l’application sur la page **Publier** du site web [LUIS](luis-reference-regions.md#luis-website).
+
+## <a name="automating-assignment-of-the-endpoint-key"></a>Automatisation de l’affectation de la clé de point de terminaison
+
+Pour affecter la clé de point de terminaison à une application LUIS, vous devez utiliser le site web LUIS correspondant aux [régions](luis-reference-regions.md) de création et de publication correctes. Il n’existe pour cela **aucune** méthode automatisée, quel que soit le mécanisme employé (comme un script Azure Resource Manager, Azure CLI, un SDK de programmation ou les API).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

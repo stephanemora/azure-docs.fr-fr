@@ -1,20 +1,21 @@
 ---
-title: Tutoriel concernant le jeton d’informations de l’image (ImageInsightsToken) du Kit de développement logiciel (SDK) de Recherche visuelle Bing | Microsoft Docs
+title: 'Tutoriel : ImageInsightsToken - Recherche visuelle Bing'
+titlesuffix: Azure Cognitive Services
 description: Comment utiliser le Kit de développement logiciel (SDK) de Recherche visuelle Bing pour obtenir les URL des images spécifiées par ImageInsightsToken.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: rosh
-ms.openlocfilehash: 8f6e7f7e88ae78fe7e8a9be4adefd689dd26d0f9
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: bda4bdeea019d8cf3ae677d5eaf81e631ca38d16
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41929765"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222571"
 ---
 # <a name="tutorial-bing-visual-search-sdk-imageinsightstoken-and-results"></a>Tutoriel : résultats et jeton ImageInsightsToken du Kit de développement logiciel (SDK) de Recherche visuelle Bing
 Le Kit de développement logiciel (SDK) de Recherche visuelle comprend une option pour rechercher des images en ligne à partir d’une recherche précédente renvoyant un `ImageInsightsToken`.  Cet exemple obtient un `ImageInsightsToken` et utilise le jeton dans une recherche ultérieure.  Le code envoie le `ImageInsightsToken` à Bing, puis retourne des résultats qui incluent les URL de recherche Bing et les URL des images similaires disponibles en ligne.

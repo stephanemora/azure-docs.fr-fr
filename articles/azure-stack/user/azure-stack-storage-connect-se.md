@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.date: 06/15/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2f974b7773e7a4cbc0eda32a267bb5ab939644d8
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714899"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095114"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Connecter l’Explorateur de stockage à un compte de stockage ou abonnement Azure Stack
 
@@ -61,13 +61,13 @@ Pour le Kit de développement Azure Stack, vous devez exporter le certificat rac
 
     ![Importer le certificat dans l’Explorateur de stockage](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Après le redémarrage de l’Explorateur de stockage, sélectionnez le menu **Modifier** et vérifiez si l’option **Cibler Azure Stack** est sélectionnée. Si elle ne l’est pas, sélectionnez **Cibler Azure Stack**, puis redémarrez l’Explorateur de stockage pour appliquer la modification. Cette configuration est requise pour la compatibilité avec votre environnement Azure Stack.
+7. Après le redémarrage de l’Explorateur de stockage, sélectionnez le menu **Modifier** et vérifiez si l’option **Cibler Azure Stack** est sélectionnée. Si elle ne l’est pas, sélectionnez **Cibler Azure Stack**, puis redémarrez l’explorateur de stockage pour appliquer la modification. Cette configuration est requise pour la compatibilité avec votre environnement Azure Stack.
 
     ![S’assurer que l’option Target Azure Stack (Cibler Azure Stack) est sélectionnée](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
-## <a name="connect-to-an-azure-stack-subscription"></a>Connexion à un abonnement Azure Stack
+## <a name="connect-to-an-azure-stack-subscription-with-azure-ad"></a>Connexion à un abonnement Azure Stack avec Azure AD
 
-Pour connecter l’Explorateur de stockage à un abonnement Azure Stack, procédez comme suit.
+Suivez les étapes ci-après pour connecter l’explorateur de stockage à un abonnement Azure Stack, qui appartient à un compte Azure Active Directory (Azure AD).
 
 1. Dans le volet gauche de l’Explorateur de stockage, sélectionnez **Gérer les comptes**. 
     Tous les abonnements Microsoft auxquels vous êtes connecté s’affichent.
@@ -87,6 +87,44 @@ Pour connecter l’Explorateur de stockage à un abonnement Azure Stack, procéd
     Le volet de gauche affiche les comptes de stockage associés aux abonnements Azure Stack sélectionnés.
 
     ![Liste des comptes de stockage, y compris les comptes d’abonnement Azure Stack](./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png)
+
+## <a name="connect-to-an-azure-stack-subscription-with-ad-fs-account"></a>Connexion à un abonnement Azure Stack avec un compte AD FS
+
+> [!Note]  
+> L’expérience de connexion Azure Federated Services (AD FS) prend en charge l’explorateur de stockage 1.2.0 ou versions ultérieures avec Azure Stack 1804 ou mise à jour plus récente.
+Suivez les étapes ci-après pour connecter l’explorateur de stockage à un abonnement Azure Stack, qui appartient à un compte AD FS.
+
+1. Sélectionnez **Gérer les comptes**. L’Explorateur répertorie les abonnements Microsoft auxquels vous vous êtes connecté.
+2. Pour vous connecter à l’abonnement Azure Stack, sélectionnez **Ajouter un compte**.
+
+    ![Ajouter un compte](media/azure-stack-storage-connect-se/add-an-account.png)
+
+3. Sélectionnez **Suivant**. Dans la boîte de dialogue Connexion au stockage Azure, sous **Environnement Azure**, sélectionnez **Use Custom Environment** (Utiliser un environnement personnalisé), puis cliquez sur **Suivant**.
+
+    ![Se connecter au Stockage Azure](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
+
+4. Entrez toutes les informations requises de l’environnement personnalisé Azure Stack. 
+
+    | Champ | Notes |
+    | ---   | ---   |
+    | Nom de l’environnement | Le champ peut être personnalisé par l’utilisateur. |
+    | Point de terminaison Azure Resource Manager | Les exemples de points de terminaison de ressource Azure Resource Manager du Kit de développement Azure Stack.<br>Pour les opérateurs : https://adminmanagement.local.azurestack.external <br> Pour les utilisateurs : https://management.local.azurestack.external |
+
+    Si vous utilisez un système intégré Azure Stack et si vous ne connaissez pas votre point de terminaison de gestion, contactez votre opérateur.
+
+    ![Ajouter un compte](./media/azure-stack-storage-connect-se/custom-environments.png)
+
+5. Pour vous connecter au compte Azure Stack associé à au moins un abonnement Azure Stack actif, sélectionnez **Connexion**.
+
+
+
+6. Sélectionnez les abonnements Azure Stack que vous souhaitez utiliser. Sélectionnez **Appliquer**.
+
+    ![Account management](./media/azure-stack-storage-connect-se/account-management.png)
+
+    Le volet de gauche affiche les comptes de stockage associés aux abonnements Azure Stack sélectionnés.
+
+    ![Liste des abonnements associés](./media/azure-stack-storage-connect-se/list-of-associated-subscriptions.png)
 
 ## <a name="connect-to-an-azure-stack-storage-account"></a>Se connecter à un compte de stockage Azure Stack
 

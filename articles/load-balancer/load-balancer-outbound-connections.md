@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842253"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036988"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -69,7 +69,7 @@ Les ports éphémères du frontend d’adresse IP publique de l’équilibreur 
 
 Les ports SNAT sont préaffectés comme décrit dans la section [Présentation de la traduction d’adresses réseau sources et de la traduction d’adresse de port](#snat). Il s’agit d’une ressource limitée sujette à épuisement. Il est important de comprendre comment ils sont [consommés](#pat). Pour savoir comment concevoir en fonction de cette consommation et d’en atténuer éventuellement les effets, consultez [Gestion de l’épuisement de la traduction d’adresses réseau sources](#snatexhaust).
 
-Si [plusieurs adresses IP (publiques) sont associées à un équilibreur de charge de base](load-balancer-multivip-overview.md), chacune d’elles est [candidate pour les flux sortants](#multivipsnat) et une seule est sélectionnée.  
+Si [plusieurs adresses IP (publiques) sont associées à un équilibreur de charge de base](load-balancer-multivip-overview.md), toutes ces adresses sont [candidates pour les flux sortants](#multivipsnat), mais une seule d’entre elles est sélectionnée au hasard.  
 
 Pour surveiller l’intégrité des connexions sortantes avec l’équilibreur de charge de base, vous pouvez utiliser [Log Analytics pour Load Balancer](load-balancer-monitor-log.md) et les [journaux des événements d’alerte](load-balancer-monitor-log.md#alert-event-log) pour surveiller les messages signalant l’épuisement des ports SNAT.
 

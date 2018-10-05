@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108804"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227280"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux sur le Portail Azure
 
@@ -49,26 +49,27 @@ Connectez-vous au portail Azure à l’adresse suivante : http://portal.azure.co
 
 1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du Portail Azure.
 
-2. Dans la zone de recherche au-dessus de la liste des ressources de la Place de marché Azure, recherchez et sélectionnez **Ubuntu Server 16.04 LTS** de Canonical, puis choisissez **Créer**.
+1. Dans la zone de recherche au-dessus de la liste des ressources de la Place de marché Azure, recherchez et sélectionnez **Ubuntu Server 16.04 LTS** de Canonical, puis choisissez **Créer**.
 
-3. Donnez un nom à la machine virtuelle, par exemple, *myVM*, gardez le type de disque *SSD*, puis indiquez un nom d’utilisateur, par exemple, *azureuser*.
+1. Sous l’onglet **De base**, sous **Détails du projet**, vérifiez que l’abonnement approprié est sélectionné, puis choisissez **Créer** sous **Groupe de ressources** . Dans la fenêtre contextuelle, tapez *myResourceGroup* comme nom du groupe de ressources, puis choisissez *OK*. 
 
-4. Dans **Type d’authentification**, sélectionnez **Clé publique SSH**, puis collez votre clé publique dans la zone de texte. Veillez à supprimer les espaces blancs au début ou à la fin de votre clé publique.
+    ![Créer un groupe de ressources pour votre machine virtuelle](./media/quick-create-portal/project-details.png)
 
-    ![Saisie des informations de base sur votre machine virtuelle dans le panneau du portail](./media/quick-create-portal/create-vm-portal-basic-blade.png)
+1. Sous **Détails de l’instance**, tapez *myVM* comme **Nom de la machine virtuelle**, puis choisissez *USA Est* comme **Région**. Conservez les autres valeurs par défaut.
 
-5. Choisissez **Nouveau** pour créer un groupe de ressources, puis indiquez un nom, par exemple, *myResourceGroup*. Choisissez **l’Emplacement** souhaité, puis sélectionnez **OK**.
+    ![Section Détails de l’instance](./media/quick-create-portal/instance-details.png)
 
-4. Choisissez la taille de la machine virtuelle. Vous pouvez filtrer par *Type de calcul* ou par *Type de disque*, par exemple. Nous suggérons la taille de machine virtuelle *D2s_v3*.
+1. Sous **Compte d’administrateur**, sélectionnez **Clé publique SSH**, tapez votre nom d’utilisateur, puis collez votre clé publique dans la zone de texte. Supprimez les espaces blancs au début ou à la fin de votre clé publique.
 
-    ![Capture d’écran montrant les tailles de machine virtuelle](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
+    ![Compte d’administrateur](./media/quick-create-portal/administrator-account.png)
 
-5. Dans la page **Paramètres**, dans **Réseau** > **Groupe de sécurité réseau** > **Sélectionner des ports d’entrée publics**, sélectionnez **HTTP** et **SSH (22)**. Laissez les autres valeurs par défaut et sélectionnez **OK**.
+1. Sous **Règles des ports d’entrée** > **Ports d’entrée publics**, choisissez **Autoriser les ports sélectionnés**, puis sélectionnez **SSH (22)** et **HTTP (80)** dans la liste déroulante. 
 
-6. Sur la page de résumé, sélectionnez **Créer** pour démarrer le déploiement de la machine virtuelle.
+    ![Ports ouverts pour RDP et HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
-7. La machine virtuelle est épinglée au tableau de bord du Portail Azure. Une fois le déploiement terminé, le récapitulatif de la machine virtuelle s’ouvre automatiquement.
+1. Conservez les valeurs par défaut restantes, puis sélectionnez le bouton **Vérifier + créer** en bas de la page.
 
+    
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 
 Créez une connexion SSH avec la machine virtuelle.
@@ -106,7 +107,7 @@ Une fois NGINX installé et le port 80 ouvert sur la machine virtuelle, le serve
 
 ![Site par défaut NGINX](./media/quick-create-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez **Supprimer**, puis confirmez le nom du groupe de ressources à supprimer.
 

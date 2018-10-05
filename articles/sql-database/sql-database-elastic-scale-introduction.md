@@ -2,36 +2,39 @@
 title: Montée en charge avec la base de données SQL Azure | Microsoft Docs
 description: Les développeurs de Software as a Service (SaaS) peuvent facilement créer des bases de données élastiques et évolutives dans le cloud à l'aide de ces outils
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: e8a07f1a1d172a96646a5c71a6267239e159c267
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: ab787e8f659d2f57f23bb87397608736e7f6848a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646566"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164911"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Montée en charge avec la base de données SQL Azure
 Vous pouvez facilement faire évoluer les bases de données SQL Azure à l’aide des outils de **base de données élastique** . Ces outils et fonctionnalités vous permettent d’utiliser les ressources de la **base de données SQL Azure** pour créer des solutions pour les charges de travail transactionnelles et notamment les applications Software as a Service (SaaS). Les fonctionnalités de base de données élastique se composent des éléments suivants :
 
 * [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md): la bibliothèque cliente est une fonctionnalité qui vous permet de créer et de gérer des bases de données partitionnées.  Voir [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md).
-* [Outil de fractionnement et de fusion de base de données élastique](sql-database-elastic-scale-overview-split-and-merge.md): cet outil vous permet de déplacer les données entre les différentes bases de données partitionnées. Il est particulièrement utile pour déplacer des données d’une base de données mutualisée vers une base de données à un seul locataire (ou inversement). Consultez le [Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
+* [Outil de fractionnement et de fusion de base de données élastique](sql-database-elastic-scale-overview-split-and-merge.md): cet outil vous permet de déplacer les données entre les différentes bases de données partitionnées. Cet outil est particulièrement utile pour déplacer des données d’une base de données multilocataire vers une base de données monolocataire (ou inversement). Consultez le [Didacticiel d’outil de fusion et de fractionnement de bases de données élastiques](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 * [Tâches de base de données élastique](sql-database-elastic-jobs-overview.md) (version préliminaire) : utilisez des tâches pour gérer un grand nombre de bases de données SQL Azure. Exécutez facilement les opérations administratives telles que les modifications de schéma, la gestion des informations d’identification, les mises à jour de données de référence, la collecte des données de performances ou la collecte télémétrique du client (customer) à l’aide des tâches.
-* [Requête de base de données élastique](sql-database-elastic-query-overview.md) (version préliminaire) : vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données. Cela permet une connexion à des outils de création de rapports comme Excel, PowerBI, Tableau, etc.
+* [Requête de base de données élastique](sql-database-elastic-query-overview.md) (version préliminaire) : vous permet d’exécuter une requête Transact-SQL qui s’étend sur plusieurs bases de données. Cela permet une connexion à des outils de création de rapports comme Excel, Power BI, Tableau, etc.
 * [Transactions élastiques](sql-database-elastic-transactions-overview.md): cette fonctionnalité vous permet d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans Azure SQL Database. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les [classes System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 L’illustration ci-dessous montre une architecture qui inclut les **fonctionnalités de base de données élastique** liées à une collection de bases de données.
 
 Dans ce graphique, les couleurs de la base de données représentent des schémas. Les bases de données de même couleur partagent le même schéma.
 
-1. Un ensemble de **bases de données SQL Azure** est hébergé sur Azure avec une architecture de partitionnement.
+1. Un ensemble de **bases de données SQL Azure** est hébergé dans Azure avec une architecture de partitionnement.
 2. La **bibliothèque cliente de base de données élastique** sert à gérer un ensemble de partitions.
-3. Un sous-ensemble des bases de données est placé dans un **pool élastique**. (Voir [Qu’est-ce qu’un pool ?](sql-database-elastic-pool.md)).
+3. Un sous-ensemble de ces bases de données est placé dans un **pool élastique**. (Voir [Qu’est-ce qu’un pool ?](sql-database-elastic-pool.md)).
 4. Une **tâche de base de données élastique** exécute des scripts T-SQL planifiés ou ad hoc sur toutes les bases de données.
 5. L’ **outil de fusion et fractionnement** sert à déplacer des données d’une partition à l’autre.
 6. La **requête de base de données élastique** vous permet d’écrire une requête qui s’étend sur toutes les bases de données de l’ensemble de partitions.
@@ -50,11 +53,11 @@ Traditionnellement, ces types de scénarios ont été résolus en investissant d
 ## <a name="horizontal-and-vertical-scaling"></a>Mise à l’échelle horizontale et verticale
 La figure ci-dessous illustre les dimensions horizontales et verticales de la mise à l'échelle, qui représentent les méthodes de base de mise à l'échelle des bases de données élastiques.
 
-![Comparaison entre la montée en charge horizontale et verticale][2]
+![Comparaison entre la montée en charge horizontale et la montée en charge verticale][2]
 
-La mise à l’échelle horizontale fait référence à l’ajout ou la suppression des bases de données afin d’ajuster les capacités ou les performances globales. Cette procédure est fréquemment appelée « montée en charge ». Le partitionnement est une approche courante de mise à l’échelle horizontale, dans laquelle les données sont partitionnées sur une collection de bases de données structurées de manière identique.  
+La mise à l’échelle horizontale fait référence à l’ajout ou à la suppression de bases de données afin d’ajuster la capacité ou les performances globales. Ce processus est également appelé « montée en charge ». Le partitionnement est une approche courante de mise à l’échelle horizontale, dans laquelle les données sont partitionnées sur une collection de bases de données structurées de manière identique.  
 
-La mise à l’échelle verticale fait référence à l’augmentation ou à la réduction du niveau de performance d’une base de données individuelle et est également appelée « mise à l’échelle vers le haut ».
+La mise à l’échelle verticale fait référence à l’augmentation ou à la réduction de la taille de calcul d’une base de données. Ce processus est également appelé « montée en puissance ».
 
 La plupart des applications de base de données à l’échelle du cloud associent ces deux stratégies. Par exemple, une application Software as a Service peut utiliser la mise à l’échelle horizontale pour approvisionner les nouveaux clients finaux et la mise à l’échelle verticale pour permettre l’augmentation ou la diminution des ressources de la base de données du client final, en fonction des besoins de la charge de travail.
 
@@ -74,11 +77,11 @@ Dans d'autres scénarios, telle la réception de données à partir d'appareils 
 Le partitionnement fonctionne mieux lorsque toutes les transactions d'une application peuvent être limitées à une seule valeur de clé de partitionnement. Cela permet de garantir que toutes les transactions sont locales à une base de données spécifique.
 
 ## <a name="multi-tenant-and-single-tenant"></a>Architecture mutualisée et architecture à un seul locataire
-Certaines applications utilisent l'approche la plus simple consistant à créer une base de données distincte pour chaque locataire. C’est le **modèle de partitionnement par locataire unique** qui offre des fonctionnalités d’isolation, de sauvegarde/restauration et de mise à l’échelle des ressources au niveau de granularité du locataire. Avec le partitionnement par locataire unique, chaque base de données est associée à une valeur d'identifiant de locataire spécifique (ou la valeur de clé du client), mais il n'est pas nécessaire que cette clé soit toujours présente dans les données elles-mêmes. L’application est responsable de l’acheminement de chaque demande vers la base de données appropriée. Et la bibliothèque cliente peut simplifier cette procédure.
+Certaines applications utilisent l'approche la plus simple consistant à créer une base de données distincte pour chaque locataire. Cette méthode correspond au **modèle de partitionnement par locataire**, qui offre des fonctionnalités d’isolation, de sauvegarde/restauration et de mise à l’échelle des ressources au niveau de granularité du locataire. Avec le partitionnement par locataire unique, chaque base de données est associée à une valeur d'identifiant de locataire spécifique (ou la valeur de clé du client), mais il n'est pas nécessaire que cette clé soit toujours présente dans les données elles-mêmes. L’application est responsable de l’acheminement de chaque demande vers la base de données appropriée. Et la bibliothèque cliente peut simplifier cette procédure.
 
 ![Comparaison entre l’architecture à locataire unique et l’architecture mutualisée][4]
 
-D'autres scénarios regroupent plusieurs locataires dans des bases de données, plutôt que de les isoler dans des bases de données distinctes. Il s’agit d’un modèle type de **partitionnement à plusieurs locataires** et il peut être nécessaire lorsqu’une application gère un grand nombre de petits locataires. Dans un partitionnement à plusieurs locataires, les lignes des tables de base de données sont toutes conçues pour comporter une clé identifiant l'ID du locataire ou la clé de partitionnement. Là encore, la couche Application est responsable de l’acheminement de la demande d’un locataire vers la base de données appropriée et la bibliothèque cliente de base de données élastique peut prendre cette procédure en charge. En outre, le dispositif de sécurité au niveau des lignes peut servir à filtrer les lignes auxquelles chaque locataire peut accéder. Pour plus d’informations, consultez [Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes](sql-database-elastic-tools-multi-tenant-row-level-security.md). Il peut être nécessaire de redistribuer les données entre les bases de données à l’aide du modèle de partitionnement à plusieurs locataires. L’outil de fusion et de fractionnement des bases de données élastiques permet de faciliter cette procédure. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Modèles de conception pour les applications SaaS mutualisées avec la base de données SQL Azure).
+D'autres scénarios regroupent plusieurs locataires dans des bases de données, plutôt que de les isoler dans des bases de données distinctes. Il s’agit d’un modèle type de **partitionnement multilocataire**. Il peut être nécessaire lorsqu’une application gère un grand nombre de petits locataires. Dans un partitionnement à plusieurs locataires, les lignes des tables de base de données sont toutes conçues pour comporter une clé identifiant l'ID du locataire ou la clé de partitionnement. Là encore, la couche Application est responsable de l’acheminement de la demande d’un locataire vers la base de données appropriée et la bibliothèque cliente de base de données élastique peut prendre cette procédure en charge. En outre, le dispositif de sécurité au niveau des lignes peut servir à filtrer les lignes auxquelles chaque locataire peut accéder. Pour plus d’informations, consultez [Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes](sql-database-elastic-tools-multi-tenant-row-level-security.md). Il peut être nécessaire de redistribuer les données entre les bases de données à l’aide du modèle de partitionnement multilocataire. L’outil de fusion et de fractionnement des bases de données élastiques facilite cette procédure. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)(Modèles de conception pour les applications SaaS mutualisées avec la base de données SQL Azure).
 
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Déplacement de données de bases de données à plusieurs locataires vers des bases de données à un seul locataire
 Lorsque vous créez une application SaaS, il est courant d'offrir aux clients potentiels une version d'évaluation du logiciel. Dans ce cas, il est plus rentable d'utiliser une base de données à plusieurs locataires pour les données. Toutefois, lorsqu'un prospect devient un client, une base de données à un seul locataire est préférable car elle offre de meilleures performances. Si le client a créé des données pendant la période d’évaluation, utilisez l’ [outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md) pour déplacer les données de la base de données à plusieurs locataires vers la nouvelle base de données à un seul locataire.

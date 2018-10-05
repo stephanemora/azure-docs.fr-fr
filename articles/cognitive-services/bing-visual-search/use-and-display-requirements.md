@@ -1,20 +1,20 @@
 ---
-title: Utilisation et exigences d’affichage pour les images renvoyées par l’API Recherche visuelle Bing | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: Conditions d’utilisation et d’affichage des images - Recherche visuelle Bing
+titleSuffix: Azure Cognitive Services
 description: Découvrez la configuration requise pour l’affichage du contenu renvoyé par l’API Recherche visuelle Bing.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: scottwhi
-ms.openlocfilehash: f2087379fbb820adfb43ec85c93ce7f6ea4f7493
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a9305034102c9ca9e721f18841054d9473acfac9
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370376"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221120"
 ---
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

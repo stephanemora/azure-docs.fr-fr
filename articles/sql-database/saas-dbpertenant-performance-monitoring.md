@@ -1,21 +1,23 @@
 ---
 title: Surveiller les performances de nombreuses bases de données Azure SQL dans une application de SaaS mutualisée | Documents Microsoft
 description: Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
-keywords: didacticiel sur les bases de données SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d8e260b8dabb4c6823d59374a7b8661e024f1b3d
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: e774394eeb95fbc8d80e181a614a7e30258a100e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752269"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056768"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
 
@@ -49,9 +51,9 @@ Les pools et les bases de données qu’ils incluent doivent être surveillés p
 ### <a name="performance-management-strategies"></a>Stratégies de gestion des performances
 
 * Pour éviter de devoir analyser manuellement les performances, il est plus efficace de **définir des alertes qui se déclenchent si les bases de données ou les pools s’éloignent des limites normales**.
-* Pour répondre aux fluctuations à court terme du niveau de performances agrégé d’un pool, le **niveau eDTU du pool peut augmenté ou diminué**. Si cette fluctuation est régulière ou prévisible, la **mise à l’échelle du pool peut être planifiée automatiquement**. Par exemple, diminuez la taille du pool lorsque vous savez que votre charge de travail est faible, disons la nuit ou le week-end.
+* Pour répondre aux fluctuations à court terme de la taille de calcul agrégée d’un pool, le **niveau eDTU du pool peut être augmenté ou diminué**. Si cette fluctuation est régulière ou prévisible, la **mise à l’échelle du pool peut être planifiée automatiquement**. Par exemple, diminuez la taille du pool lorsque vous savez que votre charge de travail est faible, disons la nuit ou le week-end.
 * Pour répondre aux fluctuations à plus long terme ou à la modification du nombre de bases de données, **des bases de données spécifiques peuvent être déplacées dans d’autres pools**.
-* Pour répondre aux augmentations à court terme de la charge de bases de données *spécifiques*, **vous pouvez sortir celles-ci du pool et leur attribuer un niveau de performances spécifique**. Une fois que la charge est réduite, la base de données peut être remise dans le pool. Si cela est connu à l’avance, la base de données peut être déplacée préalablement pour vérifier qu’elle a toujours les ressources nécessaires et pour éviter l’impact sur les autres bases de données du pool. Si ce besoin est prévisible, par exemple un lieu accueillant un événement populaire avec une vente de tickets à grande échelle, ce comportement de gestion peut être intégré à l’application.
+* Pour répondre aux augmentations à court terme de la charge de bases de données *spécifiques*, **vous pouvez sortir celles-ci du pool et leur attribuer une taille de calcul spécifique**. Une fois que la charge est réduite, la base de données peut être remise dans le pool. Si cela est connu à l’avance, la base de données peut être déplacée préalablement pour vérifier qu’elle a toujours les ressources nécessaires et pour éviter l’impact sur les autres bases de données du pool. Si ce besoin est prévisible, par exemple un lieu accueillant un événement populaire avec une vente de tickets à grande échelle, ce comportement de gestion peut être intégré à l’application.
 
 Le [portail Azure](https://portal.azure.com) offre des fonctionnalités intégrées de surveillance et d’alerte sur la plupart des ressources. Pour SQL Database, la surveillance et les alertes sont disponibles pour les bases de données et les pools. Ces fonctionnalités de surveillance et d’alertes intégrées sont propres à la ressource. Par conséquent, il est pratique de les utiliser pour un petit nombre de ressources, mais pas pour de nombreuses ressources.
 
@@ -84,7 +86,7 @@ Le script *Demo-PerformanceMonitoringAndManagement.ps1* simulant une charge de t
 | 2 | Générer une charge d’intensité normale (environ 40 DTU) |
 | 3 | Générer une charge avec des pics plus longs et plus fréquents par base de données|
 | 4 | Générer une charge avec des pics de DTU supérieurs par base de données (environ 80 DTU)|
-| 5 | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
+| 5. | Générer une charge normale et une charge élevée sur un seul locataire (environ 95 DTU)|
 | 6. | Générer une charge déséquilibrée entre plusieurs pools|
 
 Le générateur de charge applique une charge CPU *synthétique* à chaque base de données de locataire. Le générateur démarre un travail pour chaque base de données de locataire, qui appelle périodiquement une procédure stockée qui génère la charge. Les niveaux de charge (exprimés en eDTU), la durée et les intervalles varient selon les bases de données afin de simuler l’activité d’un locataire imprévisible.
@@ -207,7 +209,7 @@ Cet exercice simule l’effet de la salle de concert Contoso qui subit une charg
 2. Examinez également l’affichage **Surveillance de la base de données élastique** qui illustre les bases de données les plus actives au cours de la dernière heure. La base de données *contosoconcerthall* doit figurer rapidement parmi les cinq bases de données les plus sollicitées.
 3. Cliquez sur le **graphique** **Surveillance de la base de données élastique**. Cela a pour effet d’ouvrir la page **Utilisation des ressources de base de données** dans laquelle vous pouvez surveiller toutes les bases de données. Cela vous permet d’isoler l’affichage de la base de données *contosoconcerthall*.
 4. Dans la liste des bases de données, cliquez sur **contosoconcerthall**.
-5. Cliquez sur **Niveau tarifaire (mise à l’échelle de DTU)** pour ouvrir la page **Configurer les performances** dans laquelle vous pouvez définir un niveau de performance autonome pour la base de données.
+5. Cliquez sur **Niveau tarifaire (mise à l’échelle de DTU)** pour ouvrir la page **Configurer les performances** dans laquelle vous pouvez définir une taille de calcul autonome pour la base de données.
 6. Cliquez sur l’onglet **Standard** pour ouvrir les options de mise à l’échelle du niveau Standard.
 7. Faites glisser le **curseur DTU** vers la droite pour sélectionner **100** DTU. Notez que cela correspond à l’objectif de service **S3**.
 8. Cliquez sur **Appliquer** pour déplacer la base de données hors du pool et en faire une base de données *S3 Standard*.

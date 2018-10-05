@@ -20,7 +20,7 @@ Le tableau suivant répertorie les limites qui s'appliquent aux ressources IoT H
 | Nombre maximal d’identités de périphériques<br/> renvoyées dans un seul appel |1 000 |
 | Conservation maximale des messages IoT Hub pour les messages de l’appareil vers le cloud |7 jours |
 | Taille maximale du message appareil-à-cloud |256 KB |
-| Taille maximale du lot appareil-à-cloud |256 KB |
+| Taille maximale du lot appareil-à-cloud |AMQP et HTTP : 256 Ko pour l’ensemble du lot <br/>MQTT : 256 Ko pour chaque message |
 | Nombre maximal de messages dans le lot appareil-à-cloud |500 |
 | Taille maximale du message cloud-à-appareil |64 Ko |
 | Durée de vie maximale des messages cloud-à-appareil |2 jours |

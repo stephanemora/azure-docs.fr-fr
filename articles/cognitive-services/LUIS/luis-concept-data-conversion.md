@@ -1,23 +1,24 @@
 ---
-title: Comprendre les concepts de conversion des données dans LUIS - Azure | Microsoft Docs
+title: Concepts de conversion de données dans LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment les énoncés peuvent être modifiés avant les prédictions de Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05a02191af171936dd9f5c4bf469b9c84aa144a3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3862a0dbd94b5764cf506b05201d8dc60430fc7d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223699"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038967"
 ---
 # <a name="data-conversion-concepts-in-luis"></a>Concepts de conversion des données dans LUIS
-LUIS offre un moyen de convertir les énoncés d’énoncés parlés en énoncés textuels avant la prédiction. 
+LUIS utilise le service de reconnaissance vocale de Cognitive Services pour convertir les énoncés d’énoncés parlés en énoncés textuels avant la prédiction. 
 
 ## <a name="speech-to-intent-conversion-concepts"></a>Concepts de conversion de sortie orale en intention
 La conversion de la reconnaissance vocale dans LUIS vous permet d’envoyer des énoncés parlés d’envoi à un point de terminaison et de recevoir une réponse de prédiction LUIS. Le processus est une intégration du service de [reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech) avec LUIS. 

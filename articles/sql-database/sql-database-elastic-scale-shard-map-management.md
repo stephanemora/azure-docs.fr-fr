@@ -2,19 +2,22 @@
 title: Montée en puissance parallèle d’une base de données SQL Azure | Microsoft Docs
 description: Utilisation de ShardMapManager, la bibliothèque cliente de base de données élastique
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 7e156142a68b30471646ea3a9181ce7d0097e626
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 03/16/2018
+ms.openlocfilehash: 71496a11deff5236161931d572e75d4a84b75c5f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646991"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162064"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Monter en charge les bases de données avec le Gestionnaire de cartes de partitions
 Pour monter facilement en charge les bases de données sur SQL Azure, utilisez un Gestionnaire de cartes de partitions. Le Gestionnaire de cartes de partitions est une base de données spéciale qui gère les informations de mappage global sur toutes les partitions (bases de données) dans un ensemble de partitions. Les métadonnées permettent à une application de se connecter à la base de données qui convient en fonction de la valeur de la **clé de partitionnement**. En outre, chaque partition de l’ensemble contient les cartes qui suivent les données de partitions locales (appelées **shardlets**). 
@@ -31,7 +34,7 @@ Pour chaque partition, vous devez sélectionner le type de carte de partitions �
    1. Mappage de liste
    2. Mappage de plage
 
-Pour un modèle de client unique, créez une carte de partitions de **mappage de liste** . Le modèle à un seul client attribue une base de données par client. Il s’agit d’un modèle efficace pour les développeurs SaaS, car il simplifie la gestion.
+Pour un modèle monolocataire, créez une carte de partitions de **mappage de liste**. Le modèle à un seul client attribue une base de données par client. Il s’agit d’un modèle efficace pour les développeurs SaaS, car il simplifie la gestion.
 
 ![Mappage de liste][1]
 
@@ -60,7 +63,7 @@ L’infrastructure élastique prend en charge les types suivants en tant que cl�
 Vous pouvez construire des cartes de partition en utilisant des **listes de valeurs de clés de partitionnement individuelles** ou des **plages de valeurs de clés de partitionnement**. 
 
 ### <a name="list-shard-maps"></a>Cartes de partition de liste
-Les **partitions** contiennent des **shardlets** (micro-partitions) et le mappage de ces shardlets en partitions est tenu à jour par une carte de partitions. Une **carte de partitions de liste** est une association entre les valeurs de clés individuelles identifiant les shardlets et les bases de données qui servent de partitions.  **mappages de liste** sont explicites et plusieurs valeurs de clés peuvent être mappées à la même base de données. Par exemple, la clé 1 est mappée à la base de données A et les valeurs de clés 3 et 6 font toutes deux référence à la base de données B.
+Les **partitions** contiennent des **shardlets** (micro-partitions) et le mappage de ces shardlets en partitions est tenu à jour par une carte de partitions. Une **carte de partitions de liste** est une association entre les valeurs de clés individuelles identifiant les shardlets et les bases de données qui servent de partitions.  **mappages de liste** sont explicites et plusieurs valeurs de clés peuvent être mappées à la même base de données. Par exemple, la valeur de clé 1 est mappée vers la base de données A, et les valeurs de clés 3 et 6 sont toutes deux mappées vers la base de données B.
 
 | Clé | Emplacement de partition |
 | --- | --- |
@@ -97,7 +100,7 @@ Un objet **ShardMapManager** est construit à l’aide d’un modèle factory ([
 
 **Remarque** : l’objet **ShardMapManager** doit être instancié une seule fois par domaine d’application, dans le code d’initialisation d’une application. La création d’instances supplémentaires de ShardMapManager dans le même domaine d’application entraîne une augmentation de l’utilisation de la mémoire et du processeur par l’application. Un **ShardMapManager** peut contenir n’importe quel nombre de cartes de partitions. Si une carte de partitions peut suffire à de nombreuses applications, il arrive que différents ensembles de bases de données soient utilisés pour différents schémas ou pour des objectifs uniques. Lorsque cela se produit, il est préférable d'employer plusieurs cartes de partitions. 
 
-Dans ce code, une application tente d’ouvrir un objet **ShardMapManager** existant avec la méthode TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager). Si des objets représentant un objet **ShardMapManager** global (GSM) n’existent pas encore dans la base de données, ils y sont créés par la bibliothèque cliente à l’aide de la méthode CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)).
+Dans ce code, une application tente d’ouvrir un objet **ShardMapManager** existant avec la méthode TryGetSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.trygetsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager). Si aucun objet représentant un **ShardMapManager** (GSM) global ne se trouve dans la base de données, la bibliothèque cliente les crée à l’aide de la méthode CreateSqlShardMapManager ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager_factory.createsqlshardmapmanager), [.NET](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager)).
 
 ```Java
 // Try to get a reference to the Shard Map Manager in the shardMapManager database.
@@ -221,7 +224,7 @@ Vous disposez de plusieurs méthodes pour modifier une carte de partitions. Tout
 
 Ces méthodes fonctionnent ensemble en tant que blocs de construction disponibles pour la modification de la distribution globale des données dans votre environnement de base de données partitionnée.  
 
-* Pour ajouter ou supprimer des partitions, utilisez les méthodes**CreateShard** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)) et **DeleteShard** ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx)) de la classe Shardmap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx)). 
+* Pour ajouter ou supprimer des partitions : utilisez les méthodes**CreateShard** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.createshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.createshard.aspx)) et **DeleteShard** ([Java](https://docs.microsoft.com/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map.deleteshard), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.deleteshard.aspx)) de la classe Shardmap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._shard_map), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.aspx)). 
   
     Le serveur et la base de données représentant la partition cible doivent déjà exister pour pouvoir exécuter ces opérations. Ces méthodes n’ont pas d’incidence sur les bases de données elles-mêmes. Elles affectent uniquement les métadonnées de la carte de partitions.
 * Pour créer ou supprimer des points ou des plages qui sont mappés aux partitions, utilisez les méthodes **CreateRangeMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.createrangemapping), [.NET](https://msdn.microsoft.com/library/azure/dn841993.aspx)) et **DeleteMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map.deletemapping), [.NET](https://msdn.microsoft.com/library/azure/dn824200.aspx)) de la classe RangeShardMapping ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._range_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn807318.aspx)), et la méthode **CreatePointMapping** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map.createpointmapping), [.NET](https://msdn.microsoft.com/library/azure/dn807218.aspx)) de la classe ListShardMap ([Java](/java/api/com.microsoft.azure.elasticdb.shard.map._list_shard_map), [.NET](https://msdn.microsoft.com/library/azure/dn842123.aspx)).

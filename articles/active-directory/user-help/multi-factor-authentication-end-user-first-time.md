@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b6d548183cfa548f9ad35f06922752c929e318ac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343727"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041953"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurer mon compte pour la vérification en deux étapes
 La vérification en deux étapes est une mesure de sécurité supplémentaire qui renforce la protection de votre compte contre les tentatives d’intrusion. Si vous lisez cet article, c’est que vous avez probablement reçu un e-mail de la part de l’administrateur de votre entreprise ou établissement scolaire concernant Multi-Factor Authentication. Ou peut-être avez-vous reçu un message vous invitant à configurer la vérification de sécurité supplémentaire à la suite d’une tentative de connexion. Si tel est le cas, **vous devez compléter le processus d’inscription automatique avant de pouvoir vous connecter**.
@@ -47,6 +47,9 @@ La première question du processus d’inscription a trait à la façon dont vou
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Utiliser une application mobile comme méthode de contact
 Cette méthode nécessite l’installation d’une application d’authentification sur votre téléphone ou tablette. Les étapes décrites dans cet article sont basées sur l’application Microsoft Authenticator, disponible pour [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) et [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+
+>[!NOTE]
+>Vous n’avez pas besoin d’utiliser l’application Microsoft Authenticator. Si vous disposez déjà d’une autre application d’authentification, vous pouvez continuer à l’utiliser.
 
 1. Dans la liste déroulante, sélectionnez **Application mobile**.
 2. Sélectionnez **Recevoir des notifications pour la vérification** ou **Utiliser le code de vérification**, puis sélectionnez **Configurer**.

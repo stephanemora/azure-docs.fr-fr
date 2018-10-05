@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983512"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221643"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -31,9 +31,7 @@ Le trafic réseau est soumis aux règles de pare-feu configurées lorsque vous r
 
 Les règles de réseau et d’application sont stockées dans les *regroupements de règles*. Un regroupement de règles est une liste de règles qui partagent la même action et la même priorité.  Un regroupement de règles de réseau est une liste de règles de réseau, et un regroupement de règles d’application est une liste de règles d’application.
 
-Les concepts de règles d’entrée et de sortie ne s’appliquent pas au Pare-feu Azure. Il existe des règles d’application et des règles de réseau, qui s’appliquent à tout le trafic qui entre dans le pare-feu. Les règles de réseau sont appliquées en premier, puis les règles d’application. L’application de règles est alors terminée.
-
-Par exemple, si une règle de réseau est mise en correspondance, le paquet n’est pas évalué par les règles d’application. En l’absence de correspondance de règle de réseau, si le protocole du paquet est HTTP/HTTPS, le paquet est évalué par les règles d’application. Si aucune correspondance n’est trouvée, le paquet est alors évalué selon la collection de règles de l’infrastructure. S’il n’existe toujours pas de correspondance, le paquet est refusé par défaut.
+Le service Pare-feu Azure comporte des règles de traduction d’adresses réseau (NAT), des règles de réseau et des règles d’application. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](rule-processing.md).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -215,9 +213,6 @@ Pour le sous-réseau **Workload-SN**, vous devez configurer l’itinéraire sort
 11. Cliquez sur **Add**.
 
 Le Pare-feu Azure comprend un regroupement de règles intégré pour les noms de domaine complets d’infrastructure qui sont autorisés par défaut. Ces noms de domaine complets sont spécifiques à la plateforme et ne peuvent pas être utilisés à d’autres fins. Pour plus d’informations, consultez [Noms de domaine complets d’infrastructure](infrastructure-fqdns.md).
-
-> [!Note]
-> Actuellement, les balises FQDN peuvent être configurées avec Azure PowerShell et REST uniquement. Cliquez [ici](https://aka.ms/firewallapplicationrule) pour en savoir plus. 
 
 ## <a name="configure-network-rules"></a>Configurer des règles de réseau
 

@@ -1,20 +1,21 @@
 ---
-title: 'Démarrage rapide : Modifier le modèle et effectuer l’apprentissage de l’application LUIS à l’aide de Python - Azure Cognitive Services | Microsoft Docs'
-description: Dans ce démarrage rapide de Node.js, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’apprentissage de l’application. Les exemples d’énoncés sont du texte utilisateur conversationnel mappé à une intention. En fournissant des exemples d’énoncés pour les intentions, vous apprenez à l’application LUIS quels types de texte fourni par l’utilisateur appartiennent à quelle intention.
+title: 'Démarrage rapide pour Python : Changer de modèle et entraîner une application LUIS'
+titleSuffix: Azure Cognitive Services
+description: Dans ce démarrage rapide de Python, vous allez ajouter des exemples d’énoncés à une application de domotique et entraîner l’application. Les exemples d’énoncés sont du texte utilisateur conversationnel mappé à une intention. En fournissant des exemples d’énoncés pour les intentions, vous apprenez à l’application LUIS quels types de texte fourni par l’utilisateur appartiennent à quelle intention.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9fe3863509404f43f39e3aa197a79d322a0b643b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ff076954d51605935bb41488ec6a757c2f7806a1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160691"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040174"
 ---
 # <a name="quickstart-change-model-using-python"></a>Démarrage rapide : Modifier un modèle à l’aide de Python
 
@@ -178,7 +179,7 @@ Requested training status.
 ]
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Une fois le démarrage rapide terminé, supprimez tous les fichiers créés pour ce démarrage rapide. 
 
 ## <a name="next-steps"></a>Étapes suivantes

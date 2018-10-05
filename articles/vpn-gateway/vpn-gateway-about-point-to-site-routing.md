@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 620a2bf9221bdb7c46dc36a2b3ed23d853faff35
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702174"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031710"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>À propos du routage VPN point à site
 
@@ -148,7 +148,7 @@ Les clients utilisant Windows ou un autre système d’exploitation pris en char
 
 Dans cet exemple, la connexion de passerelle VPN point à site est pour VNet1. VNet1 n’est connecté / appairé à aucun autre réseau virtuel, mais est connecté à un site local via une connexion VPN site à site qui n’exécute pas BGP.
 
-Les clients Windows peuvent accéder à VNet1 et à la filiale (Site1), mais les routes vers Site1 doivent être ajoutées manuellement dans le client. Les clients non-Windows peuvent accéder à VNet1, ainsi qu’au Site1 local.
+Les clients Windows et non-Windows peuvent uniquement accéder à VNet1.
 
 ![routage avec un réseau virtuel et une filiale](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routage avec un réseau virtuel et une filiale")
 
@@ -162,7 +162,7 @@ Les clients Windows peuvent accéder à VNet1 et à la filiale (Site1), mais les
 
 * Routes ajoutées aux clients Windows : 10.1.0.0/16, 192.168.0.0/24
 
-* Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Routes ajoutées aux clients non-Windows : 10.1.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 

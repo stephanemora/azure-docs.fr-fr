@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a047a36112ff599038500f0cb58305f07a5838dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c6399c2662a655f1c4ba50380a5ac4dde6ddda78
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994817"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221157"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Jetons d’accès Azure Active Directory
 
@@ -84,7 +84,7 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 |-----|--------|-------------|
 | `aud` | Chaîne, URI ID d’application | Identifie le destinataire du jeton. Dans les jetons d’accès, l’audience est l’ID attribué à votre application dans le portail Azure. Votre application doit valider cette valeur et rejeter le jeton si la valeur ne correspond pas. |
 | `iss` | Chaîne, URI STS | Identifie le service d’émission de jeton de sécurité (STS) qui construit et retourne le jeton, ainsi que le client Azure AD dans lequel l’utilisateur a été authentifié. Si le jeton a été émis par le terminal v2.0, l’URI se termine par `/v2.0`. La partie GUID qui indique que l’utilisateur est un utilisateur consommateur d’un compte Microsoft est `9188040d-6c67-4c5b-b112-36a304b66dad`. Votre application doit utiliser la partie GUID de la revendication pour restreindre l’ensemble des clients qui peuvent se connecter à l’application, le cas échéant. |
-| `iat` | int, horodatage UNIX | « Issued At » (Délivré le) indique quand l’authentification de ce jeton a eu lieu. |
+| `iat` | int, horodatage UNIX | « Issued At » (Délivré le) indique quand l'authentification de ce jeton a eu lieu. |
 | `nbf` | int, horodatage UNIX | La revendication « nbf » (pas avant) indique le délai avant lequel le JWT ne doit pas être accepté pour être traité. |
 | `exp` | int, horodatage UNIX | La revendication « exp » (délai d’expiration) indique le délai d’expiration à partir duquel le JWT ne doit pas être accepté pour être traité. Il est à noter qu’une ressource peut également rejeter le jeton avant ce délai, par exemple lorsqu’un changement d’authentification est requis ou qu’une révocation de jeton a été détectée. |
 | `acr` | Chaîne, « 0 » ou « 1 » | Revendication « Classe du contexte d’authentification ». La valeur « 0 » indique que l'authentification de l'utilisateur final ne répondait pas aux exigences de la norme ISO/IEC 29115. |
@@ -112,7 +112,7 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 
 #### <a name="v10-basic-claims"></a>Revendications de base v1.0
 
-Les revendications suivantes sont incluses dans les jetons v1.0, le cas échéant, mais pas dans les jetons v2.0 par défaut. Si vous utilisez la version 2.0 et que vous avez besoin d’une de ces revendications, demandez-les à l’aide des [revendications facultatives](active-directory-optional-claims.md).
+Les revendications suivantes sont incluses dans les jetons v1.0, le cas échéant, mais pas dans les jetons v2.0 par défaut. Si vous utilisez la version 2.0 et que vous avez besoin de l’une de ces revendications, demandez-les à l’aide des [revendications facultatives](active-directory-optional-claims.md).
 
 | Revendication | Format | Description |
 |-----|--------|-------------|

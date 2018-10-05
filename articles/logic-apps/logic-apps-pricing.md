@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b75fba2ba0e9fa922b1252378e0bab326cada7d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f9147035c07bbe4fb3f38b74025015e70dd87b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974304"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159554"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modèle de tarif pour Azure Logic Apps
 
@@ -54,7 +54,7 @@ Vous trouverez les exécutions de déclencheur dans le volet Vue d’ensemble de
 
 ## <a name="actions"></a>Actions
 
-Les actions intégrées, telles celles qui appellent HTTP, Azure Functions ou Gestion des API, ainsi que des étapes de flux de contrôle, sont mesurées en tant qu’actions natives qui ont leurs types respectifs. Les actions qui appellent des [connecteurs](https://docs.microsoft.com/connectors) ont le type « ApiConnection ». Ces connecteurs sont classés en connecteurs standard ou d’entreprise, et sont mesurés en fonction de leur [tarification][pricing] respective. 
+Les actions intégrées, telles celles qui appellent HTTP, Azure Functions ou Gestion des API, ainsi que des étapes de flux de contrôle, sont mesurées en tant qu’actions natives qui ont leurs types respectifs. Les actions qui appellent des [connecteurs](https://docs.microsoft.com/connectors) ont le type « ApiConnection ». Ces connecteurs sont classés en connecteurs standard ou d’entreprise, et sont mesurés en fonction de leur [tarification][pricing] respective. Les connecteurs d’entreprise en *préversion* sont facturés comme connecteurs standard.
 
 Toutes les actions d’exécution ayant réussi ou non sont considérées et mesurées comme des exécutions d’action. Toutefois, les actions qui sont ignorées en raison d’une condition non remplie ou celles qui n’ont pas été exécutées (car l’application logique s’est arrêtée avant son achèvement) ne sont pas considérées comme des exécutions d’action. Les applications logiques désactivées ne peuvent pas instancier d’instances. Elles ne sont donc pas facturées pendant qu’elles sont désactivées.
 

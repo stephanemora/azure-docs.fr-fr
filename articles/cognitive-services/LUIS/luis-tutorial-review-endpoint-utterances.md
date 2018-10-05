@@ -1,71 +1,81 @@
 ---
-title: Didacticiel pour réviser les énoncés de point de terminaison dans Language Understanding (LUIS) - Azure | Microsoft Docs
-description: Dans ce didacticiel, découvrez comment passer en revue les énoncés de point de terminaison dans le domaine de ressources humaines (RH) dans LUIS.
+title: 'Tutoriel 1 : Passage en revue des énoncés de point de terminaison avec l’apprentissage actif'
+titleSuffix: Azure Cognitive Services
+description: Améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus par le point de terminaison HTTP de LUIS dont ce dernier n’est pas sûr. Certains énoncés peuvent devoir faire l’objet d’une vérification d’intention, d’autres d’une vérification d’entité. Vous devez examiner les énoncés de point de terminaison régulièrement dans le cadre de la maintenance LUIS planifiée.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: db44bfad5ece59ed3373699c10d6134201bf1879
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1047c117228b57f7361a1e386bc6cde7acbfdde8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160079"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042265"
 ---
-# <a name="tutorial-review-endpoint-utterances"></a>Didacticiel : réviser les énoncés de point de terminaison
-Dans ce didacticiel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus par le point de terminaison HTTP de LUIS. 
+# <a name="tutorial-1-fix-unsure-predictions"></a>Tutoriel 1 : Corriger des prédictions incertaines
+Dans ce tutoriel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus par le point de terminaison HTTPS de LUIS dont ce dernier n’est pas sûr. Certains énoncés peuvent devoir faire l’objet d’une vérification d’intention, d’autres d’une vérification d’entité. Vous devez examiner les énoncés de point de terminaison régulièrement dans le cadre de la maintenance LUIS planifiée. 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Comprendre la révision des énoncés de point de terminaison 
-> * Utiliser l’application LUIS pour le domaine des ressources humaines (RH) 
-> * Réviser les énoncés de point de terminaison
-> * Entraîner et publier l’application
-> * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Avant de commencer
-Si vous n’avez pas l’application des ressources humaines à partir du didacticiel des [sentiments](luis-quickstart-intent-and-sentiment-analysis.md), importez l’application à partir du référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-sentiment-HumanResources.json). Si vous utilisez ce didacticiel comme une nouvelle application importée, vous devez également effectuer l’apprentissage, publier, puis ajouter les énoncés au point de terminaison avec un [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou à partir du point de terminaison dans un navigateur. Les énoncés à ajouter sont :
-
-   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
-
-Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `review`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
-
-Si vous disposez de toutes les versions de l’application, grâce à la série de didacticiels, vous serez surpris de constater que la liste **Réviser les énoncés de point de terminaison** ne change pas, selon la version. Il existe un seul pool d’énoncés à réviser, quelle que soit la version de l’énoncé que vous modifiez ou la version de l’application publiée au point de terminaison. 
-
-## <a name="purpose-of-reviewing-endpoint-utterances"></a>Objectif de la révision des énoncés de point de terminaison
-Ce processus de révision est une autre façon pour LUIS de découvrir le domaine de votre application. LUIS a sélectionné les énoncés dans la liste de révision. Cette liste est :
+Ce processus de révision est une autre façon pour LUIS de découvrir le domaine de votre application. LUIS a sélectionné les énoncés qui apparaissent dans la liste de révision. Cette liste est :
 
 * Spécifique à l’application.
 * Est destinée à améliorer la précision de prédiction de l’application. 
 * Doit être révisée régulièrement. 
 
-En passant en revue les énoncés de point de terminaison, vous vérifiez ou corrigez l’intention prédite de l’énoncé. Vous étiquetez également des entités personnalisées non prédites. 
+En passant en revue les énoncés de point de terminaison, vous vérifiez ou corrigez l’intention prédite de l’énoncé. Vous étiquetez également des entités personnalisées non prédites ou incorrectement prédites. 
+
+**Ce tutoriel vous montre comment effectuer les opérations suivantes :**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Utiliser l’application de tutoriel existante
+> * Réviser les énoncés de point de terminaison
+> * Mettre à jour une liste d’expressions
+> * Entraîner une application
+> * Publier une application
+> * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Utiliser l’application existante
+
+Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
+
+Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
+
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json).
+
+2. Importez le code JSON dans une nouvelle application.
+
+3. À partir de la section **Gérer**, sous l’onglet **Versions**, clonez la version et nommez-la `review`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+
+    Si vous utilisez ce didacticiel comme une nouvelle application importée, vous devez également effectuer l’apprentissage, publier, puis ajouter les énoncés au point de terminaison avec un [script](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/demo-upload-endpoint-utterances/endpoint.js) ou à partir du point de terminaison dans un navigateur. Les énoncés à ajouter sont :
+
+   [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
+
+    Si vous disposez de toutes les versions de l’application, grâce à la série de didacticiels, vous serez surpris de constater que la liste **Réviser les énoncés de point de terminaison** ne change pas, selon la version. Il existe un seul pool d’énoncés à réviser, quelle que soit la version que vous modifiez ou la version de l’application publiée au point de terminaison. 
 
 ## <a name="review-endpoint-utterances"></a>Réviser les énoncés de point de terminaison
 
-1. Assurez-vous que votre application Ressources humaines figure dans la section **Générer** de LUIS. Vous pouvez modifier cette section en sélectionnant **Générer** dans la barre de menu en haut à droite. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sélectionnez **Réviser les énoncés de point de terminaison** dans le volet de navigation gauche. La liste est filtrée pour intention **ApplyForJob**. 
 
-    [ ![Capture d’écran du bouton Réviser les énoncés de point de terminaison dans le volet de navigation gauche](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png)](./media/luis-tutorial-review-endpoint-utterances/entities-view-endpoint-utterances.png#lightbox)
+    [ ![Capture d’écran du bouton Réviser les énoncés de point de terminaison dans le volet de navigation gauche](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png#lightbox)
 
 3. Appuyez sur **Affichage des entités** pour afficher les entités étiquetées. 
     
-    [ ![Capture d’écran de Réviser les énoncés de point de terminaison avec le bouton Affichage des entités en surbrillance](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
+    [ ![Capture d’écran de Réviser les énoncés de point de terminaison avec le bouton Affichage des entités en surbrillance](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
     |Énoncé|Intention correcte|Entités manquantes|
     |:--|:--|:--|
     |Je recherche un travail dans le traitement du langage naturel|GetJobInfo|Travail - « Traitement du langage naturel »|
 
     Cet énoncé n’est pas dans l’intention correcte et a un score inférieur à 50 %. L’intention **ApplyForJob** a 21 énoncés par rapport aux sept énoncés dans **GetJobInformation**. Avec l’alignement correct de l’énoncé de point de terminaison, d’autres énoncés doivent être ajoutés à l’intention **GetJobInformation**. Ceci est considéré comme un exercice que vous devez effectuer vous-même. Chaque intention, à l’exception de l’intention **None**, doit avoir à peu près le même nombre d’énoncés d’exemple. L’intention **None** doit avoir 10 % du nombre total d’énoncés de l’application. 
-
-    Lorsque vous êtes dans **Tokens View** (Vue du jeton), vous pouvez pointer sur n’importe quel texte en bleu de l’énoncé pour afficher le nom prédit de l’entité. 
 
 4. Pour l’intention `I'm looking for a job with Natual Language Processing`, sélectionnez l’intention correcte, **GetJobInformation** dans la colonne **Intention alignée**. 
 
@@ -87,11 +97,13 @@ En passant en revue les énoncés de point de terminaison, vous vérifiez ou cor
 
     [ ![Capture d’écran de la finalisation des énoncés restants en intention alignée](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
-9. La liste ne devrait plus avoir ces énoncés. Si d’autres énoncés apparaissent, continuez d’examiner la liste, en corrigeant les intentions et en étiquetant toutes les entités manquantes, jusqu'à ce qu’elle soit vide. Sélectionnez l’intention suivante dans la liste Filtre, puis continuez à corriger les énoncés et à étiqueter les entités. N’oubliez pas que la dernière étape de chaque intention consiste à sélectionner **Ajouter à l’intention alignée** sur la ligne de l’énoncé ou à cocher la case à côté de chaque intention et sélectionner **Ajouter la sélection** au-dessus de la table. 
+9. La liste ne devrait plus avoir ces énoncés. Si d’autres énoncés apparaissent, continuez d’examiner la liste, en corrigeant les intentions et en étiquetant toutes les entités manquantes, jusqu’à ce que la liste soit vide. 
 
-    C’est une application très petite. Le processus de révision ne prend que quelques minutes.
+10. Sélectionnez l’intention suivante dans la liste Filtre, puis continuez à corriger les énoncés et à étiqueter les entités. N’oubliez pas que la dernière étape de chaque intention consiste à sélectionner **Ajouter à l’intention alignée** sur la ligne de l’énoncé ou à cocher la case à côté de chaque intention et sélectionner **Ajouter la sélection** au-dessus de la table.
 
-## <a name="add-new-job-name-to-phrase-list"></a>Ajoutez un nouveau nom de tâche à la liste d’expressions
+    Continuez jusqu’à ce que toutes les intentions et entités dans la liste de filtres aient une liste vide. C’est une application très petite. Le processus de révision ne prend que quelques minutes. 
+
+## <a name="update-phrase-list"></a>Mettre à jour une liste d’expressions
 Conservez la liste d’expressions actuelle avec tout nom de tâche récemment découvert. 
 
 1. Sélectionnez **Liste d’expressions** dans le volet de navigation gauche.
@@ -100,19 +112,19 @@ Conservez la liste d’expressions actuelle avec tout nom de tâche récemment d
 
 3. Ajoutez `Natural Language Processing` en tant que valeur, puis sélectionnez **Enregistrer**. 
 
-## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
+## <a name="train"></a>Former
 
 LUIS ne connaît pas les modifications apportées tant que son apprentissage n’a pas été effectué. 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
+## <a name="publish"></a>Publish
 
 Si vous avez importé cette application, vous devez sélectionner **Analyse des sentiments**.
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-an-utterance"></a>Interroger le point de terminaison avec un énoncé
+## <a name="get-intent-and-entities-from-endpoint"></a>Reconnaître l’intention et les entités à partir du point de terminaison
 
 Essayez un énoncé proche de l’énoncé corrigé. 
 
@@ -223,16 +235,14 @@ Essayez un énoncé proche de l’énoncé corrigé.
 Vous vous demandez sûrement pourquoi ne pas ajouter plus d’énoncés d’exemple. Quel est le but de la révision des énoncés de point de terminaison ? Dans une application LUIS réaliste, les énoncés de point de terminaison émanent d’utilisateurs avec des choix de mots et une disposition que vous n’avez pas encore utilisés. Si vous aviez utilisé le même choix de mots et la disposition, la prédiction d’origine aurait un pourcentage plus élevé. 
 
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Pourquoi la meilleure intention est-elle sur la liste des énoncés ? 
-Certains des énoncés de point de terminaison auront un pourcentage élevé dans la liste de révision. Vous devez quand même réviser et vérifier ces énoncés. Ils figurent dans la liste car l’intention suivante la plus haute avait un score trop proche de celui de la meilleure intention. 
+Certains des énoncés de point de terminaison auront un score de prédiction élevé dans la liste de révision. Vous devez quand même réviser et vérifier ces énoncés. Ils figurent dans la liste car l’intention suivante la plus haute avait un score trop proche de celui de la meilleure intention. Vous souhaitez une différence d’environ 15 % entre les deux meilleures intentions.
 
-## <a name="what-has-this-tutorial-accomplished"></a>Qu’a accompli ce didacticiel ?
-La précision de cette prédiction d’application a augmenté en révisant des énoncés du point de terminaison. 
-
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+Dans ce tutoriel, vous avez révisé les énoncés envoyés au point de terminaison et dont LUIS n’était pas sûr. Une fois ces énoncés vérifiés et déplacés vers les intentions correctes en tant qu’exemples d’énoncés, LUIS améliore la précision des prédictions.
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur l’utilisation de ces modèles](luis-tutorial-pattern.md)

@@ -1,22 +1,23 @@
 ---
-title: Entités prédéfinies dans LUIS | Microsoft Docs
-description: Cet article contient des listes des entités prédéfinies qui sont incluses dans Language Understanding Intelligent Service (LUIS).
+title: Entités prédéfinies pour Language Understanding (LUIS).
+titleSuffix: Azure Cognitive Services
+description: LUIS comprend un ensemble d’entités prédéfinies pour reconnaître des types courants d’informations telles que des dates, heures, nombres, mesures et devises. La prise en charge de l’entité prédéfinie varie selon la culture de votre application LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e3bd203c9ab1d6daaae04866cf195b3ca28c3078
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248235"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041555"
 ---
-# <a name="prebuilt-entities"></a>Entités prédéfinies
+# <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entités prédéfinies pour reconnaître les types de données courants
 
 LUIS comprend un ensemble d’entités prédéfinies pour reconnaître des types courants d’informations telles que des dates, heures, nombres, mesures et devises. La prise en charge de l’entité prédéfinie varie selon la culture de votre application LUIS. Pour obtenir la liste complète des entités prédéfinies que LUIS prend en charge, notamment en lien avec la culture, voir la [documentation de référence sur les entités prédéfinies](./luis-reference-prebuilt-entities.md).
 
@@ -28,7 +29,6 @@ LUIS comprend un ensemble d’entités prédéfinies pour reconnaître des types
 1. Ouvrez votre application en cliquant sur son nom dans la page **Mes applications**, puis cliquez sur **Entités** du côté gauche. 
 2. Dans la page **Entités**, cliquez sur **Manage prebuilt entities** (Gérer les entités prédéfinies).
 
-    ![Page Entités - Manage prebuilt entities (Gérer les entités prédéfinies)](./media/luis-use-prebuilt-entity/add-prebuilt-entity-button.png)
 3. Dans la boîte de dialogue **Add prebuilt entities** (Ajouter des entités prédéfinies), cliquez sur l’entité prédéfinie que vous souhaitez ajouter (par exemple, « datetimev2 »). Cliquez ensuite sur **Enregistrer**.
 
     ![Boîte de dialogue Add prebuilt entities (Ajouter des entités prédéfinies)](./media/luis-use-prebuilt-entity/add-prebuilt-entity-dialog.png)

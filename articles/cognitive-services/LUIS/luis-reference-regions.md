@@ -1,21 +1,21 @@
 ---
-title: Régions et points de terminaison LUIS (Language Understanding) - Azure - Cognitive Services LUIS | Microsoft Docs
-titleSuffix: Azure
+title: Points de terminaison et régions de publication - LUIS
+titleSuffix: Azure Cognitive Services
 description: La région dans laquelle vous publiez votre application LUIS correspond à la région ou à l’emplacement que vous spécifiez dans le portail Azure lorsque vous créez une clé de point de terminaison Azure LUIS. Quand vous publiez une application, LUIS génère automatiquement une URL de point de terminaison pour la région associée à la clé. Pour publier une application LUIS dans plusieurs régions, vous avez besoin d’au moins une clé par région.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/11/2018
 ms.author: diberry
-ms.openlocfilehash: 7812ce37cb22c8774c785f5f645b8fef90b02a3e
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 205a17a985986aab8039afe824e7e872a9885169
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815501"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039409"
 ---
 # <a name="regions-and-keys"></a>Régions et clés
 
@@ -30,6 +30,11 @@ Il existe trois sites web LUIS, en fonction de la région. Vous devez créer et 
 |[au.luis.ai][au.luis.ai]|Australie|
 |[eu.luis.ai][eu.luis.ai]|Europe|
 
+## <a name="regions-and-azure-resources"></a>Régions et ressources Azure
+L’application est publiée dans toutes les régions associées aux ressources LUIS ajoutées dans le portail LUIS. Par exemple, pour une application créée sur [www.luis.ai][www.luis.ai], si vous créez une ressource LUIS dans **westus** et que vous l’ajoutez à l’application en tant que ressource, l’application est publiée dans cette région. 
+
+## <a name="public-apps"></a>Applications publiques
+Une application publique est publiée dans toutes les régions. Ainsi, un utilisateur ayant une clé de ressource LUIS basée sur une région peut accéder à l’application dans toute région associée à sa clé de ressource.
 
 ## <a name="publishing-regions"></a>Régions de publication
 
@@ -37,20 +42,20 @@ Les applications LUIS créées sur https://www.luis.ai peuvent être publiées s
 
 L’application de la région de création peut uniquement être publiée dans une région de publication correspondante. Si votre application est actuellement dans la mauvaise région de création, exportez l’application et importez-la dans la région de création correcte pour votre région de publication. 
 
- Région globale | Région de création | Région de publication et d’interrogation   |   Site web LUIS | Format de l’URL de point de terminaison   |
+ Région globale | Région de création<br>`API region name` | Région de publication et d’interrogation<br>`API region name`   |   Site web LUIS | Format de l’URL de point de terminaison   |
 |-----|------|------|------|------|
-| Asie | USA Ouest| Asie Est     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Asie | USA Ouest| Asie Sud-Est     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| *[Australie](#publishing-to-australia) | Australie Est| Australie Est     |   [au.luis.ai][au.luis.ai] | https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| *[Europe](#publishing-to-europe)| Europe Ouest| Europe Nord     | [eu.luis.ai][eu.luis.ai]|  https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| *[Europe](#publishing-to-europe) | Europe Ouest| Europe Ouest     | [eu.luis.ai][eu.luis.ai]|  https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| Amérique du Nord | USA Ouest | USA Est      |[www.luis.ai][www.luis.ai] |   https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Amérique du Nord | USA Ouest | USA Est 2     | [www.luis.ai][www.luis.ai] |  https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Amérique du Nord | USA Ouest | USA Centre Sud     | [www.luis.ai][www.luis.ai] |  https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
-| Amérique du Nord | USA Ouest | USA Centre-Ouest     |[www.luis.ai][www.luis.ai] |  https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
-| Amérique du Nord | USA Ouest | USA Ouest |  [www.luis.ai][www.luis.ai] | https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
-| Amérique du Nord | USA Ouest | USA Ouest 2    | [www.luis.ai][www.luis.ai] |  https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
-| Amérique du Sud | USA Ouest | Brésil Sud     | [www.luis.ai][www.luis.ai] |  https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Asie | USA Ouest<br>`westus`| Asie Est<br>`eastasia`     | [www.luis.ai][www.luis.ai] |  https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Asie | USA Ouest<br>`westus`| Asie Sud-Est<br>`souteastasia`     | [www.luis.ai][www.luis.ai] |   https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| *[Australie](#publishing-to-australia) | Australie Est<br>`australiaeast`| Australie Est<br>`australiaeast`     |   [au.luis.ai][au.luis.ai] | https://australiaeast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| *[Europe](#publishing-to-europe)| Europe Ouest<br>`westeurope`| Europe Nord<br>`northeurope`     | [eu.luis.ai][eu.luis.ai]|  https://northeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| *[Europe](#publishing-to-europe) | Europe Ouest<br>`westeurope`| Europe Ouest<br>`westeurope`     | [eu.luis.ai][eu.luis.ai]|  https://westeurope.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| Amérique du Nord | USA Ouest<br>`westus` | USA Est<br>`eastus`      |[www.luis.ai][www.luis.ai] |   https://eastus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Amérique du Nord | USA Ouest<br>`westus` | USA Est 2<br>`eastus2`     | [www.luis.ai][www.luis.ai] |  https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Amérique du Nord | USA Ouest<br>`westus` | USA Centre Sud<br>`southcentralus`     | [www.luis.ai][www.luis.ai] |  https://southcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   | 
+| Amérique du Nord | USA Ouest<br>`westus` | USA Centre-Ouest<br>`westcentralus`     |[www.luis.ai][www.luis.ai] |  https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
+| Amérique du Nord | USA Ouest<br>`westus` | USA Ouest<br>`westus`  |  [www.luis.ai][www.luis.ai] | https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
+| Amérique du Nord | USA Ouest<br>`westus` | USA Ouest 2<br>`westus2`    | [www.luis.ai][www.luis.ai] |  https://westus2.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY  |
+| Amérique du Sud | USA Ouest<br>`westus` | Brésil Sud<br>`brazilsouth`     | [www.luis.ai][www.luis.ai] |  https://brazilsouth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY   |
 
 ## <a name="publishing-to-europe"></a>Publication en Europe
 

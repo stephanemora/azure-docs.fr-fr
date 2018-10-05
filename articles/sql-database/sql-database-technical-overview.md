@@ -3,18 +3,22 @@ title: Qu’est-ce que le service Azure SQL Database ? | Microsoft Docs
 description: 'Introduction à la base de données SQL : détails techniques et fonctionnalités du système de gestion des bases de données relationnelles Microsoft dans le cloud.'
 keywords: introduction à sql, intro à sql, qu’est-ce qu’une base de données sql
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.topic: overview
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 21350fe9a44ad801204b8288f3c49eda82ca6343
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054578"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163165"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Qu’est-ce que le service Azure SQL Database ? 
 
@@ -23,7 +27,7 @@ SQL Database est un service administré de bases de données relationnelles à u
 Azure SQL Database fournit les options de déploiement suivantes pour une base de données SQL Azure :
 - En tant que base de données unique avec son propre ensemble de ressources géré via un serveur logique 
 - En tant que base de données regroupée dans un [pool élastique](sql-database-elastic-pool.md) avec un ensemble partagé de ressources géré via un serveur logique
-- Dans le cadre d’une collection de bases de données connue comme une [instance managée](sql-database-managed-instance.md) (en préversion publique) qui contient les bases de données utilisateur et système et partageant un ensemble de ressources
+- Dans le cadre d’une collection de bases de données connue comme une [instance managée](sql-database-managed-instance.md) qui contient les bases de données utilisateur et système, et partageant un ensemble de ressources
 
 L’illustration suivante représente ces options de déploiement :
 
@@ -37,29 +41,27 @@ SQL Database partage sa base de code avec le [moteur de base de données Micros
 > [!IMPORTANT]
 > Pour comprendre les différences entre les fonctionnalités de SQL Database et de SQL Server, consultez l’article sur les [fonctionnalités SQL](sql-database-features.md). 
 
-SQL Database offre des performances prévisibles à plusieurs niveaux de service qui permettent une évolutivité dynamique avec aucun temps mort, une optimisation intelligente intégrée, une évolutivité et une disponibilité globales, ainsi que des options avancées de sécurité, et tout cela sans (presque) aucune tâche d’administration. Ces fonctionnalités vous permettent de vous concentrer sur le développement rapide de vos applications et d’accélérer leur mise sur le marché, plutôt que de consacrer du temps et des ressources à la gestion des machines virtuelles et de leur infrastructure. Le service SQL Database est actuellement présent dans 38 centres de données du monde entier, et de plus en plus de centres de données passent en ligne régulièrement, ce qui vous permet d’exécuter votre base de données dans un centre de données proche de chez vous.
-
-> [!NOTE]
-> SQL Database Managed Instance est actuellement en préversion et est uniquement disponible à un seul niveau de service. Pour plus d’informations, consultez [SQL Database Managed Instance](sql-database-managed-instance.md).
->
+SQL Database offre des performances prévisibles pour plusieurs types de ressources, niveaux de service et tailles de calcul, ce qui permet une scalabilité dynamique sans temps d’arrêt, une optimisation intelligente intégrée, une scalabilité et une disponibilité globales, ainsi que des options avancées de sécurité, le tout avec très peu de tâches d’administration. Ces fonctionnalités vous permettent de vous concentrer sur le développement rapide de vos applications et d’accélérer leur mise sur le marché, plutôt que de consacrer du temps et des ressources à la gestion des machines virtuelles et de leur infrastructure. Le service SQL Database est actuellement présent dans 38 centres de données du monde entier, et de plus en plus de centres de données passent en ligne régulièrement, ce qui vous permet d’exécuter votre base de données dans un centre de données proche de chez vous.
 
 ## <a name="scalable-performance-and-pools"></a>Pools et performances évolutives
 
-Avec SQL Database, chaque base de données est isolée de l’autre et portable, chacune avec son propre niveau de service dans le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) ou le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) et une garantie de niveau de performance. SQL Database fournit plusieurs niveaux de performances pour des besoins différents et permet de regrouper les bases de données pour optimiser l’utilisation des ressources et économiser de l’argent.
+Avec SQL Database, chaque base de données est portable et isolée de l’autre. Chacune a son propre niveau de service dans le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) ou le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), ainsi qu’une taille de calcul garantie. SQL Database fournit plusieurs tailles de calcul pour différents besoins, et permet de regrouper les bases de données dans des pools pour optimiser l’utilisation des ressources et économiser de l’argent.
 
-Avec SQL Database Managed Instance, chaque instance est isolée des autres instances avec des ressources garanties. Pour plus d’informations, consultez [SQL Database Managed Instance](sql-database-managed-instance.md) 
+- Avec [SQL Database Managed Instance](sql-database-managed-instance.md), chaque instance est isolée des autres instances avec des ressources garanties. Pour plus d’informations, consultez [SQL Database Managed Instance](sql-database-managed-instance.md).
+- Avec le [niveau de service Hyperscale](sql-database-hyperscale.md) (préversion) du modèle d’achat vCore, vous pouvez effectuer une mise à l’échelle et passer à 100 To avec des fonctionnalités rapides de sauvegarde et de restauration.
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Ajustez les performances et la mise à l'échelle sans interruption de service
 
 SQL Database propose un [modèle d’achat DTU](sql-database-service-tiers-dtu.md) ou le [modèle d’achat vCore](sql-database-service-tiers-vcore.md). 
-- Le modèle d’achat DTU offre un mélange de ressources de calcul, de mémoire et d’E/S dans trois niveaux de service pour prendre en charge les charges de travail de base de données, aussi bien légères qu’importantes : De base, Standard et Premium. Les niveaux de performance de chaque niveau fournissent une combinaison différente de ces ressources, à laquelle vous pouvez ajouter d’autres ressources de stockage.
+- Le modèle d’achat DTU offre un mélange de ressources de calcul, de mémoire et d’E/S dans trois niveaux de service pour prendre en charge les charges de travail de base de données, aussi bien légères qu’importantes : De base, Standard et Premium. Les tailles de calcul de chaque niveau fournissent une combinaison différente de ces ressources, auxquelles vous pouvez ajouter d’autres ressources de stockage.
 - Le modèle d’achat vCore vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage.
 
-Vous pouvez créer votre première application sur une seule petite base de données pour un coût mensuel modique et modifier le niveau de service manuellement ou automatiquement à tout moment pour répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
+Vous pouvez créer votre première application dans une petite base de données unique pour un coût mensuel modique avec le niveau de service Usage général, puis remplacer ce niveau de service manuellement ou par programmation à tout moment par le niveau Critique pour l’entreprise, afin de répondre aux besoins de votre solution. Vous pouvez ajuster les performances sans perturber le fonctionnement de votre application, ni l’expérience de vos clients. L’évolutivité dynamique permet à votre base de données de répondre en toute transparence aux besoins en ressources qui évoluent sans cesse et de payer uniquement les ressources dont vous avez besoin, lorsque vous en avez besoin.
+
+> [!IMPORTANT]
+> Vous ne pouvez pas passer du niveau de service Usage général ou Critique pour l’entreprise au [niveau de service Hyperscale](sql-database-hyperscale.md). Cependant, vous pouvez modifier les niveaux de performances dans le niveau de service Hyperscale.
 
 La scalabilité dynamique est différente de la mise à l’échelle automatique. La mise à l’échelle survient lorsqu’un service se met à l’échelle automatiquement en fonction de critères, tandis que l’extensibilité dynamique permet la mise à l’échelle manuelle sans temps d’arrêt. Une instance unique d’Azure SQL Database prend en charge l’extensibilité dynamique, mais pas la mise à l’échelle automatique. Pour plus expérience plus *automatique*, envisagez d’utiliser des pools élastiques, ce qui permet aux bases de données de partager des ressources dans un pool en fonction de leurs besoins individuels. Toutefois, il existe des scripts qui peuvent aider à automatiser l’extensibilité pour une instance unique d’Azure SQL Database. Pour obtenir un exemple, consultez la rubrique [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md). 
-
-SQL Database Managed Instance est en préversion et un seul niveau de service est disponible. Pour plus d’informations, consultez [SQL Database Managed Instance](sql-database-managed-instance.md)
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools élastiques pour optimiser l’utilisation des ressources
 
@@ -86,7 +88,7 @@ En outre, SQL Database peut [émettre des mesures et des journaux de diagnostic]
 
 - **Stockage Azure** : pour archiver des quantités importantes de données de télémétrie à un petit prix
 - **Hub d’événements Azure** : pour intégrer des données de télémétrie SQL Database à votre solution de surveillance personnalisée ou à vos pipelines très actifs
-- **Azure Log Analytics** : pour une solution de surveillance intégrée offrant des fonctionnalités de génération de rapports, d’alerte et d’atténuation. Cette fonctionnalité fait partie [d’Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+- **Azure Log Analytics** : pour une solution de surveillance intégrée offrant des fonctionnalités de génération de rapports, d’alerte et d’atténuation. Azure Log Analytics est une fonctionnalité [d’Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -177,8 +179,8 @@ SQL Database prend en charge la génération d’applications avec Python, Java,
 - Consultez ces démarrages rapides pour bien commencer :
 
   - [Créer une base de données SQL dans le portail Azure](sql-database-get-started-portal.md)  
-  - [Créer une base de données SQL avec Azure CLI](sql-database-cli-samples.md)
-  - [Créer une base de données SQL à l’aide de PowerShell](sql-database-powershell-samples.md)
+  - [Créer une base de données SQL avec Azure CLI](sql-database-get-started-cli.md)
+  - [Créer une base de données SQL à l’aide de PowerShell](sql-database-get-started-powershell.md)
 
 - Pour accéder à des exemples Azure CLI et PowerShell, consultez :
   - [Exemples d’interface de ligne de commande Azure pour SQL Database](sql-database-cli-samples.md)

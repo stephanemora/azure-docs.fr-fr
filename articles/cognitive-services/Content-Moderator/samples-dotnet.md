@@ -1,26 +1,26 @@
 ---
-title: Exemples de code Azure Content Moderator | Microsoft Docs
+title: Exemples de code - Content Moderator, .NET
 description: Utiliser Content Moderator dans vos applications
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: sample
 ms.date: 01/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: a7f5b0a7433631e303de47667871cc1354053c08
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5465a2de0924037eb93b9de652e93e85f166737
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368633"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223149"
 ---
 # <a name="net-sdk-samples"></a>Exemples du kit SDK .NET
 
 La liste suivante inclut des liens vers des exemples de code générés à l’aide du kit SDK Azure Content Moderator pour .NET.
 
-- **Bibliothèque d’aide** : [Créer un client Content Moderator pour une utilisation dans d’autres exemples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). Consultez le guide de [démarrage rapide](content-moderator-helper-quickstart-dotnet.md).
+- **Bibliothèque d’assistance** : [Créer un client Content Moderator pour une utilisation dans d’autres exemples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ModeratorHelper/Clients.cs). Consultez le guide de [démarrage rapide](content-moderator-helper-quickstart-dotnet.md).
 
 ## <a name="moderation"></a>Modération
 
@@ -44,7 +44,7 @@ La liste suivante inclut des liens vers des exemples de code générés à l’a
 
 - **Travaux d’image** : [Démarrer un travail de modération qui analyse et crée des révisions](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageJobs/Program.cs). Consultez le guide de [démarrage rapide](moderation-jobs-quickstart-dotnet.md).
 - **Révisions des images** : [Créer des révisions pour une intervention humaine](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/ImageReviews/Program.cs). Consultez le guide de [démarrage rapide](moderation-reviews-quickstart-dotnet.md).
-- **Révisions des vidéos** : [Créer des révisions des vidéos pour une intervention humaine](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Consultez le guide de [démarrage rapide](video-reviews-quickstart-dotnet.md).
+- **Révisions des vidéos** : [Créer des révisions des vidéos pour une intervention humaine](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoReviews/Program.cs). Consultez le guide de [démarrage rapide](video-reviews-quickstart-dotnet.md)
 - **Révisions de la transcription des vidéos** : [Créer des révisions de la transcription des vidéos pour une intervention humaine.](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/VideoTranscriptReviews/Program.cs) Consultez le guide de [démarrage rapide](video-reviews-quickstart-dotnet.md)
 
 Consultez tous les exemples .NET disponibles dans la rubrique [Exemples .NET Content Moderator sur GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator).

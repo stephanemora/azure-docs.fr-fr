@@ -1,20 +1,21 @@
 ---
-title: Étiqueter des énoncés suggérés avec LUIS | Microsoft Docs
-description: Utilisez Language Understanding (LUIS) pour étiqueter des énoncés suggérés et optimiser le Machine Learning actif.
+title: Passer en revue les énoncés de point de terminaison pour Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: La fonctionnalité la plus remarquable de LUIS est le concept d’apprentissage actif. Une fois que votre application LUIS a des requêtes de point de terminaison, l’apprentissage actif améliore la qualité des résultats en sélectionnant les énoncés pour lesquels il a des doutes. Si vous étiquetez ces énoncés, formez et publiez, LUIS identifie alors les énoncés de manière plus précise.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224549"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030793"
 ---
 # <a name="review-endpoint-utterances"></a>Réviser les énoncés de point de terminaison
 
@@ -24,8 +25,6 @@ La fonctionnalité de contact de LUIS est le [concept](luis-concept-review-endpo
 1. Ouvrez votre application (par exemple, TravelAgent) en sélectionnant son nom sur la page **Mes applications**, puis sélectionnez **Générer** dans la barre supérieure.
 
 2. Sous **Improve app performance** (Améliorer les performances de l’application), sélectionnez **Review endpoint utterances** (Réviser les énoncés de point de terminaison).
-
-    ![Examen des énoncés](./media/label-suggested-utterances/review.png)
 
 3. Sur la page **Review endpoint utterances** (Réviser les énoncés de point de terminaison), sélectionnez dans la zone de texte **Filter list by intent or entity** (Filtrer la liste par intention ou entité). Cette liste déroulante répertorie toutes les intentions sous **INTENTS** (INTENTIONS) et toutes les entités sous **ENTITIES** (ENTITÉS).
 

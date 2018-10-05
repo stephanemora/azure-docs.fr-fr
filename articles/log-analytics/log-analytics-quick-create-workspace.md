@@ -15,20 +15,20 @@ ms.topic: conceptal
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdf1d1a62bd8e2e1d0a0a8ad30f2d4c4833be0e4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a52654ab620908b9c8c07edf3fcdfbf70068528d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125091"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220786"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Créer un espace de travail Log Analytics dans le portail Azure
-Dans le Portail Azure, vous pouvez configurer un espace de travail Log Analytics, environnement Log Analytics unique doté de ses propres référentiel de données, sources de données et solutions.  Vous devez suivre les étapes décrites dans cet article si vous souhaitez collecter des données à partir des sources suivantes :
+Dans le Portail Azure, vous pouvez configurer un espace de travail Log Analytics, environnement Log Analytics unique doté de ses propres référentiels de données, sources de données et solutions.  Vous devez suivre les étapes décrites dans cet article si vous souhaitez collecter des données à partir des sources suivantes :
 
 * Ressources Azure dans votre abonnement
 * Ordinateurs locaux surveillés par System Center Operations Manager
 * Collections d’appareils de System Center Configuration Manager 
-* Données de diagnostics et de journaux du Stockage Azure
+* Données de diagnostics ou de journaux du Stockage Azure
 
 Pour les autres sources, telles que les machines virtuelles Azure et les machines virtuelles Windows ou Linux dans votre environnement, consultez les rubriques suivantes :
 
@@ -48,7 +48,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
   
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
 
-  * Attribuez un nom au nouvel **Espace de travail OMS**, en l’occurrence *DefaultLAWorkspace*. 
+  * Attribuez un nom au nouvel **Espace de travail Log Analytics**, tel que *DefaultLAWorkspace*. 
   * Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
   * Pour **Groupe de ressources**, choisissez d’utiliser un groupe de ressources déjà configuré ou créez-en un.  
   * Sélectionnez un **Emplacement** disponible.  Pour plus d’informations, découvrez dans quelles [régions Log Analytics est disponible](https://azure.microsoft.com/regions/services/).
@@ -56,7 +56,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)  
 
-3. Après avoir entré les informations requises dans le volet **Espace de travail OMS**, cliquez sur **OK**.  
+3. Après avoir entré les informations requises dans le volet **Espace de travail Log Analytics**, cliquez sur **OK**.  
 
 Pendant que les informations sont vérifiées et l’espace de travail créé, vous pouvez suivre la progression sous **Notifications** dans le menu. 
 
@@ -66,4 +66,4 @@ Disposant à présent d’un espace de travail, vous pouvez configurer la collec
 * Pour activer la collecte de données à partir de ressources Azure avec Azure Diagnostics ou le stockage Azure, consultez [Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics](log-analytics-azure-storage.md).  
 * Ajoutez [System Center Operations Manager comme source de données](log-analytics-om-agents.md) pour collecter des données à partir des agents rattachés à votre groupe d’administration Operations Manager et les stocker dans votre espace de travail Log Analytics. 
 * Connectez [Configuration Manager](log-analytics-sccm.md) pour importer des ordinateurs qui sont membres de collections dans la hiérarchie.  
-* Examinez les [solutions de gestion](log-analytics-add-solutions.md) disponibles et la façon d’ajouter ou de supprimer une solution dans votre espace de travail.
+* Examinez les [solutions de gestion](https://docs.microsoft.com/azure/monitoring/monitoring-solutions-inventory?toc=%2fazure%2flog-analytics%2ftoc.json) disponibles et la façon d’ajouter ou de supprimer une solution dans votre espace de travail.

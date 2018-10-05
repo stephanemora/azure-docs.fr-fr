@@ -1,22 +1,23 @@
 ---
-title: Rechercher la région LUIS avec C# dans les limites de Language Understanding (LUIS) | Microsoft Docs
-description: Recherchez par programmation une région de publication avec un point de terminaison et un ID d’application pour LUIS.
+title: Rechercher la région de point de terminaison avec C# dans LUIS
+titleSuffix: Azure Cognitive Services
+description: Rechercher par programmation une région de publication avec un point de terminaison et un ID d’application pour LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6f2688e492dbba718dc55825de164c189a9b46c9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 53c3d1abb24ae0d5b33a2a100dda07fd20ae92d1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225106"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039630"
 ---
-# <a name="region-can-be-determined-from-api-call"></a>La région peut être déterminée à partir de l’appel d’API 
+# <a name="find-endpoint-region-with-c"></a>Rechercher la région de point de terminaison avec C# 
 Si vous disposez d’un ID d’application LUIS et d’un ID d’abonnement LUIS, vous pouvez rechercher la région à utiliser pour les requêtes de point de terminaison.
 
 > [!NOTE] 
@@ -37,7 +38,7 @@ Si la requête de point de terminaison LUIS utilise le bon point de terminaison 
 |401|clé de point de terminaison appropriée<br>ID d’application approprié<br>région d’hôte _incorrecte_|
 
 ## <a name="c-class-code-to-find-region"></a>Code de la classe C# pour rechercher la région
-L’application de console accepte l’ID d’application LUIS et le point de terminaison et retourne toutes les régions associées. Actuellement, un point de terminaison est créé par région, ce qui signifie qu’une seule région est renvoyée.
+L’application de console accepte l’ID d’application LUIS et le point de terminaison et retourne toutes les régions associées. Actuellement, un point de terminaison est créé par région, ce qui signifie qu’une seule région doit être retournée.
 
 Incluez les dépendances de la bibliothèque .Net :
 

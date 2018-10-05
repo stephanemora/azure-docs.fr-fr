@@ -1,80 +1,70 @@
 ---
-title: 'Tutoriel : Utiliser des modèles de rôles pour améliorer les prédictions de LUIS – Azure | Microsoft Docs'
-titleSuffix: Cognitive Services
-description: Dans ce tutoriel, utilisez des modèles de rôles pour les entités associées selon le contexte afin d’améliorer les prévisions de LUIS.
+title: 'Tutoriel 4 : Rôles de modèle pour les données liées au contexte'
+titleSuffix: Azure Cognitive Services
+description: Utilisez un modèle pour extraire des données à partir d’un énoncé de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 6f3e7c9db7bbdb6bc24d123208355fc7a1d8e7e8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161932"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160245"
 ---
-# <a name="tutorial-improve-app-with-pattern-roles"></a>Tutoriel : Améliorer l’application avec des modèles de rôles
+# <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutoriel 4 : Extraire des modèles relatifs au contexte
 
-Dans ce tutoriel, utilisez une entité simple avec des rôles combinés à des modèles pour augmenter la prédiction de l’intention et de l’entité.  Lorsque vous utilisez des modèles, l’intention nécessite moins d’exemples d’énoncés.
+Dans ce tutoriel, vous allez utiliser un modèle pour extraire des données à partir d’un énoncé de modèle au format approprié. L’énoncé de modèle utilise une entité simple et des rôles pour extraire des données associées telles que l’emplacement d’origine et l’emplacement de destination.  Lorsque vous utilisez des modèles, l’intention nécessite moins d’exemples d’énoncés.
 
-> [!div class="checklist"]
-* Comprendre les modèles de rôles
-* Utiliser une entité simple avec des rôles 
-* Créer un modèle pour des énoncés à l’aide d’une entité simple avec des rôles
-* Vérifier l’amélioration des prédictions de modèle.
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du tutoriel [modèle](luis-tutorial-pattern.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json).
-
-Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `roles`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
-
-## <a name="the-purpose-of-roles"></a>Objectif des rôles
 L’objectif des rôles est extraire les entités liées au contexte d’un énoncé. Dans l’énoncé, les valeurs de ville d’origine (`Move new employee Robert Williams from Sacramento and San Francisco`) et de ville de destination sont liées et utilisent un langage commun pour indiquer chaque emplacement. 
 
-Lorsque vous utilisez des modèles, toutes les entités du modèle doivent être détectées _avant_ que le modèle corresponde à l’énoncé. 
 
-Lorsque vous créez un modèle, la première étape consiste à sélectionner l’intention de ce modèle. En sélectionnant l’intention, si le modèle correspond, l’intention appropriée est toujours renvoyée avec un score élevé (généralement 99-100 %). 
-
-### <a name="compare-hierarchical-entity-to-simple-entity-with-roles"></a>Comparer une entité hiérarchique et une entité simple avec des rôles
-
-Dans le [didacticiel hiérarchique](luis-quickstart-intent-and-hier-entity.md), l’intention **MoveEmployee** vous indique quand déplacer un employé existant d’un bâtiment/bureau à un autre. Les exemples d’énoncés contenaient les emplacements d’origine et de destination, mais n’utilisaient pas les rôles. Au lieu de cela, l’origine et la destination comportaient des enfants de l’entité hiérarchique. 
-
-Dans ce tutoriel, l’application Ressources humaines détecte les énoncés sur le déplacement des nouveaux employés d’une ville à une autre. Ces deux types d’énoncés sont similaires mais ils sont résolus avec des capacités LUIS différentes.
-
-|Didacticiel|Exemple d’énoncé|Emplacements d’origine et de destination|
-|--|--|--|
-|[Hiérarchique (aucun rôle)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones de **a-2349** à **b-1298**|a-2349, b-1298|
-|Ce tutoriel (avec des rôles)|Transférer Billy Patterson de **Yuma** vers **Denver**.|Yuma, Denver|
-
-Vous ne pouvez pas utiliser l’entité hiérarchique dans le modèle, car seuls les parents hiérarchiques sont utilisés dans les modèles. Pour retourner les emplacements nommés de l’origine et de la destination, vous devez utiliser un modèle.
-
-### <a name="simple-entity-for-new-employee-name"></a>Entité simple pour le nom d’un nouvel employé
 Le nom du nouvel employé, Billy Patterson, ne fait pas encore partie de l’entité dans la liste des **employés**. Le nom du nouvel employé est d’abord extrait pour être envoyé vers un système externe afin de créer les informations d’identification de l’entreprise. Une fois les informations d’identification de l’entreprise créées, les informations d’identification des employés sont ajoutées à l’entité dans la liste des **employés**.
 
-La liste des **employés** a été créée dans le [tutoriel sur les listes](luis-quickstart-intent-and-list-entity.md).
-
-L’entité **NewEmployee** est une entité simple sans aucun rôle. 
-
-### <a name="simple-entity-with-roles-for-relocation-cities"></a>Entité simple avec des rôles pour les villes de réaffectation
 Le nouvel employé et sa famille doivent être transférés de la ville actuelle vers la ville où se trouve la société fictive. Étant donné qu’un nouvel employé peut venir de n’importe quelle ville, les emplacements doivent être détectés. Une liste définie comme une entité de liste ne fonctionnerait pas car seules les villes de la liste seront extraites.
 
-Les noms de rôles associés aux villes d’origine et de destination doivent être uniques sur toutes les entités. Un moyen simple de s’assurer que les rôles sont uniques consiste à les associer à l’entité apparentée à l’aide d’une stratégie d’affectation de noms. L’entité **NewEmployeeRelocation** est une entité simple à deux rôles : **NewEmployeeReloOrigin** et **NewEmployeeReloDestination**.
+Les noms de rôles associés aux villes d’origine et de destination doivent être uniques sur toutes les entités. Un moyen simple de s’assurer que les rôles sont uniques consiste à les associer à l’entité apparentée à l’aide d’une stratégie d’affectation de noms. L’entité **NewEmployeeRelocation** est une entité simple à deux rôles : **NewEmployeeReloOrigin** et **NewEmployeeReloDestination**. Relo est l’abréviation de Relocation.
 
-### <a name="simple-entities-need-enough-examples-to-be-detected"></a>Les entités simples nécessitent un nombre suffisant d’exemples pour être détectées
 Comme l’exemple d’énoncé `Move new employee Robert Williams from Sacramento and San Francisco` contient uniquement des entités issues de l’apprentissage automatique, il est important de fournir suffisamment d’exemples d’énoncés à l’intention afin de détecter les entités.  
 
 **Même si les modèles vous permettent de fournir moins d’exemples d’énoncés, si les entités ne sont pas détectées, le modèle ne correspond pas.**
 
 Si vous avez des difficultés avec la détection d’une entité simple car elle représente un nom comme une ville, vous pouvez utiliser une liste d’expressions de valeurs similaires. Cela permet de détecter le nom de la ville en fournissant à LUIS des détails supplémentaires sur ce type de mot ou d’expression. Les listes d’expressions sont utiles uniquement avec le modèle car elles facilitent la détection de l’entité, ce qui est nécessaire pour que le modèle corresponde. 
 
+**Dans ce tutoriel, vous allez découvrir comment effectuer les opérations suivantes :**
+
+> [!div class="checklist"]
+> * Utiliser l’application de tutoriel existante
+> * Créer des entités
+> * Créer une intention
+> * Entraîner
+> * Publier
+> * Obtenir les intentions et les entités à partir du point de terminaison
+> * Créer un modèle avec des rôles
+> * Créer une liste d’expressions de villes
+> * Obtenir les intentions et les entités à partir du point de terminaison
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Utiliser l’application existante
+Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
+
+Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
+
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-patterns-HumanResources-v2.json).
+
+2. Importez le code JSON dans une nouvelle application.
+
+3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `roles`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+
 ## <a name="create-new-entities"></a>Créer des entités
-1. Sélectionnez **Build** dans le menu supérieur.
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Dans le menu de navigation de gauche, sélectionnez **Entités**. 
 
@@ -124,15 +114,15 @@ Dans ces étapes, l’étiquetage des entités peut être simplifié si l’enti
 
     Si vous avez supprimé l’entité keyPhrase, replacez-la maintenant dans l’application.
 
-## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
+## <a name="train"></a>Entraîner
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
+## <a name="publish"></a>Publier
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-without-pattern"></a>Interroger le point de terminaison sans modèle
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtenir l’intention et les entités à partir du point de terminaison
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
@@ -224,9 +214,12 @@ Dans ces étapes, l’étiquetage des entités peut être simplifié si l’enti
 
 Le score de prédiction de l’intention n’est que de 50 % environ. Si votre application cliente nécessite une valeur supérieure, vous devez prendre les mesures requises. Par ailleurs, les entités n’ont pas été prédites.
 
+L’un des emplacements a été extrait, mais pas l’autre. 
+
 Les modèles amélioreront le score de prédiction, mais les entités doivent être correctement prédites pour que le modèle corresponde à l’énoncé. 
 
-## <a name="add-a-pattern-that-uses-roles"></a>Ajouter un modèle qui utilise des rôles
+## <a name="pattern-with-roles"></a>Modèle avec des rôles
+
 1. Sélectionnez **Test** dans le volet de navigation supérieur.
 
 2. Sélectionnez **Modèles** dans le volet de navigation gauche.
@@ -237,8 +230,8 @@ Les modèles amélioreront le score de prédiction, mais les entités doivent ê
 
     Si vous formez, publiez et interrogez le point de terminaison, vous pouvez être déçu de constater que les entités sont introuvables, ce qui signifie que le modèle ne correspond pas et, par conséquent, que la prédiction ne s’est pas améliorée. C’est une conséquence du manque d’exemples d’énoncés avec les entités étiquetées. Au lieu d’ajouter d’autres d’exemples, ajoutez une liste d’expressions pour résoudre ce problème.
 
-## <a name="create-a-phrase-list-for-cities"></a>Créer une liste d’expressions pour les villes
-Tout comme les noms de personnes, les villes posent parfois problème car elles peuvent contenir une combinaison de mots et de signes de ponctuation. Mais comme les villes de la région et le monde sont connus, LUIS a besoin d’une liste d’expressions de villes pour commencer l’apprentissage. 
+## <a name="cities-phrase-list"></a>Liste d’expressions de villes
+Tout comme les noms de personnes, les villes posent parfois problème car elles peuvent contenir une combinaison de mots et de signes de ponctuation. Comme les villes de la région et le monde sont connus, LUIS a besoin d’une liste d’expressions de villes pour commencer l’apprentissage. 
 
 1. Sélectionnez **Liste d’expressions** dans la section **Améliorer les performances de l’application** du menu de gauche. 
 
@@ -255,16 +248,13 @@ Tout comme les noms de personnes, les villes posent parfois problème car elles 
     |Miami|
     |Dallas|
 
-    N’ajoutez pas chaque ville dans le monde ou même chaque ville dans la région. LUIS doit être en mesure d’identifier une ville dans la liste. 
-
-    Veillez à sélectionner l’option **Ces valeurs sont interchangeables**. Ce paramètre signifie que les termes de la liste sont traités comme des synonymes. C’est exactement la manière dont ils doivent être traités dans le modèle.
-
-    N’oubliez pas que [la dernière fois](luis-quickstart-primary-and-secondary-data.md) la série de didacticiels a créé une liste d’expressions pour améliorer également la détection d’une entité simple.  
+    N’ajoutez pas chaque ville dans le monde ou même chaque ville dans la région. LUIS doit être en mesure d’identifier une ville dans la liste. Veillez à sélectionner l’option **Ces valeurs sont interchangeables**. Ce paramètre signifie que les termes de la liste sont traités comme des synonymes. 
 
 3. Former et publier l’application
 
-## <a name="query-endpoint-for-pattern"></a>Rechercher un modèle pour un point de terminaison
-1. Dans la page **Publier**, sélectionnez le lien **Point de terminaison** en bas de la page. Cette action ouvre une autre fenêtre de navigateur avec l’URL de point de terminaison affichée dans la barre d’adresses. 
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtenir l’intention et les entités à partir du point de terminaison
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Move wayne berry from miami to mount vernon`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 
@@ -380,11 +370,24 @@ Tout comme les noms de personnes, les villes posent parfois problème car elles 
 
 Le score de l’intention est désormais beaucoup plus élevé, et les noms de rôles font partie de la réponse de l’entité.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="hierarchical-entities-versus-roles"></a>Rôles et entités hiérarchiques
+
+Dans le [didacticiel hiérarchique](luis-quickstart-intent-and-hier-entity.md), l’intention **MoveEmployee** vous indique quand déplacer un employé existant d’un bâtiment/bureau à un autre. Les exemples d’énoncés contenaient les emplacements d’origine et de destination, mais n’utilisaient pas les rôles. Au lieu de cela, l’origine et la destination étaient des enfants de l’entité hiérarchique. 
+
+Dans ce tutoriel, l’application Ressources humaines détecte les énoncés sur le déplacement des nouveaux employés d’une ville à une autre. Ces deux types d’énoncés sont identiques, mais ils sont résolus avec des capacités LUIS différentes.
+
+|Didacticiel|Exemple d’énoncé|Emplacements d’origine et de destination|
+|--|--|--|
+|[Hiérarchique (aucun rôle)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones de **a-2349** à **b-1298**|a-2349, b-1298|
+|Ce tutoriel (avec des rôles)|Transférer Billy Patterson de **Yuma** vers **Denver**.|Yuma, Denver|
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Ce tutoriel a ajouté une entité avec des rôles et une intention avec des exemples d’énoncés. La première prédiction de point de terminaison utilisant l’entité a correctement prédit l’intention, mais avec un score de confiance faible. Une seule des deux entités a été détectée. Ensuite, le tutoriel a ajouté un modèle qui a utilisé les rôles d’entité, et une liste d’expressions pour accroître la valeur des noms de ville dans les énoncés. La seconde prédiction de point de terminaison a retourné un score de confiance élevée et trouvé les deux rôles d’entité. 
 
 > [!div class="nextstepaction"]
 > [Découvrez les meilleures pratiques pour les applications LUIS](luis-concept-best-practices.md)

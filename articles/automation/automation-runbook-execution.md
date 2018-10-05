@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982975"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032527"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -145,7 +145,8 @@ L'objectif est d'empêcher que les Runbooks ne s'exécutent indéfiniment sans s
 
 Si le Runbook n'a aucun point de contrôle ou si la tâche n'a pas atteint le premier point de contrôle avant d'être déchargée, il redémarre depuis le début.
 
-Pour les tâches de longue durée, il est recommandé d’utiliser un [Runbook Worker hybride](automation-hrw-run-runbooks.md#job-behavior). Les Runbooks Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n’ont pas de limitation en termes de durée d’exécution d’un runbook.
+Pour les tâches de longue durée, il est recommandé d’utiliser un [Runbook Worker hybride](automation-hrw-run-runbooks.md#job-behavior). Les Runbooks Workers hybrides ne sont pas limités par la répartition de charge équilibrée et n’ont pas de limitation en termes de durée d’exécution d’un runbook. Les autres [limites](../azure-subscription-service-limits.md#automation-limits) du travail s’appliquent à la fois aux bacs à sable Azure et aux Runbooks Workers hybrides.
+
 
 Si vous utilisez un runbook PowerShell Workflow sur Azure, lorsque vous créez un runbook, vous devez vous assurer que la durée d’exécution de toute activité entre deux points de contrôle ne dépasse pas trois heures. Vous devrez peut-être ajouter des points de contrôle à votre runbook pour vous assurer qu’il n’excède pas cette limite de trois heures ou n’interrompt pas les opérations de longue durée. Par exemple, votre Runbook peut effectuer une réindexation sur une base de données SQL volumineuse. Si cette opération unique ne se termine pas dans la limite de la répartition de charge équilibrée, la tâche est déchargée et redémarrée depuis le début. Dans ce cas, vous devez décomposer l'opération de réindexation en plusieurs étapes, comme la réindexation d'une table à la fois, puis insérer un point de contrôle après chaque opération, afin que la tâche puisse reprendre après que la dernière opération s'est terminée.
 

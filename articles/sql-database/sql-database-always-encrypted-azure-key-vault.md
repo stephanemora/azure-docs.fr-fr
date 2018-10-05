@@ -3,19 +3,22 @@ title: 'Always Encrypted : SQL Database - Azure Key Vault | Microsoft Docs'
 description: Cet article explique comment sécuriser des données sensibles dans une base de données SQL avec un chiffrement de données en utilisant l’Assistant Always Encrypted de SQL Server Management Studio.
 keywords: chiffrement des données, clé de chiffrement, chiffrement cloud
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: ''
+manager: craigg
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: 19a033b79879f1b51626a14510fc4cc71c43426c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d944ead01da81e2fec49d256a4da939067bcceee
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644057"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064405"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Chiffrement intégral : Protéger les données sensibles dans Base de données SQL et stocker vos clés de chiffrement dans Azure Key Vault
 
@@ -595,7 +598,9 @@ Vous pouvez voir que les colonnes chiffrées ne contiennent pas de donnée en cl
 
    ![Nouvelle application de console](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-Pour utiliser SSMS afin d’accéder aux données texte en clair, vous pouvez ajouter le paramètre *Column Encryption Setting=enabled* à la connexion.
+Pour utiliser SSMS dans le but d’accéder aux données texte en clair, vous devez tout d’abord vérifier que l’utilisateur dispose des autorisations appropriées pour Azure Key Vault : *get*, *unwrapKey* et *verify*. Pour plus d’informations, consultez [Créer et stocker des clés principales de colonne (Always Encrypted)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+
+Ajoutez ensuite le paramètre *Column Encryption Setting=enabled* lors de votre connexion.
 
 1. Dans SSMS, cliquez avec le bouton droit sur votre serveur dans **l’Explorateur d’objets**, puis choisissez **Déconnecter**.
 2. Cliquez sur **Se connecter** > **Moteur de base de données** pour ouvrir la fenêtre **Connexion au serveur**, puis cliquez sur **Options**.

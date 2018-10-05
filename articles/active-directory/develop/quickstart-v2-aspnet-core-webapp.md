@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: f57dc1707a9e25e4ea308142e804cdbc80d4308a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984940"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227423"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Ajouter la connexion avec Microsoft à une application web ASP.NET Core
 

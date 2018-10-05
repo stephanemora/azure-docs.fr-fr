@@ -1,22 +1,23 @@
 ---
-title: SDK Azure Content Moderator pour la méthode d’assistance .NET | Microsoft Docs
+title: 'Démarrage rapide : SDK Azure Content Moderator pour la méthode d’assistance .NET'
+titlesuffix: Azure Cognitive Services
 description: Renvoi d’un client Content Moderator à l’aide du SDK Azure Content Moderator pour .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 36f2124708731f78f34849d8210ed39ea8f59140
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0c167de3af8aea6820962e7cc8d0c21f5ba61807
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367900"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223265"
 ---
-# <a name="helper-code-to-return-a-content-moderator-client"></a>Code d’assistance pour renvoyer un client Content Moderator
+# <a name="quickstart-helper-code-to-return-a-content-moderator-client"></a>Démarrage rapide : code d’assistance pour retourner un client Content Moderator
 
 Cet article fournit des informations et des exemples de code pour vous aider à faire vos premiers pas avec le SDK Azure Content Moderator pour .NET afin de créer un client Content Moderator pour votre abonnement.
 
@@ -30,8 +31,8 @@ Cet article part du principe que vous connaissez déjà Visual Studio et C#.
 
 ## <a name="sign-up-for-content-moderator-services"></a>S’inscrire aux services Content Moderator
 
-Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du SDK, vous avez besoin d’une clé d’abonnement.
-Reportez-vous au [Démarrage rapide](quick-start.md) pour découvrir comment obtenir la clé.
+Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du kit SDK, vous avez besoin d’une clé d’abonnement.
+Reportez-vous au [démarrage rapide](quick-start.md) pour découvrir comment obtenir la clé.
 
 ## <a name="create-your-visual-studio-project"></a>Créer votre projet Visual Studio
 
@@ -108,4 +109,4 @@ Vous disposez désormais d’un moyen rapide pour créer un client Content Moder
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Téléchargez la solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce démarrage rapide Content Moderator pour .NET (et d’autres), puis commencez votre intégration.
+[Téléchargez la solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce guide de démarrage rapide et d’autres guides de démarrage rapide Content Moderator pour .NET, puis commencez votre intégration.

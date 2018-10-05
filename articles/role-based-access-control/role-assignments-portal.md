@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97bf33cb882d5a121b9811a8e36a1d26f9a954f8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 1cac4e4cee408e5208d2d5d84f81b8ad7a89f03b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715367"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033989"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure
 
@@ -89,7 +89,7 @@ Lorsque vous gérez des accès, vous souhaitez savoir quelles sont les personnes
 
     ![Panneau Contrôle d’accès (IAM) pour un abonnement](./media/role-assignments-portal/subscription-access-control.png)
 
-    Les administrateurs et coadministrateurs d’abonnement classiques sont considérés comme propriétaires de l’abonnement dans le modèle RBAC.
+    Les administrateurs et les coadministrateurs d’abonnement classiques sont considérés comme propriétaires de l’abonnement dans le modèle RBAC.
 
 ### <a name="list-role-assignments-for-a-management-group"></a>Lister les attributions de rôles pour un groupe d’administration
 
@@ -109,9 +109,9 @@ Lorsque vous gérez des accès, vous souhaitez savoir quelles sont les personnes
 
 ## <a name="grant-access"></a>Accorder l'accès
 
-Dans le contrôle d’accès en fonction du rôle, vous créez une attribution de rôle pour accorder l’accès. Suivez ces étapes pour accorder l’accès à différentes étendues.
+Dans le contrôle d’accès en fonction du rôle, vous attribuez un rôle pour accorder l’accès. Suivez ces étapes pour accorder l’accès à différentes étendues.
 
-### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>Créer une attribution de rôle à une étendue de groupe de ressources
+### <a name="assign-a-role-at-a-resource-group-scope"></a>Attribuer un rôle au niveau d’un groupe de ressources
 
 1. Dans la liste de navigation, sélectionnez **Groupes de ressources**.
 
@@ -131,11 +131,11 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
 
 1. Dans la liste **Sélectionner** , sélectionnez un utilisateur, un groupe ou une application. Si vous ne voyez pas le principal de sécurité dans la liste, vous pouvez saisir du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage, des adresses de messagerie et des identificateurs d’objet dans le répertoire.
 
-1. Sélectionnez **Enregistrer** pour créer l’attribution de rôle.
+1. Choisissez **Enregistrer** pour attribuer le rôle.
 
    Après quelques instants, le principal de sécurité est attribué au rôle à l’étendue de groupe de ressources.
 
-### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Créer une attribution de rôle à une étendue d’abonnement
+### <a name="assign-a-role-at-a-subscription-scope"></a>Attribuer un rôle au niveau d’un abonnement
 
 1. Dans le portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
 
@@ -155,11 +155,37 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
 
 1. Dans la liste **Sélectionner** , sélectionnez un utilisateur, un groupe ou une application. Si vous ne voyez pas le principal de sécurité dans la liste, vous pouvez saisir du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage, des adresses de messagerie et des identificateurs d’objet dans le répertoire.
 
-1. Sélectionnez **Enregistrer** pour créer l’attribution de rôle.
+1. Choisissez **Enregistrer** pour attribuer le rôle.
 
    Après quelques instants, le principal de sécurité est attribué au rôle à l’étendue d’abonnement.
 
-### <a name="create-a-role-assignment-at-a-management-group-scope"></a>Créer une attribution de rôle à une étendue de groupe d’administration
+### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Attribuer à un utilisateur en tant qu’administrateur d’un abonnement
+
+Pour faire d’un utilisateur un administrateur d’un abonnement Azure, attribuez-lui le rôle [Propriétaire](built-in-roles.md#owner) au niveau de l’abonnement. Le rôle Propriétaire donne à l’utilisateur un accès total à toutes les ressources de l’abonnement, ainsi que le droit de déléguer l’accès à d’autres personnes. Ces étapes sont les mêmes que celles de n’importe quelle autre attribution de rôle.
+
+1. Dans le portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
+
+1. Choisissez votre abonnement.
+
+1. Choisissez **Contrôle d’accès (IAM)** pour afficher la liste actuelle des attributions de rôles au niveau de l’étendue de l’abonnement.
+
+   ![Panneau Contrôle d’accès (IAM) pour un abonnement](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. Choisissez **Ajouter** pour ouvrir le volet **Ajouter des autorisations**.
+
+   Si vous n’êtes pas autorisé à attribuer des rôles, l’option **Ajouter** ne s’affiche pas.
+
+   ![Volet Ajouter des autorisations](./media/role-assignments-portal/add-permissions.png)
+
+1. Dans la liste déroulante **Rôle**, sélectionnez le rôle **Propriétaire**.
+
+1. Dans la liste **Sélectionner**, sélectionnez un utilisateur. Si vous ne voyez pas l’utilisateur dans la liste, vous pouvez taper dans la zone **Sélectionner** pour rechercher des noms d’affichage et des adresses e-mail dans l’annuaire.
+
+1. Choisissez **Enregistrer** pour attribuer le rôle.
+
+   Après quelques instants, le rôle Propriétaire est attribué à l’utilisateur au niveau de l’abonnement.
+
+### <a name="assign-a-role-at-a-management-group-scope"></a>Attribuer un rôle au niveau d’un groupe d’administration
 
 1. Dans le portail Azure, sélectionnez **Tous les services**, puis **Groupes d’administration**.
 
@@ -181,11 +207,11 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
 
 1. Dans la liste déroulante **Rôle**, sélectionnez un rôle, tel que **Collaborateur du groupe d’administration**.
 
-    Pour plus d’informations sur les actions prises en charge sur les groupes d’administration pour différents rôles, consultez [Organiser vos ressources avec des groupes d’administration Azure](../azure-resource-manager/management-groups-overview.md#management-group-access).
+    Pour plus d’informations sur les actions prises en charge sur les groupes d’administration pour différents rôles, consultez [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/index.md#management-group-access).
 
 1. Dans la liste **Sélectionner** , sélectionnez un utilisateur, un groupe ou une application. Si vous ne voyez pas le principal de sécurité dans la liste, vous pouvez saisir du texte dans la zone **Sélectionner** pour rechercher des noms d’affichage, des adresses de messagerie et des identificateurs d’objet dans le répertoire.
 
-1. Sélectionnez **Enregistrer** pour créer l’attribution de rôle.
+1. Choisissez **Enregistrer** pour attribuer le rôle.
 
    Après quelques instants, le principal de sécurité est attribué au rôle à l’étendue de groupe d’administration.
 

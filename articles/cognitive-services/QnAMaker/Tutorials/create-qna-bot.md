@@ -1,22 +1,23 @@
 ---
-title: Créer un bot QnA avec Azure Bot Service - Azure Cognitive Services | Microsoft Docs
+title: Bot QnA avec Azure Bot Service - QnA Maker
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: fc430bf3aa7cad279d7a93bb6892aa19abee3378
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 74c7bc5c601cd36a8dd2454506745406bc00dac0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109267"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031286"
 ---
-# <a name="create-a-qna-bot-with-azure-bot-service"></a>Créer un bot QnA avec Azure Bot Service
-Ce didacticiel vous guide tout au long de la création d’un bot QnA avec Azure Bot Service sur le portail Azure.
+# <a name="create-a-qna-bot-with-azure-bot-service-v3"></a>Créer un bot QnA avec Azure Bot Service v3
+Ce tutoriel vous guide tout au long de la création d’un bot QnA avec Azure Bot Service v3 sur le portail Azure.
 
 ## <a name="prerequisite"></a>Configuration requise
 Avant la création, suivez les étapes de [Créer une base de connaissances](../How-To/create-knowledge-base.md) pour créer un service QnA Maker avec des questions et des réponses.
@@ -32,16 +33,24 @@ Le bot répond aux questions à partir de la base de connaissances que vous avez
 
     ![sélection de service bot](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
 
-3. Dans le **panneau Service bot**, fournissez les informations requises, puis sélectionnez **Créer**. Cela crée et déploie le service bot avec QnAMakerDialog vers Azure.
+3. Dans le panneau **Bot Service**, indiquez les informations requises.
 
-    - Définissez le **nom de l’application** selon le nom de votre bot. Le nom est utilisé comme sous-domaine lors du déploiement de votre bot sur le cloud (par exemple, mynotesbot.azurewebsites.net).
+    - Dans **Nom de l’application**, entrez le nom de votre bot. Le nom est utilisé comme sous-domaine lors du déploiement de votre bot sur le cloud (par exemple, mynotesbot.azurewebsites.net).
     - Sélectionnez l’abonnement, le groupe de ressources, le plan App Service et l’emplacement.
-    - Sélectionnez le modèle **Question and Answer** (Question et réponse) (Node.js ou C#) pour le champ de modèle de bot.
-    - Cochez la case de confirmation pour la mention légale. Les termes de la mention légale figurent sous la case à cocher.
 
-        ![sélection de service bot](../media/qnamaker-tutorials-create-bot/bot-service-qna-template.PNG)
+4. Pour obtenir des instructions de création d’un bot QnA avec le SDK v4, consultez [Modèle de bot QnA v4](https://aka.ms/qna-bot-v4). Pour utiliser les modèles v3, sélectionnez la version de SDK **SDK v3** la langage de SDK **C#** ou **Node.js**.
 
-4. Vérifiez que le service bot a été déployé.
+    ![paramètres de SDK de bot](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+
+5. Sélectionnez le modèle **Question et réponse** pour le champ de modèle Bot, puis enregistrez les paramètres de modèle en cliquant sur **Sélectionner**.
+
+    ![sélection de service bot](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+
+6. Passez en revue vos paramètres, puis sélectionnez **Créer**. Cela crée et déploie le service bot avec QnAMakerDialog vers Azure.
+
+    ![sélection de service bot](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+
+7. Vérifiez que le service bot a été déployé.
 
     - Sélectionnez **Notifications** (l’icône représentant une cloche qui se trouve le long du bord supérieur du portail Azure). La notification passera de **Le déploiement a commencé** à **Déploiement réussi**.
     - Lorsque la notification devient **Déploiement réussi**, sélectionnez **Accéder à la ressource** sur cette notification.

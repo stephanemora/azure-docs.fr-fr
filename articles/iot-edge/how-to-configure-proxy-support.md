@@ -4,16 +4,16 @@ description: Découvrez comment configurer le runtime Azure IoT Edge et les modu
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/13/2018
+ms.date: 09/24/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cf8f6197c65b0169e2bc61f46ab4a22f212512a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996721"
+ms.locfileid: "47037454"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -21,9 +21,25 @@ Les appareils IoT Edge envoient des requêtes HTTPS pour communiquer avec IoT Hu
 
 Pour configurer un appareil IoT Edge devant communiquer avec un serveur proxy, effectuez les étapes de base suivantes : 
 
-1. Configurez le démon Docker et le démon IoT Edge sur votre appareil pour utiliser le serveur proxy.
-2. Configurez les propriétés d’edgeAgent dans le fichier config.yaml sur votre appareil.
-3. Définissez les variables d’environnement pour le runtime IoT Edge et les autres modules IoT Edge dans le manifeste de déploiement. 
+1. Installez le runtime IoT Edge sur votre appareil. 
+2. Configurez le démon Docker et le démon IoT Edge sur votre appareil pour utiliser le serveur proxy.
+3. Configurez les propriétés d’edgeAgent dans le fichier config.yaml sur votre appareil.
+4. Définissez les variables d’environnement pour le runtime IoT Edge et les autres modules IoT Edge dans le manifeste de déploiement. 
+
+## <a name="install-the-runtime"></a>Installer le runtime
+
+Si vous installez le runtime IoT Edge sur un appareil Linux, configurez le Gestionnaire de package de sorte à passer par votre serveur proxy pour accéder au package d’installation. Par exemple, [Configurez apt-get pour utiliser un proxy http](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Une fois que votre gestionnaire de package est configuré, suivez les instructions dans [Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) ou [Installer le runtime Azure IoT Edge sur Linux (x64)](how-to-install-iot-edge-linux.md) comme d’habitude. 
+
+Si vous installez le runtime IoT Edge sur un appareil Windows, vous devez passer par votre serveur proxy pour accéder au package d’installation. Vous pouvez configurer les informations de proxy dans les paramètres Windows ou inclure vos informations de proxy directement dans le script d’installation. Le script Powershell suivant est un exemple d’installation de Windows qui utilise l’argument `-proxy` :
+
+```powershell
+. {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
+Install-SecurityDaemon -Manual -ContainerOs Windows
+```
+
+Pour plus d’informations et d’options d’installation, consultez [Installer le runtime Azure IoT Edge sur Windows pour l’utiliser avec des conteneurs Windows](how-to-install-iot-edge-windows-with-windows.md) ou [Installer le runtime Azure IoT Edge sur Windows pour l’utiliser avec des conteneurs Linux](how-to-install-iot-edge-windows-with-linux.md).
+
+Une fois que le runtime IoT Edge est installé, utilisez la section suivante pour le configurer avec vos informations de proxy. 
 
 ## <a name="configure-the-daemons"></a>Configurer les démons
 

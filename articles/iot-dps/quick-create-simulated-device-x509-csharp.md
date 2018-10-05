@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: cc8db9a11aa4c942f0dcee3dce320a5bb77cf14a
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 1d42280935c406a7af0e632434749b2b082ea8b8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023808"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039665"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du C# Device SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -68,9 +68,9 @@ Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK)
 
 4. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service d'approvisionnement.
 
-5. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. 
+5. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles**, puis cliquez sur le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
 
-6. Dans le volet **Add enrollment** (Ajouter une inscription), entrez les informations suivantes :
+6. Dans le volet **Ajouter une inscription**, entrez les informations suivantes :
     - Sélectionnez **X.509** comme *mécanisme* d’attestation d’identité.
     - Sous le *fichier .pem ou .cer du certificat principal*, cliquez sur *Sélectionner un fichier* pour sélectionner le fichier de certificat **certificate.pem** créé au cours des étapes précédentes.
     - Ne renseignez pas le champ **ID de l’appareil**. Votre appareil va être approvisionné. Son ID est défini sur le nom commun (CN) dans le certificat X.509, soit **iothubx509device1**. Ce nom sera également utilisé pour l’ID d’inscription de l’entrée d’inscription individuelle. 
@@ -79,7 +79,7 @@ Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK)
         - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
     - Cela fait, cliquez sur le bouton **Enregistrer**. 
 
-    [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png#lightbox)
+    [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
     
    Lorsque l’opération aboutit, l’entrée d’inscription de votre appareil X.509 apparaît en tant que **iothubx509device1** sous la colonne *ID d’inscription* de l’onglet *Inscriptions individuelles*. 
 
@@ -87,7 +87,7 @@ Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK)
 
 1. Dans le panneau **Vue d’ensemble** de votre service d’approvisionnement, notez les valeurs **_ID Scope_** (Étendue de l’ID).
 
-    ![Extraire des informations de point de terminaison de service Device Provisioning dans le panneau du portail](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
+    ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509-csharp/copy-scope.png) 
 
 
 2. Tapez la commande suivante pour générer et exécuter l’exemple d’approvisionnement d’appareil X.509. Remplacez la valeur `<IDScope>` par l’étendue de l’ID de votre service d’approvisionnement. 
@@ -102,12 +102,12 @@ Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK)
 
 4. Vérifiez que l’appareil a bien été approvisionné. En cas de réussite de l’approvisionnement de l’appareil simulé sur le hub IoT lié à votre service d’approvisionnement, l’ID de l’appareil s’affiche dans le panneau **IoT Devices** (Appareils IoT) du hub. 
 
-    ![L’appareil est inscrit avec le hub IoT](./media/quick-create-simulated-device-x509-csharp/hub-registration.png) 
+    ![L’appareil est inscrit avec le hub IoT](./media/quick-create-simulated-device-x509-csharp/registration.png) 
 
     Si vous avez modifié la valeur par défaut de l’*état du jumeau d’appareil initial* dans l’entrée d’inscription de votre appareil, l’état du jumeau souhaité peut être extrait du hub et agir en conséquence. Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez de continuer à manipuler et explorer l’exemple de client d’appareil, ne nettoyez pas les ressources créées lors de ce démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
 

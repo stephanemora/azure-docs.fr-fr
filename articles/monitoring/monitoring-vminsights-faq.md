@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/19/2018
 ms.author: magoedte
-ms.openlocfilehash: e8723bd8e26eb66d9333c2093b5ada8bc78ca14b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 308a447ff99cd11ad6a28df0bdb515764b0f546b
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989599"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063453"
 ---
 # <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Azure Monitor pour machines virtuelles Forum aux questions
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet d’Azure Monitor pour machines virtuelles dans Microsoft Azure. Si vous avez d’autres questions sur la solution, rendez-vous sur le [forum de discussion](https://feedback.azure.com/forums/34192--general-feedback) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -73,7 +73,7 @@ La fonctionnalité de mappage d’Azure Monitor pour machines virtuelles est bas
 
 ## <a name="why-do-my-performance-charts-show-dotted-lines"></a>Pourquoi des lignes pointillées apparaissent sur mes graphiques de performances ?
 
-Cela peut se produire pour plusieurs raisons.  Lorsqu’il manque des données, les lignes sont marquées en pointillés.  Si vous avez modifié la fréquence d’échantillonnage des données sur les compteurs de performance activés (le réglage par défaut correspond à une collecte de données toutes les 60 secondes), des lignes en pointillés peuvent apparaître sur le graphique si vous choisissez une plage horaire courte et une fréquence inférieure à celle utilisée sur le graphique (par exemple, la fréquence d’échantillonnage est de 10 minutes et chacun de ses compartiments correspond à 5 minutes).  Si vous choisissez un plus grand intervalle de temps pour la visualisation, les lignes du graphique devraient apparaître sous forme de lignes pleines plutôt que de points dans ce cas.
+Cela peut se produire pour plusieurs raisons.  Lorsqu’il manque des données, les lignes sont marquées en pointillé.  Si vous avez modifié la fréquence d’échantillonnage des données sur les compteurs de performance activés (le réglage par défaut correspond à une collecte de données toutes les 60 secondes), des lignes en pointillés peuvent apparaître sur le graphique si vous choisissez une plage horaire courte et une fréquence inférieure à celle utilisée sur le graphique (par exemple, la fréquence d’échantillonnage est de 10 minutes et chacun de ses compartiments correspond à 5 minutes).  Si vous choisissez un plus grand intervalle de temps pour la visualisation, les lignes du graphique devraient apparaître sous forme de lignes pleines plutôt que de points dans ce cas.
 
 ## <a name="are-groups-supported-with-azure-monitor-for-vms"></a>Les groupes sont-ils pris en charge avec Azure Monitor pour machines virtuelles ?
 La fonctionnalité Performance prend en charge les groupes en fonction des ressources sélectionnées dans un espace de travail spécifique, ainsi que le regroupement en fonction d’un groupe de machines virtuelles identiques Azure particulier et du service cloud.
@@ -93,3 +93,6 @@ Bien que nous ayons apporté des améliorations au mappage pour la gestion de co
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Pourquoi le graphique du réseau dans l’onglet Performance est-il différent de celui de la page d’aperçu de la machine virtuelle Azure ?
 
 La page d’aperçu d’une machine virtuelle Azure affiche des graphiques basés sur la mesure de l’activité de l’hôte dans la machine virtuelle hôte.  Dans le cas du graphique du réseau sur l’aperçu de la machine virtuelle Azure, seul le trafic réseau qui sera facturé est affiché.  Le trafic entre réseaux virtuels n’est pas compris.  Les données et les graphiques présentés dans Azure Monitor pour les machines virtuelles sont basés sur les données de la machine virtuelle invitée et le graphique du réseau affiche tout le trafic TCP/IP entrant et sortant vers cette machine virtuelle, y compris le trafic entre réseaux virtuels.
+
+## <a name="next-steps"></a>Étapes suivantes
+Pour découvrir les exigences et les méthodes relatives à l’activation de la supervision de vos machines virtuelles, consultez l’article [Intégrer Azure Monitor pour machines virtuelles](monitoring-vminsights-onboard.md).

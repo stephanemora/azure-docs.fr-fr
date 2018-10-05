@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 5/8/2018
+ms.date: 9/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a79c1951fb8cfbfc208942835ee87b91b763c44
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 8bfe815b9664e499f7ae458dfc42b88199e0ecb4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798183"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47037930"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK Python Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -36,20 +36,26 @@ ms.locfileid: "34798183"
 
 <table>
 
-<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[PyPI](https://pypi.python.org/pypi/pydocumentdb)</td></tr>
+<tr><td>**Téléchargement du Kit de développement logiciel (SDK)**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API Python](https://docs.microsoft.com/python/api/pydocumentdb?view=azure-python)</td></tr>
+<tr><td>**Documentation de l’API**</td><td>[Documentation de référence sur l’API Python](https://docs.microsoft.com/python/api/azure-cosmos)</td></tr>
 
-<tr><td>**Instructions d’installation du Kit de développement logiciel (SDK)**</td><td>[Instructions d’installation du Kit de développement logiciel (SDK) Python](http://azure.github.io/azure-documentdb-python/)</td></tr>
+<tr><td>**Instructions d’installation du Kit de développement logiciel (SDK)**</td><td>[Instructions d’installation du Kit de développement logiciel (SDK) Python](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
-<tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-python)</td></tr>
+<tr><td>**Contribution au Kit de développement logiciel (SDK)**</td><td>[GitHub](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
-<tr><td>**Prise en main**</td><td>[Bien démarrer avec le Kit de développement logiciel (SDK) Python](sql-api-python-application.md)</td></tr>
+<tr><td>**Démarrer**</td><td>[Bien démarrer avec le Kit de développement logiciel (SDK) Python](sql-api-python-application.md)</td></tr>
 
 <tr><td>**Plateforme actuellement prise en charge**</td><td>[Python 2.7](https://www.python.org/downloads/) et [Python 3.5](https://www.python.org/downloads/)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0
+* Prise en charge des écritures multirégions.
+* Espace de noms remplacé par azure.cosmos.
+* Concepts Collection et Document renommés en Conteneur et Élément ; « document_client » renommé en « cosmos_client ». 
+
 ### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
 * Support supplémentaire pour les nouvelles tentatives par défaut concernant les problèmes de connexion.
 

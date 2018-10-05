@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 102f087f31aa304aaaee49e0e39ff8c6874127b4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 47dee26c84d96ebf5b0a421c2f10d18892d6d933
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966785"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227246"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
@@ -32,7 +32,7 @@ Vous pouvez également utiliser des alertes métriques plus récentes sur des jo
 À l’heure actuelle, il n’est possible de créer des alertes métriques plus récentes que sur le Portail Azure, [l’API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) ou les [modèles Resource Manager](monitoring-create-metric-alerts-with-templates.md). La prise en charge de la configuration d’alertes plus récentes en utilisant PowerShell et Azure CLI versions 2.0 et supérieures sera bientôt disponible.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métriques et dimensions prises en charge
-Les alertes métriques plus récentes prennent en charge la génération d’alertes pour les métriques qui utilisent des dimensions. Vous pouvez utiliser les dimensions pour filtrer votre métrique au niveau approprié. Toutes les métriques prises en charge, ainsi que les dimensions applicables, peuvent être examinées et visualisés à partir d’[Azure Monitor – Metrics Explorer (préversion)](monitoring-metric-charts.md).
+Les alertes métriques plus récentes prennent en charge la génération d’alertes pour les métriques qui utilisent des dimensions. Vous pouvez utiliser les dimensions pour filtrer votre métrique au niveau approprié. Tous les métriques pris en charge, ainsi que les dimensions applicables, peuvent être examinés et visualisés à partir [d’Azure Monitor - Metrics Explorer](monitoring-metric-charts.md).
 
 Voici la liste complète des sources de métrique d’Azure Monitor prises en charge par les alertes plus récentes :
 

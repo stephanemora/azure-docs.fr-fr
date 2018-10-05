@@ -12,46 +12,43 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 23b7ca44b72b8840579f369954f41f554d4c8852
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: a1cd25012461ae8bb445dcb1de8fe5be49e04760
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943417"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060558"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application Android
+# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Connecter des utilisateurs et appeler Microsoft Graph à partir d’une application Android
 
-Ce guide explique comment une application Android native peut obtenir un jeton d’accès et appeler l’API Microsoft Graph ou d’autres API qui nécessitent des jetons d’accès provenant d’un point de terminaison Azure Active Directory v2.
+Dans ce didacticiel, vous allez apprendre à créer une application Android et à l’intégrer à la plateforme d’identité Microsoft. Plus précisément, cette application doit connecter un utilisateur, obtenir un jeton d’accès pour appeler l’API Microsoft Graph et adresser une requête de base à l’API Microsoft Graph.  
 
-À la fin de ce guide, votre application pourra accepter des connexions de comptes personnels (y compris outlook.com, live.com et autres), ainsi que des comptes professionnels et scolaires de n’importe quelle société ou organisation utilisant Azure Active Directory. L’application appelle ensuite une API qui est protégée par le point de terminaison Azure Active Directory v2.  
+À la fin de ce guide, votre application acceptera les connexions de comptes Microsoft personnels (y compris outlook.com, live.com et d’autres) et de comptes professionnels ou scolaires de n’importe quelle entreprise ou organisation utilisant Azure Active Directory. 
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Fonctionnement de l’exemple d’application de ce guide
 ![Fonctionnement de cet exemple](media/active-directory-develop-guidedsetup-android-intro/android-intro.png)
 
-L’exemple d’application que vous avez créé avec ce guide est basé sur un scénario dans lequel une application Android est utilisée pour interroger une API web qui accepte des jetons provenant du point de terminaison Azure Active Directory v2 (dans ce cas l’API Microsoft Graph). Pour ce scénario, votre application ajoute le jeton obtenu aux requêtes HTTP via l’en-tête d’autorisation. La bibliothèque d’authentification Microsoft (MSAL) gère l’acquisition et le renouvellement de jetons pour vous.
+L’application utilisée dans cet exemple est destinée à connecter des utilisateurs et à obtenir des données au nom de ces derniers.  Ces données sont accessibles par le biais d’une API distante (l’API Microsoft Graph dans ce cas précis) qui nécessite une autorisation et est également protégée par la plateforme d’identité Microsoft. 
+
+Plus précisément : 
+* Votre application lance une page web pour connecter l’utilisateur.
+* Votre application émet un jeton d’accès pour l’API Microsoft Graph.
+* Le jeton d’accès est inclus dans la requête HTTP adressée à l’API web.
+* La réponse Microsoft Graph est traitée. 
+
+Cet exemple utilise la bibliothèque d’authentification Microsoft pour Android (MSAL) pour coordonner et faciliter l’authentification. MSAL renouvelle automatiquement les jetons, assure l’authentification unique entre les autres applications sur l’appareil, facilite la gestion des comptes et prend en charge la plupart des cas d’accès conditionnel. 
 
 ## <a name="prerequisites"></a>Prérequis
-* Cette installation guidée se concentre sur Android Studio, mais n’importe quel autre environnement de développement d’application Android peut être utilisé. 
-* Le Kit de développement logiciel (SDK) Android 21 ou version ultérieure est requis (Kit de développement logiciel (SDK) 25 recommandé).
-* Google Chrome ou un navigateur web utilisant les onglets personnalisés est requis pour cette version de MSAL pour Android.
+* Ce guide de configuration utilise Android Studio 3.0. 
+* L’utilisation d’Android 21 ou d’une version ultérieure est requise (version 25 ou ultérieure recommandée).
+* Cette version de MSAL pour Android requiert Google Chrome ou un navigateur web utilisant les onglets personnalisés.
 
-> [!NOTE]
-> Google Chrome n’est pas inclus avec l’émulateur Visual Studio pour Android. Nous vous recommandons de tester ce code sur un émulateur avec l’API 25 ou sur une image avec l’API 21 ou version ultérieure disposant de Google Chrome.
+## <a name="library"></a>Bibliothèque
 
-## <a name="handling-token-acquisition-for-accessing-protected-web-apis"></a>Gestion de l’acquisition de jetons pour accéder à des API web protégées
-
-Une fois l’utilisateur authentifié, l’exemple d’application reçoit un accès au jeton qui peut être utilisé pour interroger l’API Microsoft Graph ou une API web sécurisée par Azure Active Directory v2.
-
-Avec les API comme Microsoft Graph, vous avez besoin d’un jeton d’accès pour autoriser l’accès à des ressources spécifiques. Par exemple, un accès au jeton est nécessaire pour lire le profil d’un utilisateur, accéder au calendrier d’un utilisateur ou envoyer un e-mail. Votre application peut demander un jeton d’accès à l’aide de MSAL pour accéder à ces ressources en spécifiant les étendues d’API. Ce jeton d’accès est ensuite ajouté à l’en-tête d’autorisation HTTP pour chaque appel effectué sur la ressource protégée. 
-
-MSAL gère la mise en cache et l’actualisation des jetons d’accès pour vous, ce qui évite à votre application d’avoir à le faire.
-
-## <a name="libraries"></a>Bibliothèques
-
-Ce guide utilise les bibliothèques suivantes :
+Ce guide utilise la bibliothèque d’authentification suivante :
 
 |Bibliothèque|Description|
 |---|---|

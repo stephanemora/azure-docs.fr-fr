@@ -2,19 +2,22 @@
 title: Prise en main des tables temporelles dans Azure SQL Database | Microsoft Docs
 description: Découvrez comment prendre en main les tables temporelles dans Azure SQL Database.
 services: sql-database
-author: bonova
-ms.date: 03/21/2018
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: bonova
 ms.author: bonova
-ms.openlocfilehash: 140d2c9f6c334cec7d2761d05d7b20eb7106b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 03/21/2018
+ms.openlocfilehash: d18630f9b4cea28bd19b2ac24e7b8c3d1822e17c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649038"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166416"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Prise en main des tables temporelles dans Azure SQL Database
 Les tables temporelles sont une nouvelle fonctionnalité de programmabilité d’Azure SQL Database qui vous permet de suivre et d’analyser l’historique complet des modifications apportées à vos données, sans codage personnalisé. Les tables temporelles conservent les données étroitement liées au contexte temporel afin que les faits stockés puissent être interprétés comme étant valides uniquement dans une période spécifique. Cette propriété des tables temporelles permet une analyse efficace basée sur le temps et permet d’obtenir des informations à partir de l’évolution des données.
@@ -22,7 +25,7 @@ Les tables temporelles sont une nouvelle fonctionnalité de programmabilité d�
 ## <a name="temporal-scenario"></a>Scénario temporel
 Cet article illustre les étapes permettant d’utiliser les tables temporelles dans un scénario d’application. Supposons que vous voulez effectuer le suivi de l’activité utilisateur sur un nouveau site web en cours de développement ou sur un site web existant que vous voulez enrichir avec l’analyse de l’activité utilisateur. Dans cet exemple simplifié, nous partons du principe que le nombre de pages web visitées pendant une période de temps est un indicateur qui doit être capturé et analysé dans la base de données du site web hébergée sur Azure SQL Database. L’objectif de l’analyse de l’historique de l’activité utilisateur est d’obtenir des informations pour redessiner le site web et fournir une meilleure expérience pour les visiteurs.
 
-Le modèle de base de données pour ce scénario est très simple : la mesure de l’activité utilisateur est représentée par un champ d’entier unique, **PageVisited**, et est capturée en même temps que des informations de base sur le profil utilisateur. En outre, pour l’analyse temporelle, vous conservez une série de lignes pour chaque utilisateur, où chaque ligne représente le nombre de pages visitées par un utilisateur particulier dans une période de temps spécifique.
+Le modèle de base de données pour ce scénario est très simple : la mesure de l’activité utilisateur est représentée par un champ d’entier unique, **PageVisited**, et est capturée en même temps que des informations de base sur le profil utilisateur. En outre, pour l’analyse temporelle, vous conservez une série de lignes pour chaque utilisateur, où chaque ligne représente le nombre de pages visitées par un utilisateur au cours d’une période spécifique.
 
 ![Schéma](./media/sql-database-temporal-tables/AzureTemporal1.png)
 

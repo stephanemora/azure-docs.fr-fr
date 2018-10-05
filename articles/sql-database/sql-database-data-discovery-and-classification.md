@@ -2,24 +2,26 @@
 title: Découverte et classification des données Azure SQL Database | Microsoft Docs
 description: Découverte et classification des données Azure SQL Database
 services: sql-database
-author: giladmit
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/10/2018
+author: giladmit
 ms.author: giladm
-ms.openlocfilehash: 6ef9a701f3a228e4c40da94f83310ef2884a3f59
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/10/2018
+ms.openlocfilehash: d34bb54729fe0adc4b26d213bfaa4ad4fb210ab7
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42139857"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064175"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Découverte et classification des données Azure SQL Database
 Découverte et classification des données (actuellement en préversion) offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l’**étiquetage**  & et la **protection** des données sensibles dans vos bases de données.
-La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, informations d’identification personnelle, et ainsi de suite) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
+La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, informations d’identification personnelle, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
 * Aider à répondre aux normes de confidentialité des données et aux exigences de conformité aux normes.
 * Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles.
 * Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.
@@ -42,6 +44,17 @@ La section suivante décrit les étapes de découverte, de classification et d�
 La classification comprend deux attributs de métadonnées :
 * Étiquettes : principaux attributs de classification, utilisés pour définir le niveau de confidentialité des données stockées dans la colonne.  
 * Types d’informations : spécifiez une granularité supplémentaire concernant le type des données stockées dans la colonne.
+
+## <a name="define-and-customize-your-classification-taxonomy"></a>Définir et personnaliser votre taxonomie de classification
+
+La fonctionnalité Découverte et classification des données SQL comprend un ensemble intégré d’étiquettes de sensibilité, ainsi qu’un ensemble intégré de types d’informations et de logiques de découverte. Vous avez désormais la possibilité de personnaliser cette taxonomie, et de définir un jeu et un classement de constructions de classification spécialement pour votre environnement.
+
+La définition et la personnalisation de votre taxonomie de classification s’effectuent au même endroit pour l’ensemble de votre locataire Azure. Cet emplacement se trouve dans [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), dans la section relative à votre stratégie de sécurité. Seules les personnes disposant de droits d’administration pour le groupe d’administration racine du locataire peuvent effectuer cette tâche.
+
+Dans le cadre de la gestion des stratégies Information Protection, vous pouvez définir des étiquettes personnalisées, les classer et les associer à un ensemble de types d’informations. Vous pouvez également ajouter vos propres types d’informations personnalisées et les configurer avec des modèles de chaîne, que vous ajoutez à la logique de découverte qui sert à identifier ce type de données dans vos bases de données.
+Pour plus d’informations sur la personnalisation et la gestion de votre stratégie, consultez le [Guide pratique sur les stratégies Information Protection](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+
+Une fois que la stratégie au niveau du locataire a été définie, vous pouvez passer à la classification des bases de données à l’aide de votre stratégie personnalisée.
 
 ## <a name="classify-your-sql-database"></a>Classer votre base de données SQL
 
@@ -104,9 +117,9 @@ Vous pouvez utiliser T-SQL pour ajouter/supprimer des classifications de colonne
 > [!NOTE]
 > Quand vous utilisez T-SQL pour gérer les étiquettes, aucune validation n’est effectuée pour vérifier que les étiquettes ajoutées à une colonne existent dans la stratégie de protection des informations de l’organisation (ensemble des étiquettes qui apparaissent dans les recommandations du portail). Il vous appartient d’effectuer cette validation.
 
-* Ajouter/mettre à jour la classification d’une ou plusieurs colonnes : [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* Supprimer la classification d’une ou plusieurs colonnes : [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* Voir toutes les classifications sur la base de données : [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+* Ajouter/mettre à jour la classification d’une ou plusieurs colonnes : [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* Supprimer la classification d’une ou plusieurs colonnes : [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* Voir toutes les classifications sur la base de données : [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Vous pouvez également utiliser des API REST pour gérer par programme les classifications. Les API REST publiées prennent en charge les opérations suivantes :
 * [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crée ou met à jour l’étiquette de sensibilité d’une colonne donnée

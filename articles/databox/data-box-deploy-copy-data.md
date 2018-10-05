@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
-ms.openlocfilehash: 0204445464a9d61b4e25be1d71373ce8394b32f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957669"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161928"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Didacticiel : Copier des données sur Azure Data Box 
 
@@ -45,7 +45,7 @@ Avant de commencer, assurez-vous que :
 ## <a name="connect-to-data-box"></a>Se connecter à Data Box
 
 Selon le compte de stockage sélectionné, Data Box crée jusqu’à :
-- Trois partages pour chaque compte de stockage associé (GPv1 et GPv2)
+- Trois partages pour chaque compte de stockage associé pour GPv1 et GPv2.
 - Un partage pour un compte de stockage Premium ou Blob 
 
 Sous les partages d’objet blob de blocs et d’objet blob de pages, les entités de premier niveau sont des conteneurs et les entités de second niveau sont des blobs. Sous les partages Azure Files, les entités de premier niveau sont des partages et les entités de second niveau sont des fichiers.
@@ -88,7 +88,7 @@ Si vous utilisez un ordinateur hôte Windows Server, procédez comme suit pour v
     The command completed successfully.
     ```
 
-4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez l’adresse `\\<device IP address>`. Cliquez sur **OK**. L’Explorateur de fichiers s’affiche.
+4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Cliquez sur **OK**. L’Explorateur de fichiers s’affiche.
     
     ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -233,7 +233,7 @@ Pour garantir l’intégrité des données, la somme de contrôle est calculée 
 
 Si vous utilisez un ordinateur hôte Linux, utilisez un utilitaire de copie similaire à Robocopy. Plusieurs solutions alternatives sont disponibles pour Linux, par exemple, [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) et [Ultracopier](https://ultracopier.first-world.info/).  
 
-La commande cp offre l’une des meilleures options pour copier un répertoire. Pour plus d’informations sur son utilisation, reportez-vous aux [pages man sur cp](http://man7.org/linux/man-pages/man1/cp.1.html).
+La commande `cp` constitue l’une des meilleures options pour copier un répertoire. Pour plus d’informations sur son utilisation, reportez-vous aux [pages man sur cp](http://man7.org/linux/man-pages/man1/cp.1.html).
 
 Si vous utilisez l’option rsync pour une copie multithread, suivez ces instructions :
 
@@ -273,7 +273,7 @@ La dernière étape consiste à préparer l’appareil pour l’expédition. Pou
    
     ![Préparer l’expédition 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. Si la somme de contrôle n’était pas activée, une option permettant de l’activer vous est proposée. Afin d’assurer l’intégrité de vos données, nous vous recommandons d’effectuer la validation de la somme de contrôle. Si vous sélectionnez **Activer la somme de contrôle**, le système déclenche le calcul de la somme de contrôle, ce qui peut prendre un certain temps selon la taille de vos données. Cliquez sur **Démarrer la préparation**.
+2. Par défaut, les sommes de contrôle sont calculées par le biais d’une fonction inline pendant la préparation de l’expédition. Le calcul des sommes de contrôle peut prendre un certain temps selon la taille de vos données. Cliquez sur **Démarrer la préparation**.
     1. Lors de la préparation de l’expédition, les partages de l’appareil sont mis hors connexion et l’appareil est verrouillé.
         
         ![Préparer l’expédition 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 

@@ -1,24 +1,27 @@
 ---
-title: Mettre à jour une base de connaissances - Démarrage rapide C# - Azure Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : Mettre à jour avec C# une base de connaissances - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Comment mettre à jour une base de connaissances dans C# pour QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: bac699461e07afc813844bfd59337275a0bbca79
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: c07f2272ed370060fc7334dfe3c52514a726dc33
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "43769837"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035825"
 ---
 # <a name="update-a-knowledge-base-in-c"></a>Mettre à jour une base de connaissances dans C#
 
 Le code suivant met à jour une base de connaissances à l’aide de la méthode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 Si vous n’avez pas encore de base de connaissances, vous pouvez créer un exemple à utiliser pour ce démarrage rapide : [Créer une base de connaissances](create-new-kb-csharp.md).
 

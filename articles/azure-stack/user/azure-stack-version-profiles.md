@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 68514f1bc569d876f4cf851f97a690ae84cf43a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1b63a75a2505ecbd82896932018ef4f0936b9b37
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970292"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182890"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Gérer les profils de version des API dans Azure Stack
 
@@ -77,6 +77,7 @@ En tant que développeur, vous pouvez ainsi vous concentrer sur l’écriture de
 
 Il existe des exemples de code pour vous aider à intégrer votre solution et votre langage par défaut à Azure Stack à l’aide des profils. Actuellement, vous pouvez trouver des conseils et des exemples pour les langages suivants :
 
+- **.NET** Vous pouvez utiliser le profil d’API .NET pour obtenir la version la plus récente et la plus stable de chaque type de ressource dans un package de fournisseur de ressources. Pour plus d’informations, consultez l’article [Utiliser des profils de version d’API avec .NET dans Azure Stack](azure-stack-version-profiles-net.md).
 - **PowerShell**  
 Le module **AzureRM.Bootstrapper**, disponible via PowerShell Gallery, fournit les cmdlets PowerShell nécessaires pour utiliser des profils de version d’API. Pour plus d’informations, consultez [Utiliser des profils de version d’API pour PowerShell](azure-stack-version-profiles-powershell.md).
 - **Interface de ligne de commande Azure**  
@@ -86,7 +87,7 @@ Dans le SDK GO, un profil est une combinaison de différents types de ressources
 - **Ruby**  
 Le Kit de développement logiciel (SDK) Ruby pour Azure Stack Resource Manager fournit des outils pour vous aider à créer et gérer votre infrastructure. Les fournisseurs de ressources du SDK incluent le calcul, les réseaux virtuels et le stockage avec le langage Ruby. Pour plus d’informations, consultez [Utiliser des profils de version d’API avec Ruby](azure-stack-version-profiles-ruby.md)
 - **Python**  
-- Le Kit de développement logiciel (SDK) Python prend en charge les profils de version d’API pour cibler différentes plateformes de cloud telles qu’Azure Stack et Azure globale. Vous pouvez utiliser des profils d’API dans la création de solutions pour un cloud hybride. Pour plus d’informations, consultez [Utiliser des profils de version d’API avec Python](azure-stack-version-profiles-python.md)
+Le Kit de développement logiciel (SDK) Python prend en charge les profils de version d’API pour cibler différentes plateformes de cloud telles qu’Azure Stack et Azure globale. Vous pouvez utiliser des profils d’API dans la création de solutions pour un cloud hybride. Pour plus d’informations, consultez [Utiliser des profils de version d’API avec Python](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

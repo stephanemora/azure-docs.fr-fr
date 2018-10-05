@@ -2,24 +2,26 @@
 title: Différences T-SQL sur Azure SQL Database Managed Instance | Microsoft Docs
 description: Cet article décrit les différences T-SQL entre Azure SQL Database Managed Instance et SQL Server.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab, bonova
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 0813/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab, bonova
 manager: craigg
-ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 08/13/2018
+ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051236"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166501"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server 
 
-Azure SQL Database Managed Instance (préversion) fournit une haute compatibilité avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server local sont prises en charge par Managed Instance. Comme il existe toujours des différences de syntaxe et de comportement, cet article résume et explique ces différences.
+Azure SQL Database Managed Instance fournit une haute compatibilité avec le moteur de base de données SQL Server local. La plupart des fonctionnalités du moteur de base de données SQL Server local sont prises en charge par Managed Instance. Comme il existe toujours des différences de syntaxe et de comportement, cet article résume et explique ces différences.
  - [Différences T-SQL et fonctionnalités non prises en charge](#Differences)
  - [Fonctionnalités qui se comportent différemment dans Managed Instance](#Changes)
  - [Limitations temporaires et problèmes connus](#Issues)
@@ -267,7 +269,7 @@ Les tables externes référençant les fichiers dans HDFS ou le Stockage Blob Az
 
 ### <a name="replication"></a>Réplication 
  
-La réplication est prise en charge sur Managed Instance. Pour plus d’informations sur la réplication, consultez [Réplication SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+La réplication est disponible en préversion publique dans Managed Instance. Pour plus d’informations sur la réplication, consultez [Réplication SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>L’instruction RESTORE 
  
@@ -335,23 +337,24 @@ Pour plus d’informations sur les instructions de restauration, consultez [Inst
 - `sp_attach_db`, `sp_attach_single_file_db`, et `sp_detach_db` ne sont pas pris en charge. Consultez [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) et [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` n’est pas pris en charge. Consultez [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>Agent SQL Server 
- 
+### <a name="sql-server-agent"></a>Agent SQL Server
+
 - Les paramètres de l’Agent SQL sont en lecture seule. La procédure `sp_set_agent_properties` n’est pas prise en charge dans Managed Instance.  
-- Travaux - seules les étapes de travail T-SQL sont actuellement prises en charge (davantage d’étapes seront ajoutées au cours de la préversion publique).
- - SSIS n’est pas encore pris en charge. 
- - La réplication n’est pas encore prise en charge  
-  - Le lecteur du journal des transactions n’est pas encore pris en charge.  
-  - La capture instantanée n’est pas encore prise en charge.  
-  - La base de données du serveur de distribution n’est pas encore prise en charge.  
-  - La fusion n’est pas prise en charge.  
+- Travaux (jobs) : les étapes de travail T-SQL sont prises en charge
+- Les autres types d’étapes de travail T-SQL ne sont pas pris en charge (d’autres étapes seront ajoutées à la préversion publique).
+  - Les travaux de réplication non pris en charge sont les suivants :
+    - Lecteur de journaux de transactions  
+    - Instantané
+    - Serveur de distribution  
+    - Fusion  
+  - SSIS n’est pas encore pris en charge. 
   - L’agent de lecture de la file d’attente n’est pas pris en charge.  
- - L’interface de commande n’est pas encore prise en charge. 
+  - L’interface de commande n’est pas encore prise en charge. 
   - Managed Instance ne peut pas accéder aux ressources externes (par exemple, les partages réseau via robocopy).  
- - PowerShell n’est pas encore pris en charge.
- - Analysis Services ne sont pas pris en charge.  
+  - PowerShell n’est pas encore pris en charge.
+  - Analysis Services ne sont pas pris en charge.  
 - Les notifications sont partiellement prises en charge.
- - Les notifications par e-mail sont prises en charge, elles requièrent la configuration d’un profil de messagerie de base de données. Il ne peut y avoir qu’un seul profil de messagerie de base de données et il doit être appelé `AzureManagedInstance_dbmail_profile` en préversion publique (limitation temporaire).  
+- Les notifications par e-mail sont prises en charge, elles requièrent la configuration d’un profil de messagerie de base de données. Il ne peut y avoir qu’un seul profil de messagerie de base de données et il doit être appelé `AzureManagedInstance_dbmail_profile` en préversion publique (limitation temporaire).  
  - Les récepteurs de radiomessagerie ne sont pas pris en charge.  
  - NetSend n’est pas pris en charge. 
  - Les alertes ne sont pas encore prises en charge.
@@ -414,15 +417,58 @@ Assurez-vous que vous supprimez le `?` de début de la clé SAP générée à l�
 
 SQL Server Management Studio et SQL Server Data Tools peuvent rencontrer des problèmes lors de l’accès à Managed Instance. Tous les problèmes d’outils seront traités avant la mise à disposition générale.
 
-### <a name="incorrect-database-names"></a>Noms de base de données incorrects
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Les noms des bases de données sont incorrects dans plusieurs vues, journaux et messages
 
-Managed Instance peut afficher la valeur GUID au lieu du nom de la base de données pendant la restauration ou dans certains messages d’erreur. Ces problèmes seront corrigés avant la mise à disposition générale.
+Plusieurs vues système, compteurs de performances, messages d’erreur, événements XEvent et entrées du journal des erreurs affichent des identificateurs de base de données GUID au lieu d’afficher les noms des bases de données. Ne prenez pas en compte ces identificateurs GUID, car ils vont être prochainement remplacés par les noms des bases de données.
 
 ### <a name="database-mail-profile"></a>Profil de messagerie de base de données
 Il ne peut y avoir qu’un seul profil de messagerie de base de données et il doit être appelé `AzureManagedInstance_dbmail_profile`. Il s’agit d’une limitation temporaire qui sera supprimée prochainement.
+
+### <a name="error-logs-are-not-persisted"></a>Les journaux des erreurs ne sont pas persistants
+Les journaux des erreurs qui sont disponibles dans l’instance managée ne sont pas persistants et leur taille n’est pas incluse dans la limite de stockage maximale. Les journaux des erreurs peuvent être automatiquement effacés en cas de basculement.
+
+### <a name="error-logs-are-verbose"></a>Les journaux des erreurs contiennent des détails non pertinents
+Managed Instance ajoute des informations détaillées dans les journaux des erreurs, dont la plupart ne sont pas pertinentes. La quantité d’informations qui s’y trouvent va être prochainement réduite.
+
+**Solution de contournement** : utilisez une procédure personnalisée permettant de ne pas afficher les entrées non pertinentes des journaux des erreurs. Pour plus d’informations, consultez [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>L’utilisation de la même étendue de transaction pour deux bases de données appartenant à une même instance n’est pas prise en charge
+Dans .NET, la classe `TransactionScope` ne fonctionne pas si deux requêtes sont envoyées à deux bases de données appartenant à la même instance et à la même étendue de transaction :
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+Même si ce code fonctionne avec les données d’une même instance, il nécessite MSDTC.
+
+**Solution de contournement** : servez-vous de [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) pour utiliser une autre base de données du contexte de connexion au lieu d’utiliser deux connexions.
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>Les modules CLR et les serveurs liés n’arrivent pas à référencer l’adresse IP locale
+Il arrive que les modules CLR placés dans Managed Instance, et les requêtes distribuées ou serveurs liés faisant référence à une instance actuelle, ne parviennent pas à résoudre l’adresse IP de l’instance locale. Il s’agit d’une erreur temporaire.
+
+**Solution de contournement** : utilisez des connexions contextuelles dans le module CLR, si possible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour plus d’informations sur Managed Instance, consultez [What is a Managed Instance?](sql-database-managed-instance.md) (Présentation de l’option Managed Instance)
 - Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).
-- Pour suivre un didacticiel vous expliquant comment créer une option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-get-started.md).
+- Pour obtenir un guide de démarrage rapide vous expliquant comment créer une instance managée, consultez [Créer une instance managée SQL Azure](sql-database-managed-instance-get-started.md).

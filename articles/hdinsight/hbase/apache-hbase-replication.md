@@ -3,18 +3,18 @@ title: Configurer la réplication de cluster HBase dans les réseaux virtuels Az
 description: Découvrez comment configurer la réplication HBase d’une version HDInsight à une autre pour l’équilibrage de charge, la haute disponibilité, la mise à jour et migration sans interruption de service , ainsi que la récupération d’urgence.
 services: hdinsight,virtual-network
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: jasonh
-ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/15/2018
+ms.openlocfilehash: 51f5f3b9742de45b1b72104c8cf08079d0719763
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047481"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224374"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster HBase dans les réseaux virtuels Azure
 
@@ -109,6 +109,7 @@ Pour installer Bind, vous devez rechercher l’adresse IP publique des deux mach
 2. Ouvrez la machine virtuelle DNS en sélectionnant **Groupes de ressources > [nom du groupe de ressources] > [vnet1DNS]**.  Le nom du groupe de ressources est celui que vous créez dans la dernière procédure. Les noms des machines virtuelles DNS par défaut sont *vnet1DNS* et *vnet2NDS*.
 3. Sélectionnez **Propriétés** pour ouvrir la page des propriétés du réseau virtuel.
 4. Notez l’**adresse IP publique** et vérifiez l’**adresse IP privée**.  L’adresse IP privée doit être **10.1.0.4** pour vnet1DNS et **10.2.0.4** pour vnet2DNS.  
+5. Remplacez les serveurs DNS des deux réseaux virtuels par les serveurs DNS par défaut (fournis par Azure) pour autoriser l’accès entrant et sortant afin de télécharger les packages visant à installer Bind dans les étapes suivantes.
 
 Pour installer Bind, procédez comme suit :
 
@@ -135,7 +136,7 @@ Pour installer Bind, procédez comme suit :
     sudo apt-get install bind9 -y
     ```
 
-3. Pour configurer Bind afin de transférer les demandes de résolution de noms à votre serveur DNS local, utilisez le texte suivant en tant que contenu du fichier `/etc/bind/named.conf.options` :
+3. Configurez Bind afin de transférer les demandes de résolution de noms à votre serveur DNS local. Pour ce faire, utilisez le texte suivant comme contenu du fichier `/etc/bind/named.conf.options` :
 
     ```
     acl goodclients {
@@ -151,7 +152,7 @@ Pour installer Bind, procédez comme suit :
         allow-query { goodclients; };
 
         forwarders {
-            168.63.129.16 #This is the Azure DNS server
+            168.63.129.16; #This is the Azure DNS server
         };
 
         dnssec-validation auto;
@@ -217,7 +218,7 @@ Pour installer Bind, procédez comme suit :
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]
@@ -277,7 +278,7 @@ Pour créer une table **Contacts** et y insérer des données, suivez les instru
 
 ## <a name="enable-replication"></a>Activer la réplication
 
-Les étapes suivantes décrivent comment appeler le script d’action de script à partir du portail Azure. Pour savoir comment exécuter une action de script à l’aide d’Azure PowerShell et de l’outil en ligne de commande Azure (Azure CLI), consultez la page [Personnaliser des clusters HDInsight à l’aide d’une action de script](../hdinsight-hadoop-customize-cluster-linux.md).
+Les étapes suivantes décrivent comment appeler le script d’action de script à partir du portail Azure. Pour savoir comment exécuter une action de script en utilisant Azure PowerShell et Azure Classic CLI, consultez [Personnaliser des clusters HDInsight à l’aide d’une action de script](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **Pour activer la réplication HBase à partir du portail Azure**
 

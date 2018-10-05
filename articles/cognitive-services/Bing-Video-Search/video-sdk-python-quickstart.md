@@ -1,31 +1,31 @@
 ---
-title: Démarrage rapide du Kit de développement logiciel (SDK) Python pour Recherche de vidéos | Microsoft Docs
+title: 'Démarrage rapide : Kit SDK Recherche de vidéos, Python'
+titleSuffix: Azure Cognitive Services
 description: Configuration de l’application console du Kit de développement logiciel (SDK) pour Recherche de vidéos.
-titleSuffix: Azure Video Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1c4769a6ca3391fa595cc078651beff330bbfd60
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 9784894ea9a9deb350171e0d19042eb65644093b
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370441"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225648"
 ---
-# <a name="video-search-sdk-python-quickstart"></a>Démarrage rapide du Kit de développement logiciel (SDK) Python pour Recherche de vidéos
+# <a name="quickstart-bing-video-search-sdk-with-python"></a>Démarrage rapide : Kit SDK Recherche de vidéos Bing avec Python
 
-Le Kit de développement logiciel (SDK) pour Recherche de vidéos Bing fournit les fonctionnalités de l’API REST nécessaires pour lancer des requêtes web et analyser les résultats.
+Le SDK Recherche d’images Bing fournit les fonctionnalités de l’API REST nécessaires pour lancer des requêtes web et analyser les résultats.
 
 Le [code source des exemples du Kit de développement logiciel (SDK) Python pour Recherche de vidéos Bing](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/video_search_samples.py) est disponible sur GitHub.
 
 
 ## <a name="application-dependencies"></a>Dépendances de l’application
-Si ce n’est déjà fait, installez Python. Le Kit de développement logiciel (SDK) est compatible avec Python 2.7, 3.3, 3.4, 3.5 et 3.6.
+Si ce n’est déjà fait, installez Python. Le SDK est compatible avec Python 2.7, 3.3, 3.4, 3.5 et 3.6.
 
 Il est généralement conseillé d’utiliser un [environnement virtuel](https://docs.python.org/3/tutorial/venv.html) pour le développement Python. Installez et initialisez l’environnement virtuel avec le [module venv](https://pypi.python.org/pypi/virtualenv). Installez virtualenv pour Python 2.7.
 ```
@@ -37,7 +37,7 @@ cd mytestenv
 python -m pip install azure-cognitiveservices-search-videosearch
 ```
 ## <a name="video-search-client"></a>Client Recherche de vidéos
-Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) sous *Recherche*. Ajoutez des importations :
+Obtenez une [clé d’accès Cognitive Services](https://azure.microsoft.com/try/cognitive-services/) sous *Recherche*. Ajoutez des importations :
 ```
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
@@ -181,5 +181,5 @@ def video_detail(subscription_key):
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Exemples du Kit de développement logiciel (SDK) Python pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
+[Exemples du SDK Python pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

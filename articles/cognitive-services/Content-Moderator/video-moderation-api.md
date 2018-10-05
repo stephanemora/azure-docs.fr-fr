@@ -1,26 +1,27 @@
 ---
-title: Azure Content Moderator - Modération des vidéos | Microsoft Docs
+title: Modération de vidéo - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Recourez à une modération des vidéos afin de détecter la présence éventuelle de contenu pour adultes ou inconvenant.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: sajagtap
-ms.openlocfilehash: ef58f5990d4a0a19ab2b8c61b42ab2a0754dc6fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b6240ef0883e1a523c50c9b641065deb2669d53
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370320"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226533"
 ---
-# <a name="video-moderation"></a>Modération des vidéos
+# <a name="video-moderation"></a>Modération de vidéo
 
 Aujourd’hui, les visionneuses en ligne génèrent des milliards de vues de vidéos sur des sites web de réseaux sociaux populaires et régionaux, et le phénomène ne cesse de croître. En recourant à des services basés sur l’apprentissage automatique pour prédire la présence potentielle le contenu pour adultes ou inconvenant, vous réduisez le coût de vos efforts de modération.
 
-## <a name="sign-up-for-the-content-moderator-media-processor-public-preview"></a>S’inscrire pour accéder au processeur multimédia Content Moderator (préversion publique)
+## <a name="sign-up-for-the-content-moderator-media-processor-preview"></a>S’inscrire pour accéder au processeur multimédia Content Moderator (préversion)
 
 ### <a name="create-a-free-azure-account"></a>Créer un compte Azure gratuit
 
@@ -54,7 +55,7 @@ Utilisez l’[explorateur Azure Media Services (AMS)](https://azure.microsoft.co
 
    Dans l’exemple de code, nommez le projet **VideoModeration**.
 
-1. Sélectionnez ce projet en tant que projet de démarrage unique pour la solution.
+1. Sélectionnez ce projet comme unique projet de démarrage de la solution.
 
 ### <a name="install-required-packages"></a>Installer les packages nécessaires
 
@@ -65,7 +66,7 @@ Installez les packages NuGet suivants disponibles sur [NuGet](https://www.nuget.
 
 ### <a name="update-the-programs-using-statements"></a>Mettre à jour les instructions d’utilisation du programme
 
-Mettez à jour les instructions d’utilisation du programme.
+Mettez à jour les instructions using du programme.
 
     using System;
     using System.Linq;
@@ -368,7 +369,7 @@ Une fois le travail de modération du contenu accompli, analysez la réponse JSO
 
 > - `adultScore` représente la présence potentielle et le score de prédiction du contenu pouvant être considéré comme sexuellement explicite ou pour adultes dans certaines situations.
 > - `racyScore` représente la présence potentielle et le score de prédiction du contenu pouvant être considéré comme sexuellement suggestif ou pour adultes dans certaines situations.
-> - `adultScore` et `racyScore` ont des valeurs de 0 à 1. Plus le score est élevé, plus le modèle prédit que la catégorie peut être applicable. Cette préversion s’appuie sur un modèle statistique plutôt que sur des résultats codés manuellement. Nous vous recommandons de tester avec votre propre contenu afin de déterminer comment chaque catégorie correspond à vos besoins.
+> - `adultScore` et `racyScore` ont des valeurs de 0 à 1. Plus le score est élevé, plus le modèle prédit que la catégorie peut être applicable. Cette préversion s’appuie sur un modèle statistique plutôt que sur des résultats codés manuellement. Nous vous recommandons d’effectuer le test avec votre propre contenu afin de déterminer comment chaque catégorie correspond à vos besoins.
 > - La valeur de `reviewRecommended` est true ou false, selon les seuils de score internes. Les clients doivent évaluer l’opportunité d’utiliser cette valeur ou choisir des seuils personnalisés en fonction de leurs stratégies de contenu.
 >
 

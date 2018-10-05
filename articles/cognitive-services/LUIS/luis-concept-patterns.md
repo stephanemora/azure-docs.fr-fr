@@ -1,24 +1,24 @@
 ---
-title: Découvrir comment les modèles augmentent la précision des prédictions | Microsoft Docs
-titleSuffix: Azure
-description: Découvrez comment concevoir des modèles pour augmenter les scores de prédiction des intentions et trouver des entités.
+title: Découvrir comment les modèles augmentent la précision des prédictions
+titleSuffix: Azure Cognitive Services
+description: Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires. Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5ade15b3f80d725af4ece31a36ea0b670f5f5147
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225215"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031541"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Les modèles améliorent la précision de la prédiction
-Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires. Si vous fournissez un modèle pour l’énoncé, LUIS aura une confiance élevée en la prédiction. 
+Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires.  Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Les modèles résolvent les problèmes de faible confiance envers les intentions
 Imaginez une application Ressources humaines qui génère des rapports sur l’organigramme en lien avec un employé. Selon le nom et les relations d’un employé, LUIS peut retourner les employés impliqués. Imaginez un employé, Tom, avec une manager nommée Alice, et une équipe de subordonnés appelés Michael, Rebecca et Carl.
@@ -60,25 +60,25 @@ Les entités des modèles sont placées entre accolades, `{}`. Les modèles peuv
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntaxe pour ajouter une entité à un modèle
 Pour ajouter une entité au modèle, placez le nom de l’entité entre accolades, comme `Who does {Employee} manage?`. 
 
-```
-Who does {Employee} manage?
-```
+|Modèle avec une entité|
+|--|
+|`Who does {Employee} manage?`|
 
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Syntaxe pour ajouter une entité et un rôle à un modèle
 Le rôle d’une entité est indiqué par `{entity:role}` avec le nom de l’entité suivi d’un signe deux-points, puis du nom de rôle. Pour ajouter une entité et un rôle au modèle, placez le nom de l’entité et le nom du rôle entre accolades, comme `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
-```
-Book a ticket from {Location:Origin} to {Location:Destination}
-```
+|Modèle avec des rôles d’entités|
+|--|
+|`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Syntaxe pour ajouter un pattern.any à un modèle
 L’entité Pattern.any vous permet d’ajouter une entité de longueur variable au modèle. Tant que le modèle est suivi, l’entité pattern.any peut être de n’importe quelle longueur. 
 
 Pour ajouter une entité **Pattern.any** au modèle, placez l’entité Pattern.any entre accolades, comme `How much does {Booktitle} cost and what format is it available in?`.  
 
-```
-How much does {Booktitle} cost and what format is it available in?
-```
+|Modèle avec une entité Pattern.any|
+|--|
+|`How much does {Booktitle} cost and what format is it available in?`|
 
 |Titres de livres dans le modèle|
 |--|
@@ -107,9 +107,9 @@ Pour corriger cette exception dans le modèle, ajoutez `the man from la mancha` 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Syntaxe pour marquer le texte facultatif dans un modèle d’énoncé
 Marquez un texte facultatif dans l’énoncé à l’aide de la syntaxe en crochet d’expression régulière, `[]`. Dans le texte facultatif, vous pouvez imbriquer jusqu'à deux crochets uniquement.
 
-```
-[find] email about {subject} [from {person}]
-```
+|Modèle avec un texte facultatif|
+|--|
+|`[find] email about {subject} [from {person}]`|
 
 Les signes de ponctuation tels que `.`, `!`, et `?` peuvent être ignorés à l’aide de crochets. Pour pouvoir ignorer ces marques, chaque marque doit se trouver dans un modèle distinct. La syntaxe facultative ne peut actuellement pas ignorer un élément dans une liste de plusieurs éléments.
 

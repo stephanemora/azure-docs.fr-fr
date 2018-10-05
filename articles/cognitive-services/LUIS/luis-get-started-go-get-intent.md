@@ -1,22 +1,23 @@
 ---
-title: Analyser le texte en langage naturel dans l’API Language Understanding (LUIS) à l’aide de GO - Azure Cognitive Services | Microsoft Docs
+title: Démarrage rapide pour le langage Go - Prédire une intention - LUIS
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. À l’aide de GO, envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique. Au niveau du point de terminaison, LUIS applique le modèle de l’application publique pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b00d815b712d98136b474d1e73afe7e35d1c7ef4
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f19c46fcc7dcff2e02786bb3a03082f831e880a2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160164"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032731"
 ---
-# <a name="quickstart-call-a-luis-endpoint-using-go"></a>Démarrage rapide : Appeler un point de terminaison LUIS à l’aide de GO
+# <a name="quickstart-get-intent-using-go"></a>Démarrage rapide : Reconnaître l’intention à l’aide du langage Go
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -32,11 +33,11 @@ ms.locfileid: "44160164"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analyser le texte avec le navigateur
+## <a name="get-intent-with-browser"></a>Reconnaître une intention avec le navigateur
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-go"></a>Analyser le texte avec GO
+## <a name="get-intent-programmatically"></a>Reconnaître une intention par programmation
 
 Vous pouvez utiliser GO pour accéder aux résultats que vous avez vus dans la fenêtre du navigateur à l’étape précédente. 
 

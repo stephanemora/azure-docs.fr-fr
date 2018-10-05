@@ -2,26 +2,29 @@
 title: Effectuer une mise à niveau vers la dernière version de la bibliothèque cliente de bases de données élastiques | Microsoft Docs
 description: Utilisez NuGet pour mettre à niveau la bibliothèque cliente de bases de données élastiques.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 56500a21822f7c7122a20cb676b9ad307de49c87
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 9fb29b18397be83f5dc56464b3366d91c47f43b3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647008"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160789"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Mettre à niveau une application pour utiliser la dernière version de la bibliothèque cliente de bases de données élastiques
 Les nouvelles versions de la [bibliothèque cliente de bases de données élastiques](sql-database-elastic-database-client-library.md) sont disponibles via NuGet et l’interface du Gestionnaire de package NuGet dans Visual Studio. Les mises à niveau contiennent des résolutions de bogues et offrent une prise en charge des nouvelles fonctionnalités de la bibliothèque cliente.
 
 **Pour la version la plus récente :** accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-Régénérez votre application avec la nouvelle bibliothèque et modifiez les métadonnées existantes du gestionnaire des cartes de partitions stockées dans vos bases de données SQL Azure pour prendre en charge les nouvelles fonctionnalités.
+Regénérez votre application avec la nouvelle bibliothèque et modifiez les métadonnées du gestionnaire de cartes de partitions qui sont stockées dans vos bases de données SQL Azure pour qu’elles prennent en charge les nouvelles fonctionnalités.
 
 Effectuez ces étapes afin de garantir que plus aucune version antérieure de la bibliothèque cliente ne reste présente dans votre environnement après la mise à jour des objets de métadonnées. De cette façon, il n’y aura pas d’objets de métadonnées d’une version antérieure qui seront créés après la mise à niveau.   
 

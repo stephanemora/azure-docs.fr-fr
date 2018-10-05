@@ -1,22 +1,23 @@
 ---
-title: Azure Content Moderator - Modérer des vidéos et des transcriptions dans .NET | Microsoft Docs
+title: 'Tutoriel : Modérer des vidéos et des transcriptions dans .NET - Content Moderator'
+titlesuffix: Azure Cognitive Services
 description: Comment utiliser Content Moderator pour modérer des vidéos et des transcriptions dans .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0f851c030a05880d79a998ed4b4a941082c057b9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 12f03352373bebecb74b9dd8d31470ac337f5e71
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865469"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227569"
 ---
-# <a name="video-and-transcript-moderation-tutorial"></a>Tutoriel de modération de vidéos et de transcriptions
+# <a name="tutorial-video-and-transcript-moderation"></a>Tutoriel : Modération de vidéos et de transcriptions
 
 Les API Vidéo de Content Moderator vous permettent de modérer des vidéos et de créer des révisions des vidéos dans l’outil de révision par un opérateur humain. 
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/16/2018
+ms.date: 09/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e98012a012c8569a40fe454a777e5f108bfe0e2e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 72503c9f073a046b81001322cdbb4fb8a1af76cf
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304588"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224118"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect : Mise à niveau automatique
 Cette fonctionnalité date de la build [1.1.105.0 (publiée en février 2016)](reference-connect-version-history.md#111050).  Cette fonctionnalité a été mise à jour dans la [build 1.1.561](reference-connect-version-history.md#115610) et prend désormais en charge des scénarios supplémentaires.
@@ -39,7 +39,7 @@ L’état actuel de la mise à niveau automatique peut être affiché avec l’a
 | État | Commentaire |
 | --- | --- |
 | Activé |La mise à niveau automatique est activée. |
-| Interrompu |Défini par le système uniquement. Le système n’est plus autorisé à recevoir des mises à niveau automatiques. |
+| Interrompu |Défini par le système uniquement. **Actuellement, le système n’est pas autorisé à recevoir des mises à niveau automatiques.** |
 | Désactivé |La mise à niveau automatique est désactivée. |
 
 Vous pouvez passer de **Activé** à **Désactivé** avec `Set-ADSyncAutoUpgrade`. Seul le système doit définir l’état **Interrompu**.

@@ -2,22 +2,25 @@
 title: Routage dépendant des données avec Azure SQL Database | Microsoft Docs
 description: Utilisation de la classe ShardMapManager dans les applications .NET pour le routage dépendant des données, une fonctionnalité des bases de données partagées dans Azure SQL Database
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 715b6e55b053b3f999f3bd938c14d72a8e20ad1a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 25bb665d9ea9166d099ab7f3f9696d92da8314e9
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646879"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161814"
 ---
 # <a name="data-dependent-routing"></a>Routage dépendant des données
-**Le routage dépendant des données** correspond à la capacité d’utiliser les données dans une requête pour acheminer la demande vers une base de données appropriée. Il s’agit d’un modèle fondamental quand vous travaillez avec des bases de données partitionnées. Le contexte de la demande peut également servir à acheminer la demande, particulièrement si la clé de partitionnement ne fait pas partie de la requête. Chaque requête ou transaction spécifique d’une application utilisant le routage dépendant des données est limitée à l’accès à une seule base de données par demande. Pour les outils élastiques de base de données SQL Azure, ce routage s’effectue avec la classe **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx))
+**Le routage dépendant des données** correspond à la capacité d’utiliser les données dans une requête pour acheminer la demande vers une base de données appropriée. Le routage dépendant des données est fondamental lorsque vous travaillez avec des bases de données partitionnées. Le contexte de la demande peut également servir à acheminer la demande, particulièrement si la clé de partitionnement ne fait pas partie de la requête. Chaque requête ou transaction d’une application utilisant le routage dépendant des données ne peut accéder qu’à une seule base de données par demande. Pour les outils élastiques de base de données SQL Azure, ce routage s’effectue avec la classe **ShardMapManager** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager._shard_map_manager), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx))
 
 L’application n’a pas besoin d’effectuer le suivi de diverses chaînes de connexion ou divers emplacements de base de données associés à différents segments de données dans l’environnement partitionné. C’est plutôt le [gestionnaire des cartes de partitions](sql-database-elastic-scale-shard-map-management.md) qui ouvre les connexions aux bases de données appropriées, le cas échéant, en fonction des données de la carte de partitions et de la valeur de la clé de partitionnement qui est la cible de la demande de l’application. Cette clé est généralement l’identificateur *customer_id*, *tenant_id*, *date_key* ou tout autre identificateur spécifique qui est un paramètre fondamental de la requête de la base de données. 
 
@@ -42,7 +45,7 @@ RangeShardMap<int> customerShardMap = smm.GetRangeShardMap<int>("customerMap");
 ```
 
 ### <a name="use-lowest-privilege-credentials-possible-for-getting-the-shard-map"></a>Utiliser les informations d’identification du niveau de privilège le plus bas possible pour l’obtention de la carte de partitions
-Si une application ne manipule pas la carte de partitions proprement dite, les informations d’identification utilisées dans la méthode de fabrique doivent posséder des autorisations d’accès en lecture seule sur la base de données de la **carte de partitions globale** . Ces informations d'identification sont généralement différentes des informations d'identification utilisées pour ouvrir des connexions dans le gestionnaire des cartes de partitions. Consultez aussi [Informations d’identification utilisées pour accéder à la bibliothèque cliente de la base de données élastique](sql-database-elastic-scale-manage-credentials.md). 
+Si une application ne manipule pas la carte de partitions proprement dite, les informations d’identification utilisées dans la méthode de fabrique doivent avoir des autorisations d’accès en lecture seule sur la base de données de la **carte de partitions globale**. Ces informations d'identification sont généralement différentes des informations d'identification utilisées pour ouvrir des connexions dans le gestionnaire des cartes de partitions. Consultez aussi [Informations d’identification utilisées pour accéder à la bibliothèque cliente de la base de données élastique](sql-database-elastic-scale-manage-credentials.md). 
 
 ## <a name="call-the-openconnectionforkey-method"></a>Appeler la méthode OpenConnectionForKey
 La méthode **ShardMap.OpenConnectionForKey**  ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._list_shard_mapper.openconnectionforkey), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmap.openconnectionforkey.aspx)) retourne une connexion prête à émettre des commandes vers la base de données appropriée en fonction de la valeur du paramètre **key**. Les informations de partitions sont mises en cache dans l’application par la classe **ShardMapManager**. De ce fait, ces demandes n’impliquent généralement pas une recherche de base de données par rapport à la base de données **Carte de partitions globale**. 
@@ -58,7 +61,7 @@ public SqlConnection OpenConnectionForKey<TKey>(TKey key, string connectionStrin
 ```
 * Le paramètre **key** est utilisé comme clé de recherche dans la carte de partitions afin de déterminer la base de données appropriée pour la demande. 
 * L'instruction **connectionString** est utilisée pour transmettre uniquement les informations d'identification de l'utilisateur correspondant à la connexion de votre choix. Aucun nom de base de données ou de serveur n'est inclus dans l'instruction *connectionString* puisque la méthode détermine la base de données et le serveur à l'aide de l'objet **ShardMap**. 
-* **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)) doit avoir la valeur **ConnectionOptions.Validate** si l’environnement est un environnement où les cartes de partitions peuvent changer et les lignes peuvent se déplacer vers d’autres bases de données suite à des opérations de fractionnement ou de fusion. Cela implique une brève requête vers la carte de partitions locale sur la base de données cible (pas dans la carte de partitions globale) pour que la connexion soit accordée à l’application. 
+* **connectionOptions** ([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapper._connection_options), [.NET](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.connectionoptions.aspx)) doit avoir la valeur **ConnectionOptions.Validate** si l’environnement est un environnement où les cartes de partitions peuvent changer et les lignes peuvent se déplacer vers d’autres bases de données suite à des opérations de fractionnement ou de fusion. Cette validation implique l’envoi d’une requête brève vers la carte de partitions locale de la base de données cible (et non vers la carte de partitions globale) pour que la connexion soit accordée à l’application. 
 
 Si la validation par rapport à la carte de partitions locale échoue (indiquant que le cache est incorrect), le gestionnaire des cartes de partitions interroge la carte de partitions globale afin d'obtenir la nouvelle valeur correcte pour la recherche, de mettre à jour le cache et d'obtenir et retourner la connexion à la base de données appropriée. 
 

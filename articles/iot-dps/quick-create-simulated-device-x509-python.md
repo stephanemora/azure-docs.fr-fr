@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: c058d991d2655985d24b66cc1c6f30da3ddb7785
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: b2346276def178461a04eed008cc21fb22dc8464
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023947"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040548"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Python Device SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -57,26 +57,38 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>Créer un certificat d’appareil X.509 auto-signé et une entrée d’inscription individuelle
 
-Dans cette section, vous allez utiliser un certificat X.509 auto-signé pour lequel il est important de garder à l’esprit les éléments suivants :
+Dans cette section, vous allez utiliser un certificat X.509 auto-signé. Il est important de garder à l’esprit les points suivants :
 
 * Les certificats auto-signés sont destinés aux tests uniquement et ne doivent pas être utilisés en production.
-* La date d’expiration par défaut d’un certificat auto-signé est de 1 an.
+* La date d’expiration par défaut d’un certificat auto-signé est d’un an.
 
 Vous allez utiliser l’exemple de code du Kit de développement logiciel (SDK) Azure IoT pour C pour créer le certificat à utiliser avec l’entrée d’inscription individuelle de l’appareil simulé.
 
 1. Ouvrez la solution générée dans le dossier *cmake* nommé `azure_iot_sdks.sln` générez-la dans Visual Studio.
 
-2. Cliquez avec le bouton droit de la souris sur le projet **dice\_device\_enrollment** dans le dossier **Provision\_Tools**, puis sélectionnez **Définir comme projet de démarrage**. Exécutez la solution. Dans la fenêtre Sortie, entrez `i` pour l’inscription individuelle lorsque vous y êtes invité. La fenêtre Sortie affiche un certificat X.509 généré localement pour votre appareil simulé. Copiez dans le Presse-papiers la sortie débutant par *-----BEGIN CERTIFICATE-----* et se terminant par *-----END CERTIFICATE-----*, en faisant bien attention à inclure également ces deux lignes. 
+2. Cliquez avec le bouton droit de la souris sur le projet **dice\_device\_enrollment** dans le dossier **Provision\_Tools**, puis sélectionnez **Définir comme projet de démarrage**. Exécutez la solution. 
+
+3. Dans la fenêtre Sortie, entrez `i` pour l’inscription individuelle lorsque vous y êtes invité. La fenêtre Sortie affiche un certificat X.509 généré localement pour votre appareil simulé. 
+    
+    Copiez le premier certificat dans le Presse-papiers. Commencez à la première occurrence de :
+    
+        -----BEGIN CERTIFICATE----- 
+        
+    Terminez la copie après la première occurrence de :
+    
+        -----END CERTIFICATE-----
+        
+    Veillez à inclure ces deux lignes. 
 
     ![Application de l’inscription des appareils Dice](./media/python-quick-create-simulated-device-x509/dice-device-enrollment.png)
  
-3. Créez un fichier nommé **_X509testcertificate.pem_** sur votre ordinateur Windows, ouvrez-le dans un éditeur de votre choix et copiez le contenu du presse-papiers dans ce fichier. Enregistrez le fichier . 
+4. Créez un fichier nommé **_X509testcertificate.pem_** sur votre ordinateur Windows, ouvrez-le dans un éditeur de votre choix et copiez le contenu du presse-papiers dans ce fichier. Enregistrez le fichier . 
 
-4. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service d'approvisionnement.
+5. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service de provisionnement.
 
-5. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. 
+6. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles**, puis cliquez sur le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
 
-6. Dans le volet **Add enrollment** (Ajouter une inscription), entrez les informations suivantes :
+7. Dans le volet **Ajouter une inscription**, entrez les informations suivantes :
     - Sélectionnez **X.509** comme *mécanisme* d’attestation d’identité.
     - Sous le *fichier .pem ou .cer du certificat principal*, cliquez sur *Select a file* (Sélectionner un fichier) pour sélectionner le fichier de certificat **X509testcertificate.pem** créé au cours des étapes précédentes.
     - Si vous le souhaitez, vous pouvez fournir les informations suivantes :
@@ -85,7 +97,7 @@ Vous allez utiliser l’exemple de code du Kit de développement logiciel (SDK) 
       - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
     - Cela fait, cliquez sur le bouton **Enregistrer**. 
 
-    [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/python-quick-create-simulated-device-x509/individual-enrollment.png)](./media/python-quick-create-simulated-device-x509/individual-enrollment.png#lightbox)
+    [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
    Lorsque l’inscription aboutit, votre appareil X.509 apparaît en tant que **riot-device-cert** sous la colonne *ID d’inscription* dans l’onglet *Inscriptions individuelles*. 
 
@@ -132,13 +144,13 @@ Vous allez utiliser l’exemple de code du Kit de développement logiciel (SDK) 
 
 8. Dans le portail, accédez au IoT Hub lié à votre service d’approvisionnement, ouvrez le panneau **Device Explorer**. En cas de réussite de l’approvisionnement de l’appareil simulé X.509 sur le Hub, son ID de périphérique s’affiche sur le panneau **Device Explorer**, avec un *ÉTAT* **activé**. Notez que vous devrez peut-être cliquer sur le bouton **Actualiser** dans la partie supérieure si vous avez déjà ouvert le panneau avant d’exécuter l’exemple d’application de l’appareil. 
 
-    ![L’appareil est inscrit avec le hub IoT](./media/python-quick-create-simulated-device-x509/hub-registration.png) 
+    ![L’appareil est inscrit avec le hub IoT](./media/python-quick-create-simulated-device-x509/registration.png) 
 
 > [!NOTE]
 > Si vous avez modifié la valeur par défaut de l’*état du jumeau d’appareil initial* dans l’entrée d’inscription de votre appareil, l’état du jumeau souhaité peut être extrait du hub et agir en conséquence. Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 >
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez de continuer à manipuler et explorer l’exemple de client d’appareil, ne nettoyez pas les ressources créées lors de ce démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
 

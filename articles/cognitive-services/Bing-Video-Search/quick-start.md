@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide de l’API Recherche de vidéos | Microsoft Docs
+title: 'Démarrage rapide : API Recherche de vidéos Bing'
+titlesuffix: Azure Cognitive Services
 description: Prise en main de l’API Recherche de vidéos Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 7E59692A-83A8-4F4C-B122-1F0EDC8E5C86
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0bd0f067d64cac3ebac342ebadcfcc010a47af7b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: abeeec95755a566216ac65b2edf5c831a8ab93b6
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369952"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225512"
 ---
-# <a name="your-first-video-search-query"></a>Votre première requête de recherche de vidéo
+# <a name="quickstart-your-first-video-search-query"></a>Démarrage rapide : Votre première requête de recherche de vidéos
 
 Avant de passer votre premier appel d’API, vous devez obtenir une clé d’abonnement Recherche Bing Cognitive Services. Pour obtenir une clé, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api).
 
@@ -48,7 +48,7 @@ Pour obtenir la liste complète des en-têtes de requête et de réponse, consul
 
 ## <a name="the-request"></a>La requête
 
-Vous trouverez ci-dessous une requête de recherche qui inclut tous les paramètres de requête et les en-têtes suggérés. Si vous appelez l’une des API Bing pour la première fois, n’incluez pas l’en-tête ID client. Indiquez uniquement l’ID client si vous avez précédemment appelé une API Bing et que Bing a retourné un ID client pour la combinaison utilisateur/appareil. 
+Vous trouverez ci-dessous une requête de recherche qui inclut tous les paramètres de requête et les en-têtes suggérés. Si vous appelez l’une des API Bing pour la première fois, n’incluez pas l’en-tête ID client. Indiquez uniquement l’ID client si vous avez précédemment appelé une API Bing et si Bing a renvoyé un ID client pour la combinaison utilisateur/appareil. 
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies&mkt=en-us HTTP/1.1  

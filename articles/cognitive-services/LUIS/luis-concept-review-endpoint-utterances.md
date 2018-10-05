@@ -1,23 +1,24 @@
 ---
-title: Passez en revue les énoncés de point de terminaison pour utiliser l’apprentissage actif dans Language Understanding (LUIS) - Azure | Microsoft Docs
-description: Utilisez la fonctionnalité d’apprentissage actif nommée « Réviser les énoncés de point de terminaison » afin d’accélérer les prédictions de performance.
+title: Passer en revue les énoncés de point de terminaison pour utiliser l’apprentissage actif dans Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: L’apprentissage actif est l’une des trois stratégies pour améliorer la précision de la prédiction et simplifier l’implémentation. Avec l’apprentissage actif, vous passez en revue les énoncés de point de terminaison afin de vérifier que l’intention et l’entité sont correctes. LUIS choisit les énoncés de point de terminaison pour lesquels il a des doutes.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05b3404d318359c6966df44bfab9baff3ded980f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 78cc2a8a2b9295654d0c6264cbf4a4d634b16544
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222611"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038168"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Activer l’apprentissage actif en passant en revue les énoncés de point de terminaison
-L’apprentissage actif est l’une des trois stratégies pour améliorer la précision de la prédiction et simplifier l’implémentation. 
+L’apprentissage actif est l’une des trois stratégies pour améliorer la précision de la prédiction et simplifier l’implémentation. Avec l’apprentissage actif, vous passez en revue les énoncés de point de terminaison afin de vérifier que l’intention et l’entité sont correctes. LUIS choisit les énoncés de point de terminaison pour lesquels il a des doutes.
 
 ## <a name="what-is-active-learning"></a>Présentation de l’apprentissage actif
 L’apprentissage actif est un processus en deux étapes. Tout d’abord, LUIS sélectionne les énoncés qu’il reçoit au niveau du point de terminaison de l’application nécessitant une validation. La deuxième étape est effectuée par le propriétaire de l’application ou un collaborateur pour valider les énoncés sélectionnés pour [révision](luis-how-to-review-endoint-utt.md), y compris l’intention correcte et toutes les entités au sein de l’intention. Après avoir passé en revue les énoncés, formez et publiez de nouveau l’application. 

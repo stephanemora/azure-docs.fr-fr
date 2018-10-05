@@ -2,20 +2,22 @@
 title: 'Démarrage rapide : se connecter à Azure SQL Database et interroger la base de données | Microsoft Docs'
 description: Cet article de démarrage rapide sur Azure SQL Database explique comment se connecter à une base de données SQL Azure et l’interroger.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc
+ms.subservice: operations
+ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-ms.date: 04/24/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: ec39c5ad0771c2bc78655e52c58949db6e9b3353
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/24/2018
+ms.openlocfilehash: 576e0adca21f5cd3313893035ff66bd83a0a0164
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186009"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063521"
 ---
 # <a name="azure-sql-database-connect-and-query-quickstarts"></a>Démarrage rapide : se connecter à Azure SQL Database et interroger la base de données
 
@@ -26,7 +28,7 @@ Le document suivant contient des liens vers des exemples Azure expliquant commen
 | |  |
 |---|---|
 |[SQL Server Management Studio](sql-database-connect-query-ssms.md)|Ce guide de démarrage rapide montre comment utiliser SSMS pour se connecter à une base de données SQL Azure, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
-|[SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Ce démarrage rapide explique comment utiliser SQL Operations Studio (préversion) pour se connecter à une base de données SQL Azure, puis recourir à des instructions Transact-SQL (T-SQL) pour créer le TutorialDB utilisé dans les didacticiels SQL Operations Studio (préversion).|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Ce guide de démarrage rapide explique comment utiliser Azure Data Studio pour se connecter à une base de données SQL Azure, puis recourir à des instructions T-SQL (Transact-SQL) pour créer le TutorialDB utilisé dans les tutoriels Azure Data Studio.|
 |[Portail Azure](sql-database-connect-query-portal.md)|Ce guide de démarrage rapide indique comment utiliser l’éditeur de requête pour se connecter à une base de données SQL, puis utiliser les instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
 |[Visual Studio Code](sql-database-connect-query-vscode.md)|Ce guide de démarrage rapide explique comment utiliser Visual Studio Code pour se connecter à une base de données SQL Azure, puis utiliser des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données dans la base de données.|
 |[.NET avec Visual Studio](sql-database-connect-query-dotnet-visual-studio.md)|Ce démarrage rapide explique comment utiliser .NET Framework pour créer un programme C# avec Visual Studio en vue de se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données.|

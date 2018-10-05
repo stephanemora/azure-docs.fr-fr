@@ -3,27 +3,29 @@ title: Concevoir des services disponibles à l’échelle mondiale à l’aide d
 description: Découvrez comment concevoir des applications pour des services hautement disponibles à l’aide d’Azure SQL Database.
 keywords: récupération d’urgence cloud, solutions de récupération d’urgence, sauvegarde de données d’application, géo-réplication, planification de la continuité des activités
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/26/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+manager: craigg
+ms.date: 07/26/2018
+ms.openlocfilehash: 8522fea10a4ec8f85d20e5a9ec04712c77bb6b94
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264652"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064266"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Conception de services disponibles à l’échelle mondiale à l’aide d’Azure SQL Database
 
 Pour créer et déployer des services cloud avec Azure SQL Database, utilisez des [groupes de basculement et une géoréplication active](sql-database-geo-replication-overview.md) pour fournir une tolérance aux pannes régionales et aux défaillances graves. La même fonctionnalité vous permet de créer des applications distribuées mondialement et optimisées pour l’accès local aux données. Cet article aborde les modèles d’application courants et présente les avantages et inconvénients de chacun d’eux. 
 
 > [!NOTE]
-> Si vous utilisez des bases de données et des pools élastiques Premium ou Critique pour l’entreprise, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone. Consultez [Bases de données redondantes dans une zone](sql-database-high-availability.md).  
+> Si vous utilisez des bases de données et des pools élastiques Premium ou Critique pour l’entreprise, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone. Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scénario 1 : Utilisation de deux régions Azure pour la continuité d’activité avec temps d’arrêt minimal
 Dans ce scénario, les applications ont les caractéristiques suivantes : 
@@ -160,4 +162,4 @@ Votre stratégie de récupération d’urgence cloud spécifique peut combiner o
 ## <a name="next-steps"></a>Étapes suivantes
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
 * Pour plus d’informations sur la géoréplication et les groupes de basculement, consultez [Géoréplication active](sql-database-geo-replication-overview.md).  
-* Pour plus d’informations sur la géoréplication active avec des pools élastiques, voir [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Pour plus d’informations sur la géoréplication active avec des pools élastiques, consultez [Stratégies de récupération d’urgence de pool élastique](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

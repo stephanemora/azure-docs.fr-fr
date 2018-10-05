@@ -1,20 +1,21 @@
 ---
-title: Application à page unique Recherche de vidéos Bing | Microsoft Docs
+title: 'Tutoriel : Créer une application à page unique Recherche de vidéos Bing'
+titlesuffix: Azure Cognitive Services
 description: Explique comment utiliser l’API Recherche de vidéos Bing dans une application web à page unique.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/01/2017
-ms.author: v-gedod
-ms.openlocfilehash: 55f662721e007e03c8f43f19d8b905e755cfe1d8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: a7c6646a69aec11797d354da28baca669b802ab0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370000"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226600"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Didacticiel : Application à page unique Recherche de vidéos
 L’API Recherche de vidéos Bing vous permet de parcourir le web et d’obtenir des résultats de vidéos relatifs à une requête de recherche. Dans ce didacticiel, nous allons générer une application web à page unique qui utilise l’API Recherche de vidéos Bing pour afficher les résultats de la recherche sur la page. L’application inclut des composants HTML, CSS et JavaScript.
@@ -86,7 +87,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-La balise `onsubmit` du code HTML `<form>` appelle la fonction `bingWebSearch` pour renvoyer les résultats de la recherche. `bingWebSearch` utilise `getSubscriptionKey()` pour authentifier chaque requête. Comme indiqué dans la définition précédente, `getSubscriptionKey` demande une clé à l’utilisateur si la clé n’a été saisie. La clé est ensuite stockée en vue d’une utilisation continue par l’application.
+La balise `onsubmit` du code HTML `<form>` appelle la fonction `bingWebSearch` pour renvoyer les résultats de la recherche. `bingWebSearch` utilise `getSubscriptionKey()` pour authentifier chaque requête. Comme indiqué dans la définition précédente, `getSubscriptionKey` demande une clé à l’utilisateur si la clé n’a pas été saisie. La clé est ensuite stockée en vue d’une utilisation continue par l’application.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
@@ -309,7 +310,7 @@ L’API Recherche d’actualités Bing renvoie jusqu’à quatre types de résul
 
 |Relation|Description|
 |-|-|
-|`pivotSuggestions`|Requêtes qui remplacent un mot central de la recherche d’origine par un autre. Par exemple, si vous recherchez « fleurs rouges », « rouge » peut être un mot central et une suggestion peut être « fleurs jaunes ».|
+|`pivotSuggestions`|Requêtes qui remplacent un mot pivot de la recherche d’origine par un autre. Par exemple, si vous recherchez « fleurs rouges », « rouge » peut être un mot pivot et une suggestion peut être « fleurs jaunes ».|
 |`queryExpansions`|Requêtes qui affinent votre recherche d’origine en ajoutant d’autres termes. Par exemple, si vous recherchez « Microsoft Surface », une expansion de la requête peut être « Microsoft Surface Pro ».|
 |`relatedSearches`|Requêtes qui ont également été entrées par d’autres utilisateurs qui ont entré la recherche d’origine. Par exemple, si vous recherchez « Mont Rainier », une recherche associée peut être « Mt. Sainte-Hélène ».|
 |`similarTerms`|Requêtes dont le sens est similaire à celui de la recherche d’origine. Par exemple, si vous recherchez « écoles », un terme similaire peut être « éducation ».|

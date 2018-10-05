@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: dobett
-ms.openlocfilehash: eb7b4c4c6228818f78e002f4a06a000e9aa34a3a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 0e0c398311c5826f8b6c72bf0f39ad2bfde306b2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109635"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223043"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Planifier et diffuser des travaux (.NET/.NET)
 
@@ -56,7 +56,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
+## <a name="create-a-simulated-device-app"></a>Création d’une application d’appareil simulé
 
 Dans cette section, vous allez créer une application console .NET qui répond à une méthode directe appelée par le serveur principal de la solution.
 
@@ -140,7 +140,7 @@ Dans cette section, vous allez créer une application console .NET qui répond �
 9. Enregistrez votre travail et générez votre solution.         
 
 > [!NOTE]
-> Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une nouvelle tentative de connexion), comme suggéré dans l’article MSDN [Gestion des erreurs temporaires](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults).
+> Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez implémenter des stratégies de nouvelle tentative (par exemple, une nouvelle tentative de connexion), comme suggéré dans l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).
 > 
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Planifier des travaux pour appeler une méthode directe et envoyer des mises à jour de jumeaux d’appareils
@@ -281,7 +281,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
+Dans ce tutoriel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés du jumeau d’appareil.
 
 Pour poursuivre votre découverte d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez le [Tutoriel : Mettre à jour un microprogramme](tutorial-firmware-update.md).
 

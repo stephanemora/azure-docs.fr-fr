@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 055a1f09cf30665321d570978d800e1fbb3c0cf7
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: fd16defdcd3c3cb0c78994e9259b55f3d687163b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42022610"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032646"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé auprès du service IoT Hub Device Provisioning à l’aide du C# Device SDK
 
@@ -66,9 +66,9 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
     ![Sortie de la fenêtre Commande](./media/quick-create-simulated-device-tpm-csharp/output1.png) 
 
 
-4. Dans le panneau de résumé du service Device Provisioning du portail Azure, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles**, puis cliquez sur le bouton **Ajouter** dans la partie supérieure. 
+4. Dans le panneau de résumé du service Device Provisioning du portail Azure, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles**, puis cliquez sur le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
 
-5. Sous l’entrée **Ajouter la liste d’inscription**, entrez les informations suivantes :
+5. Sous **Ajouter une inscription**, entrez les informations suivantes :
     - Sélectionnez **TPM** comme *mécanisme* d’attestation d’identité.
     - Entrez l’*ID d’inscription* et la *paire de clés de type EK (Endorsement Key)* pour votre appareil de module de plateforme sécurisée. 
     - Vous pouvez aussi sélectionner un hub IoT lié à votre service d’approvisionnement.
@@ -76,7 +76,7 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
     - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
     - Cela fait, cliquez sur le bouton **Enregistrer**. 
 
-    ![Saisir les informations d’inscription d’appareil dans le panneau du portail](./media/quick-create-simulated-device-tpm-csharp/enter-device-enrollment.png)  
+    ![Saisir les informations d’inscription d’appareil dans le panneau du portail](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
 
    Lorsque l’inscription aboutit, *l’ID d’inscription* de votre appareil s’affiche dans la liste sous l’onglet *Inscriptions individuelles*. 
 
@@ -84,12 +84,12 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
 
 1. Vérifiez que l’appareil a bien été approvisionné. En cas de réussite de l’approvisionnement de l’appareil simulé sur le hub IoT lié à votre service d’approvisionnement, l’ID de l’appareil s’affiche dans le panneau **IoT Devices** (Appareils IoT) du hub. 
 
-    ![L’appareil est inscrit avec le hub IoT](./media/quick-create-simulated-device-tpm-csharp/hub-registration.png) 
+    ![L’appareil est inscrit avec le hub IoT](./media/quick-create-simulated-device-tpm-csharp/hub_registration.png) 
 
     Si vous avez modifié la valeur par défaut de l’*état du jumeau d’appareil initial* dans l’entrée d’inscription de votre appareil, l’état du jumeau souhaité peut être extrait du hub et agir en conséquence. Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez de continuer à manipuler et explorer l’exemple de client d’appareil, ne nettoyez pas les ressources créées lors de ce démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
 

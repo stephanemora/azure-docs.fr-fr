@@ -1,21 +1,21 @@
 ---
-title: Ajouter des gabarits de modèle dans les applications LUIS | Microsoft Docs
-titleSuffix: Azure
+title: Ajouter des gabarits de modèle au lieu d’énoncés supplémentaires dans les applications LUIS
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment ajouter des gabarits de modèle dans les applications Language Understanding (LUIS) pour améliorer la précision de la prédiction.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 8926ce48a8426aa667787f7bbe104e27e1a68669
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c97092385cdc28ba6e4d916ae8039f065f97d31d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124682"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030811"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Comment ajouter des modèles pour améliorer la précision de la prédiction
 Lorsqu’une application LUIS reçoit des énoncés de point de terminaison, utilisez le [concept](luis-concept-patterns.md) des modèles pour améliorer la précision de la prédiction des énoncés qui s’appuient sur un modèle d’ordre des mots et de choix de mot. Les modèles utilisent des [entités](luis-concept-entity-types.md) et leurs rôles pour extraire des données à l’aide de la syntaxe spécifique du modèle. 

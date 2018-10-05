@@ -1,76 +1,56 @@
 ---
-title: 'Tutoriel : Utiliser des modèles pour améliorer les prédictions de LUIS – Azure | Microsoft Docs'
-titleSuffix: Cognitive Services
-description: Ce tutoriel utilise les modèles d’intentions afin d’améliorer les prédictions de LUIS en matière d’intentions et d’entités.
+title: 'Tutoriel 3 : Modèles pour améliorer les prédictions LUIS'
+titleSuffix: Azure Cognitive Services
+description: Utilisez des modèles pour augmenter la prédiction des intentions et des entités tout en fournissant moins d’exemples d’énoncés. Le modèle est fourni par le biais d’un exemple d’énoncé de modèle, qui inclut la syntaxe pour identifier les entités et le texte pouvant être ignoré.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f4b267dda3c05d490d91fe02fbcfde4e49674603
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159569"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166399"
 ---
-# <a name="tutorial-improve-app-with-patterns"></a>Tutoriel : Améliorer l’application avec des modèles
+# <a name="tutorial-3-add-common-utterance-formats"></a>Tutoriel 3 : Ajouter des formats d’énoncé courants
 
-Ce tutoriel utilise les modèles pour améliorer les prédictions en matière d’intentions et d’entités.  
+Dans ce tutoriel, vous allez utiliser des modèles pour augmenter la prédiction des intentions et des entités tout en fournissant moins d’exemples d’énoncés. Le modèle est fourni par le biais d’un exemple d’énoncé de modèle, qui inclut la syntaxe pour identifier les entités et le texte pouvant être ignoré. Un modèle est une combinaison de correspondance par expression et de machine learning.  Les exemples de modèles d’énoncés, ainsi que les énoncés de l’intention, permettent à LUIS de mieux comprendre quels énoncés correspondent à l’intention. 
+
+**Dans ce tutoriel, vous allez découvrir comment :**
 
 > [!div class="checklist"]
-* Identifier quand un modèle serait utile à votre application.
-* Créer un modèle.
-* Vérifier l’amélioration des prédictions de modèle.
+> * Utiliser l’application de tutoriel existante 
+> * Créer une intention
+> * Entraîner
+> * Publier
+> * Obtenir les intentions et les entités à partir du point de terminaison
+> * Créer un modèle
+> * Vérifier l’amélioration des prédictions de modèle
+> * Marquer le texte comme pouvant être ignoré et imbriquer dans le modèle
+> * Utiliser le panneau de test pour vérifier la réussite du modèle
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Avant de commencer
+## <a name="use-existing-app"></a>Utiliser l’application existante
 
-Si vous ne disposez pas de l’application Ressources humaines du tutoriel [test par lots](luis-tutorial-batch-testing.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json).
+Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
-Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `patterns`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
+Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
 
-## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Apprendre à LUIS les énoncés courants avec moins d’exemples grâce aux modèles
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
-En raison de la nature du domaine des ressources humaines, il existe plusieurs moyens courants de poser des questions sur les relations des employés dans les organisations. Par exemple : 
+2. Importez le code JSON dans une nouvelle application.
 
-|Énoncés|
-|--|
-|À qui Jill Jones rend-il compte ?|
-|Qui rend compte à Jill Jones ?|
-
-Ces énoncés sont trop proches pour permettre de déterminer l’unicité contextuelle de chacun sans fournir trop d’exemples d’énoncé. Si l’on ajoute un modèle pour une intention, LUIS apprend les modèles d’énoncés courants de cette intention avec peu d’exemples d’énoncés. 
-
-Quelques exemples d’énoncés de modèle pour cette intention :
-
-|Exemples d’énoncés de modèle|
-|--|
-|À qui {Employee} rend-il compte ?|
-|Qui rend compte à {Employee} ?|
-
-Le modèle est fourni par le biais d’un exemple d’énoncé de modèle, qui inclut la syntaxe pour identifier les entités et le texte pouvant être ignoré. Un modèle est une combinaison de correspondance par expression régulière et de Machine Learning.  Les exemples de modèles d’énoncés, ainsi que les énoncés de l’intention, permettent à LUIS de mieux comprendre quels énoncés correspondent à l’intention.
-
-Pour qu’un modèle corresponde à un énoncé, les entités au sein de l’énoncé doivent d’abord correspondre aux entités du modèle d’énoncé. Cependant, le modèle contribue uniquement à la prédicition d’intentions, mais pas d’entités. 
-
-**Même si les modèles vous permettent de fournir moins d’exemples d’énoncés, si les entités ne sont pas détectées, le modèle ne correspond pas.**
-
-Souvenez-vous : les employés ont été créés dans le [tutoriel d’entité de liste](luis-quickstart-intent-and-list-entity.md).
+3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `patterns`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Créer de nouvelles intentions et leurs énoncés
 
-Ajouter deux nouvelles intentions de nouveau : `OrgChart-Manager` et `OrgChart-Reports`. Une fois que LUIS retourne une prédiction à l’application cliente, le nom de l’intention peut être utilisé comme nom de fonction dans l’application cliente, et l’entité Employee peut être utilisée comme paramètre de cette fonction.
-
-```Javascript
-OrgChart-Manager(employee){
-    ///
-}
-```
-
-1. Assurez-vous que votre application Ressources humaines figure dans la section **Générer** de LUIS. Vous pouvez modifier cette section en sélectionnant **Générer** dans la barre de menu en haut à droite. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Dans la page **Intents** (Intentions), sélectionnez **Create new intent** (Créer une intention). 
 
@@ -110,17 +90,17 @@ OrgChart-Manager(employee){
 
 ## <a name="caution-about-example-utterance-quantity"></a>Attention à la quantité des exemples d’énoncés
 
-La quantité des exemples d’énoncés dans ces intentions ne suffit pas pour un apprentissage correct de LUIS. Dans une application réelle, chaque intention doit avoir un minimum de 15 énoncés, avec un large éventail de mots au choix et de longueurs d’énoncés. Ces quelques énoncés sont spécialement sélectionnés pour mettre en évidence des modèles. 
+[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
+## <a name="train"></a>Former
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
+## <a name="publish"></a>Publish
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Interroger le point de terminaison avec un autre énoncé
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtenir l’intention et les entités à partir du point de terminaison
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -215,13 +195,53 @@ Utiliser des modèles pour augmenter significativement le score de l’intention
 
 Laissez cette deuxième fenêtre de navigation s’ouvrir. Vous utiliserez cette valeur plus loin dans le didacticiel. 
 
-## <a name="add-the-template-utterances"></a>Ajouter les énoncés de modèle
+## <a name="template-utterances"></a>Modèles d’énoncés
+En raison de la nature du domaine des ressources humaines, il existe plusieurs moyens courants de poser des questions sur les relations des employés dans les organisations. Par exemple : 
+
+|Énoncés|
+|--|
+|À qui Jill Jones rend-il compte ?|
+|Qui rend compte à Jill Jones ?|
+
+Ces énoncés sont trop proches pour permettre de déterminer l’unicité contextuelle de chacun sans fournir trop d’exemples d’énoncé. Si l’on ajoute un modèle pour une intention, LUIS apprend les modèles d’énoncés courants de cette intention avec peu d’exemples d’énoncés. 
+
+Quelques exemples de modèles d’énoncés pour cette intention :
+
+|Exemples de modèles d’énoncés|signification de la syntaxe|
+|--|--|
+|À qui {Employee} rend-il compte[?]|{employé} interchangeable, ignorer [?]}|
+|Qui rend compte à {Employee}[?]|{employé} interchangeable, ignorer [?]}|
+
+La syntaxe `{Employee}` marque le type et l’emplacement de l’entité dans l’énoncé de modèle. La syntaxe facultative, `[?]`, marque les mots ou la ponctuation facultatifs. LUIS établit une correspondance avec l’énoncé et ignore le texte facultatif à l’intérieur des crochets.
+
+Bien que la syntaxe ressemble à des expressions régulières, il ne s’agit pas d’expressions régulières. Seule la syntaxe d’accolade, `{}`, et de crochet, `[]`, est prise en charge. Ils peuvent être imbriqués jusqu’à deux niveaux.
+
+Pour qu’un modèle corresponde à un énoncé, les entités au sein de l’énoncé doivent d’abord correspondre aux entités du modèle d’énoncé. Cependant, le modèle contribue uniquement à la prédicition d’intentions, mais pas d’entités. 
+
+**Même si les modèles vous permettent de fournir moins d’exemples d’énoncés, si les entités ne sont pas détectées, le modèle ne correspond pas.**
+
+Dans ce tutoriel, vous ajoutez deux nouvelles intentions : `OrgChart-Manager` et `OrgChart-Reports`. 
+
+|Intention|Énoncé|
+|--|--|
+|OrgChart-Manager|À qui Jill Jones rend-il compte ?|
+|OrgChart-Reports|Qui rend compte à Jill Jones ?|
+
+Une fois que LUIS retourne une prédiction à l’application cliente, le nom de l’intention peut être utilisé comme nom de fonction dans l’application cliente, et l’entité Employee peut être utilisée comme paramètre de cette fonction.
+
+```Javascript
+OrgChartManager(employee){
+    ///
+}
+```
+
+Souvenez-vous : les employés ont été créés dans le [tutoriel d’entité de liste](luis-quickstart-intent-and-list-entity.md).
 
 1. Sélectionnez **Build** dans le menu supérieur.
 
 2. Dans le volet de navigation gauche, sous **Améliorer les performances de l’application**, sélectionnez **Modèles**.
 
-3. Sélectionnez l’intention **OrgChart-Manager**, puis entrez les énoncés de modèle suivants, un par un, en sélectionnant Entrée après chacun :
+3. Sélectionnez l’intention **OrgChart-Manager**, puis entrez les modèles d’énoncés suivants :
 
     |Modèles d’énoncés|
     |:--|
@@ -232,17 +252,13 @@ Laissez cette deuxième fenêtre de navigation s’ouvrir. Vous utiliserez cette
     |Qui est le superviseur de {Employee}[?]|
     |Qui est le patron de {Employee}[?]|
 
-    La syntaxe `{Employee}` marque le type et l’emplacement de l’entité dans l’énoncé de modèle. 
-
     Les entités avec des rôles utilisent une syntaxe comprenant le nom de rôle, et sont traitées dans un [tutoriel séparé pour les rôles](luis-tutorial-pattern-roles.md). 
-
-    La syntaxe facultative, `[]`, marque les mots ou la ponctuation facultatifs. LUIS établit une correspondance avec l’énoncé et ignore le texte facultatif à l’intérieur des crochets.
 
     Si vous tapez le modèle d’énoncé, LUIS vous aide à remplir l’entité lorsque vous entrez l’accolade gauche, `{`.
 
     [![Capture d’écran de la saisie d’énoncés de modèle pour une intention](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Sélectionnez l’intention **OrgChart-Reports**, puis entrez les modèles d’énoncés suivants, un par un, en actionnant Entrée après chacun d’eux :
+4. Sélectionnez l’intention **OrgChart-Reports**, puis entrez les modèles d’énoncés suivants :
 
     |Modèles d’énoncés|
     |:--|
@@ -422,11 +438,13 @@ L’utilisation de la syntaxe facultative des crochets, `[]`, facilite l’ajout
 
 Tous ces énoncés ont trouvé les entités à l’intérieur, par conséquent, ils correspondent au même modèle et ont un score de prédiction élevé.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Ce tutoriel ajoute deux intentions pour des énoncés qui étaient difficiles à prédire avec une précision élevée sans avoir de nombreux exemples d’énoncés. L’ajout de modèles pour ces intentions a permis à LUIS de mieux prédire l’intention avec un score sensiblement plus élevé. Le marquage des entités et du texte pouvant être ignoré a permis à LUIS d’appliquer le modèle à une plus grande variété d’énoncés.
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur l’utilisation de rôles avec un modèle](luis-tutorial-pattern-roles.md)

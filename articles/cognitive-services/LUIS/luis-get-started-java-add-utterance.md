@@ -1,20 +1,21 @@
 ---
-title: 'Démarrage rapide : Modifier le modèle et effectuer l’apprentissage de l’application LUIS à l’aide de Java - Azure Cognitive Services | Microsoft Docs'
+title: 'Démarrage rapide pour Java : Changer de modèle et entraîner une application LUIS'
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide de Java, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’apprentissage de l’application. Les exemples d’énoncés sont du texte utilisateur conversationnel mappé à une intention. En fournissant des exemples d’énoncés pour les intentions, vous apprenez à l’application LUIS quels types de texte fourni par l’utilisateur appartiennent à quelle intention.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ddb22bce77dda55ad6e83efa8c0ca2c476f78836
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8500dfdd639b4f1de46a0b79b87a8564d338b6ab
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161116"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042022"
 ---
 # <a name="quickstart-change-model-using-java"></a>Démarrage rapide : Modifier un modèle à l’aide de Java 
 

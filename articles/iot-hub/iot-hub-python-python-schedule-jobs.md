@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: kgremban
-ms.openlocfilehash: 588ee4b7d728aa16201cbe9c325d25a9cc5c9884
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 831b1c12514e57d378e22d007c75d8a3715f7276
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185456"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219921"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Planifier et diffuser des travaux (Python)
 
@@ -26,11 +26,11 @@ Azure IoT Hub est un service entièrement géré qui permet à une application p
 * Mettre à jour les balises
 * Appeler des méthodes directes
 
-Sur le plan conceptuel, un travail encapsule l’une de ces actions et suit la progression de l’exécution par rapport à un ensemble d’appareils, défini par une requête de représentation d’appareil.  Par exemple, à l’aide d’un travail, une application principale peut appeler une méthode de redémarrage sur 10 000 appareils, spécifiée par une requête de représentation d’appareil et planifiée dans l’avenir.  Cette application peut ensuite suivre la progression à mesure que chacun de ces appareils reçoit et exécute la méthode de redémarrage.
+Sur le plan conceptuel, un travail encapsule l’une de ces actions et suit la progression de l’exécution par rapport à un ensemble d’appareils, défini par une requête de jumeau d’appareil.  Par exemple, à l’aide d’un travail, une application backend peut appeler une méthode de redémarrage sur 10 000 appareils, spécifiée par une requête de jumeau d’appareil et planifiée à une date ultérieure.  Cette application peut ensuite suivre la progression à mesure que chacun de ces appareils reçoit et exécute la méthode de redémarrage.
 
 Pour en savoir plus sur chacune de ces fonctionnalités, consultez les articles suivants :
 
-* Représentation d’appareil et propriétés : [Prise en main des représentations d’appareil][lnk-get-started-twin] et [Tutorial: How to use device twin properties][lnk-twin-props] (Didacticiel : Utilisation des propriétés de représentation d’appareil)
+* Jumeau d’appareil et propriétés : [Bien démarrer avec les jumeaux d’appareil][lnk-get-started-twin] et [Tutoriel : Guide pratique pour utiliser les propriétés de jumeau d’appareil][lnk-twin-props]
 * Méthodes directes : [Guide du développeur IoT Hub - méthodes directes][lnk-dev-methods] et [Didacticiel : méthodes directes][lnk-c2d-methods]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
@@ -62,7 +62,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
 
-## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
+## <a name="create-a-simulated-device-app"></a>Créer une application d’appareil simulé
 Dans cette section, vous allez créer une application console Python qui répond à une méthode directe appelée par le cloud, ce qui déclenche une méthode **lockDoor** simulée.
 
 1. À partir de votre invite de commandes, exécutez la commande suivante pour installer le package **azure-iot-device-client** :
@@ -149,12 +149,12 @@ Dans cette section, vous allez créer une application console Python qui répond
 1. Enregistrez et fermez le fichier **simDevice.py**.
 
 > [!NOTE]
-> Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Gestion des erreurs temporaires][lnk-transient-faults].
+> Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez implémenter des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).
 > 
 > 
 
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Planifier des travaux pour appeler une méthode directe et mettre à jour les propriétés d’une représentation d’appareil
+## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Planifier des travaux pour appeler une méthode directe et mettre à jour les propriétés d’un jumeau d’appareil
 Dans cette section, vous créez une application console Python qui lance **lockDoor** à distance sur un appareil à l’aide d’une méthode directe et met à jour les propriétés du jumeau d’appareil.
 
 1. À partir de votre invite de commandes, exécutez la commande suivante pour installer le package **azure-iot-service-client** :
@@ -315,13 +315,13 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
+Dans ce tutoriel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés du jumeau d’appareil.
 
 Pour approfondir la prise en main d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez :
 
 [Didacticiel : Mettre à jour un microprogramme][lnk-fwupdate]
 
-Afin d’approfondir l’apprentissage de IoT Hub, consultez [Getting started with Azure IoT Edge][lnk-iot-edge] (Bien démarrer avec Azure IoT Edge).
+Afin de poursuivre l’apprentissage de IoT Hub, consultez [Bien démarrer avec Azure IoT Edge][lnk-iot-edge].
 
 [lnk-get-started-twin]: iot-hub-python-twin-getstarted.md
 [lnk-twin-props]: tutorial-device-twins.md
@@ -334,7 +334,6 @@ Afin d’approfondir l’apprentissage de IoT Hub, consultez [Getting started wi
 [lnk-python-download]: https://www.python.org/downloads/
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[lnk-transient-faults]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 
 [1]: ./media/iot-hub-python-python-schedule-jobs/1.png
 [2]: ./media/iot-hub-python-python-schedule-jobs/2.png

@@ -1,21 +1,21 @@
 ---
-title: Limites de Language Understanding (LUIS) | Microsoft Docs
-titleSuffix: Azure
-description: Cet article traite des limites connues de LUIS.
+title: Limites de Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Cet article liste les limites connues d’Azure Cognitive Services Language Understanding (LUIS). LUIS comporte plusieurs domaines limites. La limite de modèle contrôle les intentions, les entités et les caractéristiques dans LUIS. La limite de quota dépend du type de clé. La combinaison de touches contrôle le site web de LUIS.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b7a2d1554d668b4000b87b210a69b290def9b19e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399829"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035434"
 ---
 # <a name="luis-boundaries"></a>Limites de LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
@@ -30,7 +30,7 @@ LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](
 | **[Composite](./luis-concept-entity-types.md)|100 avec jusqu'à 10 enfants |
 | Liste explicite | 50 par application|
 | **[Hiérarchique](./luis-concept-entity-types.md) |100 avec jusqu'à 10 enfants |
-| [Intentions][intents]|500 par application<br>L’application [basée sur la répartition](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) a 500 sources de répartition correspondantes|
+| [Intentions][intents]|500 par application<br>L’application [basée sur la répartition](https://aka.ms/dispatch-tool) a 500 sources de répartition correspondantes|
 | [Répertorier des entités](./luis-concept-entity-types.md) | Parent : 50, enfant : 20 000 éléments. Le nom canonique est *nombre maximum de caractère par défaut. Les valeurs synonymes n’ont aucune restriction de longueur. |
 | [Modèles](luis-concept-patterns.md)|500 modèles par application.<br>La longueur maximale du modèle est de 400 caractères.<br>3 entités Pattern.any par modèle<br>2 textes facultatifs maximum imbriqués dans le modèle|
 | [Pattern.any](./luis-concept-entity-types.md)|100 par application, 3 entités pattern.any par modèle |

@@ -2,23 +2,26 @@
 title: Comparaison des fonctionnalités d’Azure SQL Database | Microsoft Docs
 description: Cet article compare les fonctionnalités de SQL Server disponibles dans différentes versions d’Azure SQL Database.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: bonova, carlrab
 ms.service: sql-database
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/14/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: bonova, carlrab
 manager: craigg
-ms.openlocfilehash: b45daafc732a497f9b2daf4e9e7c1a2c54aac501
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.date: 09/25/2018
+ms.openlocfilehash: ce4b87735f16b4167605f2897ba96f10155f7c01
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144802"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222299"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparaison des fonctionnalités d’Azure SQL Database comparées à celles de SQL Server 
 
-Azure SQL Database partage une base de code commune avec SQL Server. Les fonctionnalités de SQL Server prises en charge par Azure SQL Database varient selon le type de base de données Azure SQL que vous créez. Avec Azure SQL Database, vous pouvez créer une base de données dans le cadre d’une [instance gérée](sql-database-managed-instance.md) (actuellement en préversion publique) ou vous pouvez créer une base de données faisant partie d’un serveur logique et éventuellement placée dans un pool élastique. 
+Azure SQL Database partage une base de code commune avec SQL Server. Les fonctionnalités de SQL Server prises en charge par Azure SQL Database varient selon le type de base de données Azure SQL que vous créez. Avec Azure SQL Database, vous pouvez créer une base de données dans le cadre d’une [instance managée](sql-database-managed-instance.md) ou vous pouvez créer une base de données faisant partie d’un serveur logique et éventuellement la placer dans un pool élastique. 
 
 Microsoft continue d’ajouter des fonctionnalités à Azure SQL Database. Visitez la page web de mises à jour de service pour Azure afin d’obtenir les dernières mises à jour avec ces filtres :
 
@@ -29,7 +32,7 @@ Microsoft continue d’ajouter des fonctionnalités à Azure SQL Database. Visit
 
 Le tableau suivant répertorie les principales fonctionnalités de SQL Server et fournit des informations sur la prise en charge partielle ou complète de chaque fonctionnalité, ainsi qu’un lien vers davantage d’informations sur la fonctionnalité. 
 
-| **Fonctionnalité SQL** | **Prise en charge dans Azure SQL Database/le serveur logique** | **Prise en charge dans Azure SQL Database/Managed Instance (préversion)** |
+| **Fonctionnalité SQL** | **Prise en charge dans Azure SQL Database/le serveur logique** | **Prise en charge dans Azure SQL Database/Managed Instance (le niveau Critique pour l’entreprise est disponible en préversion)** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Oui - voir [Magasin de certificats](sql-database-always-encrypted.md) et [Coffre de clés](sql-database-always-encrypted-azure-key-vault.md) | Oui - voir [Magasin de certificats](sql-database-always-encrypted.md) et [Coffre de clés](sql-database-always-encrypted-azure-key-vault.md) |
 | [Groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La récupération d’urgence est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La récupération d’urgence est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) |
@@ -39,6 +42,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Sauvegardes automatiques](sql-database-automated-backups.md) | OUI | OUI |
 | [Réglage automatique (forçage du plan)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Oui](sql-database-automatic-tuning.md)| [Oui](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Réglage automatique (index)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Oui](sql-database-automatic-tuning.md)| Non  |
+| [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) | Oui | Oui |
 | [Fichier BACPAC (exporter)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Oui - voir [Exportation de base de données SQL](sql-database-export.md) | Non  |
 | [Fichier BACPAC (importer)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Oui - voir [Importation de base de données SQL](sql-database-import.md) | Non  |
 | [Commande de sauvegarde](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Non, uniquement les sauvegardes automatiques générées par le système - voir [Sauvegardes automatiques](sql-database-automated-backups.md) | Sauvegardes automatiques initiées par le système et sauvegardes en copie seule initiées par l’utilisateur - voir [Différences entre les sauvegardes](sql-database-managed-instance-transact-sql-information.md#backup) |
@@ -80,10 +84,10 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Non  | Non  |
 | [Recherche en texte intégral](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Analyseurs lexicaux tiers non pris en charge |Analyseurs lexicaux tiers non pris en charge |
 | [Fonctions](https://docs.microsoft.com/sql/t-sql/functions/functions) | La plupart - voir Fonctions individuelles | Oui - voir [Procédures stockées, déclencheurs et fonctions définies par l’utilisateur](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
-| [Géorestauration](sql-database-recovery-using-backups.md#geo-restore) | OUI | Non, vous pouvez restaurer les sauvegardes complètes COPY_ONLY que vous effectuez régulièrement - consultez [Différences entre sauvegardes](sql-database-managed-instance-transact-sql-information.md#backup) et [Restaurer les différences](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
-| [Géoréplication](sql-database-geo-replication-overview.md) | OUI | Non  |
+| [Géorestauration](sql-database-recovery-using-backups.md#geo-restore) | Oui - Niveaux de service Usage général et Critique pour l’entreprise uniquement | Non, vous pouvez restaurer les sauvegardes complètes COPY_ONLY que vous effectuez régulièrement - consultez [Différences entre sauvegardes](sql-database-managed-instance-transact-sql-information.md#backup) et [Restaurer les différences](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
+| [Géoréplication](sql-database-geo-replication-overview.md) | Oui - Niveaux de service Usage général et Critique pour l’entreprise uniquement| Non  |
 | [Traitement de graphe](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | OUI | OUI |
-| [Optimisation en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Oui - [niveaux Premium et Critique pour l’entreprise uniquement](sql-database-in-memory.md) | Non  |
+| [Optimisation en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Oui - [niveaux Premium et Critique pour l’entreprise uniquement](sql-database-in-memory.md) | Oui - [Niveau Critique pour l’entreprise uniquement - actuellement en préversion](sql-database-managed-instance.md) |
 | [Prise en charge des données JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | [Oui](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) | [Oui](https://docs.microsoft.com/azure/sql-database/sql-database-json-features) |
 | [Éléments de langage](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | La plupart - voir Éléments individuels |  Oui - voir [Différences de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Serveurs liés](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Non - voir [Requête élastique](sql-database-elastic-query-horizontal-partitioning.md) | Uniquement sur SQL Server et SQL Database |
@@ -99,7 +103,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [OPENXML](https://docs.microsoft.com/sql/t-sql/functions/openxml-transact-sql)|OUI|OUI|
 | [Opérateurs](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | La plupart - voir Opérateurs individuels |Oui - voir [Différences de T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Partitionnement](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes) | OUI | OUI |
-| [Limite de restauration dans le temps d’une base de données](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Oui - voir [Récupération de base de données SQL](sql-database-recovery-using-backups.md#point-in-time-restore) | Oui - voir [Récupération de base de données SQL](sql-database-recovery-using-backups.md#point-in-time-restore) |
+| [Limite de restauration dans le temps d’une base de données](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Oui - Niveaux de service Usage général et Critique pour l’entreprise uniquement - voir [Récupération SQL Database](sql-database-recovery-using-backups.md#point-in-time-restore) | Oui - voir [Récupération de base de données SQL](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | Non  | Non  |
 | [Gestion basée sur des stratégies](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | Non  | Non  |
 | [Prédicats](https://docs.microsoft.com/sql/t-sql/queries/predicates) | OUI | OUI |
@@ -116,16 +120,15 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | OUI | OUI |
 | [Spatial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | OUI | OUI |
 | [Synchronisation des données SQL](sql-database-get-started-sql-data-sync.md) | OUI | Non  |
-| [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | OUI | OUI |
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Non. Voir [Tâches élastiques](sql-database-elastic-jobs-getting-started.md). | Oui - voir [Différences entre agents SQL Server](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Non - voir [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Non - voir [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [Audit SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Non - voir [Audit de base de données SQL](sql-database-auditing.md) | Oui - voir [Vérification des différences](sql-database-managed-instance-transact-sql-information.md#auditing) |
-| [SQL Server Data Tools (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | OUI | OUI |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Oui, avec les services SSIS managés dans un environnement Azure Data Factory (ADF), dans lequel les packages sont stockés dans la base de données SSISDB hébergée par Azure SQL Database et exécutée sur Azure SSIS IR (Integration Runtime). Consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Pour comparer les fonctionnalités SSIS dans SQL Database et Managed Instance, consultez [Comparer SQL Database et Managed Instance (préversion)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview). | Oui, avec les services SSIS managés dans un environnement Azure Data Factory (ADF), dans lequel les packages sont stockés dans la base de données SSISDB hébergée par Managed Instance et exécutée sur Azure SSIS IR (Integration Runtime). Consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Pour comparer les fonctionnalités SSIS dans SQL Database et Managed Instance, consultez [Comparer SQL Database et Managed Instance (préversion)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview). |
+| [Outils SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Oui | OUI |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Oui, avec les services SSIS managés dans un environnement Azure Data Factory (ADF), dans lequel les packages sont stockés dans la base de données SSISDB hébergée par Azure SQL Database et exécutée sur Azure SSIS IR (Integration Runtime). Consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Pour comparer les fonctionnalités SSIS dans un serveur logique SQL Database et dans Managed Instance, consultez [Comparer un serveur logique SQL Database et SQL Database Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). | Oui, avec les services SSIS managés dans un environnement Azure Data Factory (ADF), dans lequel les packages sont stockés dans la base de données SSISDB hébergée par Managed Instance et exécutée sur Azure SSIS IR (Integration Runtime). Consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Pour comparer les fonctionnalités SSIS dans SQL Database et Managed Instance, consultez [Comparer un serveur logique SQL Database et SQL Database Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | OUI | OUI |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | OUI | OUI |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Non - voir [Événements étendus](sql-database-xevent-db-diff-from-svr.md) | OUI |
-| [Réplication SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Abonné à la réplication transactionnelle et de capture instantanée uniquement](sql-database-cloud-migrate.md) | Oui - [Réplication avec SQL Database Managed Instance (préversion publique)](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
+| [Réplication SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Abonné à la réplication transactionnelle et de capture instantanée uniquement](sql-database-cloud-migrate.md) | Oui - [Réplication avec SQL Database Managed Instance - préversion publique](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Non - [voir Power BI](https://docs.microsoft.com/power-bi/) | Non - [voir Power BI](https://docs.microsoft.com/power-bi/) |
 | [procédures stockées](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | OUI | OUI |
 | [Fonctions stockées sur système](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | La plupart - voir Fonctions individuelles | Oui - voir [Procédures stockées, déclencheurs et fonctions définies par l’utilisateur](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
@@ -137,7 +140,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 |Détection de menaces|  [Oui](sql-database-threat-detection.md)|[Oui](sql-database-managed-instance-threat-detection.md)|
 | [Indicateurs de trace](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Non  | Non  |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | OUI | OUI |
-| [Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Oui | Partiel, uniquement avec le chiffrement géré par le service |
+| [Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Oui - Niveaux de service Usage général et Critique pour l’entreprise uniquement| Partiel, uniquement avec le chiffrement géré par le service |
 [Réseau virtuel](../virtual-network/virtual-networks-overview.md) | Partielle - consultez [Points de terminaison de réseau virtuel](sql-database-vnet-service-endpoint-rule-overview.md) | Oui, modèle Resource Manager uniquement |
 | [Clustering de basculement Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La récupération d’urgence est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La récupération d’urgence est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) |
 | [Index XML](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | OUI | OUI |

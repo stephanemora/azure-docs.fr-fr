@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 45e8668ce0a7eb2edd79271096f58b56ca1af5f0
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 02b36d8f8c8c9be2532b440bd9858766e8b524ca
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205567"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060480"
 ---
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 
@@ -37,7 +37,7 @@ Voulez-vous télécharger le projet Android Studio de cet exemple ? [Téléchar
 1.  Dans Android Studio, sélectionnez **Scripts Gradle** > **build.gradle (Module : application)**.
 2.  Sous **Dépendances**, collez le code suivant :
 
-    ```ruby  
+    ```gradle  
     compile ('com.microsoft.identity.client:msal:0.1.+') {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
@@ -47,10 +47,10 @@ Voulez-vous télécharger le projet Android Studio de cet exemple ? [Téléchar
 <!--start-collapse-->
 ### <a name="about-this-package"></a>À propos de ce package
 
-Le package du précédent code installe Microsoft Authentication Library. MSAL gère l’acquisition, la mise en cache et l’actualisation des jetons d’utilisateur permettant d’accéder aux API protégées par le point de terminaison Azure Active Directory v2.
+Le package du précédent code installe Microsoft Authentication Library. MSAL gère toutes les opérations relatives aux jetons, y compris l’acquisition, la mise en cache, l’actualisation et la suppression.  Les jetons sont nécessaires pour accéder aux API protégées par la plateforme d’identité Microsoft.
 <!--end-collapse-->
 
-## <a name="create-the-application-ui"></a>Créer l’interface utilisateur de l’application
+## <a name="create-the-apps-ui"></a>Créer l’interface utilisateur de l’application
 
 1. Accédez à **res** > **layout**, puis ouvrez **activity_main.xml**. 
 2. Modifiez la disposition de l’activité `android.support.constraint.ConstraintLayout` ou autre pour `LinearLayout`.

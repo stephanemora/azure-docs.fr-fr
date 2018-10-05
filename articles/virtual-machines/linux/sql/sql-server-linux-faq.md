@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e8297892c533f3b0126f925f81d3e9bc429828ef
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190861"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039953"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Forum Aux Questions (FAQ) concernant SQL Server sur les machines virtuelles Linux Azure
 
@@ -78,7 +78,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 1. **Puis-je gérer une machine virtuelle Linux SQL Server avec SSMS (SQL Server Management Studio) ?**
 
-   Oui, mais SSMS est pour l’instant un outil Windows uniquement. Vous devez vous connecter à distance à partir d’un ordinateur Windows pour utiliser SSMS avec les machines virtuelles Linux SQL Server. Localement sur Linux, le nouvel outil [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) peut effectuer de nombreuses tâches d’administration. Pour afficher un aperçu d’un outil de gestion de bases de données multiplateforme, consultez [SQL Server Operations Studio (préversion)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+   Oui, mais SSMS est pour l’instant un outil Windows uniquement. Vous devez vous connecter à distance à partir d’un ordinateur Windows pour utiliser SSMS avec les machines virtuelles Linux SQL Server. Localement sur Linux, le nouvel outil [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) peut effectuer de nombreuses tâches d’administration. Pour afficher un outil de gestion de bases de données multiplateforme, consultez [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
 1. **Puis-je supprimer complètement SQL Server d’une machine virtuelle SQL ?**
 

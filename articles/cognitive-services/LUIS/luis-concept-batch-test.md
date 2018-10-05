@@ -1,20 +1,21 @@
 ---
-title: Tester votre application LUIS par lot - Azure | Microsoft Docs
+title: Tester par lot votre application LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Utilisez des tests par lot pour travailler en continu sur votre application afin d’affiner et d’améliorer sa compréhension de la langue.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 414862d7ba1956f9449fde3ba063906fae6ef01b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222651"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041606"
 ---
 # <a name="batch-testing-in-luis"></a>Tests par lot dans LUIS
 

@@ -11,17 +11,18 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
-ms.reviewer: Soubhagya.Dash
+ms.date: 06/14/2018
+ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 539becf272194a116355c6a0491042d40e1e7494
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9b39eef5accec4764f61ab31dd894d368242ee3d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293960"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094648"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mise en correspondance d’applications : trier des applications distribuées
+
 La mise en correspondance d’applications vous permet d’identifier les baisses de performances ou les défaillances sur l’ensemble des composants de votre application distribuée. Chaque nœud de cette mise en correspondance représente un composant d’application ou ses dépendances, avec des indicateurs de performance clés d’intégrité et l’état des alertes. Vous pouvez cliquer sur n’importe quel composant pour obtenir des diagnostics plus détaillés, par exemple des événements Application Insights. Si votre application utilise les services Azure, vous pouvez également accéder aux diagnostics Azure, et notamment aux recommandations de SQL Database Advisor.
 
 ## <a name="what-is-a-component"></a>Qu’est un composant ?
@@ -32,105 +33,63 @@ Les composants sont des parties pouvant être déployées de manière indépenda
 * Les composants s’exécutent sur un nombre quelconque d’instances de serveur/rôle/conteneur.
 * Les composants peuvent être des clés d’instrumentation Application Insights distinctes (même si les abonnements sont différents) ou des rôles différents rapportant à une clé d’instrumentation Application Insights unique. L’aperçu de mise en correspondance montre les composants, quelle que soit leur configuration.
 
-## <a name="composite-application-map-preview"></a>Composite Application Map (Cartographie d'application composite) (préversion)
-*Il s’agit d’une préversion qui sera enrichie d’autres fonctionnalités. Nous aimerions connaître votre opinion sur cette nouvelle interface. Vous pouvez facilement basculer de la préversion à la version classique.*
-
-Activez « Composite Application Map » (Cartographie d'application composite) dans la [liste des préversions](app-insights-previews.md), ou cliquez sur « Preview map » (Aperçu de la carte) dans le contrôle de basculement dans l’angle supérieur droit. Vous pouvez utiliser ce bouton pour revenir à la version classique.
-![Activer la mise en correspondance de préversion](media/app-insights-app-map/preview-from-classic.png)
-
->[!Note]
-Cette préversion remplace la préversion précédente, « Mise en correspondance d’application multirôle ». À ce stade, utilisez-la pour afficher la topologie complète sur plusieurs niveaux de dépendances des composants d’application. Envoyez-nous vos commentaires : nous ajouterons d’autres fonctionnalités similaires à celles prises en charge par la mise en correspondance classique.
+## <a name="composite-application-map"></a>Cartographie d’application composite
 
 Vous pouvez afficher la topologie complète des applications sur plusieurs niveaux des composants d’application associés. Les composants peuvent représenter différentes ressources Application Insights, ou différents rôles d’une seule ressource. La mise en correspondance d’applications trouve les composants en suivant les appels de dépendance HTTP effectués entre les serveurs sur lesquels le kit SDK Application Insights est installé. 
 
-Cette expérience démarre la découverte progressive des composants. Lorsque vous chargez la préversion pour la première fois, un ensemble de requêtes est déclenché pour découvrir les composants liés à ce composant. Un bouton dans le coin supérieur gauche permet de mettre à jour le nombre de composants de votre application dès qu’ils sont détectés. 
-![Aperçu de la carte](media/app-insights-app-map/preview.png)
+Cette expérience démarre la découverte progressive des composants. Lorsque vous chargez la cartographie d’application pour la première fois, un ensemble de requêtes est déclenché pour découvrir les composants liés à ce composant. Un bouton dans le coin supérieur gauche permet de mettre à jour le nombre de composants de votre application dès qu’ils sont détectés. 
 
 Lorsque vous cliquez sur « Update map components » (Mettre à jour les composants de cartographie), la carte est actualisée avec tous les composants détectés.
-![Aperçu de la carte chargée](media/app-insights-app-map/components-loaded-hierarchical.png)
 
 Si tous les composants sont des rôles au sein d’une seule ressource Application Insights, cette étape de découverte n’est pas requise. La charge initiale pour une telle application aura tous ses composants.
 
-Un des principaux objectifs de la nouvelle expérience est de pouvoir visualiser des topologies complexes avec des centaines de composants. La nouvelle expérience prend en charge le zoom et permet d’afficher d’autres détails à mesure que vous effectuez un zoom avant. Vous pouvez effectuer un zoom arrière pour afficher d’un coup d’œil plus de composants, tout en identifiant ceux dont les taux de défaillance sont les plus élevés. 
+![Capture d’écran de la cartographie d’application](media/app-insights-app-map/001.png)
 
-![Niveaux de zoom](media/app-insights-app-map/zoom-levels.png)
+L’un des principaux objectifs de cette expérience est de permettre de visualiser des topologies complexes incluant des centaines de composants.
 
 Cliquez sur n’importe quel composant pour afficher des informations connexes ainsi que les performances et l’expérience de triage de défaillance de ce composant.
 
-![Menu volant](media/app-insights-app-map/preview-flyout.png)
+![Menu volant](media/app-insights-app-map/application-map-001.png)
 
+### <a name="investigate-failures"></a>Examiner les échecs
 
-## <a name="classic-application-map"></a>Cartographie d’application classique
+Pour lancer le panneau Échecs, sélectionnez **Examiner les échecs**.
 
-La mise en correspondance affiche les éléments suivants :
+![Capture d’écran du bouton Examiner les échecs](media/app-insights-app-map/investigate-failures.png)
 
-* Tests de disponibilité
-* Composant côté client (surveillé avec le Kit de développement logiciel (SDK) JavaScript)
-* Composant côté serveur
-* Dépendances des composants client et serveur
+![Capture d’écran du panneau Échecs](media/app-insights-app-map/failures.png)
 
-![mise en correspondance d’applications](./media/app-insights-app-map/02.png)
+### <a name="investigate-performance"></a>Examiner les performances
 
-Vous pouvez développer et réduire les groupes de liens de dépendance :
+Pour résoudre les problèmes de performances, sélectionnez **Examiner les performances**.
 
-![réduire](./media/app-insights-app-map/03.png)
+![Capture d’écran du bouton Examiner les performances](media/app-insights-app-map/investigate-performance.png)
 
-Si vous avez de nombreuses dépendances d’un type (SQL, HTTP, etc.), elles peuvent apparaître groupées. 
+![Capture d’écran du panneau Performances](media/app-insights-app-map/performance.png)
 
-![dépendances groupées](./media/app-insights-app-map/03-2.png)
+### <a name="go-to-details"></a>Accéder aux détails
 
-## <a name="spot-problems"></a>Détecter les problèmes
-Chaque nœud possède des indicateurs de performance pertinents, tels que les taux de charge, de performances et de défaillances de ce composant. 
+Pour explorer l’expérience de transaction de bout en bout pouvant présenter des vues générées au niveau de la pile des appels, sélectionnez **Accéder aux détails**.
 
-Les icônes d’avertissement mettent en évidence les problèmes éventuels. Un avertissement orange signifie qu’il existe des défaillances dans les requêtes, les vues de page ou les appels de dépendance. Un avertissement rouge signifie un taux de défaillance de plus de 5 %. Si vous souhaitez ajuster ces seuils, ouvrez Options.
+![Capture d’écran du bouton Accéder aux détails](media/app-insights-app-map/go-to-details.png)
 
-![icônes de défaillance](./media/app-insights-app-map/04.png)
+![Capture d’écran des détails de transaction de bout en bout](media/app-insights-app-map/end-to-end-transaction.png)
 
-En outre, des alertes actives s’affichent : 
+### <a name="view-in-analytics"></a>Afficher dans Analytics
 
-![alertes actives](./media/app-insights-app-map/05.png)
+Pour interroger et analyser vos données d’application de manière plus approfondie, cliquez sur **Afficher dans Analytics**.
 
-Si vous utilisez SQL Azure, une icône vous indique des recommandations éventuelles sur la façon dont vous pouvez améliorer les performances. 
+![Capture d’écran du bouton Afficher dans Analytics](media/app-insights-app-map/view-in-analytics.png)
 
-![Recommandation d’Azure](./media/app-insights-app-map/06.png)
+![Capture d’écran de l’expérience d’analyse](media/app-insights-app-map/analytics.png)
 
-Cliquez sur une icône pour obtenir plus de détails :
+### <a name="alerts"></a>Alertes
 
-![Recommandation d’Azure](./media/app-insights-app-map/07.png)
+Pour visualiser les alertes actives et les règles sous-jacentes qui entraînent le déclenchement d’alertes, sélectionnez **Alertes**.
 
-## <a name="diagnostic-click-through"></a>Clics pour le diagnostic
-Chacun des nœuds sur la mise en correspondance offre des clics ciblés pour le diagnostic. Les options varient selon le type du nœud.
+![Capture d’écran du bouton Alertes](media/app-insights-app-map/alerts.png)
 
-![options de serveur](./media/app-insights-app-map/09.png)
-
-Pour les composants qui sont hébergés dans Azure, les options incluent des liens directs.
-
-## <a name="filters-and-time-range"></a>Filtres et période
-Par défaut, la mise en correspondance récapitule toutes les données disponibles pour la période choisie. Toutefois, vous pouvez filtrer pour inclure uniquement les noms ou les dépendances d’opérations spécifiques.
-
-* Nom de l’opération : cela inclut les vues de pages et les types de demandes côté serveur. Avec cette option, la mise en correspondance affiche l’indicateur de performance clé sur le nœud côté serveur/client pour les opérations sélectionnées uniquement. Elle montre les dépendances appelées dans le contexte de ces opérations spécifiques.
-* Nom de base de la dépendance : cela inclut les dépendances du navigateur AJAX et les dépendances côté serveur. Si vous créez un rapport de télémétrie d’une dépendance personnalisée avec l’API TrackDependency, elles s’affichent également ici. Vous pouvez sélectionner les dépendances à afficher sur la mise en correspondance. Actuellement, cette sélection ne filtre pas les demandes côté serveur ou les vues de pages côté client.
-
-![Définir les filtres](./media/app-insights-app-map/11.png)
-
-## <a name="save-filters"></a>Enregistrer les filtres
-Pour enregistrer les filtres que vous avez appliqués, épinglez la vue filtrée sur un [tableau de bord](app-insights-dashboards.md).
-
-![Épingler au tableau de bord](./media/app-insights-app-map/12.png)
-
-## <a name="error-pane"></a>Volet d’erreur
-Lorsque vous cliquez sur un nœud de la mise en correspondance, un volet d’erreur résumant les échecs de ce nœud s’affiche sur le côté droit. Les échecs sont tout d’abord regroupés par ID d’opération, puis par ID de problème.
-
-![Volet d’erreur](./media/app-insights-app-map/error-pane.png)
-
-Cliquez sur un échec pour accéder à l’instance la plus récente de ce dernier.
-
-## <a name="resource-health"></a>Intégrité des ressources
-Pour certains types de ressources, l’intégrité des ressources est indiquée en haut du volet d’erreur. Par exemple, l’intégrité de la base de données et les alertes survenues s’affichent lorsque vous cliquez sur un nœud SQL.
-
-![Intégrité des ressources](./media/app-insights-app-map/resource-health.png)
-
-Vous pouvez cliquer sur le nom de la ressource pour afficher les indicateurs de performances de la vue d’ensemble standard de cette ressource.
+![Capture d’écran de l’expérience d’analyse](media/app-insights-app-map/alerts-view.png)
 
 ## <a name="video"></a>Vidéo
 
@@ -140,7 +99,6 @@ Vous pouvez cliquer sur le nom de la ressource pour afficher les indicateurs de 
 Merci d’envoyer des commentaires via l’option de commentaires du portail.
 
 ![Image MapLink-1](./media/app-insights-app-map/13.png)
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 29be0c3a420fe3546059ebdbf2ec7c1ab124990e
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 0840f1abb05e97ca8f55cb0003e4f3cd2383e8c7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161831"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222521"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Didacticiel : Utiliser une identité managée affectée par le système de machine virtuelle Linux pour accéder au Stockage Azure à l’aide d’informations d’identification SAP
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous indique comment utiliser une identité managée affectée par le système pour une machine virtuelle Linux afin d’obtenir des informations d’identification SAP (signature d’accès partagé) de stockage. Plus précisément, des [informations d’identification SAP de service](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Ce didacticiel vous indique comment utiliser une identité managée assignée par le système pour une machine virtuelle Linux, afin d’obtenir des informations d’identification SAP (signature d’accès partagé) de stockage. Plus précisément, des [informations d’identification SAP de service](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 Une SAP de service offre la possibilité d’accorder un accès limité à des objets dans un compte de stockage, pendant une durée limitée et pour un service spécifique (en l’occurrence, le service BLOB), sans exposer de clé d’accès de compte. Vous pouvez utiliser des informations d’identification SAP comme d’habitude lors de l’exécution d’opérations de stockage, par exemple, lors de l’utilisation du SDK Stockage Azure. Ce didacticiel montre le chargement et le téléchargement d’un objet blob à l’aide de l’interface de ligne de commande de Stockage Azure. Vous apprendrez à :
 

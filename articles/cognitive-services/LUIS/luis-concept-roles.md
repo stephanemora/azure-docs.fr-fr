@@ -1,20 +1,21 @@
 ---
-title: Comprendre comment les rôles sont utilisés dans les entités basées sur un modèle - Azure | Microsoft Docs
-description: Découvrez comment un rôle est utilisé dans une entité basée sur un modèle pour donner un nom à un sous-type d’entité contextuel.
+title: Comprendre comment les rôles sont utilisés dans les entités basées sur des modèles
+titleSuffix: Azure Cognitive Services
+description: Les rôles sont des sous-types contextuels nommés d’une entité utilisée uniquement dans des modèles. Par exemple, dans l’énoncé « acheter un billet de New York à Londres », New York et Londres sont des villes, mais chacune a une signification différente dans la phrase. New York est la ville d’origine et Londres est la ville de destination.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d2692cdce9da7428bd7b30c4feaf7347792618f5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222701"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035196"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Les rôles d’entité dans les modèles sont des sous-types contextuels
 Les rôles sont des sous-types contextuels nommés d’une entité utilisée uniquement dans des [modèles](luis-concept-patterns.md).
@@ -25,15 +26,16 @@ Les rôles donnent un nom à ces différences :
 
 |Entité|Rôle|Objectif|
 |--|--|--|
-|Lieu|origin|où le plan part de|
-|Lieu|destination|où le plan arrive à|
+|Lieu|origine|d’où l’avion part|
+|Lieu|destination|où l’avion arrive|
 
 ## <a name="how-are-roles-used-in-patterns"></a>Comment les rôles sont-ils utilisés dans les modèles ?
 Dans l’énoncé d’un gabarit de modèle, les rôles sont utilisés dans l’énoncé : 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|Modèle avec des rôles d’entités|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## <a name="role-syntax-in-patterns"></a>Syntaxe du rôle dans les modèles
 L’entité et le rôle sont placés entre parenthèses, `{}`. L’entité et le rôle sont séparés par un signe deux-points. 
@@ -44,7 +46,7 @@ Les entités hiérarchiques fournissent les mêmes informations contextuelles qu
 |Apprentissage contextuel|Utilisé dans|
 |--|--|
 |entités hiérarchiques|intentions|
-|roles|modèles|
+|rôles|modèles|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

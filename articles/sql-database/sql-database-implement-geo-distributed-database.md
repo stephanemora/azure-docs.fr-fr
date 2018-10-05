@@ -2,19 +2,22 @@
 title: Implémenter une solution de base de données SQL Azure géo-distribuée | Microsoft Docs
 description: Découvrez comment configurer votre base de données et votre application SQL Azure pour le basculement vers une base de données répliquée et tester le basculement.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,business continuity
-ms.topic: tutorial
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416617"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166248"
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implémenter une base de données géo-distribuée
 
@@ -32,15 +35,14 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis :
 
 - La dernière version d’[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) est installée. 
 - Une base de données SQL Azure est installée. Ce didacticiel utilise la base de données exemple AdventureWorksLT nommée **mySampleDatabase** créée à partir de l’un des démarrages rapides suivants :
 
    - [Créer une base de données - Portail](sql-database-get-started-portal.md)
-   - [Créer une base de données - CLI](sql-database-get-started-cli.md)
-   - [Créer une base de données - PowerShell](sql-database-get-started-powershell.md)
+   - [Créer une base de données - CLI](sql-database-cli-samples.md)
+   - [Créer une base de données - PowerShell](sql-database-powershell-samples.md)
 
 - Vous avez identifié une méthode pour exécuter les scripts SQL sur votre base de données. Vous pouvez utiliser l’un des outils de requête suivants :
    - L’éditeur de requêtes dans le [portail Azure](https://portal.azure.com). Pour plus d’informations sur l’utilisation de l’éditeur de requêtes dans le portail Azure, consultez la section [Utilisez l’éditeur de requêtes pour vous connecter et interroger des données](sql-database-get-started-portal.md#query-the-sql-database).
@@ -55,7 +57,7 @@ Connectez-vous à votre base de données et créez des comptes d’utilisateur �
 - SQL Server Management Studio
 - Visual Studio Code
 
-Ces comptes d’utilisateur sont répliqués automatiquement vers votre serveur secondaire (et restent synchronisés). Pour utiliser SQL Server Management Studio ou Visual Studio Code, vous devrez peut-être configurer une règle de pare-feu si vous vous connectez à partir d’un client à une adresse IP pour laquelle vous n’avez pas encore configuré de pare-feu. Pour des instructions plus détaillées, consultez la section [Créer une règle de pare-feu au niveau du serveur](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+Ces comptes d’utilisateur sont répliqués automatiquement vers votre serveur secondaire (et restent synchronisés). Pour utiliser SQL Server Management Studio ou Visual Studio Code, vous devrez peut-être configurer une règle de pare-feu si vous vous connectez à partir d’un client à une adresse IP pour laquelle vous n’avez pas encore configuré de pare-feu. Pour des instructions plus détaillées, consultez la section [Créer une règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md).
 
 - Dans une fenêtre de requête, exécutez la requête suivante pour créer deux comptes d’utilisateur dans votre base de données. Ce script accorde des autorisations **db_owner** pour le compte **app_admin** et accorde les autorisations **SÉLECTIONNER** et **METTE À JOUR** pour le compte **app_user**. 
 
@@ -71,7 +73,7 @@ Ces comptes d’utilisateur sont répliqués automatiquement vers votre serveur 
 
 ## <a name="create-database-level-firewall"></a>Créer un pare-feu au niveau de la base de données
 
-Créez une [règle de pare-feu au niveau de la base de données](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) pour votre base de données SQL. Cette règle de pare-feu au niveau de la base de données effectue automatiquement la réplication vers le serveur secondaire que vous allez créer dans ce didacticiel. Pour vous simplifier la tâche (dans ce didacticiel), utilisez l’adresse IP publique de l’ordinateur sur lequel vous effectuez les étapes de ce didacticiel. Pour déterminer l’adresse IP utilisée pour la règle de pare-feu au niveau du serveur pour votre ordinateur actuel, consultez la section [Créer une règle de pare-feu au niveau du serveur](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
+Créez une [règle de pare-feu au niveau de la base de données](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) pour votre base de données SQL. Cette règle de pare-feu au niveau de la base de données effectue automatiquement la réplication vers le serveur secondaire que vous allez créer dans ce didacticiel. Pour vous simplifier la tâche (dans ce didacticiel), utilisez l’adresse IP publique de l’ordinateur sur lequel vous effectuez les étapes de ce didacticiel. Pour déterminer l’adresse IP utilisée pour la règle de pare-feu au niveau du serveur pour votre ordinateur actuel, consultez la section [Créer une règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md).  
 
 - Dans la fenêtre de requête ouverte, remplacez la requête précédente par la requête suivante, en remplaçant les adresses IP par les adresses IP appropriées pour votre environnement.  
 
@@ -391,8 +393,8 @@ Dans ce didacticiel, vous avez appris à configurer une application et une base 
 > * Créer et compiler une application Java pour interroger une base de données SQL Azure
 > * Effectuer une simulation de récupération d'urgence
 
-Passez au didacticiel suivant pour découvrir comment créer une instance gérée.
+Passez au tutoriel concernant la migration de SQL Server vers Azure SQL Database Managed Instance à l’aide de DMS.
 
 > [!div class="nextstepaction"]
->[Créer une instance gérée](sql-database-managed-instance-create-tutorial-portal.md)
+>[Migrer SQL Server vers Azure SQL Database Managed Instance à l’aide de DMS](../dms/tutorial-sql-server-to-managed-instance.md)
 

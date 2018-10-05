@@ -1,22 +1,23 @@
 ---
-title: Démarrage rapide PHP pour Azure Cognitive Services, API Recherche de vidéos Bing | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche de vidéos Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : Recherche de vidéos Bing, PHP'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche de vidéos Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 2e7dc1fc82f143b51461595f9c92294a359bdc62
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4e64771802564da1e1cb9efccef1ef63b38c2b80
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369940"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224713"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-php"></a>Démarrage rapide pour l’API Recherche de vidéos Bing avec PHP
+# <a name="quickstart-bing-video-search-api-with-php"></a>Démarrage rapide : API Recherche de vidéos Bing avec PHP
 
 Cet article vous montre comment utiliser l’API Recherche de vidéos Bing qui fait partie de Microsoft Cognitive Services sur Azure. Si d’un côté l’article utilise PHP, de l’autre, l’API est un service web RESTful compatible avec n’importe quel langage de programmation dès lors qu’il est capable de formuler des requêtes HTTP et d’analyser un format JSON. 
 

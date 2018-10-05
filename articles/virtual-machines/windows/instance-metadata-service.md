@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: ccaa6e79d9a24409b8c905561b265c70ea781dc2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d7917ad65b3e3fd1abacdb624a03b3f62c7fc07f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022573"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221552"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -384,7 +384,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>Obtenir l’environnement Azure là où s’exécute la machine virtuelle 
 
-Azure dispose de plusieurs clouds souverains comme [Azure Government](https://azure.microsoft.com/overview/clouds/government/) qui nécessitent l’utilisation de l’environnement Azure pour prendre certaines décisions liées au runtime. L’exemple suivant vous montre comment procéder.
+Azure dispose de plusieurs clouds souverains comme [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Vous avez parfois besoin de l’environnement Azure pour prendre certaines décisions liées au runtime. L’exemple suivant vous montre comment procéder.
 
 **Requête**
 
@@ -449,7 +449,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Oui, le service de métadonnées est disponible pour les instances de groupe identique. 
 8. Comment obtenir un support technique pour le service ?
    * Pour obtenir un support technique pour le service, créez un problème de support dans le portail Azure pour la machine virtuelle sur laquelle vous ne pouvez pas obtenir de réponse de métadonnées après plusieurs tentatives longues. 
-9. Quand j’appelle le service, un message m’informe que ma demande a expiré
+9. Quand j’appelle le service, un message m’informe que ma demande a expiré.
    * Les appels de métadonnées doivent être effectués à partir de l’adresse IP principale assignée à la carte réseau de la machine virtuelle. En outre, si vous avez modifié vos itinéraires, un itinéraire doit exister pour l’adresse 169.254.0.0/16 en dehors de votre carte réseau.
 10. J’ai mis à jour les balises d’un groupe de machines virtuelles identiques, mais elles ne s’affichent pas dans les instances, contrairement aux machines virtuelles
    * Les balises de groupe de machines virtuelles identiques s’affichent uniquement dans la machine virtuelle lors d’un redémarrage, d’une réinitialisation ou d’une modification de disque pour l’instance. 

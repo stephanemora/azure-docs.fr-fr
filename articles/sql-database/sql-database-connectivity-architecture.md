@@ -2,19 +2,22 @@
 title: Architecture de connectivité Azure SQL Database | Microsoft Docs
 description: Ce document décrit l’architecture de connectivité Azure SQLDB dans et en dehors d’Azure.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: DhruvMsft
+ms.author: dhruv
+ms.reviewer: carlrab
+manager: craigg
 ms.date: 01/24/2018
-ms.author: carlrab
-ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493670"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064128"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Architecture de connectivité Azure SQL Database 
 
@@ -51,13 +54,16 @@ Si vous vous connectez en dehors d’Azure, vos connexions disposent d’une str
 ![Présentation de l’architecture](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Lorsque vous utilisez des points de terminaison de service avec Azure SQL Database, votre stratégie par défaut est **Proxy**. Pour activer la connectivité depuis l’intérieur de votre réseau virtuel, autorisez les connexions sortantes vers les adresses IP de passerelle Azure SQL Database spécifiées dans la liste ci-dessous. Si vous utilisez des points de terminaison de service, nous vous recommandons vivement de modifier votre stratégie de connexion et d’adopter une stratégie **Rediriger** afin de bénéficier de meilleures performances. La modification de votre stratégie de connexion pour adopter une stratégie **Rediriger** ne sera pas suffisante pour autoriser le trafic sortant de votre Groupe de sécurité réseau vers les adresses IP de passerelle Azure SQLDB répertoriées ci-dessous. Vous devez autoriser le trafic sortant vers toutes les adresses IP Azure SQLDB. Pour ce faire, vous pouvez vous aider des balises de service du Groupe de sécurité réseau. Pour plus d'informations, consultez la rubrique [Balises de service](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+> Lorsque vous utilisez des points de terminaison de service avec Azure SQL Database, votre stratégie par défaut est **Proxy**. Pour activer la connectivité à l’intérieur de votre réseau virtuel, vous devez autoriser les connexions sortantes vers les adresses IP de passerelle Azure SQL Database spécifiées dans la liste ci-dessous. Si vous utilisez des points de terminaison de service, nous vous recommandons vivement de modifier votre stratégie de connexion et d’adopter une stratégie **Rediriger** afin de bénéficier de meilleures performances. La modification de votre stratégie de connexion pour adopter une stratégie **Rediriger** ne sera pas suffisante pour autoriser le trafic sortant de votre Groupe de sécurité réseau vers les adresses IP de passerelle Azure SQLDB répertoriées ci-dessous. Vous devez autoriser le trafic sortant vers toutes les adresses IP Azure SQLDB. Pour ce faire, vous pouvez vous aider des balises de service du Groupe de sécurité réseau. Pour plus d'informations, consultez la rubrique [Balises de service](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Adresses IP de la passerelle Azure SQL Database
 
 Pour vous connecter à une base de données SQL Azure à partir de ressources locales, vous devez autoriser le trafic réseau sortant vers la passerelle Azure SQL Database pour votre région Azure. Les connexions transitent uniquement via la passerelle lors de la connexion en mode Proxy, qui est le mode par défaut lors de la connexion à partir de ressources locales.
 
 Le tableau suivant répertorie les adresses IP principales et secondaires de la passerelle Azure SQL Database pour toutes les régions de données. Pour certaines régions, il existe deux adresses IP. Dans ces régions, l’adresse IP principale est l’adresse IP actuelle de la passerelle et la deuxième adresse IP est une adresse IP de basculement. L’adresse de basculement est l’adresse vers laquelle nous pouvons déplacer votre serveur pour maintenir la haute disponibilité du service. Pour ces régions, nous vous conseillons d’autoriser le trafic sortant vers les deux adresses IP. La deuxième adresse IP est détenue par Microsoft et n’écoute pas les services tant qu’elle n’est pas activée par Azure SQL Database de manière à accepter les connexions.
+
+> [!IMPORTANT]
+> Si vous vous connectez à partir d’Azure, votre stratégie de connexion sera par défaut **Rediriger** (sauf si vous utilisez des points de terminaison de service). Cela ne sera pas suffisant pour autoriser les adresses IP ci-dessous. Vous devez autoriser toutes les adresses IP Azure SQL Database. Si vous vous connectez à l’intérieur d’un réseau virtuel, vous pouvez utiliser les balises de service des groupes de sécurité réseau (NSG). Pour plus d'informations, consultez la rubrique [Balises de service](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Nom de la région | Adresse IP principale | Adresse IP secondaire |
 | --- | --- |--- |
@@ -160,10 +166,10 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script permettant de modifier les paramètres de connexion via Azure CLI 2.0
+## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script permettant de modifier les paramètres de connexion via Azure CLI
 
 > [!IMPORTANT]
-> Ce script nécessite [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Ce script nécessite [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 >
 
 Le script CLI suivant montre comment modifier la stratégie de connexion.

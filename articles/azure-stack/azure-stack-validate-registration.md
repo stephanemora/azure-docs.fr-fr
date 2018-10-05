@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 84eb1c08cc3f9ef104e2eb0b96ed397315c3f374
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 57869de8a99c65810da0c75f81c75d93eac88412
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937565"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090814"
 ---
 # <a name="validate-azure-registration"></a>Valider l’inscription auprès d’Azure 
 Utilisez l’outil Azure Stack Readiness Checker (AzsReadinessChecker) pour vérifier que votre abonnement Azure est prêt à être utilisé avec Azure Stack. Validez l’inscription avant de commencer un déploiement d’Azure Stack. L’outil Readiness Checker valide ce qui suit :
@@ -33,7 +33,6 @@ Pour plus d’informations sur l’inscription d’Azure Stack, consultez [Inscr
 Téléchargez la dernière version de l’outil Azure Stack Readiness Checker (AzsReadinessChecker) sur le site [PSGallery](https://aka.ms/AzsReadinessChecker).  
 
 ## <a name="prerequisites"></a>Prérequis
-
 Vérifiez les prérequis suivants.
 
 **Ordinateur sur lequel l’outil est exécuté :**
@@ -76,7 +75,7 @@ Ces fichiers peuvent vous aider à partager l’état de validation avant de dé
 
 Par défaut, les deux fichiers sont écrits à l’emplacement *C:\Users\<nom_utilisateur>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json*.  
  - Utilisez le paramètre **-OutputPath** ***&lt;chemin&gt;*** à la fin de la ligne de commande d’exécution pour spécifier un emplacement de rapport différent.   
- - Utilisez le paramètre **-CleanReport** à la fin de la commande d’exécution pour effacer les informations du fichier *AzsReadinessCheckerReport.json*  concernant les exécutions précédentes de l’outil. Pour plus d’informations, consultez [Rapport de validation Azure Stack](azure-stack-validation-report.md).
+ - Utilisez le paramètre **-CleanReport** à la fin de la commande d’exécution pour effacer les informations du fichier *AzsReadinessCheckerReport.json*.  concernant les exécutions précédentes de l’outil. Pour plus d’informations, consultez [Rapport de validation Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Échec de validation
 En cas d’échec de vérification de la validation, des détails sont fournis dans la fenêtre PowerShell. L’outil journalise également des informations dans le fichier AzsReadinessChecker.log.

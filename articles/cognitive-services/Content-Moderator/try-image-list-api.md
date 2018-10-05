@@ -1,20 +1,21 @@
 ---
-title: Modérer des images avec des listes personnalisées dans Azure Content Moderator | Microsoft Docs
+title: Modérer des images avec des listes personnalisées dans la console d’API - Content Moderator
+titlesuffix: Azure Content Moderator
 description: Effectuez le test des listes d’images personnalisées dans la console API Content Moderator.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/05/2017
 ms.author: sajagtap
-ms.openlocfilehash: 2d714f017be16d978ffbb877a2b7e78e1caf9169
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5e573262879b6a16e3cd530757900b86228ae299
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368137"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219955"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Modérer avec des listes d’images personnalisées dans la console API
 
@@ -35,7 +36,7 @@ Vous utilisez l’API Gestion de liste pour effectuer les tâches suivantes :
 - Actualiser l’index afin que les changements apportés à la liste soient inclus dans une nouvelle analyse.
 
 ## <a name="use-the-api-console"></a>Utiliser la console d’API
-Avant de pouvoir évaluer l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez [Présentation](overview.md).
+Avant de pouvoir tester l’API dans la console en ligne, vous avez besoin de votre clé d’abonnement. Elle se trouve sous l’onglet **Paramètres**, dans la zone **Ocp-Apim-Subscription-Key**. Pour plus d’informations, consultez [Présentation](overview.md).
 
 ## <a name="refresh-search-index"></a>Actualiser l’index de recherche
 

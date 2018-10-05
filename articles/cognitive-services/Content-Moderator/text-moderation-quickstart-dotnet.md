@@ -1,24 +1,26 @@
 ---
-title: Azure Content Moderator - Modérer du texte à l’aide de .NET | Microsoft Docs
-description: Comment modérer du texte à l’aide du kit SDK Azure Content Moderator pour .NET
+title: Modérer du texte - Content Moderator, .NET
+titlesuffix: Azure Cognitive Services
+description: Comment modérer du texte à l’aide du SDK Content Moderator pour .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/04/2018
+ms.topic: conceptual
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6db97231b2dc8905f1a3b3a6bc63580e9f371f84
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049879"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227263"
 ---
 # <a name="moderate-text-using-net"></a>Modérer du texte à l’aide de .NET
 
-Cet article fournit des informations et des exemples de code pour vous aider à faire vos premiers pas à l’aide du kit SDK Azure Content Moderator pour .NET pour :
+Cet article fournit des informations et des exemples de code qui facilitent le démarrage avec le [SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) et les opérations suivantes :
+
 - Détecter les propos injurieux potentiels dans du texte à l’aide d’un filtrage basé sur des termes
 - Utiliser des modèles basés sur un apprentissage automatique pour [classer le texte](text-moderation-api.md#classification) en trois catégories
 - Détecter des informations d’identification personnelle (PII) telles que des numéros de téléphone aux États-Unis et au Royaume-Uni, des adresses e-mail et des adresses postales aux États-Unis
@@ -37,9 +39,7 @@ Reportez-vous au [démarrage rapide](quick-start.md) pour découvrir comment obt
 
    Dans l’exemple de code, nommez le projet **TextModeration**.
 
-1. Sélectionnez ce projet comme unique projet de démarrage pour la solution.
-
-1. Ajoutez une référence à l’assembly de projet **ModeratorHelper** que vous avez créé dans le [démarrage rapide d’assistance du client Content Moderator](content-moderator-helper-quickstart-dotnet.md).
+1. Sélectionnez ce projet comme unique projet de démarrage de la solution.
 
 ### <a name="install-required-packages"></a>Installer les packages nécessaires
 
@@ -53,15 +53,64 @@ Installez les packages NuGet suivants :
 
 Mettez à jour les instructions using du programme.
 
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
 
+### <a name="create-the-content-moderator-client"></a>Créer le client Content Moderator
+
+Ajoutez le code suivant afin de créer un client Content Moderator pour votre abonnement.
+
+> [!IMPORTANT]
+> Mettez à jour les champs **AzureRegion** et **CMSubscriptionKey** avec les valeurs de votre identificateur de région et de votre clé d’abonnement.
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.Endpoint = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="initialize-application-specific-settings"></a>Initialiser les paramètres spécifiques de l’application
 
@@ -71,13 +120,13 @@ Ajoutez les champs statiques suivants à la classe **Program** dans Program.cs.
     /// The name of the file that contains the text to evaluate.
     /// </summary>
     /// <remarks>You will need to create an input file and update this path
-    /// accordingly. Relative paths are ralative the execution directory.</remarks>
+    /// accordingly. Relative paths are relative to the execution directory.</remarks>
     private static string TextFile = "TextFile.txt";
 
     /// <summary>
     /// The name of the file to contain the output from the evaluation.
     /// </summary>
-    /// <remarks>Relative paths are ralative the execution directory.</remarks>
+    /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private static string OutputFile = "TextModerationOutput.txt";
 
 Nous avons utilisé le texte suivant pour générer la sortie de ce guide de démarrage rapide :
@@ -95,6 +144,8 @@ Ajoutez le code suivant à la méthode **Main**.
 
     // Load the input text.
     string text = File.ReadAllText(TextFile);
+    Console.WriteLine("Screening {0}", TextFile);
+
     text = text.Replace(System.Environment.NewLine, " ");
 
     // Save the moderation results to a file.
@@ -103,8 +154,8 @@ Ajoutez le code suivant à la méthode **Main**.
         // Create a Content Moderator client and evaluate the text.
         using (var client = Clients.NewClient())
         {
-            // Screen the input text: check for profanity, classify the text into three categories
-                // do autocorrect text, and check for personally identifying 
+            // Screen the input text: check for profanity, classify the text into three categories,
+                // do autocorrect text, and check for personally identifying
                 // information (PII)
                 outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
                 var screenResult =
@@ -211,4 +262,4 @@ L’exemple de sortie du programme, tel qu’écrit dans le fichier journal, est
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Téléchargez la solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce guide de démarrage rapide et d’autres guides de démarrage rapide Content Moderator pour .NET, puis commencez votre intégration.
+Obtenez le [SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) et la [solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce guide de démarrage rapide et d’autres guides de démarrage rapide Content Moderator pour .NET, puis commencez votre intégration.

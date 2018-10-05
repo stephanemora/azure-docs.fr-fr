@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 853754947b8d89af15a8c773a765f33523721e12
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: e4d0df28449a2e50e72b192f0118a8eae3325d15
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187880"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220187"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Envoi de messages cloud à appareil avec IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -161,7 +161,7 @@ Dans cette section, vous créez une application de console Java qui envoie des m
     ```
 
     > [!NOTE]
-    > Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling](Gestion des erreurs temporaires).
+    > Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez implémenter des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).
 
 
 9. Pour générer l’application **simulated-device** à l’aide de Maven, exécutez la commande suivante à l’invite de commandes dans le dossier simulated-device :
@@ -180,7 +180,7 @@ Vous êtes maintenant prêt à exécuter les applications.
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App" 
     ```
 
-    ![Exécution de l’application de périphérique simulé][img-simulated-device]
+    ![Exécuter l’application d’appareil simulé][img-simulated-device]
 
 2. À l’invite de commandes dans le dossier send-c2d-messages, exécutez la commande suivante pour envoyer un message cloud-à-appareil, puis attendez de recevoir l’accusé de réception :
 
@@ -209,7 +209,6 @@ Pour en savoir plus sur le développement de solutions avec IoT Hub, consultez l
 [Centre de développement Azure IoT]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
-[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[portail Azure]: https://portal.azure.com
+[Portail Azure]: https://portal.azure.com
 [Accélérateur de solution de surveillance à distance Azure IoT]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

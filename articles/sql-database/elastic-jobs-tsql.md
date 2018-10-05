@@ -2,18 +2,22 @@
 title: Créer et gérer des travaux de base de données élastique avec Transact-SQL (T-SQL) | Microsoft Docs
 description: Exécuter des scripts sur plusieurs bases de données avec l’agent de travail de base de données élastique à l’aide de Transact-SQL (T-SQL).
 services: sql-database
-author: jaredmoo
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 ms.author: jaredmoo
-ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+author: jaredmoo
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842603"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056785"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
@@ -482,7 +486,7 @@ sp_add_job doit être exécuté à partir de la base de données de l’agent de
 Une fois que sp_add_job a été exécutée pour ajouter un travail, sp_add_jobstep peut servir à ajouter des étapes qui effectuent les activités pour le travail. Le numéro de version initiale du travail est 0 et passera à 1 lors de l’ajout de la première étape.
 
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 
 - jobs_reader
 
@@ -544,7 +548,7 @@ Date à laquelle l’exécution du travail peut s’arrêter. schedule_end_time 
 Une fois que sp_add_job a été exécutée pour ajouter un travail, sp_add_jobstep peut servir à ajouter des étapes qui effectuent les activités pour le travail. Le numéro de version initiale du travail est 0 et passera à 1 lors de l’ajout de la première étape.
 
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 - jobs_reader
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
@@ -576,7 +580,7 @@ Spécifie s’il faut supprimer si le travail est en cours d’exécution et sup
 L’historique du travail est automatiquement supprimé lorsqu’un travail est supprimé.
 
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 - jobs_reader
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
@@ -701,7 +705,7 @@ Le niveau maximal de parallélisme par pool élastique. S’il est défini, l’
 Lorsque sp_add_jobstep réussit, le numéro de version actuel du travail est incrémenté. La prochaine fois que le travail sera exécuté, la nouvelle version sera utilisée. Si le travail est en cours d’exécution, cette exécution ne contiendra pas la nouvelle étape.
 
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :  
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :  
 
 - jobs_reader
 
@@ -825,7 +829,7 @@ Le niveau maximal de parallélisme par pool élastique. S’il est défini, l’
 Les exécutions en cours du travail ne seront pas affectées. Lorsque sp_update_jobstep réussit, le numéro de version du travail est incrémenté. La prochaine fois que le travail sera exécuté, la nouvelle version sera utilisée.
 
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 
 - jobs_reader
 
@@ -870,7 +874,7 @@ Les exécutions en cours du travail ne seront pas affectées. Lorsque sp_update_
 Les autres étapes de travail seront automatiquement renumérotées pour combler le vide laissé par l’étape de travail supprimée.
  
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 - jobs_reader
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
@@ -906,7 +910,7 @@ Le paramètre de sortie auquel l’identifiant job_version de l’exécution du 
 Aucune.
  
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 - jobs_reader
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
@@ -934,7 +938,7 @@ Numéro d’identification de l’exécution du travail à arrêter. job_executi
 Aucune.
  
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 - jobs_reader
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
@@ -966,7 +970,7 @@ Nom du groupe cible à créer. target_group_name est nvarchar(128), sans valeur 
 Les groupes cibles permettent de cibler facilement un travail dans une collection de bases de données.
 
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 - jobs_reader
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
@@ -994,7 +998,7 @@ Nom du groupe cible à supprimer. target_group_name est nvarchar(128), sans vale
 Aucune.
 
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 - jobs_reader
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
@@ -1050,7 +1054,7 @@ Codet de retour 0 (réussite) ou 1 (échec)
 Un travail s’exécute sur toutes les bases de données au sein d’un serveur ou un pool élastique au moment de l’exécution, quand un serveur logique ou un pool élastique est inclus dans le groupe cible.
 
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 - jobs_reader
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
@@ -1115,7 +1119,7 @@ Nom du groupe cible à partir duquel supprimer le membre du groupe cible. target
 Les groupes cibles permettent de cibler facilement un travail dans une collection de bases de données.
 
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 - jobs_reader
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
@@ -1166,7 +1170,7 @@ Le nom du travail pour lequel les enregistrements d’historique doivent être s
 0 (réussite) ou 1 (échec) Les groupes cibles de remarques permettent de cibler facilement un travail dans une collection de bases de données.
 
 #### <a name="permissions"></a>Autorisations
-Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. Pour limiter un utilisateur à pouvoir surveiller des travaux, vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
+Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
 - jobs_reader
 
 Pour plus d’informations sur les autorisations de ces rôles, consultez la section Autorisations dans ce document. Seuls des membres de sysadmin peuvent utiliser cette procédure stockée pour modifier les attributs des travaux qui appartiennent à d’autres utilisateurs.
@@ -1336,7 +1340,7 @@ Affiche tous les membres de tous les groupes cibles.
 
 ## <a name="resources"></a>Ressources
 
- - ![Icône du lien de rubrique](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "icône du lien de rubrique") [Conventions de syntaxe Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![Icône du lien de rubrique](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "icône du lien de rubrique") [Conventions de syntaxe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

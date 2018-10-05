@@ -1,21 +1,21 @@
 ---
-title: Ajouter des entités dans des applications LUIS | Microsoft Docs
-titleSuffix: Azure
+title: Ajouter des entités dans des applications LUIS
+titleSuffix: Azure Cognitive Services
 description: Ajoutez des entités (données clés dans le domaine de l’application) dans les applications Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e97f9a5391799849983bd98db5400e0a842627b7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e82955da24e127e5536c2e40ad2cccf07c5fa173
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224124"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032000"
 ---
 # <a name="manage-entities"></a>Gérer des entités
 Après avoir identifié les [intentions](luis-concept-intent.md) de votre application, l’objectif est [d’étiqueter les exemples d’énoncés](luis-concept-utterance.md) avec des [entités](luis-concept-entity-types.md). Les entités sont les éléments importants d’une commande ou d’une question, qui peuvent être essentiels pour que l’application cliente effectue sa tâche. 
@@ -31,8 +31,6 @@ Les entités prédéfinies sont définies dans le projet [Recognizers-Text](http
  
 2. Sur la page **Entités**, cliquez sur **Gérer les entités prédéfinies**.
 
-    ![Capture d’écran d’ajout d’une entité prédéfinie sur la page Entités](./media/add-entities/manage-prebuilt-entities-button.png)
-
 3. Dans la boîte de dialogue **Ajouter ou supprimer des entités prédéfinies**, sélectionnez les entités prédéfinies **number** et **datetimeV2**. Ensuite, sélectionnez **Terminé**.
 
     ![Capture d’écran de la boîte de dialogue Ajouter des entités prédéfinies](./media/add-entities/list-of-prebuilt-entities.png)
@@ -43,8 +41,6 @@ Les entités prédéfinies sont définies dans le projet [Recognizers-Text](http
 Une entité simple est une entité générique décrivant un concept unique. 
 
 1. Dans la section **Build** de votre application, cliquez sur **Entités** dans le volet gauche, puis sélectionnez **Créer une entité**.
-
-    ![Capture d’écran de la page Entités avec le bouton Créer une entité en surbrillance](./media/add-entities/create-new-entity-button.png)
 
 2. Dans la boîte de dialogue contextuelle, tapez `Airline` dans la zone **Nom de l’entité**, sélectionnez **Simple** dans la liste **Type d’entité**, puis sélectionnez **Terminé**.
 
@@ -57,7 +53,7 @@ Une entité d’expression régulière sert à extraire des données de l’éno
 
 1. Dans votre application, sélectionnez **Entités** dans le volet de navigation gauche, puis **Créer une entité**.
 
-2. Dans la boîte de dialogue contextuelle, tapez `AirFrance Flight` dans la zone **Nom de l’entité**, sélectionnez **Expression régulière** dans la liste **Type d’entité**, entrez l’expression régulière `AFR[0-9]{3,4}`, puis sélectionnez **Terminé**. 
+2. Dans la boîte de dialogue contextuelle, entrez `AirFrance Flight` dans la zone **Nom de l’entité**, sélectionnez **Expression régulière** dans la liste **Type d’entité**, entrez l’expression régulière `AFR[0-9]{3,4}`, puis sélectionnez **Terminé**. 
 
     Cette expression régulière Airfrance Flight attend trois caractères, littéralement `AFR`, puis trois ou quatre chiffres compris entre 0 et 9. Elle correspond aux numéros de vol Air France, par exemple : « AFR101 », « ARF1302 » ou « AFR5006 ». Pour plus d’informations sur l’extraction de l’entité à partir de la réponse à la requête JSON du point de terminaison, voir [Extraction de données](luis-concept-data-extraction.md).
 

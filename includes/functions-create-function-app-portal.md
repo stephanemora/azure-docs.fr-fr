@@ -3,19 +3,19 @@ title: Fichier Include
 description: Fichier Include
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
-ms.date: 07/17/2018
+ms.date: 09/25/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a0f6ca72e6d3e487e85d16a6860e0d84003a9aa8
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: e6387c528bb24a66edb2fa1706adc005980dc90e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40258738"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47186232"
 ---
-1. Cliquez sur le bouton **Nouveau** en haut à gauche du portail Azure, puis sélectionnez **Calcul** > **Application de fonction**. 
+1. Cliquez sur le bouton **Nouveau** en haut à gauche du portail Azure, puis sélectionnez **Calcul** > **Application de fonction**.
 
     ![Créer une application de fonction sur le Portail Azure](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -27,19 +27,21 @@ ms.locfileid: "40258738"
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom de l’application** | Nom globalement unique | Nom qui identifie votre nouvelle Function App. Les caractères valides sont `a-z`, `0-9` et `-`.  | 
     | **Abonnement** | Votre abonnement | Abonnement sous lequel est créée cette nouvelle application de fonction. | 
-    | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nom du nouveau groupe de ressources dans lequel créer votre Function App. | 
+    | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nom du nouveau groupe de ressources dans lequel créer votre Function App. |
     | **SE** | Windows | L’hébergement serverless est disponible uniquement avec une exécution sur Windows. Pour l’hébergement sur Linux, consultez [Créer votre première fonction exécutée sur Linux à l’aide d’Azure CLI](../articles/azure-functions/functions-create-first-azure-function-azure-cli-linux.md). |
     | **[Plan d’hébergement](../articles/azure-functions/functions-scale.md)** | Plan de consommation | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Dans la valeur par défaut **Plan de consommation**, les ressources sont ajoutées dynamiquement comme requis par vos fonctions. Avec cet hébergement [serverless](https://azure.microsoft.com/overview/serverless-computing/), vous payez uniquement pour la durée d’exécution de vos fonctions. Si vous exécutez dans un plan App Service, vous devez gérer la [mise à l’échelle de votre application de fonction](../articles/azure-functions/functions-scale.md).  |
     | **Lieu** | Europe Ouest | Choisissez une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. |
-    | **[Compte de stockage](../articles/storage/common/storage-quickstart-create-account.md)** |  Nom globalement unique |  Nom du nouveau compte de stockage utilisé par votre Function App. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET** pour les fonctions C# et F#. |
+    | **[Stockage](../articles/storage/common/storage-quickstart-create-account.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Application Insights est activé par défaut. Choisissez un emplacement près de votre application de fonction.  |
 
 3. Sélectionnez **Créer** pour configurer et déployer l’application de fonction.
 
-4. Cliquez sur l’icône Notification en haut à droite du portail pour voir le message **Le déploiement a été effectué**. 
+4. Cliquez sur l’icône Notification en haut à droite du portail pour voir le message **Le déploiement a été effectué**.
 
     ![Définir de nouveaux paramètres d’application de fonction](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
 5. Sélectionnez **Accéder à la ressource** pour afficher votre nouvelle application de fonction.
 
 > [!TIP]
-> Si vous avez des difficultés à trouver vos applications de fonction dans le portail, essayez [d’ajouter des applications de fonction à vos favoris dans le portail Azure](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).   
+> Si vous avez des difficultés à trouver vos applications de fonction dans le portail, essayez [d’ajouter des applications de fonction à vos favoris dans le portail Azure](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).

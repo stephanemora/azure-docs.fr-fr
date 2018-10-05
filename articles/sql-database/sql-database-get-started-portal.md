@@ -1,34 +1,36 @@
 ---
 title: 'Portail Azure : Créer une base de données SQL | Microsoft Docs'
 description: Créez un serveur logique SQL Database, une règle de pare-feu au niveau du serveur et une base de données dans le Portail Azure, puis interrogez cette dernière.
-keywords: tutoriel sur la base de données sql, créer une base de données sql
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: quickstart
-ms.date: 07/16/2018
+author: sachinpMSFT
 ms.author: sachinp
-ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090528"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165005"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Création d’une base de données SQL Azure dans le portail Azure
 
-Ce démarrage rapide décrit comment créer une base de données SQL dans Azure à l’aide du [modèle d’achat DTU](sql-database-service-tiers-dtu.md). Azure SQL Database est une offre de type « base de données en tant que service » qui vous permet d’exécuter et de mettre à l’échelle des bases de données SQL Server hautement disponibles dans le cloud. Ce démarrage rapide vous indique comment commencer en créant une base de données SQL à l’aide du portail Azure.
+Ce démarrage rapide décrit comment créer une base de données SQL dans Azure à l’aide du [modèle d’achat DTU](sql-database-service-tiers-dtu.md). Azure SQL Database est une offre de type « base de données en tant que service » qui vous permet d’exécuter et de mettre à l’échelle des bases de données SQL Server hautement disponibles dans le cloud. Ce guide de démarrage rapide vous montre comment commencer en créant une base de données SQL à l’aide du portail Azure, puis en effectuant des requêtes.
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
   >[!NOTE]
   >Ce didacticiel utilise le modèle d’achat DTU, mais le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) est également disponible.
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-sql-database"></a>Créer une base de données SQL
 
@@ -44,7 +46,7 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
 
 3. Remplissez le formulaire de base de données SQL avec les informations suivantes, comme indiqué dans l’illustration précédente :   
 
-   | Paramètre       | Valeur suggérée | Description |
+   | Paramètre       | Valeur suggérée | DESCRIPTION |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nom de la base de données** | mySampleDatabase | Pour les noms de base de données valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). |
    | **Abonnement** | Votre abonnement  | Pour plus d’informations sur vos abonnements, consultez [Abonnements](https://account.windowsazure.com/Subscriptions). |
@@ -57,7 +59,7 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
 
 4. Sous **Serveur**, cliquez sur **Configurer les paramètres requis** et remplissez le formulaire de serveur SQL (serveur logique) avec les informations suivantes, comme indiqué dans l’illustration précédente :   
 
-   | Paramètre       | Valeur suggérée | Description |
+   | Paramètre       | Valeur suggérée | DESCRIPTION |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). |
    | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données). |
@@ -96,36 +98,6 @@ Suivez ces étapes pour créer une base de données SQL contenant les exemples d
 
      ![notification](./media/sql-database-get-started-portal/notification.png)
 
-## <a name="create-a-server-level-firewall-rule"></a>Créer une règle de pare-feu au niveau du serveur
-
-Le service SQL Database crée un pare-feu au niveau du serveur qui empêche les applications et les outils externes de se connecter au serveur ou à toute base de données sur le serveur, sauf si une règle de pare-feu est créée pour ouvrir le pare-feu à des adresses IP spécifiques. Suivez ces étapes pour créer une [règle de pare-feu au niveau du serveur de base de données SQL](sql-database-firewall-configure.md) pour l’adresse IP de votre client afin de permettre la connectivité externe via le pare-feu de base de données SQL pour votre adresse IP uniquement.
-
-> [!NOTE]
-> SQL Database communique par le biais du port 1433. Si vous essayez de vous connecter à partir d’un réseau d’entreprise, le trafic sortant sur le port 1433 peut ne pas être autorisé par le pare-feu de votre réseau. Dans ce cas, vous ne pouvez pas vous connecter à votre serveur Azure SQL Database, sauf si votre service informatique ouvre le port 1433.
->
-
-1. Une fois le déploiement terminé, cliquez sur **Bases de données SQL** dans le menu de gauche, puis cliquez sur **mySampleDatabase** sur la page **Bases de données SQL**. La page de présentation de votre base de données s’ouvre, elle affiche le nom de serveur complet (tel que **mynewserver-20170824.database.windows.net**) et fournit des options pour poursuivre la configuration.
-
-2. Copiez le nom complet du serveur pour vous connecter à votre serveur et à ses bases de données dans les démarrages rapides suivants.
-
-   ![nom du serveur](./media/sql-database-get-started-portal/server-name.png)
-
-3. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils, comme illustré sur l’image précédente. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre.
-
-   ![règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule.png)
-
-4. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu. Une règle de pare-feu peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
-
-5. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur logique.
-
-6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
-
-Vous pouvez maintenant vous connecter au serveur SQL Database et à ses bases de données à l’aide de SQL Server Management Studio ou de tout autre outil de votre choix à partir de cette adresse IP à l’aide du compte Administrateur de serveur créé au préalable.
-
-> [!IMPORTANT]
-> Par défaut, l’accès via le pare-feu SQL Database est activé pour tous les services Azure. Cliquez sur **ÉTEINT** sur cette page pour le désactiver pour tous les services Azure.
->
-
 ## <a name="query-the-sql-database"></a>Interroger la base de données SQL
 
 Maintenant que vous avez créé un exemple de base de données dans Azure, nous allons utiliser l’outil de requête intégré au portail Azure pour vérifier que vous pouvez vous connecter à la base de données et demander des données.
@@ -161,7 +133,9 @@ Enregistrez les ressources si vous souhaitez passer aux [Étapes suivantes](#nex
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Maintenant que vous disposez d’une base de données, vous pouvez vous [connecter et interroger](sql-database-connect-query.md) à l’aide d’un de vos outils ou langages préférés. 
-- Pour apprendre à concevoir votre première base de données, créer des tables et insérer des données, consultez un de ces didacticiels :
- - [Concevoir votre première base de données SQL Azure](sql-database-design-first-database.md)
-  - [Concevoir une base de données SQL Azure et se connecter avec C# et ADO.NET](sql-database-design-first-database-csharp.md)
+- Maintenant que vous avez une base de données, vous devez créer une règle de pare-feu au niveau du serveur pour pouvoir vous y connecter à partir de vos outils locaux. Consultez [Créer une règle de pare-feu au niveau du serveur](sql-database-get-started-portal-firewall.md).
+- Si vous créez une règle de pare-feu au niveau du serveur, vous pouvez [vous connecter et effectuer des requêtes](sql-database-connect-query.md) à l’aide d’un de vos outils ou langages préférés. Par exemple :
+  - [Se connecter et effectuer des requêtes à l’aide de SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Se connecter et effectuer des requêtes à l’aide d’Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+- Pour créer des bases de données à l’aide d’Azure CLI, consultez [Exemples d’interface de ligne de commande Azure](sql-database-cli-samples.md)
+- Pour créer des bases de données à l’aide d’Azure PowerShell, consultez [Exemples Azure PowerShell](sql-database-powershell-samples.md)

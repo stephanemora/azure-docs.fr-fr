@@ -2,19 +2,22 @@
 title: Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL Azure
 description: Cette rubrique explique comment le traitement par lots des opérations de base de données contribue à améliorer considérablement la rapidité et l’évolutivité de vos applications de base de données SQL Azure. Bien que ces techniques de traitement par lot fonctionnent pour les bases de données SQL Server, cet article porte exclusivement sur Azure.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: c0e1ff3cf018e185ae2dfb329e2aa56766cc247c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: genemi
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 21dc28658f7f6f31bc7536df739a70238a3bcb8f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649779"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160806"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 Les opérations de traitement par lots sur la base de données SQL Azure améliorent considérablement les performances et l’évolutivité de vos applications. Pour en comprendre les avantages, la première partie de cet article présente des résultats de test qui comparent des demandes séquentielles à des demandes par lots exécutées sur une base de données SQL. Le reste de cet article décrit des techniques, des scénarios et des remarques à prendre en compte pour vous aider à utiliser efficacement le traitement par lots dans vos applications Azure.
@@ -83,7 +86,7 @@ La meilleure façon d’optimiser ce code consiste à implémenter une forme de 
 
 Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier exemple, chaque appel individuel est une transaction implicite. Dans le deuxième exemple, une transaction explicite encapsule tous les appels. Conformément à la documentation du [journal des transactions à écriture anticipée](https://msdn.microsoft.com/library/ms186259.aspx), les enregistrements de journal sont vidés sur le disque lorsque la transaction est validée. Par conséquent, en incluant plusieurs appels dans une transaction, l’écriture dans le journal des transactions peut être retardée jusqu’à ce que la transaction soit validée. En effet, vous activez le traitement par lots pour les écritures effectuées dans le journal des transactions du serveur.
 
-Le tableau suivant présente quelques résultats des tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (à l’ouest des États-Unis). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
+Le tableau suivant présente quelques résultats des tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (USA Ouest). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
 
 **Local vers Azure**:
 
@@ -104,9 +107,7 @@ Le tableau suivant présente quelques résultats des tests ad hoc. Les tests ont
 | 1 000 |21 479 |2 756 |
 
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
-> 
-> 
+> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative au minutage fournie dans cet article](#note-about-timing-results-in-this-article)
 
 Compte tenu des résultats des tests précédents, l’encapsulation d’une seule opération dans une transaction a réellement pour effet de réduire les performances. Mais lorsque vous augmentez le nombre d’opérations dans une même transaction, vous obtenez une amélioration de performances plus marquée. La différence de performances est également plus manifeste lorsque toutes les opérations interviennent au sein du centre de données Microsoft Azure. L’augmentation du phénomène de latence associée à l’utilisation de la base de données SQL à l’extérieur du centre de données Microsoft Azure masque en partie le gain de performances lié à l’utilisation de transactions.
 
@@ -186,7 +187,7 @@ Le tableau suivant présente les résultats des tests ad hoc pour l’utilisatio
 | 10000 |23 830 |3 586 |
 
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative au minutage fournie dans cet article](#note-about-timing-results-in-this-article)
 > 
 > 
 
@@ -223,7 +224,7 @@ Les résultats des tests ad hoc suivants montrent les performances du traitement
 | 10000 |21 605 |2 737 |
 
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative au minutage fournie dans cet article](#note-about-timing-results-in-this-article)
 > 
 > 
 
@@ -264,7 +265,7 @@ Les résultats des tests ad hoc suivants montrent les performances de ce type d�
 | 100 |33 |51 |
 
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative au minutage fournie dans cet article](#note-about-timing-results-in-this-article)
 > 
 > 
 
@@ -306,7 +307,7 @@ Dans nos tests, il n’y avait généralement aucun avantage à fractionner les 
 | 50 |20 |630 |
 
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative au minutage fournie dans cet article](#note-about-timing-results-in-this-article)
 > 
 > 
 
@@ -327,7 +328,7 @@ Que se passe-t-il si vous avez adopté l’approche consistant à réduire la ta
 | 100 [10] |488 |439 |391 |
 
 > [!NOTE]
-> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative aux résultats de minutage fournis dans cette rubrique](#note-about-timing-results-in-this-topic).
+> Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative au minutage fournie dans cet article](#note-about-timing-results-in-this-article)
 > 
 > 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 8c8e65d5fd7efd1f9212b76e1a72b91a0ea07272
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6e1febfff211dd92f8990d1880562e64382de5f0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835064"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095444"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gestion d'un espace de travail Azure Machine Learning
 
@@ -51,7 +51,7 @@ Pour gérer les services web associés à cet espace de travail, utilisez le por
 > [!NOTE]
 > Pour déployer ou gérer de nouveaux services web, vous devez avoir un rôle de contributeur ou d’administrateur dans l’abonnement dans lequel le service web est déployé. Si vous invitez un autre utilisateur dans un espace de travail Machine Learning, vous devez l’affecter à un rôle de contributeur ou d’administrateur dans l’abonnement avant qu’il ne puisse déployer ou gérer des services web. 
 > 
->Pour plus d’informations sur la définition des autorisations d’accès, consultez la page [Afficher les affectations d’accès des utilisateurs et des groupes sur le Portail Azure](../../role-based-access-control/role-assignments-users.md).
+>Pour plus d’informations sur la définition des autorisations d’accès, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [déployer le Machine Learning avec des modèles Azure Resource Manager](deploy-with-resource-manager-template.md). 

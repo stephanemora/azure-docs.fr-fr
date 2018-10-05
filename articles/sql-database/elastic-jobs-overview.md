@@ -2,18 +2,22 @@
 title: Travaux de base de données élastiques SQL Azure | Microsoft Docs
 description: Utiliser des travaux de base de données élastiques pour exécuter des scripts T-SQL (Transact-SQL) sur une ou plusieurs bases de données SQL Azure
 services: sql-database
-author: srinia
-manager: craigg
 ms.service: sql-database
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: overview
-ms.date: 07/26/2018
+author: srinia
 ms.author: srinia
-ms.openlocfilehash: 0e01270b6ba12bde0e5f379903b80620646c4d1f
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/26/2018
+ms.openlocfilehash: a029697c2fdd3c9bd3b3da2c2b5a1420d0dd0a8c
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309042"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054725"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Gérer des groupes de bases de données avec des travaux de base de données élastique
 
@@ -206,7 +210,7 @@ Il convient de noter quelques différences importantes entre SQL Server Agent (d
 
 |  |Travaux élastiques  |Agent SQL Server |
 |---------|---------|---------|
-|Étendue     |  N’importe quel nombre de bases de données et/ou d’entrepôts de données Azure SQL Database dans le même cloud Azure que l’agent de travail. Les cibles peuvent se trouver dans des serveurs logiques, régions et/ou abonnements différents. <br><br>Les groupes cibles peuvent être composés de bases de données ou d’entrepôts de données individuels, ou bien de toutes les bases de données d’un serveur, d’un pool ou d’une carte de partitions (énumérées dynamiquement au moment de l’exécution du travail). | N’importe quelle base de données unique dans la même instance SQL Server que l’agent SQL. |
+|Étendue     |  N’importe quel nombre de bases de données et/ou d’entrepôts de données SQL Azure dans le même cloud Azure que l’agent de travail. Les cibles peuvent se trouver dans des serveurs logiques, régions et/ou abonnements différents. <br><br>Les groupes cibles peuvent être composés de bases de données ou d’entrepôts de données individuels, ou bien de toutes les bases de données d’un serveur, d’un pool ou d’une carte de partitions (énumérées dynamiquement au moment de l’exécution du travail). | N’importe quelle base de données unique dans la même instance SQL Server que l’agent SQL. |
 |API et outils pris en charge     |  Portail, PowerShell, T-SQL, Azure Resource Manager      |   T-SQL, SSMS (SQL Server Management Studio)     |
 
 

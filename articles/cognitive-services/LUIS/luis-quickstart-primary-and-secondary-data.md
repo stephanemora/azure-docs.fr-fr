@@ -1,54 +1,71 @@
 ---
-title: Didacticiel de création d’une application LUIS pour extraire des données - Azure | Microsoft Docs
-description: Dans ce tutoriel, vous allez découvrir comment créer une application LUIS simple utilisant une entité simple et des intentions pour extraire les données issues de l’apprentissage automatique.
+title: 'Tutoriel 7 : Entité simple avec une liste d’expressions dans LUIS'
+titleSuffix: Azure Cognitive Services
+description: Extraire d’un énoncé des données issues du machine learning
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a69ea8ea45a02399b7c6ad22f0dc514ad8537e06
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159654"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036052"
 ---
-# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Tutoriel : 7. Ajouter une entité simple et une liste d’expressions
-Dans ce tutoriel, vous allez créer une application qui montre comment extraire les données issues de l’apprentissage automatique à partir d’un énoncé utilisant l’entité **Simple**.
+# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutoriel 7 : Extraire des noms avec une entité simple et une liste d’expressions
+
+Dans ce tutoriel, vous allez extraire les données de nom de poste de travail issues du machine learning à partir d’un énoncé utilisant l’entité **Simple**. Pour augmenter la précision de l’extraction, ajoutez une liste d’expressions dont les termes sont spécifiques à l’entité simple.
+
+Ce tutoriel ajoute une nouvelle entité simple pour extraire le nom du poste. L’objet de l’entité simple de cette application LUIS est d’apprendre à LUIS ce qu’est un nom de poste et où il se trouve dans un énoncé. La partie de l’énoncé correspondant au nom du poste peut changer d’un énoncé à l’autre en fonction du choix des mots et de la longueur de l’énoncé. LUIS a besoin d’exemples de noms de poste dans toutes les intentions qui utilisent des noms de poste.  
+
+L’entité simple est appropriée pour ce type de données quand :
+
+* Les données sont un concept unique.
+* Les données ne sont pas bien formées comme peut l’être une expression régulière.
+* Les données ne sont pas courantes, comme une entité prédéfinie de numéro de téléphone ou de données.
+* Les données ne correspondent pas exactement à une liste de mots connus, par exemple, une entité de liste.
+* Les données ne contiennent pas d’autres éléments de données comme une entité composite ou une entité hiérarchique.
+
+**Ce tutoriel vous montre comment effectuer les opérations suivantes :**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Comprendre les entités simples 
-> * Créer une nouvelle application LUIS pour le domaine des ressources humaines (RH) 
+> * Utiliser l’application de tutoriel existante
 > * Ajouter une entité simple pour extraire des travaux depuis l’application
-> * Entraîner et publier l’application
-> * Interroger un point de terminaison de l’application pour voir la réponse JSON de LUIS
 > * Ajouter la liste d’expressions pour améliorer le signal de mots de travail
-> * Effectuer l'apprentissage, publier l’application et procéder à une nouvelle interrogation du point de terminaison
+> * Former 
+> * Publish 
+> * Reconnaître les intentions et les entités à partir du point de terminaison
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du tutoriel [entité composite](luis-tutorial-composite-entity.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une application du site web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
+## <a name="use-existing-app"></a>Utiliser une clé existante
 
-Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `simple`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine.  
+Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
-## <a name="purpose-of-the-app"></a>Objet de l’application
-Cette application montre comment extraire des données d’un énoncé. Par exemple, examinez les énoncés suivants provenant d’un chatbot :
+Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
+
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-composite-HumanResources.json).
+
+2. Importez le code JSON dans une nouvelle application.
+
+3. À partir de la section **Gérer**, sous l’onglet **Versions**, clonez la version et nommez-la `simple`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+
+## <a name="simple-entity"></a>Entité simple
+L’entité simple détecte un concept de données unique contenu dans des mots ou des expressions.
+
+Par exemple, examinez les énoncés suivants provenant d’un bot conversationnel :
 
 |Énoncé|Nom de la tâche extractible|
 |:--|:--|
-|Je souhaite postuler pour le nouveau poste de comptable.|comptable|
-|Veuillez envoyer mon CV pour le poste d’ingénieur.|ingénieur|
+|Je souhaite postuler pour le nouveau poste de comptable.|comptabilité|
+|Envoyez mon CV pour le poste d’ingénieur.|ingénieur|
 |Remplissez l’application pour le poste 123456|123456|
-
-Ce tutoriel ajoute une nouvelle entité pour extraire le nom du poste. 
-
-## <a name="purpose-of-the-simple-entity"></a>Objet de l’entité simple
-L’objet de l’entité simple de cette application LUIS est d’apprendre à LUIS ce qu’est un nom de poste et où il se trouve dans un énoncé. La partie de l’énoncé correspondant au poste peut changer d’un énoncé à l’autre en fonction du choix des mots et de la longueur de l’énoncé. LUIS a besoin d’exemples de postes dans tous les énoncés de toutes les intentions.  
 
 Le nom du travail est difficile à déterminer, car un intitulé peut être un nom, un verbe ou une expression de plusieurs mots. Par exemple : 
 
@@ -65,15 +82,13 @@ Le nom du travail est difficile à déterminer, car un intitulé peut être un n
 |extrudeuse|
 |mécanicien de chantier|
 
-Cette application LUIS comporte des noms de poste dans plusieurs intentions. En étiquetant ces mots dans tous les énoncés des intentions, LUIS apprend ce qu’est un poste et où il se trouve dans les énoncés.
+Cette application LUIS comporte des noms de poste dans plusieurs intentions. En étiquetant ces mots dans tous les énoncés des intentions, LUIS apprend ce qu’est un nom de poste et où il se trouve dans les énoncés.
 
-## <a name="create-job-simple-entity"></a>Créer une entité simple de poste
+Une fois les entités marquées dans les exemples d’énoncés, il est important d’ajouter une liste d’expressions pour améliorer le signal de l’entité simple. Une liste d’expressions **n’étant pas** utilisée comme une correspondance exacte, elle n’est pas censée contenir chaque valeur possible attendue. 
 
-1. Assurez-vous que votre application Ressources humaines figure dans la section **Générer** de LUIS. Vous pouvez modifier cette section en sélectionnant **Générer** dans la barre de menu en haut à droite. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Dans la page **Intents** (Intentions), sélectionnez l’intention **ApplyForJob**. 
-
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png "Capture d’écran de LUIS avec intention « ApplyForJob » mise en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-select-applyforjob.png#lightbox)
 
 3. Dans l’énoncé, `I want to apply for the new accounting job`, sélectionnez `accounting`, entrez `Job` dans le premier champ de la liste déroulante, puis sélectionnez **Créer une nouvelle entité** dans le menu contextuel. 
 
@@ -110,7 +125,10 @@ Cette application LUIS comporte des noms de poste dans plusieurs intentions. En 
     |Vous trouverez ci-joint mon curriculum vitae de professeur de biologie.|professeur de biologie|
     |J’aimerais postuler au poste dans la photographie.|photographie|git 
 
-## <a name="label-entity-in-example-utterances-for-getjobinformation-intent"></a>Étiquetez les entités dans les énoncés exemple pour l’intention GetJobInformation
+## <a name="label-entity-in-example-utterances"></a>Étiqueter l’entité dans les exemples d’énoncés
+
+L’étiquetage, ou _marquage_, de l’entité montre à LUIS où celle-ci se trouve dans les exemples d’énoncés.
+
 1. Dans le menu gauche, sélectionnez **Intents** (Intentions).
 
 2. Sélectionnez **GetJobInformation** dans la liste des intentions. 
@@ -125,80 +143,83 @@ Cette application LUIS comporte des noms de poste dans plusieurs intentions. En 
 
     Il existe d’autres énoncés exemple mais ils ne contiennent pas de mots de poste.
 
-## <a name="train-the-luis-app"></a>Entraîner l’application LUIS
+## <a name="train"></a>Former
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Publier l’application pour obtenir l’URL de point de terminaison
+## <a name="publish"></a>Publish
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Interroger le point de terminaison avec un autre énoncé
+## <a name="get-intent-and-entities-from-endpoint"></a>Reconnaître l’intention et les entités à partir du point de terminaison 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Here is my c.v. for the programmer job`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner les énoncés `ApplyForJob`.
 
-```JSON
-{
-  "query": "Here is my c.v. for the programmer job",
-  "topScoringIntent": {
-    "intent": "ApplyForJob",
-    "score": 0.9826467
-  },
-  "intents": [
+    ```JSON
     {
-      "intent": "ApplyForJob",
-      "score": 0.9826467
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.0218927357
-    },
-    {
-      "intent": "MoveEmployee",
-      "score": 0.007849265
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00349470088
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00348804821
-    },
-    {
-      "intent": "None",
-      "score": 0.00319909188
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.00222647213
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00211193133
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.00172086991
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00138010911
+      "query": "Here is my c.v. for the programmer job",
+      "topScoringIntent": {
+        "intent": "ApplyForJob",
+        "score": 0.9826467
+      },
+      "intents": [
+        {
+          "intent": "ApplyForJob",
+          "score": 0.9826467
+        },
+        {
+          "intent": "GetJobInformation",
+          "score": 0.0218927357
+        },
+        {
+          "intent": "MoveEmployee",
+          "score": 0.007849265
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00349470088
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.00348804821
+        },
+        {
+          "intent": "None",
+          "score": 0.00319909188
+        },
+        {
+          "intent": "FindForm",
+          "score": 0.00222647213
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00211193133
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.00172086991
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00138010911
+        }
+      ],
+      "entities": [
+        {
+          "entity": "programmer",
+          "type": "Job",
+          "startIndex": 24,
+          "endIndex": 33,
+          "score": 0.5230502
+        }
+      ]
     }
-  ],
-  "entities": [
-    {
-      "entity": "programmer",
-      "type": "Job",
-      "startIndex": 24,
-      "endIndex": 33,
-      "score": 0.5230502
-    }
-  ]
-}
-```
+    ```
+    
+    LUIS a trouvé l’intention correcte, **ApplyForJob**, et extrait l’entité correcte, **Job**, ayant pour valeur `programmer`.
+
 
 ## <a name="names-are-tricky"></a>Les noms sont complexes
 L’application LUIS a trouvé l’intention correcte avec un niveau de confiance élevé et a extrait le nom du poste, mais les noms sont complexes. Essayez l’énoncé `This is the lead welder paperwork`.  
@@ -260,18 +281,15 @@ Dans le JSON suivant, LUIS répond avec l’intention correcte, `ApplyForJob`, m
 
 Un nom pouvant être tout et n’importe quoi, LUIS prédit les entités plus précisément s’il dispose d’une liste d’expressions de mots pour améliorer le signal.
 
-## <a name="to-boost-signal-add-jobs-phrase-list"></a>Pour améliorer le signal, ajoutez une liste d’expressions de postes
+## <a name="to-boost-signal-add-phrase-list"></a>Ajouter une liste d’expressions pour améliorer le signal
+
 Ouvrez le document [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv) à partir du référentiel Github LUIS-Samples. La liste comprend plus d’un millier de mots et d’expressions de poste. Consultez la liste pour trouver des mots de poste qui sont significatifs pour vous. Si les mots ou les expressions ne sont pas dans la liste, ajoutez les vôtres.
 
 1. Dans la section **Générer** de l’application LUIS, sélectionnez **Listes d’expressions** dans le menu **Améliorer les performances de l’application**.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png "Capture d’écran de Listes d’expressions, bouton de navigation de gauche en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-select-phrase-list-left-nav.png#lightbox)
-
 2. Sélectionnez **Créer une liste d’expressions**. 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png "Capture d’écran avec bouton de création d’une nouvelle liste d’expressions mis en surbrillance")](media/luis-quickstart-primary-and-secondary-data/hr-create-new-phrase-list.png#lightbox)
-
-3. Nommez la nouvelle liste d’expressions `Jobs` et copiez la liste depuis jobs-phrase-list.csv vers la zone de texte **Valeurs**. Sélectionnez Enter (Entrer). 
+3. Nommez la nouvelle liste d’expressions `Job` et copiez la liste depuis jobs-phrase-list.csv vers la zone de texte **Valeurs**. Sélectionnez Enter (Entrer). 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Capture d’écran avec fenêtre contextuelle de création d’une nouvelle liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
@@ -348,22 +366,13 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samp
     }
     ```
 
-## <a name="phrase-lists"></a>Listes d’expressions
-L’ajout de la liste d’expressions améliore le signal des mots de la liste mais n’est **pas** utilisé comme une correspondance exacte. La liste d’expressions comprend plusieurs postes dont le premier mot est `lead` contient également le poste `welder` mais pas le poste `lead welder`. Cette liste d’expressions de postes peut ne pas être complète. Au fur et à mesure que vous [passez en revue les énoncés de point de terminaison](luis-how-to-review-endoint-utt.md) et trouvez d’autres mots de poste, ajoutez-les à votre liste d’expressions. Entraînez et publiez à nouveau.
-
-## <a name="what-has-this-luis-app-accomplished"></a>Quel est l’accomplissement de cette application LUIS ?
-Cette application, comptant seulement une entité simple et une liste d’expressions, a identifié une intention de requête en langage naturel et a retourné les données de la tâche. 
-
-Votre chatbot possède maintenant suffisamment d’informations pour déterminer l’action principale, postuler pour poste, et un paramètre de cette action, le poste référencé. 
-
-## <a name="where-is-this-luis-data-used"></a>Où ces données LUIS sont-elles utilisées ? 
-LUIS en a fini avec cette requête. L’application d’appel, par exemple un chatbot, peut prendre le résultat topScoringIntent et les données de l’entité pour utiliser l’API tierce pour envoyer le message concernant le poste au représentant des Ressources Humaines. S’il existe d’autres options de programmation pour le robot ou l’application d’appel, LUIS n’effectue pas ce travail. LUIS détermine uniquement l’intention de l’utilisateur. 
-
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce tutoriel, l’application Ressources humaines utilise une entité simple issue du machine learning pour rechercher des noms de poste dans des énoncés. Les noms de poste pouvant être un large éventail de mots ou d’expressions, l’application a eu besoin d’une liste d’expressions pour améliorer les mots des noms de poste. 
 
 > [!div class="nextstepaction"]
 > [Ajouter une entité keyphrase prédéfinie](luis-quickstart-intent-and-key-phrase.md)

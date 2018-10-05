@@ -1,22 +1,23 @@
 ---
-title: Analyser le texte en langage naturel dans l’API Language Understanding (LUIS) à l’aide de Ruby - Cognitive Services - Azure Cognitive Services | Microsoft Docs
+title: Démarrage rapide pour Ruby - Prédire une intention - LUIS
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. À l’aide de Ruby, envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique. Au niveau du point de terminaison, LUIS applique le modèle de l’application publique pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0909c1dd056570a275b3042674d251c637413cae
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b8ef763a0b2379115150c88becc2ad43ba9cde89
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157699"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47030929"
 ---
-# <a name="quickstart-analyze-text-using-ruby"></a>Démarrage rapide : Analyser le texte à l’aide de Ruby
+# <a name="quickstart-get-intent-using-ruby"></a>Démarrage rapide : Reconnaître une intention à l’aide de Ruby
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -35,11 +36,11 @@ ms.locfileid: "44157699"
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
-## <a name="analyze-text-with-browser"></a>Analyser le texte avec le navigateur
+## <a name="get-intent-with-browser"></a>Reconnaître une intention avec le navigateur
 
 [!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
-## <a name="analyze-text-with-ruby"></a>Analyser le texte avec Ruby 
+## <a name="get-intent-programmatically"></a>Reconnaître une intention par programmation
 
 Vous pouvez utiliser Ruby pour accéder aux résultats que vous avez vus dans la fenêtre du navigateur à l’étape précédente. 
 
@@ -76,7 +77,7 @@ Vous pouvez utiliser Ruby pour accéder aux résultats que vous avez vus dans la
     }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Supprimez le fichier Ruby.
 

@@ -9,14 +9,14 @@ ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 04/13/2018
+ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: d03b890bc0ffda41c1059e216382d79f4b35c5a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 666b99bcca460e3dd756c9d94912d01945c68909
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995373"
+ms.locfileid: "47035927"
 ---
 # <a name="azure-cosmos-db-build-a-sql-api-app-with-python-and-the-azure-portal"></a>Azure Cosmos DB : Développer une application API SQL avec Python et le Portail Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "46995373"
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Rapidement, vous avez la possibilité de créer et d’interroger des documents, des paires clé/valeur, et des bases de données orientées graphe, profitant tous de la distribution à l’échelle mondiale et des capacités de mise à l’échelle horizontale au cœur d’Azure Cosmos DB. 
 
-Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte d’[API SQL](sql-api-introduction.md) Azure Cosmos DB, une base de données de documents, ainsi qu’une collection. Vous allez ensuite créer et exécuter une application console basée sur [l’API Python SQL](sql-api-sdk-python.md).
+Ce guide de démarrage rapide explique comment créer, à l’aide du portail Azure, un compte [d’API SQL](sql-api-introduction.md) Azure Cosmos DB, une base de données de documents, ainsi qu’un conteneur. Ensuite, vous créez et exécutez une application console à l’aide du kit SDK Python pour [l’API SQL](sql-api-sdk-python.md). Ce guide de démarrage rapide utilise la version 3.0 du [kit SDK Python].(https://pypi.org/project/azure-cosmos)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -58,7 +58,7 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du portail Az
 
 ## <a name="clone-the-sample-application"></a>Clonage de l’exemple d’application
 
-À présent, nous allons cloner une application API SQL à partir de github, configurer la chaîne de connexion et l’exécuter. Vous pouvez constater à quel point il est facile de travailler par programmation avec des données. 
+Nous allons à présent cloner une application API SQL à partir de GitHub, définir la chaîne de connexion et l’exécuter.
 
 1. Ouvrez une invite de commandes, créez un nouveau dossier nommé git-samples, puis fermez l’invite de commandes.
 
@@ -75,27 +75,29 @@ Ce guide de démarrage rapide explique comment créer, à l’aide du portail Az
 3. Exécutez la commande suivante pour cloner l’exemple de référentiel : Cette commande crée une copie de l’exemple d’application sur votre ordinateur. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-python-getting-started.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-python-getting-started.git
     ```  
     
 ## <a name="review-the-code"></a>Vérifier le code
 
 Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
 
-Tous les extraits de code suivants proviennent du fichier DocumentDBGetStarted.py.
+Notez que si vous avez déjà utilisé la version précédente du kit SDK Python, vous connaissez peut-être les termes « collection » et « document ». Étant donné qu’Azure Cosmos DB prend en charge plusieurs modèles d’API, les versions 3.0 et ultérieures du kit SDK Python utilisent les termes génériques « conteneur » (qui peut être une collection, un graphe ou une table) et « élément » (qui décrit le contenu du conteneur).
 
-* Le DocumentClient est initialisé.
+Tous les extraits suivants proviennent du fichier `CosmosGetStarted.py`.
+
+* Le CosmosClient est initialisé.
 
     ```python
-    # Initialize the Python client
-    client = document_client.DocumentClient(config['ENDPOINT'], {'masterKey': config['MASTERKEY']})
+    # Initialize the Cosmos client
+    client = cosmos_client.CosmosClient(url_connection=config['ENDPOINT'], auth={'masterKey': config['MASTERKEY']})
     ```
 
 * Une nouvelle base de données est créée.
 
     ```python
     # Create a database
-    db = client.CreateDatabase({ 'id': config['SQL_DATABASE'] })
+    db = client.CreateDatabase({ 'id': config['DATABASE'] })
     ```
 
 * Une nouvelle collection est créée.
@@ -103,64 +105,69 @@ Tous les extraits de code suivants proviennent du fichier DocumentDBGetStarted.p
     ```python
     # Create collection options
     options = {
-        'offerEnableRUPerMinuteThroughput': True,
-        'offerVersion': "V2",
         'offerThroughput': 400
     }
 
-    # Create a collection
-    collection = client.CreateCollection(db['_self'], { 'id': config['SQL_COLLECTION'] }, options)
+    # Create a container
+    container = client.CreateContainer(db['_self'], container_definition, options)
     ```
 
-* Certains documents sont créés.
+* Certains éléments sont ajoutés au conteneur.
 
     ```python
-    # Create some documents
-    document1 = client.CreateDocument(collection['_self'],
-        { 
-            'id': 'server1',
-            'Web Site': 0,
-            'Cloud Service': 0,
-            'Virtual Machine': 0,
-            'name': 'some' 
-        })
+    # Create and add some items to the container
+    item1 = client.CreateItem(container['_self'], {
+        'serverId': 'server1',
+        'Web Site': 0,
+        'Cloud Service': 0,
+        'Virtual Machine': 0,
+        'message': 'Hello World from Server 1!'
+        }
+    )
+
+    item2 = client.CreateItem(container['_self'], {
+        'serverId': 'server2',
+        'Web Site': 1,
+        'Cloud Service': 0,
+        'Virtual Machine': 0,
+        'message': 'Hello World from Server 2!'
+        }
+    )
     ```
 
 * Une requête est effectuée grâce à SQL
 
     ```python
-    # Query them in SQL
-    query = { 'query': 'SELECT * FROM server s' }    
-            
-    options = {} 
+    query = {'query': 'SELECT * FROM server s'}
+
+    options = {}
     options['enableCrossPartitionQuery'] = True
     options['maxItemCount'] = 2
 
-    result_iterable = client.QueryDocuments(collection['_self'], query, options)
-    results = list(result_iterable);
-
-    print(results)
+    result_iterable = client.QueryItems(container['_self'], query, options)
+    for item in iter(result_iterable):
+        print(item['message'])
     ```
 
 ## <a name="update-your-connection-string"></a>Mise à jour de votre chaîne de connexion
 
 Maintenant, retournez dans le portail Azure afin d’obtenir les informations de votre chaîne de connexion et de les copier dans l’application.
 
-1. Dans le [portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, cliquez sur **Clés** dans le volet de navigation de gauche. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier **l’URI** et la **clé primaire** dans le fichier DocumentDBGetStarted.py à l’étape suivante.
+1. Dans le [portail Azure](http://portal.azure.com/), dans votre compte Azure Cosmos DB, cliquez sur **Clés** dans le volet de navigation de gauche. Vous utiliserez les boutons de copie sur le côté droit de l’écran pour copier **l’URI** et la **Clé primaire** dans le fichier `CosmosGetStarted.py` à l’étape suivante.
 
     ![Affichage et copie d’une clé d’accès rapide dans le portail Azure, panneau Clés](./media/create-sql-api-dotnet/keys.png)
 
-2. Ouvrez le fichier C:\git-samples\azure-cosmos-db-documentdb-python-getting-startedDocumentDBGetStarted.py dans Visual Studio Code. 
+2. Ouvrez le fichier `CosmosGetStarted.py` dans C:\git-samples\azure-cosmos-db-python-getting-started dans Visual Studio Code.
 
-3. Copiez votre valeur **URI** à partir du portail (à l’aide du bouton Copier) et définissez-la comme valeur de la clé du **point de terminaison** dans le fichier DocumentDBGetStarted.py. 
+3. Copiez la valeur de votre **URI** dans le portail (à l’aide du bouton Copier), puis définissez-la comme valeur de la clé du point de terminaison (**endpoint**) dans ``CosmosGetStarted.py``. 
 
     `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
-4. Puis, copiez votre valeur de **clé primaire** à partir du portail et définissez-la comme valeur du paramètre **config.MASTERKEY** dans le fichier DocumentDBGetStarted.py. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
+4. Copiez ensuite la valeur de votre **CLÉ PRIMAIRE** à partir du portail et définissez-la comme valeur de **config.PRIMARYKEY** dans ``CosmosGetStarted.py``. Vous venez de mettre à jour votre application avec toutes les informations nécessaires pour communiquer avec Azure Cosmos DB. 
 
-    `'MASTERKEY': 'FILLME',`
+    `'PRIMARYKEY': 'FILLME',`
 
-5. Enregistrez le fichier DocumentDBGetStarted.py.
+5. Enregistrez le fichier ``CosmosGetStarted.py``.
     
 ## <a name="run-the-app"></a>Exécution de l'application
 
@@ -172,27 +179,27 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
 3. Sélectionnez **Affichage** > **Terminal intégré** pour ouvrir le terminal intégré Visual Studio Code.
 
-4. Dans la fenêtre du terminal intégré, vérifiez que vous vous trouvez dans le dossier azure-cosmos-db-documentdb-python-getting-started. Si ce n’est pas le cas, exécutez la commande suivante pour passer au dossier d’exemple. 
+4. Dans la fenêtre du terminal intégré, vérifiez que vous êtes bien dans le dossier azure-cosmos-db-python-getting-started. Si ce n’est pas le cas, exécutez la commande suivante pour passer au dossier d’exemple. 
 
     ```
-    cd "C:\git-samples\azure-cosmos-db-documentdb-python-getting-started"`
+    cd "C:\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
-5. Exécutez la commande suivante pour installer le package pydocumentdb. 
+5. Exécutez la commande suivante pour installer le package azure-cosmos. 
 
     ```
-    pip3 install pydocumentdb
+    pip3 install azure-cosmos
     ```
 
-    Si vous obtenez une erreur d’accès refusé lorsque vous tentez d’installer pydocumentdb, vous devrez [exécuter VS Code en tant qu’administrateur](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
+    Si vous obtenez une erreur d’accès refusé quand vous tentez d’installer azure-cosmos, vous devrez [exécuter VS Code en tant qu’administrateur](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights).
 
 6. Exécutez la commande suivante pour exécuter l’exemple, et créer et stocker de nouveaux documents dans Azure Cosmos DB.
 
     ```
-    python DocumentDBGetStarted.py
+    python CosmosGetStarted.py
     ```
 
-7. Pour vérifier que les nouveaux documents ont été créés et enregistrés, dans le portail Azure, sélectionnez **Explorateur de données**, développez **coll**, développez **Documents**, puis sélectionnez le document **server1**. Le contenu du document server1 correspond au contenu retourné dans la fenêtre du terminal intégré. 
+7. Pour vérifier que les éléments ont été créés et enregistrés, dans le portail Azure, sélectionnez **Explorateur de données**, développez **coll**, développez **Documents**, puis sélectionnez le document **server1**. Le contenu du document server1 correspond au contenu retourné dans la fenêtre du terminal intégré. 
 
     ![Affichage des nouveaux documents dans le portail Azure](./media/create-sql-api-python/azure-cosmos-db-confirm-documents.png)
 

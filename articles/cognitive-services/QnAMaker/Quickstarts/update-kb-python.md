@@ -1,24 +1,26 @@
 ---
-title: Mettre à jour une base de connaissances - Démarrage rapide Python - Azure Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : Mettre à jour avec Python une base de connaissances - QnA Maker'
 description: Comment mettre à jour une base de connaissances dans Python pour QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: 79b2af150558aa5da8e060e1b5117b91ffd34387
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: d58e12df30ab1b45e460cf8a4ea098d350164ec3
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "43769912"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031932"
 ---
 # <a name="update-a-knowledge-base-in-python"></a>Mettre à jour une base de connaissances dans Python
 
 Le code suivant met à jour une base de connaissances à l’aide de la méthode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 Si vous n’avez pas encore de base de connaissances, vous pouvez créer un exemple à utiliser pour ce démarrage rapide : [Créer une base de connaissances](create-new-kb-python.md).
 

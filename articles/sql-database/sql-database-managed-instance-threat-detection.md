@@ -1,27 +1,29 @@
 ---
 title: Threat Detection - Azure SQL Database Managed Instance | Microsoft Docs
-description: Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données.
+description: Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour une base de données d’une instance managée.
 services: sql-database
-author: rmatchoro
-manager: craigg
 ms.service: sql-database
-ms.custom: security, managed instance
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: rmatchoro
 ms.author: ronmat
-ms.reviewer: carlrab
-ms.openlocfilehash: 14ef907717045e2e0cf297694d92468a65e57e4d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 7f05bd6c96a8e22b1e039c3edcec491b7c079d54
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650075"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162407"
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Azure SQL Database Managed Instance Threat Detection
 
-SQL Threat Detection permet de détecter les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à accéder ou à exploiter des bases de données dans Azure SQL Database Managed Instance (préversion).
+SQL Threat Detection permet de détecter les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à accéder ou à exploiter des bases de données dans Azure SQL Database Managed Instance.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Threat Detection permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour Managed Instance. Threat Detection est désormais disponible en préversion pour Managed Instance.
 

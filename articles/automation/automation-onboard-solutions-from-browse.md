@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0a624d850b8c3260acb24cb17566090e8ad0043e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5bb36c693db5b2d7d46b772fd8b92bcda3667dc7
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233935"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039426"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
@@ -43,17 +43,62 @@ L’image suivante s’applique à Update Management. Update Management et Inven
 
 La liste des machines virtuelles est filtrée pour afficher uniquement celles qui se trouvent dans le même abonnement et le même emplacement. Si vos machines virtuelles se trouvent dans plus de trois groupes de ressources, les trois premiers groupes de ressources sont sélectionnés.
 
+### <a name="resource-group-limit"></a> Limitations en matière d’intégration
+
+Le nombre de groupes de ressources que vous pouvez utiliser pour l’intégration est restreint par les [limites de déploiement Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Les déploiements Resource Manager, à ne pas confondre avec les déploiements de mises à jour, sont limités à 5 groupes de ressources par déploiement. Pour garantir l’intégrité de l’intégration, 2 de ces groupes de ressources sont réservés à la configuration de l’espace de travail Log Analytics, du compte Automation et des ressources associées. Il vous reste donc 3 groupes de ressources sélectionnables pour le déploiement.
+
 Utilisez les contrôles de filtre pour sélectionner des machines virtuelles provenant de différents abonnements, emplacements et groupes de ressources.
 
 ![Intégrer la solution Update Management](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Passez en revue les options concernant l’espace de travail Log Analytics et le compte Automation. Un nouvel espace de travail et un nouveau compte Automation sont sélectionnés par défaut. Si vous disposez déjà d’un espace de travail Log Analytics et d’un compte Automation que vous souhaitez utiliser, cliquez sur **change** (modifier) pour les sélectionner dans la page **Configuration**. Une fois que vous avez terminé, cliquez sur **Enregistrer**.
+Passez en revue les options concernant l’espace de travail Log Analytics et le compte Automation. Un espace de travail et un compte Automation existant sont sélectionnés par défaut. Si vous souhaitez utiliser un espace de travail Log Analytics et un compte Automation différents, cliquez sur **PERSONNALISÉ** pour les sélectionner sur la page **Configuration personnalisée**. Lorsque vous choisissez un espace de travail Log Analytics, une vérification est effectuée pour déterminer si ce dernier est lié à un compte Automation. Si un compte Automation lié est trouvé, l’écran ci-après s’affiche. Une fois que vous avez terminé, cliquez sur **OK**.
 
 ![Sélectionner un espace de travail et un compte](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
+
+Si l’espace de travail sélectionné n’est pas lié à un compte Automation, l’écran ci-après apparaît. Sélectionnez un compte Automation, puis cliquez sur **OK** lorsque vous avez terminé.
+
+![Aucun espace de travail](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
 Désactivez la case à cocher en regard des machines virtuelles que vous ne souhaitez pas activer. Les machines virtuelles qui ne peuvent pas être activées sont déjà désélectionnées.
 
 Cliquez sur **Activer** pour activer la solution. L’activation de la solution prend jusqu’à 15 minutes.
+
+## <a name="unlink-workspace"></a>Supprimer le lien de votre espace de travail
+
+Les solutions ci-après sont tributaires d’un espace de travail Log Analytics :
+
+* [Gestion des mises à jour](automation-update-management.md)
+* [Suivi des modifications](automation-change-tracking.md)
+* [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
+
+Si vous ne souhaitez plus intégrer votre compte Automation dans Log Analytics, vous pouvez supprimer son lien directement dans le portail Azure. Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
+
+Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivantes pour supprimer le lien de votre compte Automation.
+
+> [!NOTE]
+> Certaines solutions, y compris les versions antérieures de la solution d’analyse de SQL Azure ont peut-être créé des ressources d’automatisation et doivent également être supprimées avant d’être de l’espace de travail.
+
+1. Dans le portail Azure, ouvrez votre compte Automation puis, dans la page de ce dernier, sélectionnez **Espace de travail lié** dans la section **Ressources associées** sur la gauche.
+
+1. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.
+
+   ![Page Dissocier l’espace de travail](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
+
+   Vous recevez une invite de confirmation de la suppression.
+
+1. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
+
+Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
+
+* Planifications de mise à jour : chacune aura un nom correspondant aux déploiements de mise à jour que vous avez créés.
+
+* Groupes de travail hybrides créés pour la solution : chacun a un nom similaire à machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
+
+Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pendant les heures creuses, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
+
+* Start and stop VM runbook schedules (Démarrer et arrêter les planifications de Runbook de machine virtuelle)
+* Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
+* variables
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

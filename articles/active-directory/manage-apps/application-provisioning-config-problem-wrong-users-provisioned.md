@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 2c2dd2208cf910456fa8f94ca739b7ef8875d475
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: df32ed7a6d3bc0c9e349f576f5f48832bf9906dd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354979"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041919"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Un mauvais ensemble d’utilisateurs est affecté à une application de la galerie Azure AD
 
@@ -109,7 +109,7 @@ Si l’approvisionnement est configuré et déjà en cours d’exécution pour u
 >
 >
 
-Si les groupes de configuration sont activés, veillez à passer en revue les mappages d’attributs afin de vous assurer qu'un champ approprié est utilisé pour l’« ID correspondant ». Il peut s’agir du nom d’affichage ou de l’alias de courrier électronique, comme le groupe et ses membres qui ne sont pas approvisionnés si la propriété correspondante est vide ou n’est pas remplie pour un groupe dans Azure AD.
+Si les groupes d’approvisionnement sont activés, veillez à passer en revue les mappages d’attributs afin de vous assurer qu’un champ approprié est utilisé pour l’« ID correspondant ». Cet ID correspondant peut être le nom d’affichage ou l’alias d’e-mail. Le groupe et ses membres ne sont pas approvisionnés si la propriété correspondante est vide ou n’est pas renseignée pour un groupe dans Azure AD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Automatisation de l’approvisionnement et de la l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](user-provisioning.md)

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd96a6cfebe44bd02e3f44a44d91119ad1c2c5a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598750"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094215"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Contrôle d’accès en fonction du rôle dans Azure Automation
 
@@ -78,12 +78,21 @@ Un opérateur Automation est capable de créer et gérer des travaux, et de lire
 |**Actions**  |**Description**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Lire l’autorisation.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Lire des ressources Runbook Worker hybrides.|
 |Microsoft.Automation/automationAccounts/jobs/read|Répertorier les travaux du runbook.|
 |Microsoft.Automation/automationAccounts/jobs/resume/action|Reprendre un travail en pause.|
 |Microsoft.Automation/automationAccounts/jobs/stop/action|Annuler un travail en cours d’exécution.|
 |Microsoft.Automation/automationAccounts/jobs/streams/read|Lire les flux de travail et la sortie.|
+|Microsoft.Automation/automationAccounts/jobs/output/read|Obtenir la sortie d’un travail.|
 |Microsoft.Automation/automationAccounts/jobs/suspend/action|Suspendre un travail en cours.|
 |Microsoft.Automation/automationAccounts/jobs/write|Créer des travaux.|
+|Microsoft.Automation/automationAccounts/jobSchedules/read|Obtenir une planification de travail Azure Automation.|
+|Microsoft.Automation/automationAccounts/jobSchedules/write|Créer une planification de travail Azure Automation.|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Obtenir l’espace de travail lié au compte Automation.|
+|Microsoft.Automation/automationAccounts/read|Obtenir un compte Azure Automation.|
+|Microsoft.Automation/automationAccounts/runbooks/read|Obtenir un runbook Azure Automation.|
+|Microsoft.Automation/automationAccounts/schedules/read|Obtenir une ressource de planification Azure Automation.|
+|Microsoft.Automation/automationAccounts/schedules/write|Créer ou mettre à jour une ressource de planification Azure Automation.|
 |Microsoft.Resources/subscriptions/resourceGroups/read      |Lire les rôles et les attributions de rôle.         |
 |Microsoft.Resources/deployments/*      |Créer et gérer les déploiements de groupes de ressources.         |
 |Microsoft.Insights/alertRules/*      | Créer et gérer les règles d’alerte.        |
@@ -251,11 +260,11 @@ La gestion des mises à jour s’étend à plusieurs services pour fournir son s
 |**Ressource**  |**Rôle**  |**Portée**  |
 |---------|---------|---------|
 |Compte Automation     | Contributeur Log Analytics       | Compte Automation        |
-|Compte Automation    | Collaborateur de machine virtuelle        | Groupe de ressources pour le compte        |
+|Compte Automation    | Contributeur de machine virtuelle        | Groupe de ressources pour le compte        |
 |Espace de travail Log Analytics     | Contributeur Log Analytics| Espace de travail Log Analytics        |
 |Espace de travail Log Analytics |Lecteur Log Analytics| Abonnement|
 |Solution     |Contributeur Log Analytics         | Solution|
-|Machine virtuelle     | Collaborateur de machine virtuelle        | Machine virtuelle        |
+|Machine virtuelle     | Contributeur de machine virtuelle        | Machine virtuelle        |
 
 ## <a name="configure-rbac-for-your-automation-account"></a>Configurer RBAC pour votre compte Automation
 

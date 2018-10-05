@@ -1,22 +1,23 @@
 ---
-title: Consulter l’utilisation de LUIS à partir d’Azure Cloud Shell | Microsoft Docs
+title: Données d’utilisation Azure Cloud Shell pour LUIS
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment obtenir des informations sur l’utilisation sur LUIS dans Azure Cloud Shell.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: f9d3a489328263bd300d60935bfde2f0dfc0245c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0a02d2e5e0a1f1765098e1b1e258424b6443878
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224039"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039572"
 ---
-# <a name="manage-luis-service-from-azure-cloud-shell"></a>Gérer le service LUIS à partir d’Azure Cloud Shell
+# <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Données d’utilisation pour le service LUIS à partir d’Azure Cloud Shell
 Le portail Azure vous permet de saisir des cmdlets PowerShell pour utiliser des ressources LUIS. 
 
 Ces cmdlets permettent de [créer](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) un abonnement LUIS, d’obtenir des informations sur l’abonnement, y compris son [utilisation](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), et de [supprimer](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) l’abonnement. 

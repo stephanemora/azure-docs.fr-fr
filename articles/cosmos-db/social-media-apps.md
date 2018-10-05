@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700841"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222690"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
 Vivre dans une société massivement interconnectée signifie qu’à un moment donné, vous vous joignez à un **réseau social**. Vous utilisez les réseaux sociaux pour rester en contact avec vos amis, vos collègues, votre famille, ou parfois pour partager votre passion avec des personnes ayant des intérêts communs.
@@ -39,7 +39,7 @@ Pourquoi SQL n’est-il pas le meilleur choix dans ce scénario ? Examinons la s
 Vous pourriez bien sûr utiliser une énorme instance SQL avec suffisamment de puissance pour résoudre des milliers de requêtes avec ces nombreuses jointures pour délivrer notre contenu, mais pourquoi procéder ainsi alors qu’une solution plus simple existe ?
 
 ## <a name="the-nosql-road"></a>L’utilisation de NoSQL
-Cet article vous explique comment modéliser les données de votre plateforme sociale avec la base de données NoSQL [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) à moindre frais tout en exploitant d’autres fonctionnalités Azure Cosmos DB, telles que [l’API Gremlin](../cosmos-db/graph-introduction.md). Avec une approche [NoSQL](https://en.wikipedia.org/wiki/NoSQL), le stockage des données au format JSON et l’application de la [dénormalisation](https://en.wikipedia.org/wiki/Denormalization), la publication, auparavant si compliquée, peut être transformée en un seul [document](https://en.wikipedia.org/wiki/Document-oriented_database) :
+Cet article vous explique comment modéliser les données de votre plateforme sociale avec la base de données NoSQL [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) à moindre frais tout en exploitant d’autres fonctionnalités Azure Cosmos B, telles que [l’API Gremlin](../cosmos-db/graph-introduction.md). Avec une approche [NoSQL](https://en.wikipedia.org/wiki/NoSQL), le stockage des données au format JSON et l’application de la [dénormalisation](https://en.wikipedia.org/wiki/Denormalization), la publication, auparavant si compliquée, peut être transformée en un seul [document](https://en.wikipedia.org/wiki/Document-oriented_database) :
 
 
     {
@@ -99,7 +99,7 @@ La création de flux consiste simplement à créer des documents qui peuvent con
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Vous pourriez avoir un flux « récent » avec les publications classées par date de création, un flux « populaire » regroupant les publications ayant obtenu le plus grand nombre de J’aime dans les dernières 24 heures, vous pourriez même implémenter un flux personnalisé pour chaque utilisateur basé sur la logique, comme ses abonnés et ses centres d’intérêt, et cela sera toujours considéré comme une liste de publications. Le plus compliqué est de créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que vous avez obtenu une de ces listes, vous émettez une requête unique à Cosmos DB avec l’[opérateur IN](sql-api-sql-query.md#WhereClause) pour obtenir plusieurs pages de publications simultanément.
+Vous pourriez avoir un flux « récent » avec les publications classées par date de création et un flux « populaire » regroupant les publications ayant obtenu le plus grand nombre de J’aime au cours des dernières 24 heures. Vous pourriez même implémenter un flux personnalisé pour chaque utilisateur basé sur la logique, comme ses abonnés et ses centres d’intérêt, ce qui sera toujours considéré comme une liste de publications. Le plus compliqué est de créer ces listes, mais les performances de lecture ne sont pas affectées. Une fois que vous avez obtenu une de ces listes, vous émettez une requête unique à Cosmos DB avec l’[opérateur IN](sql-api-sql-query.md#WhereClause) pour obtenir plusieurs pages de publications simultanément.
 
 Les flux de commentaires peuvent être créés à l’aide des processus d’arrière-plan d’[Azure App Services](https://azure.microsoft.com/services/app-service/) : [Webjobs](../app-service/web-sites-create-web-jobs.md). Une fois qu’une publication est créée, le traitement en arrière-plan peut être déclenché avec des [files d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) de [Stockage Azure](https://azure.microsoft.com/services/storage/) et des tâches webjobs déclenchées avec le [SDK Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implémentant la propagation des publications dans des flux basés sur votre propre logique personnalisée. 
 
@@ -134,12 +134,12 @@ Et le graphe réel d’abonnés peut être stocké à l’aide de [l’API Greml
 
 Le document sur les statistiques utilisateur peut toujours servir à créer des cartes dans l’interface utilisateur ou des préversions de profil rapides.
 
-## <a name="the-ladder-pattern-and-data-duplication"></a>Duplication des données et modèle « Échelle »
+## <a name="the-ladder-pattern-and-data-duplication"></a>Duplication des données et modèle « Échelle »
 Comme vous l’avez peut-être remarqué dans le document JSON qui fait référence à une publication, il existe plusieurs occurrences d’un utilisateur. Et vous auriez raison. Cela signifie que les informations qui représentent un utilisateur peuvent être présentes à plusieurs endroits, en raison de la dénormalisation.
 
 Pour obtenir des requêtes plus rapides, vous acceptez la duplication des données. Le problème de cet effet secondaire est que si les données d’un utilisateur changent, vous devez rechercher toutes les activités auxquelles il a participé et les mettre toutes à jour. Ceci ne semble pas pratique.
 
-Vous allez le résoudre en identifiant les attributs clés d’un utilisateur que vous affichez dans votre application pour chaque activité. Si vous montrez une publication dans votre application et que vous affichez seulement le nom et la photo du créateur, pourquoi stocker toutes les données de l’utilisateur dans l’attribut « createdBy » ? Si, pour chaque commentaire, vous affichez seulement la photo de l’utilisateur, vous n’avez pas vraiment besoin des autres informations le concernant. C’est là que ce que j’appelle le « modèle Échelle » entre en jeu.
+Vous allez le résoudre en identifiant les attributs clés d’un utilisateur que vous affichez dans votre application pour chaque activité. Si vous montrez une publication dans votre application et que vous affichez seulement le nom et la photo du créateur, pourquoi stocker toutes les données de l’utilisateur dans l’attribut « createdBy » ? Si, pour chaque commentaire, vous affichez seulement la photo de l’utilisateur, vous n’avez pas vraiment besoin des autres informations le concernant. C’est là que ce que j’appelle le « modèle Échelle » entre en jeu.
 
 Prenons comme exemple les informations utilisateur :
 
@@ -157,11 +157,11 @@ Prenons comme exemple les informations utilisateur :
         "totalPosts":24
     }
 
-En examinant ces informations, vous pouvez rapidement détecter les informations critiques et celles qui ne le sont pas, créant ainsi une « échelle » :
+En examinant ces informations, vous pouvez rapidement détecter les informations critiques et celles qui ne le sont pas, créant ainsi une « échelle » :
 
 ![Diagramme d’un modèle d’échelle](./media/social-media-apps/social-media-apps-ladder.png)
 
-L’étape la plus petite est appelée UserChunk, l’information minimale qui identifie un utilisateur et qui est utilisée pour la duplication des données. En limitant la taille des données dupliquées aux seules informations que vous allez « montrer », vous réduisez le besoin de procéder à des mises à jour massives.
+L’étape la plus petite est appelée UserChunk, l’information minimale qui identifie un utilisateur et qui est utilisée pour la duplication des données. En limitant la taille des données dupliquées aux seules informations que vous allez « montrer », vous réduisez la possibilité de procéder à des mises à jour massives.
 
 L’étape intermédiaire est appelée Utilisateur. Ce sont les données complètes qui seront employées pour les requêtes qui dépendent le plus des performances sur Cosmos DB, les données les plus consultées et les plus essentielles. Elles incluent les informations représentées par un UserChunk.
 
@@ -190,7 +190,7 @@ Et une publication ressemblerait à ce qui suit :
         }
     }
 
-Et en cas de modification où l’un des attributs du segment est affecté, il est facile de trouver les documents affectés à l’aide de requêtes qui pointent vers les attributs indexés (SELECT * FROM posts p WHERE p.createdBy.id == “edited_user_id”), puis de mettre les segments à jour.
+Et en cas de modification où l’un des attributs du bloc est affecté, il est facile de trouver les documents affectés à l’aide de requêtes qui pointent vers les attributs indexés (SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id"), puis de mettre les blocs à jour.
 
 ## <a name="the-search-box"></a>La zone de recherche
 Les utilisateurs vont heureusement générer beaucoup de contenu. Et vous devriez être en mesure de fournir la possibilité de rechercher et de trouver du contenu qui n’est peut-être pas directement dans leur flux de contenu, car vous ne suivez pas les créateurs ou vous essayez peut-être simplement de trouver une publication créée il y a 6 mois.
@@ -240,7 +240,7 @@ Lorsque vous répliquez vos données globalement, vous devez vous assurer que vo
 ![Ajout d’une couverture globale à votre plate-forme sociale](./media/social-media-apps/social-media-apps-global-replicate.png)
 
 ## <a name="conclusion"></a>Conclusion
-Cet article tente de vous éclairer sur les alternatives de création de réseaux sociaux sur Azure avec des services à faible coût et offrant de bons résultats, avec l’utilisation d’une solution de stockage à plusieurs niveaux et une distribution des données appelée « Échelle ».
+Cet article tente de vous éclairer sur les alternatives de création de réseaux sociaux entièrement sur Azure avec des services à faible coût et offrant de bons résultats, avec l’utilisation d’une solution de stockage à plusieurs niveaux et une distribution des données appelée « Échelle ».
 
 ![Diagramme de l’interaction entre les services Azure pour les réseaux sociaux](./media/social-media-apps/social-media-apps-azure-solution.png)
 

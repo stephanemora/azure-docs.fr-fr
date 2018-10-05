@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146512"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163900"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -38,7 +38,7 @@ Cette erreur se produit si le nom de la ressource d’informations d’identific
 
 Pour identifier le problème, effectuez les étapes suivantes :  
 
-1. Assurez-vous qu’il n’existe aucun caractère spécial, notamment le caractère **@** , dans le nom de la ressources d’informations d’identification Automation que vous utilisez pour vous connecter à Azure.  
+1. Assurez-vous qu’il n’existe aucun caractère spécial, notamment le caractère **@** , dans le nom de la ressource d’informations d’identification Automation que vous utilisez pour vous connecter à Azure.  
 2. Vérifiez que vous pouvez utiliser le nom d’utilisateur et le mot de passe stockés dans les informations d’identification Azure Automation dans votre éditeur PowerShell ISE local. Vous pouvez le faire en exécutant les applets de commande suivantes dans PowerShell ISE :  
 
    ```powershell
@@ -91,13 +91,20 @@ Cette erreur se produit si le nom de l’abonnement n’est pas valide ou si l�
 
 #### <a name="resolution"></a>Résolution :
 
-Pour déterminer si vous vous êtes correctement authentifié auprès d’Azure et si avez accès à l’abonnement que vous essayez de sélectionner, effectuez les étapes suivantes :  
+Pour déterminer si vous vous êtes correctement authentifié auprès d’Azure et si vous avez accès à l’abonnement que vous essayez de sélectionner, effectuez les étapes suivantes :  
 
-1. Assurez-vous d’exécuter l’applet de commande **Add-AzureAccount** avant d’exécuter l’applet de commande **Select-AzureSubscription**.  
-2. Si le message d’erreur persiste, modifiez votre code en ajoutant l’applet de commande **Get-AzureSubscription** à la suite de l’applet de commande **Add-AzureAccount**, puis exécutez le code. Maintenant, vérifiez si la sortie de Get-AzureSubscription contient les détails de votre abonnement.  
+1. Assurez-vous d’exécuter la cmdlet **Add-AzureAccount** avant d’exécuter la cmdlet **Select-AzureSubscription**.  
+2. Si ce message d’erreur persiste, modifiez votre code en ajoutant le paramètre **-AzureRmContext** après la cmdlet **Add-AzureAccount**, puis exécutez le code.
 
-   * Si la sortie ne contient aucun des détails de l’abonnement, vous pouvez en conclure que l’abonnement n’est pas encore initialisé.  
-   * Si vous ne voyez pas les détails de l’abonnement dans la sortie, vérifiez que vous utilisez le bon nom d’abonnement ou le bon identificateur avec l’applet de commande **Select-AzureSubscription** .
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $context = Get-AzureRmContext
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
+   ```
 
 ### <a name="auth-failed-mfa"></a>Scénario : L’authentification auprès d’Azure a échoué, car l’authentification multifacteur est activée
 
@@ -151,7 +158,7 @@ Le runbook enfant n’utilise pas le contexte approprié lors de l’exécution.
 
 #### <a name="resolution"></a>Résolution :
 
-Si vous utilisez plusieurs abonnements, le contexte de l’abonnement peut être perdu durant l’appel des runbooks enfants. Pour que le contexte de l’abonnement soit passé aux runbooks enfants, ajoutez le paramètre `DefaultProfile` à l’applet de commande et passez-lui le contexte.
+Si vous utilisez plusieurs abonnements, le contexte de l’abonnement peut être perdu durant l’appel des runbooks enfants. Pour que le contexte de l’abonnement soit passé aux runbooks enfants, ajoutez le paramètre `AzureRmContext` à l’applet de commande et passez-lui le contexte.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
@@ -171,7 +178,7 @@ Start-AzureRmAutomationRunbook `
     –AutomationAccountName 'MyAutomationAccount' `
     –Name 'Test-ChildRunbook' `
     -ResourceGroupName 'LabRG' `
-    -DefaultProfile $AzureContext `
+    -AzureRmContext $AzureContext `
     –Parameters $params –wait
 ```
 
@@ -216,17 +223,19 @@ Cette erreur peut être due aux raisons suivantes :
 
 1. Limite de mémoire. Il existe des limites documentées sur la quantité de mémoire allouée à un bac à sable que le [service Automation limite](../../azure-subscription-service-limits.md#automation-limits), de façon à ce qu’un travail puisse échouer s’il utilise plus de 400 Mo de mémoire.
 
-2. Module incompatible. Cela peut se produire si les dépendances de module ne sont pas correctes. Dans ce cas, votre runbook renvoie généralement un message « Commande introuvable » ou « Impossible de lier le paramètre ».
+1. Sockets réseau. Les bacs à sable Azure sont limités à 1 000 sockets réseau simultanés, comme décrit dans [Limites du service Automation](../../azure-subscription-service-limits.md#automation-limits).
+
+1. Module incompatible. Cela peut se produire si les dépendances de module ne sont pas correctes. Dans ce cas, votre runbook renvoie généralement un message « Commande introuvable » ou « Impossible de lier le paramètre ».
 
 #### <a name="resolution"></a>Résolution :
 
 Une des solutions suivantes corrige ce problème :
 
-* Les méthodes recommandées pour travailler dans la limite de mémoire consistent à diviser la charge de travail en plusieurs runbooks, à ne pas traiter trop de données en mémoire, à ne pas écrire de sortie inutile depuis vos runbooks ou à prendre en compte le nombre de points de contrôle que vous écrivez dans vos runbooks de flux de travail PowerShell.  
+* Les méthodes recommandées pour travailler dans la limite de mémoire consistent à fractionner la charge de travail en plusieurs runbooks, à ne pas traiter trop de données en mémoire, à ne pas écrire de sortie inutile depuis vos runbooks ou à prendre en compte le nombre de points de contrôle que vous écrivez dans vos runbooks de flux de travail PowerShell. Vous pouvez utiliser la méthode clear, telle que `$myVar.clear()`, pour effacer la variable, ainsi que `[GC]::Collect()` pour exécuter immédiatement le nettoyage de la mémoire, ce qui permet de réduire l’empreinte mémoire de votre runbook pendant l’exécution.
 
 * Mettez à jour vos modules Azure en suivant les étapes de l’article [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md).  
 
-* Une autre solution consiste à exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md). Les Workers hybrides ne sont pas restreints par les limites de [répartition de charge équilibrée](../automation-runbook-execution.md#fair-share) associées aux bacs à sable Azure.
+* Une autre solution consiste à exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md). Les Workers hybrides ne sont pas restreints par les limites de mémoire et réseau associées aux bacs à sable Azure.
 
 ### <a name="fails-deserialized-object"></a>Scénario : Le runbook échoue à cause d’un objet désérialisé
 

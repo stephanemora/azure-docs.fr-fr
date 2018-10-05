@@ -1,20 +1,21 @@
 ---
-title: Démarrage rapide de Java pour l’API QnA Maker Microsoft (v4) - Azure Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : Java pour l’API QnA Maker (v4)'
+titleSuffix: Azure Cognitive Services
 description: Obtenez des informations et des exemples de code pour vous aider à commencer rapidement à utiliser l’API de traduction de texte Translator Text Microsoft dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: d8df77d43441331bdda38814e4bddfb29d1576c1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 8cf9df5130f11fd07dbf468ad0ad93dff4584b21
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868396"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031479"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Démarrage rapide pour l’API QnA Maker Microsoft avec Java 
 <a name="HOLTop"></a>
@@ -35,6 +36,8 @@ Cet article explique comment utiliser l’[API QnA Maker Microsoft](../Overview/
 - [Régénérer les clés du point de terminaison actuel](#PutKeys)
 - [Obtenir l’ensemble actuel d’altérations de mot](#GetAlterations)
 - [Remplacer l’ensemble actuel d’altérations de mot](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -261,7 +264,7 @@ public class CreateKB {
 
 **Créer une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -570,7 +573,7 @@ public class UpdateKB {
 
 **Mettre à jour une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -721,7 +724,7 @@ public class PublishKB {
 
 **Publier une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -891,7 +894,7 @@ public class ReplaceKB {
 
 **Remplacer une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1010,7 +1013,7 @@ public class GetQnA {
 
 **Télécharger une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1166,7 +1169,7 @@ public class GetAnswers {
 
 **Obtenir une réponse à une question**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1293,7 +1296,7 @@ public class GetKB {
 
 **Obtenir une réponse détaillée de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1417,7 +1420,7 @@ public class GetKBsByUser {
 
 **Obtenir des bases de connaissances pour répondre à un utilisateur**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1566,7 +1569,7 @@ public class DeleteKB {
 
 **Supprimer une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1678,7 +1681,7 @@ public class GetEndpointKeys {
 
 **Obtenir une réponse concernant les clés d’un point de terminaison**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1842,7 +1845,7 @@ public class RefreshKeys {
 
 **Actualiser une réponse concernant les clés d’un point de terminaison**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1955,7 +1958,7 @@ public class GetAlterations {
 
 **Obtenir une réponse concernant les altérations d’un mot**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -2112,7 +2115,7 @@ public class PutAlterations {
 
 **Remplacer une réponse concernant les altérations d’un mot**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {

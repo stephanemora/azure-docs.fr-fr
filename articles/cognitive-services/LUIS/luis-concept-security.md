@@ -1,20 +1,21 @@
 ---
-title: Comprendre l’accès aux applications LUIS - Azure | Microsoft Docs
-description: Découvrez comment accéder à la création dans LUIS.
+title: Comprendre l’accès aux applications LUIS
+titleSuffix: Azure Cognitive Services
+description: L’accès à la création est disponible pour les propriétaires et les collaborateurs. Pour une application privée, l’accès au point de terminaison est disponible pour les propriétaires et les collaborateurs. Pour une application publique, l’accès au point de terminaison est disponible à tous les utilisateurs qui possèdent leur propre compte LUIS et l’ID de l’application publique.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fddffbcabba753e9ef214f924d5ff2cee38427a5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 8a7ecac3776d767160b07f550251c54793926056
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301691"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033190"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Accès utilisateur à la création et au point de terminaison
 L’accès à la création est disponible pour les propriétaires et les collaborateurs. Pour une application privée, l’accès au point de terminaison est disponible pour les propriétaires et les collaborateurs. Pour une application publique, l’accès au point de terminaison est disponible à tous les utilisateurs qui possèdent leur propre compte LUIS et l’ID de l’application publique. 
@@ -37,11 +38,13 @@ Le propriétaire et tous les collaborateurs disposent de l’accès requis pour 
 |Former|
 
 ## <a name="access-to-endpoint"></a>Accès au point de terminaison
-L’accès au point de terminaison pour interroger LUIS est contrôlé par le paramètre **Public** de l’application sur la page **Paramètres**. La requête du point de terminaison d’une application privée est vérifiée pour voir s’il existe une clé autorisée avec accès au quota restant. La requête du point de terminaison d’une application publique doit également fournir une clé de point de terminaison (à partir de la personne qui effectue la requête) qui est également vérifiée pour l’accès au quota restant. 
-
-La clé de point de terminaison est passée dans la chaîne de requête de la requête GET ou l’en-tête de la requête POST.
+L’accès pour interroger le point de terminaison est contrôlé par un paramètre dans la page **Informations sur l’application** dans la section **Gérer**. 
 
 ![Définir l’application comme publique](./media/luis-concept-security/set-application-as-public.png)
+
+|[Point de terminaison privé](#private-app-endpoint-security)|[Point de terminaison public](#public-app-endpoint-access)|
+|:--|:--|
+|Accessible au propriétaire et aux collaborateurs|Accessible au propriétaire, aux collaborateurs et à toute personne qui connaît l’ID d’application|
 
 ### <a name="private-app-endpoint-security"></a>Sécurité du point de terminaison d’application privée
 Le point de terminaison d’une application privée est disponible uniquement pour ce qui suit :
@@ -50,14 +53,19 @@ Le point de terminaison d’une application privée est disponible uniquement po
 |--|--|--|
 |Clé de création du propriétaire| Jusqu’à 1 000 accès au point de terminaison|
 |Clés de création des collaborateurs| Jusqu’à 1 000 accès au point de terminaison|
-|Clés de point de terminaison ajoutées à partir de la page **[Publier](luis-how-to-publish-app.md)**|Le propriétaire et les collaborateurs peuvent ajouter des clés de point de terminaison|
+|N’importe quelle clé affectée à LUIS par un auteur ou un collaborateur|Dépend du niveau d’utilisation de la clé|
 
-Les autres clés de création ou de point de terminaison n’ont **aucun** accès.
+#### <a name="microsoft-user-accounts"></a>Comptes utilisateur Microsoft
+Les auteurs et collaborateurs peuvent affecter des clés à une application LUIS privée. Le compte d’utilisateur Microsoft qui crée la clé LUIS dans le portail Azure doit être celui du propriétaire de l’application ou d’un collaborateur de l’application. Vous ne pouvez pas affecter une clé à une application privée à partir d’un autre compte Azure.
+
+Pour plus d’informations sur les comptes d’utilisateur Active Directory, voir [Utilisateur du locataire Azure Active Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user). 
 
 ### <a name="public-app-endpoint-access"></a>Accès au point de terminaison d’application publique
-Configurez l’application en tant que **publique** sur la page **Paramètres** de l’application. Une fois qu’une application est configurée comme étant publique, _toute_ clé de création LUIS valide ou clé de point de terminaison LUIS peut interroger votre application, tant que la clé n’a pas épuisé le quota de point de terminaison.
+Une fois qu’une application est configurée comme étant publique, _toute_ clé de création LUIS valide ou clé de point de terminaison LUIS peut interroger votre application, tant que la clé n’a pas épuisé le quota de point de terminaison.
 
 Un utilisateur qui n’est pas propriétaire ou collaborateur peut uniquement accéder à une application publique s’il dispose de l’ID d’application. LUIS ne dispose pas d’un _marché_ public, ni d’un autre moyen de rechercher une application publique.  
+
+Une application publique est publiée dans toutes les régions. Ainsi, un utilisateur ayant une clé de ressource LUIS basée sur une région peut accéder à l’application dans toute région associée à la clé de ressource.
 
 ## <a name="microsoft-user-accounts"></a>Comptes utilisateur Microsoft
 Les créateurs et les collaborateurs peuvent ajouter des clés à LUIS sur la page Publier. Le compte d’utilisateur Microsoft qui crée la clé LUIS dans le portail Azure doit être celui du propriétaire de l’application ou d’un collaborateur de l’application. 
@@ -71,11 +79,13 @@ If the Microsoft user account is part of an Azure Active Directory (AAD), and th
 ### Administrator consent
 If the Microsoft user account is part of an Azure Active Directory (AAD), and the active directory doesn't allow users to give consent, then the administrator can give individual consent via the method discussed in this [blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/). 
 -->
+
 ## <a name="securing-the-endpoint"></a>Sécurisation du point de terminaison 
 Vous pouvez contrôler qui peut voir votre clé de point de terminaison LUIS en l’appelant dans un environnement serveur à serveur. Si vous utilisez LUIS à partir d’un bot, la connexion entre le bot et LUIS est déjà sécurisée. Si vous appelez le point de terminaison LUIS directement, vous devez créer une API côté serveur (comme une [fonction](https://azure.microsoft.com/services/functions/) Azure) avec un accès contrôlé (comme [AAD](https://azure.microsoft.com/services/active-directory/)). Lorsque l’API côté serveur est appelée et que l’authentification et l’autorisation sont vérifiées, passez l’appel à LUIS. Bien que cette stratégie n’empêche pas les attaques de type interception (man-in-the-middle), elle masque votre point de terminaison à vos utilisateurs, vous permet d’effectuer le suivi de l’accès et vous permet d’ajouter la journalisation de la réponse du point de terminaison (comme [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
 
 ## <a name="security-compliance"></a>Conformité de la sécurité
-LUIS a passé avec succès l’audit ISO 27001:2013 et l’audit ISO 27018:2014 avec ZÉRO non conformités (résultats) dans le rapport d’audit. En outre, LUIS a également obtenu la Certification CSA STAR avec le Gold Award le plus élevé en termes d’évaluation de la fonctionnalité de la maturité. Azure est le seul fournisseur principal de service cloud public ayant obtenu cette certification. Pour plus d’informations, vous trouverez le service LUIS inclus dans la déclaration d’étendue mise à jour dans le document principal sur la [présentation de la conformité](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) d’Azure référencé sur les pages ISO de [Trust Center](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001).  
+ 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-security-compliance.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,26 +1,24 @@
 ---
-title: Utiliser le Kit de développement logiciel (SDK) Speech C# avec LUIS - Azure | Microsoft Docs
-titleSuffix: Azure
-description: Utilisez l’exemple de Kit de développement logiciel (SDK) Speech C# pour parler dans le microphone et recevoir les prédictions de l’intention et des entités de LUIS.
+title: Utiliser le SDK de reconnaissance vocale C# avec LUIS
+titleSuffix: Azure Cognitive Services
+description: Le service de reconnaissance vocale vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS. Le projet utilise le package NuGet Speech, déjà inclus comme référence.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 14956fd716a6939d5e7dd9d670cc78b58adf7f45
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124394"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042072"
 ---
 # <a name="integrate-speech-service"></a>Intégrer le service de reconnaissance vocale
-Le [service de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS.
-
-Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS. Le projet utilise le package [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) Speech, déjà inclus comme référence. 
+Le [service de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS. Le projet utilise le package [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) Speech, déjà inclus comme référence. 
 
 Pour cet article, vous devez disposer d’un compte [LUIS][LUIS] gratuit afin d’importer l’application.
 
@@ -32,12 +30,13 @@ Les intentions et les énoncés de cet article proviennent de l’application Re
 
 Cette application dispose d’intentions, d’entités et d’énoncés associés au secteur des ressources humaines. Les exemples d’énoncés sont les suivants :
 
-```
-Who is John Smith's manager?
-Who does John Smith manage?
-Where is Form 123456?
-Do I have any paid time off?
-```
+|Exemples d’énoncés|
+|--|
+|Qui est le responsable de John Smith ?|
+|De qui John Smith est-il responsable ?|
+|Où se trouve le formulaire 123456 ?|
+|Ai-je des congés payés ?|
+
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Ajouter l’entité préconçue KeyPhrase
 Après avoir importé l’application, sélectionnez **Entités**, puis **Gérer des entités préconçues**. Ajoutez l’entité **KeyPhrase**. L’entité KeyPhrase extrait le sujet principal d’un énoncé.
@@ -45,19 +44,18 @@ Après avoir importé l’application, sélectionnez **Entités**, puis **Gérer
 ## <a name="train-and-publish-the-app"></a>Former et publier l’application
 1. Dans la barre de navigation du coin supérieur droit, sélectionnez le bouton **Former** pour former l’application LUIS.
 
-2. Sélectionnez **Publier** pour aller à la page de publication. 
+2. Sélectionnez **Manage (Gérer)** dans la barre en haut à droite, puis **Keys and endpoints (Clés et points de terminaison)** dans la navigation gauche. 
 
-3. En bas de la page **Publier**, ajoutez la clé LUIS créée dans la section [Créer une clé de point de terminaison LUIS](#create-luis-endpoint-key).
+3. Dans la page **Keys and endpoints**, affectez la clé LUIS créée dans la section [Create LUIS endpoint key (Créer une clé de point de terminaison LUIS)](#create-luis-endpoint-key).
 
-4. Publiez l’application LUIS en sélectionnant le bouton **Publier** à droite de l’emplacement Publier. 
-
-  Sur la page **Publier**, récupérez l’ID de l’application, la région de publication et l’ID d’abonnement de la clé LUIS créée dans la section [Créer une clé de point de terminaison LUIS](#create-luis-endpoint-key). Vous devez modifier le code pour utiliser ces valeurs plus tard dans cet article. 
-
-  Ces valeurs sont toutes incluses dans l’URL de point de terminaison en bas de la page **Publier** de la clé que vous avez créée. 
+  Dans cette page, récupérez l’ID de l’application, la région de publication et l’ID d’abonnement de la clé LUIS créée dans la section [Create LUIS endpoint key](#create-luis-endpoint-key). Vous devez modifier le code pour utiliser ces valeurs plus tard dans cet article. 
   
   N’utilisez **pas** la clé gratuite de démarrage pour cet exercice. Seule une clé **Language Understanding** créée dans le portail Azure fonctionne pour cet exercice. 
 
   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
+
+
+4. Publiez l’application LUIS en sélectionnant le bouton **Publish** dans la barre en haut à droite. 
 
 ## <a name="audio-device"></a>Appareil audio
 Cet article utilise l’appareil audio de votre ordinateur. Il peut s’agir d’un casque avec microphone ou d’un appareil audio intégré. Vérifiez les niveaux d’entrée audio pour savoir si vous devez parler plus fort que d’habitude pour que votre appareil audio vous détecte. 
@@ -119,7 +117,7 @@ L’intention correcte, **GetEmployeeOrgChart**, a été trouvée avec un taux d
 
 Le Kit de développement logiciel (SDK) Speech retourne l’ensemble de la réponse de LUIS. 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Lorsque vous n’en avez plus besoin, supprimez l’application LUIS Ressources humaines. Sélectionnez les points de suspension (***...***) à droite du nom de l’application dans la liste des applications, sélectionnez **Supprimer**. Dans la boîte de dialogue contextuelle **Supprimer l’application ?**, sélectionnez **OK**.
 
 Rappelez-vous de supprimer le répertoire LUIS-Samples lorsque vous en avez terminé avec l’exemple de code.

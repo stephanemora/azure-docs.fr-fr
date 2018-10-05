@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 283d1c2a7ef3484cb4fd4d9a53b543a093e9baf8
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 39dc48b1357b07932efbccaf002f54ca58edae24
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850301"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093294"
 ---
 # <a name="azure-stack-administration-basics"></a>Principes de bases de l’administration d’Azure Stack
 Si vous débutez avec l’administration d’Azure Stack, vous devez prendre connaissance de plusieurs choses. Ce guide fournit une vue d’ensemble de votre rôle en tant qu’opérateur Azure Stack, et explique ce que vous devez dire à vos utilisateurs pour qu’ils deviennent rapidement productifs.

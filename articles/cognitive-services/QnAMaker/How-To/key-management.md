@@ -1,21 +1,21 @@
 ---
-title: Gestion des clés - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: Comment gérer vos clés QnA Maker
+title: Gestion des clés et des ressources - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Votre service QnA Maker porte sur deux types de clés, les clés d’abonnement et les clés de point de terminaison.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: b402187f4949dac34fa476648c81b980ba3efc96
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: f48b4b7da4990de0efb9b7de5d97731d748f0e7f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369640"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040446"
 ---
 # <a name="key-management"></a>Gestion des clés
 

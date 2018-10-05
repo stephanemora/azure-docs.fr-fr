@@ -1,21 +1,21 @@
 ---
-title: Comment publier une base de connaissances - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: Comment publier une base de connaissances
+title: Publier une base de connaissances - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: La publication de votre base de connaissances est l’étape finale de la mise à disposition de votre base de connaissances comme point de terminaison de question et de réponse. Lorsque vous publiez une base de connaissances, ses contenus QnA se déplacent à partir de l’index de test vers un index de production dans la recherche Azure.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: e9dbeacfb0df98c6b8f084c263690c05fe966cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: eceb0554d35935f1aee77c4c054cb7e65b327845
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369557"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033411"
 ---
 # <a name="publish-a-knowledge-base"></a>Publier une base de connaissances
 

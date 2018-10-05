@@ -2,24 +2,26 @@
 title: Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync | Microsoft Docs
 description: Découvrez comment automatiser la réplication des modifications de schéma dans Azure SQL Data Sync.
 services: sql-database
-ms.date: 06/19/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
-ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 09/20/2018
+ms.openlocfilehash: 3137b86dd186e628508111a932140fd9c1f59b5d
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434956"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161424"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync
 
-SQL Data Sync permet aux utilisateurs de synchroniser des données entre des bases de données SQL Azure Database et un serveur SQL Server local dans un sens ou dans les deux sens. Une des limitations actuelles de SQL Data Sync est un manque de prise en charge pour la réplication des modifications de schéma. À chaque fois que vous modifiez le schéma de table, vous devez appliquer les modifications manuellement sur tous les points de terminaison, notamment le concentrateur et tous les membres, puis mettre à jour le schéma de synchronisation.
+SQL Data Sync permet aux utilisateurs de synchroniser des données entre des bases de données SQL Azure et un serveur SQL Server local, de façon unidirectionnelle ou bidirectionnelle. Une des limitations actuelles de SQL Data Sync est un manque de prise en charge pour la réplication des modifications de schéma. À chaque fois que vous modifiez le schéma de table, vous devez appliquer les modifications manuellement sur tous les points de terminaison, notamment le concentrateur et tous les membres, puis mettre à jour le schéma de synchronisation.
 
 Cet article présente une solution pour répliquer automatiquement les modifications de schéma sur tous les points de terminaison SQL Data Sync.
 1. Cette solution utilise un déclencheur DDL pour effectuer le suivi des modifications de schéma.
@@ -30,7 +32,7 @@ Cet article présente une solution pour répliquer automatiquement les modificat
 Cet article utilise ALTER TABLE comme exemple d’une modification de schéma, mais cette solution fonctionne également pour d’autres types de modifications de schéma.
 
 > [!IMPORTANT]
-> Nous vous recommandons de lire cet article avec soin, notamment les sections sur la [Résolution des problèmes](#troubleshooting) et [Autres considérations](#other), avant de commencer à implémenter la réplication de modification de schéma automatisée dans votre environnement de synchronisation. Nous vous recommandons également de lire [Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync](sql-database-sync-data.md). La solution décrite dans cet article peut ne pas fonctionner avec certaines opérations de base de données. Des connaissances supplémentaires sur le domaine de SQL Server et Transact-SQL peuvent être nécessaires pour résoudre ces problèmes.
+> Nous vous recommandons de lire cet article avec soin, notamment les sections sur la [Résolution des problèmes](#troubleshoot) et [Autres considérations](#other), avant de commencer à implémenter la réplication de modification de schéma automatisée dans votre environnement de synchronisation. Nous vous recommandons également de lire [Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync](sql-database-sync-data.md). La solution décrite dans cet article peut ne pas fonctionner avec certaines opérations de base de données. Des connaissances supplémentaires sur le domaine de SQL Server et Transact-SQL peuvent être nécessaires pour résoudre ces problèmes.
 
 ![Automatisation de la réplication des modifications de schéma](media/sql-database-update-sync-schema/automate-schema-changes.png)
 

@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide du Kit de développement logiciel (SDK) C# pour Recherche de vidéos | Microsoft Docs
-description: Configuration de l’application console du Kit de développement logiciel (SDK) pour Recherche de vidéos.
-titleSuffix: Azure cognitive services setup News search SDK C# console application
+title: 'Démarrage rapide : Kit SDK Recherche de vidéos Bing, C#'
+titleSuffix: Azure Cognitive Services
+description: Configuration de l’application console avec le kit SDK Recherche de vidéos Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: f53e2d0f0052ccfabb6d750556cb532f069c9121
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 6cf7a16fa28602e5e3733741db8bfb7296882487
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370449"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219938"
 ---
-# <a name="video-search-sdk-c-quickstart"></a>Démarrage rapide C# du SDK Recherche de vidéos
+# <a name="quickstart-bing-video-search-sdk-with-c"></a>Démarrage rapide : Kit SDK Recherche de vidéos Bing avec C# 
 
 Le Kit de développement logiciel (SDK) Recherche de vidéos Bing fournit les fonctionnalités de l’API REST pour les requêtes web et l’analyse des résultats.
 

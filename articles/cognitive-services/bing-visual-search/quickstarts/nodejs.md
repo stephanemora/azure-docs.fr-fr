@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide JavaScript pour l’API Recherche visuelle Bing | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Montre comment charger une image dans l’API Recherche visuelle Bing pour récupérer des informations sur l’image.
+title: 'Démarrage rapide : Créer une requête de recherche visuelle, Node.js - Recherche visuelle Bing'
+titleSuffix: Azure Cognitive Services
+description: Montre comment charger une image dans l’API Recherche visuelle Bing pour récupérer des informations sur celle-ci.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 60b1dc9b8ea9eda258e9776b8967df38c97d964e
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: b13738c5bfd8fc75224bf934ae8be56e7c2edd69
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071700"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225495"
 ---
-# <a name="your-first-bing-visual-search-query-in-javascript"></a>Votre première requête de recherche visuelle Bing dans JavaScript
+# <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>Démarrage rapide : Votre première requête Recherche visuelle Bing en JavaScript
 
 L’API Recherche visuelle Bing renvoie des informations sur une image que vous fournissez. Cette image est accessible via son URL, un jeton insights ou par chargement. Pour plus d’informations sur ces options, consultez la section [Qu’est-ce que l’API Recherche visuelle Bing ?](../overview.md) Cet article explique comment charger une image. Il peut se révéler utile de charger une image prise sur un appareil mobile. Par exemple, vous photographiez un monument très connu pour obtenir en retour des informations sur celui-ci. Ces informations sont parfois très variées. 
 

@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 23f10280cd34927e2e74cb7c5001850bedc6dd35
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63b34b6ddc1809031dc66fb3e41fa4a22d9f4a03
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967538"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182788"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Créer un environnement de test pour Pare-feu Azure
 
@@ -25,7 +25,7 @@ Un itinéraire défini par l’utilisateur est créé et pointe le trafic résea
 
 Vous pouvez exécuter le script à partir d’Azure [Cloud Shell](https://shell.azure.com/powershell) ou à partir d’une installation PowerShell locale. 
 
-Si vous utilisez PowerShell en local, ce script requiert la dernière version du module AzureRM PowerShell. Pour trouver la version installée, exécutez `Get-Module -ListAvailable AzureRM`. 
+Si vous exécutez PowerShell en local, ce script requiert la dernière version du module AzureRM PowerShell (6.9.0 ou version ultérieure). Pour trouver la version installée, exécutez `Get-Module -ListAvailable AzureRM`. 
 
 Si vous devez procéder à une mise à niveau, vous pouvez utiliser `PowerShellGet`, qui est intégré à Windows 10 et Windows Server 2016.
 
@@ -66,14 +66,14 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 | [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) |Crée des règles NSG qui autorisent ou bloquent des ports spécifiques sur des sous-réseaux donnés. |
 | [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) | Associe les groupes de sécurité réseau à des sous-réseaux. |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Crée une adresse IP publique pour accéder à la machine virtuelle à partir d’Internet. |
-| [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Crée des interfaces réseau virtuelles et les attache aux sous-réseaux frontaux et principaux du réseau virtuel. |
+| [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Crée des interfaces réseau virtuelles et les attaches aux sous-réseaux frontaux et principaux du réseau virtuel. |
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Crée une configuration de machine virtuelle. Cette configuration inclut des informations telles que le nom de la machine virtuelle, le système d’exploitation et les informations d’identification d’administration. La configuration est utilisée lors de la création de machines virtuelles. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Création d’une machine virtuelle |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Supprime un groupe de ressources et toutes les ressources contenues. |
-|[New-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewall.md)| Crée un nouveau pare-feu Azure.|
-|[Get-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Get-AzureRmFirewall.md)|Obtient un objet de pare-feu Azure.|
-|[New-AzureRmFirewallApplicationRule](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewallApplicationRule.md)|Crée une nouvelle règle d’application de pare-feu Azure.|
-|[Set-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Set-AzureRmFirewall.md)|Valide les modifications apportées à l’objet de pare-feu Azure.|
+|[New-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewall?view=azurermps-6.9.0)| Crée un nouveau pare-feu Azure.|
+|[Get-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermfirewall?view=azurermps-6.9.0)|Obtient un objet de pare-feu Azure.|
+|[New-AzureRmFirewallApplicationRule](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewallapplicationrule?view=azurermps-6.9.0)|Crée une nouvelle règle d’application de pare-feu Azure.|
+|[Set-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermfirewall?view=azurermps-6.9.0)|Valide les modifications apportées à l’objet de pare-feu Azure.|
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,8 +1,8 @@
 # <a name="container-service-frequently-asked-questions"></a>Forum aux questions : Container Service
 
-## <a name="orchestrators"></a>Orchestrators
+## <a name="orchestrators"></a>Orchestrateurs
 
-### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Quels orchestrators de conteneur sont pris en charge sur Azure Container Service ? 
+### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Quels orchestrateurs de conteneur sont pris en charge sur Azure Container Service ? 
 
 Une prise en charge est disponible pour CD/OS open source, Docker Swarm et Kubernetes. Pour plus d'informations, consultez la [Vue d’ensemble](../articles/container-service/kubernetes/container-service-intro-kubernetes.md).
  
@@ -12,10 +12,10 @@ Le mode Swarm n’est actuellement pas pris en charge, mais il figure sur la feu
 
 ### <a name="does-azure-container-service-support-windows-containers"></a>Azure Container Service prend-il en charge les conteneurs Windows ?  
 
-Les conteneurs Linux sont actuellement pris en charge par tous les orchestrators. La prise en charge des conteneurs Windows avec Kubernetes est en version préliminaire.
+Les conteneurs Linux sont actuellement pris en charge par tous les orchestrateurs. La prise en charge des conteneurs Windows avec Kubernetes est en version préliminaire.
 
-### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Recommandez-vous un orchestrator spécifique dans Azure Container Service ? 
-Nous ne recommandons généralement pas un orchestrator spécifique. Si vous êtes habitué avec un des orchestrators pris en charge, vous pouvez profiter de cette expérience dans Azure Container Service. Les tendances des données suggère toutefois que DC/OS est éprouvé en production pour les charges de travail Big Data et IoT, que Kubernetes est adapté aux charges de travail natif de cloud, et que Docker Swarm est connu pour son intégration aux outils Docker et sa simplicité de prise en main.
+### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>Recommandez-vous un orchestrateur spécifique dans Azure Container Service ? 
+Nous ne recommandons généralement pas un orchestrateur spécifique. Si vous êtes habitué avec un des orchestrateurs pris en charge, vous pouvez profiter de cette expérience dans Azure Container Service. Les tendances des données suggère toutefois que DC/OS est éprouvé en production pour les charges de travail Big Data et IoT, que Kubernetes est adapté aux charges de travail natif de cloud, et que Docker Swarm est connu pour son intégration aux outils Docker et sa simplicité de prise en main.
 
 En fonction de votre scénario, vous pouvez également créer et gérer des solutions de conteneur personnalisé avec d’autres services Azure. Ces services incluent les [machines virtuelles](../articles/virtual-machines/linux/overview.md), [Service Fabric](../articles/service-fabric/service-fabric-overview.md), [Web Apps](../articles/app-service/app-service-web-overview.md) et [lot](../articles/batch/batch-technical-overview.md).  
 
@@ -32,13 +32,13 @@ Pour obtenir des informations détaillées, consultez notre [stratégie de suppo
 
 Vous pouvez utiliser des outils standard sur votre système d’exploitation pour créer une paire de clés publique et privée RSA SSH pour l’authentification sur les machines virtuelles Linux de votre cluster. Pour la procédure, consultez les conseils pour [OS X et Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) ou [Windows](../articles/virtual-machines/linux/ssh-from-windows.md). 
 
-Si vous utilisez des [commandes Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) pour déployer un cluster de service de conteneur, des clés SSH peuvent être générées automatiquement pour votre cluster.
+Si vous utilisez des [commandes Azure CLI](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) pour déployer un cluster de service de conteneur, des clés SSH peuvent être générées automatiquement pour votre cluster.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Comment créer un principal du service pour mon cluster Kubernetes ?
 
 Un ID et un mot de passe de principal du service Azure Active Directory sont également nécessaires pour créer un cluster Kubernetes dans Azure Container Service. Pour en savoir plus, consultez [À propos du principal du service pour un cluster Kubernetes](../articles/container-service/kubernetes/container-service-kubernetes-service-principal.md) (en anglais).
 
-Si vous utilisez des [commandes Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) pour déployer un cluster Kubernetes, des informations d’identification du principal du service peuvent être générées automatiquement pour votre cluster.
+Si vous utilisez des [commandes Azure CLI](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) pour déployer un cluster Kubernetes, des informations d’identification du principal de service peuvent être générées automatiquement pour votre cluster.
 
 ### <a name="how-large-a-cluster-can-i-create"></a>Si je crée un cluster, quelle doit être sa taille maximale ?
 Vous pouvez créer un cluster incluant 1, 3 ou 5 nœuds principaux. Vous pouvez choisir jusqu’à 100 nœuds agents.
@@ -105,4 +105,4 @@ Il existe certains problèmes DNS connus sur Windows dont les correctifs sont to
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [En savoir plus](../articles/container-service/kubernetes/container-service-intro-kubernetes.md) sur Azure Container Service.
-* Déployez un cluster de service de conteneur à l’aide du [portail](../articles/container-service/dcos-swarm/container-service-deployment.md) ou [d’Azure CLI 2.0](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).
+* Déployez un cluster de service de conteneur à l’aide du [portail](../articles/container-service/dcos-swarm/container-service-deployment.md) ou [d’Azure CLI](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md).

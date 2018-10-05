@@ -1,20 +1,21 @@
 ---
-title: Concepts d’entreprise pour une application LUIS - Azure | Microsoft Docs
+title: Concepts d’entreprise pour une application LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Comprendre les principes de conception pour les applications LUIS volumineuses.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3782874ac69b299e24cf1555b290a9d2d86b6285
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224858"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038338"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Stratégies d’entreprise pour une application LUIS
 Révisez ces stratégies de conception pour votre application d’entreprise.
@@ -50,9 +51,7 @@ Utilisez l’outil en ligne de commande [Répartir] [ dispatch-tool], disponible
 
 ![Image conceptuelle de l’architecture de répartition](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-Le domaine parent est indiqué dans LUIS en tant qu’application **V Dispatch**. 
-
-![Captures d’écran d’applications LUIS créées par l’outil de répartition](./media/luis-concept-enterprise/dispatch.png)
+Le domaine parent est noté dans LUIS avec une version nommée `Dispatch` dans la liste des applications. 
 
 Le chatbot reçoit l’énoncé, puis l’envoie à l’application LUIS parent pour la prédiction. L’intention prédite supérieure provenant de l’application parente détermine quelle application LUIS enfant sera ensuite appelée. Le chatbot envoie l’énoncé à l’application enfant pour une prédiction plus précise.
 
@@ -66,4 +65,4 @@ Une application de répartition a 500 sources de répartition maximum, ce qui é
 * Découvrir comment [tester un lot](luis-how-to-batch-test.md)
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

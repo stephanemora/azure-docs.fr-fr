@@ -1,22 +1,23 @@
 ---
-title: Démarrage rapide Node.js pour Azure Cognitive Services, API Recherche de vidéos Bing | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche de vidéos Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API Recherche de vidéos Bing, Node.js'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche de vidéos Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: be9cbd56a1db1f9df78ec6f1c378d803c0a37151
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a4ee4b0c0f4ce46110cebf95cdf927f8df3567d0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369944"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220374"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-nodejs"></a>Démarrage rapide pour l’API Recherche de vidéos Bing avec Node.js
+# <a name="quickstart-bing-video-search-api-with-nodejs"></a>Démarrage rapide : API Recherche de vidéos Bing avec Node.js
 
 Cet article vous montre comment utiliser l’API Recherche de vidéos Bing qui fait partie de Microsoft Cognitive Services sur Azure. Si d’un côté l’article utilise Node.js, de l’autre, l’API est un service web RESTful compatible avec n’importe quel langage de programmation dès lors qu’il est capable de formuler des requêtes HTTP et d’analyser un format JSON. 
 

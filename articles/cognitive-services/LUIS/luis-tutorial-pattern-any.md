@@ -1,42 +1,29 @@
 ---
-title: 'Tutoriel : Utiliser l’entité pattern.any pour améliorer les prédictions de LUIS – Azure | Microsoft Docs'
-titleSuffix: Cognitive Services
-description: Ce tutoriel utilise l’entité pattern.any afin d’améliorer les prédictions de LUIS en matière d’intentions et d’entités.
+title: 'Tutoriel 5 : Entité Pattern.any pour le texte en forme libre'
+titleSuffix: Azure Cognitive Services
+description: Utilisez l’entité pattern.any pour extraire des données à partir d’énoncés correctement mis en forme et où la fin des données peut être facilement confondue avec les mots restants de l’énoncé.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157852"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164393"
 ---
-# <a name="tutorial-improve-app-with-patternany-entity"></a>Tutoriel : Améliorer l’application avec l’entité pattern.any
+# <a name="tutorial-5-extract-free-form-data"></a>Tutoriel 5 : Extraire des données en forme libre
 
-Ce tutoriel utilise l’entité pattern.any afin d’améliorer les prédictions en matière d’intentions et d’entités.  
+Dans ce tutoriel, vous allez utiliser l’entité pattern.any pour extraire des données à partir d’énoncés correctement mis en forme et où la fin des données peut être facilement confondue avec les mots restants de l’énoncé. 
 
-> [!div class="checklist"]
-* Découvrir quand et comment utiliser pattern.any
-* Ajouter un modèle qui utilise l’entité pattern.any
-* Vérifier l’amélioration des prédictions
+L’entité pattern.any vous permet de rechercher des données en forme libre où le libellé de l’entité ne permet pas de distinguer la fin de l’entité du reste de l’énoncé. 
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application Ressources humaines du tutoriel [rôles de modèle](luis-tutorial-pattern-roles.md), [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application du site Web [LUIS](luis-reference-regions.md#luis-website). L’application à importer se trouve dans le référentiel GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json).
-
-Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `patt-any`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
-
-## <a name="the-purpose-of-patternany"></a>L’objectif de pattern.any
-L’entité pattern.any vous permet de rechercher des données de forme libre où le libellé de l’entité ne permet pas de distinguer la fin de l’entité du reste de l’énoncé. 
-
-Cette application Ressources humaines permet aux employés de trouver les formulaires de l’entreprise. Des formulaires ont été ajoutés dans le [tutoriel sur l’expression régulière](luis-quickstart-intents-regex-entity.md). Dans ce tutoriel, les noms de formulaire utilisaient une expression régulière pour extraire un nom de formulaire correctement mis en forme, par exemple les noms de formulaire en gras dans le tableau d’énoncé suivant :
+Cette application Ressources humaines permet aux employés de trouver les formulaires de l’entreprise. 
 
 |Énoncé|
 |--|
@@ -52,13 +39,40 @@ Les énoncés avec le nom du formulaire convivial ressemblent à ceci :
 |--|
 |Où se trouve le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé) ?|
 |Qui a écrit le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé - 2018 version 5) ?|
-|Le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé - 2018 version 5) ? est-t disponible en français ?|
+|Le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé - 2018 version 5) ? est-il disponible en français ?|
 
-Certaines expressions peuvent être source de confusion pour LUIS, qui ne sait pas où se termine l’entité. Dans un modèle, l’entité Pattern.any permet de spécifier le début et la fin du nom du formulaire afin que LUIS puisse extraire correctement son nom.
+Certains mots peuvent être source de confusion pour LUIS, qui ne sait pas où se termine l’entité. Dans un modèle, l’entité Pattern.any permet de spécifier le début et la fin du nom du formulaire afin que LUIS puisse extraire correctement son nom.
 
-**Même si les modèles vous permettent de fournir moins d’exemples d’énoncés, si les entités ne sont pas détectées, le modèle ne correspond pas.**
+|Exemple de modèle d’énoncé|
+|--|
+|Où se trouve {FormName}[?]|
+|Qui a créé {FormName}[?]|
+|{nom_formulaire} est-il publié en Français[?]|
 
-## <a name="add-example-utterances-to-the-existing-intent-findform"></a>Ajouter des exemples d’énoncés à l’intention existante FindForm 
+**Dans ce tutoriel, vous allez découvrir comment :**
+
+> [!div class="checklist"]
+> * Utiliser l’application de tutoriel existante
+> * Ajouter des exemples d’énoncés à une entité existante
+> * Créer une entité Pattern.any
+> * Créer un modèle
+> * Entraîner
+> * Tester le nouveau modèle
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Utiliser l’application existante
+Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
+
+Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
+
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+
+2. Importez le code JSON dans une nouvelle application.
+
+3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `patt-any`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+
+## <a name="add-example-utterances"></a>Ajouter des exemples d’énoncés 
 Supprimez l’entité keyPhrase prédéfinie si vous avez des difficultés à créer et étiqueter l’entité FormName. 
 
 1. Sélectionnez **Build** dans le volet de navigation supérieur, puis **Intentions** dans le volet de navigation gauche.
@@ -123,11 +137,13 @@ L’entité Pattern.any extrait des entités de longueur variable. Elle fonction
 
 4. Fermez le panneau de test en sélectionnant le bouton **Tester** dans le volet de navigation supérieur.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+Ce tutoriel a ajouté des exemple d’énoncés à une intention existante, puis a créé un nouveau modèle Pattern.any pour le nom du formulaire. Ensuite, le tutoriel a créé un modèle pour l’intention existante avec la nouvelle entité et les nouveaux exemples d’énoncés. Des tests interactifs ont montré que le modèle et son intention étaient prédits car l’entité était trouvée. 
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur l’utilisation de rôles avec un modèle](luis-tutorial-pattern-roles.md)

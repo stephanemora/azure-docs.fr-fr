@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 79f507c342f5a13c4d3784cf312f0bf8aeffa3e3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26fcc3eb78af53360cca57382b4c06b017f36c0e
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957248"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063266"
 ---
-## <a name="what-is-azure-monitor-for-vms"></a>Qu’est-ce qu’Azure Monitor pour machines virtuelles ?
+# <a name="what-is-azure-monitor-for-vms"></a>Qu’est-ce qu’Azure Monitor pour machines virtuelles ?
 
 Azure Monitor pour machines virtuelles surveille vos machines virtuelles Azure en analysant les performances et l’intégrité de vos machines virtuelles Windows et Linux, y compris leurs différents processus et les dépendances interconnectées envers d’autres ressources et processus externes. Cette solution inclut la prise en charge de la supervision des performances et des dépendances des applications pour les machines virtuelles hébergées sur site ou par un autre fournisseur cloud.  Elle comprend trois fonctionnalités clés permettant d’offrir ces insights détaillés :
 
@@ -57,4 +57,4 @@ Dès que vous adoptez Azure Monitor pour machines virtuelles, les données recue
 La taille du journal varie en fonction des longueurs de chaîne des compteurs, et peut augmenter avec le nombre de disques logiques et de cartes réseau.  Si vous disposez déjà d’un espace de travail et que vous collectez ces compteurs, aucun frais en double ne sera appliqué.  Si vous utilisez déjà Service Map, l’unique changement apparaît sur les données de connexion supplémentaires qui sont envoyées à Azure Monitor.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez l’article [Intégrer Azure Monitor pour machines virtuelles](monitoring-vminsights-onboard.md) pour commencer à surveiller vos machines virtuelles Azure.
+Pour découvrir les exigences et les méthodes relatives à l’activation de la supervision de vos machines virtuelles, consultez l’article [Intégrer Azure Monitor pour machines virtuelles](monitoring-vminsights-onboard.md).

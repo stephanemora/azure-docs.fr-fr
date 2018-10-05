@@ -1,21 +1,23 @@
 ---
 title: Didacticiel SaaS du modèle de base de données par locataire - Azure SQL Database | Microsoft Docs
 description: Déployez et explorez l’application multilocataire SaaS Wingtip Tickets, qui illustre le modèle de base de données par locataire et d’autres modèles SaaS, en utilisant Azure SQL Database.
-keywords: didacticiel sur les bases de données SQL
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 77e3cdcbd18a4a5313160b947ce278a75f3e3de3
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423541"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056384"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -242,7 +244,7 @@ Accédez au serveur **tenants1-dpt-&lt;utilisateur&gt;**, puis sélectionnez **P
 - Le premier graphique, intitulé **Utilisation des ressources**, montre l’utilisation eDTU du pool.
 - Le second graphique montre l’utilisation eDTU des bases de données les plus actives du pool.
 
-Ces deux graphiques illustrent bien que les pools élastiques et SQL Database sont parfaitement adaptés aux charges de travail imprévisibles de l’application SaaS. Les graphiques montrent que quatre bases de données ont chacune des pics d’activité allant jusqu’à 40 eDTU, et pourtant toutes les bases de données sont confortablement prises en charge par un pool de 50 eDTU. Le pool de 50 eDTU peut prendre en charge des charges de travail encore plus lourdes. Si les bases de données ont été approvisionnées en tant que bases de données autonomes, chacune doit être de type S2 (50 DTU) pour pouvoir gérer les pics d’activité. Le coût de quatre bases de données S2 autonomes s’élève à presque trois fois celui du pool. Dans des situations réelles, les clients SQL Database exécutent jusqu'à 500 bases de données dans des pools de 200 eDTU. Pour plus d’informations, consultez le [didacticiel sur la surveillance des performances](saas-dbpertenant-performance-monitoring.md).
+Ces deux graphiques illustrent bien que les pools élastiques et SQL Database sont parfaitement adaptés aux charges de travail imprévisibles de l’application SaaS. Les graphiques montrent que quatre bases de données ont chacune des pics d’activité allant jusqu’à 40 eDTU, et pourtant toutes les bases de données sont confortablement prises en charge par un pool de 50 eDTU. Le pool de 50 eDTU peut prendre en charge des charges de travail encore plus lourdes. Si les bases de données sont provisionnées comme des bases de données uniques, chacune d’elle doit être de type S2 (50 DTU) pour pouvoir gérer les pics d’activité. Le coût de quatre bases de données S2 autonomes s’élève à presque trois fois celui du pool. Dans des situations réelles, les clients SQL Database exécutent jusqu'à 500 bases de données dans des pools de 200 eDTU. Pour plus d’informations, consultez le [didacticiel sur la surveillance des performances](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9a2eb8ab4e3ee65e97de578c825bf106aee1b829
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480338"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040599"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Créer un groupe dynamique et vérifier l’état
 
@@ -29,7 +29,7 @@ Cet article explique comment configurer une règle dans le portail Azure pour un
 
 ## <a name="to-create-a-group-membership-rule"></a>Pour créer une règle d’appartenance à un groupe
 
-1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur général ou en tant qu’administrateur de compte d’utilisateur.
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte du rôle Administrateur général, Administrateur de services fédérés Intune ou Administrateur des comptes d’utilisateur dans le locataire.
 2. Sélectionnez **Groupes**.
 3. Sélectionnez **Tous les groupes**, puis **Nouveau groupe**.
 

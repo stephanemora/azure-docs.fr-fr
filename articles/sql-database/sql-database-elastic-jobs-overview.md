@@ -1,23 +1,30 @@
 ---
 title: Gestion des bases de données cloud avec montée en charge | Microsoft Docs
 description: Utilisez le service des tâches de base de données élastique pour exécuter un script dans un groupe de bases de données.
-metakeywords: azure sql database elastic databases
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5e2c233ec631f6a3e57d2203a9678b42f909a885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 649a76fad8f54339a6b1e429b3966945410573f7
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646083"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166790"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gestion des bases de données cloud avec montée en charge
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+La fonctionnalité **Tâches de bases de données élastiques** est un service cloud Azure hébergé par le client, qui permet l’exécution de tâches administratives ad hoc et planifiées, appelées **travaux**. Grâce aux travaux, vous pouvez facilement gérer, de façon fiable, de grands groupes de bases de données SQL Azure en exécutant les scripts Transact-SQL pour effectuer des opérations administratives. 
+
 Pour gérer les bases de données partitionnées avec montée en charge, la fonction **Tâches de base de données élastique** (version préliminaire) vous permet d’exécuter un script Transact-SQL (T-SQL) fiable dans un groupe de bases de données, notamment :
 
 * une collection personnalisée des bases de données (voir ci-après)
@@ -30,7 +37,7 @@ Pour gérer les bases de données partitionnées avec montée en charge, la fonc
 * [Créer et gérer des tâches avec PowerShell](sql-database-elastic-jobs-powershell.md).
 * [Créer et gérer des bases de données SQL Azure avec montée en charge](sql-database-elastic-jobs-getting-started.md)
 
-La fonctionnalité **Tâches de bases de données élastiques** est actuellement un service cloud Azure hébergé par le client, qui permet l’exécution de tâches administratives ad hoc et planifiées, appelées **travaux**. Grâce aux travaux, vous pouvez facilement gérer, de façon fiable, de grands groupes de bases de données SQL Azure en exécutant les scripts Transact-SQL pour effectuer des opérations administratives. 
+
 
 ![Service de tâche de base de données élastique][1]
 
@@ -41,7 +48,7 @@ Effectuer facilement des modifications de schéma, la gestion des informations d
 
 **Rapports**
 
-Agréger des données à partir d’une collection de bases de données SQL Azure dans un tableau de destination unique.
+Agréger des données provenant d’une collection de bases de données SQL Azure dans un tableau de destination unique.
 
 **Réduction de la surcharge**
 
@@ -53,7 +60,7 @@ Les tâches exécutent le script et enregistrent l’état d’exécution pour c
 
 **Flexibilité**
 
-Définir des groupes personnalisés de bases de données SQL Azure, ainsi que des planifications pour l'exécution d’une tâche.
+Définir des groupes personnalisés de bases de données SQL Azure, ainsi que des planifications pour l’exécution d’un travail.
 
 > [!NOTE]
 > Dans le portail Azure, seul un ensemble réduit de fonctions limitées aux pools élastiques SQL Azure est disponible. Utiliser les APIs PowerShell pour accéder à l'ensemble des fonctionnalités actuelles.

@@ -1,26 +1,23 @@
 ---
 title: Exécuter des requêtes analytiques sur des bases de données de clients à l’aide d’Azure SQL Data Warehouse | Microsoft Docs
-description: Des requêtes analytiques entre clients à l’aide de données extraites de plusieurs bases de données SQL Azure Database.
-keywords: didacticiel sur les bases de données SQL
+description: Requêtes analytiques interlocataires qui utilisent des données extraites d’Azure SQL Database, SQL Data Warehouse, Azure Data Factory ou Power BI.
 services: sql-database
-documentationcenter: ''
-author: anumjs
-manager: craigg
-editor: MightyPen
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: ''
+ms.subservice: scenario
+ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/08/2017
+author: anumjs
 ms.author: anjangsh
-ms.openlocfilehash: c7580e5481288695d3b5dea8fd0547f5f2c4c2b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: MightyPen
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643999"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056589"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explorer des analyses SaaS avec Azure SQL Database,SQL Data Warehouse, Data Factory et Power BI
 
@@ -204,7 +201,7 @@ Utilisez les étapes suivantes pour vous connecter à Power BI et importer les v
 
 6. Dans le volet **Navigateur**, sous la base de données analytique, sélectionnez les tables du schéma en étoile : **fact_Tickets**, **dim_Events**, **dim_Venues**, **dim_Customers** et **dim_Dates**. Sélectionnez ensuite **Charger**. 
 
-Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, explorez les visualisations intéressantes pour obtenir des informations sur vos clients. Examinez ensuite comment les analytiques peuvent permettre de fournir des recommandations basées sur certaines données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
+Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, explorez les visualisations intéressantes pour obtenir des informations sur vos clients. Examinez ensuite comment les analytiques peuvent permettre de fournir des recommandations basées sur certaines données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
 
 Commencez en analysant les données de ventes de ticket pour afficher la variation de l’utilisation sur les systèmes. Sélectionnez les options affichées dans Power BI pour tracer un graphique à barres du nombre total de tickets vendus par emplacement. (En raison d’une variation aléatoire dans le générateur de tickets, vos résultats peuvent être différents.)
  
@@ -230,7 +227,7 @@ Vous pouvez explorer les données à nouveau pour voir si cette forte affluence 
 
 Ce graphique des ventes cumulatives des tickets au fil du temps pour une salle de concert Contoso pour chaque événement indique qu’une ruée ne se produit pas pour tous les événements. Familiarisez-vous avec les options de filtre pour explorer les tendances de vente pour les autres emplacements.
 
-Les informations sur les modèles de ventes de tickets peuvent aider Wingtip Tickets à optimiser leur modèle d’affaires. Au lieu de facturer tous les clients à niveau égal, Wingtip peut proposer des niveaux de service avec différents niveaux de performance. Les plus grands emplacements devant vendre plus de tickets par jour peuvent se voir proposer un niveau supérieur avec un contrat de niveau de service (SLA) plus élevé. Ces emplacements peuvent avoir leurs bases de données placées dans le pool avec des limites de ressources par base de données plus importantes. Chaque niveau de service peut avoir une allocation de vente horaire, avec des frais supplémentaires facturés pour les dépassements. Les plus grands emplacements qui ont des pics de vente périodiques peuvent tirer parti des niveaux supérieurs, et Wingtip Tickets peut commercialiser son service plus efficacement.
+Les informations sur les modèles de ventes de tickets peuvent aider Wingtip Tickets à optimiser leur modèle d’affaires. Au lieu de facturer tous les locataires à niveau égal, Wingtip peut proposer des niveaux de service avec différentes tailles de calcul. Les plus grands emplacements devant vendre plus de tickets par jour peuvent se voir proposer un niveau supérieur avec un contrat de niveau de service (SLA) plus élevé. Ces emplacements peuvent avoir leurs bases de données placées dans le pool avec des limites de ressources par base de données plus importantes. Chaque niveau de service peut avoir une allocation de vente horaire, avec des frais supplémentaires facturés pour les dépassements. Les plus grands emplacements qui ont des pics de vente périodiques peuvent tirer parti des niveaux supérieurs, et Wingtip Tickets peut commercialiser son service plus efficacement.
 
 Dans le même temps, certains clients Wingtip Tickets se plaignent d’éprouver des difficultés à vendre suffisamment de tickets pour justifier le coût du service. Dans ces aperçus, il y a peut-être une opportunité de dynamiser les ventes de tickets pour les emplacements sous-performants. Des ventes plus élevées augmenteraient la valeur perçue du service. Cliquez avec le bouton droit sur fact_Tickets et sélectionnez **Nouvelle mesure**. Entrez l’expression suivante pour la nouvelle mesure appelée **AverageTicketsSold** :
 
@@ -252,7 +249,7 @@ Dans l’exemple Wingtip Tickets, vous avez découvert que les ventes de tickets
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Déployer un entrepôt de données SQL rempli avec un schéma en étoile pour des analytiques client.
@@ -261,7 +258,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Interroger l’entrepôt de données d’analyse. 
 > * Power BI permet de visualiser les tendances des données pour tous les clients.
 
-Félicitations !
+Félicitations !
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

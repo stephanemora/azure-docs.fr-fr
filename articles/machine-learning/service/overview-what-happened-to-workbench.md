@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 56a8da6d39e39ab68b2b854c6899b88a3618d223
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 620d8b370b050a4d91ee6d94cba2c133b4313aed
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997724"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159982"
 ---
 # <a name="what-happened-to-workbench-in-azure-machine-learning-preview"></a>Qu’est-il arrivé à Workbench dans Azure Machine Learning (préversion) ?
 
@@ -42,7 +42,7 @@ La plupart des artefacts créés dans la version précédente du service Azure M
 
 ## <a name="support-timeline"></a>Chronologie de prise en charge
 
-Vous pourrez continuer à utiliser vos comptes d’expérimentation et de gestion de modèles, ainsi que l’application Workbench pendant un certain temps après le mois de septembre 2018. La prise en charge des ressources suivantes sera progressivement retirée au cours des 3 à 4 mois suivant cette publication. Vous pourrez toujours trouver la documentation sur les anciennes fonctionnalités dans la section Ressources située au bas de la [table des matières](../desktop-workbench/tutorial-classifying-iris-part-1.md).
+Vous pourrez continuer à utiliser vos comptes d’expérimentation et de gestion de modèles, ainsi que l’application Workbench pendant un certain temps après le mois de septembre 2018. La prise en charge des ressources suivantes sera progressivement retirée au cours des 3 à 4 mois suivant cette publication. Vous pourrez toujours trouver la documentation sur les anciennes fonctionnalités dans la [section Ressources](../desktop-workbench/tutorial-classifying-iris-part-1.md) située au bas de la table des matières.
 
 |Phase|Détails de la prise en charge des fonctionnalités précédentes|
 |:---:|----------------|
@@ -67,9 +67,9 @@ Le tableau de bord de l’espace de travail du portail est pris en charge unique
 
 Vos fichiers de préparation de données préexistants ne sont pas portables vers la dernière version dans la mesure où Workbench n’existe plus. Toutefois, vous pouvez toujours préparer vos données pour la modélisation.  
 
-Avec de petits jeux de données, vous pouvez utiliser le [kit SDK de préparation des données Azure Machine Learning](https://docs.microsoft.com/python/api/azureml_dataprep/?view=azure-dataprep-py) de manière à rapidement préparer vos données avant la modélisation. 
+Avec de petits jeux de données, vous pouvez utiliser le <a href="http://aka.ms/aml-sdk" target="_blank">kit SDK de préparation des données Azure Machine Learning</a> pour préparer rapidement vos données avant la modélisation. 
 
-Vous pouvez utiliser ce même kit SDK avec des jeux de données plus grands ou utiliser Azure Databricks pour préparer des jeux de données volumineux. [Découvrez comment obtenir le SDK de préparation des données](how-to-data-prep.md). 
+Vous pouvez utiliser ce même kit <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> avec des jeux de données plus grands ou utiliser Azure Databricks pour préparer des jeux de données volumineux. 
 
 ## <a name="will-projects-persist"></a>Les projets existeront-ils toujours ?
 
@@ -77,13 +77,13 @@ Vous ne perdez aucun code ni travail. Dans la version antérieure, les projets s
 
 Dans la mesure où le contenu du projet se trouvait déjà en grande partie sur votre ordinateur local, vous devez simplement créer un fichier de configuration dans ce répertoire et le référencer dans votre code pour vous connecter à votre espace de travail. [Découvrez comment migrer vos projets existants.](how-to-migrate.md#projects)
 
-Découvrez comment commencer [dans Python avec le kit SDK](quickstart-get-started.md).
+Découvrez comment commencer [dans Python avec le kit SDK principal](quickstart-get-started.md).
 
 ## <a name="what-about-my-registers-models-and-images"></a>Qu’en est-il des modèles et images du registre ?
  
 Les modèles que vous avez enregistrés dans votre ancien registre de modèles doivent être migrés vers votre nouvel espace de travail si vous voulez continuer à les utiliser. Pour ce faire, vous pouvez [télécharger les modèles et les réenregistrer ](how-to-migrate.md) dans votre nouvel espace de travail. 
 
-Les images que vous avez créées dans votre ancien registre d’images doivent être recréées dans le nouvel espace de travail pour continuer à les utiliser. Pour cela, suivez la procédure décrite dans la section [créer une image docker](how-to-deploy-to-aci.md). 
+Les images que vous avez créées dans votre ancien registre d’images doivent être recréées dans le nouvel espace de travail pour continuer à les utiliser. Pour cela, suivez la procédure décrite dans la section [créer une image docker](how-to-deploy-to-aci.md#configure-an-image). 
 
 ## <a name="what-about-deployed-web-services"></a>Qu’en est-il des services web déployés ?
 

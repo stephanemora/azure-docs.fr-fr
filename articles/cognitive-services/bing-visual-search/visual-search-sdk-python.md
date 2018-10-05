@@ -1,25 +1,25 @@
 ---
-title: Démarrage rapide pour le Kit de développement logiciel (SDK) de Recherche visuelle Python | Microsoft Docs
-description: Programme d’installation de l’application console du Kit de développement logiciel (SDK) de Recherche visuelle Python.
+title: 'Démarrage rapide : Kit SDK Recherche visuelle Bing, Python'
 titleSuffix: Azure Cognitive Services
+description: Programme d’installation de l’application console du Kit de développement logiciel (SDK) de Recherche visuelle Python.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: f7a1f275f9059abdceaef577fb5ca722c9951366
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 269eaccbf834646b540123dfeeeec7c569b8ced4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939397"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222639"
 ---
-# <a name="visual-search-sdk-python-quickstart"></a>Démarrage rapide pour le Kit de développement logiciel (SDK) de Recherche visuelle Python
+# <a name="quickstart-bing-visual-search-sdk-python"></a>Démarrage rapide : Kit SDK Recherche visuelle Bing avec Python
 
-Le Kit de développement logiciel (SDK) de Recherche visuelle Bing utilise les fonctionnalités de l’API REST nécessaires pour les requêtes et l’analyse des résultats.
+Le Kit de développement logiciel (SDK) de Recherche visuelle Bing utilise les fonctionnalités de l’API REST nécessaires pour les requêtes web et l’analyse des résultats.
 Le [code source des exemples du Kit de développement logiciel (SDK) de Recherche visuelle Bing Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/visual_search_samples.py) est disponible sur GitHub.
 
 Les scénarios de code sont documentés dans les rubriques suivantes :
@@ -31,7 +31,7 @@ Les scénarios de code sont documentés dans les rubriques suivantes :
 
 ## <a name="application-dependencies"></a>Dépendances de l’application
 * Une clé d’API Cognitive Services est requise pour authentifier les appels du Kit de développement logiciel (SDK). Inscrivez-vous pour obtenir une [clé d’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). La clé d’essai est valable pendant sept jours avec 1 appel par seconde. Pour les scénarios de production, [achetez une clé d’accès](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Consultez aussi les [informations de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
-* Si ce n’est déjà fait, installez Python. Le Kit de développement logiciel (SDK) est compatible avec Python 2.7, 3.3, 3.4, 3.5 et 3.6.
+* Si ce n’est déjà fait, installez Python. Le SDK est compatible avec Python 2.7, 3.3, 3.4, 3.5 et 3.6.
 * Il est généralement conseillé d’utiliser un [environnement virtuel](https://docs.python.org/3/tutorial/venv.html) pour le développement Python. Installez et initialisez l’environnement virtuel avec le [module venv](https://pypi.python.org/pypi/virtualenv). Installez virtualenv pour Python 2.7.
 ```
 python -m venv mytestenv
@@ -108,7 +108,7 @@ with open(image_path, "rb") as image_fd:
 <a name="complete-console"></a> 
 ## <a name="complete-console-application"></a>Application console complète
 
-L’application console suivante exécute la requête précédemment définie et analyse les résultats :
+L’application console suivante exécute la requête précédemment définie et analyse les résultats :
 ```
 import http.client, urllib.parse
 import json
@@ -325,4 +325,4 @@ Le code suivant envoie un jeton insights d’image dans le paramètre knowledgeR
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Exemples du Kit de développement logiciel (SDK) .NET Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Exemples du Kit de développement logiciel (SDK) .NET pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

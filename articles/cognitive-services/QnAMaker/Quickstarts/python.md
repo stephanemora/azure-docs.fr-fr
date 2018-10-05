@@ -1,20 +1,21 @@
 ---
-title: Démarrage rapide de Python pour l’API QnA Maker Microsoft (V4) - Azure Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : Python pour l’API QnA Maker (V4)'
+titleSuffix: Azure Cognitive Services
 description: Obtenez des informations et des exemples de code pour vous aider à commencer rapidement à utiliser l’API de traduction de texte Translator Text Microsoft dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: c0d02a0f586857f6dd303fc98407da71b2addb9b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5e95bf768cc00935067edd3365cc3d101be6a00a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869117"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034739"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Démarrage rapide pour l’API QnA Maker Microsoft avec Python 
 <a name="HOLTop"></a>
@@ -35,6 +36,8 @@ Cet article explique comment utiliser l’[API QnA Maker Microsoft](../Overview/
 - [Régénérer les clés du point de terminaison actuel](#PutKeys)
 - [Obtenir l’ensemble actuel d’altérations de mot](#GetAlterations)
 - [Remplacer l’ensemble actuel d’altérations de mot](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -146,7 +149,7 @@ while False == done:
 
 **Créer une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -286,7 +289,7 @@ while False == done:
 
 **Mettre à jour une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -375,7 +378,7 @@ print (pretty_print(result))
 
 **Publier une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -463,7 +466,7 @@ print (pretty_print(result))
 
 **Remplacer une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -527,7 +530,7 @@ print (pretty_print(result))
 
 **Télécharger une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -628,7 +631,7 @@ print (pretty_print(result))
 
 **Obtenir une réponse à une question**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -701,7 +704,7 @@ print (pretty_print(result))
 
 **Obtenir une réponse détaillée de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -771,7 +774,7 @@ print (pretty_print(result))
 
 **Obtenir des bases de connaissances pour répondre à un utilisateur**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -866,7 +869,7 @@ print (pretty_print(result))
 
 **Supprimer une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -924,7 +927,7 @@ print (pretty_print(result))
 
 **Obtenir une réponse concernant les clés d’un point de terminaison**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -992,7 +995,7 @@ print (pretty_print(result))
 
 **Actualiser une réponse concernant les clés d’un point de terminaison**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1051,7 +1054,7 @@ print (pretty_print(result))
 
 **Obtenir une réponse concernant les altérations d’un mot**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1135,7 +1138,7 @@ print (pretty_print(result))
 
 **Remplacer une réponse concernant les altérations d’un mot**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {

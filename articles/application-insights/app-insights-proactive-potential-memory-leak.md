@@ -1,8 +1,8 @@
 ---
-title: "Détection intelligente - Fuite de mémoire potentielle détectée par Azure Application Insights | Microsoft Docs"
-description: "Surveiller les applications avec Azure Application Insights pour détecter les fuites de mémoire potentielles."
+title: Détection intelligente - Fuite de mémoire potentielle détectée par Azure Application Insights | Microsoft Docs
+description: Surveiller les applications avec Azure Application Insights pour détecter les fuites de mémoire potentielles.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: e98caaa387418d746905990436b69925a591b260
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 25d26db3cd11fff7f7e9ba472247a920ecddea33
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090732"
 ---
 # <a name="memory-leak-detection-preview"></a>Détection des fuites de mémoire (version préliminaire)
 
@@ -25,12 +26,10 @@ Application Insights analyse automatiquement la consommation de mémoire des pro
 
 Cette fonctionnalité ne requiert aucune configuration spéciale, autre que la [configuration des compteurs de performances](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) pour votre application. Elle est active lorsque votre application génère suffisamment de données de télémétrie sur les compteurs de performances mémoire (par exemple, les octets privés).
 
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quand reçoit-on ce type de notification de détection intelligente ?
+Une notification classique suit une augmentation constante de la consommation de mémoire sur une période prolongée, pour un ou plusieurs processus et/ou une ou plusieurs machines, qui font partie intégrante de votre application. Des algorithmes Machine Learning sont utilisés pour la détection d’une consommation de mémoire accrue correspondant au modèle d’une fuite de mémoire.
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quand pouvez-vous recevoir ce type de notification de détection intelligente ?
-Une notification typique suivra une augmentation constante de la consommation de mémoire sur une longue période de temps (quelques heures), pour un ou plusieurs processus et/ou une ou plusieurs machines, faisant partie de votre application.
-Les algorithmes Machine Learning sont utilisés pour la détection d’une augmentation de la consommation de mémoire correspondant à un modèle de fuite de mémoire, contrairement à l’augmentation de la consommation de mémoire engendrée par une augmentation naturelle de l’utilisation des applications.
-
-## <a name="does-my-app-definitely-have-a-problem"></a>Mon application rencontre-t-elle vraiment un problème ?
+## <a name="does-my-app-really-have-a-problem"></a>Mon application rencontre-t-elle réellement un problème ?
 Non, une notification ne signifie pas que votre application rencontre réellement un problème. Bien que les modèles de fuites de mémoire indiquent généralement un problème au niveau de l’application, ces modèles peuvent être liés à votre processus spécifique, ou peuvent avoir une justification naturelle, et peuvent être ignorés.
 
 ## <a name="how-do-i-fix-it"></a>Comment la corriger ?

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a7a4e4b487c324bada818d4815f253110f7f7a60
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234712"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060352"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Disques managés SSD Standard pour les charges de travail des machines virtuelles Azure
 
@@ -30,7 +30,7 @@ Les disques SSD Standard prennent en charge toutes les opérations de gestion de
 
 **Captures instantanées** : Comme tous les disques managés, les disques SSD Standard prennent également en charge la création de captures instantanées. Le type de capture instantanée peut être Standard (HDD) ou Premium (SSD). Pour réduire les coûts, nous vous recommandons le type de capture instantanée Standard (HDD) pour tous les types de disque Azure. En effet, quand vous créerez un disque managé à partir d’une capture instantanée, vous pourrez toujours choisir un niveau supérieur comme Standard SSD ou Premium SSD.
 
-## <a name="scalability-and-performance-targets"></a>Objectifs de performance et de scalabilité
+## <a name="scalability-and-performance-targets"></a>Cibles de performance et d’évolutivité
 
 Le tableau suivant contient les tailles de disque qui sont actuellement proposées pour les disques SSD Standard.
 
@@ -39,9 +39,12 @@ Le tableau suivant contient les tailles de disque qui sont actuellement proposé
 |E10     |128 Go         |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
 |E15     |256 Gio         |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
 |E20     |512 Go         |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
-|E30     |1 024 Gio         |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
-|E40     |2 048 Gio         |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
-|E50     |4 095 Gio         |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
+|E30     |1 024 Gio       |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
+|E40     |2 048 Gio       |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
+|E50     |4 095 Gio       |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
+|E60     |8 192 Gio       |Jusqu’à 1 300       |Jusqu’à 300 Mio par seconde        |
+|E70     |16 384 Gio      |Jusqu’à 2 000       |Jusqu’à 500 Mio par seconde        |
+|E80     |32 767 Gio      |Jusqu’à 2 000       |Jusqu’à 500 Mio par seconde        |
 
 Les disques SSD Standard sont conçus pour fournir des latences en millisecondes à un chiffre pour la plupart des opérations d’E/S et offrir les E/S et le débit dans les limites décrites dans le tableau ci-dessus. Les E/S et le débit réels peuvent parfois varier selon les modèles de trafic. Les disques SSD Standard offrent des performances plus cohérentes que les disques HDD avec une latence plus faible.
 
@@ -58,7 +61,7 @@ Lorsque vous utilisez des disques SSD Standard, les règles de facturation suiva
 - Transferts de données sortantes
 - Transactions
 
-**Taille des disques managés :** Les disques managés sont facturés selon la taille provisionnée. Azure fait correspondre la taille provisionnée (arrondie à la valeur supérieure) à l’offre de taille de disque la plus proche. Pour plus d’informations sur les tailles de disque proposées, consultez le tableau dans la section Objectifs de performance et de scalabilité ci-dessus. Chaque disque correspond à une taille de disque provisionnée prise en charge et est facturé en conséquence. Par exemple, si vous avez provisionné un disque SSD Standard de 200 Gio, celui-ci va correspondre à l’offre de taille de disque E15 (256 Gio). La facturation de n’importe quel disque provisionné est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous provisionnez un disque E10 et le supprimez au bout de 20 heures, l’offre E10 vous est facturée au prorata de 20 heures. Le montant facturé est indépendant de la quantité de données écrites sur le disque.
+**Taille des disques managés :** Les disques managés sont facturés selon la taille provisionnée. Azure fait correspondre la taille provisionnée (arrondie à la valeur supérieure) à l’offre de taille de disque la plus proche. Pour plus d’informations sur les tailles de disque proposées, consultez le tableau dans la section Objectifs de performance et de scalabilité ci-dessus. Chaque disque correspond à une taille de disque provisionnée prise en charge et est facturé en conséquence. Par exemple, si vous avez provisionné un disque SSD Standard de 200 Gio, celui-ci va correspondre à l’offre de taille de disque E15 (256 Gio). La facturation de n’importe quel disque configuré est calculée au prorata horaire sur la base du tarif mensuel de l’offre de stockage Premium. Par exemple, si vous provisionnez un disque E10 et le supprimez au bout de 20 heures, l’offre E10 vous est facturée au prorata de 20 heures. Le montant facturé est indépendant de la quantité de données écrites sur le disque.
 
 **Captures instantanées** : Les captures instantanées de disques managés sont facturées en fonction de la capacité utilisée par les captures instantanées, à la cible et à la source, le cas échéant. Pour plus d’informations sur les captures instantanées, consultez [Captures instantanées de disque managé](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots).
 
@@ -69,7 +72,7 @@ Lorsque vous utilisez des disques SSD Standard, les règles de facturation suiva
 Pour plus d’informations sur le prix des machines virtuelles et des disques managés, consultez :
 
 - [Tarification des machines virtuelles](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
-- [Tarification des disques managés](https://azure.microsoft.com/pricing/details/managed-disks/)
+- [Tarification des disques gérés](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

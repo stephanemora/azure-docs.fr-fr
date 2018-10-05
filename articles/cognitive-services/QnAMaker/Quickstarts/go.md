@@ -1,20 +1,21 @@
 ---
-title: Démarrage rapide de Go pour l’API QnA Maker Microsoft (V4) - Azure Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : Utiliser l’API QnA Maker (V4)'
+titleSuffix: Azure Cognitive Services
 description: Obtenez des informations et des exemples de code pour vous aider à commencer rapidement à utiliser l’API de traduction de texte Translator Text Microsoft dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: d68ff91d74a6c43c6d492aa07e916a842b50e96f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 320eb7b643d785899482a00bfc0bda1d89e61b3b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867587"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042378"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Démarrage rapide pour l’API QnA Maker Microsoft avec Go 
 <a name="HOLTop"></a>
@@ -189,7 +190,7 @@ func main() {
 
 **Créer une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -372,7 +373,7 @@ func main() {
 
 **Mettre à jour une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -484,7 +485,7 @@ func main() {
 
 **Publier une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -592,7 +593,7 @@ func main() {
 
 **Remplacer une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -676,7 +677,7 @@ func main() {
 
 **Télécharger une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -790,7 +791,7 @@ func main() {
 
 **Obtenir une réponse à une question**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -882,7 +883,7 @@ func main() {
 
 **Obtenir une réponse détaillée de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -971,7 +972,7 @@ func main() {
 
 **Obtenir des bases de connaissances pour répondre à un utilisateur**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1085,7 +1086,7 @@ func main() {
 
 **Supprimer une réponse de la base de connaissances**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1162,7 +1163,7 @@ func main() {
 
 **Obtenir une réponse concernant les clés d’un point de terminaison**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1248,7 +1249,7 @@ func main() {
 
 **Actualiser une réponse concernant les clés d’un point de terminaison**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1326,7 +1327,7 @@ func main() {
 
 **Obtenir une réponse concernant les altérations d’un mot**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -1430,7 +1431,7 @@ func main() {
 
 **Remplacer une réponse concernant les altérations d’un mot**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {

@@ -1,23 +1,24 @@
 ---
-title: Didacticiel permettant de créer un modèle de langage avec Custom Speech Service - Microsoft Cognitive Services | Microsoft Docs
-description: Dans ce didacticiel, vous apprenez à créer un modèle de langage avec Custom Speech Service dans Microsoft Cognitive Services.
+title: 'Didacticiel : Créer un modèle de langage - Custom Speech Service'
+titlesuffix: Azure Cognitive Services
+description: Dans ce didacticiel, découvrez comment créer un modèle de langage avec Custom Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 29f5c5efb78e85e265b56cba9ba20daa123d334e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b7216688efb6a2124748cd08111d57b122085143
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961040"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219311"
 ---
-# <a name="tutorial-create-a-custom-language-model"></a>Didacticiel : Créer un modèle de langage personnalisé
+# <a name="tutorial-create-a-custom-language-model"></a>Tutoriel : Créer un modèle de langage personnalisé
 
 Dans ce didacticiel, vous créez un modèle de langage personnalisé pour les requêtes de texte ou les énoncés que les utilisateurs sont susceptibles de formuler ou de saisir dans une application. Vous pouvez ensuite utiliser ce modèle de langage personnalisé avec des modèles vocaux existants de Microsoft pour ajouter l’interaction vocale à votre application.
 

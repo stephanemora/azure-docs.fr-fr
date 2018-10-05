@@ -2,24 +2,26 @@
 title: Configuration d’un réseau virtuel Azure SQL Database Managed Instance | Microsoft Docs
 description: Cette rubrique décrit les options de configuration d’un réseau virtuel avec Azure SQL Database Managed Instance.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 748489785241c0eab6022e3585164974f330d6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 9d3f867dad40017e8e97ec4f5e370533b018263c
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049671"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181162"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurer un réseau virtuel pour Azure SQL Database Managed Instance
 
-Azure SQL Database Managed Instance (préversion) doit être déployé au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure. Ce déploiement permet les scénarios suivants : 
+Azure SQL Database Managed Instance doit être déployé au sein d’un [réseau virtuel](../virtual-network/virtual-networks-overview.md) Azure. Ce déploiement permet les scénarios suivants : 
 - Connexion directe à une instance gérée à partir d’un réseau local 
 - Connexion de Managed Instance à un serveur lié ou un autre magasin de données local 
 - Connexion de Managed Instance à des ressources Azure  
@@ -34,35 +36,35 @@ Planifiez votre déploiement de Managed Instance dans un réseau virtuel en util
 
    Si vous envisagez d’utiliser un réseau virtuel existant, vous devez modifier sa configuration pour prendre en compte Managed Instance. Pour plus d’informations, consultez [Modifier un réseau virtuel existant pour Managed Instance](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Si vous envisagez de créer un réseau virtuel, consultez [Créer un réseau virtuel pour Managed Instance](#create-a-new-virtual-network-for-managed-instances).
+   Si vous envisagez de créer un réseau virtuel, consultez [Créer un réseau virtuel pour Managed Instance](#create-a-new-virtual-network-for-a-managed-instance).
 
 ## <a name="requirements"></a>Configuration requise
 
-Pour la création d’une option Managed Instance, vous avez besoin d’un sous-réseau dédié conforme aux exigences suivantes dans le réseau virtuel :
-- **Sous-réseau dédié** : le sous-réseau ne doit contenir aucun autre service cloud associé et ne doit pas être un sous-réseau de passerelle. Vous ne pouvez pas créer d’option Managed Instance dans un sous-réseau qui contient des ressources autres qu’une instance managée ni ajouter ultérieurement d’autres ressources à l’intérieur du sous-réseau.
-- **Pas de groupe de sécurité réseau** : aucun groupe de sécurité réseau ne doit être associé au sous-réseau. 
-- **Table de routage spécifique** : le sous-réseau doit avoir une table de routage utilisateur (UDR) avec un itinéraire Internet de tronçon suivant 0.0.0.0/0 comme seul itinéraire affecté. Pour plus d’informations, consultez [Créer la table de routage nécessaire et l’associer](#create-the-required-route-table-and-associate-it).
-3. **DNS personnalisé éventuel** : si un DNS personnalisé est spécifié sur le réseau virtuel, vous devez ajouter l’adresse IP des programmes de résolution récursifs d’Azure (168.63.129.16) à la liste. Pour plus d’informations, consultez [Configuration d’un DNS personnalisé](sql-database-managed-instance-custom-dns.md).
-4. **Pas de point de terminaison de service** : le sous-réseau ne doit pas avoir de point de terminaison de service associé. Vérifiez que l’option Points de terminaison de service est désactivée quand vous créez le réseau virtuel.
-5. **Nombre d’adresses IP suffisant** : le sous-réseau doit absolument avoir 16 adresses IP au minimum (le minimum recommandé est de 32 adresses IP). Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour les options Managed Instance](#determine-the-size-of-subnet-for-managed-instances).
+Pour créer une instance managée, créez un sous-réseau dédié (le sous-réseau Instance managée) à l’intérieur du réseau virtuel qui respecte les exigences suivantes :
+- **Un sous-réseau dédié** : le sous-réseau Instance managée ne doit contenir aucun autre service cloud et ne doit pas être un sous-réseau de passerelle. Vous ne pouvez pas créer d’instance managée dans un sous-réseau qui contient des ressources autres qu’une instance managée, ni ajouter ultérieurement d’autres ressources à l’intérieur du sous-réseau.
+- **Un groupe de sécurité réseau (NSG) compatible** : un groupe de sécurité réseau associé à un sous-réseau Instance managée doit contenir les règles répertoriées dans les tableaux suivants (règles de sécurité de trafic entrant obligatoires et règles de sécurité de trafic sortant obligatoires), qui doivent être prioritaires par rapport aux autres règles. Vous pouvez utiliser un groupe de sécurité réseau pour contrôler entièrement l’accès au point de terminaison de données de l’instance managée en filtrant le trafic sur le port 1433. 
+- **Une table de routage défini par l'utilisateur compatible** : le sous-réseau Instance managée doit comprendre une table UDR à laquelle est affecté le routage UDR obligatoire **0.0.0.0/0 Next Hop Internet**. En outre, vous pouvez utiliser la passerelle de réseau virtuel ou une appliance de réseau virtuel pour ajouter en tant que destination un routage UDR qui achemine le trafic comprenant des plages d’adresses IP privées locales. 
+- **Un DNS personnalisé facultatif** : si un DNS personnalisé est spécifié sur le réseau virtuel, vous devez ajouter l’adresse IP du programme de résolution récursif d’Azure (par exemple 168.63.129.16) à la liste. Pour plus d’informations, consultez [Configuration d’un DNS personnalisé](sql-database-managed-instance-custom-dns.md). Le serveur DNS personnalisé doit pouvoir résoudre les noms d’hôtes dans les domaines suivants et leurs sous-domaines : *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com* et *microsoftonline-p.com*. 
+- **Aucun point de terminaison de service** : le sous-réseau Instance managée ne doit pas être associé à un point de terminaison de service. Vérifiez que l’option Points de terminaison de service est désactivée quand vous créez le réseau virtuel.
+- **Un nombre d’adresses IP suffisant** : le sous-réseau Instance managée doit avoir 16 adresses IP au minimum (le minimum recommandé est de 32 adresses IP). Pour plus d’informations, consultez [Déterminer la taille du sous-réseau pour les options Managed Instance](#determine-the-size-of-subnet-for-managed-instances).
 
 > [!IMPORTANT]
-> Vous ne pouvez pas déployer une nouvelle option Managed Instance si le sous-réseau de destination n’est pas compatible avec toutes les exigences précédentes. La réseau virtuel de destination et le sous-réseau doivent constamment respecter ces exigences (avant et après le déploiement), car toute violation peut entraîner l’entrée de l’instance dans un état défectueux et la rendre indisponible. Pour récupérer de cet état, vous devez créer une instance dans un réseau virtuel avec les stratégies réseau conformes, recréer des données de niveau d’instance et restaurer vos bases de données. Cela induit un temps d’arrêt important pour vos applications.
+> Vous ne pouvez pas déployer une instance managée si le sous-réseau de destination ne répond pas à toutes les exigences précédentes. Lorsqu’une instance managée est créée, une *stratégie d’intention réseau* est appliquée au sous-réseau pour empêcher toute modification non conforme de la configuration réseau. Lorsque la dernière instance restante est supprimée du sous-réseau, la *stratégie d’intention réseau* est elle aussi supprimée.
 
-Avec l’introduction de la _stratégie d’intention de réseau_, vous pouvez ajouter un groupe de sécurité réseau (NSG) sur un sous-réseau Managed Instance une fois que l’option Managed Instance est créée.
-
-Vous pouvez désormais utiliser un groupe de sécurité réseau pour affiner les plages d’adresses IP à partir desquelles les applications et les utilisateurs peuvent interroger et gérer les données en filtrant le trafic réseau acheminé vers le port 1433. 
-
-> [!IMPORTANT]
-> Lorsque vous configurez les règles du groupe de sécurité réseau qui limiteront l’accès au port 1433, vous devez également insérer les règles de trafic entrant à la priorité la plus haute affichées dans le tableau ci-dessous. Sinon, la stratégie d’intention de réseau bloque la modification comme étant non conforme.
+### <a name="mandatory-inbound-security-rules"></a>Règles de sécurité du trafic entrant obligatoires 
 
 | NOM       |PORT                        |PROTOCOLE|SOURCE           |DESTINATION|ACTION|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gestion  |9000, 9003, 1438, 1440, 1452|Quelconque     |Quelconque              |Quelconque        |AUTORISER |
+|gestion  |9000, 9003, 1438, 1440, 1452|TCP     |Quelconque              |Quelconque        |AUTORISER |
 |mi_subnet   |Quelconque                         |Quelconque     |SOUS-RÉSEAU MI        |Quelconque        |AUTORISER |
 |health_probe|Quelconque                         |Quelconque     |AzureLoadBalancer|Quelconque        |AUTORISER |
 
-L’expérience de routage a également été améliorée : en plus de l’itinéraire Internet type de tronçon suivant 0.0.0.0/0, vous pouvez maintenant ajouter un itinéraire défini par l’utilisateur (UDR) pour acheminer le trafic vers vos plages d’adresses IP privées sur site via la passerelle de réseau virtuel ou une appliance de réseau virtuel (NVA).
+### <a name="mandatory-outbound-security-rules"></a>Règles de sécurité du trafic sortant obligatoires 
+
+| NOM       |PORT          |PROTOCOLE|SOURCE           |DESTINATION|ACTION|
+|------------|--------------|--------|-----------------|-----------|------|
+|gestion  |80, 443, 12000|TCP     |Quelconque              |Quelconque        |AUTORISER |
+|mi_subnet   |Quelconque           |Quelconque     |Quelconque              |SOUS-RÉSEAU MI  |AUTORISER |
 
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Déterminer la taille du sous-réseau pour les options Managed Instance
 
@@ -84,7 +86,7 @@ Si vous envisagez de déployer plusieurs options Managed Instance à l’intéri
 > [!IMPORTANT]
 > Le calcul affiché ci-dessus deviendra obsolète au fur et à mesure des améliorations. 
 
-## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Créer un réseau virtuel pour Managed Instance à l’aide du déploiement Azure Resource Manager
+## <a name="create-a-new-virtual-network-for-a-managed-instance"></a>Créer un réseau virtuel pour une instance managée
 
 Pour créer et configurer le réseau virtuel, le plus simple consiste à utiliser le modèle de déploiement Azure Resource Manager.
 
@@ -101,7 +103,7 @@ Pour créer et configurer le réseau virtuel, le plus simple consiste à utilise
 
 3. Configurez l’environnement réseau. Dans le formulaire suivant, vous pouvez configurer les paramètres de votre environnement réseau :
 
-![Configurer le réseau Azure](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+![Configurer le réseau Azure](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
 Vous pouvez modifier les noms du réseau virtuel et des sous-réseaux et ajustez les plages d’adresses IP associées à vos ressources réseau. Lorsque vous appuyez sur le bouton « Acheter », ce formulaire crée et configure votre environnement. Si vous n’avez pas besoin de deux sous-réseaux, vous pouvez supprimer celui par défaut. 
 
@@ -143,8 +145,6 @@ La préparation du sous-réseau s’effectue en trois étapes simples :
 **Avez-vous configuré un serveur DNS personnalisé ?** 
 
 Dans l’affirmative, consultez [Configuration d’un DNS personnalisé](sql-database-managed-instance-custom-dns.md). 
-
-- Créez la table de routage nécessaire et associez-la : consultez [Créer la table de routage nécessaire et l’associer](#create-the-required-route-table-and-associate-it).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

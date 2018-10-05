@@ -1,20 +1,21 @@
 ---
-title: 'Démarrage rapide : Modifier le modèle et effectuer l’apprentissage de l’application LUIS à l’aide de C# - Azure Cognitive Services | Microsoft Docs'
+title: 'Démarrage rapide pour C# : Changer de modèle et entraîner une application LUIS'
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide de C#, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’apprentissage de l’application. Les exemples d’énoncés sont du texte utilisateur conversationnel mappé à une intention. En fournissant des exemples d’énoncés pour les intentions, vous apprenez à l’application LUIS quels types de texte fourni par l’utilisateur appartiennent à quelle intention.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0c631fe281587c86f26643367aead14683b699df
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: aab9651092f7ad5dbc78c31db8df4ef3538fedfc
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160913"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039970"
 ---
 # <a name="quickstart-change-model-using-c"></a>Démarrage rapide : Modifier un modèle à l’aide de C#
 
@@ -135,7 +136,7 @@ Cette ligne de commande affiche les résultats de l’appel de l’API d’ajout
 
 [!INCLUDE [Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Une fois le démarrage rapide terminé, supprimez tous les fichiers créés pour ce démarrage rapide. 
 
 ## <a name="next-steps"></a>Étapes suivantes

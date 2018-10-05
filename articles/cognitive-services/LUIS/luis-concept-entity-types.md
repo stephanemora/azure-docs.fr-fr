@@ -1,20 +1,21 @@
 ---
-title: Comprendre les types d’entités dans les applications LUIS dans Azure | Microsoft Docs
+title: Types d’entités dans les applications LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Ajouter des entités (données clés dans le domaine de votre application) dans les applications Language Understanding Intelligent Service (LUIS).
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282277"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042446"
 ---
 # <a name="entities-in-luis"></a>Entités dans LUIS
 
@@ -45,10 +46,10 @@ Si le choix des mots ou la disposition des mots est identique, mais que la signi
 
 Dans les énoncés suivants, le mot `fair` est un homographe. Il est orthographié de la même manière, mais a une signification différente :
 
-```
-What kind of county fairs are happening in the Seattle area this summer?
-Is the current rating for the Seattle review fair?
-```
+|Énoncé|
+|--|
+|Quelles sont les foires qui ont lieu dans la région de Seattle cet été ?|
+|L’évaluation actuelle pour Seattle est-elle juste ?|
 
 Si vous souhaitez qu’une entité d’événement recherche toutes les données d’événement, étiquetez le mot `fair` dans le premier énoncé, mais pas dans le second.
 

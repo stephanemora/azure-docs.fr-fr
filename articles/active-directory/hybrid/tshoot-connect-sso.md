@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c2b6bd3b04dfbc7446e92dfcb16db64cc3c693c5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a020f0f22f16d8aaa959c41a912ca5839be05312
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310618"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055898"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Résoudre les problèmes d’authentification unique transparente Azure Active Directory
 
@@ -36,7 +36,7 @@ Cet article fournit des informations sur les problèmes courants liés à l’au
 - Si un utilisateur fait partie de trop de groupes dans Active Directory, son ticket Kerberos sera probablement trop volumineux pour être traité, ce qui provoquera l’échec de l’authentification unique transparente. Les requêtes HTTPS Azure AD peuvent comporter des en-têtes dont la taille ne dépasse pas 50 Ko ; les tickets Kerberos doivent être plus petits pour laisser la place à d’autres artefacts d’Azure AD (en général, 2 à 5 Ko), comme les cookies. Nous vous recommandons de réduire les appartenances de l’utilisateur à des groupes, puis de réessayer.
 - Si vous synchronisez 30 forêts Active Directory ou plus, vous ne pouvez pas activer l’authentification unique transparente via Azure AD Connect. En guise de solution de contournement, vous pouvez [activer manuellement](#manual-reset-of-the-feature) la fonctionnalité pour votre locataire.
 - L’ajout de l’URL du service Azure AD (https://autologon.microsoftazuread-sso.com) à la zone Sites de confiance, plutôt que la zone Intranet local, *empêche les utilisateurs de se connecter*.
-- La désactivation de l’utilisation du type de chiffrement **RC4_HMAC_MD5** pour Kerberos dans vos paramètres Active Directory empêche l’authentification unique transparente. Dans l’outil Éditeur de gestion des stratégies de groupe, vérifiez que la valeur de la stratégie pour **RC4_HMAC_MD5** sous **Configuration ordinateur -> Paramètres Windows -> Paramètres de sécurité -> Stratégies locales -> Options de sécurité -> « Sécurité réseau : Configurer les types de chiffrement autorisés pour Kerberos »** est « Activé ».
+- L’authentification unique transparente utilise le type de chiffrement **RC4_HMAC_MD5** pour Kerberos. La désactivation de l’utilisation du type de chiffrement **RC4_HMAC_MD5** dans vos paramètres Active Directory empêche l’authentification unique transparente. Dans l’outil Éditeur de gestion des stratégies de groupe, vérifiez que la valeur de la stratégie pour **RC4_HMAC_MD5** sous **Configuration ordinateur -> Paramètres Windows -> Paramètres de sécurité -> Stratégies locales -> Options de sécurité -> « Sécurité réseau : Configurer les types de chiffrement autorisés pour Kerberos »** est définie sur **activé**. En outre, l’authentification unique transparente ne peut pas utiliser d’autres types de chiffrement ; pensez à vérifier qu’ils sont donc définis sur **désactivé**.
 
 ## <a name="check-status-of-feature"></a>Vérifier l’état de la fonctionnalité
 

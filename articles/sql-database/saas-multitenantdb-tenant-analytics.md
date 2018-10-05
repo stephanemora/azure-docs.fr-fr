@@ -1,26 +1,27 @@
 ---
 title: Exécuter des requêtes d’analyse sur des bases de données Azure SQL | Microsoft Docs
-description: Des requêtes analytiques entre clients à l’aide de données extraites de plusieurs bases de données SQL Azure Database.
-keywords: didacticiel sql
+description: Requêtes analytiques entre locataires utilisant des données extraites de plusieurs bases de données Azure SQL Database dans une application multilocataire.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: anjangsh
-ms.reviewer: billgib, genemi
-ms.openlocfilehash: 8ed444320db641408b69efb19018e41e2170b51d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: stevestein
+ms.author: sstein
+ms.reviewer: anjangsh,billgib,genemi
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 5de707f3f2e6a82d880363eea91fb8ce644fb3aa
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644635"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055037"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Analyses entre clients à l’aide de données extraites
-
-Dans ce didacticiel, vous suivez un scénario complet d’analyse. Le scénario illustre comment les analyses permettent aux entreprises de prendre des décisions intelligentes. À l’aide de données extraites de la base de données partitionnée, vous utilisez les analyses pour obtenir des informations sur un comportement de client, y compris son utilisation de l’exemple d’application Wingtip Tickets SaaS. Ce scénario implique trois étapes : 
+# <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Requêtes analytiques entre locataires utilisant des données extraites – Application multilocataire
+ 
+Dans ce tutoriel, vous suivez un scénario complet d’analytique pour une implémentation multilocataire. Le scénario illustre comment les analyses permettent aux entreprises de prendre des décisions intelligentes. À l’aide de données extraites de la base de données partitionnée, vous utilisez les analyses pour obtenir des informations sur un comportement de client, y compris son utilisation de l’exemple d’application Wingtip Tickets SaaS. Ce scénario implique trois étapes : 
 
 1.  **Extrayez des données** à partir de chaque base de données dans un magasin d’analytique.
 2.  **Optimisez les données extraites** pour le traitement analytique.
@@ -181,7 +182,7 @@ Utilisez les étapes suivantes pour vous connecter à Power BI et importer les v
 
 6. Dans le volet **Navigateur**, sous la base de données analytique, sélectionnez les tables du schéma en étoile : fact_Tickets, dim_Events, dim_Venues, dim_Customers et dim_Dates. Sélectionnez ensuite **Charger**. 
 
-Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, vous pouvez commencer l’exploration des visualisations intéressantes pour aider à obtenir des informations sur vos clients. Vous verrez ensuite comment les analyses peuvent vous permettre de fournir des recommandations basées sur les données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
+Félicitations ! Vous avez correctement chargé les données dans Power BI. Maintenant, vous pouvez commencer l’exploration des visualisations intéressantes pour aider à obtenir des informations sur vos clients. Vous verrez ensuite comment les analyses peuvent vous permettre de fournir des recommandations basées sur les données à l’équipe de professionnels de Wingtip Tickets. Les recommandations peuvent aider à optimiser l’expérience client et le modèle d’affaires.
 
 Vous commencez en analysant les données de ventes de ticket pour afficher la variation de l’utilisation sur les systèmes. Sélectionnez les options suivantes dans Power BI pour tracer un graphique à barres du nombre total de tickets vendus par emplacement. En raison d’une variation aléatoire dans le générateur de tickets, vos résultats peuvent être différents.
  
@@ -207,7 +208,7 @@ Vous pouvez explorer les données à nouveau pour voir si cette forte affluence 
 
 Le tracé précédent pour une Salle de concert Contoso montre que la forte affluence ne se produit pas pour tous les événements. Familiarisez-vous avec les options de filtre pour voir les tendances de vente pour les autres systèmes.
 
-Les informations sur les modèles de ventes de tickets peuvent aider Wingtip Tickets à optimiser leur modèle d’affaires. Au lieu de facturer tous les clients à niveau égal, Wingtip peut proposer des niveaux de service avec différents niveaux de performance. Les plus grands emplacements devant vendre plus de tickets par jour peuvent se voir proposer un niveau supérieur avec un contrat de niveau de service (SLA) plus élevé. Ces emplacements peuvent avoir leurs bases de données placées dans le pool avec des limites de ressources par base de données plus importantes. Chaque niveau de service peut avoir une allocation de vente horaire, avec des frais supplémentaires facturés pour les dépassements. Les plus grands emplacements qui ont des pics de vente périodiques peuvent tirer parti des niveaux supérieurs, et Wingtip Tickets peut commercialiser son service plus efficacement.
+Les informations sur les modèles de ventes de tickets peuvent aider Wingtip Tickets à optimiser leur modèle d’affaires. Au lieu de facturer tous les locataires à niveau égal, Wingtip peut proposer des niveaux de service avec différentes tailles de calcul. Les plus grands emplacements devant vendre plus de tickets par jour peuvent se voir proposer un niveau supérieur avec un contrat de niveau de service (SLA) plus élevé. Ces emplacements peuvent avoir leurs bases de données placées dans le pool avec des limites de ressources par base de données plus importantes. Chaque niveau de service peut avoir une allocation de vente horaire, avec des frais supplémentaires facturés pour les dépassements. Les plus grands emplacements qui ont des pics de vente périodiques peuvent tirer parti des niveaux supérieurs, et Wingtip Tickets peut commercialiser son service plus efficacement.
 
 Dans le même temps, certains clients Wingtip Tickets se plaignent d’éprouver des difficultés à vendre suffisamment de tickets pour justifier le coût du service. Dans ces insights, il y a peut-être une opportunité de dynamiser les ventes de tickets pour les emplacements sous-performants. Des ventes plus élevées augmenteraient la valeur perçue du service. Cliquez avec le bouton droit sur fact_Tickets et sélectionnez **Nouvelle mesure**. Entrez l’expression suivante pour la nouvelle mesure appelée **AverageTicketsSold** :
 
@@ -227,7 +228,7 @@ Vous avez observé les tendances des données client à partir de l’applicatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > - Déployé une base de données analytique client avec des tables de schéma en étoile prédéfinies
@@ -236,9 +237,10 @@ Dans ce didacticiel, vous avez appris à :
 > - Interrogé une base de données analytique 
 > - Utilisé Power BI pour la visualisation des données afin d’observer les tendances dans les données client 
 
-Félicitations !
+Félicitations !
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
+Autres [didacticiels reposant sur l’application SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [Tâches élastiques](sql-database-elastic-jobs-overview.md).
+- [Requêtes analytiques entre locataires utilisant des données extraites – Application monolocataire](saas-tenancy-tenant-analytics.md) 

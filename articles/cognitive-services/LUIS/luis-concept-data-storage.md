@@ -1,22 +1,23 @@
 ---
-title: Comprendre le stockage de données dans LUIS - Azure | Microsoft Docs
-description: Découvrez comment les données sont stockées dans Language Understanding (LUIS)
+title: Stockage des données dans LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment les données sont stockées dans Language Understanding (LUIS). LUIS stocke les données chiffrées dans un magasin de données Azure correspondant à la région spécifiée par la clé.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e4e289db0803a127bdbff5122095ae2125cdbb38
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6d42246b3078e0f4684dfe29bca720e8f8d779cd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226190"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034703"
 ---
-# <a name="data-storage-and-removal"></a>Stockage et suppression de données
+# <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Stockage et suppression des données dans Language Understanding (LUIS) Cognitive Services
 LUIS stocke les données chiffrées dans un magasin de données Azure correspondant à la région spécifiée par la clé. Ces données sont stockées pendant 30 jours. 
 
 ## <a name="export-and-delete-app"></a>Exporter et supprimer l’application

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 839e462522be4f492010ca1c22631cb4dd6affe4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521881"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064424"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiler des applications web dynamiques sur Azure avec Application Insights
 
-Cette fonctionnalité d’Azure Application Insights est généralement disponible pour la fonctionnalité Web Apps d’Azure App Service et est en préversion pour les ressources de calcul Azure. Pour plus d’informations concernant [l’utilisation locale du profileur](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
+Cette fonctionnalité d’Azure Application Insights est généralement disponible pour la fonctionnalité Web Apps d’Azure App Service et pour les ressources de calcul Azure. Pour plus d’informations concernant [l’utilisation locale du profileur](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
 Cet article traite du temps passé dans chaque méthode de votre application web dynamique lorsque vous utilisez [Application Insights](app-insights-overview.md). L’outil Application Insights Profiler affiche les profils détaillés des requêtes dynamiques qui ont été prises en charge par votre application. Profiler met en évidence le *chemin réactif* qui utilise le plus de temps. Les requêtes avec différents temps de réponse sont profilées par échantillonnage. À l’aide de diverses techniques, vous pouvez réduire la charge qui est associée à l’application.
 
@@ -45,9 +45,9 @@ Une fois que vous avez déployé une application web, que vous ayez ou non inclu
 
     ![Paramètre d’application pour Profiler][profiler-app-setting]
 
-### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Activer Profiler pour les ressources de calcul Azure (version préliminaire)
+### <a name="enable-profiler-for-azure-compute-resources"></a>Activer Profiler pour les ressources de calcul Azure
 
-Pour plus d’informations, consultez la [version préliminaire de Profiler pour les ressources de calcul Azure](https://go.microsoft.com/fwlink/?linkid=848155).
+Pour plus d’informations, consultez la [version de Profiler pour les ressources de calcul Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## <a name="view-profiler-data"></a>Afficher les données du profileur
 
@@ -204,7 +204,7 @@ Si vous redéployez votre application web vers une ressource Web Apps avec Profi
 
 *Répertoire non vide 'D:\\home\\site\\wwwroot\\App_Data\\jobs’*
 
-Cette erreur se produit si vous exécutez Web Deploy à partir de scripts ou du pipeline de déploiement Visual Studio Team Services. La solution consiste à ajouter les paramètres de déploiement supplémentaires suivants à la tâche Web Deploy :
+Cette erreur se produit si vous exécutez Web Deploy à partir de scripts ou du pipeline de déploiement Azure DevOps. La solution consiste à ajouter les paramètres de déploiement supplémentaires suivants à la tâche Web Deploy :
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

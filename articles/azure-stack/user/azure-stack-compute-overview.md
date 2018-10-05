@@ -6,15 +6,15 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: d478ccd0895ad067657bce56469a3a61d4ea0e17
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a0d75b13369cff4e99bef6f57a3b01f3d8eee6e4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050438"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227161"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Présentation des machines virtuelles Azure Stack
 
@@ -99,7 +99,7 @@ Les ressources figurant dans le tableau suivant sont utilisées par la machine v
 |Ressource|Obligatoire|Description|
 |---------|---------|---------|
 |Groupe de ressources|Oui|La machine virtuelle doit être contenue dans un groupe de ressources.|
-|Compte de stockage|Oui|La machine virtuelle doit stocker ses disques durs virtuels dans le compte de stockage.|
+|Compte de stockage|Non |La machine virtuelle ne nécessite pas que le compte de stockage stocke ses disques durs virtuels en cas d’utilisation du service Managed Disks. <br>La machine virtuelle exige que le compte de stockage stocke ses disques durs virtuels en cas d’utilisation de disques non managés.|
 |Réseau virtuel|Oui|La machine virtuelle doit faire partie d’un réseau virtuel.|
 |Adresse IP publique|Non |La machine virtuelle peut avoir une adresse IP publique pour être accessible à distance.|
 |interface réseau|Oui|La machine virtuelle a besoin de l’interface réseau pour communiquer sur le réseau.|

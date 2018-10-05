@@ -2,34 +2,36 @@
 title: Journalisation des métriques et diagnostics d’Azure SQL Database | Microsoft Docs
 description: Découvrez comment configurer Azure SQL Database pour stocker les statistiques d’utilisation des ressources, de connectivité et d’exécution de requête.
 services: sql-database
-documentationcenter: ''
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/16/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 55274b08695bacf0b63b937f9e8e21c8565f1715
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: bf9185ece171ef0595aa3470fd52b839eb5d6136
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967385"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165957"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database 
-Azure SQL Database peut émettre des journaux de métriques et de diagnostics pour faciliter la surveillance. Vous pouvez configurer SQL Database pour stocker l’utilisation des ressources, les employés et les sessions, ainsi que la connectivité dans une de ces ressources Azure :
 
-* **Stockage Azure** : utilisé pour archiver des quantités importantes de données de télémétrie à un petit prix.
+Les bases de données Azure SQL Database et Managed Instance peuvent générer des métriques et des journaux de diagnostic pour faciliter la supervision des performances. Vous pouvez configurer une base de données pour qu’elle diffuse en continu les informations relatives à l’utilisation des ressources, aux employés et aux sessions, ainsi qu’à la connectivité, dans l’une de ces ressources Azure :
+
+* **Azure SQL Analytics** : utilisé comme une solution de supervision des performances intelligente, intégrée à une base de données Azure, et comprenant des fonctionnalités de création de rapports, d’alerte et d’atténuation.
 * **Concentrateur d’événements Azure** : pour intégrer des données de télémétrie SQL Database à votre solution de surveillance personnalisée ou à vos pipelines très actifs.
-* **Azure Log Analytics** : utilisé pour une solution de surveillance prête à l’emploi avec des fonctionnalités de génération de rapports, d’alerte et d’atténuation. Azure Log Analytics est une fonctionnalité [d’Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
+* **Stockage Azure** : utilisé pour archiver des quantités importantes de données de télémétrie à un petit prix.
 
     ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
-## <a name="enable-logging"></a>Activation de la journalisation
+## <a name="enable-logging-for-a-database"></a>Activer la journalisation pour une base de données
 
-La journalisation des métriques et diagnostics n’est pas activée par défaut. Vous pouvez activer et gérer la journalisation des métriques et diagnostics à l’aide de l’une des méthodes suivantes :
+Dans une base de données SQL Database ou Managed Instance, la journalisation des métriques et des diagnostics n’est pas activée par défaut. Dans une base de données, vous pouvez activer et gérer la journalisation des données de télémétrie liées aux métriques et aux diagnostics à l’aide de l’une des méthodes suivantes :
 
 - Portail Azure
 - PowerShell
@@ -37,40 +39,56 @@ La journalisation des métriques et diagnostics n’est pas activée par défaut
 - API REST Azure Monitor 
 - Modèle Azure Resource Manager
 
-Lorsque vous activez la journalisation des métriques et diagnostics, vous devez spécifier la ressource Azure dans laquelle les données sélectionnées sont collectées. Les options disponibles sont les suivantes :
+Lorsque vous activez la journalisation des métriques et des diagnostics, vous devez spécifier la ressource Azure dans laquelle les données sélectionnées doivent être collectées. Les options disponibles sont les suivantes :
 
-- Log Analytics
+- SQL Analytics
 - Event Hubs
 - Stockage 
 
-Vous pouvez approvisionner une nouvelle ressource Azure ou sélectionner une ressource existante. Après avoir sélectionné la ressource de stockage, vous devez spécifier les données à collecter. Les options disponibles sont les suivantes :
+Vous pouvez approvisionner une nouvelle ressource Azure ou sélectionner une ressource existante. Après avoir sélectionné une ressource à l’aide de l’option de paramètres Diagnostic d’une base de données, vous devez spécifier les données à collecter. Les options disponibles, avec prise en charge des bases de données Azure SQL Database et Managed Instance, sont les suivantes :
 
-- [Toutes les métriques](sql-database-metrics-diag-logging.md#all-metrics) : contient Pourcentage DTU, Limite DTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP.
-- [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics) : contient des informations sur les statistiques d’exécution de requête telles que l’utilisation du processeur et la durée des requêtes.
-- [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics) : contient des informations sur les statistiques d’attente des requêtes vous indiquant ce que vos requêtes ont attendu, comme CPU, LOG, LOCKING.
-- [Errors](sql-database-metrics-diag-logging.md#errors-dataset) : contient des informations sur les erreurs SQL qui se sont produites dans cette base de données.
-- [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset) : contient des informations sur le temps qu’une base de données a passé à attendre différents types d’attente.
-- [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset) : contient des informations sur les expirations du délai d’attente qui ont eu lieu sur une base de données.
-- [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset) : contient des informations sur les événements bloquants qui se sont produits dans une base de données.
-- [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset) : contient les informations Intelligent Insights. [En savoir plus sur Intelligent Insights](sql-database-intelligent-insights.md).
-- **Audit** / **SQLSecurityAuditEvents** : actuellement indisponible.
+| Supervision des données de télémétrie | Prise en charge d’Azure SQL Database | Prise en charge des bases de données dans Managed Instance |
+| :------------------- | ------------------- | ------------------- |
+| [Toutes les métriques](sql-database-metrics-diag-logging.md#all-metrics) : Pourcentage DTU/UC, Limite DTU/UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP. | Oui | Non  |
+| [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics) : contient des informations sur les statistiques d’exécution de requête telles que l’utilisation du processeur et la durée des requêtes. | Oui | Oui |
+| [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics) : contient des informations sur les statistiques d’attente des requêtes vous indiquant ce que vos requêtes ont attendu, comme CPU, LOG, LOCKING. | Oui | Oui |
+| [Errors](sql-database-metrics-diag-logging.md#errors-dataset) : contient des informations sur les erreurs SQL qui se sont produites dans cette base de données. | Oui | Non  |
+| [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset) : contient des informations sur le temps qu’une base de données a passé à attendre différents types d’attente. | Oui | Non  |
+| [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset) : contient des informations sur les expirations du délai d’attente qui ont eu lieu sur une base de données. | Oui | Non  |
+| [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset) : contient des informations sur les événements bloquants qui se sont produits dans une base de données. | Oui | Non  |
+| [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset) : contient les informations Intelligent Insights relatives aux performances. [En savoir plus sur Intelligent Insights](sql-database-intelligent-insights.md). | Oui | Oui |
+
+**Remarque** : pour utiliser les journaux d’audit et SQLSecurityAuditEvents, même s’ils sont disponibles dans les paramètres Diagnostic de la base de données, vous ne devez les activer que via la solution **Audit SQL** pour configurer la diffusion en continu des données de télémétrie vers Log Analytics, Event Hub ou le Stockage Azure.
 
 Si vous sélectionnez Event Hubs ou un compte de stockage, vous pouvez spécifier une stratégie de rétention. Cette stratégie supprime les données antérieures à un intervalle de temps sélectionné. Si vous spécifiez Log Analytics, la stratégie de rétention dépend du niveau tarifaire sélectionné. Pour plus d’informations, consultez [Tarification - Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/). 
 
-Pour savoir comment activer la journalisation et comprendre les catégories de journaux et de métriques qui sont prises en charge par les différents services Azure, nous vous recommandons de lire : 
+## <a name="enable-logging-for-elastic-pools-or-managed-instance"></a>Activer la journalisation pour les pools élastiques ou Managed Instance
+
+Dans les pools élastiques et Managed Instance, la journalisation des métriques et des diagnostics n’est pas activée par défaut. Vous pouvez activer et gérer la journalisation des données de télémétrie liées aux métriques et aux diagnostics pour les pools élastiques et Managed Instance. Les données suivantes peuvent être collectées :
+
+| Supervision des données de télémétrie | Prise en charge des pools élastiques | Prise en charge de Managed Instance |
+| :------------------- | ------------------- | ------------------- |
+| [Toutes les métriques](sql-database-metrics-diag-logging.md#all-metrics) (pools élastiques) : Pourcentage eDTU/UC, Limite eDTU/UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Limite de stockage, Pourcentage de stockage XTP. | Oui | N/A |
+| [ResourceUsageStats](sql-database-metrics-diag-logging.md#resource-usage-stats) (Managed Instance) : Nombre de vCore, Pourcentage d’UC moyenne, Requêtes d’E/S, Octets lus/écrits, Espace de stockage réservé, Espace de stockage utilisé. | N/A | Oui |
+
+Pour comprendre les catégories de journaux et de métriques qui sont prises en charge par les différents services Azure, nous vous recommandons de lire :
 
 * [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 * [Vue d’ensemble des journaux de diagnostics Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) 
 
 ### <a name="azure-portal"></a>Portail Azure
 
-1. Pour activer la collecte des journaux des métriques et des diagnostics dans le portail, accédez à votre base de données SQL ou une page du pool élastique, et sélectionnez **Paramètres de diagnostic**.
+- Pour activer la collecte des journaux de métriques et de diagnostics pour les bases de données SQL Database et Managed Instance, accédez à votre base de données, puis sélectionnez **Paramètres de diagnostic**. Sélectionnez **+ Ajouter un paramètre de diagnostic** pour configurer un nouveau paramètre, ou **Modifier le paramètre** pour modifier un paramètre existant.
 
    ![Activer dans le portail Azure](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
-2. Créez ou modifiez les paramètres de diagnostic existants en sélectionnant la cible et la télémétrie.
+- Pour **Azure SQL Database**, créez ou modifiez les paramètres de diagnostic existants en sélectionnant la cible et les données de télémétrie.
 
    ![Paramètres de diagnostic](./media/sql-database-metrics-diag-logging/diagnostics-portal.png)
+
+- Pour les **bases de données Managed Instance**, créez ou modifiez les paramètres de diagnostic existants en sélectionnant la cible et les données de télémétrie.
+
+   ![Paramètres de diagnostic](./media/sql-database-metrics-diag-logging/diagnostics-portal-mi.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -174,7 +192,7 @@ La surveillance d’une flotte SQL Database est simple avec Log Analytics. Trois
 
 2. Configurez les bases de données pour enregistrer des journaux de métriques et diagnostics dans la ressource Log Analytics que vous avez créée.
 
-3. Installez la solution **Azure SQL Analytics** à partir de la galerie de Log Analytics.
+3. Installez la solution **Azure SQL Analytics** à partir de la Place de marché Azure.
 
 ### <a name="create-a-log-analytics-resource"></a>Créer une ressource Log Analytics
 
@@ -259,15 +277,52 @@ Découvrez comment [télécharger les journaux de métriques et de diagnostics �
 
 ## <a name="metrics-and-logs-available"></a>Métriques et journaux disponibles
 
-### <a name="all-metrics"></a>Toutes les métriques
+Voici le détail des données de télémétrie concernant la supervision des métriques et des journaux qui sont disponibles pour Azure SQL Database, les pools élastiques, Managed Instance et les bases de données Managed Instance.
+
+## <a name="all-metrics"></a>Toutes les métriques
+
+### <a name="all-metrics-for-elastic-pools"></a>Toutes les métriques des pools élastiques
 
 |**Ressource**|**Métriques**|
 |---|---|
-|Base de données|Pourcentage DTU, Limite DTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP et blocages |
 |Pool élastique|Pourcentage DTU, eDTU utilisé, Limite eDTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Limite de stockage, Pourcentage de stockage XTP |
-|||
 
-### <a name="logs"></a>Journaux
+### <a name="all-metrics-for-azure-sql-database"></a>Toutes les métriques d’Azure SQL Database
+
+|**Ressource**|**Métriques**|
+|---|---|
+|Azure SQL Database|Pourcentage DTU, Limite DTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP et blocages |
+
+## <a name="logs"></a>Journaux
+
+### <a name="logs-for-managed-instance"></a>Journaux Managed Instance
+
+### <a name="resource-usage-stats"></a>Statistiques relatives à l’utilisation des ressources
+
+|Propriété|Description|
+|---|---|
+|TenantId|Votre ID de client.|
+|SourceSystem|Toujours : Azure|
+|TimeGenerated [UTC]|Horodatage du moment où le journal a été enregistré.|
+|Type|Toujours : AzureDiagnostics|
+|ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL|
+|Category|Nom de la catégorie. Toujours : ResourceUsageStats|
+|Ressource|Nom de la ressource.|
+|ResourceType|Nom du type de ressource. Toujours : MANAGEDINSTANCES|
+|SubscriptionId|Identificateur global unique auquel la base de données appartient.|
+|ResourceGroup|Nom du groupe de ressources auquel la base de données appartient.|
+|LogicalServerName_s|Nom de l’instance managée.|
+|ResourceId|URI de ressource.|
+|SKU_s|Référence SKU produit Managed Instance|
+|virtual_core_count_s|Nombre de vCore disponibles|
+|avg_cpu_percent_s|Pourcentage d’UC moyenne|
+|reserved_storage_mb_s|Capacité de stockage réservée sur Managed Instance|
+|storage_space_used_mb_s|Stockage utilisé sur Managed Instance|
+|io_requests_s|Nombre d’IOPS|
+|io_bytes_read_s|Octets d’IOPS lus|
+|io_bytes_written_s|Octets d’IOPS écrits|
+
+### <a name="logs-for-azure-sql-database-and-managed-instance-database"></a>Journaux pour les bases de données Azure SQL Database et Managed Instance
 
 ### <a name="query-store-runtime-statistics"></a>Statistiques d’exécution du magasin des requêtes
 

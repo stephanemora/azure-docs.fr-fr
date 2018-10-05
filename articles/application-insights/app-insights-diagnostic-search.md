@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136894"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038766"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 Recherche (Search) est la fonctionnalité [d’Application Insights](app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
@@ -123,8 +123,8 @@ Expressions de recherche utilisables :
 | Exemple de requête | Résultat |
 | --- | --- |
 | `apple` |Trouve tous les événements dont la période comprend le mot « apple » |
-| `apple AND banana` |Trouve les événements qui contiennent les deux mots. Utilisez « AND » en lettres majuscules (et non « and » en lettres minuscules). |
-| `apple OR banana`<br/>`apple banana` |Trouve les événements qui contiennent un des deux mots. Utilisez « OR » en lettres capitales (et non « or » en lettres minuscules).<br/>Forme abrégée. |
+| `apple AND banana` <br/>`apple banana` |Trouve les événements qui contiennent les deux mots. Utilisez « AND » en lettres majuscules (et non « and » en lettres minuscules). <br/>Forme abrégée. |
+| `apple OR banana` |Trouve les événements qui contiennent un des deux mots. Utilisez « OR » en lettres capitales (et non « or » en lettres minuscules). |
 | `apple NOT banana` |Trouve les événements qui contiennent un mot, mais pas l’autre. |
 
 ## <a name="sampling"></a>échantillonnage
@@ -133,13 +133,13 @@ Si votre application génère un volume important de télémétrie (et si vous u
 [En savoir plus sur l'échantillonnage](app-insights-sampling.md).
 
 ## <a name="create-work-item"></a>Création d’un élément de travail
-Vous pouvez créer un bogue dans GitHub ou Visual Studio Team Services avec les détails d’un élément de télémétrie. 
+Vous pouvez créer un bogue dans GitHub ou Azure DevOps avec les détails d’un élément de télémétrie. 
 
 ![Cliquez sur Nouvel élément de travail, modifiez les champs, puis cliquez sur OK.](./media/app-insights-diagnostic-search/42.png)
 
-La première fois que vous procédez ainsi, vous êtes invité à configurer un lien vers votre compte et votre projet Team Services.
+La première fois que vous procédez ainsi, vous êtes invité à configurer un lien vers votre organisation et votre projet Azure DevOps.
 
-![Indiquez l’URL de votre serveur Team Services et le nom du projet, puis cliquez sur Autoriser](./media/app-insights-diagnostic-search/41.png)
+![Indiquez l’URL de vos services Azure DevOps Services et le nom du projet, puis cliquez sur Autoriser](./media/app-insights-diagnostic-search/41.png)
 
 (Vous pouvez également configurer le lien dans le panneau des éléments de travail).
 

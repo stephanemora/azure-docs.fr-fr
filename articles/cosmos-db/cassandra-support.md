@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 70b2c3252380440a491e6d21a8b8a96a2390525b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 636b0d9ef42ad1e87d891329be7b7c11c4efcb4a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986266"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220140"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Fonctionnalités Apache Cassandra prises en charge par l’API Cassandra Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ L’API Cassandra Azure Cosmos DB est compatible avec CQL version **v4**. Les co
 
 ## <a name="cassandra-driver"></a>Pilote Cassandra
 
-Les versions suivantes des pilotes datastax Cassandra sont prises en charge par l’API Cassandra Azure Cosmos DB :
+Les versions suivantes des pilotes Cassandra sont prises en charge par l’API Cassandra Azure Cosmos DB :
 
 * [Java 3.5+](https://github.com/datastax/java-driver)  
 * [C# 3.5+](https://github.com/datastax/csharp-driver)  
@@ -44,11 +44,11 @@ L’API Cassandra Azure Cosmos DB prend en charge les types de données CQL suiv
 
 * ascii  
 * bigint  
-* blob  
-* boolean  
+* objet blob  
+* booléenne  
 * counter  
 * date  
-* decimal  
+* décimal  
 * double  
 * float  
 * frozen  
@@ -57,7 +57,7 @@ L’API Cassandra Azure Cosmos DB prend en charge les types de données CQL suiv
 * list  
 * set  
 * smallint  
-* text  
+* texte  
 * time  
 * timestamp  
 * timeuuid  
@@ -74,7 +74,7 @@ L’API Cassandra Azure Cosmos DB prend en charge les types de données CQL suiv
 
 L’API Cassandra Azure Cosmos DB prend en charge les fonctions CQL suivantes :
 
-* Token  
+* par jeton  
 * Fonctions de conversion blob 
   * typeAsBlob(value)  
   * blobAsType(value)
@@ -142,7 +142,7 @@ Azure Cosmos DB prend en charge les commandes de base de données suivantes sur 
 
 * BATCH - Seules les commandes non journalisées sont prises en charge 
 
-* DELETE
+* SUPPRIMER
 
 Toutes les opérations crud, quand elles sont exécutées via le kit SDK compatible CQLV4, retournent des informations supplémentaires sur l’erreur, les unités de requête consommées et l’ID d’activité. Les commandes de suppression et de mise à jour doivent être gérées en prenant en considération la gouvernance des ressources pour éviter une surutilisation des ressources provisionnées. 
 

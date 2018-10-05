@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: victorh
-ms.openlocfilehash: 5d051ed049964af708056e2963f04cb478c15906
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ab1c9405042de02183b8742fa940a3a5a482923a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951506"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165227"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Passerelle d’application redondante dans une zone et avec mise à l’échelle automatique (préversion publique)
 
@@ -54,6 +54,7 @@ Pendant la préversion, aucuns frais ne s’appliquent. Vous serez facturé pour
 |Mise à l’échelle automatique du pare-feu d’application web|Le WAF ne prend pas en charge le mode de mise à l’échelle automatique. Le mode de capacité fixe est pris en charge.|
 
 ## <a name="next-steps"></a>Étapes suivantes
+- [Créer une passerelle d’application redondante dans une zone, avec mise à l’échelle automatique et avec une adresse IP virtuelle réservée à l’aide d’Azure PowerShell](tutorial-autoscale-ps.md)
 - Découvrez [Application Gateway](overview.md).
 - Découvrez le [Pare-feu Azure](../firewall/overview.md). 
 

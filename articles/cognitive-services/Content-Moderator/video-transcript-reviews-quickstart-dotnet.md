@@ -1,24 +1,25 @@
 ---
-title: Azure Content Moderator - Créer des révisions de transcriptions de vidéos à l’aide de .NET | Microsoft Docs
-description: Comment créer des révisions de transcriptions de vidéos à l’aide du Kit de développement logiciel (SDK) Azure pour .NET
+title: Créer des révisions de transcriptions de vidéos à l’aide de .NET - Content Moderator
+titlesuffix: Azure Cognitive Services
+description: Créer des révisions de transcriptions de vidéos à l’aide du SDK Content Moderator pour .NET
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: sajagtap
-ms.openlocfilehash: 3286da6e38f0fba02386d877a835fb694ed0fdec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4e862a8b74339bc8dd1de6c0b231ddb15425974c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35368553"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220939"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Révisions de transcriptions de vidéos à l’aide de .NET
 
-Cet article fournit des informations et des exemples de code pour vous aider à prendre rapidement en main le Kit de développement logiciel (SDK) Azure Content Moderator avec C# pour :
+Cet article fournit des informations et des exemples de code destinés à vous aider à démarrer rapidement avec le [SDK Content Moderator avec C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) pour :
 
 - Créer une révision de vidéo pour des modérateurs humains
 - Ajouter une transcription modérée à la révision
@@ -28,15 +29,26 @@ Cet article fournit des informations et des exemples de code pour vous aider à 
 
 Cet article suppose que vous avez [modéré la vidéo](video-moderation-api.md) et [créé la révision de la vidéo](video-reviews-quickstart-dotnet.md) dans l’outil de révision pour la prise de décision humaine. Vous souhaitez maintenant ajouter les transcriptions de la vidéo modérée dans l’outil de révision.
 
-Cet article part également du principe que vous connaissez déjà Visual Studio et C#.
+Cet article suppose également que vous êtes déjà familiarisé avec Visual Studio et C#.
 
-### <a name="sign-up-for-content-moderator-services"></a>S’inscrire aux services Content Moderator
+## <a name="sign-up-for-content-moderator"></a>S’inscrire à Content Moderator
 
-Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du Kit de développement logiciel (SDK), vous avez besoin d’une clé d’abonnement.
+Avant de pouvoir utiliser les services Content Moderator par le biais de l’API REST ou du kit SDK, vous avez besoin d’une clé d’abonnement.
+Reportez-vous au [démarrage rapide](quick-start.md) pour découvrir comment obtenir la clé.
 
-Dans le tableau de bord Content Moderator, vous trouvez la clé d’abonnement dans **Paramètres** > **Informations d’identification** > **API** > **Trial Ocp-Apim-Subscription-Key** (Essai Ocp-Apim-Subscription-Key) Pour plus d’informations, consultez [What is Content Moderator?](overview.md) (Présentation de Content Moderator).
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>S’inscrire à un compte d’outil de révision si cela n’a pas été fait à l’étape précédente
 
-### <a name="prepare-your-video-for-review"></a>Préparer votre vidéo pour la révision
+Si vous avez obtenu Content Moderator à partir du portail Azure, [inscrivez-vous également au compte d’outil de révision](https://contentmoderator.cognitive.microsoft.com/) et créez une équipe de révision. Vous avez besoin de l’ID de l’équipe et de l’outil de révision pour appeler l’API de révision afin de démarrer un travail et d’afficher les révisions dans l’outil de révision.
+
+## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>Vérifier que votre clé API peut appeler l’API de révision (création de travail)
+
+Une fois les étapes précédentes effectuées, il est possible que vous ayez deux clés Content Moderator si vous avez démarré à partir du portail Azure. 
+
+Si vous envisagez d’utiliser la clé API fournie par Azure dans votre exemple de SDK, suivez les étapes mentionnées dans la section [Utilisation de la clé Azure avec l’API de révision](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) pour permettre à votre application d’appeler l’API de révision et de créer des révisions.
+
+Si vous utilisez la clé d’essai générée par l’outil de révision, votre compte d’outil de révision connaît déjà la clé ; aucune étape supplémentaire n’est donc nécessaire.
+
+## <a name="prepare-your-video-for-review"></a>Préparer votre vidéo pour la révision
 
 Ajoutez la transcription à une révision de la vidéo. La vidéo doit être publiée en ligne. Vous avez besoin de son point de terminaison de streaming. Le point de terminaison de streaming permet au lecteur vidéo de l’outil de révision de lire la vidéo.
 
@@ -50,7 +62,7 @@ Ajoutez la transcription à une révision de la vidéo. La vidéo doit être pub
 
 1. Nommez le projet **VideoTranscriptReviews**.
 
-1. Sélectionnez ce projet en tant que projet de démarrage unique pour la solution.
+1. Sélectionnez ce projet comme unique projet de démarrage de la solution.
 
 ### <a name="install-required-packages"></a>Installer les packages nécessaires
 
@@ -105,9 +117,9 @@ Aux endroits indiqués, remplacez les exemples de valeurs pour ces propriétés.
             /// </summary>
             /// <remarks>This must be the team name you used to create your 
             /// Content Moderator account. You can retrieve your team name from
-            /// the Conent Moderator web site. Your team name is the Id associated 
+            /// the Content Moderator web site. Your team name is the Id associated 
             /// with your subscription.</remarks>
-            public static readonly string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+            private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
             /// <summary>
             /// The base URL fragment for Content Moderator calls.
@@ -137,26 +149,26 @@ Ajoutez la définition de méthode suivante à l’espace de noms VideoTranscrip
     {
         return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
         {
-            BaseUrl = AzureBaseURL
+            Endpoint = AzureBaseURL
         };
     }
 
 ## <a name="create-a-video-review"></a>Créer une révision de vidéo
 
-Créez une révision de vidéo avec **ContentModeratorClient.Reviews.CreateVideoReviews**. Pour plus d’informations, consultez la [référence de l’API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
+Créez une révision de vidéo avec **ContentModeratorClient.Reviews.CreateVideoReviews**. Pour plus d’informations, consultez les [informations de référence sur l’API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4).
 
-**CreateVideoReviews** a les paramètres requis suivants :
-1. Une chaîne qui contient un type MIME, qui doit être « application/json ». 
+**CreateVideoReviews** a les paramètres obligatoires suivants :
+1. Une chaîne contenant un type MIME, qui doit être « application/json ». 
 1. Le nom de votre équipe Content Moderator.
-1. Un objet **IList<CreateVideoReviewsBodyItem>**. Chaque objet **CreateVideoReviewsBodyItem** représente une révision de vidéo. Ce démarrage rapide crée une révision à la fois.
+1. Un objet **IList<CreateVideoReviewsBodyItem>**. Chaque objet **CreateVideoReviewsBodyItem** représente une révision de vidéo. Ce guide de démarrage rapide crée une révision à la fois.
 
 **CreateVideoReviewsBodyItem** a plusieurs propriétés. Vous définissez au moins les propriétés suivantes :
-- **Contenu**. L’URL de la vidéo à réviser.
-- **ContentId**. Un ID à affecter à la révision de vidéo.
-- **État**. Définissez la valeur sur « Non publié ». Si vous ne définissez pas cette valeur, elle sera par défaut définie sur « En attente », ce qui signifie que la révision de la vidéo est publiée et en attente d’une révision humaine. Une fois qu’une révision de vidéo est publiée, vous ne pouvez plus y ajouter de trames vidéo, de transcriptions ou de résultats de modération de transcription.
+- **Content**. URL de la vidéo à réviser.
+- **ContentId**. Un ID à affecter à la révision de la vidéo.
+- **Status**. Définissez la valeur sur « Unpublished ». Si vous ne définissez pas cette propriété, sa valeur par défaut est « Pending », ce qui signifie que la révision de la vidéo est publiée et en attente d’une révision par un opérateur humain. Une fois qu’une révision de vidéo est publiée, vous ne pouvez plus y ajouter de trames vidéo, de transcription ou de résultat de la modération des transcriptions.
 
 > [!NOTE]
-> **CreateVideoReviews** renvoie une IList<string>. Chacune de ces chaînes contient un ID pour une révision de vidéo. Ces ID sont des GUID et ne sont pas les mêmes que la valeur de la propriété **ContentId**. 
+> **CreateVideoReviews** retourne un IList<string>. Chacune de ces chaînes contient un ID de révision de vidéo. Ces ID sont des GUID et sont différents de la valeur de la propriété **ContentId**. 
 
 Ajoutez la définition de méthode suivante à l’espace de noms VideoReviews de la classe Program.
 
@@ -192,7 +204,7 @@ Ajoutez la définition de méthode suivante à l’espace de noms VideoReviews d
     }
 
 > [!NOTE]
-> Votre clé de service Content Moderator a une limite de fréquence de requêtes par seconde. Si vous dépassez la limite, le Kit de développement logiciel (SDK) génère une exception avec un code d’erreur 429. 
+> Votre clé de service Content Moderator a une limite de fréquence de requêtes par seconde. Si vous dépassez la limite, le kit SDK lève une exception avec le code d’erreur 429. 
 >
 > Une clé de niveau gratuit a une limite de fréquence d’une requête par seconde.
 
@@ -290,11 +302,11 @@ Ajoutez la définition de méthode suivante à l’espace de noms VideoTranscrip
 
 ## <a name="publish-video-review"></a>Publier la révision de vidéo
 
-Vous publiez une révision de vidéo avec **ContentModeratorClient.Reviews.PublishVideoReview**. **PublishVideoReview** a les paramètres requis suivants :
+Vous publiez une révision de vidéo avec **ContentModeratorClient.Reviews.PublishVideoReview**. **PublishVideoReview** a les paramètres obligatoires suivants :
 1. Le nom de votre équipe Content Moderator.
-1. L’ID de révision de vidéo renvoyé par **CreateVideoReviews**.
+1. L’ID de révision de vidéo retourné par **CreateVideoReviews**.
 
-Ajoutez la définition de méthode suivante à l’espace de noms VideoReviews de la classe Program.
+Ajoutez la définition de méthode suivante à la classe Program de l’espace de noms VideoReviews.
 
     /// <summary>
     /// Publish the indicated video review. For more information, see the reference API:
@@ -342,7 +354,7 @@ Ajoutez la définition de méthode **Main** à l’espace de noms VideoTranscrip
 
             Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
             Console.WriteLine("Press any key to close the application.");
-            Console.Read();
+            Console.ReadKey();
         }
     }
 
@@ -370,8 +382,8 @@ Vous voyez les caractéristiques suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+Obtenez le [SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) et la [solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce guide de démarrage rapide et d’autres guides de démarrage rapide Content Moderator pour .NET.
+
 Découvrez comment générer des [révisions de vidéos](video-reviews-quickstart-dotnet.md) dans l’outil de révision.
 
-Consultez le didacticiel détaillé sur le développement d’une [solution de modération des vidéos complète](video-transcript-moderation-review-tutorial-dotnet.md).
-
-[Téléchargez la solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce démarrage rapide et d’autres démarrages rapides de Content Moderator pour .NET.
+Consultez le tutoriel détaillé sur le développement d’une [solution complète de modération de vidéos](video-transcript-moderation-review-tutorial-dotnet.md).

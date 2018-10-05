@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 06b30d1381d8fba1d6f053576f6556e6d02f2ae9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d873d28ec772735b8f21551cde1c7d0eab79a18c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949160"
+ms.locfileid: "47035137"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -69,6 +69,10 @@ R : Pour accéder à un espace de travail dans Azure, des autorisations Azure do
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>Q. Pourquoi ne puis-je pas voir l’entrée Concepteur de vues dans les journaux ? 
 R : le Concepteur de vues n’est disponible dans les journaux que pour les utilisateurs auxquels des autorisations Contributeur ou supérieures ont été assignées.
+
+### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>Q. Puis-je continuer à utiliser le portail Analytics en dehors d’Azure ?
+R. Oui, la page Journaux dans Azure et le [portail Advanced Analytics ](https://portal.loganalytics.io) reposent sur le même code. Log Analytics est intégré en tant que fonctionnalité dans Azure Monitor pour fournir une expérience de supervision plus uniforme. Vous pouvez toujours accéder au portail Analytics à l’aide de l’URL suivante : https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+
 
 
 ## <a name="general"></a>Généralités

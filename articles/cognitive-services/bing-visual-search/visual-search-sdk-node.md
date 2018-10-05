@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide du SDK Recherche visuelle (Node) | Microsoft Docs
-description: Programme d’installation de l’application console du Kit de développement logiciel (SDK) de Recherche visuelle Node.
+title: 'Démarrage rapide : Kit SDK Recherche visuelle Bing, Node'
 titleSuffix: Azure Cognitive Services
+description: Programme d’installation de l’application console du Kit de développement logiciel (SDK) de Recherche visuelle Node.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: afccbc66da94d5c2d276a05a47ffe60dfbae2261
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782438"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219700"
 ---
-# <a name="visual-search-sdk-node-quickstart"></a>Démarrage rapide du SDK Recherche visuelle (Node)
+# <a name="quickstart-bing-visual-search-sdk-node"></a>Démarrage rapide : Kit SDK Recherche visuelle Bing avec Node 
 
 Le Kit de développement logiciel (SDK) de Recherche visuelle Bing utilise les fonctionnalités de l’API REST nécessaires pour les requêtes web et l’analyse des résultats.
 Le [code source des exemples du Kit de développement logiciel (SDK) Recherche visuelle pour Node](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) est disponible sur GitHub.

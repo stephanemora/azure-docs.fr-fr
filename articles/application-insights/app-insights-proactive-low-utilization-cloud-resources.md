@@ -1,8 +1,8 @@
 ---
-title: "Détection intelligente - Faible utilisation des ressources cloud détectée par Azure Application Insights | Microsoft Docs"
-description: "Surveiller les applications avec Azure Application Insights pour détecter une faible utilisation des ressources cloud."
+title: Détection intelligente - Faible utilisation des ressources cloud détectée par Azure Application Insights | Microsoft Docs
+description: Surveiller les applications avec Azure Application Insights pour détecter une faible utilisation des ressources cloud.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -10,22 +10,23 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ca4f944f605db96a2cedf2682f3ff4c811007ffb
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094910"
 ---
-# <a name="low-utilization-of-cloud-resources-preview"></a>Faible utilisation des ressources cloud (version préliminaire)
+# <a name="low-cpu-utilization-in-cloud-resources-preview"></a>Faible utilisation de l’UC dans les ressources cloud (version préliminaire)
 
-Application Insights analyse automatiquement la consommation du processeur de chaque instance de rôle dans votre application et détecte les instances qui utilisent peu le processeur. Cette détection permet de réduire les ressources Azure et les coûts, en diminuant le nombre d’instances de rôle utilisées par chaque rôle ou en diminuant le nombre de rôles.
+Application Insights analyse automatiquement l’utilisation de l’UC de chaque instance de rôle dans votre application et détecte les instances qui utilisent peu d’UC. Cette détection permet de réduire les ressources Azure et les coûts, en diminuant le nombre d’instances de rôle utilisées par chaque rôle ou en diminuant le nombre de rôles.
 
-Cette fonctionnalité ne requiert aucune configuration spéciale, autre que la [configuration des compteurs de performances](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) pour votre application. Elle est active lorsque votre application génère suffisamment de télémétrie de compteur de performances du processeur (% de temps processeur).
+Cette fonctionnalité ne requiert aucune configuration spéciale, autre que la [configuration des compteurs de performances](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) pour votre application. Elle est active lorsque votre application génère suffisamment de données de télémétrie de compteur de performances d’UC (% de temps processeur).
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quand pouvez-vous recevoir ce type de notification de détection intelligente ?
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quand reçoit-on ce type de notification de détection intelligente ?
 Une notification type se produit lorsqu’un grand nombre de vos instances de rôle web/de travail présentent une faible utilisation du processeur.
 
 ## <a name="does-my-app-definitely-consume-too-many-resources"></a>Mon application consomme-t-elle vraiment trop de ressources ?

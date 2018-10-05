@@ -6,89 +6,86 @@ services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
 ms.technology: Speech
-ms.topic: article
-ms.date: 08/16/2018
+ms.topic: quickstart
+ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 923ab3378d5e2d833e11c5111d4dd9964fea6dc4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 00603c467ec96e52fc2b7745263153a68d20f584
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126611"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47053960"
 ---
-# <a name="quickstart-recognize-speech-in-java-windows-or-linux"></a>Démarrage rapide : Reconnaissance vocale dans Java (Windows ou Linux)
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale dans Java sur Windows ou Linux avec le kit SDK Speech
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Ce document décrit comment créer une application console basée sur Java pour le JRE (Java Runtime Environment) qui utilise le kit Speech SDK.
-L’application est basée sur le package Maven du kit SDK Microsoft Cognitive Services.
-Nous utilisons Eclipse comme environnement de développement intégré (IDE).
+Dans cet article, vous créez une application console Java au moyen du [kit SDK Speech](speech-sdk.md). Vous transcrivez la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est créée avec le package Maven du kit SDK Speech, et l’IDE Eclipse Java (v4.8) sur Windows 64 bits ou Ubuntu Linux 16.04. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
+
+> [!NOTE]
+> Pour le kit SDK Speech et l’appareil Roobo, consultez le [kit SDK Speech Devices](speech-devices-sdk.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Clé d’abonnement pour le service Speech. Consultez l’article [Try the speech service for free](get-started.md) (Essayer le service Speech gratuitement).
-* PC (Windows x64, Ubuntu 16.04 x64) capable d’exécuter Eclipse, avec un microphone en état de marche.
-* JRE 64 bits/JDK pour Java 8.
-* Version 4.8 d’[Eclipse](https://www.eclipse.org) 64 bits.
-* Sur Ubuntu 16.04, exécutez les commandes suivantes pour installer les packages requis :
+Vous avez besoin d’une clé d’abonnement au service Speech pour suivre ce guide de démarrage rapide. Vous pouvez en obtenir une gratuitement. Consultez [Essayer le service Speech gratuitement](get-started.md) pour plus d’informations.
+
+
+## <a name="create-and-configure-project"></a>Créer et configurer un projet
+
+Si vous utilisez Ubuntu 16.04, avant de démarrer Eclipse, exécutez les commandes suivantes pour vous assurer que les packages nécessaires sont installés.
 
   ```sh
   sudo apt-get update
   sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
   ```
 
-## <a name="create-and-configure-your-project"></a>Créer et configurer votre projet
-
 1. Démarrez Eclipse.
 
-1. Dans le Lanceur d’Eclipse, entrez le nom d’un nouveau répertoire dans le champ **Espace de travail**.
-   Ensuite, cliquez sur **Lancer**.
+1. Dans le champ **Workspace** (Espace de travail) de l’utilitaire Eclipse Launcher, entrez le nom d’un nouveau répertoire d’espace de travail. Sélectionnez ensuite **Launch** (Lancer).
 
-   ![Créer un espace de travail Eclipse](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
+   ![Capture d’écran d’Eclipse Launcher](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
-1. Après un moment, la fenêtre principale de l’IDE Eclipse apparaît.
-   Si vous voyez un écran de bienvenue, fermez-le.
+1. La fenêtre principale de l’IDE Eclipse apparaît au bout d’un instant. Fermez l’écran d’accueil s’il en existe un.
 
-1. Sélectionnez **Fichier** \> **Nouveau** \> **Projet**.
+1. Dans la barre de menus Eclipse, créez un projet en choisissant **File (Fichier)** > **New (Nouveau)** > **Project (Projet)**.
 
-1. Dans l’Assistant **Nouveau projet** qui s’affiche, sélectionnez **Projet Java** et cliquez sur **Suivant**.
+1. La boîte de dialogue **Nouveau projet** apparaît. Sélectionnez **Java Project** (Projet Java), puis **Next** (Suivant).
 
-   ![Sélectionner un Assistant](media/sdk/qs-java-jre-02-select-wizard.png)
+   ![Capture d’écran de la boîte de dialogue du nouveau projet, avec le projet Java sélectionné](media/sdk/qs-java-jre-02-select-wizard.png)
 
-1. Dans la fenêtre suivante, entrez **quickstart** comme nom de projet et choisissez **JavaSE-1.8** (ou ultérieur) comme environnement d’exécution.
-   Cliquez sur **Terminer**.
+1. L’Assistant New Java Project (Nouveau projet Java) démarre. Dans le champ **Project name** (Nom de projet), entrez **quickstart** (démarrage rapide) et choisissez **JavaSE-1.8** en tant qu’environnement d’exécution. Sélectionnez **Terminer**.
 
-   ![Sélectionner un Assistant](media/sdk/qs-java-jre-03-create-java-project.png)
+   ![Capture d’écran de l’Assistant New Java Project (Nouveau projet Java)](media/sdk/qs-java-jre-03-create-java-project.png)
 
-1. Si une fenêtre intitulée **Ouvrir la perspective associée ?** s’affiche, sélectionnez **Ouvrir la perspective**.
+1. Si une fenêtre **Open Associated Perspective?** (Ouvrir la perspective associée ?) s’affiche, sélectionnez **Open Perspective** (Ouvrir la perspective).
 
-1. Dans l’**Explorateur de packages**, cliquez avec le bouton droit sur le projet **quickstart** et sélectionnez **Configurer** \> **Convertir en projet Maven**.
+1. Dans **Package explorer** (l’Explorateur de package), cliquez avec le bouton droit sur le projet **quickstart** (démarrage rapide). Choisissez **Configure (Configurer)** > **Convert to Maven Project (Convertir en projet Maven)** dans le menu contextuel.
 
-   ![Convertir en projet Maven](media/sdk/qs-java-jre-04-convert-to-maven-project.png)
+   ![Capture d’écran de l’explorateur de package](media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
-1. Dans la fenêtre qui s’affiche, entrez **com.microsoft.cognitiveservices.speech.samples** comme **ID de groupe** et **quickstart** comme **ID d’artefact**. Sélectionnez **Terminer**.
+1. La fenêtre **Create new POM** (Créer un POM) s’affiche. Dans le champ **Group Id** (ID de groupe), entrez **com.microsoft.cognitiveservices.speech.samples**, et dans le champ **Artifact Id** (Id d’artefact), indiquez **quickstart** (démarrage rapide). Sélectionnez ensuite **Terminer**.
 
-   ![Configurer le modèle POM Maven](media/sdk/qs-java-jre-05-configure-maven-pom.png)
+   ![Capture d’écran de la fenêtre de création d’un POM](media/sdk/qs-java-jre-05-configure-maven-pom.png)
 
-1. Modifiez le fichier **pom.xml**.
+1. Ouvrez le fichier **pom.xml** et modifiez-le.
 
-  * À la fin du fichier, avant la balise de fermeture `</project>`, créez une section de référentiels avec une référence au référentiel Maven pour le kit Speech SDK :
+   * À la fin du fichier, avant la balise de fermeture `</project>`, créez une section de référentiels avec une référence au référentiel Maven pour le kit SDK Speech, comme indiqué ici :
 
-    [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
+     [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Ajoutez ensuite une section de dépendances avec le kit Speech SDK version 0.6.0 en tant que dépendance :
+  * De même, ajoutez une section de dépendances, avec le kit SDK Speech version 1.0.0 en tant que dépendance :
 
-    [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
+     [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 
-  * Enregistrez les modifications.
+   * Enregistrez les modifications.
 
-## <a name="add-the-sample-code"></a>Ajouter l’exemple de code
+## <a name="add-sample-code"></a>Ajouter un exemple de code
 
-1. Sélectionnez **Fichier** \> **Nouvelle** \> **Classe** pour ajouter une nouvelle classe vide dans votre projet Java.
+1. Pour ajouter une nouvelle classe vide dans votre projet Java, sélectionnez **File (Fichier)** > **New (Nouvelle)** > **Classe (Classe)**.
 
-1. Dans la fenêtre **Nouvelle classe Java** entrez **speechsdk.quickstart** dans le champ **Package** et **Main** dans le champ **Nom**.
+1. Dans la fenêtre **New Java Class** (Nouvelle classe Java), entrez **speechsdk.quickstart** dans le champ **Package**, et **Main** dans le champ **Name** (Nom).
 
-   ![Création d’une classe Main](media/sdk/qs-java-jre-06-create-main-java.png)
+   ![Capture d’écran de la fenêtre de nouvelle classe Java](media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. Remplacez tout le code `Main.java` par l’extrait de code suivant :
 
@@ -100,16 +97,23 @@ Nous utilisons Eclipse comme environnement de développement intégré (IDE).
 
 1. Enregistrez les modifications apportées au projet.
 
-## <a name="build-and-run-the-sample"></a>Créer et exécuter l’exemple.
+## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 
-Appuyez sur F11 ou sélectionnez **Exécuter** \> **Déboguer**.
+Appuyez sur F11 ou sélectionnez **Run (Exécuter)** > **Debug (Déboguer)**.
 Les 15 secondes suivantes de saisie vocale provenant de votre microphone seront reconnues et enregistrées dans la fenêtre console.
 
-![Sortie de la console après une reconnaissance réussie](media/sdk/qs-java-jre-07-console-output.png)
+![Capture d’écran de la sortie de la console après une reconnaissance réussie](media/sdk/qs-java-jre-07-console-output.png)
 
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Recherchez cet exemple dans le dossier `quickstart/java-jre`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez nos exemples](speech-sdk.md#get-the-samples)
+> [!div class="nextstepaction"]
+> [Effectuer une reconnaissance des intentions vocales à l’aide du kit SDK Speech pour Java](how-to-recognize-intents-from-speech-java.md)
+
+## <a name="see-also"></a>Voir aussi
+
+- [Traduction vocale](how-to-translate-speech-csharp.md)
+- [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
+- [Personnaliser les modèles de langage](how-to-customize-language-model.md)

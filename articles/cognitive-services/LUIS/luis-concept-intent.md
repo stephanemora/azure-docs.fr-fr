@@ -1,20 +1,21 @@
 ---
-title: Comprendre les intentions dans les applications LUIS dans Azure | Microsoft Docs
-description: Cet article décrit les intentions dans les applications Language Understanding Intelligent Service (LUIS).
+title: Intentions dans les applications LUIS
+titleSuffix: Azure Cognitive Services
+description: Une intention représente une tâche ou une action que l’utilisateur souhaite effectuer. Il s’agit d’une finalité ou d’un objectif exprimé dans l’énoncé d’un utilisateur. Définissez un ensemble d’intentions qui correspondent aux actions que les utilisateurs souhaitent effectuer dans votre application.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 456f28191161c9a2fac223bf2a31e62e54ae28ae
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cfad122b44944cfb637d8ef98931410d60c81ab8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225786"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041163"
 ---
 # <a name="intents-in-luis"></a>Les intentions dans LUIS
 
@@ -65,7 +66,7 @@ Lorsqu’un énoncé est annoncé comme ayant l’intention None et retourné au
 Si vous n’ajoutez pas d’énoncés à l’intention **None**, LUIS force un énoncé extérieur au domaine dans l’une des intentions du domaine. Cela fausse les scores de prédiction en indiquant à LUIS la mauvaise intention pour l’énoncé. 
 
 ### <a name="add-utterances-to-the-none-intent"></a>Ajout d’énoncés à l’intention None
-L’intention **None** est créée mais laissée vide intentionnellement. Remplissez-la avec des énoncés extérieurs à votre domaine. Un bon énoncé pour **None** est un élément sans rapport avec l’application ou son secteur. Par exemple, une application de voyage ne devra pas utiliser pour **None** des énoncés liés aux déplacements, comme les réservations, la facturation, la restauration, l’hébergement, le transport ou les divertissements à bord. 
+L’intention **None** est créée mais laissée vide intentionnellement. Remplissez-la avec des énoncés extérieurs à votre domaine. Un bon énoncé pour **None** est un élément sans rapport avec l’application ou son secteur. Par exemple, une application de voyage ne doit pas utiliser pour **None** des énoncés liés aux déplacements, comme les réservations, la facturation, la restauration, l’hébergement, le transport ou les divertissements à bord. 
 
 Quel type d’énoncés reste-t-il pour l’intention None ? Commencez par une question spécifique à laquelle votre bot ne devra pas répondre, par exemple, « Quel type de dinosaure a les dents bleues ? ». Il s’agit d’une question très précise et très éloignée d’une application de voyage. 
 

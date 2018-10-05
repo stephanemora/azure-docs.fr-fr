@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 7619056ace5d9b3cf083a40a6cfa06a0cac0561e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2668279b33d2d8d1c0adf92c138cc6347c95bd4d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949687"
+ms.locfileid: "47035349"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Notes de publication de préversion d’Azure Data Box Gateway
 
@@ -46,15 +46,17 @@ Le tableau suivant résume les problèmes connus pour Data Box Gateway exécutan
 
 | Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
 | --- | --- | --- | --- |
-| **1.** |Mises à jour |Les appareils Data Box Gateway créés dans les préversions antérieures ne peuvent pas être mis à jour vers cette version. |Téléchargez les images de disque virtuel de la nouvelle version, puis configurez et déployez de nouveaux appareils. Pour plus d’informations, consultez [Préparer le déploiement d’Azure Data Box Gateway](data-box-gateway-deploy-prep.md). |
+| **1.** |Mises à jour |Les appareils Data Box Gateway créés dans les préversions antérieures ne peuvent pas être mis à jour vers cette version. |Téléchargez les images de disque virtuel de la nouvelle version, puis configurez et déployez de nouveaux appareils. Pour plus d’informations, consultez [Tutorial: Prepare to deploy Azure Data Box Gateway (Preview)](data-box-gateway-deploy-prep.md) (Didacticiel : Préparation du déploiement d’Azure Data Box Gateway (préversion)). |
 | **2.** |Disque de données configuré |Une fois que vous avez provisionné un disque de données d’une certaine taille spécifiée et créé le Data Box Gateway correspondant, vous ne devez pas réduire ce disque de données. Toute tentative de réduction du disque entraîne la perte de toutes les données locales sur l’appareil. | |
 | **3.** |Actualiser |Dans cette version, vous ne pouvez actualiser qu’un seul partage à la fois. | |
 | **4.** |Renommer |Le changement de nom d’objets n’est pas pris en charge. |Contactez le Support Microsoft si cette fonctionnalité est essentielle pour votre flux de travail. |
 | **5.** |Copier| Si un fichier en lecture seule est copié sur l’appareil, la propriété de lecture seule n’est pas conservée. | |
 | **6.** |Journaux| En raison d’un bogue dans cette version, vous pouvez voir des instances du code d’erreur 110 dans *error.xml* avec des noms d’éléments non reconnaissables. | |
-| **7.** |Télécharger | En raison d’un bogue dans cette version, vous pouvez voir des instances du code d’erreur 2003 lors du téléchargement de fichiers spécifiques. | |
-| **8.** |Suppression | En raison d’un bogue dans cette version, si un partage NFS est supprimé, le partage peut ne pas être supprimé. L’état du partage indique *Suppression*.  |Cela ne se produit que lorsque le partage utilise un nom de fichier non pris en charge. |
-| **9.** |Aide en ligne |Les liens d’aide dans le portail Azure peuvent ne pas diriger vers la documentation.|Les liens d’aide fonctionneront dans la version en disponibilité générale. |
+| **7.** |Télécharger | En raison d’un bogue dans cette version, vous pouvez voir des instances du code d’erreur 2003 lors du chargement de fichiers spécifiques. | |
+| **8.** |Types de fichier | Les types de fichiers Linux suivants ne sont pas pris en charge : fichiers de caractères, fichiers de blocs, sockets, pipes et liens symboliques.  |La copie de ces fichiers entraîne la création de fichiers de longueur nulle sur le partage NFS. Ces fichiers restent dans un état d’erreur et sont également signalés dans le fichier *error.xml*. |
+| **9.** |Suppression | En raison d’un bogue dans cette version, si un partage NFS est supprimé, le partage peut ne pas être supprimé. L’état du partage indique *Suppression*.  |Cela ne se produit que lorsque le partage utilise un nom de fichier non pris en charge. |
+| **10.** |Actualiser | Les autorisations et les listes de contrôle d’accès (ACL) ne sont pas conservées lors d’une opération d’actualisation.  | |
+| **11.** |Aide en ligne |Les liens d’aide dans le portail Azure peuvent ne pas diriger vers la documentation.|Les liens d’aide fonctionneront dans la version en disponibilité générale. |
 
 
 

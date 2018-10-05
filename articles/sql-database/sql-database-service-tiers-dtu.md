@@ -1,24 +1,27 @@
 ---
 title: Niveaux de service Azure SQL Database - DTU | Microsoft Docs
-description: Découvrez les niveaux de service des bases de données uniques du pool qui permettent de fournir divers niveaux de performance et diverses tailles de stockage.
+description: Découvrez les niveaux de service des bases de données uniques et mises en pool, et les diverses tailles de calcul et tailles de stockage qu’ils fournissent.
 services: sql-database
-author: sachinpMSFT
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
 manager: craigg
-ms.author: carlrab
-ms.openlocfilehash: d0250d508ca6d21ee09c9402e10d2fdb025529ac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.date: 09/14/2018
+ms.openlocfilehash: 2f9362a6d771df3cdb11855844025bc8d9ea732e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142901"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162370"
 ---
-# <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Choisir un niveau de service, un niveau de performance et des ressources de stockage basés sur des unités DTU 
+# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>Choisir un niveau de service basé sur les DTU, une taille de calcul et des ressources de stockage 
 
-Chaque niveau de service a son propre niveau de performance, ainsi qu’une quantité fixe de stockage inclus, une période de rétention fixe pour les sauvegardes et un prix fixe. Tous les niveaux de service permettent de changer de niveau de performance sans nécessiter de temps d’arrêt. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et du niveau de performance.
+Chaque niveau de service a sa propre taille de calcul, ainsi qu’une quantité fixe de stockage inclus, une période de conservation fixe pour les sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service permettent de changer de taille de calcul, sans nécessiter de temps d’arrêt. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance, qui est actuellement en préversion publique, ne prend pas en charge le modèle d’achat DTU. Pour plus d’informations, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
@@ -40,7 +43,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Limites de stockage et unités DTU d’une base de données unique
 
-Les niveaux de performance en termes d’unités de transaction de base de données (DTU) pour des bases de données uniques et d’unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour en savoir plus sur les DTU et les eDTU, consultez [Définition des DTU et des eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
+Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour en savoir plus sur les DTU et les eDTU, consultez [Définition des DTU et des eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 
 ||De base|standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -73,7 +76,7 @@ Les niveaux de performance en termes d’unités de transaction de base de donn�
 Les caractéristiques physiques (processeur, mémoire, E/S) associées à chaque mesure DTU sont étalonnées à l’aide d’un test d’évaluation qui simule une charge de travail de base de données réelle.
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Mise en corrélation des résultats du test d’évaluation avec les performances réelles de la base de données
-Il est important de comprendre que tous les tests d’évaluation fournissent uniquement des résultats représentatifs et indicatifs. Les taux de transaction obtenus avec l’application d’évaluation ne seront pas les mêmes que ceux qui peuvent être atteints avec d’autres applications. Le test d’évaluation comprend un ensemble de différents types de transactions qui s’exécutent sur un schéma contenant une plage de tables et de types de données. Si le test d’évaluation exécute les mêmes opérations de base communes à toutes les charges de travail OLTP, il n’a pas vocation à représenter une classe de base de données ou d’application spécifique. L’objectif de ce test est de fournir des indications quant aux performances relatives d’une base de données que l’on peut escompter lors d’un changement de niveau de performance. En réalité, les bases de données varient en termes de taille et de complexité. Elles supportent diverses charges de travail et réagissent de différentes façons. Par exemple, une application gourmande en E/S peut atteindre rapidement les seuils d’E/S, de la même manière qu’une application gourmande en ressources processeur peut atteindre rapidement les limites processeur. Rien ne peut garantir qu’une base de données particulière évoluera de la même façon que le test d’évaluation sous une charge plus importante.
+Il est important de comprendre que tous les tests d’évaluation fournissent uniquement des résultats représentatifs et indicatifs. Les taux de transaction obtenus avec l’application d’évaluation ne seront pas les mêmes que ceux qui peuvent être atteints avec d’autres applications. Le test d’évaluation comprend un ensemble de différents types de transactions qui s’exécutent sur un schéma contenant une plage de tables et de types de données. Si le test d’évaluation exécute les mêmes opérations de base communes à toutes les charges de travail OLTP, il n’a pas vocation à représenter une classe de base de données ou d’application spécifique. L’objectif de ce test est de fournir des indications quant aux performances relatives d’une base de données, auxquelles on peut s’attendre après un changement de taille de calcul. En réalité, les bases de données varient en termes de taille et de complexité. Elles supportent diverses charges de travail et réagissent de différentes façons. Par exemple, une application gourmande en E/S peut atteindre rapidement les seuils d’E/S, de la même manière qu’une application gourmande en ressources processeur peut atteindre rapidement les limites processeur. Rien ne peut garantir qu’une base de données particulière évoluera de la même façon que le test d’évaluation sous une charge plus importante.
 
 Le test d’évaluation et sa méthodologie sont décrits plus en détail ci-dessous.
 
@@ -155,5 +158,5 @@ Le débit et le temps de réponse constituent les principaux indicateurs du test
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources DTU SQL Database pour les bases de données uniques](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
-- Pour plus d’informations sur les niveaux de performance et les options de taille de stockage disponibles pour les pools élastiques, consultez [Limites des ressources DTU SQL Database pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources DTU SQL Database pour les bases de données uniques](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les pools élastiques, consultez [Limites des ressources DTU SQL Database pour les pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

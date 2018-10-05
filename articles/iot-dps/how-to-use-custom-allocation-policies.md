@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 503a8026fe11d1cdb3d0fc0c2680d8d545a1c992
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955237"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161698"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Comment utiliser des stratégies d’allocation personnalisées
 
 
-Une stratégie d’allocation personnalisée vous permet de mieux contrôler le processus d’assignation des appareils à un hub IoT. Cette assignation s’effectue par l’ajout de code personnalisé dans une solution [Azure Functions](../azure-functions/functions-overview.md). Le service Device Provisioning appelle votre code Azure Functions fournissant le groupe de hubs IoT. Ce code retourne les informations sur les hubs IoT nécessaires au provisionnement de l’appareil.
+Une stratégie d’allocation personnalisée vous permet de mieux contrôler le processus d’assignation des appareils à un hub IoT. Cette assignation s’effectue par l’ajout de code personnalisé dans une solution [Azure Functions](../azure-functions/functions-overview.md). Le service Device provisioning appelle votre code de fonction Azure en fournissant toutes les informations appropriées sur l’appareil et l’inscription. Votre code de fonction est exécuté et retourne les informations sur les hubs IoT utilisés pour le provisionnement de l’appareil.
 
 Avec les stratégies d’allocation personnalisées, vous définissez vos propres stratégies d’allocation quand les stratégies fournies par le service Device Provisioning ne sont pas adaptées aux besoins de votre scénario.
 
@@ -107,7 +107,9 @@ Dans cette section, vous allez créer un groupe d’inscriptions qui utilise la 
     ![Ajouter un groupe d’inscription d’allocation personnalisée pour l’attestation de clé symétrique](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
 
-4. Sous **Ajouter un groupe d’inscriptions**, cliquez sur **Lier un nouveau hub IoT** pour lier les deux hubs IoT des divisions.
+4. Sous **Ajouter un groupe d’inscriptions**, cliquez sur **Lier un nouveau hub IoT** pour lier les deux hubs IoT des divisions. 
+
+    Vous devez exécuter cette étape pour vos deux hubs IoT de division.
 
     **Abonnement** : si vous avez plusieurs abonnements, sélectionnez celui où vous avez créé les hubs IoT des divisions.
 
@@ -278,9 +280,9 @@ Dans cette section, vous allez créer un groupe d’inscriptions qui utilise la 
 
 Dans cette section, vous allez créer deux clés d’appareil uniques. Une clé sera utilisée pour l’appareil simulé Toaster. L’autre clé sera utilisée pour l’appareil simulé Heat pump.
 
-Pour générer la clé de chaque appareil, calculez le code [HMAC-SHA256](https://wikipedia.org/wiki/HMAC)de l’ID d’inscription unique de l’appareil en utilisant la **clé primaire** que vous avez notée précédemment, puis convertissez le résultat au format Base64.
+Pour générer la clé des deux appareils, utilisez la **clé primaire** que vous avez notée plus tôt pour calculer le code [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) de l’ID d’inscription de chacun des appareils et convertissez le résultat au format Base64. Pour plus d’informations sur la création de clés d’appareil dérivées avec des groupes d’inscription, consultez la section sur les inscriptions de groupes dans [Attestation de clé symétrique](concepts-symmetric-key-attestation.md).
 
-Utilisez les ID d’inscription des deux appareils suivants et calculez une clé d’appareil pour chaque appareil. Les deux ID d’inscription ont un suffixe qui peut être utilisé dans l’exemple de code pour la stratégie d’allocation personnalisée :
+Pour l’exemple de cet article, utilisez les ID d’inscription des deux appareils suivants et calculez une clé d’appareil pour chaque appareil. Les deux ID d’inscription ont un suffixe qui peut être utilisé dans l’exemple de code pour la stratégie d’allocation personnalisée :
 
 - **breakroom499-contoso-tstrsd-007**
 - **mainbuilding167-contoso-hpsd-088**
@@ -289,53 +291,53 @@ Utilisez les ID d’inscription des deux appareils suivants et calculez une clé
 
 Si vous utilisez une station de travail Linux, utilisez openssl pour générer vos clés d’appareil dérivées, comme indiqué dans l’exemple suivant.
 
-Remplacez la valeur **KEY** par la **clé primaire** que vous avez notée précédemment.
+1. Remplacez la valeur **KEY** par la **clé primaire** que vous avez notée précédemment.
 
-```bash
-KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+    ```bash
+    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
 
-REG_ID1=breakroom499-contoso-tstrsd-007
-REG_ID2=mainbuilding167-contoso-hpsd-088
+    REG_ID1=breakroom499-contoso-tstrsd-007
+    REG_ID2=mainbuilding167-contoso-hpsd-088
 
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
 
-echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-```
+    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+    ```
 
-```bash
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```bash
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 #### <a name="windows-based-workstations"></a>Stations de travail Windows
 
 Si vous utilisez une station de travail Windows, utilisez PowerShell pour générer votre clé d’appareil dérivée, comme indiqué dans l’exemple suivant.
 
-Remplacez la valeur **KEY** par la **clé primaire** que vous avez notée précédemment.
+1. Remplacez la valeur **KEY** par la **clé primaire** que vous avez notée précédemment.
 
-```PowerShell
-$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+    ```PowerShell
+    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-$REG_ID1='breakroom499-contoso-tstrsd-007'
-$REG_ID2='mainbuilding167-contoso-hpsd-088'
+    $REG_ID1='breakroom499-contoso-tstrsd-007'
+    $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-$hmacsha256.key = [Convert]::FromBase64String($key)
-$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-$derivedkey1 = [Convert]::ToBase64String($sig1)
-$derivedkey2 = [Convert]::ToBase64String($sig2)
+    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+    $derivedkey1 = [Convert]::ToBase64String($sig1)
+    $derivedkey2 = [Convert]::ToBase64String($sig2)
 
-echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-```
+    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+    ```
 
-```PowerShell
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```PowerShell
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 Les appareils simulés utiliseront les clés d’appareil dérivées avec chaque ID d’inscription pour effectuer l’attestation de clé symétrique.
@@ -532,7 +534,7 @@ Le tableau suivant présente les scénarios attendus et les codes d’erreur de 
 | Le webhook retourne un autre code d’état | État du résultat : Échec<br><br>Code d’erreur : CustomAllocationFailed (400207) | Le SDK retourne PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez de continuer à utiliser les ressources créées dans cet article, vous pouvez les conserver. Sinon, effectuez les étapes suivantes pour supprimer toutes les ressources qui ont été créées dans le cadre de cet article, et ainsi éviter des frais inutiles.
 

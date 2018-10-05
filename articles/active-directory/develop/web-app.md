@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: ea1117e202868465e3ea4004d21cf62d175a357a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0eec1100c5246bb9f5c281971453ac60abc0339f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963915"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225015"
 ---
 # <a name="web-apps"></a>les applications web
 
@@ -44,7 +44,7 @@ Consultez les exemples de code pour les scénarios du type navigateur web vers a
 
 ## <a name="app-registration"></a>Inscription d'application
 
-Pour inscrire une application web, consultez [Inscrire une application auprès du point de terminaison Azure AD v2.0](quickstart-v2-register-an-app.md).
+Pour inscrire une application web, consultez l’article [Inscrire une application auprès du point de terminaison Azure Active Directory v1.0](quickstart-v1-add-azure-ad-app.md).
 
 * Locataire unique : si vous créez une application uniquement pour votre organisation, vous devez l’inscrire dans l’annuaire de votre entreprise à l’aide du portail Azure.
 * Plusieurs locataires : si vous créez une application qui peut être employée par des utilisateurs externes, vous devez l’inscrire dans l’annuaire de votre entreprise, mais également dans celui de chaque organisation qui utilisera l’application. Afin de mettre votre application à disposition dans ces annuaires, vous pouvez inclure pour vos clients un processus d’inscription qui leur permet de donner leur consentement à votre application. Quand ils s’inscrivent auprès de votre application, une boîte de dialogue contenant les autorisations requises par l’application s’affiche, et ils ont ensuite la possibilité de donner leur consentement. Selon les autorisations requises, il est possible qu’un administrateur de l’autre organisation doive donner le consentement. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application est inscrite dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur.
@@ -56,4 +56,4 @@ La session utilisateur expire lorsque la durée de vie du jeton émis par Azure�
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur les autres [types d’applications et scénarios](app-types.md)
-* En savoir plus sur les [principes fondamentaux de l’authentification](authentication-scenarios.md) Azure AD
+* En savoir plus sur les [principes de base de l’authentification](authentication-scenarios.md) Azure AD

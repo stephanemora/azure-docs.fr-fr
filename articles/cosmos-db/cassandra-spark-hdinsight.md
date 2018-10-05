@@ -9,12 +9,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: f71f5fa71d685af103bd82b3ccd2a910ab81d90f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 34293ffc70ebbc2a8639913aefe3b62ed8e618d4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962911"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222775"
 ---
 # <a name="access-azure-cosmos-db-cassandra-api-from-spark-on-yarn-with-hdinsight"></a>Accéder à l’API Cassandra Azure Cosmos DB à partir de Spark sur YARN avec HDInsight
 
@@ -32,7 +32,7 @@ Cet article explique comment accéder à l’API Cassandra Azure Cosmos DB à pa
 
 * [Utiliser cqlsh pour la validation si vous le souhaitez](cassandra-spark-generic.md##connecting-to-azure-cosmos-db-cassandra-api-from-spark)
 
-* **Configuration de l’API Cassandra dans Spark2** : le connecteur Datastax pour Cassandra nécessite que les informations de la connexion Cassandra soient initialisées dans le cadre du contexte Spark. Quand vous lancez un bloc-notes Jupyter, la session et le contexte spark sont déjà initialisés ; nous vous déconseillons d’arrêter et de réinitialiser le contexte Spark tant qu’il n’est pas doté de la configuration complète définie dans le cadre du démarrage de bloc-notes Jupyter HDInsight par défaut. Une solution de contournement consiste à ajouter les détails de l’instance Cassandra à la configuration du service Spark2 Ambari. Cette opération est nécessaire une seule fois par cluster qui requiert un redémarrage du service Spark2.
+* **Configuration de l’API Cassandra dans Spark2** : le connecteur Spark pour Cassandra nécessite que les informations de la connexion Cassandra soient initialisées dans le cadre du contexte Spark. Quand vous lancez un bloc-notes Jupyter, la session et le contexte spark sont déjà initialisés ; nous vous déconseillons d’arrêter et de réinitialiser le contexte Spark tant qu’il n’est pas doté de la configuration complète définie dans le cadre du démarrage de bloc-notes Jupyter HDInsight par défaut. Une solution de contournement consiste à ajouter les détails de l’instance Cassandra à la configuration du service Spark2 Ambari. Cette opération est nécessaire une seule fois par cluster qui requiert un redémarrage du service Spark2.
  
   1. Accédez au service Spark2 Ambari, et cliquez sur les configurations.
 
@@ -68,7 +68,7 @@ L’interpréteur de commandes Spark est utilisé à des fins de test et d’exp
   import org.apache.spark.sql.types.{StructType, StructField, StringType, IntegerType,LongType,FloatType,DoubleType, TimestampType}
   import org.apache.spark.sql.cassandra._
 
-  //datastax Spark connector
+  //Spark connector
   import com.datastax.spark.connector._
   import com.datastax.spark.connector.cql.CassandraConnector
 

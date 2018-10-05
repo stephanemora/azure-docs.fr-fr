@@ -1,22 +1,23 @@
 ---
-title: Tester votre application LUIS par lot - Azure | Microsoft Docs
-description: Utiliser les tests par lot Language Understanding (LUIS) pour rechercher des énoncés avec des intentions et des entités incorrectes.
+title: Tester par lot avec 1000 exemples d’énoncés
+titleSuffix: Azure Cognitive Services
+description: Utilisez des jeux de tests par lot Language Understanding (LUIS) pour rechercher des énoncés avec des intentions et des entités incorrectes.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888624"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032119"
 ---
-# <a name="batch-testing"></a>Test par lot
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>Test par lot avec un ensemble d’exemples d’énoncés
  Le test par lot est un test complet sur votre modèle formé en cours afin d’en mesurer les performances dans LUIS. 
 
 <a name="batch-testing"></a>
@@ -27,8 +28,6 @@ ms.locfileid: "42888624"
     ![Lien Test par lot](./media/luis-how-to-batch-test/batch-testing-link.png)
 
 2. Sélectionnez **Importer le jeu de données**. La boîte de dialogue **Importer le nouveau jeu de données** s’affiche. Choisissez **Sélectionner un fichier** et recherchez un fichier JSON avec le [format JSON](luis-concept-batch-test.md#batch-file-format)correct qui ne contient *pas plus de 1 000* énoncés à tester.
-
-    ![Importer le fichier de jeu de données](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     Les erreurs d’importation sont signalées dans une barre de notification rouge en haut du navigateur. En cas d’erreur dans l’importation, aucun jeu de données n’est créé. Pour plus d’informations, consultez [Erreurs courantes](luis-concept-batch-test.md#common-errors-importing-a-batch).
 

@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 4ee333fcc50937679c4bc25b83c2d6aa389ba194
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4945ab0b8da961fc5739388d83f7c645f40e510d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359592"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47093059"
 ---
 # <a name="configure-deployment-sources"></a>Configurer des sources de déploiement
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
@@ -37,7 +37,7 @@ En plus du Git local, les fournisseurs de contrôle de code source suivants sont
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>Afficher les sources de déploiement dans l’administration App Service
 
-1. Connectez-vous au portail administrateur Azure Stack (https://adminportal.local.azurestack.external) en tant qu’administrateur du service.
+1. Connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external)) en tant qu’administrateur du service.
 2. Accédez à **Fournisseurs de ressources** et sélectionnez **App Service Resource Provider Admin** (Administrateur du fournisseur de ressources App Service).  ![Administrateur du fournisseur de ressources App Service][1]
 3. Cliquez sur **Source control configuration** (Configuration du contrôle de code source).  La liste de toutes les sources de déploiement configurées s’affiche.
     ![Configuration du contrôle de code source de l’administrateur du fournisseur de ressources App Service][2]
@@ -54,7 +54,7 @@ Vous avez besoin d’un compte GitHub pour effectuer cette tâche. Vous voudrez 
 5. Entrez **l’URL de rappel d’autorisation**.  Dans un déploiement Azure Stack par défaut, l’URL est au format https://portal.local.azurestack.external/TokenAuthorize, si l’exécution a lieu dans un autre domaine, remplacez votre domaine pour local.azurestack.external
 6. Cliquez sur **Inscrire l’application**.  Vous avez à présent accès à une page répertoriant **l’ID client** et la **clé secrète client** de l’application.
     ![GitHub - Inscription de l’application terminée][5]
-7.  Dans un nouvel onglet ou une nouvelle fenêtre de navigateur, connectez-vous au portail administrateur Azure Stack (https://adminportal.local.azurestack.external) en tant qu’administrateur du service.
+7.  Dans un nouvel onglet ou une nouvelle fenêtre de navigateur, connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external)) en tant qu’administrateur du service.
 8.  Accédez à **Fournisseurs de ressources** et sélectionnez **App Service Resource Provider Admin** (Administrateur du fournisseur de ressources App Service).
 9. Cliquez sur **Source control configuration** (Configuration du contrôle de code source).
 10. Copiez et collez **l’ID client** et la **clé secrète client** dans les zones de saisie correspondantes pour GitHub.
@@ -77,7 +77,7 @@ Vous avez besoin d’un compte BitBucket pour effectuer cette tâche. Vous voudr
     - **Webhooks** : *Lire et écrire*
 8. Cliquez sur **Enregistrer**.  Cette nouvelle application s’affiche maintenant avec la **clé** et la **clé secrète** sous **OAuth consumers** (Consommateurs OAuth).
     ![Liste des applications BitBucket][9]
-9.  Dans un nouvel onglet ou une nouvelle fenêtre de navigateur, connectez-vous au portail administrateur Azure Stack (https://adminportal.local.azurestack.external) en tant qu’administrateur du service.
+9.  Dans un nouvel onglet ou une nouvelle fenêtre de navigateur, connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external)) en tant qu’administrateur du service.
 10.  Accédez à **Fournisseurs de ressources** et sélectionnez **App Service Resource Provider Admin** (Administrateur du fournisseur de ressources App Service).
 11. Cliquez sur **Source control configuration** (Configuration du contrôle de code source).
 12. Copiez et collez la **clé** dans la zone de saisie **ID client** et la **clé secrète** dans la zone de saisie **Clé secrète client** pour BitBucket.
@@ -105,7 +105,7 @@ Vous devez disposer d’un compte Microsoft associé à un compte OneDrive pour 
     - **User.Read**  
       ![Application OneDrive - Autorisations pour Microsoft Graph][13]
 9. Cliquez sur **Enregistrer**.
-10.  Dans un nouvel onglet ou une nouvelle fenêtre de navigateur, connectez-vous au portail administrateur Azure Stack (https://adminportal.local.azurestack.external) en tant qu’administrateur du service.
+10.  Dans un nouvel onglet ou une nouvelle fenêtre de navigateur, connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external)) en tant qu’administrateur du service.
 11.  Accédez à **Fournisseurs de ressources** et sélectionnez **App Service Resource Provider Admin** (Administrateur du fournisseur de ressources App Service).
 12. Cliquez sur **Source control configuration** (Configuration du contrôle de code source).
 13. Copiez et collez **l’ID d’application** dans la zone de saisie **ID client** et le **mot de passe** dans la zone de saisie **Clé secrète client** pour OneDrive.
@@ -116,7 +116,7 @@ Vous devez disposer d’un compte Microsoft associé à un compte OneDrive pour 
 > [!NOTE]
 > Vous devez avoir un compte Dropbox pour effectuer cette tâche.  Vous pouvez utiliser un compte d’entreprise, plutôt qu’un compte personnel.
 
-1. Accédez à https://www.dropbox.com/developers/apps et connectez-vous en utilisant votre compte Dropbox.
+1. Accédez à https://www.dropbox.com/developers/apps et connectez-vous en utilisant votre compte DropBox.
 2. Cliquez sur **Create app**.
 
     ![Applications Dropbox][14]
@@ -129,7 +129,7 @@ Vous devez disposer d’un compte Microsoft associé à un compte OneDrive pour 
 7. Vérifiez que le **nom du dossier d’application** est défini sur **App Service sur Azure Stack**.
 8. Définissez **l’URI de redirection OAuth 2** et cliquez sur **Ajouter**.  Dans un déploiement Azure Stack par défaut, l’URL de redirection est au format https://portal.local.azurestack.external/TokenAuthorize, si l’exécution a lieu dans un autre domaine, remplacez votre domaine pour azurestack.local.
 ![Configuration de l’application Dropbox][16]
-9.  Dans un nouvel onglet ou une nouvelle fenêtre de navigateur, connectez-vous au portail administrateur Azure Stack (https://adminportal.local.azurestack.external) en tant qu’administrateur du service.
+9.  Dans un nouvel onglet ou une nouvelle fenêtre de navigateur, connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external)) en tant qu’administrateur du service.
 10.  Accédez à **Fournisseurs de ressources** et sélectionnez **App Service Resource Provider Admin** (Administrateur du fournisseur de ressources App Service).
 11. Cliquez sur **Source control configuration** (Configuration du contrôle de code source).
 12. Copiez et collez la **clé d’application** dans la zone de saisie **ID client** et la **clé secrète d’application** dans la zone de saisie **Clé secrète client** pour Dropbox.

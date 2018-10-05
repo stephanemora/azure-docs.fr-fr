@@ -9,20 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1aa4cf5d0cae728392f09626293de0506c81757f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2e455845a145e07bc59378818b95e23e572cb577
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976973"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227095"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Démarrage rapide : provisionner un appareil simulé avec des clés symétriques
 
 Dans ce guide de démarrage rapide, vous allez apprendre à créer et à exécuter un simulateur d’appareil sur une machine de développement Windows. Vous allez configurer cet appareil simulé à affecter à un hub IoT de manière à ce qu’il utilise une clé symétrique pour s’authentifier auprès d’une instance du service Device Provisioning. Un exemple de code du [SDK Azure IoT pour C](https://github.com/Azure/azure-iot-sdk-c) est utilisé pour simuler une séquence de démarrage pour l’appareil qui lance le provisionnement. L’appareil est reconnu en fonction d’une inscription individuelle auprès de l’instance du service de provisionnement et affecté à un hub IoT.
 
-Bien que cet article illustre le provisionnement avec une inscription individuelle, vous pouvez utiliser les mêmes procédures avec des groupes d’inscription. La seule différence réside dans le fait que vous devez utiliser une clé d’appareil dérivée avec un ID d’inscription unique pour l’appareil. Avec les groupes d’inscription, la clé symétrique d’inscription et l’ID d’inscription ne sont pas directement utilisées. Bien qu’il ne soit pas limité aux appareils d’ancienne génération, le [Guide pratique pour provisionner des appareils d’ancienne génération à l’aide d’une attestation de clé symétrique](how-to-legacy-device-symm-key.md) fournit un exemple. Pour plus d’informations, consultez [Inscriptions de groupe pour l’attestation de clé symétrique](concepts-symmetric-key-attestation.md#group-enrollments).
+Bien que cet article illustre le provisionnement avec une inscription individuelle, vous pouvez utiliser les mêmes procédures avec des groupes d’inscription. La seule différence réside dans le fait que vous devez utiliser une clé d’appareil dérivée avec un ID d’inscription unique pour l’appareil. Avec les groupes d’inscription, la clé symétrique sur l’inscription n’est pas utilisée directement. Bien que les groupes d’inscription avec des clés symétriques ne soient pas limités aux appareils d’ancienne génération, le [Guide pratique pour provisionner des appareils d’ancienne génération à l’aide d’une attestation de clé symétrique](how-to-legacy-device-symm-key.md) fournit un exemple de groupe d’inscription. Pour plus d’informations, consultez [Inscriptions de groupe pour l’attestation de clé symétrique](concepts-symmetric-key-attestation.md#group-enrollments).
 
-Pour des informations conceptuelles détaillées sur l’attestation de clé symétrique, consultez [Attestation de clé symétrique](concepts-symmetric-key-attestation.md). Si vous ne connaissez pas le processus d’approvisionnement automatique, consultez [Concepts de provisionnement automatique](concepts-auto-provisioning.md). 
+Si vous ne connaissez pas le processus d’approvisionnement automatique, consultez [Concepts de provisionnement automatique](concepts-auto-provisioning.md). 
 
 Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service IoT Hub Device Provisioning avec le portail Azure](./quick-setup-auto-provision.md) avant de poursuivre ce démarrage rapide. Ce guide de démarrage rapide nécessite au préalable la création d’une instance du service Device Provisioning.
 
@@ -134,7 +134,7 @@ Dans cette section, mettez à jour l’exemple de code pour envoyer la séquence
 
     ![Extraction des informations de point de terminaison du service Device Provisioning à partir du panneau du Portail](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. Dans Visual Studio, ouvrez le fichier de solution **azure_iot_sdks.sln** généré en exécutant CMake. Le fichier de solution doit être à l’emplacement suivant :
+2. Dans Visual Studio, ouvrez le fichier de solution **azure_iot_sdks.sln** généré en exécutant CMake. Le fichier solution doit être à l’emplacement suivant :
 
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 300565509b2f0903b6c730be7e0693ba0e298e07
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 274005d7cea5833f9653038b710a7dbc248f0c04
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163139"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221517"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder à Azure Key Vault 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous indique comment utiliser une identité managée attribuée par le système pour une machine virtuelle Linux afin d’accéder à Azure Key Vault. En agissant comme un amorçage, le coffre de clés permet à votre application cliente d’utiliser le secret pour accéder aux ressources non sécurisées par Azure Active Directory (AD). Les identités managées pour les ressources Azure sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. 
+Ce didacticiel vous indique comment utiliser une identité managée assignée par le système pour une machine virtuelle Linux afin d’accéder à Azure Key Vault. En agissant comme un amorçage, le coffre de clés permet à votre application cliente d’utiliser le secret pour accéder aux ressources non sécurisées par Azure Active Directory (AD). Les identités managées pour les ressources Azure sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code. 
 
 Vous allez apprendre à effectuer les actions suivantes :
 
@@ -43,7 +43,7 @@ Vous allez apprendre à effectuer les actions suivantes :
 
 - [Créez une machine virtuelle Linux](/azure/virtual-machines/linux/quick-create-portal).
 
-- [Activer l’identité managée attribuée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Activer l’identité managée affectée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault  
 

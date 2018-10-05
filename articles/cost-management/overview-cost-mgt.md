@@ -5,25 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/12/2018
+ms.date: 09/21/2018
 ms.topic: overview
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 10fef55ef09e4be427fbd36c730528a993dd64e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 470802c1119c1c367dcd72f782dfc1036f75f6db
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960855"
+ms.locfileid: "47035944"
 ---
-# <a name="what-is-azure-cost-management"></a>Qu’est-ce qu’Azure Cost Management ?
+# <a name="what-is-azure-cost-management"></a>Qu’est-ce que la gestion des coûts Azure ?
 
 La gestion des coûts est le processus qui vous permet de prévoir et de maîtriser les coûts de votre entreprise avec efficacité. Les tâches de gestion des coûts sont normalement effectuées par les équipes de finance, d’administration et d’application. Azure Cost Management permet aux organisations avec des contrats Entreprise (EA) Microsoft de planifier en connaissant les coûts. Il permet aussi d’analyser efficacement les coûts et de prendre des mesures pour optimiser les dépenses cloud. Pour découvrir plus en détail comment une organisation doit approcher la gestion des coûts, consultez l’article [Bonnes pratiques pour Azure Cost Management](cost-mgt-best-practices.md).
 
 Bien que liées, la facturation diffère de la gestion des coûts. La facturation est le processus qui vous permet de facturer des biens ou des services aux clients et de gérer les relations commerciales.  Les équipes d’approvisionnement et de finance s’occupent généralement des tâches de facturation.
 
-Cost Management révèle les modèles de coût et d’utilisation de l’organisation avec une analytique avancée. Dans Cost Management, les rapports affichent le coût, l’utilisation et l’instance réservée d’Azure ainsi que l’utilisation d’Azure Hybrid Benefit. Ensemble, les rapports indiquent vos coûts internes et externes. Ils vous aident à comprendre vos dépenses et votre utilisation des ressources, et à trouver des anomalies dans les dépenses. Des analyses prédictives sont aussi disponibles. Cost Management utilise des groupes d’administration, des budgets et des recommandations Azure pour montrer avec clarté comment vos dépenses sont organisées et comment vous pourriez réduire les coûts.
+Cost Management révèle les modèles de coût et d’utilisation de l’organisation avec une analytique avancée. Dans Cost Management, les rapports affichent le coût, l’utilisation et l’instance réservée d’Azure ainsi que l’utilisation d’Azure Hybrid Benefit. Ensemble, les rapports indiquent vos coûts d’utilisation internes et externes ainsi que les frais de la Place de marché Azure. Les autre frais comme les achats de réservation, le support et les taxes n’apparaissent pas encore dans les rapports. Ils vous aident à comprendre vos dépenses et votre utilisation des ressources, et à trouver des anomalies dans les dépenses. Des analyses prédictives sont aussi disponibles. Cost Management utilise des groupes d’administration, des budgets et des recommandations Azure pour montrer avec clarté comment vos dépenses sont organisées et comment vous pourriez réduire les coûts.
 
 Vous pouvez utiliser le portail Azure ou différentes API pour automatiser l’exportation visant à intégrer les données de coût à des processus et systèmes externes. Vous avez aussi à disposition une exportation automatisée des données de facturation ainsi que des rapports planifiés.
 

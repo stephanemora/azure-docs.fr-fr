@@ -2,19 +2,22 @@
 title: Déployer un service de fractionnement et de fusion | Microsoft Docs
 description: Utilisez l’outil de fractionnement et de fusion pour déplacer les données entre les différentes bases de données partitionnées.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 51a5f70cc56b2a4196ee7b151be0af3a9e16fc4f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e277e2fa5ca7062cde1c0061e585dfb092337d4a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646930"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159338"
 ---
 # <a name="deploy-a-split-merge-service"></a>Déployer un service de fractionnement et de fusion
 L’outil de fractionnement et de fusion vous permet de déplacer les données entre les différentes bases de données partitionnées. Consultez [Déplacement de données entre des bases de données cloud montées en charge](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -32,10 +35,8 @@ Les fichiers sont placés dans un répertoire nommé **Microsoft.Azure.SqlDataba
 ## <a name="prerequisites"></a>Prérequis
 1. Créez une base de données Azure SQL DB qui servira de base de données d’état du service de fractionnement/fusion. Accédez au [portail Azure](https://portal.azure.com). Créez une **base de données SQL**. Nommez la base de données et créez un administrateur ainsi qu’un mot de passe. Veillez à enregistrer le nom et le mot de passe pour une utilisation ultérieure.
 2. Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Dans le portail, dans **Paramètres du pare-feu**, vérifiez que le paramètre **Autoriser l’accès aux services Azure** a la valeur **Activé**. Cliquez sur l’icône « Enregistrer ».
-   
-   ![Services autorisés][1]
-3. Créez un compte de Stockage Azure qui sera utilisé comme emplacement de destination pour les diagnostics. Accédez au portail Azure. Dans la barre de gauche, cliquez sur **Créer une ressource**, sur **Données + Stockage**, puis sur **Stockage**.
-4. Créez un service cloud Azure qui contient votre service de fractionnement/fusion.  Accédez au portail Azure. Dans la barre de gauche, cliquez successivement sur **Créer une ressource**, puis sur **Compute**, **Service cloud** et **Créer**. 
+3. Créez un compte de Stockage Azure pour les sorties de diagnostics.
+4. Créez un service cloud Azure pour votre service de Fractionnement-Fusion.
 
 ## <a name="configure-your-split-merge-service"></a>Configurer votre service de fractionnement et de fusion
 ### <a name="split-merge-service-configuration"></a>Configuration du service de fractionnement/fusion
@@ -118,17 +119,14 @@ Pour le rôle web :
 Veuillez noter que pour les déploiements de production, des certificats distincts doivent être utilisés pour l’autorité de certification, le chiffrement, le certificat de serveur et les certificats clients. Pour plus d’informations, consultez la rubrique [Configuration de la sécurité](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ## <a name="deploy-your-service"></a>Déployer votre service
-1. Accédez au [portail Azure](https://manage.windowsazure.com).
-2. Cliquez sur l’onglet **Services cloud** à gauche et sélectionnez le service cloud que vous avez créé précédemment.
-3. Cliquez sur **Tableau de bord**.
-4. Choisissez l’environnement intermédiaire, puis cliquez sur **Télécharger un nouveau déploiement intermédiaire**.
-   
-   ![Staging][3]
+1. Accédez au [Portail Azure](https://portal.azure.com).
+2. Sélectionnez le service cloud que vous avez créé précédemment.
+3. Cliquez sur **Overview**.
+4. Choisissez l’environnement de préproduction, puis cliquez sur **Charger**.
 5. Dans la boîte de dialogue, entrez une étiquette de déploiement. Pour Package et Configuration, cliquez sur À partir de local, puis choisissez le fichier **SplitMergeService.cspkg** et le fichier cscfg que vous avez configuré précédemment.
 6. Assurez-vous que la case **Déployer même si un ou plusieurs rôles contiennent une seule instance** est cochée.
 7. Appuyez sur le bouton en forme de coche dans le coin inférieur droit pour commencer le déploiement. Cette opération peut prendre plusieurs minutes.
 
-   ![Télécharger][4]
 
 ## <a name="troubleshoot-the-deployment"></a>Résoudre les problèmes de déploiement
 Si votre rôle web ne parvient pas à être en ligne, il s’agit probablement d’un problème avec la configuration de sécurité. Vérifiez que le protocole SSL est configuré comme décrit ci-dessus.
@@ -144,11 +142,11 @@ Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôl
    ```
 
 * Assurez-vous que le nom du serveur ne commence pas par **https://**.
-* Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Pour ce faire, ouvrez https://manage.windowsazure.com, cliquez sur « SQL Databases » sur la gauche, cliquez sur « Serveurs » en haut et sélectionnez votre serveur. Cliquez sur **Configurer** en haut et assurez-vous que le paramètre **Services Azure** est défini sur « Oui ». (voir la section « Configuration requise » en haut de cet article).
+* Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Pour ce faire, ouvrez votre base de données dans le portail et vérifiez que le paramètre **Autoriser l’accès aux services Azure** est défini sur **Activé****.
 
 ## <a name="test-the-service-deployment"></a>Tester le déploiement du service
 ### <a name="connect-with-a-web-browser"></a>Se connecter avec un navigateur Web
-Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail Azure Classic en accédant au **Tableau de bord** de votre service cloud et en effectuant une recherche dans la zone **URL du site** sur le côté droit. Remplacez **http://** par **https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
+Déterminez le point de terminaison web de votre service de fractionnement/fusion. Vous pouvez le trouver dans le portail en accédant à la **Vue d’ensemble** de votre service cloud et en effectuant une recherche dans la zone **URL du site** située sur la droite. Remplacez **http://** par **https://**, car les paramètres de sécurité par défaut désactivent le point de terminaison HTTP. Chargez la page correspondant à cette URL dans votre navigateur.
 
 ### <a name="test-with-powershell-scripts"></a>Effectuer des tests avec des scripts PowerShell
 Le déploiement et votre environnement peuvent être testés en exécutant les exemples de scripts PowerShell fournis.

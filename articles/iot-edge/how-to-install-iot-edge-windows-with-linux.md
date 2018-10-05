@@ -9,14 +9,14 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 86a24c2cdba890046f2cbb0ccf6b73decdac7235
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2ff7c3482100545c476040ba556d464b9f44e434
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997520"
+ms.locfileid: "47031116"
 ---
-# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Installer le runtime Azure IoT Edge sur Windows pour l’utiliser avec des conteneurs Linux
+# <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Installer le runtime Azure IoT Edge sur Windows pour l’utiliser avec des conteneurs Linux
 
 Le runtime Azure IoT Edge est ce qui transforme un appareil en appareil IoT Edge. Le runtime peut être déployé sur un appareil de petite taille comme un Raspberry Pi ou de grande taille comme un serveur industriel. Une fois qu’un appareil est configuré avec le runtime IoT Edge, vous pouvez commencer à déployer une logique métier sur celui-ci à partir du cloud. 
 
@@ -110,7 +110,7 @@ iotedge list
 
 ## <a name="tips-and-suggestions"></a>Conseils et suggestions
 
-Si votre réseau comporte un serveur proxy, effectuez les étapes décrites dans [Configurer votre appareil IoT Edge pour communiquer via un serveur proxy](how-to-configure-proxy-support.md).
+Si votre réseau comporte un serveur proxy, effectuez les étapes décrites dans [Configurer votre appareil IoT Edge pour communiquer via un serveur proxy](how-to-configure-proxy-support.md) pour installer et démarrer le runtime IoT Edge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

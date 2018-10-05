@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett
-ms.openlocfilehash: ed591007e6ad83dfbafe13db0bd3d8b53fc216f3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: bca25f5e7a6fd7685d20236033a5a225c5183a2d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106367"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225342"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Bien démarrer avec la gestion des appareils (.NET/.NET)
 
@@ -74,7 +74,7 @@ Dans cette section, vous créez une application console .NET (à l’aide de C#)
    static string targetDevice = "myDeviceId";
    ```
 
-6. Ajoutez la méthode suivante à la classe **Program**.  Ce code obtient la représentation d’appareil pour le redémarrage de l’appareil et renvoie les propriétés signalées.
+6. Ajoutez la méthode suivante à la classe **Program**.  Ce code obtient le jumeau d’appareil pour le redémarrage de l’appareil et renvoie les propriétés signalées.
    
    ```csharp
    public static async Task QueryTwinRebootReported()
@@ -115,7 +115,7 @@ Dans cette section, vous créez une application console .NET (à l’aide de C#)
 > [!NOTE]
 > Ce didacticiel n'effectue qu’une seule requête pour les propriétés indiquées de l’appareil. Dans le code de production, nous recommandons d’effectuer une interrogation pour détecter les modifications apportées aux propriétés indiquées.
 
-## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
+## <a name="create-a-simulated-device-app"></a>Créer une application d’appareil simulé
 
 Dans cette section, vous effectuerez les tâches suivantes :
 
@@ -213,7 +213,7 @@ Dans cette section, vous effectuerez les tâches suivantes :
 8. Dans l’Explorateur de solutions de Visual Studio, cliquez avec le bouton droit sur votre solution, puis sur **Définir les projets de démarrage...**. Sélectionnez **Projet de démarrage unique**, puis sélectionnez le projet **SimulateManagedDevice** dans le menu déroulant. Générez la solution.       
 
 > [!NOTE]
-> Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Gestion des erreurs temporaires](https://msdn.microsoft.com/library/hh680901.aspx).
+> Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez implémenter des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="run-the-apps"></a>Exécuter les applications
 

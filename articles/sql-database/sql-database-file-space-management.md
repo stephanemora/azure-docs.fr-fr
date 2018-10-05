@@ -2,19 +2,22 @@
 title: Gestion de l’espace du fichier de la base de données SQL Azure | Microsoft Docs
 description: Cette page explique comment gérer l’espace de fichier avec Azure SQL Database et fournit des exemples de code pour déterminer si vous devez réduire une base de données, ainsi que pour effectuer une opération de réduction de base de données.
 services: sql-database
-author: oslake
-manager: craigg
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/15/2018
+author: oslake
 ms.author: moslake
-ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42142401"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159939"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gérer l’espace du fichier de la base de données SQL Azure
 Cet article décrit les différents types d’espace de stockage dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
@@ -27,7 +30,7 @@ Dans Azure SQL Database, la plupart des métriques d’espace de stockage affich
 - T-SQL : [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL : [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Il existe des modèles de charges de travail dans lesquels l’allocation de fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées.  Ce scénario peut se produire lorsque l’espace utilisé augmente et que les données sont alors supprimées.  En effet, l’espace de fichier alloué n’est pas automatiquement récupéré lorsque les données sont supprimées.  Dans de tels scénarios, l’espace alloué à une base de données ou un pool peut dépasser les limites prises en charge et, par conséquent, empêcher la croissance des données ou les modifications de niveau de performances. Pour résoudre ce problème, il convient de réduire les fichiers de données.
+Il existe des modèles de charges de travail dans lesquels l’allocation de fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées.  Ce scénario peut se produire lorsque l’espace utilisé augmente et que les données sont alors supprimées.  En effet, l’espace de fichier alloué n’est pas automatiquement récupéré lorsque les données sont supprimées.  Dans de tels scénarios, l’espace alloué à une base de données ou à un pool peut dépasser les limites prises en charge et, par conséquent, empêcher la croissance des données ou les modifications de taille de calcul. Pour résoudre ce problème, il convient de réduire les fichiers de données.
 
 Le service SQL DB ne réduit pas automatiquement les fichiers de données pour récupérer l’espace alloué inutilisé en raison de l’impact potentiel sur les performances de la base de données.  Toutefois, les clients peuvent réduire les fichiers de données en libre service lorsqu’ils le souhaitent en suivant les étapes décrites à la rubrique [Récupérer l’espace alloué non utilisé](#reclaim-unused-allocated-space). 
 

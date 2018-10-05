@@ -6,15 +6,15 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bca4b13ea2a003ea428351bcff44944630387e1b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528008"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033921"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Que faire en cas de panne d’Azure Storage
 Microsoft s’engage à déployer tous les efforts nécessaires pour garantir en permanence la disponibilité de ses services. Il arrive parfois que des phénomènes incontrôlables entraînent des interruptions de service non planifiés dans une ou plusieurs régions. Pour vous aider à faire face à ces rares occurrences, vous trouverez ici quelques conseils généraux pour les services Azure Storage.
@@ -43,18 +43,16 @@ Si vous avez choisi le [stockage géo-redondant avec accès en lecture (RA-GRS)]
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Que se passe-t-il en cas de basculement d’Azure Storage ?
 Si vous avez choisi le [stockage géo-redondant (GRS)](storage-redundancy-grs.md) ou le [stockage géo-redondant avec accès en lecture (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (recommandé), Azure Storage conservera vos données dans deux régions (primaire et secondaire). Azure Storage conserve constamment plusieurs réplicas de vos données dans les deux régions.
 
-Lorsqu’un sinistre régional affecte votre région primaire, nous allons tout d’abord tenter de restaurer le service dans cette région. Selon de la nature de l’incident et son impact, il peut arriver dans de rares circonstances que ne soyons pas en mesure de restaurer la région primaire. À ce stade, nous procéderons à un basculement géographique. La réplication des données entre les régions est un processus asynchrone qui peut impliquer un certain délai ; il est donc possible que les modifications qui n’ont pas encore été répliquées dans la région secondaire soient perdues. Vous pouvez interroger [« l’heure de dernière synchronisation » de votre compte de stockage](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) pour obtenir des détails sur l’état de la réplication.
+Lorsqu’un sinistre régional affecte votre région primaire, nous tentons d’abord de restaurer le service dans la région qui fournit la meilleure combinaison d’objectif de délai de récupération (RTO) et d’objectif de point de récupération (RPO). Selon de la nature de l’incident et son impact, il peut arriver dans de rares circonstances que ne soyons pas en mesure de restaurer la région primaire. À ce stade, nous procéderons à un basculement géographique. La réplication de données inter-régions est un processus asynchrone qui peut nécessiter un certain délai. Il est donc possible que les modifications qui n’ont pas encore été répliquées dans la région secondaire soient perdues.
 
 Quelques points relatifs à l’expérience de basculement géographique du stockage :
 
-* Le basculement géographique du stockage est déclenché uniquement par l’équipe Azure Storage et ne nécessite donc aucune intervention du client.
-* Vos points de terminaison de service de stockage existant pour les objets blob, les tables, les files d’attente et les fichiers restent les mêmes après le basculement ; l’entrée DNS fournie par Microsoft devra être mise à jour pour basculer de la région primaire à la région secondaire.  Microsoft effectue cette mise à jour automatiquement dans le cadre du processus de basculement géographique.
+* Le basculement géographique du stockage est déclenché uniquement par l’équipe Azure Storage et ne nécessite donc aucune intervention du client. Le basculement est déclenché lorsque l’équipe du Stockage Azure a épuisé toutes les options de restauration des données dans la région qui fournit la meilleure combinaison d’objectifs RTO et RPO.
+* Vos points de terminaison de service de stockage existant pour les objets blob, les tables, les files d’attente et les fichiers restent les mêmes après le basculement ; l’entrée DNS fournie par Microsoft devra être mise à jour pour basculer de la région primaire à la région secondaire. Microsoft effectue cette mise à jour automatiquement dans le cadre du processus de basculement géographique.
 * Avant et pendant le basculement géographique, vous n’avez pas d’accès en écriture à votre compte de stockage en raison de l’impact de l’incident, mais vous pouvez toujours lire les données à partir de la base de données secondaire si votre compte de stockage a été configuré en tant que RA-GRS.
-* Une fois le basculement géographique effectué et les modifications DNS propagées, vous bénéficiez de nouveau d’un accès en lecture-écriture à votre compte de stockage. L’emplacement pointé est votre point de terminaison secondaire précédent. 
-* Notez que vous bénéficierez d’un accès en écriture si un stockage GRS ou RA-GRS est configuré pour le compte de stockage. 
-* Vous pouvez interroger [« l’heure du dernier basculement géographique » de votre compte de stockage](https://msdn.microsoft.com/library/azure/ee460802.aspx) pour obtenir plus de détails.
-* Après le basculement, votre compte de stockage sera entièrement opérationnel, mais dans un état « dégradé », car il sera en réalité hébergé dans une région autonome sans aucune géoréplication possible. Pour atténuer ce risque, nous restaurerons la région primaire d’origine et effectuerons une géo-restauration afin de restaurer l’état d’origine. Si la région primaire d’origine est irrécupérable, nous allouerons une autre région secondaire.
-  Pour plus d’informations sur l’infrastructure de géo-réplication d’Azure Storage, consultez l’article sur le blog de l’équipe Azure Storage relatif aux [options de redondance et à RA-GRS](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
+* Une fois le basculement géographique effectué et les modifications DNS propagées, l’accès en lecture-écriture à votre compte de stockage est restauré si vous disposez d’un stockage géoredondant (GRS) ou d’un stockage géographiquement redondant avec accès en lecture (RA-GRS). Le point de terminaison qui était jusque-là votre point de terminaison secondaire devient votre point de terminaison principal. 
+* Vous pouvez vérifier l’état de l’emplacement principal et envoyer une requête pour connaître la date et l’heure du dernier basculement géographique de votre compte de stockage. Pour plus d’informations, consultez [Comptes de stockage - Obtenir les propriétés](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/getproperties).
+* Après le basculement, votre compte de stockage est entièrement opérationnel, mais son état est « dégradé », car il est hébergé dans une région autonome sans aucune géoréplication possible. Pour atténuer ce risque, nous restaurerons la région primaire d’origine et effectuerons une géo-restauration afin de restaurer l’état d’origine. Si la région primaire d’origine est irrécupérable, nous allouerons une autre région secondaire.
 
 ## <a name="best-practices-for-protecting-your-data"></a>Meilleures pratiques pour la protection de vos données
 Il existe des approches recommandées pour sauvegarder régulièrement vos données de stockage.

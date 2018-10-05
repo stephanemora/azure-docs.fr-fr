@@ -1,5 +1,5 @@
 ---
-title: Afficher les membres d’un rôle d’administrateur et les autorisations du rôle dans Azure Active Directory | Microsoft Docs
+title: Afficher et assigner des autorisations de rôles d’administrateur dans Azure Active Directory | Microsoft Docs
 description: Vous pouvez maintenant consulter et gérer les membres d’un rôle d’administrateur Azure AD dans le portail. Pour les personnes qui gèrent fréquemment les attributions de rôles.
 services: active-directory
 documentationcenter: ''
@@ -10,32 +10,32 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5a42f48e85eea95211b36e0c08dcb0edb4928a20
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cb2e5286eb8e910b555e221242a735f00dff4778
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38489920"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182822"
 ---
-# <a name="view-members-and-descriptions-of-administrator-roles-in-azure-active-directory"></a>Afficher les membres et les descriptions des rôles d’administrateur dans Azure Active Directory
+# <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Afficher et assigner des rôles d’administrateur dans Azure Active Directory
 
 Vous pouvez maintenant consulter et gérer tous les membres des rôles d’administrateur dans le portail Azure Active Directory. Si vous gérez fréquemment des attributions de rôles, vous préférerez probablement cette expérience. Et si vous vous êtes déjà demandé « À quoi ces rôles servent-ils vraiment ? », vous pouvez voir une liste détaillée des autorisations pour chacun des rôles d’administrateur Azure AD.
 
-Il est également facile de voir vos propres autorisations. Cliquez sur **Votre rôle** pour accéder rapidement à votre page d’utilisateur et obtenir la liste de tous vos rôles affectés actifs. Cliquez sur les points de suspension à droite de chaque ligne pour ouvrir la description détaillée du rôle.
+Il est également facile de voir vos propres autorisations. Cliquez sur **Votre rôle** pour accéder rapidement à votre page utilisateur et obtenir la liste de tous vos rôles assignés actifs. Cliquez sur les points de suspension à droite de chaque ligne pour ouvrir la description détaillée du rôle.
 
 ![liste des rôles dans le portail Azure AD](./media/directory-manage-roles-portal/role-list.png)
 
-Sélectionnez la ligne entière pour afficher la liste des membres affectés. Vous pouvez sélectionner **Gérer dans PIM** pour disposer de davantage de fonctionnalités de gestion. Les administrateurs de rôle privilégié peuvent modifier les affectations « permanentes » (toujours actives dans le rôle) en affectations « éligibles » (dans le rôle uniquement en cas d’élévation). Si vous n’avez pas PIM, vous pouvez toujours sélectionner **Gérer dans PIM** pour vous inscrire à un essai. Privileged Identity Management nécessite un [plan de licences Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
+Sélectionnez la ligne d’un rôle pour afficher les utilisateurs assignés au rôle. Vous pouvez sélectionner **Gérer dans PIM** pour disposer de davantage de fonctionnalités de gestion. Les administrateurs de rôle privilégié peuvent modifier les affectations « permanentes » (toujours actives dans le rôle) en affectations « éligibles » (dans le rôle uniquement en cas d’élévation). Si vous n’avez pas PIM, vous pouvez toujours sélectionner **Gérer dans PIM** pour vous inscrire à un essai. Privileged Identity Management nécessite un [plan de licences Azure AD Premium P2](../privileged-identity-management/subscription-requirements.md).
 
 ![liste des membres d’un rôle d’administrateur](./media/directory-manage-roles-portal/member-list.png)
 
-Si vous êtes un administrateur global ou un administrateur de rôle privilégié, vous pouvez facilement ajouter ou supprimer des membres, filtrer la liste ou sélectionner un membre pour accéder à la page d’utilisateur afin de voir ses rôles affectés actifs. 
+Si vous êtes un administrateur global ou un administrateur de rôle privilégié, vous pouvez facilement ajouter ou supprimer des membres, filtrer la liste ou sélectionner un membre pour voir ses rôles assignés actifs.
 
-## <a name="detailed-role-permissions-in-the-portal"></a>Autorisations de rôle détaillées dans le portail
+## <a name="view-role-permissions"></a>Afficher des autorisations de rôles
 
 Lorsque vous affichez les membres d’un rôle, sélectionnez **Description** pour afficher la liste complète des autorisations accordées par l’attribution de rôle. Cette page inclut des liens vers la documentation correspondante pour vous guider tout au long de la gestion des rôles d’annuaire.
 

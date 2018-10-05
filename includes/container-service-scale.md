@@ -1,6 +1,6 @@
 Après le [déploiement d’un cluster Azure Container Service](../articles/container-service/dcos-swarm/container-service-deployment.md), vous devez peut-être modifier le nombre de nœuds de l’agent. Vous risquez par exemple d’avoir besoin de davantage d’agents afin de pouvoir exécuter davantage d’instances ou d’applications de conteneur. 
 
-Vous pouvez modifier le nombre de nœuds de l’agent dans un cluster DC/OS, Docker Swarm ou Kubernetes à l’aide du portail Azure ou d’Azure CLI 2.0. 
+Vous pouvez changer le nombre de nœuds d’agent dans un cluster DC/OS, Docker Swarm ou Kubernetes à l’aide du portail Azure ou d’Azure CLI. 
 
 ## <a name="scale-with-the-azure-portal"></a>Mise à l’échelle avec le portail Azure
 
@@ -12,9 +12,9 @@ Vous pouvez modifier le nombre de nœuds de l’agent dans un cluster DC/OS, Doc
 
 4. Pour enregistrer la configuration, cliquez sur **Enregistrer**.
 
-## <a name="scale-with-the-azure-cli-20"></a>Mise à l’échelle avec la CLI Azure 2.0
+## <a name="scale-with-the-azure-cli"></a>Mise à l’échelle avec Azure CLI
 
-Assurez-vous d’avoir [installé](/cli/azure/install-az-cli2) la dernière version de l’interface de ligne de commande Azure, Azure CLI 2.0, et d’être connecté à un compte Azure (`az login`).
+Vérifiez que vous avez [installé](/cli/azure/install-az-cli2) la dernière version d’Azure CLI et que vous êtes connecté à un compte Azure (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Affichage du nombre actuel d’agents
 Pour afficher le nombre d’agents actuellement dans le cluster, exécutez la commande `az acs show`. Elle permet d’afficher la configuration du cluster. Par exemple, la commande suivante affiche la configuration du service de conteneur nommé `containerservice-myACSName` dans le groupe de ressources `myResourceGroup` :
@@ -34,7 +34,7 @@ Par exemple, pour modifier le nombre d’agents dans le précédent cluster en 1
 az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-L’interface Azure CLI 2.0 renvoie une chaîne JSON représentant la nouvelle configuration du service de conteneur, avec notamment le nouveau nombre d’agents.
+Azure CLI renvoie une chaîne JSON représentant la nouvelle configuration du service conteneur, avec notamment le nouveau nombre d’agents.
 
 Pour plus d’options de commande, exécutez `az acs scale --help`.
 
@@ -50,6 +50,6 @@ Pour plus d’options de commande, exécutez `az acs scale --help`.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez [d’autres exemples](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) d’utilisation des commandes de la CLI Azure 2.0 avec Azure Container Service.
+* Consultez [d’autres exemples](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) d’utilisation des commandes Azure CLI avec Azure Container Service.
 * En savoir plus sur les [pools d’agents contrôleur de domaine/système d’exploitation](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) d’Azure Container Service.
 

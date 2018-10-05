@@ -1,21 +1,23 @@
 ---
 title: Récupération d’urgence des applications SaaS à l’aide de la géoréplication Azure SQL Database | Microsoft Docs
 description: Apprendre à utiliser des géoréplicas Azure SQL Database pour récupérer une application SaaS multi-locataire en cas de panne
-keywords: didacticiel sur les bases de données SQL
 services: sql-database
-author: AyoOlubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/09/2018
+author: AyoOlubeko
 ms.author: ayolubek
-ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/09/2018
+ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34645791"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056333"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Récupération d’urgence d’une application SaaS multi-locataire à l’aide de la géoréplication de bases de données
 
@@ -51,9 +53,9 @@ Un plan de récupération d’urgence basé sur la géoréplication comprend tro
 Toutes les parties doivent être examinées avec précaution, surtout en cas de fonctionnement maximum. Globalement, le plan doit atteindre plusieurs objectifs :
 
 * Paramétrage
-    * Créer un environnement miroir dans la région de récupération et en assurer la maintenance. La création de pools élastiques et la réplication des bases de données autonomes dans cet environnement de récupération assure une capacité de réserve dans la région de récupération. La maintenance de cet environnement comprend la réplication des nouvelles bases de données de locataire, au fur et à mesure de leur approvisionnement.  
+    * Créer un environnement miroir dans la région de récupération et en assurer la maintenance. La création de pools élastiques et la réplication de bases de données uniques dans cet environnement de récupération assurent une capacité de réserve dans la région de récupération. La maintenance de cet environnement comprend la réplication des nouvelles bases de données de locataire, au fur et à mesure de leur approvisionnement.  
 * Récupération
-    * Lorsqu’un environnement de récupération réduit en taille est utilisé pour minimiser les coûts quotidiens, les pools et les bases de données autonomes doivent être mis à l’échelle pour atteindre une capacité entièrement opérationnelle dans la région de récupération.
+    * Lorsque vous utilisez un environnement de récupération dont la taille a été diminuée pour réduire les coûts quotidiens, les pools et les bases de données uniques doivent être mis à l’échelle pour atteindre une capacité opérationnelle complète dans la région de récupération.
     * Activer l’approvisionnement des nouveaux locataires dans la région de récupération dès que possible  
     * Être optimisé pour restaurer les locataires dans leur ordre de priorité
     * Être optimisé pour mettre les locataires en ligne dès que possible en effectuant des tâches en parallèle le cas échéant
@@ -158,7 +160,7 @@ Le script de récupération effectue les tâches suivantes :
 
 1. Il marque tous les locataires existants dans le catalogue de récupération comme étant hors connexion pour empêcher l’accès aux bases de données de locataire avant leur basculement.
 
-1. Il met à jour la configuration de tous les pools élastiques et les bases de données autonomes répliquées dans la région de récupération pour la mise en miroir de leur configuration dans la région d’origine. (Cette tâche n’est nécessaire que si les pools ou les bases de données répliquées dans l’environnement de récupération sont diminués pendant les opérations normales pour réduire les coûts.)
+1. Il met à jour la configuration de tous les pools élastiques et de toutes les bases de données uniques répliquées dans la région de récupération pour la mise en miroir de leur configuration dans la région d’origine. (Cette tâche n’est nécessaire que si les pools ou les bases de données répliquées dans l’environnement de récupération sont diminués pendant les opérations normales pour réduire les coûts.)
 
 1. Il active le point de terminaison Traffic Manager de l’application web dans la région de récupération. L’activation de ce point de terminaison permet à l’application d’approvisionner de nouveaux locataires. À ce stade, les locataires existants sont toujours hors connexion.
 

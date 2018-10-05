@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: e5421ca791ae9d0059639000f33b77be57f4d891
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2f0568064eed556429675ffb34c84d588ac670d5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968031"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064354"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Comment intégrer Azure Monitor pour machines virtuelles 
 Cet article décrit comment configurer Azure Monitor pour surveiller l’intégrité du système d’exploitation de vos machines virtuelles Azure et comment découvrir et mapper les dépendances des applications pouvant être hébergées dessus.  
@@ -52,23 +52,90 @@ Pour activer la solution, vous devez être membre du rôle de contributeur Log A
 
 ### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-Les versions suivantes des systèmes d’exploitation Windows et Linux sont officiellement prises en charge avec Azure Monitor pour machines virtuelles :
+Le tableau ci-après répertorie les systèmes d’exploitation Windows et Linux qui sont pris en charge avec Azure Monitor pour machines virtuelles.  Une liste complète détaillant les versions principales et mineures de système d’exploitation et de noyau Linux prises en charge est fournie plus loin dans cette section.
 
 |Version du SE |Performances |Cartes |Intégrité |  
 |-----------|------------|-----|-------|  
+|Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |  
 |Windows Server 2012 R2 | X | X | |  
 |Windows Server 2012 | X | X | |  
 |Windows Server 2008 R2 | X | X| |  
 |RHEL 7, 6| X | X| X |  
-|Ubuntu 18.04, 16.04, 14.04 | X | X| X |  
-|Cent OS Linux 7, 6 | X | X| X |  
+|Ubuntu 18.04, 16.04, 14.04 | X | X | X |  
+|Cent OS Linux 7, 6 | X | X | X |  
 |SLES 12 | X | X | X |  
 |Oracle Linux 7 | X<sup>1</sup> | | X |  
 |Oracle Linux 6 | X | X | X |  
 |Debian 9.4, 8 | X<sup>1</sup> | | X | 
 
 <sup>1</sup> La fonctionnalité d’Azure Monitor pour machines virtuelles est uniquement disponible à partir d’Azure Monitor, elle n’est pas disponible lorsque vous y accédez directement à partir du volet gauche de la machine virtuelle Azure.  
+
+>[!NOTE]
+>Les informations ci-après concernent la prise en charge du système d’exploitation Linux :  
+> - Seules les versions du noyau SMP Linux et par défaut sont prises en charge.  
+> - Les versions non standard du noyau, par exemple PAE et Xen, ne sont prises en charge par aucune distribution Linux. Par exemple, un système avec la chaîne de version « 2.6.16.21-0.8-xen » n’est pas pris en charge.  
+> - Les noyaux personnalisés, y compris les recompilations de noyaux standard, ne sont pas pris en charge.  
+> - Le noyau CentOSPlus n’est pas pris en charge.  
+
+
+#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
+
+| Version du SE | Version du noyau |
+|:--|:--|
+| 7.0 | 3.10.0-123 |
+| 7.1 | 3.10.0-229 |
+| 7,2 | 3.10.0-327 |
+| 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
+
+#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
+
+| Version du SE | Version du noyau |
+|:--|:--|
+| 6.0 | 2.6.32-71 |
+| 6.1 | 2.6.32-131 |
+| 6.2 | 2.6.32-220 |
+| 6.3 | 2.6.32-279 |
+| 6.4. | 2.6.32-358 |
+| 6.5 | 2.6.32-431 |
+| 6.6 | 2.6.32-504 |
+| 6.7 | 2.6.32-573 |
+| 6,8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
+
+#### <a name="ubuntu-server"></a>Serveur Ubuntu
+
+| Version du SE | Version du noyau |
+|:--|:--|
+| Ubuntu 18.04 | noyau 4.15.* |
+| Ubuntu 16.04.3 | noyau 4.15.* |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
+
+#### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 6 avec noyau Unbreakable Enterprise
+| Version du SE | Version du noyau
+|:--|:--|
+| 6.2 | Oracle 2.6.32-300 (UEK R1) |
+| 6.3 | Oracle 2.6.39-200 (UEK R2) |
+| 6.4. | Oracle 2.6.39-400 (UEK R2) |
+| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
+| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
+
+#### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 5 avec noyau Unbreakable Enterprise
+
+| Version du SE | Version du noyau
+|:--|:--|
+| 5.10 | Oracle 2.6.39-400 (UEK R2) |
+| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+
+#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
+
+| Version du SE | Version du noyau
+|:--|:--|
+|12 SP2 | 4.4.* |
+|12 SP3 | 4.4.* |
 
 ### <a name="hybrid-environment-connected-sources"></a>Sources connectées d’environnement hybride
 Azure Monitor pour machines virtuelles Map obtient ses données à partir de l’agent de dépendances Microsoft. Celui-ci dépend de l’agent Log Analytics pour ses connexions à Log Analytics. Cela signifie que l’agent Log Analytics doit être installé et configuré avec l’agent de dépendances sur le système.  Le tableau suivant décrit les sources connectées prises en charge par la fonctionnalité Map dans un environnement hybride.
@@ -89,8 +156,8 @@ L’agent de dépendances peut être téléchargé à partir de l’emplacement 
 
 | Fichier | SE | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
 ## <a name="diagnostic-and-usage-data"></a>Données relatives aux diagnostics et à l’utilisation
 Microsoft collecte automatiquement les données sur l’utilisation et les performances via votre utilisation du service Azure Monitor. Microsoft utilise ces données pour fournir et améliorer la qualité, la sécurité et l’intégrité du service. Afin d’offrir des fonctionnalités de dépannage précises et efficaces, les données de la fonctionnalité Map incluent des informations sur la configuration de votre logiciel, telles que le système d’exploitation et la version, l’adresse IP, le nom DNS et le nom de la station de travail. Microsoft ne collecte pas de nom, d’adresse ou d’autres coordonnées.
@@ -152,7 +219,7 @@ Pour activer la surveillance de votre machine virtuelle Azure à partir du porta
 5. Dans la page **Intégration des insights de Azure Monitor**, si vous disposez d’un espace de travail Log Analytics appartenant au même abonnement, sélectionnez-le dans la liste déroulante.  La liste présélectionne l’espace de travail par défaut et l’emplacement où la machine virtuelle est déployée dans l’abonnement. 
 
     >[!NOTE]
-    >Si vous souhaitez créer un espace de travail Log Analytics pour stocker les données de surveillance de la machine virtuelle, suivez les instructions de [Créer un espace de travail Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). Veillez à créer l’espace de travail dans le même abonnement que la machine virtuelle. 
+    >Si vous souhaitez créer un espace de travail Log Analytics pour stocker les données de supervision de la machine virtuelle, suivez les instructions de l’article [Créer un espace de travail Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md) dans l’une des régions prises en charge répertoriées précédemment.   
 
 Une fois que vous avez activé la surveillance, 10 minutes peuvent s’écouler avant que vous ne puissiez voir les métriques d’intégrité de la machine virtuelle. 
 

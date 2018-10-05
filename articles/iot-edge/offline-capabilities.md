@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ddc07db4e101bb16321478d17d84ffe0d30f0afd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f4afad753da4a314ade3fb7433c6be3e489e05b0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946219"
+ms.locfileid: "47033683"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge (préversion)
 
@@ -28,19 +28,19 @@ Quand un appareil IoT Edge passe en mode hors connexion, le hub Edge assure troi
 
 L’exemple de scénario IoT Edge suivant montre le fonctionnement en mode hors connexion :
 
-1. Configuration d’un appareil IoT Edge. 
+1. **Configurer un appareil IoT Edge.**
 
    Sur les appareils IoT Edge, les fonctionnalités hors connexion sont automatiquement activées. Pour étendre ces fonctionnalités à d’autres appareils IoT, vous devez déclarer une relation parent-enfant entre les différents appareils dans IoT Hub. 
 
-2. Synchronisation de l’appareil avec IoT Hub.
+2. **Synchroniser avec IoT Hub.**
 
    Après l’installation du runtime IoT Edge, l’appareil IoT Edge doit être connecté au moins une fois pour pouvoir se synchroniser avec IoT Hub. Lors de cette synchronisation, l’appareil IoT Edge obtient des informations sur tous les appareils enfants qui lui sont assignés. De plus, l’appareil IoT Edge met à jour en toute sécurité son cache local pour permettre les opérations hors connexion et il récupère les paramètres du stockage local des messages de télémétrie. 
 
-3. Passage en mode hors connexion. 
+3. **Passer en mode hors connexion.**
 
    Même quand ils ne sont plus connectés à IoT Hub, l’appareil IoT Edge, ses modules déployés et ses appareils IoT enfants peuvent continuer à fonctionner pendant une durée indéterminée. Les modules et les appareils enfants hors connexion peuvent démarrer et redémarrer en s’authentifiant auprès du hub Edge. Les données de télémétrie liées qui sont transmises en amont à IoT Hub sont stockées localement. La communication entre les modules ou entre les appareils IoT enfants est maintenue par le biais de méthodes ou messages directs. 
 
-4. Reconnexion et resynchronisation avec IoT Hub.
+4. **Reconnecter et resynchroniser avec IoT Hub.**
 
    Après la restauration de la connexion à IoT Hub, l’appareil IoT Edge est resynchronisé. Les messages stockés localement sont remis dans l’ordre dans lequel ils ont été stockés. Les éventuelles différences entre les propriétés désirées et rapportées des modules et des appareils sont rapprochées. L’appareil IoT Edge apporte les modifications nécessaires aux appareils IoT enfants qui lui sont assignés.
 
@@ -69,17 +69,19 @@ Dans le portail Azure, vous pouvez accéder aux définitions des modules du hub 
 Dans le modèle de déploiement JSON, les variables d’environnement sont déclarées de la manière suivante : 
 
 ```json
-"edgeAgent": {
+"edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-        "createOptions": ""
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "UpstreamProtocol": {
             "value": "MQTT"
         }
     },
+    "status": "running",
+    "restartPolicy": "always"
 }
 ```
 

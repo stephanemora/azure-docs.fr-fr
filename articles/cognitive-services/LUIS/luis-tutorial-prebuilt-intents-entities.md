@@ -1,47 +1,56 @@
 ---
-title: Ajouter des intentions et des entités prédéfinies pour extraire des données courantes dans Language Understanding - Azure | Microsoft Docs
-description: Découvrez comment utiliser des intentions et des entités prédéfinies pour extraire différents types de données d’entités.
+title: 'Tutoriel 2 : Intentions et entités prédéfinies - Utiliser des énoncés courants prédéfinis - Extraire des données courantes dans LUIS'
+titleSuffix: Azure Cognitive Services
+description: Ajouter des intentions et des entités prédéfinies au didacticiel de l’application de Ressources humaines pour obtenir rapidement une prédiction des intentions et l’extraction de données. Vous n’avez pas besoin d’étiqueter les énoncés avec des entités prédéfinies. L’entité est détectée automatiquement.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 08/03/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 0e45b659508c71a9f1220ef5e76b9a95438fa1e6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d42aed76ecdbc2bd840e17517db2ca0b6ba11aa0
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162238"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034431"
 ---
-# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Didacticiel : 2. Ajouter des intentions et des entités prédéfinies
-Ajouter des intentions et des entités prédéfinies au didacticiel de l’application de Ressources humaines pour obtenir rapidement une prédiction des intentions et l’extraction de données. 
+# <a name="tutorial-2-identify-common-intents-and-entities"></a>Tutoriel 2 : Identifier les intentions et entités courantes
+Dans ce tutoriel, vous modifiez l’application Ressources humaines. Ajouter des intentions et des entités prédéfinies au didacticiel de l’application de Ressources humaines pour obtenir rapidement une prédiction des intentions et l’extraction de données. Vous n’avez pas besoin d’étiqueter les énoncés avec des entités prédéfinies, car l’entité est détectée automatiquement.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Les modèles prédéfinis de types de données et de domaines courants vous aident à générer votre modèle rapidement et fournissent un exemple de ce à quoi ressemble un modèle. 
+
+**Ce tutoriel vous montre comment effectuer les opérations suivantes :**
 
 > [!div class="checklist"]
-* Ajouter des intentions prédéfinies 
-* Ajouter des entités prédéfinies datetimeV2 et un nombre
-* Former et publier
-* Interroger LUIS et recevoir une réponse de prédiction
+> * Utiliser l’application de tutoriel existante
+> * Ajouter des intentions prédéfinies 
+> * Ajouter des entités prédéfinies 
+> * Former 
+> * Publish 
+> * Reconnaître les intentions et les entités à partir du point de terminaison
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Avant de commencer
-Si vous ne disposez pas de l’application [Ressources humaines](luis-quickstart-intents-only.md) du didacticiel précédent, [importez](luis-how-to-start-new-app.md#import-new-app) le JSON dans une nouvelle application sur le site web [LUIS](luis-reference-regions.md#luis-website), à partir du dépôt Github [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
+## <a name="use-existing-app"></a>Utiliser une clé existante
+Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
-Si vous souhaitez conserver l’application Ressources humaines d’origine, clonez la version sur la page [Paramètres](luis-how-to-manage-versions.md#clone-a-version), et nommez-la `prebuilts`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. 
+Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
+
+1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-intent-only-HumanResources.json).
+
+2. Importez le code JSON dans une nouvelle application.
+
+3. À partir de la section **Gérer**, sous l’onglet **Versions**, clonez la version et nommez-la `prebuilts`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
 
 ## <a name="add-prebuilt-intents"></a>Ajouter des intentions prédéfinies
 LUIS fournit plusieurs intentions prédéfinies pour aider avec des intentions utilisateurs courantes.  
 
-1. Assurez-vous que votre application figure dans la section **Générer** de LUIS. Vous pouvez modifier cette section en sélectionnant **Générer** dans la barre de menu en haut à droite. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. Sélectionnez **Ajouter une intention de domaine prédéfinie**. 
-
-    [ ![Capture d’écran de la page des intentions avec le bouton Ajouter une intention de domaine prédéfinie mis en surbrillance](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png) ](./media/luis-tutorial-prebuilt-intents-and-entities/add-prebuilt-domain-button.png#lightbox)
+2. Sélectionnez **Ajouter une intention prédéfinie**. 
 
 3. Recherchez `Utilities`. 
 
@@ -61,33 +70,27 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
 
 1. Dans le menu de navigation de gauche, sélectionnez **Entités**.
 
-    [ ![Capture d’écran de la liste d’Intentions avec le bouton Entités mis en surbrillance dans le volet de navigation gauche](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png)](./media/luis-tutorial-prebuilt-intents-and-entities/entities-navigation.png#lightbox)
-
-2. Sélectionnez le bouton **Gérer les entités prédéfinies**.
-
-    [ ![Capture d’écran de la liste des entités avec Gérer des entités mis en surbrillance](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png)](./media/luis-tutorial-prebuilt-intents-and-entities/manage-prebuilt-entities-button.png#lightbox)
+2. Sélectionnez le bouton **Gérer l’entité prédéfinie**.
 
 3. Sélectionnez **numéro** et **datetimeV2** dans la liste des entités prédéfinies, puis sélectionnez **Terminé**.
 
     ![Capture d’écran de la sélection du nombre dans la boîte de dialogue des entités prédéfinies](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-## <a name="train-and-publish-the-app"></a>Former et publier l’application
+## <a name="train"></a>Former
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-app-to-endpoint"></a>Publier l’application vers un point de terminaison
+## <a name="publish"></a>Publish
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-endpoint-with-an-utterance"></a>Interroger un point de terminaison avec un énoncé
+## <a name="get-intent-and-entities-from-endpoint"></a>Reconnaître l’intention et les entités à partir du point de terminaison
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `I want to cancel on March 3`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **requête**. 
+2. Allez à la fin de l’URL dans la barre d’adresse du navigateur et entrez `I want to cancel on March 3`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **requête**. 
 
-    Le résultat a prédit l’intention Utilities.Cancel et extrait la date du 3 mars et le nombre 3. 
-
-    ```
+    ```JSON
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {
@@ -162,15 +165,17 @@ LUIS fournit plusieurs entités prédéfinies pour l’extraction de données co
     }
     ```
 
-    Il existe deux valeurs pour le 3 mars car l’énoncé n’a pas établi si le 3 mars se trouve dans le passé ou dans le futur. C’est à l’application d’appel de LUIS d’émettre une hypothèse ou de demander une clarification, si cela est nécessaire. 
+    Le résultat a prédit l’intention Utilities.Cancel et extrait la date du 3 mars et le nombre 3. 
 
-    En ajoutant rapidement et facilement des intentions et des entités prédéfinies, l’application cliente peut ajouter une gestion de la conversation et extraire des types de données communs. 
+    Il existe deux valeurs pour le 3 mars car l’énoncé n’a pas établi si le 3 mars se trouve dans le passé ou dans le futur. C’est à l’application cliente d’émettre une hypothèse ou de demander une clarification, si cela est nécessaire. 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+
+En ajoutant des intentions et des entités prédéfinies, l’application cliente peut déterminer des intentions utilisateur courantes et extraire des types de données communs. 
 
 > [!div class="nextstepaction"]
 > [Ajouter une entité de type expression régulière à l’application](luis-quickstart-intents-regex-entity.md)

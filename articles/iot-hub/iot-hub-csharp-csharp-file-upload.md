@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: ef84985d7ca0473bdfd387b2fcfb3be344338eb7
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c881ead472d07200bdf4284f30bcf097f0efcba4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092117"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223796"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub en utilisant .NET
 
@@ -94,7 +94,7 @@ Dans cette section, vous allez modifier l’application d’appareil créée dan
     ```
 
 > [!NOTE]
-> Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Transient Fault Handling](https://msdn.microsoft.com/library/hh680901.aspx)(Gestion des erreurs temporaires).
+> Par souci de simplicité, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez implémenter des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).
 
 ## <a name="receive-a-file-upload-notification"></a>Recevoir une notification de téléchargement de fichier
 

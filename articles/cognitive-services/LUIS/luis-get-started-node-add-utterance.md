@@ -1,20 +1,21 @@
 ---
-title: 'Démarrage rapide : Modifier le modèle et effectuer l’apprentissage de l’application LUIS à l’aide de Node.js - Azure Cognitive Services | Microsoft Docs'
+title: 'Démarrage rapide pour Node.js : Changer de modèle et entraîner une application LUIS'
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide de Node.js, vous allez ajouter des exemples d’énoncés à une application de domotique et effectuer l’apprentissage de l’application. Les exemples d’énoncés sont du texte utilisateur conversationnel mappé à une intention. En fournissant des exemples d’énoncés pour les intentions, vous apprenez à l’application LUIS quels types de texte fourni par l’utilisateur appartiennent à quelle intention.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd8b467fa3894d9cf58e1c8cb78ee00ebd0965e
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a487f44e164830928367d9f6ea737e793e38c0a8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44156851"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036148"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>Démarrage rapide : Modifier un modèle à l’aide de Node.js
 

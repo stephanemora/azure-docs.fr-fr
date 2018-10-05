@@ -1,25 +1,27 @@
 ---
-title: 'API Vision par ordinateur avec C# - Démarrage rapide : SDK, analyse d’image | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous analysez une image à l’aide de la bibliothèque de client C# Windows de l’API Vision par ordinateur dans Cognitive Services.
+title: 'Démarrage rapide : Analyser une image - Kit SDK, C# - Vision par ordinateur'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous analysez une image à l’aide de la bibliothèque de client Windows en C# de l’API Vision par ordinateur.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 3ff3a4702ab0b1fb663ee896f268065caf043809
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.date: 09/14/2018
+ms.author: nolachar
+ms.openlocfilehash: 0315b1c90eeae27d30a237aea76e66465818fba4
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770333"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056074"
 ---
-# <a name="quickstart-analyze-an-image---sdk-c35"></a>Démarrage rapide : Analyser une image - Kit de développement logiciel (SDK), C&#35;
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Démarrage rapide : Analyser une image à l’aide du kit SDK Vision par ordinateur et de C#
 
 Dans ce démarrage rapide, vous analysez une image locale ou distante pour extraire des fonctionnalités visuelles à l’aide de la bibliothèque de client Windows de l’API Vision par ordinateur.
+
+Le code source pour cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,7 +50,7 @@ Pour exécuter l’exemple, effectuez les étapes suivantes :
     1. Sélectionnez **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** lorsqu’il s’affiche, puis cliquez sur la case à cocher en regard du nom de votre projet, et ensuite sur **Installer**.
 1. Remplacez `Program.cs` par le code suivant.
 1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Remplacez `computerVision.AzureRegion = AzureRegions.Westcentralus` par l’emplacement où vous avez obtenu vos clés d’abonnement, si nécessaire.
+1. Changez `computerVision.Endpoint` pour la région Azure associée à vos clés d’abonnement, si nécessaire.
 1. Remplacez `<LocalImage>` par le chemin d’accès et le nom d’une image locale.
 1. Si vous le souhaitez, définissez `remoteImageUrl` sur une autre image.
 1. Exécutez le programme.
@@ -86,33 +88,33 @@ namespace ImageAnalyze
 
         static void Main(string[] args)
         {
-            ComputerVisionAPI computerVision = new ComputerVisionAPI(
-                new ApiKeyServiceClientCredentials(subscriptionKey), 
+            ComputerVisionClient computerVision = new ComputerVisionClient(
+                new ApiKeyServiceClientCredentials(subscriptionKey),
                 new System.Net.Http.DelegatingHandler[] { });
 
             // You must use the same region as you used to get your subscription
             // keys. For example, if you got your subscription keys from westus,
-            // replace "Westcentralus" with "Westus".
+            // replace "westcentralus" with "westus".
             //
             // Free trial subscription keys are generated in the westcentralus
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 
             // Specify the Azure region
-            computerVision.AzureRegion = AzureRegions.Westcentralus;
+            computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
             Console.WriteLine("Images being analyzed ...");
             var t1 = AnalyzeRemoteAsync(computerVision, remoteImageUrl);
             var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
 
             Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
+            Console.WriteLine("Press ENTER to exit");
             Console.ReadLine();
         }
 
         // Analyze a remote image
         private static async Task AnalyzeRemoteAsync(
-            ComputerVisionAPI computerVision, string imageUrl)
+            ComputerVisionClient computerVision, string imageUrl)
         {
             if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
             {
@@ -128,7 +130,7 @@ namespace ImageAnalyze
 
         // Analyze a local image
         private static async Task AnalyzeLocalAsync(
-            ComputerVisionAPI computerVision, string imagePath)
+            ComputerVisionClient computerVision, string imagePath)
         {
             if (!File.Exists(imagePath))
             {
@@ -159,16 +161,16 @@ namespace ImageAnalyze
 
 Une réponse correcte affiche la légende la plus pertinente pour chaque image.
 
-Consultez [Démarrages rapides de l’API : analyser une image locale avec C#](../QuickStarts/CSharp-analyze.md#analyze-image-response) pour obtenir un exemple de sortie JSON brute.
+Consultez [Démarrages rapides de l’API : analyser une image locale avec C#](../QuickStarts/CSharp-analyze.md#examine-the-response) pour obtenir un exemple de sortie JSON brute.
 
-```cmd
+```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorer les API Vision par ordinateur utilisées pour analyser une image, détecter des célébrités et des points de repère, créer une miniature et extraire le texte imprimé et manuscrit.
+Explorez les API Vision par ordinateur utilisées pour analyser une image, détecter des célébrités et des points de repère, créer une miniature et extraire le texte imprimé et manuscrit.
 
 > [!div class="nextstepaction"]
 > [Explorer les API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

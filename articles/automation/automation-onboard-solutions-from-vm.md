@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: f270b2ccea51e83bc6475051b8667bf73d7fd717
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 039e2d3c70493868ca2f79e89fc82d8970ec6865
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221510"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032389"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Intégrer les solutions Update Management, Change Tracking et Inventory à partir d’une machine virtuelle Azure
 
@@ -67,6 +67,43 @@ Accédez à votre espace de travail. Sous **Général**, sélectionnez **Recherc
 Sélectionnez l’une des deux recherches enregistrées pour afficher la requête utilisée pour remplir le groupe. L’image suivante montre la requête et ses résultats :
 
 ![Recherches enregistrées](media/automation-onboard-solutions-from-vm/logsearch.png)
+
+## <a name="unlink-workspace"></a>Supprimer le lien de votre espace de travail
+
+Les solutions ci-après sont tributaires d’un espace de travail Log Analytics :
+
+* [Gestion des mises à jour](automation-update-management.md)
+* [Suivi des modifications](automation-change-tracking.md)
+* [Démarrer/arrêter des machines virtuelles pendant les heures creuses](automation-solution-vm-management.md)
+
+Si vous ne souhaitez plus intégrer votre compte Automation dans Log Analytics, vous pouvez supprimer son lien directement dans le portail Azure.  Avant toute chose, vous devez supprimer les solutions mentionnées précédemment. Sinon, la procédure ne pourra pas aboutir. Consultez l’article relatif à la solution que vous avez importée pour comprendre sa procédure de suppression.
+
+Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivantes pour supprimer le lien de votre compte Automation.
+
+> [!NOTE]
+> Certaines solutions, y compris les versions antérieures de la solution d’analyse de SQL Azure ont peut-être créé des ressources d’automatisation et doivent également être supprimées avant d’être de l’espace de travail.
+
+1. Dans le portail Azure, ouvrez votre compte Automation puis, dans la page de ce dernier, sélectionnez **Espace de travail lié** dans la section **Ressources associées** sur la gauche.
+
+1. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.
+
+   ![Page Dissocier l’espace de travail](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
+
+   Vous recevez une invite de confirmation de la suppression.
+
+1. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
+
+Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
+
+* Planifications de mise à jour : chacune aura un nom correspondant aux déploiements de mise à jour que vous avez créés.
+
+* Groupes de travail hybrides créés pour la solution : chacun a un nom similaire à machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8.
+
+Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pendant les heures creuses, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
+
+* Start and stop VM runbook schedules (Démarrer et arrêter les planifications de Runbook de machine virtuelle)
+* Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
+* variables
 
 ## <a name="next-steps"></a>Étapes suivantes
 

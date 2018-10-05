@@ -1,32 +1,33 @@
 ---
-title: Modérer du texte avec des listes de termes personnalisées dans Azure Content Moderator | Microsoft Docs
-description: Comment modérer du texte avec des listes de termes personnalisées à l’aide d’Azure Content Moderator pour .NET.
+title: 'Démarrage rapide : Modérer du texte avec des listes de termes personnalisées - Content Moderator'
+titlesuffix: Azure Cognitive Services
+description: Comment modérer du texte avec des listes de termes personnalisées à l’aide de Content Moderator pour .NET.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: quickstart
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6da72ad070d9c3a6be38e24626dff77b52fed852
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c7a9e98444b47b058a17b18ba7d9a7c6b2249ba4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368152"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223217"
 ---
-# <a name="moderate-with-custom-term-lists-in-net"></a>Modérer du texte avec des listes de termes personnalisées dans .NET
+# <a name="quickstart-moderate-with-custom-term-lists-in-net"></a>Démarrage rapide : Modérer du texte avec des listes de termes personnalisées dans .NET
 
 La liste générale de termes par défaut d’Azure Content Moderator est suffisante pour la plupart des besoins de modération de contenu. Toutefois, vous devrez probablement rechercher des termes spécifiques à votre organisation. Par exemple, vous voudrez peut-être identifier les noms de concurrents pour un examen approfondi. 
 
-Vous pouvez utiliser le kit SDK Content Moderator pour .NET pour créer des listes de termes personnalisées à utiliser avec l’API Modération de texte.
+Vous pouvez utiliser le [kit SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) afin de créer des listes de termes personnalisées à utiliser avec l’API Modération de texte.
 
 > [!NOTE]
 > Il existe une limite maximale de **5 listes de termes**, chaque liste ne devant **pas dépasser 10 000 termes**.
 >
 
-Cet article fournit des informations et des exemples de code qui vont vous aider à démarrer avec le kit SDK Azure Content Moderator pour .NET pour :
+Cet article fournit des informations et des exemples de code qui vont vous aider à prendre en main le Kit de développement logiciel (SDK) Content Moderator pour .NET afin d’effectuer les opérations suivantes :
 - Créer une liste.
 - Ajouter des termes à une liste.
 - Passer au crible un texte pour détecter des termes par rapport aux termes d’une liste.
@@ -49,8 +50,6 @@ Dans le tableau de bord Content Moderator, votre clé d’abonnement se trouve d
 
 1. Nommez le projet **TermLists**. Sélectionnez ce projet comme unique projet de démarrage de la solution.
 
-1. Ajoutez une référence à l’assembly de projet **ModeratorHelper** que vous avez créé dans le guide de [démarrage rapide d’assistance du client Content Moderator](content-moderator-helper-quickstart-dotnet.md).
-
 ### <a name="install-required-packages"></a>Installer les packages nécessaires
 
 Installez les packages NuGet suivants pour le projet TermLists :
@@ -62,13 +61,66 @@ Installez les packages NuGet suivants pour le projet TermLists :
 
 ### <a name="update-the-programs-using-statements"></a>Mettre à jour les instructions using du programme
 
-Modifiez les instructions using du programme.
+Mettez à jour les instructions using du programme.
 
-    using System;
-    using System.Threading;
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
+    using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>Créer le client Content Moderator
+
+Ajoutez le code suivant afin de créer un client Content Moderator pour votre abonnement.
+
+> [!IMPORTANT]
+> Mettez à jour les champs **AzureRegion** et **CMSubscriptionKey** avec les valeurs de votre identificateur de région et de votre clé d’abonnement.
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.Endpoint = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="add-private-properties"></a>Ajouter des propriétés privées
 
@@ -87,7 +139,7 @@ Ajoutez les propriétés privées suivantes dans la classe Program de l’espace
 
     /// <summary>
     /// The number of minutes to delay after updating the search index before
-    /// performing image match operations against a the list.
+    /// performing image match operations against the list.
     /// </summary>
     private const double latencyDelay = 0.5;
 
@@ -375,4 +427,4 @@ Votre sortie ressemblera à ce qui suit, mais les données peuvent varier.
     
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Téléchargez la solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce guide de démarrage rapide et d’autres guides de démarrage rapide Content Moderator pour .NET, puis commencez votre intégration.
+Obtenez le [SDK Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) et la [solution Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) pour ce guide de démarrage rapide et d’autres guides de démarrage rapide Content Moderator pour .NET, puis commencez votre intégration.

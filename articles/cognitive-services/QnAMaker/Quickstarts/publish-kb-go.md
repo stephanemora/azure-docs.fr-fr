@@ -1,20 +1,21 @@
 ---
-title: Publier une base de connaissances - Démarrage rapide Go - Azure Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : Publier avec Go une base de connaissances - QnA Maker'
+titleSuffix: Azure Cognitive Services
 description: Comment publier une base de connaissances dans Go pour QnA Maker.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
-ms.openlocfilehash: 2854243073ea76e8c2932623e6328afcc3bc1993
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 5f146bf89ba2f41f392f7f713fe2cec86a7ef11c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43769597"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033722"
 ---
 # <a name="publish-a-knowledge-base-in-go"></a>Publier une base de connaissances dans Go
 

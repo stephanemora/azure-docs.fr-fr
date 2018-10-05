@@ -1,21 +1,21 @@
 ---
-title: Forum Aux Questions (FAQ) - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: FAQ
+title: FAQ - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Liste de questions fréquemment posées concernant le service QnA Maker
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: a6bf32549715d0357771b3f3b0ff72f64788ec20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: efefd595c43d7f46ff1ead91577d070cf8fb90e4
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369641"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164614"
 ---
 # <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
 
@@ -87,6 +87,6 @@ Suivez les instructions de [cette](./Tutorials/create-qna-bot.md) documentation 
 Procédez comme suit pour incorporer le service QnA Maker en tant que contrôle de conversation web dans votre site web :
 
 1. Créez votre bot de FAQ en suivant les instructions [ici](./Tutorials/create-qna-bot.md).
-2. Activez la conversation web en suivant [ces](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat) étapes
+2. Activez la conversation web en suivant [ces](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat) étapes
 
 

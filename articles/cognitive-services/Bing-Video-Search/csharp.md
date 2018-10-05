@@ -1,24 +1,25 @@
 ---
-title: Démarrage rapide C# pour Azure Cognitive Services, API Recherche de vidéos Bing | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche de vidéos Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API Recherche de vidéos Bing, C#'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche de vidéos Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 0686d99b5f6f7b0546fc4e8c24369957667a7da6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 00522ac87a74226c9af1920bd884792ff2956a95
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369960"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225767"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-c"></a>Démarrage rapide pour l’API Recherche de vidéos Bing avec C#
+# <a name="quickstart-bing-video-search-api-with-c"></a>Démarrage rapide : API Recherche de vidéos Bing avec C#
 
-Cet article vous montre comment utiliser l’API Recherche de vidéos Bing qui fait partie de Microsoft Cognitive Services sur Azure. Si d’un côté l’article utilise C#, de l’autre, l’API est un service web RESTful compatible avec n’importe quel langage de programmation dès lors qu’il est capable de formuler des requêtes HTTP et d’analyser un format JSON. 
+Cet article vous montre comment utiliser l’API Recherche de vidéos Bing, qui fait partie d’Azure Cognitive Services. Si d’un côté l’article utilise C#, de l’autre, l’API est un service web RESTful compatible avec n’importe quel langage de programmation dès lors qu’il est capable de formuler des requêtes HTTP et d’analyser un format JSON. 
 
 L’exemple de code a été écrit en C# en tant qu’application .NET Core, avec un minimum de dépendances externes. Vous pouvez donc également l’exécuter sous Linux ou Mac OS X à l’aide de Mono.
 

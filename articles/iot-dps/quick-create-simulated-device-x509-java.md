@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 0c5eefbd6d7758ad2a7640a1fbff3435fcd1d315
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 694c4fe10ec8f738131768d80dd70c5bd18fe223
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091695"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040735"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du Java Device SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -77,9 +77,9 @@ Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK)
 
 5. Connectez-vous au [portail Azure](https://portal.azure.com), cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre instance Device Provisioning Service.
 
-6. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles** et cliquez sur le bouton **Ajouter** dans la partie supérieure. 
+6. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles**, puis cliquez sur le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
 
-7. Dans le volet **Add enrollment** (Ajouter une inscription), entrez les informations suivantes :
+7. Dans le volet **Ajouter une inscription**, entrez les informations suivantes :
     - Sélectionnez **X.509** comme *mécanisme* d’attestation d’identité.
     - Sous le *fichier .pem ou .cer du certificat principal*, cliquez sur *Select a file* (Sélectionner un fichier) pour sélectionner le fichier de certificat **X509individual.pem** créé au cours des étapes précédentes.  
     - Si vous le souhaitez, vous pouvez fournir les informations suivantes :
@@ -88,7 +88,7 @@ Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK)
       - Mettez à jour l’**état du jumeau d’appareil initial** à l’aide de la configuration initiale de votre choix pour l’appareil.
    - Cela fait, cliquez sur le bouton **Enregistrer**. 
 
-    [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/quick-create-simulated-device-x509-csharp/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
+    [![Ajouter une inscription individuelle pour l’attestation X.509 dans le portail](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 
      Lorsque l’inscription aboutit, votre appareil X.509 apparaît en tant que **microsoftriotcore** sous la colonne *ID d’inscription* de l’onglet *Inscriptions individuelles*. 
 
@@ -145,14 +145,14 @@ Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK)
 
 5. Dans le portail Azure, accédez au IoT Hub lié à votre service d’approvisionnement et ouvrez le panneau **Device Explorer**. En cas de réussite de l’approvisionnement de l’appareil simulé X.509 sur le Hub, son ID d’appareil s’affiche sur le panneau **Device Explorer**, avec un *ÉTAT* **activé**.  Notez que vous devrez peut-être cliquer sur le bouton **Actualiser** dans la partie supérieure si vous avez déjà ouvert le panneau avant d’exécuter l’exemple d’application de l’appareil. 
 
-    ![L’appareil est inscrit avec le hub IoT](./media/java-quick-create-simulated-device-x509/hub-registration.png) 
+    ![L’appareil est inscrit avec le hub IoT](./media/java-quick-create-simulated-device-x509/hubregistration.png) 
 
 > [!NOTE]
 > Si vous avez modifié la valeur par défaut de l’*état du jumeau d’appareil initial* dans l’entrée d’inscription de votre appareil, l’état du jumeau souhaité peut être extrait du hub et agir en conséquence. Pour en savoir plus, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 >
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez de continuer à manipuler et explorer l’exemple de client d’appareil, ne nettoyez pas les ressources créées lors de ce démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
 

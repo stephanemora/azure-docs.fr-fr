@@ -1,35 +1,32 @@
 ---
-title: Ajouter des fonctionnalités aux applications LUIS | Microsoft Docs
+title: Listes d’expressions pour améliorer la détection d’entité
+titleSuffix: Azure Cognitive Services
 description: Utiliser Language Understanding (LUIS) pour ajouter des fonctionnalités d’application pouvant améliorer la détection ou la prédiction d’intentions et d’entités dans des catégories et des modèles
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 5ec75436c7df5c08f5507794229bec1f9adb2804
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6831f67a33d114ca5c42ddacf8ef4de704e21711
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222951"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036954"
 ---
-# <a name="use-features-to-improve-your-luis-apps-performance"></a>Utiliser les fonctionnalités pour améliorer les performances de votre application LUIS  
+# <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Utiliser des listes d’expressions pour améliorer le signal de liste de mots
 
-Vous pouvez ajouter des fonctionnalités à votre application LUIS pour améliorer sa précision. Ces fonctionnalités aident LUIS en indiquant que certains mots et expressions font partie d’une catégorie. Si LUIS vous apprend à reconnaître un membre de la catégorie, il peut traiter les autres de la même façon.
+Vous pouvez ajouter des fonctionnalités à votre application LUIS pour améliorer sa précision. Ces fonctionnalités aident LUIS en indiquant que certains mots et expressions font partie d’un vocabulaire de domaine d’application. 
 
 ## <a name="add-phrase-list"></a>Ajouter une liste d’expressions
 
 1. Ouvrez votre application en cliquant sur son nom à la page **Mes applications**, puis cliquez sur **Générer**, sur **Listes d’expressions** dans le volet gauche de votre application. 
 
-    ![Navigation dans la liste d’expressions](./media/luis-add-features/phrase-list-nav.png)
-
 2. À la page **Listes d’expressions**, cliquez sur **Créer une liste d’expressions**. 
  
-    ![Créer une liste d’expressions](./media/luis-add-features/create-new-phrase-list.png)
-    
 3. Dans la boîte de dialogue **Ajouter une liste d’expressions**, tapez « Villes » comme nom de la liste d’expressions. Dans la case **Valeur**, tapez les valeurs de la liste d’expressions. Vous pouvez taper une valeur à la fois, ou un ensemble de valeurs séparées par des virgules, puis appuyer sur **Entrée**.
 
     ![Ajouter une liste d’expressions Villes](./media/luis-add-features/add-phrase-list-cities.png)
@@ -44,25 +41,12 @@ Vous pouvez ajouter des fonctionnalités à votre application LUIS pour amélior
 
 6. Cliquez sur **Enregistrer**. La liste d’expressions « Villes » est ajoutée à la page **Listes d’expressions**.
 
-    ![Liste d’expressions ajoutée](./media/luis-add-features/phrase-list-cities.png)
+<a name="edit-phrase-list"></a>
+<a name="delete-phrase-list"></a>
+<a name="deactivate-phrase-list"></a>
 
-## <a name="edit-phrase-list"></a>Modifier une liste d’expressions
-
-Cliquez sur le nom de la liste d’expressions à la page **Liste d’expressions**. Dans la boîte de dialogue **Modifier une liste d’expressions** qui s’ouvre, effectuez les modifications requises, puis cliquez sur **Enregistrer**.
-
- ![Liste d’expressions ajoutée](./media/luis-add-features/edit-phrase-list.png)
-
-## <a name="delete-phrase-list"></a>Supprimer une liste d’expressions 
-
-Cliquez sur le bouton à points de suspension (***...*** ) à la fin de la ligne et sélectionnez **Supprimer**.
-
- ![Supprimer une liste ajoutée](./media/luis-add-features/delete-phrase-list.png)
-
-## <a name="deactivate-phrase-list"></a>Désactiver une liste d’expressions 
-
-Cliquez sur le bouton à points de suspension (***...*** ) à la fin de la ligne et sélectionnez **Désactiver**.
-
- ![Désactiver une liste ajoutée](./media/luis-add-features/deactivate-phrase-list.png)
+> [!Note]
+> Vous pouvez modifier, supprimer ou désactiver une liste d’expressions à l’aide du bouton ***...*** qui se trouve à la fin de la ligne de chaque liste d’expressions.
 
 ## <a name="pattern-regular-expression-feature"></a>Fonctionnalité de modèle (expression régulière) 
 **Cette fonctionnalité est déconseillée**. Il n’est pas possible d’ajouter de nouvelles fonctionnalités de modèle à LUIS. Les fonctionnalités de modèle existantes sont prises en charge jusqu'à mai 2018. Contribuer à une expression régulière LUIS standard correspondant à PR dans le [référentiel Github de modules de reconnaissance de texte](https://github.com/Microsoft/Recognizers-Text). 

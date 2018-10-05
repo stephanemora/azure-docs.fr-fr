@@ -1,27 +1,28 @@
 ---
-title: Limites QnA Maker - Azure Cognitive Services | Microsoft Docs
-description: Limites QnA Maker
+title: Limites et frontières - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Liste complète des limites dans QnA Maker.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 93471faab9aac94616c770cbee21fb0364f73639
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: efdcf57fb0f175be51e6b9f8e72e4a02fcbeb5f3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501858"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162319"
 ---
 # <a name="qna-maker-limits"></a>Limites QnA Maker
 Liste complète des limites dans QnA Maker.
 
 ## <a name="knowledge-bases"></a>Bases de connaissances
 
-* Nombre maximal de bases de connaissances selon les [limites de niveau de la Recherche Azure](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Nombre maximal de bases de connaissances selon les [limites de niveau de la Recherche Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Niveau de la Recherche Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -32,7 +33,7 @@ Liste complète des limites dans QnA Maker.
 * Nombre maximal de liens ciblés qui peuvent être analysés pour l’extraction de QnA à partir des pages HTML de FAQ : 20
 
 ## <a name="metadata-limits"></a>Limites de métadonnées
-* Nombre maximal de champs de métadonnées par base de connaissances selon les [limites de niveau de la Recherche Azure](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Nombre maximal de champs de métadonnées par base de connaissances selon les [limites de niveau de la Recherche Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Niveau de la Recherche Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|

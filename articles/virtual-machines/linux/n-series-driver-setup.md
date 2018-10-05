@@ -1,5 +1,5 @@
 ---
-title: Configuration du pilote série N Azure pour Linux | Microsoft Docs
+title: Configuration des pilotes GPU de série N Azure pour Linux | Microsoft Docs
 description: Procédure de configuration des pilotes GPU NVIDIA pour les machines virtuelles série N exécutant Linux dans Azure
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d85bc79ddd08cb051b2e4d978a931f460020c10
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 822261e74f7da941ac89090e5d493c4be18bc307
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364498"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038882"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -55,7 +55,7 @@ Ensuite, exécutez les commandes d’installation spécifiques de votre distribu
 
 1. Téléchargez et installez les pilotes CUDA.
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_9.1.85-1_amd64.deb
+  CUDA_REPO_PKG=cuda-repo-ubuntu1604_10.0.130-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
@@ -99,7 +99,7 @@ sudo reboot
 
 ### <a name="centos-or-red-hat-enterprise-linux-73-or-74"></a>CentOS ou Red Hat Enterprise Linux 7.3 ou 7.4
 
-1. Mettez à jour le noyau.
+1. Mettez à jour le noyau (recommandé). Si vous choisissez de ne pas mettre à jour le noyau, vérifiez que les versions de `kernel-devel` et `dkms` sont appropriées pour votre noyau.
 
   ```
   sudo yum install kernel kernel-tools kernel-headers kernel-devel
@@ -127,7 +127,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9.1.85-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -170,9 +170,9 @@ Déployez des machines virtuelles de série N compatibles RDMA à partir de l’
 
 * **CentOS 7.4 HPC** - Les pilotes RDMA et Intel MPI 5.1 sont installés sur la machine virtuelle.
 
-## <a name="install-grid-drivers-on-nv-series-vms"></a>Installer les pilotes GRID sur les machines virtuelles de série NV
+## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>Installer les pilotes GRID sur les machines virtuelles de série NV ou NVv2
 
-Pour installer des pilotes GRID NVIDIA sur des machines virtuelles de série NV, établissez une connexion SSH à chaque machine virtuelle et suivez les étapes de votre distribution Linux. 
+Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV ou NVv2, établissez une connexion SSH à chaque machine virtuelle et suivez les étapes de votre distribution Linux. 
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
@@ -189,7 +189,7 @@ Pour installer des pilotes GRID NVIDIA sur des machines virtuelles de série NV,
 
   sudo apt-get install build-essential ubuntu-desktop -y
   ```
-3. Désactivez le pilote du noyau Nouveau, qui n’est pas compatible avec le pilote NVIDIA. (Utilisez uniquement le pilote NVIDIA sur les machines virtuelles NV.) Pour ce faire, créez un fichier `/etc/modprobe.d `nommé `nouveau.conf` avec le contenu suivant :
+3. Désactivez le pilote du noyau Nouveau, qui n’est pas compatible avec le pilote NVIDIA. (Utilisez uniquement le pilote NVIDIA sur les machines virtuelles NV ou NVv2.) Pour ce faire, créez un fichier `/etc/modprobe.d `nommé `nouveau.conf` avec le contenu suivant :
 
   ```
   blacklist nouveau
@@ -232,7 +232,7 @@ Pour installer des pilotes GRID NVIDIA sur des machines virtuelles de série NV,
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS ou Red Hat Enterprise Linux 
 
-1. Mettez à jour le noyau et DKMS.
+1. Mettez à jour le noyau et DKMS (recommandé). Si vous choisissez de ne pas mettre à jour le noyau, vérifiez que les versions de `kernel-devel` et `dkms` sont appropriées pour votre noyau.
  
   ```bash  
   sudo yum update
@@ -244,7 +244,7 @@ Pour installer des pilotes GRID NVIDIA sur des machines virtuelles de série NV,
   sudo yum install dkms
   ```
 
-2. Désactivez le pilote du noyau Nouveau, qui n’est pas compatible avec le pilote NVIDIA. (Utilisez uniquement le pilote NVIDIA sur les machines virtuelles NV.) Pour ce faire, créez un fichier `/etc/modprobe.d `nommé `nouveau.conf` avec le contenu suivant :
+2. Désactivez le pilote du noyau Nouveau, qui n’est pas compatible avec le pilote NVIDIA. (Utilisez uniquement le pilote NVIDIA sur les machines virtuelles NV ou NVv2.) Pour ce faire, créez un fichier `/etc/modprobe.d `nommé `nouveau.conf` avec le contenu suivant :
 
   ```
   blacklist nouveau
@@ -304,7 +304,7 @@ Si le pilote est installé, vous obtenez un résultat qui ressemble à celui ind
  
 
 ### <a name="x11-server"></a>Serveur X11
-Si vous avez besoin d’un serveur X11 pour les connexions à distance vers une machine virtuelle NV, [x11vnc](http://www.karlrunge.com/x11vnc/) est recommandé, car il permet l’accélération matérielle des graphiques. Le BusID de l’appareil M60 doit être ajouté manuellement au fichier de configuration de X11 (en règle générale, `etc/X11/xorg.conf`). Ajoutez une section `"Device"` similaire à la suivante :
+Si vous avez besoin d’un serveur X11 pour les connexions à distance à une machine virtuelle NV ou NVv2, [x11vnc](http://www.karlrunge.com/x11vnc/) est recommandé, car il permet l’accélération matérielle des graphiques. Le BusID de l’appareil M60 doit être ajouté manuellement au fichier de configuration de X11 (en règle générale, `etc/X11/xorg.conf`). Ajoutez une section `"Device"` similaire à la suivante :
  
 ```
 Section "Device"

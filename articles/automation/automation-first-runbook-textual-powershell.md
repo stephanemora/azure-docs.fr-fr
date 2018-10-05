@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f5d2f3634545001dc6dc1419530223b5a1a85a3
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 8f3185a2c7633ba0cb5a9b266bcddf023d3c36e1
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435789"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166450"
 ---
 # <a name="my-first-powershell-runbook"></a>Mon premier Runbook PowerShell
 
@@ -83,7 +83,17 @@ Le runbook que vous avez créé est toujours en mode brouillon. Il faut le publi
 12. Vous pouvez cliquer sur ce travail pour ouvrir le même volet du travail que vous avez consulté au démarrage du runbook. Cela vous permet de revenir en arrière et d’afficher les détails de toute tâche créée pour un Runbook donné.
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Étape 5 : Ajout d’une authentification pour gérer les ressources Azure
-Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait rien d’utile. Vous souhaitez qu’il gère les ressources Azure. Il ne peut le faire que si vous le configurez pour qu’il s’authentifie à l’aide des informations d’identification mentionnées dans les [conditions préalables](#prerequisites). Vous utilisez pour cela l’applet de commande **Connect-AzureRmAccount**.
+Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait rien d’utile. Vous souhaitez qu’il gère les ressources Azure. Il ne peut le faire que si vous le configurez pour qu’il s’authentifie à l’aide des informations d’identification mentionnées dans les [conditions préalables](#prerequisites). Vous utilisez pour cela l’applet de commande **Connect-AzureRmAccount**. Si vous gérez des ressources associées à plusieurs abonnements, vous devez utiliser le paramètre **-AzureRmContext** avec [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $AzureContext
+   ```
 
 1. Ouvrez l’éditeur de texte en cliquant sur **Modifier** dans la page MyFirstRunbook-PowerShell.
 2. La ligne **Write-Output** ne vous est plus utile. Vous pouvez donc la supprimer.

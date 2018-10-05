@@ -1,24 +1,25 @@
 ---
-title: Former et tester votre application LUIS - Azure | Microsoft Docs
+title: Tester votre application LUIS dans le portail LUIS
+titleSuffix: Azure Cognitive Services
 description: Utilisez LUIS (Language Understanding) pour travailler en continu sur votre application afin d’affiner et d’améliorer sa compréhension de la langue.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 925b96b61de876d40105c89556fd6dcb600d1b1a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6bb03975e36e93c2496eb4c6013be21ebc891ed1
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223648"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039699"
 ---
 # <a name="test-your-luis-app"></a>Tester votre application LUIS
 <a name="train-your-app"></a>
-[La formation](luis-how-to-train.md) et le [test](luis-concept-test.md) d’une application sont des processus itératifs. Après avoir formé votre application LUIS, testez-la avec des exemples d’énoncés afin de voir si les intentions et les entités sont reconnues correctement. Si ce n’est pas le cas, apportez des mises à jour à l’application LUIS, puis formez-la et testez-la à nouveau. 
+[Le test](luis-concept-test.md) d’une application est un processus itératif. Après avoir formé votre application LUIS, testez-la avec des exemples d’énoncés afin de voir si les intentions et les entités sont reconnues correctement. Si ce n’est pas le cas, apportez des mises à jour à l’application LUIS, puis formez-la et testez-la à nouveau. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>

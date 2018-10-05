@@ -1,20 +1,21 @@
 ---
-title: Énoncés dans les applications LUIS dans Azure | Microsoft Docs
-description: Ajoutez des énoncés dans les applications Language Understanding Intelligent Service (LUIS).
+title: Énoncés dans les applications LUIS
+titleSuffix: Azure Cognitive Services
+description: Les énoncés sont des entrées de l’utilisateur que votre application doit interpréter. Collectez des phrases dont vous pensez que les utilisateurs les entreront. Incluez des énoncés de sens identique, mais construits différemment sur le plan de la longueur et du positionnement des mots.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 39c99cc35f4c2549efc9c20af0680b77483325c5
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224413"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038933"
 ---
 # <a name="utterances-in-luis"></a>Énoncés dans LUIS
 
@@ -35,13 +36,15 @@ Lorsque vous choisissez des énoncés, n’oubliez pas que ce que vous pensez ê
 Vous constaterez que, même si vous vous efforcez de créer des modèles de phrase variés, vous continuerez à répéter certains termes.
 
 Prenez ces exemples d’énoncés :
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
-Ici, le terme clé, « computer » (ordinateur), n’est pas varié. Il peut désigner un ordinateur de bureau, un ordinateur portable, une station de travail, voir une simple machine. LUIS déduit intelligemment des synonymes du contexte mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
+
+|Exemples d’énoncés|
+|--|
+|Comment obtenir un ordinateur ?|
+|Où obtenir un ordinateur ?|
+|Je souhaite obtenir un ordinateur, comment faire ?|
+|Quand puis-je avoir un ordinateur ?| 
+
+Ici, le terme clé, ordinateur, n’est pas varié. Il peut désigner un ordinateur de bureau, un ordinateur portable, une station de travail, voir une simple machine. LUIS déduit intelligemment des synonymes du contexte mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
 
 ## <a name="example-utterances-in-each-intent"></a>Exemples d’énoncés dans chaque intention
 Chaque intention doit avoir des exemples d’énoncés, au minimum entre 10 et 15. Si vous avez une intention dépourvue d’exemple d’énoncé, vous ne pouvez pas former LUIS. Si vous avez une intention avec un seul exemple d’énoncé ou très peu d’exemples, LUIS ne prédira pas l’intention avec précision. 

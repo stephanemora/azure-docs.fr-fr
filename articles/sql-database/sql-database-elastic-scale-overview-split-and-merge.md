@@ -2,26 +2,29 @@
 title: Déplacement de données entre des bases de données cloud mises à l’échelle | Microsoft Docs
 description: Explique comment manipuler les partitions et déplacer les données via un service auto-hébergé, à l'aide des API de base de données élastique.
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 518d7659df603ed0fcab4aebf5f35c3b92e75ccf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647416"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162626"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Déplacement de données entre des bases de données cloud mises à l’échelle
 Si vous êtes un développeur Software as a Service et que votre application connaît subitement une forte demande, vous devez vous adapter à cette croissance. Vous pouvez donc ajouter d’autres bases de données (partitions). Comment répartir les données vers les nouvelles bases de données sans nuire à l'intégrité des données ? Utilisez l’ **outil de fractionnement et de fusion** pour déplacer les données de bases de données limitées vers de nouvelles bases de données.  
 
 L'outil de fractionnement et de fusion fonctionne comme un service web Azure. Grâce à cet outil, un administrateur ou un développeur déplace des shardlets (les données d'une partition) entre différentes bases de données (partitions). L'outil s’appuie sur la gestion de cartes de partitions pour gérer la base de données de métadonnées de service et garantir des mappages cohérents.
 
-![Vue d'ensemble][1]
+![Vue d’ensemble][1]
 
 ## <a name="download"></a>Download
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
@@ -61,11 +64,11 @@ Le service déployé par défaut s'exécute avec un rôle de travail et un rôle
 
 **Intégration des cartes de partitions**
 
-Le service de fractionnement/fusion interagit avec la carte de partitions de l'application. Lorsque vous utilisez le service de fusion et de fractionnement pour fractionner ou fusionner des plages ou déplacer des shardlets entre les partitions, le service conserve automatiquement la carte de partitions à jour. Pour ce faire, le service se connecte à la base de données du gestionnaire des cartes de partitions de l'application et gère les plages et les mappages au fur et à mesure de l'avancement des demandes de fractionnement/fusion/déplacement. Cela garantit que la carte de partitions présente toujours une vue à jour lorsque les opérations de fusion et de fractionnement sont en cours. Les opérations de fractionnement, fusion et déplacement des shardlets sont implémentées en déplaçant un lot de shardlets à partir de la partition source vers la partition cible. Au cours de l'opération de déplacement des shardlets, les shardlets du batch en cours sont marqués comme étant hors connexion dans la carte de partitions et ne sont pas disponibles pour les connexions de routage dépendant des données utilisant l'API **OpenConnectionForKey** . 
+Le service de fractionnement/fusion interagit avec la carte de partitions de l'application. Lorsque vous utilisez le service de fusion et de fractionnement pour fractionner ou fusionner des plages, ou déplacer des shardlets entre les partitions, le service met automatiquement la carte de partitions à jour. Pour ce faire, le service se connecte à la base de données du gestionnaire des cartes de partitions de l'application et gère les plages et les mappages au fur et à mesure de l'avancement des demandes de fractionnement/fusion/déplacement. Cela garantit que la carte de partitions présente toujours une vue à jour lorsque les opérations de fusion et de fractionnement sont en cours. Les opérations de fractionnement, fusion et déplacement des shardlets sont implémentées en déplaçant un lot de shardlets à partir de la partition source vers la partition cible. Au cours de l'opération de déplacement des shardlets, les shardlets du batch en cours sont marqués comme étant hors connexion dans la carte de partitions et ne sont pas disponibles pour les connexions de routage dépendant des données utilisant l'API **OpenConnectionForKey** . 
 
 **Connexions cohérentes des shardlets**
 
-lorsque le déplacement des données débute pour un nouveau lot de shardlets, les connexions du routage dépendant des données à la partition stockant le shardlet sont supprimées et les connexions ultérieures à partir des API de la carte de partitions à ces shardlets sont bloquées pendant le déplacement des données afin d'éviter les incohérences. Les connexions aux autres shardlets sur la même partition seront également supprimées mais réussiront immédiatement lors d'une nouvelle tentative. Une fois le lot déplacé, les shardlets sont marqués comme étant à nouveau en ligne pour la partition cible et la source des données est supprimée de la partition source. Le service effectue ces étapes pour chaque lot jusqu'à ce que tous les shardlets aient été déplacés. Cela entraîne plusieurs opérations de suppression des connexions au cours de l'opération de fractionnement/fusion/déplacement.  
+Lorsque le déplacement des données débute pour un nouveau lot de shardlets, les connexions du routage dépendant des données à la partition stockant le shardlet sont supprimées, et les connexions ultérieures à partir des API de la carte de partitions à ces shardlets sont bloquées pendant le déplacement des données afin d’éviter les incohérences. Les connexions aux autres shardlets sur la même partition seront également supprimées mais réussiront immédiatement lors d'une nouvelle tentative. Une fois le lot déplacé, les shardlets sont marqués comme étant à nouveau en ligne pour la partition cible et la source des données est supprimée de la partition source. Le service effectue ces étapes pour chaque lot jusqu'à ce que tous les shardlets aient été déplacés. Cela entraîne plusieurs opérations de suppression des connexions au cours de l'opération de fractionnement/fusion/déplacement.  
 
 **Gestion de la disponibilité des shardlets**
 
@@ -113,7 +116,7 @@ En cas de défaillance, le service de fractionnement/fusion reprend les opérati
 Le package de service de fractionnement et de fusion inclut un rôle de travail et un rôle web. Le rôle web sert à envoyer des demandes de fractionnement et de fusion de manière interactive. Les principaux composants de l’interface utilisateur sont les suivants :
 
 * Type d’opération : le type d'opération est un bouton radio qui contrôle le type d'opération effectué par le service pour une demande. Vous pouvez choisir entre des scénarios de fractionnement, de fusion et de déplacement. Vous pouvez également annuler une opération précédemment soumise. Vous pouvez utiliser les demandes de fractionnement, de fusionnement et de déplacement pour les cartes de partition de plage. La liste de cartes de partition prend uniquement en charge les opérations de déplacement.
-* Carte de partitions : la section suivante de paramètres de demande aborde les informations relatives à la carte de partitions et à la base de données qui l'héberge. En particulier, vous devez fournir le nom du serveur de base de données SQL Azure et de la base de données hébergeant la carte de partitions, les informations d'identification pour se connecter à la base de données de mappage et, enfin, le nom de la carte. Actuellement, l'opération n'accepte qu'un seul ensemble d'informations d'identification. Ces dernières doivent disposer d’autorisations suffisantes pour apporter des modifications à la carte de partitions ainsi qu’aux données utilisateur des partitions.
+* Carte de partitions : la section suivante concernant les paramètres de demande aborde les informations relatives à la carte de partitions et à la base de données qui l’héberge. En particulier, vous devez fournir le nom du serveur de base de données SQL Azure et de la base de données hébergeant la carte de partitions, les informations d'identification pour se connecter à la base de données de mappage et, enfin, le nom de la carte. Actuellement, l'opération n'accepte qu'un seul ensemble d'informations d'identification. Ces dernières doivent disposer d’autorisations suffisantes pour apporter des modifications à la carte de partitions ainsi qu’aux données utilisateur des partitions.
 * Plage source (fractionnement et fusion) : une opération de fractionnement et de fusion traite une plage à l’aide de sa clé basse et haute. Pour spécifier une opération avec une valeur de clé haute illimitée, cochez la case « High key is max » et ne renseignez pas le champ de clé haute. Les valeurs de clé de plage que vous spécifiez n’ont pas besoin de correspondre précisément à un mappage et à ses limites dans votre table de partition. Si vous ne spécifiez aucune limite de plage, le service déduit la plage la plus proche pour vous automatiquement. Vous pouvez utiliser le script PowerShell GetMappings.ps1 pour récupérer les mappages actuels dans une carte de partitions donnée.
 * Comportement de source fractionnée (fractionner) : pour les opérations de fractionnement, définissez le moment auquel vous souhaitez fractionner la plage source. Vous effectuez cette opération en fournissant la clé de partitionnement à l'emplacement où vous souhaitez effectuer le fractionnement. Utilisez la case d’option pour indiquer si vous souhaitez déplacer la partie inférieure de la plage (à l’exception de la clé de fractionnement) ou si vous souhaitez déplacer la partie supérieure (y compris la clé de fractionnement).
 * Shardlet source (déplacer) : les opérations de déplacement sont différentes des opérations de fractionnement ou de fusion, car elles ne nécessitent pas de plage pour décrire la source. Une source de déplacement est simplement identifiée par la valeur de clé de partitionnement que vous souhaitez déplacer.
@@ -126,7 +129,7 @@ Le package de service de fractionnement et de fusion inclut un rôle de travail 
 L'implémentation actuelle du service de fractionnement et de fusion est soumise aux conditions requises et limitations suivantes : 
 
 * Les partitions doivent exister et être enregistrées dans la carte de partitions pour qu’une opération de fractionnement et de fusion sur ces partitions puisse être effectuée. 
-* Le service ne crée actuellement pas automatiquement des tables ou d’autres objets de base de données dans le cadre de ses opérations. Cela signifie que le schéma pour toutes les tables partitionnées et les tables de référence doit exister sur la partition cible avant toute opération de fractionnement/fusion/déplacement. Les tables partitionnées en particulier doivent être vides dans la plage où de nouveaux shardlets doivent être ajoutés par une opération de fractionnement/fusion/déplacement. Sinon, l'opération fait échouer la vérification de cohérence initiale sur la partition cible. Notez également que les données de référence ne sont copiées que si la table de référence est vide et qu'il n'existe aucune garantie de cohérence en ce qui concerne les autres opérations simultanées d'écriture sur les tables de référence. Nous recommandons, lors des opérations de fractionnement et de fusion, qu’il n’y ait aucune autre opération d’écriture apportant des modifications aux tables de références.
+* Le service ne crée actuellement pas automatiquement des tables ou d’autres objets de base de données dans le cadre de ses opérations. Cela signifie que le schéma pour toutes les tables partitionnées et les tables de référence doit se trouver sur la partition cible avant toute opération de fractionnement, fusion ou déplacement. Les tables partitionnées en particulier doivent être vides dans la plage où de nouveaux shardlets doivent être ajoutés par une opération de fractionnement/fusion/déplacement. Sinon, l'opération fait échouer la vérification de cohérence initiale sur la partition cible. Notez également que les données de référence ne sont copiées que si la table de référence est vide et qu'il n'existe aucune garantie de cohérence en ce qui concerne les autres opérations simultanées d'écriture sur les tables de référence. Nous recommandons, lors des opérations de fractionnement et de fusion, qu’il n’y ait aucune autre opération d’écriture apportant des modifications aux tables de références.
 * Le service s’appuie sur l’identité de ligne définie par un index unique ou une clé incluant la clé de partitionnement pour améliorer les performances et la fiabilité des shardlets volumineux. Cela permet au service de déplacer des données à une granularité encore plus fine que la valeur de clé de partitionnement. Cela permet de réduire la quantité maximale de l'espace de journalisation ainsi que le nombre de verrous requis lors de l'opération. Envisagez de créer un index unique ou une clé primaire incluant la clé de partitionnement sur une table donnée si vous souhaitez utiliser cette table avec des demandes de fusion/fractionnement/déplacement. Pour des raisons liées aux performances, la clé de partitionnement doit être la première colonne de la clé ou de l’index.
 * Au cours du traitement des demandes, des données de shardlet peuvent être présentes à la fois sur la partition source et sur la partition cible. Cette présence est nécessaire à la protection contre les défaillances pendant le déplacement de shardlets. L'intégration du service de fractionnement et de fusion à la carte de partitions permet de s'assurer que les connexions via les API de routage dépendant des données, utilisant la méthode **OpenConnectionForKey** sur la carte de partitions, ne constatent pas d'états intermédiaires incohérents. Toutefois, lors de la connexion aux partitions source ou cible sans utiliser la méthode **OpenConnectionForKey** , des états intermédiaires incohérents peuvent apparaître pendant l'exécution de demandes de fractionnement, de fusion et de déplacement. Ce type de connexion peut afficher des résultats partiels ou en double en fonction de la synchronisation ou de la partition sous-jacente à la connexion. Actuellement, cette limitation inclut les connexions établies par les interrogations de plusieurs partitions de l’infrastructure élastique.
 * La base de données de métadonnées de fractionnement et de fusion ne doit pas être partagée entre différents rôles. Par exemple, un rôle du service de fractionnement et de fusion en cours d’exécution intermédiaire doit pointer vers une base de données de métadonnées différente du rôle de production.
@@ -141,7 +144,7 @@ Le service de fractionnement et de fusion fournit la table **RequestStatus** dan
 * **Timestamp**: heure et date de début de la demande.
 * **OperationId**: GUID qui identifie de façon unique la demande. Cette demande peut également servir à annuler l’opération alors qu’elle est encore en cours.
 * **Status**: état actuel de la demande. Pour les demandes en cours, répertorie également la phase dans laquelle la demande se trouve.
-* **CancelRequest**: indicateur signalant si la demande a été annulée.
+* **CancelRequest** : indicateur signalant si la demande a été annulée.
 * **Progress**: estimation du pourcentage d'achèvement de l'opération. Une valeur de 50 indique que l’opération est terminée à environ 50 %.
 * **Details**: valeur XML qui fournit un rapport de progression plus détaillé. Le rapport de progression est régulièrement mis à jour lorsque des ensembles de lignes sont copiés de la source vers la cible. En cas de défaillances ou d’exceptions, cette colonne inclut également des informations plus détaillées sur l’échec.
 

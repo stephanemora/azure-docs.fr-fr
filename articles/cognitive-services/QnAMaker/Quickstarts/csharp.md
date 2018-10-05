@@ -1,20 +1,21 @@
 ---
-title: Démarrage rapide de C# pour l’API QnA Maker Microsoft (V4) - Azure Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : C# pour l’API QnA Maker (V4)'
+titleSuffix: Azure Cognitive Services
 description: Obtenez des informations et des exemples de code pour vous aider à commencer rapidement à utiliser l’API de traduction de texte Translator Text Microsoft dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 7c79a5c1b65391be1a100efa9e0dcf4e4a0d12ae
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866081"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47040277"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Démarrage rapide pour l’API QnA Maker Microsoft avec C# 
 <a name="HOLTop"></a>
@@ -35,6 +36,8 @@ Cet article explique comment utiliser [l’API QnA Maker Microsoft](../Overview/
 - [Régénérer les clés du point de terminaison actuel](#PutKeys)
 - [Obtenir l’ensemble actuel d’altérations de mot](#GetAlterations)
 - [Remplacer l’ensemble actuel d’altérations de mot](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 

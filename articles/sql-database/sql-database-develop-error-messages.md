@@ -3,19 +3,22 @@ title: 'Codes d’erreur SQL : erreur de connexion de base de données | Microso
 description: 'En savoir plus sur les codes d’erreur SQL pour les applications clientes SQL Database, tels que les erreurs de connexion de base de données courantes, les problèmes de copie de base de données et les erreurs générales. '
 keywords: code d’erreur sql, accès sql, erreur de connexion de base de données, codes d’erreur sql
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: d5b98f573b60115002e813ebbef59eb7983ce3c2
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092526"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064388"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codes d’erreur SQL pour les applications clientes SQL Database : erreurs de connexion de base de données et autres problèmes
 
@@ -111,7 +114,7 @@ Les erreurs suivantes sont liées à la création et à l’utilisation de pools
 | 40857 |EX_USER |Pool élastique introuvable pour le serveur : '%ls'. Nom du pool élastique: '%ls'. |Nom du serveur, nom du pool élastique |Le pool élastique spécifié n’existe pas sur le serveur spécifié. |Indiquez un nom de pool élastique valide. |
 | 40858 |EX_USER |Le pool élastique '%ls' existe déjà sur le serveur : '%ls'. |Nom du pool élastique, nom du serveur |Le pool élastique spécifié existe déjà sur le serveur logique spécifié. |Saisissez un nouveau nom pour le pool élastique. |
 | 40859 |EX_USER |Le pool élastique ne prend pas en charge le niveau de service '%ls'. |Niveau de service du pool élastique |Le niveau de service spécifié n’est pas pris en charge pour le provisioning du pool élastique. |Saisissez l’édition correcte, ou laissez le champ du niveau de service vide afin d’utiliser le niveau de service par défaut. |
-| 40860 |EX_USER |La combinaison du pool élastique '%ls' et de l’objectif de service '%ls' n’est pas valide. |Nom du pool élastique, nom de l’objectif de niveau de service |L’objectif de service et le pool élastique peuvent être spécifiés ensemble uniquement si le premier est indiqué en tant que « ElasticPool ». |Spécifiez la combinaison de pool élastique et d’objectif de service adéquate. |
+| 40860 |EX_USER |La combinaison du pool élastique '%ls' et de l’objectif de service '%ls' n’est pas valide. |Nom du pool élastique, niveau de service |Le pool élastique et le niveau de service ne peuvent être spécifiés ensemble que si le type de ressource est spécifié comme étant un « ElasticPool ». |Spécifiez la combinaison de pool élastique et de niveau de service adéquate. |
 | 40861 |EX_USER |L’édition de base de données '%.**ls' ne peut pas être différente du niveau de service du pool élastique, qui correspond à '%.**ls'. |Édition de base de données, niveau de service du pool élastique |L’édition de base de données est différente du niveau de service du pool élastique. |Indiquez une édition de base de données identique au niveau de service du pool élastique.  Remarque : l’édition de base de données n’a pas besoin d’être spécifiée. |
 | 40862 |EX_USER |Si l’objectif de service du pool élastique est spécifié, le nom du pool élastique doit l’être également. |Aucun |L’objectif de service du pool élastique n’identifie pas de manière unique un pool élastique. |Si vous utilisez l’objectif de service du pool élastique, spécifiez le nom du pool élastique. |
 | 40864 |EX_USER |Le nombre de DTU du pool élastique doit se monter au minimum à (%d) pour le niveau de service '%.*ls'. |Nombre de DTU du pool élastique, niveau de service du pool élastique |Tentative de définition du nombre de DTU du pool élastique au-dessous de la limite minimale. |Essayez à nouveau de définir le nombre de DTU du pool élastique sur la limite minimale ou plus. |

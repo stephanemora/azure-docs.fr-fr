@@ -10,11 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5f9bae34dabba71861adc9b2aeb0d33b8a1e226
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091404"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gérer une machine virtuelle Azure avec la collecte d’inventaire
 
@@ -87,6 +88,24 @@ Les tables suivantes fournissent des informations sur chaque propriété qui peu
 |Recursion     | Détermine si la récursivité est utilisée lorsque vous recherchez l’élément à suivre.        |
 |Utiliser sudo     | Ce paramètre détermine si sudo est utilisé lorsque vous vérifiez l’élément.         |
 |Liens     | Ce paramètre détermine le traitement des liens symboliques lorsque vous parcourez les répertoires.<br> **Ignorer** : ignore les liens symboliques et n’inclut pas les fichiers/répertoires référencés.<br>**Suivre** : suit les liens symboliques pendant les opérations de récursivité et inclut aussi les fichiers/répertoires référencés.<br>**Gérer** : suit les liens symboliques et autorise la modification du traitement du contenu retourné.      |
+
+## <a name="manage-machine-groups"></a>Gérer des groupes de machines
+
+L’inventaire vous permet de créer et de visualiser des groupes de machines dans Log Analytics. Les groupes de machines sont des collections de machines définies par une requête dans Log Analytics.
+
+Pour visualiser vos groupes de machines, sélectionnez l’onglet **Groupes de machines** sur la page Inventaire.
+
+![Affichage des groupes de machines sur la page d’inventaire](./media/automation-vm-inventory/inventory-machine-groups.png)
+
+La sélection d’un groupe de machines dans la liste affiche la page Groupes de machines. Cette page affiche des détails sur le groupe de machines. Ces détails comprennent la requête Log Analytics utilisée pour définir le groupe. La partie inférieure de la page présente une liste paginée des machines qui font partie de ce groupe.
+
+![Affichage de la page d’un groupe de machines](./media/automation-vm-inventory/machine-group-page.png)
+
+Cliquez sur le bouton **+ Cloner** pour cloner le groupe de machines. Ici, vous devez attribuer au groupe un nouveau nom, ainsi qu’un alias pour le groupe. Vous pouvez modifier la définition à ce stade. Après avoir modifié la requête, cliquez sur le bouton **Valider la requête** pour afficher l’aperçu des machines sélectionnées. Lorsque le groupe vous convient, cliquez sur **Créer** pour créer le groupe de machines.
+
+Si vous souhaitez créer un autre groupe de machines, sélectionnez **+ Create a machine group** (Créer un groupe de machines). Ce bouton affiche la page **Create a machine group** (Créer un groupe de machines) qui vous permet de définir votre nouveau groupe. Cliquez sur **Créer** pour créer le groupe.
+
+![Création d’un groupe de machines](./media/automation-vm-inventory/create-new-group.png)
 
 ## <a name="disconnect-your-virtual-machine-from-management"></a>Déconnecter la machine virtuelle de la fonction de gestion
 

@@ -2,20 +2,22 @@
 title: Se connecter à SQL en mode ActiveDirectoryInteractive | Microsoft Docs
 description: Exemple de code C# accompagné d’explications, pour établir une connexion à Azure SQL Database en utilisant le mode SqlAuthenticationMethod.ActiveDirectoryInteractive.
 services: sql-database
-author: GithubMirek
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
 ms.custom: active directory
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/06/2018
+author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.openlocfilehash: 3d6eb70b3ce9072dc2c51220af89549022b5dacf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.date: 04/06/2018
+manager: craigg
+ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238266"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055524"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Utiliser le mode ActiveDirectoryInteractive pour se connecter à Azure SQL Database
 
@@ -122,13 +124,13 @@ Le programme C# utilise l’espace de noms **Microsoft.IdentityModel.Clients.Act
 
 **System.Data.SqlClient** est l’un des espaces de noms utilisés par l’exemple en C#. L’enum **SqlAuthenticationMethod** est particulièrement intéressante. Cette enum a les valeurs suivantes :
 
-- **SqlAuthenticationMethod.ActiveDirectory*Interactive*** :&nbsp; utilisez cette valeur avec un nom d’utilisateur Azure AD pour obtenir l’authentification multifacteur MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Interactive*** :&nbsp; utilisez cette valeur avec un nom d’utilisateur Azure AD pour obtenir l’authentification multifacteur MFA.
     - Cet article traite essentiellement de cette valeur. Cette valeur génère une expérience interactive en affichant des boîtes de dialogue pour le mot de passe de l’utilisateur, puis pour la validation de l’authentification multifacteur si celle-ci est appliquée pour cet utilisateur.
     - Cette valeur est disponible depuis .NET Framework version 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory*Integrated*** :&nbsp; utilisez cette valeur pour un compte *fédéré*. Pour un compte fédéré, le nom d’utilisateur est connu du domaine Windows. Cette méthode ne prend pas en charge MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Integrated*** :&nbsp; utilisez cette valeur pour un compte *fédéré*. Pour un compte fédéré, le nom d’utilisateur est connu du domaine Windows. Cette méthode ne prend pas en charge MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory*Password*** :&nbsp; utilisez cette valeur pour l’authentification qui requiert un utilisateur Azure AD et le mot de passe de l’utilisateur. Azure SQL Database effectue l’authentification. Cette méthode ne prend pas en charge MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Password*** :&nbsp; utilisez cette valeur pour l’authentification qui nécessite un utilisateur Azure AD et le mot de passe de l’utilisateur. Azure SQL Database effectue l’authentification. Cette méthode ne prend pas en charge MFA.
 
 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 4bec8c8ea29c10b8c0d0351a41ebc9183bb45d4f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1a9c4dc5a4d21f8837bde171283cd8a070297674
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38940936"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47043850"
 ---
 ## <a name="deployment-considerations"></a>Points à prendre en considération pour le déploiement
 
@@ -21,11 +21,11 @@ ms.locfileid: "38940936"
 
 * Les machines virtuelles de série N ne peuvent être déployées que dans le modèle de déploiement Resource Manager.
 
-* Les machines virtuelles de série N diffèrent en fonction du type de stockage Azure qu’elles prennent en charge pour les disques. Les machines virtuelles NC et NV ne prennent en charge que les disques de machines virtuelles sauvegardés par le Stockage sur disque Standard (HDD). Les machines virtuelles NCv2, ND, et NCv3 ne prennent en charge que des disques de machines virtuelles s’appuyant sur un Stockage sur disque Premium (SSD).
+* Les machines virtuelles de série N diffèrent en fonction du type de stockage Azure qu’elles prennent en charge pour les disques. Les machines virtuelles NC et NV ne prennent en charge que les disques de machines virtuelles sauvegardés par le Stockage sur disque Standard (HDD). Les machines virtuelles NCv2, NCv3, ND et NVv2 prennent en charge uniquement les disques de machine virtuelle s’appuyant sur un stockage sur disque (SSD) Premium.
 
 * Si vous voulez déployer plus de quelques machines virtuelles de série N, envisagez de souscrire un abonnement de paiement à l’utilisation ou d’autres options d’achat. Si vous utilisez un [compte gratuit Azure](https://azure.microsoft.com/free/), vous pouvez seulement utiliser un nombre limité de cœurs de calcul Azure.
 
-* Il se peut que vous deviez augmenter le quota de cœurs (par région) dans votre abonnement Azure et le quota séparé des cœurs NC, NCv2, NCv3, ND ou NV. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../articles/azure-supportability/how-to-create-azure-support-request.md) gratuitement. Les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.
+* Vous devez peut-être augmenter le quota de cœurs (par région) dans votre abonnement Azure ainsi que le quota de chaque cœur NC, NCv2, NCv3, ND, NV ou NVv2. Pour demander une augmentation de quota, [ouvrez une demande de service clientèle en ligne](../articles/azure-supportability/how-to-create-azure-support-request.md) gratuitement. Les limites par défaut peuvent varier en fonction de la catégorie de votre abonnement.
 
 
 

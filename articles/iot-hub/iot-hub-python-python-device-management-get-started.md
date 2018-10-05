@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: kgremban
-ms.openlocfilehash: fa966ee2ea26cccc7d841a0e969d8329ac5bc0de
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 18a3b90c4d3df746aded8dc8a2600112fca62b16
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573415"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219734"
 ---
 # <a name="get-started-with-device-management-python"></a>Prise en main de la gestion d’appareils (Python)
 
@@ -44,7 +44,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
+## <a name="create-a-simulated-device-app"></a>Créer une application d’appareil simulé
 Dans cette section, vous allez :
 
 * Créer une application console Python qui répond à une méthode directe appelée par le cloud
@@ -148,7 +148,7 @@ Dans cette section, vous allez :
 1. Enregistrez et fermez le fichier **dmpatterns_getstarted_device.py**.
 
 > [!NOTE]
-> Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez mettre en œuvre des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article MSDN [Gestion des erreurs temporaires][lnk-transient-faults].
+> Pour simplifier les choses, ce didacticiel n’implémente aucune stratégie de nouvelle tentative. Dans le code de production, vous devez implémenter des stratégies de nouvelle tentative (par exemple, une interruption exponentielle), comme indiqué dans l’article [Gestion des erreurs temporaires](/azure/architecture/best-practices/transient-faults).
 
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Déclencher un redémarrage à distance sur l’appareil à l’aide d’une méthode directe
@@ -240,7 +240,7 @@ Vous êtes maintenant prêt à exécuter les applications.
     python dmpatterns_getstarted_device.py
     ```
 
-1. À l’autre invite de commandes, exécutez la commande suivante pour déclencher le redémarrage à distance et interroger la représentation d’appareil pour déterminer le moment du dernier redémarrage.
+1. À l’autre invite de commandes, exécutez la commande suivante pour déclencher le redémarrage à distance et interroger le jumeau d’appareil pour déterminer le moment du dernier redémarrage.
    
     ```
     python dmpatterns_getstarted_service.py
@@ -267,4 +267,3 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
-[lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

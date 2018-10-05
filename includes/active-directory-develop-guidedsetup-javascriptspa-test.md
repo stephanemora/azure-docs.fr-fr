@@ -1,22 +1,49 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+ms.openlocfilehash: b2950720ae7038f435a8e2dfb24333afc49984b1
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060772"
+---
 ## <a name="test-your-code"></a>Test de votre code
 
+### <a name="test-with-node"></a>Effectuer des tests avec Node
+Si vous n’utilisez pas Visual Studio, vérifiez que votre serveur web est démarré.
+1. Configurez le serveur pour écouter un port TCP basé sur l’emplacement de votre fichier **index.html**. Pour Node, démarrez le serveur web afin d’écouter le port en exécutant les commandes ci-après dans une invite de ligne de commande à partir du dossier d’application :
+
+    ```bash
+    npm install
+    node server.js
+    ```
+1. Ouvrez le navigateur et tapez http://<span></span>localhost:30662 ou http://<span></span>localhost:{port}, où **port** correspond au port qu’écoute votre serveur web. Vous devez voir apparaître le contenu de votre fichier index.html, ainsi que le bouton **Se connecter**.
+
+<p/><!-- -->
+
 ### <a name="test-with-visual-studio"></a>Effectuer des tests avec Visual Studio
-Si vous utilisez Visual Studio, appuyez sur **F5** pour exécuter votre projet. Le navigateur s’ouvre sur l’emplacement http://<span></span>localhost:{port} et vous voyez le bouton **Call Microsoft Graph API** (Appeler l’API.Microsoft Graph).
+Si vous utilisez Visual Studio, veillez à sélectionner la solution de projet, puis appuyez sur **F5** pour exécuter votre projet. Le navigateur accède à l’emplacement http://<span></span>localhost:{port}, et vous voyez le bouton **Se connecter**.
 
-<p/><!-- --> 
-
-### <a name="test-with-python-or-other-web-server"></a>Effectuer des tests avec Python ou un autre serveur web
-Si vous n’utilisez pas Visual Studio, vérifiez que votre serveur web est démarré. Configurez le serveur pour écouter un port TCP basé sur l’emplacement de votre fichier **index.html**. Pour Python, écoutez le port en exécutant l’invite de commandes à partir du dossier de l’application :
- 
-```bash
-python -m http.server 8080
-```
-Ouvrez le navigateur et tapez http://<span></span>localhost:8080 ou http://<span></span>localhost:{port}, où **port** correspond au port qu’écoute votre serveur web. Vous devez voir le contenu de votre fichier index.html et le bouton **Call Microsoft Graph API** (Appeler l’API Microsoft Graph).
 
 ## <a name="test-your-application"></a>Tester votre application
 
-Une fois votre fichier index.html chargé dans le navigateur, sélectionnez **Call Microsoft Graph API**. La première fois que vous exécutez votre application, le navigateur vous redirige vers le point de terminaison Microsoft Azure Active Directory (Azure AD) v2.0, où vous êtes invité à vous connecter :
- 
+Une fois que le navigateur a chargé votre fichier index.html, cliquez sur **Se connecter**. Vous êtes invité à vous connecter avec le point de terminaison Microsoft Azure Active Directory (Azure AD) v2.0 :
+
 ![Connexion au compte JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
 
@@ -27,23 +54,21 @@ La première fois que vous vous connectez à votre application, vous êtes invit
 ![Donner votre accord pour l’accès par l’application](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Afficher les résultats de l’application
-Une fois connecté, vous devez voir vos informations de profil utilisateur dans la zone **Graph API Call Response** (Réponse à l’appel de l’API Graph).
- 
-![Résultats attendus de l’appel à l’API Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
+Une fois connecté, vous devez voir apparaître sur la page vos informations de profil utilisateur renvoyées dans la réponse de l’API Microsoft Graph.
 
-Vous devez également voir des informations de base sur le jeton acquis sous les sections **Access Token** (Jeton d’accès) et **ID Token Claims** (Revendications de jetons d’ID).
+![Résultats attendus de l’appel à l’API Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Informations supplémentaires sur les étendues et les autorisations déléguées
 
-L’API Microsoft Graph nécessite l’étendue **user.read** pour lire le profil d’un utilisateur. Par défaut, cette étendue est automatiquement ajoutée à toutes les applications inscrites dans le portail d’inscription. D’autres API pour Microsoft Graph ainsi que des API personnalisées pour votre serveur principal peuvent nécessiter des étendues supplémentaires. L’API Microsoft Graph nécessite l’étendue **Calendars.Read** pour répertorier les calendriers de l’utilisateur.
+L’API Microsoft Graph nécessite l’étendue `user.read` pour lire le profil d’un utilisateur. Par défaut, cette étendue est automatiquement ajoutée à toutes les applications inscrites dans le portail d’inscription. D’autres API pour Microsoft Graph ainsi que des API personnalisées pour votre serveur principal peuvent nécessiter des étendues supplémentaires. Par exemple, l’API Microsoft Graph requiert l’étendue `Calendars.Read` pour répertorier les calendriers de l’utilisateur.
 
-Pour accéder aux calendriers de l’utilisateur dans le contexte d’une application, ajoutez l’autorisation déléguée **Calendars.Read** aux informations d’inscription de l’application. Ajoutez ensuite l’étendue **Calendars.Read** à l’appel **acquireTokenSilent**. 
+Pour accéder aux calendriers de l’utilisateur dans le contexte d’une application, ajoutez l’autorisation déléguée `Calendars.Read` aux informations d’inscription de l’application. Ensuite, ajoutez l’étendue `Calendars.Read` à l’appel `acquireTokenSilent`.
 
 >[!NOTE]
 >L’utilisateur peut être invité à donner des consentements supplémentaires à mesure que vous augmentez le nombre d’étendues.
 
-Si une API backend ne nécessite pas d’étendue (non recommandé), vous pouvez utiliser le **clientId** en tant qu’étendue dans les appels **acquireTokenSilent** et **acquireTokenRedirect**.
+Si une API principale ne nécessite pas d’étendue (non recommandé), vous pouvez utiliser `clientId` en tant qu’étendue dans les appels pour acquérir des jetons.
 
 <!--end-collapse-->
 
