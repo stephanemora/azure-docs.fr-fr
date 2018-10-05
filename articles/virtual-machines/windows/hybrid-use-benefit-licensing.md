@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing-ms
-ms.openlocfilehash: a4b0baefc8c3c839a06d6540e57b34657138c8ff
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: fef057b5d1e1ba8b03b04852376b1e5a49926008
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071946"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432403"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Azure Hybrid Benefit pour Windows Server
 Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Server permet d’utiliser les licences Windows Server locales et d’exécuter des machines virtuelles Windows sur Azure à moindre coût. Vous pouvez utiliser Azure Hybrid Benefit pour Windows Server pour déployer de nouvelles machines virtuelles avec le système d’exploitation Windows. Cet article récapitule les étapes du déploiement de nouvelles machines virtuelles avec Azure Hybrid Benefit pour Windows Server. Il explique également comment mettre à jour des machines virtuelles existantes en cours d’exécution. Pour plus d’informations sur les licences et les réductions de coût relatives à Azure Hybrid Benefit pour Windows Server, consultez la [page de gestion des licences Azure Hybrid Benefit pour Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -40,7 +40,7 @@ Pour les clients avec Software Assurance, Azure Hybrid Benefit pour Windows Serv
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Façons d’utiliser Azure Hybrid Benefit pour Windows Server
 Il existe plusieurs façons d’utiliser des machines virtuelles Windows avec Azure Hybrid Benefit :
 
-1. Vous pouvez déployer des machines virtuelles à partir de l’une des [images Windows Server fournies sur la Place de marché Microsoft Azure](#https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
+1. Vous pouvez déployer des machines virtuelles à partir de l’une des [images Windows Server fournies sur la Place de marché Microsoft Azure](# https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.WindowsServer?tab=Overview)
 2. Vous pouvez charger une machine virtuelle personnalisée et la déployer à l’aide d’un modèle Resource Manager ou d’Azure PowerShell.
 3. Vous pouvez convertir une machine virtuelle existante de sorte qu’elle s’exécute avec Azure Hybrid Benefit ou selon un paiement à l’utilisation pour Windows Server ou basculer entre les deux méthodes.
 4. Vous pouvez également appliquer Azure Hybrid Benefit pour Windows Server sur un groupe de machines virtuelles identiques.
@@ -82,7 +82,11 @@ Dans vos modèles Resource Manager, vous pouvez spécifier un paramètre supplé
 ```
 
 ## <a name="convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server"></a>Convertir une machine virtuelle existante pour utiliser Azure Hybrid Benefit pour Windows Server
-Si vous souhaitez convertir une machine virtuelle existante de sorte qu’elle puisse tirer parti d’Azure Hybrid Benefit pour Windows Server, vous pouvez mettre à jour le type de licence de votre machine virtuelle comme suit :
+Si vous souhaitez convertir une machine virtuelle existante de sorte qu’elle puisse tirer parti d’Azure Hybrid Benefit pour Windows Server, vous pouvez mettre à jour le type de licence de votre machine virtuelle en suivant les instructions ci-dessous.
+
+> [!NOTE]
+> La modification du type de licence sur la machine virtuelle n’entraîne pas le redémarrage du système ni l’interruption de service.  Il s’agit simplement d’une mise à jour vers un indicateur de métadonnées.
+> 
 
 ### <a name="portal"></a>Portail
 Dans le panneau de la machine virtuelle du Portail, vous pouvez mettre à jour la machine virtuelle pour utiliser Azure Hybrid Benefit en sélectionnant l’option « Configuration », puis en activant l’option « Azure Hybrid Benefit ».
@@ -110,7 +114,7 @@ Dans le panneau de la machine virtuelle du Portail, vous pouvez mettre à jour l
     ```azurecli
     az vm update --resource-group myResourceGroup --name myVM --set licenseType=Windows_Server
     ```
-    
+
 ### <a name="how-to-verify-your-vm-is-utilizing-the-licensing-benefit"></a>Comment vérifier si votre machine virtuelle utilise Azure Hybrid Benefit
 Une fois votre machine virtuelle déployée par le biais de PowerShell, d’un modèle Resource Manager ou du portail, utilisez les méthodes suivantes pour vérifier le paramètre.
 
@@ -123,7 +127,7 @@ L’exemple suivant montre le type de licence pour une machine virtuelle unique.
 Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-Sortie :
+Sortie :
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
 Location                 : westus
@@ -141,6 +145,10 @@ LicenseType              :
 ```azurecli
 az vm get-instance-view -g MyResourceGroup -n MyVM --query '[?licenseType==Windows_Server]' -o table
 ```
+
+> [!NOTE]
+> La modification du type de licence sur la machine virtuelle n’entraîne pas le redémarrage du système ni l’interruption de service. Il s’agit uniquement d’un indicateur de gestionnaire de licences de métadonnées.
+>
 
 ## <a name="list-all-vms-with-azure-hybrid-benefit-for-windows-server-in-a-subscription"></a>Lister toutes les machines virtuelles avec Azure Hybrid Benefit pour Windows Server dans un abonnement
 Pour afficher et compter toutes les machines virtuelles déployées avec Azure Hybrid Benefit pour Windows Server, vous pouvez exécuter la commande suivante à partir de votre abonnement :
