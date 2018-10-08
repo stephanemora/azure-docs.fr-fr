@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702593"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722201"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Notions fondamentales concernant Cosmos DB Azure
@@ -118,6 +118,10 @@ Le provisionnement de débit au niveau du conteneur et de la base de données co
 
 Actuellement, vous pouvez créer une collection avec un débit de clé de partition à l’aide de la méthode [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) du kit SDK .Net ou avec [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). La création d’une collection fixe en utilisant le portail Azure n’est pas prise en charge pour l’instant.  
 
+### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB prend-il en charge l’analyse des séries chronologiques ? 
+Oui, Azure CosmosDB prend en charge l’analyse des séries chronologiques. Voici un exemple de [modèle de série chronologique](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). Cet exemple montre comment utiliser des flux de modification pour créer des affichages agrégés sur les données de série chronologique. Vous pouvez étendre cette approche à l’aide de Spark Streaming ou d’un autre processeur de données de flux.
+
+
 ## <a name="sql-api"></a>API SQL
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Comment commencer à développer par rapport l’API SQL ?
@@ -209,6 +213,10 @@ En plus des codes d’erreur MongoDB habituels, l’API MongoDB a ses propres co
 | TooManyRequests     | 16500 | Le nombre total d’unités de requête consommées ayant dépassé le taux d’unités de requête approvisionné pour la collection, il a été limité. | Adaptez le débit assigné à un conteneur ou à un ensemble de conteneurs à partir du portail Azure ou renouvelez l’opération. |
 | ExceededMemoryLimit | 16501 | En tant que service mutualisé, l’opération a dépassé les unités de mémoire du client. | Réduisez l’étendue de l’opération en fixant un critère de requête plus restrictif, ou contactez le support technique via le [portail Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>*Exemple : &nbsp;&nbsp;&nbsp;&nbsp;db.getCollection(’users’).aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>Est-ce que le pilote Simba pour MongoDB est pris en charge pour une utilisation avec l’API MongoDB d’Azure CosmosDB ?
+Oui, vous pouvez utiliser le pilote Mongo ODBC de Simba avec l’API MongoDB d’Azure CosmosDB
+
+
 ## <a id="table"></a>API de table
 
 ### <a name="how-can-i-use-the-table-api-offering"></a>Comment utiliser l’offre de l’API Table ? 
@@ -242,7 +250,7 @@ En ce qui concerne l’API REST, il existe un certain nombre d’options liées 
 
 De plus, l’API Table d’Azure Cosmos DB prend uniquement en charge le format JSON (ATOM n’est pas pris en charge).
 
-Si les signatures d‘accès partagé sont prises en charge par Azure Cosmos DB, certaines stratégie ne le sont pas, notamment celles liées aux opérations de gestion comme le droit de créer des tables.
+Si les signatures d‘accès partagé sont prises en charge par Azure Cosmos DB, certaines stratégies ne le sont pas, notamment celles liées aux opérations de gestion comme le droit de créer des tables.
 
 Pour le kit SDK .NET en particulier, certaines classes et méthodes ne sont pas prises en charge par Azure Cosmos DB pour l’instant.
 
@@ -441,15 +449,132 @@ Oui. Comme la surface d’exposition de l’API Table est semblable à celle du 
 Azure Cosmos DB est un système basé sur un contrat de niveau de service (SLA) qui offre des garanties en matière de latence, de débit, de disponibilité et de cohérence. Comme il s’agit d’un système approvisionné, il réserve des ressources afin de garantir le respect de ces exigences. La vitesse de création des tables est détectée et limitée. Nous vous recommandons de consulter le taux de création de tables et de le réduire à moins de 5 par minute. N’oubliez pas que l’API Table est un système provisionné. Dès que vous l’approvisionnez, vous commencez à payer. 
 
 ## <a name="gremlin-api"></a>API Gremlin
-### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>Comment appliquer les fonctionnalités de l’API Gremlin à Azure Cosmos DB ?
-Pour appliquer les fonctionnalités de l’API Gremlin, vous pouvez utiliser une bibliothèque d’extensions. Cette bibliothèque nommée Microsoft Azure AD Graph est disponible sur [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
-### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Il semble que vous prenez en charge le langage de traversée de graphique Gremlin. Prévoyez-vous d’ajouter d’autres formes de requête ?
-Oui, nous prévoyons d’ajouter d’autres mécanismes de requête à l’avenir. 
+### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>Pour le développement en C#/.NET, dois-je utiliser le package Microsoft.Azure.Graphs ou Gremlin.NET ? 
 
-### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>Comment utiliser la nouvelle offre d’API Gremlin ? 
-Pour commencer, lisez l’article relatif au démarrage rapide de l’[API Gremlin](../cosmos-db/create-graph-dotnet.md).
+L’API Gremlin d’Azure Cosmos DB se sert des pilotes open source comme connecteurs principaux pour le service. Nous recommandons alors d’utiliser les [pilotes qui sont pris en charge par Apache Tinkerpop](http://tinkerpop.apache.org/).
 
+### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Comment les RU/s sont-elles facturées lors de l’exécution des requêtes sur une base de données de graphique ? 
+
+Tous les objets de graphique, les vertex et les arêtes, sont représentés sous forme de documents JSON dans le serveur principal. Dans la mesure où une seule requête Gremlin peut modifier un ou plusieurs objets de graphique à la fois, le coût associé est directement lié aux objets ou arêtes traités par la requête. Azure Cosmos DB utilise le même processus pour toutes les autres API. Pour plus d’informations, voir [Unités de requête dans Azure Cosmos DB](request-units.md).
+
+Les frais de RU sont basés sur le jeu de données de travail de la traversée, et non sur le jeu de résultats. Par exemple, si une requête vise à obtenir un seul vertex en résultat mais doit traverser plusieurs autres objets sur le chemin, le coût sera basé sur tous les objets de graphique utilisés pour calculer cet unique vertex de résultat.
+
+### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Quelle est la mise à l’échelle maximale qu’une base de données de graphique peut avoir dans l’API Gremlin d’Azure Cosmos DB ? 
+
+Azure Cosmos DB utilise le [partitionnement horizontal](partition-data.md) pour répondre automatiquement aux exigences d’augmentation de stockage et de débit. Le débit et la capacité de stockage maximum d’une charge de travail sont déterminés par la quantité de partitions associées à une collection donnée. Toutefois, une collection d’API Gremlin comporte un ensemble spécifique d’instructions pour garantir une expérience de performances à l’échelle correcte. Pour plus d’informations et des meilleures pratiques, consultez le document [bonnes pratiques de partitionnement](partition-data.md#best-practices-when-choosing-a-partition-key). 
+
+### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Comment puis-je me protéger contre les attaques par injection à l’aide de pilotes Gremlin ? 
+
+La majorité des pilotes Tinkerpop Gremlin natifs offrent la possibilité de fournir un dictionnaire de paramètres pour l’exécution des requêtes. Voici un exemple montrant comment le faire sous [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) et [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Pourquoi reçois-je le message d’erreur « Erreur de compilation de requête Gremlin : Impossible de trouver une méthode » ?
+
+L’API Gremlin d’Azure Cosmos DB implémente un sous-ensemble des fonctionnalités définies dans la surface d’exposition de Gremlin. Pour voir les étapes prises en charge ou pour plus d’informations, consultez l’article [Prise en charge de Gremlin](gremlin-support.md).
+
+La meilleure solution de contournement consiste à réécrire les étapes Gremlin requises avec la fonctionnalité prise en charge puisque toutes les étapes Gremlin essentielles sont prises en charge par Azure Cosmos DB.
+
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Pourquoi reçois-je le message d’erreur «WebSocketException : Le serveur renvoie le code d’état "200" à la place du code d’état "101" attendu » ?
+
+Cette erreur survient probablement lorsqu’un point de terminaison incorrect est utilisé. Le point de terminaison qui génère cette erreur a le modèle suivant :
+
+`https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/` 
+
+C’est le point de terminaison de documents pour votre base de données de graphique.  Le bon point de terminaison à utiliser est le point de terminaison Gremlin qui a le format suivant : 
+
+`https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
+
+### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>Pourquoi reçois-je le message d’erreur « RequestRateIsTooLarge » ?
+
+Cette erreur signifie que les unités de requête par seconde allouées ne sont pas suffisantes pour traiter la requête. Cette erreur se produit généralement lorsque vous exécutez une requête qui obtient tous les vertex :
+
+```
+// Query example:
+g.V()
+```
+
+Cette requête va tenter de récupérer tous les vertex du graphique. Par conséquent, le coût de cette requête sera au moins égal au nombre de vertex en termes d’unités de requête. Le paramètre RU/s doit être ajusté pour répondre à cette requête.
+
+### <a name="why-do-my-gremlin-driver-connections-get-dropped-eventually"></a>Pourquoi mes connexions de pilote Gremlin finissent par être supprimées ?
+
+Une connexion Gremlin est établie via une connexion WebSocket. Bien que les connexions WebSocket ne disposent pas d’une durée de vie spécifique, l’API Gremlin Azure Cosmos DB terminera les connexions inactives après 30 minutes d’inactivité. 
+
+### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Pourquoi ne puis-je pas utiliser d’appels d’API Fluent dans les pilotes Gremlin natifs ?
+
+Les appels d’API Fluent ne sont pas encore pris en charge par l’API Gremlin d’Azure Cosmos DB. Les appels d’API Fluent nécessitent une fonctionnalité de mise en forme interne appelée la prise en charge bytecode qui n’est actuellement pas prise en charge par l’API Gremlin d’Azure Cosmos DB. Pour la même raison, le dernier pilote Gremlin-JavaScript n’est pas pris en charge actuellement. 
+
+### <a name="how-can-i-evaluate-the-efficiency-of-my-gremlin-queries"></a>Comment puis-je évaluer l’efficacité de mes requêtes Gremlin ?
+
+L’étape de l’aperçu **executionProfile()** peut être utilisée pour fournir une analyse du plan d'exécution de la requête. Cette étape doit être ajoutée à la fin de n’importe quelle requête Gremlin comme illustré dans l’exemple suivant :
+
+**Exemple de requête**
+
+```
+g.V('mary').out('knows').executionProfile()
+```
+
+**Exemple de sortie**
+
+```json
+[
+  {
+    "gremlin": "g.V('mary').out('knows').executionProfile()",
+    "totalTime": 8,
+    "metrics": [
+      {
+        "name": "GetVertices",
+        "time": 3,
+        "annotations": {
+          "percentTime": 37.5
+        },
+        "counts": {
+          "resultCount": 1
+        }
+      },
+      {
+        "name": "GetEdges",
+        "time": 5,
+        "annotations": {
+          "percentTime": 62.5
+        },
+        "counts": {
+          "resultCount": 0
+        },
+        "storeOps": [
+          {
+            "partitionsAccessed": 1,
+            "count": 0,
+            "size": 0,
+            "time": 0.6
+          }
+        ]
+      },
+      {
+        "name": "GetNeighborVertices",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      },
+      {
+        "name": "ProjectOperator",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      }
+    ]
+  }
+]
+```
+
+La sortie du profil ci-dessus indique combien de temps est consacré à l’obtention des objets de vertex et d’arête, ainsi que la taille du jeu de données de travail. Cela concerne les mesures de coût standard pour les requêtes Azure Cosmos DB.
 
 ## <a id="cassandra"></a> API Cassandra
 
@@ -479,11 +604,11 @@ simpleStatement.SetOutgoingPayload(outgoingPayload);
 ``` 
 
 ### <a name="what-happens-when-throughput-is-exceeded"></a>Que se passe-t-il lorsque le débit est dépassé ? 
-Azure Cosmos DB fournit des garanties de performances et de latence avec des limites supérieures pour les opérations. Cette garantie est possible lorsque le moteur peut assurer la gouvernance des opérations du client. Cela dépend de la définition du débit, qui est pour vous l’assurance de bénéficier du débit et de la latence garantis, car la plateforme réserve cette capacité et garantit le succès des opérations. Lorsque vous dépassez cette capacité, vous obtenez un message d’erreur de surcharge indiquant que la capacité a été dépassée. Surcharge 0x1001 : impossible de traiter la requête, car « le taux de demandes est élevé ». Il est alors indispensable d’identifier les opérations et les volumes à l’origine de ce problème. Vous pouvez avoir un une idée de la capacité consommée dépassant la capacité provisionnée grâce aux indicateurs de performance sur le portail. Vous devez ensuite vérifier que la capacité est consommée de manière équilibrée entre toutes les partitions sous-jacentes. Si vous constatez que la plupart du débit est consommé par une seule partition, il y a une asymétrie de la charge de travail. 
+Azure Cosmos DB fournit des garanties de performances et de latence avec des limites supérieures pour les opérations. Cette garantie est possible lorsque le moteur peut assurer la gouvernance des opérations du client. Cela dépend de la définition du débit, qui est pour vous l’assurance de bénéficier du débit et de la latence garantis, car la plateforme réserve cette capacité et garantit le succès des opérations. Lorsque vous dépassez cette capacité, vous obtenez un message d’erreur de surcharge indiquant que la capacité a été dépassée. Surcharge 0x1001 : impossible de traiter la requête, car « le taux de demandes est élevé ». Il est alors indispensable d’identifier les opérations et les volumes à l’origine de ce problème. Vous pouvez avoir une idée de la capacité consommée dépassant la capacité provisionnée grâce aux indicateurs de performance sur le portail. Vous devez ensuite vérifier que la capacité est consommée de manière équilibrée entre toutes les partitions sous-jacentes. Si vous constatez que la plupart du débit est consommé par une seule partition, il y a une asymétrie de la charge de travail. 
 
 Des indicateurs de performance sont disponibles pour vous montrer l’utilisation du débit au fil des heures, jours et semaines, sur les différentes partitions, ou sous forme agrégée. Pour plus d’informations, consultez la section [Surveillance et débogage à l’aide de métriques dans Azure Cosmos DB](use-metrics.md).
 
-Les journaux de diagnostic sont expliquées dans l’article [Journalisation des diagnostics Azure Cosmos DB](logging.md).
+Les journaux de diagnostic sont expliqués dans l’article [Journalisation des diagnostics Azure Cosmos DB](logging.md).
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>La clé primaire est-elle mappée sur le concept de clé de partition d’Azure Cosmos DB ?
 Oui, la clé de partition est utilisée pour placer l’entité au bon emplacement. Dans Microsoft Azure Cosmos DB, elle est utilisée pour trouver la bonne partition logique qui est stockée sur une partition physique. Le concept de partitionnement est également expliqué dans l’article [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partition-data.md). Ce qu’il faut retenir, c’est qu’une partition logique ne doit pas dépasser la limite de 10 Go aujourd’hui. 
@@ -500,7 +625,7 @@ Azure Cosmos DB peut stocker des données illimitées en effectuant un scale-out
 Oui, il est possible de créer plusieurs tables avec l’API Cassandra Apache. Chacune de ces tables est traitée en tant qu’unité de débit et de stockage. 
 
 ### <a name="is-it-possible-to-create-multiple-tables-in-succession"></a>Est-il possible de créer plusieurs tables successivement ?
-Azure Cosmos DB est un système de gouvernance des ressources pour les activités liées au plan de données et au plan de contrôle. Les conteneurs comme les collections et les tables sont des entités de runtime qui sont provisionnées pour une certaine capacité de débit. La création de ces conteneurs en succession rapide n’est pas une activité prévue et est limitée. Si vous avez des tests qui déposent/crént des tables immédiatement, essayez de les espacer.
+Azure Cosmos DB est un système de gouvernance des ressources pour les activités liées au plan de données et au plan de contrôle. Les conteneurs comme les collections et les tables sont des entités de runtime qui sont provisionnées pour une certaine capacité de débit. La création de ces conteneurs en succession rapide n’est pas une activité prévue et est limitée. Si vous avez des tests qui déposent/créent des tables immédiatement, essayez de les espacer.
 
 ### <a name="what-is-maximum-number-of-tables-which-can-be-created"></a>Quel est le nombre maximal de tables qu’il est possible de créer ?
 Il n’existe aucune limite physique sur le nombre de tables, envoyez un e-mail à l’adresse [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) si vous avez très grand nombre de tables à créer (où la taille stable totale dépasse 10 To de données), au lieu de seulement quelques dizaines ou centaines, comme d’ordinaire. 
