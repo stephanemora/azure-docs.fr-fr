@@ -7,14 +7,16 @@ items:
     href: overview.md
 - name: Démarrages rapides
   items:
-  - name: Créer une application gérée
-    href: managed-apps-quickstart-cli.md
+  - name: Publier une définition d’application
+    href: publish-managed-app-definition-quickstart.md
+  - name: Déployer une application de catalogue de services
+    href: deploy-service-catalog-quickstart.md
   expanded: true
 - name: Didacticiels
   items:
-  - name: Créer des fichiers d’application gérée
+  - name: Créer les fichiers de définition
     href: publish-service-catalog-app.md
-  - name: Créer l’application de la Place de marché
+  - name: Publier l’application marketplace
     href: publish-marketplace-app.md
 - name: Exemples
   items:
@@ -26,16 +28,22 @@ items:
     href: sample-projects.md
 - name: Procédures
   items:
-  - name: Créer l’interface du portail
-    href: create-uidefinition-overview.md
-  - name: Tester l’interface du portail
-    href: test-createuidefinition.md
-  - name: Mettre à jour les ressources managées
-    href: update-managed-resources.md
-  - name: Utiliser le portail pour publier
-    href: publish-portal.md
-  - name: Utiliser un secret à partir de Key Vault
-    href: key-vault-access.md
+  - name: Éditeurs
+    items:
+    - name: Créer l’interface du portail
+      href: create-uidefinition-overview.md
+    - name: Tester l’interface du portail
+      href: test-createuidefinition.md
+    - name: Mettre à jour les ressources managées
+      href: update-managed-resources.md
+    - name: Utiliser le portail pour publier la définition d’application
+      href: publish-portal.md
+    - name: Utiliser un secret à partir de Key Vault
+      href: key-vault-access.md
+  - name: Consommateurs
+    items:
+    - name: Surveiller l’application managée
+      href: monitor-managed-application-portal.md
 - name: Informations de référence
   items:
   - name: Azure CLI
@@ -97,9 +105,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Dépassement de capacité de la pile
     href: http://stackoverflow.com/questions/tagged/azure-managedapps
-ms.openlocfilehash: 03a385046c0f30932e6ba99fdce46fbdc9849eb6
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b74cfed4f0208a1b70980d34284fd7f9ff207ca4
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365296"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801555"
