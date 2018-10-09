@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b4c33753452921e12056e702c68cd0f1a8741f41
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c9732332bcb8a3f4ce6a1d48049c57e50e743826
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998665"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870297"
 documentType: LandingData
 title: Documentation des services Azure SignalR
 metadata:
@@ -44,9 +44,9 @@ sections:
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
     - image:
         src: https://docs.microsoft.com/en-us/media/logos/logo_REST.svg
-      text: C#
+      text: API REST
       href: /azure/azure-signalr/signalr-quickstart-rest-api
-- title: Tutoriels pas à pas
+- title: Didacticiels pas à pas
   items:
   - type: paragraph
     text: Apprenez à créer des applications de service Azure SignalR
@@ -62,7 +62,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://docs.microsoft.com/aspnet/core">Kit SDK ASP.NET Core</a>
+    - html: <a href="https://docs.microsoft.com/aspnet/core">Kit de développement logiciel (SDK) principal ASP.NET</a>
     - html: <a href="https://github.com/Azure/azure-functions-signalrservice-extension">Liaisons Azure Functions</a>
     - html: <a href="https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md">API REST</a>
   - type: paragraph
@@ -80,4 +80,4 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="https://github.com/aspnet/AzureSignalR-samples">Exemples de code Azure SignalR</a>
-    - html: <a href="/azure/azure-signalr/signalr-cli-samples">Azure CLI</a>
+    - html: <a href="/azure/azure-signalr/signalr-cli-samples">interface de ligne de commande Azure</a>

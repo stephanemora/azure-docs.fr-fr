@@ -132,19 +132,19 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
 
     Vous pouvez vérifier vos quotas Azure Resource Manager actuels en utilisant les commandes suivantes avec la dernière version d’Azure PowerShell.
 
-    **Calcul***(cœurs, groupes à haute disponibilité)*
+    **Calcul** *(cœurs, groupes à haute disponibilité)*
 
     ```powershell
     Get-AzureRmVMUsage -Location <azure-region>
     ```
 
-    **Réseau***(réseaux virtuels, adresses IP publiques statiques, adresses IP publiques, groupes de sécurité réseau, interfaces réseau, équilibreurs de charge, tables de routage)*
+    **Réseau** *(réseaux virtuels, adresses IP publiques statiques, adresses IP publiques, groupes de sécurité réseau, interfaces réseau, équilibreurs de charge, tables de routage)*
 
     ```powershell
     Get-AzureRmUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **Stockage***(compte de stockage)*
+    **Stockage** *(compte de stockage)*
 
     ```powershell
     Get-AzureRmStorageUsage

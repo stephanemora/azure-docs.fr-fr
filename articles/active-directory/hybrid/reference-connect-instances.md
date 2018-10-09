@@ -31,7 +31,7 @@ Azure AD Connect est couramment utilisé avec l’instance mondiale d’Azure AD
 | URL à ouvrir dans le serveur proxy |
 | --- |
 | \*.microsoftonline.de |
-| \**.windows.net |
+| \*.windows.net |
 | + Listes de révocation de certificat |
 
 Quand vous vous connectez à votre locataire Azure AD, vous devez utiliser un compte du domaine onmicrosoft.de.
