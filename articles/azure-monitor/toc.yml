@@ -131,8 +131,6 @@ items:
       href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
     - name: Alertes de journal d’activité
       href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json
-    - name: Étendre des alertes de Log Analytics à Azure
-      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
   - name: Visualiser les données
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: Intégrations des partenaires
@@ -700,8 +698,14 @@ items:
       items:
       - name: Créer des règles d'alerte
         items:
-        - name: Copier des alertes à partir du portail OMS vers le Portail Azure
-          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+        - name: Configurer de nouvelles métriques ou des alertes de journaux dans le Portail Azure
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
+        - name: Configurer des alertes classiques dans le portail Azure
+          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json
+        - name: Configurer des alertes classiques avec l’interface de ligne de commande
+          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
+        - name: Configurer des alertes classiques avec Azure PowerShell
+          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Utiliser des alertes de métrique
         items:
         - name: Créer, afficher et gérer des alertes de métrique dans Azure Monitor
@@ -904,6 +908,14 @@ items:
       href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
     - name: Context
       href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
+  - name: Alertes
+    items:
+    - name: Étendre des alertes de Log Analytics à Azure
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
+    - name: Copier des alertes à partir du portail OMS vers le Portail Azure
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+    - name: Mise hors service des alertes et surveillances classiques
+      href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure PowerShell
@@ -969,9 +981,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 7b26143e0fa2acc44636eb30afc6d3a76a05c2ec
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 50c8eac84be9df29bc15ea9b1fb177ad99cc77e8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784914"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815961"
