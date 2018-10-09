@@ -94,7 +94,7 @@ Les algorithmes de régression linéaire supposent que les tendances des donnée
 
 ![Données avec une tendance non linéaire][2]
 
-***Données avec une tendance non linéaire****: une méthode de régression linéaire entraînerait plus d’erreurs*
+***Données avec une tendance non linéaire*** *: une méthode de régression linéaire entraînerait plus d’erreurs*
 
 Malgré leurs limitations, les algorithmes linéaires sont très populaires comme première ligne d'attaque. Ils ont tendance à être des algorithmes simples et à apprentissage rapide.
 
@@ -193,7 +193,7 @@ Ces performances élevées ont toutefois un prix. L’apprentissage des réseaux
 Et pour les perfectionnistes qui souhaitent [spécifier leur propre structure de réseau](http://go.microsoft.com/fwlink/?LinkId=402867), les possibilités sont infinies.
 
 ![Limites apprises par les réseaux neuronaux][6]
-*** Les limites apprises par les réseaux neuronaux peuvent être complexes et irrégulières***
+***Les limites apprises par les réseaux neuronaux peuvent être complexes et irrégulières***
 
 Le [perceptron moyenné à deux classes](https://msdn.microsoft.com/library/azure/dn906036.aspx) est le réseau neuronal idéal pour répondre à l’explosion des durées d'apprentissage. Il utilise une structure de réseau qui fournit des limites de la classe linéaire. Il est presque primitif au vu des normes actuelles, mais il a un long historique d'utilisation fiable et est suffisamment petit pour apprendre rapidement.
 
@@ -226,7 +226,7 @@ Avoir un objectif très spécifique peut être bénéfique. La collection Azure 
 
 ![Détection des anomalies reposant sur le PCA][8]
 
-***Détection des anomalies reposant sur le PCA****: la grande majorité des données correspond à une distribution typique ; les points déviant considérablement de cette distribution sont suspects*
+***Détection des anomalies reposant sur le PCA*** *: la grande majorité des données correspond à une distribution typique ; les points déviant considérablement de cette distribution sont suspects*
 
 ![Jeu de données regroupé à l'aide de K-moyennes][9]
 

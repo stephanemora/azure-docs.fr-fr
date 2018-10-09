@@ -124,19 +124,19 @@ Voici quelques-uns des problèmes rencontrés dans la majorité des migrations i
 
     Vous pouvez vérifier vos quotas Azure Resource Manager actuels en utilisant les commandes suivantes avec la dernière version d’Azure CLI.
 
-    **Calcul***(cœurs, groupes à haute disponibilité)*
+    **Calcul** *(cœurs, groupes à haute disponibilité)*
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 
     ```
 
-    **Réseau***(réseaux virtuels, adresses IP publiques statiques, adresses IP publiques, groupes de sécurité réseau, interfaces réseau, équilibreurs de charge, tables de routage)*
+    **Réseau** *(réseaux virtuels, adresses IP publiques statiques, adresses IP publiques, groupes de sécurité réseau, interfaces réseau, équilibreurs de charge, tables de routage)*
     
     ```bash
     az network list-usages -l <azure-region> -o jsonc
     ```
 
-    **Stockage***(compte de stockage)*
+    **Stockage** *(compte de stockage)*
     
     ```bash
     az storage account show-usage
