@@ -25,7 +25,7 @@
 # Procédures
 ## Planifier et concevoir
 ### [Comprendre l’architecture Azure AD](fundamentals/active-directory-architecture.md)
-### [Mappage des revendications dans Azure Active Directory](active-directory-claims-mapping.md)
+### [Mappage des revendications dans Azure Active Directory](develop/active-directory-claims-mapping.md)
 ### [Déployer une solution d’identité hybride](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Déterminer la configuration requise
 ##### [Identité](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
@@ -200,7 +200,7 @@
 #### [Restrictions du client](manage-apps/tenant-restrictions.md)
 #### [Utilisez SCIM approvisionner les utilisateurs](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Comprendre les expériences de consentement de l’application Azure AD](application-consent-experience.md)
+### [Comprendre les expériences de consentement de l’application Azure AD](develop/application-consent-experience.md)
 
 ### Résolution des problèmes
 
@@ -323,11 +323,11 @@
 
 ### [Intégrer des identités locales à l’aide d’Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
-### [Durées de vie des jetons](active-directory-configurable-token-lifetimes.md)
+### [Durées de vie des jetons](develop/active-directory-configurable-token-lifetimes.md)
 
 ## Sécuriser vos identités
 
-### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
+### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [Déployer AD FS dans Azure](hybrid/how-to-connect-fed-azure-adfs.md)
 ### [Haute disponibilité](active-directory-adfs-in-azure-with-azure-traffic-manager.md)

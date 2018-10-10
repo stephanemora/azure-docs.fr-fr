@@ -185,6 +185,8 @@ items:
         href: sql-api-sql-query-metrics.md
       - name: procédures stockées, déclencheurs et fonctions définies par l'utilisateur
         href: programming.md
+      - name: Partitionnement des données SQL
+        href: sql-api-partition-data.md
       - name: Types de données
         items:
         - name: Datetime
@@ -281,6 +283,8 @@ items:
       items:
       - name: Importer des données graphiques
         href: bulk-executor-graph-dotnet.md
+      - name: Partitionnement des données graphiques
+        href: graph-partitioning.md
   - name: Documents API Cassandra
     items:
     - name: Introduction
@@ -418,8 +422,6 @@ items:
         href: performance-testing.md
     - name: Écritures et lectures rentables
       href: key-value-store-cost.md
-    - name: Partitionnement des données SQL
-      href: sql-api-partition-data.md
   - name: Intégrer à d’autres services Azure
     items:
     - name: Solution e-commerce de flux de modification
@@ -490,9 +492,9 @@ items:
       href: use-cases.md
     - name: Applications de réseaux sociaux
       href: social-media-apps.md
-ms.openlocfilehash: 8111949d7069066b63c12a851324d21feda8bac2
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: dac79ee7d4a8810cce0a2e77e8dcd8d06842454c
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868590"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888015"
