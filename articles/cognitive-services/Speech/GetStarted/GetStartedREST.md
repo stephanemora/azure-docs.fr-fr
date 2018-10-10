@@ -1,5 +1,6 @@
 ---
-title: Bien démarrer avec l’API Reconnaissance vocale de Microsoft à l’aide de REST | Microsoft Docs
+title: Bien démarrer avec l’API Reconnaissance vocale Bing à l’aide de REST | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Utilisez REST pour accéder à l’API Reconnaissance vocale dans Microsoft Cognitive Services afin de convertir du contenu vocal en texte.
 services: cognitive-services
 author: zhouwangzw
@@ -7,24 +8,25 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 53785cdfd75c23910802f2be20e6305817b3b097
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0f98182a73cebdd4df9f7849b2306f89c620f24b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368433"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46973947"
 ---
-# <a name="get-started-with-speech-recognition-by-using-the-rest-api"></a>Bien démarrer avec la reconnaissance vocale à l’aide de l’API REST
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Guide de démarrage rapide : Utiliser l’API REST avec la Reconnaissance vocale Bing
 
-Avec le Service Speech informatique, vous pouvez développer des applications à l’aide de l’API REST pour convertir du contenu vocal en texte.
+Le service cloud Reconnaissance vocale Bing vous permet de développer des applications à l’aide de l’API REST pour convertir du contenu vocal en texte.
 
 ## <a name="prerequisites"></a>Prérequis
 
-### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>S’abonner à l’API Speech et obtenir une clé d’abonnement d’essai
+### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>S’abonner à l’API Microsoft Speech et obtenir une clé d’abonnement d’essai
 
-L’API Microsoft Speech fait partie de Cognitive Services (précédemment Project Oxford). Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [d’abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Après avoir sélectionné l’API Microsoft Speech, sélectionnez **Obtenir la clé API** pour obtenir la clé. Cette opération retourne une clé principale et une clé secondaire. Les deux clés étant liées au même quota, vous pouvez utiliser l’une ou l’autre.
+L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project Oxford). Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [d’abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Après avoir sélectionné l’API Microsoft Speech, sélectionnez **Obtenir la clé API** pour obtenir la clé. Cette opération renvoie une clé primaire et une clé secondaire. Les deux clés étant liées au même quota, vous pouvez utiliser l’une ou l’autre.
 
 > [!IMPORTANT]
 >* Obtenez une clé d’abonnement. Pour accéder à l’API REST, vous devez avoir une [clé d’abonnement](https://azure.microsoft.com/try/cognitive-services/).
@@ -67,7 +69,7 @@ Quelques exemples d’URI de service sont répertoriés dans le tableau suivant.
 | `dictation` | fr-FR | Simple | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
-> L’URI de service n’est nécessaire que quand votre application utilise des API REST pour appeler le service de reconnaissance vocale. Si vous utilisez une des [bibliothèques clientes](GetStartedClientLibraries.md), vous n’avez généralement pas besoin de savoir quel URI est utilisé. Les bibliothèques clientes peuvent utiliser différents URI de service, applicables uniquement à une bibliothèque cliente spécifique. Pour plus d’informations, consultez la bibliothèque cliente de votre choix.
+> L’URI de service n’est nécessaire que quand votre application utilise des API REST pour appeler le service de reconnaissance vocale. Si vous utilisez une des [bibliothèques clientes](GetStartedClientLibraries.md), vous n’avez généralement pas besoin de savoir quel URI est utilisé. Les bibliothèques clientes peuvent utiliser différents URI de service, applicables uniquement à une bibliothèque cliente spécifique. Pour plus d’informations, consultez la bibliothèque de client de votre choix.
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -254,4 +256,4 @@ Pour supprimer ces limitations, utilisez les [bibliothèques clientes](GetStarte
 
 ### <a name="license"></a>Licence
 
-Tous les SDK Cognitive Services et les exemples sont fournis sous licence MIT. Pour plus d’informations, consultez [Licence](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+Tous les kits SDK Cognitive Services et les exemples sont fournis sous licence MIT. Pour plus d’informations, consultez [Licence](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).

@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 673faff51c3d06e50941a6982a9f654c28598d86
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133539"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47006480"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -60,6 +60,8 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Tables d'itinéraires définis par l'utilisateur |200 |
 | Itinéraires définis par l'utilisateur par table d'itinéraire |400 |
 | Certificats racines point à site pour chaque passerelle VPN |20 |
+| TAP de réseau virtuel |100 |
+| Configurations TAP d’interface réseau de chaque réseau virtuel TAP |100 |
 
 #### <a name="publicip-address"></a>Limites de l’adresse IP publique
 
@@ -75,17 +77,17 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
 | Équilibreurs de charge | 100 | 1 000 |
-| Règles par ressource, De base | 150 | 250 |
-| Règles par ressource, Standard | 1250 | 1 500 |
+| Règles par ressource, De base | 250 | 250 |
+| Règles par ressource, Standard | 1 500 | 1 500 |
 | Règles par configuration IP | 299 |299 |
 | Configurations d’adresses IP frontales, De base | 10 | 200 |
 | Configurations d’adresses IP frontales, Standard | 10 | 600 |
 | Pool principal, De base | 100, un seul groupe à haute disponibilité | 100, un seul groupe à haute disponibilité |
 | Pool principal, Standard | 1000, un seul réseau virtuel | 1000, un seul réseau virtuel |
-| Ressources principales par équilibreur de charge, Standard &ast; | 50 | 150 |
+| Ressources backend par équilibreur de charge, Standard* | 150 | 150 |
 | Ports à haute disponibilité, Standard | 1 par serveur frontal interne | 1 par serveur frontal interne |
 
-&ast; Jusqu’à 150 ressources, toute combinaison de machines virtuelles autonomes, groupes à haute disponibilité et groupes de machines virtuelles identiques.
+** Jusqu’à 150 ressources, toute combinaison de machines virtuelles autonomes, groupes à haute disponibilité et groupes de machines virtuelles identiques.
 
 Pour accroître les limites par défaut, [contactez le support technique](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 9c39d621bfc8df338a4556fd412ae54489982074
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fb9de98a80d348c3ba1e84ae19551c7ca080628b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092765"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966841"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -234,7 +234,7 @@ Cet exemple montre comment configurer les règles suivantes :
 
 La valeur de catégorie dans *host.json* contrôle la journalisation de toutes les catégories qui commencent par la même valeur. Par exemple, « Host » dans *host.json* contrôle la journalisation pour « Host.General », « Host.Executor », « Host.Results » et ainsi de suite.
 
-Si *host.json* inclut plusieurs catégories qui commencent par la même chaîne, les plus longues sont traitées en priorité. Par exemple, supposons que vous souhaitez que la totalité du runtime à l’exception de « Host.Aggregator » soit journalisée au niveau `Error` et que « Host.Aggregator » soit journalisé au niveau `Information` :
+Si *host.json* inclut plusieurs catégories qui commencent par la même chaîne, les plus longues sont traitées en priorité. Par exemple, supposons que vous souhaitez que la totalité du runtime à l’exception de « Host.Aggregator » soit journalisée au niveau `Error`, mais que « Host.Aggregator » soit journalisé au niveau `Information` :
 
 ```json
 {
@@ -298,7 +298,7 @@ Comme indiqué dans la section précédente, le runtime agrège les données sur
 
 ## <a name="configure-sampling"></a>Configurer l’échantillonnage
 
-Application Insights a une fonctionnalité [d’échantillonnage](../application-insights/app-insights-sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie aux heures de forte activité. Quand le nombre d’éléments de télémétrie dépasse un taux spécifié, Application Insights commence à ignorer aléatoirement certains des éléments entrants. Par défaut, le nombre maximal d’éléments par seconde est fixé à 5. Vous pouvez configurer l’échantillonnage dans *host.json*.  Voici un exemple :
+Application Insights a une fonctionnalité [d’échantillonnage](../application-insights/app-insights-sampling.md) qui peut vous éviter de produire une quantité excessive de données de télémétrie aux heures de forte activité. Quand le taux de données de télémétrie entrantes dépasse un seuil spécifié, Application Insights commence à ignorer aléatoirement certains des éléments entrants. Par défaut, le nombre maximal d’éléments par seconde est fixé à 5. Vous pouvez configurer l’échantillonnage dans *host.json*.  Voici un exemple :
 
 ```json
 {
@@ -457,11 +457,6 @@ namespace functionapp0915
                 };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
-            
-            return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, 
-                    "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
         
         // This correllates all telemetry with the current Function invocation
@@ -499,18 +494,6 @@ module.exports = function (context, req) {
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
     client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
     context.done();
 };
 ```
@@ -547,9 +530,9 @@ Même si l’onglet **Surveiller** affiche des données d’Application Insights
 
 ### <a name="real-time-monitoring"></a>Surveillance en temps réel
 
-Vous pouvez diffuser des fichiers journaux à une session de ligne de commande sur une station de travail locale, à l’aide de l’[interface de ligne de commande Azure (CLI) 2.0](/cli/azure/install-azure-cli) ou d’[Azure PowerShell](/powershell/azure/overview).  
+Vous pouvez diffuser des fichiers journaux à une session de ligne de commande sur une station de travail locale, à l’aide de [l’interface de ligne de commande Azure (CLI)](/cli/azure/install-azure-cli) ou [d’Azure PowerShell](/powershell/azure/overview).  
 
-Dans l’interface de ligne de commande Azure CLI 2.0, utilisez les commandes suivantes pour vous connecter, choisir votre abonnement et diffuser les fichiers journaux :
+Dans l’interface de ligne de commande Azure, utilisez les commandes suivantes pour vous connecter, choisir votre abonnement et diffuser les fichiers journaux :
 
 ```
 az login

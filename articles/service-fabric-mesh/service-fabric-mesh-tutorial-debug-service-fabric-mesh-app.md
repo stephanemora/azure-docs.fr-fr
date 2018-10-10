@@ -1,5 +1,5 @@
 ---
-title: Didacticiel - Déboguer une application web de maillage Azure Service Fabric | Microsoft Docs
+title: Tutoriel - Déboguer une application web Azure Service Fabric Mesh s’exécutant dans votre cluster de développement local | Microsoft Docs
 description: Dans ce didacticiel, vous allez déboguer une application de maillage Azure Service Fabric s’exécutant dans votre cluster local.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c519d24a8401823039f3d6598276890ec6498bbc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917693"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997010"
 ---
-# <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Didacticiel : Déboguer une application web de maillage Service Fabric
+# <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>Tutoriel : Déboguer une application Service Fabric Mesh s’exécutant dans votre cluster de développement local
 
-Deuxième d’une série, ce didacticiel vous montre comment déboguer une application web de maillage Azure Service Fabric dans votre cluster de développement local.
+Ce tutoriel est la deuxième partie d’une série de tutoriels. Il vous explique comment générer et déboguer une application Azure Service Fabric Mesh dans votre cluster de développement local.
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -34,9 +34,11 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 Cette série de tutoriels vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> * [Créer une application de maillage Service Fabric](service-fabric-mesh-tutorial-create-dotnetcore.md)
-> * Déboguer l’application localement
-> * [Publier l’application dans Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Créer une application Service Fabric Mesh dans Visual Studio](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> * Déboguer une application Service Fabric Mesh s’exécutant dans votre cluster de développement local
+> * [Déployer une application Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Mettre à niveau une application Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
+> * [Nettoyer les ressources Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -105,4 +107,4 @@ Cette partie du didacticiel vous a permis de répondre aux questions suivantes :
 
 Passez au tutoriel suivant :
 > [!div class="nextstepaction"]
-> [Publier une application web de maillage Service Fabric](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> [Déployer une application Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)

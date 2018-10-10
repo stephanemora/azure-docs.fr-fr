@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 05/24/2018
 ms.author: glenga
-ms.openlocfilehash: e3f2cc24a3ff765a33d27bbe5a43ca9d5a229e1b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092953"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46969425"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -160,7 +160,7 @@ Dans certains environnements de développement, vous devez *inscrire* explicitem
 |Bibliothèque de classes C# avec Visual Studio 2017|[Utiliser les outils NuGet](#c-class-library-with-visual-studio-2017)|[Utiliser les outils NuGet](#c-class-library-with-visual-studio-2017)|
 |Bibliothèque de classes C# avec Visual Studio Code|N/A|[Utiliser CLI .NET Core](#c-class-library-with-visual-studio-code)|
 
-Les types de liaison suivants sont des exceptions qui ne nécessitent pas d’inscription explicite, car ils sont inscrits automatiquement dans toutes les versions et tous les environnements : HTTP, minuteur et Stockage Azure (blobs, files d’attente et tables). 
+Les types de liaison suivants sont des exceptions qui ne nécessitent pas d’inscription explicite, car ils sont inscrits automatiquement dans toutes les versions et tous les environnements : HTTP et minuteur.
 
 ### <a name="azure-portal-development"></a>Développement sur le portail Azure
 

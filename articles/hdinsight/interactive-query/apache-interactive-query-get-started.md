@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: e83d51a18c7ab5861699114e4622bda167dab41d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a90ec3102f3ce821193d58b6d14ca119f6d7e916
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042095"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46959680"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Utiliser Interactive Query avec HDInsight
 Le cluster Interactive Query (également appelé Hive LLAP ou [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) est un [type de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. Interactive Query prend en charge la mise en mémoire cache, ce qui accélère les requêtes Hive et les rend beaucoup plus interactives.
@@ -24,7 +24,7 @@ Le cluster Interactive Query (également appelé Hive LLAP ou [Low Latency Analy
 Les clusters Interactive Query sont différents des clusters Hadoop. Ils contiennent uniquement le service Hive. 
 
 > [!NOTE]
-> Vous pouvez accéder au service Hive dans le cluster Interactive Query uniquement par le biais de l’affichage Ambari Hive, de Beeline et du pilote ODBC Microsoft Hive. Vous ne pouvez pas y accéder à travers la console Hive, Templeton, l’outil en ligne de commande Azure (Azure CLI) ni Azure PowerShell. 
+> Vous pouvez accéder au service Hive dans le cluster Interactive Query uniquement par le biais de l’affichage Ambari Hive, de Beeline et du pilote ODBC Microsoft Hive. Vous ne pouvez pas y accéder par le biais de la console Hive, Templeton, l’interface Azure Classic CLI, ni Azure PowerShell. 
 > 
 > 
 

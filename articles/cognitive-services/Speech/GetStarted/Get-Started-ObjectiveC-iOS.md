@@ -1,22 +1,24 @@
 ---
-title: Bien démarrer avec l’API Reconnaissance vocale de Microsoft en Objective-C sur iOS | Microsoft Docs
-description: Utilisez l’API Reconnaissance vocale de Microsoft pour développer des applications iOS qui convertissent du contenu vocal en texte.
+title: Bien démarrer avec l’API Reconnaissance vocale Bing en Objective-C sur iOS | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Utilisez l’API Reconnaissance vocale Bing pour développer des applications iOS qui convertissent du contenu vocal en texte.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bbb8d3975cdab537135b97ca9bbf6e845aa3fa0e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: a12c9b5325898afe508398f67939c39e591eb1cc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368413"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954498"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-objective-c-on-ios"></a>Bien démarrer avec l’API Reconnaissance vocale en Objective-C sur iOS
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Guide de démarrage rapide : Utiliser l’API Reconnaissance vocale en Objective-C sur iOS
 
 Avec l’API Reconnaissance vocale, vous pouvez développer des applications iOS qui utilisent le service informatique Speech pour convertir du contenu vocal en texte. L’API prend en charge le streaming en temps réel, afin que votre application puisse de façon simultanée et asynchrone recevoir des résultats de reconnaissance partiels et envoyer du contenu audio au service.
 
@@ -24,7 +26,7 @@ Cet article utilise un exemple d’application pour illustrer les principes fond
 
 ## <a name="prerequisites"></a>Prérequis
 
-### <a name="platform-requirements"></a>Exigences relatives à la plateforme
+### <a name="platform-requirements"></a>Plateforme requise
 
 Vérifiez que l’IDE XCode Mac est installé.
 
@@ -34,12 +36,12 @@ La bibliothèque cliente et les exemples Speech pour iOS sont disponibles dans l
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>S’abonner à l’API Reconnaissance vocale et obtenir une clé d’abonnement d’essai
 
-L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project Oxford). Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [d’abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Après avoir sélectionné l’API Microsoft Speech, sélectionnez **Obtenir la clé API** pour obtenir la clé. Cette opération retourne une clé principale et une clé secondaire. Les deux clés étant liées au même quota, vous pouvez utiliser l’une ou l’autre.
+L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project Oxford). Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [d’abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Après avoir sélectionné l’API Microsoft Speech, sélectionnez **Obtenir la clé API** pour obtenir la clé. Cette opération renvoie une clé primaire et une clé secondaire. Les deux clés étant liées au même quota, vous pouvez utiliser l’une ou l’autre.
 
 Si vous souhaitez utiliser la *reconnaissance de l’intention*, vous devez également vous inscrire au [service LUIS (Language Understanding Intelligent Service)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 > [!IMPORTANT]
-> * Obtenez une clé d’abonnement. Pour pouvoir utiliser des bibliothèques clientes Speech, vous devez disposer d’une [clé d’abonnement](https://azure.microsoft.com/try/cognitive-services/).
+> * Obtenez une clé d’abonnement. Pour pouvoir utiliser des bibliothèques de client Speech, vous devez disposer d’une [clé d’abonnement](https://azure.microsoft.com/try/cognitive-services/).
 >
 > * Utilisez votre clé d’abonnement. Avec l’exemple d’application iOS fourni, vous devez mettre à jour le fichier Samples/SpeechRecognitionServerExample/settings.plist avec votre clé d’abonnement. Pour plus d’informations, consultez [Générer et exécuter des exemples](#build-and-run-samples).
 
@@ -122,7 +124,7 @@ Quand vous utilisez `SpeechRecognitionServiceFactory` pour créer le client, vou
 
 Vous devez également spécifier `SpeechRecognitionMode` quand vous créez le client avec `SpeechRecognitionServiceFactory` :
 
-* `SpeechRecognitionMode_ShortPhrase` : énoncé d’une longueur jusqu’à 15 secondes. À mesure que les données sont envoyées au service, le client reçoit plusieurs résultats partiels et un résultat final avec les n-meilleurs choix.
+* `SpeechRecognitionMode_ShortPhrase` : énoncé d’une longueur de 15 secondes maximum. À mesure que les données sont envoyées au service, le client reçoit plusieurs résultats partiels et un résultat final avec les n-meilleurs choix.
 * `SpeechRecognitionMode_LongDictation` : énoncé d’une longueur jusqu’à deux minutes. À mesure que les données sont envoyées au service, le client reçoit plusieurs résultats partiels et plusieurs résultats finaux, selon les emplacements où le serveur identifie des pauses dans la phrase.
 
 ### <a name="attach-event-handlers"></a>Attacher des gestionnaires d’événements
@@ -131,15 +133,15 @@ Vous pouvez attacher plusieurs gestionnaires d’événements au client que vous
 
 * **Événements de résultats partiels** : cet événement est appelé chaque fois que le service Speech prédit ce que vous pouvez dire, avant même que vous n’ayez terminé de parler (si vous utilisez `MicrophoneRecognitionClient`) ou d’envoyer les données (si vous utilisez `DataRecognitionClient`).
 * **Événements d’erreur** : appelé quand le service détecte une erreur.
-* **Événements d’intention** : appelé sur les clients « WithIntent » (uniquement en mode ShortPhrase) une fois le résultat final de la reconnaissance converti en intention JSON structurée.
+* **Événements d’intention** : cet événement est appelé sur les clients « WithIntent » (uniquement en mode ShortPhrase) une fois le résultat final de la reconnaissance converti en intention JSON structurée.
 * **Événements de résultat** :
-  * En mode `SpeechRecognitionMode_ShortPhrase`, cet événement est appelé et retourne les n-meilleurs choix une fois que vous avez terminé de parler.
+  * En mode `SpeechRecognitionMode_ShortPhrase`, cet événement est appelé et renvoie les n meilleurs résultats une fois que vous avez terminé de parler.
   * En mode `SpeechRecognitionMode_LongDictation`, le gestionnaire d’événements est appelé plusieurs fois, selon les emplacements où le service identifie des pauses dans la phrase.
-  * **Pour chacun des n-meilleurs choix**, une valeur de confiance et plusieurs formes différentes du texte reconnu sont retournées. Pour plus d’informations, consultez [Format de sortie](../Concepts.md#output-format).
+  * **Pour chacun des n meilleurs choix**, une valeur de confiance et plusieurs formes différentes du texte reconnu sont renvoyées. Pour plus d’informations, consultez [Format de sortie](../Concepts.md#output-format).
 
 ## <a name="related-topics"></a>Rubriques connexes
 
 * [Informations de référence sur la bibliothèque cliente pour iOS](https://cdn.rawgit.com/Microsoft/Cognitive-Speech-STT-iOS/master/com.Microsoft.SpeechSDK-1_0-for-iOS.docset/Contents/Resources/Documents/index.html)
 * [Bien démarrer avec l’intention et/ou la reconnaissance vocale Microsoft en Java sur Android](GetStartedJavaAndroid.md)
 * [Bien démarrer avec l’API Microsoft Speech en JavaScript](GetStartedJSWebsockets.md)
-* [Bien démarrer avec l’API Microsoft Speech par le biais de REST](GetStartedREST.md)
+* [Bien démarrer avec l’API Microsoft Speech à l’aide de REST](GetStartedREST.md)

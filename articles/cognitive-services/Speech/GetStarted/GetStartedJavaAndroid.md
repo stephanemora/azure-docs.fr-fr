@@ -1,5 +1,6 @@
 ---
 title: Bien démarrer avec l’API Reconnaissance vocale Microsoft en Java sur Android | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Utilisez l’API Microsoft Speech pour développer des applications Android qui convertissent un enregistrement vocal en texte.
 services: cognitive-services
 author: zhouwangzw
@@ -7,24 +8,25 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a10f7be1c36fb431016a9867f606e26be858069e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3b1e82d65a3eafb9e41277a18569270ef02cd8e5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368420"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989037"
 ---
-# <a name="get-started-with-speech-recognition-in-java-on-android"></a>Bien démarrer avec l’API de reconnaissance vocale en Java sur Android
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Guide de démarrage rapide : Utiliser l’API Reconnaissance vocale en Java sur Android
 
-Avec l’API Reconnaissance vocale, vous pouvez développer des applications Android qui utilisent le service informatique Speech pour convertir un contenu audio en texte. L’API prend en charge la diffusion en continu en temps réel, afin que votre application puisse de façon simultanée et asynchrone recevoir des résultats de reconnaissance partiels et envoyer du contenu audio au service.
+Avec l’API Reconnaissance vocale Bing, vous pouvez développer des applications Android qui utilisent le service cloud Reconnaissance vocale Bing pour convertir du contenu audio en texte. L’API prend en charge la diffusion en continu en temps réel, afin que votre application puisse de façon simultanée et asynchrone recevoir des résultats de reconnaissance partiels et envoyer du contenu audio au service.
 
 Cet article utilise un exemple d’application pour expliquer comment utiliser la bibliothèque de client Speech pour Android, afin de développer des applications de reconnaissance vocale en Java pour des appareils Android.
 
 ## <a name="prerequisites"></a>Prérequis
 
-### <a name="platform-requirements"></a>Exigences relatives à la plateforme
+### <a name="platform-requirements"></a>Plateforme requise
 
 L’exemple est développé par [Android Studio](http://developer.android.com/sdk/index.html) pour Windows en Java.
 

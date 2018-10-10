@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/06/2018
-ms.openlocfilehash: cd1219fda7821fdc99e334de58826317113415d4
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 09/08/2018
+ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053639"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960241"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) gère votre environnement Kubernetes hébergé, ce qui vous permet de déployer et de gérer de manière simple et rapide des applications en conteneur sans avoir à maîtriser l’orchestration de conteneurs. Il élimine également la charge des opérations en cours et la maintenance par configuration, la mise à niveau et la mise à l’échelle des ressources à la demande, sans déconnecter vos applications.
@@ -32,7 +32,7 @@ Dans ce tutoriel, découvrez comment effectuer les tâches suivantes pour créer
 
 - **Configuration de Terraform** : suivez les instructions de l’article [Terraform et configurer l’accès à Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Principal du service Azure** : suivez les instructions de la section **Créer le principal du service** de l’article [Créer un principal du service Azure avec Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Notez les valeurs de l’appId, du nom d’affichage, du mot de passe et du locataire.
+- **Principal de service Azure** : suivez les instructions de la section **Créer le principal de service** de l’article [Créer un principal de service Azure avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal). Notez les valeurs de l’appId, du nom d’affichage, du mot de passe et du locataire.
 
 ## <a name="create-the-directory-structure"></a>Créer la structure de répertoire
 La première étape consiste à créer le répertoire qui contient vos fichiers de configuration Terraform pour l’exercice.
@@ -295,7 +295,14 @@ Dans cette section, vous voyez comment utiliser la commande `terraform init` pou
 
     ![Exemple de résultats « terraform init »](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
-1. Exécutez la commande `terraform plan` pour créer le plan Terraform qui définit les éléments d’infrastructure. La commande demande deux valeurs : **var.client_id** et **var.client_secret**. Pour la variable **var.client_id**, entrez la valeur **appId** associée à votre principal du service. Pour la variable **var.client_secret**, entrez la valeur **password** associée à votre principal du service.
+1. Exportez les informations d’identification du principal de service. Remplacez respectivement les espaces réservés &lt;votre-id-client> et &lt;votre-secret-client> par les valeurs d’**appId** et de **mot de passe** associées à votre principal de service.
+
+    ```bash
+    export TF_VAR_client_id=<your-client-id>
+    export TF_VAR_client_secret=<your-client-secret>
+    ```
+
+1. Exécutez la commande `terraform plan` pour créer le plan Terraform qui définit les éléments d’infrastructure. 
 
     ```bash
     terraform plan -out out.plan

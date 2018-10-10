@@ -1,23 +1,23 @@
 ---
-title: Compréhension des rapports de gestion des coûts dans Azure Cost Management | Microsoft Docs
+title: Compréhension des rapports de gestion des coûts Cloudyn dans Azure | Microsoft Docs
 description: Cet article vous permet de comprendre la structure et les fonctions de base des rapports de gestion des coûts Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/18/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e4d4c2115ddae592e9ca7bdf119b36d0ccee2da4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064406"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998710"
 ---
-# <a name="understanding-cost-management-reports"></a>Compréhension des rapports de gestion des coûts
+# <a name="understanding-cloudyn-cost-management-reports"></a>Compréhension des rapports de gestion des coûts Cloudyn
 
 Cet article vous permet de comprendre la structure et les fonctions de base des rapports de gestion des coûts Cloudyn. La plupart des rapports Cloudyn sont intuitifs et ont une apparence uniforme. Après lecture de cet article, vous êtes prêt à utiliser tous les rapports de gestion des coûts. La plupart des fonctionnalités standard sont disponibles dans les différents rapports, vous permettant de naviguer facilement dans les rapports. Les rapports sont personnalisables et vous pouvez sélectionner plusieurs options pour calculer et afficher des résultats.
 
@@ -203,5 +203,5 @@ Lorsque vous affichez un rapport, cliquez sur **Actions**, puis sélectionnez **
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez plus d’informations sur les rapports qui sont inclus dans Cloudyn dans [Utiliser les rapports Cost Management](use-reports.md).
+- Découvrez plus d’informations sur les rapports qui sont inclus dans Cloudyn dans [Utiliser des rapports Cloudyn](use-reports.md).
 - Découvrez plus d’informations sur l’utilisation des rapports pour créer des [tableaux de bord](dashboards.md).

@@ -9,23 +9,22 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 0680551d3a87c942574a4eac70fa380cc1e9b5d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b5079ddb63f468f924577f61adda6a3056ec8c6c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163246"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46998523"
 ---
 # <a name="using-the-kubernetes-web-ui-with-azure-container-service"></a>Utilisation de l’interface utilisateur Web Kubernetes avec Azure Container Service
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 
-Elle suppose également que vous avez installé les outils `kubectl` et Azure CLI 2.0.
+Elle suppose également que vous avez installé l’interface de ligne de commande Azure et l’outil `kubectl`.
 
 Vous pouvez tester si l’outil `az` est installé en exécutant :
 
@@ -47,7 +46,7 @@ Si `kubectl` n’est pas installé, vous pouvez exécuter :
 $ az acs kubernetes install-cli
 ```
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 ### <a name="connect-to-the-web-ui"></a>Connexion à l’interface web
 Vous pouvez lancer l’interface web Kubernetes en exécutant :

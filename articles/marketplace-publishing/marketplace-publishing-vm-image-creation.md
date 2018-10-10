@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 893b0ee70f577d9240d577e76062eea36b704058
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246575"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989870"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide à la création d’une image de machine virtuelle pour Azure Marketplace
 Cet article, **étape 2**, vous guide dans la préparation des disques durs virtuels (VHD) que vous allez déployer dans Azure Marketplace. Vos disques durs virtuels constituent le fondement de votre référence SKU. Le processus varie selon que vous fournissez une référence SKU Linux ou Windows. Cet article aborde ces deux scénarios. Ce processus peut être exécuté parallèlement à la procédure de [création de compte et d’enregistrement][link-acct-creation].
@@ -189,9 +189,9 @@ Pour en savoir plus sur les images de machine virtuelle, consultez les articles 
 * [VM Image PowerShell How To](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 * [À propos d’images de machines virtuelles dans Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### <a name="set-up-the-necessary-tools-powershell-and-azure-cli"></a>Configurer les outils nécessaires, PowerShell et l’interface de ligne de commande Azure
+### <a name="set-up-the-necessary-tools-powershell-and-azure-classic-cli"></a>Configurer les outils nécessaires, PowerShell et Azure Classic CLI
 * [Guide pratique pour configurer PowerShell](/powershell/azure/overview)
-* [Guide pratique pour configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md)
+* [Guide pratique pour configurer Azure Classic CLI](../cli-install-nodejs.md)
 
 ### <a name="41-create-a-user-vm-image"></a>4.1 Créer une image de machine virtuelle d’utilisateur
 #### <a name="capture-vm"></a>Capturer la machine virtuelle
@@ -427,11 +427,13 @@ Voici les étapes pour générer des URL SAS à l’aide de Microsoft Azure Stor
 
 11. Répétez ces étapes pour chaque disque dur virtuel de la référence SKU.
 
-**Interface de ligne de commande Azure (méthode recommandée pour l’intégration continue/non Windows)**
+**Azure Classic CLI (méthode recommandée pour l’intégration continue/non Windows)**
 
-Voici les étapes pour générer des URL SAS à l’aide de l’interface de ligne de commande Azure
+Voici les étapes pour générer l’URL SAS avec Azure Classic CLI
 
-1.  Téléchargez l’interface de ligne de commande Microsoft Azure [ici](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Vous y trouverez également les différents liens pour **[Windows](http://aka.ms/webpi-azure-cli)** et  **[Mac OS](http://aka.ms/mac-azure-cli)**.
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
+
+1.  Téléchargez Azure Classic CLI [ici](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Vous y trouverez également les différents liens pour **[Windows](http://aka.ms/webpi-azure-cli)** et  **[Mac OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Après le téléchargement, veuillez effectuer l’installation
 
@@ -447,9 +449,9 @@ Voici les étapes pour générer des URL SAS à l’aide de l’interface de lig
 
     b. **`<Storage Account Key>`** : indiquez la clé de votre compte de stockage
 
-    c. **`<Permission Start Date>`** : afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 26 octobre 2016, la valeur doit être 25/10/2016. Si vous utilisez Azure CLI 2.0 (commande az), indiquez la date et l’heure dans les champs Date de début et Date de fin, par exemple : 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`** : afin de préserver l’heure UTC, sélectionnez le jour précédant la date actuelle. Par exemple, si la date actuelle est le 26 octobre 2016, la valeur doit être 25/10/2016. Si vous utilisez Azure CLI 2.0 ou une version ultérieure, entrez la date et l’heure dans les champs Date de début et Date de fin (par exemple, 10-25-2016T00:00:00Z).
 
-    d. **`<Permission End Date>`** : sélectionnez une date au moins 3 semaines après la **Date de début**. La valeur doit être **02/11/2016**. Si vous utilisez Azure CLI 2.0 (commande az), indiquez la date et l’heure dans les champs Date de début et Date de fin, par exemple : 11-02-2016T00:00:00Z.
+    d. **`<Permission End Date>`** : sélectionnez une date au moins 3 semaines après la **Date de début**. La valeur doit être **02/11/2016**. Si vous utilisez Azure CLI 2.0 ou une version ultérieure, entrez la date et l’heure dans les champs Date de début et Date de fin (par exemple, 11-02-2016T00:00:00Z).
 
     Voici l’exemple de code après la mise à jour des bons paramètres
 
@@ -520,7 +522,7 @@ Une fois que vous avez créé votre offre et votre référence SKU, vous devez r
 |Échec lors de la copie d’images : « sp=rl » n’est pas présent dans l’URL SAS|Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAS fournie|Mettez à jour l’URL SAS avec les autorisations définies sur « Lecture » et « Liste »|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Échec lors de la copie d’images : l’URL SAS contient des espaces blancs dans le nom du disque dur virtuel|Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAS fournie.|Mettez à jour l’URL SAS sans espaces blancs|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Échec lors de la copie d’images : erreur d’autorisation d’URL SAS|Échec : copie d’images. Impossible de télécharger l’objet blob en raison d’une erreur d’autorisation|Générez à nouveau l’URL SAS|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Échec lors de la copie d’images : les paramètres « st » et « se » de l’URL de la signature d’accès partagé ne possèdent pas de spécification complète de date-heure|Échec : copie d’images. Impossible de télécharger l’objet blob en raison d’une URL de signature d’accès partagé incorrecte |Les paramètres Date de début et Date de fin (« st », « se ») de l’URL de la signature d’accès partagé doivent impérativement comporter une spécification complète de date-heure, par exemple 11-02-2017T00:00:00Z, et par seulement la date ou les versions raccourcies de l’heure. Il est possible de rencontrer ce scénario dans Azure CLI 2.0 (commande az). Veillez à indiquer la spécification complète de date-heure et à régénérer l’URL de la signature d’accès partagé.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Échec lors de la copie d’images : les paramètres « st » et « se » de l’URL de la signature d’accès partagé ne possèdent pas de spécification complète de date-heure|Échec : copie d’images. Impossible de télécharger l’objet blob en raison d’une URL de signature d’accès partagé incorrecte |Les paramètres Date de début et Date de fin (« st », « se ») de l’URL de la signature d’accès partagé doivent impérativement comporter une spécification complète de date-heure, par exemple 11-02-2017T00:00:00Z, et par seulement la date ou les versions raccourcies de l’heure. Ce scénario est possible dans Azure CLI 2.0 ou version ultérieure. Veillez à indiquer la spécification complète de date-heure et à régénérer l’URL de la signature d’accès partagé.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Étape suivante
 Une fois que vous avez terminé avec les détails de la référence SKU, vous pouvez consulter le [Guide de contenu marketing Azure Marketplace][link-pushstaging]. Dans cette étape du processus de publication, vous devez fournir le contenu marketing, la tarification et d’autres informations nécessaires avant l’ **étape 3 : test de votre machine virtuelle en mode intermédiaire**, où vous testez divers scénarios de cas d’utilisation avant de déployer l’offre sur Azure Marketplace pour une visibilité publique et l’achat.  

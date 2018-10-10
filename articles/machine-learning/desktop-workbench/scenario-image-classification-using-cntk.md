@@ -12,14 +12,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 83d6f529330a05e6a7c46ad45b19f0338f93bfc7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "35636852"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995089"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Classification d’images à l’aide d’Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Les approches relatives à la classification d’images permettent de résoudre un grand nombre de problèmes liés à la vision par ordinateur.
 Elles incluent la création de modèles qui répondent à des questions telles que : *est-ce qu’un OBJET est présent dans l’image ?* où OBJET est par exemple un *chien*, une *voiture* ou un *bateau*. Il peut également s’agir de questions plus complexes, par exemple : *Quel est le degré de gravité de la maladie oculaire mise en évidence par le scanner de la rétine de ce patient ?*.
@@ -51,7 +56,7 @@ Bien qu’une expérience antérieure de l’apprentissage automatique (« mach
 Cet exemple nécessite les prérequis suivants :
 
 1. Un [compte Azure](https://azure.microsoft.com/free/) (des comptes d’essai gratuit sont disponibles).
-2. [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installé selon les instructions du [guide d’installation et de démarrage rapide](../service/quickstart-installation.md) pour installer le programme et créer un espace de travail.  
+2. [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) installé selon les instructions du [guide d’installation et de démarrage rapide](quickstart-installation.md) pour installer le programme et créer un espace de travail.  
 3. Une machine Windows. Le système d’exploitation Windows est nécessaire, car Workbench prend en charge uniquement Windows et macOS, alors que Microsoft Cognitive Toolkit (que nous utilisons en tant que bibliothèque d’apprentissage profond) prend en charge uniquement Windows et Linux.
 4. Vous n’avez pas besoin d’un GPU dédié pour former la machine à vecteurs de support dans la partie 1, mais vous en avez besoin pour affiner le réseau de neurones profond décrit dans la partie 2. Si vous n’avez pas un GPU puissant, si vous souhaitez former avec plusieurs GPU ou si vous n’avez pas de machine Windows, utilisez la machine virtuelle DLVM (Deep Learning Virtual Machine), qui est dotée du système d’exploitation Windows. Vous trouverez [ici](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) un guide de déploiement en 1 clic. Une fois le déploiement effectué, connectez-vous à la machine virtuelle via une connexion Bureau à distance, installez Workbench, puis exécutez le code localement à partir de la machine virtuelle.
 5. Diverses bibliothèques Python telles que OpenCV doivent être installées. Cliquez sur *Ouvrir l’invite de commandes* à partir du menu *Fichier* dans Workbench et exécutez les commandes suivantes pour installer ces dépendances :  
@@ -95,7 +100,7 @@ L’exécution de ces étapes permet de créer la structure de projet illustrée
 
 ## <a name="data-description"></a>Description des données
 
-Ce didacticiel utilise comme exemple un jeu de données de motifs de vêtements pour le haut du corps comprenant jusqu’à 428 images. Chaque image est annotée selon sa correspondance avec l’un des trois motifs distincts (pois, rayures, léopard). Nous avons réduit le nombre d’images pour que ce didacticiel puisse être exécuté rapidement. Toutefois, le code a été testé rigoureusement et fonctionne avec des dizaines de milliers d’images ou plus. Toutes les images ont été récupérées à l’aide de l’outil Recherche d’images Bing et annotées à la main, comme expliqué dans la [Partie 3](#using-a-custom-dataset). Les URL des images et leurs attributs respectifs sont listés dans le fichier */resources/fashionTextureUrls.tsv*.
+Ce didacticiel utilise comme exemple un jeu de données de motifs de vêtements pour le haut du corps comprenant jusqu’à 428 images. Chaque image est annotée selon sa correspondance avec l’un des trois motifs distincts (pois, rayures, léopard). Nous avons réduit le nombre d’images pour que ce didacticiel puisse être exécuté rapidement. Toutefois, le code a été testé rigoureusement et fonctionne avec des dizaines de milliers d’images ou plus. Toutes les images ont été annotées à la main, comme expliqué dans la [Partie 3](#using-a-custom-dataset). Les URL des images et leurs attributs respectifs sont listés dans le fichier */resources/fashionTextureUrls.tsv*.
 
 Le script `0_downloadData.py` télécharge toutes les images dans le répertoire *DATA_DIR/images/fashionTexture/*. Sur les 428 URL, certaines sont probablement rompues. Ce n’est pas un problème. Cela signifie simplement que nous avons un peu moins d’images pour l’apprentissage et les tests. Tous les scripts fournis dans cet exemple doivent être exécutés localement et non, par exemple, dans un environnement Docker distant.
 
@@ -263,11 +268,11 @@ Certaines des pistes d’amélioration les plus prometteuses sont :
 
 ## <a name="part-3---custom-dataset"></a>Partie 3 - Jeu de données personnalisé
 
-Dans les parties 1 et 2, nous avons formé et évalué un modèle de classification d’images à partir d’images fournies représentant des motifs de vêtements pour le haut du corps. Nous montrons maintenant comment utiliser à la place un jeu de données personnalisé fourni par l’utilisateur. Ou, le cas échéant, comment générer et annoter un tel jeu de données à l’aide de l’outil Recherche d’images Bing.
+Dans les parties 1 et 2, nous avons formé et évalué un modèle de classification d’images à partir d’images fournies représentant des motifs de vêtements pour le haut du corps. Nous montrons maintenant comment utiliser à la place un jeu de données personnalisé fourni par l’utilisateur. 
 
 ### <a name="using-a-custom-dataset"></a>Utilisation d’un jeu de données personnalisé
 
-Commençons par examiner la structure des dossiers de données pour les motifs des vêtements. Notez que toutes les images des différents attributs se trouvent dans les sous-dossiers respectifs *dotted*, *leopard et *striped* (pour « à pois », « léopard » et « à rayures ») sur *DATA_DIR/images/fashionTexture/*. Notez également que le nom du dossier image est présent également dans le fichier `PARAMETERS.py` :
+Commençons par examiner la structure des dossiers de données pour les motifs des vêtements. Notez que toutes les images des différents attributs se trouvent dans les sous-dossiers respectifs *dotted*, *leopard* et *striped* (pour « à pois », « léopard » et « à rayures ») sur *DATA_DIR/images/fashionTexture/*. Notez également que le nom du dossier image est présent également dans le fichier `PARAMETERS.py` :
 ```python
 datasetName = "fashionTexture"
 ```
@@ -280,14 +285,23 @@ Il est important que chaque image puisse être affectée à un seul attribut. Pa
 
 ### <a name="image-scraping-and-annotation"></a>Récupération et annotation d’images
 
-La collecte d’un nombre suffisamment important d’images annotées pour l’apprentissage et les tests peut être une tâche difficile. Il est possible de surmonter ce problème en récupérant les images à partir d’Internet. Par exemple, consultez ci-dessous les résultats de la Recherche d’images Bing pour la requête *t-shirt rayé*. Comme prévu, la plupart des images sont en effet des t-shirts rayés. Les quelques images incorrectes ou ambiguës (par exemple dans la colonne 1, ligne 1, ou dans la colonne 3, ligne 2) peuvent être identifiées et supprimées facilement :
+La collecte d’un nombre suffisamment important d’images annotées pour l’apprentissage et les tests peut être une tâche difficile. Il est possible de surmonter ce problème en récupérant les images à partir d’Internet.
+
+> [!IMPORTANT] 
+> Pour toutes les images que vous utilisez, assurez-vous de ne pas enfreindre les licences ni le copyright. 
+
+<!--
+For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
+-->
 
 Pour générer un jeu de données volumineux et varié, vous devez utiliser plusieurs requêtes. Par exemple, vous pouvez synthétiser 7\*3 = 21 requêtes automatiquement à l’aide de toutes les combinaisons d’articles vestimentaires {blouse, sweat à capuche, pull-over, chandail, chemise, t-shirt, gilet} et des attributs {rayures, pois, léopard}. Le téléchargement des 50 premières images par requête produit alors un maximum de 21*50 = 1 050 images.
 
-Au lieu de télécharger manuellement les images à partir de la Recherche d’images Bing, il est beaucoup plus simple d’utiliser à la place l’[API Recherche d’images Bing de Cognitive Services](https://www.microsoft.com/cognitive-services/bing-image-search-api), qui retourne un ensemble d’URL d’images en fonction d’une chaîne de requête.
+<!--
+Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) which returns a set of image URLs given a query string.
+-->
 
 Certaines des images téléchargées sont des doublons parfaits ou presque parfaits (par exemple, ils se distinguent uniquement par la résolution de l’image ou les artefacts jpg). Vous devez supprimer ces doublons pour éviter de répartir les mêmes images entre le jeu d’apprentissage et le jeu de test. Vous pouvez supprimer les images dupliquées à l’aide d’une approche basée sur le code de hachage. Il s’agit d’une opération en deux étapes : (i) dans un premier temps, la chaîne du code de hachage est calculée pour toutes les images ; (ii) au cours d’un second passage sur les images, seules sont conservées celles dont la chaîne du code de hachage n’a pas encore été vue. Toutes les autres images sont abandonnées. Nous avons trouvé l’approche `dhash` dans la bibliothèque Python `imagehash`. Nous avons décrit dans ce [blog](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) la méthode à suivre pour l’utiliser correctement, avec la valeur 16 affectée au paramètre `hash_size`. Cela n’est pas grave si vous supprimez à tort certaines images non dupliquées, du moment que la majorité des doublons réels sont supprimés.
 

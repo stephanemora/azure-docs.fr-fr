@@ -9,28 +9,28 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: 1988593fa7cb0d84baffc4264147d350962bb6bc
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d036922d68116689d1c54c2c3e89be5accedb533
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093065"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983481"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight
 
-HDInsight déconseille les outils Azure Service Manager (ASM) pour HDInsight. Si vous avez utilisé Azure PowerShell, l’interface de ligne de commande Azure ou le SDK .NET HDInsight pour les clusters HDInsight, nous vous invitons désormais à utiliser les versions Azure Resource Manager de PowerShell, de l’interface de ligne de commande et du SDK .NET. Cet article explique comment effectuer la migration vers la nouvelle approche Resource Manager. Cet article souligne également les éventuelles différences entre les approches ASM et Resource Manager pour HDInsight.
+HDInsight déconseille les outils Azure Service Manager (ASM) pour HDInsight. Si vous avez utilisé Azure PowerShell, Azure Classic CLI ou le SDK .NET HDInsight pour les clusters HDInsight, nous vous invitons désormais à utiliser les versions Azure Resource Manager de PowerShell, de l’interface de ligne de commande et du SDK .NET. Cet article explique comment effectuer la migration vers la nouvelle approche Resource Manager. Cet article souligne également les éventuelles différences entre les approches ASM et Resource Manager pour HDInsight.
 
 > [!IMPORTANT]
 > La prise en charge de PowerShell, de l’interface de ligne de commande et du SDK .NET ASM sera interrompue le **1er janvier 2017**.
 > 
 > 
 
-## <a name="migrating-azure-cli-to-azure-resource-manager"></a>Utilisation de l’interface de ligne de commande Azure vers Azure Resource Manager
+## <a name="migrating-azure-classic-cli-to-azure-resource-manager"></a>Migration de l’interface Azure Classic CLI vers Azure Resource Manager
 
 > [!IMPORTANT]
-> Azure CLI 2.0 ne prend pas en charge les clusters HDInsight. Vous pouvez continuer d’utiliser Azure CLI 1.0 avec HDInsight, mais notez que cette version est dépréciée.
+> Azure CLI ne prend pas en charge les clusters HDInsight. Vous pouvez toujours utiliser l’interface Azure Classic CLI avec HDInsight, mais elle est dépréciée.
 
-Voici les commandes de base pour utiliser HDInsight via Azure CLI 1.0 :
+Voici les commandes de base pour utiliser HDInsight par le biais d’Azure Classic CLI :
 
 * `azure hdinsight cluster create` - crée un nouveau cluster HDInsight
 * `azure hdinsight cluster delete` - supprime un cluster HDInsight existant

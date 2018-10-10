@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141692"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46952475"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
 
 IoT Hub fournit un puissant langage de type SQL pour récupérer des informations concernant les [jumeaux d’appareil][lnk-twins], les [travaux][lnk-jobs] et le [routage des messages][lnk-devguide-messaging-routes]. Cet article présente les éléments suivants :
 
 * Une introduction aux principales fonctionnalités du langage de requête d’IoT Hub
-* Une description détaillée du langage
+* Une description détaillée du langage Pour plus d’informations sur le langage de requête pour le routage des messages, consultez [Requêtes dans le routage des messages](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -165,7 +165,7 @@ L’interrogation de jumeaux de module est similaire à l’interrogation de jum
 SELECT * FROM devices.modules
 ```
 
-Nous n’autorisons pas de jointure entre les collections devices et devices.modules. Si vous souhaitez interroger les jumeaux de module sur les appareils, faites-le à partir des balises. Cette requête retourne tous les jumeaux de module sur tous les appareils ayant pour état « scanning » (analyse) :
+Nous n’autorisons pas de jointure entre les collections devices et devices.modules. Si vous voulez interroger les jumeaux de module sur les appareils, vous le faites sur la base des étiquettes. Cette requête retourne tous les jumeaux de module sur tous les appareils ayant pour état « scanning » (analyse) :
 
 ```sql
 Select * from devices.modules where properties.reported.status = 'scanning'
@@ -304,126 +304,6 @@ Actuellement, les requêtes sur **devices.jobs** ne prennent pas en charge :
 * Les projections, par conséquent seul `SELECT *` est possible.
 * Les conditions faisant référence au jumeau d’appareil en plus des propriétés du travail (voir section précédente).
 * L’exécution d’agrégations, par exemple, count, avg, group by.
-
-## <a name="device-to-cloud-message-routes-query-expressions"></a>Expressions de requête d’itinéraires de messages appareil-à-cloud
-
-À l’aide des [itinéraires appareil-à-cloud][lnk-devguide-messaging-routes], vous pouvez configurer IoT Hub pour distribuer des messages appareil-à-cloud sur différents points de terminaison. La distribution est basée sur des expressions évaluées par rapport à des messages individuels.
-
-La [condition][lnk-query-expressions] de l’itinéraire utilise la syntaxe du langage de requête IoT Hub en tant que conditions dans les requêtes de jumeaux et de travaux. Toutefois, seul un sous-ensemble de fonctions est disponible. Les conditions de routage sont évaluées sur les en-têtes et le corps des messages. Votre expression de requête de routage peut impliquer uniquement des en-têtes de message, uniquement le corps du message ou à la fois des en-têtes de message et le corps du message. IoT Hub suppose un schéma spécifique pour les en-têtes et le corps du message afin d’acheminer les messages. Les sections suivantes décrivent ce dont a besoin IoT Hub pour effectuer le routage correctement.
-
-### <a name="routing-on-message-headers"></a>Routage sur les en-têtes de message
-
-IoT Hub suppose la représentation JSON suivante d’en-têtes de message pour le routage des messages :
-
-```json
-{
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
-}
-```
-
-Les propriétés système du message ont pour préfixe le symbole `'$'`.
-Les propriétés de l’utilisateur sont toujours accessibles par leur nom. Si un nom de propriété d’utilisateur coïncide avec une propriété système (telle que `$contentType`), la propriété de l’utilisateur est récupérée avec l’expression `$contentType`.
-Vous pouvez toujours accéder à la propriété système à l’aide de crochets `{}` : par exemple, vous pouvez utiliser l’expression `{$contentType}` pour accéder à la propriété système `contentType`. Les noms de propriétés entre crochets récupèrent toujours la propriété système correspondante.
-
-N’oubliez pas que les noms de propriété respectent la casse.
-
-> [!NOTE]
-> Toutes les propriétés de message sont des chaînes. Les propriétés système, comme décrit dans le [guide du développeur][lnk-devguide-messaging-format], ne sont actuellement pas disponibles pour utilisation dans les requêtes.
->
-
-Par exemple, si vous utilisez une propriété `messageType`, vous souhaiterez peut-être acheminer toutes les données de télémétrie vers un point de terminaison et toutes les alertes vers un autre point de terminaison. Vous pouvez écrire l’expression suivante pour acheminer les données de télémétrie :
-
-```sql
-messageType = 'telemetry'
-```
-
-Et l’expression suivante pour acheminer les messages d’alerte :
-
-```sql
-messageType = 'alert'
-```
-
-Les fonctions et expressions booléennes sont également prises en charge. Cette fonctionnalité vous permet de faire la distinction entre les niveaux de gravité, par exemple :
-
-```sql
-messageType = 'alerts' AND as_number(severity) <= 2
-```
-
-Reportez-vous à la section [Expression et conditions][lnk-query-expressions] pour obtenir la liste complète des fonctions et opérateurs pris en charge.
-
-### <a name="routing-on-message-bodies"></a>Routage sur les corps de message
-
-IoT Hub peut effectuer le routage en fonction du contenu du corps du message seulement si le corps du message se présente sous un format JSON adéquat encodé en UTF-8, UTF-16 ou UTF-32. Affectez `application/json` comme type de contenu du message. Définissez l’un des encodages UTF pris en charge dans les en-têtes de message comme encodage du contenu. Si l’un des en-têtes n’est pas spécifié, IoT Hub n’essaie d’évaluer aucune expression de requête impliquant le corps de message. Si votre message n’est pas un message JSON ou s’il ne spécifie pas le type de contenu et l’encodage du contenu, vous pouvez toujours utiliser le routage des messages pour acheminer le message en fonction des en-têtes de message.
-
-L’exemple suivant montre comment créer un message avec un corps JSON correctement formé et encodé :
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
-Vous pouvez utiliser `$body` dans l’expression de requête pour acheminer le message. Vous pouvez utiliser une référence de corps simple, une référence de tableau de corps ou plusieurs références de corps dans l’expression de requête. Votre expression de requête peut également combiner une référence de corps avec une référence d’en-tête de message. Par exemple, toutes les expressions de requête suivantes sont valides :
-
-```sql
-$body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
-length($body.Weather.Location.State) = 2
-$body.Weather.Temperature = 50 AND Status = 'Active'
-```
 
 ## <a name="basics-of-an-iot-hub-query"></a>Principes de base d’une requête IoT Hub
 Chaque requête IoT Hub se compose de clauses SELECT et FROM, avec des clauses WHERE et GROUP BY facultatives. Chaque requête est exécutée sur un regroupement de documents JSON, par exemple des jumeaux d’appareil. La clause FROM indique le regroupement de documents sur lequel elle doit être itérée (**devices** ou **devices.jobs**). Ensuite, le filtre dans la clause WHERE est appliqué. Avec des agrégations, les résultats de cette étape sont regroupés tel que spécifié dans la clause GROUP BY. Pour chaque groupe, une ligne est générée tel que spécifié dans la clause SELECT.
@@ -614,8 +494,7 @@ Découvrez comment exécuter des requêtes dans vos applications à l’aide des
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
+[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
 [lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md

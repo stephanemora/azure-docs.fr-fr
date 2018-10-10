@@ -1,56 +1,43 @@
 ---
 title: Présentation d’Azure Scheduler | Microsoft Docs
-description: Azure Scheduler vous permet de façon déclarative de décrire des actions à exécuter dans le cloud. Ensuite, il planifie et exécute ces actions automatiquement.
+description: Découvrez comment créer, planifier et exécuter des travaux automatisés qui appellent des services à l’intérieur ou à l’extérieur d’Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/18/2016
+ms.suite: infrastructure-services
+author: derek1ee
 ms.author: deli
-ms.openlocfilehash: a3bf1aacd6978499d7ef77cbcb451a06b857ac38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: klam
+ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
+ms.topic: hero-article
+ms.date: 09/17/2018
+ms.openlocfilehash: 4d4f7bf9c77dad21f9e66ab0fa023a4898163f1f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22715112"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989167"
 ---
 # <a name="what-is-azure-scheduler"></a>Présentation d’Azure Scheduler
-Azure Scheduler vous permet de façon déclarative de décrire des actions à exécuter dans le cloud. Ensuite, il planifie et exécute ces actions automatiquement.  Scheduler effectue cette opération à l’aide du [portail Azure](scheduler-get-started-portal.md), du code, de l’[API REST](https://msdn.microsoft.com/library/mt629143.aspx) ou d’Azure PowerShell.
 
-Le scheduler crée, gère et appelle le travail planifié.  Scheduler n’héberge pas de charge de travail et n’exécute pas de code. Il se contente d’ *appeler* du code qui est hébergé ailleurs, par exemple, dans Azure, localement ou auprès d’un autre fournisseur. Il effectue des appels via HTTP, HTTPS, une file d’attente de stockage, une file d’attente Service Bus ou une rubrique Service Bus.
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en cours de mise hors service. Pour planifier des travaux, [essayez à la place Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-Scheduler planifie les [tâches](scheduler-concepts-terms.md), conserve un historique des résultats de leur exécution, qui pourront faire l’objet d’une consultation, et planifie de façon déterministe et fiable les charges de travail à exécuter. Azure WebJobs (partie de la fonctionnalité d’applications Web dans le Service d’application Azure) et autres fonctionnalités de planification d’Azure utilisent le planificateur en arrière-plan. L' [API REST de Scheduler](https://msdn.microsoft.com/library/mt629143.aspx) permet de gérer la communication de ces actions. Ainsi, Scheduler prend en charge les [planifications complexes et la périodicité avancée facilement](scheduler-advanced-complexity.md) .
+[Azure Scheduler](https://azure.microsoft.com/services/scheduler/) vous permet de créer des [travaux](../scheduler/scheduler-concepts-terms.md) qui s’exécutent dans le cloud en décrivant les actions de manière déclarative. Le service planifie et exécute ensuite ces actions automatiquement. Par exemple, vous pouvez appeler des services à l’intérieur et à l’extérieur d’Azure, notamment des points de terminaison HTTP ou HTTPS, et poster des messages sur des files d’attente Stockage Azure, ainsi que sur des files d’attente ou des rubriques Azure Service Bus. Vous pouvez exécuter des travaux immédiatement ou plus tard. Scheduler prend facilement en charge les [planifications complexes et la périodicité avancée](../scheduler/scheduler-advanced-complexity.md). Scheduler spécifie le moment où les travaux doivent être exécutés, conserve un historique des résultats des travaux pour que vous puissiez le consulter, et planifie l’exécution des charges de travail de manière prévisible et fiable.
 
-Il existe plusieurs scénarios qui se prêtent à l’utilisation de Scheduler. Par exemple :
+Bien que vous puissiez utiliser Scheduler pour créer, gérer et exécuter des charges de travail planifiées, Scheduler n’héberge pas les charges de travail et n’exécute pas le code. Le service *appelle* uniquement les services ou le code hébergé ailleurs, par exemple, dans Azure, localement ou chez un autre fournisseur. Scheduler peut appeler via HTTP et HTTPS, une file d’attente de stockage, une file d’attente Service Bus ou une rubrique Service Bus. Pour créer, gérer et planifier des travaux, vous pouvez utiliser le [portail Azure](../scheduler/scheduler-get-started-portal.md), du code, l’[API REST de Scheduler](https://docs.microsoft.com/rest/api/scheduler/) ou les [informations de référence sur les applets de commande PowerShell d’Azure Scheduler](scheduler-powershell-reference.md). Par exemple, vous pouvez créer, afficher, mettre à jour, gérer ou supprimer des travaux et des [collections de travaux](../scheduler/scheduler-concepts-terms.md) par programmation à l’aide de scripts et dans le Portail Azure.
 
-* *Actions d’application périodiques* : collecte régulière de données à partir de Twitter dans un flux.
-* *Maintenance quotidienne :* nettoyages quotidiens des journaux en exécutant des sauvegardes et autres tâches de maintenance. Par exemple, un administrateur peut choisir de sauvegarder sa base de données toutes les nuits à 1 h 00 pendant neuf mois.
+D’autres fonctionnalités de planification Azure utilisent également Scheduler en arrière-plan, par exemple, [Azure WebJobs](../app-service/web-sites-create-web-jobs.md), qui est une fonctionnalité [Web Apps](https://azure.microsoft.com/services/app-service/web/) dans Azure App Service. Vous pouvez gérer la communication de ces actions à l’aide de l’[API REST de Scheduler](https://docs.microsoft.com/rest/api/scheduler/). permet de gérer la communication de ces actions.
 
-Scheduler vous permet de créer, de mettre à jour, de supprimer, d’afficher et de gérer des tâches et des [« ensembles de tâches »](scheduler-concepts-terms.md) par programmation, à l’aide de scripts et sur le portail.
+Voici quelques scénarios où Scheduler peut vous aider :
 
-## <a name="see-also"></a>Voir aussi
- [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
+* **Exécuter des actions d’application récurrentes** : par exemple, collecter périodiquement des données de Twitter dans un flux.
 
- [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
+* **Effectuer une maintenance quotidienne** : par exemple, élaguer quotidiennement les journaux, effectuer des sauvegardes et d’autres tâches de maintenance. 
 
- [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
+  Par exemple, en tant qu’administrateur, vous pouvez être amené à sauvegarder votre base de données à 1 h 00 tous les jours, pendant les neuf prochains mois.
 
- [Comment créer des planifications complexes et une périodicité avancée avec Azure Scheluler](scheduler-advanced-complexity.md)
+## <a name="next-steps"></a>Étapes suivantes
 
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
-
- [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
-
- [Haute disponibilité et fiabilité d’Azure Scheluler](scheduler-high-availability-reliability.md)
-
- [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
-
- [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
-
+* [Bien démarrer avec Scheduler dans le portail Azure](scheduler-get-started-portal.md)
+* En savoir plus sur les [plans et la facturation pour Azure Scheduler](scheduler-plans-billing.md)
+* Découvrez [comment créer des planifications complexes et une périodicité avancée avec Azure Scheduler](scheduler-advanced-complexity.md)

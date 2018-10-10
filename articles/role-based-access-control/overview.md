@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714449"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956504"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?
 
@@ -89,7 +89,7 @@ Lorsque vous accordez l’accès à une étendue parente, ces autorisations sont
 - Si vous affectez le rôle de [lecteur](built-in-roles.md#reader) à un groupe au niveau de l’étendue de l’abonnement, les membres de ce groupe peuvent afficher chaque groupe de ressources et la ressource dans l’abonnement.
 - Si vous affectez le rôle de [contributeur](built-in-roles.md#contributor) à une application au niveau du groupe de ressources, il peut gérer tous les types de ressources dans ce groupe de ressources, mais aucun groupe de ressources dans l’abonnement.
 
-### <a name="role-assignment"></a>Attribution de rôle
+### <a name="role-assignments"></a>Affectations de rôles
 
 Une *attribution de rôle* est le processus de liaison d’une définition de rôle à un utilisateur, un groupe ou un principal de service au niveau d’une étendue spécifique pour accorder des accès. La création d’une attribution de rôle permet d’accorder un accès, qui peut être révoqué par la suppression d’une attribution de rôle.
 
@@ -99,8 +99,34 @@ Le diagramme suivant montre un exemple d’attribution de rôle. Dans cet exempl
 
 Vous pouvez créer des attributions de rôles à l’aide du Portail Azure, d’Azure CLI, d’Azure PowerShell, des kits de développement logiciel (SDK) Azure ou d’API REST. Vous pouvez avoir jusqu’à 2000 attributions de rôles dans chaque abonnement. Pour créer et supprimer des attributions de rôles, les utilisateurs doivent disposer de l’autorisation `Microsoft.Authorization/roleAssignments/*`. Cette autorisation est accordée par le biais des rôles [Propriétaire](built-in-roles.md#owner) ou [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator).
 
+## <a name="deny-assignments"></a>Affectations de refus
+
+Jusqu’à maintenant, RBAC était exclusivement un modèle d’autorisation sans possibilité de refus, il prend désormais en charge des affectations de refus dans une certaine mesure. De façon similaire à une attribution de rôle, une *affectation de refus* lie un ensemble d’actions de refus à un utilisateur, un groupe ou un principal de service dans une étendue spécifique, afin de refuser l’accès. Une attribution de rôle définit un ensemble d’actions *autorisées*, tandis qu’une affectation de refus définit un ensemble d’actions *non autorisées*. En d’autres termes, les affectations de refus empêchent les utilisateurs d’effectuer des actions spécifiées, même si une attribution de rôle leur accorde l’accès. Les affectations de refus ont priorité sur les attributions de rôles.
+
+Actuellement, les affectations de refus sont **en lecture seule** et peuvent être définies uniquement par Azure. Même si vous ne pouvez pas créer vos propres affectations de refus, vous pouvez lister les affectations de refus, car elles peuvent affecter vos autorisations en cours. Pour obtenir des informations sur une affectation de refus, vous devez disposer de l’autorisation `Microsoft.Authorization/denyAssignments/read`, qui est incluse dans la plupart des [rôles intégrés](built-in-roles.md#owner). Pour plus d’informations, consultez [Comprendre les affectations de refus](deny-assignments.md).
+
+## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Comment RBAC détermine si un utilisateur a accès à une ressource
+
+Voici les principales étapes suivies par RBAC pour déterminer si vous avez accès à une ressource sur le plan de gestion. Cela s’avère utile pour comprendre si vous tentez de résoudre un problème d’accès.
+
+1. Un utilisateur (ou principal de service) se procure un jeton pour Azure Resource Manager.
+
+    Le jeton inclut les appartenances de l’utilisateur à des groupes (notamment les appartenances à des groupes transitifs).
+
+1. L’utilisateur effectue un appel d’API REST vers Azure Resource Manager avec le jeton joint.
+
+1. Azure Resource Manager récupère toutes les attributions de rôle et les affectations de refus qui s’appliquent à la ressource sur laquelle l’action est entreprise.
+
+1. Azure Resource Manager restreint les attributions de rôles qui s’appliquent à cet utilisateur ou à son groupe, et détermine les rôles dont l’utilisateur dispose pour cette ressource.
+
+1. Azure Resource Manager détermine si l’action contenue dans l’appel d’API est incluse dans les rôles dont l’utilisateur dispose pour cette ressource.
+
+1. Si l’utilisateur n’a aucun rôle avec l’action à l’étendue demandée, l’accès n’est pas accordé. Sinon, Azure Resource Manager vérifie si une affectation de refus s’applique.
+
+1. Si c’est le cas, l’accès est bloqué. Autrement, l’accès est accordé.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Démarrage rapide : accorder l’accès à un utilisateur avec RBAC et le Portail Azure](quickstart-assign-role-user-portal.md)
-- [Manage access using RBAC and the Azure portal](role-assignments-portal.md) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure)
+- [Gérer les accès à l’aide de RBAC et du portail Azure](role-assignments-portal.md)
 - [Comprendre les différents rôles dans Azure](rbac-and-directory-admin-roles.md)

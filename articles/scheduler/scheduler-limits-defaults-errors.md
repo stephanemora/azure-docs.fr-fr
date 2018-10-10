@@ -1,49 +1,40 @@
 ---
-title: Limites et valeurs par défaut de Scheduler
-description: Limites et valeurs par défaut de Scheduler
+title: Limites, quotas et seuils dans Azure Scheduler
+description: Découvrez les limites, quotas, valeurs par défaut et seuils de limitation applicables dans Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c1e704a3bdec239c87d879ae1ef95e6e76d27fc
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23043164"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966890"
 ---
-# <a name="scheduler-limits-and-defaults"></a>Limites et valeurs par défaut de Scheduler
-## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Limitations, valeurs par défaut, limites et quotas de Scheduler
+# <a name="limits-quotas-and-throttle-thresholds-in-azure-scheduler"></a>Limites, quotas et seuils de limitation dans Azure Scheduler
+
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est actuellement mis hors service. Pour planifier des travaux, [utilisez plutôt Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+
+## <a name="limits-quotas-and-thresholds"></a>Limites, quotas et seuils
+
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="the-x-ms-request-id-header"></a>L'en-tête x-ms-request-id
-Chaque requête adressée au service de Scheduler retourne un en-tête de réponse nommé**x-ms-request-id**. Cet en-tête contient une valeur opaque qui identifie de façon unique la requête.
+## <a name="x-ms-request-id-header"></a>L’en-tête x-ms-request-id
 
-Si une requête échoue constamment et que vous avez vérifié qu'elle est formulée correctement, vous pouvez utiliser cette valeur pour signaler l'erreur à Microsoft. Dans votre rapport, incluez la valeur de x-ms-request-id, l’heure approximative de la requête, l’identificateur de l’abonnement, la collection de travaux et/ou la tâche et le type d’opération tenté par la requête.
+Chaque requête adressée au service Scheduler retourne un en-tête de réponse nommé **x-ms-request-id**. Cet en-tête contient une valeur opaque qui identifie de façon unique la requête. Par conséquent, si une requête échoue constamment et que vous avez vérifié qu’elle est formulée correctement, vous pouvez signaler l’erreur à Microsoft en indiquant la valeur de l’en-tête de réponse **x-ms-request-id** ainsi que les informations suivantes : 
+
+* La valeur de l’en-tête **x-ms-request-id**
+* L’heure approximative de la requête effectuée 
+* Les identificateurs de l’abonnement Azure, de la collection de travaux et du travail 
+* Le type d’opération tentée par la requête
 
 ## <a name="see-also"></a>Voir aussi
- [Présentation d'Azure Scheduler](scheduler-intro.md)
 
- [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
-
- [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
-
- [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
-
- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
-
- [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
-
- [Haute disponibilité et fiabilité d’Azure Scheluler](scheduler-high-availability-reliability.md)
-
- [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
-
+* [Présentation d’Azure Scheduler](scheduler-intro.md)
+* [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)

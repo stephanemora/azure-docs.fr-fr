@@ -1,26 +1,26 @@
 ---
-title: Didacticiel de Translator Speech (C#) | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Découvrez comment utiliser le service de traduction de conversation Translator Speech pour traduire du texte en temps réel.
+title: 'Tutoriel : API de traduction de conversation Translator Speech en C#'
+titleSuffix: Azure Cognitive Services
+description: Utilisez l’API de traduction de conversation Translator Speech pour traduire du texte en temps réel.
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 010ad8b5ceeaf046c8d361ff352e6058154a482d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2de56366c3204e77eb2e6775ddd88b6fc4f0c219
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41929908"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46993865"
 ---
-# <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Didacticiel : application Microsoft Translator WPF dans C#
+# <a name="tutorial-translator-speech-application-in-c"></a>Tutoriel : Application de traduction de conversation Translator Speech en C#
 
-Ce didacticiel est la visite d’un outil de traduction de conversation interactif qui utilise le service de traduction Microsoft Translator Speech, qui fait partie de Microsoft Cognitive Services dans Azure. Vous allez apprendre à effectuer les actions suivantes :
+Ce tutoriel présente un outil de traduction vocale interactif qui utilise l’API de traduction de conversation Translator Speech, qui fait partie d’Azure Cognitive Services. Vous apprendrez à :
 
 > [!div class="checklist"]
 > * Demander une liste des langues prises en charge par le service
@@ -42,7 +42,7 @@ La [bibliothèque tierce JSON.Net](https://www.newtonsoft.com/json) (de Newtonso
 
 ## <a name="trying-the-translation-app"></a>Essai de l’application de traduction
 
-Après l’ouverture de la solution Microsoft Speech Translator (`SpeechTranslator.sln`) dans Visual Studio, appuyez sur F5 pour générer et lancer l’application.  La fenêtre principale du programme s’affiche.
+Après l’ouverture de la solution Speech Translator (`SpeechTranslator.sln`) dans Visual Studio, appuyez sur F5 pour générer et lancer l’application.  La fenêtre principale du programme s’affiche.
 
 ![[Fenêtre principale de Speech Translator]](media/speech-translator-main-window.png)
 
@@ -50,7 +50,7 @@ Dans la première exécution, choisissez **Paramètres du compte** à partir du 
 
 ![[Fenêtre principale de Speech Translator]](media/speech-translator-settings-window.png)
 
-Collez votre clé d’abonnement Microsoft Translator Speech dans cette fenêtre, puis cliquez sur **Enregistrer**. Votre clé est enregistrée entre chaque exécution.
+Collez votre clé d’abonnement de l’API de traduction de conversation Translator Speech dans cette fenêtre, puis cliquez sur **Enregistrer**. Votre clé est enregistrée entre chaque exécution.
 
 Dans la fenêtre principale, choisissez les périphériques audio d’entrée et de sortie que vous souhaitez utiliser, ainsi que les langues source et cible. Si vous souhaitez écouter l’audio de la traduction, assurez-vous que l’option **TTS** (synthèse vocale) est activée. Si vous souhaitez voir les traductions spéculatives partielles au fil de la conversation, activez l’option **Résultats partiels**.
 
@@ -58,7 +58,7 @@ Enfin, cliquez sur **Démarrer** pour commencer la traduction. Dites quelque cho
 
 ## <a name="obtaining-supported-languages"></a>Obtenir les langues prises en charge
 
-Actuellement, le service Microsoft Translator prend en charge plus d’une cinquantaine de langues pour la traduction de texte. Un nombre de langues plus restreint est pris en charge pour la traduction vocale. Ces langues requièrent la prise en charge à la fois de la transcription (reconnaissance vocale) et, pour la sortie de synthèse vocale, de la synthèse.
+Actuellement, le service de traduction de conversation Translator Speech prend en charge plus d’une cinquantaine de langues pour la traduction de texte. Un nombre de langues plus restreint est pris en charge pour la traduction vocale. Ces langues requièrent la prise en charge à la fois de la transcription (reconnaissance vocale) et, pour la sortie de synthèse vocale, de la synthèse.
 
 En d’autres termes, pour la traduction vocale, la langue source doit être une langue prise en charge pour la transcription. La langue de sortie peut être toute langue prise en charge pour la traduction de texte, en supposant que vous souhaitiez un résultat sous forme de texte. Si vous souhaitez une sortie sous forme vocale, vous pouvez traduire uniquement dans une langue prise en charge pour la synthèse vocale.
 

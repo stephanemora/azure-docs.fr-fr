@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: f81ef3c231874f314d6fe023ba247a0bcff61e90
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 6535eee93b0fcaa2c0888fc6b647811c21e564d9
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42141873"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971907"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-cli"></a>Configurer et surveiller des appareils IoT à grande échelle à l’aide d’Azure CLI
 
@@ -34,8 +34,8 @@ Les configurations d’appareil automatiques reposent sur la mise à jour d’un
 ## <a name="cli-prerequisites"></a>Prérequis pour l’interface CLI
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) dans votre abonnement Azure. 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) dans votre environnement. La version d’Azure CLI 2.0 doit être au minimum 2.0.24. Utilisez `az –-version` pour valider. Cette version prend en charge les commandes d’extension az et introduit l’infrastructure de la commande Knack. 
-* [Extension IoT pour Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) dans votre environnement. Vous devez utiliser Azure CLI version 2.0.24 ou ultérieure. Utilisez `az –-version` pour valider. Cette version prend en charge les commandes d’extension az et introduit l’infrastructure de la commande Knack. 
+* [Extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implémenter des jumeaux d’appareil pour configurer des appareils
 
@@ -56,7 +56,7 @@ Avant de pouvoir créer une configuration, vous devez spécifier les appareils c
 
 ## <a name="define-the-target-content-and-metrics"></a>Définir le contenu cible et les métriques
 
-Le contenu cible et les requêtes de métrique sont spécifiés sous forme de documents JSON qui décrivent les propriétés souhaitées du jumeau d’appareil à définir et les propriétés rapportées à mesurer.  Pour créer une configuration d’appareil automatique à l’aide d’Azure CLI 2.0, enregistrez le contenu cible et les métriques dans des fichiers .txt. Vous utiliserez les chemins des fichiers dans une section ultérieure, au moment d’exécuter la commande permettant d’appliquer la configuration à votre appareil. 
+Le contenu cible et les requêtes de métrique sont spécifiés sous forme de documents JSON qui décrivent les propriétés souhaitées du jumeau d’appareil à définir et les propriétés rapportées à mesurer.  Pour créer une configuration d’appareil automatique avec Azure CLI, enregistrez le contenu cible et les métriques localement dans des fichiers .txt. Vous utiliserez les chemins des fichiers dans une section ultérieure au moment d’exécuter la commande permettant d’appliquer la configuration à votre appareil. 
 
 Voici un exemple de contenu cible de base :
 
@@ -197,7 +197,7 @@ az iot hub configuration delete --config-id [configuration id] \
 Dans cet article, vous avez appris à configurer et à surveiller des appareils IoT à grande échelle. Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
 * [Gestion de vos identités d’appareil IoT Hub en bloc](iot-hub-bulk-identity-mgmt.md)
-* [Métriques IoT Hub](iot-hub-metrics.md)
+* [Métriques d’IoT Hub](iot-hub-metrics.md)
 * [Surveillance des opérations](iot-hub-operations-monitoring.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :

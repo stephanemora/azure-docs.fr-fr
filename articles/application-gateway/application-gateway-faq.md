@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 8/10/2018
+ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 56c66418b9f47e0ae0d345cd6e8a7d3ef2914b82
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038344"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986674"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -84,7 +84,7 @@ Non, Application Gateway ne prend pas en charge les adresses IP publiques statiq
 
 Une seule adresse IP publique est prise en charge sur Application Gateway.
 
-**Q. Quelle taille mon sous-réseau pour Application Gateway doit-il avoir ?**
+**Q. Quelle taille mon sous-réseau pour Application Gateway doit-il avoir ?**
 
 Application Gateway utilise une adresse IP privée par instance, ainsi qu’une autre adresse IP privée si une configuration IP frontale privée est configurée. En outre, Azure réserve les quatre premières et dernière adresses IP dans chaque sous-réseau à un usage interne.
 Par exemple, si Application Gateway est défini sur trois instances et aucune adresse IP frontale privée, un sous-réseau de taille /29 ou supérieure est nécessaire. Dans ce cas, Application Gateway utilise trois adresses IP. Si vous avez trois instances et une adresse IP pour la configuration IP frontale privée, un sous-réseau de taille /28 ou supérieure est nécessaire, car quatre adresses IP sont requises.
@@ -211,8 +211,8 @@ Le tableau suivant présente un débit moyen de performances pour chaque instanc
 
 | Taille moyenne de la réponse de la page principale | Petite | Moyenne | grand |
 | --- | --- | --- | --- |
-| 6 Ko |7,5 Mbits/s |13 Mbits/s |50 Mbits/s |
-| 100 Ko |35 Mbits/s |100 Mbits/s |200 Mbits/s |
+| 6 Ko |7,5 Mbits/s |13 Mbits/s |50 Mbits/s |
+| 100 Ko |35 Mbits/s |100 Mbits/s |200 Mbits/s |
 
 > [!NOTE]
 > Ces valeurs sont des valeurs approximatives pour un débit de passerelle d’application. Le débit réel dépend de divers détails d’environnement, tels que la taille de page moyenne, l’emplacement des instances de serveur principal et le temps de traitement d’une page par le serveur. Pour des calculs de performance exacts, vous devez exécuter vos propres tests. Ces valeurs sont fournies uniquement pour vous donner des conseils de planification de la capacité.
@@ -333,7 +333,7 @@ Le pare-feu d’application web prend actuellement en charge CRS  [2.2.9](appli
 
 **Q. Le pare-feu d’application web prend-il également en charge la prévention DDoS ?**
 
-Non, le pare-feu d’application web ne fournit pas de prévention DDoS.
+Oui. Vous pouvez activer le service de protection DDos sur le réseau virtuel sur lequel la passerelle d’application est déployée. Ainsi, l’adresse IP virtuelle de la passerelle d’application est également protégée à l’aide du service Azure DDoS Protection.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostics et journalisation
 
@@ -360,6 +360,12 @@ Les journaux d’audit sont disponibles pour Application Gateway. Dans le portai
 **Q. Puis-je définir des alertes avec Application Gateway ?**
 
 Oui, Application Gateway prend en charge les alertes ; les alertes sont configurées à partir des mesures. Application Gateway possède actuellement une mesure de « débit », qui peut être configurée pour avertir l’utilisateur. Pour en savoir plus sur les alertes, consultez l’article [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+
+**Q. Comment analyser les statistiques de trafic pour Application Gateway ?**
+
+Vous pouvez afficher et analyser les journaux d’accès à l’aide de nombreux outils tels qu’Azure Log Analytics, Excel ou Power BI.
+
+Nous avons également publié un modèle Resource Manager qui installe et exécute le célèbre analyseur de journal [GoAccess](https://goaccess.io/) pour les journaux d’accès Application Gateway. GoAccess fournit des statistiques de trafic HTTP précieuses telles que les visiteurs uniques, les fichiers demandés, les hôtes, les systèmes d’exploitation, les navigateurs ou les codes d’état HTTP. Pour plus d’informations, consultez le [fichier Lisez-moi dans le dossier de modèles Resource Manager dans GitHub](https://aka.ms/appgwgoaccessreadme).
 
 **Q. L’intégrité du serveur principal renvoie un état inconnu, à quoi est dû cet état ?**
 

@@ -1,25 +1,27 @@
 ---
-title: Démarrage rapide Python pour Azure Cognitive Services, API de traduction de conversation Microsoft Translator Speech | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API de traduction de conversation Microsoft Translator Speech dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API de traduction de conversation Translator Speech avec Python'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API de traduction de conversation Translator Speech.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a24ccd456df533542e7cbd2315fc1050cd82afbf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ROBOTS: NOINDEX
+ms.openlocfilehash: 601e8473482cf6d90151b221309aef4d48d368d0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41929894"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979013"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-python"></a>Démarrage rapide pour l’API de traduction de conversation Microsoft Translator Speech avec Python 
+# <a name="quickstart-translator-speech-api-with-python"></a>Démarrage rapide : API de traduction de conversation Translator Speech avec Python
 <a name="HOLTop"></a>
 
-Cet article explique comment utiliser l’API de traduction de conversation Microsoft Translator Speech pour traduire des mots prononcés dans un fichier .wav.
+Cet article explique comment utiliser l’API de traduction de conversation Translator Speech pour traduire des mots prononcés dans un fichier .wav.
 
 ## <a name="prerequisites"></a>Prérequis
 

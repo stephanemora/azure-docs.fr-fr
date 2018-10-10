@@ -1,0 +1,261 @@
+---
+title: Suivre les expérimentations et les métriques d’entraînement - Azure Machine Learning | Microsoft Docs
+description: Avec le service Azure Machine Learning, vous pouvez effectuer le suivi de vos expérimentations et superviser les métriques pour améliorer le processus de création de modèle. Découvrez comment ajouter la journalisation à votre script d’entraînement, envoyer l’expérimentation, vérifier la progression d’une tâche en cours d’exécution et afficher les résultats d’une exécution.
+services: machine-learning
+author: heatherbshapiro
+ms.author: hshapiro
+ms.service: machine-learning
+ms.component: core
+ms.workload: data-services
+ms.topic: article
+ms.date: 09/24/2018
+ms.openlocfilehash: ced10a54d569531b06ee47b646130f43cedd2963
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984600"
+---
+# <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Suivre les expérimentations et les métriques d’entraînement dans Azure Machine Learning
+
+Dans le service Azure Machine Learning, vous pouvez effectuer le suivi de vos expérimentations et superviser les métriques pour améliorer le processus de création de modèle. Dans cet article, vous allez découvrir les différentes façons d’ajouter la journalisation à votre script d’entraînement, comment envoyer l’expérimentation avec **start_logging** et **ScriptRunConfig**, comment vérifier la progression d’une tâche en cours d’exécution et comment afficher les résultats d’une exécution. 
+
+## <a name="list-of-training-metrics"></a>Liste des métriques d’entraînement 
+
+Les métriques suivantes peuvent être ajoutées à une exécution pendant l’entraînement d’une expérimentation. Pour afficher une liste plus détaillée des éléments qui peuvent être suivis lors d’une exécution, consultez la [documentation de référence sur le SDK](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
+
+|type| Fonction Python | Notes|
+|----|:----:|:----:|
+|Valeurs scalaires | `run.log(name, value, description='')`| Consignez une valeur de métrique dans l’exécution avec le nom donné. La journalisation d’une métrique dans une exécution entraîne le stockage de cette métrique dans l’enregistrement d’exécution dans l’expérimentation.  Vous pouvez consigner la même métrique plusieurs fois pendant une exécution, le résultat étant considéré comme un vecteur de cette métrique.|
+|Listes| `run.log_list(name, value, description='')`|Consignez une valeur de métrique de liste dans l’exécution avec le nom donné.|
+|Ligne| `run.log_row(name, description=None, **kwargs)`|L’utilisation de *log_row* crée une métrique de table avec des colonnes, comme décrit dans kwargs. Chaque paramètre nommé génère une colonne avec la valeur spécifiée.  Vous pouvez appeler *log_row* une seule fois pour consigner un tuple arbitraire ou plusieurs fois dans une boucle pour générer une table complète.|
+|Table| `run.log_table(name, value, description='')`| Consignez une métrique de table dans l’exécution avec le nom donné. |
+|Images| `run.log_image(name, path=None, plot=None)`|Consignez une métrique d’image dans l’enregistrement d’exécution. Utilisez log_image pour consigner un fichier image ou un tracé matplotlib dans l’exécution.  Ces images seront visibles et comparables dans l’enregistrement d’exécution.|
+|Étiqueter une exécution| `run.tag(key, value=None)`|Étiquetez l’exécution avec une clé de chaîne et une valeur de chaîne facultative.|
+|Charger un fichier ou un répertoire|`run.upload_file(name, path_or_stream)`|Chargez un fichier sur l’enregistrement d’exécution. Les exécutions capturent automatiquement le fichier dans le répertoire de sortie spécifié, par défaut « ./outputs » pour la plupart des types d’exécutions.  Utilisez upload_file uniquement quand des fichiers supplémentaires doivent être chargés ou qu’aucun répertoire de sortie n’est spécifié. Nous vous suggérons d’ajouter `outputs` au nom afin qu’il soit chargé sur le répertoire outputs. Vous pouvez répertorier tous les fichiers qui sont associés à cet enregistrement d’exécution en appelant `run.get_file_names()`|
+
+> [!NOTE]
+> Les métriques pour les valeurs scalaires, listes, lignes et tables peuvent être de type float, integer ou string.
+
+## <a name="log-metrics-for-experiments"></a>Consigner des métriques pour les expérimentations
+
+Si vous souhaitez suivre ou superviser votre expérimentation, vous devez ajouter du code pour démarrer la journalisation quand vous envoyez l’exécution. Voici comment déclencher l’envoi d’exécution :
+* __Run.start_logging__ : ajoutez des fonctions de journalisation à votre script d’entraînement et démarrez une session de journalisation interactive dans l’expérimentation spécifiée. **start_logging** crée une exécution interactive pour une utilisation dans des scénarios tels que des notebooks. Toutes les métriques qui sont consignées pendant la session sont ajoutées à l’enregistrement d’exécution dans l’expérimentation.
+* __ScriptRunConfig__ : ajoutez des fonctions de journalisation à votre script d’entraînement et chargez l’intégralité du dossier de script avec l’exécution.  **ScriptRunConfig** est une classe pour la définition des configurations pour les exécutions de script. Avec cette option, vous pouvez ajouter le code de supervision pour être informé de la fin de l’opération ou pour obtenir un widget visuel à superviser.
+
+## <a name="set-up-the-workspace-and-experiment"></a>Configurer l’espace de travail et l’expérimentation
+Avant d’ajouter la journalisation et d’envoyer une expérimentation, vous devez configurer l’espace de travail et l’expérimentation.
+
+1. Chargez l’espace de travail. Pour en savoir plus sur la définition de la configuration de l’espace de travail, suivez le [démarrage rapide](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started).
+
+  ```python
+  from azureml.core import Workspace, Run
+  import azureml.core
+  
+  ws = Workspace(workspace_name = <<workspace_name>>,
+               subscription_id = <<subscription_id>>,
+               resource_group = <<resource_group>>)
+   ```
+
+2. Créez l’expérimentation.
+
+  ```python
+  from azureml.core import Experiment
+
+  # make up an arbitrary name
+  experiment_name = 'train-in-notebook'
+  exp = Experiment(workspace_object = ws, name = experiment_name)
+  ```
+  
+## <a name="option-1-use-startlogging"></a>Option 1 : Utiliser start_logging
+
+**start_logging** crée une exécution interactive pour une utilisation dans des scénarios tels que des notebooks. Toutes les métriques qui sont consignées pendant la session sont ajoutées à l’enregistrement d’exécution dans l’expérimentation.
+
+L’exemple suivant entraîne un simple modèle Ridge sklearn localement dans un notebook Jupyter local. Pour en savoir plus sur l’envoi d’expérimentations dans différents environnements, consultez [Configurer des cibles de calcul pour l’entraînement de modèle avec le service Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+
+1. Créez un script d’entraînement dans un notebook Jupyter local. 
+
+  ``` python
+  # load diabetes dataset, a well-known small dataset that comes with scikit-learn
+  from sklearn.datasets import load_diabetes
+  from sklearn.linear_model import Ridge
+  from sklearn.metrics import mean_squared_error
+  from sklearn.model_selection import train_test_split
+  from sklearn.externals import joblib
+
+  X, y = load_diabetes(return_X_y = True)
+  columns = ['age', 'gender', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
+  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+  data = {
+      "train":{"X": X_train, "y": y_train},        
+      "test":{"X": X_test, "y": y_test}
+  }
+  reg = Ridge(alpha = 0.03)
+  reg.fit(data['train']['X'], data['train']['y'])
+  preds = reg.predict(data['test']['X'])
+  print('Mean Squared Error is', mean_squared_error(preds, data['test']['y']))
+  joblib.dump(value = reg, filename = 'model.pkl');
+  ```
+
+2. Ajoutez le suivi d’expérimentation à l’aide du kit SDK du service Azure Machine Learning et chargez un modèle persistant sur l’enregistrement d’exécution de l’expérimentation. Le code suivant ajoute des balises, des journaux, puis charge un fichier de modèle sur l’exécution de l’expérimentation.
+
+  ```python
+  run = Run.start_logging(experiment = exp)
+  run.tag("Description","My first run!")
+  run.log('alpha', 0.03)
+  reg = Ridge(alpha = 0.03)
+  reg.fit(data['train']['X'], data['train']['y'])
+  preds = reg.predict(data['test']['X'])
+  run.log('mse', mean_squared_error(preds, data['test']['y']))
+  joblib.dump(value = reg, filename = 'model.pkl')
+  # Upload file directly to the outputs folder
+  run.upload_file(name = 'outputs/model.pkl', path_or_stream = './model.pkl')
+
+  run.complete()
+  ```
+
+Le script se termine par ```run.complete()```, ce qui marque l’exécution comme terminée.  Cette procédure est généralement utilisée dans les scénarios de notebooks interactifs.
+
+## <a name="option-2-use-scriptrunconfig"></a>Option 2 : Utiliser ScriptRunConfig
+
+**ScriptRunConfig** est une classe pour la définition des configurations pour les exécutions de script. Avec cette option, vous pouvez ajouter le code de supervision pour être informé de la fin de l’opération ou pour obtenir un widget visuel à superviser.
+
+Cet exemple s’appuie sur le modèle Ridge sklearn de base ci-dessus. Il effectue un simple balayage des paramètres sur les valeurs alpha du modèle pour capturer les métriques et les modèles entraînés dans les exécutions sous l’expérimentation. L’exemple est exécuté localement dans un environnement géré par l’utilisateur. 
+
+1. Créez un script d’entraînement. Cette opération utilise ```%%writefile%%``` pour écrire le code d’entraînement dans le dossier de script en tant que ```train.py```.
+
+  ```python
+  %%writefile $project_folder/train.py
+
+  import os
+  from sklearn.datasets import load_diabetes
+  from sklearn.linear_model import Ridge
+  from sklearn.metrics import mean_squared_error
+  from sklearn.model_selection import train_test_split
+  from azureml.core.run import Run
+  from sklearn.externals import joblib
+
+  import numpy as np
+
+  #os.makedirs('./outputs', exist_ok = True)
+
+  X, y = load_diabetes(return_X_y = True)
+
+  run = Run.get_submitted_run()
+
+  X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+  data = {"train": {"X": X_train, "y": y_train},
+          "test": {"X": X_test, "y": y_test}}
+
+  # list of numbers from 0.0 to 1.0 with a 0.05 interval
+  alphas = np.arange(0.0, 1.0, 0.05)
+
+  for alpha in alphas:
+      # Use Ridge algorithm to create a regression model
+      reg = Ridge(alpha = alpha)
+      reg.fit(data["train"]["X"], data["train"]["y"])
+
+      preds = reg.predict(data["test"]["X"])
+      mse = mean_squared_error(preds, data["test"]["y"])
+      # log the alpha and mse values
+      run.log('alpha', alpha)
+      run.log('mse', mse)
+
+      model_file_name = 'ridge_{0:.2f}.pkl'.format(alpha)
+      # save model in the outputs folder so it automatically get uploaded
+      with open(model_file_name, "wb") as file:
+          joblib.dump(value = reg, filename = model_file_name)
+
+      # upload the model file explicitly into artifacts 
+      run.upload_file(name = model_file_name, path_or_stream = model_file_name)
+
+      # register the model
+      #run.register_model(file_name = model_file_name)
+
+      print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
+  
+  ```
+
+2. Le script ```train.py``` référence ```mylib.py```. Ce fichier vous permet d’obtenir la liste des valeurs alpha à utiliser dans le modèle Ridge.
+
+  ```python
+  %%writefile $script_folder/mylib.py
+  import numpy as np
+
+  def get_alphas():
+      # list of numbers from 0.0 to 1.0 with a 0.05 interval
+      return np.arange(0.0, 1.0, 0.05)
+  ```
+
+3. Configurez un environnement local géré par l’utilisateur.
+
+  ```python
+  from azureml.core.runconfig import RunConfiguration
+
+  # Editing a run configuration property on-fly.
+  run_config_user_managed = RunConfiguration()
+
+  run_config_user_managed.environment.python.user_managed_dependencies = True
+
+  # You can choose a specific Python environment by pointing to a Python path 
+  #run_config.environment.python.interpreter_path = '/home/user/miniconda3/envs/sdk2/bin/python'
+  ```
+
+4. Envoyez le script ```train.py``` à exécuter dans l’environnement géré par l’utilisateur. L’intégralité de ce dossier de script est envoyée pour l’entraînement, dont le fichier ```mylib.py```.
+
+  ```python
+  from azureml.core import ScriptRunConfig
+
+  src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
+  run = exp.submit(src)
+  ```
+  
+## <a name="view-run-details"></a>Afficher les détails de l’exécution
+
+### <a name="monitor-run-with-jupyter-notebook-widgets"></a>Superviser l’exécution avec les widgets de notebook Jupyter
+Quand vous utilisez la méthode **ScriptRunConfig** pour envoyer des exécutions, vous pouvez vérifier la progression de l’exécution avec un widget de notebook Jupyter. Comme l’envoi de l’exécution, le widget est asynchrone et fournit des mises à jour automatiques toutes les 10 à 15 secondes jusqu’à ce que la tâche soit terminée.
+
+1. Affichez le widget Jupyter en attendant la fin de l’exécution.
+
+  ```python
+  from azureml.train.widgets import RunDetails
+  RunDetails(run).show()
+  ```
+
+  ![Capture d’écran du widget de notebook Jupyter](./media/how-to-track-experiments/widgets.PNG)
+
+### <a name="get-log-results-upon-completion"></a>Obtenir des résultats du journal lors de l’achèvement
+
+L’entraînement et la supervision du modèle se produisent en arrière-plan afin que vous puissiez exécuter d’autres tâches pendant que vous attendez. Vous pouvez également attendre que l’entraînement du modèle soit terminé avant d’exécuter davantage de code. Quand vous utilisez **ScriptRunConfig**, vous pouvez employer ```run.wait_for_completion(show_output = True)``` pour indiquer quand l’entraînement du modèle est terminé. L’indicateur ```show_output``` vous donne une sortie détaillée. 
+  
+### <a name="query-run-metrics"></a>Interroger les métriques d’exécution
+
+Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```run.get_metrics()```. Vous pouvez désormais obtenir toutes les métriques qui ont été consignées dans l’exemple ci-dessus pour déterminer le meilleur modèle.
+
+## <a name="view-the-experiment-in-the-azure-portal"></a>Afficher l’expérimentation dans le portail Azure
+
+Une fois l’exécution d’une expérimentation terminée, vous pouvez accéder à l’enregistrement d’exécution de l’expérimentation. Il existe deux méthodes pour le faire :
+
+* Obtenez l’URL vers l’exécution directement ```print(run.get_portal_url())```
+* Affichez les détails de l’exécution en envoyant son nom (dans ce cas, ```run```). Cela vous oriente vers le nom de l’expérimentation, l’ID, le type, l’état, la page de détails, un lien vers le portail Azure et un lien vers la documentation.
+
+Le lien pour l’exécution vous amène directement à la page de détails de l’exécution dans le portail Azure. Ici, vous pouvez voir les propriétés, les métriques suivies, les images et les graphiques consignés dans l’expérimentation. Dans ce cas, nous avons consigné MSE et les valeurs alpha.
+
+  ![Capture d’écran des détails de l’exécution dans le portail Azure](./media/how-to-track-experiments/run-details-page-web.PNG)
+
+Vous pouvez également afficher les sorties ou les journaux de l’exécution, ou télécharger la capture instantanée de l’expérimentation que vous avez envoyée afin de pouvoir partager le dossier de l’expérimentation avec d’autres utilisateurs.
+
+## <a name="example-notebooks"></a>Exemples de notebooks
+Les notebooks suivants illustrent les concepts de cet article :
+* `01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb`
+* `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
+
+Consultez ces notebooks : [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Essayez de suivre les étapes suivantes pour savoir comment utiliser le kit SDK Azure Machine Learning pour Python :
+
+* Examinez un exemple d’inscription et de déploiement du meilleur modèle dans le tutoriel [Entraîner un modèle de classification d’images avec Azure Machine Learning](tutorial-train-models-with-aml.md).
+
+* Découvrez comment [entraîner des modèles PyTorch avec Azure Machine Learning](how-to-train-pytorch.md).

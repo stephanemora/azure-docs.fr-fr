@@ -1,25 +1,27 @@
 ---
-title: Démarrage rapide C# pour Azure Cognitive Services, API de traduction de conversation Microsoft Translator Speech | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API de traduction de conversation Microsoft Translator Speech dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API de traduction de conversation Translator Speech avec C#'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API de traduction de conversation Translator Speech.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c8c1945d8343ad966fe4b09f67099bccdae4be29
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ROBOTS: NOINDEX
+ms.openlocfilehash: 7d1f5968fe6ddffce3194f070b6a17aca4d3d9ab
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128535"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995038"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Démarrage rapide pour l’API de traduction de conversation Microsoft Translator Speech avec C# 
+# <a name="quickstart-translator-speech-api-with-c"></a>Démarrage rapide : API de traduction de conversation Translator Speech avec C# 
 <a name="HOLTop"></a>
 
-Cet article explique comment utiliser l’API de traduction de conversation Microsoft Translator Speech pour traduire des mots prononcés dans un fichier .wav.
+Cet article explique comment utiliser l’API de traduction de conversation Translator Speech pour traduire des mots prononcés dans un fichier .wav.
 
 ## <a name="prerequisites"></a>Prérequis
 

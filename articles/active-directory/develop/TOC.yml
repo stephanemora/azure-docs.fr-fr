@@ -93,12 +93,14 @@ items:
           href: single-sign-on-saml-protocol.md
         - name: Déconnexion
           href: single-sign-out-saml-protocol.md
-        - name: Un certificat de fournisseur d'identité WS-Federation
-          items:
-          - name: Métadonnées de fédération
-            href: azure-ad-federation-metadata.md
-        - name: Substitution de la clé de signature
-          href: active-directory-signing-key-rollover.md
+        - name: Utilisation du protocole SAML par Azure AD
+          href: active-directory-saml-protocol-reference.md
+      - name: Un certificat de fournisseur d'identité WS-Federation
+        items:
+        - name: Métadonnées de fédération
+          href: azure-ad-federation-metadata.md
+      - name: Substitution de la clé de signature
+        href: active-directory-signing-key-rollover.md
       - name: Jetons d’ID
         href: id-tokens.md
       - name: Jetons d’accès
@@ -123,7 +125,7 @@ items:
       - name: Framework de consentement
         href: consent-framework.md
       - name: Expériences du consentement d’application
-        href: ../application-consent-experience.md
+        href: application-consent-experience.md
     - name: Accès conditionnel
       href: conditional-access-dev-guide.md
     - name: Clouds nationaux
@@ -144,9 +146,15 @@ items:
       - name: Configurer des revendications
         items:
         - name: Configurer des revendications de rôle
-          href: ../active-directory-enterprise-app-role-management.md
+          href: active-directory-enterprise-app-role-management.md
         - name: Personnaliser des revendications
           href: active-directory-saml-claims-customization.md
+        - name: Personnaliser des revendications (préversion publique)
+          href: active-directory-claims-mapping.md
+        - name: Configurer des revendications facultatives (préversion publique)
+          href: active-directory-optional-claims.md
+        - name: Configurer la durée de vie de jetons (préversion publique)
+          href: active-directory-configurable-token-lifetimes.md
       - name: Meilleures pratiques en matière de gestion des erreurs ADAL
         href: active-directory-devhowto-adal-error-handling.md
     - name: Configuration de l’application
@@ -196,8 +204,6 @@ items:
       href: active-directory-authentication-libraries.md
     - name: API Graph Azure AD
       href: active-directory-graph-api.md
-    - name: Revendications dans les jetons de sécurité Azure AD
-      href: active-directory-optional-claims.md
     - name: Manifeste d’application
       href: reference-app-manifest.md
     - name: Codes d’erreur d’authentification et d’autorisation
@@ -317,7 +323,7 @@ items:
       - name: Framework de consentement
         href: consent-framework.md
       - name: Expériences du consentement d’application
-        href: ../application-consent-experience.md
+        href: application-consent-experience.md
     - name: Clouds nationaux
       href: authentication-national-cloud.md
   - name: Procédures
@@ -325,9 +331,17 @@ items:
     - name: Authentification
       items:
       - name: Configurer des revendications de rôle
-        href: ../active-directory-enterprise-app-role-management.md
+        href: active-directory-enterprise-app-role-management.md
       - name: Personnaliser des revendications
         href: active-directory-saml-claims-customization.md
+      - name: Personnaliser des revendications (préversion publique)
+        href: active-directory-claims-mapping.md
+      - name: Configurer des revendications facultatives (préversion publique)
+        href: active-directory-optional-claims.md
+      - name: Configurer la durée de vie de jetons (préversion publique)
+        href: active-directory-configurable-token-lifetimes.md
+      - name: S’authentifier auprès d’Azure AD et obtenir un jeton JWT à l’aide d’OAuth 2.0
+        href: active-directory-protocols-oauth-get-jwt-token.md
     - name: Configuration de l’application
       items:
       - name: Convertir une application monolocataire en application multilocataire
@@ -382,9 +396,9 @@ items:
     href: developer-support-help-options.md
   - name: Managed Service Identity pour les ressources Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 139d80313bb663a45e476e90812ce7772beccc19
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: f7b8ce59f421c2a2c7cdb6269132910bd2b3ab4e
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784999"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901836"

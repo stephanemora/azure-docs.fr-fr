@@ -1,6 +1,6 @@
 ---
-title: Utilisation d’Azure CLI 2.0 avec le stockage Azure | Microsoft Docs
-description: Découvrez comment utiliser Azure CLI 2.0 avec le stockage Azure pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Azure. Azure CLI 2.0 est un outil multiplateforme écrit en Python.
+title: Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage | Microsoft Docs
+description: Découvrez comment utiliser l’interface de ligne de commande de Microsoft Azure (CLI) avec Microsoft Azure Storage pour créer et gérer des comptes de stockage et utiliser des fichiers et objets blob Microsoft Azure.
 services: storage
 author: roygara
 ms.service: storage
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 12b383267cb90d9305043b52450572add0c1c202
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527488"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984373"
 ---
-# <a name="using-the-azure-cli-20-with-azure-storage"></a>Utilisation d’Azure CLI 2.0 avec le stockage Azure
+# <a name="using-the-azure-cli-with-azure-storage"></a>Utilisation de la CLI Microsoft Azure avec Microsoft Azure Storage
 
-L’interface Azure CLI 2.0 multiplateforme et open source offre un ensemble de commandes dédiées à l’utilisation de la plateforme Azure. Elle offre des fonctionnalités similaires à celles du [portail Azure](https://portal.azure.com), notamment l’accès étendu aux données.
+L’interface Azure CLI multiplateforme et open source offre un ensemble de commandes dédiées à l’utilisation de la plateforme Azure. Elle offre des fonctionnalités similaires à celles du [portail Azure](https://portal.azure.com), notamment l’accès étendu aux données.
 
-Dans ce guide, nous vous montrons comment utiliser [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) pour effectuer plusieurs tâches à l’aide de ressources dans votre compte de stockage Azure. Nous vous recommandons de télécharger et d’installer ou de mettre à niveau la CLI 2.0 vers la dernière version avant d’utiliser ce guide.
+Dans ce guide, nous vous montrons comment utiliser [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) pour effectuer plusieurs tâches avec les ressources dans votre compte de stockage Azure. Avant de commencer ce guide, nous vous recommandons de télécharger et d’installer la dernière version d’Azure CLI, ou d’effectuer la mise à niveau vers cette version.
 
 Les exemples dans le guide partent du principe que vous utilisez le shell Bash sur Ubuntu, mais les autres plateformes devraient fonctionner de manière similaire. 
 
@@ -31,11 +31,11 @@ Ce guide part du principe que vous comprenez les concepts de base de Microsoft A
 
 ### <a name="accounts"></a>Comptes
 * **Compte Azure** : si vous ne possédez pas encore d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/).
-* **Compte de stockage** : voir la section [Créer un compte de stockage](storage-create-storage-account.md#create-a-storage-account) de l’article [À propos des comptes de stockage Azure](storage-create-storage-account.md).
+* **Compte de stockage** : voir la section [Créer un compte de stockage](storage-quickstart-create-account.md) de l’article [À propos des comptes de stockage Azure](storage-create-storage-account.md).
 
-### <a name="install-the-azure-cli-20"></a>Installer Azure CLI 2.0
+### <a name="install-the-azure-cli"></a>Installer l’interface de ligne de commande Microsoft Azure
 
-Téléchargez et installez Azure CLI 2.0 en suivant les instructions fournies dans la section [Installer Azure CLI 2.0](/cli/azure/install-az-cli2).
+Téléchargez et installez Azure CLI en suivant les instructions fournies dans [Installer Azure CLI](/cli/azure/install-az-cli2).
 
 > [!TIP]
 > Si vous rencontrez un problème avec l’installation, consultez la section [Dépannage de l’installation](/cli/azure/install-az-cli2#installation-troubleshooting) de l’article et le guide [Dépannage de l’installation](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) sur GitHub.
@@ -96,16 +96,16 @@ Pour utiliser les ressources dans votre abonnement Azure, vous devez tout d’ab
   * Ceci ne fonctionne pas avec les comptes Microsoft ou les comptes qui utilisent l’authentification multifacteur.
 * **Connexion avec un principal du service** : `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
-## <a name="azure-cli-20-sample-script"></a>Exemple de script CLI 2.0 Azure
+## <a name="azure-cli-sample-script"></a>Exemple de script Azure CLI
 
-Ensuite, nous allons utiliser un petit script shell qui émet plusieurs commandes CLI 2.0 Azure de base pour interagir avec les ressources de stockage Azure. Tout d’abord, le script crée un nouveau conteneur dans votre compte de stockage, puis télécharge un fichier existant (comme un objet blob) dans ce conteneur. Ensuite, il répertorie tous les objets blob dans le conteneur et pour terminer, il télécharge le fichier vers une destination sur l’ordinateur local que vous spécifiez.
+Nous allons maintenant utiliser un petit script shell qui exécute plusieurs commandes Azure CLI simples pour interagir avec les ressources du compte de stockage Azure. Tout d’abord, le script crée un nouveau conteneur dans votre compte de stockage, puis télécharge un fichier existant (comme un objet blob) dans ce conteneur. Ensuite, il répertorie tous les objets blob dans le conteneur et pour terminer, il télécharge le fichier vers une destination sur l’ordinateur local que vous spécifiez.
 
 ```bash
 #!/bin/bash
 # A simple Azure Storage example script
 
 export AZURE_STORAGE_ACCOUNT=<storage_account_name>
-export AZURE_STORAGE_ACCESS_KEY=<storage_account_key>
+export AZURE_STORAGE_KEY=<storage_account_key>
 
 export container_name=<container_name>
 export blob_name=<blob_name>
@@ -210,7 +210,7 @@ Maintenant que vous disposez de la clé, vous pouvez la définir, tout comme le 
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
-export AZURE_STORAGE_ACCESS_KEY=<key>
+export AZURE_STORAGE_KEY=<key>
 ```
 
 Vous pouvez également définir un compte de stockage par défaut via une chaîne de connexion. Commencez par obtenir la chaîne de connexion à l’aide de la commande `show-connection-string` :
@@ -228,7 +228,7 @@ export AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
 ```
 
 > [!NOTE]
-> Tous les exemples des sections suivantes de cet article supposent que vous avez défini les variables d’environnement `AZURE_STORAGE_ACCOUNT` et `AZURE_STORAGE_ACCESS_KEY`.
+> Tous les exemples des sections suivantes de cet article supposent que vous avez défini les variables d’environnement `AZURE_STORAGE_ACCOUNT` et `AZURE_STORAGE_KEY`.
 
 ## <a name="create-and-manage-blobs"></a>Créer et gérer des objets blob
 Le stockage d’objets blob Azure est un service permettant de stocker de gros volumes de données non structurées, telles que du texte ou des données binaires, accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Cette section suppose que vous êtes déjà familiarisé avec les concepts du Stockage Blob Azure. Pour obtenir des informations détaillées, consultez [Prise en main du Stockage Blob Azure à l’aide de .NET](../blobs/storage-dotnet-how-to-use-blobs.md) et [Concepts de service Blob](/rest/api/storageservices/blob-service-concepts).
@@ -257,6 +257,8 @@ az storage blob upload \
     --container-name <container_name> \
     --name <blob_name>
 ```
+
+Si vous voulez les charger directement dans un dossier du conteneur d’objets dans votre compte de stockage, remplacez `--name <blob_name>` par `--name <folder/blob_name>`.
 
  Sinon, la commande `blob upload` charge par défaut les fichiers *.vhd dans les objets blob de pages ou de blocs. Pour spécifier un autre type lorsque vous chargez un objet blob, vous pouvez utiliser l’argument `--type` ; les valeurs autorisée sont `append`, `block` et `page`.
 
@@ -517,8 +519,8 @@ Exemple de sortie
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Voici quelques ressources supplémentaires pour en savoir plus sur l’utilisation d’Azure CLI 2.0.
+Consultez les ressources supplémentaires ci-dessous pour en savoir plus sur l’utilisation d’Azure CLI. 
 
-* [Prise en main d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Référence des commandes Azure CLI 2.0](/cli/azure)
-* [Azure CLI 2.0 sur GitHub](https://github.com/Azure/azure-cli)
+* [Bien démarrer avec Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Informations de référence sur les commandes Azure CLI](/cli/azure)
+* [Azure CLI sur GitHub](https://github.com/Azure/azure-cli)

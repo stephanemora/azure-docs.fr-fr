@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 70ce30bdc5a12aec198a2bb1b78c9bdfa8a18882
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: cfbebf8570ee044698b0f4e0abdd58370b04f759
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141892"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992862"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Comment utiliser Azure CLI et l’extension IoT afin de gérer le Service IoT Hub Device Provisioning
 
@@ -25,11 +25,11 @@ Dans ce tutoriel, vous commencez par les étapes de configuration d’Azure CLI 
 
 ## <a name="installation"></a>Installation 
 
-### <a name="step-1---install-python"></a>Étape 1 - Installer Python
+### <a name="step-1---install-python"></a>Étape 1 - Installez Python
 
 [Python 2.7x ou Python 3.x](https://www.python.org/downloads/) est nécessaire.
 
-### <a name="step-2---install-azure-cli"></a>Étape 2 - Installer Azure CLI
+### <a name="step-2---install-the-azure-cli"></a>Étape 2 : Installer Azure CLI
 
 Suivez les [instructions d’installation](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour configurer Azure CLI dans votre environnement. Vous devez utiliser Azure CLI version 2.0.24 ou ultérieure. Utilisez `az –version` pour valider. Cette version prend en charge les commandes d’extension az et introduit l’infrastructure de la commande Knack. Une méthode d’installation simple sur Windows consiste à télécharger et installer le [MSI](https://aka.ms/InstallAzureCliWindows).
 

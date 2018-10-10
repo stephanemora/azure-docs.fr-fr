@@ -1,25 +1,25 @@
 ---
-title: S’inscrire à l’aide des informations de partenaire CSP à la Gestion des coûts Azure | Microsoft Docs
-description: Utilisez vos informations de partenaire CSP pour vous inscrire à Azure Cost Management.
+title: S’inscrire à l’aide des informations de partenaire CSP à Cloudyn dans Azure | Microsoft Docs
+description: Utilisez vos informations de partenaire CSP pour vous inscrire à Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 08/06/2018
+ms.date: 09/18/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: e97ac06d5740a793d5f811e1a7ac01fef1a32806
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 698ddab4f5bca5aacf79cb952a51c385a67eee32
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578056"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985428"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>S’inscrire au programme pour les partenaires CSP et afficher les données de coût
 
-En tant que partenaire CSP, vous pouvez vous inscrire à Azure Cost Management. Votre inscription vous donne accès au portail Cloudyn. Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn. Il explique également comment afficher immédiatement des données de coût.
+En tant que partenaire CSP, vous pouvez vous inscrire à Cloudyn. Votre inscription vous donne accès au portail Cloudyn. Ce guide de démarrage rapide décrit le processus d’inscription nécessaire pour créer un abonnement d’évaluation Cloudyn et vous connecter au portail Cloudyn. Il explique également comment afficher immédiatement des données de coût.
 
 
 >[!NOTE]
@@ -35,12 +35,12 @@ Pour plus d’informations, consultez [Se connecter à l’API Espace partenaire
 
 - Connectez-vous au portail Azure sur http://portal.azure.com.
 
-## <a name="register-with-azure-cost-management"></a>S’inscrire à Azure Cost Management
+## <a name="register-with-cloudyn"></a>S’inscrire à Cloudyn
 
 1. Dans le portail Azure, cliquez sur **Gestion des coûts + Facturation** dans la liste des services.
-2. Sous **Vue d’ensemble**, cliquez sur **Gestion des coûts**.  
-    ![Page Gestion des coûts](./media/quick-register-csp/cost-mgt-billing-service.png)
-3. Sur la page **Gestion des coûts**, cliquez sur le bouton d’**accès à la Gestion des coûts** pour ouvrir la page d’inscription de Cloudyn dans une nouvelle fenêtre.
+2. Sous **Vue d’ensemble**, cliquez sur **Cloudyn**  
+    ![Page Cloudyn](./media/quick-register-csp/cost-mgt-billing-service.png)
+3. Dans la page **Cloudyn**, cliquez sur **Accéder à Cloudyn** pour ouvrir la page d’inscription de Cloudyn dans une nouvelle fenêtre.
 4. Sur la page d’inscription à une évaluation du portail Cloudyn, tapez le nom de votre société, sélectionnez l’option d’**administrateur de programme partenaire CSP Microsoft** et cliquez sur **Suivant**.  
 5. Entrez un **ID d’application**, un **ID de commerce** et une **clé secrète d’application**, puis sélectionnez le **plan tarifaire par défaut**. Si vous n’avez pas les informations nécessaires à portée de main, connectez-vous au portail Espace partenaires à l’adresse  [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com) avec votre compte d’administrateur principal et procédez comme suit :
   1. Accédez au **tableau de bord**, cliquez sur le symbole **Paramètres**, sur **Paramètres du partenaire**, puis sur **Gestion des applications**.
@@ -62,7 +62,7 @@ Par défaut, l’API Espace partenaires est accessible uniquement aux fournisseu
 Pour activer l’accès pour les clients ou partenaires CSP indirects, suivez les étapes décrites dans [Créer une inscription d’évaluation](#create-a-trial-registration) pour configurer une inscription d’évaluation. Effectuez les étapes suivantes pour segmenter les données CSP indirectes à l’aide de groupes d’entités Cloudyn. Ensuite, assignez les autorisations utilisateur appropriées pour les groupes d’entités.
 
 1. Créez un groupe d’entités avec les informations fournies dans [Créer des entités](tutorial-user-access.md#create-and-manage-entities).
-2. Suivez les étapes fournies dans [Assigning subscriptions to Cost Entities (Affectation d’abonnements à des entités de coût)](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associez le compte du client CSP indirect et ses abonnements Azure à l’entité que vous avez créée.
+2. Suivez les étapes fournies dans [Assigning subscriptions to Cost Entities (Affectation d’abonnements à des entités de coût)](https://support.cloudyn.com/hc/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associez le compte du client CSP indirect et ses abonnements Azure à l’entité que vous avez créée.
 3. Suivez les étapes fournies dans [Créer un utilisateur avec un accès administrateur](tutorial-user-access.md#create-a-user-with-admin-access) pour créer un compte d’utilisateur avec un accès administrateur. Ensuite, vérifiez que le compte d’utilisateur dispose d’un accès administrateur aux entités spécifiques que vous avez créées pour le compte indirect.
 
 Les partenaires CSP indirects se connectent au portail Cloudyn à l’aide des comptes que vous avez créés pour eux.
@@ -72,7 +72,7 @@ Les partenaires CSP indirects se connectent au portail Cloudyn à l’aide des c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez utilisé vos informations CSP pour vous inscrire à la Gestion des coûts. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur Azure Cost Management, poursuivez avec le didacticiel sur Cost Management.
+Dans ce guide de démarrage rapide, vous avez utilisé vos informations CSP pour vous inscrire à Cloudyn. Vous vous êtes également connecté au portail Cloudyn et avez affiché des données de coût. Pour en savoir plus sur Cloudyn, suivez le tutoriel sur Cloudyn.
 
 > [!div class="nextstepaction"]
 > [Réviser l’utilisation et les coûts](./tutorial-review-usage.md)

@@ -1,25 +1,25 @@
 ---
-title: 'Didacticiel : Prévoir les dépenses avec Azure Cost Management | Microsoft Docs'
+title: Tutoriel - Prévoir les dépenses avec Cloudyn dans Azure | Microsoft Docs
 description: Dans ce didacticiel, vous allez apprendre à prévoir les dépenses à l’aide de l’historique d’utilisation et des données de dépenses.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 411b4797510b26dec43ea7f2232457199808c857
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162192"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953682"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Didacticiel : Prévoir les dépenses futures
 
-Azure Cost Management vous permet de prévoir les futures dépenses à l’aide de l’historique d’utilisation et des données de dépenses. Les rapports Cloudyn vous permettent d’afficher toutes les données de projection des coûts. Les exemples de ce didacticiel vous guident tout au long de l’étude des projections de coûts à l’aide de rapports. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Cloudyn vous aide à prévoir les dépenses à venir via l’historique d’utilisation et les données relatives aux dépenses. Les rapports Cloudyn vous permettent d’afficher toutes les données de projection des coûts. Les exemples de ce didacticiel vous guident tout au long de l’étude des projections de coûts à l’aide de rapports. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Prévoir les dépenses futures
@@ -28,9 +28,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 - Vous devez disposer d’un compte Azure.
-- Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
+- Vous devez disposer d’une inscription gratuite ou d’un abonnement payant pour Cloudyn.
 
 ## <a name="forecast-future-spending"></a>Prévoir les dépenses futures
 
@@ -38,7 +37,7 @@ Cloudyn inclut des rapports de prévision des coûts pour vous aider à prévoir
 
 Le rapport du coût projeté pour le mois en cours affiche les coûts de vos services. Il prend en compte les coûts depuis le début du mois en cours et du mois précédent pour afficher le coût projeté. Dans le menu des rapports en haut du portail, cliquez sur **Cost** > **Projection and Budget** > **Current Month Projected Cost**. L’image suivante en montre un exemple.
 
-![coût projeté pour le mois en cours](./media/tutorial-forecast-spending/project-month01.png)
+![Coût prévisionnel pour le mois en cours](./media/tutorial-forecast-spending/project-month01.png)
 
 Dans l’exemple, vous pouvez voir les services qui ont le plus dépensé. Les coûts Azure sont inférieurs aux coûts AWS. Si vous souhaitez afficher les détails de la projection des coûts pour les machines virtuelles Azure, dans la liste **Filter**, sélectionnez **Azure/VM**.
 
@@ -50,17 +49,17 @@ Le rapport du coût projeté annuel (Annual Projected Cost) affiche le coût ext
 
 Dans le menu des rapports en haut du portail, cliquez sur **Cost** > **Projection and Budget** > **Annual Projected Cost**. L’image suivante en montre un exemple.
 
-![rapport du coût projeté annuel](./media/tutorial-forecast-spending/project-annual01.png)
+![Rapport du coût prévisionnel annuel](./media/tutorial-forecast-spending/project-annual01.png)
 
 Dans l’exemple, vous pouvez voir les services qui ont le plus dépensé. Comme pour l’exemple mensuel, les coûts Azure ont été inférieurs aux coûts AWS. Si vous souhaitez afficher les détails de la projection des coûts pour les machines virtuelles Azure, dans la liste **Filter**, sélectionnez **Azure/VM**.
 
-![coût projeté annuel des machines virtuelles](./media/tutorial-forecast-spending/project-annual02.png)
+![Coût prévisionnel annuel des machines virtuelles](./media/tutorial-forecast-spending/project-annual02.png)
 
 Dans l’image ci-dessus, le coût projeté annuel des machines virtuelles Azure est de 28 374 USD.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Prévoir les dépenses futures

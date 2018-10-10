@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: faa213caf415f98c230af741822e17a511b6fe43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: aa2613f7cb73c2c338189aaaa48587c49a3093f5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696293"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962184"
 ---
 # <a name="build-a-java-application-by-using-azure-cosmos-db-async-java-sdk"></a>Créer une application Java à l’aide du kit de développement logiciel (SDK) Java Async Azure Cosmos DB 
 
@@ -26,7 +26,6 @@ ms.locfileid: "43696293"
 > * [Java](sql-api-java-get-started.md)
 > * [Java asynchrone](sql-api-async-java-get-started.md)
 > * [Node.JS](sql-api-nodejs-get-started.md)
-> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Azure Cosmos DB est une base de données multimodèle distribuée à l’échelle mondiale. Ce tutoriel vous explique comment utiliser des comptes d’API SQL Azure Cosmos DB pour stocker des données et y accéder à l’aide d’une application Async Java. 
@@ -101,7 +100,7 @@ public class AccountSettings
 ![Capture d’écran du portail Azure utilisé par le didacticiel NoSQL pour créer une application console Java. Présente un compte Azure Cosmos DB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte Azure Cosmos DB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
 
 ## <a name="step-4-initialize-the-client-object"></a>Étape 4 : Initialiser l’objet client
-Initialisez l’objet client à l’aide de l’URI de l’hôte et des valeurs de clé primaire définies dans le fichier « AccountSettings.java »
+Initialisez l’objet client à l’aide de l’URI de l’hôte et des valeurs de clé primaire définies dans le fichier « AccountSettings.java »
 
 ```java
 client = new AsyncDocumentClient.Builder()
@@ -201,7 +200,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
 
 ## <a id="CreateDoc"></a>Étape 7 : Créer des documents JSON
 
-Pour créer un [document](sql-api-resources.md#documents), utilisez la méthode createDocument de la classe DocumentClient. Les documents sont du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Le fichier « src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java » définit les documents de famille JSON 
+Pour créer un [document](sql-api-resources.md#documents), utilisez la méthode createDocument de la classe DocumentClient. Les documents sont du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Le fichier « src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java » définit les documents de famille JSON 
 
 ```java
 public static Family getJohnsonFamilyDocument() {

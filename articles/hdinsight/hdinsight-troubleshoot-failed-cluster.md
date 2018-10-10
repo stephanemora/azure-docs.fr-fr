@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: f18e667e86c310e4d2950ba195911307aec5426d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047023"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950709"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
 
@@ -57,12 +57,13 @@ Le portail Azure peut fournir les informations suivantes :
 
 ![Informations relatives au portail Azure HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-Vous pouvez aussi utiliser l’interface Azure CLI :
+Vous pouvez aussi utiliser Azure Classic CLI :
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Une autre option consiste à utiliser PowerShell. Pour en savoir plus, consultez [Gestion des clusters Hadoop dans HDInsight au moyen d’Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -100,7 +101,7 @@ Comparez la version de votre cluster à la dernière version de HDInsight. Chaqu
 
 #### <a name="restart-your-cluster-services"></a>Redémarrer vos services de cluster
 
-Si votre cluster subit des ralentissements, pensez à redémarrer vos services via l’interface utilisateur Ambari ou l’interface Azure CLI. Le cluster peut rencontrer des erreurs transitoires, auquel cas un redémarrage offre le moyen le plus rapide pour stabiliser votre environnement et éventuellement en améliorer les performances.
+Si votre cluster subit des ralentissements, pensez à redémarrer vos services par le biais de l’interface utilisateur Ambari ou d’Azure Classic CLI. Le cluster peut rencontrer des erreurs transitoires, auquel cas un redémarrage offre le moyen le plus rapide pour stabiliser votre environnement et éventuellement en améliorer les performances.
 
 ## <a name="step-3-view-your-clusters-health"></a>Étape 3 : contrôler l’état d’intégrité de votre cluster
 

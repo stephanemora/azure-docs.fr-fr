@@ -15,16 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122465"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46965529"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance
 
-Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor collecte des [métriques](../monitoring-and-diagnostics/monitoring-overview-metrics.md) et des [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
+ 
+Cet article explique comment surveiller un compte Batch à l’aide de fonctionnalités [d’Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte des [métriques](../monitoring/monitoring-data-collection.md#metrics) et des [journaux de diagnostic](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) pour les ressources de votre compte Batch. Collectez et utilisez ces données de plusieurs façons pour surveiller votre compte Batch et diagnostiquer les problèmes. Vous pouvez également configurer des [alertes de métriques](../monitoring-and-diagnostics/monitoring-overview-alerts.md) afin de recevoir des notifications lorsqu’une métrique atteint une valeur spécifiée. 
 
 ## <a name="batch-metrics"></a>Métriques Batch
 
@@ -64,7 +65,8 @@ Pour configurer une alerte de métrique dans le portail :
 2. Sous **Surveillance**, cliquez sur **Règles d’alerte** > **Ajouter une alerte Métrique**.
 3. Sélectionnez une métrique, une condition d’alerte (par exemple, quand une métrique dépasse une valeur particulière sur une certaine période) et une ou plusieurs notifications.
 
-Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/monitor/). Pour plus d’informations, consultez [Utiliser les alertes métriques les plus récentes pour les services Azure dans le Portail Azure](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
+Vous pouvez également configurer une alerte en temps quasi-réel à l’aide de [l’API REST](https://docs.microsoft.com/rest/api/monitor/). Pour plus d’informations, consultez [Vue d’ensemble des alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
+
 ## <a name="batch-diagnostics"></a>Diagnostics Batch
 
 Les journaux de diagnostic contiennent des informations émises par les ressources Azure qui décrivent le fonctionnement de chaque ressource. Pour Batch, vous pouvez collecter les journaux suivants :

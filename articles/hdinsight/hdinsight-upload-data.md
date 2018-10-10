@@ -1,6 +1,6 @@
 ---
 title: Téléchargement de données pour les tâches Hadoop dans HDInsight
-description: Découvrez comment télécharger des données pour les tâches Hadoop et y accéder dans HDInsight avec l'interface CLI Azure, Azure Storage Explorer, Azure PowerShell, la ligne de commande Hadoop ou Sqoop.
+description: Découvrez comment charger des données pour les tâches Hadoop et y accéder dans HDInsight avec Azure Classic CLI, Explorateur Stockage Azure, Azure PowerShell, la ligne de commande Hadoop ou Sqoop.
 keywords: etl hadoop, obtention de données dans hadoop, données de charge hadoop
 services: hdinsight
 author: jasonwhowell
@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 838444898500ce7127e1a9e999d0b5ee7b1e3687
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 44aaccee436011bd7d27bec87515fde0e898732e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051822"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985977"
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Téléchargement de données pour les tâches Hadoop dans HDInsight
 
@@ -38,22 +38,22 @@ Microsoft fournit les utilitaires suivants pour utiliser le Stockage Azure :
 
 | Outil | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Interface de ligne de commande Azure][azurecli] |✔ |✔ |✔ |
+| [Azure Classic CLI][azurecli] |✔ |✔ |✔ |
 | [Azure PowerShell][azure-powershell] | | |✔ |
 | [AzCopy][azure-azcopy] |✔ | |✔ |
 | [Commande Hadoop](#commandline) |✔ |✔ |✔ |
 
 > [!NOTE]
-> Alors que l’interface de ligne de commande Azure, Azure PowerShell et AzCopy peuvent tous être utilisés en dehors d’Azure, la commande Hadoop est disponible uniquement sur le cluster HDInsight. En outre, la commande autorise uniquement le chargement de données du système de fichiers local sur le Stockage Azure.
+> Alors que l’interface Azure Classic CLI, Azure PowerShell et AzCopy peuvent tous être utilisés en dehors d’Azure, la commande Hadoop est disponible uniquement sur le cluster HDInsight. En outre, la commande autorise uniquement le chargement de données du système de fichiers local sur le Stockage Azure.
 >
 >
 
-#### <a id="xplatcli"></a>Interface CLI Azure
-L'interface CLI Azure est un outil interplateforme qui vous permet de gérer les services Azure. Pour charger des données sur le Stockage Azure, effectuez les opérations suivantes :
+#### <a id="xplatcli"></a>Azure Classic CLI
+L’interface Azure Classic CLI est un outil multiplateforme qui vous permet de gérer les services Azure. Pour charger des données sur le Stockage Azure, effectuez les opérations suivantes :
 
-[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-1. [Installez et configurez l’interface de ligne de commande Azure pour Mac, Linux et Windows](../cli-install-nodejs.md).
+1. [Installer et configurer Azure Classic CLI pour Mac, Linux et Windows](../cli-install-nodejs.md).
 2. Ouvrez une invite de commandes, un bash ou un autre shell et procédez comme suit pour vous authentifier auprès de votre abonnement Azure.
 
     ```cli

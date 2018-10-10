@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140266"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976752"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Renouvellement des certificats d’appareil X.509
 
@@ -41,7 +41,7 @@ Les certificats figurant sur un appareil doivent toujours être stockés dans un
 
 Si vous avez obtenu vos certificats auprès d’un tiers, vous devez étudier la manière dont celui-ci renouvelle ses certificats. Ce processus peut être inclus dans l’accord que vous avez conclu avec le tiers, ou prendre la forme d’un service distinct offert par le tiers. 
 
-Si vous gérez vos propres certificats d’appareil, vous devrez créer votre pipeline pour la mise à jour des certificats. Assurez-vous que l’ancien certificat feuille porte le même nom commun que le nouveau certificat. L’utilisation du même nom commun permet à l’appareil de se reprovisionner lui-même sans créer d’enregistrement d’inscription en double.
+Si vous gérez vos propres certificats d’appareil, vous devrez créer votre pipeline pour la mise à jour des certificats. Assurez-vous que l’ancien certificat feuille porte le même nom commun que le nouveau certificat. L’utilisation du même nom commun permet à l’appareil de se reprovisionner lui-même sans créer d’enregistrement d’inscription en double. 
 
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Renouveler le certificat dans le IoT Hub
@@ -78,10 +78,13 @@ Si vous renouvelez des certificats suite à une violation de la sécurité, vous
 
     ![Gestion des inscriptions individuelles](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
-3. Une fois que le certificat compromis a été supprimé du service de provisionnement, accédez à votre IoT Hub et supprimez l’inscription d’appareil associée au certificat compromis.     
+3. Une fois que le certificat compromis a été supprimé du service de provisionnement, le certificat peut néanmoins toujours être utilisé pour établir des connexions d’appareils au hub IoT tant qu’une inscription d’appareil y existe pour celui-ci. Vous pouvez résoudre ce problème de deux façons : 
+
+    La première méthode consiste à accéder manuellement à votre hub IoT et à supprimer immédiatement l’inscription d’appareil associée au certificat compromis. Ensuite, quand l’appareil est reprovisionné avec un certificat mis à jour, une nouvelle inscription d’appareil est créée.     
 
     ![Suppression d’une inscription d’appareil IoT Hub](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
+    La deuxième méthode consiste à utiliser la prise en charge du reprovisionnement pour reprovisionner l’appareil auprès du même hub IoT. Cette approche peut être utilisée pour remplacer le certificat pour l’inscription d’appareil sur le hub IoT. Pour plus d’informations, consultez [Guide pratique pour reprovisionner des appareils](how-to-reprovision.md).
 
 ## <a name="individual-enrollments-and-certificate-expiration"></a>Inscriptions individuelles et expiration des certificats
 
@@ -118,9 +121,14 @@ Pour mettre à jour une inscription de groupe suite à une violation de la sécu
 
     ![Sélection du nouveau certificat d’autorité de certification racine](./media/how-to-roll-certificates/select-new-root-cert.png)
 
-6. Une fois que le certificat compromis a été supprimé du service de provisionnement, accédez à l’IoT Hub lié qui contient les inscriptions d’appareils compromis et supprimez les inscriptions associées au certificat compromis.
+6. Une fois que le certificat compromis a été supprimé du service de provisionnement, le certificat peut néanmoins toujours être utilisé pour établir des connexions d’appareils au hub IoT tant que des inscriptions d’appareil y existent pour celui-ci. Vous pouvez résoudre ce problème de deux façons : 
+
+    La première méthode consiste à accéder manuellement à votre hub IoT et à supprimer immédiatement l’inscription d’appareil associée au certificat compromis. Ensuite, quand vos appareils sont reprovisionnés avec des certificats mis à jour, une nouvelle inscription d’appareil est créée pour chacun d’eux.     
 
     ![Suppression d’une inscription d’appareil IoT Hub](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    La deuxième méthode consiste à utiliser la prise en charge du reprovisionnement pour reprovisionner vos appareils auprès du même hub IoT. Cette approche peut être utilisée pour remplacer les certificats pour les inscriptions d’appareil sur le hub IoT. Pour plus d’informations, consultez [Guide pratique pour reprovisionner des appareils](how-to-reprovision.md).
+
 
 
 #### <a name="update-compromised-intermediate-certificates"></a>Mettre à jour les certificats intermédiaires compromis
@@ -134,9 +142,13 @@ Pour mettre à jour une inscription de groupe suite à une violation de la sécu
     ![Gestion des inscriptions individuelles](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
-3. Une fois que le certificat compromis a été supprimé du service de provisionnement, accédez à l’IoT Hub lié qui contient l’inscription d’appareil et supprimez l’inscription associée au certificat compromis.
+3. Une fois que le certificat compromis a été supprimé du service de provisionnement, le certificat peut néanmoins toujours être utilisé pour établir des connexions d’appareils au hub IoT tant que des inscriptions d’appareil y existent pour celui-ci. Vous pouvez résoudre ce problème de deux façons : 
+
+    La première méthode consiste à accéder manuellement à votre hub IoT et à supprimer immédiatement l’inscription d’appareil associée au certificat compromis. Ensuite, quand vos appareils sont reprovisionnés avec des certificats mis à jour, une nouvelle inscription d’appareil est créée pour chacun d’eux.     
 
     ![Suppression d’une inscription d’appareil IoT Hub](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    La deuxième méthode consiste à utiliser la prise en charge du reprovisionnement pour reprovisionner vos appareils auprès du même hub IoT. Cette approche peut être utilisée pour remplacer les certificats pour les inscriptions d’appareil sur le hub IoT. Pour plus d’informations, consultez [Guide pratique pour reprovisionner des appareils](how-to-reprovision.md).
 
 
 ## <a name="enrollment-groups-and-certificate-expiration"></a>Groupes d’inscription et expiration des certificats

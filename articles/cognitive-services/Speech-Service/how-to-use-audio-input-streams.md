@@ -1,142 +1,76 @@
 ---
-title: Concepts AudioInputStream
-description: Vue d’ensemble des fonctionnalités de l’API AudioInputStream.
+title: Concepts de flux d’entrée audio du SDK Speech
+description: Vue d’ensemble des fonctionnalités de l’API de flux d’entrée audio du SDK Speech
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: b3e12fbc616c8d67b557102c6094467e119a23f1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6c2d7c5787305f60b73ab83ea17367b04e03ac12
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281903"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46985178"
 ---
-# <a name="about-the-audio-input-stream-api"></a>À propos de l’API de flux d’entrée audio
+# <a name="about-the-speech-sdk-audio-input-stream-api"></a>À propos de l’API de flux d’entrée audio du SDK Speech
 
-L’API de **flux d’entrée audio** permet de diffuser des flux audio dans les modules de reconnaissance au lieu d’utiliser le microphone ou les API de fichier d’entrée.
+L’API de **flux d’entrée audio** du SDK Speech permet de diffuser des flux audio en continu dans les modules de reconnaissance au lieu d’utiliser le microphone ou les API de fichier d’entrée.
 
-## <a name="api-overview"></a>Présentation de l’API
+Les étapes suivantes sont nécessaires à l’utilisation des flux d’entrée audio :
 
-L’API utilise deux composants, le `AudioInputStream` (données audio brutes) et le `AudioInputStreamFormat`.
+- Identifiez le format du flux audio. Le format doit être pris en charge par le SDK et le service Speech. Seule la configuration suivante est prise en charge :
 
-Le `AudioInputStreamFormat` définit le format des données audio. Il est comparable à la structure `WAVEFORMAT` standard des fichiers wave sur Windows.
+  Échantillons audio au format PCM, un canal, 16 000 échantillons par seconde, 32 000 octets par seconde, alignement de deux blocs (16 bits, y compris le remplissage d’un échantillon), 16 bits par échantillon
 
-  - `FormatTag`
+  Dans le SDK, le code correspondant permettant de créer le format audio se présente ainsi :
 
-    Le format des fichiers audio. Le kit de développement logiciel (SDK) Speech prend actuellement uniquement en charge `format 1` (PCM - little-endian).
+  ```
+  byte channels = 1;
+  byte bitsPerSample = 16;
+  int samplesPerSecond = 16000;
+  var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
+  ```
 
-  - `Channels`
+- Vérifiez que votre code peut fournir les données audio RAW respectant ces spécifications. Si vos données sources audio ne correspondent pas aux formats pris en charge, le fichier audio doit être converti au format requis.
 
-    Le nombre de canaux. Le service Speech prend actuellement en charge le matériel audio d’un seul canal (mono).
+- Créez votre propre classe de flux d’entrée audio dérivée de `PullAudioInputStreamCallback`. Implémentez les membres `Read()` et `Close()`. La signature de fonction exacte dépend de la langue, mais le code doit ressembler à cet exemple :
 
-  - `SamplesPerSec`
+  ```
+   public class ContosoAudioStream : PullAudioInputStreamCallback {
+      ContosoConfig config;
 
-    L’échantillonnage. Un enregistrement de microphone classique présente 16 000 échantillons par seconde.
+      public ContosoAudioStream(const ContosoConfig& config) {
+          this.config = config;
+      }
 
-  - `AvgBytesPerSec`
+      public size_t Read(byte *buffer, size_t size) {
+          // returns audio data to the caller.
+          // e.g. return read(config.YYY, buffer, size);
+      }
 
-    Octets moyens par seconde, calculés en tant que `SamplesPerSec * Channels * ceil(BitsPerSample, 8)`. Le nombre moyen d’octets par seconde peut être différent pour les flux audio qui utilisent des débits binaires variables.
+      public void Close() {
+          // close and cleanup resources.
+      }
+   };
+  ```
 
-  - `BlockAlign`
+- Créez une configuration audio basée sur le format audio et le flux d’entrée. Lorsque vous créez votre module de reconnaissance, passez la configuration de la reconnaissance vocale et la configuration de l’entrée audio. Par exemple : 
 
-    La taille d’une seule image, calculée en tant que `Channels * ceil(wBitsPerSample, 8)`. En raison de la marge intérieure, la valeur réelle peut être supérieure à cette valeur.
+  ```
+  var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
 
-  - `BitsPerSample`
+  var speechConfig = SpeechConfig.FromSubscription(...);
+  var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
-    Les bits par échantillon. Un flux audio classique utilise 16 bits par échantillon (qualité CD).
+  // run stream through recognizer
+  var result = await recognizer.RecognizeOnceAsync();
 
-La classe de base `AudioInputStream` sera remplacée par votre adaptateur de flux personnalisé. Cet adaptateur doit implémenter les fonctions suivantes :
-
-   - `GetFormat()`
-
-     Cette fonction est appelée pour obtenir le format du flux audio. Elle obtient un pointeur vers la mémoire tampon AudioInputStreamFormat.
-
-   - `Read()`
-
-     Cette fonction est appelée pour obtenir les données du flux audio. Un paramètre est un pointeur vers la mémoire tampon dans laquelle copier les données audio. Le deuxième paramètre est la taille de la mémoire tampon. La fonction renvoie le nombre d’octets copiés dans la mémoire tampon. Une valeur renvoyée de `0` indique la fin du flux.
-
-   - `Close()`
-
-     Cette fonction est appelée pour fermer le flux audio.
-
-## <a name="usage-examples"></a>Exemples d’utilisation
-
-En règle générale, les étapes suivantes sont suivies lors de l’utilisation des flux d’entrée audio :
-
-  - Identifiez le format du flux audio. Le format doit être pris en charge par le kit de développement logiciel (SDK) et le service Speech. La configuration prise en charge actuellement est la suivante :
-
-    Une balise de format audio (PCM), un canal, 16 000 échantillons par seconde, 32 000 octets par seconde, alignement de deux blocs (16 bits, y compris la marge intérieure d’un échantillon), 16 bits par échantillon
-
-  - Assurez-vous que votre code peut fournir les données audio brutes selon les spécifications ci-dessus. Si vos données sources audio ne correspondent pas aux formats pris en charge, le fichier audio doit être converti au format requis.
-
-  - Dérivez votre classe de flux d’entrée audio personnalisé à partir de `AudioInputStream`. Implémentez les opérations `GetFormat()`, `Read()` et `Close()`. La signature de fonction exacte dépend de la langue, mais le code doit ressembler à cet exemple :
-
-    ```
-     public class ContosoAudioStream : AudioInputStream {
-        ContosoConfig config;
-
-        public ContosoAudioStream(const ContosoConfig& config) {
-            this.config = config;
-        }
-
-        public void GetFormat(AudioInputStreamFormat& format) {
-            // returns format data to the caller.
-            // e.g. format.FormatTag = config.XXX;
-            // ...
-        }
-
-        public size_t Read(byte *buffer, size_t size) {
-            // returns audio data to the caller.
-            // e.g. return read(config.YYY, buffer, size);
-        }
-
-        public void Close() {
-            // close and cleanup resources.
-        }
-     };
-    ```
-
-  - Utilisez votre flux d’entrée audio :
-
-    ```
-    var contosoStream = new ContosoAudioStream(contosoConfig);
-
-    var factory = SpeechFactory.FromSubscription(...);
-    var recognizer = CreateSpeechRecognizerWithStream(contosoStream);
-
-    // run stream through recognizer
-    var result = await recognizer.RecognizeAsync();
-
-    var text = result.GetText();
-
-    // In some languages you need to delete the stream explicitly.
-    // delete contosoStream;
-    ```
-
-  - Dans certaines langues, le `contosoStream` doit être supprimé explicitement une fois la reconnaissance terminée. Vous ne pouvez pas libérer le flux audio avant la lecture complète de l’entrée. Dans un scénario utilisant `StopContinuousRecognitionAsync` et `StopContinuousRecognitionAsync`, vous devez posséder un concept illustré dans cet exemple :
-
-    ```
-    var contosoStream = new ContosoAudioStream(contosoConfig);
-
-    var factory = SpeechFactory.FromSubscription(...);
-    var recognizer = CreateSpeechRecognizerWithStream(contosoStream);
-
-    // run stream through recognizer
-    await recognizer.StartContinuousRecognitionAsync();
-
-    // ERROR: do not delete the contosoStream before ending recognition!
-    // delete contosoStream;
-
-    await recognizer.StopContinuousRecognitionAsync();
-
-    // OK: Safe to delete the contosoStream.
-    // delete contosoStream;
-    ```
+  var text = result.GetText();
+  ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

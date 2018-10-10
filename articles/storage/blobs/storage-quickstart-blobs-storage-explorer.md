@@ -1,29 +1,31 @@
 ---
-title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de l’Explorateur Stockage Azure | Microsoft Docs
-description: Dans ce Démarrage rapide, vous utilisez l’Explorateur Stockage Azure dans un stockage d’objets (blob). Ensuite, vous utilisez Storage Explorer pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob dans un conteneur.
+title: 'Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour créer un objet blob dans le stockage d’objets'
+description: Dans le cadre de ce démarrage rapide, vous apprenez à utiliser l’Explorateur Stockage Azure pour créer un conteneur et un objet blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local, et à afficher tous les objets blob dans un conteneur. Vous découvrez également comment créer une capture instantanée d’objet blob, gérer les stratégies d’accès de conteneur et créer une signature d’accès partagé.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 08/27/2018
 ms.author: tamram
-ms.openlocfilehash: 83698abd3006671c5edce37e3cada26d07d25b8f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399634"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996126"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Storage Explorer
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour créer un objet blob dans le stockage d’objets
 
-L’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) est une interface utilisateur multiplateforme dédiée à la gestion du contenu de vos comptes de stockage. Ce guide décrit en détail l’utilisation de l’Explorateur Stockage Azure pour transférer des fichiers entre un disque local et le stockage Blob Azure.
+Dans le cadre de ce démarrage rapide, vous apprenez à utiliser l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour créer un conteneur et un objet blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local, et à afficher tous les objets blob dans un conteneur. Vous découvrez également comment créer une capture instantanée d’objet blob, gérer les stratégies d’accès de conteneur et créer une signature d’accès partagé.
+
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Pour exécuter ce guide de démarrage rapide, vous devez posséder une instance installée de l’Explorateur Stockage Azure. Si vous devez l’installer, accédez à [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) afin de le télécharger pour Windows, Macintosh ou Linux.
+Pour exécuter ce guide de démarrage rapide, vous devez installer l’Explorateur Stockage Azure. Pour installer l’Explorateur Stockage Azure pour Windows, Macintosh ou Linux, consultez [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/).
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="log-in-to-storage-explorer"></a>Se connecter à l’Explorateur Stockage
 

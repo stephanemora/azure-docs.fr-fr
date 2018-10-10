@@ -1,41 +1,41 @@
 ---
-title: Créer une fonction déployée à partir de Visual Studio Team Services dans Azure | Microsoft Docs
-description: Créer une Function App et déployer le code de fonction à partir de Visual Studio Team Services
+title: Créer une fonction dans Azure déployée à partir d’Azure DevOps | Microsoft Docs
+description: Créer une application de fonction Function App et déployer le code de fonction à partir d’Azure DevOps
 services: functions
 keywords: ''
-author: syntaxc4
+author: ggailey777
 ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
-ms.openlocfilehash: 1b54cfebd3ae36fc8025aeb4ea9c91d336bc5343
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fdc2f50be035c3fe4039c48c09436215d2f5bcc3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988950"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956606"
 ---
-# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Créer une application de fonction et déployer le code de fonction à partir de Visual Studio Team Services
+# <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>Créer une application de fonction et déployer le code de fonction à partir d’Azure DevOps
 
-Cette rubrique vous explique comment utiliser Azure Functions pour créer une application de fonction [serverless](https://azure.microsoft.com/overview/serverless-computing/) à l’aide du [plan de consommation](../functions-scale.md#consumption-plan). L’application de fonction, qui est un conteneur pour vos fonctions, est déployée en continu à partir d’un référentiel de Visual Studio Team Services (VSTS). 
+Cette rubrique vous explique comment utiliser Azure Functions pour créer une application de fonction [serverless](https://azure.microsoft.com/overview/serverless-computing/) à l’aide du [plan de consommation](../functions-scale.md#consumption-plan). L’application de fonction, qui est un conteneur pour vos fonctions, est déployée en continu à partir d’un dépôt Azure DevOps. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 Dans le cadre de cette rubrique, vous avez besoin des éléments suivants :
 
-* Un référentiel VSTS contenant votre projet d’application de fonction et pour lequel vous disposez des autorisations d’administration nécessaires
-* Un [jeton d’accès personnel (PAT)](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) permettant d’accéder à votre référentiel VSTS
+* Un dépôt Azure DevOps qui contient votre projet d’application de fonction, et pour lequel vous disposez d’autorisations d’administration.
+* Un [PAT (jeton d’accès personnel)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) qui permet d’accéder au dépôt Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous préférez utiliser Azure CLI localement, vous devez installer et utiliser la version 2.0 ou une version ultérieure. Pour déterminer la version Azure CLI, exécutez `az --version`. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous préférez utiliser Azure CLI localement, vous devez installer et utiliser la version 2.0 ou une version ultérieure. Pour déterminer la version Azure CLI, exécutez `az --version`. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Exemple de script
 
-Cet exemple crée une Function App Azure et déploie le code de la fonction à partir de Visual Studio Team Services.
+Cet exemple crée une application de fonction Azure et déploie le code de fonction à partir d’Azure DevOps.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 07352a5d7c8b465440efab17c654979662a95f8e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 695d5f1507f766cf0a2ad96d7dcd25f45f98c20e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702650"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994715"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostiquer un problème de routage sur une machine virtuelle
 
@@ -30,7 +30,7 @@ Dans cet article, vous apprenez à diagnostiquer un problème de routage en rega
 
 Vous essayez de vous connecter à une machine virtuelle, mais la connexion échoue. Afin de déterminer la raison pour laquelle vous ne pouvez pas vous connecter à la machine virtuelle, consultez les itinéraires effectifs d’une interface réseau au moyen du [portail](#diagnose-using-azure-portal) Azure, de [PowerShell](#diagnose-using-powershell), ou d’[Azure CLI](#diagnose-using-azure-cli).
 
-Les étapes qui suivent supposent que vous disposez d’une machine virtuelle existante qui permet d’afficher les itinéraires effectifs. Si vous ne possédez pas une telle machine, commencez par déployer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour pouvoir accomplir les tâches de cet article. Les exemples contenus dans cet article sont prévus pour une machine virtuelle nommée *myVM*, et une interface réseau appelée *myVMVMNic*. La machine virtuelle et l’interface réseau se trouvent dans un groupe de ressources nommé *myResourceGroup*, et se situent dans la région *Est des États-Unis*. Modifiez, en fonction de vos besoins, les valeurs dans ces étapes pour la machine virtuelle sur laquelle vous diagnostiquez le problème.
+Les étapes qui suivent supposent que vous disposez d’une machine virtuelle existante qui permet d’afficher les itinéraires effectifs. Si vous ne possédez pas une telle machine, commencez par déployer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour pouvoir accomplir les tâches de cet article. Les exemples contenus dans cet article sont prévus pour une machine virtuelle nommée *myVM*, et une interface réseau appelée *myVMVMNic*. La machine virtuelle et l’interface réseau se trouvent dans un groupe de ressources nommé *myResourceGroup*, et se situent dans la région *USA Est*. Modifiez les valeurs dans les étapes, selon le cas, pour la machine virtuelle dont vous analysez le problème.
 
 ## <a name="diagnose-using-azure-portal"></a>Diagnostiquer à l’aide du portail Azure
 
@@ -75,7 +75,7 @@ $VM = Get-AzureRmVM -Name myVM `
 $VM.NetworkProfile
 ```
 
-Le résultat ressemble à ce qui suit :
+Le résultat ressemble à ce qui suit :
 
 ```powershell
 NetworkInterfaces
@@ -87,7 +87,7 @@ Dans la précédente sortie, le nom d’interface réseau est *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnostiquer à l’aide d’Azure CLI
 
-Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/bash), ou en exécutant l’interface CLI à partir de votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez aussi exécuter `az login` et vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
+Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/bash), ou en exécutant l’interface CLI à partir de votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez aussi exécuter `az login` et vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
 Obtenez les itinéraires effectifs d’une interface réseau avec [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
@@ -127,7 +127,7 @@ Lors de la résolution de problèmes de communication, considérez les points su
 - Si vous avez créé un itinéraire vers 0.0.0.0/0, l’intégralité du trafic internet sortant est acheminé vers le tronçon suivant que vous avez spécifié, par exemple vers une appliance virtuelle de réseau ou une passerelle VPN. La création d’un itinéraire de ce type est généralement appelé « tunneling forcé ». Les connexions à distance, utilisant les protocoles RDP ou SSH depuis internet vers votre machine virtuelle, peuvent ne pas fonctionner avec cet itinéraire, selon la façon dont le tronçon suivant gère le trafic. Le tunneling forcé peut être activé :
     - Lors de l’utilisation du VPN de site à site, en créant un itinéraire avec comme type de tronçon suivant une *passerelle VPN*. En savoir plus sur la [configuration du tunneling forcé](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
     - Si un 0.0.0.0/0 (itinéraire par défaut) est publié sur BGP via une passerelle de réseau virtuel lors de l’utilisation d’un VPN de site à site, ou du circuit ExpressRoute. En savoir plus sur l’utilisation de BGP avec un [VPN de site à site](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#ip-addresses-used-for-azure-private-peering).
-- Pour que le trafic d’homologation de réseau virtuel fonctionne correctement, un itinéraire système, avec comme type de tronçon suivant *VNet Peering*, doit exister pour la plage de préfixes du réseau virtuel homologué. Si un itinéraire de ce type n’existe pas, et si le lien d’homologation de réseau virtuel est **Connecté** :
+- Pour que le trafic d’homologation de réseau virtuel fonctionne correctement, un itinéraire système, avec comme type de tronçon suivant *VNet Peering*, doit exister pour la plage de préfixes du réseau virtuel homologué. S’il n’existe aucune route de ce type, et si le lien d’appairage de réseau virtuel est **Connecté** :
     - Attendez quelques secondes et réessayez. S’il s’agit d’un lien d’homologation récemment établi, il faut parfois plus de temps pour propager les itinéraires à toutes les interfaces réseau d’un sous-réseau. Pour en savoir plus sur l’homologation de réseau virtuel, consultez la [Vue d’ensemble de l’homologation de réseau virtuel](virtual-network-peering-overview.md) et la [gestion de l’homologation de réseau virtuel](virtual-network-manage-peering.md).
     - Les règles du groupe de sécurité réseau peuvent avoir une incidence sur la communication. Pour plus d’informations, consultez [Diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle](diagnose-network-traffic-filter-problem.md).
 - Même si Azure affecte des itinéraires par défaut à chaque interface réseau Azure, si vous disposez de plusieurs interfaces réseau attachées à la machine virtuelle, seule l’interface réseau principale se voit attribuer un itinéraire par défaut (0.0.0.0/0), ou une passerelle, au sein du système d’exploitation de la machine virtuelle. Découvrez comment créer un itinéraire par défaut pour les interfaces réseau secondaires attachées à une machine virtuelle [Windows](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics) ou [Linux](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics). Apprenez-en davantage sur les [interfaces réseau principale et secondaire](virtual-network-network-interface-vm.md#constraints).

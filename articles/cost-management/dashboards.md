@@ -1,21 +1,21 @@
 ---
-title: Afficher les métriques clés dans les tableaux de bord d’Azure Cost Management | Microsoft Docs
-description: Cet article décrit comment afficher les métriques clés dans des tableaux de bord d’Azure Cost Management.
+title: Afficher les métriques clés dans des tableaux de bord Cloudyn dans Azure | Microsoft Docs
+description: Cet article décrit comment afficher les métriques clés dans des tableaux de bord de Cloudyn.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/05/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b1dc2e2eca900ca0ae72329c3c373b2d24f1b2e0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1d2b4a0cd78f3d68a76bd9186be4174f2dd1d86c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302757"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999692"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Afficher les métriques de coût clés dans des tableaux de bord
 
@@ -34,7 +34,7 @@ Les versions de tableau de bord diffèrent pour les utilisateurs de Cloudyn Mana
 
 La disponibilité des tableaux de bord varie selon le type de compte de fournisseur de service cloud utilisé lors de leur affichage. Le type d’informations disponibles et collectées par Cloudyn affecte les rapports présentés dans les tableaux de bord. Par exemple, si vous n’avez pas de compte AWS, vous ne verrez pas le tableau de bord S3 Tracker (Traqueur S3). De même, si vous n’activez pas l’accès d’Azure Resource Manager à Cloudyn, vous ne verrez pas d’informations spécifiques d’Azure dans les widgets du tableau de bord Optimizer (Optimiseur).
 
-Vous pouvez utiliser l’un des tableaux de bord prédéfinis, ou créer votre propre tableau de bord avec des rapports personnalisés. Si vous n’êtes pas familiarisé avec les rapports Cloudyn, voir [Utiliser les rapports de Cost Management](use-reports.md).
+Vous pouvez utiliser l’un des tableaux de bord prédéfinis, ou créer votre propre tableau de bord avec des rapports personnalisés. Si vous n’êtes pas familiarisé avec les rapports Cloudyn, consultez [Utiliser des rapports Cloudyn](use-reports.md).
 
 ## <a name="create-a-custom-dashboard"></a>Créer un tableau de bord personnalisé
 
@@ -118,7 +118,7 @@ Vous pouvez définir tout tableau de bord en tant que tableau de bord par défau
 1. Cliquez sur **Dashboard Settings (Paramètres du tableau de bord)** pour afficher la liste des tableaux de bord disponibles, puis sélectionnez le tableau de bord que vous souhaitez définir en tant tableau de bord par défaut.  
     ![options de tableau de bord](./media/dashboards/dashboard-options.png)
 2. Cliquez sur **Default (Par défaut)** dans la ligne du tableau de bord. La boîte de dialogue de confirmation Default Dashboard (Tableau de bord par défaut) s’affiche.
-3. Cliquez sur **Yes (Oui)**. Le tableau de bord est défini en tant que tableau de bord par défaut.
+3. Cliquez sur **Oui**. Le tableau de bord est défini en tant que tableau de bord par défaut.
 
 ## <a name="management-dashboard"></a>Tableau de bord de gestion
 Le tableau de bord Management (Gestion), ou le tableau de bord MSP pour les utilisateurs de MSP, inclut les principales informations des types de rapports principaux.  
@@ -295,3 +295,6 @@ Ce widget affiche vos coûts Amazon EC2 actuels et les compare à Azure. La comp
 ### <a name="ec2azure-instance-type-mapping"></a>EC2/Azure Instance Type Mapping (Mappage de type d’instance EC2/Azure)
 Ce widget met en évidence le meilleur mappage d’unités de calcul élastiques entre Amazon EC2 et Azure.
 - Cliquez dessus pour ouvrir le rapport Instance Type Mapping (Mappage de type d’instance).
+
+## <a name="next-steps"></a>Étapes suivantes
+- Lisez l’article [Utiliser des rapports Cloudyn](use-reports.md) pour en savoir plus sur les rapports.

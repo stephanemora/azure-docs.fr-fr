@@ -1,6 +1,6 @@
 ---
 title: Utiliser cloud-init pour configurer un fichier d’échange sur une machine virtuelle Linux | Microsoft Docs
-description: Comment utiliser cloud-init pour configurer un fichier d’échange dans une machine virtuelle Linux lors de la création avec Azure CLI 2.0
+description: Guide pratique pour utiliser cloud-init pour configurer un fichier d’échange dans une machine virtuelle Linux lors de la création avec l’interface Azure CLI
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 88a141922f113caf7ad67c89de48f84a821f7ba3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2a5a878b7c8c3b6126d90b978241fbcb237d8db7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29952596"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946304"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Utiliser cloud-init pour configurer un fichier d’échange sur une machine virtuelle Linux
 Cet article vous explique comment utiliser [cloud-init](https://cloudinit.readthedocs.io) pour configurer le fichier d’échange sur diverses distributions Linux. Le fichier d’échange est généralement configuré par l’Agent Linux (WALA) en fonction des distributions qui en ont besoin.  Ce document décrit les processus de création du fichier d’échange à la demande au moment de l’approvisionnement à l’aide de cloud-init.  Pour plus d’informations sur le fonctionnement de cloud-init en mode natif dans Azure et sur les versions de Linux prises en charge, consultez [Présentation de cloud-init](using-cloud-init.md).
@@ -27,7 +27,7 @@ Cet article vous explique comment utiliser [cloud-init](https://cloudinit.readth
 ## <a name="create-swapfile-for-ubuntu-based-images"></a>Créer un fichier d’échange pour des images basées sur Ubuntu
 Par défaut sur Azure, les images de la galerie d’Ubuntu ne créent pas de fichiers d’échange. Pour activer la configuration du fichier d’échange au moment de l’approvisionnement de la machine virtuelle à l’aide de cloud-init, veuillez consulter le [document sur AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions) sur le wiki Ubuntu.
 
-## <a name="create-swapfile-for-redhat-and-centos-based-images"></a>Créer le fichier d’échange pour les images basées sur RedHat et CentOS
+## <a name="create-swapfile-for-red-hat-and-centos-based-images"></a>Créer un fichier d’échange pour les images basées sur Red Hat et CentOS
 
 Dans l’interpréteur de commandes actuel, créez un fichier nommé *cloud_init_swapfile.txt* et collez la configuration suivante. Pour cet exemple, créez le fichier dans Cloud Shell et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor cloud_init_swapfile.txt` pour créer le fichier et afficher la liste des éditeurs disponibles. Choisissez le n°1 pour utiliser l’éditeur **nano**. Vérifiez que l’intégralité du fichier cloud-init est copiée correctement, en particulier la première ligne.  
 

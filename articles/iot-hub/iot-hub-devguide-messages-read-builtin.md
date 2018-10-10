@@ -1,6 +1,6 @@
 ---
 title: Comprendre le point de terminaison intégré Azure IoT Hub | Microsoft Docs
-description: 'Guide du développeur : décrit comment utiliser le point de terminaison intégré et compatible avec Event Hub pour lire des messages appareil-à-cloud.'
+description: 'Guide du développeur : décrit comment utiliser le point de terminaison intégré et compatible avec Event Hub pour lire des messages appareil-à-cloud.'
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 767c91e4926e553b63b8331ac99edcd7823d2c13
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055013"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984039"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Lire des messages appareil-à-cloud à partir du point de terminaison intégré
 
@@ -26,7 +26,7 @@ Par défaut, les messages sont acheminés vers le point de terminaison côté se
 
 IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point de terminaison prédéfini de réception appareil vers cloud.
 
-Par défaut, tous les messages qui ne correspondent pas explicitement à une règle d’acheminement des messages sont écrits sur le point de terminaison prédéfini. Si vous désactivez cet itinéraire de secours, les messages qui ne correspondent explicitement à aucune règle d’acheminement des messages sont supprimés.
+Si vous utilisez [le routage des messages](iot-hub-devguide-messages-d2c.md) et que la [route de secours](iot-hub-devguide-messages-d2c.md#fallback-route) est activée, tous les messages qui ne correspondent pas à une requête sur aucune route sont écrits sur le point de terminaison intégré. Si vous désactivez cette route de secours, les messages qui ne correspondent à aucune requête sont supprimés.
 
 La durée de rétention peut être modifiée par programme, avec les [API REST de fournisseur de ressources IoT Hub][lnk-resource-provider-apis] ou avec le [Portail Azure][lnk-management-portal].
 
@@ -39,9 +39,8 @@ Lorsque vous utilisez le [kit SDK Azure Service Bus pour .NET][lnk-servicebus-sd
 Si vous utilisez des Kits SDK (ou des intégrations de produits) qui ne sont pas reliés à IoT Hub, vous devrez récupérer un point de terminaison et un nom compatibles Event Hub :
 
 1. Connectez-vous au [portail Azure][lnk-management-portal] et accédez à votre IoT Hub.
-1. Cliquez sur **Endpoints**.
-1. Dans la section **Points de terminaison prédéfinis**, cliquez sur **Événements**. 
-1. Une page de propriétés s’affiche. Elle contient les valeurs suivantes : **Point de terminaison compatible avec Event Hub**, **Nom compatible avec Event Hub**, **Partitions**, **Durée de rétention** et **Groupes de consommateurs**.
+1. Cliquez sur **Points de terminaison intégrés**.
+1. La section **Événements** contient les valeurs suivantes : **Point de terminaison compatible avec Event Hub**, **Nom compatible avec Event Hub**, **Partitions**, **Durée de conservation** et **Groupes de consommateurs**.
 
     ![Paramètres Appareil vers cloud][img-eventhubcompatible]
 
@@ -63,11 +62,9 @@ Les kits SDK et intégrations que vous pouvez utiliser avec les points de termin
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les points de terminaison IoT Hub, consultez [Points de terminaison IoT Hub][lnk-endpoints].
-
-Les [guides de démarrage rapide][lnk-get-started] vous montrent comment envoyer des messages appareil-à-cloud à partir d’appareils simulés et lire les messages à partir du point de terminaison intégré. Pour plus de détails, consultez le didacticiel [Traiter les messages appareil-à-cloud IoT Hub en utilisant les itinéraires][lnk-d2c-tutorial].
-
-Si vous voulez acheminer vos messages appareil-à-cloud vers des points de terminaison personnalisés, consultez [Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud][lnk-custom].
+* Pour plus d’informations sur les points de terminaison IoT Hub, consultez [Points de terminaison IoT Hub][lnk-endpoints].
+* Les [guides de démarrage rapide][lnk-get-started] vous montrent comment envoyer des messages appareil-à-cloud à partir d’appareils simulés et lire les messages à partir du point de terminaison intégré. Pour plus de détails, consultez le didacticiel [Traiter les messages appareil-à-cloud IoT Hub en utilisant les itinéraires][lnk-d2c-tutorial].
+* Si vous voulez acheminer vos messages appareil-à-cloud vers des points de terminaison personnalisés, consultez [Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud][lnk-custom].
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 

@@ -1,89 +1,93 @@
 ---
-title: Présentation de la messagerie d’appareil-à-cloud Azure IoT Hub | Microsoft Docs
-description: 'Guide du développeur : comment utiliser la messagerie d’appareil-à-cloud avec IoT Hub. Inclut des informations sur l’envoi de données de télémétrie et autres, ainsi que sur l’utilisation du routage pour remettre les messages.'
-author: dominicbetts
-manager: timlt
+title: Comprendre le routage des messages IoT Hub | Microsoft Docs
+description: 'Guide du développeur : Comment utiliser le routage de messages pour envoyer des messages appareil-à-cloud. Inclut des informations sur l’envoi de données de télémétrie et d’autres données.'
+author: ash2017
+manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: be87b00f27f0d0b25cd77a0634ab1c653a85e5ac
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.date: 08/13/2018
+ms.author: asrastog
+ms.openlocfilehash: 7c36ab2f0d4d3e5c772f8ef62c13161a2649362f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126440"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966739"
 ---
-# <a name="send-device-to-cloud-messages-to-iot-hub"></a>Envoyer des messages appareil-à-cloud sur IoT Hub
+# <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
-Pour envoyer des alertes et des données de télémétrie de série chronologique à partir de vos appareils vers le back-end de votre solution, envoyez des messages appareil-à-cloud depuis votre appareil vers votre hub IoT. Pour une description des autres options appareil-à-cloud prises en charge par IoT Hub, consultez [Recommandations sur les communications appareil-à-cloud][lnk-d2c-guidance].
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Vous envoyez des messages appareil-à-cloud via un point de terminaison côté appareil (**/devices/{deviceId}/messages/events**). Les règles d’acheminement acheminent ensuite vos messages vers l’un des points de terminaison côté service sur votre IoT Hub. Les règles de routage utilisent les en-têtes et corps des messages appareil-à-cloud pour déterminer où les acheminer. Par défaut, les messages sont acheminés vers le point de terminaison côté service intégré (**messages/events**) compatible avec [Event Hubs][lnk-event-hubs]. Ainsi, vous pouvez utiliser [l’intégration et les SDK standard Event Hubs][lnk-compatible-endpoint] pour recevoir des messages appareil-à-cloud dans le back-end de votre solution.
+Le routage des messages vous permet d’envoyer des messages de vos appareils vers des services cloud de façon automatisée, évolutive et fiable. Le routage des messages peut être utilisé pour : 
 
-IoT Hub implémente les messages appareil-à-cloud à l’aide d’un modèle de messagerie en streaming. Les messages appareil-à-cloud d’IoT Hub s’apparentent plus à des *événements* [Event Hubs][lnk-event-hubs] qu’à des *messages* [Service Bus][lnk-servicebus] dans la mesure où de nombreux événements transmis par le service peuvent être lus par plusieurs lecteurs.
+* **L’envoi de messages de télémétrie des appareils ainsi que des événements**, c’est-à-dire les événements de cycle de vie des appareils et les événements de modification des jumeaux d’appareil aux points de terminaison intégrés et aux de points de terminaison personnalisés. Découvrez plus d’informations sur les [points de terminaison de routage](##routing-endpoints).
 
-La messagerie appareil-à-cloud avec IoT Hub présente les caractéristiques suivantes :
+* **Le filtrage des données avant leur routage vers différents points de terminaison** en appliquant des requêtes avancées. Le routage de messages vous permet d’interroger les propriétés et le corps d’un message, ainsi que les étiquettes et les propriétés d’un jumeau d’appareil. Découvrez plus d’informations sur l’utilisation de [requêtes dans le routage des messages](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
-* Les messages appareil-à-cloud sont durables et sont conservés dans le point de terminaison **messages/events** par défaut d’un hub IoT jusqu’à sept jours.
-* Les messages appareil-à-cloud ne doivent pas dépasser 256 Ko et peuvent être groupés en lots pour optimiser les envois. Les lots ne peuvent pas dépasser 256 Ko.
-* Comme l’explique la section [Contrôler l’accès à IoT Hub][lnk-devguide-security], IoT Hub permet l’authentification et le contrôle d’accès par appareil.
-* IoT Hub vous permet de créer jusqu'à 10 points de terminaison personnalisés. Les messages sont remis aux points de terminaison selon les itinéraires configurés sur votre IoT Hub. Pour plus d’informations, consultez [Règles de routage](iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
-* IoT Hub autorise des millions d’appareils connectés simultanément (voir [Quotas et la limitation][lnk-quotas]).
-* IoT Hub n’autorise pas le partitionnement arbitraire. Les messages appareil-à-cloud sont partitionnés selon leur **deviceId**d’origine.
+IoT Hub doit pouvoir accéder en écriture à ces points de terminaison de service pour que le routage des messages fonctionne. Si vous configurez vos points de terminaison via le portail Azure, les autorisations nécessaires sont ajoutées pour vous. Veillez à configurer vos services pour prendre en charge le débit prévu. Lorsque vous configurez votre solution IoT pour la première fois, vous devrez peut-être surveiller vos points de terminaison supplémentaires et apporter les modifications nécessaires en fonction de la charge réelle.
 
-Pour plus d’informations sur les différences entre IoT Hub et Event Hubs, consultez [Comparaison entre Azure IoT Hub et Azure Event Hubs][lnk-comparison].
+IoT Hub définit un [format commun](../iot-hub/iot-hub-devguide-messages-construct.md) pour toute messagerie appareil-à-cloud, afin de favoriser l’interopérabilité entre les différents protocoles. Si un message correspond à plusieurs routes qui pointent vers le même point de terminaison, IoT Hub ne remet ce message qu’une seule fois à ce point de terminaison. Par conséquent, vous n’avez pas besoin de configurer une déduplication sur votre file d’attente ou votre rubrique Service Bus. Dans les files d’attente partitionnées, l’affinité de la partition assure le classement des messages. Utilisez ce tutoriel pour découvrir comment [configurer le routage des messages] (https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
 
-## <a name="send-non-telemetry-traffic"></a>Envoyer du trafic autre que la télémétrie
+## <a name="routing-endpoints"></a>Points de terminaison de routage
 
-Souvent, en plus des données de télémétrie, les appareils envoient des messages et des requêtes qui nécessitent une exécution et une gestion séparées dans le backend de la solution. Par exemple, les alertes critiques qui doivent déclencher une action spécifique dans le service principal. Vous pouvez écrire une [règle de routage][lnk-devguide-custom] qui envoie ces types de messages à un point de terminaison dédié à leur traitement en fonction d’un en-tête sur le message ou d’une valeur dans le corps de message.
+Un hub IoT a un point de terminaison intégré par défaut (**messages/événements**) qui est compatible avec Event Hubs. Vous pouvez créer des [points de terminaison personnalisés](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints) pour y router les messages en liant d’autres services de votre abonnement au hub IoT. IoT Hub prend actuellement en charge les services suivants en tant que points de terminaison personnalisés :
 
-Pour plus d’informations sur la meilleure façon de traiter ce genre de messages, consultez [Didacticiel : traiter les messages appareil-à-cloud IoT Hub][lnk-d2c-tutorial].
+### <a name="built-in-endpoint"></a>Point de terminaison intégré
+Vous pouvez utiliser [l’intégration et les SDK standard Event Hubs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin) pour recevoir des messages appareil-à-cloud du point de terminaison intégré (**messages/événements**). Notez qu’une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison.
 
-## <a name="route-device-to-cloud-messages"></a>Acheminer des messages appareil-à-cloud
+### <a name="azure-blob-storage"></a>un stockage Azure Blob
+IoT Hub prend en charge l’écriture de données sur Stockage Blob Azure seulement au format [Apache Avro](http://avro.apache.org/). IoT Hub regroupe les messages dans des lots et écrit les données dans un objet blob quand le lot atteint une certaine taille ou après un certain laps de temps.
 
-Vous avez deux options pour acheminer des messages appareil-à-cloud vers vos applications principales :
-
-* Utiliser le [Point de terminaison compatible avec Event Hub][lnk-compatible-endpoint] prédéfini pour permettre aux applications principales de lire les messages appareil-à-cloud que le hub reçoit. Pour obtenir des informations sur le point de terminaison compatible avec Event Hub prédéfini, consultez [Lire des messages appareil-à-cloud à partir du point de terminaison intégré][lnk-devguide-builtin].
-* Utiliser des règles de routage pour envoyer des messages à des points de terminaison personnalisés dans votre hub IoT. Les points de terminaison personnalisés permettent à vos applications principales de lire les messages appareil-à-cloud à l’aide d’Event Hubs, de files d’attente Service Bus ou de rubriques Service Bus. Pour en savoir plus sur les points de terminaison de routage et personnalisés, consultez [Utiliser des points de terminaison et des règles de routage personnalisés pour les messages appareil-à-cloud][lnk-devguide-custom].
-
-## <a name="anti-spoofing-properties"></a>Propriétés de détection d’usurpation d’identité
-
-Pour éviter l’usurpation d’appareil dans les messages appareil-à-cloud, IoT Hub marque tous les messages avec les propriétés suivantes :
-
-* **ConnectionDeviceId**
-* **ConnectionDeviceGenerationId**
-* **ConnectionAuthMethod**
-
-Les deux premières propriétés contiennent le **deviceId** et le **generationId** de l’appareil d’origine, conformément aux [Propriétés d’identité des appareils][lnk-device-properties].
-
-La propriété **ConnectionAuthMethod** contient un objet sérialisé JSON avec les propriétés suivantes :
-
-```json
-{
-  "scope": "{ hub | device }",
-  "type": "{ symkey | sas | x509 }",
-  "issuer": "iothub"
-}
+IoT Hub utilise par défaut la convention d’affectation de noms de fichiers suivante :
+```
+{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
 ```
 
+Vous pouvez utiliser n’importe quelle convention de nommage des fichiers, mais vous devez utiliser tous les jetons listés. IoT Hub écrit dans un objet blob vide s’il n’y a aucune donnée à écrire.
+
+### <a name="service-bus-queues-and-service-bus-topics"></a>Files d’attente et rubriques Service Bus
+Les options **Sessions** ou **Détection des doublons** ne doivent pas être activées pour les files d’attente et rubriques Service Bus utilisées comme points de terminaison IoT Hub. Si l’une de ces options est activée, le point de terminaison s’affiche comme **Inaccessible** dans le portail Azure.
+
+### <a name="event-hubs"></a>Event Hubs
+En plus du point de terminaison compatible Event Hubs intégré, vous pouvez router des données vers des points de terminaison personnalisés de type Event Hubs. 
+
+Lorsque vous utilisez des points de terminaison de routage et personnalisés, les messages sont uniquement remis au point de terminaison intégré s’ils ne correspondent à aucune règle. Pour remettre des messages au point de terminaison intégré et à des points de terminaison personnalisés, ajoutez une route qui envoie les messages au point de terminaison des événements.
+
+## <a name="reading-data-that-has-been-routed"></a>Lecture de données qui ont été routées
+Vous pouvez configurer une route en suivant ce [tutoriel](https://docs.microsoft.com/azure/iot-hub/tutorial-routing).
+
+Utilisez les tutoriels suivants pour découvrir comment lire un message à partir d’un point de terminaison.
+
+* Lecture à partir du [point de terminaison intégré](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node)
+* Lecture à partir du [Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart)
+* Lecture à partir [d’Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+* Lecture à partir de [files d’attente Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues)
+* Lecture à partir de [rubriques Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions)
+
+## <a name="fallback-route"></a>Itinéraire de secours
+La route de secours envoie tous les messages qui ne satisfont pas aux conditions de la requête sur une des routes existantes aux hubs d’événements existants (**messages/événements**), compatible avec [Event Hubs](https://docs.microsoft.com/azure/event-hubs/). Si le routage des messages est activé, vous pouvez activer la fonctionnalité de route de secours. Notez qu’une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison. S’il n’existe pas de route vers le point de terminaison intégré et qu’une route de secours est activée, seuls les messages qui ne correspondent pas aux conditions de la requête sur les routes sont envoyées au point de terminaison intégré. En outre, si toutes les routes existantes sont supprimées, la route de secours doit être activée pour recevoir toutes les données sur le point de terminaison intégré. 
+
+Vous pouvez activer/désactiver la route de secours dans le portail Azure -> Panneau Routage des messages. Vous pouvez également utiliser Azure Resource Manager pour que [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) utilise un point de terminaison personnalisé pour la route de secours.
+
+## <a name="non-telemetry-events"></a>Événements autres que les événements de télémétrie
+En plus de la télémétrie des appareils, le routage des messages permet également l’envoi d’événements de modification des jumeaux d’appareil et des événements du cycle de vie des appareils. Par exemple, si une route est créée avec la source de données définie sur **Événements de modification de jumeau d’appareil**, IoT Hub envoie les messages au point de terminaison qui contient la modification du jumeau d’appareil. De même, si une route est créée avec la source de données définie sur **Événements de cycle de vie d’appareil**, IoT Hub envoie un message qui indique si l’appareil a été supprimé ou créé. 
+[IoT Hub s’intègre également à Azure Event Grid](iot-hub-event-grid.md) pour publier des événements d’appareils de façon à prendre en charge les intégrations en temps réel et l’automatisation des workflows basés sur ces événements. Pour découvrir ce qui convient le mieux à votre scénario, consultez les [différences principales entre le routage des messages et Event Grid](iot-hub-event-grid-routing-comparison.md).
+
+## <a name="testing-routes"></a>Test des routes
+Quand vous créez un nouvelle route ou que modifiez une route existante, vous devez tester la requête de route avec un exemple de message. Vous pouvez tester des routes individuelles ou toutes les routes à la fois. Aucun message n’est routé vers les points de terminaison pendant le test. Vous pouvez le portail Azure, Azure Resource Manager, Azure PowerShell et Azure CLI pour les tests. Les résultats vous permettent de déterminer si l’exemple de message correspondait ou non à la requête, ou si le test n’a pas pu s’exécuter, l’exemple de message ou la syntaxe de la requête étant incorrects. Pour plus d’informations, consultez [Tester une route](https://docs.microsoft.com/rest/api/iothub/iothubresource/testroute) et [Tester toutes les routes](https://docs.microsoft.com/rest/api/iothub/iothubresource/testallroutes).
+
+## <a name="latency"></a>Latence
+Lorsque vous routez des messages de télémétrie appareil-à-cloud à l’aide de points de terminaison intégrés, une légère augmentation de la latence de bout en bout se produit après la création du premier itinéraire.
+
+Dans la plupart des cas, l’augmentation moyenne de la latence est inférieure à 500 ms. Vous pouvez surveiller la latence avec **Routage : latence des messages de messages/d’événements** ou avec la métrique IoT Hub **d2c.endpoints.latency.builtIn.events**. La création ou la suppression d’un itinéraire après celle du premier itinéraire n’affecte pas la latence de bout en bout.
+
+## <a name="monitoring-and-troubleshooting"></a>Surveillance et dépannage
+IoT Hub fournit plusieurs métriques liées aux routages et aux point de terminaison pour vous donner une vue d’ensemble de l’intégrité de votre hub et des messages envoyés. Vous pouvez combiner les informations de plusieurs métriques pour identifier la cause racine des problèmes. Par exemple, utilisez la métrique **Routage : messages de télémétrie annulés** ou **d2c.telemetry.egress.dropped** pour identifier le nombre de messages qui ont été supprimés quand ils ne correspondaient pas aux requêtes sur aucune des routes et que la route de secours était désactivée. [Métriques IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) liste toutes les métriques activées par défaut pour votre hub IoT.
+
+Grâce aux journaux de diagnostic des **routes** dans les [paramètres de diagnostic](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitor-resource-health) d’Azure Monitor, vous pouvez suivre les erreurs qui se produisent lors de l’évaluation d’une requête de routage et de l’intégrité du point de terminaison telle qu’elle est perçue par IoT Hub, par exemple quand un point de terminaison est inactif. Vous pouvez envoyer ces journaux de diagnostic à Log Analytics, à Event Hubs ou à Stockage Azure pour un traitement personnalisé.
+
 ## <a name="next-steps"></a>Étapes suivantes
-
-Pour plus d’informations sur les SDK que vous pouvez utiliser pour envoyer des messages appareil-à-cloud, consultez [Kits de développement logiciel (SDK) Azure IoT][lnk-sdks].
-
-Les [guides de démarrage rapide][lnk-get-started] vous montrent comment envoyer des messages appareil-à-cloud à partir d’appareils simulés. Pour plus de détails, consultez le didacticiel [Traiter les messages appareil-à-cloud IoT Hub en utilisant les itinéraires][lnk-d2c-tutorial].
-
-[lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
-[lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-comparison]: iot-hub-compare-event-hubs.md
-[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-
-[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-[lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-[lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-[lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
-[lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
-[lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-d2c-tutorial]: tutorial-routing.md
+* Pour découvrir comment créer des routes de messages, consultez le tutoriel [Traiter les messages appareil-à-cloud IoT Hub avec des routes](../iot-hub/tutorial-routing.md).
+* Les [guides de démarrage rapide](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-node) vous montrent comment envoyer des messages appareil-à-cloud à partir d’appareils simulés.
+* Pour plus d’informations sur les SDK que vous pouvez utiliser pour envoyer des messages appareil-à-cloud, consultez [SDK Azure IoT](../iot-hub/iot-hub-devguide-sdks.md).

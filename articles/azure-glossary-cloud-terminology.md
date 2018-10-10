@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 84766ba4cf9e844184752bc44d2e0a471b97db27
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e62910cc760a200abba6d56e4fa1eb87973285ec
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159126"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963592"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossaire Microsoft Azure : un dictionnaire de la terminologie des technologies cloud sur la plateforme Azure
 
@@ -31,7 +31,7 @@ Le glossaire Microsoft Azure est un petit dictionnaire de la terminologie des te
 
 ## <a name="account"></a>compte
 Compte utilisé pour l’accès et la gestion d’un abonnement Azure. On l’appelle souvent « compte Azure », bien qu’il puisse s’agir d’un compte Microsoft professionnel, scolaire ou personnel existant, ou encore d’un nom d’utilisateur et d’un mot de passe Office 365. Vous pouvez également créer un compte pour gérer un abonnement Azure lorsque vous vous inscrivez pour bénéficier de la [version d’évaluation gratuite](https://azure.microsoft.com).  
-Consultez les pages [Sign up for an Azure subscription with your Office 365 account](billing/billing-use-existing-office-365-account-azure-subscription.md) (S’inscrire à un abonnement Azure avec un compte Office 365) et [Accounts you can use to sign in](active-directory/active-directory-how-subscriptions-associated-directory.md) (Comptes utilisables pour l’inscription).
+Consultez les pages [Sign up for an Azure subscription with your Office 365 account](billing/billing-use-existing-office-365-account-azure-subscription.md) (S’inscrire à un abonnement Azure avec un compte Office 365) et [Accounts you can use to sign in](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) (Comptes utilisables pour l’inscription).
 
 ## <a name="api-app"></a>application API
 Autre nom pour [application App Service](#app-service-app).
@@ -47,7 +47,7 @@ Voir [Gestion de la disponibilité des machines virtuelles Windows](virtual-mach
 L’un des deux [modèles de déploiement](resource-manager-deployment-model.md) utilisés pour déployer des ressources dans Azure (Azure Resource Manager est le modèle plus récent). Certains services Azure prennent en charge uniquement le modèle de déploiement du Gestionnaire de ressources, certains prennent en charge uniquement le modèle de déploiement standard, et d’autres prennent en charge les deux. La documentation de chaque service Azure spécifie le ou les modèles qu’il prend en charge.
 
 ## <a name="cli"></a>Interface de ligne de commande Microsoft Azure
-Interface de ligne de commande qui peut être utilisée pour gérer les services Azure à partir de Windows, macOS et Linux.  Certains services ou fonctionnalités de service peuvent uniquement être gérés via PowerShell ou l’interface de ligne de commande. Voir [Azure CLI 2.0](/cli/azure)
+Interface de ligne de commande qui peut être utilisée pour gérer les services Azure à partir de Windows, macOS et Linux.  Certains services ou fonctionnalités de service peuvent uniquement être gérés via PowerShell ou l’interface de ligne de commande. Voir [Azure CLI](/cli/azure)
 
 ## <a name="powershell"></a>Azure PowerShell
 Interface de ligne de commande permettant de gérer les services Azure via une ligne de commande sur un PC Windows. Certains services ou fonctionnalités de service peuvent uniquement être gérés via PowerShell ou l’interface de ligne de commande.
@@ -127,7 +127,7 @@ Voir [À propos des comptes de stockage Azure](storage/common/storage-create-sto
 
 ## <a name="subscription"></a>subscription
 Accord d’un client avec Microsoft qui lui permet de bénéficier de services Azure. La tarification des abonnements et les conditions associées sont régies par l’offre choisie pour l’abonnement.
-Voir [Contrat d’abonnement à Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) et [Association des abonnements Azure avec Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md)
+Voir [Contrat d’abonnement à Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) et [Association des abonnements Azure avec Azure Active Directory](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 ## <a name="tag"></a>tag
 Un terme d’indexation vous permettant de catégoriser les ressources en fonction de vos exigences de gestion ou de facturation. Lorsque vous disposez d’un ensemble complexe de ressources , vous pouvez utiliser des balises pour visualiser ces ressources de la façon la plus pertinente. Par exemple, vous pouvez baliser des ressources qui jouent un rôle similaire dans votre organisation ou qui appartiennent au même département.  

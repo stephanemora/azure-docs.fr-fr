@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 982a6807ccaf393c3aea42f39f7e60bb7e0d3ac3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a7733468ec082c8954f623f3ebe2cea1fbad561
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35636699"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976220"
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Activer SSL sur un cluster Azure Machine Learning Compute (MLC) 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 
 Ces instructions vous permettent de configurer SSL pour les appels de notation sur un cluster Azure Machine Learning Compute (MLC) 
 
@@ -65,7 +69,7 @@ Set-AzureRmMlOpCluster -ResourceGroupName my-rg -Name my-cluster -SslStatus Enab
 
 ## <a name="map-the-cname-and-the-ip-address"></a>Mapper le CNAME et l’adresse IP
 
-Créez un mappage entre le CNAME que vous avez sélectionné au départ et l’adresse IP du cluster frontal (FE) en temps réel. Pour découvrir l’adresse IP du FE, exécutez la commande ci-dessous. La sortie affiche un champ nommé « publicIpAddress » qui contient l’adresse IP du cluster frontal en temps réel. Reportez-vous aux instructions de votre fournisseur DNS pour configurer un enregistrement à partir du FQDN utilisé dans le CNAME pour l’adresse IP publique.
+Créez un mappage entre le CNAME que vous avez sélectionné au départ et l’adresse IP du cluster frontal (FE) en temps réel. Pour découvrir l’adresse IP du FE, exécutez la commande ci-dessous. La sortie affiche un champ nommé « publicIpAddress » qui contient l’adresse IP du frontend de cluster en temps réel. Reportez-vous aux instructions de votre fournisseur DNS pour configurer un enregistrement à partir du FQDN utilisé dans le CNAME pour l’adresse IP publique.
 
 
 

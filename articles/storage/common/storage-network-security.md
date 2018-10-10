@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 9eaaaaa4cc9be661cdc2ffde2b634e062c95a404
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523255"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972553"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feu et des réseaux virtuels dans Stockage Azure
 Le service Stockage Azure fournit un modèle de sécurité en couche qui vous permet de sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.  Quand des règles de réseau sont configurées, seules les applications des réseaux autorisés peuvent accéder à un compte de stockage.  En cas d’appel à partir d’un réseau autorisé, les applications continuent à demander une autorisation appropriée (une clé d’accès ou un jeton SAS valide) pour accéder au compte de stockage.
 
 > [!IMPORTANT]
-> L’activation de règles de pare-feu pour votre compte de stockage bloque l’accès aux requêtes entrantes pour les données, notamment celles provenant d’autres services Azure.  Cela inclut l’utilisation du portail, l’écriture de journaux, et ainsi de suite.  Pour les services participants, vous pouvez réactiver la fonctionnalité dans la section [Exceptions](#Exceptions) ci-dessous.  Pour accéder au portail, vous devez utiliser un ordinateur qui se trouve dans la limite de confiance (IP ou réseau virtuel) que vous avez définie.
+> L’activation de règles de pare-feu pour votre compte de stockage bloque l’accès aux requêtes entrantes pour les données, notamment celles provenant d’autres services Azure.  Cela inclut l’utilisation du portail, l’écriture de journaux, et ainsi de suite.  Pour les services participants, vous pouvez réactiver la fonctionnalité dans la section [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) ci-dessous.  Pour accéder au portail, vous devez utiliser un ordinateur qui se trouve dans la limite de confiance (IP ou réseau virtuel) que vous avez définie.
 >
 
 ## <a name="scenarios"></a>Scénarios
@@ -35,7 +35,7 @@ Le trafic des disques de machine virtuelle (notamment les opérations de montage
 
 Les comptes de stockage Classic ne prennent **pas** en charge Pare-feu et réseaux virtuels.
 
-La sauvegarde et la restauration des machines virtuelles à l’aide de disques non managés dans les comptes de stockage avec des règles de réseau appliquées sont prises en charge via la création d’une exception comme indiqué dans la section [Exceptions](/storage/common/storage-network-security#exceptions) de cet article.  Les exceptions de pare-feu ne sont pas applicables avec disques managés car ils sont déjà managés par Azure.
+La sauvegarde et la restauration des machines virtuelles à l’aide de disques non managés dans les comptes de stockage avec des règles de réseau appliquées sont prises en charge via la création d’une exception comme indiqué dans la section [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) de cet article.  Les exceptions de pare-feu ne sont pas applicables avec disques managés car ils sont déjà managés par Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Changer la règle d’accès réseau par défaut
 Par défaut, les comptes de stockage acceptent les connexions des clients sur n’importe quel réseau.  Pour limiter l’accès aux réseaux sélectionnés, vous devez d’abord changer l’action par défaut.
@@ -70,7 +70,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### <a name="cliv2"></a>CLIv2
-1. [Installez Azure CLI 2.0](/cli/azure/install-azure-cli) et [connectez-vous](/cli/azure/authenticate-azure-cli).
+1. [Installez Azure CLI](/cli/azure/install-azure-cli) et [connectez-vous](/cli/azure/authenticate-azure-cli).
 2. Affichez l’état de la règle par défaut pour le compte de stockage.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -152,7 +152,7 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Installez Azure CLI 2.0](/cli/azure/install-azure-cli) et [connectez-vous](/cli/azure/authenticate-azure-cli).
+1. [Installez Azure CLI](/cli/azure/install-azure-cli) et [connectez-vous](/cli/azure/authenticate-azure-cli).
 2. Listez les règles de réseau virtuel.
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -208,7 +208,7 @@ Les règles de réseau IP pour les comptes de stockage peuvent être gérées da
 2. Cliquez sur le menu de paramètres appelé **Pare-feu et réseaux virtuels**.
 3. Vérifiez que vous avez choisi d’autoriser l’accès à partir des « Réseaux sélectionnés ».
 4. Pour accorder l’accès à une plage d’adresses IP Internet, entrez l’adresse IP ou la plage d’adresses IP (au format CIDR) sous Pare-feu, Plages d’adresses.
-5. Pour supprimer une règle de réseau IP, cliquez sur « ... » pour ouvrir le menu contextuel de la règle, puis cliquez sur « Supprimer ».
+5. Pour supprimer une règle de réseau IP, cliquez sur l’icône Corbeille à côté de la règle de réseau.
 6. Cliquez sur *Enregistrer* pour enregistrer les changements.
 
 #### <a name="powershell"></a>PowerShell
@@ -243,7 +243,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Installez Azure CLI 2.0](/cli/azure/install-azure-cli) et [connectez-vous](/cli/azure/authenticate-azure-cli).
+1. [Installez Azure CLI](/cli/azure/install-azure-cli) et [connectez-vous](/cli/azure/authenticate-azure-cli).
 2. Listez les règles de réseau IP.
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -290,7 +290,9 @@ Quand l’exception « Services Microsoft approuvés » est activée, les serv
 |Azure Event Grid|Microsoft.EventGrid|Activation de la publication d’événements Stockage Blob.  [Plus d’informations](https://docs.microsoft.com/azure/event-grid/overview)|
 |Hubs d'événements Azure|Microsoft.EventHub|Archivage des données avec Event Hubs Capture.  [En savoir plus](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
 |Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux du trafic réseau.  [Plus d’informations](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)|
-||||
+|Azure Monitor|Microsoft.Insights| Autorisation de l’écriture de données de supervision dans un compte de stockage sécurisé. [En savoir plus](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|
+
 
 ### <a name="storage-analytics-data-access"></a>Accès aux données Storage Analytics
 Dans certains cas, un accès en lecture aux journaux et aux métriques de diagnostic est nécessaire en dehors de la limite du réseau.  Les exceptions aux règles de réseau peuvent être accordées pour autoriser l’accès en lecture aux fichiers journaux ou aux tables de métriques du compte de stockage, ou aux deux. [Découvrez plus d’informations sur l’utilisation de Storage Analytics.](/azure/storage/storage-analytics)
@@ -327,7 +329,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### <a name="cliv2"></a>CLIv2
-1. [Installez Azure CLI 2.0](/cli/azure/install-azure-cli) et [connectez-vous](/cli/azure/authenticate-azure-cli).
+1. [Installez Azure CLI](/cli/azure/install-azure-cli) et [connectez-vous](/cli/azure/authenticate-azure-cli).
 2. Affichez les exceptions pour les règles de réseau du compte de stockage.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass

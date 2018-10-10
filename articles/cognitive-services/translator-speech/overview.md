@@ -1,34 +1,35 @@
 ---
-title: Documentation de l’API Traduction vocale | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Utilisez l’API de traduction de conversation Microsoft Translator Speech pour ajouter la traduction voix-voix et voix-texte à vos applications.
+title: Présentation du service de traduction de conversation Translator Speech
+titleSuffix: Azure Cognitive Services
+description: Utilisez l’API du service de traduction de conversation Translator Speech pour ajouter la traduction voix-voix et voix-texte à vos applications.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 15f27e6b5b2fd7384958a660156855fc65f4e558
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: fd974d153e9db48b25c1b732b9719c21b16b5e01
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368541"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948772"
 ---
-# <a name="microsoft-translator-speech-api"></a>API de traduction de conversation Microsoft Translator Speech
-L’API de traduction de conversation Microsoft Translator Speech permet d’ajouter des traductions vocales en temps réel et de bout en bout aux applications, outils ou toute autre solution requérant une traduction vocale en plusieurs langues, indépendamment du système d’exploitation cible ou des langues de développement. L’API peut être utilisée pour la traduction voix-voix et la traduction voix-texte.
+# <a name="what-is-translator-speech-api"></a>Qu’est-ce que l’API de traduction de conversation Translator Speech ?
+L’API de traduction de conversation Translator Speech permet d’ajouter des traductions vocales en temps réel et de bout en bout aux applications, outils ou toute autre solution requérant une traduction vocale en plusieurs langues, indépendamment du système d’exploitation cible ou des langues de développement. L’API peut être utilisée pour la traduction voix-voix et la traduction voix-texte.
 
-L’API de traduction de texte Microsoft Translator est un service Azure et fait partie de la [collection d’API Microsoft Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) d’algorithmes d’apprentissage automatique et d’intelligence artificielle dans le cloud, prêtes à l’emploi dans vos projets de développement.
+L’API de traduction de texte Translator Text est un service Azure et fait partie de la [collection d’API Azure Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) d’algorithmes de machine learning et d’intelligence artificielle dans le cloud, prêtes à l’emploi dans vos projets de développement.
 
-Avec l’API de traduction de conversation Microsoft Translator Speech, les applications clientes diffusent le contenu audio vocal vers le service, et reçoivent un flux de résultats textuels et audio, dont le texte reconnu dans la langue source et sa traduction dans la langue cible. Les résultats textuels sont générés par l’application au flux audio entrant d’une reconnaissance vocale automatique qui s’appuie sur des réseaux neuronaux profonds. La sortie de la reconnaissance vocale automatique brute est améliorée par une nouvelle technique nommée TrueText permettant de mieux refléter l’intention de l’utilisateur. Par exemple, TrueText élimine les disfluences (euh, toux), les mots répétés et restaure une ponctuation ainsi qu’une casse appropriées. La possibilité de masquer ou d’exclure des vulgarités est également incluse. Les moteurs de reconnaissance et de traduction sont spécifiquement entraînés pour traiter la parole conversationnelle. 
+Avec l’API de traduction de conversation Translator Speech, les applications clientes diffusent le contenu audio vocal vers le service, et reçoivent un flux de résultats textuels et audio, dont le texte reconnu dans la langue source et sa traduction dans la langue cible. Les résultats textuels sont générés par l’application au flux audio entrant d’une reconnaissance vocale automatique qui s’appuie sur des réseaux neuronaux profonds. La sortie de la reconnaissance vocale automatique brute est améliorée par une nouvelle technique nommée TrueText permettant de mieux refléter l’intention de l’utilisateur. Par exemple, TrueText élimine les disfluences (euh, toux), les mots répétés et restaure une ponctuation ainsi qu’une casse appropriées. La possibilité de masquer ou d’exclure des vulgarités est également incluse. Les moteurs de reconnaissance et de traduction sont spécifiquement entraînés pour traiter la parole conversationnelle. 
 
-Le service de traduction vocale détecte les silences pour déterminer la fin des énoncés. Après une pause dans l’activité vocale, le service renvoie un résultat final pour l’énoncé complet. Le service peut également renvoyer des résultats partiels, qui donnent des reconnaissances et traductions intermédiaires d’un énoncé en cours. 
+Le service de traduction de conversation Translator Speech détecte les silences pour déterminer la fin des énoncés. Après une pause dans l’activité vocale, le service renvoie un résultat final pour l’énoncé complet. Le service peut également renvoyer des résultats partiels, qui donnent des reconnaissances et traductions intermédiaires d’un énoncé en cours. 
 
 Pour la traduction voix-voix, le service permet de convertir par synthèse vocale le texte parlé dans les langues cibles. Le contenu audio de synthèse vocale est créé dans le format spécifié par le client. Les formats disponibles sont WAV et MP3.
 
-L’API Traduction vocale tire parti du protocole WebSocket pour fournir un canal de communication en duplex intégral entre le client et le serveur. 
+L’API de traduction de conversation Translator Speech tire parti du protocole WebSocket pour fournir un canal de communication en duplex intégral entre le client et le serveur. 
 
 ## <a name="about-microsoft-translator"></a>À propos de Microsoft Translator
 Microsoft Translator est un service de traduction informatique. Au cœur de ce service figurent l’API de traduction de texte Translator Text (https://www.microsoft.com/en-us/translator/translatorapi.aspx) et l’API de traduction de conversation Translator Speech qui alimentent différents produits et services Microsoft, que des milliers d’entreprises dans le monde utilisent dans leurs applications et flux de travail pour proposer leur contenu à un public mondial.
@@ -36,7 +37,7 @@ Microsoft Translator est un service de traduction informatique. Au cœur de ce s
 Découvrez-en plus sur le [service Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx).
 
 ## <a name="microsoft-translator-neural-machine-translation-nmt"></a>Traduction automatique neuronale Microsoft Translator
-L’API de traduction de conversation Microsoft Translator Speech utilise la traduction automatique statistique héritée et la nouvelle traduction automatique neuronale pour fournir des traductions.
+L’API de traduction de conversation Translator Speech utilise la traduction automatique statistique héritée et la nouvelle traduction automatique neuronale pour fournir des traductions.
 
 La traduction automatique statistique a atteint un plafond en termes d’amélioration des performances. La qualité de la traduction ne s’améliore plus de manière significative pour les systèmes génériques dotés de la traduction automatique statistique. Une nouvelle technologie de traduction basée sur l’intelligence artificielle et les réseaux neuronaux est en plein essor.
 

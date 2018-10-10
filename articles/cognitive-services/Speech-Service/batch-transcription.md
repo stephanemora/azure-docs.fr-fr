@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: b6fb39ef5941157cfe0d18324deeb9d836d7ab09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377619"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981370"
 ---
 # <a name="batch-transcription"></a>Transcription Batch
 
@@ -59,36 +59,38 @@ Dans le cas des flux audio stéréo, l’API de transcription Batch fractionne l
 
 ## <a name="authorization-token"></a>Jeton d’autorisation
 
-Comme pour toutes les fonctionnalités du service Speech unifié, vous créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com). En outre, vous obtenez une clé API à partir du portail de reconnaissance vocale : 
+Comme pour toutes les fonctionnalités du service Speech unifié, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](get-started.md). Si vous souhaitez obtenir des transcriptions de nos modèles de base, c’est tout ce que vous avez besoin de faire. 
+
+Si vous prévoyez de personnaliser et d’utiliser un modèle personnalisé, vous devez ajouter cette clé d’abonnement au portail de reconnaissance vocale personnalisée de la façon suivante :
 
 1. Connectez-vous à [Custom Speech](https://customspeech.ai).
 
 2. Sélectionnez **Abonnements**.
 
-3. Sélectionnez **Générer une clé API**.
+3. Sélectionnez **Connect Existing Subscription** (Connecter un abonnement existant).
+
+4. Ajoutez la clé d’abonnement et un alias dans la vue qui s’affiche.
 
     ![Capture d’écran de la page Abonnements de discours personnalisé](media/stt/Subscriptions.jpg)
 
-4. Copiez et collez la clé dans l’exemple de code client ci-après.
+5. Copiez et collez la clé dans l’exemple de code client ci-après.
 
 > [!NOTE]
-> Si vous prévoyez d’utiliser un modèle personnalisé, vous devrez également disposer de l’ID de ce modèle. Notez qu’il ne s’agit pas de l’ID de déploiement ou de point de terminaison que vous trouvez sur l’affichage des détails du point de terminaison. Il s’agit de l’ID de modèle que vous pouvez récupérer lorsque vous sélectionnez les détails du modèle.
+> Si vous prévoyez d’utiliser un modèle personnalisé, vous devrez également disposer de l’ID de ce modèle. Notez qu’il ne s’agit pas de l’ID de point de terminaison qui se trouve dans la vue des détails du point de terminaison. Il s’agit de l’ID de modèle que vous pouvez récupérer lorsque vous sélectionnez les détails du modèle.
 
 ## <a name="sample-code"></a>Exemple de code
 
 Personnalisez l’exemple de code suivant avec une clé d’abonnement et une clé API. Cela vous permet d’obtenir un jeton du porteur.
 
 ```cs
-    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
         {
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-
-            var tokenProviderPath = "/oauth/ctoken";
-            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+         
             return new CrisClient(client);
         }
 ```
@@ -98,8 +100,8 @@ Une fois le jeton obtenu, vous devez spécifier l’URI SAP qui pointe vers le f
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
-            private const string HostName = "cris.ai";
+            private const string SubscriptionKey = "<your Speech subscription key>";
+            private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
             // Creating a Batch transcription API Client
@@ -167,7 +169,7 @@ Une fois le jeton obtenu, vous devez spécifier l’URI SAP qui pointe vers le f
 ```
 
 > [!NOTE]
-> Dans le code précédent, la clé d’abonnement est la clé de la ressource Speech (préversion) que vous créez dans le Portail Azure. Les clés obtenues à partir de la ressource Custom Speech Service ne fonctionnent pas.
+> Dans le code précédent, la clé d’abonnement provient de la ressource Speech que vous créez dans le Portail Azure. Les clés obtenues à partir de la ressource Custom Speech Service ne fonctionnent pas.
 
 Notez la configuration asynchrone concernant la publication des données audio et la réception de l’état de la transcription. Le client créé est un client http .NET. Le code utilise une méthode `PostTranscriptions` pour l’envoi des détails du fichier audio, et une méthode `GetTranscriptions` pour la réception des résultats. `PostTranscriptions` renvoie un descripteur, et `GetTranscriptions` l’utilise pour créer un descripteur permettant d’obtenir l’état de la transcription.
 

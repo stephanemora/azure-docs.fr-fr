@@ -1,25 +1,26 @@
 ---
-title: Méthode Languages de l’API de traduction de conversation Translator Speech Microsoft | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Utiliser la méthode Languages de l’API de traduction de conversation Translator Speech Microsoft.
+title: Méthode Languages de l’API de traduction de conversation Translator Speech
+titleSuffix: Azure Cognitive Services
+description: Utilisez la méthode Languages de l’API de traduction de conversation Translator Speech.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: 5396e3be17345c3c36197a9b6cbace86e1f574c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9fbbba7ed5e81cae1d30c5a480b9f7f7a13342c5
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370721"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986419"
 ---
-# <a name="speech-api-languages"></a>API Speech : Languages
+# <a name="translator-speech-api-languages"></a>API de traduction de conversation Translator Speech : Languages
 
-Microsoft Translator ne cesse d’étendre la liste des langues prises en charge par ses services. Cette API permet de découvrir l’ensemble des langues actuellement disponibles pour une utilisation avec le service de traduction vocale.
+La traduction de conversation Translator Speech continue d’étendre la liste des langues prises en charge par ses services. Utilisez cette API pour découvrir l’ensemble des langues qui peuvent actuellement être utilisées avec le service Translator Speech.
 
 Vous pouvez trouver des exemples de code illustrant l’utilisation de l’API pour obtenir les langues disponibles sur le [site GitHub de Microsoft Translator](https://github.com/MicrosoftTranslator).
 
@@ -35,7 +36,7 @@ Un client utilise le paramètre de requête `scope` pour définir les ensembles 
 * **Traduction de texte :** utiliser le paramètre de requête `scope=text` pour récupérer l’ensemble de langues disponibles pour traduire du texte transcrit.
 * **Synthèse vocale :** utiliser le paramètre de requête `scope=tts` pour récupérer l’ensemble de langues et de voix disponibles pour synthétiser le texte traduit en parole.
 
-Un client peut récupérer simultanément plusieurs ensembles de langues en spécifiant une liste de choix séparés par des virgules. Par exemple : `scope=speech,text,tts`.
+Un client peut récupérer simultanément plusieurs ensembles de langues en spécifiant une liste de choix séparés par des virgules. Par exemple : `scope=speech,text,tts`.
 
 Une réponse correcte est un objet JSON avec une propriété pour chaque ensemble demandé.
 
@@ -137,7 +138,7 @@ X-RequestId|Valeur générée par le serveur pour identifier la demande, et util
 
 |Paramètre|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|
-|api-version    |Version de l’API demandée par le client. Les valeurs autorisées sont les suivantes : `1.0`.|query|chaîne|
+|api-version    |Version de l’API demandée par le client. Valeurs autorisées : `1.0`.|query|chaîne|
 |scope  |Ensemble des langues ou voix prises en charge pour renvoyer au client. Ce paramètre est spécifié sous forme de liste de mots clés séparés par des virgules. Les mots clés suivants sont disponibles :<ul><li>`speech` : fournit l’ensemble des langues prises en charge pour la transcription de la parole.</li><li>`tts` : fournit l’ensemble des voix prises en charge pour la conversion de texte en parole.</li><li>`text` : fournit l’ensemble des langues prises en charge pour la traduction de texte.</li></ul>Si une valeur n’est pas spécifiée, la valeur par défaut de `scope` est `text`.|query|chaîne|
 |X-ClientTraceId    |GUID généré par le client utilisé pour suivre une requête. Pour faciliter la résolution des problèmes, les clients doivent fournir une nouvelle valeur avec chaque demande, et la journaliser.|en-tête|chaîne|
 |Accept-Language    |Certains des champs dans la réponse sont des noms de langue ou de région. Utilisez ce paramètre pour définir la langue dans laquelle les noms sont renvoyés. La langue est spécifiée en fournissant une balise de langue BCP 47 bien formée. Sélectionnez une balise dans la liste des identificateurs de langue renvoyée avec l’étendue `text`. Pour les langues non prises en charge, les noms sont fournis en anglais.<br/>Par exemple, utilisez la valeur `fr` pour demander des noms en français, ou la valeur `zh-Hant` pour demander des noms en chinois traditionnel.|en-tête|chaîne|

@@ -1,6 +1,6 @@
 ---
-title: Gérer des groupes de machines virtuelles identiques avec Azure CLI 2.0 | Microsoft Docs
-description: Commandes Azure CLI 2.0 communes pour gérer des groupes de machines virtuelles identiques, par exemple, pour démarrer et arrêter une instance ou modifier la capacité du groupe identique.
+title: Gérer des groupes de machines virtuelles identiques avec l’interface Azure CLI | Microsoft Docs
+description: Commandes Azure CLI courantes pour gérer des groupes de machines virtuelles identiques, par exemple pour démarrer et arrêter une instance ou changer la capacité d’un groupe identique.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 014e6ff2bc769675e47743cfdd4fbf7fc6234974
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140046"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999832"
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gérer un groupe de machines virtuelles identiques avec Azure CLI 2.0
-Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des commandes Azure CLI 2.0 courantes qui vous permettent d’effectuer ces tâches.
+# <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gérer un groupe de machines virtuelles identiques avec l’interface Azure CLI
+Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. En outre, vous souhaiterez peut-être créer des scripts pour automatiser les diverses tâches liées au cycle de vie. Cet article décrit en détail certaines des commandes Azure CLI courantes qui vous permettent d’effectuer ces tâches.
 
-Pour effectuer ces tâches de gestion, vous devez disposer d’Azure CLI 2.0. Pour plus d’informations, voir [Installer Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous avez besoin de créer un groupe de machines virtuelles identiques, vous pouvez [Créer un groupe identique avec Azure CLI 2.0](quick-create-cli.md).
+Pour effectuer ces tâches de gestion, vous devez disposer de la dernière version d’Azure CLI. Pour plus d’informations, consultez [Installer l’interface Azure CLI](/cli/azure/install-azure-cli). Si vous avez besoin de créer un groupe de machines virtuelles identiques, vous pouvez [créer un groupe identique avec l’interface Azure CLI](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Afficher des informations sur un groupe identique

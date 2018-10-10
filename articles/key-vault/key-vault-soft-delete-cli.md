@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bryanla
-ms.openlocfilehash: 0554e2e184ce3f3140d3b9e90eb33c20774ed789
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 73ece43c26c3957a1b7dba02a673099f7d35e8d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303002"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951778"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI
 
@@ -25,9 +25,9 @@ La fonctionnalité de suppression réversible d’Azure Key Vault permet de réc
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Azure CLI 2.0 - Si vous ne l’avez pas encore installé pour votre environnement, consultez [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI) 2.0](key-vault-manage-with-cli2.md).
+- Azure CLI - Si vous ne l’avez pas encore installé pour votre environnement, consultez [Gérer Key Vault à l’aide de l’interface de ligne de commande Azure](key-vault-manage-with-cli2.md).
 
-Pour obtenir des informations de référence propres à Key Vault pour l’interface CLI, consultez la [référence Key Vault Azure CLI 2.0](https://docs.microsoft.com/cli/azure/keyvault).
+Pour obtenir des informations de référence propres à Key Vault pour l’interface CLI, consultez [Informations de référence sur Key Vault Azure CLI](https://docs.microsoft.com/cli/azure/keyvault).
 
 ## <a name="required-permissions"></a>Autorisations requises
 

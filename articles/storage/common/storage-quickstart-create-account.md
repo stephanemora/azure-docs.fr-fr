@@ -1,27 +1,24 @@
 ---
-title: Démarrage rapide Azure - Créer un compte de stockage | Microsoft Docs
-description: Apprenez rapidement à créer un compte de stockage à l’aide du portail Azure, d’Azure PowerShell ou d’Azure CLI.
+title: 'Démarrage rapide : Créer un compte de stockage - Stockage Azure'
+description: Dans ce guide de démarrage rapide, vous apprenez à créer un compte de stockage à l’aide du portail Azure, d’Azure PowerShell ou de l’interface Azure CLI. Un compte de stockage Azure fournit un espace de noms unique dans Microsoft Azure pour stocker les objets de données que vous créez dans le stockage Azure et y accéder.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 07/03/2018
+ms.date: 09/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a695e333f48ed0bbf1ad5656c20964232feff4d7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524018"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990125"
 ---
 # <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Un compte de stockage Azure fournit un espace de noms unique dans le cloud pour stocker vos objets de données dans le stockage Azure et y accéder. Un compte de stockage contient des objets blob, des fichiers, des files d’attente, des tables et des disques que vous créez sous ce compte. 
-
-Pour démarrer avec le stockage Azure, vous devez d’abord créer un compte de stockage. Vous pouvez créer un compte de stockage Azure avec le [portail Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Ce démarrage rapide montre comment utiliser chacune de ces options pour créer votre compte de stockage. 
-
+Dans ce guide de démarrage rapide, vous apprenez à créer un compte de stockage à l’aide du [portail Azure](https://portal.azure.com/), d’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou d’[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).  
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -54,7 +51,7 @@ Ce bouton lance un interpréteur de commandes interactif que vous pouvez utilise
 
 ### <a name="install-the-cli-locally"></a>Installer la CLI localement
 
-Vous pouvez également installer et utiliser Azure CLI localement. Ce guide de démarrage rapide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). 
+Vous pouvez également installer et utiliser Azure CLI localement. Ce guide de démarrage rapide nécessite que vous exécutiez Azure CLI version 2.0.4 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
 
 ---
 
@@ -84,26 +81,21 @@ az login
 
 ---
 
-## <a name="create-a-resource-group"></a>Créer un groupe de ressources
+## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Un groupe de ressources Azure est un conteneur logique dans lequel les ressources Azure sont déployées et gérées. Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+À présent, vous êtes prêt à créer votre compte de stockage.
+
+Chaque compte de stockage doit appartenir à un groupe de ressources Azure. Un groupe de ressources est un conteneur logique servant à grouper vos services Azure. Lorsque vous créez un compte de stockage, vous avez le choix entre créer un groupe de ressources ou utiliser un groupe de ressources existant. Ce guide de démarrage rapide montre comment créer un groupe de ressources. 
+
+Un compte de stockage **v2 à usage général** fournit un accès à tous les services de Stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Le guide de démarrage rapide crée un compte de stockage v2 à usage général, mais les étapes pour créer un autre type de compte de stockage sont similaires.   
 
 # <a name="portaltabportal"></a>[Portail](#tab/portal)
 
-Pour créer un groupe de ressources dans le portail Azure, procédez comme suit :
-
-1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Groupes de ressources**.
-2. Cliquez sur le bouton **Ajouter** pour ajouter un nouveau groupe de ressources.
-3. Entrez un nom pour le nouveau groupe de ressources.
-4. Sélectionnez l’abonnement dans lequel vous créez le nouveau groupe de ressources.
-5. Choisissez l’emplacement du groupe de ressources.
-6. Cliquez sur le bouton **Créer**.  
-
-![Capture d’écran montrant la création du groupe de ressources dans le portail Azure](./media/storage-quickstart-create-account/create-resource-group.png)
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
-Pour créer un groupe de ressources avec PowerShell, utilisez la commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) : 
+Tout d’abord, créez un groupe de ressources avec PowerShell au moyen de la commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) : 
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -119,64 +111,7 @@ Get-AzureRmLocation | select Location
 $location = "westus"
 ```
 
-# <a name="azure-clitabazure-cli"></a>[interface de ligne de commande Azure](#tab/azure-cli)
-
-Pour créer un groupe de ressources avec Azure CLI, utilisez la commande [az group create](/cli/azure/group#az_group_create). 
-
-```azurecli-interactive
-az group create \
-    --name storage-quickstart-resource-group \
-    --location westus
-```
-
-Si vous ne savez pas quelle région spécifier pour le paramètre `--location`, vous pouvez récupérer la liste des régions prises en charge pour votre abonnement avec la commande [az account list-locations](/cli/azure/account#az_account_list).
-
-```azurecli-interactive
-az account list-locations \
-    --query "[].{Region:name}" \
-    --out table
-```
-
----
-
-## <a name="create-a-general-purpose-storage-account"></a>Créer un compte de stockage à usage général
-
-Un compte de stockage à usage général fournit un accès à tous les services de Stockage Azure : objets blob, fichiers, files d’attente et tables. Un compte de stockage à usage général peut être créé dans un niveau premium ou standard. Les exemples de cet article montrent comment créer un compte de stockage à usage général dans le niveau standard (valeur par défaut).
-
-Le stockage Azure propose deux types de compte de stockage à usage général :
-
-- Les comptes de stockage à usage général v2 
-- Les comptes de stockage à usage général v1 
-
-> [!NOTE]
-> Il est recommandé de créer des comptes de stockage en tant que **comptes à usage général v2** afin de tirer parti des nouvelles fonctionnalités disponibles pour ces comptes.  
-
-Pour plus d’informations sur les types de compte de stockage, consultez l’article [Options de compte de stockage Azure](storage-account-options.md).
-
-Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de stockage :
-
-- Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres.
-- Le nom de votre compte de stockage doit être unique dans Azure. Deux comptes de stockage ne peuvent avoir le même nom.
-
-# <a name="portaltabportal"></a>[Portail](#tab/portal)
-
-Pour créer un compte de stockage à usage général v2 dans le portail Azure, procédez comme suit :
-
-1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Tous les services**. Faites défiler jusqu’à **Stockage**, puis sélectionnez **Comptes de stockage**. Sur la fenêtre **Comptes de stockage**, sélectionnez **Ajouter**.
-2. Entrez un nom pour votre compte de stockage.
-3. Définissez le champ **Type de compte** sur **StorageV2 (usage général v2)**.
-4. Laissez le champ **Réplication** défini sur **Stockage localement redondant (LRS)**. Vous pouvez également sélectionner **Stockage redondant dans une zone (ZRS)**, **Stockage géoredondant (GRS)** ou **Stockage géoredondant avec accès en lecture (RA-GRS)**.
-5. Laissez ces champs définis sur leurs valeurs par défaut : **Modèle de déploiement**, **Performances** et **Transfert sécurisé requis**.
-6. Choisissez l’abonnement dans lequel vous souhaitez créer le compte de stockage.
-7. Dans la section **Groupe de ressources**, sélectionnez **Use existing** (Utiliser l’existant), puis choisissez le groupe de ressources que vous avez créé dans la section précédente.
-8. Choisissez l’emplacement de votre nouveau compte de stockage.
-9. Cliquez sur **Créer** pour créer le compte de stockage.      
-
-![Capture d’écran montrant la création du compte de stockage dans le portail Azure](./media/storage-quickstart-create-account/create-account-portal.png)
-
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-
-Pour créer un compte de stockage à usage général v2 à partir de PowerShell avec l’option Stockage localement redondant (LRS), utilisez la commande [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) : 
+Ensuite, créez un compte de stockage v2 à usage général avec le stockage localement redondant (LRS). Utilisez la commande [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) : 
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -197,7 +132,23 @@ Pour créer un compte de stockage à usage général v2 avec l’option Stockage
 
 # <a name="azure-clitabazure-cli"></a>[interface de ligne de commande Azure](#tab/azure-cli)
 
-Pour créer un compte de stockage à usage général v2 à partir d’Azure CLI avec l’option Stockage localement redondant, utilisez la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create).
+Tout d’abord, créez un groupe de ressources avec Azure CLI par le biais de la commande [az group create](/cli/azure/group#az_group_create). 
+
+```azurecli-interactive
+az group create \
+    --name storage-quickstart-resource-group \
+    --location westus
+```
+
+Si vous ne savez pas quelle région spécifier pour le paramètre `--location`, vous pouvez récupérer la liste des régions prises en charge pour votre abonnement avec la commande [az account list-locations](/cli/azure/account#az_account_list).
+
+```azurecli-interactive
+az account list-locations \
+    --query "[].{Region:name}" \
+    --out table
+```
+
+Ensuite, créez un compte de stockage v2 à usage général avec le stockage localement redondant. Utilisez la commande [az storage account create](/cli/azure/storage/account#az_storage_account_create) :
 
 ```azurecli-interactive
 az storage account create \
@@ -258,16 +209,16 @@ Dans ce guide de démarrage rapide, vous avez créé un compte de stockage stand
 # <a name="portaltabportal"></a>[Portail](#tab/portal)
 
 > [!div class="nextstepaction"]
-> [Transférer des objets vers/à partir du stockage Blob Azure à l’aide du portail Azure](../blobs/storage-quickstart-blobs-portal.md)
+> [Utiliser des objets blob avec le portail Azure](../blobs/storage-quickstart-blobs-portal.md)
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 > [!div class="nextstepaction"]
-> [Transférer des objets à destination/à partir du stockage Blob Azure à l’aide de PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
+> [Utiliser des objets blob avec PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
 
 # <a name="azure-clitabazure-cli"></a>[interface de ligne de commande Azure](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
-> [Transférer des objets à destination/à partir du stockage Blob Azure à l’aide d’Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+> [Utiliser le stockage d’objets blob avec l’interface Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
 
 ---

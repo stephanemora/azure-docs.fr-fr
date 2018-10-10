@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: b67b13f30538d21f1a4db9675ee7c13d999f842a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cb8644ea4d949e81e4fb68bf572956bfe3444c0c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726276"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997894"
 ---
-# <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents 
+# <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer une homologation de réseaux virtuels - Resource Manager - Abonnements différents
 
-Dans ce didacticiel, vous allez découvrir comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés par le biais de Resource Manager. Les réseaux virtuels existent dans des abonnements différents. Homologuer deux réseaux virtuels permet aux ressources de différents réseaux virtuels de communiquer entre elles avec la même bande passante et latence, comme si les ressources se trouvaient sur le même réseau virtuel. En savoir plus sur l’[homologation de réseaux virtuels](virtual-network-peering-overview.md). 
+Dans ce didacticiel, vous allez découvrir comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés par le biais de Resource Manager. Les réseaux virtuels existent dans des abonnements différents. Homologuer deux réseaux virtuels permet aux ressources de différents réseaux virtuels de communiquer entre elles avec la même bande passante et latence, comme si les ressources se trouvaient sur le même réseau virtuel. En savoir plus sur l’[homologation de réseaux virtuels](virtual-network-peering-overview.md).
 
 Les étapes de création d’une homologation de réseaux virtuels sont différentes, selon que les réseaux virtuels sont dans le même abonnement ou dans des abonnements différents, et selon le [modèle de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) utilisé pour les créer. Découvrez comment créer une homologation de réseaux virtuels dans d’autres scénarios en sélectionnant le scénario souhaité dans le tableau suivant :
 
@@ -42,7 +42,9 @@ Vous pouvez utiliser le [portail Azure](#portal), [l’interface de ligne de com
 
 ## <a name="portal"></a>Créer une homologation - portail Azure
 
-Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion du portail et ignorer les étapes d’affectation d’autorisations d’accès aux réseaux virtuels à un autre utilisateur.
+Si les réseaux virtuels que vous voulez appairer se trouvent dans les abonnements qui sont associés à différents locataires Azure Active Directory, suivez les étapes décrites dans la section CLI et PowerShell de cet article. Le portail n’offre pas de prise en charge pour appairer des réseaux virtuels appartenant à des abonnements à partir de différents locataires Active Directory.
+
+Les étapes suivantes utilisent des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion du portail et ignorer les étapes d’affectation d’autorisations d’accès aux réseaux virtuels à un autre utilisateur.
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant que *UserA*. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 2. Sélectionnez **+ Créer une ressource**, **Mise en réseau**, puis **Réseau virtuel**.
@@ -58,7 +60,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 5. Dans la liste verticale d’options située à gauche, sélectionnez **Contrôle d’accès (IAM)**.
 6. Sous **myVnetA - Contrôle d’accès (IAM)**, sélectionnez **+ Ajouter**.
 7. Dans la zone **Rôle**, sélectionnez **Contributeur de réseaux**.
-8. Dans la zone **Sélectionner**, sélectionnez *UserB* ou tapez l’adresse e-mail de UserB pour rechercher cet utilisateur. La liste des utilisateurs affichée provient du même locataire Azure Active Directory que le réseau virtuel pour lequel vous configurez l’homologation. Si vous ne voyez pas UserB, c’est sans doute parce que cet utilisateur se trouve dans un locataire Active Directory autre que celui de UserA. Pour connecter des réseaux virtuels de locataires Active Directory différents, vous pouvez utiliser une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) au lieu d’une homologation de réseaux virtuels.
+8. Dans la zone **Sélectionner**, sélectionnez *UserB* ou tapez l’adresse e-mail de UserB pour rechercher cet utilisateur.
 9. Sélectionnez **Enregistrer**.
 10. Sous **myVnetA - Contrôle d’accès (IAM)**, sélectionnez **Propriétés** dans la liste verticale d’options située à gauche. Copiez l’**ID de ressource**, qui vous servira lors d’une étape ultérieure. L’ID de ressource est similaire à l’exemple suivant : /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
 11. Déconnectez-vous du portail en tant que UserA, puis connectez-vous en tant que UserB.
@@ -98,12 +100,14 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
 ## <a name="cli"></a>Créer une homologation - interface de ligne de commande Azure
 
-Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. Les deux réseaux virtuels à homologuer doivent se trouver dans des abonnements associés au même locataire Azure Active Directory.  Pour connecter des réseaux virtuels de locataires Active Directory différents, vous pouvez utiliser une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) au lieu d’une homologation de réseaux virtuels.
+Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. Si les réseaux virtuels se trouvent dans des abonnements différents et que les abonnements sont associés à différents locataires Azure Active Directory, effectuez les étapes suivantes avant de continuer :
+ - Ajoutez l’utilisateur à partir de chaque locataire Active Directory en tant [qu’utilisateur invité](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) dans le locataire Azure Active Directory opposé.
+ - Chaque utilisateur doit accepter l’invitation d’utilisateur invité du locataire Azure Active Directory opposé.
 
 Les scripts suivants :
 
-- Requiert l’interface de ligne de commande Azure version 2.0.4 ou ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez effectuer une mise à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Fonctionne dans un interpréteur de commandes Bash. Pour en savoir plus sur l’exécution de scripts Azure CLI sur un client Windows, consultez [Installer Azure CLI sur Windows](/cli/azure/install-azure-cli-windows). 
+- Requiert l’interface de ligne de commande Azure version 2.0.4 ou ultérieure. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez mettre à niveau, consultez [Installation d’Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Fonctionne dans un interpréteur de commandes Bash. Pour en savoir plus sur l’exécution de scripts Azure CLI sur un client Windows, consultez [Installer Azure CLI sur Windows](/cli/azure/install-azure-cli-windows).
 
 Au lieu d’installer l’interface CLI et ses dépendances, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Sélectionnez le bouton **Try it** dans le script qui suit afin d’appeler un Cloud Shell avec lequel vous pouvez vous connecter à votre compte Azure. 
 
@@ -134,14 +138,14 @@ Au lieu d’installer l’interface CLI et ses dépendances, vous pouvez utilise
 4. Créez myVnetB. Copiez le contenu du script à l’étape 2 dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionA-Id>` par l’ID de l’abonnement B. Remplacez 10.0.0.0/16 par 10.1.0.0/16, remplacez tous les A par des B, et tous les B par des A. Copiez le script modifié, collez-le dans votre session CLI et appuyez sur `Enter`. 
 5. Déconnectez-vous d’Azure en tant que UserB et connectez-vous à Azure en tant que UserA.
 6. Créez une homologation de réseaux virtuels de myVnetA à myVnetB. Copiez le contenu du script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionB-Id>` par l’ID de l’abonnement B. Pour exécuter le script, copiez le script modifié, collez-le dans votre session CLI, puis appuyez sur Entrée.
- 
+
     ```azurecli-interactive
         # Get the id for myVnetA.
         vnetAId=$(az network vnet show \
           --resource-group myResourceGroupA \
           --name myVnetA \
           --query id --out tsv)
-    
+
         # Peer myVNetA to myVNetB.
         az network vnet peering create \
           --name myVnetAToMyVnetB \
@@ -176,9 +180,11 @@ Les ressources Azure que vous créez dans un réseau virtuel sont désormais en 
  
 ## <a name="powershell"></a>Créer une homologation - PowerShell
 
-Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. Les deux réseaux virtuels à homologuer doivent se trouver dans des abonnements associés au même locataire Azure Active Directory.  Pour connecter des réseaux virtuels de locataires Active Directory différents, vous pouvez utiliser une [passerelle VPN Azure](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md) au lieu d’une homologation de réseaux virtuels.
+Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. Si les réseaux virtuels se trouvent dans des abonnements différents et que les abonnements sont associés à différents locataires Azure Active Directory, effectuez les étapes suivantes avant de continuer :
+ - Ajoutez l’utilisateur à partir de chaque locataire Active Directory en tant [qu’utilisateur invité](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) dans le locataire Azure Active Directory opposé.
+ - Chaque utilisateur doit accepter l’invitation d’utilisateur invité du locataire Active Directory opposé.
 
-1. Installez la dernière version du module PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/). Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Vérifiez que vous disposez de la version 6.5.0 ou d’une version ultérieure. Pour ce faire, exécutez la commande `Get-Module -Name AzureRm`. Nous vous recommandons d’installer la dernière version du module [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) PowerShell. Si vous débutez dans l’utilisation d’Azure PowerShell, voir [Vue d’ensemble d’Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 2. Démarrez une session PowerShell.
 3. Dans PowerShell, connectez-vous à Azure en tant que UserA en entrant la commande `Connect-AzureRmAccount`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
 4. Créez un groupe de ressources et le réseau virtuel A. Copiez le script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionA-Id>` par l’ID de l’abonnement A. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `Get-AzureRmSubscription` pour l’afficher. La valeur de **id** dans la sortie retournée est votre ID d’abonnement. Pour exécuter le script, copiez le script modifié, collez-le dans PowerShell, puis appuyez sur `Enter`.
@@ -242,6 +248,10 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
 ## <a name="template"></a>Créer une homologation - modèle Resource Manager
 
+Si les réseaux virtuels se trouvent dans des abonnements différents et que les abonnements sont associés à différents locataires Azure Active Directory, effectuez les étapes suivantes avant de continuer :
+ - Ajoutez l’utilisateur à partir de chaque locataire Active Directory en tant [qu’utilisateur invité](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) dans le locataire Azure Active Directory opposé.
+ - Chaque utilisateur doit accepter l’invitation d’utilisateur invité du locataire Active Directory opposé.
+ 
 1. Pour créer un réseau virtuel et attribuer les [autorisations](virtual-network-manage-peering.md#permissions) appropriées, suivez les étapes des sections [Portail](#portal), [Azure CLI](#cli) ou [PowerShell](#powershell) de cet article.
 2. Enregistrez le texte qui suit dans un fichier sur votre ordinateur local. Remplacez `<subscription ID>` par votre ID d’abonnement UtilisateurA. Vous pouvez enregistrez le fichier en tant que vnetpeeringA.json, par exemple.
 

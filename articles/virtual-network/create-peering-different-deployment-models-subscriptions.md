@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 4883791a32a65746a72afb63755ecf608dc840d9
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 01e8b5c518931411ba6e2d75168de6753bf55260
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503823"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971720"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement et abonnements différents
 
@@ -97,18 +97,17 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
 ## <a name="cli"></a>Créer une homologation - interface de ligne de commande Azure
 
-Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. 
+Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous utilisez un compte qui a des autorisations pour les deux abonnements, vous pouvez utiliser le même compte pour toutes les étapes, ignorer les étapes de déconnexion d’Azure et supprimer les lignes de script qui créent les affectations de rôle utilisateur. Remplacez UserA@azure.com et UserB@azure.com dans tous les scripts suivants par les noms d’utilisateurs que vous utilisez pour UserA et UserB. Effectuez les étapes suivantes à l’aide de l’interface Azure Classic CLI et de l’interface Azure CLI. Vous pouvez effectuer les étapes à partir d’Azure Cloud Shell, en sélectionnant simplement le bouton **Essayer** dans toutes les étapes suivantes, ou en installant l’interface [Azure Classic CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Azure CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), puis en exécutant les commandes sur votre ordinateur local.
 
-1. [Installez](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure CLI 1.0 pour créer le réseau virtuel (classique).
-2. Ouvrez une session CLI et connectez-vous à Azure en tant que UserB à l’aide de la commande `azure login`. Le compte auquel vous vous connectez doit avoir les autorisations nécessaires pour créer une homologation de réseaux virtuels. Pour obtenir une liste d’autorisations, consultez [Autorisations d’homologation de réseau virtuel](virtual-network-manage-peering.md#permissions).
-3. Exécutez l’interface CLI en mode Gestion des services en entrant la commande `azure config mode asm`.
-4. Entrez la commande suivante pour créer le réseau virtuel (classique) :
- 
+1. Si vous utilisez Cloud Shell, passez à l’étape 2, car Cloud Shell vous connecte automatiquement à Azure. Ouvrez une session de commande et connectez-vous à Azure à l’aide de la commande `azure login`.
+2. Exécutez l’interface CLI classique en mode Gestion des services en entrant la commande `azure config mode asm`.
+3. Entrez la commande CLI classique suivante pour créer le réseau virtuel (classique) :
+
     ```azurecli
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
-5. Les étapes restantes doivent être effectuées à l’aide d’un interpréteur de commandes Bash avec Azure CLI 2.0.4 ou version ultérieure [installé](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), ou à l’aide d’Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes Bash gratuit, que vous pouvez exécuter directement dans le portail Azure. L’interface Azure CLI est préinstallée et configurée pour être utilisée avec votre compte. Cliquez sur le bouton **Try it** dans les scripts qui suivent, ce qui ouvre un Cloud Shell qui vous connecte à votre compte Azure. Pour en savoir plus sur l’exécution de scripts CLI Bash sur un client Windows, consultez [Installer Azure CLI sur Windows](/cli/azure/install-azure-cli-windows). 
-6. Copiez le script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionB-Id>` par votre ID d’abonnement. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `az account show`. La valeur de **id** dans la sortie est votre ID d’abonnement. Copiez le script modifié, collez-le dans votre session CLI 2.0, puis appuyez sur `Enter`. 
+4. Les étapes restantes doivent être effectuées à l’aide d’un interpréteur de commandes Bash avec l’interface Azure CLI (pas la classique).
+5. Copiez le script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionB-Id>` par votre ID d’abonnement. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `az account show`. La valeur de **id** dans la sortie est votre ID d’abonnement. Copiez le script modifié, collez-le dans votre session CLI, puis appuyez sur `Enter`.
 
     ```azurecli-interactive
     az role assignment create \
@@ -118,8 +117,8 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
     ```
 
     Quand vous avez créé le réseau virtuel (classique) à l’étape 4, Azure a créé le réseau virtuel dans le groupe de ressources *Default-Networking*.
-7. Déconnectez UserB d’Azure et connectez-vous en tant que UserA dans CLI 2.0.
-8. Créez un groupe de ressources et un réseau virtuel (Resource Manager). Copiez le script suivant, collez-le dans votre session CLI, puis appuyez sur `Enter`. 
+6. Déconnectez UserB d’Azure et connectez-vous en tant que UserA dans l’interface CLI.
+7. Créez un groupe de ressources et un réseau virtuel (Resource Manager). Copiez le script suivant, collez-le dans votre session CLI, puis appuyez sur `Enter`.
 
     ```azurecli-interactive
     #!/bin/bash
@@ -153,7 +152,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
       --scope $vNetAId
     ```
 
-9. Créez une homologation de réseaux virtuels entre les deux réseaux virtuels créés par le biais des modèles de déploiement différents. Copiez le script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionB-id>` par votre ID d’abonnement. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `az account show`. La valeur de **id** dans la sortie est votre ID d’abonnement. Azure a créé le réseau virtuel (classique) que vous avez créé à l’étape 4 dans un groupe de ressources nommé *Default-Networking*. Collez le script modifié dans votre session CLI, puis appuyez sur `Enter`.
+8. Créez une homologation de réseaux virtuels entre les deux réseaux virtuels créés par le biais des modèles de déploiement différents. Copiez le script suivant dans un éditeur de texte sur votre PC. Remplacez `<SubscriptionB-id>` par votre ID d’abonnement. Si vous ne connaissez pas votre ID d’abonnement, entrez la commande `az account show`. La valeur de **id** dans la sortie est votre ID d’abonnement. Azure a créé le réseau virtuel (classique) que vous avez créé à l’étape 4 dans un groupe de ressources nommé *Default-Networking*. Collez le script modifié dans votre session CLI, puis appuyez sur `Enter`.
 
     ```azurecli-interactive
     # Peer VNet1 to VNet2.
@@ -165,7 +164,7 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
       --allow-vnet-access
     ```
 
-10. Après l’exécution du script, passez en revue l’homologation pour le réseau virtuel (Resource Manager). Copiez le script suivant et collez-le dans votre session CLI :
+9. Après l’exécution du script, passez en revue l’homologation pour le réseau virtuel (Resource Manager). Copiez le script suivant et collez-le dans votre session CLI :
 
     ```azurecli-interactive
     az network vnet peering list \
@@ -177,8 +176,8 @@ Ce didacticiel utilise des comptes différents pour chaque abonnement. Si vous u
 
     Les ressources Azure que vous créez dans un réseau virtuel sont désormais en mesure de communiquer entre elles via leurs adresses IP. Si vous utilisez la résolution de noms Azure par défaut pour les réseaux virtuels, les ressources dans les réseaux virtuels ne sont pas en mesure de résoudre les noms dans les réseaux virtuels. Si vous souhaitez résoudre les noms dans les réseaux virtuels d’une homologation, vous devez créer votre propre serveur DNS. Apprenez à configurer la [résolution de noms à l’aide de votre propre serveur DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-11. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
-12. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-cli) de cet article.
+10. **Facultatif** : bien que la création de machines virtuelles ne soit pas abordée dans ce didacticiel, vous pouvez créer une machine virtuelle dans chaque réseau virtuel et vous connecter d’une machine virtuelle à l’autre pour valider la connectivité.
+11. **Facultatif :** pour supprimer les ressources créées dans ce didacticiel, procédez de la manière décrite dans la section [Supprimer des ressources](#delete-cli) de cet article.
 
 ## <a name="powershell"></a>Créer une homologation - PowerShell
 
@@ -284,45 +283,45 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 
 ### <a name="delete-cli"></a>Interface CLI Azure
 
-1. Connectez-vous à Azure à l’aide de CLI 2.0 pour supprimer le réseau virtuel (Resource Manager) avec la commande suivante :
+1. Connectez-vous à Azure à l’aide de l’interface CLI pour supprimer le réseau virtuel (Resource Manager) avec la commande suivante :
 
-    ```azurecli-interactive
-    az group delete --name myResourceGroupA --yes
-    ```
+   ```azurecli-interactive
+   az group delete --name myResourceGroupA --yes
+   ```
 
-2. Connectez-vous à Azure à l’aide d’Azure CLI 1.0 pour supprimer le réseau virtuel (classique) avec les commandes suivantes :
+2. Connectez-vous à Azure à l’aide de l’interface Azure classique pour supprimer le réseau virtuel (classique) avec les commandes suivantes :
 
-    ```azurecli
-    azure config mode asm 
+   ```azurecli-interactive
+   azure config mode asm
 
-    azure network vnet delete --vnet myVnetB --quiet
-    ```
+   azure network vnet delete --vnet myVnetB --quiet
+   ```
 
 ### <a name="delete-powershell"></a>PowerShell
 
 1. À l’invite de commandes PowerShell, entrez la commande suivante pour supprimer le réseau virtuel (Resource Manager) :
 
-    ```powershell
-    Remove-AzureRmResourceGroup -Name myResourceGroupA -Force
-    ```
+   ```powershell
+   Remove-AzureRmResourceGroup -Name myResourceGroupA -Force
+   ```
 
 2. Pour supprimer le réseau virtuel (classique) avec PowerShell, vous devez modifier un fichier de configuration réseau existant. Pour découvrir [comment exporter, mettre à jour et importer des fichiers de configuration réseau, consultez cet article](virtual-networks-using-network-configuration-file.md). Supprimez l’élément VirtualNetworkSite suivant pour le réseau virtuel utilisé dans ce didacticiel :
 
-    ```xml
-    <VirtualNetworkSite name="myVnetB" Location="East US">
-      <AddressSpace>
-        <AddressPrefix>10.1.0.0/16</AddressPrefix>
-      </AddressSpace>
-      <Subnets>
-        <Subnet name="default">
-          <AddressPrefix>10.1.0.0/24</AddressPrefix>
-        </Subnet>
-      </Subnets>
-    </VirtualNetworkSite>
-    ```
+   ```xml
+   <VirtualNetworkSite name="myVnetB" Location="East US">
+     <AddressSpace>
+       <AddressPrefix>10.1.0.0/16</AddressPrefix>
+     </AddressSpace>
+     <Subnets>
+       <Subnet name="default">
+         <AddressPrefix>10.1.0.0/24</AddressPrefix>
+       </Subnet>
+     </Subnets>
+   </VirtualNetworkSite>
+   ```
 
-    > [!WARNING]
-    > L’importation d’un fichier de configuration réseau modifié peut entraîner des modifications des réseaux virtuels (classiques) existants dans votre abonnement. Assurez-vous de ne supprimer que le réseau virtuel précédent et de ne modifier ou supprimer aucun réseau virtuel existant de votre abonnement. 
+   > [!WARNING]
+   > L’importation d’un fichier de configuration réseau modifié peut entraîner des modifications des réseaux virtuels (classiques) existants dans votre abonnement. Assurez-vous de ne supprimer que le réseau virtuel précédent et de ne modifier ou supprimer aucun réseau virtuel existant de votre abonnement. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

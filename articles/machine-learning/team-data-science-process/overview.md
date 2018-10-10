@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que le processus Team Data Science Process ? | Microsoft Docs
+title: Qu’est-ce que le processus Team Data Science Process ? | Microsoft Docs
 description: Propose une méthodologie de science des données permettant de fournir des solutions d’analyse prédictive et des applications intelligentes.
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: e6e6b8e03102825a15035adbea80ac5e9f3fa404
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125757"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996449"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Qu’est-ce que le processus Team Data Science Process ?
 
@@ -71,7 +71,7 @@ Le diagramme suivant présente la grille des tâches (en bleu) et des artefacts 
 
 ## <a name="standardized-project-structure"></a>Structure de projet normalisée
 
-Lorsque tous les projets partagent une structure de répertoire et utilisent des modèles de documents de projet, il est plus facile pour les collaborateurs de l’équipe de rechercher des informations sur les projets. Tout le code et tous les documents sont stockés dans un système de contrôle de version (CVS) comme Git, TFS ou Subversion pour permettre la collaboration au sein de l’équipe. Le suivi des tâches et des fonctionnalités dans un système de suivi de projet agile tel que Jira, Rally ou Visual Studio Team Services permet de suivre de plus près chacun des composants du code. Il permet également aux équipes d’obtenir de meilleurs devis estimatifs. Le processus TDSP recommande la création d’un référentiel distinct pour chaque projet sur le système CVS à des fins de gestion de versions, de sécurité des informations et de collaboration. La structure standardisée de tous les projets permet de centraliser des connaissances institutionnelles à travers l’organisation.
+Lorsque tous les projets partagent une structure de répertoire et utilisent des modèles de documents de projet, il est plus facile pour les collaborateurs de l’équipe de rechercher des informations sur les projets. Tout le code et tous les documents sont stockés dans un système de contrôle de version (CVS) comme Git, TFS ou Subversion pour permettre la collaboration au sein de l’équipe. Le suivi des tâches et des caractéristiques dans un système de suivi de projet agile comme Jira, Rally et Azure DevOps permet de suivre de plus près chacun des composants du code. Il permet également aux équipes d’obtenir de meilleurs devis estimatifs. Le processus TDSP recommande la création d’un référentiel distinct pour chaque projet sur le système CVS à des fins de gestion de versions, de sécurité des informations et de collaboration. La structure standardisée de tous les projets permet de centraliser des connaissances institutionnelles à travers l’organisation.
 
 Nous fournissons des modèles de structure de dossiers et des documents requis dans les emplacements standards. Cette structure de dossiers organise les fichiers qui contiennent du code à des fins d’exploration des données et d’extraction de fonctionnalités, et qui enregistrent les itérations du modèle. Ces modèles permettent aux membres de l’équipe de comprendre plus facilement le travail effectué par d’autres et d’ajouter de nouveaux membres aux équipes. Il est aisé d’afficher et de mettre à jour les modèles de documents au format Markdown. Utilisez les modèles pour fournir des listes de vérification contenant des questions clés pour chaque projet et ainsi vous assurer que le problème est bien défini et que les livrables répondent aux attentes de qualité. Voici quelques exemples :
 
@@ -89,10 +89,10 @@ La structure de répertoires peut être clonée à partir de [GitHub](https://gi
 
 Le processus TDSP fournit des recommandations sur la gestion de l’infrastructure partagée d’analytique et de stockage, notamment :
 
-- systèmes de fichiers cloud pour le stockage des jeux de données ; 
+- systèmes de fichiers cloud pour le stockage des jeux de données 
 - bases de données
 - clusters Big Data (Hadoop ou Spark) ; 
-- services de Machine Learning. 
+- service Machine Learning 
 
 L’infrastructure de stockage et d’analytique peut se trouver sur le cloud ou sur site. C’est à cet endroit que sont stockés les jeux de données bruts et traités. Cette infrastructure permet de reproduire les analyses. Elle évite également la duplication, susceptible de provoquer des incohérences et d’entraîner des coûts d’infrastructure inutiles. Des outils sont fournis pour configurer les ressources partagées, les suivre et permettre à chacun des membres de l’équipe de se connecter à ces ressources en toute sécurité. Il est également recommandé que les participants au projet créent un environnement de calcul homogène. Différents membres de l’équipe pourront alors répliquer et valider les expériences.
 

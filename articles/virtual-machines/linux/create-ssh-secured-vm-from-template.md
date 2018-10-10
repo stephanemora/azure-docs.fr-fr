@@ -16,16 +16,19 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6b431ee55ee73b4f5a69471cca3cc16270198c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 33b0b2b4148a8cfbe97413bf3cdec23d375206bb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930237"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983886"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Comment créer une machine virtuelle Linux avec des modèles Azure Resource Manager
-Cet article vous montre comment déployer rapidement une machine virtuelle Linux avec des modèles Azure Resource Manager et l’interface de ligne de commande Azure. 
 
+Cet article vous montre comment déployer rapidement une machine virtuelle Linux avec des modèles Azure Resource Manager et l’interface de ligne de commande Azure. Vous pouvez également effectuer ces étapes avec [Azure Classic CLI](create-ssh-secured-vm-from-template-nodejs.md).
+
+
+Cet article vous montre comment déployer rapidement une machine virtuelle Linux avec des modèles Azure Resource Manager et l’interface de ligne de commande Azure. 
 
 ## <a name="templates-overview"></a>Vue d’ensemble des modèles
 Les modèles Azure Resource Manager sont des fichiers JSON qui définissent l’infrastructure et la configuration de votre solution Azure. Un modèle vous permet de déployer votre solution à plusieurs reprises tout au long de son cycle de vie pour avoir la garantie que vos ressources présentent un état cohérent lors de leur déploiement. Pour en savoir plus sur le format du modèle et la manière de le construire, voir [Créer votre premier modèle Azure Resource Manager](../../azure-resource-manager/resource-manager-create-first-template.md). Pour afficher la syntaxe JSON pour les types de ressources, voir [Définir des ressources dans les modèles Azure Resource Manager](/azure/templates/).

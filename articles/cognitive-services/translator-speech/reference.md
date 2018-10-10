@@ -1,45 +1,46 @@
 ---
-title: Documentation de référence pour l’API de traduction de conversation Translator Speech Microsoft | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Documentation de référence pour l’API de traduction de conversation Translator Speech Microsoft.
+title: Informations de référence de l’API de traduction de conversation Translator Speech
+titleSuffix: Azure Cognitive Services
+description: Documentation de référence pour l’API de traduction de conversation Translator Speech.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: be8faddf56158de3399713c41638c0b913b4627e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370681"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978707"
 ---
-# <a name="microsoft-translator-speech-api"></a>API de traduction de conversation Translator Speech Microsoft
+# <a name="translator-speech-api"></a>API de traduction de conversation Translator Speech
 
-Ce service offre une API de diffusion en continu pour la transcription de parole conversationnelle dans une langue en texte dans une autre langue. L’API intègre également des fonctionnalités de synthèse vocale pour prononcer le texte traduit. L’API de traduction de conversation Translator Speech Microsoft permet des scénarios tels que la traduction en temps réel de conversations comme dans Skype Translator.
+Ce service offre une API de diffusion en continu pour la transcription de parole conversationnelle dans une langue en texte dans une autre langue. L’API intègre également des fonctionnalités de synthèse vocale pour prononcer le texte traduit. L’API de traduction de conversation Translator Speech permet, par exemple, des scénarios de traduction en temps réel de conversations, comme dans Skype Translator.
 
-Avec l’API de traduction de conversation Translator Speech Microsoft, les applications clientes diffusent l’audio vocal vers le service, et reçoivent un flux de résultats textuels, dont le texte reconnu dans la langue source et sa traduction dans la langue cible. Les résultats textuels sont générés par une reconnaissance vocale alimentée par des réseaux neuronaux profonds au flux audio entrant. La sortie de reconnaissance vocale brute est améliorée par une nouvelle technique nommée TrueText afin de mieux refléter l’intention de l’utilisateur. Par exemple, TrueText élimine les disfluences (euh, toux) et restaure une ponctuation ainsi qu’une casse appropriées. La possibilité de masquer ou d’exclure des vulgarités est également incluse. Les moteurs de reconnaissance et de traduction sont spécifiquement formés pour traiter la parole conversationnelle. Le service de traduction vocale détecte les silences pour déterminer la fin des énoncés. Après une pause dans l’activité vocale, le service renvoie un résultat final pour l’énoncé complet. Le service peut également renvoyer des résultats partiels, qui donnent des reconnaissances et traductions intermédiaires d’un énoncé en cours. Pour les résultats finaux, le service permet de convertir par synthèse vocale le texte parlé dans les langues cibles. L’audio de synthèse vocale est créé dans le format spécifié par le client. Les formats disponibles sont WAV et MP3.
+Avec l’API de traduction de conversation Translator Speech, les applications clientes diffusent en continu l’audio vocal vers le service, et reçoivent un flux de résultats textuels, notamment le texte reconnu dans la langue source et sa traduction dans la langue cible. Les résultats textuels sont générés par l’application au flux audio entrant d’une reconnaissance vocale automatique qui s’appuie sur des réseaux neuronaux profonds. La sortie de reconnaissance vocale brute est améliorée par une nouvelle technique nommée TrueText afin de mieux refléter l’intention de l’utilisateur. Par exemple, TrueText élimine les disfluences (euh, toux) et restaure une ponctuation ainsi qu’une casse appropriées. La possibilité de masquer ou d’exclure des vulgarités est également incluse. Les moteurs de reconnaissance et de traduction sont spécifiquement entraînés pour traiter la parole conversationnelle. Le service de traduction vocale détecte les silences pour déterminer la fin des énoncés. Après une pause dans l’activité vocale, le service renvoie un résultat final pour l’énoncé complet. Le service peut également renvoyer des résultats partiels, qui donnent des reconnaissances et traductions intermédiaires d’un énoncé en cours. Pour les résultats finaux, le service permet de convertir par synthèse vocale le texte parlé dans les langues cibles. L’audio de synthèse vocale est créé dans le format spécifié par le client. Les formats disponibles sont WAV et MP3.
 
-L’API de traduction de conversation Translator Speech Microsoft tire parti du protocole WebSocket pour fournir un canal de communication en duplex intégral entre le client et le serveur. Pour utiliser le service, une application requiert les étapes suivantes :
+L’API de traduction de conversation Translator Speech tire parti du protocole WebSocket pour fournir un canal de communication en duplex intégral entre le client et le serveur. Pour utiliser le service, une application requiert les étapes suivantes :
 
 ## <a name="1-getting-started"></a>1. Prise en main
-Pour accéder à l’API de traduction de texte Translator Text Microsoft, vous devez [vous abonner à Microsoft Azure](translator-speech-how-to-signup.md).
+Pour accéder à l’API de traduction de texte Translator Text, vous devez [vous inscrire à Microsoft Azure](translator-speech-how-to-signup.md).
 
 ## <a name="2-authentication"></a>2. Authentification
 
-Utilisez la clé d’abonnement pour vous authentifier. L’API de traduction de conversation Translator Speech Microsoft prend en charge deux modes d’authentification :
+Utilisez la clé d’abonnement pour vous authentifier. L’API de traduction de conversation Translator Speech prend en charge deux modes d’authentification :
 
-* **En utilisant un jeton d’accès :** dans votre application, obtenez un jeton d’accès à partir du service de jetons. Votre clé d’abonnement à l’API de traduction de conversation Translator Speech Microsoft permet d’obtenir un jeton d’accès à partir du service d’authentification de Cognitive Services. Chaque jeton d’accès est valide pendant 10 minutes. Obtenez un nouveau jeton d’accès toutes les 10 minutes, et utilisez-le pour des requêtes répétées pendant 10 minutes.
+* **En utilisant un jeton d’accès :** dans votre application, obtenez un jeton d’accès à partir du service de jetons. Utilisez votre clé d’abonnement à l’API de traduction de conversation Translator Speech pour obtenir un jeton d’accès auprès du service d’authentification d’Azure Cognitive Services. Chaque jeton d’accès est valide pendant 10 minutes. Obtenez un nouveau jeton d’accès toutes les 10 minutes, et utilisez-le pour des requêtes répétées pendant 10 minutes.
 
 * **En utilisant une clé d’abonnement directement :** dans votre application, passez votre clé d’abonnement en tant que valeur dans l’en-tête `Ocp-Apim-Subscription-Key`.
 
 Traitez votre clé d’abonnement et le jeton d’accès comme des secrets qui doivent être masqués.
 
 ## <a name="3-query-languages"></a>3. Interroger la ressource Langues
-**Interrogez la ressource Langues pour connaître l’ensemble actuel des langues prises en charge.** La [ressource Langues](languages-reference.md) expose l’ensemble des langues et des voix disponibles pour la reconnaissance vocale, la traduction de texte et la synthèse vocale. Chaque langue ou voix est dotée d’un identificateur que l’API de traduction de conversation Translator Speech Microsoft utilise pour les identifier.
+**Interrogez la ressource Langues pour connaître l’ensemble actuel des langues prises en charge.** La [ressource Langues](languages-reference.md) expose l’ensemble des langues et des voix disponibles pour la reconnaissance vocale, la traduction de texte et la synthèse vocale. Chaque langue ou voix est dotée d’un identificateur que l’API de traduction de conversation Translator Speech utilise pour les identifier.
 
 ## <a name="4-stream-audio"></a>4. Diffuser l’audio
 **Ouvrez une connexion et commencez à diffuser l’audio vers le service.** L’URL du service est `wss://dev.microsofttranslator.com/speech/translate`. Les paramètres et les formats audio attendus par le service sont décrits ci-dessous, dans l’opération `/speech/translate`. L’un des paramètres est utilisé pour passer le jeton d’accès de l’étape 2 ci-dessus.
@@ -47,7 +48,7 @@ Traitez votre clé d’abonnement et le jeton d’accès comme des secrets qui d
 ## <a name="5-process-the-results"></a>5. Traiter les résultats
 **Traitez les résultats diffusés par le service.** Les formats des résultats partiels, des résultats finaux et des segments audio de synthèse vocale sont décrits dans la documentation de l’opération `/speech/translate` ci-dessous.
 
-Des exemples de code illustrant l’utilisation de l’API de traduction de conversation Translator Speech Microsoft sont disponibles sur le [site GitHub de Microsoft Translator](https://github.com/MicrosoftTranslator).
+Des exemples de code illustrant l’utilisation de l’API de traduction de conversation Translator Speech sont disponibles sur le [site GitHub de Microsoft Translator](https://github.com/MicrosoftTranslator).
 
 ## <a name="implementation-notes"></a>Remarques relatives à l’implémentation
 

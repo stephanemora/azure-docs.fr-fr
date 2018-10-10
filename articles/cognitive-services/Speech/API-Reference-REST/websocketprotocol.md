@@ -1,24 +1,26 @@
 ---
-title: Protocole WebSocket de reconnaissance vocale Microsoft | Microsoft Docs
-description: Documentation du protocole du service Speech basé sur des WebSockets
+title: Protocole WebSocket pour la reconnaissance vocale Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Documentation sur le protocole basé sur les WebSockets du service Reconnaissance vocale Bing
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 17954536e8bdb49c09204c2e522586b79cb1bef5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368465"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46962774"
 ---
-# <a name="speech-service-websocket-protocol"></a>Protocole WebSocket du service Speech
+# <a name="bing-speech-websocket-protocol"></a>Protocole WebSocket pour la reconnaissance vocale Bing
 
-  Le service Speech est une plateforme informatique qui propose les algorithmes les plus avancés pour la conversion de contenu vocal en texte. Le protocole du service Speech définit la [configuration de la connexion](#connection-establishment) entre les applications clientes et le service, et les messages de reconnaissance vocale échangés entre les différentes parties ([messages provenant du client](#client-originated-messages) et [messages provenant du service](#service-originated-messages)). En outre, les [messages de télémétrie](#telemetry-schema) et la [gestion des erreurs](#error-handling) sont décrits.
+La Reconnaissance vocale Bing est une plateforme cloud qui propose les algorithmes les plus avancés pour la conversion de contenu vocal en texte. Le protocole de la reconnaissance vocale Bing définit la [configuration de la connexion](#connection-establishment) entre les applications clientes et le service, et les messages de reconnaissance vocale échangés entre les différentes parties ([messages provenant du client](#client-originated-messages) et [messages provenant du service](#service-originated-messages)). En outre, les [messages de télémétrie](#telemetry-schema) et la [gestion des erreurs](#error-handling) sont décrits.
 
 ## <a name="connection-establishment"></a>Établissement de la connexion
 
@@ -65,7 +67,7 @@ L’en-tête *Authorization* doit contenir un jeton d’accès JWT (JSON Web Tok
 
 Pour plus d’informations sur la façon de s’abonner et d’obtenir des clés API permettant de récupérer des jetons d’accès JWT valides, consultez la page [Abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-La clé API est passée au service de jetons. Par exemple : 
+La clé API est transmise au service de jetons. Par exemple : 
 
 ``` HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -78,7 +80,7 @@ Les informations d’en-tête suivantes sont requises pour l’accès au moyen d
 |----|----|----|
 | Ocp-Apim-Subscription-Key | ASCII | Votre clé d’abonnement |
 
-Le service de jetons retourne le jeton d’accès JWT sous la forme `text/plain`. Ensuite, le jeton JWT est passé en tant que `Base64 access_token` au processus de négociation sous la forme d’un en-tête *Authorization* préfixé avec la chaîne `Bearer`. Par exemple : 
+Le service de jetons renvoie le jeton d’accès JWT sous la forme `text/plain`. Ensuite, le jeton JWT est passé en tant que `Base64 access_token` au processus de négociation sous la forme d’un en-tête *Authorization* préfixé avec la chaîne `Bearer`. Par exemple : 
 
 `Authorization: Bearer [Base64 access_token]`
 

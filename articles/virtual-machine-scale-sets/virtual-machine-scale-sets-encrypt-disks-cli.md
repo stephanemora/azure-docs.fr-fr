@@ -1,6 +1,6 @@
 ---
 title: Chiffrer des disques dans des groupes identiques Azure avec Azure CLI | Microsoft Docs
-description: Découvrez comment utiliser Azure CLI 2.0 pour chiffrer des instances de machine virtuelle et des disques attachés dans un groupe de machines virtuelles identiques Linux.
+description: Découvrir comment utiliser l’interface Azure CLI pour chiffrer des instances de machine virtuelle et des disques attachés dans un groupe de machines virtuelles identiques Linux
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: a01a0ae09b91b550af4617a46f7c0d8647a5f4be
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fecf7e121b1c0404f1ec67d46cc88008250b9d68
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704553"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981057"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>Chiffrer des disques de données attachés et de systèmes d’exploitation dans un groupe de machines virtuelles identiques avec Azure CLI 2.0 (préversion)
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Chiffrer des disques de système d’exploitation et de données attachés dans un groupe de machines virtuelles identiques avec l’interface Azure CLI (préversion)
 
 Conçue pour protéger les données au repos, Azure Disk Encryption (ADE) est une technologie de chiffrement standard prise en charge par les groupes de machines virtuelles identiques. Vous pouvez activer le chiffrement pour des groupes de machines virtuelles identiques Linux et Windows. Pour plus d’informations, consultez [Azure Disk Encryption pour Linux et Windows](../security/azure-security-disk-encryption.md).
 
@@ -38,7 +38,7 @@ Les opérations de mise à niveau et de réinitialisation des machines virtuelle
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.31 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.31 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="register-for-disk-encryption-preview"></a>S’inscrire à la fonctionnalité de chiffrement de disque en préversion
 
@@ -180,6 +180,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez utilisé Azure CLI 2.0 pour chiffrer un groupe de machines virtuelles identiques. Vous pouvez également utiliser [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) ou des modèles pour [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) ou [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+Dans cet article, vous avez utilisé l’interface Azure CLI pour chiffrer un groupe de machines virtuelles identiques. Vous pouvez également utiliser [Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) ou des modèles pour [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) ou [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
 
 Un exemple de fichier de traitement complet de chiffrement de disque de données d’un groupe identique Linux est disponible [ici](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Cet exemple crée un groupe de ressources, un groupe identique Linux, monte un disque de données de 5 Go et chiffre le groupe de machines virtuelles identiques.

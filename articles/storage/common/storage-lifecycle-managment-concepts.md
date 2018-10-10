@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247780"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46983665"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gérer le cycle de vie du stockage d'objets blob Azure (préversion)
 
@@ -30,7 +30,7 @@ Imaginons un ensemble de données fréquemment utilisé au début de son cycle d
 
 ## <a name="storage-account-support"></a>Prise en charge du compte de stockage
 
-La stratégie de gestion du cycle de vie est disponible avec le compte à usage général v2 (GPv2) et le compte de stockage d’objets blob. Vous pouvez convertir un compte à usage général (GPv1) existant en un compte GPv2 d’un simple clic dans le portail Azure. Voir [Options de compte de stockage Azure](../common/storage-account-options.md) pour en savoir plus.  
+La stratégie de gestion du cycle de vie est disponible avec le compte à usage général v2 (GPv2) et le compte de stockage d’objets blob. Vous pouvez convertir un compte à usage général (GPv1) existant en un compte GPv2 d’un simple clic dans le portail Azure. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Tarifs 
 
@@ -54,7 +54,7 @@ Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 Si la fonctionnalité est approuvée et correctement inscrite, vous devriez recevoir l’état « Inscrit ».
 
-### <a name="cli-20"></a>CLI 2.0
+### <a name="azure-cli"></a>Azure CLI
 
 Pour soumettre une requête : 
 ```cli
@@ -69,7 +69,7 @@ Si la fonctionnalité est approuvée et correctement inscrite, vous devriez rece
 
 ## <a name="add-or-remove-policies"></a>Ajouter ou supprimer des stratégies 
 
-Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du Portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), des [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) ou des outils clients dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du Portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), des [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) ou des outils clients dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portail Azure
 

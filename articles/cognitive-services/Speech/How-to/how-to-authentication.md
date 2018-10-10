@@ -1,31 +1,33 @@
 ---
-title: Authentification auprès du service Microsoft Speech | Microsoft Docs
-description: Demander une authentification pour utiliser l’API Microsoft Speech
+title: S’authentifier auprès de la Reconnaissance vocale Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Exiger une authentification pour utiliser l’API Reconnaissance vocale Bing
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e36168cf3ff938af44f1028c2d26fd475d60b148
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4d4b9f43b6b3a4127d70989414d467f724f6ec28
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368393"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972791"
 ---
 # <a name="authenticate-to-the-speech-api"></a>S’authentifier auprès de l’API Microsoft Speech
 
-Le service Speech prend en charge l’authentification en utilisant :
+La Reconnaissance vocale Bing prend en charge l’authentification avec :
 
 - Une clé d’abonnement
 - Un jeton d’autorisation
 
 ## <a name="use-a-subscription-key"></a>Utiliser une clé d’abonnement
 
-Pour utiliser le service Speech, vous devez d’abord vous abonner à l’API Microsoft Speech qui fait partie de Cognitive Services (précédemment Project Oxford). Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [d’abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Après avoir sélectionné l’API Microsoft Speech, sélectionnez **Obtenir la clé API** pour obtenir la clé. Cette opération retourne une clé principale et une clé secondaire. Les deux clés étant liées au même quota, vous pouvez utiliser l’une ou l’autre.
+Pour utiliser le service Speech, vous devez d’abord vous abonner à l’API Microsoft Speech qui fait partie de Cognitive Services (précédemment Project Oxford). Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [d’abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Après avoir sélectionné l’API Microsoft Speech, sélectionnez **Obtenir la clé API** pour obtenir la clé. Cette opération renvoie une clé primaire et une clé secondaire. Les deux clés étant liées au même quota, vous pouvez utiliser l’une ou l’autre.
 
 Pour une utilisation à long terme ou une augmentation du quota, inscrivez-vous pour obtenir un [compte Azure](https://azure.microsoft.com/free/).
 

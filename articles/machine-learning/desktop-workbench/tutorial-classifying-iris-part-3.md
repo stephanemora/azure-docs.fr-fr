@@ -1,6 +1,6 @@
 ---
-title: Didacticiel de déploiement d’un modèle pour les services Azure Machine Learning
-description: Ce didacticiel complet montre comment utiliser les services Azure Machine Learning de bout en bout. Il s’agit de la troisième partie qui décrit le modèle de déploiement.
+title: Tutoriel de déploiement de modèle pour Azure Machine Learning services
+description: Ce tutoriel complet montre comment utiliser Azure Machine Learning Services de bout en bout. Il s’agit de la troisième partie qui décrit le modèle de déploiement.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -12,14 +12,18 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2eb6eb5090b0a68a189e2d4f1148d3238bc3ee0d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41919154"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46946610"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Didacticiel 3 : Classifier Iris : déployer un modèle
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Azure Machine Learning (préversion) est une solution d’analytique avancée et de science des données intégrée de bout en bout destinée aux experts en science des données. Les scientifiques des données peuvent l’utiliser pour préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
 Ce didacticiel est **le troisième d’une série de trois**. Dans cette partie du didacticiel, vous utilisez Machine Learning (préversion) pour effectuer les tâches suivantes :
@@ -38,7 +42,7 @@ Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
-- Un compte d’expérimentation et Azure Machine Learning Workbench installé, comme décrit dans ce [démarrage rapide](../service/quickstart-installation.md)
+- Un compte d’expérimentation et Azure Machine Learning Workbench installé, comme décrit dans ce [démarrage rapide](quickstart-installation.md)
 - Le modèle de classification de la [partie 2 du didacticiel](tutorial-classifying-iris-part-2.md)
 - Un moteur Docker installé et exécuté en local
 
@@ -224,9 +228,9 @@ Vous êtes maintenant prêt à créer le service web en temps réel.
 1. Pour créer un service web en temps réel, utilisez la commande suivante :
 
    ```azurecli
-   az ml service create realtime -f score_iris.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
+   az ml service create realtime -f score_iris.py --model-file model.pkl -s ./output/service_schema.json -n irisapp -r python --collect-model-data true -c aml_config\conda_dependencies.yml
    ```
-   Cette commande génère un ID de service web que vous pouvez utiliser ultérieurement.
+   Cette commande génère un ID de service web que vous pouvez utiliser ultérieurement. Omettez le répertoire de sortie dans le cas d’un Notebook.
 
    Les commutateurs suivants sont utilisés avec la commande **az ml service create realtime** :
 
@@ -276,9 +280,9 @@ Tout d’abord, inscrivez le modèle. Générez ensuite le manifeste, générez 
    Pour créer un manifeste, utilisez la commande suivante et indiquez l’ID de modèle issu de l’étape précédente :
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s ./output/service_schema.json -c aml_config\conda_dependencies.yml
    ```
-   Cette commande génère un ID de manifeste.
+   Cette commande génère un ID de manifeste.  Omettez le répertoire de sortie dans le cas d’un Notebook.
 
 1. Créez une image Docker.
 

@@ -7,19 +7,20 @@ ms.author: kefzhou
 manager: akannava
 ms.reviewer: akannava, haining, mldocs, jmartens, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: 077af8b5d3367dd2188cbd6e5d76aaf52512a1e8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 094fd6d8c6c6d647533cf5409d1a85283c71c80e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830797"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46953240"
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Trouvez des exécutions présentant la précision maximale et la durée minimale
-Dans le cas de plusieurs exécutions, l’un des cas d’usage consiste à rechercher les exécutions qui présentent la précision maximale. Une approche possible consiste à utiliser l’interface de ligne de commande (CLI) avec une requête [JMESPath](http://jmespath.org/). Pour plus d’informations sur l’utilisation de JMESPath dans l’interface de ligne de commande Azure, consultez [Utilisation de requêtes JMESPath avec Azure CLI 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). Dans l’exemple ci-après, quatre exécutions sont créés avec des valeurs de précision de 0, 0,98, 1 et 1. Les exécutions sont filtrées si elles figurent dans la plage `[MaxAccuracy-Threshold, MaxAccuracy]`, où `Threshold = .03`.
+Dans le cas de plusieurs exécutions, l’un des cas d’usage consiste à rechercher les exécutions qui présentent la précision maximale. Une approche possible consiste à utiliser l’interface de ligne de commande (CLI) avec une requête [JMESPath](http://jmespath.org/). Pour plus d’informations sur l’utilisation de JMESPath dans l’interface de ligne de commande Azure, consultez [Utiliser des requêtes JMESPath avec Azure CLI](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). Dans l’exemple ci-après, quatre exécutions sont créés avec des valeurs de précision de 0, 0,98, 1 et 1. Les exécutions sont filtrées si elles figurent dans la plage `[MaxAccuracy-Threshold, MaxAccuracy]`, où `Threshold = .03`.
 
 ## <a name="sample-data"></a>Exemples de données
 Si vous ne disposez d’aucune exécution dotée d’une valeur `Accuracy`, la procédure ci-après générera des exécutions pour l’interrogation.

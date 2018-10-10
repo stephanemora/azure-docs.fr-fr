@@ -1,6 +1,6 @@
 ---
-title: Didacticiel de génération d’un modèle pour les services Azure Machine Learning (préversion) | Microsoft Docs
-description: Ce didacticiel complet montre comment utiliser les services Azure Machine Learning (préversion) de bout en bout. Cela fait partie de deux et traite l’expérimentation.
+title: Tutoriel de génération de modèle pour Azure Machine Learning Services (préversion) | Microsoft Docs
+description: Ce tutoriel complet montre comment utiliser Azure Machine Learning Services (préversion) de bout en bout. Cela fait partie de deux et traite l’expérimentation.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,17 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918617"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997310"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Didacticiel 2 : Classifier Iris - Générer un modèle
-Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée qui permet aux scientifiques des données professionnels de préparer des données, développer des expériences et déployer des modèles à l’échelle du cloud.
 
-Ce didacticiel est **le deuxième d’une série de trois**. Dans cette partie du didacticiel, vous utilisez les services Azure Machine Learning pour :
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning Services (préversion) est une solution intégrée, dédiée à la science des données et à l’analyse avancée, qui permet aux scientifiques des données de préparer des données, développer des expériences et déployer des modèles à l’échelle du cloud.
+
+Ce didacticiel est **le deuxième d’une série de trois**. Dans cette partie du tutoriel, vous utilisez Azure Machine Learning Services pour :
 
 > [!div class="checklist"]
 > * Ouvrir des scripts et passer le code en revue
@@ -39,7 +43,7 @@ Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
-- Un compte d’expérimentation et Azure Machine Learning Workbench installé, comme décrit dans ce [démarrage rapide](../service/quickstart-installation.md)
+- Un compte d’expérimentation et Azure Machine Learning Workbench installé, comme décrit dans ce [démarrage rapide](quickstart-installation.md)
 - Le projet et les données Iris préparées du [premier didacticiel](tutorial-classifying-iris-part-1.md)
 - Un moteur Docker installé et exécuté en local. L’édition Communauté de Docker suffit. Découvrez comment installer Docker ici : https://docs.docker.com/engine/installation/.
 

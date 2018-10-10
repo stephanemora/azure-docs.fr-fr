@@ -10,15 +10,19 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ROBOTS: NOINDEX
+ms.openlocfilehash: b9b515a2ccaedc40fc531d6a1cc58cbe98212b4a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41924768"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967895"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Didacticiel : Classification Iris à l’aide de l’interface de ligne de commande
-Les services Azure Machine Learning (préversion) forment une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expériences et déployer des modèles à l’échelle du cloud.
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning Services (préversion) est une solution intégrée, de bout en bout, dédiée à la science des données et à l’analyse avancée, qui permet aux scientifiques des données de préparer des données, développer des expériences et déployer des modèles à l’échelle du cloud.
 
 Dans ce didacticiel, vous allez apprendre à utiliser les outils de l’interface de ligne de commande (CLI) dans les fonctionnalités Azure Machine Learning en préversion pour : 
 > [!div class="checklist"]
@@ -34,7 +38,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
   
   Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-- Une application Azure Machine Learning Workbench installée comme décrit dans [Créer des comptes en préversion Azure Machine Learning et installer Azure Machine Learning Workbench](../service/quickstart-installation.md). 
+- Une application Azure Machine Learning Workbench installée comme décrit dans [Démarrage rapide : Installer et démarrer Azure Machine Learning Services](quickstart-installation.md). 
 
   >[!IMPORTANT]
   >Ne créez pas les comptes de service Azure Machine Learning, car vous le ferez à l’aide de l’interface de ligne de commande dans cet article.
@@ -139,16 +143,16 @@ $ az ml project create --name <project name> --workspace <workspace name> --acco
 ```
 
 ### <a name="create-a-new-project-associated-with-a-cloud-git-repository"></a>Créer un projet associé à un dépôt Git cloud
-Vous pouvez créer un projet associé à un référentiel Git VSTS (Visual Studio Team Service). Chaque fois qu’une expérience est soumise, un instantané de l’ensemble du dossier du projet est validé dans le dépôt Git distant. Pour plus d’informations, consultez [Utilisation d’un dépôt Git avec un projet Azure Machine Learning Workbench](using-git-ml-project.md).
+Vous pouvez créer un projet associé à un dépôt Git Azure DevOps. Chaque fois qu’une expérience est soumise, un instantané de l’ensemble du dossier du projet est validé dans le dépôt Git distant. Pour plus d’informations, consultez [Utilisation d’un dépôt Git avec un projet Azure Machine Learning Workbench](using-git-ml-project.md).
 
 > [!NOTE]
-> Azure Machine Learning prend uniquement en charge les dépôts Git vides créés dans VSTS.
+> Azure Machine Learning prend uniquement en charge les dépôts Git vides créés dans Azure DevOps.
 
 ```azure-cli
 $ az ml project create --name <project name> --workspace <workspace name> --account <experimentation account name> --resource-group <resource group name> --path <local folder path> --repo <VSTS repo URL>
 ```
 > [!TIP]
-> Si vous obtenez une erreur qui stipule que l’URL du dépôt n’est peut-être pas valide ou que l’utilisateur n’a peut-être pas accès, vous pouvez créer un jeton de sécurité dans VSTS (sous _Sécurité_, _Ajouter des jetons d’accès personnels_) et utiliser l’argument `--vststoken` lors de la création de votre projet. 
+> Si vous obtenez une erreur qui indique que l’URL du dépôt est peut-être non valide ou que l’utilisateur ne dispose peut-être pas d’un accès, créez éventuellement un jeton de sécurité dans Azure DevOps (sous le menu _Sécurité_, _Ajouter des jetons d’accès personnels_), puis utilisez l’argument `--vststoken` durant la création de votre projet. 
 
 ### <a name="sample_create"></a>Créer un projet à partir d’un exemple
 Dans cet exemple, vous créez un projet à l’aide d’un exemple de projet comme modèle.

@@ -1,20 +1,22 @@
 ---
-title: Bien démarrer avec l’API Reconnaissance vocale de Microsoft à l’aide des bibliothèques clientes de la Reconnaissance vocale Bing | Microsoft Docs
-description: Les bibliothèques clientes du service Microsoft Speech dans Microsoft Cognitive Services permettent de développer des applications qui convertissent du contenu vocal en texte.
+title: Bien démarrer avec l’API Reconnaissance vocale Bing à l’aide des bibliothèques clientes | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Dans Microsoft Cognitive Services, les bibliothèques clientes du service Reconnaissance vocale Bing permettent de développer des applications qui convertissent du contenu vocal en texte.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6fb490def6807204943a1ce3ba3c53186055102b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ROBOTS: NOINDEX
+ms.openlocfilehash: e9d1bf1a6a2383a58a890ce9add816f9e9060273
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048455"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948137"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Bien démarrer avec les bibliothèques clientes du service Reconnaissance vocale Bing
 
@@ -43,3 +45,4 @@ En mai 2018, nous avons également publié le nouveau [service Speech](../../spe
 ## <a name="license"></a>Licence
 
 Tous les kits SDK Cognitive Services et les exemples sont fournis sous licence MIT. Pour plus d’informations, consultez [Licence](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+

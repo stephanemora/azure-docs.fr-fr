@@ -1,22 +1,24 @@
 ---
-title: Prise en main de l’API Reconnaissance vocale de Microsoft à l’aide de la bibliothèque de bureau C# | Microsoft Docs
-description: Développez des applications Windows qui utilisent l’API Reconnaissance vocale de Microsoft pour convertir du contenu audio en texte.
+title: Bien démarrer avec l’API Reconnaissance vocale Bing à l’aide de la bibliothèque de bureau C# | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Développez des applications Windows qui utilisent l’API Reconnaissance vocale Bing pour convertir du contenu audio en texte.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e59b0e25401fb5182edd52f82985ffed9052286d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5b85a548d692b06a6da009432678d9c02242cb50
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368417"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996823"
 ---
-# <a name="get-started-with-the-speech-recognition-api-in-c35-for-net-on-windows"></a>Prise en main de l’API Reconnaissance vocale en C# pour .NET sur Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Guide de démarrage rapide : Utiliser l’API Reconnaissance vocale Bing en C&#35; pour .NET sur Windows
 
 Cette page explique comment développer une application Windows basique qui utilise l’API Reconnaissance vocale pour convertir du contenu audio en texte. La bibliothèque de client permet la diffusion en continu en temps réel, ce qui signifie que quand votre application cliente envoie du contenu audio au service, elle reçoit simultanément et de manière asynchrone des résultats de reconnaissance partiels.
 
@@ -26,7 +28,7 @@ Les sections suivantes décrivent comment installer, générer et exécuter l’
 
 ## <a name="prerequisites"></a>Prérequis
 
-### <a name="platform-requirements"></a>Exigences relatives à la plateforme
+### <a name="platform-requirements"></a>Plateforme requise
 
 L’exemple suivant a été développé pour Windows 8+ et .NET Framework 4.5+ à l’aide de [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).
 

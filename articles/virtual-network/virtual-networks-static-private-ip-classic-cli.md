@@ -1,6 +1,6 @@
 ---
-title: Configurer des adresses IP privées pour les machines virtuelles (Classic) - Azure CLI 1.0 | Microsoft Docs
-description: Apprenez à configurer des adresses IP privées pour les machines virtuelles (Classic) à l’aide de l’interface Azure CLI 1.0.
+title: Configurer des adresses IP privées pour des machines virtuelles (Classic) - Azure Classic CLI | Microsoft Docs
+description: Découvrez comment configurer des adresses IP privées pour les machines virtuelles (Classic) à l’aide de l’interface de ligne de commande (CLI) Azure Classic.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a18877167d04fdb039070d5315390a846925fd29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f340b9843ed5763a20d2035e3add86123a1298e8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31791805"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46971142"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Configurer des adresses IP privées pour une machine virtuelle (Classic) à l’aide de l’interface Azure CLI 1.0
+# <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Configurer des adresses IP privées pour une machine virtuelle (Classic) à l’aide d’Azure Classic CLI
 
 [!INCLUDE [virtual-networks-static-private-ip-selectors-classic-include](../../includes/virtual-networks-static-private-ip-selectors-classic-include.md)]
 
@@ -33,12 +33,12 @@ ms.locfileid: "31791805"
 
 Cet article traite du modèle de déploiement classique. Vous pouvez également [gérer une adresse IP privée statique dans le modèle de déploiement de Resource Manager](virtual-networks-static-private-ip-arm-cli.md).
 
-Les exemples de commandes d’interface de ligne de commande Azure supposent qu’un environnement simple a déjà été créé. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Créer un réseau virtuel](virtual-networks-create-vnet-classic-cli.md).
+Les exemples de commandes Azure Classic CLI suivants attendent un environnement simple déjà créé. Si vous souhaitez exécuter les commandes telles qu’elles sont présentées dans ce document, commencez par créer l’environnement de test décrit dans [Créer un réseau virtuel](virtual-networks-create-vnet-classic-cli.md).
 
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>Comment spécifier une adresse IP privée statique lors de la création d’une machine virtuelle
 Pour créer une machine virtuelle nommée *DNS01* dans un nouveau service cloud nommé *TestService* conformément au scénario ci-dessus, procédez comme suit :
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](/cli/azure/install-cli-version-1.0) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure service create** pour créer le service cloud.
    
         azure service create TestService --location uscentral
@@ -124,4 +124,3 @@ Il est recommandé de ne pas statiquement assigner l’IP privée assignée à l
 * En savoir plus sur les [adresses IP publiques réservées](virtual-networks-reserved-public-ip.md) .
 * En savoir plus sur les [adresses IP publiques de niveau d’instance](virtual-networks-instance-level-public-ip.md) .
 * Consulter les [API REST d’adresse IP réservée](https://msdn.microsoft.com/library/azure/dn722420.aspx).
-

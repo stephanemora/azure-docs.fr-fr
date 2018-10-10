@@ -1,6 +1,6 @@
 ---
-title: Préparer les données pour le didacticiel de classification d’Iris dans les services de Azure Machine Learning (préversion) | Microsoft Docs
-description: Ce didacticiel complet montre comment utiliser les services Azure Machine Learning (préversion) de bout en bout. Cette première partie décrit la préparation des données.
+title: Préparer des données pour le tutoriel de classification d’Iris dans Azure Machine Learning Services (préversion) | Microsoft Docs
+description: Ce tutoriel complet montre comment utiliser Azure Machine Learning Services (préversion) de bout en bout. Cette première partie décrit la préparation des données.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,18 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/7/2018
-ms.openlocfilehash: 56f1d26d5d687982366b9a8fb20235ff338a9573
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ROBOTS: NOINDEX
+ms.openlocfilehash: 272b8250a80fee42780311dec92f6d47c221c160
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722981"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46990159"
 ---
 # <a name="tutorial-1-classify-iris---preparing-the-data"></a>Didacticiel 1 : Classifier Iris - Préparation des données
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
 Le service Azure Machine Learning (préversion) forme une solution d’analytique avancée et de science des données intégrée de bout en bout qui permet aux scientifiques des données professionnels de préparer des données, développer des expérimentations et déployer des modèles à l’échelle du cloud.
 
-Ce tutoriel est **la première partie d’une série de trois**. Dans ce didacticiel, vous allez étudier les principes de base des services Azure Machine Learning (préversion) et apprendre à :
+Ce tutoriel est **la première partie d’une série de trois**. Dans ce tutoriel, vous allez découvrir les principes de base d’Azure Machine Learning Services (préversion) et apprendre à :
 
 > [!div class="checklist"]
 > * Créer un projet dans Azure Machine Learning Workbench
@@ -31,6 +34,8 @@ Ce tutoriel est **la première partie d’une série de trois**. Dans ce didacti
 > * Générer du code Python/PySpark pour appeler un package de préparation de données
 
 Ce didacticiel utilise le [jeu de données Iris de Fisher](https://en.wikipedia.org/wiki/Iris_flower_data_set) intemporel. 
+
+[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,11 +45,11 @@ Pour suivre ce didacticiel, vous avez besoin de :
 - un compte Azure Machine Learning Expérimentation ;
 - Azure Machine Learning Workbench installé.
 
-Si vous n’avez pas encore ces conditions préalables, suivez les étapes décrites dans l’article [Démarrage rapide : Installer et démarrer](../service/quickstart-installation.md) pour configurer vos comptes et installer l’application Azure Machine Learning Workbench. 
+Si vous n’avez pas encore ces conditions préalables, suivez les étapes décrites dans l’article [Démarrage rapide : Installer et démarrer](quickstart-installation.md) pour configurer vos comptes et installer l’application Azure Machine Learning Workbench. 
 
 ## <a name="create-a-new-project-in-workbench"></a>Créer un projet dans Workbench
 
-Si vous avez suivi les étapes décrites dans l’article [Démarrage rapide : Installer et démarrer](../service/quickstart-installation.md), vous devez disposer déjà de ce projet et pouvez passer à la section suivante.
+Si vous avez suivi les étapes décrites dans l’article [Démarrage rapide : Installer et démarrer](quickstart-installation.md), vous devez disposer déjà de ce projet et pouvez passer à la section suivante.
 
 1. Ouvrez l’application Azure Machine Learning Workbench et connectez-vous si nécessaire. 
    
@@ -62,7 +67,7 @@ Si vous avez suivi les étapes décrites dans l’article [Démarrage rapide : I
    Nom du projet | myIris |Entrez un nom unique qui identifie votre compte. Vous pouvez utiliser votre propre nom, ou celui d’un service ou projet qui identifie le mieux l’expérimentation. Le nom doit inclure entre 2 et 32 caractères. Seuls des caractères alphanumériques et des tirets peuvent être utilisés. 
    Répertoire du projet | c:\Temp\ | Spécifiez le répertoire dans lequel le projet est créé.
    Description du projet | _Laisser vide_ | Champ facultatif utile pour décrire les projets.
-   URL du référentiel GIT de Visualstudio.com |_Laisser vide_ | Champ facultatif. Vous pouvez associer un projet à un répertoire Git sur Visual Studio Team Services pour le contrôle de code source et la collaboration. [Voici les étapes de configuration à suivre](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   URL du référentiel GIT de Visualstudio.com |_Laisser vide_ | Champ facultatif. Vous pouvez associer un projet à un dépôt Git sur Azure DevOps pour le contrôle de code source et la collaboration. [Voici les étapes de configuration à suivre](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
    Espace de travail sélectionné | IrisGarden (s’il existe) | Choisissez un espace de travail que vous avez créé pour votre compte Expérimentation dans le portail Azure. <br/>Si vous avez suivi le démarrage rapide, vous devez disposer d’un espace de travail nommé IrisGarden. Si ce n’est pas le cas, sélectionnez celui que vous avez créé en même temps que votre compte Expérimentation ou tout autre compte que vous souhaitez utiliser.
    Modèle de projet | Classifying Iris | Les modèles contiennent des scripts et des données que vous pouvez utiliser pour découvrir le produit. Ce modèle contient les scripts et les données nécessaires pour ce démarrage rapide et les autres didacticiels de ce site de documentation. 
 

@@ -1,5 +1,6 @@
 ---
-title: Concepts | Microsoft Docs
+title: Concepts de la reconnaissance vocale Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Concepts de base utilisés dans le service Microsoft Speech.
 services: cognitive-services
 author: zhouwangzw
@@ -7,14 +8,15 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bc23f4fb7dfc045a0f8cc87155c31875c4de8450
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 08790d73dd4fd182d8129c755a291fd99b6136a2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368460"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46954107"
 ---
 # <a name="basic-concepts"></a>Concepts de base
 
@@ -77,10 +79,10 @@ Le service de reconnaissance vocale Microsoft fournit aux développeurs deux fa�
 
 | Cas d'utilisation | [API REST](GetStarted/GetStartedREST.md) | [Bibliothèques clientes](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | OUI | OUI |
-| Convertir un long énoncé (> 15 s) | Non  | OUI |
-| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non  | OUI |
-| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non  | OUI |
+| Convertir un énoncé bref, tel que des commandes (durée < 15 s), sans résultats intermédiaires | Oui | Oui |
+| Convertir un long énoncé (> 15 s) | Non  | Oui |
+| Diffuser en continu un énoncé avec les résultats intermédiaires souhaités | Non  | Oui |
+| Comprendre le texte converti à partir d’un énoncé à l’aide de LUIS | Non  | Oui |
 
  Si votre langage ou plateforme n’a pas encore de kit SDK, vous pouvez créer votre propre implémentation basée sur la [documentation du protocole](API-Reference-REST/websocketprotocol.md).
 

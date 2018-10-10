@@ -1,22 +1,24 @@
 ---
 title: Bien démarrer avec l’API Reconnaissance vocale de Microsoft à l’aide de la bibliothèque de services C# | Microsoft Docs
-description: Utilisez la bibliothèque de services de reconnaissance vocale Microsoft pour convertir une langue parlée en texte.
+titlesuffix: Azure Cognitive Services
+description: Utilisez la bibliothèque de services de la Reconnaissance vocale Bing pour convertir une langue parlée en texte.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 0320f41658a7ac4d6bf9e88ed998c853b665d485
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5716f7a0af16bd3e40dea4468e2fae884f911718
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368440"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967555"
 ---
-# <a name="get-started-with-the-speech-recognition-service-library-in-c35-for-net-windows"></a>Bien démarrer avec la bibliothèque de services de reconnaissance vocale en C&#35; pour Windows .NET
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Guide de démarrage rapide : Utiliser la bibliothèque de services de la Reconnaissance vocale Bing en C&#35; pour Windows .NET
 
 La bibliothèque de services est destinée aux développeurs qui ont leur propre service cloud et souhaitent appeler le service Speech à partir de leur service. Si vous souhaitez appeler le service de reconnaissance vocale à partir d’applications liées à l’appareil, n’utilisez pas ce SDK. (Utilisez d’autres bibliothèques clientes ou des API REST à cette fin.)
 
@@ -36,7 +38,7 @@ Clonez l’exemple à partir du dépôt de [l’exemple de bibliothèque de serv
 
 ### <a name="subscribe-to-the-speech-recognition-api-and-get-a-free-trial-subscription-key"></a>S’abonner à l’API Reconnaissance vocale et obtenir une clé d’abonnement d’essai
 
-L’API Microsoft Speech fait partie de Cognitive Services (précédemment Project Oxford). Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [d’abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Après avoir sélectionné l’API Microsoft Speech, sélectionnez **Obtenir la clé API** pour obtenir la clé. Cette opération retourne une clé principale et une clé secondaire. Les deux clés étant liées au même quota, vous pouvez utiliser l’une ou l’autre.
+L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project Oxford). Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [d’abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). Après avoir sélectionné l’API Microsoft Speech, sélectionnez **Obtenir la clé API** pour obtenir la clé. Cette opération renvoie une clé primaire et une clé secondaire. Les deux clés étant liées au même quota, vous pouvez utiliser l’une ou l’autre.
 
 > [!IMPORTANT]
 > * Obtenez une clé d’abonnement. Pour pouvoir utiliser les bibliothèques clientes Speech, vous devez disposer d’une [clé d’abonnement](https://azure.microsoft.com/try/cognitive-services/).

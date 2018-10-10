@@ -1,128 +1,161 @@
 ---
-title: Créer des planifications complexes et une périodicité avancée avec Azure Scheluler
-description: Découvrez comment créer des planifications complexes et une périodicité avancée avec Azure Scheluler.
+title: Créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
+description: Découvrez comment créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.suite: infrastructure-services
+ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 4293442e13fc4bae871b1f32a3ed4231d9f32632
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f5a8b929cf5af6e4e43c6003e6b622d04a50b93e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692332"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980938"
 ---
-# <a name="build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Créer des planifications complexes et une périodicité avancée avec Azure Scheluler
+# <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Créer des planifications et des périodicités avancées pour les travaux dans Azure Scheduler
 
-La planification constitue le cœur d’un travail Azure Scheduler. Elle détermine quand et comment Azure Scheduler exécute le travail. 
+> [!IMPORTANT]
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) remplace Azure Scheduler, qui est en phase de mise hors service. Pour planifier des travaux, [utilisez plutôt Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-Vous pouvez utiliser Scheduler pour définir plusieurs planifications uniques et récurrentes pour un travail. Les planifications uniques se déclenchent une seule fois à un moment précis. Il s’agit en fait de planifications récurrentes qui ne s’exécutent qu’une seule fois. Les planifications récurrentes se déclenchent selon une fréquence prédéfinie.
+La planification constitue le cœur d’un travail [Azure Scheduler](../scheduler/scheduler-intro.md), car elle détermine quand et comment Azure Scheduler exécute le travail. Avec Scheduler, vous pouvez créer plusieurs planifications ponctuelles et récurrentes pour un travail. Les planifications ponctuelles se déclenchent une seule fois à un moment précis. Il s’agit en fait de planifications récurrentes qui ne s’exécutent qu’une seule fois. Les planifications récurrentes se déclenchent selon une fréquence définie. Cette flexibilité vous permet d’utiliser Scheduler dans divers scénarios d’entreprise, comme les exemples ci-après :
 
-Grâce à cette flexibilité, vous pouvez utiliser Scheduler pour un large éventail de scénarios professionnels :
+* **Nettoyage périodique des données** : créez un travail quotidien qui supprime tous les tweets qui datent de plus de trois mois.
 
-* **Nettoyage périodique des données**. Par exemple, chaque jour, supprimer tous les tweets qui datent de plus de trois mois.
-* **Archivage**. Par exemple, tous les mois, envoyer l’historique de facturation vers un service de sauvegarde.
-* **Demandes de données externes**. Par exemple, toutes les 15 minutes, extraire un rapport météo des neiges de NOAA.
-* **Traitement des images**. Par exemple, tous les jours ouvrables, pendant les heures creuses, utiliser le cloud computing pour compresser les images téléchargées ce même jour.
+* **Archivage des données** : créez un travail mensuel qui envoie (push) l’historique de facturation vers un service de sauvegarde.
 
-Dans cet article, nous traitons d’exemples de travaux que vous pouvez créer à l’aide de Scheduler. Nous fournissons les données JSON qui décrivent chaque planification. Si vous utilisez l’[API REST Scheduler](https://msdn.microsoft.com/library/mt629143.aspx), vous pouvez utiliser les mêmes données JSON pour [créer un travail Scheduler](https://msdn.microsoft.com/library/mt629145.aspx).
+* **Demande de données externes** : créez un travail qui s’exécute toutes les 15 minutes et tire (pull) un nouveau rapport météo de la NOAA.
+
+* **Traitement des images** : créez un travail qui s’exécute tous les jours ouvrables, pendant les heures creuses, et utilise le cloud computing pour compresser les images chargées pendant la journée.
+
+Cet article décrit des exemples de travaux que vous pouvez créer à l’aide de Scheduler et de [l’API REST Azure Scheduler](https://docs.microsoft.com/rest/api/schedule). Il fournit également la définition JSON (JavaScript Objet Notation) de chaque planification. 
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
-Les exemples de cet article illustrent l’éventail de scénarios pris en charge par Scheduler. Globalement, ils illustrent comment créer des planifications pour de nombreux modèles de comportement, notamment :
 
-* Exécuter une seule fois à une date et une heure spécifiques
-* Exécuter et répéter un certain nombre de fois
-* Exécuter immédiatement et répéter
-* Exécuter et répéter toutes les *n* minutes, heures, jours, semaines ou mois, en commençant à un moment spécifique
-* Exécuter et répéter selon une fréquence hebdomadaire ou mensuelle, mais uniquement des jours spécifiques de la semaine ou du mois
-* Exécuter et répéter plusieurs fois durant une période. Par exemple, le dernier vendredi et le dernier lundi de chaque mois, ou à 5h15 et à 17h15 chaque jour
+Les exemples de cet article illustrent l’éventail de scénarios pris en charge par Azure Scheduler. Ils montrent comment créer des planifications pour divers modèles de comportement, notamment :
 
-## <a name="date-and-date-time"></a>Date et date-heure
-Les références de date des travaux Scheduler respectent la [spécification ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) et incluent uniquement la date.
+* Exécuter une seule fois à une date et une heure spécifiques.
+* Exécuter et répéter un certain nombre de fois.
+* Exécuter immédiatement et répéter.
+* Exécuter et répéter tous les *n* minutes, heures, jours, semaines ou mois, en commençant à un moment spécifique.
+* Exécuter et répéter chaque semaine ou mois, mais uniquement certains jours de la semaine ou du mois.
+* Exécuter et répéter plusieurs fois pour une période spécifique. Par exemple, chaque mois le dernier vendredi et le dernier lundi, ou chaque jour à 5 h 15 et à 17 h 15.
 
-Les références de date-heure des travaux Scheduler respectent la [spécification ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) et incluent la date et l’heure. Une date-heure qui ne spécifie pas de décalage UTC est considérée comme étant d etype UTC.  
+Ces scénarios sont décrits plus en détail plus loin dans cet article.
 
-## <a name="use-json-and-the-rest-api-to-create-a-schedule"></a>Utiliser JSON et l’API REST pour créer une planification
-Pour créer une planification de base à l’aide de l’[API REST Scheduler](https://msdn.microsoft.com/library/mt629143), vous devez d’abord [inscrire votre abonnement auprès d’un fournisseur de ressources](https://msdn.microsoft.com/library/azure/dn790548.aspx). Le nom du fournisseur pour Scheduler est **Microsoft.Scheduler**. Ensuite, [créez une collection de travaux](https://msdn.microsoft.com/library/mt629159.aspx). Pour finir, [créez un travail](https://msdn.microsoft.com/library/mt629145.aspx). 
+<a name="create-scedule"></a>
 
-Quand vous créez un travail, vous pouvez spécifier la planification et la périodicité à l’aide de JSON, comme dans cet extrait :
+## <a name="create-schedule-with-rest-api"></a>Créer une planification avec l’API REST
 
-    {
-        "startTime": "2012-08-04T00:00Z", // Optional
-         …
-        "recurrence":                     // Optional
-        {
-            "frequency": "week",     // Can be "year", "month", "day", "week", "hour", or "minute"
-            "interval": 1,                // How often to fire
-            "schedule":                   // Optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]                      
-            },
-            "count": 10,                  // Optional (default to recur infinitely)
-            "endTime": "2012-11-04",      // Optional (default to recur infinitely)
-        },
-        …
-    }
+Pour créer une planification de base avec [l’API REST Azure Scheduler](https://docs.microsoft.com/rest/api/schedule), effectuez les étapes suivantes :
 
-## <a name="job-schema-basics"></a>Notions fondamentales du schéma de travail
-Le tableau suivant fournit une vue d’ensemble des principaux éléments que vous utilisez pour définir la périodicité et la planification d’un travail :
+1. Inscrivez votre abonnement Azure auprès d’un fournisseur de ressources à l’aide de [l’opération Inscrire dans l’API REST Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). Le nom du fournisseur pour le service Azure Scheduler est **Microsoft.Scheduler**. 
 
-| Nom JSON | Description |
-|:--- |:--- |
-| **startTime** |Valeur de date-heure. Pour les planifications de base, **startTime** correspond à la première exécution. Pour les planifications complexes, le travail ne démarre pas avant **startTime**. |
-| **recurrence** |Spécifie les règles de périodicité pour le travail, et la périodicité de son exécution. L’objet recurrence prend en charge les éléments suivants **frequency**, **interval**, **endTime**, **count** et **schedule**. Si **recurrence** est défini, **frequency** est obligatoire. Les autres éléments de **recurrence** sont facultatifs. |
-| **frequency** |Chaîne qui représente l’unité de fréquence selon laquelle le travail se répète. Les valeurs prises en charge sont "minute", "hour", "day", "week" et "month". |
-| **interval** |Entier positif. **interval** indique l’intervalle de la valeur **frequency** qui détermine la fréquence d’exécution du travail. Par exemple, si **interval** est égal à 3 et que la valeur **frequency** est définie sur "week", le travail se répète toutes les trois semaines.<br /><br />Scheduler prend en charge une valeur **interval** maximale de 18 pour la fréquence mensuelle, 78 pour la fréquence hebdomadaire, et 548 pour la fréquence quotidienne. Pour la fréquence heure et minute, la plage prise en charge est 1 <= **interval** <= 1 000. |
-| **endTime** |Chaîne qui spécifie la date-heure au-delà de laquelle le travail ne s’exécute pas. Vous pouvez définir une valeur **endTime** qui se trouve dans le passé. Si **endTime** et **count** ne sont pas spécifiés, le travail s’exécute à l’infini. Vous ne pouvez pas inclure à la fois **endTime** et **count** dans le même travail. |
-| **count** |Entier positif (supérieur à zéro) qui spécifie le nombre de fois où ce travail s’exécute avant la fin.<br /><br />La valeur **count** représente le nombre de fois où le travail s’exécute avant d’être considéré comme étant terminé. Par exemple, pour un travail qui est exécuté quotidiennement avec une valeur **count** égale à 5 et une date de début définie sur lundi, le travail se termine après son exécution le vendredi. Si la date de début se situe dans le passé, la première exécution est calculée à partir de l'heure de création.<br /><br />Si aucune valeur **endTime** ou **count** n’est spécifiée, le travail s’exécute à l’infini. Vous ne pouvez pas inclure à la fois **endTime** et **count** dans le même travail. |
-| **schedule** |Un travail avec une fréquence spécifiée modifie sa périodicité selon une planification périodique. Une valeur **schedule** contient des modifications basées sur des minutes, heures, jours de la semaine, jour du mois et numéro de semaine. |
+1. Créez une collection de travaux en utilisant [l’opération Créer ou Mettre à jour pour les collections de travaux](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) dans l’API REST Scheduler. 
 
-## <a name="job-schema-defaults-limits-and-examples"></a>Valeurs par défaut, limites et exemples du schéma de travail
-Plus loin dans l’article, nous examinerons chacun des éléments suivants en détail :
+1. Créez un travail à l’aide de [l’opération Créer ou Mettre à jour pour les travaux](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
-| Nom JSON | Type de valeur | Requis ? | Valeur par défaut | Valeurs valides | Exemple |
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** |chaîne |Non  |Aucun |Dates-Heures ISO 8601 |`"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** |objet |Non  |Aucun |Objet de périodicité |`"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **frequency** |chaîne |OUI |Aucun |"minute", "hour", "day", "week", "month" |`"frequency" : "hour"` |
-| **interval** |number |OUI |Aucun |1 à 1000 |`"interval":10` |
-| **endTime** |chaîne |Non  |Aucun |Valeur date-heure représentant une heure dans le futur |`"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **count** |number |Non  |Aucun |>= 1 |`"count": 5` |
-| **schedule** |objet |Non  |Aucun |Objet de planification |`"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+## <a name="job-schema-elements"></a>Éléments du schéma de travail
 
-## <a name="deep-dive-starttime"></a>Présentation approfondie : startTime
-Le tableau suivant décrit comment **startTime** contrôle la façon dont un travail s’exécute :
+Ce tableau fournit une vue d’ensemble des principaux éléments JSON que vous pouvez utiliser pour configurer des planifications et des périodicités de travaux. 
 
-| Valeur startTime | Aucune périodicité | Périodicité, aucune planification | Périodicité avec planification |
-|:--- |:--- |:--- |:--- |
-| **Aucune heure de début** |Exécuter une fois immédiatement. |Exécuter une fois immédiatement. Lancer les exécutions suivantes calculées à partir de la dernière exécution. |Exécuter une fois immédiatement.<br /><br />Lancer les exécutions suivantes à partir d’une planification de périodicité. |
-| **Heure de début dans le passé** |Exécuter une fois immédiatement. |Calculer la première exécution ultérieure après l’heure de début, puis l’exécuter à ce moment<br /><br />Lancer les exécutions suivantes calculées à partir de la dernière exécution. <br /><br />Pour plus d’informations, consultez l’exemple qui suit ce tableau. |Le travail *ne démarre pas avant* l’heure de début spécifiée. La première occurrence dépend de la planification calculée à partir de l’heure de début.<br /><br />Lancer les exécutions suivantes à partir d’une planification de périodicité. |
-| **Heure de début dans le futur ou heure actuelle** |Exécuter une fois à l’heure de début spécifiée. |Exécuter une fois à l’heure de début spécifiée.<br /><br />Lancer les exécutions suivantes calculées à partir de la dernière exécution.|Le travail *ne démarre pas avant* l’heure de début spécifiée. La première occurrence dépend de la planification, calculée à partir de l’heure de début.<br /><br />Lancer les exécutions suivantes à partir d’une planification de périodicité. |
+| Élément | Obligatoire | Description | 
+|---------|----------|-------------|
+| **startTime** | Non  | Valeur de chaîne DateHeure au [format ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) qui spécifie quand le travail démarre la première fois dans une planification de base. <p>Pour les planifications complexes, le travail ne démarre pas avant **startTime**. | 
+| **recurrence** | Non  | Spécifie les règles de périodicité selon lesquelles le travail est exécuté. L’objet **recurrence** prend en charge les éléments suivants : **frequency**, **interval**, **schedule**, **count** et **endTime**. <p>Si vous définissez l’élément **recurrence**, vous devez également définir l’élément **frequency**. Les autres éléments **recurrence** sont facultatifs. |
+| **frequency** | Oui, si vous définissez **recurrence** | Unité de temps entre les occurrences. Les valeurs prises en charge sont : « Minute », « Hour », « Day », « Week », « Month » et « Year ». | 
+| **interval** | Non  | Entier positif qui détermine le nombre d’unités de temps entre les occurrences, en fonction de l’élément **frequency**. <p>Par exemple, si **interval** a la valeur 10 et que **frequency** est défini sur « Week », le travail se répète toutes les 10 semaines. <p>Voici le nombre maximal d’intervalles pour chaque fréquence : <p>- 18 mois <br>- 78 semaines <br>- 548 jours <br>- Pour les heures et les minutes, la plage est 1 <= <*interval*> <= 1 000. | 
+| **schedule** | Non  | Définit les changements de périodicité selon les minutes, heures, jours de la semaine et jours du mois spécifiés. | 
+| **count** | Non  | Entier positif qui spécifie le nombre de fois où le travail s’exécute avant de finir. <p>Par exemple, quand un travail quotidien a une valeur **count** égale à 7 et une date de début définie au lundi, le travail finit de s’exécuter le dimanche. Si la date de début est passée, la première exécution est calculée d’après l’heure de création. <p>Si la valeur **endTime** ou **count** n’est pas spécifiée, le travail s’exécute indéfiniment. Vous ne pouvez pas utiliser à la fois **count** et **endTime** dans le même travail, mais la règle qui finit en premier est appliquée. | 
+| **endTime** | Non  | Valeur de chaîne Date ou DateHeure au [format ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) qui spécifie quand le travail arrête de s’exécuter. Vous pouvez définir une valeur **endTime** qui se trouve dans le passé. <p>Si la valeur **endTime** ou **count** n’est pas spécifiée, le travail s’exécute indéfiniment. Vous ne pouvez pas utiliser à la fois **count** et **endTime** dans le même travail, mais la règle qui finit en premier est appliquée. |
+|||| 
 
-Voyons ce qui se passe quand l’heure de début **startTime** se situe dans le passé, avec une périodicité mais sans planification.  Supposez que la date et l’heure actuelles sont le 2015-04-08 à 13:00, la valeur **startTime** est le 2015-04-07 à 14:00, et la valeur **recurrence** est tous les deux jours (définie avec **frequency** : day et **interval** : 2) Notez que la valeur **startTime** se situe dans le passé et se produit avant l’heure actuelle
+Par exemple, ce schéma JSON décrit une planification et une périodicité de base pour un travail : 
 
-Dans ces conditions, la première exécution aura lieu le 2015-04-09 à 14:00. Le moteur d'Azure Scheduler calcule les occurrences de l'exécution à partir de l'heure de début. Toutes les instances dans le passé sont ignorées. Le moteur utilise l'instance suivante qui se produit dans le futur. Dans ce cas, **startTime** étant le 2015-04-07 à 14:00, l’instance suivante aura lieu deux jours après cette date, c’est-à-dire le 2015-04-09 à 14:00.
+```json
+"properties": {
+   "startTime": "2012-08-04T00:00Z", 
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "weekDays": ["Monday", "Wednesday", "Friday"],
+         "hours": [10, 22]                      
+      },
+      "count": 10,       
+      "endTime": "2012-11-04"
+   },
+},
+``` 
 
-Notez que la première exécution serait la même, que la valeur **startTime** soit égale à 2015-04-05 14:00 ou à 2015-04-01 14:00\.. Après la première exécution, les exécutions suivantes sont calculées à l’aide de la planification. Elles auront lieu le 2015-04-11 à 14:00, puis le 2015-04-13 à 14:00, puis le 2015-04-15 à 14:00, et ainsi de suite.
+*Valeurs Dates et DateTime*
 
-Pour finir, quand un travail a une planification, si les heures et les minutes ne sont pas définies dans la planification, elles prennent la valeur par défaut des heures et minutes de la première exécution, respectivement.
+* Les valeurs Dates dans les travaux Scheduler contiennent uniquement la date et respectent la [spécification ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
 
-## <a name="deep-dive-schedule"></a>Immersion : schedule
+* Les valeurs DateTime dans les travaux Scheduler contiennent à la fois la date et l’heure, respectent la [spécification ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) et ont par défaut le type UTC quand aucun décalage UTC n’est spécifié. 
+
+Pour plus d’informations, consultez [Concepts, terminologie et entités](../scheduler/scheduler-concepts-terms.md).
+
+<a name="start-time"></a>
+
+## <a name="details-starttime"></a>Détails sur startTime
+
+Ce tableau décrit comment **startTime** contrôle la façon dont un travail s’exécute :
+
+| startTime | Aucune périodicité | Périodicité, aucune planification | Périodicité avec planification |
+|-----------|---------------|-------------------------|--------------------------|
+| **Aucune heure de début** | Exécuter une fois immédiatement. | Exécuter une fois immédiatement. Lancer les exécutions suivantes calculées à partir de la dernière exécution. | Exécuter une fois immédiatement. Lancer les exécutions suivantes à partir d’une planification de périodicité. | 
+| **Heure de début dans le passé** | Exécuter une fois immédiatement. | Calculer la première exécution suivante après l’heure de début, puis lancer l’exécution à ce moment. <p>Lancer les exécutions suivantes calculées à partir de la dernière exécution. <p>Consultez l’exemple après ce tableau. | Démarrer le travail *pas avant* l’heure de début spécifiée. La première occurrence dépend de la planification calculée à partir de l’heure de début. <p>Lancer les exécutions suivantes à partir d’une planification de périodicité. | 
+| **Heure de début dans le futur ou heure actuelle** | Exécuter une fois à l’heure de début spécifiée. | Exécuter une fois à l’heure de début spécifiée. <p>Lancer les exécutions suivantes calculées à partir de la dernière exécution. | Démarrer le travail *pas avant* l’heure de début spécifiée. La première occurrence dépend de la planification, calculée à partir de l’heure de début. <p>Lancer les exécutions suivantes à partir d’une planification de périodicité. |
+||||| 
+
+Prenons cet exemple d’exécution avec ces conditions : une heure de début dans le passé avec une périodicité, mais aucune planification.
+
+```json
+"properties": {
+   "startTime": "2015-04-07T14:00Z", 
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 2
+   }
+}
+```
+
+* La date actuelle est le 08-04-2015 et l’heure actuelle est 13 h.
+
+* La date et l’heure de début sont respectivement le 07-04-2015 à 14 h, soit avant la date et l’heure actuelles.
+
+* La périodicité est tous les deux jours.
+
+1. Selon ces conditions, la première exécution a lieu le 09-04-2015 à 14 h. 
+
+   Scheduler calcule les occurrences d’exécution à partir de l’heure de début, ignore toutes les instances dans le passé et utilise l’instance suivante dans le futur. 
+   Dans ce cas, **startTime** étant défini au 07-04-2015 à 14 h, l’instance suivante a lieu deux jours après, c’est-à-dire le 09-04-2015à 14 h.
+
+   La première exécution se produit au même moment que **startTime** soit défini au 05-04-2015 à 14 h ou au 01-04-2015 à 14 h. Après la première exécution, les exécutions suivantes sont calculées selon la planification spécifiée. 
+   
+1. Les exécutions suivantes ont lieu dans cet ordre : 
+   
+   1. Le 11-04-2015 à 14 h
+   1. Le 13-04-2015 à 14 h 
+   1. Le 15-04-2015 à 14 h
+   1. Et ainsi de suite...
+
+1. Pour finir, quand un travail a une planification, mais que les heures et minutes ne sont pas spécifiées, ces valeurs sont définies par défaut aux heures et minutes de la première exécution, respectivement.
+
+<a name="schedule"></a>
+
+## <a name="details-schedule"></a>Détails sur schedule
+
 Vous pouvez utiliser **schedule** pour *limiter* le nombre d’exécutions du travail. Par exemple, si un travail avec une valeur **frequency** définie sur "month" a une planification qui s’exécute uniquement le 31, le travail s’exécute uniquement pendant les mois qui comptent un 31ème jour.
 
 Vous pouvez également utiliser **schedule** pour *étendre* le nombre d’exécutions du travail. Par exemple, si un travail avec une valeur **frequency** définie sur "month" a une planification qui s’exécute les jours 1 et 2 du mois, le travail s’exécute le 1er et le 2ème jour du mois au lieu d’une seule fois par mois.
 
-Si vous spécifiez plusieurs éléments de planification, l’ordre d’évaluation va du plus grand au plus petit : numéro de semaine, jour du mois, jour de la semaine, heure et minute.
+Si vous spécifiez plusieurs éléments de planification, l’ordre d’évaluation va du plus grand au plus petit : numéro de semaine, jour du mois, jour de la semaine, heure et minute.
 
 Le tableau suivant décrit les éléments schedule en détail :
 
@@ -131,10 +164,11 @@ Le tableau suivant décrit les éléments schedule en détail :
 | **minutes** |Minutes de l’heure où le travail s’exécute. |Tableau d’entiers. |
 | **hours** |Heures de la journée où le travail s’exécute. |Tableau d’entiers. |
 | **weekDays** |Jours de la semaine où le travail s’exécute. Peut être spécifié uniquement avec une fréquence hebdomadaire. |Tableau de l’une des valeurs suivantes (la taille de tableau maximale est 7) :<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />Ne respecte pas la casse. |
-| **monthlyOccurrences** |Détermine les jours du mois où le travail s’exécute. Peut être spécifié uniquement avec une fréquence mensuelle. |Tableau d’objets **monthlyOccurrence** :<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** est le jour de la semaine où le travail s’exécute. Par exemple, *{Sunday}* correspond à tous les dimanche du mois. Obligatoire.<br /><br />**occurrence** est l’occurrence du jour au cours du mois. Par exemple, *{Sunday, -1}* correspond au dernier dimanche du mois. Facultatif. |
+| **monthlyOccurrences** |Détermine les jours du mois où le travail s’exécute. Peut être spécifié uniquement avec une fréquence mensuelle. |Tableau d’objets **monthlyOccurrence** :<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** est le jour de la semaine où le travail s’exécute. Par exemple, *{Sunday}* correspond à tous les dimanche du mois. Requis.<br /><br />**occurrence** est l’occurrence du jour au cours du mois. Par exemple, *{Sunday, -1}* correspond au dernier dimanche du mois. facultatif. |
 | **monthDays** |Jour du mois où le travail s’exécute. Peut être spécifié uniquement avec une fréquence mensuelle. |Tableau des valeurs suivantes :<br />- Toute valeur <= -1 et >= -31<br />- Toute valeur >= 1 et <= 31|
 
 ## <a name="examples-recurrence-schedules"></a>Exemples : planifications de périodicité
+
 Les exemples suivants montrent différentes planifications de périodicité. Ils se concentrent sur l’objet de planification et ses sous-éléments.
 
 Ces planifications partent du principe que **interval** a la valeur 1\., et que les valeurs de **frequency** pour les valeurs spécifiées dans **schedule** sont correctes. Par exemple, vous ne pouvez pas utiliser une valeur **frequency** "day" et avoir une modification **monthDays** dans **schedule**. Nous décrivons ces restrictions plus haut dans l’article.
@@ -175,13 +209,6 @@ Ces planifications partent du principe que **interval** a la valeur 1\., et que 
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Présentation d'Azure Scheduler](scheduler-intro.md)
-- [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
-- [Prise en main de Scheduler dans le portail Azure](scheduler-get-started-portal.md)
-- [Plans et facturation dans Azure Scheduler](scheduler-plans-billing.md)
-- [Informations de référence sur l’API REST d’Azure Scheluler](https://msdn.microsoft.com/library/mt629143)
-- [Informations de référence sur les applets de commande PowerShell d’Azure Scheluler](scheduler-powershell-reference.md)
-- [Haute disponibilité et fiabilité d’Azure Scheluler](scheduler-high-availability-reliability.md)
-- [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)
-- [Authentification sortante d’Azure Scheluler](scheduler-outbound-authentication.md)
-
+* [Présentation d’Azure Scheduler](scheduler-intro.md)
+* [Concepts, terminologie et hiérarchie d’entités d’Azure Scheduler](scheduler-concepts-terms.md)
+* [Limites, valeurs par défaut et codes d’erreur d’Azure Scheluler](scheduler-limits-defaults-errors.md)

@@ -1,30 +1,30 @@
 ---
-title: 'Didacticiel : Optimiser les coûts associés aux instances réservées à l’aide d’Azure Cost Management | Microsoft Docs'
+title: Tutoriel - Optimiser les coûts associés aux instances réservées avec Cloudyn dans Azure | Microsoft Docs
 description: Dans ce didacticiel, vous allez apprendre à optimiser les coûts associés aux instances réservées pour Azure et Amazon Web Services (AWS).
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: f0edad58256ecc29e2fd215095e8b5ab13d69ce8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177321"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987754"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
 # <a name="tutorial-optimize-reserved-instances"></a>Didacticiel : Optimiser les instances réservées
 
-Dans ce didacticiel, vous allez découvrir comment Cost Management peut vous aider à optimiser l’utilisation des instances réservées et les coûts associés pour Azure et Amazon Web Services (AWS). Une instance réservée auprès d’un fournisseur de services cloud est un engagement d’utilisation de la machine virtuelle se présentant sous la forme d’un contrat à long terme. Elle peut vous permettre de réaliser des économies considérables par rapport à un modèle de tarification à l’utilisation standard. Vous bénéficiez de ces économies potentielles uniquement lorsque vous utilisez toute la capacité de vos instances réservées.
+Dans ce tutoriel, vous allez découvrir comment Cloudyn peut vous aider à optimiser l’utilisation des instances réservées et les coûts associés pour Azure et AWS (Amazon Web Services). Une instance réservée auprès d’un fournisseur de services cloud est un engagement d’utilisation de la machine virtuelle se présentant sous la forme d’un contrat à long terme. Elle peut vous permettre de réaliser des économies considérables par rapport à un modèle de tarification à l’utilisation standard. Vous bénéficiez de ces économies potentielles uniquement lorsque vous utilisez toute la capacité de vos instances réservées.
 
-Ce didacticiel explique comment les instances réservées Azure et AWS sont prises en charge par la solution Cost Management. Il explique également comment vous pouvez optimiser les coûts associés à ces instances réservées, principalement en vous assurant que vos réservations sont entièrement utilisées. Ce didacticiel présente les procédures suivantes :
+Ce tutoriel explique comment Cloudyn prend en charge les instances réservées Azure et AWS. Il explique également comment vous pouvez optimiser les coûts associés à ces instances réservées, principalement en vous assurant que vos réservations sont entièrement utilisées. Ce didacticiel présente les procédures suivantes :
 
 > [!div class="checklist"]
 > * Comprendre les coûts associés aux instances réservées Azure
@@ -40,9 +40,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 - Vous devez disposer d’un compte Azure.
-- Vous devez disposer d’une inscription d’évaluation ou d’un abonnement payant pour Azure Cost Management.
+- Vous devez disposer d’une inscription gratuite ou d’un abonnement payant pour Cloudyn.
 - Vous devez avoir acheté des instances réservées dans Azure ou AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Comprendre les coûts associés aux instances réservées Azure
@@ -72,7 +71,7 @@ Les barres rouges indiquent le coût cumulé de l’achat d’instances réserv�
 
 ## <a name="benefits-of-ris"></a>Avantages des instances réservées
 
-Chaque achat d’instance réservée s’applique à une machine virtuelle d’une taille spécifique et exécutée dans une région spécifique. Par exemple, la machine D2s\_v3 qui est exécutée dans la région Ouest des États-Unis, comme indiqué dans l’image suivante :
+Chaque achat d’instance réservée s’applique à une machine virtuelle d’une taille spécifique et exécutée dans une région spécifique. Par exemple, la machine D2s\_v3 qui est exécutée dans la région USA Ouest, comme indiqué dans l’image suivante :
 
 ![Informations détaillées sur les instances réservées Azure](./media/tutorial-optimize-reserved-instances/azure02.png)
 
@@ -86,7 +85,7 @@ L’achat d’instances réservées partagées offre une plus grande flexibilit�
 
 ## <a name="optimize-azure-ri-costs"></a>Optimiser les coûts associés aux instances réservées Azure
 
-Azure Cost Management prend en charge les instances réservées et Hybrid Benefit avec les fonctionnalités suivantes :
+Cloudyn prend en charge les instances réservées et Hybrid Benefit avec les fonctionnalités suivantes :
 
 - Affichage des coûts associés aux différents modèles de tarification
 - Suivi de l’utilisation des instances réservées
@@ -107,7 +106,7 @@ Dans le portail Cloudyn, accédez à **Optimizer** (Optimiseur)  > **RI Comparis
 
 Dans le rapport sur l’impact de l’achat d’instance réservée, sélectionnez une taille de machine virtuelle (Type d’instance), un emplacement (Région), le terme de la réservation, la quantité et le runtime attendu. Vous pouvez alors déterminer si votre achat vous fera économiser de l’argent.
 
-Par exemple, si vous achetez une réservation pour une machine virtuelle de type DS1\_v2 dans la région Est des États-Unis qui s’exécute 24h/24, 7j/7 durant une année complète, vous pourriez économiser 369,48 $ par an. Le seuil de rentabilité est atteint au bout du cinquième mois. Consultez le graphique suivant :
+Par exemple, si vous achetez une réservation pour une machine virtuelle de type DS1\_v2 dans la région USA Est qui s’exécute 24h/24, 7j/7 durant une année complète, vous pourriez économiser 369,48 $ par an. Le seuil de rentabilité est atteint au bout du cinquième mois. Consultez le graphique suivant :
 
 ![Seuil de rentabilité de l’instance réservée Azure](./media/tutorial-optimize-reserved-instances/azure03.png)
 
@@ -117,7 +116,7 @@ Cependant, si la machine virtuelle ne s’exécute que 50 % du temps, le seuil d
 
 ## <a name="view-ri-costs"></a>Afficher les coûts associés aux instances réservées
 
-Lorsque vous achetez une réservation, vous effectuez un paiement unique. Il existe deux manières d’afficher le paiement dans Cost Management :
+Lorsque vous achetez une réservation, vous effectuez un paiement unique. Il existe deux manières d’afficher le paiement dans Cloudyn :
 
 - Coût réel
 - Coût amorti

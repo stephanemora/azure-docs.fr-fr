@@ -1,6 +1,6 @@
 ---
 title: Modifier un groupe de machines virtuelles identiques Azure | Microsoft Docs
-description: Apprendre à modifier et à mettre à jour un groupe de machines virtuelles identiques Azure avec les API REST, Azure PowerShell et Azure CLI 2.0
+description: Découvrir comment modifier et à mettre à jour un groupe de machines virtuelles identiques Azure avec les API REST, Azure PowerShell et Azure CLI
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194044"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996653"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
-Tout au long du cycle de vie de vos applications, vous pourrez avoir besoin de modifier ou de mettre à jour votre groupe de machines virtuelles identiques. Ces mises à jour peuvent être liées à la configuration du groupe de machines ou à la modification de la configuration de l’application. Cet article décrit comment modifier un groupe identique avec les API REST, Azure PowerShell ou Azure CLI 2.0.
+Tout au long du cycle de vie de vos applications, vous pourrez avoir besoin de modifier ou de mettre à jour votre groupe de machines virtuelles identiques. Ces mises à jour peuvent être liées à la configuration du groupe de machines ou à la modification de la configuration de l’application. Cet article décrit comment modifier un groupe identique avec les API REST, Azure PowerShell ou Azure CLI.
 
 ## <a name="fundamental-concepts"></a>Concepts fondamentaux
 
@@ -42,7 +42,7 @@ Un groupe identique est associé à un modèle qui capture l’état *souhaité*
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Azure CLI 2.0 avec [az vmss show](/cli/azure/vmss#az_vmss_show) :
+- Azure CLI avec [az vmss show](/cli/azure/vmss#az_vmss_show) :
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -50,7 +50,7 @@ Un groupe identique est associé à un modèle qui capture l’état *souhaité*
 
 - Vous pouvez également utiliser [resources.azure.com](https://resources.azure.com) ou les [kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) propres à un langage.
 
-La sortie exacte obtenue varie selon les options que vous ajoutez à la commande. L’exemple suivant représente une sortie condensée de l’interface Azure CLI 2.0 :
+La sortie exacte obtenue varie selon les options que vous ajoutez à la commande. L’exemple suivant représente une sortie condensée de l’interface Azure CLI :
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -86,7 +86,7 @@ Un groupe identique est également associé à une vue d’instance de groupe id
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI 2.0 avec [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view) :
+- Azure CLI avec [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view) :
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -94,7 +94,7 @@ Un groupe identique est également associé à une vue d’instance de groupe id
 
 - Vous pouvez également utiliser [resources.azure.com](https://resources.azure.com) ou les [kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/) propres à un langage.
 
-La sortie exacte obtenue varie selon les options que vous ajoutez à la commande. L’exemple suivant représente une sortie condensée de l’interface Azure CLI 2.0 :
+La sortie exacte obtenue varie selon les options que vous ajoutez à la commande. L’exemple suivant représente une sortie condensée de l’interface Azure CLI :
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -140,7 +140,7 @@ Comme le groupe identique, chaque machine virtuelle a sa propre vue de modèle. 
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI 2.0 avec [az vmss show](/cli/azure/vmss#az_vmss_show) :
+- Azure CLI avec [az vmss show](/cli/azure/vmss#az_vmss_show) :
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -148,7 +148,7 @@ Comme le groupe identique, chaque machine virtuelle a sa propre vue de modèle. 
 
 - Vous pouvez également utiliser [resources.azure.com](https://resources.azure.com) ou les [kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
 
-La sortie exacte obtenue varie selon les options que vous ajoutez à la commande. L’exemple suivant représente une sortie condensée de l’interface Azure CLI 2.0 :
+La sortie exacte obtenue varie selon les options que vous ajoutez à la commande. L’exemple suivant représente une sortie condensée de l’interface Azure CLI :
 
 ```azurecli
 $ az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -180,7 +180,7 @@ Comme le groupe identique, chaque machine virtuelle a sa propre vue d’instance
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI 2.0 avec [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
+- Azure CLI avec [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view) :
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -188,7 +188,7 @@ Comme le groupe identique, chaque machine virtuelle a sa propre vue d’instance
 
 - Vous pouvez également utiliser [resources.azure.com](https://resources.azure.com) ou les [kits de développement logiciel Azure](https://azure.microsoft.com/downloads/)
 
-La sortie exacte obtenue varie selon les options que vous ajoutez à la commande. L’exemple suivant représente une sortie condensée de l’interface Azure CLI 2.0 :
+La sortie exacte obtenue varie selon les options que vous ajoutez à la commande. L’exemple suivant représente une sortie condensée de l’interface Azure CLI :
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -259,7 +259,7 @@ Pour mettre à jour une propriété globale d’un groupe identique, vous devez 
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- Azure CLI 2.0 avec [az vmss update](/cli/azure/vmss#az_vmss_update) :
+- Azure CLI avec [az vmss update](/cli/azure/vmss#az_vmss_update) :
     - Pour modifier une propriété :
 
         ```azurecli
@@ -306,7 +306,7 @@ Pour mettre à jour les machines virtuelles existantes, vous devez effectuer une
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI 2.0 avec [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
+- Azure CLI avec [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances) :
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -331,7 +331,7 @@ Il existe une méthode de modification des propriétés globales de groupe ident
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI 2.0 avec [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage) :
+- Azure CLI avec [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage) :
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -392,7 +392,7 @@ Supposons que vous possédez un groupe identique qui exécute une ancienne versi
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- Azure CLI 2.0 avec [az vmss update](/cli/azure/vmss#az_vmss_update_instances) :
+- Azure CLI avec [az vmss update](/cli/azure/vmss#az_vmss_update_instances) :
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -418,7 +418,7 @@ Supposons que vous utilisiez un groupe identique avec Azure Load Balancer, et qu
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
-- Azure CLI 2.0 :
+- Interface de ligne de commande Azure :
 
     ```azurecli
     # Remove the load balancer backend pool from the scale set model
@@ -436,4 +436,4 @@ Supposons que vous utilisiez un groupe identique avec Azure Load Balancer, et qu
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Vous pouvez également effectuer des tâches courantes de gestion sur des groupes identiques avec l’interface [Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+Vous pouvez également effectuer des tâches courantes de gestion sur des groupes identiques avec l’interface [Azure CLI](virtual-machine-scale-sets-manage-cli.md) ou [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

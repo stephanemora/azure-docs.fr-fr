@@ -1,22 +1,24 @@
 ---
-title: Langues prises en charge dans l’API de traduction de conversation Translator Speech Microsoft | Microsoft Docs
-description: Découvrez les langues prises en charge par l’API de traduction de conversation Translator Speech Microsoft.
+title: Langues prises en charge - API de traduction de conversation Translator Speech
+titlesuffix: Azure Cognitive Services
+description: Découvrez les langues prises en charge par l’API de traduction de conversation Translator Speech.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0d33033442a012290baa78d80f1b8bde0499b3f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 3c0d0e17026dc0c970138c30f83dc9eb98db4228
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370693"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950180"
 ---
-# <a name="languages-supported-by-the-microsoft-translator-speech-api"></a>Langues prises en charge par l’API de traduction de conversation Translator Speech Microsoft.
+# <a name="languages-supported-by-the-translator-speech-api"></a>Langues prises en charge par l’API de traduction de conversation Translator Speech
 Les langues prises en charge pour la traduction vocale sont les suivantes. Si les deux langues sont prises en charge pour la traduction vocale, la traduction de parole en parole ou de parole en texte est disponible. Si la langue cible n’est pas prise en charge pour la traduction vocale, seule la traduction de parole en texte est disponible. 
 
 | Langue de synthèse vocale    |
@@ -32,7 +34,7 @@ Les langues prises en charge pour la traduction vocale sont les suivantes. Si le
 | Russe      |
 | Espagnol      | 
 
-L’API de traduction de conversation Translator Speech prend en charge les langues cibles suivantes pour traduction de parole en texte. 
+L’API de traduction de conversation Translator Speech prend en charge les langues cibles suivantes pour la reconnaissance vocale. 
 
 | Langue de texte    | Code de langue |
 |:----------- |:-------------:|
@@ -66,7 +68,7 @@ L’API de traduction de conversation Translator Speech prend en charge les lang
 | Indonésien      | `id`          |
 | Italien      | `it`          |
 | Japonais      | `ja`          |
-| Swahili      | `sw`          |
+| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Klingon (plqaD)      | `tlh-Qaak`          |
 | Coréen      | `ko`          |
@@ -102,7 +104,7 @@ L’API de traduction de conversation Translator Speech prend en charge les lang
 
 ## <a name="access-the-list-programmatically"></a>Accéder à la liste par programmation
 
-Vous pouvez accéder à la liste des langues prises en charge par programmation en utilisant la ressource Langues. La liste fournit chaque code de langue, ainsi que le nom de la langue en anglais, ou dans toute autre langue prise en charge. Cette liste est automatiquement mise à jour par le service Microsoft Translator lorsque de nouvelles langues deviennent disponibles.
+Vous pouvez accéder à la liste des langues prises en charge par programmation en utilisant la ressource Langues. La liste fournit chaque code de langue, ainsi que le nom de la langue en anglais, ou dans toute autre langue prise en charge. Cette liste est automatiquement mise à jour par le service Translator Speech quand de nouvelles langues sont disponibles.
 
 La ressource Langues renvoie la liste des langues prises en charge pour la parole, le texte et la synthèse vocale. La ressource Langues ne nécessite pas d’authentification.
 

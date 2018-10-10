@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 90858501cbf20af032c98ca8703f9e74b475e9c1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 93dc651767fc2be815fb706f71386ce72b382a37
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398574"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981713"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de Go
 
@@ -23,11 +23,14 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser le langage de prog
 
 Pour suivre ce guide de démarrage rapide : 
 * Installer [Go 1.8 ou une version ultérieure](https://golang.org/dl/)
-* Téléchargez et installez le [SDK Stockage Azure pour Go](https://github.com/azure/azure-storage-blob-go/) à l’aide de `go get -u github.com/azure/azure-storage-blob-go/2016-05-31/azblob`. 
+* Téléchargez et installez le [SDK Stockage Azure pour Go](https://github.com/azure/azure-storage-blob-go/) à l’aide de `go get -u github.com/Azure/azure-storage-blob-go/2016-05-31/azblob`. 
+
+> [!WARNING]
+> Assurez-vous de mettre Azure en majuscules dans l’URL. Procéder autrement peut entraîner des problèmes d’importation liés à la casse lorsque vous travaillez avec le kit de développement logiciel (SDK). Vous devez également mettre Azure en majuscules dans vos instructions d’importation.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 L’[exemple d’application](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) utilisé dans ce démarrage rapide est une application Go de base.  
@@ -201,7 +204,7 @@ _, err = downloadedData.ReadFrom(stream)
 handleErrors(err)
 ```
 
-### <a name="clean-up-resources"></a>Supprimer les ressources
+### <a name="clean-up-resources"></a>Supprimer des ressources
 Si vous n’avez plus besoin des objets blob chargés dans ce guide de démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode **Delete**. 
 
 ```go

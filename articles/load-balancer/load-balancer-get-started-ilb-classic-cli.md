@@ -1,6 +1,6 @@
 ---
-title: Créer un équilibrage de charge interne à l’aide de la CLI Azure dans le modèle de déploiement classique | Microsoft Docs
-description: Découvrez comment créer un équilibreur de charge interne à l'aide de l’interface de ligne de commande Azure (CLI) dans le modèle de déploiement classique
+title: Créer un équilibreur de charge interne - Azure Classic CLI | Microsoft Docs
+description: Découvrez comment créer un équilibreur de charge interne à l’aide d’Azure Classic CLI dans le modèle de déploiement classique.
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
-ms.openlocfilehash: 8f0ac03ff7b749e47692d03d65502df0a19bb758
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fb8929b31fa4325b996ddf4c5ec48e4acb0b930a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539515"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966893"
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Créer un équilibreur de charge interne (classique) à l’aide de l’interface de ligne de commande (CLI) Azure
+# <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>Commencer à créer un équilibreur de charge interne à l’aide d’Azure Classic CLI
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -44,11 +44,11 @@ Pour créer un jeu d’équilibrage de charge interne et les serveurs qui y envo
 2. Ajoutez les points de terminaison correspondants aux machines virtuelles qui reçoivent le trafic entrant.
 3. Configurez les serveurs qui envoient le trafic à l’adresse IP virtuelle (VIP) de l’instance d’équilibrage de charge interne.
 
-## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Créer par étapes un équilibreur de charge interne à l’aide de l’interface de ligne de commande CLI
+## <a name="step-by-step-creating-an-internal-load-balancer-using-classic-cli"></a>Création par étapes d’un équilibreur de charge interne à l’aide de l’interface CLI classique
 
 Ce guide indique comment créer un équilibreur de charge interne selon le scénario ci-dessus.
 
-1. Si vous n’avez jamais utilisé l’interface de ligne de commande Azure, consultez [Installer et configurer l’interface de ligne de commande Azure](../cli-install-nodejs.md) et suivez les instructions jusqu’à l’étape où vous sélectionnez votre compte et votre abonnement Azure.
+1. Si vous n’avez jamais utilisé l’interface CLI (ligne de commande) classique, consultez [Installer et configurer Azure CLI](../cli-install-nodejs.md), puis suivez les instructions jusqu’à l’étape où vous devez sélectionner votre compte et votre abonnement Azure.
 2. Exécutez la commande **azure config mode** pour passer en mode classique, comme illustré ci-dessous.
 
     ```azurecli

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: efd512395b49d3c274bb5aa409d1cbd527673659
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781885"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989377"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle Agent Network Watcher pour Linux
 
@@ -87,7 +87,7 @@ Le JSON suivant illustre le schéma de l’extension Agent Network Watcher. L’
 
 Vous pouvez déployer les extensions de machines virtuelles Azure avec un modèle Azure Resource Manager. Pour déployer l’extension de l’agent Network Watcher, utilisez le schéma json précédent, dans votre modèle.
 
-## <a name="azure-cli-10-deployment"></a>Déploiement d’Azure CLI 1.0
+## <a name="azure-classic-cli-deployment"></a>Déploiement d’Azure Classic CLI
 
 L’exemple suivant déploie l’extension de machine virtuelle de l’agent Network Watcher sur une machine virtuelle existante et déployée à l’aide du modèle de déploiement classique :
 
@@ -96,7 +96,7 @@ azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-20-deployment"></a>Déploiement d’Azure CLI 2.0
+## <a name="azure-cli-deployment"></a>Déploiement de l’interface de ligne de commande Azure
 
 L’exemple suivant déploie l’extension de machine virtuelle de l’agent Network Watcher sur une machine virtuelle existante et déployée par le biais du Gestionnaire de ressources :
 
@@ -110,7 +110,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure ou à l’aide d’Azure CLI.
 
-L’exemple suivant montre l’état de déploiement des extensions d’une machine virtuelle déployée au moyen du modèle de déploiement classique, par le biais d’Azure CLI 1.0 :
+L’exemple suivant montre l’état de déploiement des extensions d’une machine virtuelle déployée au moyen du modèle de déploiement classique, par le biais d’Azure Classic CLI :
 
 ```azurecli
 azure config mode asm
@@ -122,7 +122,7 @@ La sortie de l’exécution de l’extension est enregistrée dans les fichiers 
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-L’exemple suivant montre l’état de déploiement de l’extension NetworkWatcherAgentLinux pour une machine virtuelle déployée avec le Gestionnaire de ressources, par le biais d’Azure CLI 2.0 :
+L’exemple suivant montre l’état de déploiement de l’extension NetworkWatcherAgentLinux pour une machine virtuelle déployée avec Resource Manager, par le biais de l’interface Azure CLI :
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1

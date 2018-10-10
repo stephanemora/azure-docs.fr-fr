@@ -1,22 +1,24 @@
 ---
-title: Résolution des problèmes | Microsoft Docs
-description: Comment résoudre les problèmes lors de l’utilisation du service Microsoft Speech.
+title: Résolution des problèmes rencontrés avec la Reconnaissance vocale Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Comment résoudre les problèmes rencontrés lors de l’utilisation de la Reconnaissance vocale Bing
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04f3da19939d523d201d357b2b0293db1508431d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 532916106f62e0236b8dd53cf7988a648355aef4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368377"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46991859"
 ---
-# <a name="troubleshooting"></a>Résolution de problèmes
+# <a name="troubleshooting-bing-speech"></a>Résolution des problèmes rencontrés avec la Reconnaissance vocale Bing
 
 ## <a name="error-http-403-forbidden"></a>Erreur `HTTP 403 Forbidden`
 
@@ -127,7 +129,7 @@ Cette erreur est probablement due à ce qu’aucune donnée audio n’est envoy�
 
 ## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>L’élément `RecognitionStatus` dans la réponse est `InitialSilenceTimeout`
 
-Les données audio sont généralement à l’origine de ce problème. Par exemple,
+Des données audio sont généralement à l’origine de ce problème. Par exemple,
 
 - le contenu audio commence par un long silence. Le service arrête la reconnaissance après un certain nombre de secondes et retourne `InitialSilenceTimeout`.
 - le contenu audio utilise un format de codec non pris en charge, ce qui fait que les données audio sont traitées comme un silence.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9ec049ebbfaa8e6ee5dbf585488d5c2e8ff25802
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715061"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46949704"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -49,7 +49,7 @@ Obtenez des réponses aux questions fréquemment posées sur les groupes de mach
 
 **Q.** Comment créer un groupe identique à l’aide d’une image personnalisée ?
 
-**A.** Créez et capturez une image de machine virtuelle, puis utilisez-la comme source de votre groupe identique. Pour un didacticiel sur la création et l’utilisation d’une image de machine virtuelle personnalisée, vous pouvez utiliser [Azure CLI 2.0](tutorial-use-custom-image-cli.md) ou [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+**A.** Créez et capturez une image de machine virtuelle, puis utilisez-la comme source de votre groupe identique. Pour un tutoriel sur la création et l’utilisation d’une image de machine virtuelle personnalisée, vous pouvez utiliser [Azure CLI](tutorial-use-custom-image-cli.md) ou [Azure PowerShell](tutorial-use-custom-image-powershell.md).
 
 **Q.** Si je réduis ma capacité de groupe identique de 20 à 15, quelles sont les machines virtuelles qui seront supprimées ?
 
@@ -129,7 +129,7 @@ Vous pouvez choisir n’importe quel compteur de performances de machine virtuel
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Comment configurer la mise à l’échelle automatique sur un groupe de machines virtuelles identiques à l’aide de PowerShell ?
 
-Pour configurer la mise à l’échelle automatique sur un groupe de machines virtuelles identiques à l’aide de PowerShell, consultez [Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques dans le portail Azure](tutorial-autoscale-powershell.md). Vous pouvez également configurer la mise à l’échelle automatique avec [Azure CLI 2.0](tutorial-autoscale-cli.md) et les [modèles Azure](tutorial-autoscale-template.md)
+Pour configurer la mise à l’échelle automatique sur un groupe de machines virtuelles identiques à l’aide de PowerShell, consultez [Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques dans le portail Azure](tutorial-autoscale-powershell.md). Vous pouvez également configurer la mise à l’échelle automatique avec [Azure CLI](tutorial-autoscale-cli.md) et les [modèles Azure](tutorial-autoscale-template.md).
 
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Si j’ai arrêté (libéré) une machine virtuelle, celle-ci démarre-t-elle en bénéficiant de l’opération de mise à l’échelle automatique ?

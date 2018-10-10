@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718979"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979434"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Déployer votre application sur des groupes de machines virtuelles identiques
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Cet article présente des méthodes pour créer une image de machine virtuelle personnalisée d’un groupe identique, ou pour exécuter automatiquement des scripts d’installation sur des instances de machine virtuelle existantes. Vous apprendrez également à gérer des applications ou des mises à jour du système d’exploitation sur un groupe identique.
@@ -31,14 +31,14 @@ Lorsque vous utilisez une des images de plateforme Azure pour créer les instanc
 
 Pour simplifier la gestion de la configuration et accélérer la configuration d’une machine virtuelle, vous pouvez créer une image de machine virtuelle personnalisée prête à exécuter votre application dès qu’une instance est configurée dans le groupe identique. Pour plus d’informations sur la façon de créer et d’utiliser une image de machine virtuelle personnalisée avec un groupe identique, voir les didacticiels suivants :
 
-- [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+- [interface de ligne de commande Azure](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Installer une application avec l’extension de script personnalisé
 L’extension de script personnalisé télécharge et exécute des scripts sur des machines virtuelles Azure. Cette extension est utile pour la configuration post-déploiement, l’installation de logiciels ou toute autre tâche de configuration ou de gestion. Des scripts peuvent être téléchargés à partir de Stockage Azure ou de GitHub, ou fournis dans le portail Azure lors de l’exécution de l’extension. Pour plus d’informations sur la façon de créer et d’utiliser une image de machine virtuelle personnalisée avec un groupe identique, voir les didacticiels suivants :
 
-- [Azure CLI 2.0](tutorial-install-apps-cli.md)
+- [interface de ligne de commande Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Modèle Azure Resource Manager](tutorial-install-apps-template.md)
 
@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Installer des applications avec des mises jour du système d’exploitation
 Lorsque de nouvelles versions du système d’exploitation sont disponibles, vous pouvez utiliser ou créer une nouvelle image personnalisée et [déployer des mises à niveau du système d’exploitation](virtual-machine-scale-sets-upgrade-scale-set.md) sur un groupe identique. Chaque instance de machine virtuelle est mise à niveau avec la dernière image que vous spécifiez. Vous pouvez utiliser une image personnalisée avec l’application préinstallée, l’extension de script personnalisé ou DSC PowerShell, pour que votre application soit automatiquement disponible lorsque vous effectuez la mise à niveau. Vous devrez peut-être planifier la maintenance de l’application lorsque vous effectuez cette procédure pour éviter tout problème de compatibilité de version.
 
-Si vous utilisez une image de machine virtuelle personnalisée avec l’application préinstallée, vous pouvez intégrer les mises à jour de l’application dans un pipeline de déploiement pour créer les nouvelles images et déployer des mises à niveau du système d’exploitation sur l’ensemble du groupe identique. Avec cette approche, le pipeline peut récupérer les dernières versions de l’application, créer et valider une image de machine virtuelle, puis mettre à niveau les instances de machine virtuelle dans le groupe identique. Pour exécuter un pipeline de déploiement qui crée et déploie des mises à jour de l’application sur des images de machine virtuelle personnalisées, vous pouvez [créer et déployer une image Packer avec Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset) ou utiliser une autre plateforme, comme [Spinnaker](https://www.spinnaker.io/) ou [Jenkins](https://jenkins.io/).
+Si vous utilisez une image de machine virtuelle personnalisée avec l’application préinstallée, vous pouvez intégrer les mises à jour de l’application dans un pipeline de déploiement pour créer les nouvelles images et déployer des mises à niveau du système d’exploitation sur l’ensemble du groupe identique. Avec cette approche, le pipeline peut récupérer les dernières versions de l’application, créer et valider une image de machine virtuelle, puis mettre à niveau les instances de machine virtuelle dans le groupe identique. Pour exécuter un pipeline de déploiement qui crée et déploie des mises à jour de l’application sur des images de machine virtuelle personnalisées, vous pouvez [créer et déployer une image Packer avec Azure DevOps Services](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset) ou utiliser une autre plateforme, comme [Spinnaker](https://www.spinnaker.io/) ou [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

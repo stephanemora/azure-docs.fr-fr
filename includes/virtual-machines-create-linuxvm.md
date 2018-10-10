@@ -1,5 +1,5 @@
 
-1. Connectez-vous à votre abonnement Azure en suivant les étapes décrites dans [Connectez-vous à Azure à partir de l’interface de ligne de commande (CLI) Azure 1.0](/cli/azure/authenticate-azure-cli).
+1. Connectez-vous à votre abonnement Azure en suivant les étapes décrites dans [Se connecter à Azure à partir de l’interface de ligne de commande classique Azure](/cli/azure/authenticate-azure-cli).
 
 2. Vérifiez que vous êtes dans le mode de déploiement Classic comme suit :
 
@@ -52,5 +52,5 @@
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur toutes les commandes des machines virtuelles de l’interface Azure CLI 1.0, voir [Utilisation de l’interface de ligne de commande (CLI) Azure 1.0 avec l’API de déploiement Classic](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+Pour plus d’informations sur toutes les commandes des machines virtuelles de l’interface de ligne de commande classique Azure, consultez [Utilisation de l’interface de ligne de commande classique Azure avec l’API de déploiement Classic](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 

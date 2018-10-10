@@ -1,6 +1,6 @@
 ---
 title: Présentation des points de terminaison Azure IoT Hub personnalisés | Microsoft Docs
-description: 'Guide du développeur : utilisation de règles de routage pour router les messages appareil-à-cloud vers des points de terminaison.'
+description: 'Guide du développeur : Utilisation de requêtes de routage pour router les messages appareil-à-cloud vers des points de terminaison.'
 author: dominicbetts
 manager: timlt
 ms.service: iot-hub
@@ -8,31 +8,33 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: dobett
-ms.openlocfilehash: b035c7ef6dfe56c4b4534e081e70d95ea7c14847
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: af0b819c6c60835089c174a1f9f7c3a6215e362c
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808024"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956955"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud
 
-IoT Hub vous permet d’acheminer les [messages appareil-à-cloud][lnk-device-to-cloud] vers des points de terminaison exposés au service IoT Hub en fonction de leurs propriétés. Les règles de routage vous offrent la souplesse nécessaire pour envoyer des messages au bon endroit sans avoir besoin de services supplémentaires ou de code personnalisé. Chaque règle d’acheminement que vous configurez a les propriétés suivantes :
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+Le [routage des messages](iot-hub-devguide-routing-query-syntax.md) IoT Hub permet aux utilisateurs de router les messages appareil-à-cloud vers les points de terminaison accessibles aux services. Le routage fournit également une fonctionnalité de requête pour filtrer les données avant de les router vers les points de terminaison. Chaque requête de routage que vous configurez a les propriétés suivantes :
 
 | Propriété      | Description |
 | ------------- | ----------- |
-| **Name**      | Nom unique qui identifie la règle. |
+| **Name**      | Nom unique qui identifie la requête. |
 | **Source**    | Origine du flux de données qui fait l’objet du traitement. Par exemple, télémétrie des appareils. |
-| **Condition** | Expression de requête de la règle de routage exécutée sur les en-têtes et le corps du message. Elle détermine s’il existe une correspondance pour le point de terminaison. Pour plus d’informations sur la construction d’une condition d’acheminement, consultez la [Référence : langage de requête pour jumeaux d’appareils et travaux][lnk-devguide-query-language]. |
-| **Point de terminaison**  | Nom du point de terminaison auquel IoT Hub envoie des messages qui correspondent à la condition. Les points de terminaison doivent être dans la même région que l’IoT Hub, sinon des écritures inter-régions peuvent vous être facturées. |
+| **Condition** | L’expression de requête pour la requête de routage qui est exécutée sur les propriétés de l’application de messages, les propriétés système, le corps des messages, les étiquettes de jumeau d’appareil et les propriétés de jumeau d’appareil, pour déterminer s’il s’agit d’une correspondance pour le point de terminaison. Pour plus d’informations sur la construction d’une requête, consultez la [syntaxe des requêtes de routage des messages](iot-hub-devguide-routing-query-syntax.md) |
+| **Point de terminaison**  | Nom du point de terminaison auquel IoT Hub envoie les messages qui correspondent à la requête. Nous vous recommandons de choisir un point de terminaison dans la même région que votre hub IoT. |
 
-Un seul message peut correspondre à la condition de plusieurs règles d’acheminement, auquel cas IoT Hub remet le message au point de terminaison associé à chaque règle ayant affiché une correspondance. Par ailleurs, IoT Hub déduplique automatiquement la remise des messages. Ainsi, si un message correspond à plusieurs règles ayant la même destination, il n’est écrit qu’une seule fois dans cette destination.
+Un même message peut correspondre à la condition de plusieurs requêtes de routage, auquel cas IoT Hub remet le message au point de terminaison associé à chaque requête ayant une correspondance. Par ailleurs, IoT Hub déduplique automatiquement la remise des messages. Ainsi, si un message correspond à plusieurs requêtes ayant la même destination, il n’est écrit qu’une seule fois dans cette destination.
 
 ## <a name="endpoints-and-routing"></a>Points de terminaison et routage
 
 Un hub IoT a par défaut un [point de terminaison intégré][lnk-built-in]. Vous pouvez créer des points de terminaison personnalisés pour y acheminer les messages en liant d’autres services de votre abonnement au hub. IoT Hub prend actuellement en charge les conteneurs de stockage Azure, les points de terminaison personnalisés Event Hubs, les files d’attente Service Bus et les rubriques Service Bus.
 
-Lorsque vous utilisez des points de terminaison de routage et personnalisés, les messages sont uniquement remis au point de terminaison intégré s’ils ne correspondent à aucune règle. Pour remettre des messages au point de terminaison intégré ainsi qu’à un point de terminaison personnalisé, ajoutez un itinéraire qui envoie des messages au point de terminaison des **événements**.
+Quand vous utilisez des points de terminaison de routage et personnalisés, les messages sont remis seulement au point de terminaison intégré s’ils ne correspondent à aucune requête. Pour remettre des messages au point de terminaison intégré ainsi qu’à un point de terminaison personnalisé, ajoutez un itinéraire qui envoie des messages au point de terminaison des **événements**.
 
 > [!NOTE]
 > IoT Hub prend uniquement en charge l’écriture de données dans des conteneurs de stockage Azure en tant qu’objets blob.
@@ -49,19 +51,11 @@ Pour plus d’informations sur la lecture à partir de points de terminaison per
 * Lecture à partir de [files d’attente Service Bus][lnk-getstarted-queue].
 * Lecture à partir de [rubriques Service Bus][lnk-getstarted-topic].
 
-## <a name="latency"></a>Latency
-
-Lorsque vous routez des messages de télémétrie appareil-à-cloud à l’aide de points de terminaison intégrés, une légère augmentation de la latence de bout en bout se produit après la création du premier itinéraire.
-
-Dans la plupart des cas, l’augmentation moyenne de la latence est inférieure à une seconde. Vous pouvez contrôler la latence à l’aide de la [métrique IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) **d2c.endpoints.latency.builtIn.events**. La création ou la suppression d’un itinéraire après celle du premier itinéraire n’affecte pas la latence de bout en bout.
-
 ### <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les points de terminaison IoT Hub, consultez [Points de terminaison IoT Hub][lnk-devguide-endpoints].
-
-Pour plus d’informations sur le langage de requête que vous utilisez pour définir des règles de routage, consultez [Langage de requête d’IoT Hub pour les jumeaux d’appareil, les travaux et le routage des messages][lnk-devguide-query-language].
-
-Le didacticiel [Traiter les messages appareil-à-cloud IoT Hub en utilisant les itinéraires][lnk-d2c-tutorial] vous montre comment utiliser des règles de routage et des points de terminaison personnalisés.
+* Pour plus d’informations sur les points de terminaison IoT Hub, consultez [Points de terminaison IoT Hub][lnk-devguide-endpoints].
+* Pour plus d’informations sur le langage de requête que vous utilisez pour définir les requêtes de routage, consultez [Syntaxe des requêtes de routage des messages](iot-hub-devguide-routing-query-syntax.md).
+* Le tutoriel [Traiter les messages appareil-à-cloud IoT Hub en utilisant des routes][lnk-d2c-tutorial] vous montre comment utiliser des requêtes de routage et des points de terminaison personnalisés.
 
 [lnk-built-in]: iot-hub-devguide-messages-read-builtin.md
 [lnk-device-to-cloud]: iot-hub-devguide-messages-d2c.md

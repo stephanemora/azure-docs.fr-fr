@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : installer des applications dans un groupe identique avec Azure CLI 2.0 | Microsoft Docs'
-description: Découvrez comment utiliser Azure CLI 2.0 pour installer des applications dans des groupes de machines virtuelles identiques avec l’extension de script personnalisé
+title: Tutoriel - Installer des applications dans un groupe identique avec Azure CLI | Microsoft Docs
+description: Découvrez comment utiliser Azure CLI pour installer des applications dans des groupes de machines virtuelles identiques à l’aide de l’extension de script personnalisé
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,15 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe1fd957176762c5cc04145f56559b50667c476c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 21b85a3afa8e955661b3acbe5c7e4cb463a6d23f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606523"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986181"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Didacticiel : installer des applications dans des groupes de machines virtuelles identiques avec Azure CLI 2.0
-Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutoriel : Installer des applications dans des groupes de machines virtuelles identiques avec Azure CLI
+Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Installer automatiquement des applications dans votre groupe identique
@@ -35,13 +35,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.29 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez procéder à une installation ou une mise à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, vous devez exécuter Azure CLI version 2.0.29 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Qu’est-ce que l’extension de script personnalisé Azure ?
 L’extension de script personnalisé télécharge et exécute des scripts sur des machines virtuelles Azure. Cette extension est utile pour la configuration post-déploiement, l’installation de logiciels ou toute autre tâche de configuration ou de gestion. Des scripts peuvent être téléchargés à partir de Stockage Azure ou de GitHub, ou fournis dans le portail Azure lors de l’exécution de l’extension.
 
-L’extension de script personnalisé s’intègre dans les modèles Azure Resource Manager et peut être utilisée avec Azure CLI 2.0, Azure PowerShell, le portail Azure ou l’API REST. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/linux/extensions-customscript.md).
+L’extension de script personnalisé s’intègre aux modèles Azure Resource Manager et peut être utilisée avec Azure CLI, Azure PowerShell, le Portail Azure ou l’API REST. Pour plus d’informations, consultez [Vue d’ensemble de l’extension de script personnalisé](../virtual-machines/linux/extensions-customscript.md).
 
 Pour utiliser l’extension de script personnalisé avec l’interface CLI Azure, vous créez un fichier JSON qui définit les fichiers à obtenir et les commandes à exécuter. Ces définitions JSON peuvent être réutilisées sur plusieurs déploiements de groupe identique pour garantir des installations d’applications cohérentes.
 
@@ -167,7 +167,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à installer et mettre à jour automatiquement des applications dans votre groupe identique avec Azure CLI 2.0 :
+Dans ce tutoriel, vous avez appris à installer et mettre à jour automatiquement des applications dans votre groupe identique avec Azure CLI :
 
 > [!div class="checklist"]
 > * Installer automatiquement des applications dans votre groupe identique

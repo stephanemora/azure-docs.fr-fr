@@ -1,5 +1,5 @@
 ---
-title: Didacticiel - Créer, déboguer et déployer une application web multiservice dans Service Fabric Mesh | Microsoft Docs
+title: Tutoriel - Créer, déboguer, déployer et superviser une application multiservice sur Service Fabric Mesh | Microsoft Docs
 description: Dans ce didacticiel, vous allez créer une application de maillage multiservice Azure Service Fabric composée d’un site web ASP.NET Core qui communique avec un service web back-end, la déboguer en local et la publier dans Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917568"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979191"
 ---
-# <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Didacticiel : Créer, déboguer et déployer une application web multiservice dans Service Fabric Mesh
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Tutoriel : Créer, déboguer, déployer et mettre à niveau une application Service Fabric Mesh multiservice
 
-Ce tutoriel est la première partie d’une série d’étapes. Vous allez apprendre à créer une application de maillage Azure Service Fabric qui possède un service web ASP.NET frontal et un service back-end d’API web ASP.NET Core. Ensuite, vous allez déboguer l’application dans votre cluster de développement local et publier l’application dans Azure. Une fois que vous aurez terminé, vous disposerez d’une application de tâche simple illustrant un appel de service à service dans une application de maillage Service Fabric s’exécutant dans Azure Service Fabric Mesh.
+Ce tutoriel est la première partie d’une série d’étapes. Vous allez apprendre à utiliser Visual Studio pour créer une application Azure Service Fabric Mesh comportant un serveur web frontend ASP.NET et un service backend d’API web ASP.NET Core. Vous allez ensuite déboguer l’application dans votre cluster de développement local. Vous allez publier l’application sur Azure, apporter des changements à la configuration et au code, puis mettre à niveau l’application. Enfin, vous allez nettoyer les ressources Azure inutilisées afin d’éviter d’être facturé pour ce que vous n’utilisez pas.
+
+À la fin des opérations, vous aurez effectué la plupart des phases de la gestion du cycle de vie des applications, et généré une application qui illustre un appel de service à service dans une application Service Fabric Mesh.
 
 Si vous ne souhaitez pas créer l’application de tâche manuellement, vous pouvez [télécharger le code source](https://github.com/azure-samples/service-fabric-mesh) pour obtenir l’application terminée et passer directement au [débogage local de l’application](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 Dans ce premier volet, vous apprenez à :
 
 > [!div class="checklist"]
-> * Créer une application de maillage Service Fabric composée d’un service web frontal ASP.NET.
+> * Utilisez Visual Studio pour créer une application Service Fabric Mesh composée d’un service web frontend ASP.NET.
 > * Créer un modèle pour représenter des éléments de tâche.
 > * Créer un service back-end et récupérer des données à partir de celui-ci.
 > * Ajouter un contrôleur et une instance DataContext dans le cadre de ce modèle Model View Controller pour le service back-end.
@@ -40,9 +42,11 @@ Dans ce premier volet, vous apprenez à :
 
 Cette série de tutoriels vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> * Créer une application de maillage Service Fabric
-> * [Déboguer l’application localement](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Publier l’application dans Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * Créer une application Service Fabric Mesh dans Visual Studio
+> * [Déboguer une application Service Fabric Mesh qui s’exécute dans votre cluster de développement local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Déployer une application Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Mettre à niveau une application Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
+> * [Nettoyer des ressources Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -54,9 +58,7 @@ Avant de commencer ce tutoriel :
 
 * Assurez-vous que vous avez [configuré votre environnement de développement](service-fabric-mesh-howto-setup-developer-environment-sdk.md) qui inclut l’installation du runtime Service Fabric, du Kit de développement logiciel (SDK), de Docker et de Visual Studio 2017.
 
-* L’application de ce didacticiel doit, pour l’instant, être générée en utilisant les paramètres régionaux anglais.
-
-## <a name="create-a-service-fabric-mesh-project"></a>Créer un projet Service Fabric mesh
+## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>Créer un projet Service Fabric Mesh dans Visual Studio
 
 Exécutez Visual Studio et sélectionnez **Fichier** > **Nouveau** > **Projet...**.
 
@@ -212,10 +214,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -368,6 +367,7 @@ Dans le fichier service.yaml, ajoutez les variables suivantes sous `environmentV
 
 > [!IMPORTANT]
 > Des caractères d’espacement, et non des tabulations, doivent être utilisés pour mettre en retrait les variables dans le fichier service.yaml. Dans le cas contraire, les variables ne seront pas compilées. Visual Studio peut insérer des tabulations lorsque vous créez les variables d’environnement. Remplacez toutes les tabulations par des espaces. Même si des erreurs s’affichent dans la sortie de débogage **build**, l’application démarrera tout de même. Toutefois, elle ne fonctionnera pas tant que vous n’aurez pas converti les tabulations en espaces. Pour vérifier que le fichier service.yaml ne contient aucune tabulation, vous pouvez afficher les espaces blancs dans l’éditeur Visual Studio sous **Modifier**  > **Avancé**  > **Afficher les espaces blancs**.
+> Notez que les fichiers service.yaml sont traités à l’aide des paramètres régionaux anglais.  Par exemple, si vous devez utiliser un séparateur décimal, utilisez un point au lieu d’une virgule.
 
 Le fichier **service.yaml** de votre projet **WebFrontEnd** doit ressembler à ce qui suit, même si votre valeur `ApiHostPort` sera probablement différente :
 
@@ -380,7 +380,7 @@ Vous êtes maintenant prêt à créer et déployer l’image de l’application 
 Dans cette partie du tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Créer une application de maillage Service Fabric composée d’un service web frontal ASP.NET.
+> * Créez une application Service Fabric Mesh composée d’un service web frontend ASP.NET.
 > * Créer un modèle pour représenter des éléments de tâche.
 > * Créer un service back-end et récupérer des données à partir de celui-ci.
 > * Ajouter un contrôleur et une instance DataContext dans le cadre de ce modèle Model View Controller pour le service back-end.
@@ -389,4 +389,4 @@ Dans cette partie du tutoriel, vous avez appris à :
 
 Passez au tutoriel suivant :
 > [!div class="nextstepaction"]
-> [Déboguer une application de maillage Service Fabric s’exécutant localement](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [Déboguer une application Service Fabric Mesh s’exécutant dans votre cluster de développement local](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
