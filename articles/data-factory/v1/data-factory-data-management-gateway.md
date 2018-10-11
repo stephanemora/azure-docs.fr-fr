@@ -510,7 +510,7 @@ Cette section décrit comment créer et enregistrer une passerelle à l’aide d
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. Dans Azure PowerShell, accédez au dossier **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\**. Exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
+1. Dans Azure PowerShell, accédez au dossier **C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**. Exécutez le script **RegisterGateway.ps1** associé à la variable locale **$Key**, comme indiqué dans la commande suivante. Ce script enregistre l’agent client installé sur votre ordinateur avec la passerelle logique que vous avez créée précédemment.
 
     ```PowerShell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
