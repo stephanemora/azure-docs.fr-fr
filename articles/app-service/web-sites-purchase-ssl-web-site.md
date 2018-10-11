@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c223e8fb000686aedefa1c02e93c1c8cbb30ec73
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 0c2adcfa4e11e444f66e1a9c04bea6e3d352f117
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888291"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077724"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Acheter et configurer un certificat SSL pour votre service Azure App Service
 
@@ -198,14 +198,6 @@ Pour renouveler manuellement le certificat, cliquez sur **Renouvellement manuel*
 
 > [!NOTE]
 > Le certificat renouvelé n’est pas automatiquement lié à votre application, qu’il ait été renouvelé manuellement ou automatiquement. Pour lier le certificat à votre application, consultez l’article [Renouveler les certificats](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
-
-<a name="notrenewed"></a>
-## <a name="why-is-my-certificate-not-auto-renewed"></a>Pourquoi mon certificat n’est-il pas renouvelé automatiquement ?
-
-Si votre certificat SSL est configuré pour le renouvellement automatique et qu’il n’est pas automatiquement renouvelé, vous avez peut-être une vérification de domaine en attente. Notez les points suivants : 
-
-- GoDaddy, qui génère des certificats App Service, nécessite une vérification de domaine une fois tous les deux ans. L’administrateur de domaine reçoit un e-mail une fois tous les trois ans pour vérifier le domaine. Si vous ignorez cet e-mail ou si vous ne vérifiez pas votre domaine, vous bloquez le renouvellement automatique du certificat App Service. 
-- Suite à une modification de la politique de GoDaddy, pour tous les certificats App Service émis avant le 1er mars 2017, une revérification du domaine est obligatoire au moment du renouvellement suivant (même si le renouvellement automatique est activé pour le certificat). Prenez connaissance de cet e-mail et procédez à cette vérification de domaine ponctuelle pour continuer le renouvellement automatique du certificat App Service. 
 
 ## <a name="more-resources"></a>Autres ressources
 

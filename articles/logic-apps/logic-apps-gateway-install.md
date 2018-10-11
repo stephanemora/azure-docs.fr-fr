@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842445"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855423"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -101,7 +101,7 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 
 ## <a name="install-data-gateway"></a>Installer une passerelle de données
 
-1. [Téléchargez, enregistrez et exécutez le programme d’installation de la passerelle sur un ordinateur local](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Téléchargez, enregistrez et exécutez le programme d’installation de la passerelle sur un ordinateur local](https://aka.ms/on-premises-data-gateway-installer).
 
 2. Acceptez le chemin d’installation par défaut, ou spécifiez l’emplacement de l’installation de la passerelle sur votre ordinateur.
 
@@ -182,7 +182,7 @@ Si vous devez modifier l’emplacement de votre passerelle, déplacer votre prog
 
 1. À partir du **Panneau de configuration** de votre ordinateur, accédez à **Programmes et fonctionnalités**. Dans la liste des programmes, sélectionnez **Passerelle de données locale**, puis cliquez sur **Désinstaller**.
 
-2. [Réinstallez la passerelle de données locale](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [Réinstallez la passerelle de données locale](https://aka.ms/on-premises-data-gateway-installer).
 
 3. Une fois le programme d’installation ouvert, connectez-vous avec le compte professionnel ou scolaire utilisé précédemment pour installer la passerelle.
 
@@ -211,7 +211,7 @@ Pour spécifier les informations proxy pour votre passerelle, consultez [Configu
 > [!NOTE]
 > Cette commande teste uniquement la connectivité réseau et la connectivité à Azure Service Bus. La commande n’a rien à voir avec la passerelle ou le service cloud de la passerelle, qui chiffre et stocke vos informations d’identification et les détails de la passerelle. 
 >
-> Par ailleurs, cette commande est disponible uniquement sur Windows Server 2012 R2 ou version ultérieure, et sur Windows 8.1 ou version ultérieure. Dans les versions de système d’exploitation antérieures, vous pouvez utiliser Telnet pour tester la connectivité. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> Par ailleurs, cette commande est disponible uniquement sur Windows Server 2012 R2 ou version ultérieure, et sur Windows 8.1 ou version ultérieure. Dans les versions de système d’exploitation antérieures, vous pouvez utiliser Telnet pour tester la connectivité. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Vos résultats devraient ressembler à cet exemple avec **TcpTestSucceeded** défini sur **True**:
 
@@ -232,7 +232,7 @@ Le pare-feu peut également bloquer des connexions qu’Azure Service Bus tente 
 
 ## <a name="configure-ports"></a>Configuration des ports
 
-La passerelle crée une connexion sortante vers [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) et communique sur les ports de sortie suivants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354. La passerelle ne nécessite pas de ports entrants. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+La passerelle crée une connexion sortante vers [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) et communique sur les ports de sortie suivants : TCP 443 (par défaut), 5671, 5672 et 9350 à 9354. La passerelle ne nécessite pas de ports entrants. Pour en savoir plus, voir [Solutions Azure Service Bus et hybrides](../service-bus-messaging/service-bus-messaging-overview.md).
 
 La passerelle utilise ces noms de domaine complets :
 

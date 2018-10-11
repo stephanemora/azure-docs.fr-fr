@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9701eae026522238424a21ae3ecf2baa40334fa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6c8498a43b127fecc02473177ac955ae51a647d6
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701763"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854114"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Comment utiliser les relais WCF Azure Relay avec .NET
 Cet article explique comment utiliser le service Azure Relay. Les exemples sont écrits en C# et utilisent l’API WCF (Windows Communication Foundation) avec les extensions contenues dans l’assembly Service Bus. Pour plus d’informations sur Azure Relay, consultez la page [Vue d’ensemble d’Azure Relay](relay-what-is-it.md).
@@ -220,7 +220,6 @@ Les définitions de point de terminaison se déplacent dans le fichier App.confi
 Maintenant que vous connaissez les principes de base d’Azure Relay, suivez ces liens pour en savoir plus.
 
 * [Qu’est-ce qu’Azure Relay ?](relay-what-is-it.md)
-* [Azure Service Bus](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * Téléchargez des exemples Service Bus à la page [Exemples Azure][Azure samples] ou consultez la [vue d’ensemble des exemples Service Bus][overview of Service Bus samples].
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md

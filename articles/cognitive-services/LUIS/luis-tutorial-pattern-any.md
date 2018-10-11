@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 90dc7b8bc69c86128b65c16920886b7c4af5c5cf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164393"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888303"
 ---
 # <a name="tutorial-5-extract-free-form-data"></a>Tutoriel 5 : Extraire des données en forme libre
 
@@ -39,7 +39,7 @@ Les énoncés avec le nom du formulaire convivial ressemblent à ceci :
 |--|
 |Où se trouve le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé) ?|
 |Qui a écrit le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé - 2018 version 5) ?|
-|Le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé - 2018 version 5) ? est-il disponible en français ?|
+|Le formulaire **Request relocation from employee new to the company 2018 version 5** (demande de réaffectation d'un nouvel employé - 2018 version 5) ? est-t disponible en français ?|
 
 Certains mots peuvent être source de confusion pour LUIS, qui ne sait pas où se termine l’entité. Dans un modèle, l’entité Pattern.any permet de spécifier le début et la fin du nom du formulaire afin que LUIS puisse extraire correctement son nom.
 
@@ -56,7 +56,7 @@ Certains mots peuvent être source de confusion pour LUIS, qui ne sait pas où s
 > * Ajouter des exemples d’énoncés à une entité existante
 > * Créer une entité Pattern.any
 > * Créer un modèle
-> * Entraîner
+> * Former
 > * Tester le nouveau modèle
 
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]

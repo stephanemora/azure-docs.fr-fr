@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 13b4dc6e49c67ae9fd880ab64880966835242dec
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e1a0ee2a9ad958a5938569927a489785edd8ee1f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923417"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078832"
 ---
 # <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la réplication des machines virtuelles Hyper-V vers un site secondaire
 
@@ -55,15 +55,15 @@ Seules les machines Linux avec le stockage suivant peuvent être répliquées :
 
 **Configuration** | **Pris en charge**  
 --- | --- 
-Hôte - Association de cartes réseau | OUI 
-Hôte -VLAN | OUI 
-Hôte - IPv4 | OUI 
+Hôte - Association de cartes réseau | Oui 
+Hôte -VLAN | Oui 
+Hôte - IPv4 | Oui 
 Hôte - IPv6 | Non  
 Machine virtuelle invitée - Association de cartes réseau | Non 
-Machine virtuelle invitée - IPv4 | OUI
+Machine virtuelle invitée - IPv4 | Oui
 Machine virtuelle invitée - IPv6 | Non 
-Machine virtuelle invitée - Windows/Linux - Adresse IP statique | OUI
-Machine virtuelle invitée - Plusieurs cartes réseau | OUI
+Machine virtuelle invitée - Windows/Linux - Adresse IP statique | Oui
+Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 
 
 ## <a name="storage"></a>Stockage
@@ -73,9 +73,9 @@ Machine virtuelle invitée - Plusieurs cartes réseau | OUI
 **Stockage (hôte)** | **Pris en charge**
 --- | --- 
 NFS | N/A
-SMB 3.0 |  OUI
-SAN (ISCSI) | OUI
-Chemins d’accès multiples (MPIO) | OUI
+SMB 3.0 |  Oui
+SAN (ISCSI) | Oui
+Chemins d’accès multiples (MPIO) | Oui
 
 ### <a name="guest-or-physical-server-storage"></a>Stockage sur serveur physique ou invité
 
@@ -83,19 +83,19 @@ Chemins d’accès multiples (MPIO) | OUI
 --- | --- | 
 VMDK |  N/A
 VHD/VHDX | Oui (jusqu’à 16 disques)
-Machine virtuelle de 2e génération | OUI
+Machine virtuelle de 2e génération | Oui
 Disque de cluster partagé | Non 
 Disque chiffré | Non 
 UEFI| N/A
 NFS | Non 
 SMB 3.0 | Non 
 RDM | N/A
-Disque > 1 To | OUI
-Volume avec disque à bandes > 1 To<br/><br/> LVM | OUI
-Espaces de stockage | OUI
+Disque > 1 To | Oui
+Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui
+Espaces de stockage | Oui
 Ajout/suppression de disque à chaud | Non 
-Exclure le disque | OUI
-Chemins d’accès multiples (MPIO) | OUI
+Exclure le disque | Oui
+Chemins d’accès multiples (MPIO) | Oui
 
 ## <a name="vaults"></a>Coffres
 

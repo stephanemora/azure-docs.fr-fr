@@ -2,18 +2,18 @@
 title: Répliquer des machines virtuelles Hyper-V avec PowerShell et Azure Resource Manager | Microsoft Docs
 description: Automatisez la réplication de machines virtuelles Hyper-V sur Azure avec Azure Site Recovery à l’aide de PowerShell et d’Azure Resource Manager.
 services: site-recovery
-author: bsiva
-manager: abhiag
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
-ms.author: bsiva
-ms.openlocfilehash: 721bb725538b0b1f6eb0e7132b99e75491b6f969
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.author: sutalasi
+ms.openlocfilehash: b71c381c3ebc2b36c36b862c00de02144f94bd0f
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038159"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043579"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et de Azure Resource Manager
 
@@ -55,11 +55,11 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 
 3. Utilisez les commandes suivantes pour vérifier que votre abonnement vous autorise à utiliser les fournisseurs Azure pour Recovery Services et Site Recovery :
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices` `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
+    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices``Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.SiteRecovery`
 
 4. Vérifiez que dans la sortie de commande **RegistrationState** est défini sur **Inscrit**, vous pouvez ensuite passer à l’étape 2. Dans le cas contraire, vous devez inscrire le fournisseur manquant dans votre abonnement en exécutant ces commandes :
 
-    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery` `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
+    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SiteRecovery``Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 5. Vérifiez que les fournisseurs ont été correctement inscrits à l’aide des commandes suivantes :
 

@@ -5,16 +5,16 @@ description: Montre comment traduire une entrée vocale à l’aide du kit de d�
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: c4a30553dc7782bcb9622cf48c3071cd83b40000
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27e7fac33ce03895adcf97bf5d1a9022173dd431
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974695"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883447"
 ---
 # <a name="translate-speech-with-the-cognitive-services-speech-sdk-for-c"></a>Traduire une entrée vocale avec le kit de développement logiciel Cognitive Services Speech pour C++
 

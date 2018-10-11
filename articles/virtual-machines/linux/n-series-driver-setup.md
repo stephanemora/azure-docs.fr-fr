@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 822261e74f7da941ac89090e5d493c4be18bc307
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2bd9f8508f67a3c4b87533fb514854b5f66a5f6b
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038882"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017261"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installer les pilotes GPU NVIDIA sur les machines virtuelles série N exécutant Linux
 
@@ -207,7 +207,7 @@ Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV 
 5. Téléchargez et installez le pilote GRID :
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
   chmod +x NVIDIA-Linux-x86_64-grid.run
 
@@ -272,7 +272,7 @@ Pour installer les pilotes GRID NVIDIA sur les machines virtuelles de série NV 
 5. Téléchargez et installez le pilote GRID :
 
   ```bash
-  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=849941  
+  wget -O NVIDIA-Linux-x86_64-grid.run https://go.microsoft.com/fwlink/?linkid=874272  
 
   chmod +x NVIDIA-Linux-x86_64-grid.run
 

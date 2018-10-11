@@ -2,19 +2,18 @@
 title: Didacticiel Azure Container Registry - Préparer un registre de conteneurs Azure géorépliqué | Microsoft Docs
 description: Créez un registre de conteneurs Azure, configurez la géoréplication, préparez une image Docker et déployez-la dans le registre. Première partie d’une série en trois parties.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450026"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854301"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Didacticiel : Préparer un registre de conteneurs Azure géorépliqué
 
@@ -153,7 +152,7 @@ Tout d’abord, obtenez le nom de domaine complet du serveur de connexion du reg
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
 ```
 
-Output:
+Sortie :
 
 ```bash
 AcrLoginServer

@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fbbc5a199116e46aac0874f3dc6d6d9aa18c60cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954016"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868273"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gérer les autorisations de base de données de l’Explorateur de données Azure
 
@@ -31,7 +31,6 @@ L’Explorateur de données Azure a les rôles suivants :
 |Utilisateur de base de données              |Peut lire toutes les données et métadonnées dans la base de données. De plus, il peut créer des tables (devenir l’administrateur de table pour cette table) et des fonctions dans la base de données.|
 |Observateur de base de données            |Peut lire toutes les données et métadonnées dans la base de données.|
 |Ingéreur de base de données          |Peut ingérer des données pour toutes les tables existantes dans la base de données, mais pas interroger les données.|
-|Observateur non restreint de base de données|Peut interroger les tables avec la stratégie **RestrictedViewAccess** activée. Ne peut pas interroger d’autres tables.|
 |Moniteur de base de données           |Peut exécuter des commandes « .show... » dans le contexte de la base de données et ses entités enfants.|
 |Administrateur de table                |Peut effectuer n’importe quelle opération dans la portée d’une table particulière. |
 |Ingéreur de table             |Peut ingérer des données dans la portée d’une table particulière, mais pas interroger les données.|
@@ -78,4 +77,4 @@ L’Explorateur de données Azure a les rôles suivants :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Rédiger des requêtes](write-queries.md)
+[Écrire des requêtes](write-queries.md)

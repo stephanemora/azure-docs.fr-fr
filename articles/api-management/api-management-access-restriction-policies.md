@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 54bb6056c41126aecada265eb0e079bc7c281be8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865931"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269512"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -58,17 +58,17 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
-|check-header|Élément racine.|OUI|  
+|check-header|Élément racine.|Oui|  
 |value|Valeur autorisée de l’en-tête HTTP. Lorsque plusieurs éléments de valeurs sont spécifiés, la vérification est considérée comme réussie si l’une des valeurs correspond.|Non |  
   
 ### <a name="attributes"></a>Attributs  
   
 |NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|failed-check-error-message|Message d’erreur à renvoyer dans le corps de la réponse HTTP si l’en-tête n’existe pas ou a une valeur non valide. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement.|OUI|N/A|  
-|failed-check-httpcode|Code d’état HTTP à renvoyer si l’en-tête n’existe pas ou a une valeur non valide.|OUI|N/A|  
-|header-name|Nom de l’en-tête HTTP à vérifier.|OUI|N/A|  
-|ignore-case|Peut avoir la valeur True ou False. S’il a la valeur True, la casse est ignorée lors de la comparaison de la valeur de l’en-tête à l’ensemble des valeurs acceptables.|OUI|N/A|  
+|failed-check-error-message|Message d’erreur à renvoyer dans le corps de la réponse HTTP si l’en-tête n’existe pas ou a une valeur non valide. Les éventuels caractères spéciaux de ce message doivent être correctement placés dans une séquence d’échappement.|Oui|N/A|  
+|failed-check-httpcode|Code d’état HTTP à renvoyer si l’en-tête n’existe pas ou a une valeur non valide.|Oui|N/A|  
+|header-name|Nom de l’en-tête HTTP à vérifier.|Oui|N/A|  
+|ignore-case|Peut avoir la valeur True ou False. S’il a la valeur True, la casse est ignorée lors de la comparaison de la valeur de l’en-tête à l’ensemble des valeurs acceptables.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -113,7 +113,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
-|set-limit|Élément racine.|OUI|  
+|set-limit|Élément racine.|Oui|  
 |api|Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.|Non |  
 |operation|Ajoutez un ou plusieurs éléments de ce type pour imposer une limite de débit d’appels aux opérations au sein d’une API. Les limites de débit d’appels au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les unes des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.|Non |  
   
@@ -121,9 +121,9 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|Nom|Nom de l’API à laquelle la limite de débit s’applique.|OUI|N/A|  
-|calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|OUI|N/A|  
-|renewal-period|Période en secondes après laquelle le quota se réinitialise.|OUI|N/A|  
+|Nom|Nom de l’API à laquelle la limite de débit s’applique.|Oui|N/A|  
+|calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Oui|N/A|  
+|renewal-period|Période en secondes après laquelle le quota se réinitialise.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -172,16 +172,16 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
-|set-limit|Élément racine.|OUI|  
+|set-limit|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
 |NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|OUI|N/A|  
-|counter-key|Clé à utiliser pour la stratégie de limite de débit.|OUI|N/A|  
+|calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Oui|N/A|  
+|counter-key|Clé à utiliser pour la stratégie de limite de débit.|Oui|N/A|  
 |increment-condition|Expression booléenne spécifiant si la demande doit être comptée dans le quota (`true`).|Non |N/A|  
-|renewal-period|Période en secondes après laquelle le quota se réinitialise.|OUI|N/A|  
+|renewal-period|Période en secondes après laquelle le quota se réinitialise.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -215,7 +215,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
-|ip-filter|Élément racine.|OUI|  
+|ip-filter|Élément racine.|Oui|  
 |address|Spécifie une adresse IP unique à filtrer.|Au moins un élément `address` ou `address-range` est requis.|  
 |address-range from="address" to="address"|Spécifie une plage d’adresses IP à filtrer.|Au moins un élément `address` ou `address-range` est requis.|  
   
@@ -224,7 +224,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|Plage d'adresses IP pour lesquelles autoriser ou refuser l'accès.|Obligatoire lorsque l’élément `address-range` est utilisé.|N/A|  
-|ip-filter action="allow &#124; forbid"|Spécifie si les appels doivent être autorisés ou non pour les adresses IP et plages spécifiées.|OUI|N/A|  
+|ip-filter action="allow &#124; forbid"|Spécifie si les appels doivent être autorisés ou non pour les adresses IP et plages spécifiées.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -268,7 +268,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
-|quota|Élément racine.|OUI|  
+|quota|Élément racine.|Oui|  
 |api|Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux API au sein du produit. Les quotas d’appel au niveau du produit et de l’API s’appliquent indépendamment les uns des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.|Non |  
 |operation|Ajoutez un ou plusieurs éléments de ce type pour imposer un quota d’appel aux opérations au sein d’une API. Les quotas d’appel au niveau du produit, de l’API et de l’opération s’appliquent indépendamment les uns des autres. L’opération peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.|Non |  
   
@@ -276,10 +276,10 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |NOM|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|Nom|Nom de l’API ou de l’opération à laquelle s’applique le quota.|OUI|N/A|  
+|Nom|Nom de l’API ou de l’opération à laquelle s’applique le quota.|Oui|N/A|  
 |bandwidth|Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux.|N/A|  
 |calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux.|N/A|  
-|renewal-period|Période en secondes après laquelle le quota se réinitialise.|OUI|N/A|  
+|renewal-period|Période en secondes après laquelle le quota se réinitialise.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -288,7 +288,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 -   **Étendues de la stratégie :** product  
   
 ##  <a name="SetUsageQuotaByKey"></a> Set usage quota by key  
- La stratégie `quota-by-key` applique un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans le quota.  
+ La stratégie `quota-by-key` applique un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans le quota. Lorsque cette stratégie est déclenchée, l’appelant reçoit le code d’état de réponse `403 Forbidden`.
   
  Pour plus d’informations et d’exemples sur cette stratégie, consultez la page [Limitation avancée des demandes dans la Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
@@ -329,7 +329,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |NOM|Description|Obligatoire|  
 |----------|-----------------|--------------|  
-|quota|Élément racine.|OUI|  
+|quota|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
@@ -337,9 +337,9 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |----------|-----------------|--------------|-------------|  
 |bandwidth|Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux.|N/A|  
 |calls|Nombre maximal d’appels autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`.|Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux.|N/A|  
-|counter-key|Clé à utiliser pour la stratégie de quota.|OUI|N/A|  
+|counter-key|Clé à utiliser pour la stratégie de quota.|Oui|N/A|  
 |increment-condition|Expression booléenne spécifiant si la demande doit être comptée dans le quota (`true`).|Non |N/A|  
-|renewal-period|Période en secondes après laquelle le quota se réinitialise.|OUI|N/A|  
+|renewal-period|Période en secondes après laquelle le quota se réinitialise.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -486,7 +486,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |Élément|Description|Obligatoire|  
 |-------------|-----------------|--------------|  
-|validate-jwt|Élément racine.|OUI|  
+|validate-jwt|Élément racine.|Oui|  
 |audiences|Contient la liste des revendications d’audience acceptables qui peuvent être présentes sur le jeton. Si plusieurs valeurs d’audience sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse. Au moins une audience doit être spécifiée.|Non |  
 |issuer-signing-keys|Liste de clés de sécurité encodées en base 64 utilisé pour valider les jetons signés. Si plusieurs clés de sécurité sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse (utile pour la substitution de jeton). Les éléments clés ont un attribut `id` facultatif utilisé pour comparer à la revendication `kid`.|Non |  
 |issuers|Liste des services principaux acceptables qui ont émis le jeton. Si plusieurs valeurs d’émetteur sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse.|Non |  
@@ -509,7 +509,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |require-scheme|Le nom du schéma de jeton, par ex. « Support ». Lorsque cet attribut est défini, la stratégie garantit que le schéma spécifié est présent dans la valeur d’en-tête d’autorisation.|Non |N/A|
 |require-signed-tokens|Booléen. Spécifie si un jeton doit être signé.|Non |true|  
 |séparateur|Chaîne. Spécifie un séparateur (par exemple, « , ») à utiliser pour extraire un ensemble de valeurs à partir d’une revendication à valeurs multiples.|Non |N/A| 
-|url|URL du point de terminaison de configuration Open ID à partir de laquelle les métadonnées de configuration Open ID peuvent être récupérées. La réponse devrait correspondre aux spécifications définies dans l’URL :`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Pour Azure Active Directory, utilisez l’URL suivante : `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`, en remplaçant par le nom de votre client d’annuaire, par exemple, `contoso.onmicrosoft.com`.|OUI|N/A|  
+|url|URL du point de terminaison de configuration Open ID à partir de laquelle les métadonnées de configuration Open ID peuvent être récupérées. La réponse devrait correspondre aux spécifications définies dans l’URL :`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Pour Azure Active Directory, utilisez l’URL suivante : `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`, en remplaçant par le nom de votre client d’annuaire, par exemple, `contoso.onmicrosoft.com`.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  

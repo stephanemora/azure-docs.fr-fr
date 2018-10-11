@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 5de25f574cb876701ffce74f1dca8c4bb9764157
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc9681ee286c30825ac908f9f97ae092808c783a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30165668"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802133"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Préparer l’ordinateur hôte de l’ASDK
 Avant de pouvoir installer le kit ASDK sur l’ordinateur hôte, vous devez préparer l’environnement. Une fois préparé, l’ordinateur hôte du kit de développement Azure Stack démarre à partir du disque dur de la machine virtuelle CloudBuilder.vhdx pour commencer le déploiement du kit.
@@ -53,7 +53,6 @@ Avant de pouvoir installer le kit ASDK sur l’ordinateur hôte, vous devez pré
 
 6. Dans la page **Paramètres facultatifs**, entrez les informations d’identification du compte d’administrateur local de l’ordinateur hôte du kit de développement, puis cliquez sur **Suivant**. Vous pouvez également fournir des valeurs pour les paramètres facultatifs suivants :
   - **Nom de l’ordinateur** : cette option définit le nom de l’hôte du Kit de développement. Le nom doit respecter les spécifications des noms de domaine complets et ne pas dépasser 15 caractères. La valeur par défaut est un nom d’ordinateur aléatoire généré par Windows.
-  - **Fuseau horaire** : définit le fuseau horaire pour l’hôte du Kit de développement. La valeur par défaut est (UTC-8:00) Heure du Pacifique (États-Unis et Canada).
   - **Configuration IP statique** : indique que votre déploiement doit utiliser une adresse IP statique. Dans le cas contraire, quand le programme d’installation redémarre dans cloudbuilder.vhx, les interfaces réseau sont configurées avec DHCP.
 
     ![](media/asdk-prepare-host/3.PNG)

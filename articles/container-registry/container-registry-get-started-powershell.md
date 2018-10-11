@@ -2,19 +2,18 @@
 title: Démarrage rapide - Créer un registre Docker privé dans Azure avec PowerShell
 description: Apprenez à créer rapidement un registre de conteneurs Docker privé dans Azure avec PowerShell.
 services: container-registry
-author: marsma
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/08/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e6c3330519692eb829803af2582b711be2fb3efe
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fe21ab3e29b7a4cbf204be82246d37a4b91128e4
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092876"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856681"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Démarrage rapide : Créer un registre Azure Container Registry à l’aide de PowerShell
 
@@ -221,7 +220,7 @@ Avec le nom de domaine complet, accédez à ce dernier dans votre navigateur :
 
 Félicitations ! Vous avez créé un conteneur exécutant une application dans Azure, lequel est déployé directement à partir d’une image conteneur dans le registre de conteneurs Azure privé.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Une fois que vous avez terminé d’utiliser les ressources créées dans ce démarrage rapide, utilisez la commande [Remove-AzureRmResourceGroup][Remove-AzureRmResourceGroup] pour supprimer le groupe de ressources, le registre de conteneurs et l’instance de conteneur :
 

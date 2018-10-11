@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/28/2018
 ms.author: patricka
-ms.openlocfilehash: 0c49a895a3cd214bb6f9c88b5365cf980c60bf0a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c9b9e569cf643b85b41698bf29429d0b7ceec37e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451769"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585099"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Architecture multilocataire dans Azure Stack
 
@@ -103,17 +103,6 @@ Register-AzSWithMyDirectoryTenant `
 > Faites-le à tout moment pour vérifier l’état des applications Azure Stack dans votre répertoire.
 > 
 > Pour résoudre les problèmes avec la création de machines virtuelles dans Managed Disks (une nouvelle fonctionnalité disponible dans la mise à jour 1808), un nouveau **fournisseur de ressources de disque** a été ajouté, nécessitant la réexécution de ce script.
-
-### <a name="activate-the-administrator-and-tenant-portals"></a>Activer les portails d’administrateur et de locataire
-Après les déploiements qui utilisent Azure AD, vous devez activer les portails d’administrateur et de locataire Azure Stack. Cette activation accepte de donner au portail Azure Stack et à Azure Resource Manager les autorisations appropriées (répertoriées sur la page de consentement) pour tous les utilisateurs du répertoire.
-
-- Pour le portail Administrateur, accédez à https://adminportal.local.azurestack.external/guest/signup, lisez les informations, puis cliquez sur Accepter. Après avoir accepté, vous pouvez ajouter des administrateurs de service qui ne sont pas également des administrateurs de locataire de répertoire.
-- Pour le portail Locataire, accédez à https://portal.local.azurestack.external/guest/signup, lisez les informations, puis cliquez sur Accepter. Après avoir accepté, les utilisateurs dans le répertoire peuvent se connecter au portail de locataire. 
- 
-> [!NOTE] 
-> Si les portails ne sont pas activés, seul l’administrateur de répertoire peut se connecter et utiliser les portails. Si un autre utilisateur se connecte, il verra une erreur lui indiquant que l’administrateur n’a pas accordé d’autorisations aux autres utilisateurs. Lorsque l’administrateur n’appartient pas, en mode natif, au répertoire Azure Stack dans lequel il est enregistré, le répertoire Azure Stack doit être ajouté à l’URL d’activation. Par exemple, si Azure Stack est inscrit auprès de fabrikam.onmicrosoft.com et si l’utilisateur admin est admin@contoso.com, accédez à https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com pour activer le portail.
-
-
 
 ### <a name="direct-users-to-sign-in"></a>Inviter les utilisateurs à se connecter
 

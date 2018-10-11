@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f50714538cdfd1a0bd258a3b78d0885e3c7beed1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223428"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018483"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle
 
@@ -188,7 +188,7 @@ Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité 
 
    Si votre machine virtuelle comporte des identités managées affectées par le système et par l’utilisateur, supprimez `SystemAssigned` du type d’identité, et conservez `UserAssigned` avec les valeurs du dictionnaire `userAssignedIdentities`.
 
-   **API Microsoft.Compute/virtualMachines version 2018-06-01 et versions antérieures**
+   **API Microsoft.Compute/virtualMachines version 2018-06-01**
    
    Si votre `apiVersion` présente la valeur `2017-12-01` et que votre machine virtuelle comporte des identités managées affectées par le système et par l’utilisateur, supprimez `SystemAssigned` du type d’identité, et conservez `UserAssigned` avec le tableau `identityIds` des identités managées affectées par l’utilisateur.  
    
@@ -235,7 +235,7 @@ Dans cette section, vous allez attribuer une identité managée affectée par l�
    }
    ```
    
-   **API Microsoft.Compute/virtualMachines version 2017-12-01 et versions antérieures**
+   **API Microsoft.Compute/virtualMachines version 2017-12-01**
     
    Si votre `apiVersion` est `2017-12-01`, vos identités managées affectées par l’utilisateur sont stockées dans le tableau `identityIds`, et la valeur `<USERASSIGNEDIDENTITYNAME>` doit être stockée dans une variable définie dans la section `variables` de votre modèle.
     
@@ -316,7 +316,7 @@ Dans cette section, vous allez attribuer une identité managée affectée par l�
        }
     ]
    ```
-   **API Microsoft.Compute/virtualMachines version 2017-12-01 et versions antérieures**
+   **API Microsoft.Compute/virtualMachines version 2017-12-01**
    
    ```JSON
    "resources": [
@@ -375,7 +375,7 @@ Si vous disposez d’une machine virtuelle qui ne nécessite plus d’identité 
     }
    ```
    
-   **API Microsoft.Compute/virtualMachines version 2018-06-01 et versions antérieures**
+   **API Microsoft.Compute/virtualMachines version 2018-06-01**
     
    Pour supprimer d’une machine virtuelle une seule identité managée affectée par l’utilisateur, supprimez-la du dictionnaire `useraAssignedIdentities`.
 

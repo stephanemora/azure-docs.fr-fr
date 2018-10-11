@@ -8,14 +8,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: 1080bb0ad1d901a8b9a5ace4993d4e0d46924a03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2a0715d3becf695600ed84edbae38151acf055a8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369149"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246840"
 ---
 # <a name="what-is-anomaly-finder"></a>Qu’est-ce que la Recherche d’anomalies ?
+
+[!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 La Recherche d’anomalies vous permet de surveiller les données au fil du temps et de détecter les anomalies avec un apprentissage automatique qui s’adapte à vos données uniques en appliquant automatiquement le modèle statistique correct, indépendamment du secteur, du scénario ou du volume de données. À l’aide d’une série chronologique en tant qu’entrée, l’API de Recherche d’anomalies indique si un point de données est ou non une anomalie et détermine la valeur attendue, ainsi que les limites supérieure et inférieure pour la visualisation. En tant que service d’intelligence artificielle (AI) prédéfini, la Recherche d’anomalies ne nécessite pas de compétences en Machine Learning autres que l’utilisation d’une API RESTful d’apprentissage. Ceci permet un développement simple et polyvalent, puisqu’elle fonctionne avec toutes les données de série chronologique et peut également être intégrée dans des systèmes de données de streaming. La Recherche d’anomalies englobe un large éventail de cas d’utilisation : des outils financiers pour la gestion des fraudes, des vols, des marchés en mutation et des incidents potentiels, ou la surveillance du trafic de périphériques IoT tout en préservant l’anonymat. Cette solution peut également être monétisée dans le cadre d’un service qui aidera des utilisateurs finaux à comprendre des modifications de données, des dépenses, le retour sur investissement ou l’activité des utilisateurs.
 Testez l’API de Recherche d’anomalies et ayez une meilleure compréhension de vos données. 
@@ -47,8 +49,8 @@ L’API de détection d’anomalies indique si des points de données spécifiqu
 * ExpectedValue : la valeur prédite par le modèle basé sur l’apprentissage
 * IsAnomaly : le résultat indiquant si les points de données sont ou non des anomalies
 * IsAnomaly_Neg : le résultat indiquant si les points de données sont des anomalies dans une direction négative (chutes)
-* IsAnomaly_Pos : le résultat indiquant si les points de données sont des anomalies dans une direction positive (pics)
-* UpperMargin : la somme d’ExpectedValue et d’UpperMargin détermine la limite supérieure où le point de données est encore considéré comme normal.
+* IsAnomaly_Pos : résultat indiquant si les points de données sont des anomalies dans une direction positive (pics)
+* UpperMargin : la somme d’ExpectedValue et d’UpperMargin détermine la limite supérieure où le point de données est encore considéré comme normal
 * LowerMargin : (ExpectedValue - LowerMargin) détermine la limite inférieure où le point de données est encore considéré comme normal.
 
 > [!Note]

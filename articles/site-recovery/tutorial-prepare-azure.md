@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4a92bfc9d682346c874ce91fc9835558402bae84
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915967"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078985"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Préparer des ressources Azure pour la réplication de machines locales
 
@@ -49,7 +49,7 @@ Pour effectuer ces tâches, le rôle prédéfini de contributeur de machines vir
 
 ## <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Les images des machines répliquées sont conservées dans le stockage Azure. Les machines virtuelles Azure sont créées à partir du stockage quand vous basculez du site local vers Azure. Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services. Nous utilisons la région Europe de l’Ouest dans ce tutoriel.
+Les images des machines répliquées sont conservées dans le stockage Azure. Les machines virtuelles Azure sont créées à partir du stockage quand vous basculez du site local vers Azure. Le compte de stockage doit se trouver dans la même région que le coffre Recovery Services. Nous utilisons la région Europe Ouest dans ce tutoriel.
 
 1. Dans le menu [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage - blob, fichier, table, file d’attente**.
 2. Dans **Créer un compte de stockage**, entrez un nom correspondant au compte. Pour ces didacticiels, nous utilisons **contosovmsacct1910171607**. Le nom que vous sélectionnez doit être unique dans Azure, avoir entre 3 et 24 caractères, et contenir uniquement des nombres et des lettres minuscules.
@@ -70,7 +70,7 @@ Les images des machines répliquées sont conservées dans le stockage Azure. Le
 1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Backup and Site Recovery (OMS)**.
 2. Dans **Name**, entrez un nom convivial pour identifier le coffre. Pour cette série de didacticiels, nous utilisons **ContosoVMVault**.
 3. Dans **Groupe de ressources**, nous utilisons **contosoRG**.
-4. Dans **Emplacement**. Nous utilisons **Europe de l’Ouest**.
+4. Dans **Emplacement**. Nous utilisons **Europe Ouest**.
 5. Pour accéder rapidement au coffre à partir du tableau de bord, sélectionnez **Épingler au tableau de bord** > **Créer**.
 
    ![Créer un coffre](./media/tutorial-prepare-azure/new-vault-settings.png)
@@ -87,7 +87,7 @@ Quand les machines virtuelles Azure sont créées à partir du stockage après l
 4. Spécifiez le groupe de ressources dans lequel le réseau sera créé. Nous utilisons le groupe de ressources existant **contosoRG**.
 5. Dans **Plage d’adresses**, entrez la plage du réseau **10.0.0.0/24**. Dans ce réseau, nous utilisons pas de sous-réseau.
 6. Dans **Abonnement**, sélectionnez l’abonnement dans lequel créer le réseau.
-7. Dans **Emplacement**, sélectionnez **Europe de l’Ouest**. Ce réseau doit se trouver dans la même région que le coffre Recovery Services.
+7. Dans **Emplacement**, sélectionnez **Europe Ouest**. Ce réseau doit se trouver dans la même région que le coffre Recovery Services.
 8. Nous laissons les options par défaut de la protection DDoS de base, sans point de terminaison de service sur le réseau.
 9. Cliquez sur **Créer**.
 

@@ -3,7 +3,7 @@ title: Valider l’identité Azure pour Azure Stack | Microsoft Docs
 description: Utilisez l’outil Azure Stack Readiness Checker pour valider l’identité Azure.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fe5e7281cbe01ad11f667729df344f91ef1327d2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9c7ac89d1f12e8ec033b201f2c2dd845c11486e2
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937559"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077815"
 ---
 # <a name="validate-azure-identity"></a>Valider l’identité Azure 
 Utilisez l’outil Azure Stack Readiness Checker (AzsReadinessChecker) pour vérifier que votre annuaire Azure Active Directory (Azure AD) peut être utilisé avec Azure Stack. Validez votre solution d’identité Azure avant de commencer un déploiement Azure Stack.  
@@ -35,7 +35,6 @@ La validation garantit que votre environnement permet à Azure Stack de stocker 
 Téléchargez la dernière version de l’outil Azure Stack Readiness Checker (AzsReadinessChecker) sur le site [PSGallery](https://aka.ms/AzsReadinessChecker).  
 
 ## <a name="prerequisites"></a>Prérequis
-
 Vérifiez les prérequis suivants.
 
 **Ordinateur sur lequel l’outil est exécuté :**
@@ -76,7 +75,7 @@ Ces fichiers peuvent vous aider à partager l’état de validation avant de dé
 
 Par défaut, les deux fichiers sont écrits à l’emplacement *C:\Users\<nom_utilisateur>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json*.  
  - Utilisez le paramètre **-OutputPath** ***&lt;chemin&gt;*** à la fin de la ligne de commande d’exécution pour spécifier un emplacement de rapport différent.   
- - Utilisez le paramètre **-CleanReport** à la fin de la commande d’exécution pour effacer les informations du fichier *AzsReadinessCheckerReport.json*  concernant les exécutions précédentes de l’outil. 
+ - Utilisez le paramètre **-CleanReport** à la fin de la commande d’exécution pour effacer les informations du fichier *AzsReadinessCheckerReport.json*.  concernant les exécutions précédentes de l’outil. 
 
 Pour plus d’informations, consultez [Rapport de validation Azure Stack](azure-stack-validation-report.md).
 
