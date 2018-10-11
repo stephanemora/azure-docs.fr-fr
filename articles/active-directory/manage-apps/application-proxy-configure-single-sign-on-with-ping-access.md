@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577184"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902924"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
@@ -162,10 +162,10 @@ Cet exemple utilise le [portail Azure](https://portal.azure.com) pour mettre à 
 >[!NOTE]
 >Pour utiliser une revendication personnalisée, vous devez également disposer d’une stratégie personnalisée définie et affectée à l’application.  Cette stratégie doit inclure tous les attributs personnalisés nécessaires.
 >
->La définition et l’attribution de la stratégie peuvent être effectuées dans MS Graph, l’Explorateur Azure AD Graph et PowerShell.  Si vous utilisez PowerShell, vous devez d’abord utiliser `New-AzureADPolicy `, puis l’attribuer à l’application avec `Set-AzureADServicePrincipalPolicy`.  Pour plus d’informations, consultez la [documentation relative aux stratégies Azure AD](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>La définition et l’attribution de la stratégie peuvent être effectuées dans MS Graph, l’Explorateur Azure AD Graph et PowerShell.  Si vous utilisez PowerShell, vous devez d’abord utiliser `New-AzureADPolicy `, puis l’attribuer à l’application avec `Set-AzureADServicePrincipalPolicy`.  Pour plus d’informations, consultez la [documentation relative aux stratégies Azure AD](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>Facultatif : Utiliser une revendication personnalisée
-Pour que votre application utilise une revendication personnalisée et comprenne des champs supplémentaires, [créez une stratégie de mappage de revendications personnalisées et attribuez-la à l’application](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+Pour que votre application utilise une revendication personnalisée et comprenne des champs supplémentaires, [créez une stratégie de mappage de revendications personnalisées et attribuez-la à l’application](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Télécharger PingAccess et configurer votre application
 

@@ -1,22 +1,21 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: f18c25d6d7692d5a0adff7e1efc69b25cdb31a0d
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069401"
 documentType: LandingData
 title: Notions de base d’Azure IoT
 metadata:
   title: Notions de base d’Azure IoT
   description: Azure IoT est une collection de services cloud gérés par Microsoft, qui permettent de connecter, surveiller et contrôler des milliards de ressources de l’Internet des objets.
-  author: BryanLa
-  manager: timlt
+  author: robinsh
   ms.service: iot-fundamentals
   services: iot-fundamentals
   ms.topic: landing-page
   ms.date: 05/18/2018
-  ms.author: bryanla
-  ms.openlocfilehash: 32db74234f05fcf76c8ccfe18ce295fd30a15b58
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34631154"
+  ms.author: robinsh
 abstract:
   description: Bienvenue dans Microsoft Azure et l'Internet des objets (IoT) Azure IoT est une collection complète de services et solutions conçus pour vous aider à créer des applications IoT de bout en bout sur Azure. De solutions SaaS entièrement hébergées et administrées jusqu’à des offres PaaS distinctes et spécialisées, en passant par des technologies conçues pour créer une périphérie intelligente, Azure IoT offre un ensemble complet d’options et d’outils adaptés aux besoins de votre secteur d’activité et aux compétences de votre entreprise et de vos ressources.
 sections:
@@ -95,7 +94,7 @@ sections:
     className: cardsD
     items:
     - title: Ligne de commande
-      html: <p><a href="/cli/azure/iot">interface de ligne de commande Azure</a></p><p><a href="https://github.com/Azure/azure-iot-cli-extension">Extension Azure IoT CLI</a></p>
+      html: <p><a href="/cli/azure/iot">Interface de ligne de commande Azure</a></p><p><a href="https://github.com/Azure/azure-iot-cli-extension">Extension Azure IoT CLI</a></p>
     - title: Langues
       html: <p><a href="/azure/iot-hub/iot-hub-devguide-sdks">Kits de développement logiciel (SDK) Azure IoT pour. Net,C,Java,Node.js, Python</a></p>
     - title: REST

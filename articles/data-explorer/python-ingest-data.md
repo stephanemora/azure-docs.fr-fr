@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: b35cbb65c32336b0021a2004f4237a9784db8ea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 52be08006985ee2f2e1ea4427e0f63ebbeb6e8b2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969085"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900494"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Démarrage rapide : Ingérer des données à l’aide de la bibliothèque Python de l’Explorateur de données Azure
 
@@ -132,12 +132,15 @@ df_mapping_create_output
 Mettez en file d’attente un message pour extraire les données du stockage d’objets blob et ingérer ces données dans l’Explorateur de données Azure.
 
 ```python
-KUSTO_INGEST_CLIENT = KustoIngestClient(KCSB_INGEST)
+INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
+# All ingestion properties are documented here: https://docs.microsoft.com/en-us/azure/kusto/management/data-ingest#ingestion-properties
 INGESTION_PROPERTIES  = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
-KUSTO_INGEST_CLIENT.ingest_from_multiple_blobs([BlobDescriptor(BLOB_PATH,FILE_SIZE)],delete_sources_on_success=False,ingestion_properties=INGESTION_PROPERTIES)
+BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)  # 10 is the raw size of the data in bytes
+INGESTION_CLIENT.ingest_from_blob(BLOB_DESCRIPTOR,ingestion_properties=INGESTION_PROPERTIES)
 
-print('Done queueing up ingestion with Kusto')
+print('Done queuing up ingestion with Azure Data Explorer')
+
 ```
 
 ## <a name="validate-that-data-was-ingested-into-the-table"></a>Valider que les données ont été ingérées dans la table
@@ -169,7 +172,7 @@ Exécutez la commande suivante pour voir l’état de toutes les opérations d�
 | summarize arg_max(LastUpdatedOn, *) by OperationId
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez de suivre nos autres tutoriels et guides de démarrage rapide, gardez les ressources que vous avez créées. Dans le cas contraire, exécutez la commande suivante dans votre base de données pour nettoyer la table StormEvents.
 
@@ -180,4 +183,4 @@ Si vous envisagez de suivre nos autres tutoriels et guides de démarrage rapide,
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Rédiger des requêtes](write-queries.md)
+> [Écrire des requêtes](write-queries.md)

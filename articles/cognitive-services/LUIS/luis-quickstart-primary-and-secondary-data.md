@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036052"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867542"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutoriel 7 : Extraire des noms avec une entité simple et une liste d’expressions
 
@@ -40,11 +40,11 @@ L’entité simple est appropriée pour ce type de données quand :
 > * Ajouter la liste d’expressions pour améliorer le signal de mots de travail
 > * Former 
 > * Publish 
-> * Reconnaître les intentions et les entités à partir du point de terminaison
+> * Obtenir les intentions et les entités à partir du point de terminaison
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utiliser une clé existante
+## <a name="use-existing-app"></a>Utiliser l’application existante
 
 Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
@@ -54,7 +54,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Gérer**, sous l’onglet **Versions**, clonez la version et nommez-la `simple`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `simple`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
 ## <a name="simple-entity"></a>Entité simple
 L’entité simple détecte un concept de données unique contenu dans des mots ou des expressions.
@@ -151,7 +151,7 @@ L’étiquetage, ou _marquage_, de l’entité montre à LUIS où celle-ci se tr
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Reconnaître l’intention et les entités à partir du point de terminaison 
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtenir l’intention et les entités à partir du point de terminaison 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -299,7 +299,7 @@ Ouvrez le document [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samp
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Capture d’écran de boîte de dialogue contextuelle de création de nouvelle liste d’expressions avec mots dans la zone de valeurs de la liste d’expressions")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. [Entraînez](#train-the-luis-app) et [publiez](#publish-the-app-to-get-the-endpoint-URL) à nouveau l’application pour utiliser la liste d’expressions.
+5. [Entraînez](#train) et [publiez](#publish) à nouveau l’application pour utiliser la liste d’expressions.
 
 6. Procédez à une nouvelle interrogation du point de terminaison avec le même énoncé : `This is the lead welder paperwork.`
 

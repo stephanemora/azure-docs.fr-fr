@@ -5,16 +5,16 @@ description: Découvrez comment utiliser la reconnaissance vocale en JavaScript 
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: b925a382a32f320c5d6906bc3fa23f046d260cb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 75dcda643741e3aeb1238f82128e4c5b058be840
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997435"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883652"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en JavaScript dans un navigateur avec le SDK Speech de Cognitive Services
 
@@ -25,7 +25,7 @@ L’application est basée sur le SDK Speech de Microsoft Cognitive Services ([T
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Clé d’abonnement pour le service Speech. Consultez [Essayer le service Speech gratuitement](get-started.md).
+* Clé d’abonnement pour le service Speech. Consultez l’article [Try the speech service for free](get-started.md) (Essayer le service Speech gratuitement).
 * Un PC ou un Mac avec un micro qui fonctionne
 * Un éditeur de texte
 * La version actuelle de Chrome ou de Microsoft Edge
@@ -36,6 +36,8 @@ L’application est basée sur le SDK Speech de Microsoft Cognitive Services ([T
 Créez un dossier vide. Si vous souhaitez héberger l’exemple sur un serveur web, vérifiez que le serveur web peut accéder au dossier.
 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Décompresser le SDK Speech pour JavaScript dans ce dossier
+
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Téléchargez le SDK Speech en tant que [package .zip](https://aka.ms/csspeech/jsbrowserpackage), puis décompressez-le dans le dossier que vous venez de créer. Deux fichiers doivent avoir été décompressés : `microsoft.cognitiveservices.speech.sdk.bundle.js` et `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 Le deuxième fichier est facultatif et permet de déboguer le code du SDK, si nécessaire.

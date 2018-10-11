@@ -3,16 +3,18 @@ title: Basculer et restaurer automatiquement des machines virtuelles Hyper-V ré
 description: Découvrez comment basculer des machines virtuelles Hyper-V vers Azure et restaurer sur le site local avec Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: tutorial
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: f758939964045ed373703a211d4cbef00f0e42e7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.custom: MVC
+ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919544"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076981"
 ---
 # <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles Hyper-V répliquées sur Azure
 
@@ -29,7 +31,7 @@ Ce didacticiel est le cinquième d’une série. Il suppose que vous avez déjà
 1. [Préparer Azure](tutorial-prepare-azure.md)
 2. [Préparer un serveur Hyper-V local](tutorial-prepare-on-premises-hyper-v.md)
 3. Configurer la récupération d’urgence pour les [machines virtuelles Hyper-V](tutorial-hyper-v-to-azure.md) ou pour les [machines virtuelles Hyper-V gérées par les clouds System Center VMM](tutorial-hyper-v-vmm-to-azure.md)
-4. [Exécuter une simulation de récupération d’urgence](tutorial-dr-drill-azure.md)
+4. [Effectuer un test de récupération d’urgence](tutorial-dr-drill-azure.md)
 
 ## <a name="prepare-for-failover-and-failback"></a>Préparer le basculement et la restauration automatique
 
@@ -53,7 +55,7 @@ Dans **Éléments protégés**, cliquez sur **Éléments répliqués** > Machine
 
 4. Vous pouvez afficher et modifier les paramètres réseau, notamment le réseau/sous-réseau dans lequel la machine virtuelle Azure se trouvera après le basculement et l’adresse IP à lui affecter.
 
-5. Des informations sur les disques de données et du système d’exploitation de la machine virtuelle s’affichent dans **Disques** .
+5. Des informations sur les disques de données et du système d’exploitation de la machine virtuelle s’affichent dans **Disques**.
 
 ## <a name="failover-to-azure"></a>Basculement vers Azure
 

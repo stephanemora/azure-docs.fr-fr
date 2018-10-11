@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-finder
+ms.component: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: df7326cb8e671d0f71924e813a1354dfef1e20c7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a1cda1cea2089363331ae437cb7ad802429779f4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369121"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888694"
 ---
 Les données sont retournées avec la valeur attendue et les marges supérieure et inférieure par défaut. Dans la pratique, vous pouvez définir un paramètre [sensitivity], puis utiliser (ExpectedValue + sensitivity * UpperMargin) comme limite supérieure et (ExpectedValue - sensitivity * LowerMargin) comme limite inférieure pour régler le point d’anomalie par vous-même. La valeur de [sensitivity] doit être supérieure à 1. Vous trouverez ci-dessous des diagrammes pour le réglage.
 

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cbd475ae4ce944db3ebf57b415b60e7abdd52677
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 33126c094a55bc57edd49a54fbc4f5acd7401998
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163849"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079002"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configurer votre expérience de machine learning automatisé
 
@@ -34,7 +34,7 @@ Options de configuration disponibles dans le machine learning automatisé :
 
 ## <a name="select-your-experiment-type"></a>Sélectionner le type de votre expérience
 Avant de commencer votre expérience, vous devez déterminer le type de problème de machine learning que vous résolvez. Le machine learning automatisé prend en charge deux catégories d’apprentissage supervisé : Classification et Régression. Le machine learning automatisé prend en charge les algorithmes suivants lors du processus d’automatisation et d’optimisation. En tant qu’utilisateur, vous n’avez pas besoin de spécifier l’algorithme.
-Classification | Régression
+classification ; | régression ;
 --|--
 sklearn.linear_model.LogisticRegression | sklearn.linear_model.ElasticNet
 sklearn.linear_model.SGDClassifier  | sklearn.ensemble.GradientBoostingRegressor
@@ -183,14 +183,14 @@ Ce tableau liste les paramètres disponibles pour votre expérience et leur vale
 
 Propriété |  Description | Valeur par défaut
 --|--|--
-`task`  |Spécifiez le type de problème de machine learning. Les valeurs autorisées sont <li>classification</li><li>régression</li>    | Aucun |
+`task`  |Spécifiez le type de problème de machine learning. Les valeurs autorisées sont <li>classification ;</li><li>régression ;</li>    | Aucun |
 `primary_metric` |Métrique que vous voulez optimiser pour la création de votre modèle. Par exemple, si vous spécifiez la précision comme primary_metric, le machine learning automatisé recherche un modèle avec la précision maximale. Vous pouvez spécifier seulement un élément primary_metric par expérience. Les valeurs autorisées sont <br/>**Classification** :<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Régression** : <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score    </li> | Pour la classification : accuracy <br/>Pour la régression : spearman_correlation <br/> |
 `exit_score` |  Vous pouvez définir une valeur cible pour votre primary_metric. Une fois qu’un modèle correspondant à la primary_metric cible est trouvé, le machine learning automatisé arrête les itérations et l’expérience se termine. Si cette valeur n’est pas définie (l’option par défaut), expérience de machine learning automatisé continue de s’exécuter jusqu’à atteindre le nombre d’itérations spécifié dans Itérations. Prend une valeur double. Si la cible n’est jamais atteinte, le machine learning automatisé continuera jusqu’à atteindre le nombre d’itérations spécifié dans Itérations.|   Aucun
 `iterations` |Nombre maximal d’itérations. Chaque itération correspond à un travail d’entraînement dont les résultats produisent un pipeline. Un pipeline correspond à un prétraitement des données et à un modèle. Pour obtenir un modèle de haute qualité, utilisez 250 ou plus | 100
 `Concurrent_iterations`|    Nombre maximal d’itérations à exécuter en parallèle. Ce paramètre fonctionne seulement pour une capacité de calcul distante.|    1
 `max_cores_per_iteration`   | Indique le nombre de cœurs sur la cible de calcul à utiliser pour entraîner un seul pipeline. Si l’algorithme peut tirer parti de plusieurs cœurs, cela augmente les performances sur une machine multicœur. Vous pouvez le définir sur -1 pour utiliser tous les cœurs disponibles sur la machine.|  1
 `max_time_sec` |    Limite la quantité de temps (en secondes) d’une itération particulière. Si une itération dépasse la quantité spécifiée, cette itération est annulée. Si ce paramètre n’est pas défini, l’itération continue de s’exécuter jusqu’à ce qu’elle se termine. |   Aucun
-`n_cross_validations`   |Nombre de divisions pour la validation croisée| Aucun
+`n_cross_validations`   |Nombre de divisions pour la validation croisée.| Aucun
 `validation_size`   |Taille du jeu de validation définie en pourcentage de tous les échantillons de l’entraînement.|  Aucun
 `preprocess` | True/False <br/>True permet à l’expérience d’effectuer un prétraitement sur l’entrée. Voici un sous-ensemble de prétraitement<li>Données manquantes : Attribue des valeurs aux données manquantes - la moyenne pour les données numériques, la chaîne ayant le plus d’occurrences pour le texte </li><li>Valeurs des catégories : Si le type de données est numérique et que le nombre de valeurs uniques est inférieur à 5 pour cent, convertit en un encodage one-hot </li><li>Pour obtenir la liste complète, consultez [le dépôt GitHub](https://aka.ms/aml-notebooks)</li><br/>Remarque : Si les données sont éparses, vous ne pouvez pas utiliser preprocess = true |  False | 
 `blacklist_algos`   | L’expérience de machine learning automatisé fait des essais avec de nombreux algorithmes différents. Configurez le machine learning automatisé pour exclure certains algorithmes de l’expérience. Pratique si vous savez qu’un ou plusieurs algorithmes spécifiques ne fonctionnent pas bien pour votre jeu de données. Exclure des algorithmes peut économiser des ressources de calcul et du temps d’entraînement.<br/>Valeurs autorisées pour la classification<br/><li>Régression logique</li><li>Classifieur SGD</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>Arborescences supplémentaires</li><li>Boosting de gradient</li><li>lgbm_classifier</li><br/>Valeurs autorisées pour la régression<br/><li>Réseau élastique</li><li>Régresseur de boosting de gradient</li><li>Régresseur DT</li><li>Régresseur kNN</li><li>LARS LASSO</li><li>Régresseur SGD</li><li>Régresseur RF</li><li>Régresseur de hiérarchies supplémentaires</li>|   Aucun
@@ -225,7 +225,6 @@ Les métriques suivantes sont enregistrées dans chaque itération
 * AUC_macro
 * AUC_micro
 * AUC_weighted
-* AUC_weighted_max
 * accuracy
 * average_precision_score_macro
 * average_precision_score_micro

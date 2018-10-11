@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 8d5f31f09d51794f9ad3c126edf2fd935f379221
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296467"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903026"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Migrer des applications locales AD FS vers Azure 
 
@@ -151,7 +151,7 @@ Actuellement, les applications que vous pouvez migrer facilement sont les applic
 - Prénom.
 - Nom.
 - D’un autre attribut comme **NameID** de SAML, y compris l’attribut de messagerie Azure AD, le préfixe de messagerie, l’attribut employeeid, les attributs d’extension 1-15, ou l’attribut local **SamAccountName**. Pour plus d’informations, consultez la section [Modification de la revendication NameIdentifier](../develop/active-directory-saml-claims-customization.md).
-- Revendications personnalisées. Pour plus d’informations sur les mappages de revendications pris en charge, consultez les pages [Mappage des revendications dans Azure Active Directory](../active-directory-claims-mapping.md) et [Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+- Revendications personnalisées. Pour plus d’informations sur les mappages de revendications pris en charge, consultez les pages [Mappage des revendications dans Azure Active Directory](../develop/active-directory-claims-mapping.md) et [Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 En plus des revendications personnalisées et des éléments **NameID**, les configurations qui nécessitent des étapes supplémentaires dans Azure AD dans le cadre de la migration sont :
 - Règles d’autorisation personnalisées ou règles d’authentification multifacteur dans AD FS. Vous pouvez les configurer à l’aide de la fonction [Accès conditionnel Azure AD](../active-directory-conditional-access-azure-portal.md).
@@ -171,7 +171,7 @@ Les applications qui nécessitent les fonctionnalités suivantes ne peuvent actu
 - Revendications dans les fonctionnalités des jetons :
     - Émission des noms de groupe locaux en tant que revendications.
     - Revendications depuis des magasins autres qu’Azure AD.
-    - Règles de transformation des émissions de revendications complexes. Pour plus d’informations sur les mappages de revendications pris en charge, consultez les pages [Mappage des revendications dans Azure Active Directory](../active-directory-claims-mapping.md) et [Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+    - Règles de transformation des émissions de revendications complexes. Pour plus d’informations sur les mappages de revendications pris en charge, consultez les pages [Mappage des revendications dans Azure Active Directory](../develop/active-directory-claims-mapping.md) et [Personnalisation des revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
     - Émission d’extensions de répertoire en tant que revendications.
     - Spécification personnalisée de format **NameID**.
     - Émission d’attributs à valeur multiple.
