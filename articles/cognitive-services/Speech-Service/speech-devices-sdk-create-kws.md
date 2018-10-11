@@ -5,16 +5,16 @@ titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7ba62ce0cc2d391c96c31795aabaac9c8796f6d5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 52f1d9cb242f140d485ccf7b39a55a46ee575a3d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165532"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883616"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Créer un mot déclencheur personnalisé à l’aide du service Speech
 
@@ -49,30 +49,29 @@ Avant de pouvoir utiliser un mot déclencheur personnalisé avec votre appareil,
 
 1. Accédez au [portail du service Custom Speech](https://cris.ai/).
 
-2. Créez un compte en utilisant l’adresse e-mail à laquelle vous avez reçu l’invitation d’Azure Active Directory. 
+1. Créez un compte en utilisant l’adresse e-mail à laquelle vous avez reçu l’invitation d’Azure Active Directory. 
 
     ![Créer un nouveau compte](media/speech-devices-sdk/wake-word-1.png)
  
-3.  Après vous être connecté, remplissez le formulaire, puis sélectionnez **Start my journey** (Démarrer mon parcours).
+1.  Après vous être connecté, remplissez le formulaire, puis sélectionnez **Start my journey** (Démarrer mon parcours).
 
     ![Connexion réussie](media/speech-devices-sdk/wake-word-3.png)
  
-4. La page **Custom Wake Word** (Mot déclencheur personnalisé) n’est pas accessible au public ; il n’existe donc aucun lien direct pour y accéder. La fonctionnalité Custom Speech nécessite un abonnement Azure, mais pas la fonctionnalité Custom Wake Word. Si vous recevez le message d’erreur **Aucun abonnement trouvé**, remplacez simplement **"Subscriptions?errorMessage=No%20Subscriptions%20found"** par "**customkws**" dans l’URL et appuyez sur Entrée. L’URL doit être l’une de celles-ci : https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, en fonction de votre région.   
-
+1. La page **Custom Wake Word** (Mot déclencheur personnalisé) n’est pas accessible au public ; il n’existe donc aucun lien direct pour y accéder. La fonctionnalité Custom Speech nécessite un abonnement Azure, mais pas la fonctionnalité Custom Wake Word. Si vous recevez le message d’erreur **Aucun abonnement trouvé**, remplacez simplement **"Subscriptions?errorMessage=No%20Subscriptions%20found"** par "**customkws**" dans l’URL et appuyez sur Entrée. L’URL doit être l’une de celles-ci : https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, en fonction de votre région.
 
     ![La page Custom Wake Word (Mot déclencheur personnalisé) est masquée](media/speech-devices-sdk/wake-word-4.png)
  
-6. Tapez le mot déclencheur de votre choix, puis sélectionnez **Submit the word** (Soumettre le mot).
+1. Tapez le mot déclencheur de votre choix, puis sélectionnez **Submit the word** (Soumettre le mot).
 
     ![Entrez votre mot déclencheur](media/speech-devices-sdk/wake-word-5.png)
  
-7. La création des fichiers peut nécessiter quelques minutes. Vous devez voir un cercle en rotation dans la fenêtre de votre navigateur. Après quelques instants, une barre d’informations s’affiche et vous invite à télécharger un fichier .zip.
+1. La création des fichiers peut nécessiter quelques minutes. Vous devez voir un cercle en rotation dans la fenêtre de votre navigateur. Après quelques instants, une barre d’informations s’affiche et vous invite à télécharger un fichier .zip.
 
     ![Réception du fichier .zip](media/speech-devices-sdk/wake-word-6.png)
 
-8. Enregistrez le fichier .zip sur votre ordinateur. Vous avez besoin de ce fichier pour déployer le mot déclencheur personnalisé dans le kit de développement. Pour déployer le mot déclencheur personnalisé, suivez les instructions fournies dans [ Prise en main du Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk-qsg.md).
+1. Enregistrez le fichier .zip sur votre ordinateur. Vous avez besoin de ce fichier pour déployer le mot déclencheur personnalisé dans le kit de développement. Pour déployer le mot déclencheur personnalisé, suivez les instructions fournies dans [ Prise en main du Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk-qsg.md).
 
-9. Sélectionnez **Sign out** (Se déconnecter).
+1. Sélectionnez **Sign out** (Se déconnecter).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

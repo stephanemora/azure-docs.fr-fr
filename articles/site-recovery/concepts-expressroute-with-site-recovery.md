@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: ac64c73ac26c610c08dceff13cbd524916853146
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb28a3d165bcb6cc5e63162053029ce14b0d7f8f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916416"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078135"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute avec Azure Site Recovery
 
@@ -49,7 +49,7 @@ Azure Site Recovery permet une récupération d’urgence de [machines virtuelle
 
 Pour la récupération d’urgence de machine virtuelle Azure, par défaut, ExpressRoute n’est pas requis pour la réplication. Après le basculement des machines virtuelles vers la région Azure cible, vous pouvez y accéder via une [homologation privée](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
 
-Si vous utilisez déjà ExpressRoute pour vous connecter à partir de votre centre de données local aux machines virtuelles Azure dans la région source, vous pouvez planifier un rétablissement de la connectivité ExpressRoute dans la région cible du basculement. Vous pouvez utiliser le même circuit ExpressRoute pour vous connecter à la région cible via une nouvelle connexion de réseau virtuel, ou utiliser un circuit et une connexion ExpressRoute distincts pour la récupération d’urgence. Les différents scénarios possibles sont décrits [ici](azure-vm-disaster-recovery-with-expressroute.md#failover-models-with-expressroute).
+Si vous utilisez déjà ExpressRoute pour vous connecter à partir de votre centre de données local aux machines virtuelles Azure dans la région source, vous pouvez planifier un rétablissement de la connectivité ExpressRoute dans la région cible du basculement. Vous pouvez utiliser le même circuit ExpressRoute pour vous connecter à la région cible via une nouvelle connexion de réseau virtuel, ou utiliser un circuit et une connexion ExpressRoute distincts pour la récupération d’urgence. Les différents scénarios possibles sont décrits [ici](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute).
 
 Vous pouvez répliquer des machines virtuelles Azure vers n’importe quelle région Azure au sein du même cluster géographique, comme expliqué [ici](../site-recovery/azure-to-azure-support-matrix.md#region-support). Si la région Azure cible choisie ne figure pas dans la même région géopolitique que la source, il se peut que vous deviez activer ExpressRoute Premium. Pour plus d’informations, voir [Emplacements ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) et [Tarification ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
 

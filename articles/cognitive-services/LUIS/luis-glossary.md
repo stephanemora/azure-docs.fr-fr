@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a741cb1c2643e48080018e5c9f4ada7038bce29e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b24b21ee5fc929d3e7bd026191ce8791d79f9abc
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434804"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870772"
 ---
 # <a name="glossary"></a>Glossaire
 Le glossaire Language Understanding (LUIS) explique les termes que vous pourriez rencontrer lors de l’utilisation du service API LUIS.
@@ -74,7 +74,7 @@ Dans le contexte de LUIS, un **domaine** est un champ de connaissances propre à
 
 ## <a name="endpoint"></a>Point de terminaison
 
-L’URL du [point de terminaison LUIS](https://aka.ms/luis-endpoint-apis) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison dans la page **[Keys and endpoints (Clés et points de terminaison)](/luis-how-to-manage-keys.md)** de votre application, ou vous pouvez obtenir l’URL de point de terminaison à partir de l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+L’URL du [point de terminaison LUIS](https://aka.ms/luis-endpoint-apis) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-manage-keys.md)** de votre application, ou vous pouvez obtenir l’URL de point de terminaison à partir de l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Voici un exemple de point de terminaison :
 

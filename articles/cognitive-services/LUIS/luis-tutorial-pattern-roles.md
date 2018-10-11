@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160245"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886158"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutoriel 4 : Extraire des modèles relatifs au contexte
 
@@ -36,14 +36,14 @@ Comme l’exemple d’énoncé `Move new employee Robert Williams from Sacrament
 
 Si vous avez des difficultés avec la détection d’une entité simple car elle représente un nom comme une ville, vous pouvez utiliser une liste d’expressions de valeurs similaires. Cela permet de détecter le nom de la ville en fournissant à LUIS des détails supplémentaires sur ce type de mot ou d’expression. Les listes d’expressions sont utiles uniquement avec le modèle car elles facilitent la détection de l’entité, ce qui est nécessaire pour que le modèle corresponde. 
 
-**Dans ce tutoriel, vous allez découvrir comment effectuer les opérations suivantes :**
+**Dans ce tutoriel, vous allez découvrir comment :**
 
 > [!div class="checklist"]
 > * Utiliser l’application de tutoriel existante
 > * Créer des entités
 > * Créer une intention
-> * Entraîner
-> * Publier
+> * Former
+> * Publish
 > * Obtenir les intentions et les entités à partir du point de terminaison
 > * Créer un modèle avec des rôles
 > * Créer une liste d’expressions de villes
@@ -114,11 +114,11 @@ Dans ces étapes, l’étiquetage des entités peut être simplifié si l’enti
 
     Si vous avez supprimé l’entité keyPhrase, replacez-la maintenant dans l’application.
 
-## <a name="train"></a>Entraîner
+## <a name="train"></a>Former
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publier
+## <a name="publish"></a>Publish
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 

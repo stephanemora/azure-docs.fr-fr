@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 4712c0b40209cd6d40703176f95a80f491d0364c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ffd134bd4e47f92264f8b299f8fd4bdb76f6c9f
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979098"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870314"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Démarrage rapide : Créer une application web Cassandra avec Python et Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Vous pouvez également [essayer Azure Cosmos DB gratuitement](https://azure.microsoft.com/try/cosmosdb/) sans abonnement Azure, ni frais ni engagement.
 
-De plus, vous devez avoir :
+Par ailleurs, vous devez avoir :
 * [Python](https://www.python.org/downloads/) version v2.7.14
 * [Git](http://git-scm.com/)
 * [Pilote Python pour Apache Cassandra](https://github.com/datastax/python-driver)
@@ -49,7 +49,7 @@ Pour pouvoir créer une base de données de documents, vous devez créer un comp
 
 Nous allons maintenant cloner une application API Cassandra à partir de GitHub, configurer la chaîne de connexion et l’exécuter. Vous pouvez constater à quel point il est facile de travailler par programmation avec des données. 
 
-1. Ouvrez une invite de commandes. Créez un dossier appelé `git-samples`. Ensuite, fermez l’invite de commandes.
+1. Ouvrez une invite de commandes. Créez un dossier nommé `git-samples`. Ensuite, fermez l’invite de commandes.
 
     ```bash
     md "C:\git-samples"
@@ -71,7 +71,7 @@ Nous allons maintenant cloner une application API Cassandra à partir de GitHub,
 
 Cette étape est facultative. Si vous voulez savoir comment le code crée les ressources de base de données, vous pouvez consulter les extraits de code suivants. Tous les extraits de code sont tirés du fichier pyquickstart.py. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string). 
 
-* Les valeurs de nom d’utilisateur et de mot de passe ont été définies en utilisant la page de chaîne de connexion du portail Azure. Le `path\to\cert` fournit le chemin d’un certificat X509. 
+* Les valeurs de nom d’utilisateur et de mot de passe ont été définies en utilisant la page de chaîne de connexion du portail Azure. `path\to\cert` fournit le chemin d’un certificat X509. 
 
    ```python
     ssl_opts = {
@@ -112,13 +112,13 @@ Cette étape est facultative. Si vous voulez savoir comment le code crée les re
 
     ```Python
     insert_data = session.prepare("INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)")
-    batch = BatchStatement()
-    batch.add(insert_data, (1, 'LyubovK', 'Dubai'))
-    batch.add(insert_data, (2, 'JiriK', 'Toronto'))
-    batch.add(insert_data, (3, 'IvanH', 'Mumbai'))
-    batch.add(insert_data, (4, 'YuliaT', 'Seattle'))
+    session.execute(insert_data, [1,'Lybkov','Seattle'])
+    session.execute(insert_data, [2,'Doniv','Dubai'])
+    session.execute(insert_data, [3,'Keviv','Chennai'])
+    session.execute(insert_data, [4,'Ehtevs','Pune'])
+    session.execute(insert_data, [5,'Dnivog','Belgaum'])
     ....
-    session.execute(batch)
+    
     ```
 
 * Requête pour obtenir toutes les valeurs de clé.
@@ -168,7 +168,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
     
 ## <a name="use-the-x509-certificate"></a>Utiliser le certificat X509
 
-1. Téléchargez le certificat racine Baltimore CyberTrust localement à partir de [ https://cacert.omniroot.com/bc2025.crt ](https://cacert.omniroot.com/bc2025.crt). Renommez le fichier avec l’extension de fichier `.cer`.
+1. Téléchargez le certificat racine Baltimore CyberTrust localement à partir de [https://cacert.omniroot.com/bc2025.crt](https://cacert.omniroot.com/bc2025.crt). Renommez le fichier avec l’extension de fichier `.cer`.
 
    Le certificat a le numéro de série `02:00:00:b9` et l’empreinte digitale SHA1 `d4🇩🇪20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74`.
 
@@ -201,7 +201,7 @@ Maintenant, retournez dans le portail Azure afin d’obtenir les informations de
 
     ![Consulter et vérifier la sortie](./media/create-cassandra-python/output.png)
     
-4. Dans le portail Azure, ouvrez l’**Explorateur de données** pour interroger, modifier et utiliser ces nouvelles données. 
+4. Dans le portail Azure, ouvrez **l’Explorateur de données** pour interroger, modifier et utiliser ces nouvelles données. 
 
     ![Afficher les données dans l’Explorateur de données](./media/create-cassandra-python/data-explorer.png)
 

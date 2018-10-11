@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452511"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886822"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Utiliser des profils de version d’API avec Java dans Azure Stack
 
@@ -40,7 +40,7 @@ Un profil d’API est une combinaison de fournisseurs de ressources et de versio
     
       - Ce profil doit être spécifié dans le fichier Pom.xml en tant que dépendance, qui charge automatiquement les modules si vous choisissez la classe appropriée dans la liste déroulante tout comme vous le feriez avec .NET.
         
-          - Le début de chaque module apparaît sous la forme suivante :         
+      - Le début de chaque module apparaît sous la forme suivante :         
            `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
              
 
@@ -85,7 +85,7 @@ Pour installer le Kit de développement logiciel (SDK) Java, procédez comme sui
 
 6.  Créez un principal de service et enregistrez l’ID client, ainsi que la clé secrète client. Pour plus d’informations sur la création d’un principal de service pour Azure Stack, consultez l’article [Fournir l’accès des applications à Azure Stack](../azure-stack-create-service-principals.md). Notez que l’ID client est également connu en tant qu’ID d’application lors de la création d’un principal de service.
 
-7.  Vérifiez que votre principal de service présente le rôle contributeur/propriétaire sur votre abonnement. Pour plus d’informations sur l’attribution d’un rôle au principal de service, consultez l’article [Fournir l’accès des applications à Azure Stack](../azure-stack-create-service-principals.md).
+7.  Vérifiez que votre principal de service présente le rôle contributeur/propriétaire sur votre abonnement. Pour plus d’informations sur l’assignation d’un rôle au principal de service, consultez l’article [Fournir l’accès des applications à Azure Stack](../azure-stack-create-service-principals.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -93,11 +93,11 @@ Pour utiliser le Kit de développement logiciel (SDK) Java Azure avec Azure Stac
 
 | Valeur                     | Variables d’environnement | Description                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ID client                 | TENANT_ID            | Valeur de votre [<span class="underline">ID de locataire</span>](../azure-stack-identity-overview.md) Azure Stack.                                                          |
-| ID client                 | CLIENT_ID             | L’ID d’application du principal du service enregistré lors de la création du principal de service dans la section précédente de ce document.                                                                                              |
-| Identifiant d’abonnement           | SUBSCRIPTION_ID      | [<span class="underline">L’ID d’abonnement</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions) correspond à la façon dont vous accédez à des offres dans Azure Stack.                |
-| Clé secrète client             | CLIENT_SECRET        | Le secret d’application du principal de service enregistré lors de la création du principal de service.                                                                                                                                   |
-| Point de terminaison Resource Manager | ENDPOINT              | Consultez la section [<span class="underline">Point de terminaison Azure Stack Resource Manager</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| ID client                 | AZURE_TENANT_ID            | La valeur de votre [<span class="underline">ID de locataire</span>](../azure-stack-identity-overview.md) Azure Stack.                                                          |
+| ID client                 | AZURE_CLIENT_ID             | L’ID d’application du principal du service enregistré lors de la création du principal de service dans la section précédente de ce document.                                                                                              |
+| Identifiant d’abonnement           | AZURE_SUBSCRIPTION_ID      | [<span class="underline">L’ID d’abonnement</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions) correspond à la façon dont vous accédez à des offres dans Azure Stack.                |
+| Clé secrète client             | AZURE_CLIENT_SECRET        | Le secret d’application du principal de service enregistré lors de la création du principal de service.                                                                                                                                   |
+| Point de terminaison Resource Manager | ARM_ENDPOINT              | Consultez [<span class="underline">Point de terminaison Azure Stack Resource Manager</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Lieu                  | RESOURCE_LOCATION    | Local pour Azure Stack.                                                                                                                                                                                                |
 
 Pour rechercher l’ID de locataire de votre environnement Azure Stack, suivez les instructions fournies [ici](../azure-stack-csp-ref-operations.md). Pour définir vos variables d’environnement, procédez comme suit :
@@ -107,7 +107,7 @@ Pour rechercher l’ID de locataire de votre environnement Azure Stack, suivez l
 Pour définir les variables d’environnement dans une invite de commandes Windows, utilisez le format suivant :
 
 ```shell
-Set Azure_Tenant_ID=<Your_Tenant_ID>
+Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>Systèmes macOS, Linux et Unix
@@ -115,7 +115,7 @@ Set Azure_Tenant_ID=<Your_Tenant_ID>
 Dans les systèmes Unix, vous pouvez utiliser la commande suivante :
 
 ```shell
-Export Azure_Tenant_ID=<Your_Tenant_ID>
+Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Point de terminaison Azure Stack Resource Manager
@@ -162,7 +162,8 @@ Le code ci-après authentifie le principal de service sur Azure Stack. Il crée 
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
                     .withDefaultSubscriptionId(subscriptionId);
-            Azure azureStack = Azure.configure().withLogLevel(com.microsoft.rest.LogLevel.BASIC)
+Azure azureStack = Azure.configure()
+                    .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
                     .authenticate(credentials, credentials.defaultSubscriptionId());
 ```
 
@@ -182,7 +183,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("activeDirectoryResourceId", settings.get("audience"));
                     put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
-                    put("keyVaultDnsSuffix", ".adminvault" + armEndpoint.substring(armEndpoint.indexOf('.')));
+                    put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
             });
 ```
@@ -205,8 +206,7 @@ HttpGet getRequest = new
 HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
 armEndpoint));
 
-// Add additional header to getRequest which accepts application/xml
-data
+// Add additional header to getRequest which accepts application/xml data
 getRequest.addHeader("accept", "application/xml");
 
 // Execute request and catch response
@@ -217,37 +217,37 @@ HttpResponse response = httpClient.execute(getRequest);
 
 Vous pouvez utiliser les exemples GitHub ci-après en guise de références pour la création de solutions avec des profils d’API .NET et Azure Stack :
 
-  - [Gérer des groupes de ressources](https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid)
+  - [Gérer des groupes de ressources](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [Gérer des comptes de stockage](https://github.com/viananth/storage-java-manage-storage-accounts/tree/stack/Hybrid)
+  - [Gérer des comptes de stockage](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [Gérer une machine virtuelle](https://github.com/viananth/compute-java-manage-vm/tree/stack/Hybrid)
+  - [Gérer une machine virtuelle](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
 ### <a name="sample-unit-test-project"></a>Exemple de projet de test unitaire 
 
 1.  Clonez le référentiel à l’aide de la commande suivante :
     
-    `git clone https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid`
+    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
-2.  Créez un principal de service Azure et attribuez un rôle pour accéder à l’abonnement. Pour obtenir des instructions sur la création d’un principal de service, consultez [Fournir l’accès des applications à Azure Stack](../azure-stack-create-service-principals.md).
+2.  Créez un principal de service Azure et assignez un rôle pour accéder à l’abonnement. Pour obtenir des instructions sur la création d’un principal de service, consultez [Fournir l’accès des applications à Azure Stack](../azure-stack-create-service-principals.md).
 
 3.  Récupérez les valeurs de variable d’environnement requises suivantes :
     
-   1.  TENANT_ID
-   2.  CLIENT_ID
-   3.  CLIENT_SECRET
-   4.  SUBSCRIPTION_ID
-   5.  ARM_ENDPOINT
-   6.  RESOURCE_LOCATION
+    -  AZURE_TENANT_ID
+    -  AZURE_CLIENT_ID
+    -  AZURE_CLIENT_SECRET
+    -  AZURE_SUBSCRIPTION_ID
+    -  ARM_ENDPOINT
+    -  RESOURCE_LOCATION
 
 4.  Définissez les variables d’environnement ci-après en utilisant les informations que vous avez récupérées à partir du principal de service que vous avez créé à l’aide de l’invite de commandes :
     
-   1. export TENANT_ID={votre ID de locataire}
-   2. export CLIENT_ID={votre ID client}
-   3. export CLIENT_SECRET={votre clé secrète client}
-   4. export SUBSCRIPTION_ID={votre ID d’abonnement}
-   5. export ARM_ENDPOINT={votre URL Azure Stack Resource Manager}
-   6. export RESOURCE_LOCATION={emplacement d’Azure Stack}
+    - export AZURE_TENANT_ID={votre id de locataire}
+    - export AZURE_CLIENT_ID={votre id de client}
+    - export AZURE_CLIENT_SECRET={votre secret de client}
+    - export AZURE_SUBSCRIPTION_ID={votre id d’abonnement}
+    - export ARM_ENDPOINT={votre URL Azure Stack Resource Manager}
+    - export RESOURCE_LOCATION={emplacement d’Azure Stack}
 
    Dans Windows, utilisez **set** et non **export**.
 
@@ -294,4 +294,4 @@ Vous pouvez utiliser les exemples GitHub ci-après en guise de références pour
 Pour plus d’informations sur les profils d’API, consultez les articles suivants :
 
 - [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md)
-- [Versions des API du fournisseur de ressources prises en charge par des profils](azure-stack-profiles-azure-resource-manager-versions.md)
+- [Versions des API du fournisseur de ressources prises en charge par des profils dans Azure Stack](azure-stack-profiles-azure-resource-manager-versions.md)

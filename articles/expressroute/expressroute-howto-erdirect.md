@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6bf2da140f53d39812fb475130471d49750b9f4b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0009791263c45e0172abcb4836aaadde26f3ace
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947786"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887187"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Comment configurer ExpressRoute Direct (préversion)
 
@@ -35,7 +35,7 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
 2. Répertoriez tous les emplacements où ExpressRoute Direct est pris en charge.
   
   ```powershell
-  Get-AzureRMExpressRoutePortLocations
+  Get-AzureRmExpressRoutePortsLocation
   ```
 
   **Exemple de sortie**

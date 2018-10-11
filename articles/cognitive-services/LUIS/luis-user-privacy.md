@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 103307e9657f183ed6876ef6ff499666c928690f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bfd168d5c56bc800831c402a23bb1a506fa15221
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037488"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883888"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exporter et supprimer vos données client dans Language Understanding (LUIS) dans Cognitive Services
 
@@ -36,7 +36,7 @@ Les utilisateurs de LUIS contrôlent totalement la suppression de tout contenu u
 
 | | **Compte d’utilisateur** | **Application** | **Énoncé(s)** | **Requêtes utilisateur final** |
 | --- | --- | --- | --- | --- |
-| **Portail** | [Lien](luis-how-to-account-settings.md) | [Lien](luis-how-to-start-new-app.md#delete-app) | [Lien](luis-how-to-start-new-app.md#delete-app) | [Lien](luis-how-to-start-new-app.md#delete-app) |
+| **Portal** | [Lien](luis-how-to-account-settings.md) | [Lien](luis-how-to-start-new-app.md#delete-app) | [Lien](luis-how-to-start-new-app.md#delete-app) | [Lien](luis-how-to-start-new-app.md#delete-app) |
 | **API** | [Lien](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Lien](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Lien](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Lien](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 

@@ -1,20 +1,21 @@
 ---
-title: Qu’est-ce que l’aperçu d’URL de projet ? - Microsoft Cognitive Services | Microsoft Docs
+title: Qu’est-ce que l’aperçu d’URL de projet ?
+titlesuffix: Azure Cognitive Services
 description: Présentation de l’aperçu d’URL de projet.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: overview
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 6b486e0ab4092bef4fe829a5f166311a572a2900
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 5d0b8260bf1c58af915c1be18c32cec678f4f09c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369580"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869429"
 ---
 # <a name="what-is-project-url-preview"></a>Qu’est-ce que l’aperçu d’URL de projet ?
 Le point de terminaison d’aperçu d’URL prend un paramètre de requête URL et retourne une réponse JSON avec le nom de la ressource cible, une brève description et un lien vers une image à afficher dans un aperçu. La réponse inclut également l’indicateur [isFamilyFriendly](url-preview-reference.md#query-parameters) qui précise si l’URL contient des données adulte, piratées ou tout autre contenu illégal. 

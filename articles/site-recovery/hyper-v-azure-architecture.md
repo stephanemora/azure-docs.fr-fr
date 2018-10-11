@@ -2,16 +2,17 @@
 title: Architecture de réplication Hyper-V vers Azure avec Azure Site Recovery | Microsoft Docs
 description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles Hyper-V locales (sans VMM) sur Azure avec le service Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: c5d31b6217d3afe8ddb3550c145820be5996c96a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 49059415c5f96eeb4dd871e7d2c8ae4ab9b2c12e
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920597"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078356"
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Architecture de la réplication Hyper-V sur Azure
 
@@ -69,7 +70,7 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 1. Une fois que vous activez la protection d’une machine virtuelle Hyper-V, dans le portail Azure ou en local, **l’activation de la protection** démarre.
 2. Le travail vérifie que la machine est conforme à la configuration requise, puis appelle la méthode [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), laquelle configure la réplication avec les paramètres que vous avez configurés.
 3. Le travail démarre la réplication initiale en appelant la méthode [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) pour initialiser une réplication complète de la machine virtuelle et envoyer les disques virtuels de la machine virtuelle sur Azure.
-4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.      ![Liste des travaux](media/hyper-v-azure-architecture/image1.png)![Activer l’exploration de la protection](media/hyper-v-azure-architecture/image2.png)
+4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.      Liste des travaux![Activer l’exploration de la protection](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Réplication initiale des données

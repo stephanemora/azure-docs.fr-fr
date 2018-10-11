@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: b0a02d2e5e0a1f1765098e1b1e258424b6443878
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039572"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870177"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Données d’utilisation pour le service LUIS à partir d’Azure Cloud Shell
 Le portail Azure vous permet de saisir des cmdlets PowerShell pour utiliser des ressources LUIS. 
@@ -23,7 +23,7 @@ Le portail Azure vous permet de saisir des cmdlets PowerShell pour utiliser des 
 Ces cmdlets permettent de [créer](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) un abonnement LUIS, d’obtenir des informations sur l’abonnement, y compris son [utilisation](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), et de [supprimer](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) l’abonnement. 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Compte de stockage de l’interpréteur de commandes cloud et authentification
-Pour pouvoir utiliser PowerShell dans l’[interpréteur de commandes cloud](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell) du portail Azure, vous devez disposer d’un compte de stockage Azure. Si vous n’avez pas de [compte de stockage](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share), vous êtes invité à en créer un. Le compte de stockage vous permet d’enregistrer des scripts PowerShell dans l’interpréteur de commandes cloud.  
+Pour pouvoir utiliser PowerShell dans l’[interpréteur de commandes cloud](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell) du portail Azure, vous devez disposer d’un compte de stockage Azure. Si vous n’avez pas de [compte de stockage](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage), vous êtes invité à en créer un. Le compte de stockage vous permet d’enregistrer des scripts PowerShell dans l’interpréteur de commandes cloud.  
 
 Vous devez également vous authentifier auprès d’Azure dans l’interpréteur de commandes cloud pour accéder aux ressources. 
 

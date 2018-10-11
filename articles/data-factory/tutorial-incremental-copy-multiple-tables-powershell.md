@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: ce83be3b08a08223e34f8c366e863ceee8e5d7ac
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 0cec1fb09503d3cc685b718c2497a363dfd15824
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087597"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868392"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Charger de façon incrémentielle des données provenant de plusieurs tables de SQL Server vers une base de données SQL Azure
 Dans ce tutoriel, vous allez créer une fabrique de données Azure Data Factory avec un pipeline qui charge les données delta de plusieurs tables d’une base de données SQL Server locale vers une base de données SQL Azure.    
@@ -604,7 +604,7 @@ Ce pipeline prend une liste de noms de tables comme paramètre. L’activité Fo
                                 "referenceName": "SinkDataset",
                                 "type": "DatasetReference",
                                 "parameters": {
-                                    "SinkTableName": "@{item().TABLE_NAME}"
+                                    "SinkTableName": "@{item().TableType}"
                                 }
                             }]
                         },

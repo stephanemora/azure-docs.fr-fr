@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: e4695428b03961f5e899007609dfb1088dde77a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 784174c1fb2427441e0ed1a13b147d2440539fa9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768207"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870336"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Géoréplication dans Azure Container Registry
 
@@ -27,24 +27,24 @@ Un registre géorépliqué offre les avantages suivants :
 * Gestion unique d’un registre dans plusieurs régions
 
 ## <a name="example-use-case"></a>Exemple de cas d’usage
-Contoso dispose d’un site web de présence publique situé aux États-Unis, au Canada et en Europe. Pour alimenter ces marchés avec du contenu local et à proximité du réseau, Contoso exécute des clusters Kubernetes [Azure Container Service](/azure/container-service/kubernetes/) (ACS) dans l’Ouest et dans l’Est des États-Unis, au centre du Canada et en Europe de l’Ouest. Déployée en tant qu’image Docker, l’application de site web utilise le même code et la même image dans toutes les régions. Le contenu, local pour cette région, est récupéré à partir d’une base de données qui est configurée de façon unique dans chaque région. Chaque déploiement régional possède sa propre configuration unique pour les ressources, telles que la base de données locale.
+Contoso dispose d’un site web de présence publique situé aux États-Unis, au Canada et en Europe. Pour alimenter ces marchés avec du contenu local et à proximité du réseau, Contoso exécute des clusters Kubernetes [Azure Container Service](/azure/container-service/kubernetes/) (ACS) dans les régions USA Ouest, USA Est, Canada Centre et Europe Ouest. Déployée en tant qu’image Docker, l’application de site web utilise le même code et la même image dans toutes les régions. Le contenu, local pour cette région, est récupéré à partir d’une base de données qui est configurée de façon unique dans chaque région. Chaque déploiement régional possède sa propre configuration unique pour les ressources, telles que la base de données locale.
 
-L’équipe de développement se trouve à Seattle, dans l’État de Washington, et utilise le centre de données de l’Ouest des États-Unis.
+L’équipe de développement se trouve à Seattle, dans l’État de Washington, et utilise le centre de données dans la région USA Ouest.
 
 ![Transmission vers plusieurs registres](media/container-registry-geo-replication/before-geo-replicate.png)<br />*Transmission vers plusieurs registres*
 
-Avant d’utiliser les fonctionnalités de géoréplication, Contoso disposait d’un registre basé dans l’Ouest des États-Unis et d’un autre registre en Europe de l’Ouest. Pour gérer ces différentes régions, l’équipe de développement devait envoyer des images à deux registres différents.
+Avant d’utiliser les fonctionnalités de géoréplication, Contoso disposait d’un registre basé dans la région USA Ouest et d’un autre registre dans Europe Ouest. Pour gérer ces différentes régions, l’équipe de développement devait envoyer des images à deux registres différents.
 
 ```bash
-docker push contoso.azurecr.io/pubic/products/web:1.2
-docker push contosowesteu.azurecr.io/pubic/products/web:1.2
+docker push contoso.azurecr.io/public/products/web:1.2
+docker push contosowesteu.azurecr.io/public/products/web:1.2
 ```
 ![Extraction à partir de plusieurs registres](media/container-registry-geo-replication/before-geo-replicate-pull.png)<br />*Extraction à partir de plusieurs registres*
 
 Voici les principaux défis liés à l’utilisation de plusieurs registres :
 
-* Tous les clusters (Est et Ouest des États-Unis et centre du Canada) extraient leurs données à partir du registre de l’Ouest des États-Unis, ce qui génère des frais de sortie puisque chacun de ces hôtes de conteneur à distance extrait des images à partir des centres de données situés dans l’Ouest des États-Unis.
-* L’équipe de développement doit transmettre les images aux registres de l’Ouest des États-Unis et de Europe de l’Ouest.
+* Tous les clusters (USA Est, USA Ouest et Canada Centre) extraient leurs données à partir du registre de la région USA Ouest, ce qui génère des frais de sortie puisque chacun de ces hôtes de conteneur à distance extrait des images à partir des centres de données situés dans la région USA Ouest.
+* L’équipe de développement doit transmettre les images aux registres des région USA Ouest et Europe Ouest.
 * L’équipe de développement doit configurer et tenir à jour chaque déploiement régional avec les noms d’images référençant le registre local.
 * L’accès au registre doit être configuré pour chaque région.
 
@@ -91,7 +91,7 @@ ACR commence la synchronisation des images entre les réplicas configurés. Une 
 
 La géoréplication est une fonctionnalité de la [Référence SKU Premium](container-registry-skus.md) d’Azure Container Registry. Lorsque vous répliquez un registre dans les régions de votre choix, cela entraîne des frais de registre Premium pour chaque région.
 
-Dans l’exemple précédent, Contoso a fusionné deux registres en un seul, en ajoutant des réplicas dans l’Est des États-Unis, dans le centre du Canada et en Europe de l’Ouest. Contoso payerait le tarif Premium quatre fois par mois, sans configuration ni gestion supplémentaire. Chaque région extraie désormais ses images localement, ce qui améliore les performances et la fiabilité sans frais de sortie de réseau de l’Ouest des États-Unis au Canada en passant par l’Est des États-Unis.
+Dans l’exemple précédent, Contoso a fusionné deux registres en un seul, en ajoutant des réplicas dans les régions USA Est, Canada Centre et Europe Ouest. Contoso payerait le tarif Premium quatre fois par mois, sans configuration ni gestion supplémentaire. Chaque région extraie désormais ses images localement, ce qui améliore les performances et la fiabilité sans frais de sortie de réseau de la région USA Ouest au Canada, en passant par USA Est.
 
 ## <a name="summary"></a>Résumé
 

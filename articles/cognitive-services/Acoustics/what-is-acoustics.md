@@ -1,20 +1,21 @@
 ---
-title: Introduction à Acoustics - Cognitive Services
+title: Qu’est-ce que Project Acoustics ?
+titlesuffix: Azure Cognitive Services
 description: Le plug-in Project Acoustics Unity fournit une occlusion, une réverbération et une spatialisation pour les projets ciblant la réalité virtuelle et les écrans traditionnels.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 08c6d8b8e229aabcc05fdfde2d8ffadf3a6346c2
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 6a3c97ead40cfb24604edac0624e38a9b0713fc0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40180983"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901022"
 ---
 # <a name="what-is-project-acoustics"></a>Qu’est-ce que Project Acoustics ?
 Le plug-in Project Acoustics Unity fournit une occlusion, une réverbération et une spatialisation pour les projets ciblant la réalité virtuelle et les écrans traditionnels. Il fournit un moyen de concevoir des acoustiques de jeux qui calquent des intentions de concepteur de couches via une simulation d’ondes basée sur le moteur physique.
@@ -56,7 +57,7 @@ Avec l’approche fournie par le plug-in Project Acoustics Unity, vous fournisse
 * Android (x 86 et ARM64)
 
 ## <a name="download"></a>Download
-Si vous êtes intéressé par l’évaluation du plug-in Acoustics, inscrivez-vous [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) pour joindre la préversion Concepteur.
+Si vous êtes intéressé par l’évaluation du plug-in Acoustics, inscrivez-vous [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) pour rejoindre la préversion Designer Preview.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur le [processus de conception](design-process.md)
