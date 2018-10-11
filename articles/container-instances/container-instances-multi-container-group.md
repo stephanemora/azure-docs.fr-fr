@@ -2,19 +2,18 @@
 title: Déployer des groupes de plusieurs conteneurs dans Azure Container Instances
 description: Découvrez comment déployer un groupe de conteneurs avec plusieurs conteneurs dans Azure Container Instances.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8a3dbe67a835cc9f1b8deca6a103e3f4aaa66ff9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: adb284772291dc901dd5302124982948c1f37eea
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424674"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856471"
 ---
 # <a name="deploy-a-container-group"></a>Déployer un groupe de conteneurs
 
@@ -176,7 +175,7 @@ Consultez la sortie du journal d’un conteneur à l’aide de la commande [az c
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-Output:
+Sortie :
 
 ```bash
 listening on port 80
@@ -191,7 +190,7 @@ Pour afficher les journaux du conteneur annexe, exécutez la même commande, en 
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-Output:
+Sortie :
 
 ```bash
 Every 3s: curl -I http://localhost                          2018-01-09 23:25:11

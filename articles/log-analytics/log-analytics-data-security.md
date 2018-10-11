@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: b91b906db1307343a50ffc3be07d562091f2e335
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: 97fa3e9cf043037bf2fe4b0ba198bbdf68de9fa4
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978782"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044686"
 ---
 # <a name="log-analytics-data-security"></a>Sécurité des données Log Analytics
 Ce document est destiné à fournir des informations propres à Log Analytics, qui est une fonctionnalité d’Azure Monitor, en complément des informations disponibles sur le [Centre de confidentialité Azure](../security/security-microsoft-trust-center.md).  
@@ -70,7 +70,7 @@ Le tableau ci-après répertorie certaines des solutions disponibles et fournit 
 | --- | --- |
 | Capacity and Performance |Données et métadonnées de performances |
 | Update Management |Métadonnées et données d'état |
-| Gestion du journal |Journaux des événements définis par l’utilisateur, journaux des événements Windows et/ou journaux IIS |
+| Gestion du journal |Journaux des événements défini par l’utilisateur, journaux des événements Windows et/ou journaux IIS |
 | Suivi des modifications |Inventaire des logiciels, métadonnées de service Windows et de démon Linux, et métadonnées de fichiers Windows/Linux |
 | Évaluation de SQL et d'Active Directory |Données WMI, données du Registre, données de performances et résultats de vues de gestion dynamique de SQL Server |
 
@@ -95,8 +95,8 @@ Log Analytics inclut un processus de gestion des incidents auquel tous les servi
 * Nous gérons les incidents de sécurité liés à Azure :
   * Nous lançons une investigation lors de la détection d’un incident.
   * Nous évaluons l’impact et la gravité d’un incident via l’intervention d’un membre de l’équipe chargée de répondre aux appels relatifs aux incidents. Selon les éléments de preuve apportés, l’évaluation peut ou non entraîner une réaffectation à l’équipe chargée de répondre aux problèmes de sécurité.
-  * Nous diagnostiquons un incident en demandant à des experts en réponse aux problèmes de sécurité de mener les investigations informatiques ou techniques nécessaires, et d’identifier des stratégies d’endiguement, d’atténuation et de contournement. Si l’équipe de sécurité estime que des données client risquent d’être exposées à une personne illégitime ou non autorisée, le processus de notification d’incident au client commence en parallèle.  
-  * Nous stabilisons l’incident et assurons la récupération. L’équipe de réponse aux incidents crée un plan de récupération pour atténuer le problème. Des mesures d’endiguement de crise telles que la mise en quarantaine des systèmes affectés peuvent être prises immédiatement et parallèlement au diagnostic. Des mesures d’atténuation à plus long terme peuvent être planifiées, qui interviennent une fois passé le risque immédiat.  
+  * Nous diagnostiquons un incident en demandant à des experts en réponse aux problèmes de sécurité de mener les investigations informatiques ou techniques nécessaire, et d’identifier des stratégies d’endiguement, d’atténuation et de contournement. Si l’équipe de sécurité estime que des données client risquent d’être exposées à une personne illégitime ou non autorisée, le processus de notification d’incident au client commence en parallèle.  
+  * Nous stabilisons l’incident et assurons la récupération. L’équipe de réponse aux incidents crée un plan de récupération pour atténuer le problème. Des mesures d’endiguement de crise telles que la mise en quarantaine des systèmes affectés peuvent être prises immédiatement et parallèlement au diagnostic. Des mesures d’atténuation à plus long terme peuvent être planifiées, qui se interviennent une fois passé le risque immédiat.  
   * Nous clôturons l’incident, puis établissons un bilan. L’équipe de réponse aux incidents dresse un bilan décrivant l’incident en détail, dans le but de réviser les stratégies, procédures et processus de façon appropriée afin d’éviter que l’événement se reproduise.
 * Nous informons les clients des incidents de sécurité :
   * Nous identifions les clients affectés, et communiquons à toute personne concernée une notice aussi détaillée que possible.

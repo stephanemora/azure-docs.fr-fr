@@ -2,18 +2,17 @@
 title: Mettre à jour les conteneurs dans Azure Container Instances
 description: Découvrez comment mettre à jour les conteneurs en cours d’exécution dans vos groupes de conteneurs Azure Container Instances.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
-ms.author: marsma
-ms.openlocfilehash: 5a42b0983b0f754b119fa304317e758a976fb4f6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432614"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854539"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Mettre à jour les conteneurs dans Azure Container Instances
 
@@ -23,7 +22,7 @@ Lors d’une utilisation normale de vos instances de conteneurs, vous pouvez avo
 
 Pour mettre à jour les conteneurs d’un groupe de conteneurs, redéployez un groupe existant en ayant modifié au moins une propriété. Lorsque vous mettez à jour un groupe de conteneurs, tous les conteneurs en cours d’exécution sont redémarrés sur place.
 
-Redéployez un groupe de conteneurs existant à l’aide de la commande create (ou du portail Azure), puis spécifiez le nom d’un groupe existant. Modifiez au moins une propriété valide du groupe lorsque vous utilisez la commande create pour déclencher le redéploiement. Certaines propriétés de groupe de conteneurs ne sont pas valides pour le redéploiement. Pour obtenir la liste des propriétés non prises en charge, consultez [Propriétés qui nécessitent la suppression du conteneur](#properties-that-require-delete).
+Redéployez un groupe de conteneurs existant à l’aide de la commande create (ou du portail Azure), puis spécifiez le nom d’un groupe existant. Modifiez au moins une propriété valide du groupe lorsque vous utilisez la commande create pour déclencher le redéploiement. Certaines propriétés de groupe de conteneurs ne sont pas valides pour le redéploiement. Pour obtenir la liste des propriétés non prises en charge, consultez [Propriétés qui nécessitent la suppression du conteneur](#properties-that-require-container-delete).
 
 L’exemple Azure CLI suivant met à jour un groupe de conteneurs avec une nouvelle étiquette de nom DNS. Étant donné que la propriété d’étiquette de nom DNS du groupe est modifiée, le groupe de conteneurs est redéployé et ses conteneurs sont redémarrés.
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: dfbcdce293d6d47267892487d0760410665af94a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130768"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041476"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surveiller les Surface Hubs avec Log Analytics pour suivre leur intégrité
 
@@ -69,7 +69,7 @@ Si vous n’utilisez pas Intune pour gérer votre environnement, vous pouvez ins
 3. Cliquez sur **Cet appareil**, puis, sous **Analyse**, cliquez sur **Configurer les paramètres OMS**.
 4. Sélectionnez **Activer l’analyse**.
 5. Dans la boîte de dialogue Paramètres OMS, entrez l’**ID de l’espace de travail** et la **Clé de l’espace de travail**.  
-   ![Paramètres](./media/log-analytics-surface-hubs/settings.png)
+   ![settings](./media/log-analytics-surface-hubs/settings.png)
 6. Cliquez sur **OK** pour achever la configuration.
 
 Une confirmation s’affiche, vous indiquant si la configuration a été correctement appliquée à l’appareil. Si c’est le cas, un message s’affiche, indiquant que l’agent est bien connecté à Log Analytics. L’appareil commence alors à envoyer des données à Log Analytics, où vous pouvez les consulter et les utiliser.

@@ -6,15 +6,16 @@ author: rastala
 ms.author: roastala
 manager: cgronlun
 ms.service: machine-learning
+ms.component: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 9/24/2018
-ms.openlocfilehash: 260e209bcf00396ee545851684038578c4fd148a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f221d160685dd12fb18a611432911baa60ebc6f7
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971040"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888069"
 ---
 # <a name="development-environment-for-azure-machine-learning"></a>Environnements de développement pour Azure Machine Learning 
 
@@ -24,10 +25,10 @@ Le service Azure Machine Learning est indépendant de toute plateforme et ne né
 
 Le reste de ce document aborde les environnements de développement que nous recommandons :
 
-* __Jupyter Notebooks__
+* __Blocs-notes Jupyter__
 * __Azure Notebooks__
 * __Environnements de développement intégrés (IDE) et éditeurs de texte__
-* __Data Science Virtual Machine__
+* __Data Science Virtual Machine__ (Machine virtuelle Science des données)
 
 Il est difficile de comparer ces environnements, car aussi bien les blocs-notes que les IDE peuvent être étendus. Par exemple, certains IDE peuvent être utilisés comme clients de Jupyter Notebooks. En règle générale, les __blocs-notes__ sont conçus pour une __expérimentation interactive__ et pour la __visualisation__. Les __éditeurs de code et les IDE__ fournissent des outils pour __améliorer la qualité du code__ et __s’intègrent aux systèmes externes__ tels que la gestion de versions.
 
@@ -36,7 +37,7 @@ Il est difficile de comparer ces environnements, car aussi bien les blocs-notes 
 >
 > C’est pourquoi Data Science Virtual Machine fournit à la fois des blocs-notes Jupyter et plusieurs IDE Python populaires.
 
-## <a name="jupyter-notebooks"></a>Jupyter Notebooks
+## <a name="jupyter-notebooks"></a>Blocs-notes Jupyter
 
 Jupyter Notebooks fait partie de [Jupyter Project](https://jupyter.org/). Il est destiné à fournir une expérience de codage interactive dans laquelle vous créez des documents qui associent du code en direct, du graphisme et du texte descriptif. Vous pouvez installer Jupyter Notebooks sur diverses plateformes.
 

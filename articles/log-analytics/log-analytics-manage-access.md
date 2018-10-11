@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: cb927c0bad69bb3b5b3001e4ba19b11acd1eb316
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: ''
+ms.openlocfilehash: 633bf2cf68449849c019ba940644d78d1478efc3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389967"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042324"
 ---
 # <a name="manage-workspaces"></a>Gestion des espaces de travail
 
@@ -49,7 +49,7 @@ Du point de vue de la consommation, nous vous recommandons de créer aussi peu d
 * Vous travaillez pour une entreprise globale et vous avez besoin de stocker vos données dans des régions spécifiques pour des raisons de conformité ou de souveraineté des données.
 * Vous utilisez Azure et vous souhaitez éviter les frais liés au transfert de données sortantes en configurant un espace de travail dans la même région que les ressources Azure qu’il gère.
 * Vous souhaitez allouer des frais à différents départements ou groupes métier en fonction de leur utilisation en créant un espace de travail pour chaque département ou groupe métier dans son propre abonnement Azure.
-* Vous êtes fournisseur de services managés et vous devez isoler les données Log Analytics des autres données de vos clients.
+* Vous êtes un fournisseur de services gérés et vous devez isoler les données Log Analytics des autres données de vos clients.
 * Vous gérez plusieurs clients et vous souhaitez que chaque client/département/groupe métier voie uniquement ses propres données, pas celles des autres.
 
 Lorsque vous utilisez des agents Windows pour collecter des données, vous pouvez [configurer chacun d’entre eux pour qu’il fournisse des rapports à un ou plusieurs espaces de travail](log-analytics-windows-agents.md).

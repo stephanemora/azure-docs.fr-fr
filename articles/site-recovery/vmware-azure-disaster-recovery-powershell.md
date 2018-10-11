@@ -2,17 +2,18 @@
 title: Répliquer et basculer des machines virtuelles VMware vers Azure à l’aide de PowerShell dans Azure Site Recovery | Microsoft Docs
 description: Découvrez comment configurer la réplication et le basculement vers Azure pour les machines virtuelles VMware à l’aide de PowerShell dans Azure Site Recovery.
 services: site-recovery
-author: bsiva
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
-ms.author: bsiva
-ms.openlocfilehash: a826817b8f2b4ebff8442da1fbee79a95990a9e8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.author: sutalasi
+ms.openlocfilehash: 070e51b132828e4fdf597d28fc2ad602adf76692
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917810"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042800"
 ---
 # <a name="replicate-and-fail-over-vmware-vms-to-azure-with-powershell"></a>Répliquer et basculer des machines virtuelles VMware vers Azure avec PowerShell
 
@@ -49,7 +50,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>Configurez un coffre Recovery Services.
 
-1. Créez un groupe de ressources dans lequel créer le coffre Recovery Services. Dans l’exemple ci-dessous, le groupe de ressources est nommé VMwareDRtoAzurePS et créé dans la région East Asia (Asie orientale).
+1. Créez un groupe de ressources dans lequel créer le coffre Recovery Services. Dans l’exemple ci-dessous, le groupe de ressources est nommé VMwareDRtoAzurePS et créé dans la région Asie Est.
 
    ```azurepowershell
    New-AzureRmResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
@@ -62,7 +63,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
 ```
    
-2. Créez un coffre Recovery Services. Dans l’exemple ci-dessous, le coffre Recovery Services est nommé VMwareDRToAzurePs et créé dans la région East Asia (Asie orientale), ainsi que dans le groupe de ressources créé à l’étape précédente.
+2. Créez un coffre Recovery Services. Dans l’exemple ci-dessous, le coffre Recovery Services est nommé VMwareDRToAzurePs et créé dans la région Asie Est, ainsi que dans le groupe de ressources créé à l’étape précédente.
 
    ```azurepowershell
    New-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"

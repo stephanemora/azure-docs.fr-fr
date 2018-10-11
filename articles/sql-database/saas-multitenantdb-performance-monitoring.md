@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055943"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830003"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances d’une base de données SQL Azure multi-locataire partitionnée dans une application SaaS multi-locataire
 
 Ce didacticiel aborde plusieurs scénarios de gestion de performance clés utilisés dans les applications SaaS. Les fonctionnalités intégrées de surveillance et d’alerte de base de données de SQL Database sont illustrés à l’aide d’un générateur de charge destiné à simuler l’activité de plusieurs bases de données multi-locataires partitionnées.
 
-L’application de base de données multi-locataire SaaS Wingtip Tickets utilise un modèle de données multi-locataires partitionnées, où les données du lieu (locataire) peuvent être réparties par ID de locataire sur plusieurs bases de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation de base de données type, vous pouvez augmenter ou réduire la taille des bases de données pour optimiser le coût d’une solution. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données pour veiller à ce que les charges soient raisonnablement équilibrées entre éventuellement plusieurs bases de données. Vous devez également veiller à ce que les bases de données aient des ressources appropriées et qu’elles n’atteignent pas les limites [DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus). Ce didacticiel explore plusieurs moyens de surveiller et de gérer des bases de données et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
+L’application de base de données multi-locataire SaaS Wingtip Tickets utilise un modèle de données multi-locataires partitionnées, où les données du lieu (locataire) peuvent être réparties par ID de locataire sur plusieurs bases de données. Comme de nombreuses applications SaaS, le modèle de charge de travail de locataire anticipé est imprévisible et sporadique. En d’autres termes, les ventes de tickets peuvent se produire à tout moment. Pour tirer parti de ce modèle d’utilisation de base de données type, vous pouvez augmenter ou réduire la taille des bases de données pour optimiser le coût d’une solution. Avec ce type de modèle, il est important de surveiller l’utilisation des ressources des bases de données pour veiller à ce que les charges soient raisonnablement équilibrées entre éventuellement plusieurs bases de données. Vous devez également veiller à ce que les bases de données aient des ressources appropriées et qu’elles n’atteignent pas les limites [DTU](sql-database-service-tiers.md#dtu-based-purchasing-model). Ce didacticiel explore plusieurs moyens de surveiller et de gérer des bases de données et montre comment prendre des mesures correctives en réponse aux variations de la charge de travail.
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 

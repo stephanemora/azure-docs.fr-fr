@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/14/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42146155"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079206"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice de prise en charge pour la réplication d’Hyper-V vers Azure
 
@@ -59,16 +59,16 @@ Ajouter un disque sur la machine virtuelle Hyper-V répliquée | Non pris en cha
 
 **Composant** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
-Réseau hôte : association de cartes réseau | OUI
-Réseau hôte : VLAN | OUI
-Réseau hôte : IPv4 | OUI
-Réseau hôte : IPv6 | Non 
-Réseau de machines virtuelles invitées : association de cartes réseau | Non 
-Réseau de machines virtuelles invitées : IPv4 | OUI
-Réseau de machines virtuelles invitées : IPv6 | Non 
-Réseau de machines virtuelles invitées : IP statique (Windows) | OUI
-Réseau de machines virtuelles invitées : IP statique (Linux) | Non 
-Réseau de machines virtuelles invitées : plusieurs cartes réseau | OUI
+Réseau hôte : association de cartes réseau | Oui | Oui
+Réseau hôte : VLAN | Oui | Oui
+Réseau hôte : IPv4 | Oui | Oui
+Réseau hôte : IPv6 | Non  | Non 
+Réseau de machines virtuelles invitées : association de cartes réseau | Non  | Non 
+Réseau de machines virtuelles invitées : IPv4 | Oui | Oui
+Réseau de machines virtuelles invitées : IPv6 | Non  | Oui
+Réseau de machines virtuelles invitées : IP statique (Windows) | Oui | Oui
+Réseau de machines virtuelles invitées : IP statique (Linux) | Non  | Non 
+Réseau de machines virtuelles invitées : plusieurs cartes réseau | Oui | Oui
 
 
 

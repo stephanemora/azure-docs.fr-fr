@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 60a6061d6ac0998064897462c0e82db811bdc187
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9a867289cffa17030e397ef170e9055451057410
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435276"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237736"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Prise en charge de la région et de la langue pour l’API du service de reconnaissance vocale
 
@@ -31,16 +31,16 @@ L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes
  ca-ES | Catalan (Espagne) | Non  | Non  | Non 
  da-DK | Danois (Danemark) | Non  | Non  | Non 
  de-DE | Allemand (Allemagne) | Oui | Oui | Non 
- en-AU | Anglais (Australie) | Oui | OUI | Oui
- en-CA | Anglais (Canada) | Oui | OUI | Oui
- en-GB | Anglais (Royaume-Uni) | Oui | OUI | Oui
- en-IN | Anglais (Inde) | Non  | OUI | Oui
- en-NZ | Anglais (Nouvelle-Zélande) | Oui | OUI | Oui  
+ en-AU | Anglais (Australie) | Non  | OUI | Oui
+ en-CA | Anglais (Canada) | Non  | OUI | Oui
+ en-GB | Anglais (Royaume-Uni) | Non  | OUI | Oui
+ en-IN | Anglais (Inde) | Oui | OUI | Oui
+ en-NZ | Anglais (Nouvelle-Zélande) | Non  | OUI | Oui  
  fr-FR | Anglais (États-Unis) | Oui | OUI | Oui
- es-ES | Espagnol (Espagne) | Oui | Oui | Non 
- es-MX | Espagnol (Mexique) | Oui | Oui | Non 
+ es-ES | Espagnol (Espagne) | Non  | Oui | Non 
+ es-MX | Espagnol (Mexique) | Non  | Oui | Non 
  fi-FI | Finnois (Finlande) | Non  | Non  | Non 
- fr-CA | Français (Canada) | Oui | Oui | Non 
+ fr-CA | Français (Canada) | Non  | Oui | Non 
  fr-FR | Français (France) | Oui | Oui | Non 
  hi-IN | Hindi (Inde) | Non  | Oui | Non 
  it-IT | Italien (Italie) | Oui | Oui | Non 
@@ -51,7 +51,7 @@ L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes
  pl-PL | Polonais (Pologne) | Non  | Non  | Non 
  pt-br | Portugais (Brésil) | Non  | Oui | Non 
  pt-PT | Portugais (Portugal) | Non  | Oui | Non 
- ru-RU | Russe (Russie) | Non  | Oui | Non 
+ ru-RU | Russe (Russie) | Oui | Oui | Non 
  sv-SE | Suédois (Suède) | Non  | Non  | Non 
  zh-CN | Chinois (mandarin, simplifié) | Oui | Oui | Non 
  zh-HK | Chinois (mandarin, traditionnel) | Non  | Oui | Non 
@@ -70,7 +70,7 @@ ar-SA | Arabe (Arabie saoudite) | Masculin | « Voix de synthèse vocale pour le
 bg-BG | Bulgare | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (bg-BG, Ivan) »
 ca-ES | Catalan (Espagne) | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ca-ES, HerenaRUS) »
 cs-CZ | Tchèque | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (cs-CZ, Jakub) »
-cs-CZ | Tchèque | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (cs-CZ, Vit) »
+cs-CZ | Tchèque | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (cs-CZ, Vit) »
 da-DK | Danois | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (da-DK, HelleRUS) »
 de-AT | Allemand (Autriche) | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-AT, Michael) »
 de-CH | Allemand (Suisse) | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-CH, Karsten) »
@@ -86,7 +86,7 @@ en-GB | Anglais (Royaume-Uni) | Féminin | « Voix de synthèse vocale pour le s
 | | |Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-GB, HazelRUS) »
 | | |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-GB, George, Apollo) »
 en-IE | Anglais (Irlande) |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IE, Sean) »
-en-IE | Anglais (Irlande) |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IE, Shaun) »
+en-IE | Anglais (Irlande) |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IE, Shaun) »
 en-IN | Anglais (Inde) | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Heera, Apollo) »
 | | |Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, PriyaRUS) »
 | | |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Ravi, Apollo) »
@@ -135,7 +135,7 @@ sk-SK | Slovaque|Masculin | « Voix de synthèse vocale pour le service Speech M
 sl-SI | Slovène|Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (sl-SI, Lado) »
 sv-SE | Suédois|Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (sv-SE, HedvigRUS) »
 ta-IN | Tamoul (Inde) |Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ta-IN, Valluvar) »
-te-IN | Télougou (Inde) |Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (te-IN, Chitra) »
+te-IN | Télougou (Inde) |Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (te-IN, Chitra) »
 th-TH | Thaï|Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (th-TH, Pattara) »
 tr-TR |Turc| Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (tr-TR, SedaRUS) »
 vi-VN | Vietnamien|Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (vi-VN, An) »
@@ -156,13 +156,11 @@ zh-TW | Chinois (Taïwan)|Féminin | « Voix de synthèse vocale pour le service
 La personnalisation vocale est disponible pour l’anglais américain (en-US), le chinois continental (zh-CN) et l’italien (it-IT).
 
 > [!NOTE]
-> L’apprentissage de la voix italienne commence par un jeu de données de plus de 2 000 énoncés. Les modèles bilingues chinois-anglais sont également pris en charge avec un jeu de données initial de plus de 2 000 énoncés.
+> L’entraînement de la voix italienne commence par un jeu de données de plus de 2 000 énoncés. Les modèles bilingues chinois-anglais sont également pris en charge avec un premier jeu de données de plus de 2 000 énoncés.
 
 ## <a name="speech-translation"></a>Traduction vocale
 
 L’API **Traduction vocale** prend en charge différentes langues pour la traduction de parole en parole et de parole en texte. La langue source doit toujours figurer dans le tableau des langues vocales suivant. Les langues cibles disponibles dépendent selon que cible de la traduction est de la parole ou du texte.
-
-Vous pouvez obtenir la liste des langues par programmation en utilisant le point de terminaison des langues de l’API REST. La liste fournit chaque code de langue, ainsi que le nom de la langue en anglais ou dans toute autre langue prise en charge. Cette liste est mise à jour par le service Microsoft Translator chaque fois qu’une nouvelle langue devient disponible.
 
 ### <a name="speech-languages"></a>Langues de synthèse vocale
 

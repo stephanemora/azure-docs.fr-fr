@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c6bc77e5ee1fa5e180b41dca50640dc01fee0691
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220917"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017514"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configurer des identités managées pour ressources Azure sur un groupe de machines virtuelles identiques Azure en utilisant un modèle
 
@@ -146,7 +146,7 @@ Si vous disposez d’un groupe de machines virtuelles identiques qui n’a plus 
 
    Si votre version d’API est `2018-06-01` et que votre machine virtuelle a des identités managées affectées par le système et l’utilisateur, supprimez `SystemAssigned` dans le type d’identité et conservez `UserAssigned` avec les valeurs du dictionnaire userAssignedIdentities.
 
-   **API Microsoft.Compute/virtualMachineScaleSets version du 01/06/2018 et versions antérieures**
+   **API Microsoft.Compute/virtualMachineScaleSets version du 01/06/2018**
 
    Si votre version d’API est `2017-12-01` et que votre groupe de machines virtuelles identiques dispose d’identités managées affectées par le système et par l’utilisateur, supprimez `SystemAssigned` dans le type d’identité et conservez `UserAssigned` avec le tableau `identityIds` des identités managées affectées par l’utilisateur. 
    
@@ -279,7 +279,7 @@ Dans cette section, vous allez affecter une identité managée affectée par l�
     ]
    ```
 
-   **API Microsoft.Compute/virtualMachines version du 01/12/2017 et versions antérieures**
+   **API Microsoft.Compute/virtualMachines version 2017-12-01**
 
    ```json
    "resources": [

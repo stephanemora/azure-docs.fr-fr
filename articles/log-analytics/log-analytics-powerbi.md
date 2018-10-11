@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: fb05ddabab3702299df0e81e8dda5af5cb676c1a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 7610fcfc144e4337f8556c8824dc7d104265bcc4
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127507"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044550"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importation de données Azure Log Analytics dans Power BI
 
 
 [Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) est un service Microsoft d’analyse commerciale basé sur le cloud qui fournit de riches fonctions de visualisation et de rapport afin de faciliter l’analyse de différents jeux de données.  Vous pouvez importer les résultats d'une recherche dans les journaux Log Analytics dans un jeu de données Power BI afin de bénéficier de ses fonctionnalités telles que la combinaison de données provenant de différentes sources et le partage de rapports sur le Web et sur des appareils mobiles.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Pour importer les données d'un espace de travail Log Analytics dans Power BI, créez un jeu de données dans Power BI à partir d'une requête de recherche dans les journaux dans Log Analytics.  La requête est exécutée chaque fois que le jeu de données est actualisé.  Vous pouvez ensuite créer des rapports Power BI qui utilisent les informations du jeu de données.  Pour créer le jeu de données dans Power BI, vous exportez votre requête depuis Log Analytics vers le [langage Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Vous l'utilisez ensuite pour créer une requête dans Power BI Desktop, avant de la publier dans Power BI en tant que jeu de données.  Les détails de ce processus sont décrits ci-dessous.
 
 ![Log Analytics vers Power BI](media/log-analytics-powerbi/overview.png)

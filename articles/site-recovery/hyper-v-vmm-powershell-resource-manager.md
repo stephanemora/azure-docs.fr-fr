@@ -2,18 +2,18 @@
 title: Répliquer les machines virtuelles Hyper-V dans les clouds Virtual Machine Manager sur un site secondaire avec PowerShell (Azure Resource Manager) | Microsoft Docs
 description: Explique comment répliquer des machines virtuelles Hyper-V dans des clouds Virtual Machine Manager sur un site Virtual Machine Manager secondaire avec PowerShell (Resource Manager)
 services: site-recovery
-author: sujaytalasila
+author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 0fecc7ba48daf396c3d25969cdda5891bdf08232
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 896b3cb3c40673dfbc7269cab1d37790f78912b0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917963"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041354"
 ---
 # <a name="replicate-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Répliquer des machines virtuelles Hyper-V sur un site secondaire au moyen de PowerShell (Resource Manager)
 

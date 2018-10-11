@@ -1,20 +1,21 @@
 ---
-title: Point de terminaison d’aperçu de l’URL du projet - Microsoft Cognitive Services | Microsoft Docs
+title: Point de terminaison d’aperçu de l’URL du projet
+titlesuffix: Azure Cognitive Services
 description: Résumé du point de terminaison d’aperçu de l’URL.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ddd53aa49db01d7a6db397eb285d0854edc59388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0464ac80c451ada46561de78b5ba0860c59a9e34
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369585"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868647"
 ---
 # <a name="project-url-preview-endpoint"></a>Point de terminaison d’aperçu de l’URL du projet
 
@@ -32,7 +33,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ### <a name="query-parameters"></a>Paramètres de requête
 |NOM|Valeur|type|Obligatoire|  
 |----------|-----------|----------|--------------|  
-|q|URL servant à afficher l’aperçu|Chaîne |OUI|
+|q|URL servant à afficher l’aperçu|Chaîne |Oui|
 |safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive.</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image).</li></ul> |Chaîne|Non requis. </br> La valeur par défaut est safeSearch=strict.| 
 
 ## <a name="response-object"></a>Objet Réponse
@@ -60,7 +61,7 @@ X-MSEdge-Ref: Ref A: 15AFE52A97AA422F960433A94803F6CE Ref B: PAOEDGE0418 Ref C: 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide C#](csharp.md)
-- [Démarrage rapide de Java](java-quickstart.md)
+- [Démarrage rapide Java](java-quickstart.md)
 - [Démarrage rapide JavaScript](javascript.md)
 - [Démarrage rapide Node](node-quickstart.md)
 - [Démarrage rapide Python](python-quickstart.md)

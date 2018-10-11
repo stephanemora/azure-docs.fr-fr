@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 4677b8d5601dcafbf4760e6f185ef70393229b1a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: 8a73ad7c17710ab3e6e4ed41eced643ce9eb86dc
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961057"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042476"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Affichage et analyse de données dans Log Analytics
 Le portail Azure comporte deux options permettant d’analyser les données stockées dans Log Analystics et de créer des requêtes pour une analyse ad hoc. Les requêtes que vous créez à l’aide de ces portails peuvent être utilisées pour d’autres fonctionnalités telles que des alertes et des tableaux de bord.

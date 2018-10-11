@@ -6,16 +6,16 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 08/30/2018
+ms.date: 10/09/2018
 ms.author: raynew
-ms.openlocfilehash: c71f683355a09c8ba2381db406eeb1ccabdb7afa
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697694"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902822"
 ---
-# <a name="replicate-azure-stack-vms-to-azure-preview"></a>Répliquer des machines virtuelles Azure Stack sur Azure (préversion)
+# <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
 Cet article explique comment configurer la reprise d’activité sur Azure de machines virtuelles Azure Stack en utilisant le [service Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
@@ -25,10 +25,6 @@ Site Recovery participe de votre stratégie de continuité d’activité et repr
 - En cas d’interruption de votre site principal, Site Recovery vous permet de basculer vers Azure.
 - Lors du basculement, des machines virtuelles Azure sont créées à partir des données des machines virtuelles stockées, et les utilisateurs peuvent continuer à accéder aux charges de travail exécutées sur ces machines virtuelles Azure.
 - Lorsque tout est à nouveau opérationnel, vous pouvez restaurer les machines virtuelles Azure sur votre site principal et recommencer à répliquer sur Stockage Azure.
-
-
-> [!NOTE]
-> Site Recovery pour Azure Stack est actuellement disponible en préversion publique.
 
 
 Dans cet article, vous apprendrez comment :
@@ -65,11 +61,11 @@ La réplication fonctionne comme suit :
 7. Les machines répliquées communiquent avec le serveur de configuration (port d’entrée HTTPS 443) pour gérer la réplication. Les machines envoient les données de réplication au serveur de processus (port d’entrée HTTPS 9443 ; modifiable).
 8. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. Une autre solution consiste à utiliser une homologation publique Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Voici les éléments requis pour configurer ce scénario.
 
-**Exigence** | **Détails**
+**Prérequis** | **Détails**
 --- | ---
 **Compte d’abonnement Azure** | Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 **Autorisations du compte Azure** | Le compte Azure que vous utilisez doit être autorisé à effectuer les actions suivantes :<br/><br/> - Créer un coffre Recovery Services<br/><br/> - Créer une machine virtuelle dans le groupe de ressources et le réseau virtuel que vous utilisez pour le scénario<br/><br/> - Écrire dans le compte de stockage que vous spécifiez<br/><br/> Notez les points suivants :<br/><br/> - Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> - Si vous utilisez un abonnement existant dont vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous accorde les autorisations Propriétaire ou Contributeur.<br/><br/> - Si vous avez besoin d’autorisations plus précises, voir [cet article](https://docs.microsoft.com/azure/site-recovery/site-recovery-role-based-linked-access-control). 
@@ -206,7 +202,7 @@ Sélectionnez et vérifiez les ressources cibles.
 3. Site Recovery vérifie que vous disposez d’un ou de plusieurs réseaux et comptes Azure Storage compatibles. S’il n’en trouve pas, vous devez créer au moins un compte de stockage et un réseau virtuel pour suivre la procédure de l’Assistant.
 
 
-## <a name="step-5-enable-replication"></a>Étape 5 : Activer la réplication
+## <a name="step-5-enable-replication"></a>Étape 5 : activer la réplication
 
 ### <a name="create-a-replication-policy"></a>Créer une stratégie de réplication
 

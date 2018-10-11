@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 4fb5bdf30502dbca3eba961165a1ab643427abd6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: abf09444e92c6faded42a9143b4b5c849a4cf41d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150001"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853264"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-microsoft-account-login"></a>Comment configurer votre application App Service pour utiliser une connexion par compte Microsoft
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -42,6 +42,8 @@ Cette rubrique montre comment configurer Azure App Service pour utiliser un comp
 
     > [!IMPORTANT]
     > Le mot de passe est une information d’identification de sécurité importante. Ne partagez le mot de passe avec personne et ne le distribuez pas dans une application cliente.
+    
+8. Cliquez sur **Enregistrer**.
 
 ## <a name="secrets"></a>Ajout des informations de compte Microsoft à votre application App Service
 1. Dans le [portail Azure], accédez à votre application et cliquez sur **Paramètres** > **Authentification / Autorisation**.
@@ -67,4 +69,4 @@ Vous êtes maintenant prêt à utiliser un compte Microsoft pour l’authentific
 <!-- URLs. -->
 
 [Mes applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[portail Azure]: https://portal.azure.com/
+[Portail Azure]: https://portal.azure.com/

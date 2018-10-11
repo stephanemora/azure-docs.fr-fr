@@ -1,3 +1,26 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: jmprieur
+ms.custom: include file
+ms.openlocfilehash: d333f8ecd7e1044575f570d893227f9dcb394974
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843102"
+---
 ## <a name="test-your-code"></a>Test de votre code
 
 Pour exécuter votre projet, sélectionnez **F5** dans Visual Studio. Votre application **MainWindow** s’affiche, comme illustré ici :
@@ -19,8 +42,8 @@ Une fois connecté, vous devez voir les informations de profil utilisateur qui s
 |Propriété  |Format  |Description |
 |---------|---------|---------|
 |**Name** |Nom complet de l’utilisateur |Prénom et nom de l’utilisateur|
-|**Username** |<span>user@domain.com</span> |Nom d’utilisateur employé pour identifier l’utilisateur.|
-|**Token Expires** |DateHeure |Date et heure auxquelles expire le jeton. MSAL repousse la date d’expiration en renouvelant le jeton si nécessaire.|
+|**Nom d’utilisateur** |<span>user@domain.com</span> |Nom d’utilisateur employé pour identifier l’utilisateur.|
+|**Token Expires** |Datetime |Date et heure auxquelles expire le jeton. MSAL repousse la date d’expiration en renouvelant le jeton si nécessaire.|
 |**Access Token** |Chaîne |Chaîne de jeton qui est envoyée aux requêtes HTTP qui nécessitent un *en-tête d’autorisation*.|
 
 <!--start-collapse-->

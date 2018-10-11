@@ -1,21 +1,21 @@
 ---
-title: Qu’est-ce que Recherche d’actualités Bing ? | Microsoft Docs
+title: Qu’est-ce que Recherche d’actualités Bing ?
+titlesuffix: Azure Cognitive Services
 description: Découvrez comment utiliser l’API Recherche d’actualités Bing pour rechercher des actualités sur le web.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 4B35B035-34FB-403A-9F52-6470AF726FB6
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 977b2e10c8a2ceccc5a6ffb3f396e6721afe1816
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 787fdea047f9e7d77ca0a156f1c41fa50fd2fa48
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096987"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801469"
 ---
 # <a name="what-is-bing-news-search"></a>Qu’est-ce que Recherche d’actualités Bing ?
 
@@ -27,7 +27,7 @@ Si vous souhaitez créer une page de résultats servant à afficher uniquement d
 
 Si vous fournissez une zone de recherche dans laquelle l’utilisateur entre son terme de recherche, utilisez [l’API Suggestion automatique Bing](../bing-autosuggest/get-suggested-search-terms.md) pour améliorer l’expérience. À mesure que l’utilisateur tape des termes de recherche, l’API suggère des chaînes de requête.
 
-Quand l’utilisateur a terminé d’entrer son terme de recherche, encodez-le sous forme d’URL avant de définir le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query). Par exemple, si l’utilisateur entre *sailing dinghies*, définissez `q` avec la valeur `sailing+dinghies` ou `sailing%20dinghies`.
+Une fois que l’utilisateur a entré son terme de recherche, encodez-le sous forme d’URL avant de définir le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#query). Par exemple, si l’utilisateur entre *sailing dinghies*, définissez `q` avec la valeur `sailing+dinghies` ou `sailing%20dinghies`.
 
 ## <a name="getting-general-news"></a>Obtention d’actualités générales
 
@@ -257,7 +257,7 @@ S’il existe d’autres articles associés à un article d’actualités, celui
     },
 ```
 
-## <a name="throttling-requests"></a>Limitation de requêtes
+## <a name="throttling-requests"></a>Demandes de limitation
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 

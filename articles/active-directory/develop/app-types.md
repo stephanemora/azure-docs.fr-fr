@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 3ac97ac5e9ae0a7059d9c74c5918212f1ce02790
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959952"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816342"
 ---
 # <a name="application-types-in-v10"></a>Types d’applications dans v1.0
 
@@ -69,7 +69,7 @@ Pour en savoir plus, consultez l’article sur [l’inscription d’une applicat
 L’approvisionnement devient plus clair lorsque vous comprenez qu’il existe deux catégories d’applications que vous pouvez développer et intégrer avec Azure AD :
 
 * **Application à client unique** : une application à client unique est destinée à être utilisée dans une seule organisation. Il s’agit généralement d’applications métiers écrites par un développeur d’entreprise. Une application à client unique doit être accessible uniquement aux utilisateurs d’un annuaire et, en conséquence, ne doit être approvisionnée que dans un seul annuaire. Ces applications sont généralement inscrites par un développeur de l’organisation.
-* **Application mutualisée** : une application mutualisée est destinée à être utilisée dans plusieurs organisations, non dans une seule. Il s’agit généralement d’applications SaaS (software-as-a-service) écrites par un éditeur de logiciels indépendant. Les applications mutualisées doivent être approvisionnées dans chaque annuaire dans lequel elles sont utilisées, ce qui suppose le consentement d’un utilisateur ou d’un administrateur pour les inscrire. Ce processus de consentement démarre quand une application a été enregistrée dans l’annuaire et accède à l’API Graph ou à une autre API web. Lorsqu’un utilisateur ou un administrateur d’une autre organisation s’inscrit pour utiliser l’application, une boîte de dialogue contenant les autorisations que l’application requiert s’affiche. L’utilisateur ou l’administrateur peut alors donner son consentement à l’application, ce qui permet à cette dernière d’accéder aux données indiquées et inscrit l’application dans l’annuaire de l’utilisateur ou de l’administrateur. Pour plus d’informations, consultez la page [Vue d’ensemble de l’infrastructure de consentement](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework).
+* **Application mutualisée** : une application mutualisée est destinée à être utilisée dans plusieurs organisations, non dans une seule. Il s’agit généralement d’applications SaaS (software-as-a-service) écrites par un éditeur de logiciels indépendant. Les applications mutualisées doivent être approvisionnées dans chaque annuaire dans lequel elles sont utilisées, ce qui suppose le consentement d’un utilisateur ou d’un administrateur pour les inscrire. Ce processus de consentement démarre quand une application a été enregistrée dans l’annuaire et accède à l’API Graph ou à une autre API web. Lorsqu’un utilisateur ou un administrateur d’une autre organisation s’inscrit pour utiliser l’application, une boîte de dialogue contenant les autorisations que l’application requiert s’affiche. L’utilisateur ou l’administrateur peut alors donner son consentement à l’application, ce qui permet à cette dernière d’accéder aux données indiquées et inscrit l’application dans l’annuaire de l’utilisateur ou de l’administrateur. Pour plus d’informations, consultez la page [Vue d’ensemble de l’infrastructure de consentement](consent-framework.md).
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considérations supplémentaires lors du développement d’applications à client unique ou à plusieurs clients
 

@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 4cbc8ebcdd19aa65a37ffe0f82019a7681f1c6c5
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8cfc654e881c7477e430515e62f8c78cfd0a2b84
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434872"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238586"
 ---
-# <a name="extracting-text-with-ocr"></a>Extraction de texte avec l’OCR
+# <a name="extracting-text-with-ocr"></a>Extraction de texte avec reconnaissance optique de caractères
 
 L’OCR fournie dans Vision par ordinateur est une technologie de reconnaissance optique de caractères qui détecte le contenu textuel dans une image et extrait le texte identifié sous forme de flux de caractères lisibles par ordinateur. Vous pouvez utiliser le résultat pour effectuer des recherches ou l’appliquer à de nombreuses autres applications, comme les dossiers médicaux, la sécurité et le secteur bancaire. Cette technologie détecte automatiquement la langue. Elle permet de gagner du temps, et elle est pratique car elle permet de prendre des photos du texte au lieu de le retranscrire.
 
@@ -33,7 +33,7 @@ Vision par ordinateur peut utiliser l’OCR pour extraire le texte des images qu
 
 * L’image doit être au format JPEG, PNG, GIF ou BMP
 * La taille de l’image d’entrée doit être comprise entre 50 x 50 et 4 200 x 4 200 pixels
-* L’image ne peut pas dépasser 10 mégapixels
+
 
 L’image d’entrée peut être pivotée par multiples de 90 degrés, plus un faible angle de 40 degrés maximum.
 

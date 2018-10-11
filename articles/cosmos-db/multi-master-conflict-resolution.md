@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 39fd393e78a2b66749c6aa34a758b185b38effdf
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393925"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041185"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Résolution des conflits multimaîtres dans Azure Cosmos DB 
 
@@ -157,7 +157,7 @@ La procédure comprend quatre paramètres :
 
 * **conflictingDocuments :** spécifie une collection des versions validées de tous les documents de la base de données qui sont en conflit avec incomingDocument sur la colonne d’ID ou n’importe quel autre champ d’index unique. Ces documents ont une valeur « rid » différente d’incomingDocument.
 
-La procédure définie par l’utilisateur a un accès complet à la clé de partition Cosmos DB et peut effectuer n’importe quelle opération de stockage pour résoudre des conflits. Si la procédure définie par l’utilisateur ne valide pas la version en conflit, le système supprime le conflit et existingDocument reste validé. Si la procédure définie par l’utilisateur échoue ou n’existe pas, Azure Cosmos DB ajoute le conflit au flux de conflits en lecture seule du flux où il peut être traité de manière asynchrone, comme indiqué dans [Mode de résolution des conflits asynchrone](). 
+La procédure définie par l’utilisateur a un accès complet à la clé de partition Cosmos DB et peut effectuer n’importe quelle opération de stockage pour résoudre des conflits. Si la procédure définie par l’utilisateur ne valide pas la version en conflit, le système supprime le conflit et existingDocument reste validé. Si la procédure définie par l’utilisateur échoue ou n’existe pas, Azure Cosmos DB ajoute le conflit au flux de conflits en lecture seule du flux où il peut être traité de manière asynchrone, comme indiqué dans [Mode de résolution des conflits asynchrone](#custom--asynchronous). 
 
 ### <a name="custom--asynchronous"></a>Asynchrone/personnalisé  
 
@@ -206,7 +206,7 @@ FeedResponse<Conflict> response = await myClient.ReadConflictFeedAsync(myCollect
 
 Vous trouverez ci-après des exemples d’applications qui illustrent la résolution des conflits pour les API répertoriées. Chaque exemple génère des conflits dans un conteneur, puis montre comment les conflits sont résolus pour chaque mode de résolution des conflits pris en charge.
 
-|Modèle d’API  | SDK |Exemple |
+|Modèle d’API  | Foundation |Exemple |
 |---------|---------|---------|
 |API SQL    | .NET    |[azure-cosmos-db-sql-dotnet-multi-master](https://github.com/Azure-Samples/azure-cosmos-db-sql-dotnet-multi-master)  |
 |API SQL    | Nœud    |[azure-cosmos-js/samples/MultiRegionWrite/](https://github.com/Azure/azure-cosmos-js/tree/master/samples/MultiRegionWrite)  |

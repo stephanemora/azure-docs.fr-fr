@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 7b17b23d30b15fe71dcf031ac67f0c54fc3cfe3e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: bf5b37bfa2cb103ef8151203359041fa4bd10f0b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129310"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043326"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Créer un tableau de bord personnalisé à utiliser dans Log Analytics
 
@@ -41,7 +41,7 @@ Tous les tableaux de bord personnalisés que vous créez dans le portail OMS son
 ## <a name="how-do-i-create-my-dashboard"></a>Comment créer un tableau de bord ?
 Pour commencer, accédez à la page de présentation d’OMS. La vignette **Mon tableau de bord** s’affiche sur la gauche. Cliquez dessus pour explorer les détails de votre tableau de bord.
 
-![Vue d'ensemble](./media/log-analytics-dashboards/oms-dashboards-overview.png)
+![Vue d’ensemble](./media/log-analytics-dashboards/oms-dashboards-overview.png)
 
 ## <a name="adding-a-tile"></a>Ajout d'une vignette
 Dans les tableaux de bord, les vignettes sont alimentées par vos recherches de journal enregistrées. OMS propose un grand nombre de recherches enregistrées de journal prédéfinies qui vous permettent de commencer tout de suite. Suivez les étapes suivantes pour commencer.

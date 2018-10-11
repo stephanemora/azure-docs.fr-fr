@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 2ffb1f7edef0cf92cbbf7adc4314967858bcfeb1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128641"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855372"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Architecture d’intégration d’entreprise avec files d’attente et événements
 
@@ -22,13 +22,13 @@ Cet article décrit une architecture d’intégration d’entreprise qui utilise
 
 ![Diagramme de l’architecture – Intégration d’entreprise avec files d’attente et événements](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
-Cette gamme décrit les composants réutilisables qui peuvent s’appliquer à la création d’une application d’intégration générique. Étant donné que la technologie d’intégration a de nombreuses applications possibles, allant des applications de point à point simples à des applications Azure Service Bus d’entreprise complètes, prenez en compte les composants que vous devez implémenter pour vos applications et infrastructures.
+Cette gamme décrit les composants réutilisables qui peuvent s’appliquer à la création d’une application d’intégration générique. Étant donné que la technologie d’intégration a de nombreuses applications possibles, allant des applications de point à point simples à des applications Azure Service Bus d’entreprise complètes, prenez en compte les composants que vous devez implémenter pour vos applications et votre infrastructure.
 
 ## <a name="architecture-components"></a>Composants de l’architecture
 
 Cette architecture repose sur celle qui est décrite dans l’article [Architecture de référence : intégration d’entreprise simple](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md). Les [recommandations](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations) de cette architecture s’appliquent également ici. Toutefois, par souci de concision, cet article omet ces recommandations de la section [Recommandations](#recommendations). Cette architecture d’intégration d’entreprise inclut les composants suivants :
 
-- **Groupe de ressources** : un [groupe de ressources](../azure-resource-manager/resource-group-overview.md) est un conteneur logique pour les ressources Azure.
+- **Groupe de ressources** : un [groupe de ressources](../azure-resource-manager/resource-group-overview.md) est un conteneur logique pour ressources Azure.
 
 - **Gestion des API Azure** : le service [Gestion des API](https://docs.microsoft.com/azure/api-management/) est une plateforme entièrement gérée pour la publication, la sécurisation et la transformation des API HTTP.
 
@@ -81,7 +81,7 @@ Event Grid utilise un modèle serverless. La facturation est calculée en foncti
 
 ### <a name="use-peeklock-to-consume-service-bus-messages"></a>Utiliser PeekLock pour consommer des messages Service Bus
 
-Lorsque vous créez une application logique afin de consommer des messages Service Bus, demandez à votre application logique d’utiliser [PeekLock](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#queues) pour accéder à un groupe de messages. Lorsque vous utilisez PeekLock, l’application logique peut suivre des étapes pour valider chaque message avant de terminer ou d’abandonner le message. Cette approche protège contre la perte accidentelle de messages.
+Lorsque vous créez une application logique afin de consommer des messages Service Bus, demandez à votre application logique d’utiliser [PeekLock](../service-bus-messaging/service-bus-messaging-overview.md#queues) pour accéder à un groupe de messages. Lorsque vous utilisez PeekLock, l’application logique peut suivre des étapes pour valider chaque message avant de terminer ou d’abandonner le message. Cette approche protège contre la perte accidentelle de messages.
 
 ### <a name="check-for-multiple-objects-when-an-event-grid-trigger-fires"></a>Chercher les objets multiples lors de l’activation d’un déclencheur Event Grid
 
