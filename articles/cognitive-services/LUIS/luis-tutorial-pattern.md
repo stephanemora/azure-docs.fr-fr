@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: f4b267dda3c05d490d91fe02fbcfde4e49674603
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b09ebbb358b909c98df4eb05154c29b4b3cb7ee9
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166399"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888252"
 ---
 # <a name="tutorial-3-add-common-utterance-formats"></a>Tutoriel 3 : Ajouter des formats d’énoncé courants
 
@@ -26,8 +26,8 @@ Dans ce tutoriel, vous allez utiliser des modèles pour augmenter la prédiction
 > [!div class="checklist"]
 > * Utiliser l’application de tutoriel existante 
 > * Créer une intention
-> * Entraîner
-> * Publier
+> * Former
+> * Publish
 > * Obtenir les intentions et les entités à partir du point de terminaison
 > * Créer un modèle
 > * Vérifier l’amélioration des prédictions de modèle
