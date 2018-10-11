@@ -11,12 +11,12 @@ ms.date: 09/24/2018
 ms.topic: hub-page
 ms.prod: cognitive-services
 ms.technology: cognitive-services
-ms.openlocfilehash: 5403ec448725504c0b0a57a3d82853d0884c7c48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1c07a02369af90580615fd9e7eaf6e239949ea36
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985422"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068466"
 ---
 <h1>Documentation Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Découvrez comment générer des algorithmes intelligents dans vos applications, sites web et bots pour voir, écouter, énoncer, et comprendre les besoins de vos utilisateurs au moyen de méthodes naturelles de communication. Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.</p>
@@ -28,7 +28,7 @@ ms.locfileid: "46985422"
                     <div class="cardPadding">
                         <div class="card">
                             <div class="cardImageOuter">
-                                <div class="cardImage"> 
+                                <div class="cardImage">
                                     <img src="media/index/i_overview.svg" alt="" />
                                 </div>
                             </div>
@@ -115,6 +115,8 @@ ms.locfileid: "46985422"
                         <h3>Reconnaissance vocale avec le service Speech</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">Utilisation de C#</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">À l’aide de Java</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Utilisation d’Objective-C</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">Utilisation de JavaScript</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">Utilisation de C++</a></p>
                     </div>
                 </div>
@@ -203,7 +205,7 @@ ms.locfileid: "46985422"
     </li>
 </ul>
 
-<h2>Tutoriels pas à pas</h2>
+<h2>Didacticiels pas à pas</h2>
 <ul class="cardsM panelContent singlePanelContent cols cols3" style="display:flex!important;">
     <li>
         <a class="card" href="/azure/cognitive-services/Computer-vision/tutorials/csharptutorial" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
@@ -274,7 +276,7 @@ ms.locfileid: "46985422"
                 <div class="card">
                     <div class="cardText">
                         <h3>API Microsoft Speech</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">Speech Service</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service">API Speech Service</a></p>
                         <p><a href="/azure/cognitive-services/speech/home">API Reconnaissance vocale Bing</a></p>
                         <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Custom Speech Service&nbsp;<sup style="font-size:70%">PRÉVERSION</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Reconnaissance de l’orateur&nbsp;<sup style="font-size:70%">PRÉVERSION</sup></span></a></p>

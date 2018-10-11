@@ -1,0 +1,51 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: ceab905b2baf87446238d44151146b5066e55335
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079718"
+documentType: LandingData
+title: Documentation relative à la personnalisation du portail Azure
+metadata:
+  description: Découvrez comment personnaliser le portail Azure.
+  services: azure portal
+  documentationcenter: ''
+  author: cwatson-cat
+  manager: dougeby
+  editor: ''
+  ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
+  ms.service: azure-portal
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.tgt_pltfrm: na
+  ms.workload: na
+  ms.date: 10/08/2018
+  ms.author: cwatson
+abstract:
+  description: Le portail Azure est une seule console unifiée qui permet de créer, gérer et surveiller tout, de simples applications web à des applications de cloud complexes. Il comprend un tableau de bord personnalisable et des options d’accessibilité.
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/azure-preview-portal-supported-browsers-devices
+      html: <p>Le portail Azure s’exécute sur tous les ordinateurs de bureau, tablettes et navigateurs modernes.</p>
+      title: Navigateurs et appareils pris en charge
+    - href: /azure/azure-portal/azure-portal-change-theme-high-contrast
+      html: <p>Modifiez le contraste ou le schéma de couleur dans le portail Azure.</p>
+      title: Activer le contraste élevé
+    - href: /azure/azure-portal/azure-portal-keyboard-shortcuts
+      html: <p>En savoir plus sur les raccourcis clavier qui fonctionnent dans le portail Azure.</p>
+      title: Raccourcis clavier
+    - href: /azure/azure-portal/azure-portal-dashboards
+      html: <p>Créez plusieurs tableaux de bord et partagez-les avec d’autres personnes ayant accès à vos abonnements Azure.</p>
+      title: Créer et partager des tableaux de bord Azure
+    - href: /azure/azure-portal/azure-portal-dashboard-share-access
+      html: <p>Publier et partager un tableau de bord avec d’autres utilisateurs de votre organisation.</p>
+      title: Partager des tableaux de bord à l’aide de RBAC
+    - href: /azure/azure-portal/azure-portal-dashboards-create-programmatically
+      html: <p>Créer et publier par programmation des tableaux de bord pour votre organisation</p>
+      title: Créer par programmation des tableaux de bord Azure
