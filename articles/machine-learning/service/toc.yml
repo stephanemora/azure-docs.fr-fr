@@ -22,6 +22,10 @@ items:
     href: tutorial-deploy-models-with-aml.md
   - name: Entraîner des modèles ML automatisés
     href: tutorial-auto-train-models.md
+- name: Exemples
+  items:
+  - name: Bloc-notes Jupyter (GitHub)
+    href: http://aka.ms/aml-notebooks
 - name: Concepts
   items:
   - name: Fonctionnement du service
@@ -115,6 +119,8 @@ items:
   items:
   - name: SDK Machine Learning
     href: http://aka.ms/aml-sdk
+  - name: Kit de développement logiciel (SDK) pour préparation des données
+    href: http://aka.ms/data-prep-sdk
   - name: Interface CLI de Machine Learning
     href: reference-azure-machine-learning-cli.md
 - name: Ressources
@@ -286,7 +292,7 @@ items:
         href: ../desktop-workbench/data-prep-python-execution-api.md
       - name: Configuration du service d’expérimentation
         href: ../desktop-workbench/experimentation-service-configuration-reference.md
-      - name: API de journalisation
+      - name: API de jouurnalisation
         href: ../desktop-workbench/reference-logging-api.md
       - name: Modèle de service d’expérimentation
         href: ../desktop-workbench/experimentation-service-template.md
@@ -333,9 +339,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Anciens problèmes
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: f5d778c032383f0573ce7e60f6bf0ab46b0126b3
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6e0224a614bdf457e210b00f186bd531b5053bf4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079512"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113679"
