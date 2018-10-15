@@ -4,6 +4,18 @@ items:
   items:
   - name: Qu’est-ce que Content Moderator ?
     href: overview.md
+- name: Démarrages rapides
+  items:
+  - name: Prise en main de Content Moderator
+    href: quick-start.md
+  - name: Utilisation du kit de développement logiciel (SDK) .NET
+    items:
+    - name: Vérifiez le contenu du fichier image
+      href: image-moderation-quickstart-dotnet.md
+    - name: Vérifiez le contenu du fichier texte
+      href: text-moderation-quickstart-dotnet.md
+    - name: Vérifiez le contenu du fichier vidéo
+      href: video-moderation-api.md
 - name: Exemples
   items:
   - name: Exemples du kit SDK .NET
@@ -26,30 +38,20 @@ items:
   items:
   - name: Essayez Content Moderator
     items:
-    - name: Prise en main de Content Moderator
-      href: quick-start.md
     - name: API de modération
       items:
-      - name: 'Bibliothèque d’assistance : .NET'
-        href: content-moderator-helper-quickstart-dotnet.md
       - name: 'Images : console d’API'
         href: try-image-api.md
-      - name: 'Images : .NET'
-        href: image-moderation-quickstart-dotnet.md
+      - name: Vérifiez les images avec les listes personnalisées
+        href: image-lists-quickstart-dotnet.md
       - name: 'Images personnalisées : console d’API'
         href: try-image-list-api.md
-      - name: 'Images personnalisées : .NET'
-        href: image-lists-quickstart-dotnet.md
       - name: 'Texte : console d’API'
         href: try-text-api.md
-      - name: 'Text : .NET'
-        href: text-moderation-quickstart-dotnet.md
+      - name: Vérifiez le texte avec les conditions personnalisées
+        href: term-lists-quickstart-dotnet.md
       - name: 'Conditions personnalisées : console d’API'
         href: try-terms-list-api.md
-      - name: 'Conditions personnalisées : .NET'
-        href: term-lists-quickstart-dotnet.md
-      - name: 'Vidéos : .NET'
-        href: video-moderation-api.md
     - name: Consultation des API
       items:
       - name: 'Tâches : console d’API'
@@ -132,9 +134,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Webinaire à la demande
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-ms.openlocfilehash: 32f0c64253836d3080cc815753e361d810e1f2e8
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 68febbe4e4206c774f75e1a07216eddf86dc5888
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433802"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309823"

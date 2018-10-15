@@ -1,5 +1,5 @@
 # Vue d’ensemble
-## [Démarrer](get-started.md)
+## [Prise en main](get-started.md)
 ## [Certifications](sap-certifications.md)
 # SAP HANA sur Azure (grandes instances)
 ## Vue d’ensemble
@@ -70,13 +70,14 @@
 ### [Disponibilité de SAP HANA sur Azure au sein d’une région Azure](sap-hana-availability-one-region.md)
 ### [Disponibilité de SAP HANA sur Azure dans l’ensemble des régions Azure](sap-hana-availability-across-regions.md)
 ## Haute disponibilité (HA) sur Windows et Linux
-### [Vue d’ensemble](sap-high-availability-guide-start.md)
+### [Vue d'ensemble](sap-high-availability-guide-start.md)
 ### Architecture haute disponibilité
 #### [Architecture haute disponibilité et scénarios](sap-high-availability-architecture-scenarios.md)
 #### [Architecture à plus haute disponibilité et scénarios](sap-higher-availability-architecture-scenarios.md)
 #### [Haute disponibilité sur Windows avec disque partagé pour l’instance (A)SCS](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [Haute disponibilité sur Windows avec partage de fichiers SOFS pour l’instance (A)SCS](sap-high-availability-guide-wsfc-file-share.md)
 #### [Haute disponibilité sur SUSE Linux pour l’instance (A)SCS](high-availability-guide-suse.md)
+#### [HA sur Red Hat Enterprise Linux pour les instances (A)SCS](high-availability-guide-rhel.md)
 ### Préparation de l’infrastructure Azure
 #### [Windows avec disque partagé pour l’instance (A)SCS](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows avec partage de fichiers SOFS pour l’instance (A)SCS](sap-high-availability-infrastructure-wsfc-file-share.md)

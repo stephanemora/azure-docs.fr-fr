@@ -6,7 +6,7 @@
 ## [Comparer avec le Stockage Azure](data-lake-store-comparison-with-blob-storage.md)
 ## [Traitement du Big Data](data-lake-store-data-scenarios.md)
 ## [Utilisation des applications open source](data-lake-store-compatible-oss-other-applications.md)
-## [meilleures pratiques](data-lake-store-best-practices.md)
+## [Meilleures pratiques](data-lake-store-best-practices.md)
 
 # Prise en main
 ## [En passant par le portail Azure](data-lake-store-get-started-portal.md)
@@ -28,6 +28,7 @@
 ### [Contrôle d’accès](data-lake-store-access-control.md)
 ### [Sécurisation des données stockées](data-lake-store-secure-data.md)
 ### [Chiffrement](data-lake-store-encryption.md)
+### [Intégration de réseau virtuel (préversion)](data-lake-store-network-security.md)
 
 ## S’authentifier avec Data Lake Storage Gen1
 ### [Options d’authentification](data-lakes-store-authentication-using-azure-active-directory.md)
@@ -54,7 +55,7 @@
 #### [Utilisation de Python](data-lake-store-data-operations-python.md)
 
 ## Performances
-### [Vue d’ensemble](data-lake-store-performance-tuning-guidance.md)
+### [Vue d'ensemble](data-lake-store-performance-tuning-guidance.md)
 ### [Utilisation de Microsoft Azure PowerShell](data-lake-store-performance-tuning-powershell.md)
 ### [Utilisation de Spark sur HDInsight](data-lake-store-performance-tuning-spark.md)
 ### [Utilisation de Hive sur HDInsight](data-lake-store-performance-tuning-hive.md)
@@ -91,7 +92,7 @@
 ## [Python (gestion des comptes)](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python)
 ## [Python (gestion du système de fichiers)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/dls)
+## [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/dls)
 
 # Ressources
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/)

@@ -1,23 +1,22 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f4ef48157896d7cf4947fbc8ef6eba8b59ec414b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7056f5478838eec1cccf6329e172d86ea90d4dd8
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986510"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311046"
 documentType: LandingData
-title: Azure Data Box pour le transfert hors connexion
+title: Documentation Azure Data Box - Transfert hors connexion
 metadata:
-  title: Documentation Azure Data Box pour le transfert hors connexion
-  description: La famille Azure Data Box vous permet de transférer des centaines de téraoctets de données dans Azure de manière rapide, économique et fiable. Utilisez les appareils Data Box pour le transfert de données hors connexion si vous êtes soumis à des contraintes de temps, de réseau ou de coût.
+  title: Documentation Azure Data Box - Transfert hors connexion
+  description: Utilisez les appareils Data Box pour le transfert de données hors connexion sur Azure si vous êtes soumis à des contraintes de temps, de réseau ou de coût.
   services: databox
   author: alkohli
   manager: twooley
   ms.service: databox
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: pod
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 10/12/2018
   ms.author: alkohli
 abstract:
   description: 'La famille Azure Data Box vous permet de transférer des centaines de téraoctets de données vers Azure de manière rapide, économique et fiable. Utilisez les appareils Data Box pour le transfert de données hors connexion si vous êtes soumis à des contraintes de temps, de réseau ou de coût.<p>Selon la taille de vos données, choisissez Data Box Disk, Data Box<SUP>Préversion</SUP> ou Data Box Heavy<SUP>Préversion</SUP>. Pour chaque appareil, le transfert vers Azure comprend 4 étapes simples : commande, réception, copie des données sur l’appareil et renvoi de l’appareil à Azure. Dans le centre de données Azure, les données sont chargées, puis effacées.</p><p>Découvrez comment tirer parti de Data Box pour le transfert de vos données hors connexion avec nos tutoriels et guides de démarrage rapide.</p>'
@@ -39,7 +38,7 @@ sections:
         src: https://docs.microsoft.com/media/common/i_quick-start.svg
       text: S’inscrire à Data Box Heavy<SUP>Préversion</SUP>
       href: /azure/databox/data-box-heavy-overview#sign-up
-- title: Tutoriels
+- title: Didacticiels
   items:
   - type: list
     style: cards
