@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 50e4b9b8b8f9433ec725aaa982e969cec7afb91c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/17/2018
+ms.openlocfilehash: ac5be20815b552c08e5cd1054bf24d7a10b56498
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265783"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124267"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Journaux de serveur dans Azure Database pour MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître. 
@@ -29,9 +29,9 @@ Dans le portail Azure, sélectionnez votre serveur Azure Database pour MySQL. So
 Pour plus d’informations sur l’interface de ligne de commande Azure, consultez [Configuration et accès aux journaux du serveur à l’aide de la ligne de commande Azure](howto-configure-server-logs-in-cli.md).
 
 ## <a name="log-retention"></a>Rétention des journaux
-Les journaux sont disponibles pendant sept jours à compter de leur création. Si la taille totale des journaux disponibles dépasse 7,5 Go, les fichiers les plus anciens sont supprimés jusqu’à ce que de l’espace soit disponible. 
+Les journaux sont disponibles pendant sept jours à compter de leur création. Si la taille totale des journaux disponibles dépasse 7 Go, les fichiers les plus anciens sont supprimés jusqu’à ce que de l’espace soit disponible. 
 
-Une rotation des journaux s’effectue toutes les 24 heures ou une fois les 7,5 Go atteints, selon ce qui se produit en premier.
+Une rotation des journaux s’effectue toutes les 24 heures ou une fois les 7 Go atteints, selon ce qui se produit en premier.
 
 
 ## <a name="configure-logging"></a>Configuration de la journalisation 

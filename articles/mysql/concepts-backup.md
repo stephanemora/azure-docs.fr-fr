@@ -2,19 +2,19 @@
 title: Sauvegarde et restauration dans Azure Database pour MySQL
 description: Apprenez-en davantage sur la restauration et les sauvegardes automatiques de votre serveur Azure Database pour MySQL.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: bdc9a0ef393b55563691d7a52f8fa074eacc4594
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9d07f6cd5fa6a2df82dc2cbf9c1ebe08e5941acf
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264474"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125015"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Sauvegarde et restauration dans Azure Database pour MySQL
 
@@ -53,7 +53,7 @@ Deux types de restauration sont disponibles :
 Le délai estimé de récupération dépend de plusieurs facteurs, notamment du nombre total de bases de données à récupérer dans la même région au même moment, de la taille des bases de données, de la taille du journal des transactions et de la bande passante réseau. Le délai de récupération est généralement inférieur à 12 heures.
 
 > [!IMPORTANT]
-> Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Vous ne pouvez pas restaurer un serveur supprimé.
+> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. 
 
 ### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
@@ -66,6 +66,8 @@ Vous devez peut-être attendre la prochaine sauvegarde du journal des transactio
 ### <a name="geo-restore"></a>Géo-restauration
 
 Vous pouvez restaurer un serveur dans une autre région Azure où le service est disponible si vous avez configuré votre serveur pour les sauvegardes géoredondantes. La géorestauration constitue l’option de récupération par défaut lorsque votre serveur est indisponible en raison d’un incident dans la région où il est hébergé. Si un incident à grande échelle dans une région entraîne l’indisponibilité de votre application de base de données, vous pouvez restaurer un serveur à partir des sauvegardes géoredondantes sur un serveur situé dans n’importe quelle autre région. Il peut y avoir un délai entre le moment où une sauvegarde est effectuée et celui où elle est répliquée dans une autre région. Ce délai peut atteindre une heure. En cas d’incident, il peut donc y avoir jusqu’à une heure de pertes de données.
+
+Pendant la géorestauration, les configurations de serveur qui peuvent être changées incluent la génération de calcul, les vCores, la période de conservation des sauvegardes et les options de redondance de sauvegarde. Le changement de niveau tarifaire (De base, Usage général ou Mémoire optimisée) ou de la taille du stockage pendant la géorestauration n’est pas pris en charge.
 
 ### <a name="perform-post-restore-tasks"></a>Effectuer des tâches de post-restauration
 

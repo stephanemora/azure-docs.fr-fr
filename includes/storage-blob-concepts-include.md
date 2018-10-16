@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 63593ff5f02f5e37fc25c988c4cef071a03a00b4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a934a1b75e85e03b6803be5c8afcd8fe74b0fad5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066031"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45739196"
 ---
 Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées, telles que des données texte ou binaires.
+
+Stockage d’objets hautement évolutif pour les données non structurées
 
 Le stockage Blob est idéal pour :
 
@@ -36,7 +38,7 @@ Le stockage d’objets BLOB expose trois ressources : votre compte de stockage,
 
 ### <a name="storage-account"></a>Compte de stockage
 
-Tous les accès aux objets de données dans le stockage Azure se font via un compte de stockage. Pour plus d’informations, consultez la rubrique [À propos des comptes de stockage Azure](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Tous les accès aux objets de données dans le stockage Azure se font via un compte de stockage. Pour plus d’informations, consultez [Vue d’ensemble des comptes de stockage Azure](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="container"></a>Conteneur
 

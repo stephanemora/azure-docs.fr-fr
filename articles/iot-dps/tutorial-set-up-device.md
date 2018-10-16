@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 998bc7cb7e3289a85a9ffc315f7c1f5e568a75cb
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f0b62f73650294349e1879b306beebabdaf974a7
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917933"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633399"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurer un appareil à provisionner à l’aide du service IoT Hub Device Provisioning
 
@@ -45,12 +45,20 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
 
 Le Kit de développement logiciel (SDK) Device Provisioning Service Client vous permet d’implémenter votre logiciel d’inscription d’appareil. Mais avant de pouvoir l’utiliser, vous devez générer une version du Kit de développement logiciel (SDK) spécifique à votre mécanisme d’attestation et plateforme cliente de développement. Dans ce didacticiel, vous générez un Kit de développement logiciel (SDK) qui utilise Visual Studio 2017 sur une plateforme de développement Windows, pour un type d’attestation pris en charge :
 
-1. Téléchargez la dernière version du [système de génération de CMake](https://cmake.org/download/). Depuis ce même site, recherchez le hachage de chiffrement pour la version de la distribution binaire que vous avez choisie. Vérifiez le binaire téléchargé à l’aide de la valeur de hachage de chiffrement correspondante. L’exemple suivant utilise Windows PowerShell pour vérifier le hachage de chiffrement pour la version 3.11.4 de la distribution MSI x64 :
+1. Téléchargez la version 3.11.4 du [système de génération de CMake](https://cmake.org/download/). Vérifiez le binaire téléchargé à l’aide de la valeur de hachage de chiffrement correspondante. L’exemple suivant utilise Windows PowerShell pour vérifier le hachage de chiffrement pour la version 3.11.4 de la distribution MSI x64 :
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    Les valeurs de hachage suivantes pour la version 3.11.4 étaient celles indiquées sur le site de CMake au moment de la rédaction de cet article :
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.
@@ -199,7 +207,7 @@ PROV_DEVICE_RESULT Prov_Device_LL_SetOption(PROV_DEVICE_LL_HANDLE handle, const 
 
 Vous pouvez également estimer qu’un affinement de votre application d’enregistrement Device Provisioning Service Client est nécessaire à l’aide d’un appareil simulé dans un premier temps et d’une configuration de service de test. Une fois que votre application fonctionne dans l’environnement de test, vous pouvez la générer pour votre appareil et copier le fichier exécutable sur l’image de votre appareil. 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 À ce stade, vous pouvez avoir les services IoT Hub et Device Provisioning Service qui s’exécutent dans le portail. Si vous souhaitez abandonner la configuration de l’approvisionnement d’appareils et/ou retarder la fin de cette série de didacticiels, nous vous recommandons d’arrêter ces services pour éviter des coûts inutiles.
 

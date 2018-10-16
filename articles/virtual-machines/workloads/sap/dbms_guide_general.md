@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918799"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162306"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Facteurs à prendre en compte pour le déploiement SGBD des machines virtuelles Azure pour la charge de travail SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -272,6 +272,11 @@ Voici plusieurs pratiques recommandées issues de centaines de déploiements cli
 - Les machines virtuelles du réseau virtuel ont une allocation statique de l’adresse IP privée. Référez-vous à l’article [Types d’adresses IP et méthodes d’allocation dans Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm).
 - Les restrictions de routage vers et depuis les machines virtuelles SGBD ne sont **PAS** définies avec des pare-feux installés sur les machines virtuelles SGBD locales. Au lieu de cela, le routage du trafic est défini avec les [Groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview)
 - À des fins de séparation et d’isolement du trafic vers la machine virtuelle SGBD, vous affectez différentes cartes réseau à la machine virtuelle. Où chaque carte réseau a une adresse IP différente et chaque carte réseau est affectée à un autre sous-réseau de réseau virtuel, qui a une nouvelle fois différentes règles de groupe de sécurité réseau. N’oubliez pas que l’isolement ou la séparation du trafic réseau est simplement une mesure de routage et n’autorise pas la définition de quotas pour le débit du réseau.
+
+> [!NOTE]
+> Vous devez attribuer des adresses IP statiques aux cartes réseau virtuelles individuelles à l’aide des outils Azure. Vous ne devez pas attribuer d’adresses IP statiques au sein du système d’exploitation invité à une carte réseau virtuelle. Certains services Azure, comme le service de Sauvegarde Azure, s’appuient sur le fait que la carte réseau virtuelle principale est définie sur la DHCP et non sur des adresses IP statiques. Consultez également le document [Dépannage de la sauvegarde de machine virtuelle Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Si vous avez besoin d’attribuer plusieurs adresses IP statiques à une machine virtuelle, vous devez attribuer plusieurs cartes réseau virtuelles à une machine virtuelle.
+>
+>
 
 En utilisant deux machines virtuelles pour le déploiement SGBD de production au sein d’un groupe à haute disponibilité Azure et un routage distinct pour la couche Application SAP ainsi que le trafic des opérations et de gestion vers les deux machines virtuelles SGBD, le diagramme ressemblerait à ce qui suit :
 

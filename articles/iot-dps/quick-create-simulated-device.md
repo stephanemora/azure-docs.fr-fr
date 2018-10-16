@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 4e03268db32b4be6900234abe58e7a308110520a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 3f88da7e70ca62e14444fa742013c982daec3cc6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023429"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633265"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Démarrage rapide: Approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel (SDK) C Azure IoT
 
@@ -38,12 +38,20 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, consul
 
 Dans cette section, vous allez préparer un environnement de développement pour générer le [kit de développement logiciel (SDK) C Azure IoT](https://github.com/Azure/azure-iot-sdk-c) et l’exemple de simulateur d’appareil [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview).
 
-1. Téléchargez la dernière version du [système de génération de CMake](https://cmake.org/download/). Depuis ce même site, recherchez le hachage de chiffrement pour la version de la distribution binaire que vous avez choisie. Vérifiez le binaire téléchargé à l’aide de la valeur de hachage de chiffrement correspondante. L’exemple suivant utilise Windows PowerShell pour vérifier le hachage de chiffrement pour la version 3.11.4 de la distribution MSI x64 :
+1. Téléchargez la version 3.11.4 du [système de génération de CMake](https://cmake.org/download/). Vérifiez le binaire téléchargé à l’aide de la valeur de hachage de chiffrement correspondante. L’exemple suivant utilise Windows PowerShell pour vérifier le hachage de chiffrement pour la version 3.11.4 de la distribution MSI x64 :
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    Les valeurs de hachage suivantes pour la version 3.11.4 étaient celles indiquées sur le site de CMake au moment de la rédaction de cet article :
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     Il est important que les composants requis Visual Studio (Visual Studio et la charge de travail « Développement Desktop en C++ ») soient installés sur votre machine, **avant** de commencer l’installation de l’élément `CMake`. Une fois les composants requis en place et le téléchargement effectué, installez le système de génération de CMake.

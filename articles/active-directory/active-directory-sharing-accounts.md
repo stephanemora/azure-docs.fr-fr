@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: c8d7f1f5b793fcb684e9896bb93213a23d489860
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 163972329161f90ad364b25e7e60e9e5a04324d5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448541"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720002"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partage de comptes avec Azure AD
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Parfois, les organisations doivent utiliser les mêmes nom d’utilisateur et mot de passe pour plusieurs personnes, généralement dans deux cas :
 
 * Au moment d’accéder à des applications qui nécessitent un nom de connexion et un mot de passe uniques pour chaque utilisateur, qu’il s’agisse d’applications locales ou de services cloud grand public (par exemple, les comptes de réseaux sociaux d’entreprise).
@@ -71,7 +71,7 @@ Pour utiliser Azure AD pour partager un compte, vous devez effectuer les opérat
 Vous pouvez également sécuriser votre compte partagé avec Multi-Factor Authentication (MFA) (en savoir plus sur la [sécurisation des applications avec Azure AD](authentication/concept-mfa-whichversion.md)) et déléguer la capacité de gérer les utilisateurs ayant accès à l’application à l’aide de la gestion de groupe [Libre-service Azure AD](users-groups-roles/groups-self-service-management.md).
 
 ## <a name="related-articles"></a>Articles connexes
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](active-directory-apps-index.md)
+* [Gestion des applications dans Azure Active Directory](manage-apps/what-is-application-management.md)
 * [Protection des applications avec accès conditionnel](active-directory-conditional-access-azure-portal.md)
 * [Gestion des groupes en libre service/accès aux applications en libre-service](users-groups-roles/groups-self-service-management.md)
 

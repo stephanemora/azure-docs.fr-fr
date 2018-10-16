@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 8254f6c72141f7a9babfc5af3c319e7e66f30bbf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7966705df2a352f2011d5f7611277e92d8e2d11a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448663"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294235"
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Configurer Azure Active Directory pour la gestion de groupes en libre-service
 Vos utilisateurs peuvent créer et gérer leurs propres groupes de sécurité ou Office 365 dans Azure Active Directory (Azure AD). Les utilisateurs peuvent également faire une demande d’appartenance à un groupe de sécurité ou Office 365. Le propriétaire du groupe peut alors approuver ou refuser l’appartenance. Le contrôle quotidien de l’appartenance à un groupe peut être délégué à des personnes qui ont une bonne connaissance du contexte professionnel de cette appartenance. Les fonctionnalités de gestion de groupes en libre-service ne sont disponibles que pour les groupes de sécurité et les groupes Office 365. Elles ne sont pas disponibles pour les groupes de sécurité activés pour la messagerie électronique ou les listes de distribution.
@@ -46,6 +46,6 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 * [Gérer l’accès aux ressources avec les groupes Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](groups-settings-cmdlets.md)
-* [Index d’articles pour la gestion des applications dans Azure Active Directory](../active-directory-apps-index.md)
+* [Gestion des applications dans Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Qu’est-ce qu’Azure Active Directory ?](../fundamentals/active-directory-whatis.md)
-* [Intégrer des répertoires locaux à Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Intégrer des répertoires locaux à Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

@@ -1,3 +1,20 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 075e19ecb078bbbd5be0d46ed58405b18ebc8334
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45738465"
+---
 ## <a name="set-up-your-development-environment"></a>Configuration de l'environnement de développement
 Ensuite, configurez votre environnement de développement dans Visual Studio afin d’être prêt pour essayer les exemples de code fournis dans ce guide.
 
@@ -41,7 +58,7 @@ Vous avez le choix entre deux environnements pour exécuter les exemples de ce g
 * Vous pouvez exécuter votre code sur un compte Azure Storage dans le cloud. 
 * Vous pouvez exécuter votre code sur l’émulateur de stockage Azure. L’émulateur de stockage est un environnement local qui émule un compte Azure Storage dans le cloud. L’émulateur est une option gratuite permettant de tester et déboguer votre code lors du développement de votre application. L’émulateur utilise un compte et une clé connus. Pour plus d’informations, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](../articles/storage/common/storage-use-emulator.md).
 
-Si vous ciblez un compte de stockage dans le cloud, copiez la clé d’accès primaire de votre compte de stockage à partir du portail Azure. Pour plus d’informations, voir [Affichage et copie de clés d’accès de stockage](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Si vous ciblez un compte de stockage dans le cloud, copiez la clé d’accès primaire de votre compte de stockage à partir du portail Azure. Pour plus d’informations, consultez l’article [Clés d’accès](../articles/storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > Vous pouvez cibler l’émulateur de stockage pour éviter les frais liés à l’utilisation des services de stockage Azure. Toutefois, si vous choisissez de cibler un compte de stockage Azure situé dans le cloud, les frais associés à l’utilisation de ce didacticiel seront négligeables.
