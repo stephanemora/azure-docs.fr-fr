@@ -1,4 +1,4 @@
-# [Vue d’ensemble](../overview.md)
+# [Vue d'ensemble](../overview.md)
 ## [Extensions de machine virtuelle](agents-and-extensions-classic.md)
 ## [Availability](configure-availability-classic.md)
 ## [FORUM AUX QUESTIONS](faq-classic.md)
@@ -33,7 +33,6 @@
 ### [Application web Ruby on Rails](ruby-rails-web-app.md)
 ### [Client Node.js et Cassandra](cassandra-nodejs.md)
 ### [Tomcat](setup-tomcat.md)
-### [Cluster RDMA pour exécuter des applications MPI](rdma-cluster.md)
 ### HPC Pack
 #### [Créer un cluster pour les charges de travail Linux](hpcpack-cluster-powershell-script.md)
 #### [Gérer un cluster avec les nœuds Linux](hpcpack-cluster.md)
@@ -48,7 +47,7 @@
 
 # Informations de référence
 ## [Azure PowerShell](/powershell/azure/overview)
-## [interface de ligne de commande Azure](/cli/azure/vm)
+## [Interface de ligne de commande Azure](/cli/azure/vm)
 ## [Java](/java/api)
 ## [Créer des modèles Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Modèles fournis par la communauté](https://azure.microsoft.com/documentation/templates)
