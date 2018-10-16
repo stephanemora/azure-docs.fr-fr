@@ -1,0 +1,111 @@
+items:
+- name: Notions de base d’Azure IoT
+  href: /azure/iot-fundamentals
+- name: Azure Digital Twins
+  href: index.yml
+- name: Vue d’ensemble
+  items:
+  - name: À propos d’Azure Digital Twins
+    href: about-digital-twins.md
+- name: Démarrages rapides
+  items:
+  - name: Rechercher des salles disponibles
+    href: quickstart-view-occupancy-dotnet.md
+- name: Didacticiels
+  items:
+  - name: Surveiller un bâtiment avec Digital Twins
+    items:
+    - name: Déployer et configurer
+      href: tutorial-facilities-setup.md
+    - name: Approvisionner et surveiller des conditions
+      href: tutorial-facilities-udf.md
+    - name: Notifier avec Logic Apps
+      href: tutorial-facilities-events.md
+    - name: Visualiser les événements avec TSI
+      href: tutorial-facilities-analyze.md
+- name: Concepts
+  items:
+  - name: Graphique d’intelligence spatiale et modèle objet Digital Twins
+    href: concepts-objectmodel-spatialgraph.md
+  - name: Entrée de télémétrie et connectivité des appareils
+    href: concepts-device-ingress.md
+  - name: Traitement des données et fonctions définies par l’utilisateur
+    href: concepts-user-defined-functions.md
+  - name: Routage des événements et des messages
+    href: concepts-events-routing.md
+  - name: Limites de service de la préversion publique
+    href: concepts-service-limits.md
+  - name: Sécurité
+    items:
+    - name: Meilleures pratiques en matière de sécurité
+      href: security-best-practices.md
+    - name: Contrôle d’accès en fonction du rôle
+      href: security-role-based-access-control.md
+    - name: Créer et gérer des attributions de rôle
+      href: security-create-manage-role-assignments.md
+    - name: Authentification des API de gestion
+      href: security-authenticating-apis.md
+- name: Procédures
+  items:
+  - name: Comment autoriser les applications mutualisées
+    href: how-to-multitenant-applications.md
+  - name: Comment créer des fonctions définies par l’utilisateur
+    href: how-to-user-defined-functions.md
+  - name: Comment acheminer des événements et des messages par le biais de points de terminaison
+    href: how-to-egress-endpoints.md
+  - name: Comment utiliser Digital Twins Swagger
+    href: how-to-use-swagger.md
+- name: Rubriques connexes
+  items:
+  - name: solutions
+    items:
+    - name: Accélérateurs de solution IoT
+      href: /azure/iot-accelerators
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Services de plateforme
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub
+    - name: Service IoT Hub Device Provisioning
+      href: /azure/iot-dps
+    - name: Kits de développement logiciel (SDK) IoT Service
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Cartes
+      href: /azure/azure-maps
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: Kits de développement logiciel (SDK) IoT Device
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+- name: Ressources
+  items:
+  - name: Exemples Azure Digital Twins pour C# (.NET)
+    href: https://github.com/Azure-Samples/digital-twins-samples-csharp
+  - name: API REST Azure Digital Twins
+    href: https://docs.westcentralus.azuresmartspaces.net/management/swagger
+  - name: Tarifs
+    href: https://azure.microsoft.com/pricing/details/digital-twins/
+  - name: Calculatrice de prix
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Dépassement de capacité de la pile
+    href: https://stackoverflow.com/questions/tagged/azure-digital-twins
+  - name: Forum MSDN
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuredigitaltwins
+  - name: Témoignages client
+    href: https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/
+  - name: Centre de développement Azure IoT
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: vidéos
+    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
+ms.openlocfilehash: ac70217527d885eeaaa52d4715421d2560393d91
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49323007"

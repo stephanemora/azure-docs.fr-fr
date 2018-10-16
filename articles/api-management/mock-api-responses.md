@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/27/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4383ce3788f6fade5299d69ef99b80221c58d9e7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 916d0cf37ab3588091d4ca2d45f43a5669afe4f1
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936981"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094893"
 ---
 # <a name="mock-api-responses"></a>Simuler des réponses de l’API
 
@@ -40,14 +40,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Créer une API de test 
 
 Cette section montre comment créer une API vide sans backend. Elle montre également comment ajouter une opération à l’API. Appeler l’opération une fois effectuées les étapes décrites dans cette section génère une erreur. Vous n’obtiendrez aucune erreur une fois que vous aurez effectué les étapes décrites dans la section « Activer la simulation des réponses ».
 
-1. Sélectionnez **API** sous **Gestion des API**.
+1. Sélectionnez **API** dans le service **Gestion des API**.
 2. Dans le menu de gauche, cliquez sur **Ajouter l’API**.
 3. Sélectionnez **API vide** dans la liste.
 4. Entrez « *API de test* » pour **Nom complet**.
@@ -58,14 +57,13 @@ Cette section montre comment créer une API vide sans backend. Elle montre égal
 
 1. Sélectionnez l’API que vous avez créée à l’étape précédente.
 2. Cliquez sur **+ Ajouter une opération**.
-
-    ![Réponse simulée à l’opération](./media/mock-api-responses/mock-api-responses02.png)
+    ![Réponse simulée à l’opération](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
     |Paramètre|Valeur|Description|
     |---|---|---|
+    |**Nom complet**|*Appel de test*|Le nom s’affiche dans le **portail des développeurs**.|
     |**URL** (verbe HTTP)|GET|Vous pouvez choisir parmi les verbes HTTP prédéfinis.|
     |**URL** |*/test*|Chemin d’URL de l’API. |
-    |**Nom complet**|*Appel de test*|Le nom s’affiche dans le **portail des développeurs**.|
     |**Description**||Fournissez une description de l’opération qui est utilisée pour offrir des informations aux développeurs utilisant cette API dans le **portail des développeurs**.|
     |Onglet **Requête**||Vous pouvez ajouter des paramètres de requête. Outre un nom et une description, vous pouvez fournir des valeurs qui peuvent être attribuées à ce paramètre. Une des valeurs peut être marquée comme valeur par défaut (facultatif).|
     |Onglet **Demande**||Vous pouvez définir les types de contenu de demande, les exemples et les schémas. |
@@ -76,18 +74,19 @@ Cette section montre comment créer une API vide sans backend. Elle montre égal
 5. Sélectionnez **200 OK** dans la liste.
 6. Sous le titre **Représentations** à droite, sélectionnez **+ Ajouter la représentation**.
 7. Entrez « *application/json* » dans la zone de recherche et sélectionnez le type de contenu **application/json**.
-8. Dans la zone de texte **Exemple**, entrez « *{ 'sampleField' : 'test' }* ».
-9. Sélectionnez **Enregistrer**.
+8. Dans la zone de texte **Exemple**, entrez `{ 'sampleField' : 'test' }`.
+9. Sélectionnez **Créer**.
 
 ## <a name="enable-response-mocking"></a>Activer la simulation des réponses
 
 1. Sélectionnez l’API que vous avez créée à l’étape « Créer une API de test ».
 2. Sélectionnez l’opération de test que vous avez ajoutée.
-2. Dans la fenêtre de droite, cliquez sur l’onglet **Conception**.
-3. Dans la fenêtre **Traitement entrant**, cliquez sur l’icône en forme de crayon.
-4. Sous l’onglet **Simulation**, sélectionnez **Réponses statiques** pour **Comportement de simulation**.
-5. Dans la zone de texte **La Gestion des API retourne la réponse suivante :**, tapez **200 OK, application/json**. Cette sélection indique que votre API doit retourner l’exemple de réponse que vous avez défini dans la section précédente.
-6. Sélectionnez **Enregistrer**.
+3. Dans la fenêtre de droite, cliquez sur l’onglet **Conception**.
+4. Dans la fenêtre **Traitement entrant**, cliquez sur l’icône en forme de crayon.
+5. Sous l’onglet **Simulation**, sélectionnez **Réponses statiques** pour **Comportement de simulation**.
+6. Dans la zone de texte **La Gestion des API retourne la réponse suivante :**, tapez **200 OK, application/json**. Cette sélection indique que votre API doit retourner l’exemple de réponse que vous avez défini dans la section précédente.
+    ![Activer la simulation des réponses](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+7. Cliquez sur **Enregistrer**.
 
 ## <a name="test-the-mocked-api"></a>Tester l’API simulée
 
@@ -98,8 +97,9 @@ Cette section montre comment créer une API vide sans backend. Elle montre égal
     > [!TIP]
     > Une barre jaune accompagnée du texte **La simulation de réponse est activée** indique que les réponses retournées par le service Gestion des API envoient une stratégie de simulation au lieu d’une réponse de backend réelle.
 
-3. Sélectionnez **Envoyer** pour effectuer un appel de test.
-4. La **réponse HTTP** affiche le JSON fourni comme exemple dans la première section du didacticiel.
+4. Sélectionnez **Envoyer** pour effectuer un appel de test.
+5. La **réponse HTTP** affiche le JSON fourni comme exemple dans la première section du didacticiel.
+    ![Activer la simulation des réponses](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## <a name="video"></a>Vidéo
 
@@ -108,7 +108,7 @@ Cette section montre comment créer une API vide sans backend. Elle montre égal
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une API de test
@@ -116,7 +116,7 @@ Dans ce didacticiel, vous avez appris à :
 > * Activer la simulation des réponses
 > * Tester l’API simulée
 
-Passez au didacticiel suivant :
+Passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)

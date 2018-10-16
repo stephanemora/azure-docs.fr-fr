@@ -12,19 +12,19 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: abc4fa4129a596c3f3304dc37af3a9b659f45473
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a3b039b1ea492c44505c427ec171cf7a4a5fad01
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38595499"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47062433"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Création d'une application Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel montre comment ajouter un service backend cloud à une application Xamarin Android. Pour plus d’informations, consultez [Que sont les applications Mobile Apps ?](app-service-mobile-value-prop.md).
 
 Voici une capture d’écran de l’application terminée :
@@ -64,6 +64,11 @@ Vous avez maintenant configuré un serveur principal d’application mobile Azur
    > Vous pouvez vérifier le code qui se trouve dans le fichier C# ToDoActivity.cs et permet d'accéder à votre backend d'application mobile pour exécuter une requête et insérer des données.
    >
    >
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+Si vous avez des difficultés à générer la solution, exécutez le gestionnaire de package NuGet et mettez à jour les packages de support `Xamarin.Android`. Les projets de démarrage rapide n’incluent pas toujours les dernières versions.
+
+Veuillez noter que tous les packages de support référencés dans le projet doivent avoir la même version. Le [package NuGet Azure Mobile Apps](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) comporte une dépendance `Xamarin.Android.Support.CustomTabs` à la plateforme Android. Par conséquent, si votre projet utilise des packages de support plus récents, vous devez installer directement ce package avec la version requise pour éviter les conflits.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Ajout de la synchronisation hors connexion à votre application](app-service-mobile-xamarin-android-get-started-offline-data.md)

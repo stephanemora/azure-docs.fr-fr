@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a798b64e0b6b8b90ce902d99b779f31e6558f90e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 87d068208b90e86ff64cec3e84f3f96411f6c878
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947395"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340985"
 documentType: LandingData
 title: Documentation sur la messagerie Azure Service Bus
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 05/16/2018
   ms.author: spelluru
 abstract:
-  description: Azure Service Bus est un service de messagerie cloud multi-locataire qui envoie des informations entre les applications et les services. Le fonctionnement asynchrone vous offre un service de messagerie répartie flexible, avec messagerie premier entré, premier sorti (FIFO) et fonctionnalités de publication/abonnement.
+  description: Azure Service Bus est un service de messagerie cloud multi-locataire qui envoie des informations entre les applications et les services. Le fonctionnement asynchrone vous offre un service de messagerie répartie flexible, avec messagerie premier entré, premier sorti (FIFO) et fonctionnalités de publication/abonnement.<p>Découvrez comment utiliser les services de messagerie Azure Service Bus pour envoyer et recevoir des messages depuis et vers des files d’attente. Découvrez aussi comment vous abonner et publier des messages à l’aide des rubriques et des abonnements.</p>
   aside:
     image:
       alt: 
@@ -35,18 +35,79 @@ sections:
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
-    text: 'Découvrez comment envoyer et recevoir des messages depuis et vers Service Bus :'
+    text: 'Découvrez comment envoyer et recevoir des messages depuis et vers les <b>files d’attente</b> Service Bus :'
   - type: list
     style: icon48
     items:
     - image:
+        src: /azure/service-bus-messaging/media/index/logo_net.svg
+      text: .NET
+      href: /azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues
+    - image:
+        src: /azure/service-bus-messaging/media/index/logo_java.svg
+      text: Java
+      href: /azure/service-bus-messaging/service-bus-java-how-to-use-queues
+    - image:
+        src: /azure/service-bus-messaging/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues
+    - image:
+        src: /azure/service-bus-messaging/media/index/logo_python.svg
+      text: Python
+      href: /azure/service-bus-messaging/service-bus-python-how-to-use-queues
+    - image:
+        src: /azure/service-bus-messaging/media/index/ruby.svg
+      text: Ruby
+      href: /azure/service-bus-messaging/service-bus-ruby-how-to-use-queues
+    - image:
         src: /azure/service-bus-messaging/media/index/portal.svg
       text: Portail Azure
-      href: /azure/service-bus-messaging/service-bus-quickstart-portal?branch=release-mvc-service-bus
+      href: /azure/service-bus-messaging/service-bus-quickstart-portal
     - image:
         src: /azure/service-bus-messaging/media/index/cli.svg
       text: Azure CLI
-      href: /azure/service-bus-messaging/service-bus-quickstart-cli?branch=release-mvc-service-bus
+      href: /azure/service-bus-messaging/service-bus-quickstart-cli
+    - image:
+        src: /azure/service-bus-messaging/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/service-bus-messaging/service-bus-quickstart-powershell
+  - type: paragraph
+    text: 'Découvrez comment vous abonner et publier des messages à l’aide des <b>rubriques et abonnements</b> Service Bus :'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/service-bus-messaging/media/index/logo_net.svg
+      text: .NET
+      href: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions
+    - image:
+        src: /azure/service-bus-messaging/media/index/logo_java.svg
+      text: Java
+      href: /azure/service-bus-messaging/service-bus-java-how-to-use-topics-subscriptions
+    - image:
+        src: /azure/service-bus-messaging/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions
+    - image:
+        src: /azure/service-bus-messaging/media/index/logo_php.svg
+      text: PHP
+      href: /azure/service-bus-messaging/service-bus-php-how-to-use-topics-subscriptions
+    - image:
+        src: /azure/service-bus-messaging/media/index/logo_python.svg
+      text: Python
+      href: /azure/service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions
+    - image:
+        src: /azure/service-bus-messaging/media/index/ruby.svg
+      text: Ruby
+      href: /azure/service-bus-messaging/service-bus-ruby-how-to-use-topics-subscriptions
+    - image:
+        src: /azure/service-bus-messaging/media/index/portal.svg
+      text: Portail Azure
+      href: /azure/service-bus-messaging/service-bus-quickstart-portal
+    - image:
+        src: /azure/service-bus-messaging/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/service-bus-messaging/service-bus-quickstart-cli
     - image:
         src: /azure/service-bus-messaging/media/index/logo_powershell.svg
       text: Azure PowerShell
@@ -93,7 +154,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/Management">Azure PowerShell</a>
-    - html: <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/Management">interface de ligne de commande Azure</a>
+    - html: <a href="https://github.com/Azure/azure-service-bus/tree/master/samples/Management">Interface de ligne de commande Azure</a>
 - title: Informations de référence
   items:
   - type: list
@@ -101,8 +162,8 @@ sections:
     className: cardsD
     items:
     - title: Ligne de commande
-      html: <p><a href="/powershell/module/azurerm.servicebus/">Azure PowerShell</a></p><p><a href="/cli/azure/servicebus">interface de ligne de commande Azure</a></p>
+      html: <p><a href="/powershell/module/azurerm.servicebus/">Azure PowerShell</a></p><p><a href="/cli/azure/servicebus">Interface de ligne de commande Azure</a></p>
     - title: Langues
       html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p><p><a href="/java/api/overview/azure/servicebus">Java</a></p>
     - title: REST
-      html: <p><a href="/rest/api/servicebus/">Référence d’API REST</a></p>
+      html: <p><a href="/rest/api/servicebus/">Référence d’API REST</a></p>

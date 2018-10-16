@@ -9,14 +9,14 @@ editor: jasonwhowell
 ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.custom: mvc
-ms.openlocfilehash: 43c9ee65b43bed7ac686edbf48ec670a85cf12cf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c5d76141de6f5d256c7591da928c1395e83a8362
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426484"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406020"
 ---
 # <a name="create-an-azure-database-for-mysql-server-using-azure-cli"></a>Création d’un serveur Azure Database pour MySQL à l’aide de la CLI Azure
 Ce guide de démarrage rapide explique comment utiliser l’interface CLI Azure pour créer un serveur Azure Database pour MySQL dans un groupe de ressources Azure en environ cinq minutes. L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts.
@@ -25,7 +25,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 Si vous possédez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource existe ou est facturée. Sélectionnez un ID d’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account#az-account-set).
 ```azurecli-interactive
@@ -44,16 +44,35 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Création d’un serveur Azure Database pour MySQL
 Créez un serveur Azure Database pour MySQL avec la commande **[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create)**. Un serveur peut gérer plusieurs bases de données. En règle générale, une base de données distincte est utilisée pour chaque projet ou pour chaque utilisateur.
 
-L’exemple suivant crée un serveur dans la région USA Ouest, nommé `mydemoserver`, dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur serveur `myadmin`. Il s’agit d’un serveur à **usage général**, de **4e génération** avec 2 **vCores**. Le nom du serveur correspond au nom DNS et doit ainsi être globalement unique dans Azure. Remplacez `<server_admin_password>` par votre propre valeur.
-```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
-```
+**Paramètre** | **Exemple de valeur** | **Description**
+---|---|---
+Nom | mydemoserver | Choisissez un nom unique qui identifie votre serveur de base de données Azure pour MySQL. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit inclure entre 3 et 63 caractères.
+resource-group | myResourceGroup | Indiquez le nom du groupe de ressources Azure.
+sku-name | GP_Gen4_2 | Nom du la référence SKU. Suit la convention {niveau tarifaire}_{génération de calcul}_{vCores} dans le raccourci. Consultez le tableau ci-dessous pour plus d’informations sur le paramètre sku-name.
+backup-retention | 7 | Durée pendant laquelle la sauvegarde doit être conservée. Exprimée en jours. La plage s’étend de 7 à 35. 
+geo-redundant-backup | Désactivé | Indique si les sauvegardes géoredondantes doivent être activées ou non pour ce serveur. Valeurs autorisées : Enabled (Activé), Disabled (Désactivé).
+location | westus | Emplacement Azure du serveur.
+ssl-enforcement | activé | Indique si le protocole SSL doit être activé ou non pour ce serveur. Valeurs autorisées : Enabled (Activé), Disabled (Désactivé).
+storage-size | 51200 | Capacité de stockage du serveur (en mégaoctets). storage-size doit avoir une valeur de 5 120 Mo minimum et augmenter par incréments de 1 024 Mo. Consultez le document [Niveaux tarifaires](./concepts-pricing-tiers.md) pour plus d’informations sur les limites de taille de stockage. 
+version | 5.7 | Version principale de MySQL.
+admin-user | myadmin | Nom d’utilisateur du compte administrateur. Il ne peut pas être **azure_superuser** (superutilisateur), **admin**, **administrator** (administrateur), **root** (racine), **guest** (invité) ou **public**.
+admin-password | *mot de passe sécurisé* | Mot de passe de l’utilisateur Administrateur. Il doit contenir entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.
+
+
 La valeur du paramètre sku-name suit la convention {tarification}\_{génération de calcul}\_{vCores} comme dans les exemples ci-dessous :
 + `--sku-name B_Gen4_4` correspond à Basic, Gen 4 et 4 vCores.
 + `--sku-name GP_Gen5_32` correspond à Usage général, Gen 5 et 32 vCores.
 + `--sku-name MO_Gen5_2` correspond à Mémoire optimisée, Gen 5 et 2 vCores.
 
 Consultez la documentation des [niveaux tarifaires](./concepts-pricing-tiers.md) pour comprendre les valeurs valides par région et par niveau.
+
+L’exemple suivant crée un serveur MySQL 5.7 dans la région USA Ouest, nommé `mydemoserver`, dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur du serveur `myadmin`. Il s’agit d’un serveur à **usage général**, de **4e génération** avec **2 vCores**. Remplacez `<server_admin_password>` par votre propre valeur.
+```azurecli-interactive
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+```
+
+
+
 
 ## <a name="configure-firewall-rule"></a>Configurer une règle de pare-feu
 Créez une règle de pare-feu au niveau du serveur Azure Database pour MySQL avec la commande **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)**. Une règle de pare-feu au niveau du serveur permet à une application externe, comme l’outil de ligne de commande **mysql.exe** ou MySQL Workbench de se connecter à votre serveur via le pare-feu du service Azure MySQL. 

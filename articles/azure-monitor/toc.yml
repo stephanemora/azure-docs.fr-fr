@@ -229,9 +229,9 @@ items:
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json
       - name: Résolution des problèmes
         items:
-        - name: Résoudre les problèmes liés à l’extension de machine virtuelle des journaux
+        - name: Extension de machine virtuelle Log Analytics
           href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
-        - name: Résoudre les problèmes liés à l’agent Linux des journaux
+        - name: Agent Linux de Log Analytics
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
     - name: Sources de données des agents
       items:
@@ -405,9 +405,9 @@ items:
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: Collecter des données personnalisées
       items:
-      - name: API Collecteur de données du magasin de journaux
+      - name: API collecteur de données Log Analytics
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
-      - name: Exemple de pipeline d’API du collecteur de données du magasin de journaux
+      - name: Exemple de pipeline d’API collecteur de données Log Analytics
         href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Données d'application
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
@@ -976,9 +976,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Exemples de code
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 5b7956ee962c7f7bde31646617b86c55aaf32234
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 81c83444280a3641ca210d9014d12e989249f4cd
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311029"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318923"
