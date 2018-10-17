@@ -1,21 +1,28 @@
+items:
 - name: Documentation OpenShift
   href: index.md
 - name: Démarrages rapides
-  expanded: true
   items:
-    - name: 'OpenShift : modèle de communauté'
-      href: 'https://azure.microsoft.com/en-us/resources/templates/openshift-origin-rhel/'
+  - name: 'OpenShift : modèle de communauté'
+    href: https://azure.microsoft.com/resources/templates/openshift-origin-rhel/
+  expanded: true
 - name: Didacticiels
   items:
-    - name: Déployer sur des machines virtuelles Azure
-      href: /azure/virtual-machines/linux/openshift-get-started
+  - name: Déployer sur des machines virtuelles Azure
+    href: /azure/virtual-machines/linux/openshift-get-started
 - name: Ressources
   items:
-    - name: Feuille de route Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Modèle de conteneur OpenShift
-      href: 'https://github.com/Microsoft/openshift-container-platform'
-    - name: OpenShift Origin
-      href: 'https://docs.openshift.org/latest/getting_started/index.html'
-    - name: Site OpenShift
-      href: 'https://docs.openshift.org/latest/welcome/index.html'
+  - name: Feuille de route Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Modèle de conteneur OpenShift
+    href: https://github.com/Microsoft/openshift-container-platform
+  - name: OpenShift Origin
+    href: https://docs.openshift.org/latest/getting_started/index.html
+  - name: Site OpenShift
+    href: https://docs.openshift.org/latest/welcome/index.html
+ms.openlocfilehash: d0339ac640f7f4f554d99bbff26ca258ed3620c6
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362009"

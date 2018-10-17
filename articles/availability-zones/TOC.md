@@ -22,7 +22,7 @@
 ### Groupes identiques de machines virtuelles 
 #### [Créer un groupe identique dans une zone de disponibilité](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Load Balancer
+### Équilibreur de charge
 #### [Qu’est-ce que l’équilibrage de charge ?](../load-balancer/load-balancer-standard-overview.md)
 #### [Standard d’équilibrage de charge et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md)
 
@@ -38,7 +38,7 @@
 ### [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
 ### Base de données SQL
-#### [Zones de disponibilité avec SQL Database](../sql-database/sql-database-high-availability.md#availability-zones)
+#### [Zones de disponibilité avec SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 
 ### Stockage
 #### [Stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md)
