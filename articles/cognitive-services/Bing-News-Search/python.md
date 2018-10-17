@@ -1,19 +1,21 @@
 ---
-title: Guide de démarrage rapide Python pour l’API Recherche d’actualités Bing dans Azure Cognitive Services | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’actualités Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API Recherche d’actualités Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’actualités Bing.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 0fde478b650513aa1527c1d47f5b453ba094506c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 583b304a742d9abfd799442c9aa2999ad6783a34
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368489"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803543"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-python"></a>Guide de démarrage rapide pour l’API Recherche d’actualités Bing avec Python
 Cette procédure pas à pas donne un exemple simple d’appel dans l’API Recherche d’actualités Bing, et de post-traitement de l’objet JSON en résultant. Pour plus d’informations, consultez la [documentation de la Nouvelle Recherche Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).  
@@ -24,7 +26,7 @@ Vous pouvez exécuter cet exemple comme un bloc-notes Jupyter sur [MyBinder](htt
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.
+Vous devrez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) est suffisant pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.
 
 ## <a name="running-the-walkthrough"></a>Exécution de la procédure pas à pas
 Tout d’abord, affectez à `subscription_key` votre clé API pour le service API Bing.

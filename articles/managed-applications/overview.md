@@ -8,30 +8,30 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990512"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800942"
 ---
 # <a name="azure-managed-applications-overview"></a>Vue d’ensemble des applications gérées Azure
 
 Les applications managées Azure vous permettent de proposer aux consommateurs des solutions cloud faciles à déployer et à utiliser. Vous implémentez l’infrastructure et fournissez l’assistance en continu. Pour rendre une application managée accessible à tous les clients, vous devez la publier sur la Place de marché Azure. Pour la rendre accessible uniquement aux utilisateurs de votre organisation, vous devez la publier dans un catalogue interne. 
 
-Une application gérée est similaire à un modèle de solution de la Place de marché à une importante différence près. Dans une application managée, les ressources sont provisionnées dans un groupe de ressources géré par l’éditeur de l’application. Le groupe de ressources est présent dans l’abonnement du consommateur, mais une identité du locataire de l’éditeur a accès au groupe de ressources. En tant qu’éditeur, vous spécifiez le coût de l’assistance en continu de la solution.
+Une application gérée est similaire à un modèle de solution de la Place de marché à une importante différence près. Dans une application managée, les ressources sont déployées vers un groupe de ressources géré par l’éditeur de l’application. Le groupe de ressources est présent dans l’abonnement du consommateur, mais une identité du locataire de l’éditeur a accès au groupe de ressources. En tant qu’éditeur, vous spécifiez le coût de l’assistance en continu de la solution.
 
 ## <a name="advantages-of-managed-applications"></a>Avantages des applications gérées
 
-Les applications managées offrent de nombreux avantages pour les utilisateurs de vos solutions. Ils n’ont besoin d’aucune compétence en matière d’infrastructure cloud pour utiliser votre solution. Ils ont un accès limité aux ressources critiques. Ils ne risquent pas de faire des erreurs lors de sa gestion. 
+Les applications managées offrent de nombreux avantages pour les utilisateurs de vos solutions. Ils n’ont besoin d’aucune compétence en matière d’infrastructure cloud pour utiliser votre solution. Les consommateurs disposent d’un accès limité aux ressources critiques, vous n’avez donc pas à vous soucier de faire des erreurs concernant la gestion. 
 
 Les applications managées vous permettent d’établir une relation suivie avec vos consommateurs. Vous définissez des conditions pour la gestion de l’application, et tous les frais sont gérés par le biais de la facturation Azure.
 
 Bien que les clients déploient ces applications gérées dans leurs abonnements, ils n’ont pas à en gérer la maintenance ni à les mettre à jour. Vous pouvez vous assurer que tous les clients utilisent des versions approuvées. Les clients n’ont pas besoin d’acquérir des connaissances techniques propres aux applications pour les gérer. Les clients obtiennent automatiquement les mises à jour des applications sans avoir à se soucier de la résolution et du diagnostic des problèmes liés aux applications. 
 
-Pour les équipes informatiques, les applications managées permettent d’offrir des solutions préapprouvées aux utilisateurs de l’organisation. Vous pouvez être sûrs que ces solutions sont conformes aux normes de l’organisation.
+Pour les équipes informatiques, les applications managées permettent d’offrir des solutions préapprouvées aux utilisateurs de l’organisation. Vous savez que ces solutions sont conformes aux normes de l’organisation.
 
 ## <a name="types-of-managed-applications"></a>Types d’applications managées
 
@@ -41,7 +41,7 @@ Vous pouvez publier votre application managée en interne ou en externe.
 
 ### <a name="service-catalog"></a>Catalogue de services
 
-Le catalogue de services est un catalogue interne des solutions approuvées pour les utilisateurs d’une organisation. Vous l’utilisez pour garantir la conformité avec certaines normes organisationnelles tout en fournissant des solutions à l’organisation. Les employés utilisent le catalogue pour découvrir facilement les applications recommandées et approuvées par leur service informatique. Ils voient les applications managées que d’autres personnes dans leur organisation partagent avec eux.
+Le catalogue de services est un catalogue interne des solutions approuvées pour les utilisateurs d’une organisation. Vous l’utilisez pour garantir la conformité avec les normes organisationnelles tout en fournissant des solutions à l’organisation. Les employés utilisent le catalogue pour découvrir facilement les applications recommandées et approuvées par leur service informatique. Ils voient les applications managées que d’autres personnes dans leur organisation partagent avec eux.
 
 Pour plus d’informations sur la publication d’une application managée de catalogue de services, consultez [Créer une application de catalogue de services](publish-service-catalog-app.md).
 
@@ -77,6 +77,7 @@ Vous pouvez appliquer une stratégie [Azure Policy](../azure-policy/azure-policy
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir une introduction à la définition et au déploiement d’une application managée, consultez [Créer et déployer une application managée avec Azure CLI](managed-apps-quickstart-cli.md).
-* Pour plus d’informations sur la publication d’une application interne, consultez [Créer une application de catalogue de services](publish-service-catalog-app.md).
-* Pour plus d’informations sur la publication d’applications managées sur la Place de marché, consultez [Créer une application de Place de marché](publish-marketplace-app.md).
+Dans cet article, vous avez pris connaissance des avantages de l’utilisation des applications managées. Consultez l’article suivant pour créer une définition d’application managée.
+
+> [!div class="nextstepaction"]
+> [Démarrage rapide : publier une définition d’application managée Azure](publish-managed-app-definition-quickstart.md)

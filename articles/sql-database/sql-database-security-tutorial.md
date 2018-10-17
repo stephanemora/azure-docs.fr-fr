@@ -12,12 +12,12 @@ ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: 7db0276f03511273e2607378f993957ce3a6c094
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ceed69503900b38d7f6a29bbe116ab9a4d54e396
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160432"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857956"
 ---
 # <a name="secure-your-azure-sql-database"></a>Sécuriser votre base de données SQL Azure
 
@@ -174,7 +174,7 @@ L’audit Azure SQL Database suit les événements de base de données et les é
 
 1. Sélectionnez **Bases de données SQL** dans le menu de gauche, puis cliquez sur votre base de données dans la page **Bases de données SQL**. 
 
-2. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces**. Notez que l’audit au niveau du serveur est désactivé et que le lien **Afficher les paramètres du serveur** qui vous permet d’afficher ou de modifier les paramètres d’audit du serveur à partir de ce contexte.
+2. Dans le panneau Paramètres, sélectionnez **Audit et détection des menaces**. Notez que l’audit au niveau du serveur est désactivé et que le lien **Afficher les paramètres du serveur** vous permet d’afficher ou de modifier les paramètres d’audit du serveur à partir de ce contexte.
 
     ![Panneau Audit](./media/sql-database-security-tutorial/auditing-get-started-settings.png)
 

@@ -1,135 +1,97 @@
 ---
-title: 'Démarrage rapide : Publier avec Node.js une base de connaissances - QnA Maker'
+title: 'Démarrage rapide : Publier une base de connaissances - REST, Node.js - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Comment publier une base de connaissances dans Node.js pour QnA Maker.
+description: Ce démarrage rapide vous aide à publier votre base de connaissances par programmation. La publication envoie la dernière version de la base de connaissances à un index de Recherche Azure dédié et crée un point de terminaison pouvant être appelé dans votre application ou chatbot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/02/2018
 ms.author: diberry
-ms.openlocfilehash: 00642661995e16bda9ad995e69545b28468779c5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c70b90a6e465c72193f63afd7ab9106579e2c634
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040936"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886608"
 ---
-# <a name="publish-a-knowledge-base-in-nodejs"></a>Publier une base de connaissances dans Node.js
+# <a name="quickstart-publish-a-qna-maker-knowledge-base-in-nodejs"></a>Démarrage rapide : Publier une base de connaissances QnA Maker dans Node.js
 
-Le code suivant publie une base de connaissances en utilisant la méthode [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+Ce démarrage rapide vous aide à publier votre base de connaissances par programmation. La publication envoie la dernière version de la base de connaissances à un index de Recherche Azure dédié et crée un point de terminaison pouvant être appelé dans votre application ou chatbot.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+Ce démarrage rapide fait appel aux API QnA Maker :
+* [Publier](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) : cette API ne nécessite aucune information dans le corps de la requête.
+
+## <a name="prerequisites"></a>Prérequis
+
+* [Node.js 6+](https://nodejs.org/en/download/)
+* Vous devez disposer d’un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Pour récupérer votre clé, sélectionnez **Clés** sous **Gestion des ressources** dans votre tableau de bord. 
+* ID de la base de connaissances QnA Maker se trouvant dans l’URL du paramètre de chaîne de requête kbid, comme indiqué ci-dessous.
+
+    ![ID de base de connaissances QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
 Si vous n’avez pas encore de base de connaissances, vous pouvez créer un exemple à utiliser pour ce démarrage rapide : [Créer une base de connaissances](create-new-kb-nodejs.md).
 
-1. Créez un projet Node dans votre IDE favori.
-1. Ajoutez le code ci-dessous.
-1. Remplacez la valeur `subscriptionKey` par une clé d’abonnement valide.
-1. Remplacez la valeur `kb` par un ID de base de connaissances valide. Vous trouverez cette valeur en accédant à l’une de vos [bases de connaissances QnA Maker](https://www.qnamaker.ai/Home/MyServices). Sélectionnez la base de connaissances que vous souhaitez publier. Une fois sur cette page, recherchez « kdid = » dans l’URL, comme indiqué ci-dessous. Utilisez sa valeur pour votre exemple de code.
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-    ![ID de base de connaissances QnA Maker](../media/qnamaker-quickstart-kb/qna-maker-id.png)
-1. Exécutez le programme.
+## <a name="create-a-knowledge-base-nodejs-file"></a>Créer un fichier Node.js de base de connaissances
 
-``` Node.js
-'use strict';
+Créez un fichier appelé `publish-knowledge-base.js`.
 
-let fs = require ('fs');
-let https = require ('https');
+## <a name="add-required-dependencies"></a>Ajouter les dépendances nécessaires
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+En haut de `publish-knowledge-base.js`, ajoutez les lignes suivantes pour ajouter les dépendances nécessaires au projet :
 
-// Replace this with a valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=1-4 "Add the dependencies")]
 
-// NOTE: Replace this with a valid knowledge base ID.
-let kb = 'ENTER ID HERE';
+## <a name="add-required-constants"></a>Ajouter les constantes nécessaires
 
-let host = 'westus.api.cognitive.microsoft.com';
-let service = '/qnamaker/v4.0';
-let method = '/knowledgebases/';
+Après les dépendances nécessaires précédentes, ajoutez les constantes nécessaires pour accéder à QnA Maker. Remplacez la valeur de la variable `subscriptionKey` par votre clé QnA Maker. 
 
-let pretty_print = function (s) {
-    return JSON.stringify(JSON.parse(s), null, 4);
-}
+[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=10-17 "Add required constants")]
 
-// callback is the function to call when we have the entire response.
-let response_handler = function (callback, response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-// Call the callback function with the status code, headers, and body of the response.
-        callback ({ status : response.statusCode, headers : response.headers, body : body });
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+## <a name="add-knowledge-base-id"></a>Ajouter l’ID de base de connaissances
 
-// Get an HTTP response handler that calls the specified callback function when we have the entire response.
-let get_response_handler = function (callback) {
-// Return a function that takes an HTTP response, and is closed over the specified callback.
-// This function signature is required by https.request, hence the need for the closure.
-    return function (response) {
-        response_handler (callback, response);
-    }
-}
+Après les constantes précédentes, ajoutez l’ID de base de connaissances et ajoutez-le au chemin d’accès :
 
-// callback is the function to call when we have the entire response from the POST request.
-let post = function (path, content, callback) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Content-Length' : content.length,
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-        }
-    };
+[!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=19-23 "Add knowledge base ID")]
 
-// Pass the callback function to the response handler.
-    let req = https.request (request_params, get_response_handler (callback));
-    req.write (content);
-    req.end ();
-}
+## <a name="add-supporting-functions"></a>Ajouter des fonctions de prise en charge
 
-// callback is the function to call when we have the response from the /knowledgebases POST method.
-let publish_kb = function (path, req, callback) {
-    console.log ('Calling ' + host + path + '.');
-// Send the POST request.
-    post (path, req, function (response) {
-// Extract the data we want from the POST response and pass it to the callback function.
-        if (response.status == '204') {
-            let result = {'result':'Success'};
-            callback (JSON.stringify(result));
-        }
-        else {
-            callback (response.body);
-        }
-    });
-}
+Ajoutez ensuite les fonctions de prise en charge suivantes.
 
-var path = service + method + kb;
-publish_kb (path, '', function (result) {
-    console.log (pretty_print(result));
-});
-```
+1. Ajoutez la fonction suivante pour imprimer JSON dans un format lisible :
 
-## <a name="understand-what-qna-maker-returns"></a>Comprendre ce que retourne QnA Maker
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=25-28 "Add supporting functions, step 1")]
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+2. Ajoutez les fonctions suivantes pour gérer la réponse HTTP afin d’obtenir l’état de l’opération de création :
 
-```json
-{
-  "result": "Success."
-}
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=30-52 "Add supporting functions, step 2")]
+
+## <a name="add-the-publishkb-function-and-main-function"></a>Ajouter la fonction publish_kb et la fonction principale
+
+Le code suivant envoie une requête HTTPS à l’API QnA Maker afin de publier une base de connaissances et reçoit la réponse :
+
+[!code-nodejs[Add POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=54-71 "Add POST request to publish KB")]
+
+[!code-nodejs[Add the publish_kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=73-91 "Add the publish_kb function and main function")]
+
+## <a name="add-the-main-function"></a>Ajouter la fonction principale
+
+Ajoutez la fonction suivante pour gérer la requête et la réponse :
+
+[!code-nodejs[Add the main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=94-97 "Add the main function")]
+
+## <a name="run-the-program"></a>Exécuter le programme
+
+Générez et exécutez le programme. Il envoie automatiquement la requête à l’API QnA Maker visant à publier la base de connaissances, puis la réponse est affichée dans la fenêtre de console.
+
+Une fois votre base de connaissances publiée, vous pouvez l’interroger à partir du point de terminaison à l’aide d’une application client ou d’un chatbot. 
+
+```bash
+node publish-knowledge-base.js
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

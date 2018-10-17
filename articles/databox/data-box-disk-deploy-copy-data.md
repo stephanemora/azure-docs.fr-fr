@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7eb17138f42cdada10edd5ef08873eb2afee91fe
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452613"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068976"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Didacticiel : Copier des données sur un disque Azure Data Box et procéder à une vérification
 
@@ -163,7 +163,75 @@ Procédez comme suit pour vous connecter et copier des données à partir de vot
 > -  Lorsque vous copiez des données, vérifiez que la taille des données est conforme aux limites de taille spécifiées dans l’article [Azure storage and Data Box Disk limits](data-box-disk-limits.md) (Limitations relatives au stockage Azure et aux disques Data Box). 
 > - Si les données, qui sont en cours de chargement via Data Box Disk, sont chargées simultanément par d’autres applications en dehors de Data Box Disk, cela pourrait entraîner l’échec du téléchargement ou des corruptions de données.
 
-## <a name="verify-data"></a>Vérifier les données 
+### <a name="split-and-copy-data-to-disks"></a>Fractionner et copier des données sur plusieurs disques
+
+Vous pouvez exécuter cette procédure facultative lorsque vous utilisez plusieurs disques et que vous disposez d’un jeu de données volumineux qui doit être fractionné et copié sur la totalité des disques. L’outil Data Box Split Copy vous permet de fractionner et copier les données sur un ordinateur Windows.
+
+1. L’outil Data Box Split Copy doit avoir été téléchargé et extrait dans un dossier local de votre ordinateur Windows. Cet outil a été téléchargé lorsque vous avez téléchargé l’ensemble d’outils Data Box Disk pour Windows.
+2. Ouvrez l’Explorateur de fichiers. Notez la lettre de lecteur de la source de données et les lettres de lecteur attribuées à Data Box Disk. 
+
+     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+ 
+3. Identifiez les données sources à copier. Par exemple, dans ce cas précis :
+    - Les données d’objet blob de blocs ci-après ont été identifiées.
+
+         ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+
+    - Les données d’objet blob de pages ci-après ont été identifiées.
+
+         ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+ 
+4. Accédez au dossier dans lequel le logiciel a été extrait. Recherchez le fichier SampleConfig.json dans ce dossier. Il s’agit d’un fichier en lecture seule que vous pouvez modifier et enregistrer.
+
+   ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+ 
+5. Modifiez le fichier SampleConfig.json.
+ 
+    - Fournissez un nom de travail. Cette opération crée un dossier dans Data Box Disk qui devient le conteneur dans le compte de stockage Azure associé à ces disques. Le nom du travail doit respecter les conventions d’affectation de noms de conteneur Azure. 
+    - Fournissez un chemin d’accès source en notant le format du chemin dans le fichier SampleConfig.json. 
+    - Entrez les lettres de lecteur correspondant aux disques cibles. Les données sont copiées sur les différents disques à partir du chemin d’accès source.
+    - Fournissez un chemin d’accès pour les fichiers journaux. Par défaut, ces fichiers sont envoyés au répertoire dans lequel se trouve le fichier .exe.
+
+     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+
+6. Pour valider le format de fichier, accédez à JSONlint. Enregistrez le fichier sous le nom ConfigFile.json. 
+
+     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+ 
+7. Ouvrez une fenêtre d’invite de commandes. 
+
+8. Exécutez le fichier DataBoxDiskSplitCopy.exe. type
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
+
+     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+ 
+9. Appuyez sur Entrée pour poursuivre le script.
+
+    ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+  
+10. Une fois le jeu de données fractionné et copié, le résumé de l’outil Split Copy pour la session de copie vous est présenté. Voici un exemple de sortie obtenue.
+
+    ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+ 
+11. Vérifiez que les données ont été fractionnées entre les disques cibles. 
+ 
+    ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+     
+    Si vous examinez davantage le contenu du lecteur n:, vous pouvez constater que deux sous-dossiers ont été créés et correspondent aux données d’objet blob de blocs et d’objet blob de pages.
+    
+     ![Fractionnement des données de copie ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+
+12. Si la session de copie échoue, vous pouvez récupérer et reprendre l’opération en utilisant la commande suivante :
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
+
+
+Une fois la copie des données terminée, l’étape suivante consiste à valider les données. 
+
+
+## <a name="validate-data"></a>Valider les données 
 
 Pour vérifier les données, procédez comme suit.
 
@@ -177,7 +245,7 @@ Pour vérifier les données, procédez comme suit.
 
     > [!TIP]
     > - Réinitialisez l’outil entre deux exécutions.
-    > - Utilisez l’option 1 pour valider les fichiers en traitant uniquement les jeux de données volumineux contenant de petits fichiers (~Ko). Dans ce cas, la génération des sommes de contrôle peut prendre beaucoup de temps et ralentir considérablement les performances.
+    > - Utilisez l’option 1 pour valider les fichiers en traitant uniquement les jeux de données volumineux contenant de petits fichiers (de quelques Ko). Dans ce cas, la génération des sommes de contrôle peut prendre beaucoup de temps et ralentir considérablement les performances.
 
 3. Si vous utilisez plusieurs disques, exécutez la commande pour chaque disque.
 

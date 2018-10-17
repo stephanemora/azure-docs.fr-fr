@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018s
+ms.date: 10/10/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 9092629c7bef46cdb7c464fca5e22d4aea0da9fc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041538"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079104"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec Analyse du coût
 
@@ -34,13 +34,21 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 L’analyse du coût est accessible à tous les clients bénéficiant d’un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût.
 
-- Compte de facturation
-- department
-- Compte d’inscription
-- Groupe d’administration
-- Abonnement
-- Groupe de ressources
+- L’étendue *compte de facturation* est définie à l’emplacement https://ea.azure.com et nécessite un accès Administrateur d’entreprise. Aucun paramètre de Contrat Entreprise (EA) n’est prérequis. Les informations de facturation de l’analyse des coûts sont consolidées pour tous les abonnements du Contrat Entreprise. Le compte de facturation est fréquemment désigné sous le terme de *Contrat Entreprise* ou *d’inscription*.
 
+- L’étendue *service* est définie à l’emplacement https://ea.azure.com et nécessite un accès Administrateur de service. Le paramètre **d’affichage des frais pour l’administrateur de service** doit être activé dans le portail EA. Les informations de facturation de l’analyse des coûts sont consolidées pour tous les abonnements appartenant au compte d’inscription qui sont liés au service.
+
+- L’étendue *compte d’inscription* est définie à l’emplacement https://ea.azure.com et nécessite un accès Propriétaire du compte. Le paramètre **d’affichage des frais pour le propriétaire du compte** doit être activé dans le portail EA. Les informations de facturation de l’analyse des coûts sont consolidées pour tous les abonnements appartenant au compte d’inscription. Le compte d’inscription est fréquemment désigné sous le terme de *propriétaire du compte*.
+
+- L’étendue *groupe d’administration* est définie à l’emplacement https://portal.azure.com et nécessite un accès Lecteur Cost Management (ou Lecteur). Le paramètre **d’affichage des frais pour le propriétaire du compte** doit être activé dans le portail EA. Les informations de facturation de l’analyse des coûts sont consolidées pour tous les abonnements figurant sous le groupe d’administration.
+
+- L’étendue *abonnement* est définie à l’emplacement https://portal.azure.com et nécessite un accès Lecteur Cost Management (ou Lecteur). Le paramètre **d’affichage des frais pour le propriétaire du compte** doit être activé dans le portail EA. Les informations de facturation de l’analyse des coûts sont consolidées pour la totalité des ressources et des groupes de ressources de l’abonnement.
+
+- L’étendue *groupe de ressources* est définie à l’emplacement https://portal.azure.com et nécessite un accès Lecteur Cost Management (ou Lecteur). Le paramètre **d’affichage des frais pour le propriétaire du compte** doit être activé dans le portail EA. Les informations de facturation de l’analyse des coûts sont consolidées pour la totalité des ressources du groupe de ressources.
+
+
+
+Pour plus d’informations sur la configuration des paramètres **d’affichage des frais pour l’administrateur de service** et **d’affichage des frais pour le propriétaire du compte**, consultez la section [Activation de l’accès aux coûts](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -94,6 +102,11 @@ Les graphiques croisés dynamiques sous la vue Total supérieure montrent les vu
 ![Données complètes pour l’affichage actuel](./media/quick-acm-cost-analysis/full-data-set.png)
 
 L’image précédente montre les noms de groupe de ressources. L’affichage des étiquettes des ressources n’est pas disponible dans aucune des vues de l’analyse de coût, ni aucun des filtres ou regroupements.
+
+Lorsque vous regroupez les coûts en fonction d’un attribut spécifique, les dix principaux contributeurs aux coûts s’affichent dans l’ordre décroissant. S’il existe plus de dix groupes, les neuf principaux contributeurs aux coûts apparaissent en même temps qu’un groupe **Autres** qui réunit tous les groupes restants.
+
+Les ressources de machines virtuelles, de mise en réseau et de stockage *Classic* (Azure Service Management ou ASM) ne partagent pas de données de facturation détaillées. Elles sont fusionnées sous forme de **services Classic** lors du regroupement des coûts.
+
 
 ## <a name="download-cost-analysis-data"></a>Télécharger les données de l’analyse du coût
 

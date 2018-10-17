@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b6f46c10603e54f0f77a635b3233073aadac0cd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9e7e853ad7562bf5d449479ad730a5dabd6a97b8
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700121"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585422"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Vue d’ensemble de l’intégration d’Azure Service Bus et Event Grid
 
@@ -129,9 +129,9 @@ Pour créer un abonnement Event Grid, procédez comme suit :
 2. Dans le volet gauche, sélectionnez **Event Grid**. 
 3. Sélectionnez **Abonnement aux événements**.  
 
-   L’image suivante affiche un espace de noms qui a quelques abonnements Event Grid :
+   L’image suivante affiche un espace de noms qui a un abonnement Event Grid :
 
-   ![20][]
+   ![Abonnements Event Grid](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    L’image suivante montre comment s’abonner à une fonction ou à un webhook sans aucun filtrage spécifique :
 
@@ -176,7 +176,7 @@ New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBS
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Obtenir des [exemples](service-bus-to-event-grid-integration-example.md) Service Bus et Event Grid.
-* En savoir plus sur [Event Grid](https://docs.microsoft.com/azure/azure-functions/).
+* En savoir plus sur [Event Grid](https://docs.microsoft.com/azure/event-grid/).
 * Apprenez-en plus sur [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
 * Découvrez plus en détail les [applications logiques](https://docs.microsoft.com/azure/logic-apps/).
 * En savoir plus sur [Service Bus](https://docs.microsoft.com/azure/azure-functions/).

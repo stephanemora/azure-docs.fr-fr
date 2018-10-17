@@ -3,7 +3,7 @@ title: Dans ce didacticiel, vous allez apprendre à vous abonner à une offre Az
 description: Ce didacticiel explique comment créer un nouvel abonnement dans les services Azure Stack et comment tester l’offre en créant une machine virtuelle de test.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 09/05/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 96b82ede71e7957105dce25096d7873ee876211f
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236953"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076098"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Didacticiel : créer et tester un abonnement
 Ce didacticiel vous montre comment créer un abonnement qui contient une offre et comment la tester. Pour le test, vous allez vous connecter au portail utilisateur Azure Stack en tant qu’administrateur cloud, vous abonner à l’offre, puis créer une machine virtuelle.
@@ -51,7 +51,7 @@ Pour vous abonner à une offre en tant qu’utilisateur, vous devez vous connect
    > [!TIP]
    > Vous devez maintenant actualiser le portail utilisateur pour commencer à utiliser votre abonnement.
 
-3. Pour afficher l’abonnement que vous venez de créer, cliquez sur **Autres services**, sur **Abonnements**, puis sur votre nouvel abonnement. Une fois que vous êtes abonné à une offre, actualisez le portail pour voir si les nouveaux services ont été ajoutés à votre nouvel abonnement. Dan cet exemple, **Machines virtuelles** a été ajouté.
+3. Pour afficher l’abonnement que vous avez créé, cliquez sur **Tous les services**.  Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez votre nouvel abonnement. Une fois que vous êtes abonné à une offre, actualisez le portail pour voir si les nouveaux services ont été ajoutés à votre nouvel abonnement. Dan cet exemple, **Machines virtuelles** a été ajouté.
 
    ![Afficher l’abonnement](media/azure-stack-subscribe-services/view-subscription.png)
 

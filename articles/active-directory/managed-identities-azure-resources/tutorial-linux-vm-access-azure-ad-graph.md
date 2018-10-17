@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 548111a6c2b9e0cf8c5b20eee5cc8fa45fe02da8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 1d1e0d8f5a030daadb8dab1233dee52d5485c8fb
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47453109"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237481"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux affectée par le système pour accéder à l’API Azure AD Graph
 
@@ -137,7 +137,7 @@ Azure AD Graph :
    curl "https://graph.windows.net/myorganization/servicePrincipals/<VM Object ID>/appRoleAssignments?api-version=1.6" -X POST -d '{"id":"5778995a-e1bf-45b8-affa-663a9f3f4d04","principalId":"<VM Object ID>","resourceId":"81789304-ff96-402b-ae73-07ec0db26721"}'-H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
    ``` 
  
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-ad-graph"></a>Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle et l’utiliser pour appeler Azure AD Graph 
+## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Obtenir un jeton d’accès à l’aide de l’identité de la machine virtuelle pour appeler Azure AD Graph 
 
 Pour effectuer cette procédure, vous avez besoin d'un client SSH. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 

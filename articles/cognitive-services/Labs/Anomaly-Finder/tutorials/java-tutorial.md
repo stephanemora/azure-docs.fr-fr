@@ -1,22 +1,25 @@
 ---
-title: Détection des anomalies dans une application Java - Microsoft Cognitive Services | Microsoft Docs
-description: Explorez une application Java qui utilise l’API Détection d’anomalies dans Microsoft Cognitive Services. Envoyez des points de données d’origine à l’API et obtenez la valeur attendue et les points d’anomalies.
+title: 'Didactiel : Détection des anomalies dans Java'
+titlesuffix: Azure Cognitive Services
+description: Explorez une application Java qui utilise l’API Détection des anomalies. Envoyez des points de données d’origine à l’API et obtenez la valeur attendue et des points d’anomalies.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 228d440da358eba1322e2228c54f21e925e36ecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4b544e2e59a40cebf75042c4040b84bceebcecf7
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597946"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887698"
 ---
-# <a name="anomaly-detection-java-application"></a>Détection des anomalies dans une application Java
+# <a name="tutorial-anomaly-detection-with-java-application"></a>Didacticiel : Détection des anomalies avec une application Java
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Cet article illustre l’utilisation d’une application Java simple pour appeler l’API Détection d’anomalies.  
 L’exemple envoie les données de série chronologique à l’API Détection d’anomalies avec votre clé d’abonnement, puis obtient tous les points d’anomalies et la valeur attendue pour chaque point de données à partir de l’API.

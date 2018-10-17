@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 514b2a026ea34f4bd82f13ebc73c09f71637ce30
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978350"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784635"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Démarrage rapide : Déployer Azure Data Box via le portail Azure
 
@@ -31,20 +31,21 @@ Pour obtenir des instructions détaillées sur le déploiement pas à pas, accé
 
 Avant de commencer :
 
-- Assurez-vous que l’abonnement que vous utilisez pour le service Data Box est un des types suivants :
+- L’abonnement que vous utilisez pour le service Data Box est un des types suivants :
     - Contrat Entreprise (EA) Microsoft. En savoir plus sur les [abonnements EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Fournisseur de solutions cloud (CSP). En savoir plus sur le [programme Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Consommation : paiement à l’utilisation. Plus d’informations sur les [abonnements avec paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure.
+    - Consommation : paiement à l’utilisation. Plus d’informations sur les [abonnements avec paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure.
+    - Microsoft Azure Sponsorship. En savoir plus sur le [programme Azure Sponsorship](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/). 
 
-- Assurez-vous de disposer d’un accès propriétaire ou contributeur à l’abonnement pour créer une commande Data Box.
+- Vous disposez d’un accès propriétaire ou contributeur à l’abonnement pour créer une commande Data Box.
 - Passez en revue les [consignes de sécurité pour votre Data Box](data-box-safety.md).
-- Vous disposez d’un ordinateur hôte contenant les données que vous souhaitez copier sur Data Box. Votre ordinateur hôte doit
+- Vous disposez d’un ordinateur hôte contenant les données que vous souhaitez copier sur Data Box Votre ordinateur hôte doit
     - Exécuter un [système d’exploitation pris en charge](data-box-system-requirements.md)
-    - Être connecté à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, les vitesses de copie sont affectées. 
-- Vous devez avoir accès à une surface plate sur laquelle vous pouvez placer la Data Box. Si vous souhaitez placer l’appareil sur un rack standard, vous avez besoin d’un emplacement 7U dans le rack de votre centre de données. Vous pouvez placer l’appareil à plat ou en position verticale dans le rack.
+    - Être connecté à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie. 
+- Vous devez avoir accès à une surface plane sur laquelle placer la Data Box. Si vous souhaitez placer l’appareil sur un rack standard, vous avez besoin d’un emplacement 7U dans le rack de votre centre de données. Vous pouvez placer l’appareil à plat ou en position verticale dans le rack.
 - Vous disposez des câbles suivants pour connecter votre Data Box à l’ordinateur hôte.
     - Deux câbles en cuivre Twinax SFP+ 10 GbE (à utiliser avec les interfaces réseau DATA 1 et DATA 2)
-    - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
+    - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
     - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA 3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure

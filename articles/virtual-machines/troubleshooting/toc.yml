@@ -7,8 +7,6 @@ items:
     href: allocation-failure.md
   - name: Échecs d’allocation pour déploiements classiques
     href: allocation-failure-classic.md
-- name: Diagnostics de démarrage
-  href: boot-diagnostics.md
 - name: RDP
   items:
   - name: Réinitialiser RDP
@@ -105,6 +103,8 @@ items:
 - name: Erreurs de démarrage
   href: boot-error-troubleshoot.md
   items:
+  - name: Diagnostics de démarrage
+    href: boot-diagnostics.md
   - name: Erreurs de BitLocker
     href: troubleshoot-bitlocker-boot-error.md
   - name: Vérification des erreurs du système de fichiers
@@ -115,15 +115,17 @@ items:
     href: troubleshoot-vm-boot-configure-update.md
   - name: Échec du service critique
     href: troubleshoot-critical-service-failed-boot-error.md
+  - name: Bloqué dans Windows Update
+    href: troubleshoot-stuck-updating-boot-error.md
 - name: Erreurs de limitation
   href: troubleshooting-throttling-errors.md
 - name: Utiliser la virtualisation imbriquée
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Comprendre un redémarrage du système
   href: understand-vm-reboot.md
-ms.openlocfilehash: a2ef58c999d2d438a23fb9e3fd214c6bf677de00
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 95c1a53d1c271bf5a274ba8dbb27401e9b785dad
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067402"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354085"

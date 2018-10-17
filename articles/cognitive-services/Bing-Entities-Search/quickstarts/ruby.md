@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide Ruby pour Azure Cognitive Services, API Recherche d’entités Bing | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’entités Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API Recherche d’entités Bing, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’entités Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 0b47430886e70421e51438b56decc9b86d88d0fb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7e2b3fa520c17bb85fa04ca12bb762ce8f370371
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370145"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814455"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-ruby"></a>Démarrage rapide pour l’API Recherche d’entités Bing de Microsoft avec Ruby 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Démarrage rapide pour l’API Recherche d’entités Bing avec Ruby
 
 Cet article vous explique comment utiliser l’API [Recherche d’entités Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) avec Ruby.
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84783472adda9a4a74670f0579790aac69feb23d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094992"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854522"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 
@@ -25,7 +25,7 @@ Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une mét
 
 ![Message de file d’attente affiché dans l’Explorateur Stockage](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce guide de démarrage rapide :
 
@@ -39,15 +39,19 @@ Dans cette section, l’interface utilisateur du portail vous permet d’ajouter
 
 1. Dans le portail Azure, ouvrez la page d’application de fonction correspondant à l’application de fonction que vous avez créée dans [Créer votre première fonction à l’aide du Portail Azure](functions-create-first-azure-function.md). Pour ce faire, sélectionnez **Tous les services > Applications de fonction**, puis sélectionnez votre application de fonction.
 
-2. Sélectionnez la fonction que vous avez créée dans ce démarrage rapide précédent.
+1. Sélectionnez la fonction que vous avez créée dans ce démarrage rapide précédent.
 
 1. Sélectionnez **Intégrer > Nouvelle sortie > Stockage File d’attente Azure**.
 
 1. Cliquez sur **Sélectionner**.
-    
+
     ![Ajoutez une liaison de sortie de stockage de files d’attente à une fonction dans le Portail Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. Sous **Azure Queue Storage output** (Sortie de Stockage File d’attente Azure), utilisez les paramètres indiqués dans le tableau qui suit cette capture d’écran : 
+1. Si vous obtenez un message **Extensions non installées**, choisissez **Installer** pour installer l’extension de liaisons de stockage dans l’application de fonction. Cela peut prendre une à deux minutes.
+
+    ![Installer l’extension liaison de stockage](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. Sous **Azure Queue Storage output** (Sortie de Stockage File d’attente Azure), utilisez les paramètres indiqués dans le tableau qui suit cette capture d’écran : 
 
     ![Ajoutez une liaison de sortie de stockage de files d’attente à une fonction dans le Portail Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
@@ -57,52 +61,58 @@ Dans cette section, l’interface utilisateur du portail vous permet d’ajouter
     | **Connexion au compte de stockage** | AzureWebJobsStorage | Vous pouvez utiliser la connexion de compte de stockage qui est déjà utilisée par votre application de fonction, ou créez-en une.  |
     | **Nom de la file d’attente**   | outqueue    | Le nom de la file d’attente à connecter à votre compte de stockage. |
 
-4. Cliquez sur **Enregistrer** pour ajouter la liaison.
- 
+1. Cliquez sur **Enregistrer** pour ajouter la liaison.
+
 Maintenant que vous avez défini une liaison de sortie, vous devez mettre à jour le code afin d’utiliser la liaison pour ajouter des messages à une file d’attente.  
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Ajouter le code qui utilise la liaison de sortie
 
 Dans cette section, vous ajoutez le code qui écrit un message dans la file d’attente de sortie. Le message contient la valeur qui est transmise au déclencheur HTTP dans la chaîne de requête. Par exemple, si la chaîne de requête inclut `name=Azure`, le message de la file d’attente sera *Nom transmis à la fonction : Azure*.
 
-1. Sélectionnez la fonction pour afficher le code de fonction dans l’éditeur. 
+1. Sélectionnez la fonction pour afficher le code de fonction dans l’éditeur.
 
-2. Pour une fonction C#, ajoutez un paramètre de méthode pour la liaison et écrivez du code pour l’utiliser :
+1. Mettez à jour le code de fonction en fonction du langage de la fonction :
 
-   Ajoutez un paramètre **outputQueueItem** à la signature de méthode, comme indiqué dans l’exemple suivant. Le nom du paramètre est celui que vous avez entré pour **Nom du paramètre de message** lors de la création de la liaison.
+    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    Ajoutez un paramètre **outputQueueItem** à la signature de méthode, comme indiqué dans l’exemple suivant.
 
-   Dans le corps de la fonction C# juste avant l’instruction `return`, ajoutez le code qui utilise le paramètre pour créer un message de file d’attente.
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    Dans le corps de la fonction juste avant l’instruction `return`, ajoutez le code qui utilise le paramètre pour créer un message de file d’attente.
 
-3. Pour une fonction JavaScript, ajoutez le code qui utilise la liaison de sortie sur l’objet `context.bindings` pour créer un message de file d’attente. Ajoutez ce code avant l’instruction `context.done`.
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-4. Sélectionnez **Enregistrer** pour enregistrer les modifications.
- 
-## <a name="test-the-function"></a>Tester la fonction 
+    Ajoutez le code qui utilise la liaison de sortie sur l’objet `context.bindings` pour créer un message de file d’attente. Ajoutez ce code avant l’instruction `context.done`.
+
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+    ---
+
+1. Sélectionnez **Enregistrer** pour enregistrer les modifications.
+
+## <a name="test-the-function"></a>Tester la fonction
 
 1. Après avoir enregistré les modifications de code, sélectionnez **Exécuter**. 
 
     ![Ajoutez une liaison de sortie de stockage de files d’attente à une fonction dans le Portail Azure.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   Notez que **Corps de la demande** contient la valeur `name` *Azure*. Cette valeur s’affiche dans le message de file d’attente qui est créé lorsque la fonction est appelée.
-
-   Plutôt que de sélectionner **Exécuter** ici, vous pouvez appeler la fonction en entrant une URL dans un navigateur et en spécifiant la valeur `name` dans la chaîne de requête. La méthode du navigateur est affichée dans le [démarrage rapide précédent](functions-create-first-azure-function.md#test-the-function).
+    Notez que **Corps de la demande** contient la valeur `name` *Azure*. Cette valeur s’affiche dans le message de file d’attente qui est créé lorsque la fonction est appelée.
+    
+    Plutôt que de sélectionner **Exécuter** ici, vous pouvez appeler la fonction en entrant une URL dans un navigateur et en spécifiant la valeur `name` dans la chaîne de requête. La méthode du navigateur est affichée dans le [démarrage rapide précédent](functions-create-first-azure-function.md#test-the-function).
 
 2. Vérifiez les journaux pour vous assurer que la fonction a réussi. 
 
@@ -146,7 +156,7 @@ Ignorez cette section si vous avez déjà installé et connecté l’Explorateur
 
 2. Exécutez de nouveau la fonction, et vous verrez un nouveau message s’afficher dans la file d’attente.  
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 

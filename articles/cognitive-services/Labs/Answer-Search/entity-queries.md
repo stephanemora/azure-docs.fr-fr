@@ -1,22 +1,23 @@
 ---
-title: Requête relative à des entités pour la Project Answer Search – Microsoft Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : requête d’entité Project Answer Search'
+titlesuffix: Azure Cognitive Services
 description: Requêtes relatives à des entités à l’aide de Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 2b8382b791c02514e5110097700e223d98fafd6a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 0845f491772b905599bb60e8ec555d14b6d6b15f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369573"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883599"
 ---
-# <a name="query-for-entities"></a>Requête relative à des entités
+# <a name="quickstart-query-for-entities"></a>Démarrage rapide : Requête relative à des entités
 
 Si la requête demande des informations sur une personne, un lieu ou une chose, la réponse peut contenir une réponse `entities`.  Les requêtes retournent toujours des pages web, les [faits](fact-queries.md) et/ou les [entités](entity-queries.md) dépendent de la requête.
 

@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d606b7b536147b7e1d96bfb6cebf2522e5b4f85f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161928"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078848"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Didacticiel : Copier des données sur Azure Data Box 
 
@@ -88,11 +88,11 @@ Si vous utilisez un ordinateur hôte Windows Server, procédez comme suit pour v
     The command completed successfully.
     ```
 
-4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Cliquez sur **OK**. L’Explorateur de fichiers s’affiche.
+4. Appuyez sur Windows + R. Dans la fenêtre **Exécuter**, spécifiez `\\<device IP address>`. Cliquez sur **OK**. L’Explorateur de fichiers s’affiche. À présent, vous devriez voir les partages sous forme de dossiers.
     
     ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. À présent, vous devriez voir les partages sous forme de dossiers. Créez un dossier pour les fichiers que vous souhaitez copier (dans ce cas, templates). Il arrive que les dossiers soient marqués d’une croix grise. Cette croix n’indique pas une condition d’erreur. L’application marque les dossiers pour permettre d’en suivre l’état.
+5.  **Toujours créer un dossier pour les fichiers que vous envisagez de copier sous le partage, puis copier les fichiers dans ce dossier**. Il arrive que les dossiers soient marqués d’une croix grise. Cette croix n’indique pas une condition d’erreur. L’application marque les dossiers pour permettre d’en suivre l’état.
     
     ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Se connecter au partage à l’aide de l’Explorateur de fichiers 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -239,11 +239,14 @@ Si vous utilisez l’option rsync pour une copie multithread, suivez ces instruc
 
  - Installez le package **CIFS Utils** ou **NFS Utils** selon le système de fichiers utilisé par votre client Linux.
 
-    `sudo apt-get install cifs-utils` `sudo apt-get install nfs-utils`
+    `sudo apt-get install cifs-utils`
+
+    `sudo apt-get install nfs-utils`
 
  -  Installez **Rsync** et **Parallel** (selon la version distribuée de Linux).
 
     `sudo apt-get install rsync`
+   
     `sudo apt-get install parallel` 
 
  - Créez un point de montage.

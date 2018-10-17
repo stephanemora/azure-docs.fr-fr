@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: af6faa6abcc54ef11e066d3a348dac28b23c7af4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698109"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079087"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Utilisez l’outil de migration de données pour migrer vos données vers Azure Cosmos DB 
 
@@ -42,7 +42,9 @@ Avant de suivre les instructions de cet article, vérifiez que les éléments su
 
 * [Microsoft .NET Framework 4.51](https://www.microsoft.com/download/developer-tools.aspx) ou une version ultérieure.
 
-* Augmentez le débit : la durée de la migration des données dépend de la quantité de débit que vous définissez pour une collection spécifique ou un ensemble de collections. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le portail Azure, consultez les niveaux de performances et niveaux tarifaires dans Azure Cosmos DB.
+* **Augmentez le débit :** la durée de la migration des données dépend de la quantité de débit que vous définissez pour une collection spécifique ou un ensemble de collections. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le portail Azure, consultez les niveaux de performances et niveaux tarifaires dans Azure Cosmos DB.
+
+* **Créez des ressources Azure Cosmos DB :** avant de commencer à migrer les données, créez au préalable toutes vos collections à partir du Portail Azure. Si vous migrez vers un compte Azure Cosmos DB qui a un débit de niveau de base de données, assurez-vous de fournir une clé de partition lors de la création des collections Azure Cosmos DB.
 
 ## <a id="Overviewl"></a>Vue d’ensemble
 L’outil de migration de données est une solution open source permettant d’importer des données dans Azure Cosmos DB à partir de différentes sources, notamment :
@@ -171,7 +173,7 @@ Cette requête retourne les résultats (partiels) suivants :
 
 ![Capture d’écran des résultats de requête SQL](./media/import-data/sqlqueryresults.png)
 
-Notez les alias tels que Address.AddressType et Address.Location.StateProvinceName. En spécifiant un séparateur d'imbrication de « . », l'outil d'importation crée les sous-documents Address et Address.Location lors de l'importation. Voici un exemple de document qui en résulte dans Azure Cosmos DB :
+Notez les alias tels que Address.AddressType et Address.Location.StateProvinceName. En spécifiant un séparateur d’imbrication de « . », l’outil d’importation crée les sous-documents Address et Address.Location lors de l’importation. Voici un exemple de document qui en résulte dans Azure Cosmos DB :
 
 *{« ID » : « 956 », « Nom » : « Service et vente au détail », « Adresse »: {« AddressType »: « Siège », « AddressLine1 »: « #500-75 o ’ Connor Street », « Lieu »: {« Ville »: « Ottawa », « StateProvinceName »: « Ontario »}, « Code postal »: « K4B 1S2 », « CountryRegionName »: « Canada »}}*
 
@@ -192,7 +194,7 @@ De même que pour la source SQL, la propriété du séparateur d'imbrication peu
 
 ![Capture d’écran des exemples d’enregistrement CSV - CSV vers JSON](./media/import-data/csvsample.png)
 
-Notez les alias tels que DomainInfo.Domain_Name et RedirectInfo.Redirecting. En spécifiant un séparateur d'imbrication de « . », l'outil d'importation crée les sous-documents DomainInfo et RedirectInfo lors de l'importation. Voici un exemple de document qui en résulte dans Azure Cosmos DB :
+Notez les alias tels que DomainInfo.Domain_Name et RedirectInfo.Redirecting. En spécifiant un séparateur d’imbrication de « . », l’outil d’importation crée les sous-documents DomainInfo et RedirectInfo lors de l’importation. Voici un exemple de document qui en résulte dans Azure Cosmos DB :
 
 *{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
@@ -201,7 +203,7 @@ L'outil d'importation tente de déduire les informations de type pour les valeur
 Deux autres points sont à prendre en considération concernant l'importation CSV :
 
 1. Par défaut, les valeurs sans guillemets sont toujours privées de leurs tabulations et espaces, tandis que les valeurs entre guillemets sont conservées telles quelles. Ce comportement peut être remplacé en cochant la case Rogner les valeurs entre guillemets ou à l'aide de l'option de ligne de commande /s.TrimQuoted.
-2. Par défaut, une valeur null sans guillemets est considérée comme une valeur null. Ce comportement peut être remplacé (c'est-à-dire, traiter une valeur null sans guillemets comme une chaîne « null ») en cochant la case Traiter les valeurs null sans guillemets comme des chaînes ou à l'aide de l'option de ligne de commande /s.NoUnquotedNulls.
+2. Par défaut, une valeur null sans guillemets est considérée comme une valeur null. Ce comportement peut être remplacé (c’est-à-dire, traiter une valeur null sans guillemets comme une chaîne « null ») en cochant la case Traiter les valeurs null sans guillemets comme des chaînes ou à l’aide de l’option de ligne de commande /s.NoUnquotedNulls.
 
 Voici un exemple de ligne de commande pour une importation CSV :
 
@@ -259,7 +261,7 @@ Voici un exemple de ligne de commande pour effectuer l’importation à partir d
     dt.exe /s:DynamoDB /s.ConnectionString:ServiceURL=https://dynamodb.us-east-1.amazonaws.com;AccessKey=<accessKey>;SecretKey=<secretKey> /s.Request:"{   """TableName""": """ProductCatalog""" }" /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<Azure Cosmos DB Endpoint>;AccountKey=<Azure Cosmos DB Key>;Database=<Azure Cosmos DB Database>;" /t.Collection:catalogCollection /t.CollectionThroughput:2500
 
 ## <a id="BlobImport"></a>Importer à partir du Stockage Blob Azure
-Les options d’importateur source du fichier JSON, du fichier d'exportation MongoDB et du fichier CSV vous permettent d'importer un ou plusieurs fichiers à partir du stockage d’objets blob Azure. Après avoir spécifié l’URL d’un conteneur d'objets blob et une clé de compte, fournissez une expression régulière pour sélectionner le ou les fichier(s) à importer.
+Les options d’importateur source du fichier JSON, du fichier d'exportation MongoDB et du fichier CSV vous permettent d'importer un ou plusieurs fichiers à partir du stockage d’objets blob Azure. Après avoir spécifié l’URL d’un conteneur d'objets blob et une clé de compte, fournissez une expression régulière pour sélectionner le ou les fichier à importer.
 
 ![Capture d’écran des options sources du fichier blob](./media/import-data/blobsource.png)
 
@@ -522,6 +524,14 @@ Vous pouvez éventuellement choisir d’agrémenter le JSON qui en résulte, ce 
       }
     ]
     }]
+
+Voici un exemple de ligne de commande pour exporter le fichier JSON vers le stockage Blob Azure :
+
+```
+dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB database_name>" /s.Collection:<CosmosDB collection_name>
+/t:JsonFile /t.File:"blobs://<Storage account key>@<Storage account name>.blob.core.windows.net:443/<Container_name>/<Blob_name>"
+/t.Overwrite
+```
 
 ## <a name="advanced-configuration"></a>Configuration avancée
 Dans l'écran Configuration avancée, spécifiez l'emplacement du fichier journal dans lequel écrire toutes les erreurs. Les règles suivantes s'appliquent à cette page :

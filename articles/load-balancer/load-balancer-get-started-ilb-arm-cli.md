@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 7e556d3900d257410050e37b714d2005675e185d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 96c52beadb9424bda31726b2fa6da8b4c5b94fbf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967708"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830138"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Créer un équilibreur de charge interne pour équilibrer la charge de machines virtuelles avec Azure CLI
 
@@ -89,7 +89,7 @@ Une sonde d’intégrité vérifie toutes les instances de machine virtuelle pou
 
 ### <a name="create-the-load-balancer-rule"></a>Créer la règle d’équilibreur de charge
 
-Une règle d’équilibreur de charge définit la configuration IP frontale pour le trafic entrant et le pool d’IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. Créez une règle d’équilibreur de charge *myLoadBalancerRuleWeb* à l’aide de la commande [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) pour écouter le port 80 dans le pool frontal *myFrontEndPool* et envoyer le trafic réseau équilibré en charge vers le pool d’adresses principal *myBackEndPool* à l’aide du port 80 également. 
+Une règle d’équilibreur de charge définit la configuration IP frontale pour le trafic entrant et le pool d’IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. Créez une règle d’équilibreur de charge *myHTTPRule* à l’aide de la commande [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) pour écouter le port 80 dans le pool frontal *myFrontEnd* et envoyer le trafic réseau équilibré en charge vers le pool d’adresses principal *myBackEndPool* à l’aide du port 80 également. 
 
 ```azurecli-interactive
   az network lb rule create \

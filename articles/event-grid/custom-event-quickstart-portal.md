@@ -5,19 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 630130bde0440a8a5f51589386f42214f27af59a
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023810"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040624"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Créer et acheminer des événements personnalisés avec le portail Azure et Event Grid
 
-Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez le portail Azure pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. Vous envoyez l’événement à une fonction d’Azure qui enregistre les données d’événement. Une fois terminé, vous voyez que les données d’événement ont été envoyées à un point de terminaison et enregistrées.
+Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez le Portail Azure pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
+
+Une fois que vous avez fini, vous voyez que les données d’événement ont été envoyées à l’application web.
+
+![Afficher les résultats](./media/custom-event-quickstart-portal/view-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -61,77 +65,61 @@ Une rubrique de grille d’événement fournit un point de terminaison défini p
 
    ![Conflit de noms](./media/custom-event-quickstart-portal/name-conflict.png)
 
-## <a name="create-an-azure-function"></a>Création d’une fonction Azure
+## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 
-Avant de nous abonner à la rubrique, nous allons créer le point de terminaison pour le message de l’événement. Dans cet article, Azure Functions vous permet de créer une application de fonction pour le point de terminaison.
+Avant de nous abonner à la rubrique personnalisée, nous allons créer le point de terminaison pour le message de l’événement. En règle générale, le point de terminaison entreprend des actions en fonction des données d’événement. Pour simplifier ce guide de démarrage rapide, déployez une [application web prédéfinie](https://github.com/Azure-Samples/azure-event-grid-viewer) qui affiche les messages d’événement. La solution déployée comprend un plan App Service, une offre App Service Web Apps et du code source en provenance de GitHub.
 
-1. Pour créer une fonction, sélectionnez **Créer une ressource**.
+1. Sélectionnez **Déployer sur Azure** pour déployer la solution sur votre abonnement. Dans le portail Azure, indiquez des valeurs pour les paramètres.
 
-   ![Créer une ressource](./media/custom-event-quickstart-portal/create-resource-small.png)
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-1. Sélectionnez **Compute** et **Function App**.
+1. Le déploiement peut prendre quelques minutes. Une fois le déploiement réussi, affichez votre application web pour vérifier qu’elle s’exécute. Dans un navigateur web, accédez à : `https://<your-site-name>.azurewebsites.net`
 
-   ![Créer une fonction](./media/custom-event-quickstart-portal/create-function.png)
+1. Vous voyez le site, mais aucun événement n’est encore posté sur celui-ci.
 
-1. Donnez un nom unique à la fonction Azure. N’utilisez pas le nom indiqué dans l’image. Sélectionnez le groupe de ressources créé dans cet article. Pour le plan d’hébergement, utilisez **Plan de consommation**. Utilisez le nouveau compte de stockage suggéré. Vous pouvez désactiver Application Insights. Après avoir défini les valeurs, sélectionnez **Créer**.
+   ![Afficher le nouveau site](./media/custom-event-quickstart-portal/view-site.png)
 
-   ![Fournir des valeurs de fonction](./media/custom-event-quickstart-portal/provide-function-values.png)
+## <a name="subscribe-to-custom-topic"></a>S’abonner à une rubrique personnalisée
 
-1. Une fois le déploiement terminé, sélectionnez **Accéder à la ressource**.
+Vous vous abonnez à une rubrique Event Grid pour indiquer à Event Grid les événements qui vous intéressent, et où les envoyer.
 
-   ![Accéder à la ressource](./media/custom-event-quickstart-portal/go-to-resource.png)
+1. Dans le portail, sélectionnez votre rubrique personnalisée.
 
-1. À côté de **Fonctions**, sélectionnez **+**.
+   ![Sélectionner une rubrique personnalisée](./media/custom-event-quickstart-portal/select-custom-topic.png)
 
-   ![Ajouter une fonction](./media/custom-event-quickstart-portal/add-function.png)
+1. Sélectionnez **+ Abonnement aux événements**.
 
-1. Parmi les options disponibles, sélectionnez **Fonction personnalisée**.
+   ![Ajouter un abonnement à un événement](./media/custom-event-quickstart-portal/new-event-subscription.png)
 
-   ![Fonction personnalisée](./media/custom-event-quickstart-portal/select-custom-function.png)
+1. Sélectionnez **Webhook** pour le type de point de terminaison. Indiquez un nom pour l’abonnement à un événement.
 
-1. Faites défiler vers le bas jusqu'à trouver **Déclencheur Event Grid**. Sélectionnez **C#**.
+   ![Fournir des valeurs d’abonnement à un événement](./media/custom-event-quickstart-portal/provide-subscription-values.png)
 
-   ![Sélectionnez le déclencheur Event Grid](./media/custom-event-quickstart-portal/select-event-grid-trigger.png)
+1. Choisissez **Sélectionner un point de terminaison**. 
 
-1. Acceptez les valeurs par défaut, puis sélectionnez **Créer**.
+1. Pour le point de terminaison du webhook, indiquez l’URL de votre application web et ajoutez `api/updates` à l’URL de la page d’accueil. Sélectionnez **Confirmer la sélection**.
 
-   ![Nouvelle fonction](./media/custom-event-quickstart-portal/new-function.png)
+   ![Fournir une URL du point de terminaison](./media/custom-event-quickstart-portal/provide-endpoint.png)
 
-Votre fonction est maintenant prête à recevoir des événements.
+1. Lorsque vous avez fourni les valeurs d’abonnement à l’événement, sélectionnez **Créer**.
 
-## <a name="subscribe-to-a-topic"></a>S’abonner à une rubrique
+Affichez à nouveau votre application web, et notez qu’un événement de validation d’abonnement lui a été envoyé. Sélectionnez l’icône en forme d’œil pour développer les données d’événements. Event Grid envoie l’événement de validation pour que le point de terminaison puisse vérifier qu’il souhaite recevoir des données d’événement. L’application web inclut du code pour valider l’abonnement.
 
-Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent, et où les envoyer.
-
-1. Dans votre fonction Azure, sélectionnez **Ajouter un abonnement Event Grid**.
-
-   ![Ajouter un abonnement Event Grid](./media/custom-event-quickstart-portal/add-event-grid-subscription.png)
-
-1. Entrez des valeurs pour l’abonnement. Sélectionnez **Rubriques Event Grid** comme type de rubrique. Pour l’abonnement et le groupe de ressources, sélectionnez l’abonnement et le groupe de ressources dans lesquels vous avez créé votre rubrique personnalisée. Par exemple, sélectionnez le nom de votre rubrique personnalisée. Le point de terminaison d’abonné est prérempli avec l’URL pour la fonction.
-
-   ![Entrer des valeurs d’abonnement](./media/custom-event-quickstart-portal/provide-subscription-values.png)
-
-1. Avant de déclencher l’événement, ouvrez les journaux pour la fonction afin que vous puissiez voir les données d’événement lorsqu’elles sont envoyées. Au bas de votre fonction Azure, sélectionnez **Journaux**.
-
-   ![Sélectionner des journaux](./media/custom-event-quickstart-portal/select-logs.png)
-
-Nous allons maintenant déclencher un événement pour voir comment Event Grid distribue le message à votre point de terminaison. Pour simplifier cet article, utilisez Cloud Shell pour envoyer des exemples de données d’événements à la rubrique personnalisée. En règle générale, une application ou un service Azure envoie les données d’événements.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+![Afficher l’événement d’abonnement](./media/custom-event-quickstart-portal/view-subscription-event.png)
 
 ## <a name="send-an-event-to-your-topic"></a>Envoyer un événement à votre rubrique
 
-Utilisez Azure CLI ou PowerShell pour envoyer un événement de test à votre rubrique personnalisée.
+Nous allons maintenant déclencher un événement pour voir comment Event Grid distribue le message à votre point de terminaison. Utilisez Azure CLI ou PowerShell pour envoyer un événement de test à votre rubrique personnalisée. En règle générale, une application ou un service Azure envoie les données d’événements.
 
-Le premier exemple utilise Azure CLI. Il obtient l’URL et la clé de la rubrique, ainsi que les exemples de données d’événements. Utilisez le nom de votre rubrique pour `<topic_name>`. Pour voir l’événement complet, utilisez `echo "$body"`. L’élément `data` du fichier JSON est la charge utile de l’événement. N’importe quel fichier JSON bien construit peut être placé dans ce champ. Vous pouvez aussi utiliser le champ objet pour un routage et un filtrage avancés. CURL est un utilitaire qui envoie des requêtes HTTP.
+Le premier exemple utilise Azure CLI. Il obtient l’URL et la clé de la rubrique personnalisée, ainsi que les exemples de données d’événements. Utilisez le nom de votre rubrique personnalisée pour `<topic_name>`. Des exemples de données d’événement sont créés. L’élément `data` du fichier JSON est la charge utile de l’événement. N’importe quel fichier JSON bien construit peut être placé dans ce champ. Vous pouvez aussi utiliser le champ objet pour un routage et un filtrage avancés. CURL est un utilitaire qui envoie des requêtes HTTP.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 Le deuxième exemple utilise PowerShell pour effectuer des étapes similaires.
@@ -165,11 +153,27 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Consultez les journaux pour afficher les données d’événement.
+Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Affichez votre application web pour voir l’événement que vous venez d’envoyer.
 
-![Consulter les journaux](./media/custom-event-quickstart-portal/view-log-entry.png)
+```json
+[{
+  "id": "1807",
+  "eventType": "recordInserted",
+  "subject": "myapp/vehicles/motorcycles",
+  "eventTime": "2017-08-10T21:03:07+00:00",
+  "data": {
+    "make": "Ducati",
+    "model": "Monster"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/{topic}"
+}]
+```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les ressources créées dans cet article. Dans le cas contraire, supprimez les ressources créées avec cet article.
 

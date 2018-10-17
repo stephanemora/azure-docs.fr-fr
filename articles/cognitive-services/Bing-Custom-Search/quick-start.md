@@ -1,22 +1,23 @@
 ---
-title: Créer une première instance de Recherche personnalisée Bing - Microsoft Cognitive Services
+title: 'Démarrage rapide : Créer votre première instance Recherche personnalisée Bing'
+titlesuffix: Azure Cognitive Services
 description: Pour utiliser la Recherche personnalisée Bing, vous devez créer une instance de recherche personnalisée qui définit votre vue, ou section du web. L’instance contient les paramètres qui spécifient les domaines, sous-sites et pages web publics dans lesquels Bing doit effectuer les recherches, ainsi que les ajustements de classement.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2017
 ms.author: v-brapel
-ms.openlocfilehash: 25d622772fe47ffad001834d476e612f8c606904
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 866d32aa4de45076fcbc4e413d8c2e67d5346878
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981648"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816223"
 ---
-# <a name="create-your-first-bing-custom-search-instance"></a>Créer votre première instance de Recherche personnalisée Bing
+# <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Démarrage rapide : Créer votre première instance Recherche personnalisée Bing
 Pour utiliser la Recherche personnalisée Bing, vous devez créer une instance de recherche personnalisée qui définit votre vue, ou section du web. L’instance contient les paramètres qui spécifient les domaines, sites web et pages web publics dans lesquels Bing doit effectuer les recherches, ainsi que les ajustements de classement. Pour créer l’instance, utilisez le [portail](https://customsearch.ai) de la Recherche personnalisée Bing. 
 
 ## <a name="create-a-custom-search-instance"></a>Création d’une instance de recherche personnalisée

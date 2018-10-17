@@ -5,19 +5,19 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 10/09/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: d550812f9cb23fd17d3c73c851a306190be293fa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7ca8311c97faed980555c46d977a5df85c20353d
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423638"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067452"
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Acheminer des événements personnalisés vers le Stockage File d’attente Azure avec Azure CLI et Event Grid
 
-Azure Event Grid est un service de gestion d’événements pour le cloud. Le Stockage File d’attente Azure est l’un des gestionnaires d’événements pris en charge. Dans cet article, vous utilisez Azure CLI pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. Vous envoyez les événements vers le Stockage File d’attente.
+Azure Event Grid est un service de gestion d’événements pour le cloud. Le Stockage File d’attente Azure est l’un des gestionnaires d’événements pris en charge. Dans cet article, vous utilisez l’interface de ligne de commande Azure pour créer une rubrique personnalisée, vous abonner à cette rubrique personnalisée et déclencher l’événement pour afficher le résultat. Vous envoyez les événements vers le Stockage File d’attente.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -39,7 +39,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Créer une rubrique personnalisée
 
-Une rubrique de grille d’événement fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. L’exemple suivant permet de créer la rubrique personnalisée dans votre groupe de ressources. Remplacez `<topic_name>` par un nom unique pour votre rubrique. Le nom de la rubrique doit être unique, car elle est représentée par une entrée DNS.
+Une rubrique de grille d’événement fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. L’exemple suivant permet de créer la rubrique personnalisée dans votre groupe de ressources. Remplacez `<topic_name>` par un nom unique pour votre rubrique personnalisée. Le nom de la rubrique de la grille d’événements doit être unique, car elle est représentée par une entrée DNS.
 
 ```azurecli-interactive
 # if you have not already installed the extension, do it now.
@@ -51,7 +51,7 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 ## <a name="create-queue-storage"></a>Créer un Stockage File d'attente
 
-Avant de nous abonner à la rubrique, nous allons créer le point de terminaison pour le message de l’événement. Vous créez un Stockage File d’attente afin de collecter les événements.
+Avant de nous abonner à la rubrique personnalisée, nous allons créer le point de terminaison pour le message de l’événement. Vous créez un Stockage File d’attente afin de collecter les événements.
 
 ```azurecli-interactive
 storagename="<unique-storage-name>"
@@ -61,9 +61,9 @@ az storage account create -n $storagename -g gridResourceGroup -l westus2 --sku 
 az storage queue create --name $queuename --account-name $storagename
 ```
 
-## <a name="subscribe-to-a-topic"></a>S’abonner à une rubrique
+## <a name="subscribe-to-a-custom-topic"></a>S’abonner à une rubrique personnalisée
 
-Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent. L’exemple suivant s’abonne à la rubrique que vous avez créée et transmet l’ID de ressource du Stockage File d’attente vers le point de terminaison. Avec Azure CLI, vous mettez l’ID de stockage de file d’attente en tant que point de terminaison. Le point de terminaison a le format suivant :
+Vous vous abonnez à une rubrique personnalisée pour communiquer à Event Grid les événements qui vous intéressent. L’exemple suivant s’abonne à la rubrique personnalisée que vous avez créée et transmet l’ID de ressource du Stockage File d’attente vers le point de terminaison. Avec Azure CLI, vous mettez l’ID de stockage de file d’attente en tant que point de terminaison. Le point de terminaison a le format suivant :
 
 `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/queueservices/default/queues/<queue-name>`
 
@@ -81,6 +81,8 @@ az eventgrid event-subscription create \
   --endpoint $queueid
 ```
 
+Le compte qui crée l’abonnement à l’événement doit pouvoir accéder en écriture au stockage de la file d’attente.
+
 Si vous utilisez l’API REST pour créer l’abonnement, vous mettez l’ID du compte de stockage et le nom de la file d’attente en tant que paramètre distinct.
 
 ```json
@@ -93,22 +95,22 @@ Si vous utilisez l’API REST pour créer l’abonnement, vous mettez l’ID du 
   ...
 ```
 
-## <a name="send-an-event-to-your-topic"></a>Envoyer un événement à votre rubrique
+## <a name="send-an-event-to-your-custom-topic"></a>Envoyer un événement à votre rubrique personnalisée
 
-Nous allons maintenant déclencher un événement pour voir comment Event Grid distribue le message à votre point de terminaison. Tout d’abord, il nous faut l’URL et la clé de la rubrique personnalisée. Utilisez de nouveau le nom de votre rubrique pour `<topic_name>`.
+Nous allons maintenant déclencher un événement pour voir comment Event Grid distribue le message à votre point de terminaison. Tout d’abord, il nous faut l’URL et la clé de la rubrique personnalisée. Utilisez de nouveau le nom de votre rubrique personnalisée pour `<topic_name>`.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name <topic_name> -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Pour simplifier cet article, vous allez utiliser des exemples de données d’événements à envoyer à la rubrique. En règle générale, une application ou un service Azure envoie les données d’événements. CURL est un utilitaire qui envoie des requêtes HTTP. Dans cet article, utilisez CURL pour envoyer l’événement à la rubrique.  L’exemple suivant envoie trois événements à la rubrique Event Grid :
+Pour simplifier cet article, vous allez utiliser des exemples de données d’événements à envoyer à la rubrique personnalisée. En règle générale, une application ou un service Azure envoie les données d’événements. CURL est un utilitaire qui envoie des requêtes HTTP. Dans cet article, utilisez CURL pour envoyer l’événement à la rubrique personnalisée.  L’exemple suivant envoie trois événements à la rubrique Event Grid :
 
 ```azurecli-interactive
 for i in 1 2 3
 do
-   body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
-   curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+   event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
+   curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 done
 ```
 
@@ -117,7 +119,7 @@ Accédez au Stockage File d’attente dans le portail et notez que Event Grid a 
 ![Afficher les messages](./media/custom-event-to-queue-storage/messages.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Si vous envisagez de continuer à utiliser cet événement, ne supprimez pas les ressources créées dans cet article. Sinon, utilisez la commande suivante pour supprimer les ressources créées dans cet article.
 
 ```azurecli-interactive

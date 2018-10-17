@@ -3,7 +3,7 @@ title: Créer un plan dans Azure Stack | Microsoft Docs
 description: En tant qu’administrateur cloud, créez un plan permettant aux abonnés d’approvisionner des machines virtuelles.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 1fa01d23108ce92fbd7c854442c0474b19395d25
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ec8fabfce8c26aef98217947da33a56222288b3c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248701"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077560"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Créer un plan dans Azure Stack
 
@@ -30,7 +30,7 @@ Les [plans](azure-stack-key-features.md) regroupent un ou plusieurs services. En
 
 1. Connectez-vous au portail d’administration d’Azure Stack (https://adminportal.local.azurestack.external)).
 
-2. Pour créer un plan et une offre auxquels les utilisateurs peuvent s’abonner, sélectionnez **Nouveau** > **Offres + Plans** > **Plan**.
+2. Pour créer un plan et une offre auxquels les utilisateurs peuvent s’abonner, sélectionnez **+ Créer une ressource** > **Offres + Plans** > **Plan**.
   
    ![Sélectionner un plan](media/azure-stack-create-plan/select-plan.png)
 

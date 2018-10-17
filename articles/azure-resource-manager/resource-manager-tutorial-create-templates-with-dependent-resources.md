@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e5ced038d5f1ab57939221a0392ab436560c348d
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: fe6313c059a1dd1050240ead5f7ca8e3e1512aa6
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160508"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584511"
 ---
-# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Didacticiel : créer des modèles Azure Resource Manager avec des ressources dépendantes
+# <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Didacticiel : créer des modèles Azure Resource Manager avec des ressources dépendantes
 
 Découvrez comment créer un modèle Azure Resource Manager pour déployer plusieurs ressources.  Après avoir créé le modèle, vous déployez le modèle à l’aide du Cloud Shell dans le portail Azure.
 
-Certaines ressources ne peuvent pas être déployées avant qu’une autre ressource n’existe. Par exemple, vous ne pouvez pas créer la machine virtuelle avant que son compte de stockage et son interface réseau n’existent. Vous définissez cette relation en rendant une seule ressource dépendante des autres ressources. Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle. Pour plus d’informations, consultez [Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager](./resource-group-define-dependencies.md).
+Dans ce didacticiel, vous créez un compte de stockage, une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes. Certaines ressources ne peuvent pas être déployées avant qu’une autre ressource n’existe. Par exemple, vous ne pouvez pas créer la machine virtuelle avant que son compte de stockage et son interface réseau n’existent. Vous définissez cette relation en rendant une seule ressource dépendante des autres ressources. Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle. Pour plus d’informations, consultez [Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager](./resource-group-define-dependencies.md).
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -33,7 +33,7 @@ Ce tutoriel décrit les tâches suivantes :
 > * Explorer le modèle
 > * Déployer le modèle
 
-Les instructions fournies dans ce didacticiel créent une machine virtuelle, un réseau virtuel, et d’autres ressources dépendantes. 
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -165,7 +165,7 @@ Il existe de nombreuses méthodes pour déployer des modèles.  Dans ce didactic
 
     Le nom de la machine virtuelle est codé en dur en tant que **SimpleWinVM** à l’intérieur du modèle.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources.
 
@@ -176,4 +176,9 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous allez développer et déployer un modèle pour créer une machine virtuelle, un réseau virtuel et les ressources dépendantes. Pour apprendre à créer des modèles, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](./resource-group-authoring-templates.md).
+Dans ce didacticiel, vous allez développer et déployer un modèle pour créer une machine virtuelle, un réseau virtuel et les ressources dépendantes. Pour savoir comment déployer des ressources Azure en fonction des conditions, consultez :
+
+
+> [!div class="nextstepaction"]
+> [Utiliser des conditions](./resource-manager-tutorial-use-conditions.md)
+

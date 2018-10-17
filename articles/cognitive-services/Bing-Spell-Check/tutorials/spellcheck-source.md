@@ -1,24 +1,25 @@
 ---
-title: Obtention des résultats de vérification orthographique avec l’API Vérification orthographique Bing (Microsoft Cognitive Services sur Azure) | Microsoft Docs
+title: 'Didacticiel : obtention de résultats de vérification orthographique à l’aide de l’API Vérification orthographique Bing'
+titlesuffix: Azure Cognitive Services
 description: Code source pour un didacticiel expliquant comment utiliser l’API Vérification orthographique Bing dans une application web à page unique.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 1f2f75a51324bb05e1b95dc3a3c4e438f3aa593c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: baa618929b1f7b401c619681dce4e085b16543e7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367837"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800959"
 ---
 # <a name="tutorial-single-page-web-app"></a>Didacticiel : Application web à page unique
 
-Voici le code source complet indiqué dans le [didacticiel de l’application à page unique](spellcheck.md) pour l’API Vérification orthographique Bing. Pour exécuter l’application, copiez le code source dans un éditeur de texte et enregistrez le fichier sous `spellcheck.html`. Ensuite, ouvrez le fichier enregistré dans votre navigateur Web.
+Voici le code source complet indiqué dans le [didacticiel de l’application à page unique](spellcheck.md) pour l’API Vérification orthographique Bing. Pour exécuter l’application, copiez le code source dans un éditeur de texte et enregistrez le fichier sous `spellcheck.html`. Ensuite, ouvrez le fichier enregistré dans votre navigateur web.
 
 ```html
 <!DOCTYPE html>

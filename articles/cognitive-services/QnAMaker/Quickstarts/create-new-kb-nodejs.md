@@ -1,239 +1,121 @@
 ---
-title: 'Démarrage rapide : API et Node.js - Créer une base de connaissances - QnA Maker'
+title: 'Démarrage rapide : créer une base de connaissances - REST, Node.js - QnA Maker'
 description: Ce démarrage rapide vous guide dans la création d’un exemple de base de connaissances QnA Maker, par programmation, qui apparaîtra dans le tableau de bord Azure de votre compte d’API Cognitive Services.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/02/2018
 ms.author: diberry
-ms.openlocfilehash: 435c937e64d0befc5a3bf30f9d58ccd303247b9e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f0375affa547f657ae36de71901298047359cae2
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037301"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884914"
 ---
-# <a name="create-a-new-knowledge-base-in-nodejs"></a>Créer une base de connaissances dans Node.js
+# <a name="quickstart-create-a-qna-maker-knowledge-base-in-nodejs"></a>Démarrage rapide : créer une base de connaissances QnA Maker dans Node.js
 
-Ce démarrage rapide vous guide dans la création d’un exemple de base de connaissances QnA Maker, par programmation, qui apparaîtra dans le tableau de bord Azure de votre compte d’API Cognitive Services.
+Ce démarrage rapide vous aide à créer par programmation un exemple de base de connaissances QnA Maker. QnA Maker extrait automatiquement les questions et les réponses à partir du contenu semi-structuré, telles que les FAQ, de [sources de données](../Concepts/data-sources-supported.md). Le modèle de la base de connaissances est défini dans le code JSON envoyé dans le corps de la requête d’API. 
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
-
-Deux exemples d’URL de FAQ, proposant du contenu, sont fournis ci-dessous (dans « urls » de **req={}**). QnA Maker extrait automatiquement les questions et les réponses à partir de ce contenu semi-structuré comme expliqué dans ce document sur les [sources de données](../Concepts/data-sources-supported.md). Vous pouvez également utiliser vos propres URL de FAQ dans ce démarrage rapide.
+Ce démarrage rapide fait appel aux API QnA Maker :
+* [Créer la base de connaissances](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [Obtenir les détails de l’opération](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour exécuter ce code, vous avez besoin de [Node.js 6+](https://nodejs.org/en/download/).
+* [Node.js 6+](https://nodejs.org/en/download/)
+* Vous devez disposer d’un [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Pour récupérer votre clé, sélectionnez **Clés** sous **Gestion des ressources** dans votre tableau de bord. 
 
-Vous devez avoir un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec l’**API QnA Maker Microsoft**. Vous aurez besoin d’une clé d’abonnement payant que vous pouvez trouver sur votre [tableau de bord Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices). N’importe quelle clé fonctionnera pour ce démarrage rapide.
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-![Clé de service du tableau de bord Azure](../media/sub-key.png)
+## <a name="create-a-knowledge-base-nodejs-file"></a>Créer un fichier Node.js de base de connaissances
 
-Pour obtenir de l’aide supplémentaire avec Visual Studio et Node.js : [Démarrage rapide : Utiliser Visual Studio pour créer votre première application Node.js](https://docs.microsoft.com/en-us/visualstudio/ide/quickstart-nodejs).
+Créez un fichier appelé `create-new-knowledge-base.js`.
 
-## <a name="create-knowledge-base"></a>Créer une base de connaissances
+## <a name="add-the-required-dependencies"></a>Ajouter les dépendances nécessaires
 
-Le code suivant crée une base de connaissances à l’aide de la méthode [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
+En haut de `create-new-knowledge-base.js`, ajoutez les lignes suivantes pour ajouter les dépendances nécessaires au projet :
 
-1. Créez un projet Node.js dans votre IDE favori.
-2. Ajoutez le code ci-dessous.
-3. Remplacez la valeur `subscriptionKey` par une clé d’abonnement valide.
-4. Exécutez le programme.
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=1-4 "Add the dependencies")]
 
-```nodejs
-'use strict';
+## <a name="add-the-required-constants"></a>Ajouter les constantes nécessaires
+Après les dépendances nécessaires précédentes, ajoutez les constantes nécessaires pour accéder à QnA Maker. Remplacez la valeur de la variable `subscriptionKey` par votre clé QnA Maker.
 
-let fs = require('fs');
-let https = require('https');
+[!code-nodejs[Add the required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=10-19 "Add the required constants")]
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+## <a name="add-the-kb-model-definition"></a>Ajouter la définition du modèle de base de connaissances
 
-// Replace this with a valid subscription key.
-let subscriptionKey = 'YOUR SUBSCRIPTION KEY HERE';
+Après les constantes, ajoutez la définition du modèle de base de connaissances suivante. Après la définition, le modèle est converti en une chaîne.
 
-// Components used to create HTTP request URIs for QnA Maker operations.
-let host = 'westus.api.cognitive.microsoft.com';
-let service = '/qnamaker/v4.0';
-let method = '/knowledgebases/create';
+[!code-nodejs[Add the KB model definition](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=21-51 "Add the KB model definition")]
 
-// Formats and indents JSON for display.
-let pretty_print = function (s) {
-    return JSON.stringify(JSON.parse(s), null, 4);
-};
+## <a name="add-supporting-functions"></a>Ajouter des fonctions de prise en charge
 
-// The 'callback' is called from the entire response.
-let response_handler = function (callback, response) {
-    let body = '';
-    response.on('data', function (d) {
-        body += d;
-    });
-    response.on('end', function () {
-        // Call the 'callback' with the status code, headers, and body of the response.
-        callback({ status: response.statusCode, headers: response.headers, body: body });
-    });
-    response.on('error', function (e) {
-        console.log('Error: ' + e.message);
-    });
-};
+Ajoutez ensuite les fonctions de prise en charge suivantes.
 
-// Get an HTTP response handler that calls 'callback' from the entire response.
-let get_response_handler = function (callback) {
-    // Return a function that takes an HTTP response and is closed over the specified callback.
-    // This function signature is required by https.request, hence the need for the closure.
-    return function (response) {
-        response_handler(callback, response);
-    };
-};
+1. Ajoutez la fonction suivante pour imprimer JSON dans un format lisible :
 
-// Call 'callback' when we have the entire response from the POST request.
-let post = function (path, content, callback) {
-    let request_params = {
-        method: 'POST',
-        hostname: host,
-        path: path,
-        headers: {
-            'Content-Type': 'application/json',
-            'Content-Length': content.length,
-            'Ocp-Apim-Subscription-Key': subscriptionKey
-        }
-    };
+   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=53-56 "Add supporting functions, step 1")]
 
-    // Pass the 'callback' function to the response handler.
-    let req = https.request(request_params, get_response_handler(callback));
-    req.write(content);
-    req.end();
-};
+2. Ajoutez les fonctions suivantes pour gérer la réponse HTTP :
 
-// Call 'callback' when we have the entire response from the GET request.
-let get = function (path, callback) {
-    let request_params = {
-        method: 'GET',
-        hostname: host,
-        path: path,
-        headers: {
-            'Ocp-Apim-Subscription-Key': subscriptionKey
-        }
-    };
+   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=58-80 "Add supporting functions, step 2")]
 
-    // Pass the callback function to the response handler.
-    let req = https.request(request_params, get_response_handler(callback));
-    req.end();
-};
+## <a name="add-functions-to-create-kb"></a>Ajouter des fonctions pour créer la base de connaissances
 
-// Call 'callback' when we have the response from the /knowledgebases/create POST method.
-let create_kb = function (path, req, callback) {
-    console.log('Calling ' + host + path + '.');
-    // Send the POST request.
-    post(path, req, function (response) {
-        // Extract the data we want from the POST response and pass it to the callback function.
-        callback({ operation: response.headers.location, response: response.body });
-    });
-};
+Ajoutez les fonctions suivantes pour exécuter une requête HTTP POST afin de créer la base de connaissances. `Ocp-Apim-Subscription-Key` correspond à la clé de service QnA Maker, utilisée pour l’authentification. 
 
-// Call 'callback' when we have the response from the GET request to check the status.
-let check_status = function (path, callback) {
-    console.log('Calling ' + host + path + '.');
-    // Send the GET request.
-    get(path, function (response) {
-        // Extract the data we want from the GET response and pass it to the callback function.
-        callback({ wait: response.headers['retry-after'], response: response.body });
-    });
-};
+[!code-nodejs[POST Request to API](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=82-109 "POST Request to API")]
 
-// Dictionary that holds the knowledge base.
-// The data source includes a QnA pair with metadata, the URL for the
-// QnA Maker FAQ article, and the URL for the Azure Bot Service FAQ article.
-let req = {
-    "name": "QnA Maker FAQ",
-    "qnaList": [
-        {
-            "id": 0,
-            "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
-            "source": "Custom Editorial",
-            "questions": [
-                "How do I programmatically update my Knowledge Base?"
-            ],
-            "metadata": [
-                {
-                    "name": "category",
-                    "value": "api"
-                }
-            ]
-        }
-    ],
-    "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
-    ],
-    "files": []
-};
+Cet appel d’API renvoie une réponse JSON qui inclut l’ID d’opération. Utilisez l’ID d’opération pour déterminer si la base de connaissances a bien été créée. 
 
-// Build your path URL.
-var path = service + method;
-// Convert the request to a string.
-let content = JSON.stringify(req);
-create_kb(path, content, function (result) {
-    // Formats and indents the JSON response from the /knowledgebases/create method for display.
-    console.log(pretty_print(result.response));
-    // Loop until the operation is complete.
-    let loop = function () {
-        path = service + result.operation;
-        // Check the status of the operation.
-        check_status(path, function (status) {
-            // Formats and indents the JSON for display.
-            console.log(pretty_print(status.response));
-            // Convert the status into an object and get the value of the 'operationState'.
-            var state = (JSON.parse(status.response)).operationState;
-            // If the operation isn't complete, wait and query again.
-            if (state === 'Running' || state === 'NotStarted') {
-                console.log('Waiting ' + status.wait + ' seconds...');
-                setTimeout(loop, status.wait * 1000);
-            }
-        });
-    };
-    // Begin the loop.
-    loop();
-});
-```
-
-## <a name="understand-what-qna-maker-returns"></a>Comprendre ce que retourne QnA Maker
-
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant. Vos résultats peuvent différer légèrement. Si l’appel final retourne un état « Réussi », cela signifie que votre base de connaissances a été créée avec succès. Pour résoudre les problèmes, reportez-vous à [Détails de l’opération Get](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) de l’API QnA Maker.
-
-```json
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
+```JSON
 {
   "operationState": "NotStarted",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917tt4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:19:01Z",
+  "lastActionTimestamp": "2018-09-26T05:19:01Z",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "8dfb6a82-ae58-4bcb-95b7-d1239ae25681"
 }
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
-{
-  "operationState": "Running",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917tt4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
-}
-Waiting 30 seconds...
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
+```
+
+## <a name="add-functions-to-determine-creation-status"></a>Ajouter des fonctions pour déterminer l’état de création
+
+Ajoutez la fonction suivante pour exécuter une requête HTTP GET afin de vérifier l’état de l’opération. `Ocp-Apim-Subscription-Key` correspond à la clé de service QnA Maker, utilisée pour l’authentification. 
+
+[!code-nodejs[GET Request to API](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=111-135 "GET Request to API")]
+
+Répétez l’appel jusqu’à ce que l’opération réussisse ou échoue : 
+
+```JSON
 {
   "operationState": "Succeeded",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:46Z",
-  "resourceLocation": "/knowledgebases/b0288f33-27b9-4258-a304-8b9f63427dad",
-  "userId": "2280ef5917tt4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:23:08Z",
+  "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
-Press any key to continue.
 ```
+
+## <a name="add-create-kb-function"></a>Ajouter une fonction create-kb
+
+La fonction suivante est la fonction principale, crée la base de connaissances et répète les vérifications de l’état. Étant donné que la création de la base de connaissances peut prendre un certain temps, vous devez répéter les appels pour vérifier l’état jusqu’à ce que l’état indique une réussite ou un échec.
+
+[!code-nodejs[Add create-kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=137-167 "Add create-kb function")]
+
+## <a name="run-the-program"></a>Exécuter le programme
+
+Entrez la commande suivante sur une ligne de commande pour exécuter le programme. Il envoie la requête à l’API QnA Maker pour créer la base de connaissances, puis demande des résultats toutes les 30 secondes. Chaque réponse est imprimée sur la fenêtre de console.
+
+```bash
+node create-new-knowledge-base.js
+```
+
+Une fois votre base de connaissances créée, vous pouvez l’afficher dans votre portail QnA Maker, sur la page [Mes bases de connaissances](https://www.qnamaker.ai/Home/MyServices). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

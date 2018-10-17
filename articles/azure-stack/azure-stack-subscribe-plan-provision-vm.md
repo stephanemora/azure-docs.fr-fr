@@ -3,7 +3,7 @@ title: S’abonner à une offre dans Azure Stack | Microsoft Docs
 description: Créer des abonnements pour des offres dans Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 7f3f8683-ef09-4838-92ed-41f2fddbbbed
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/11/2018
-ms.author: brenduns
-ms.openlocfilehash: 9153649774a67533649fb62da83a3f50abd592da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 09/05/2018
+ms.author: sethm
+ms.openlocfilehash: b6739a194f6374cf90e6508f4a4316892daaf3dd
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295208"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079240"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Créer des abonnements pour des offres dans Azure Stack
 
@@ -46,9 +46,9 @@ Après avoir créé un abonnement pour un utilisateur, ce dernier peut se connec
    - **Nom d’affichage** : un nom convivial pour identifier l’abonnement qui s’affiche en tant que *nom d’abonnement utilisateur*.
    - **Utilisateur** : spécifiez un utilisateur d’un locataire d’annuaire disponible pour cet abonnement. Le nom d’utilisateur apparaît en tant que *Propriétaire*.  Le format du nom d’utilisateur dépend de votre solution d’identité. Par exemple : 
 
-     - **Azure AD:**  *&lt;user1>@&lt;contoso.onmicrosoft.com>*
+     - **Azure AD :** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS:**  *&lt;user1>@&lt;azurestack.local>*
+     - **AD FS :** `<user1>@<azurestack.local>` 
 
    - **Locataire d’annuaire** : sélectionnez le locataire d’annuaire auquel appartient le compte d’utilisateur. Si vous n’avez pas activé la mutualisation, seul votre locataire d’annuaire local est disponible.
 
@@ -60,7 +60,7 @@ Après avoir créé un abonnement pour un utilisateur, ce dernier peut se connec
 
 Un opérateur cloud peut ajouter à tout moment un plan additionnel à un abonnement créé précédemment :
 
-1. Dans le portail d’administration, sélectionnez **Autres services** > **Abonnements utilisateur**. Sélectionnez l’abonnement que vous souhaitez modifier.
+1. Dans le portail d’administration, sélectionnez **Tous les services**, puis dans la catégorie **RESSOURCES ADMINISTRATIVES**, sélectionnez  **Abonnements utilisateur**. Sélectionnez l’abonnement que vous souhaitez modifier.
 
 2. Sélectionnez **Modules complémentaires**, puis **+Ajouter**.  
 
@@ -84,13 +84,13 @@ En tant qu’utilisateur, vous pouvez vous connecter au portail utilisateur pour
    ![Créer une offre](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
 3. Une fois que vous êtes abonné à une offre, actualisez le portail pour voir les services qui font partie du nouvel abonnement.
-4. Pour afficher l’abonnement que vous avez créé, sélectionnez **Plus de services**, puis **Abonnements**. Sélectionnez l’abonnement pour en afficher les détails.  
+4. Pour voir l’abonnement que vous avez créé, sélectionnez **Tous les services**, puis **Abonnements** sous la catégorie **GÉNÉRAL**. Sélectionnez l’abonnement pour en afficher les détails.  
 
 ### <a name="to-subscribe-to-an-add-on-plan"></a>S’abonner à un plan additionnel
 
 Si une offre possède un plan additionnel, vous pouvez ajouter ce plan à votre abonnement à tout moment.  
 
-1. Dans le portail utilisateur, sélectionnez **Plus de services** > **Abonnements** puis sélectionnez l’abonnement que vous souhaitez modifier. Si des plans additionnels sont disponibles, l’option **+Ajouter un plan** est active et il existe une vignette pour **Plans additionnels**.
+1. Dans le portail utilisateur, sélectionnez **Tous les services**. Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez l’abonnement que vous souhaitez modifier. Si des plans additionnels sont disponibles, l’option **+Ajouter un plan** est active et il existe une vignette pour **Plans additionnels**.
 
    >[!NOTE]
    >Si l’option **+Ajouter un plan** n’est pas disponible, cela signifie qu’aucun plan additionnel n’existe pour l’offre associée à cet abonnement.

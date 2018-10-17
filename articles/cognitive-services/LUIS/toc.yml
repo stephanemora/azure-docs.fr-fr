@@ -10,7 +10,7 @@ items:
   items:
   - name: Créer un exemple d’application de domaine
     href: luis-get-started-create-app.md
-  - name: Utiliser des API
+  - name: Utiliser les API REST
     items:
     - name: Reconnaître l’intention
       items:
@@ -164,7 +164,7 @@ items:
       href: luis-how-to-add-example-utterances.md
     - name: Ajouter des entités
       href: luis-how-to-add-entities.md
-    - name: Avec des API
+    - name: Avec des API REST
       items:
       - name: Générer une application par programmation à l’aide de Node.js
         href: luis-tutorial-node-import-utterances-csv.md
@@ -234,13 +234,13 @@ items:
         href: luis-how-to-manage-from-cloud-shell.md
       - name: Diffuser le quota de point de terminaison dans les clés avec Traffic Manager
         href: luis-traffic-manager.md
-  - name: Migrer vers l’API V2
+  - name: Migrer vers l’API REST V2
     href: luis-migration-api-v1-to-v2.md
   - name: Rechercher une région par programmation
     items:
-    - name: Utilisation de C#
+    - name: Avec une API REST et C#
       href: luis-find-region-csharp.md
-    - name: Utilisation de Node.js
+    - name: Avec une API REST et Node.js
       href: luis-find-region-nodejs.md
 - name: Informations de référence
   items:
@@ -266,7 +266,7 @@ items:
       href: luis-reference-prebuilt-deprecated.md
     - name: Entité email
       href: luis-reference-prebuilt-email.md
-    - name: Entité GeographyV2
+    - name: Entité geographyV2
       href: luis-reference-prebuilt-geographyV2.md
     - name: Entité KeyPhrase
       href: luis-reference-prebuilt-keyphrase.md
@@ -276,7 +276,7 @@ items:
       href: luis-reference-prebuilt-ordinal.md
     - name: Entité percentage
       href: luis-reference-prebuilt-percentage.md
-    - name: Entité PersonName
+    - name: Entité personName
       href: luis-reference-prebuilt-person.md
     - name: Entité phonenumber
       href: luis-reference-prebuilt-phonenumber.md
@@ -286,16 +286,18 @@ items:
       href: luis-reference-prebuilt-url.md
   - name: Référence de domaine prédéfini
     href: luis-reference-prebuilt-domains.md
-  - name: Création des API V2
-    href: https://aka.ms/luis-authoring-apis
-  - name: API V2 de point de terminaison
-    href: https://aka.ms/luis-endpoint-apis
-  - name: Codes HTTP
-    href: luis-reference-response-codes.md
   - name: Azure CLI
     href: https://aka.ms/az-cli-cognitiveservices
   - name: Azure RM PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: API REST
+    items:
+    - name: Création d’API REST V2
+      href: https://aka.ms/luis-authoring-apis
+    - name: API REST V2 de point de terminaison
+      href: https://aka.ms/luis-endpoint-apis
+    - name: Codes HTTP
+      href: luis-reference-response-codes.md
   - name: Kits de développement logiciel (SDK)
     items:
     - name: C#
@@ -374,9 +376,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Base de connaissances
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: bf82f62fac518c0442ad67c346c422b06aa73088
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: fe393a2c92cf9391dc620acae4878996d107a68e
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432765"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364538"

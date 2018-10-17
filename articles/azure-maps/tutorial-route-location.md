@@ -3,18 +3,18 @@ title: Rechercher un itinéraire avec Azure Maps | Microsoft Docs
 description: Établir un itinéraire vers un point d’intérêt avec Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/04/2018
+ms.date: 10/02/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 68d7df575e3d413780b8181c11dd59a22469708b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578935"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816716"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Établir un itinéraire vers un point d’intérêt avec Azure Maps
 
@@ -126,14 +126,16 @@ Pour ce didacticiel, définissez Microsoft comme point de départ, et une statio
         padding: 50
     });
 
-    // Add pins to the map for the start and end point of the route
-    map.addPins([startPin, destinationPin], {
-        name: "route-pins",
-        textFont: "SegoeUi-Regular",
-        textOffset: [0, -20]
+    map.addEventListener("load", function () { 
+        // Add pins to the map for the start and end point of the route
+        map.addPins([startPin, destinationPin], {
+            name: "route-pins",
+            textFont: "SegoeUi-Regular",
+            textOffset: [0, -20]
+        });
     });
     ```
-    L’instance **map.setCameraBounds** ajuste la fenêtre de la carte selon les coordonnées des points de départ et d’arrivée. L’API **map.addPins** ajoute les points au contrôle de carte sous la forme de composants visuels.
+    L’instance **map.setCameraBounds** ajuste la fenêtre de la carte selon les coordonnées des points de départ et d’arrivée. L’instance **map.addEventListener** s’assure que toutes les fonctions de correspondance ajoutées à la carte sont chargées une fois le chargement terminé. L’API **map.addPins** dans l’écouteur d’événement ajoute les points au contrôle de carte sous la forme de composants visuels.
 
 3. Enregistrez le fichier **MapRoute.html** et actualisez votre navigateur. Désormais, la carte est centrée sur Seattle, et vous pouvez observer le repère rond bleu marquant le point de départ et l’autre repère bleu marquant le point d’arrivée.
 
@@ -143,7 +145,7 @@ Pour ce didacticiel, définissez Microsoft comme point de départ, et une statio
 
 ## <a name="get-directions"></a>Obtenir les directions
 
-Cette section montre comment utiliser les API Route Service d’Azure Maps pour rechercher l’itinéraire entre un point de départ donné et une destination. Route Service fournit les API dédiées à la planification des itinéraires les plus *rapides*, *courts*, *économiques*, ou *intéressants* entre deux emplacements. Grâce à la base de données de trafic historique complète d’Azure, il permet également aux utilisateurs de planifier des itinéraires, durées comprises, pour n’importe quels jour et heure. Pour plus d’informations, voir [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obtenir les itinéraires).
+Cette section montre comment utiliser les API Route Service d’Azure Maps pour rechercher l’itinéraire entre un point de départ donné et une destination. Route Service fournit les API dédiées à la planification des itinéraires les plus *rapides*, *courts*, *économiques*, ou *intéressants* entre deux emplacements. Grâce à la base de données de trafic historique complète d’Azure, il permet également aux utilisateurs de planifier des itinéraires, durées comprises, pour n’importe quels jour et heure. Pour plus d’informations, voir [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obtenir les itinéraires). Toutes les fonctionnalités suivantes doivent être ajoutées **dans l’eventListener du chargement de la carte** pour s’assurer de leur chargement complet une fois la carte chargée.
 
 1. Tout d’abord, ajoutez une nouvelle couche sur la carte pour afficher l’itinéraire, ou *linestring*. Ajoutez le code JavaScript suivant au bloc *script*.
 
@@ -204,6 +206,10 @@ Dans ce tutoriel, vous avez appris à :
 > * Créer une page web à l’aide de l’API Map Control
 > * Définir les coordonnées d’une adresse
 > * Interroger Route Service afin d’obtenir des indications pour rejoindre un point d’intérêt
+
+Vous trouverez ici un exemple de code pour ce didacticiel :
+
+> [Rechercher un itinéraire avec Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 
 Le didacticiel suivant vous explique comment créer une requête d’itinéraire avec des restrictions comme le mode de déplacement ou le type de chargement, puis affiche les différents itinéraires sur la même carte.
 

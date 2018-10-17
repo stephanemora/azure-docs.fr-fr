@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aac44d46b6c5d202431aa34a1dc7b962466c799
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346186"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078492"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Tutoriel : créer et déployer une application avec un service frontal API Web ASP.NET Core et un service principal avec état
 
@@ -40,7 +40,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Créer une application .NET Service Fabric
 > * [Déployer l’application sur un cluster distant](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Ajouter un point de terminaison HTTPS à un service frontal ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Configurer l’intégration et le déploiement continus à l’aide de Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configurer CI/CD à l’aide d’Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurer la surveillance et les diagnostics pour l’application](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Prérequis
@@ -455,6 +455,9 @@ Dans l’étape qui suit, connectez les deux services et faites en sorte que l�
 Service Fabric fournit une flexibilité complète sur votre façon de communiquer avec Reliable Services. Dans une même application, vous pouvez avoir des services qui sont accessibles via TCP, d’autres services accessibles via une API REST HTTP et encore d’autres services accessibles via des sockets web. Pour obtenir des informations sur les options disponibles et leurs avantages/inconvénients respectifs, consultez [Communication avec les services](service-fabric-connect-and-communicate-with-services.md).
 
 Dans ce tutoriel, utilisez l’[API web ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) et le [proxy inverse Service Fabric](service-fabric-reverseproxy.md) pour que le service web frontal VotingWeb puisse communiquer avec le service de données principal VotingWeb. Le proxy inverse est configuré par défaut pour utiliser le port 19081 et doit fonctionner pour ce tutoriel. Le port est défini dans le modèle ARM utilisé pour configurer le cluster. Pour savoir quel port est utilisé, effectuez une recherche dans le modèle de cluster de la ressource **Microsoft.servicefabric/clusters** ou examinez l’élément HttpApplicationGatewayEndpoint du manifeste de cluster.
+
+> [!NOTE]
+> Le proxy inverse est uniquement pris en charge sur un cluster exécutant Windows 8 et les versions ultérieures ou Windows Server 2012 et les versions ultérieures.
 
 <u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort resource</u>
 

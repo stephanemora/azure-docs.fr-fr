@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2018
+ms.date: 10/01/2018
 ms.author: pareshmu
-ms.openlocfilehash: 72cb9871b1e0f08d8c368116eae13a8402af9f60
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 22288165876972888428450f16aa2460a211c9a6
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815218"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042918"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -44,8 +44,8 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | --- | --- | --- |
 | **Amérique du Nord** |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Washington DC, Montréal, Québec, Toronto |
 | **Amérique du Sud** |Brésil Sud |Sao Paulo |
-| **Europe** |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Dublin, Londres, Newport (Pays de Galles), Paris |
-| **Asie** |Asie Est, Asie Sud-Est |Hong Kong (R.A.S.), Singapour, Singapour2 |
+| **Europe** |France Centre, France Sud, Europe Nord, Europe Ouest, Royaume-Uni Ouest, Royaume-Uni Sud |Amsterdam, Amsterdam2, Dublin, Londres, Marseille, Newport(Pays de Galles), Paris |
+| **Asie** |Asie Est, Asie Sud-Est |Hong Kong, Kuala Lumpur, Singapour, Singapour2 |
 | **Japon** |Japon Ouest, Japon Est |Osaka, Tokyo |
 | **Australie** |Australie Sud-Est | Australie Est |Melbourne, Sydney |
 | **Secteur public australien** | Australie Centre, Australie Centre 2 |Canberra, Canberra2 | 
@@ -100,7 +100,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **Internet2** |Pris en charge |Pris en charge |Washington DC |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Pris en charge |Pris en charge |Osaka, Tokyo |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Pris en charge |Pris en charge |Le Cap, Johannesburg, Londres |
-| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Pris en charge |Pris en charge |Amsterdam, Dublin, Londres, Paris |
+| **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Pris en charge |Pris en charge |Amsterdam, Amsterdam2, Dublin, Marseille, Londres, Paris |
 | **[IX Reach](https://www.ixreach.com/services/cloud-connectivity/microsoft-azure/)**|Pris en charge |Pris en charge | Silicon Valley, Toronto |
 | **Jisc** |Pris en charge |Pris en charge |Londres |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Pris en charge |Pris en charge |Séoul |
@@ -119,7 +119,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Optus](https://www.optus.com.au/enterprise/networking/network-connectivity/express-link)** |Pris en charge |Pris en charge |Melbourne, Sydney |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Pris en charge |Pris en charge |Amsterdam, Hong Kong (R.A.S.), Londres, Paris, Silicon Valley, Singapour, Sydney, Washington DC |
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |Pris en charge |Pris en charge |Chicago, Silicon Valley, Washington DC |
-| **PCCW Global Limited** |Pris en charge |Pris en charge |Hong Kong (R.A.S.) |
+| **PCCW Global Limited** |Pris en charge |Pris en charge |Chicago, Hong Kong, Londres |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Pris en charge |Pris en charge |Séoul |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Pris en charge |Pris en charge |Chennai, Mumbai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Pris en charge |Pris en charge |Singapour, Singapour2 |
@@ -134,7 +134,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **[Telstra Corporation](http://www.telstra.com.au/business-enterprise/network-services/networks/cloud-direct-connect/)** |Pris en charge |Pris en charge |Melbourne, Sydney |
 | **[Telus](http://www.telus.com)** |Pris en charge |Pris en charge |Montréal, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Pris en charge |Pris en charge |Le Cap, Johannesburg |
-| **TIME** | Bientôt disponible | Bientôt disponible | Kuala Lumpur |
+| **TIME** | Pris en charge | Pris en charge | Kuala Lumpur |
 | **[UOLDIVEO](http://www.uoldiveo.com.br/solucoes/cloud.html#rmcl)** |Pris en charge |Pris en charge |Sao Paulo |
 | **[Verizon](http://www.verizonenterprise.com/products/networking/secure-cloud-interconnect/)** |Pris en charge |Pris en charge |Amsterdam, Chicago, Dallas, Hong Kong, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Washington DC |
 | **[Vodafone](http://www.vodafone.com/business/global-enterprise/global-connectivity/vodafone-ip-vpn-cloud-connect)** |Pris en charge |Non pris en charge |Londres |

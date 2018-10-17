@@ -6,17 +6,17 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: f7af86687a8a61fb7aed028d2868752faaa8045a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030252"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886531"
 ---
-# <a name="create-train-and-publish-your-knowledge-base"></a>Créer, entraîner et publier votre base de connaissances
+# <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Démarrage rapide : Créer, entraîner et publier votre base de connaissances
 
 Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre contenu, tel que des Questions fréquentes (FAQ) ou des manuels. La base de connaissances QnA Maker dans cet exemple est créée à partir d’une simple page web de FAQ afin de répondre aux questions sur la récupération de clé BitLocker.
 
@@ -71,7 +71,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 
 16. Le service QnA Maker est désormais correctement publié. Vous pouvez utiliser le point de terminaison dans votre code d’application ou de bot.
 
-   ![Publier](../media/qnamaker-quickstart-kb/publish-sucess.png)
+   ![Publish](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,21 +1,23 @@
 ---
-title: Démarrage rapide JavaScript pour l’aperçu d’URL de projet - Microsoft Cognitive Services | Microsoft Docs
-description: Exemple de script pour la prise en main rapide avec l’API d’aperçu d’URL Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : URL Preview de projet, JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Exemple de script pour la prise en main rapide à l’aide de l’API URL Preview Bing avec JavaScript.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: rosh
+ms.openlocfilehash: b10e33a0947057c35bb6227cc43f92c4f0a56ceb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301350"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869463"
 ---
-# <a name="url-preview-in-javascript"></a>Aperçu d’URL en JavaScript 
+# <a name="quickstart-url-preview-in-javascript"></a>Démarrage rapide : URL Preview dans JavaScript 
 
 L’application suivante sur une seule page utilise JavaScript pour créer un aperçu d’URL pour le site SwiftKey : https://swiftkey.com/en. 
 

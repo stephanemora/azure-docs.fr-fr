@@ -1,24 +1,25 @@
 ---
-title: Application web à page unique Recherche d’images Bing (code source) | Microsoft Docs
-description: Code source pour un tutoriel expliquant comment utiliser l’API Recherche d’images Bing dans une application web à page unique.
+title: 'Didacticiel : Recherche d’entités Bing dans une application web à page unique (code source)'
+titlesuffix: Azure Cognitive Services
+description: Code source du didacticiel expliquant comment utiliser l’API Recherche d’entités Bing dans une application web à page unique.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 988d4c809fdfb528c9cef2b3cdbefa00c274d33e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 09cb10002be43d65ff10e3c238a880cf138aa064
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367988"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815050"
 ---
 # <a name="tutorial-single-page-web-app-source"></a>Tutoriel : Source d’application web à page unique
 
-Voici le code source complet indiqué dans le [tutoriel d’application à page unique](tutorial-bing-entities-search-single-page-app.md) pour Recherche d’images Bing. Pour exécuter l’application, copiez le code source dans le Bloc-notes ou dans un autre éditeur de texte et enregistrez-le sous `bing.html`. Ouvrez ensuite le fichier enregistré dans Microsoft Edge ou dans un autre navigateur populaire.
+Voici le code source complet indiqué dans le [didacticiel de l’application à page unique](tutorial-bing-entities-search-single-page-app.md) pour Recherche d’entités Bing. Pour exécuter l’application, copiez le code source dans le Bloc-notes ou dans un autre éditeur de texte et enregistrez-le sous `bing.html`. Ouvrez ensuite le fichier enregistré dans Microsoft Edge ou dans un autre navigateur courant.
 
 ```html
 <!DOCTYPE html>

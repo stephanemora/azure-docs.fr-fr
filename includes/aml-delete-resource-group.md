@@ -9,15 +9,15 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/27/2018
-ms.openlocfilehash: dcd2854585e2c776f361aa4718af6b99d8cbb593
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb874d06fbccc7e1db542a5d063b9b6acd35b83f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47002001"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48240152"
 ---
 >[!IMPORTANT]
->Les ressources que vous avez créées peuvent être utilisées comme conditions préalables pour d’autres didacticiels de Azure Machine Learning et des articles de procédure. 
+>Les ressources que vous avez créées peuvent faire office de prérequis dans d’autres didacticiels et articles de procédure relatifs au service Azure Machine Learning. 
 
 
 Si vous ne prévoyez pas d’utiliser ce que vous avez créé ici, supprimez les ressources que vous venez de créer avec ce démarrage rapide afin d’éviter des frais.

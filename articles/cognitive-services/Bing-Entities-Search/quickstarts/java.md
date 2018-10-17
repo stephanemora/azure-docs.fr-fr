@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide Java pour Azure Cognitive Services, API Recherche d’entités Bing | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’entités Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API Recherche d’entités Bing, Java'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’entités Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 9b11471e08360cb5fe92f1506516bf88dd5ee72a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0cf1103b37572b43585e4a977dc4d034e7a50e2f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370140"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814472"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-java"></a>Démarrage rapide pour l’API Recherche d'entités Bing de Microsoft avec Java 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-java"></a>Démarrage rapide pour l’API Recherche d’entités Bing avec Java 
 
 Cet article vous explique comment utiliser l’API [Recherche d’entités Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) avec Java.
 

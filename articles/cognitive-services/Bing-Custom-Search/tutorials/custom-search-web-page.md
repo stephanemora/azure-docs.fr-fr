@@ -1,24 +1,25 @@
 ---
-title: 'Recherche personnalisée Bing : Créer une page web de recherche personnalisée | Microsoft Docs'
-description: Décrit la configuration d’une instance de recherche personnalisée et son intégration à une page web
+title: 'Didacticiel : Créer une page web de recherche personnalisée - Recherche personnalisée Bing'
+titlesuffix: Azure Cognitive Services
+description: Décrit la configuration d’une instance de recherche personnalisée et son intégration à une page web.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 8bc1520325afc256ac62cc1f1dfaf24c53da4b83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979996"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815373"
 ---
-# <a name="build-a-custom-search-web-page"></a>Créer une page web Recherche personnalisée
+# <a name="tutorial-build-a-custom-search-web-page"></a>Didacticiel : Créer une page web de recherche personnalisée
 
-La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour des sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sous-sites et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
+La Recherche personnalisée Bing vous permet de créer des expériences de recherche adaptées pour les sujets qui vous intéressent. Par exemple, si vous avez un site web d’arts martiaux qui fournit une expérience de recherche, vous pouvez spécifier les domaines, sous-sites et pages web dans lesquels Bing effectue les recherches. Vos utilisateurs consultent des résultats de recherche adaptés au contenu qui les intéresse au lieu de compulser des pages de résultats de recherche générale dont le contenu peut être inapproprié. 
 
 Ce tutoriel montre comment configurer une instance de recherche personnalisée et l’intégrer à une nouvelle page web.
 
@@ -102,7 +103,7 @@ La Recherche personnalisée fournit une IU hébergée pour restituer la réponse
   
   ![Capture d’écran de la sélection du thème de couleur de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  Si vous avez besoin de régler le thème de couleur pour mieux l’intégrer à votre application web, cliquez sur **Customize theme** (Personnaliser le thème). Les configurations de couleur ne s’appliquent pas toutes à tous les thèmes de disposition. Pour changer une couleur, entrez la valeur HEX RVB de la couleur (par exemple, #366eb8) dans la zone de texte correspondante. Sinon, cliquez sur le bouton de couleur, puis sur la nuance qui vous convient. Pensez toujours à l’accessibilité quand vous sélectionnez des couleurs.
+  Si vous avez besoin de régler le thème de couleur pour mieux l’intégrer à votre application web, cliquez sur **Customize theme** (Personnaliser le thème). Certaines configurations de couleur ne s’appliquent pas à tous les thèmes de disposition. Pour changer une couleur, entrez la valeur HEX RVB de la couleur (par exemple, #366eb8) dans la zone de texte correspondante. Sinon, cliquez sur le bouton de couleur, puis sur la nuance qui vous convient. Pensez toujours à l’accessibilité quand vous sélectionnez des couleurs.
   
   ![Capture d’écran de la personnalisation du thème de couleur de l’interface utilisateur hébergée](./media/custom-search-hosted-ui-customize-color-theme.png)  
 

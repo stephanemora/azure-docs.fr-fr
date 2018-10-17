@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 905815259707116759e0b980690fac108ab81c7b
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8614bf7009afab8c005d2ffb8b1a78f3694d2af7
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186828"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247507"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Migrer vos données vers un compte d’API Table Azure Cosmos DB
 
@@ -30,7 +30,9 @@ Ce tutoriel décrit les tâches suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Augmentez le débit : la durée de la migration de vos données dépend de la quantité de débit que vous définissez pour un conteneur spécifique ou un ensemble de conteneurs. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le portail Azure, consultez les niveaux de performances et niveaux tarifaires dans Azure Cosmos DB.
+* **Augmenter le débit :** la durée de la migration de vos données dépend du débit que vous définissez pour un conteneur spécifique ou un ensemble de conteneurs. Veillez à augmenter le débit pour les migrations de données plus importantes. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit dans le portail Azure, consultez les niveaux de performances et niveaux tarifaires dans Azure Cosmos DB.
+
+* **Créer des ressources Azure Cosmos DB :** avant de commencer à migrer les données, créez au préalable toutes vos tables à partir du portail Azure. Si vous migrez vers un compte Azure Cosmos DB qui a un débit de niveau base de données, assurez-vous de fournir une clé de partition lors de la création de tables Azure Cosmos DB.
 
 ## <a name="data-migration-tool"></a>Outil de migration de données
 

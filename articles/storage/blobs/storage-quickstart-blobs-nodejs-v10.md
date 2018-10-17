@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 09/19/2018
 ms.author: cshoe
-ms.openlocfilehash: a325029ded60a1cd8274743a88f7a4d410466dea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6e23e888a1c90e1c6c7eecf25491f048e9077f11
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987575"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857888"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>Démarrage rapide : Charger, télécharger, lister et supprimer des objets blob à l’aide du kit SDK Azure Storage v10 pour JavaScript (préversion)
 
@@ -128,7 +128,7 @@ L’ensemble de constantes suivant permet de connaître la prévision des calcul
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
-Les requêtes effectuées par l’API peuvent être définies pour expirer après un intervalle donné. La classe *Aborter* est chargée de gérer la façon dont les requêtes arrivent à expiration, et la constante suivante permet de définir les délais d’attente utilisés dans cet exemple.
+Les requêtes effectuées par l’API peuvent être définies pour expirer après un intervalle donné. La classe [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) est chargée de gérer la façon dont les requêtes arrivent à expiration, et la constante suivante permet de définir les délais d’attente utilisés dans cet exemple.
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -163,13 +163,13 @@ const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.win
 ```
 Les classes suivantes sont utilisées dans ce bloc de code :
 
-- La classe *SharedKeyCredential* est chargée de l’encapsulation des informations d’identification du compte de stockage pour les fournir à un pipeline de requête.
+- La classe [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) est chargée de l’encapsulation des informations d’identification du compte de stockage pour les fournir à un pipeline de requête.
 
-- La classe *StorageURL* est chargée de la création d’un pipeline.
+- La classe [StorageURL](/javascript/api/%40azure/storage-blob/storageurl?view=azure-node-preview) est chargée de la création d’un pipeline.
 
-- La classe *ServiceURL* modélise une URL utilisée dans l’API REST. Les instances de cette classe permettent d’accomplir des actions, comme l’établissement d’une liste de conteneurs et l’apport d’informations de contexte pour générer des URL de conteneur.
+- La classe [ServiceURL](/javascript/api/%40azure/storage-blob/serviceurl?view=azure-node-preview) modélise une URL utilisée dans l’API REST. Les instances de cette classe permettent d’accomplir des actions, comme l’établissement d’une liste de conteneurs et l’apport d’informations de contexte pour générer des URL de conteneur.
 
-L’instance de *ServiceURL* est utilisée avec les instances *ContainerURL* et *BlockBlobURL* pour gérer des conteneurs et des objets blob dans votre compte de stockage.
+L’instance de *ServiceURL* est utilisée avec les instances [ContainerURL](/javascript/api/%40azure/storage-blob/containerurl?view=azure-node-preview) et [BlockBlobURL](/javascript/api/%40azure/storage-blob/blockbloburl?view=azure-node-preview) pour gérer des conteneurs et des objets blob dans votre compte de stockage.
 
 ```javascript
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
@@ -202,7 +202,7 @@ Les conditions d’abandon vous permettent de contrôler les requêtes en vous d
 - Déterminer la quantité de temps donné à un lot de requêtes
 - Déterminer la durée pendant laquelle une requête individuelle doit être exécutée dans le lot
 - Pouvoir annuler des requêtes
-- Utiliser le membre statique *Aborter.None* pour éviter que vos requêtes arrivent à expiration toutes ensemble
+- Utiliser le membre statique *Aborter.none* pour éviter que vos requêtes arrivent à expiration toutes ensemble
 
 ### <a name="show-container-names"></a>Afficher les noms de conteneur
 Les comptes peuvent stocker un grand nombre de conteneurs. Le code suivant montre comment répertorier des conteneurs de façon segmentée, ce qui vous permet de parcourir un grand nombre de conteneurs. La fonction *showContainerNames* est transmise à des instances de *ServiceURL* et de *Aborter*.
@@ -229,7 +229,7 @@ async function showContainerNames(aborter, serviceURL) {
 ```
 Lorsque la réponse est retournée, les éléments *containerItems* sont itérés pour consigner le nom dans la console. 
 
-### <a name="create-a-container"></a>Créer un conteneur
+### <a name="create-a-container"></a>Créez un conteneur.
 
 Pour créer un conteneur, la méthode *create* de *ContainerURL* est utilisée.
 

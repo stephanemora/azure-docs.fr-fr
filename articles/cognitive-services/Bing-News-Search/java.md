@@ -1,20 +1,21 @@
 ---
-title: Démarrage rapide Java pour Azure Cognitive Services, API Recherche d'actualités Bing | Microsoft Docs
+title: 'Démarrage rapide : API Recherche d’actualités Bing, Java'
+titlesuffix: Azure Cognitive Services
 description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’actualités Bing dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 15d0f6490a517466036d3caba1058cfefa551321
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f7011ceb51d4fb4a5a92c6aeb56a0c26e7d86388
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370161"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803628"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-java"></a>Démarrage rapide pour l’API Recherche d’actualités Bing avec Java
 
@@ -26,15 +27,15 @@ Reportez-vous aux [informations de référence sur l’API](https://docs.microso
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.
+Vous devrez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) est suffisant pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.
 
 ## <a name="bing-news-search"></a>Recherche d’actualités Bing
 
 L’[API Recherche d'actualités Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) renvoie des résultats de l’actualité à partir du moteur de recherche Bing.
 
 1. Téléchargez ou installez la [bibliothèque gson](https://github.com/google/gson).
-2. Créez un projet Java dans votre éditeur ou IDE préféré.
-3. Ajoutez le code ci-dessous.
+2. Créez un projet Java dans votre éditeur ou IDE favori.
+3. Ajoutez le code fourni ci-dessous.
 4. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
 5. Exécutez le programme.
 
@@ -148,7 +149,7 @@ class SearchResults{
 
 **Réponse**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
 
 ```json
 {

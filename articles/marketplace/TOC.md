@@ -22,7 +22,7 @@
 #### [Modules IoT Edge](./iot-edge-module.md) 
 #### [Service de conseil](./consulting-services.md)  
 #### [Guide de publication Office 365, Dynamics 365 et Power BI](./appsource-offer-publishing-guide.md)
-#### [Activer une liste Microsoft AppSource et Place de marché Microsoft Azure à l’aide d’Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
+#### [Activer une liste AppSource et Place de marché à l’aide d’Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Développer votre activité avec la Place de marché](./grow-your-business-with-azure-marketplace.md)  
 #### [Solutions recommandées](./preferred-solutions.md) 
@@ -123,7 +123,7 @@
 ### [FAQ Insights](./cloud-partner-portal-orig/si-faqs.md)
 
 ## Référence API
-### [Vue d’ensemble](./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md)
+### [Vue d'ensemble](./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md)
 ### [Composants requis](./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md)
 ### [Considérations](./cloud-partner-portal-orig/cloud-partner-portal-api-considerations.md)
 ### [Contrôle d’accès concurrentiel](./cloud-partner-portal-orig/cloud-partner-portal-api-concurrency-control.md)

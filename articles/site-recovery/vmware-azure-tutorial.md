@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 93626e6a8f199841b285fb8a6e302e6c3054db0d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b1b903b945a60cebe2001a1ae41201b9b665c556
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918031"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078815"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurer la récupération d’urgence vers Azure pour des machines virtuelles VMware locales
 
@@ -132,7 +132,7 @@ Le cas échéant, ajoutez une carte d’interface réseau supplémentaire au ser
 4. Sélectionnez **Installer VMware PowerCLI**. Assurez-vous que toutes les fenêtres du navigateur sont fermées avant de continuer. Sélectionnez **Continuer**.
 5. Dans **Valider la configuration de l’appliance**, les conditions préalables sont vérifiées avant que vous ne poursuiviez.
 6. Dans **Configurer le serveur vCenter Server/vSphere ESXi**, entrez le nom de domaine complet ou l’adresse IP du serveur vCenter ou de l’hôte vSphere, sur lequel sont situées les machines virtuelles que vous souhaitez répliquer. Entrez le numéro de port sur lequel le serveur écoute. Entrez un nom convivial à utiliser pour le serveur VMware dans le coffre.
-7. Entrez les informations d’identification à utiliser par le serveur de configuration pour se connecter au serveur VMware. Site Recovery utilise ces informations d’identification pour détecter automatiquement les machines virtuelles VMware disponibles pour la réplication. Sélectionnez **Ajouter**, puis **Continuer**.
+7. Entrez les informations d’identification utilisateur à utiliser par le serveur de configuration pour se connecter au serveur VMware. Vérifiez que le nom d’utilisateur et le mot de passe sont corrects et qu’il fait partie du groupe Administrateurs de la machine virtuelle à protéger. Site Recovery utilise ces informations d’identification pour détecter automatiquement les machines virtuelles VMware disponibles pour la réplication. Sélectionnez **Ajouter**, puis **Continuer**.
 8. Dans **Configurer les informations d’identification de la machine virtuelle**, entrez le nom d’utilisateur et le mot de passe qui seront utilisés pour installer automatiquement le service Mobilité sur les machines virtuelles, une fois la réplication activée.
     - Pour les machines Windows, le compte doit disposer des privilèges d’administrateur local sur les machines que vous souhaitez répliquer.
     - Pour Linux, fournissez les détails du compte racine.
@@ -192,4 +192,4 @@ Pour activer la réplication, vous pouvez effectuer les étapes suivantes :
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Exécuter une simulation de récupération d’urgence](site-recovery-test-failover-to-azure.md)
+> [Effectuer un test de récupération d’urgence](site-recovery-test-failover-to-azure.md)

@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 6c0c42763ec3d124850555500c3a322073af2479
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14e32bdfcde6969b820c0950d59bd5cf946a51e6
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050398"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802319"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack: différences et considérations
+# <a name="azure-stack-storage-differences-and-considerations"></a>Stockage Azure Stack : différences et considérations
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 Le stockage Azure Stack est l’ensemble des services cloud de stockage fournis dans Microsoft Azure Stack. Le stockage Azure Stack fournit des fonctionnalités de gestion des objets blob, des tables, des files d’attente et des comptes avec une sémantique Azure cohérente.
 
-Cet article récapitule les différences connues entre le stockage Azure Stack et les services stockage Azure. Il répertorie également les points à considérer lorsque vous déployez Azure Stack. Pour connaître les différences majeures entre Azure global et Azure Stack, consultez la rubrique [Principales considérations](azure-stack-considerations.md).
+Cet article récapitule les différences connues entre le stockage Azure Stack et les services stockage Azure. Il répertorie également les points à considérer lorsque vous déployez Azure Stack. Pour connaître les différences majeures entre Azure global et Azure Stack, consultez l’article [Principales considérations](azure-stack-considerations.md).
 
 ## <a name="cheat-sheet-storage-differences"></a>Aide-mémoire : différences entre les stockages
 
@@ -38,10 +38,9 @@ Cet article récapitule les différences connues entre le stockage Azure Stack e
 |Type de compte de stockage|Comptes de stockage à usage général et comptes de stockage d’objets blob Azure|À usage général uniquement.
 |Options de réplication|Stockage localement redondant, stockage géoredondant, stockage géoredondant avec accès en lecture et stockage redondant dans une zone|Stockage localement redondant.
 |Stockage Premium|Entièrement pris en charge|Peut être approvisionné, mais sans limite ni garantie de performances.
-|Disques gérés|Premium et standard pris en charge|Pas encore pris en charge.
+|Disques gérés|Premium et standard pris en charge|Pris en charge lorsque vous utilisez la version 1808 ou ultérieure.
 |Nom de l’objet blob|1 024 caractères (2 048 octets)|880 caractères (1 760 octets)
 |Taille maximale d’un objet blob de blocs|4,75 To (100 Mo X 50 000 blocs)|4,75 To (100 Mo x 50 000 blocs) pour la mise à jour 1802 ou une version plus récente. 50 000 x 4 Mo (environ 195 Go) pour les versions précédentes.
-|Copie d’instantané d’objet blob de pages|Prise en charge des disques de machine virtuelle non gérés par Sauvegarde Azure attachés à une machine virtuelle en fonctionnement|Pas encore pris en charge.
 |Copie d’instantané incrémentiel d’objet blob de pages|Objets blob de pages Azure Premium et standard pris en charge|Pas encore pris en charge.
 |Niveaux de stockage pour le Stockage Blob|Niveaux de stockage chaud, à froid et archivage.|Pas encore pris en charge.
 Suppression réversible pour le Stockage Blob|VERSION PRÉLIMINAIRE|Pas encore pris en charge.

@@ -1,29 +1,28 @@
 ---
-title: Qu’est-ce que la reconnaissance de l’orateur ?
-titlesuffix: Azure Cognitive Services
-description: Utilisez les algorithmes avancés de vérification de l’orateur et d’identification de l’orateur avec l’API Reconnaissance de l’orateur.
+title: Qu’est-ce que l’API Reconnaissance de l’orateur ?
+titleSuffix: Azure Cognitive Services
+description: Utilisez les algorithmes avancés de vérification de l’orateur et d’identification de l’orateur avec l’API Reconnaissance de l’orateur dans Cognitive Services.
 services: cognitive-services
 author: dwlin
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speaker-recognition
 ms.topic: overview
-ms.date: 03/20/2016
+ms.date: 10/01/2018
 ms.author: dwlin
-ms.openlocfilehash: 13a95aff8b2b0d5dad0574e6107958a20576702a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c9193a51c677b327e7d799412e389467ac5cc1c0
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227331"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016855"
 ---
 # <a name="speaker-recognition-api"></a>API Reconnaissance de l’orateur
 
-Bienvenue dans les API Reconnaissance de l’orateur. Les API Reconnaissance de l’orateur sont des API basées sur le cloud qui fournissent les algorithmes les plus avancés de vérification de l’orateur et d’identification de l’orateur. Les API Reconnaissance de l’orateur peuvent être divisées en deux catégories : vérification de l’orateur et identification de l’orateur.
+Découvrez les API Reconnaissance de l’orateur d’Azure Cognitive Services. Les API Reconnaissance de l’orateur sont des API basées sur le cloud qui fournissent les algorithmes les plus avancés de vérification de l’orateur et d’identification de l’orateur. Les API Reconnaissance de l’orateur peuvent être divisées en deux catégories : vérification de l’orateur et identification de l’orateur.
 
 
 ## <a name="speaker-verification"></a>Vérification de l’orateur
-
 
 La voix a des caractéristiques uniques qui peuvent être utilisées pour identifier une personne, à l’image d’une empreinte digitale.  L’utilisation de la voix comme signal pour les scénarios de contrôle d’accès et d’authentification fait figure d’outil innovant, ajoutant notamment une couche de sécurité qui simplifie l’expérience d’authentification pour les clients.
 
@@ -31,12 +30,12 @@ Les API de vérification de l’orateur peuvent automatiquement vérifier et aut
 
 ### <a name="enrollment"></a>Inscription
 
-L’inscription à la vérification de l’orateur est basée sur le texte, ce qui signifie que les orateurs doivent choisir une phrase spécifique à utiliser lors des phases d’inscription et de vérification. 
+L’inscription à la vérification de l’orateur est basée sur le texte, ce qui signifie que les orateurs doivent choisir une phrase spécifique à utiliser lors des phases d’inscription et de vérification.
 
 Lors de l’inscription, la voix de l’orateur est enregistrée lorsqu’il récite une phrase spécifique, puis un certain nombre de caractéristiques est extrait et la phrase choisie est reconnue. Ensemble, les caractéristiques extraites et la phrase choisie constituent une signature vocale unique.
 
 ### <a name="verification"></a>Vérification
-###
+
 La vérification consiste à comparer une voix et une expression d’entrée à l’expression et à la signature vocale de l’inscription afin de vérifier si elles appartiennent à la même personne et si l’expression prononcée est correcte.
 
 Pour plus d’informations sur la vérification de l’orateur, reportez-vous à l’API de [vérification de l’orateur](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
@@ -50,12 +49,11 @@ Tous les orateurs doivent d’abord passer par un processus d’inscription pour
 
 ### <a name="enrollment"></a>Inscription
 
-L’inscription à l’identification de l’orateur est basée sur le texte, ce qui signifie qu’il n’existe aucune restriction sur le contenu récité par l’orateur dans le fichier audio. La voix de l’orateur est enregistrée et un certain nombre de caractéristiques est extrait pour former une signature vocale unique. 
+L’inscription à l’identification de l’orateur est basée sur le texte, ce qui signifie qu’il n’existe aucune restriction sur le contenu récité par l’orateur dans le fichier audio. La voix de l’orateur est enregistrée et un certain nombre de caractéristiques est extrait pour former une signature vocale unique.
 
 
 ### <a name="recognition"></a>Reconnaissance
 
 Le contenu audio de l’orateur inconnu, conjointement avec le groupe d’orateurs potentiels, est fourni lors de la reconnaissance. La voix d’entrée est comparée à tous les orateurs afin de déterminer à qui appartient la voix et, en cas de correspondance, l’identité de l’orateur est retournée.
-
 
 Pour plus d’informations sur l’identification de l’orateur, reportez-vous à l’API [d’identification de l’orateur](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
-ms.date: 09/15/2018
+ms.date: 10/10/2018
 ms.author: nolachar
-ms.openlocfilehash: fd92e91989bd1a37626227b327d644c9d704ab6c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: cf761342bb434100920c3888f2f441b9f8c8de08
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983012"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077915"
 ---
 # <a name="what-is-video-indexer"></a>Qu’est-ce que Video Indexer ?
 
@@ -38,8 +38,8 @@ Azure Video Indexer est une application cloud créée à l’aide d’Azure Medi
 - **Extraction de marques** : extrait les marques du texte visuel ou vocal.
 - **Détection de visage** : détecte et regroupe les visages qui apparaissent dans la vidéo.
 - **Extraction de miniatures pour les visages (« meilleurs visages »)** : identifie automatiquement le meilleur visage capturé dans chaque groupe de visages (en fonction de la qualité, de la taille et de la position frontale) et l’extrait en tant qu’actif d’image.
-- **Identification de célébrités** : reconnaît des célébrités dans la vidéo grâce à une base de données d’un million de célébrités. La source provient d’IMDB, de Wikipédia et des meilleurs influenceurs de LinkedIn.
-- **Identification des visages personnalisée** : reconnaît les visages dans la vidéo en fonction d’un modèle personnalisé entraîné pour le compte spécifique.
+- **Identification de célébrités** : Video Indexer identifie automatiquement plus de 1 million de célébrités : dirigeants, acteurs et actrices, athlètes, chercheurs, dirigeants d’entreprise et spécialistes techniques du monde entier. Les données relatives à ces célébrités figurent également sur plusieurs sites Web connus, par exemple, IMDB et Wikipedia.
+- **Identification des visages basée sur le compte** : Video Indexer effectue l’apprentissage d’un modèle pour un compte spécifique. Il reconnaît alors les visages dans la vidéo selon le modèle entraîné en particulier pour les vidéos de ce compte.
 - **Modération du contenu textuel** : détecte le texte explicite dans la transcription audio.
 - **Détection de plan** : détermine le moment où une scène change dans la vidéo.
 - **Détection de cadre noir** : identifie les cadres noirs présents dans la vidéo.

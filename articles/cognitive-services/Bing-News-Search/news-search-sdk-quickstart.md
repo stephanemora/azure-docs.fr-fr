@@ -1,25 +1,25 @@
 ---
-title: Démarrage rapide du Kit de développement logiciel (SDK) C# pour Recherche d’actualités | Microsoft Docs
-description: Configuration de l’application console du Kit de développement logiciel (SDK) pour Recherche d’actualités.
-titleSuffix: Azure cognitive services News search SDK C# quickstart
+title: 'Démarrage rapide : Kit de développement logiciel (SDK) Recherche d’actualités Bing, C#'
+titleSuffix: Azure Cognitive Services
+description: Configuration de l’application console du Kit de développement logiciel (SDK) pour Recherche d’actualités Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: e803fd579c6b71b8b1754546446715795a12087a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370437"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802982"
 ---
-# <a name="news-search-sdk-c-quickstart"></a>Démarrage rapide du Kit de développement logiciel (SDK) C# pour Recherche d’actualités
+# <a name="quickstart-bing-news-search-sdk-with-c"></a>Démarrage rapide : Kit de développement logiciel (SDK) Java pour Recherche d’actualités Bing avec C#
 
-Le Kit de développement logiciel (SDK) pour Recherche d’actualités fournit les fonctionnalités de l’API REST pour les recherche d’actualités et l’analyse des résultats. 
+Le SDK Recherche d’actualités fournit les fonctionnalités de l’API REST pour les recherche d’actualités et l’analyse des résultats. 
 
 Le [code source des exemples du Kit de développement logiciel (SDK) C# pour Recherche d’actualités Bing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch) est disponible sur GitHub.
 
@@ -265,4 +265,4 @@ Le code suivant recherche des rubriques d’actualités tendance dans Bing. Il v
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Exemples du Kit de développement logiciel (SDK) .NET pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Exemples du Kit de développement logiciel (SDK) .NET pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

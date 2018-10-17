@@ -2,18 +2,17 @@
 title: Disponibilité des régions et quotas pour Azure Container Instances
 description: La disponibilité des régions et les quotas par défaut du service Azure Container Instances.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
-ms.author: marsma
-ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: danlep
+ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115273"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902348"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Disponibilité des régions et quotas pour Azure Container Instances
 
@@ -27,13 +26,13 @@ Tous les services Azure incluent certains quotas et limites par défaut pour les
 
 Azure Container Instances est disponible dans les régions suivantes avec les limites de processeur et de mémoire spécifiées.
 
-| Emplacement | SE | UC | Mémoire (Go) |
+| Lieu | SE | UC | Mémoire (Go) |
 | -------- | -- | :---: | :-----------: |
-| Ouest des États-Unis, Est des États-Unis, Europe du Nord | Linux | 4 | 14 |
-| Ouest des États-Unis 2, Asie du Sud-Est | Linux | 2 | 7 |
-| Est de l’Australie, Est des États-Unis 2, Centre des États-Unis | Linux | 1 | 1.5 |
-| Ouest des États-Unis, Est des États-Unis, Europe du Nord | Windows | 4 | 14 |
-| Ouest des États-Unis 2, Asie du Sud-Est | Windows | 2 | 3,5 |
+| USA Est, Europe Nord, Europe Ouest, USA Ouest, USA Ouest 2 | Linux | 4 | 14 |
+| Australie Est, USA Est 2, Asie Sud-Est | Linux | 2 | 7 |
+| Inde Centre, USA Centre Sud | Linux | 2 | 3,5 |
+| USA Est, Europe Ouest, USA Ouest | Windows | 4 | 14 |
+| Australie Est, Inde Centre, USA Est 2, Europe Nord, USA Centre Sud, Asie Sud-Est, USA Ouest 2 | Windows | 2 | 3,5 |
 
 Les instances de conteneur créées dans les limites de ces ressources sont soumises à la disponibilité dans la région de déploiement. Quand une région a une charge importante, vous pouvez rencontrer un échec durant le déploiement des instances. Pour atténuer ce type d’échec de déploiement, essayez de déployer des instances avec des paramètres de mémoire et de processeur inférieurs, ou essayez d’effectuer le déploiement plus tard.
 

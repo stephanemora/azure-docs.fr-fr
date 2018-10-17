@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 16424c44003be14e3ba04f6b5cce0ce518a0d7e8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063028"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884331"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutoriel : Effectuer une reconnaissance des intentions vocales en utilisant le kit SDK Speech pour C#
 
@@ -123,7 +123,7 @@ Les sections suivantes comportent un développement du code.
 La première étape de la reconnaissance d’intentions dans la reconnaissance vocale consiste à créer une configuration de reconnaissance vocale à partir de votre région et de votre clé de point de terminaison LUIS. Les configurations de reconnaissance vocale peuvent servir à créer des modules de reconnaissance pour les différentes fonctionnalités du kit SDK Speech. La configuration de reconnaissance vocale offre plusieurs moyens pour spécifier l’abonnement à utiliser. Ici, nous utilisons `FromSubscription`, qui accepte la région et la clé d’abonnement.
 
 > [!NOTE]
-> Utilisez la clé et la région de votre abonnement LUIS, et non celles de votre abonnement Speech.
+> Utilisez la clé et la région de votre abonnement LUIS, et non celles d’un abonnement Speech.
 
 Ensuite, créez un module de reconnaissance de l’intention à l’aide de `new IntentRecognizer(config)`. La configuration sachant déjà quel abonnement utiliser, il est inutile de spécifier à nouveau la clé d’abonnement et le point de terminaison lors de la création du module de reconnaissance.
 
@@ -166,7 +166,7 @@ L’application du tutoriel n’analyse pas le résultat JSON, elle ne fait que 
 
 ## <a name="specify-recognition-language"></a>Préciser une langue de reconnaissance
 
-Par défaut, LUIS reconnaît les intentions en anglais (États-Unis) (`en-us`). En attribuant un code de paramètres régionaux à la propriété `SpeechRecognitionLanguage` de la configuration de reconnaissance vocale, vous pouvez reconnaître des intentions dans d’autres langues. Par exemple, ajoutez `config.SpeechRecognitionLanguage = "de-de";` dans notre application de tutoriel avant de créer le module de reconnaissance pour reconnaître les intentions en allemand. Voir [Langues prises en charge](supported-languages.md#speech-to-text).
+Par défaut, LUIS reconnaît les intentions en anglais (États-Unis) (`en-us`). En attribuant un code de paramètres régionaux à la propriété `SpeechRecognitionLanguage` de la configuration de reconnaissance vocale, vous pouvez reconnaître des intentions dans d’autres langues. Par exemple, ajoutez `config.SpeechRecognitionLanguage = "de-de";` dans notre application de tutoriel avant de créer le module de reconnaissance pour reconnaître les intentions en allemand. Voir [Langues prises en charge](language-support.md#speech-to-text).
 
 ## <a name="continuous-recognition-from-a-file"></a>Reconnaissance continue depuis un fichier
 

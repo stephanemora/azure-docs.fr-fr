@@ -1,21 +1,23 @@
 ---
-title: Démarrage rapide C# pour l’aperçu d’URL de projet - Microsoft Cognitive Services | Microsoft Docs
-description: Prise en main avec l’aperçu d’URL de projet dans Microsoft Cognitive Services.
+title: 'Démarrage rapide : URL Preview de projet, C#'
+titlesuffix: Azure Cognitive Services
+description: Prise en main de URL Preview de projet avec C#.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 17d44bd0c23d0a1e67da5a0e91248700d3166c1a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 8d31d3a83f9873ce550b9c78626eea0d96ac39bb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369605"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867440"
 ---
-# <a name="url-preview-query-in-c"></a>Requête d’aperçu d’URL dans C#
+# <a name="quickstart-url-preview-query-in-c"></a>Démarrage rapide : Requête d’aperçu d’URL dans C#
 
 L’exemple C# suivant crée un aperçu d’Url pour le site web de SwiftKey : https://swiftkey.com/en.
 
@@ -161,7 +163,7 @@ Pour exécuter l’application :
 4. Exécutez le programme.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Démarrage rapide de Java](java-quickstart.md)
+- [Démarrage rapide Java](java-quickstart.md)
 - [Démarrage rapide JavaScript](javascript.md)
 - [Démarrage rapide Node](node-quickstart.md)
 - [Démarrage rapide Python](python-quickstart.md)

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419540"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017446"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Didacticiel : configurer Azure Data Box Gateway dans VMware (préversion)
 
@@ -96,7 +96,7 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 1. Copiez l'image de l’appareil virtuel sur votre système. Vous avez téléchargé cette image virtuelle (deux fichiers) via le portail Azure. Prenez note de l’emplacement où vous avez copié l’image car vous l’utiliserez plus loin dans la procédure.
 
-2. Connectez-vous au serveur ESXi à l’aide du client vSphere. Vous devez disposer de privilèges d’administrateur pour créer une machine virtuelle.
+2. Connectez-vous au serveur ESXi à l’aide du client web vSphere. Vous devez disposer de privilèges d’administrateur pour créer une machine virtuelle.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -104,7 +104,10 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. Dans le panneau droit, sous **Magasins de données**, sélectionnez le magasin de données dans lequel vous voulez charger le fichier VMDK. Le magasin de données doit être de type VMFS 5. Le magasin de données doit avoir suffisamment d'espace libre pour les disques du système d'exploitation et des données.
+4. Dans le panneau droit, sous **Magasins de données**, sélectionnez le magasin de données dans lequel vous voulez charger le fichier VMDK. 
+
+    - Le magasin de données doit être de type VMFS5. 
+    - Le magasin de données doit avoir suffisamment d'espace libre pour les disques du système d'exploitation et des données.
    
 5. Cliquez avec le bouton droit et sélectionnez **Parcourir les magasins de données**.
 
@@ -145,11 +148,11 @@ Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 15. Sur la page **Sélectionner un stockage**, sélectionnez le magasin de données que vous souhaitez utiliser pour configurer votre machine virtuelle. Cliquez sur **Suivant**.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. Sur la page **Personnaliser les paramètres**, définissez le **processeur** sur 4, **Mémoire** sur 8192 Mo (ou plus), **Disque dur 1** sur 2 To (ou plus). Choisissez le type de **disque dur SCSI** à ajouter. Dans ce cas, il s’agit de LSI Logic SAS. **Les disques durs IDE statiques ne sont pas pris en charge.** Le **disque dur 1** est le disque de données virtuel. Notez que vous ne pouvez pas réduire le disque une fois mis en service.
+16. Sur la page **Personnaliser les paramètres**, définissez le **processeur** sur 4, **Mémoire** sur 8192 Mo (ou plus), **Disque dur 1** sur 2 To (ou plus). Choisissez le **disque dur SCSI** à ajouter. Dans ce cas, il s’agit de LSI Logic SAS. **Les disques durs IDE statiques ne sont pas pris en charge.** Le **disque dur 1** est le disque de données virtuel. Notez que vous ne pouvez pas réduire le disque une fois mis en service.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    Dans la même page, cliquez sur **Ajouter le disque dur**, puis sélectionnez **Disque dur existant**. Cette opération ajoute un disque de système d’exploitation. 
+    Dans la même page, cliquez sur **Ajouter le disque dur**, puis sélectionnez **Disque dur existant**. Sélectionnez le fichier VMDK dans le magasin de données. Cette opération ajoute un disque de système d’exploitation. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

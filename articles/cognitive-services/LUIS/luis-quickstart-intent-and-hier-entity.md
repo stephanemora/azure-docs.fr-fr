@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042123"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831022"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Tutoriel 5 : Extraire des données relatives au contexte
 Dans ce tutoriel, vous allez rechercher des ensembles de données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination d’un déménagement physique depuis un bâtiment et un bureau vers un autre bâtiment et un autre bureau sont liés. Pour générer un ordre de travail, les deux ensembles de données peuvent être nécessaires et ils sont liés entre eux.  
 
-Cette application détermine lorsqu’un employé doit déménager de son emplacement d’origine (bâtiment et bureau) à un emplacement de destination (bâtiment et bureau). Elle utilise l’entité hiérarchique pour détermine les emplacements au sein de l’énoncé. L’objectif de l’entité **hiérarchique** est de rechercher les données associées dans l’énoncé en fonction du contexte. 
+Cette application détermine lorsqu’un employé doit déménager de son emplacement d’origine (bâtiment et bureau) à un emplacement de destination (bâtiment et bureau). Elle utilise l’entité hiérarchique pour déterminer les emplacements au sein de l’énoncé. L’objectif de l’entité **hiérarchique** est de rechercher les données associées dans l’énoncé en fonction du contexte. 
 
 L’entité hiérarchique est adaptée à ce type de données, car les deux ensembles de données :
 
@@ -28,9 +28,9 @@ L’entité hiérarchique est adaptée à ce type de données, car les deux ense
 * Sont liés l’un à l’autre dans le contexte de l’énoncé.
 * Utilisent des formulations spécifiques pour indiquer chaque emplacement. Exemples : de/à, quitte/arrive à, loin de/vers...
 * Les deux emplacements se trouvent fréquemment dans le même énoncé. 
-* Doivent être regroupés et traités par l’application cliente en tant qu’unité d’informations.
+* Doivent être regroupées et traitées par l’application cliente en tant qu’unité d’informations.
 
-**Ce tutoriel vous montre comment effectuer les opérations suivantes :**
+**Dans ce tutoriel, vous allez découvrir comment :**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -39,11 +39,11 @@ L’entité hiérarchique est adaptée à ce type de données, car les deux ense
 > * Ajouter une entité hiérarchique avec des enfants d’origine et de destination
 > * Former
 > * Publish
-> * Reconnaître les intentions et les entités à partir du point de terminaison
+> * Obtenir les intentions et les entités à partir du point de terminaison
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utiliser une clé existante
+## <a name="use-existing-app"></a>Utiliser l’application existante
 Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
 Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
@@ -52,7 +52,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Gérer**, sous l’onglet **Versions**, clonez la version et nommez-la `hier`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
+3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `hier`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Supprimer l’entité de nombre prédéfinie de l’application
 Afin d’afficher l’énoncé complet et de marquer les enfants hiérarchiques, supprimez temporairement l’entité de nombre prédéfinie.
@@ -61,7 +61,7 @@ Afin d’afficher l’énoncé complet et de marquer les enfants hiérarchiques,
 
 2. Dans le menu gauche, sélectionnez **Entités**.
 
-3. Sélectionnez le bouton des points de suspension (***...***) à droite de l’entité de nombre dans la liste. Sélectionnez **Supprimer**. 
+3. Cochez la case à droite de l’entité nombre de la liste. Sélectionnez **Supprimer**. 
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>Ajoutez des énoncés à l’intention de MoveEmployee
 

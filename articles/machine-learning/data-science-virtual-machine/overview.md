@@ -1,7 +1,7 @@
 ---
 title: Présentation d'Azure Data Science Virtual Machine pour Linux et Windows | Microsoft Docs
 description: Scénarios et composants d’analytique clés pour Azure Data Science Virtual Machine Windows et Linux.
-keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données linux
+keywords: outils de science des données, machine virtuelle science des données, outils pour la science des données, science des données Linux
 services: machine-learning
 documentationcenter: ''
 author: gopitk
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a6f085b0fa11f117b181714a3b92cdc3a7c9e9a9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032227"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870670"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Présentation d'Azure Data Science Virtual Machine pour Linux et Windows
 
-La machine virtuelle Science des données (DSVM) est une image de machine virtuelle personnalisée sur le cloud Microsoft Azure spécialement conçue pour la science des données. Elle inclut de nombreux outils de science des données populaires et d’autres outils sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analyse avancée. Elle est disponible sur Windows Server et sur Linux. Nous vous proposons l’édition Windows de la DSVM sous Server 2016 et Server 2012. Nous proposons des éditions de Linux de la DSVM sur Ubuntu 16.04 LTS et CentOS 7.4.
+La machine virtuelle Science des données (DSVM) est une image de machine virtuelle personnalisée sur le cloud Microsoft Azure spécialement conçue pour la science des données. Elle inclut de nombreux outils de science des données populaires et d’autres outils sont préinstallés et préconfigurés afin d’accélérer la création d’applications intelligentes à des fins d’analyse avancée. Elle est disponible sur Windows Server et Linux. Nous vous proposons l’édition Windows de la DSVM sous Server 2016 et Server 2012. Nous proposons des éditions de Linux de la DSVM sur Ubuntu 16.04 LTS et CentOS 7.4.
 
 Cette rubrique explique ce que vous pouvez faire avec la machine virtuelle Science des données, présente les principaux scénarios d’utilisation de la machine Virtuelle, détaille les principales fonctionnalités disponibles dans les versions de Windows et Linux, et fournit des instructions sur la façon de commencer à les utiliser.
 
@@ -32,7 +32,7 @@ Cette rubrique explique ce que vous pouvez faire avec la machine virtuelle Scien
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Que puis-je faire avec la machine virtuelle Science des données ?
 L’objectif de la machine virtuelle Science des données (DSVM) est de fournir aux experts en données, tous niveaux de compétence et rôles confondus, un environnement de science des données préconfiguré et totalement intégré. Au lieu de déployer votre propre espace de travail, vous pouvez approvisionner un DSVM, ce qui vous permet d’économiser des jours, voire des _semaines_, sur les processus d’installation, de configuration et de gestion des packages. Une fois votre DSVM alloué, vous pouvez commencer immédiatement à travailler sur votre projet de science des données.
 
-DSVM (Data Science Virtual Machine) a été conçu et configuré pour fonctionner dans une grande variété de scénarios. Vous pouvez faire évoluer ou réduire votre environnement en fonction des besoins de votre projet. Vous pouvez utiliser votre langage par défaut pour programmer les tâches de science des données. Vous pouvez installer d’autres outils et personnaliser le système en fonction de vos besoins exacts.
+DSVM (Data Science Virtual Machine) a été conçu et configuré pour fonctionner dans une grande variété de scénarios. Vous pouvez adapter la taille de votre environnement en fonction de l’évolution des besoins de votre projet, utiliser le langage de votre choix pour programmer les tâches scientifiques et installer d’autres outils pour que le système convienne parfaitement à vos besoins.
 
 ## <a name="key-scenarios"></a>Principaux scénarios
 Cette section propose des scénarios principaux dans lesquels la machine virtuelle Science des données peut être déployée.
@@ -47,13 +47,13 @@ Les formateurs d’entreprise et les instructeurs qui enseignent la science des 
 Les concours de science des données ou la modélisation et l’exploration de données à grande échelle nécessitent une augmentation de la capacité matérielle, généralement sur une courte durée. La machine virtuelle Science des données permet de répliquer rapidement et à la demande l’environnement de science des données, sur des serveurs montés offrant ainsi des expériences d’exécution des ressources informatique hautes performances.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Expérimentation et évaluation à court terme
-La machine virtuelle Science des données peut être utilisée pour évaluer ou découvrir des outils tels que Microsoft ML Server, SQL Server, Visual Studio, Jupyter, kits de ressources de formation approfondie / ML et de nouveaux outils populaires dans la communauté, avec un minimum d’efforts d’installation. Étant donné que la machine virtuelle Science des données peut être configurée rapidement, elle peut être appliquée dans d’autres scénarios d’utilisation à court terme comme la réplication d’expériences publiées, l’exécution de démonstrations, le suivi de procédures pas-à-pas dans des sessions en ligne ou des didacticiels de conférence.
+La machine virtuelle Science des données peut être utilisée pour évaluer ou découvrir des outils tels que Microsoft ML Server, SQL Server, Visual Studio, Jupyter, kits de ressources de formation approfondie / ML et de nouveaux outils populaires dans la communauté, avec un minimum d’efforts d’installation. Étant donné que la Data Science Virtual Machine peut être configurée rapidement, elle peut être appliquée dans d’autres scénarios d’utilisation à court terme comme la réplication d’expériences publiées, l’exécution de démonstrations, le suivi de procédures pas-à-pas dans des sessions en ligne et des didacticiels de conférence.
 
 ### <a name="deep-learning"></a>Apprentissage approfondi
-La machine virtuelle de Science des données peut être utilisée pour le modèle d’apprentissage, grâce à des algorithmes d’apprentissage approfondis sur le matériel basé sur les processeurs graphiques (GPU). En utilisant les fonctionnalités de mise à l’échelle de machine virtuelle du cloud Azure, la machine virtuelle DSVM vous permet d’utiliser du matériel basé sur GPU dans le cloud, selon vos besoins. Vous pouvez basculer vers une machine virtuelle basée sur GPU lorsque vous formez de grands modèles ou lorsque vous avez besoin d’une grande rapidité de calcul, mais souhaitez garder le même disque de système d’exploitation.  L’édition Windows Server 2016 de la DSVM est préinstallée avec les pilotes GPU, les infrastructures et les versions GPU de frameworks de deep learning. Sur Linux, le deep learning sur GPU est activé sur les DSVM CentOS et Ubuntu. Vous pouvez déployer l’édition DSVM Ubuntu, CentOS ou Windows 2016 sur une machine virtuelle Azure non basée sur GPU. Dans ce cas, tous les frameworks de deep learning passent en mode UC. 
+La machine virtuelle de Science des données peut être utilisée pour les modèles d’apprentissage, grâce à des algorithmes d’apprentissage approfondis sur le matériel basé sur les processeurs graphiques (GPU). En utilisant les fonctionnalités de mise à l’échelle de machine virtuelle du cloud Azure, la machine virtuelle DSVM vous permet d’utiliser du matériel basé sur GPU dans le cloud, selon vos besoins. Vous pouvez basculer vers une machine virtuelle basée sur GPU lorsque vous formez de grands modèles ou lorsque vous avez besoin d’une grande rapidité de calcul, mais souhaitez garder le même disque de système d’exploitation.  L’édition Windows Server 2016 de la DSVM est préinstallée avec les pilotes GPU, les infrastructures et les versions GPU de frameworks de deep learning. Sur l’édition Linux, le deep learning sur GPU est activé sur les DSVM CentOS et Ubuntu. Vous pouvez déployer l’édition DSVM Ubuntu, CentOS ou Windows 2016 sur une machine virtuelle Azure non basée sur un GPU. Dans ce cas, tous les frameworks de deep learning passent en mode UC. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Qu’est-ce qui est inclus dans la machine virtuelle Science des données ?
-De nombreux outils de science des données et d’apprentissage approfondi populaires sont déjà installés et configurés sur la machine virtuelle Science des données. Elle inclut également des outils simplifiant l’utilisation de différents produits de données et d’analyse Azure. Vous pouvez explorer et créer des modèles prédictifs sur des jeux de données d’envergure à l’aide de Microsoft ML Server (R, Python) ou de SQL Server 2017. D’autres outils encore de la communauté open source et de Microsoft sont également inclus, ainsi qu’un exemple de code et des notebooks. Le tableau suivant détaille et compare les principaux composants inclus dans les éditions Windows et Linux de la machine virtuelle Science des données.
+De nombreux outils de science des données et d’apprentissage approfondi populaires sont déjà installés et configurés sur la machine virtuelle Science des données. Elle comprend également des outils qui simplifient la prise en main de plusieurs produits Azure de données et d’analyse tels que Microsoft ML Server (R, Python) pour créer des modèles prédictifs ou SQL Server 2017 pour effectuer des recherches dans de grands ensembles de données. D’autres outils encore de la communauté open source et de Microsoft sont également inclus, ainsi qu’un exemple de code et des notebooks. Le tableau suivant détaille et compare les principaux composants inclus dans les éditions Windows et Linux de la machine virtuelle Science des données.
 
 
 | **Outil**                                                           | **Édition Windows** | **Édition Linux** |

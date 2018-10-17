@@ -1,63 +1,56 @@
 ---
-title: 'API Vision par ordinateur avec Python - Démarrage rapide : analyser une image distante | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous analysez une image distante à l’aide de l’API Vision par ordinateur avec Python dans Cognitive Services.
+title: 'Démarrage rapide : Analyse d’une image distante - REST, Python - API Vision par ordinateur'
+titleSuffix: Azure Cognitive Services
+description: Dans ce démarrage rapide, vous analysez une image distante à l’aide de l’API Vision par ordinateur avec Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 65f9b0d4fb007a6a9b8ef489ca59f384e047a0dd
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770341"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883939"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-python"></a>Démarrage rapide : Analyser une image distante - REST, Python
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Analyse d’une image distante à l’aide de l’API REST et de Python dans l’API Vision par ordinateur
 
-Dans ce démarrage rapide, vous analysez une image distante à l’aide de l’API Vision par ordinateur. Pour analyser une image locale, consultez [Analyser une image locale avec Python](python-disk.md).
+Dans ce démarrage rapide, vous analysez une image stockée à distance pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
 
 Vous pouvez exécuter ce démarrage rapide étape par étape à l’aide d’un bloc-notes Jupyter sur [MyBinder](https://mybinder.org). Pour lancer Binder, sélectionnez le bouton suivant :
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
+
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser l’API Vision par ordinateur, vous avez besoin d’une clé d’abonnement. Consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Si vous souhaitez exécuter l’exemple en local, [Python](https://www.python.org/downloads/) doit être installé.
+- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-remote-image"></a>Analyser une image distante
+## <a name="create-and-run-the-sample"></a>Création et exécution de l’exemple
 
-Avec la [méthode d’analyse d’une image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image. Vous pouvez télécharger une image ou spécifier l’URL d’une image et choisir les fonctionnalités à retourner, notamment :
+Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
-* Une liste détaillée des balises liées au contenu de l’image.
-* Une description du contenu de l’image dans une phrase complète.
-* Les coordonnées, le sexe et l’âge de n’importe quel visage contenu dans l’image.
-* Le type d’image (images clipart ou dessin au trait).
-* La couleur dominante, la couleur d’accentuation, et si une image est en noir et blanc.
-* La catégorie définie dans cette [taxonomie](../Category-Taxonomy.md).
-* L’image contient-elle un contenu pour adultes ou sexuellement suggestif ?
-
-Pour exécuter l’exemple, effectuez les étapes suivantes :
-
-1. Copiez le code suivant dans un nouveau fichier de script Python.
-1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Remplacez la valeur `vision_base_url` par l’emplacement où vous avez obtenu vos clés d’abonnement, si nécessaire.
-1. Éventuellement, remplacez la valeur `image_url` par une autre image.
-1. Exécutez le script.
-
-Le code suivant utilise la bibliothèque Python `requests` pour appeler l’API Vision par ordinateur Analyser l’image. Il retourne les résultats sous la forme d’un objet JSON. La clé API est transmise via le dictionnaire `headers`. Les types de fonctionnalités à reconnaître sont transmises via le dictionnaire `params`.
-
-## <a name="analyze-image-request"></a>Requête Analyser l’image
+1. Copiez le code suivant dans un éditeur de texte.
+1. Apportez les modifications suivantes au code si nécessaire :
+    1. Remplacez la valeur de `subscription_key` par votre clé d’abonnement.
+    1. Si nécessaire, remplacez la valeur de `vision_base_url` par l’URL du point de terminaison de la ressource Vision par ordinateur à partir de la région Azure dans laquelle vous avez obtenu vos clés d’abonnement.
+    1. Le cas échéant, remplacez la valeur de `image_url` par l’URL d’une image différente que vous souhaitez analyser.
+1. Enregistrez le code en tant que fichier ayant une extension `.py`. Par exemple : `analyze-image.py`.
+1. Ouvrir une fenêtre d’invite de commandes.
+1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python analyze-image.py`.
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 #%matplotlib inline
 import matplotlib.pyplot as plt
+import json
 from PIL import Image
 from io import BytesIO
 
@@ -89,7 +82,7 @@ response.raise_for_status()
 # The 'analysis' object contains various fields that describe the image. The most
 # relevant caption for the image is obtained from the 'description' property.
 analysis = response.json()
-print(analysis)
+print(json.dumps(response.json()))
 image_caption = analysis["description"]["captions"][0]["text"].capitalize()
 
 # Display the image and overlay it with the caption.
@@ -97,11 +90,12 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
+plt.show()
 ```
 
-## <a name="analyze-image-response"></a>Réponse Analyser l’image
+## <a name="examine-the-response"></a>Examiner la réponse
 
-Une réponse correcte est retournée au format JSON, par exemple :
+Une réponse correcte est retournée au format JSON. La page Web d’exemple analyse et affiche une réponse correcte dans la fenêtre d’invite de commande, comme dans l’exemple suivant :
 
 ```json
 {
@@ -175,9 +169,13 @@ Une réponse correcte est retournée au format JSON, par exemple :
 }
 ```
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Lorsque vous n’en avez plus besoin, supprimez le fichier.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez une application Python qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Pour tester rapidement les API Vision par ordinateur, essayez la [console de test d’API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explorez une application Python qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent, ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Pour tester rapidement avec l’API Vision par ordinateur, essayez la [console de test de l’API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutoriel sur l’API Vision par ordinateur Python](../Tutorials/PythonTutorial.md)

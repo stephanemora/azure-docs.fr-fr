@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 10/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160448"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802098"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -24,7 +24,7 @@ Azure Container Instances est une excellente solution pour les scénarios qui pe
 
 ## <a name="fast-startup-times"></a>Temps de démarrage rapide
 
-Le service Containers offre des avantages de démarrage conséquents sur les machines virtuelles. Azure Container Instances peut démarrer des conteneurs dans Azure en quelques secondes, sans avoir à configurer ni gérer des machines virtuelles.
+Les conteneurs offrent des avantages de démarrage conséquents sur les machines virtuelles. Azure Container Instances peut démarrer des conteneurs dans Azure en quelques secondes, sans avoir à configurer ni gérer des machines virtuelles.
 
 ## <a name="public-ip-connectivity-and-dns-name"></a>Connectivité IP publique et nom DNS
 
@@ -54,9 +54,19 @@ Azure Container Instances prend en charge les images Windows basées sur des ver
 
 Azure Container Instances prend en charge la planification de [groupes de plusieurs conteneurs](container-instances-container-groups.md) qui partagent un même hôte, réseau local, stockage et cycle de vie. Vous pouvez ainsi combiner votre conteneur d’application principal avec d’autres conteneurs à rôle d’assistance, comme les side-cars de journalisation.
 
+## <a name="virtual-network-deployment-preview"></a>Déploiement de réseau virtuel (préversion)
+
+Actuellement en préversion, cette fonctionnalité d’Azure Container Instances permet le [déploiement d’instances de conteneur dans un réseau virtuel Azure](container-instances-vnet.md). En déployant des instances de conteneur dans un sous-réseau au sein de votre réseau virtuel, elles peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel, y compris celles qui sont en local (via une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ ExpressRoute](../expressroute/expressroute-introduction.md)).
+
+> [!IMPORTANT]
+> Le déploiement de groupes de conteneurs sur un réseau virtuel est actuellement en préversion, des [limitations s’appliquent](container-instances-vnet.md#preview-limitations). Les préversions sont à votre disposition, à la condition d’accepter les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Essayez de déployer un conteneur dans Azure avec une seule commande à l’aide de notre guide de démarrage rapide :
 
 > [!div class="nextstepaction"]
 > [Guide de démarrage rapide : créer son premier conteneur dans Azure Container Instances](container-instances-quickstart.md)
+
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

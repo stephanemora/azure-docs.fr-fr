@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Entraîner un modèle de classification d’images avec Azure Machine Learning'
+title: 'Didacticiel : Entraîner un modèle de classification d’images avec le service Azure Machine Learning'
 description: Ce didacticiel montre comment utiliser le service Azure Machine Learning pour effectuer l’apprentissage d’un modèle de classification d’images avec scikit-learn dans un bloc-notes Jupyter Python. Ce tutoriel est le premier d’une série de deux.
 services: machine-learning
 ms.service: machine-learning
@@ -9,18 +9,18 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181396"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785136"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>Tutoriel 1 : Entraîner un modèle de classification d’images avec Azure Machine Learning
+# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Didacticiel n° 1 : Entraîner un modèle de classification d’images avec le service Azure Machine Learning
 
 Dans ce tutoriel, vous allez entraîner un modèle Machine Learning à la fois localement et sur des ressources de calcul distantes. Vous utiliserez le workflow de déploiement et de formation pour le service Azure Machine Learning (préversion) dans un bloc-notes Jupyter Python.  Vous pourrez ensuite utiliser le bloc-notes en tant que modèle pour entraîner votre propre modèle Machine Learning avec vos propres données. Ce tutoriel est le **premier d’une série de deux**.  
 
-Ce tutoriel entraîne une régression logistique simple à l’aide du jeu de données [MNIST](http://yann.lecun.com/exdb/mnist/) et de [scikit-learn](http://scikit-learn.org) avec Azure Machine Learning.  MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28x28 pixels, représentant un nombre de 0 à 9. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée. 
+Ce didacticiel entraîne une régression logistique simple à l’aide du jeu de données [MNIST](http://yann.lecun.com/exdb/mnist/) et de [scikit-learn](http://scikit-learn.org) avec le service Azure Machine Learning.  MNIST est un jeu de données populaire composé de 70 000 images en nuances de gris. Chaque image est un chiffre manuscrit de 28x28 pixels, représentant un nombre de 0 à 9. L’objectif est de créer un classifieur multiclasse pour identifier le chiffre représenté par une image donnée. 
 
 Découvrez comment :
 
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="get-the-notebook"></a>Obtenir le bloc-notes
 
-Pour des raisons pratiques, ce tutoriel est disponible en tant que notebook Jupyter. Utiliser l’une des deux méthodes ci-dessous pour cloner le [référentiel GitHub d’exemples de blocs-notes Machine Learning](https://github.com/Azure/MachineLearningNotebooks) et exécuter le bloc-notes `tutorials/01.train-models.ipynb` :
+Pour des raisons pratiques, ce tutoriel est disponible en tant que [notebook Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Exécutez le bloc-notes `01.train-models.ipynb` dans des Azure Notebooks ou dans votre propre serveur de bloc-notes Jupyter.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -454,7 +454,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel Azure Machine Learning, vous avez utilisé Python pour :
+Dans ce didacticiel sur le service Azure Machine Learning, vous avez utilisé Python pour :
 
 > [!div class="checklist"]
 > * Configuration de l'environnement de développement

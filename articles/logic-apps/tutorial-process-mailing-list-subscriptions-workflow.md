@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 96a151b3de5d59ad74eaf7061b1a3ff91d602759
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122867"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044414"
 ---
-# <a name="manage-mailing-list-requests-with-a-logic-app"></a>Gérer les requêtes de liste de diffusion avec une application logique
+# <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gérer les requêtes de liste de diffusion avec Azure Logic Apps
 
 Azure Logic Apps vous aide à automatiser les flux de travail et à intégrer des données dans les services Azure et Microsoft, d’autres applications SaaS (software-as-a-service) et des systèmes locaux. Ce didacticiel montre comment vous pouvez générer une [application logique](../logic-apps/logic-apps-overview.md) qui traite les requêtes d’abonnement à une liste de diffusion gérée par le service [MailChimp](https://mailchimp.com/).
 Cette application logique surveille un compte de messagerie pour détecter ces requêtes, les envoie pour approbation et ajoute les membres approuvés à la liste de diffusion.
@@ -308,7 +308,7 @@ Attendez que la requête s’affiche dans votre boîte de réception.
 
 Félicitations, vous venez de créer et d’exécuter une application logique qui intègre des informations des services Azure et Microsoft et d’autres applications SaaS.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées. Dans le menu Azure principal, accédez à **Groupes de ressources**, puis sélectionnez le groupe de ressources de votre application logique. Choisissez **Supprimer un groupe de ressources**. Confirmez le nom du groupe de ressources, puis choisissez **Supprimer**.
 

@@ -1,22 +1,23 @@
 ---
-title: Requête relative à des faits pour la Recherche des réponses du projet – Microsoft Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : Requête relative à des faits Project Answer Search'
+titlesuffix: Azure Cognitive Services
 description: Requêtes relatives à des faits à l’aide de la Recherche des réponses de projet
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 0a9d1925d5ae26f40824676fbebdcb0ffc450c53
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: ae8a42b95df70cff9cb845d4d553fbbb33cbdec9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369560"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868332"
 ---
-# <a name="query-for-facts"></a>Requête relative à des faits
+# <a name="quickstart-query-for-facts"></a>Démarrage rapide : Requête relative à des faits
 
 Si la requête concerne un fait comme une date ou une connaissances identifiable, la réponse peut contenir `facts` réponses. Les réponses relatives aux faits contiennent des résultats pertinents extraits des paragraphes dans les documents web.  Ces requêtes retournent toujours des pages web, et les [faits](fact-queries.md) et/ou [entités](entity-queries.md) dépendent de la requête.
 
@@ -67,7 +68,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 
 ````
 
-**Réponse :** le champ `value/description` contient la connaissances ou l’information demandée par la requête.
+**Réponse :** le champ `value/description` contient la connaissance ou l’information demandée par la requête.
 
 ````
   "facts": {
@@ -114,7 +115,7 @@ https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search?q=why+is+the+s
 ````
 
 ## <a name="tabular-data"></a>Données tabulaires
-Dans certains cas, les faits peuvent être retournées en tant que `_type: StructuredValue/TabularData`. La requête suivante obtient des données tabulaires avec des informations contrastées sur le café et le thé.
+Dans certains cas, les faits peuvent être retournés en tant que `_type: StructuredValue/TabularData`. La requête suivante obtient des données tabulaires avec des informations contrastées sur le café et le thé.
 
 ````
 https://labsportalppe.azure-api.net/answerSearch/v7.0/search?q=coffee+vs+tea&mkt=en-us 
@@ -199,6 +200,6 @@ Les résultats `facts` incluent les cellules et les lignes suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide C#](c-sharp-quickstart.md)
-- [Démarrage rapide de Java](java-quickstart.md)
+- [Démarrage rapide Java](java-quickstart.md)
 - [Démarrage rapide Node](node-quickstart.md)
 - [Démarrage rapide Python](python-quickstart.md)

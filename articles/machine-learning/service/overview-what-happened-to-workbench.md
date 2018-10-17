@@ -1,6 +1,6 @@
 ---
-title: Qu’est-il arrivé à Azure Machine Learning Workbench ? | Microsoft Docs
-description: Découvrez ce qui est arrivé à l’application Workbench, ce qui a changé dans Azure Machine Learning et quelle est la chronologie de prise en charge.
+title: Que se passe-t-il avec Azure Machine Learning Workbench ? | Microsoft Docs
+description: Découvrez ce qui se passe avec l’application Workbench, ce qui a changé dans Azure Machine Learning et quelle est la chronologie de prise en charge.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,28 +9,28 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 620d8b370b050a4d91ee6d94cba2c133b4313aed
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159982"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239255"
 ---
-# <a name="what-happened-to-workbench-in-azure-machine-learning-preview"></a>Qu’est-il arrivé à Workbench dans Azure Machine Learning (préversion) ?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Que se passe-t-il avec Workbench dans Azure Machine Learning (préversion) ?
 
-L’application Workbench et d’autres fonctionnalités d’origine ont été dépréciées dans la version de septembre 2018 pour faire place à une [architecture](concept-azure-machine-learning-architecture.md) améliorée. Cette version contient de nombreuses mises à jour importantes demandées par les clients dans leurs commentaires pour améliorer votre expérience. Le fonctionnement intrinsèque allant des exécutions d’expériences au déploiement de modèles n’a pas changé, mais vous pouvez désormais utiliser le <a href="http://aka.ms/aml-sdk" target="_blank">kit SDK</a> et l’[interface CLI](reference-azure-machine-learning-cli.md) pour accomplir vos tâches et vos pipelines de machine learning.  
+L’application Workbench et d’autres fonctionnalités d’origine ont été remplacées dans la version de septembre 2018 pour faire place à une [architecture](concept-azure-machine-learning-architecture.md) améliorée. Cette version contient de nombreuses mises à jour importantes demandées par les clients dans leurs commentaires pour améliorer votre expérience. Le fonctionnement intrinsèque allant des exécutions d’expériences au déploiement de modèles n’a pas changé, mais vous pouvez désormais utiliser le <a href="http://aka.ms/aml-sdk" target="_blank">kit SDK</a> et l’[interface CLI](reference-azure-machine-learning-cli.md) pour accomplir vos tâches et vos pipelines de machine learning.  
 
 Dans cet article, vous allez découvrir ce qui a changé et comment cela affecte votre travail pré-existant avec le service Azure Machine Learning.
 
 ## <a name="what-changed"></a>Qu’est ce qui a changé ?
 
-La dernière version d’Azure Machine Learning comprend les éléments suivants :
+La dernière version du service Azure Machine Learning comprend les éléments suivants :
 + Un [modèle de ressources Azure simplifié](concept-azure-machine-learning-architecture.md)
 + Une [nouvelle interface utilisateur du portail](how-to-track-experiments.md) pour gérer vos expériences et vos cibles de calcul
 + Un nouveau kit <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> Pyhton plus complet
 + Une nouvelle [extension Azure CLI](reference-azure-machine-learning-cli.md) enrichie pour le machine learning.
 
-L’[architecture](concept-azure-machine-learning-architecture.md) a été repensée pour faciliter l’utilisation. Les ressources et comptes Azure multiples ont laissé la place à un [espace de travail Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace).  Vous pouvez rapidement créer des espaces de travail dans le [portail Azure](quickstart-get-started.md).  Un espace de travail peut être utilisé par plusieurs utilisateurs pour stocker les cibles de calcul des entraînements et des déploiements, les expériences des modèles, les images Docker, les modèles déployés, etc.
+L’[architecture](concept-azure-machine-learning-architecture.md) a été repensée pour faciliter l’utilisation. Les ressources et comptes Azure multiples ont laissé la place à un [espace de travail pour le service Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace).  Vous pouvez rapidement créer des espaces de travail dans le [portail Azure](quickstart-get-started.md).  Un espace de travail peut être utilisé par plusieurs utilisateurs pour stocker les cibles de calcul des entraînements et des déploiements, les expériences des modèles, les images Docker, les modèles déployés, etc.
 
 Bien qu’il existe de nouveaux clients CLI et SDK améliorés dans la version actuelle, l’application Workbench de bureau en elle-même est dépréciée. Vous pouvez désormais superviser vos expériences dans le [tableau de bord de l’espace de travail dans le Portail web Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Utilisez le tableau de bord pour obtenir l’historique de vos expériences, gérer les cibles de calcul attachées à votre espace de travail, gérer vos modèles et images Docker, voire déployer des services web.
 
@@ -56,7 +56,7 @@ Vous pourrez continuer à utiliser vos comptes d’expérimentation et de gestio
 
 Les historiques des exécutions resteront accessibles pendant un certain temps. Lorsque vous serez prêt à passer à la version mise à jour du service Azure Machine Learning, vous pourrez exporter ces historiques des exécutions si vous souhaitez conserver une copie.
 
-Les historiques des exécutions sont maintenant dénommées _expériences_ dans la version actuelle. Vous pouvez collecter les expériences de votre modèle et les explorer à l’aide du kit SDK, de l’interface CLI ou du portail web.
+Les historiques des exécutions sont maintenant dénommés _expériences_ dans la version actuelle. Vous pouvez collecter les expériences de votre modèle et les explorer à l’aide du kit SDK, de l’interface CLI ou du portail web.
 
 Le tableau de bord de l’espace de travail du portail est pris en charge uniquement sur les navigateurs Edge, Chrome et Firefox.
 
@@ -73,7 +73,7 @@ Vous pouvez utiliser ce même kit <a href="http://aka.ms/aml-sdk" target="_blank
 
 ## <a name="will-projects-persist"></a>Les projets existeront-ils toujours ?
 
-Vous ne perdez aucun code ni travail. Dans la version antérieure, les projets sont des entités de cloud avec un répertoire local. Dans la version la plus récente, vous attachez des répertoires locaux à l’espace de travail Azure Machine Learning à l’aide d’un fichier de configuration local. [Consultez un diagramme de l’architecture la plus récente](concept-azure-machine-learning-architecture.md).
+Vous ne perdez aucun code ni travail. Dans la version antérieure, les projets sont des entités de cloud avec un répertoire local. Dans la version la plus récente, vous attachez des répertoires locaux à l’espace de travail du service Azure Machine Learning à l’aide d’un fichier de configuration local. [Consultez un diagramme de l’architecture la plus récente](concept-azure-machine-learning-architecture.md).
 
 Dans la mesure où le contenu du projet se trouvait déjà en grande partie sur votre ordinateur local, vous devez simplement créer un fichier de configuration dans ce répertoire et le référencer dans votre code pour vous connecter à votre espace de travail. [Découvrez comment migrer vos projets existants.](how-to-migrate.md#projects)
 

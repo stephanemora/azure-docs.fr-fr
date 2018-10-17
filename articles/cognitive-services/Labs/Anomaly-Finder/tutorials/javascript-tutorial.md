@@ -1,22 +1,25 @@
 ---
-title: Détection des anomalies dans une application Javascript - Microsoft Cognitive Services | Microsoft Docs
-description: Explorez une application web Javascript qui utilise l’API Détection d’anomalies dans Microsoft Cognitive Services. Envoyez des points de données d’origine à l’API et obtenez la valeur attendue et les points d’anomalies.
+title: 'Didacticiel : détection des anomalies avec JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Explorez une application web JavaScript qui utilise l’API Détection d’anomalies. Envoyez des points de données d’origine à l’API et obtenez la valeur attendue et des points d’anomalies.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 42c3941a05efe8b74f818cd99f3606b3073892a9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd65a5275fac651968197c9000b2d4cd3962693b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453167"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883701"
 ---
-# <a name="anomaly-detection-javascript-application"></a>Détection des anomalies dans une application Javascript
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>Didacticiel : détection des anomalies avec une application JavaScript
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Explorez une application web qui utilise l’API REST Détection d’anomalies pour détecter une anomalie. L’exemple envoie les données de série chronologique à l’API Détection d’anomalies avec votre clé d’abonnement, puis obtient tous les points d’anomalies et la valeur attendue pour chaque point de données à partir de l’API.
 

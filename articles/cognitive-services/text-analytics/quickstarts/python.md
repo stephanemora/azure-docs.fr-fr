@@ -1,21 +1,23 @@
 ---
-title: Démarrage rapide de Python pour l’API Analyse de texte dans Azure Cognitive Services | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour une prise en main rapide de l’API Analyse de texte dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : utilisation de Python pour appeler l’API Analyse de texte'
+titleSuffix: Azure Cognitive Services
+description: Cet article contient des informations et des exemples de code pour une prise en main rapide de l’API Analyse de texte dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
 author: ashmaka
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 05/02/2018
+ms.topic: quickstart
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b4c02767320b71912050ad511811767e6b5decf4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 07b7327b01987d79a6447ed67de27b69c02c14ee
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368732"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268357"
 ---
-# <a name="quickstart-for-text-analytics-api-with-python"></a>Démarrage rapide de l’API Analyse de texte avec Python 
+# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : utilisation de Python pour appeler le service cognitif Analyse de texte 
 <a name="HOLTop"></a>
 
 Cette procédure pas à pas vous montre comment [détecter la langue](#Detect), [analyser les sentiments](#SentimentAnalysis) et [extraire les expressions clés](#KeyPhraseExtraction) à l’aide des [API Analyse de texte ](//go.microsoft.com/fwlink/?LinkID=759711) avec Python.
@@ -24,7 +26,7 @@ Vous pouvez exécuter cet exemple comme un bloc-notes Jupyter sur [MyBinder](htt
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
-Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour obtenir des informations techniques sur les API.
+Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour accéder à la documentation technique des API.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -119,7 +121,7 @@ HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table
 
 ## <a name="analyze-sentiment"></a>Analyser les sentiments
 
-L’API Analyse des sentiments détecte les sentiments d’un jeu d’enregistrements texte à l’aide de la [méthode Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). L’exemple suivant évalue deux documents, l’un en anglais, l’autre en espagnol.
+L’API Analyse des sentiments détecte les sentiments d’un ensemble d’enregistrements de texte à l’aide de la [méthode Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). L’exemple suivant évalue deux documents, l’un en anglais, l’autre en espagnol.
 
 Le point de terminaison de service pour l’analyse des sentiments est disponible dans votre région via l’URL suivante :
 
@@ -166,7 +168,7 @@ Le score de sentiment d’un document est compris entre $0$ et $1$ ; un score su
 
 ## <a name="extract-key-phrases"></a>Extraire des expressions clés
 
-L’API Extraction de phrases clés extrait des phrases clés d’un document texte à l’aide de la [méthode Key Phrases](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Dans cette section de la procédure pas à pas, vous allez extraire les phrases clés pour les documents en anglais et en espagnol.
+L’API Extraction de phrases clés extrait des phrases clés d’un document texte à l’aide de la [méthode Phrases clés](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Dans cette section de la procédure pas à pas, vous allez extraire les phrases clés pour les documents en anglais et en espagnol.
 
 Le point de terminaison de service pour le service d’extraction de phrases clés est accessible via l’URL suivante :
 
@@ -218,9 +220,9 @@ for document in key_phrases["documents"]:
 HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".join(table)))
 ```
 
-## <a name="identify-linked-entities"></a>Identifier des entités liées
+## <a name="identify-entities"></a>Identification d’entités
 
-L’API Liaison d’entités identifie les entités bien connues dans un document texte à l’aide de la [méthode Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). L’exemple suivant identifie les identités des documents en anglais.
+L’API Entités identifie les entités bien connues dans un document texte à l’aide de la [méthode Entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). L’exemple suivant identifie les entités dans les documents en anglais.
 
 Le point de terminaison de service pour le service de liaison d’entités est accessible via l’URL suivante :
 
@@ -230,7 +232,7 @@ entity_linking_api_url = text_analytics_base_url + "entities"
 print(entity_linking_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/entities
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities
 
 
 La collection de documents se trouve ci-dessous :
@@ -238,8 +240,8 @@ La collection de documents se trouve ci-dessous :
 
 ```python
 documents = {'documents' : [
-  {'id': '1', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.'},
-  {'id': '2', 'text': 'The Seattle Seahawks won the Super Bowl in 2014.'}
+  {'id': '1', 'text': 'Jeff bought three dozen eggs because there was a 50% discount.'},
+  {'id': '2', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.'}
 ]}
 ```
 
@@ -250,63 +252,162 @@ headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
 response  = requests.post(entity_linking_api_url, headers=headers, json=documents)
 entities = response.json()
 ```
-    {
-        "documents": [
-            {
-                "id": "1",
-                "entities": [
-                    {
-                        "name": "Xbox One",
-                        "matches": [
-                            {
-                                "text": "XBox One",
-                                "offset": 23,
-                                "length": 8
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "Xbox One",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                        "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
-                    },
-                    {
-                        "name": "Ultra-high-definition television",
-                        "matches": [
-                            {
-                                "text": "4K",
-                                "offset": 63,
-                                "length": 2
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "Ultra-high-definition television",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                        "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
-                    }
-                ]
-            },
-            {
-                "id": "2",
-                "entities": [
-                    {
-                        "name": "2013 Seattle Seahawks season",
-                        "matches": [
-                            {
-                                "text": "Seattle Seahawks",
-                                "offset": 4,
-                                "length": 16
-                            }
-                        ],
-                        "wikipediaLanguage": "en",
-                        "wikipediaId": "2013 Seattle Seahawks season",
-                        "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                        "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
-                    }
-                ]
-            }
-        ],
-        "errors": []
-    }
+
+```json
+{
+    "Documents": [
+        {
+            "Id": "1",
+            "Entities": [
+                {
+                    "Name": "Jeff",
+                    "Matches": [
+                        {
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "Person"
+                },
+                {
+                    "Name": "three dozen",
+                    "Matches": [
+                        {
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        },
+        {
+            "Id": "2",
+            "Entities": [
+                {
+                    "Name": "Great Depression",
+                    "Matches": [
+                        {
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        }
+    ],
+    "Errors": []
+}
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -315,5 +416,5 @@ entities = response.json()
 
 ## <a name="see-also"></a>Voir aussi 
 
- [What is Text Analytics API Version 2.0?](../overview.md) (Présentation de l’API Analyse de texte version 2.0)  
- [Frequently Asked Questions (FAQ) about the Text Analytics API](../text-analytics-resource-faq.md) (FAQ sur l’API Analyse de texte)
+ [Vue d’ensemble d’Analyse de texte](../overview.md)  
+ [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)

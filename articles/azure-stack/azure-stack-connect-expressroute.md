@@ -3,7 +3,7 @@ title: Connexion d’Azure Stack à Azure à l’aide d’ExpressRoute
 description: Découvrez comment connecter des réseaux virtuels dans Azure Stack à des réseaux virtuels dans Azure à l’aide d’ExpressRoute.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050386"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078696"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’Azure ExpressRoute
 
@@ -59,7 +59,7 @@ Pour connecter Azure Stack et Azure à l’aide d’ExpressRoute, vous devez te
 
 ### <a name="expressroute-network-architecture"></a>Architecture réseau ExpressRoute
 
-Le diagramme suivant montre les environnements Azure Stack et Azure une fois que vous avez configuré ExpressRoute à l’aide des exemples de cet article.
+Le diagramme suivant montre les environnement Azure Stack et Azure une fois que vous avez configuré ExpressRoute à l’aide des exemples de cet article.
 
 *Figure 1 : Réseau ExpressRoute*
 
@@ -98,7 +98,7 @@ Suivez les procédures ci-dessous pour créer les ressources réseau nécessaire
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Créer le réseau virtuel et le sous-réseau de machine virtuelle
 
 1. Connectez-vous au portail utilisateur avec un compte d’utilisateur (locataire).
-1. Dans le portail, sélectionnez **Nouveau**.
+1. Dans le portail, sélectionnez **+ Créer une ressource**.
 
 1. Sous **Place de marché Azure**, sélectionnez **Mise en réseau**.
 
@@ -131,7 +131,7 @@ Suivez les procédures ci-dessous pour créer les ressources réseau nécessaire
 
 #### <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
 
-1. Dans le portail utilisateur Azure Stack, sélectionnez **Nouveau**.
+1. Dans le portail utilisateur Azure Stack, sélectionnez **+ Créer une ressource**.
 1. Sous **Place de marché Azure**, sélectionnez **Mise en réseau**.
 1. Sélectionnez **Passerelle de réseau virtuel** dans la liste des ressources réseau.
 1. Dans le champ **Nom**, entrez **GW1**.
@@ -146,7 +146,7 @@ Suivez les procédures ci-dessous pour créer les ressources réseau nécessaire
 
 La ressource de passerelle de réseau local identifie la passerelle distante présente à l’autre extrémité de la connexion VPN. Pour cet exemple, l’extrémité distante de la connexion est la sous-interface LAN du routeur ExpressRoute. Pour le locataire 1, illustrée dans la *Figure 2*, l’adresse distante est 10.60.3.255.
 
-1. Connectez-vous au portail utilisateur Azure Stack avec votre compte d’utilisateur, puis sélectionnez **Nouveau**.
+1. Connectez-vous au portail utilisateur Azure Stack avec votre compte d’utilisateur, puis sélectionnez **+ Créer une ressource**.
 1. Sous **Place de marché Azure**, sélectionnez **Mise en réseau**.
 1. Sélectionnez **Passerelle de réseau local** dans la liste des ressources.
 1. Dans le champ **Nom**, entrez **ER-Router-GW**.
@@ -163,7 +163,7 @@ La ressource de passerelle de réseau local identifie la passerelle distante pr�
 
 #### <a name="create-the-connection"></a>Créer la connexion
 
-1. Dans le portail utilisateur Azure Stack, sélectionnez **Nouveau**.
+1. Dans le portail utilisateur Azure Stack, sélectionnez **+ Créer une ressource**.
 1. Sous **Place de marché Azure**, sélectionnez **Mise en réseau**.
 1. Sélectionnez **Connexion** dans la liste des ressources.
 1. Sous **De base**, choisissez **Site à site (IPSec)** comme **Type de connexion**.
@@ -187,7 +187,7 @@ Après avoir créé la passerelle de réseau virtuel, vous pouvez obtenir son ad
 
 Pour tester le trafic de données via la connexion VPN, vous avez besoin de machines virtuelles pour envoyer et recevoir des données dans le réseau virtuel d’Azure Stack. Créez une machine virtuelle et déployez-la vers le sous-réseau de machine virtuelle pour votre réseau virtuel.
 
-1. Dans le portail utilisateur Azure Stack, sélectionnez **Nouveau**.
+1. Dans le portail utilisateur Azure Stack, sélectionnez **+ Créer une ressource**.
 1. Sous **Place de marché Azure**, sélectionnez **Compute**.
 1. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Evals**.
 

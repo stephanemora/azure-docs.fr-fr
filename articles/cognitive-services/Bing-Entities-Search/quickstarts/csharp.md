@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide C# pour Azure Cognitive Services, API Recherche d'entités Bing | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d'entités Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API Recherche d’entités Bing, C#'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’entités Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 928cddf5017890bddd25b9da3584d230cc44483a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8d9ee2944b00b8a877b166c23979ed5f6a9b7951
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370168"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814797"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-c"></a>Démarrage rapide pour l’API Recherche d'entités Bing de Microsoft avec C# 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-c"></a>Démarrage rapide pour l’API Recherche d’entités Bing avec C# 
 
 Cet article vous explique comment utiliser [l’API Recherche d'entités Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) avec C#.
 
@@ -25,7 +25,7 @@ Cet article vous explique comment utiliser [l’API Recherche d'entités Bing](h
 
 Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.)
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec l’**API Recherche d'entités Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’abonnement payant de votre tableau de bord Azure.
+Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec l’**API Recherche d'entités Bing**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure.
 
 ## <a name="search-entities"></a>Rechercher des entités
 
@@ -143,7 +143,7 @@ namespace EntitySearchSample
 
 **Réponse**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {

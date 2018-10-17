@@ -3,7 +3,7 @@ title: Corriger les problèmes liés aux certificats pour Azure Stack | Microsof
 description: Utilisez l’outil Azure Stack Readiness Checker pour examiner les problèmes liés aux certificats et les corriger.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,17 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0d2c4d848f861e4e07dbd0de4609344955ca26f7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937571"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078630"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Corriger les problèmes courants liés aux certificats PKI Azure Stack
 Les informations contenues dans cet article peuvent vous aider à comprendre et à résoudre les problèmes courants liés aux certificats PKI Azure Stack. Quand vous utilisez l’outil Azure Stack Readiness Checker pour [valider les certificats PKI Azure Stack](azure-stack-validate-pki-certs.md), il est possible que vous constatiez la présence de problèmes. L’outil vérifie si les certificats répondent aux exigences PKI d’un déploiement d’Azure Stack et s’ils respectent la rotation des secrets Azure Stack, puis journalise les résultats dans un [fichier report.json](azure-stack-validation-report.md).  
+
+## <a name="pfx-encryption"></a>Chiffrement PFX
+**Échec** : le chiffrement PFX n’est pas TripleDES-SHA1.   
+**Correction** : exportez les fichiers PFX avec le chiffrement **TripleDES-SHA1**. Il s’agit de la valeur par défaut pour tous les clients Windows 10 lors de l’exportation à partir du composant logiciel enfichable Certificat ou à l’aide de Export-PFXCertificate. 
 
 ## <a name="read-pfx"></a>Lecture du fichier PFX
 **Avertissement** : Le mot de passe protège uniquement les informations privées dans le certificat.  
@@ -66,13 +70,13 @@ Les informations contenues dans cet article peuvent vous aider à comprendre et 
 
 ## <a name="fix-common-packaging-issues"></a>Résoudre les problèmes courants de packaging
 Utilisez AzsReadinessChecker pour importer et exporter un fichier PFX afin de résoudre les problèmes courants de packaging, notamment les suivants : 
+ - *Chiffrement PFX* n’est pas TripleDES-SHA1
  - *Clé privée* sans attribut Ordinateur Local.
  - *Chaîne d’approbation* incomplète ou incorrecte. (L’ordinateur local doit contenir la chaîne d’approbation si elle n’est pas présente dans le package PFX.) 
  - *Autres certificats*.
 Toutefois, AzsReadinessChecker n’est d’aucune utilité si vous devez générer une nouvelle demande signature de certificat et réémettre un certificat. 
 
 ### <a name="prerequisites"></a>Prérequis
-
 L’ordinateur sur lequel l’outil s’exécute doit répondre aux prérequis suivants : 
  - Windows 10 ou Windows Server 2016, avec connectivité à Internet.
  - PowerShell 5.1 ou ultérieur. Pour vérifier votre version, exécutez la commande PowerShell suivante et examinez les versions *Major* et *Minor*.

@@ -3,7 +3,7 @@ title: Créer une offre dans Azure Stack | Microsoft Docs
 description: En tant qu’administrateur cloud, apprenez à créer une offre pour vos utilisateurs dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/20/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 4ccff997c7e9f29aafc6966730ab36dfcf72ca9f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "43050428"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077338"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Créer une offre dans Azure Stack
 
 Les [offres](azure-stack-key-features.md) sont des groupes d’un ou plusieurs plans que les fournisseurs proposent à l’achat ou à l’abonnement aux utilisateurs. Ce document montre comment créer une offre comprenant le [plan que vous avez créé](azure-stack-create-plan.md). Cette offre donne aux abonnés la possibilité de configurer des machines virtuelles.
 
-1. Connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external) et sélectionnez **Nouveau** > **Offres + plans de locataire** > **Offre**.
+1. Connectez-vous au portail d’administration Azure Stack (https://adminportal.local.azurestack.external) et sélectionnez **+ Créer une ressource** > **Offres + plans de locataire** > **Offre**.
 
    ![Créer une offre](media/azure-stack-create-offer/image01.png)
   

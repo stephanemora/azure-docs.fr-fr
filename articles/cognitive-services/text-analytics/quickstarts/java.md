@@ -1,22 +1,23 @@
 ---
-title: Démarrage rapide avec Java de l’API Analyse de texte dans Azure Cognitive Services | Microsoft Docs
+title: 'Démarrage rapide : utilisation de Java pour appeler l’API Analyse de texte'
+titleSuffix: Azure Cognitive Services
 description: Cet article contient des informations et des exemples de code pour une prise en main rapide de l’API Analyse de texte dans Microsoft Cognitive Services sur Azure.
 services: cognitive-services
-documentationcenter: ''
-author: ashmaka
+author: noellelacharite
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 05/02/2018
-ms.author: ashmaka
-ms.openlocfilehash: 720459f65b9572a0599205c631d7de1b4d39f30b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 10/01/2018
+ms.author: nolachar
+ms.openlocfilehash: 8ea45d202e550e16a7afd11e056738b2b21bd963
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369729"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267713"
 ---
-# <a name="quickstart-for-text-analytics-api-with-java"></a>Démarrage rapide de l’API Analyse de texte avec Java 
+# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : utilisation de Java pour appeler le service cognitif Analyse de texte
 <a name="HOLTop"></a>
 
 Cet article montre comment [détecter la langue](#Detect), [analyser les sentiments](#SentimentAnalysis), [extraire les expressions clés](#KeyPhraseExtraction) et [identifier les entités liées](#Entities) à l’aide des [API Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759711) avec Java.
@@ -32,7 +33,7 @@ Il vous faut également [le point de terminaison et la clé d’accès](../How-t
 
 ## <a name="detect-language"></a>Détecter la langue
 
-L’API Détection de langue détecte la langue d’un document texte à l’aide de la [méthode Détecter la langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+L’API Détection de langue détecte la langue d’un document texte à l’aide de la [méthode Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
 1. Créez un projet Java dans votre IDE favori.
 2. Ajoutez le code ci-dessous.
@@ -160,7 +161,7 @@ public class DetectLanguage {
 
 **Réponse de détection de langue**
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 
@@ -333,7 +334,7 @@ public class GetSentiment {
 ```
 **Réponse d’analyse des sentiments**
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -483,7 +484,7 @@ public class GetKeyPhrases {
 ```
 **Réponse d’extraction de phrases clés**
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -522,9 +523,9 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 ```
 <a name="Entities"></a>
 
-## <a name="identify-linked-entities"></a>Identifier les entités liées
+## <a name="identify-entities"></a>Identification d’entités
 
-L’API Liaison d’entités identifie les entités bien connues dans un document texte à l’aide de la [méthode Liaison d’entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). L’exemple suivant identifie les entités dans les documents en anglais.
+L’API Entités identifie les entités bien connues dans un document texte à l’aide de la [méthode Entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). L’exemple suivant identifie les entités dans les documents en anglais.
 
 1. Créez un projet Java dans votre IDE favori.
 2. Ajoutez le code ci-dessous.
@@ -597,7 +598,7 @@ public class GetEntities {
 // a free trial access key, you should not need to change this region.
     static String host = "https://westus.api.cognitive.microsoft.com";
 
-    static String path = "/text/analytics/v2.0/entities";
+    static String path = "/text/analytics/v2.1-preview/entities";
     
     public static String GetEntities (Documents documents) throws Exception {
         String text = new Gson().toJson(documents);
@@ -637,8 +638,8 @@ public class GetEntities {
     public static void main (String[] args) {
         try {
             Documents documents = new Documents ();
-            documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
-            documents.add ("2", "en", "The Seattle Seahawks won the Super Bowl in 2014.");
+            documents.add ("1", "en", "Jeff bought three dozen eggs because there was a 50% discount.");
+            documents.add ("2", "en", "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.");
 
             String response = GetEntities (documents);
             System.out.println (prettify (response));
@@ -649,67 +650,163 @@ public class GetEntities {
     }
 }
 ```
-**Réponse de liaison d’entités**
+**Réponse d’extraction d’entité**
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
 

@@ -13,25 +13,29 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
+ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 87a36e027515319c4bdfeaa559f55fd6e5a1c75b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: beb70b03198589808c20ab17498902367a1c6a3d
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958524"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067487"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Démarrage rapide : créer une machine virtuelle Linux avec Azure CLI
 
-L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide de démarrage rapide explique comment utiliser Azure CLI pour déployer dans Azure une machine virtuelle Linux qui fonctionne sous Ubuntu. Pour voir votre machine virtuelle en action, vous établirez une connexion SSH à la machine virtuelle et installerez le serveur web NGINX.
+L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce démarrage rapide explique comment utiliser Azure CLI pour déployer dans Azure une machine virtuelle Linux. Dans ce didacticiel, nous allons installer Ubuntu 160.04 LTS. Pour voir la machine virtuelle en action, vous allez vous y connecter à l’aide de SSH et installer le serveur web NGINX.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande en local, ce guide de démarrage rapide nécessite que vous exécutiez la version 2.0.30 d’Azure CLI, ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
+Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. 
+
+Pour ouvrir Cloud Shell, sélectionnez simplement **Essayer** en haut à droite d’un bloc de code. Vous pouvez également lancer Cloud Shell dans un onglet distinct du navigateur en accédant à [https://shell.azure.com/bash](https://shell.azure.com/bash). Sélectionnez **Copier** pour copier les blocs de code, collez-les dans Cloud Shell, puis appuyez sur Entrée pour les exécuter.
+
+Si vous préférez installer et utiliser l’interface de ligne de commande en local, ce démarrage rapide nécessite au minimum la version 2.0.30 d’Azure CLI. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -45,7 +49,7 @@ az group create --name myResourceGroup --location eastus
 
 Créez une machine virtuelle avec la commande [az vm create](/cli/azure/vm#az_vm_create).
 
-L’exemple suivant crée une machine virtuelle nommée *myVM*, ajoute un compte d’utilisateur appelé *azureuser* et génère des clés SSH si elles n’existent pas encore à l’emplacement de clé par défaut (*~/.ssh*). Pour utiliser un ensemble spécifique de clés, utilisez l’option `--ssh-key-value` :
+L’exemple suivant crée une machine virtuelle nommée *myVM* et ajoute un compte d’utilisateur nommé *azureuser*. Le paramètre `--generate-ssh-keys` permet de générer automatiquement une clé SSH et de la placer dans l’emplacement de clé par défaut (*~/.ssh*). Pour utiliser un ensemble spécifique de clés à la place, utilisez l’option `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -58,7 +62,7 @@ az vm create \
 
 La création de la machine virtuelle et des ressources de support ne nécessite que quelques minutes. L’exemple de sortie suivant illustre la réussite de l’opération de création d’une machine virtuelle.
 
-```azurecli-interactive
+```
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -91,27 +95,24 @@ ssh azureuser@publicIpAddress
 
 ## <a name="install-web-server"></a>Installer le serveur web
 
-Pour voir votre machine virtuelle en action, installez le serveur web NGINX. Pour mettre à jour les sources du package et installer la dernière version du package NGINX, exécutez les commandes suivantes dans votre session SSH :
+Pour voir votre machine virtuelle en action, installez le serveur web NGINX. Mettez à jour vos sources de package, puis installez le dernier package NGINX.
 
 ```bash
-# update packages
 sudo apt-get -y update
-
-# install NGINX
 sudo apt-get -y install nginx
 ```
 
-Une fois cette opération terminée, `exit` la session SSH.
+Lorsque vous avez terminé, tapez `exit` pour quitter la session SSH.
 
 ## <a name="view-the-web-server-in-action"></a>Voir le serveur web en action
 
-Une fois NGINX installé et le port 80 ouvert sur votre machine virtuelle à partir d’Internet, utilisez un navigateur web de votre choix pour afficher la page d’accueil NGINX par défaut. Utilisez l’adresse IP publique de votre machine virtuelle, obtenue précédemment. L’exemple suivant montre le site web NGINX par défaut :
+Utilisez le navigateur web de votre choix pour visualiser la page d’accueil NGINX par défaut. Utilisez l’adresse IP publique de votre machine virtuelle comme adresse web. L’exemple suivant montre le site web NGINX par défaut :
 
 ![Site par défaut NGINX](./media/quick-create-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Assurez-vous d’avoir quitté la session SSH sur votre machine virtuelle, puis supprimez les ressources suivantes :
+Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az_group_delete) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

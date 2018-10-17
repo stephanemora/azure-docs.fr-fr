@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7196cd6c18680583494a485c136081d90960464d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cabc4f2212e18d774066efad70d9654bb70020d5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991281"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831498"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET
 
@@ -33,18 +33,18 @@ Dans ce démarrage rapide, vous découvrirez comment une application web ASP.NET
 > [!div renderon="docs"]
 > ## <a name="register-your-application-and-download-your-quickstart-app"></a>Inscrire votre application et télécharger votre application de démarrage rapide
 >
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Inscrire et configurer votre exemple de code et d’application
-> #### <a name="step-1-register-your-application"></a>Étape 1 : inscrivez votre application
+> ### <a name="register-and-configure-your-application-and-code-sample"></a>Inscrire et configurer votre application et votre exemple de code
+> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrire votre application
 > 
 > 1. Accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app).
-> 1. Entrez un nom pour votre application, vérifiez que **l’option d’installation guidée** n’est pas cochée, puis cliquez sur **Créer**.
+> 1. Entrez le nom de votre application. Vérifiez que la case de l’option **Assistant Installation** est décochée, puis cliquez sur **Créer**.
 > 1. Cliquez sur `Add Platform`, puis sélectionnez `Web`.
-> 1. Vérifiez que la case **Autoriser un flux implicite** est *cochée*.
+> 1. Assurez-vous que la case **Autoriser un flux implicite** est *cochée*.
 > 1. Dans **URL de redirection**, entrez `https://localhost:44368/`.
 > 1. Faites défiler la page jusqu’en bas, puis cliquez sur **Enregistrer**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Étape 1 : configurez votre application dans le portail Azure
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Étape 1 : Configurer votre application dans le Portail Azure
 > Pour que l’exemple de code de ce démarrage rapide fonctionne, vous devez ajouter une URL de réponse telle que `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter cette modification pour moi]()
@@ -56,9 +56,9 @@ Dans ce démarrage rapide, vous découvrirez comment une application web ASP.NET
 
 [Télécharger la solution Visual Studio 2017](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : configurez votre projet Visual Studio
+#### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : configurer votre projet Visual Studio
 
-1. Extrayez le fichier zip dans un dossier local (par exemple, **C:\Azure-Samples**)
+1. Extrayez le fichier zip dans un dossier local proche du dossier racine (par exemple, **C:\Azure-Samples**)
 1. Ouvrez la solution dans Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. Modifiez **Web.config** et remplacez `Enter_the_Application_Id_here` par l’ID de l’application que vous venez d’inscrire :
 
@@ -68,11 +68,11 @@ Dans ce démarrage rapide, vous découvrirez comment une application web ASP.NET
     
 > [!div class="sxs-lookup" renderon="portal"]
 > [!IMPORTANT]
-> Si votre application est une *application à client unique* (ciblant les comptes de ce répertoire uniquement), dans votre fichier **Web.config**, recherchez la valeur de `Tenant` et remplacez `common` par votre **ID client** ou **nom de client** (par exemple, contoso.microsoft.com). Vous pouvez obtenir le nom du client dans la **page Vue d’ensemble**.
+> Si votre application est une *application à client unique* (ciblant les comptes de ce répertoire uniquement), dans votre fichier **Web.config**, recherchez la valeur de `Tenant` et remplacez `common` par votre **ID client** ou **nom de client** (par exemple, contoso.microsoft.com). Le nom du client est disponible dans la **page Vue d’ensemble**.
 
 ## <a name="more-information"></a>Plus d’informations
 
-Cette section donne une vue d’ensemble du code requis pour connecter les utilisateurs. Cela peut être utile de comprendre comment le code fonctionne, les principaux d’arguments mais également si vous souhaitez ajouter une connexion à une application ASP.NET existante.
+Cette section offre une vue d’ensemble du code requis pour connecter les utilisateurs. Cela peut être utile de comprendre comment le code fonctionne, les principaux d’arguments mais également si vous souhaitez ajouter une connexion à une application ASP.NET existante.
 
 ### <a name="owin-middleware-nuget-packages"></a>Packages NuGet de l’intergiciel (middleware) OWIN
 

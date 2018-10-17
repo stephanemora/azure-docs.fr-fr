@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/02/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b704db0b79d056f5c7081d3fed117e1d1f22b336
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978826"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237895"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Didacticiel : Création d’une solution d’analyse des données mises en lots avec Azure et Azure Stack 
 
@@ -29,7 +29,7 @@ Apprenez à utiliser à la fois les environnements locaux et de cloud public pou
 
 Dans ce modèle, vos clients collectent des données nécessitant une analyse au point de collecte pour permettre une prise de décisions rapide. Cette collecte de données se produit souvent sans accès à Internet. Lorsque la connexion est établie, vous devrez peut-être effectuer une analyse des données gourmande en ressources pour obtenir des informations supplémentaires. Vous pouvez toujours analyser des données lorsqu’un cloud public est en retard ou non disponible.
 
-Dans ce tutoriel, vous créez un exemple d’environnement pour :
+Dans ce didacticiel, vous créez un exemple d’environnement pour :
 
 > [!div class="checklist"]
 > - Créer l’objet blob de stockage des données brutes.
@@ -41,7 +41,7 @@ Dans ce tutoriel, vous créez un exemple d’environnement pour :
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tous lieux.  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
 > Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
 
@@ -55,7 +55,7 @@ Certaines tâches de préparation sont nécessaires pour générer cette solutio
 
 -   Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](http://storageexplorer.com/).
 
--   Les données traitées par ces fonctions ne sont pas fournies. Les données doivent être générées et disponibles pour leur téléchargement vers le conteneur d’objets blob de stockage Azure Stack.
+-   Vous devrez fournir vos propres données pour que les fonctions puissent les traiter. Les données doivent être générées et disponibles pour leur téléchargement vers le conteneur d’objets blob de stockage Azure Stack.
 
 ## <a name="issues-and-considerations"></a>Problèmes et considérations
 
@@ -123,17 +123,11 @@ Le compte de stockage et le conteneur d’objets blob conservent toutes les donn
 
 Créez une nouvelle fonction Azure Stack pour déplacer les données propres d’Azure Stack vers Azure.
 
-1.  Créez une nouvelle fonction en cliquant sur **Fonctions**, puis sur le bouton **+ Nouvelle fonction**.
+### <a name="create-the-azure-stack-function-app"></a>Création de l’application de la fonction Azure Stack
 
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image3.png)
-
-2.  Sélectionnez **Déclencheur de minuteur**.
-
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image4.png)
-
-3.  Sélectionnez **C\#** comme langage et nommez la fonction : `upload-to-azure` Définissez la planification sur `0 0 * * * *`, qui, en notation CRON, correspond à une fois par heure.
-
-    ![Alt text](media\azure-stack-solution-staged-data-analytics\image5.png)
+1. Connectez-vous au portail [Azure Stack](https://portal.local.azurestack.external).
+2. Sélectionnez **Tous les services**.
+3. Sélectionnez **Function Apps** (Applications de fonctions) dans le groupe **Web + Mobile**.
 
 4.  Créez l’application de fonction en utilisant les paramètres indiqués dans le tableau sous l’image.
 
@@ -148,7 +142,7 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
     | Plan de consommation | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Dans le plan de consommation par défaut, les ressources sont ajoutées dynamiquement comme requis par vos fonctions. Avec cet hébergement serverless, vous payez uniquement pour la durée d’exécution de vos fonctions. |  |
     | Lieu | Région la plus proche de vous | Choisissez une région près de chez vous ou près d’autres services auxquels ont accès vos fonctions. |
     | **Compte de stockage** |  |  |
-    | \<compte de stockage créé ci-dessus> | Nom du nouveau compte de stockage utilisé par votre Function App. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant. |  |
+    | \<compte de stockage créé ci-dessus> | Nom du nouveau compte de stockage utilisé par votre Function App. Les noms des comptes de stockage doivent comporter de 3 à 24 caractères. Le nom ne peut utiliser que des chiffres et des lettres minuscules. Vous pouvez également utiliser un compte existant. |  |
 
     **Exemple :**
 
@@ -164,13 +158,25 @@ Créez une nouvelle fonction Azure Stack pour déplacer les données propres d�
 
 ![Function App créée avec succès.](media\azure-stack-solution-staged-data-analytics\image8.png)
 
+### <a name="add-a-function-to-the-azure-stack-function-app"></a>Ajout d’une fonction à l’application de la fonction Azure Stack
+
+1.  Créez une nouvelle fonction en cliquant sur **Fonctions**, puis sur le bouton **+ Nouvelle fonction**.
+
+    ![Alt text](media\azure-stack-solution-staged-data-analytics\image3.png)
+
+2.  Sélectionnez **Déclencheur de minuteur**.
+
+    ![Alt text](media\azure-stack-solution-staged-data-analytics\image4.png)
+
+3.  Sélectionnez **C\#** comme langage et nommez la fonction : `upload-to-azure` Définissez la planification sur `0 0 * * * *`, qui, en notation CRON, correspond à une fois par heure.
+
+    ![Alt text](media\azure-stack-solution-staged-data-analytics\image5.png)
+
 ## <a name="create-a-blob-storage-triggered-function"></a>Créer une fonction déclenchée par le stockage Blob
 
-1.  Développez l’application de fonction, puis sélectionnez le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre application de fonction, sélectionnez **Fonction personnalisée**. Cela affiche l’ensemble complet des modèles de fonction.
+1.  Développez l’application de fonction, puis sélectionnez le bouton **+** en regard de **Fonctions**.
 
-  ![Page de démarrage rapide des fonctions sur le portail Azure](media\azure-stack-solution-staged-data-analytics\image9.png)
-
-2.  Dans la zone de recherche, saisissez blob, puis sélectionnez la langue souhaitée pour le modèle déclencheur de stockage d’objets blob.
+2.  Dans la zone de recherche, saisissez `blob`, puis sélectionnez la langue souhaitée pour le modèle de **déclencheur d’objet Blob**.
 
   ![Sélectionnez le modèle déclencheur de stockage d’objets blob.](media\azure-stack-solution-staged-data-analytics\image10.png)
 

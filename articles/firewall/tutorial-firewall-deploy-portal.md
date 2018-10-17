@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221643"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801877"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -186,6 +186,10 @@ Pour le sous-réseau **Workload-SN**, vous devez configurer l’itinéraire sort
 10. Cliquez sur **Sous-réseaux**, puis sur **Associer**.
 11. Cliquez sur **Réseau virtuel**, puis sélectionnez **Test-FW-VN**.
 12. Pour **Sous-réseau**, cliquez sur **Workload-SN**.
+
+    > [!IMPORTANT]
+    > Veillez à ne sélectionner que le sous-réseau **Workload-SN** pour cet itinéraire, sinon votre pare-feu ne fonctionnera pas correctement.
+
 13. Cliquez sur **OK**.
 14. Cliquez sur **Itinéraires**, puis sur **Ajouter**.
 15. Pour **Nom de l’itinéraire**, entrez **FW-DG**.
@@ -193,8 +197,8 @@ Pour le sous-réseau **Workload-SN**, vous devez configurer l’itinéraire sort
 17. Pour **Type de tronçon suivant**, sélectionnez **Appliance virtuelle**.
 
     Le Pare-feu Azure est en réalité un service managé, mais l’appliance virtuelle fonctionne dans ce cas.
-1. Pour **Adresse de tronçon suivant**, entrez l’adresse IP privée pour le pare-feu que vous avez notée précédemment.
-2. Cliquez sur **OK**.
+18. Pour **Adresse de tronçon suivant**, entrez l’adresse IP privée pour le pare-feu que vous avez notée précédemment.
+19. Cliquez sur **OK**.
 
 
 ## <a name="configure-application-rules"></a>Configurer des règles d’application

@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 10/09/2018
 ms.author: tamram
-ms.openlocfilehash: 3f0418e9ccdc5fe3babd2f1ac4482795994fe3b4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 336fecf95dab36dcf00b5a0c92b700297622cc6d
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996126"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902975"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Démarrage rapide : Utiliser l’Explorateur Stockage Azure pour créer un objet blob dans le stockage d’objets
 
@@ -79,7 +79,7 @@ Pour télécharger les objets blob à l’aide de l’**Explorateur Stockage Azu
 
 ## <a name="manage-snapshots"></a>Gérer les instantanés
 
-L’Explorateur Stockage Azure vous permet de prendre et de gérer des [instantanés](storage-blob-snapshots.md) de vos objets blob. Pour prendre un instantané d’un objet blob, cliquez avec le bouton droit sur l’objet blob, puis sélectionnez **Make Snapshot** (Prendre un instantané). Pour afficher les instantanés d’un objet blob, cliquez avec le bouton droit sur l’objet blob, puis sélectionnez **Manage Snapshots** (Gérer les instantanés). Une liste des instantanés associés à l’objet blob s’affiche dans l’onglet actuel.
+L’Explorateur Stockage Azure vous permet de prendre et de gérer des [instantanés](storage-blob-snapshots.md) de vos objets blob. Pour prendre un instantané d’un objet blob, cliquez avec le bouton droit sur l’objet blob, puis sélectionnez **Create Snapshot** (Créer un instantané). Pour afficher les instantanés d’un objet blob, cliquez avec le bouton droit sur l’objet blob, puis sélectionnez **Manage Snapshots** (Gérer les instantanés). Une liste des instantanés associés à l’objet blob s’affiche dans l’onglet actuel.
 
 ![Explorateur Stockage Microsoft Azure - Liste des objets blob dans un conteneur](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c16a189e72edd94cf6fc60580d89dd4cfd1742e8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9af0c0a32706c6745412401c9136e032e2e3f9ff
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443441"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268916"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Démarrage rapide : configurer un pare-feu de serveur - Portail
 
@@ -32,7 +32,7 @@ Ce démarrage rapide vous aide à configurer un pare-feu pour votre serveur Azur
 
 1. Cliquez sur votre serveur pour ouvrir la page Vue d’ensemble. 
 2. Dans **Paramètres** > **Pare-feu** > **Activer le pare-feu**, cliquez sur **Activé**.
-3. Pour autoriser l’accès DirectQuery à partir du service Power BI, dans **Allow accesss from Power BI** (Autoriser l’accès à partir de Power BI), cliquez sur **Activé**.  
+3. Pour autoriser l’accès DirectQuery à partir du service Power BI, dans **Allow access from Power BI** (Autoriser l’accès à partir de Power BI), cliquez sur **Activé**.  
 4. (Facultatif) Spécifiez une ou plusieurs plages d’adresses IP. Entrez un nom et une adresse IP de début et de fin pour chaque plage. 
 5. Cliquez sur **Enregistrer**.
 

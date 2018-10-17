@@ -4,24 +4,19 @@ description: Exemples Azure CLI - Azure Functions
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: cfowler
-editor: ggailey777
-tags: azure-service-management
+manager: jeconnoc
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
-ms.service: functions
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: functions
 ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 99ea221dcd236d3e8c42aec25d651b5fda2ae1d1
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27740099"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887427"
 ---
 # <a name="azure-cli-samples"></a>Exemples d’interface de ligne de commande Azure
 
@@ -29,7 +24,7 @@ Le tableau suivant contient des liens vers des scripts Bash pour Azure Functions
 
 | | |
 |-|-|
-|**Créer une application**||
+|<a name="create"></a>**Créer une application**||
 | [Créer une Function App pour une exécution sans serveur](scripts/functions-cli-create-serverless.md) | Crée une application de fonction dans un plan Consommation.  |
 | [Créer une Function App dans un plan App Service](scripts/functions-cli-create-app-service-plan.md) | Crée une application de fonction dans un plan App Service dédié. |
 | | |
@@ -39,7 +34,7 @@ Le tableau suivant contient des liens vers des scripts Bash pour Azure Functions
 | | |
 |**Déploiement continu**||
 | [Déployer à partir de GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Crée une Function App qui déploie à partir d’un référentiel GitHub.  |
-| [Déployer à partir de VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Crée une Function App qui déploie à partir d’un référentiel de Visual Studio Team Services (VSTS).  |
+| [Déployer à partir d’Azure DevOps](scripts/functions-cli-create-function-app-vsts-continuous.md) | Crée une application de fonction déployée à partir d’un référentiel Azure DevOps.  |
 | | |
 |**Configurer l’application**||
 | [Mapper un domaine personnalisé à une Function App](scripts/functions-cli-configure-custom-domain.md) | Définit un domaine personnalisé pour vos fonctions.  |

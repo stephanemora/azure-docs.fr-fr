@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27600cd4656f70b4cd01745667c0e0fd2a2f4997
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 33b95c1b0e3d654ce8bb6eda3e96b7b3e9c9bc13
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405817"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831481"
 ---
 # <a name="tutorial-deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Didacticiel : Déployer un cluster Service Fabric Linux dans un réseau virtuel Azure
 
@@ -40,7 +40,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Créer un cluster sécurisé sur Azure
 > * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Suppression d'un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -85,7 +85,7 @@ Ce modèle déploie un cluster sécurisé de cinq machines virtuelles et un type
 
 ### <a name="service-fabric-cluster"></a>Cluster Service Fabric
 
-Un cluster Linux est déployé avec les caractéristiques suivantes :
+Dans la ressource **Microsoft.ServiceFabric/clusters**, un cluster Linux est déployé avec les caractéristiques suivantes :
 
 * un type de nœud unique
 * cinq nœuds dans le type de nœud principal (configurable dans les paramètres du modèle)
@@ -99,7 +99,7 @@ Un cluster Linux est déployé avec les caractéristiques suivantes :
 
 ### <a name="azure-load-balancer"></a>Équilibrage de charge Azure
 
-Un équilibreur de charge est déployé, et des sondes et règles sont configurées pour les ports suivants :
+Dans la ressource **Microsoft.Network/loadBalancers**, un équilibreur de charge est configuré et des sondes et règles sont configurées pour les ports suivants :
 
 * point de terminaison de connexion client : 19000
 * point de terminaison de passerelle HTTP : 19080
@@ -108,7 +108,7 @@ Un équilibreur de charge est déployé, et des sondes et règles sont configur�
 
 ### <a name="virtual-network-and-subnet"></a>Réseau virtuel et sous-réseau
 
-Les noms du réseau virtuel et du sous-réseau sont déclarés dans les paramètres du modèle.  Les espaces d’adressage du réseau virtuel et du sous-réseau sont également déclarés dans les paramètres du modèle :
+Les noms du réseau virtuel et du sous-réseau sont déclarés dans les paramètres du modèle.  Les espaces d’adressage du réseau virtuel et du sous-réseau sont également déclarés dans les paramètres de modèle et configurés dans la ressource **Microsoft.Network/virtualNetworks** :
 
 * espace d’adressage du réseau virtuel : 10.0.0.0/16
 * espace d’adressage de sous-réseau Service Fabric : 10.0.2.0/24

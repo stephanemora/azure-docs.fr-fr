@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/10/2018
+ms.date: 10/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: de744a4a23b246223ed0f42f3d079b1ac2e5521a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 761b68ca99df8ae5b4d379b95e7d2a300f7e6238
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47008819"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874156"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Quelle est la différence entre une passerelle de réseau virtuel Azure (passerelle VPN) et une passerelle VPN Azure WAN virtuel ?
 
@@ -21,7 +21,11 @@ WAN virtuel fournit une connectivité de site à site à grande échelle et est 
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Quels fournisseurs d’appareils (partenaires WAN virtuel) sont pris en charge au moment du lancement ? 
 
-À ce stade, Citrix et Riverbed prennent en charge l’expérience WAN virtuel entièrement automatisée. Pour plus d’informations, consultez [Partenaires WAN virtuel](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+À ce stade, de nombreux partenaires prennent en charge l’expérience Virtual WAN entièrement automatisée. Pour plus d’informations, consultez [Partenaires WAN virtuel](https://go.microsoft.com/fwlink/p/?linkid=2019615). 
+
+### <a name="what-are-the-virtual-wan-partner-automation-steps"></a>Quelles sont les étapes d’automatisation des partenaires Virtual WAN ?
+
+Pour découvrir les étapes d’automatisation des partenaires, consultez l’article [Partenaires Virtual WAN](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Est-il nécessaire d’utiliser un périphérique de partenaire préféré ?
 
@@ -41,7 +45,7 @@ Oui, WAN virtuel introduit de nouvelles ressources de Resource Manager. Pour plu
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Combien d’appareils VPN peuvent se connecter à un même concentrateur ?
 
-Jusqu'à 100 connexions sont prises en charge par le hub virtuel. Chaque connexion se compose de 2 tunnels qui se trouvent dans une configuration actif-actif. Les tunnels se terminent par une passerelle VPN de Hub virtuel Azure.
+Chaque hub virtuel prend en charge jusqu’à 1 000 connexions. Chaque connexion se compose de 2 tunnels qui se trouvent dans une configuration actif-actif. Les tunnels se terminent par une passerelle VPN de Hub virtuel Azure.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>L’appareil VPN local peut-il se connecter à plusieurs hubs ?
 
@@ -66,7 +70,6 @@ Non. Le réseau virtuel NVA ne peut pas avoir de passerelle de réseau virtuel s
 ### <a name="is-there-support-for-bgp"></a>Le protocole BGP est-il pris en charge ?
 
 Oui, BGP est pris en charge. Pour vous assurer que les itinéraires à partir d’un réseau virtuel NVA sont publiés en conséquence, les membres spoke doivent désactiver le BGP s’ils sont connectés à un réseau virtuel NVA, qui est connecté à son tour à un hub virtuel. En outre, connectez les réseaux virtuels des membres spoke pour s’assurer que les itinéraires VNet de ces membres spoke sont propagés à systèmes locaux.
-Puis-je diriger le trafic à l’aide de UDR dans le hub virtuel ?
 
 ### <a name="can-i-direct-traffic-using-udr-in-the-virtual-hub"></a>Puis-je diriger le trafic à l’aide de UDR dans le hub virtuel ?
 
@@ -94,7 +97,7 @@ Oui.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>En quoi le WAN virtuel est-il différent de la passerelle de réseau virtuel Azure existante ?
 
-Le VPN de la passerelle de réseau virtuel est limité à 30 tunnels. Pour les connexions, vous devez utiliser un WAN virtuel pour le VPN à grande échelle. Vous pouvez connecter jusqu'à 100 connexions de branche avec 2 Gbit/s dans le hub. Une connexion est un tunnel actif-actif entre l’appareil VPN local et le hub virtuel. Vous pouvez avoir un hub par région, ce qui signifie que vous pouvez connecter plus de 100 branches au niveau des hubs.
+Le VPN de la passerelle de réseau virtuel est limité à 30 tunnels. Pour les connexions, vous devez utiliser un WAN virtuel pour le VPN à grande échelle. Vous pouvez connecter jusqu’à 1 000 connexions de branche avec 2 Gbits/s dans le hub pour la totalité des régions, à l’exception de la région Centre-Ouest. Pour la région Centre-Ouest, 20 Gbits/s sont disponibles. A l’avenir, nous déploierons également 20 Gbits/s dans les autres régions. Une connexion est un tunnel actif-actif entre l’appareil VPN local et le hub virtuel. Vous pouvez disposer d’un hub par région, ce qui signifie que vous pouvez connecter plus de 1 000 branches au niveau des hubs.
 
 ### <a name="does-this-virtual-wan-require-expressroute-from-each-site"></a>Ce WAN nécessite-t-il ExpressRoute à partir de chaque site ?
 
@@ -102,7 +105,7 @@ Non, ce WAN ne nécessite pas ExpressRoute à partir de chaque site. Il utilise 
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Existe-t-il une limite de débit réseau lors de l’utilisation du WAN virtuel Azure ?
 
-Le nombre de branches est limité à 100 connexions par hub/région et à un total de 2 Gbit/s dans le hub.
+Le nombre de branches est limité à 1 000 connexions par hub/région et à un total de 2 Gbits/s dans le hub. La seule exception est la région USA Centre-Ouest, qui dispose d’un total de 20 Gbits/s. A l’avenir, nous déploierons également 20 Gbits/s dans les autres régions.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Le WAN virtuel autorise-t-il l’appareil en local à utiliser plusieurs ISP en parallèle, ou faut-il toujours un tunnel VPN unique ?
 
@@ -110,7 +113,7 @@ Oui, vous pouvez avoir des tunnels actif-actif (2 tunnels = 1 connexion WAN v
 
 ### <a name="how-is-traffic-routed-on-the-azure-backbone"></a>Comment le trafic est-il acheminé sur la dorsale principale d’Azure ?
 
-Le trafic suit le modèle : appareil de branche -> ISP -> Microsoft Edge - > Microsoft DC -> Microsoft Edge -> ISP -> appareil de branche.
+Le trafic suit le modèle suivant : appareil de branche -> fournisseur de services Internet -> Microsoft Edge - > Microsoft DC -> Microsoft Edge -> fournisseur de services Internet -> appareil de branche
 
 ### <a name="in-this-model-what-do-you-need-at-each-site-just-an-internet-connection"></a>Dans ce modèle, de quoi avez-vous besoin sur chaque site ? Seulement d’une connexion Internet ?
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1e647c6aee251bebd257db5e4e631deba0be3fa
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161527"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068806"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Didacticiel : Déballer, connecter et déverrouiller un disque Azure Data Box
 
@@ -76,12 +76,14 @@ La procédure de déverrouillage des disques diffère selon que vous êtes conne
 Procédez comme suit pour connecter et déverrouiller vos disques.
      
 1. Dans le portail Azure, accédez à **Général > Détails de l’appareil**. 
-2. Téléchargez l’ensemble d’outils Data Box Disk correspondant au client Windows. 
+2. Téléchargez l’ensemble d’outils Data Box Disk correspondant au client Windows. Cette boîte à outils comporte 3 outils : outil de déverrouillage de disque Data Box, outil de validation de disque Data Box et outil de copie de disque Data Box Split. 
+
+    Dans cette procédure, vous n’utiliserez que l’outil Data Box Disk Unlock. Vous vous servirez des deux autres outils ultérieurement.
 
     > [!div class="nextstepaction"]
     > [Télécharger l’ensemble d’outils Data Box Disk pour Windows](http://aka.ms/databoxdisktoolswin)         
 
-3. Extrayez l’outil sur l’ordinateur que vous allez utiliser pour copier les données.
+3. Extrayez la boîte à outils sur l’ordinateur que vous allez utiliser pour copier les données. 
 4. Ouvrez une fenêtre d’invite de commandes ou exécutez Windows PowerShell en tant qu’administrateur sur le même ordinateur.
 5. (Facultatif) Pour vérifier que l’ordinateur que vous utilisez pour déverrouiller le disque répond à la configuration requise de système d’exploitation, exécutez la commande de vérification système. Voici un exemple de sortie obtenue. 
 

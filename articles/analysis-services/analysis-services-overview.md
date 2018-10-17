@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2018
+ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ae2d312feb0fcefab85bcbbd2db7ac46c328213f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a23e9dc8fad52bac85de834c53d2c710423211c7
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104980"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269239"
 ---
 # <a name="what-is-azure-analysis-services"></a>Qu’est-ce qu’Azure Analysis Services ?
 
@@ -39,7 +39,7 @@ Azure Analysis Services est disponible pour les niveaux **Développeur**, **De b
 
 ### <a name="developer-tier"></a>Niveau Développeur
 
-Ce niveau est recommandé pour les scénarios d’évaluation, de développement et de test. Un plan inclut les mêmes fonctionnalités que le niveau Standard, mais est limité en termes de puissance de traitement, de nombre d’unités de traitement des requêtes (QPU) et de taille de mémoire. L’évolutivité du réplica de requête n’est pas disponible pour ce niveau. Ce niveau ne propose pas de contrat SLA.
+Ce niveau est recommandé pour les scénarios d’évaluation, de développement et de test. Un plan inclut les mêmes fonctionnalités que le niveau Standard, mais est limité en termes de puissance de traitement, de nombre d’unités de traitement des requêtes (QPU) et de taille de mémoire. L’évolutivité du réplica de requête *n’est pas disponible* pour ce niveau. Ce niveau ne propose pas de contrat SLA.
 
 |Planification  |QPU (unités de traitement des requêtes)  |Mémoire (Go)  |
 |---------|---------|---------|
@@ -102,6 +102,7 @@ Azure Analysis Services est pris en charge dans les régions du monde entier. Le
 |Région  | Plans pris en charge | Réplicas de requête (plans Standard uniquement) |
 |---------|---------|:---------:|
 |Australie Sud-Est     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Australie Est     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
 |Japon Est  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Asie Sud-Est     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |Inde Ouest     |    B1, B2, S0, S1, S2, S4, D1     |    1     |

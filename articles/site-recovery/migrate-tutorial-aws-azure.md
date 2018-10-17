@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885323"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078934"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -239,10 +239,9 @@ Dans certains scénarios, le basculement nécessite un traitement supplémentair
 Effectuez un basculement réel pour les instances EC2 pour les migrer vers des machines virtuelles Azure :
 
 1. Dans **Éléments protégés** > **Éléments répliqués**, sélectionnez les instances AWS, puis **Basculement**.
-2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Sélectionnez le dernier point de récupération.
-3. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter les machines virtuelles source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
-4. Assurez-vous que la machine virtuelle apparaît dans **Éléments répliqués**.
-5. Cliquez avec le bouton droit sur chaque machine virtuelle, puis sélectionnez **Effectuer la migration**. Ceci termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
+2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Sélectionnez le dernier point de récupération, puis lancez le basculement. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
+1. Assurez-vous que la machine virtuelle apparaît dans **Éléments répliqués**.
+2. Cliquez avec le bouton droit sur chaque machine virtuelle, puis sélectionnez **Effectuer la migration**. Ceci termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
 
     ![Terminer la migration](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

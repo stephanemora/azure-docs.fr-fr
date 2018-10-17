@@ -1,54 +1,55 @@
 ---
-title: Démarrage rapide avec C# de l’API Analyse de texte dans Cognitive Services | Microsoft Docs
-description: Cet article contient des informations et des exemples de code pour une prise en main rapide de l’API Analyse de texte dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : utilisation de C# pour appeler l’API Analyse de texte'
+titleSuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Analyse de texte.
 services: cognitive-services
-documentationcenter: ''
-author: luiscabrer
+author: ashmaka
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 08/30/2018
+ms.topic: quickstart
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42a682898303b742a17b0a6d4d98c2b9fedf9003
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: ce3629a140db97e922a28792c6230d9566682982
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841692"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269324"
 ---
-# <a name="quickstart-for-the-text-analytics-api-with-c"></a>Démarrage rapide de l’API Analyse de texte avec C# 
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Démarrage rapide : utilisation de C# pour appeler le service cognitif Analyse de texte
 <a name="HOLTop"></a>
 
-Cet article montre comment détecter la langue, analyser les sentiments et extraire les phrases clés à l’aide des [API Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759711) avec C#. Le code a été écrit pour fonctionner sur une application .NET Core avec des références minimes à des bibliothèques externes, ce qui fait qu’il est également exécutable sous Linux ou macOS.
+Cet article montre comment détecter la langue, analyser les sentiments et extraire les phrases clés à l’aide des [API Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759711) avec C#. Le code a été écrit pour fonctionner sur une application .NET Core avec des références minimes à des bibliothèques externes, ce qui fait qu’il est également exécutable sous Linux ou MacOS.
 
 Consultez les [définitions des API](//go.microsoft.com/fwlink/?LinkID=759346) pour accéder à la documentation technique des API.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec l’API Analyse de texte. Vous pouvez utiliser le *niveau gratuit pour 5 000 transactions par mois* afin de suivre ce guide de démarrage rapide.
+Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API Analyse de texte**. Vous pouvez utiliser le **niveau gratuit pour 5 000 transactions par mois** afin de suivre ce guide de démarrage rapide.
 
-Vous devez également avoir le [point de terminaison et la clé d’accès](../How-tos/text-analytics-how-to-access-key.md) générée pendant le processus d’inscription. 
+Il vous faut également le [point de terminaison et la clé d'accès](../How-tos/text-analytics-how-to-access-key.md) générée pendant le processus d’inscription. 
 
 
 ## <a name="install-the-nuget-sdk-package"></a>Installer le package de Kit SDK NuGet
-1. Créez une solution Console dans Visual Studio.
-1. Cliquez avec le bouton droit sur la solution et sélectionnez **Gérer les packages NuGet pour la solution**.
+1. Créez une solution de console dans Visual Studio.
+1. Cliquez avec le bouton droit sur la solution, puis cliquez sur **Gérer les packages NuGet de la solution**.
 1. Cochez la case **Inclure les préversions**.
-1. Sélectionnez l’onglet **Parcourir** et recherchez **Microsoft.Azure.CognitiveServices.Language**.
-1. Sélectionnez le package NuGet **Microsoft.Azure.CognitiveServices.Language.TextAnalytics** et installez-le.
+1. Sélectionnez l’onglet **Parcourir** et recherchez **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
+1. Sélectionnez le package NuGet et installez-le.
 
 > [!Tip]
-> Il est possible d’appeler directement les [points de terminaison HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) avec C#, mais il est plus facile d’appeler le service avec le Kit de développement logiciel (SDK) Microsoft.Azure.CognitiveServices.Language sans avoir à se soucier de la sérialisation et de la désérialisation du code JSON.
+>  Il est possible d’appeler directement les [points de terminaison HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) avec C#, mais il est plus facile d’appeler le service avec le Kit de développement logiciel (SDK) Microsoft.Azure.CognitiveServices.Language sans avoir à se soucier de la sérialisation et de la désérialisation du code JSON.
 >
-> Voici quelques liens utiles :
+> Quelques liens utiles :
 > - [Page du Kit SDK NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 > - [Code du Kit SDK](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
 
-## <a name="call-the-text-analytics-api-by-using-the-sdk"></a>Appeler l’API Analyse de texte à l’aide du Kit SDK
-1. Remplacez le contenu de Program.cs par le code suivant. Ce programme illustre les fonctionnalités de l’API Analyse de texte en trois sections (extraction de la langue, extraction de phrases clés et analyse des sentiments).
+## <a name="call-the-text-analytics-api-using-the-sdk"></a>Appeler l’API Analyse de texte avec le Kit SDK
+1. Remplacez Program.cs par le code ci-dessous. Ce programme illustre les fonctionnalités de l’API Analyse de texte en trois sections (extraction de la langue, extraction de phrases clés et analyse des sentiments).
 1. Remplacez la valeur d’en-tête `Ocp-Apim-Subscription-Key` par une clé d’accès valide pour votre abonnement.
-1. Remplacez l’emplacement dans `Endpoint` par le point de terminaison sur lequel porte votre inscription. Vous trouverez le point de terminaison dans les ressources du portail Azure. Le point de terminaison commence généralement par « https://[région].api.cognitive.microsoft.com ». Incluez uniquement le protocole et le nom d’hôte.
+1. Remplacez l’emplacement dans `Endpoint` par le point de terminaison sur lequel porte votre inscription. Vous trouverez le point de terminaison dans les ressources du portail Azure. Le point de terminaison commence généralement par « https://[region].api.cognitive.microsoft.com », et veuillez uniquement y indiquer le protocole et le nom d’hôte.
 1. Exécutez le programme.
 
 ```csharp
@@ -57,7 +58,6 @@ using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using System.Collections.Generic;
 using Microsoft.Rest;
-using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -73,7 +73,7 @@ namespace ConsoleApp1
         {
             public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
             {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", "ENTER KEY HERE");
+                request.Headers.Add("Ocp-Apim-Subscription-Key", "4d4705adaf4a4656b1118b68d671d5b6");
                 return base.ProcessHttpRequestAsync(request, cancellationToken);
             }
         }
@@ -85,20 +85,14 @@ namespace ConsoleApp1
             ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
             {
                 Endpoint = "https://westus.api.cognitive.microsoft.com"
-            };
+            }; //Replace 'westus' with the correct region for your Text Analytics subscription
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-```
 
-## <a name="detect-language"></a>Détecter la langue
-
-L’API Détection de langue détecte la langue d’un document texte à l’aide de la [méthode Detect Language](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
-
-```csharp
-            // Extracting language.
+            // Extracting language
             Console.WriteLine("===== LANGUAGE EXTRACTION ======");
 
-            var result =  client.DetectLanguageAsync(new BatchInput(
+            var result = client.DetectLanguageAsync(new BatchInput(
                     new List<Input>()
                         {
                           new Input("1", "This is a document written in English."),
@@ -111,14 +105,8 @@ L’API Détection de langue détecte la langue d’un document texte à l’aid
             {
                 Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
             }
-```
 
-## <a name="extract-key-phrases"></a>Extraire des expressions clés
-
-L’API Extraction de phrases clés extrait des phrases clés d’un document texte à l’aide de la [méthode Phrases clés](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
-
-```csharp
-            // Getting key phrases.
+            // Getting key-phrases
             Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
 
             KeyPhraseBatchResult result2 = client.KeyPhrasesAsync(new MultiLanguageBatchInput(
@@ -130,7 +118,7 @@ L’API Extraction de phrases clés extrait des phrases clés d’un document te
                           new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
                         })).Result;
 
-            // Printing key phrases.
+            // Printing keyphrases
             foreach (var document in result2.Documents)
             {
                 Console.WriteLine("Document ID: {0} ", document.Id);
@@ -142,14 +130,8 @@ L’API Extraction de phrases clés extrait des phrases clés d’un document te
                     Console.WriteLine("\t\t" + keyphrase);
                 }
             }
-```
 
-## <a name="analyze-sentiment"></a>Analyser les sentiments
-
-L’API Analyse des sentiments détecte les sentiments d’un ensemble d’enregistrements de texte à l’aide de la [méthode Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9).
-
-```csharp
-            // Analyzing sentiment.
+            // Extracting sentiment
             Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
 
             SentimentBatchResult result3 = client.SentimentAsync(
@@ -163,34 +145,37 @@ L’API Analyse des sentiments détecte les sentiments d’un ensemble d’enreg
                         })).Result;
 
 
-            // Printing sentiment results.
+            // Printing sentiment results
             foreach (var document in result3.Documents)
             {
                 Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
             }
-```
 
-## <a name="identify-linked-entities"></a>Identifier les entités liées
 
-L’API Liaison d’entités identifie les entités bien connues dans un document texte à l’aide de la [méthode Entity Linking](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634).
-
-```csharp
-            // Linking entities
-            Console.WriteLine("\n\n===== ENTITY LINKING ======");
+            // Identify entities
+            Console.WriteLine("\n\n===== ENTITIES ======");
 
             EntitiesBatchResult result4 = client.EntitiesAsync(
                     new MultiLanguageBatchInput(
                         new List<MultiLanguageInput>()
                         {
-                            new MultiLanguageInput("en", "0", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."),
-                            new MultiLanguageInput("en", "1", "The Seattle Seahawks won the Super Bowl in 2014."),
+                          new MultiLanguageInput("en", "0", "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.")
                         })).Result;
 
-            // Printing entity results.
+            // Printing entities results
             foreach (var document in result4.Documents)
             {
-                Console.WriteLine("Document ID: {0} , Entities: {1}", document.Id, String.Join(", ", document.Entities.Select(entity => entity.Name)));
+                Console.WriteLine("Document ID: {0} ", document.Id);
+
+                Console.WriteLine("\t Entities:");
+
+                foreach (EntityRecord entity in document.Entities)
+                {
+                    Console.WriteLine("\t\t" + entity.Name);
+                }
             }
+
+            Console.ReadLine();
         }
     }
 }
@@ -199,9 +184,10 @@ L’API Liaison d’entités identifie les entités bien connues dans un documen
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Analyse de texte avec Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Analyse de texte avec Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>Voir aussi 
 
  [Vue d’ensemble d’Analyse de texte](../overview.md)  
  [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)
+

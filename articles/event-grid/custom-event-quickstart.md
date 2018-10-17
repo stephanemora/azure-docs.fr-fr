@@ -5,19 +5,19 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 08/23/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 5d980e480c6a730ad66dfaee56459c8bb36605e8
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: fe48125da881cd30b8a2645b5406840e2eef7e96
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744183"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041559"
 ---
 # <a name="create-and-route-custom-events-with-azure-cli-and-event-grid"></a>Créer et acheminer des événements personnalisés avec Azure CLI et Event Grid
 
-Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure CLI pour créer une rubrique personnalisée, vous abonner à cette rubrique et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
+Azure Event Grid est un service de gestion d’événements pour le cloud. Dans cet article, vous utilisez Azure CLI pour créer une rubrique personnalisée, vous abonner à cette rubrique personnalisée et déclencher l’événement pour afficher le résultat. En règle générale, vous envoyez des événements à un point de terminaison qui traite les données d’événement et entreprend des actions. Toutefois, pour simplifier cet article, vous envoyez les événements à une application web qui collecte et affiche les messages.
 
 Une fois que vous avez fini, vous voyez que les données d’événement ont été envoyées à l’application web.
 
@@ -47,7 +47,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Créer une rubrique personnalisée
 
-Une rubrique de grille d’événement fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. L’exemple suivant permet de créer la rubrique personnalisée dans votre groupe de ressources. Remplacez `<your-topic-name>` par un nom unique pour votre rubrique. Le nom de la rubrique doit être unique, car c’est une partie de l’entrée DNS.
+Une rubrique de grille d’événement fournit un point de terminaison défini par l’utilisateur vers lequel vous envoyez vos événements. L’exemple suivant permet de créer la rubrique personnalisée dans votre groupe de ressources. Remplacez `<your-topic-name>` par un nom unique pour votre rubrique. Le nom de la rubrique personnalisée doit être unique, car il fait partie de l’entrée DNS.
 
 ```azurecli-interactive
 topicname=<your-topic-name>
@@ -57,7 +57,7 @@ az eventgrid topic create --name $topicname -l westus2 -g gridResourceGroup
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 
-Avant de nous abonner à la rubrique, nous allons créer le point de terminaison pour le message de l’événement. En règle générale, le point de terminaison entreprend des actions en fonction des données d’événement. Pour simplifier ce guide de démarrage rapide, déployez une [application web prédéfinie](https://github.com/Azure-Samples/azure-event-grid-viewer) qui affiche les messages d’événement. La solution déployée comprend un plan App Service, une offre App Service Web Apps et du code source en provenance de GitHub.
+Avant de nous abonner à la rubrique personnalisée, nous allons créer le point de terminaison pour le message de l’événement. En règle générale, le point de terminaison entreprend des actions en fonction des données d’événement. Pour simplifier ce guide de démarrage rapide, déployez une [application web prédéfinie](https://github.com/Azure-Samples/azure-event-grid-viewer) qui affiche les messages d’événement. La solution déployée comprend un plan App Service, une offre App Service Web Apps et du code source en provenance de GitHub.
 
 Remplacez `<your-site-name>` par un nom unique pour votre application web. Le nom de l’application web doit être unique, car il fait partie de l’entrée DNS.
 
@@ -74,11 +74,11 @@ Le déploiement peut prendre quelques minutes. Une fois le déploiement réussi,
 
 Vous devez voir le site sans messages affichés.
 
-## <a name="subscribe-to-a-topic"></a>S’abonner à une rubrique
+## <a name="subscribe-to-a-custom-topic"></a>S’abonner à une rubrique personnalisée
 
-Vous vous abonnez à une rubrique pour communiquer à Event Grid les événements qui vous intéressent, et où les envoyer. L’exemple suivant s’abonne à la rubrique que vous avez créée et transmet l’URL à partir de votre application web en tant que point de terminaison de la notification d’événement.
+Vous vous abonnez à une rubrique Event Grid pour indiquer à Event Grid les événements qui vous intéressent, et où les envoyer. L’exemple suivant s’abonne à la rubrique personnalisée que vous avez créée et transmet l’URL à partir de votre application web en tant que point de terminaison de la notification d’événement.
 
-Le point de terminaison pour votre application web doit inclure le suffixe `/api/updates/`.
+Le point de terminaison de votre application web doit inclure le suffixe `/api/updates/`.
 
 ```azurecli-interactive
 endpoint=https://$sitename.azurewebsites.net/api/updates
@@ -94,7 +94,7 @@ Affichez à nouveau votre application web, et notez qu’un événement de valid
 
 ![Afficher l’événement d’abonnement](./media/custom-event-quickstart/view-subscription-event.png)
 
-## <a name="send-an-event-to-your-topic"></a>Envoyer un événement à votre rubrique
+## <a name="send-an-event-to-your-custom-topic"></a>Envoyer un événement à votre rubrique personnalisée
 
 Nous allons maintenant déclencher un événement pour voir comment Event Grid distribue le message à votre point de terminaison. Tout d’abord, il nous faut l’URL et la clé de la rubrique personnalisée.
 
@@ -103,18 +103,18 @@ endpoint=$(az eventgrid topic show --name $topicname -g gridResourceGroup --quer
 key=$(az eventgrid topic key list --name $topicname -g gridResourceGroup --query "key1" --output tsv)
 ```
 
-Pour simplifier cet article, vous allez utiliser des exemples de données d’événements à envoyer à la rubrique. En règle générale, une application ou un service Azure envoie les données d’événements. L’exemple suivant obtient les données d’événements :
+Pour simplifier cet article, vous allez utiliser des exemples de données d’événements à envoyer à la rubrique personnalisée. En règle générale, une application ou un service Azure envoie les données d’événements. L’exemple suivant crée des exemples de données d’événements :
 
 ```azurecli-interactive
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/customevent.json)'")
+event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/motorcycles", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "make": "Ducati", "model": "Monster"},"dataVersion": "1.0"} ]'
 ```
 
-Pour voir l’événement complet, utilisez `echo "$body"`. L’élément `data` du fichier JSON est la charge utile de l’événement. N’importe quel fichier JSON bien construit peut être placé dans ce champ. Vous pouvez aussi utiliser le champ objet pour un routage et un filtrage avancés.
+L’élément `data` du fichier JSON est la charge utile de l’événement. N’importe quel fichier JSON bien construit peut être placé dans ce champ. Vous pouvez aussi utiliser le champ objet pour un routage et un filtrage avancés.
 
 CURL est un utilitaire qui envoie des requêtes HTTP. Dans cet article, utilisez CURL pour envoyer l’événement à la rubrique. 
 
 ```azurecli-interactive
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Affichez votre application web pour voir l’événement que vous venez d’envoyer.
@@ -135,7 +135,7 @@ Vous avez déclenché l’événement, et Event Grid a envoyé le message au poi
 }]
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Si vous envisagez de continuer à utiliser cet événement ou l’application de visionnage d’évènement, ne supprimez pas les ressources créées dans cet article. Sinon, utilisez la commande suivante pour supprimer les ressources créées dans cet article.
 
 ```azurecli-interactive

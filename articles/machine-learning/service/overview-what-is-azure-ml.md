@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 6e0294f99d1c2291e84bf2ac5d5b1f771222b551
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433410"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238506"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Qu’est-ce que le service Azure Machine Learning (préversion) ?
 
@@ -48,7 +48,7 @@ Vous pouvez gérer les modèles déployés et suivre plusieurs exécutions penda
 Le service Azure Machine Learning peut générer automatiquement un modèle et le régler automatiquement pour vous.
 Par consulter un exemple, voir [Tutoriel : entraîner automatiquement un modèle de classification avec le machine learning automatisé dans Azure Machine Learning](tutorial-auto-train-models.md).
 
-Ou, à l’aide du <a href="http://aka.ms/aml-sdk" target="_blank">kit SDK</a> Azure Machine Learning pour Python et des packages Python open source, vous pouvez créer et entraîner vous-même des modèles Machine Learning extrêmement précis et des modèles d’apprentissage profond dans un espace de travail Azure Machine Learning.
+Ou, à l’aide du <a href="http://aka.ms/aml-sdk" target="_blank">Kit de développement logiciel (SDK)</a> Azure Machine Learning pour Python et des packages Python open source, vous pouvez créer et entraîner vous-même des modèles Machine Learning extrêmement précis et des modèles d’apprentissage profond dans un espace de travail de service Azure Machine Learning.
 Vous pouvez choisir parmi les nombreux composants de machine learning disponibles dans les packages Python open source, comme les suivants :
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -80,7 +80,7 @@ Si vous n’êtes pas abonné, vous pouvez [ouvrir gratuitement un compte Azure]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Créez un espace de travail de machine learning à l’aide de l’article [Utiliser le portail Azure pour bien démarrer](quickstart-get-started.md).
+- Créez un espace de travail de service de Machine Learning à l’aide de l’article [Utiliser le portail Azure pour bien démarrer](quickstart-get-started.md)
  
 - Suivez dans son intégralité le tutoriel [Entraîner un modèle de classification d’images avec Azure Machine Learning](tutorial-train-models-with-aml.md), pour apprendre à entraîner et déployer des modèles à l’aide du service Azure Machine Learning.
 

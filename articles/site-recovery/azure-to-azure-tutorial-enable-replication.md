@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154779"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069095"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire
 
@@ -160,7 +160,7 @@ Pour remplacer les paramètres de stratégie de réplication par défaut, clique
 
 - **Fréquence des instantanés de cohérence des applications** : par défaut, Site Recovery prend un instantané de cohérence des applications toutes les 4 heures. Vous pouvez configurer une valeur comprise entre 1 et 12 heures. Un instantané de cohérence des applications est un instantané à un point dans le temps des données d’application à l’intérieur de la machine virtuelle. Le service VSS (Volume Shadow Copy Service) s’assure que les applications sur la machine virtuelle sont dans un état cohérent au moment de la prise des captures instantanées.
 
-- **Groupe de réplication** : si votre application a besoin d’une cohérence multimachine virtuelle sur les machines virtuelles, vous pouvez créer un groupe de réplication pour ces machines virtuelles. Par défaut, les machines virtuelles sélectionnés ne font pas partie d’un groupe de réplication.
+- **Groupe de réplication** : si votre application a besoin d’une cohérence multimachine virtuelle sur les machines virtuelles, vous pouvez créer un groupe de réplication pour ces machines virtuelles. Par défaut, les machines virtuelles sélectionnées ne font pas partie d’un groupe de réplication.
 
   Cliquez sur **Personnaliser** en regard de **Stratégie de réplication**, puis sélectionnez **Oui** pour la cohérence multimachine virtuelle afin d’intégrer les machines virtuelles à un groupe de réplication. Vous pouvez créer un groupe de réplication ou utiliser un groupe de réplication existant. Sélectionnez les machines virtuelles faisant partie du groupe de réplication, puis cliquez sur **OK**.
 
@@ -169,6 +169,19 @@ Pour remplacer les paramètres de stratégie de réplication par défaut, clique
 
 > [!IMPORTANT]
   Si vous activez la cohérence multimachine virtuelle, les machines du groupe de réplication communiquent entre elles sur le port 20004. Vérifiez qu’aucun dispositif de pare-feu ne bloque la communication interne entre les machines virtuelles sur le port 20004. Si vous voulez que les machines virtuelles Linux fassent partie d’un groupe de réplication, vérifiez que le trafic sortant sur le port 20004 est ouvert manuellement conformément aux instructions de la version Linux spécifique.
+
+### <a name="configure-encryption-settings"></a>Configurer les paramètres de chiffrement
+
+Si le chiffrement du disque Azure (ADE) est activé sur la machine virtuelle source, la section des paramètres de chiffrement ci-dessous s’affiche.
+
+- **Coffres de clés de chiffrement de disque** : par défaut, Azure Site Recovery crée un nouveau coffre de clés dans la région cible avec un nom ayant le suffixe « asr » en fonction des clés de chiffrement du disque de la machine virtuelle source. Si le coffre de clés créé par Azure Site Recovery existe déjà, il est réutilisé.
+- **Coffres de clés de chiffrement de clé** : par défaut, Azure Site Recovery crée un nouveau coffre de clés dans la région cible avec un nom ayant le suffixe « asr » en fonction des clés de chiffrement de la clé de la machine virtuelle source. Si le coffre de clés créé par Azure Site Recovery existe déjà, il est réutilisé.
+
+Cliquez sur « Personnaliser » en regard des paramètres de chiffrement pour remplacer les valeurs par défaut, puis sélectionnez les coffres de clés personnalisés.
+
+>[!NOTE]
+>Seules les machines virtuelles Azure exécutant Windows OS et [permettant le chiffrement avec l’application Azure AD](https://aka.ms/ade-aad-app) sont actuellement prises en charge par Azure Site Recovery.
+>
 
 ### <a name="track-replication-status"></a>Suivre l’état de la réplication
 

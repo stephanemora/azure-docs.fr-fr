@@ -1,25 +1,26 @@
 ---
-title: Application web à page unique Recherche d’actualités Bing (code source) | Microsoft Docs
+title: 'Didacticiel : recherche d’actualités Bing dans une application web à page unique (code source)'
+titlesuffix: Azure Cognitive Services
 description: Code source pour un tutoriel expliquant comment utiliser l’API Recherche d’actualités Bing dans une application web à page unique.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: rosh
 ms.reviewer: v-gedod
-ms.openlocfilehash: c16c7b6018ad7ef3e2f7786e7ef9fa477c666914
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b8c3e022c93acd0a6e5a6dc96cc0375114093b87
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368728"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804291"
 ---
 # <a name="tutorial-single-page-news-search-app"></a>Didacticiel : Application à page unique Recherche d’actualités
 
-Voici le code source complet indiqué dans le [didacticiel d’application à page unique](tutorial-bing-news-search-single-page-app.md) pour Recherche d’actualités Bing. Pour exécuter l’application, copiez le code source dans le Bloc-notes ou dans un autre éditeur de texte et enregistrez-le sous `bing.html`. Ouvrez ensuite le fichier enregistré dans Microsoft Edge ou dans un autre navigateur populaire.
+Voici le code source complet indiqué dans le [didacticiel d’application à page unique](tutorial-bing-news-search-single-page-app.md) pour Recherche d’actualités Bing. Pour exécuter l’application, copiez le code source dans le Bloc-notes ou dans un autre éditeur de texte et enregistrez-le sous `bing.html`. Ouvrez ensuite le fichier enregistré dans Microsoft Edge ou dans un autre navigateur courant.
 
 ```html
 <!DOCTYPE html>

@@ -1,6 +1,6 @@
 ---
 title: Configurer une Azure Data Box | Microsoft Docs
-description: En savoir plus sur la configuration logicielle et réseau requise pour une Azure Data Box
+description: Découvrez comment brancher des câbles et se connecter à une Azure Data Box
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 6623744a26d79ccbc8b68ba84baf3a37024e0ed7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952305"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785630"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Didacticiel : branchement des câbles et connexion à une Azure Data Box
 
@@ -36,15 +36,15 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Avant de commencer, assurez-vous que :
 
 1. Vous avez terminé le [didacticiel : Commander une Azure Data Box](data-box-deploy-ordered.md).
-2. Vous avez reçu votre Data Box et l’état de la commande dans le portail est **Remis**. 
+2. Vous avez reçu votre Data Box et que l’état de la commande dans le portail est **Remis** Une étiquette d’expédition se trouve dans le sachet transparent fixé sur l’appareil sous l’étiquette actuelle. Gardez cette étiquette en lieu sûr car vous allez l’utiliser pour le retour.
 3. Vous avez consulté les [consignes de sécurité de la Data Box](data-box-safety.md).
-4. Vous avez reçu un cordon d’alimentation avec mise à la terre à utiliser avec votre périphérique de stockage de 100 To.
-5. Vous disposez d’un ordinateur hôte contenant les données à copier sur la Data Box. Votre ordinateur hôte doit
+4. Vous avez reçu un cordon d’alimentation avec mise à la terre à utiliser avec votre périphérique de stockage de 100 To.
+5. Vous disposez d’un ordinateur hôte contenant les données que vous souhaitez copier sur Data Box Votre ordinateur hôte doit
     - Exécuter un [système d’exploitation pris en charge](data-box-system-requirements.md)
-    - Être connecté à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie. 
+    - Être connecté à un réseau haut débit. Nous vous recommandons vivement d’utiliser au minimum une connexion 10 GbE. Si vous ne disposez pas d’une connexion 10 GbE, vous pouvez utiliser une liaison de données 1 GbE. Cependant, cela a une incidence sur les vitesses de copie. 
 6. Vous devez avoir accès à une surface plane sur laquelle placer la Data Box. Si vous souhaitez placer l’appareil sur un rack standard, vous avez besoin d’un emplacement 7U dans le rack de votre centre de données. Vous pouvez placer l’appareil à plat ou en position verticale dans le rack.
 7. Vous disposez des câbles suivants pour connecter votre Data Box à l’ordinateur hôte.
-    - Deux câbles en cuivre Twinax SFP+ 10 GbE (à utiliser avec les interfaces réseau DATA1 et DATA2)
+    - Deux câbles en cuivre Twinax SFP+ 10 GbE (à utiliser avec les interfaces réseau DATA 1 et DATA 2)
     - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
     - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
 
@@ -58,11 +58,11 @@ Procédez comme suit pour brancher les câbles de l’appareil.
     
     ![Vue arrière d’une Data Box raccordée](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
-    1. Branchez le câble d’alimentation à l’emplacement d’entrée étiqueté. L’autre extrémité du câble d’alimentation doit être branché sur une unité de distribution d’alimentation.
+    1. Branchez le câble d’alimentation à l’emplacement d’entrée étiqueté. L’autre extrémité du câble d’alimentation doit être branchée sur une unité de distribution d’alimentation.
     2. Utilisez le câble RJ-45 CAT 6pour raccorder le port MGNT à un ordinateur portable.            
     3. Utilisez le câble réseau RJ-45 CAT 6A pour brancher le port DATA 3 à une extrémité. DATA 3 est configuré en tant que 10 GbE si vous utilisez un câble RJ-45 CAT 6A a et en tant que 1 GbE si vous utilisez un câble RJ-45 CAT 6.
-    4. Utilisez les câbles en cuivre 10 GbE SFP + Twinax pour raccorder respectivement les ports DATA 1 et DATA 2. 
-    5. L’autre extrémité des câbles des ports de données est branchée sur l’ordinateur hôte via un commutateur 10 GbE.
+    4. Utilisez les câbles en cuivre Twinax SFP+ 10 GbE 10 GbE pour raccorder respectivement les ports DATA 1 et DATA 2. 
+    5. Les autres extrémités des câbles des ports de données sont branchées sur l’ordinateur hôte via un commutateur 10 GbE.
 
 4. Localisez le bouton d’alimentation sur le panneau de commande avant de l’appareil. Allumez l'appareil.
 

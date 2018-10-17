@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/08/2018
+ms.date: 09/12/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: 9feb2e538d3578fe259aa3fbc693a1e953f2f894
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440349"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804427"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Déployer un cluster Service Fabric dans Azure Stack
 
@@ -120,7 +120,7 @@ Pour plus d’informations, consultez l’article [Gérer Key Vault dans Azure S
 
 ## <a name="deploy-the-marketplace-item"></a>Déployer l’élément Place de marché
 
-1. Dans le portail utilisateur, accédez à **Nouveau** > **Compute** > **Cluster Service Fabric**. 
+1. Dans le portail utilisateur, accédez à **+ Créer une ressource** > **Compute** > **Cluster Service Fabric**. 
 
    ![Sélection du cluster Service Fabric](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 

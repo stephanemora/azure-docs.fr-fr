@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 0b8de4d04d9cca47423634164e458e8699154f30
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10b73843e2ca2e0ee0af766ef1ad7ee9cbf61f94
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405306"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854596"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Didacticiel : Créer une association ExpressRoute avec Azure Virtual WAN (préversion)
 
@@ -41,28 +41,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="register"></a>Inscrire cette fonctionnalité
 
-Pour inscrire facilement cette fonctionnalité à l’aide d’Azure Cloud Shell, cliquez sur **Essayer**.
+Avant de pouvoir configurer le WAN virtuel, vous devez tout d’abord inscrire automatiquement votre abonnement à la préversion. Sinon, vous ne serez pas en mesure d’utiliser WAN virtuel dans le portail. Pour vous abonner, envoyez un e-mail à **azurevirtualwan@microsoft.com** avec votre ID d’abonnement. Vous recevrez un e-mail une fois votre abonnement inscrit.
 
->[!NOTE]
->Si vous n’inscrivez pas cette fonctionnalité, vous ne serez pas en mesure de l’utiliser, ni de la voir dans le portail.
->
->
+**Considérations relatives à la préversion :**
 
-Après avoir cliqué sur **Essayer** pour ouvrir Azure Cloud Shell, copiez et collez les commandes suivantes :
-
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
- 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
-
-Une fois que la fonctionnalité s’affiche comme étant inscrite, réinscrivez l’abonnement auprès de l’espace de noms Microsoft.Network.
-
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
+* Disponibilité dans la région : USA Centre-Ouest
+* Le circuit ExpressRoute doit être activé dans un pays qui prend en charge [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
 ## <a name="vnet"></a>1. Créez un réseau virtuel
 

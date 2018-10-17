@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
-ms.openlocfilehash: f9664e22be5d7a17dd2a2a7c328593d8168c26f0
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.reviewer: spunukol
+ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434736"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249364"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Procédure : Gérer les appareils obsolètes dans Azure AD
 
@@ -111,7 +111,7 @@ Si votre appareil est contrôlé par Intune ou toute autre solution GPM, retirez
 
 ### <a name="system-managed-devices"></a>Appareils gérés par le système
 
-Ne supprimez pas des appareils gérés par le système. Il s’agit souvent d’appareils tels que des pilotes automatiques. Une fois supprimés, ces appareils ne peuvent pas être réapprovisionnés. Par défaut, la nouvelle cmdlet Get-MmsolDevice exclut les appareils gérés par le système. 
+Ne supprimez pas des appareils gérés par le système. Il s’agit souvent d’appareils tels que des pilotes automatiques. Une fois supprimés, ces appareils ne peuvent pas être réapprovisionnés. Par défaut, la nouvelle cmdlet `get-msoldevice` exclut les appareils gérés par le système. 
 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Appareils joints Azure AD hybrides
@@ -137,7 +137,7 @@ Désactivez ou supprimez les appareils inscrits à Azure AD dans Azure AD.
 
 
 
-## <a name="cleanup-stale-devices-in-the-azure-portal"></a>Nettoyer les appareils obsolètes dans le Portail Azure  
+## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Nettoyer les appareils obsolètes dans le Portail Azure  
 
 Vous pouvez nettoyer les appareils obsolètes dans le Portail Azure. Cependant, il est plus efficace d’effectuer cette tâche à l’aide d’un script PowerShell. Utilisez le dernier module PowerShell V1 pour utiliser le filtre de timestamp et filtrer les appareils gérés par le système comme les pilotes automatiques. À ce stade, l’utilisation de PowerShell V2 est déconseillée.
 
@@ -150,7 +150,9 @@ La procédure classique se déroule comme suit :
 
 3. Désactivez l’appareil en utilisant la cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 
-4. Supprimez l’appareil en utilisant la cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+4. Attendez que la période de grâce du nombre de jours que vous choisissez soit passée avant de supprimer l’appareil.
+
+5. Supprimez l’appareil en utilisant la cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>Obtenir la liste des appareils
 

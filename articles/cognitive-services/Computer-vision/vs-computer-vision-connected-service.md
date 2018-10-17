@@ -1,23 +1,23 @@
 ---
-title: Tutoriel sur Vision par ordinateur C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Connectez-vous à Cognitive Services Vision par ordinateur sur une application web ASP.NET Core.
+title: 'Didacticiel : API Vision par ordinateur avec C#'
+titleSuffix: Azure Cognitive Services
+description: Connectez-vous à l’API Vision par ordinateur sur une application web ASP.NET Core.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: conceptual
+ms.topic: Tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 76ca1215144a5caa40971e1eda23f6462f7bf27b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ebfcabdea1e83a83af5eea8025ba5a411c3f9880
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38663907"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077948"
 ---
-# <a name="connecting-to-cognitive-services-computer-vision-api-by-using-connected-services-in-visual-studio"></a>Se connecter à l’API Vision par ordinateur Cognitive Services avec les Services connectés dans Visual Studio
+# <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Utilisation des Services connectés dans Visual Studio pour se connecter à l’API Vision par ordinateur
 
 L’API Vision par ordinateur Cognitive Services permet d’extraire de riches informations afin de catégoriser et de traiter des données visuelles et d’effectuer une modération des images assistée par ordinateur pour organiser vos services.
 
@@ -60,7 +60,7 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
    [4/26/2018 5:15:31.664 PM] Adding Computer Vision API to the project.
    [4/26/2018 5:15:32.084 PM] Creating new ComputerVision...
    [4/26/2018 5:15:32.153 PM] Creating new Resource Group...
-   [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 1.0.2-preview.
+   [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 2.1.0.
    [4/26/2018 5:15:44.117 PM] Retrieving keys...
    [4/26/2018 5:15:45.602 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceKey=<service key>
    [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.0
@@ -251,9 +251,9 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 
    ![Image de l’API Vision par ordinateur et résultats mis en forme](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-4.PNG)  
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources associées. Pour supprimer le groupe de ressources à l’aide du portail :
+Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources qui lui sont associées. Pour supprimer le groupe de ressources à l’aide du portail :
 
 1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce Démarrage rapide dans les résultats de recherche, sélectionnez-le.
 2. Sélectionnez **Supprimer le groupe de ressources**.

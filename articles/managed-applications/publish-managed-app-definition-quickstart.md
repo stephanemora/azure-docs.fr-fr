@@ -1,0 +1,81 @@
+---
+title: Créer une définition d’application managée Azure | Microsoft Docs
+description: Montre comment créer une application managée Azure destinée aux membres de votre organisation.
+services: managed-applications
+author: tfitzmac
+ms.service: managed-applications
+ms.devlang: na
+ms.topic: quickstart
+ms.tgt_pltfrm: na
+ms.date: 10/04/2018
+ms.author: tomfitz
+ms.openlocfilehash: 1f80d7e63d994f0e3eb3733b99afaa1b056f4686
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804906"
+---
+# <a name="publish-an-azure-managed-application-definition"></a>Publier une définition d’application managée Azure
+
+Ce démarrage rapide fournit une introduction sur l’utilisation des applications managées. Vous ajoutez une définition d’application managée à un catalogue interne pour les utilisateurs dans votre organisation. Pour simplifier l’introduction, nous avons déjà créé les fichiers de votre application managée. Ces fichiers sont disponibles dans GitHub. Vous apprenez à générer ces fichiers dans le didacticiel [Créer l’application de catalogue de service](publish-service-catalog-app.md).
+
+Lorsque vous avez terminé, vous disposez d’un groupe de ressources nommé **appDefinitionGroup** qui contient la définition d’application managée.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## <a name="create-a-resource-group-for-definition"></a>Créer un groupe de ressources pour définition
+
+La définition de votre application managée existe dans un groupe de ressources. Un groupe de ressources est une collection logique dans laquelle des ressources Azure sont déployées et gérées.
+
+Pour créer un groupe de ressources, utilisez la commande suivante :
+
+```azurecli-interactive
+az group create --name appDefinitionGroup --location westcentralus
+```
+
+## <a name="create-the-managed-application-definition"></a>Créer la définition d’application gérée
+
+Lors de la définition de l’application managée, vous sélectionnez un utilisateur, un groupe ou une application qui gère les ressources pour le consommateur. Cette identité dispose d’autorisations sur le groupe de ressources managé en fonction du rôle attribué. En général, vous créez un groupe Azure Active Directory pour gérer les ressources. Toutefois, pour cet article, utilisez votre propre identité.
+
+Pour obtenir l’ID d’objet de votre identité, fournissez votre nom d’utilisateur principal dans la commande suivante :
+
+```azurecli-interactive
+userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+```
+
+Ensuite, vous avez besoin de l’ID de définition de rôle du rôle RBAC intégré auquel vous souhaitez accorder l’accès à l’utilisateur. La commande suivante montre comment obtenir l’ID de définition de rôle pour le rôle Propriétaire :
+
+```azurecli-interactive
+roleid=$(az role definition list --name Owner --query [].name --output tsv)
+```
+
+À présent, créez la ressource de définition de l’application managée. L’application managée contient uniquement un compte de stockage.
+
+```azurecli-interactive
+az managedapp definition create \
+  --name "ManagedStorage" \
+  --location "westcentralus" \
+  --resource-group appDefinitionGroup \
+  --lock-level ReadOnly \
+  --display-name "Managed Storage Account" \
+  --description "Managed Azure Storage Account" \
+  --authorizations "$userid:$roleid" \
+  --package-file-uri "https://raw.githubusercontent.com/Azure/azure-managedapp-samples/master/samples/201-managed-storage-account/managedstorage.zip"
+```
+
+Une fois la commande terminée, vous avez une définition de l’application managée dans votre groupe de ressources. 
+
+Certains des paramètres utilisés dans cet exemple sont les suivants :
+
+* **resource-group** : nom du groupe de ressources dans lequel la définition de l’application managée est créée.
+* **lock-level**: type de verrou placé sur le groupe de ressources gérées. Il empêche le client d’effectuer des opérations indésirables sur ce groupe de ressources. Actuellement, ReadOnly est le seul niveau de verrou pris en charge. Lorsque ReadOnly est spécifié, le client peut lire uniquement les ressources présentes dans le groupe de ressources gérées. Les identités de l’éditeur qui ont accès au groupe de ressources managé sont exemptées du verrou.
+* **authorizations** : décrit l’ID principal et l’ID de définition de rôle utilisés pour accorder des autorisations au groupe de ressources gérées. Il est spécifié sous la forme `<principalId>:<roleDefinitionId>`. Si plusieurs valeurs sont nécessaires, spécifiez-les sous la forme `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Les valeurs sont séparées par un espace.
+* **package-file-uri**: l’emplacement d’un package .zip contenant les fichiers requis. Le package doit contenir les fichiers **mainTemplate.json** et **createUiDefinition.json**. **mainTemplate.json** définit les ressources Azure créées pour l’application managée. Le modèle n’est en rien différent d’un modèle Resource Manager normal. **createUiDefinition.json** : génère l’interface utilisateur pour les clients qui créent l’application managée par le biais du portail.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Vous avez publié la définition d’application managée. Découvrez maintenant comment déployer une instance de cette définition.
+
+> [!div class="nextstepaction"]
+> [Démarrage rapide : déployer une application de catalogue de services](deploy-service-catalog-quickstart.md)

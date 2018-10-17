@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2018
+ms.date: 010/01/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: da9e1ce17e21f4d87286c0be5d425419f6ed0300
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1af4cdb361c1db378991201fc42f17dcbf67fe67
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408508"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238763"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutoriel : mettre à l’échelle un cluster Service Fabric dans Azure
 
@@ -38,7 +38,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Créer un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou un [cluster Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) sécurisé sur Azure à l’aide d’un modèle
 > * Mettre à l’échelle un cluster
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Suppression d'un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -121,7 +121,7 @@ Pour diminuer le nombre d’instances (scale in), il suffit de diminuer la valeu
 > [!NOTE]
 > Cette partie s’adresse uniquement au niveau de durabilité *Bronze*. Pour plus d’informations sur la durabilité, consultez [Planification de la capacité des clusters Service Fabric][durability].
 
-Lorsque vous diminuez le nombre d’instances d’un groupe de machines virtuelles identiques, celui-ci supprime (dans la plupart des cas) l’instance de machine virtuelle qui a été créée en dernier. Par conséquent, vous devez rechercher le nœud Service Fabric correspondant qui a été créé en dernier. Pour le trouver, il vous suffit de regarder la valeur de propriété `NodeInstanceId` la plus élevée parmi les nœuds Service Fabric. Les exemples de code ci-dessous trient les résultats par instance de nœud et retournent les informations sur l’instance dont la valeur ID est la plus élevée.
+Pour que les nœuds du cluster soient toujours répartis uniformément entre les domaines d’erreur et de mise à jour, et ainsi permettre leur utilisation homogène, le dernier nœud créé doit être supprimé en premier. En d’autres termes, les nœuds doivent être supprimés dans l’ordre inverse de leur création. Le dernier nœud créé est celui contenant la plus grande valeur de propriété `virtual machine scale set InstanceId`. Les exemples de code ci-dessous renvoient le dernier nœud créé.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -137,7 +137,7 @@ Le cluster Service Fabric doit être informé de la suppression de ce nœud. Pou
 PowerShell : `Disable-ServiceFabricNode`  
 sfctl : `sfctl node disable`
 
-2. Arrêtez le nœud afin que le runtime Service Fabric soit arrêté correctement et que votre application reçoive une demande de fin d’exécution.  
+2. Arrêtez le nœud afin que le runtime Service Fabric soit arrêté correctement et que votre application reçoive une requête de fin d’exécution.  
 PowerShell : `Start-ServiceFabricNodeTransition -Stop`  
 sfctl : `sfctl node transition --node-transition-type Stop`
 
@@ -232,7 +232,7 @@ sfctl node remove-state --node-name _nt1vm_5
 
 ### <a name="scale-in-the-scale-set"></a>Diminuer le nombre d’instances du groupe identique
 
-Maintenant que le nœud Service Fabric a été supprimé du cluster, vous pouvez diminuer le nombre d’instances du groupe de machines virtuelles identiques. Dans l’exemple ci-dessous, la capacité du groupe identique est diminuée de 1.
+Maintenant que le nœud Service Fabric a été supprimé du cluster, vous pouvez diminuer la taille des instances du groupe de machines virtuelles identiques. Dans l’exemple ci-dessous, la capacité du groupe identique est diminuée de 1.
 
 ```powershell
 $scaleset = Get-AzureRmVmss -ResourceGroupName SFCLUSTERTUTORIALGROUP -VMScaleSetName nt1vm

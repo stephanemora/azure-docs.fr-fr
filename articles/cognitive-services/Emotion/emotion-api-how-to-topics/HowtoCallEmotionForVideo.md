@@ -1,32 +1,34 @@
 ---
-title: Appeler l’API Émotion pour la vidéo | Microsoft Docs
+title: 'Exemple : appeler l’API Émotion pour la vidéo'
+titlesuffix: Azure Cognitive Services
 description: Découvrez comment appeler l’API Émotion pour la vidéo dans Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 0875013b2061a84e3e23ae90c1106382672fdca6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368552"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238605"
 ---
-# <a name="how-to-call-emotion-api-for-video"></a>Guide pratique pour appeler l’API Émotion pour la vidéo
+# <a name="example-call-emotion-api-for-video"></a>Exemple : appeler l’API Émotion pour la vidéo
 
 > [!IMPORTANT]
-> La préversion de l’API Vidéo a pris fin le 30 octobre 2017. Essayez la nouvelle [préversion de l’API Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) pour extraire facilement des insights des vidéos et améliorer les expériences de découverte de contenu, telles que les résultats de recherche, en détectant le texte parlé, les visages, les personnes et les émotions. [Plus d’informations](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
+> L’API Émotion sera déconseillée à partir du 15 février 2019. La fonction de reconnaissance des émotions est maintenant disponible de façon générale dans le cadre de l’[API Visage](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 Ce guide montre comment appeler l’API Émotion pour la vidéo. Les exemples sont écrits en C# à l’aide de la bibliothèque cliente de l’API Émotion pour la vidéo.
 
-### <a name="Prep">Préparation</a> 
+### <a name="Prep">Préparation</a>
 Pour pouvoir utiliser l’API Émotion pour la vidéo, vous avez besoin d’une vidéo qui inclut des personnes, de préférence faisant face à la caméra.
 
-### <a name="Step1">Étape 1 : Autoriser l’appel d’API</a> 
+### <a name="Step1">Étape 1 : Autoriser l’appel d’API</a>
 Chaque appel à l’API Émotion pour la vidéo nécessite une clé d’abonnement. Cette clé doit être transmise par le biais d’un paramètre de chaîne de requête ou spécifiée dans l’en-tête de requête. Pour transmettre la clé d’abonnement par le biais d’une chaîne de requête, reportez-vous à l’URL de requête ci-dessous pour l’API Émotion pour la vidéo en guise d’exemple :
 
 ```
@@ -44,7 +46,7 @@ Quand vous utilisez une bibliothèque cliente, la clé d’abonnement est transm
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-Pour obtenir une clé d’abonnement, consultez [Abonnements] (https://azure.microsoft.com/try/cognitive-services/). 
+Pour obtenir une clé d’abonnement, consultez [Abonnements] (https://azure.microsoft.com/try/cognitive-services/).
 
 ### <a name="Step2">Étape 2 : Charger une vidéo sur le service et vérifier l’état</a>
 La façon la plus simple d’effectuer un appel d’API Émotion pour la vidéo consiste à charger une vidéo directement. Pour cela, vous devez envoyer une requête « POST » avec le type de contenu application/octet-stream ainsi que les données lues à partir d’un fichier vidéo. La taille maximale de la vidéo est de 100 Mo.
@@ -71,7 +73,7 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-Cette méthode de chargement sera la même pour tous les appels d’API Émotion pour la vidéo. 
+Cette méthode de chargement sera la même pour tous les appels d’API Émotion pour la vidéo.
 
 Une fois que vous avez chargé une vidéo, l’opération suivante consiste à vérifier son état. Les fichiers vidéo étant généralement plus volumineux et plus variés que les autres fichiers, les utilisateurs peuvent s’attendre à un temps de traitement long durant cette étape. La durée dépend de la taille et de la longueur du fichier.
 
@@ -116,13 +118,13 @@ La détection et le suivi des visages JSON incluent les attributs suivants :
 Attribut | Description
 -------------|-------------
 Version | Fait référence à la version du code JSON de l’API Émotion pour la vidéo.
-Timescale | « Cycles » par seconde de la vidéo.
-Offset  |Décalage des horodatages. Dans la version 1.0 de l’API Émotion pour la vidéo, ce sera toujours 0. Cette valeur est susceptible de changer dans les scénarios pris en charge ultérieurement.
+Échelle de temps | « Cycles » par seconde de la vidéo.
+Offset  |Le décalage des horodatages. Dans la version 1.0 de l’API Émotion pour la vidéo, ce sera toujours 0. Cette valeur est susceptible de changer dans les scénarios pris en charge ultérieurement.
 Framerate | Images par seconde de la vidéo.
 Fragments   | Les métadonnées sont découpées en différents éléments plus petits appelés fragments. Chaque fragment contient des valeurs de début (start), de durée (duration), un numéro d’intervalle et des événements (event).
-Start   | Heure de début du premier événement, en « cycles ».
+Démarrer   | Heure de début du premier événement, en « cycles ».
 Duration |  Durée du fragment en « cycles ».
-Interval |  Longueur de chaque événement du fragment, en « cycles ».
+Intervalle |  Longueur de chaque événement du fragment, en « cycles ».
 Événements  | Tableau d’événements. Le tableau externe représente un intervalle de temps. Le tableau interne se compose de 0 événement ou plus ayant eu lieu à ce moment précis.
 windowFaceDistribution |    Pourcentage des visages ayant une émotion particulière lors de l’événement.
 windowMeanScores |  Scores moyens pour chaque émotion des visages de l’image.

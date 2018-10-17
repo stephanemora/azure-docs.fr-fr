@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 0638aaa9165bcf760dabca330f6ee396807e4597
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: fc4b1dce1b01d9294cf422c910f39d68cbd49c87
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087952"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018245"
 ---
 # <a name="create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Créer une fabrique de données à l’aide de l’interface utilisateur d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Version actuelle](quickstart-create-data-factory-portal.md)
 
-Ce guide de démarrage rapide explique comment utiliser l’interface utilisateur d’Azure Data Factory pour créer et surveiller une fabrique de données. Le pipeline que vous créez dans cette fabrique de données *copie* les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un didacticiel sur la *transformation* des données à l’aide d’Azure Data Factory, consultez [Didacticiel : transformation des données à l’aide de Spark](tutorial-transform-data-spark-portal.md). 
+Ce guide de démarrage rapide explique comment utiliser l’interface utilisateur d’Azure Data Factory pour créer et surveiller une fabrique de données. Le pipeline que vous créez dans cette fabrique de données *copie* les données d’un dossier vers un autre dossier dans un stockage Blob Azure. Pour suivre un didacticiel sur la *transformation* des données à l’aide d’Azure Data Factory, consultez [Didacticiel : transformation des données à l’aide de Spark](tutorial-transform-data-spark-portal.md).
 
 > [!NOTE]
 > Si vous débutez avec Azure Data Factory, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md) avant de commencer ce guide de démarrage rapide. 
@@ -38,7 +38,7 @@ Regardez cette vidéo pour comprendre l’interface de fabrique de Data Factory 
 
 1. Lancez le navigateur web **Microsoft Edge** ou **Google Chrome**. L’interface utilisateur de Data Factory n’est actuellement prise en charge que par les navigateurs web Microsoft Edge et Google Chrome.
 1. Accédez au [portail Azure](https://portal.azure.com). 
-1. Sélectionnez **Nouveau** dans le menu de gauche, sélectionnez **Données + Analytique**, puis **Data Factory**. 
+1. Sélectionnez **Créer une ressource** dans le menu de gauche, sélectionnez **Analytique**, puis **Data Factory**. 
    
    ![Sélection Data Factory dans le volet « Nouveau »](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 1. Dans la page **Nouvelle fabrique de données**, entrez **ADFTutorialDataFactory** comme **nom**. 
@@ -58,12 +58,10 @@ Regardez cette vidéo pour comprendre l’interface de fabrique de Data Factory 
 1. Pour **Version**, sélectionnez **V2**.
 1. Pour **Emplacement**, sélectionnez l’emplacement de la fabrique de données.
 
-   La liste affiche uniquement les emplacements que la fabrique de données prend en charge. Les magasins de données (tels que le Stockage Azure et Azure SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par Data Factory peuvent se trouver dans d’autres emplacements.
-1. Sélectionnez **Épingler au tableau de bord**.     
-1. Sélectionnez **Créer**.
-1. Sur le tableau de bord, vous voyez la vignette suivante avec l’état **Déploiement de Data Factory** : 
+   La liste n’affiche que les emplacements pris en charge par Data Factory et où vos métadonnées Azure Data Factory sont stockées. Notez que les magasins de données associés (tels que le Stockage Azure et Azure SQL Database) et les services de calcul (comme Azure HDInsight) utilisés par Data Factory peuvent s’exécuter dans d’autres régions.
 
-   ![Vignette « Déploiement de Data Factory »](media//quickstart-create-data-factory-portal/deploying-data-factory.png)
+1. Sélectionnez **Créer**.
+
 1. Une fois la création terminée, la page **Data Factory** s’affiche. Sélectionnez la vignette **Créer et surveiller** pour démarrer l’application d’interface utilisateur (IU) d’Azure Data Factory dans un onglet séparé.
    
    ![Page d’accueil de la fabrique de données, avec la vignette « Créer et surveiller »](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
@@ -88,7 +86,7 @@ Dans cette procédure, vous créez un service lié qui relie votre compte de sto
 
    c. Cliquez sur **Tester la connexion** pour confirmer que le service Data Factory peut se connecter au compte de stockage. 
 
-   d. Cliquez sur **Enregistrer** pour enregistrer le service lié. 
+   d. Sélectionnez **Terminer** pour enregistrer le service lié. 
 
    ![Paramètres du service lié Stockage Azure](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
@@ -128,7 +126,7 @@ Dans les paramètres du service lié, vous avez spécifié le compte de stockage
 
    c. Dans le tableau **Général**, spécifiez **OutputDataset** pour le nom.
 
-   d. Dans l’onglet **Connexion**, sélectionnez **AzureStorageLinkedService** comme service lié, et entrez **adftutorial/output** pour le dossier. Si le dossier **Sortie** n’existe pas, il est créé lors de l’exécution de l’activité de copie.
+   d. Dans l’onglet **Connexion**, sélectionnez **AzureStorageLinkedService** comme service lié, et entrez **adftutorial/output** pour le dossier dans le champ du répertoire. Si le dossier **Sortie** n’existe pas, il est créé lors de l’exécution de l’activité de copie.
 
 ## <a name="create-a-pipeline"></a>Créer un pipeline 
 Dans cette procédure, vous créez et validez un pipeline avec une activité de copie qui utilise les jeux de données d’entrée et de sortie. L’activité de copie copie les données du fichier que vous avez spécifié dans les paramètres du jeu de données d’entrée dans le fichier que vous avez spécifié dans les paramètres du jeu de données de sortie. Si le jeu de données d’entrée ne spécifie qu’un dossier (et pas le nom de fichier), l’activité de copie copie tous les fichiers dans le dossier source vers la destination. 
@@ -138,7 +136,7 @@ Dans cette procédure, vous créez et validez un pipeline avec une activité de 
    ![Menu pour créer un nouveau pipeline](./media/quickstart-create-data-factory-portal/new-pipeline-menu.png)
 1. Dans l’onglet **Général**, spécifiez **CopyPipeline** pour le **Nom**. 
 
-1. Dans la boîte à outils **Activités**, étendez le **Flux de données**. Faites glisser l’activité **Copier** depuis la boîte à outils **Activités** vers la surface du concepteur de pipeline. Vous pouvez également rechercher des activités dans la boîte à outils **Activités**. Spécifiez **CopyFromBlobToBlob** pour le **Nom**.
+1. Dans la boîte à outils **Activités**, développez **Move & Transform** (Déplacer et transformer). Faites glisser l’activité **Copier** depuis la boîte à outils **Activités** vers la surface du concepteur de pipeline. Vous pouvez également rechercher des activités dans la boîte à outils **Activités**. Spécifiez **CopyFromBlobToBlob** pour le **Nom**.
 
    ![Paramètres généraux de l’activité de copie](./media/quickstart-create-data-factory-portal/copy-activity-general-settings.png)
 1. Basculez vers l’onglet **Source** dans les paramètres de l’activité de copie et sélectionnez **InputDataset** pour le **Jeu de données source**.
@@ -205,7 +203,7 @@ Cette procédure est facultative dans ce didacticiel. Vous pouvez créer un *dé
    Notez les valeurs dans la colonne **Déclenché par**. L’exécution manuelle du déclencheur était celle de l’étape précédente (**Déclencher maintenant**). 
 
    ![Liste des exécutions déclenchées](./media/quickstart-create-data-factory-portal/monitor-triggered-runs.png)
-1. Sélectionnez la flèche vers le bas à côté de **Exécutions du pipeline** pour basculer vers l’affichage **Exécutions du déclencheur**. 
+1. Basculez vers l’affichage **Exécutions du déclencheur**. 
 
    ![Basculer vers l’affichage « Exécutions du déclencheur »](./media/quickstart-create-data-factory-portal/monitor-trigger-runs.png)    
 1. Vérifiez qu’un fichier de sortie est créé pour chaque exécution du pipeline jusqu’à la date/heure de fin spécifiée dans le dossier de **sortie**. 

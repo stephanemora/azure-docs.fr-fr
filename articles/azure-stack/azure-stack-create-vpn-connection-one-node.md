@@ -3,7 +3,7 @@ title: Créer une connexion VPN de site à site entre deux réseaux virtuels dan
 description: Procédure pas à pas à suivre par un administrateur de cloud souhaitant créer une connexion VPN de site à site entre deux environnements du Kit de développement Azure Stack à nœud unique.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6225a12b50ebb7bf0a0cb9244153800ba734d93a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006901"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078900"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Créer une connexion VPN de site à site entre deux réseaux virtuels dans des environnements différents du Kit de développement Azure Stack
 ## <a name="overview"></a>Vue d’ensemble
@@ -92,10 +92,7 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Créer le réseau virtuel et le sous-réseau de machine virtuelle
 1. Utilisez un compte de locataire pour vous connecter au portail utilisateur.
-2. Dans le portail utilisateur, sélectionnez **Nouveau**.
-
-    ![Créer un réseau virtuel](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
-
+2. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 3. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 4. Sélectionnez **Réseau virtuel**.
 5. Renseignez les champs **Nom**, **Espace d’adressage**, **Nom de sous-réseau** et **Plage d’adresses de sous-réseau** avec les valeurs qui figurent dans la table de configuration réseau au début de cet article.
@@ -118,7 +115,7 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 6. Sélectionnez **OK** pour créer le sous-réseau de passerelle.
 
 ### <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
-1. Dans le Portail Azure, sélectionnez **Nouveau**. 
+1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**. 
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources réseau, sélectionnez **Passerelle de réseau virtuel**.
 4. Dans le champ **Nom**, entrez **GW1**.
@@ -140,7 +137,7 @@ De façon plus générale, la ressource de passerelle de réseau local représen
 
 ### <a name="create-the-local-network-gateway-resource"></a>Créer la ressource de passerelle de réseau local
 1. Connectez-vous à la machine physique Azure Stack pour POC1.
-2. Dans le portail utilisateur, sélectionnez **Nouveau**.
+2. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 3. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 4. Dans la liste des ressources, sélectionnez **Passerelle de réseau local**.
 5. Dans le champ **Nom**, entrez **POC2-GW**.
@@ -149,7 +146,7 @@ De façon plus générale, la ressource de passerelle de réseau local représen
 8. Vérifiez l’exactitude des valeurs des champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **Créer**.
 
 ### <a name="create-the-connection"></a>Créer la connexion
-1. Dans le portail utilisateur, sélectionnez **Nouveau**.
+1. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources, sélectionnez **Connexion**.
 4. Dans le panneau de paramètres **De base**, pour le champ **Type de connexion**, sélectionnez **Site à site (IPSec)**.
@@ -163,7 +160,7 @@ De façon plus générale, la ressource de passerelle de réseau local représen
 ### <a name="create-a-vm"></a>Créer une machine virtuelle
 Pour vous assurer que les données transitent bien par la connexion VPN, vous devez vérifier que les machines virtuelles envoient et reçoivent les données dans chaque Kit de développement Azure Stack. Créez d’abord une machine virtuelle dans POC1, puis ajoutez-la au sous-réseau de machine virtuelle dans votre réseau virtuel.
 
-1. Dans le Portail Azure, sélectionnez **Nouveau**.
+1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Compute**.
 3. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Evals**.
 4. Dans le panneau **Bases**, dans **Nom**, entrez **VM01**.
@@ -185,7 +182,7 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Créer le réseau virtuel et le sous-réseau de machine virtuelle
 
 1. Connectez-vous en utilisant un compte de locataire.
-2. Dans le portail utilisateur, sélectionnez **Nouveau**.
+2. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**.
 3. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 4. Sélectionnez **Réseau virtuel**.
 5. À l’aide des informations données dans la table de configuration réseau, plus haut dans cet article, renseignez les champs **Nom**, **Espace d’adressage**, **Nom de sous-réseau** et **Plage d’adresses de sous-réseau** de manière appropriée pour POC2.
@@ -205,7 +202,7 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 6. Sélectionnez **OK** pour créer le sous-réseau de passerelle.
 
 ### <a name="create-the-virtual-network-gateway"></a>Créer la passerelle de réseau virtuel
-1. Dans le Portail Azure, sélectionnez **Nouveau**.  
+1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.  
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources réseau, sélectionnez **Passerelle de réseau virtuel**.
 4. Dans le champ **Nom**, entrez **GW2**.
@@ -218,7 +215,7 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 
 ### <a name="create-the-local-network-gateway-resource"></a>Créer la ressource de passerelle de réseau local
 
-1. Dans le portail utilisateur POC2, sélectionnez **Nouveau**. 
+1. Dans le portail utilisateur POC2, sélectionnez **+ Créer une ressource**. 
 4. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 5. Dans la liste des ressources, sélectionnez **Passerelle de réseau local**.
 6. Dans le champ **Nom**, entrez **POC1-GW**.
@@ -227,7 +224,7 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 9. Vérifiez l’exactitude des valeurs des champs **Abonnement**, **Groupe de ressources** et **Emplacement**, puis sélectionnez **Créer**.
 
 ## <a name="create-the-connection"></a>Créer la connexion
-1. Dans le portail utilisateur, sélectionnez **Nouveau**. 
+1. Dans le portail utilisateur, sélectionnez **+ Créer une ressource**. 
 2. Accédez à la **Place de marché**, puis sélectionnez **Mise en réseau**.
 3. Dans la liste des ressources, sélectionnez **Connexion**.
 4. Dans le panneau de paramètres **De base**, pour le champ **Type de connexion**, choisissez **Site à site (IPSec)**.
@@ -241,7 +238,7 @@ Un administrateur de services fédérés peut se connecter en tant que locataire
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 Créez d’abord une machine virtuelle dans POC2, puis ajoutez-la au sous-réseau de machine virtuelle dans votre réseau virtuel.
 
-1. Dans le Portail Azure, sélectionnez **Nouveau**.
+1. Dans le Portail Azure, sélectionnez **+ Créer une ressource**.
 2. Accédez à la **Place de marché**, puis sélectionnez **Compute**.
 3. Dans la liste des images de machine virtuelle, sélectionnez l’image **Windows Server 2016 Datacenter Evals**.
 4. Dans le panneau **De base**, dans **Nom**, entrez **VM02**.

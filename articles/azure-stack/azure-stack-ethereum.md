@@ -1,40 +1,45 @@
 ---
 title: Modèle de solution blockchain Ethereum Azure Stack
-description: Utiliser des modèles de solution personnalisés pour déployer et configurer un réseau blockchain Ethereum de consortium sur Azure Stack
+description: Didacticiel utilisant des modèles de solution personnalisés pour déployer et configurer un réseau blockchain Ethereum de consortium sur Azure Stack
 services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/03/2018
-ms.topic: article
+ms.date: 09/13/2018
+ms.topic: tutorial
 ms.service: azure-stack
-ms.reviewer: coborn
+ms.reviewer: seyadava
+ms.custom: mvc
 manager: femila
-ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: acfa94799f36728f4e0041f1a51403edf6ffe37e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446969"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239470"
 ---
-# <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Modèles de solution blockchain Ethereum Azure Stack
+# <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>Didacticiel : Utilisation du modèle de solution blockchain Ethereum Azure Stack
 
 Le modèle de solution Ethereum est conçu pour faciliter et accélérer le déploiement et la configuration d’un réseau blockchain Ethereum de consortium de plusieurs membres avec des connaissances minimales au sujet d’Azure et d’Ethereum.
 
 En quelques entrées d’utilisateur et avec un déploiement par simple clic via le portail client Azure Stack, chaque membre peut fournir son empreinte réseau. L’empreinte réseau de chaque membre se compose d’un ensemble de nœuds de transaction avec équilibrage de charge grâce auquel une application ou un utilisateur peut interagir pour soumettre des transactions, un ensemble de nœuds d’exploration de données pour enregistrer les transactions et appliance de réseau virtuel (NVA). Une étape suivante connecte les NVA pour créer un réseau blockchain de plusieurs membres entièrement configuré.
 
+Pour effectuer cette configuration, vous allez effectuer les étapes suivantes :
+
+> [!div class="checklist"]
+> * Choix d’une architecture de déploiement
+> * Déploiement d’un réseau autonome, leader de consortium ou membre de consortium
+
 ## <a name="prerequisites"></a>Prérequis
 
-Téléchargez les éléments suivants [à partir de la marketplace](azure-stack-download-azure-marketplace-item.md) :
+Téléchargez les derniers articles [sur la Place de marché](azure-stack-download-azure-marketplace-item.md) :
 
-* Ubuntu Server 16.04 LTS version 16.04.201802220
-* Windows Server 2016 
-* Script personnalisé pour Linux 2.0 
-* Extension de script personnalisé 
+* Ubuntu Server 16.04 LTS
+* Windows Server 2016
+* Script personnalisé pour Linux 2.0
+* Extension de script personnalisé pour Windows
 
-Pour plus d’informations sur les scénarios blockchain sur Azure, consultez le [modèle de solution de consortium de preuve de travail Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
-
-Il faut un abonnement Azure qui peut prendre en charge le déploiement de plusieurs machines virtuelles. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
+Pour plus d’informations sur les scénarios blockchain, consultez le [modèle de solution de consortium de preuve de travail Ethereum](../blockchain/templates/ethereum-deployment.md).
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
 
@@ -43,6 +48,7 @@ Ce modèle de solution peut déployer un ou plusieurs réseaux de consortium Eth
 ## <a name="deployment-use-cases"></a>Cas d’utilisation de déploiement
 
 Le modèle peut déployer le consortium Ethereum pour une jointure de leader ou de membre de plusieurs façons. Voici celles que nous avons testées :
+
 - Sur une instance Azure Stack à plusieurs nœuds, avec Azure AD ou AD FS, déployez le leader ou le membre à l’aide du même abonnement ou d’abonnements différents.
 - Sur une instance Azure Stack à nœud unique (avec d’Azure AD), déployez le leader et le membre à l’aide du même abonnement.
 
@@ -51,7 +57,7 @@ Le modèle peut déployer le consortium Ethereum pour une jointure de leader ou 
 Le modèle de leader de consortium configure l’empreinte du premier membre dans le réseau. 
 
 1. Téléchargez le [modèle de leader à partir de GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json).
-2. Dans le portail d’administration d’Azure Stack, sélectionnez **Nouveau > Déploiement de modèle** effectuer un déploiement à partir d’un modèle personnalisé.
+2. Dans le portail d’administration d’Azure Stack, sélectionnez **+ Créer une ressource > Déploiement de modèle** effectuer un déploiement à partir d’un modèle personnalisé.
 3. Sélectionnez **Modifier un modèle** pour modifier le nouveau modèle personnalisé.
 4. Dans le volet d’édition sur la droite, copiez et collez le JSON du modèle de leader que vous avez précédemment téléchargé.
     
@@ -90,7 +96,7 @@ Le modèle de leader de consortium configure l’empreinte du premier membre dan
     Nom du paramètre | Description | Valeurs autorisées | Exemple de valeur
     ---------------|-------------|----------------|-------------
     Abonnement | Abonnement vers lequel vous déployez le réseau de consortium. | | Abonnement Consommation
-    Groupe de ressources | Groupe de ressources sur lequel déployez le réseau de consortium. | | EthereumResources
+    Groupe de ressources | Groupe de ressources sur lequel déployer le réseau de consortium. | | EthereumResources
     Lieu | Région Azure du groupe de ressources. | | local
 
 8. Sélectionnez **Créer**.
@@ -106,7 +112,7 @@ Pour vérifier le déploiement du leader, parcourez le site d’administration d
 ### <a name="joining-consortium-member-deployment"></a>Déploiement de la jointure d’un membre de consortium
 
 1. Téléchargez le [modèle de membre consortium à partir de GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json).
-2. Dans le portail d’administration d’Azure Stack, sélectionnez **Nouveau > Déploiement de modèle** effectuer un déploiement à partir d’un modèle personnalisé.
+2. Dans le portail d’administration d’Azure Stack, sélectionnez **+ Créer une ressource > Déploiement de modèle** effectuer un déploiement à partir d’un modèle personnalisé.
 3. Sélectionnez **Modifier un modèle** pour modifier le nouveau modèle personnalisé.
 4. Dans le volet d’édition sur la droite, copiez et collez le JSON du modèle de leader que vous avez précédemment téléchargé.
 5. Sélectionnez **Enregistrer**.
@@ -158,7 +164,7 @@ Comme indiqué dans l’image, les nœuds du membre ne sont **pas en cours d’e
 Ce modèle crée une connexion du leader à un membre à distance. 
 
 1. Téléchargez le [modèle de connexion de membre et de leader à partir de GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. Dans le portail d’administration d’Azure Stack, sélectionnez **Nouveau > Déploiement de modèle** effectuer un déploiement à partir d’un modèle personnalisé.
+2. Dans le portail d’administration d’Azure Stack, sélectionnez **+ Créer une ressource > Déploiement de modèle** effectuer un déploiement à partir d’un modèle personnalisé.
 3. Sélectionnez **Modifier un modèle** pour modifier le nouveau modèle personnalisé.
 4. Dans le volet d’édition sur la droite, copiez et collez le JSON du modèle de leader que vous avez précédemment téléchargé.
     
@@ -199,5 +205,13 @@ Une fois le déploiement terminé, l’établissement de la communication entre 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur Ethereum et Azure, voir [Technologie et applications blockchain | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/).
-- Pour plus d’informations sur les scénarios blockchain sur Azure, consultez le [modèle de solution de consortium de preuve de travail Ethereum](../blockchain-workbench/ethereum-deployment-guide.md).
+Dans ce tutoriel, vous avez appris à :
+
+> [!div class="checklist"]
+> * Choix d’une architecture de déploiement
+> * Déploiement d’un réseau autonome, leader de consortium ou membre de consortium
+
+Pour en savoir plus sur Ethereum et Azure, consultez :
+
+> [!div class="nextstepaction"]
+> [Technologie et applications blockchain](https://azure.microsoft.com/solutions/blockchain/)

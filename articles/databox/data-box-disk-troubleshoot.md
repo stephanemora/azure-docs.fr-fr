@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/03/2018
+ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: e1a5cb33bb473daf5b9e45e7c64bcb297eca7733
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9b2c03c13cf687af7cdebc9c4d2624a6a7c5907f
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595543"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069197"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Résoudre les problèmes rencontrés dans Azure Data Box Disk (préversion)
 
@@ -85,6 +85,20 @@ Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interr
 | Les volumes suivants sont déverrouillés et vérifiés. <br>Lettre de lecteur du volume : E:<br>Impossible de déverrouiller les volumes avec les clés d’accès suivantes : werwerqomnf, qwerwerqwdfda <br><br>L’outil déverrouille certains lecteurs et répertorie les lettres de lecteur ayant réussi ou échoué.| Réussite partielle. Impossible de déverrouiller certains lecteurs avec la clé d’accès fournie. Contactez le Support Microsoft pour les étapes suivantes. |
 | Les volumes verrouillés sont introuvables. Vérifiez que le disque envoyé par Microsoft est connecté correctement et qu’il se trouve à l’état verrouillé.          | L’outil ne parvient pas à trouver de lecteurs verrouillés. Soit les lecteurs sont déjà déverrouillés, soit ils ne sont pas détectés. Assurez-vous que les lecteurs sont connectés et verrouillés.                                                           |
 | Erreur irrécupérable : paramètre non valide<br>Nom de paramètre : invalid_arg<br>UTILISATION :<br>DataBoxDiskUnlock /PassKeys:<liste_clés_accès_séparées_par_points_virgules><br><br>Exemple : DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Exemple : DataBoxDiskUnlock /SystemCheck<br>Exemple : DataBoxDiskUnlock /Help<br><br>/PassKeys : permet d’obtenir cette clé d’accès à partir de la commande Azure Data Box Disk. La clé d’accès déverrouille vos disques.<br>/ Help : cette option fournit une aide sur l’utilisation et les exemples de cmdlet.<br>/ SystemCheck : cette option vérifie si votre système répond à la configuration requise pour l’exécution de l’outil.<br><br>Appuyez sur une touche pour quitter. | Paramètre non valide entré. Les seuls paramètres autorisés sont les suivants : /SystemCheck, /PassKey et /Help.                                                                            |
+
+## <a name="data-box-disk-split-copy-tool-errors"></a>Erreurs de l’outil de copie Data Box Disk Split
+
+|Messages d’erreur/avertissements  |Recommandations |
+|---------|---------|
+|[Info] Récupération du mot de passe bitlocker du volume : m <br>[Erreur] Exception détectée lors de la récupération de la clé bitlocker du volume m :<br> La séquence ne contient aucun élément.|Cette erreur se produit lorsque la destination Data Box Disk est hors ligne. <br> Utilisez l’outil `diskmgmt.msc` sur les disques en ligne.|
+|[Erreur] Exception levée : Échec de l’opération WMI :<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=Le format du mot de passe de récupération fourni est invalide. <br>Les mots de passe de récupération BitLocker sont composés de 48 chiffres. <br>Vérifiez le format du mot de passe de récupération, puis essayez à nouveau.|Utilisez l’outil de déverrouillage de Data Box Disk Unlock pour déverrouiller les disques en premier lieu, puis essayez à nouveau la commande. Pour plus d’informations, consultez <li> [Déverrouillez Data Box Disk pour les clients Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Déverrouillez Data Box Disk pour les clients Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
+|[Erreur] Exception levée : Un fichier DriveManifest.xml se trouve sur le lecteur cible. <br> Cela signifie que le lecteur cible peut avoir été préparé avec un fichier journal différent. <br>Pour ajouter de nouvelles données sur le même lecteur, utilisez le fichier journal précédent. Pour supprimer les données existantes et réutiliser le lecteur cible pour un nouveau travail d’importation, supprimez le fichier DriveManifest.xml sur le lecteur. Exécutez à nouveau cette commande avec un nouveau fichier journal.| Cette erreur se produit lorsque vous essayez d’utiliser le même jeu de lecteurs pour plusieurs sessions d’importation. <br> Utilisez un jeu de lecteurs uniquement pour une seule session de fractionnement et de copie.|
+|[Erreur] Exception levée : CopySessionId importdata-sept-test-1 fait référence à une session de copie précédente et ne peut pas être réutilisé pour une nouvelle session de copie.|Cette erreur est signalée lorsque vous essayez de nommer un nouveau travail avec le même nom que celui d’un travail précédent terminé avec succès.<br> Attribuez un nom unique à votre nouveau travail.|
+|[Info] Le nom du fichier ou du répertoire de destination dépasse la limite de longueur NTFS. |Ce message est signalé lorsque le fichier de destination a été renommé en raison de la longueur du chemin d’accès au fichier.<br> Modifiez l’option de disposition dans le fichier `config.json` pour contrôler ce comportement.|
+|[Erreur] Exception levée : Séquence d’échappement JSON incorrecte. |Ce message est signalé lorsque le format du fichier config.json n’est pas valide. <br> Validez votre `config.json` avec [JSONlint](https://jsonlint.com/) avant de sauvegarder le fichier.|
+
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Découvrez comment [gérer Data Box Disk via le portail Azure](data-box-portal-ui-admin.md).

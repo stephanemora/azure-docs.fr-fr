@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 2aca366e6a433e3e71cccb49a13638dedacc38d6
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887504"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857922"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutoriel : Lier un certificat SSL existant à des applications web Azure
 
@@ -58,7 +58,7 @@ Pour l’utiliser dans App Service, un certificat doit remplir toutes les condit
 
 * Être signé par une autorité de certification approuvée
 * Être exporté sous la forme d’un fichier PFX protégé par mot de passe
-* Contenir une clé privée d’au moins 2 048 bits de long
+* Contenir une clé privée d’au moins 2048 bits de long
 * Contenir tous les certificats intermédiaires dans la chaîne de certificats
 
 > [!NOTE]
@@ -66,7 +66,7 @@ Pour l’utiliser dans App Service, un certificat doit remplir toutes les condit
 
 ## <a name="prepare-your-web-app"></a>Préparation de votre application web
 
-Pour lier un certificat SSL personnalisé à votre application web, votre [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) doit se trouver dans le niveau **De base**, **Standard** ou **Premium**. Au cours de cette étape, vous allez vous assurer que votre application web se trouve dans le niveau de tarification pris en charge.
+Pour lier un certificat SSL personnalisé à votre application web, votre [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) doit se trouver dans le niveau **De base**, **Standard**, **Premium** ou **Isolé**. Au cours de cette étape, vous allez vous assurer que votre application web se trouve dans le niveau de tarification pris en charge.
 
 ### <a name="log-in-to-azure"></a>Connexion à Azure
 

@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : créer un espace de travail d’apprentissage automatique - Azure'
-description: Utilisez le Portail Azure pour créer un espace de travail Azure Machine Learning. Dans le cloud, cet espace de travail est le socle permettant l’expérimentation, l’entraînement et le déploiement de modèles d’apprentissage automatique avec le service Azure Machine Learning.
+title: 'Démarrage rapide : Création d’un espace de travail pour le service d’apprentissage automatique sur le Portail Azure - Azure Machine Learning'
+description: Utilisez le Portail Azure afin de créer un espace de travail pour le service Azure Machine Learning. Dans le cloud, cet espace de travail est le socle permettant l’expérimentation, l’entraînement et le déploiement de modèles d’apprentissage automatique avec le service Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: c1610291e06255e2c724268f63d740f7e4debea4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6f0201a36a676e7647b9f5e60bc2df3415b9594
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959986"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831328"
 ---
-# <a name="quickstart-get-started-with-azure-machine-learning-service"></a>Démarrage rapide : bien démarrer avec le service Azure Machine Learning
+# <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning-service"></a>Démarrage rapide : Utilisation du Portail Azure pour bien démarrer avec le service Azure Machine Learning
 
-Dans ce guide de démarrage rapide, vous allez utiliser le Portail Azure pour créer un espace de travail Azure Machine Learning. Dans le cloud, cet espace de travail est le socle permettant l’expérimentation, l’entraînement et le déploiement de modèles d’apprentissage automatique avec le service Azure Machine Learning. 
+Dans ce démarrage rapide, vous allez utiliser le Portail Azure afin de créer un espace de travail pour le service Azure Machine Learning. Dans le cloud, cet espace de travail est le socle permettant l’expérimentation, l’entraînement et le déploiement de modèles d’apprentissage automatique avec le service Azure Machine Learning. 
 
 Ce didacticiel présente les procédures suivantes :
 
@@ -28,7 +28,7 @@ Ce didacticiel présente les procédures suivantes :
 
 Pour des raisons pratiques, les ressources Azure suivantes sont automatiquement ajoutées à votre espace de travail, si elles sont disponibles dans votre région : [Container Registry](https://azure.microsoft.com/services/container-registry/), [Stockage](https://azure.microsoft.com/services/storage/), [Application Insights](https://azure.microsoft.com/services/application-insights/) et [Key Vault](https://azure.microsoft.com/services/key-vault/).
 
-Les ressources que vous créez peuvent être utilisées comme prérequis dans d’autres tutoriels et guides pratiques Azure Machine Learning. À l’instar d’autres services Azure, certaines ressources associées au service Azure Machine Learning présentent des limites (comme la taille de cluster  BatchAI). Veuillez lire [cet](how-to-manage-quotas.md) article sur les limites par défaut et comme demander un quota plus élevé.
+Les ressources que vous créez peuvent être utilisées comme prérequis dans d’autres didacticiels et guides pratiques du service Azure Machine Learning. Comme avec d’autres services Azure, il existe des limites concernant certaines ressources (par ex. taille de cluster BatchAI) associées au service Azure Machine Learning. Veuillez lire [cet](how-to-manage-quotas.md) article sur les limites par défaut et comme demander un quota plus élevé.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-Dans la page de l’espace de travail, cliquez sur `Explore your Azure Machine Learning Workspace`
+Dans la page de l’espace de travail, cliquez sur `Explore your Azure Machine Learning service workspace`
 
  ![explorer l’espace de travail](./media/quickstart-get-started/explore_aml.png)
 
@@ -65,13 +65,13 @@ Une fois que vous êtes connecté, un nouvel onglet s’ouvre et une invite `Clo
 
 ### <a name="run-the-notebook"></a>Exécuter le bloc-notes
 
-En plus des deux bloc-notes, vous verrez un fichier `config.json`.  Ce fichier de configuration contient des informations sur l’espace de travail que vous venez de créer.  
+En plus des deux blocs-notes, vous verrez un fichier `config.json`.  Ce fichier de configuration contient des informations sur l’espace de travail que vous venez de créer.  
 
 Cliquez sur `01.run-experiment.ipynb` pour ouvrir le bloc-notes.
 
-Vous pouvez exécuter les cellules une par une en utilisant `Shift` + `Enter`.  Ou utilisez le menu `Cells` > `Run All` pour exécuter le bloc-notes entier.
+Vous pouvez exécuter les cellules une par une en utilisant `Shift` + `Enter`.  Ou utilisez le menu `Cells` > `Run All` pour exécuter le bloc-notes entier.  Le symbole [*] en regard d’une cellule indique que l’exécution est en cours.  Lorsque le code de cette cellule est terminé, un numéro s’affiche.
 
-Vous pouvez être invité à vous connecter.  Copiez le code du message, puis cliquez sur le lien et collez le code dans la nouvelle fenêtre.  Veillez à ne pas copier un espace avant ou après le code.
+Vous serez peut-être invité à vous connecter.  Copiez le code du message, puis cliquez sur le lien et collez le code dans la nouvelle fenêtre.  Veillez à ne pas copier un espace avant ou après le code.  Connectez-vous avec le même compte que celui que vous avez utilisé sur le Portail Azure.
 
  ![se connecter](./media/quickstart-get-started/login.png)
 
@@ -112,7 +112,7 @@ Consultez des informations sur l’exécution que vous venez de réaliser.  Fait
 
  ![liste Historique des exécutions](./media/quickstart-get-started/report.png)
 
-Vous voyez les tracés qui ont été créées automatiquement à partir des valeurs journalisées :
+Vous voyez les tracés qui ont été créés automatiquement à partir des valeurs journalisées :
 
    ![afficher l'historique](./media/quickstart-get-started/plots.png)
 

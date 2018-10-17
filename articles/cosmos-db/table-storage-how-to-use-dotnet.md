@@ -1,6 +1,6 @@
 ---
-title: Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec .NET | Microsoft Docs
-description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
+title: Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec .NET
+description: Stockez des données structurées dans le cloud à l’aide du stockage de tables Azure ou de l’API Table d’Azure Cosmos DB.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: c084a08ffef868af751d065c5857a9b67a12485f
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 00bc950493e7b4eaad4a2165779f5c8151070aee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918921"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042577"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Prise en main du stockage de tables Azure et de l’API Table d’Azure Cosmos DB avec .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -75,7 +75,7 @@ Vous pouvez utiliser la bibliothèque de tables d’Azure CosmosDB dans n’impo
 ### <a name="install-the-required-nuget-packages"></a>Installer les packages NuGet requis
 Il existe trois packages recommandés auxquels vous devez vous référer dans votre projet pour suivre cet exemple :
 
-* [Bibliothèque commune de stockage Azure pour .NET (préversion)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). - Utilisez une version inférieure ou égal à 9.0.0.1 (<= 9.0.0.1).
+* [Bibliothèque commune de stockage Azure pour .NET (préversion)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). - Utilisez une version inférieure ou égale à 9.0.0.1 (<= 9.0.0.1).
 
 * [Bibliothèque de tables Microsoft Azure Cosmos DB pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Ce package fournit un accès par programmes aux ressources de données dans votre compte de stockage Table Azure ou votre compte API Table Azure Cosmos DB. Cette bibliothèque est actuellement disponible uniquement pour .NET Standard, elle n’est pas encore disponible pour .NET Core.
 
@@ -105,7 +105,7 @@ Vous avez le choix entre trois environnements pour exécuter les exemples de ce 
 * Vous pouvez exécuter votre code sur un compte Azure Cosmos DB dans le cloud.
 * Vous pouvez exécuter votre code sur l’émulateur de stockage Azure. L’émulateur de stockage est un environnement local qui émule un compte Azure Storage dans le cloud. L’émulateur est une option gratuite permettant de tester et déboguer votre code lors du développement de votre application. L’émulateur utilise un compte et une clé connus. Pour plus d’informations, consultez [Utilisation de l’émulateur de stockage Azure pour le développement et le test](../storage/common/storage-use-emulator.md).
 
-Si vous ciblez un compte de stockage dans le cloud, copiez la clé d’accès primaire de votre compte de stockage à partir du portail Azure. Pour plus d’informations, voir [Affichage et copie de clés d’accès de stockage](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Si vous ciblez un compte de stockage dans le cloud, copiez la clé d’accès primaire de votre compte de stockage à partir du portail Azure. Pour plus d’informations, consultez [Clé d’accès au compte de stockage](../storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > Vous pouvez cibler l’émulateur de stockage pour éviter les frais liés à l’utilisation des services de stockage Azure. Toutefois, si vous choisissez de cibler un compte de stockage Azure situé dans le cloud, les frais associés à l’utilisation de cet exemple seront négligeables.
@@ -121,7 +121,6 @@ Pour plus d’informations sur les chaînes de connexion, voir [Configuration d�
 
 > [!NOTE]
 > Votre clé de compte est similaire au mot de passe racine pour votre compte de stockage. Veillez toujours à protéger votre clé de compte de stockage. Évitez de la communiquer à d’autres utilisateurs, de la coder en dur ou de l’enregistrer dans un fichier texte brut accessible à d’autres personnes. Régénérez votre clé à l’aide du portail Azure si vous pensez que sa confidentialité est compromise.
-> 
 > 
 
 Pour configurer votre chaîne de connexion, ouvrez le fichier `app.config` depuis l’Explorateur de solutions dans Visual Studio. Ajoutez le contenu de l’élément `<appSettings>` indiqué ci-dessous. Remplacez `account-name` par le nom de votre compte et `account-key` par votre clé d’accès au compte.

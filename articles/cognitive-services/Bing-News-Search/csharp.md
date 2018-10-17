@@ -1,32 +1,33 @@
 ---
-title: Démarrage rapide C# pour Azure Cognitive Services, API Recherche d'actualités Bing | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’actualités Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API Recherche d’actualités Bing, C#'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’actualités Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 0364d5754539c0e83318d595fd00b3e7b7e79c08
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 48c6bf413ab2b5a45b5daa54ad31afe2c0fdf8f1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370157"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804264"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-c"></a>Démarrage rapide pour l’API Recherche d’actualités Bing avec C#
+# <a name="quickstart-bing-news-search-api-with-c"></a>Démarrage rapide : API Recherche d’actualités Bing avec C#
 
-Cet article vous montre comment utiliser l’API Recherche d’actualités Bing qui fait partie de Microsoft Cognitive Services sur Azure. Si d’un côté l’article utilise C#, de l’autre, l’API est un service web RESTful compatible avec n’importe quel langage de programmation dès lors qu’il est capable de formuler des requêtes HTTP et d’analyser un format JSON. 
+Cet article vous montre comment utiliser l’API Recherche Bing qui fait partie de Microsoft Cognitive Services sur Azure. Si d’un côté l’article utilise C#, de l’autre, l’API est un service web RESTful compatible avec n’importe quel langage de programmation dès lors qu’il est capable de formuler des requêtes HTTP et d’analyser un format JSON. 
 
-L’exemple de code a été écrit en C# en tant qu’application .NET Core, avec un minimum de dépendances externes? Vous pouvez donc également l’exécuter sous Linux ou Mac OS X à l’aide de Mono.
+L’exemple de code a été écrit en C# en tant qu’application .NET Core, avec un minimum de dépendances externes. Vous pouvez donc également l’exécuter sous Linux ou Mac OS X à l’aide de Mono.
 
 Reportez-vous aux [informations de référence sur l’API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) pour obtenir des détails techniques sur les API.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.
+Vous devrez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) est suffisant pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.
 
 ## <a name="bing-news-search"></a>Recherche d’actualités Bing
 
@@ -190,7 +191,7 @@ namespace BingNewsSearchCSharpCore
 
 **Réponse**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
 
 ```json
 {
@@ -289,4 +290,4 @@ Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suiva
 > [Pagination des actualités](paging-news.md)
 > [Utiliser des marqueurs d’ornement pour surligner du texte](hit-highlighting.md)
 > [Recherche d’actualités sur le web](search-the-web.md)  
-> [Essayez !](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
+> [Essayer](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)

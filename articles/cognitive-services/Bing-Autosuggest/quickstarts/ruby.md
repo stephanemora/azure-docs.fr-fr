@@ -1,31 +1,31 @@
 ---
-title: Démarrage rapide pour l’API Suggestion automatique Bing avec Ruby | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour une prise en main rapide de l’API Suggestion automatique Bing dans Azure Cognitive Services.
+title: 'Démarrage rapide : API Suggestion automatique Bing, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Suggestion automatique Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 30bb2986b90bc20efa96dba6f490948dce3e4ade
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 643b9173b57b9f8e8596fe6a8b49358d34297b97
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370092"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831175"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-ruby"></a>Démarrage rapide pour l’API Suggestion automatique Bing avec Ruby 
-<a name="HOLTop"></a>
 
-Cet article vous explique comment utiliser [l’API Suggestion automatique Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) avec Ruby. L’API Suggestion automatique Bing renvoie une liste de requêtes suggérées en fonction d’une chaîne de requête partielle saisie par l’utilisateur dans la zone de recherche. En règle générale, vous appelez cette API chaque fois que l’utilisateur saisit un nouveau caractère dans la zone de recherche, puis affichez les suggestions dans la liste déroulante de la zone de recherche. Cet article explique l’envoi d’une requête qui renvoie les chaînes de requête suggérées pour *sail* (voile).
+Cet article vous explique comment utiliser [l’API Suggestion automatique Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) avec Ruby. L’API Suggestion automatique Bing renvoie une liste de requêtes suggérées en fonction d’une chaîne de requête partielle saisie par l’utilisateur dans la zone de recherche. En règle générale, vous appelez cette API chaque fois que l’utilisateur saisit un nouveau caractère dans la zone de recherche, puis vous affichez les suggestions dans la liste déroulante de la zone de recherche. Cet article explique comment envoyer une requête qui renvoie les chaînes de requête suggérées pour *sail* (voile).
 
 ## <a name="prerequisites"></a>Prérequis
 
-[Ruby 2.4 (ou une version ultérieure)](https://www.ruby-lang.org/en/downloads/) est nécessaire pour exécuter ce code.
+[Ruby 2.4](https://www.ruby-lang.org/en/downloads/) (ou une version ultérieure) est nécessaire pour exécuter ce code.
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec l’**API Suggestion automatique Bing v7**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/#search) pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’abonnement payant de votre tableau de bord Azure.
+Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec l’**API Suggestion automatique Bing v7**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/#search) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure.
 
 ## <a name="get-autosuggest-results"></a>Obtenir les résultats de suggestion automatique
 
@@ -67,7 +67,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 ### <a name="response"></a>response
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
 
 ```json
 {
@@ -140,5 +140,5 @@ Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suiva
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Qu’est-ce que la Suggestion automatique Bing ?](../get-suggested-search-terms.md)
-- [Référence de l’API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Qu’est-ce que la Suggestion automatique Bing ?](../get-suggested-search-terms.md)
+- [Informations de référence sur l’API Suggestion automatique Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

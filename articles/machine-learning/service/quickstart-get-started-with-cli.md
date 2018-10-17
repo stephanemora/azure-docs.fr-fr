@@ -9,12 +9,12 @@ author: rastala
 ms.author: roastala
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 296bbc12cb326c416c87948db0ce6d7b5ff114da
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 856f9629e97f8cf7cf811e7d591cbcad6067f47a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972723"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237158"
 ---
 # <a name="quickstart-get-started-with-azure-machine-learning-using-the-cli-extension"></a>Démarrage rapide : bien démarrer avec Azure Machine Learning en utilisant l’extension CLI
 
@@ -83,7 +83,7 @@ Dans ce guide de démarrage rapide :
 
 ## <a name="create-a-workspace-and-a-project-folder"></a>Créer un espace de travail et un dossier de projet
 
-Dans la fenêtre de ligne de commande, créez un espace de travail Azure Machine Learning sous le groupe de ressources.
+Dans la fenêtre de ligne de commande, créez un espace de travail Azure Machine Learning service sous le groupe de ressources.
 
 
    Dans ce guide de démarrage rapide :
@@ -127,7 +127,7 @@ Le tableau de bord du portail est pris en charge uniquement sur les navigateurs 
 
    ![afficher l'historique](./media/quickstart-get-started/web-results.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

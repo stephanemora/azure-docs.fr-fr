@@ -1,20 +1,21 @@
 ---
-title: Application à page unique Recherche d’actualités Bing | Microsoft Docs
+title: 'Didacticiel : recherche d’actualités Bing dans une application à page unique'
+titlesuffix: Azure Cognitive Services
 description: Explique comment utiliser l’API Recherche d’actualités Bing dans une application web à page unique.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: fb8cd24dfdfb03500cc86ee1b1f0126ec044a873
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d27751d12c82736ca519bb3a0e9bcd49bef4a47
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370192"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803645"
 ---
 # <a name="tutorial-single-page-news-search-app"></a>Didacticiel : Application à page unique Recherche d’actualités
 L’API Recherche d’actualités Bing vous permet de parcourir le web et d’obtenir des résultats des types d’actualités relatifs à une requête. Dans ce didacticiel, nous allons générer une application web à page unique qui utilise l’API Recherche d’actualités Bing pour afficher les résultats de la recherche sur la page. L’application inclut des composants HTML, CSS et JavaScript.
@@ -106,12 +107,12 @@ Le formulaire HTML inclut des éléments avec les noms suivants :
 | `query` | Champ de texte dans lequel saisir les termes de recherche. |
 | `category` | Cases à cocher pour la promotion de types particuliers de résultats. La promotion de l’intégrité, par exemple, donne la priorité aux actualités intègres. |
 | `when` | Menu déroulant pour éventuellement limiter la recherche à un jour, une semaine ou un mois. |
-| `safe` | Case à cocher indiquant s’il faut utiliser la fonctionnalité SafeSearch de Bing afin de filtrer les résultats pour « adultes ». |
+| `safe` | Case à cocher indiquant s’il faut utiliser la fonctionnalité Filtre adulte de Bing afin de filtrer les résultats pour « adultes ». |
 | `count` | Champ masqué. Nombre de résultats de recherche à renvoyer pour chaque requête. À modifier pour afficher plus ou moins de résultats par page. |
 | `offset`|  Champ masqué. Décalage du premier résultat de recherche dans la requête ; utilisé pour la pagination. Réinitialisé sur `0` lors d’une nouvelle requête. |
 
 > [!NOTE]
-> L’API Recherche d’actualités Bing offre d’autres paramètres de requête. Nous n’en utilisons ici que quelques-uns.
+> L’API Recherche Web Bing offre d’autres paramètres de requête. Nous n’en utilisons ici que quelques-uns.
 
 ``` javascript
 // build query options from the HTML form
@@ -321,7 +322,7 @@ L’API Recherche d’actualités Bing renvoie jusqu’à quatre types de résul
 |`relatedSearches`|Requêtes qui ont également été entrées par d’autres utilisateurs qui ont entré la recherche d’origine. Par exemple, si vous recherchez « Mont Rainier », une recherche associée peut être « Mt. Sainte-Hélène ».|
 |`similarTerms`|Requêtes dont le sens est similaire à celui de la recherche d’origine. Par exemple, si vous recherchez « écoles », un terme similaire peut être « éducation ».|
 
-Comme nous l’avons vu précédemment dans `renderSearchResults()`, nous rendons uniquement les suggestions `relatedItems` et plaçons les liens qui en résultent dans la barre latérale de la page.
+Comme nous l’avons vu précédemment dans `renderSearchResults()`, nous affichons uniquement les suggestions `relatedItems` et plaçons les liens qui en résultent dans la barre latérale de la page.
 
 ## <a name="rendering-result-items"></a>Rendu des éléments de résultat
 
@@ -341,7 +342,7 @@ Une fonction de renderer peut accepter les paramètres suivants :
 |-|-|
 |`item`| L’objet JavaScript contenant les propriétés de l’élément, telles que son URL et sa description.|
 |`index`| L’index de l’élément de résultat dans sa collection.|
-|`count`| Le nombre d’éléments dans la collection de l’élément du résultat de recherche.|
+|`count`| Le nombre d’éléments dans la collection de l’élément du résultat de la recherche.|
 
 Les paramètres `index` et `count` peuvent être utilisés pour compter les résultats, pour générer un code HTML spécial pour le début ou la fin d’une collection, pour insérer des sauts de ligne après un certain nombre d’éléments et ainsi de suite. Si un renderer n’a pas besoin de cette fonctionnalité, il est inutile d’accepter ces deux paramètres.
 
@@ -378,18 +379,18 @@ La fonction de renderer d’actualités :
 > * Calcule la taille de l’image miniature (la largeur est fixée à 60 pixels, la hauteur est calculée proportionnellement).
 > * Génère la balise HTML `<img>` pour afficher l’image miniature. 
 > * Génère les balises HTML `<a>` qui établissent un lien vers l’image et la page la contenant.
-> * Crée la description qui affiche des informations sur l’image et le site sur lequel elle se trouve.
+> * Génère la description qui affiche des informations sur l’image et le site sur lequel elle se trouve.
 
 La taille des miniatures est utilisée à la fois dans la balise `<img>` et dans les champs `h` et `w` des URL de miniature. Le [service de miniature Bing](resize-and-crop-thumbnails.md) fournit alors une miniature d’exactement cette taille.
 
 ## <a name="persisting-client-id"></a>ID client persistant
-Les réponses provenant de l’API Recherche Bing peuvent inclure un en-tête `X-MSEdge-ClientID`, qui doit être renvoyé à l’API avec les demandes suivantes. Si plusieurs API Recherche Bing sont utilisées, le même ID de client doit être employé avec toutes, si possible.
+Les réponses provenant des API Recherche Bing peuvent inclure un en-tête `X-MSEdge-ClientID`, qui doit être renvoyé à l’API avec les requêtes suivantes. Si plusieurs API Recherche Bing sont utilisées, le même ID de client doit être employé avec toutes, si possible.
 
 Le fait de fournir l’en-tête `X-MSEdge-ClientID` permet aux API Bing d’associer toutes les recherches d’un utilisateur, ce qui présente deux avantages essentiels.
 
 Tout d’abord, cela permet au moteur de recherche Bing d’appliquer un contexte passé aux recherches pour trouver les résultats répondant le mieux à l’utilisateur. Si un utilisateur a précédemment recherché des termes liés à la navigation, par exemple, une recherche ultérieure sur « nœuds » peut éventuellement renvoyer des informations sur les nœuds de navigation.
 
-Par ailleurs, Bing peut sélectionner au hasard des utilisateurs pour leur faire profiter des nouvelles fonctionnalités avant qu’elles ne deviennent disponibles au grand public. La fait de fournir le même ID de client avec chaque requête garantit que les utilisateurs qui voient une fonctionnalité y aient toujours accès. Sans l’ID client, l’utilisateur peut voir une fonctionnalité apparaître et disparaître, de manière aléatoire, dans les résultats de recherche.
+Par ailleurs, Bing peut sélectionner au hasard des utilisateurs pour leur faire profiter des nouvelles fonctionnalités avant qu’elles ne deviennent disponibles au grand public. Le fait de fournir le même ID de client avec chaque requête garantit que les utilisateurs qui voient une fonctionnalité y aient toujours accès. Sans l’ID client, l’utilisateur peut voir une fonctionnalité apparaître et disparaître, de manière aléatoire, dans les résultats de recherche.
 
 Les stratégies de sécurité de navigateur (CORS) peuvent rendre l’en-tête `X-MSEdge-ClientID` indisponible pour JavaScript. Cette limitation se produit lorsque la réponse de recherche a une origine différente de la page d’où provient la requête. Dans un environnement de production, vous devez gérer cette stratégie en hébergeant un script côté serveur qui effectue l’appel d’API sur le même domaine que la page web. Étant donné que le script a la même origine que la page web, l’en-tête `X-MSEdge-ClientID` est ensuite disponible pour JavaScript.
 
@@ -410,7 +411,7 @@ Enfin, lancez le proxy CORS avec la commande suivante :
 
     cors-proxy-server
 
-Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de la recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les demandes.
+Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de la recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les requêtes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]

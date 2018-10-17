@@ -1,21 +1,23 @@
 ---
-title: Démarrage rapide Java pour l’aperçu d’URL de projet - Microsoft Cognitive Services | Microsoft Docs
-description: Exemple de script pour la prise en main de l’aperçu d’URL de projet dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : URL Preview de projet, Java'
+titlesuffix: Azure Cognitive Services
+description: Exemple de script pour la prise en main en utilisant URL Preview Project avec Java.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 2de74f48882605bfcf05f65723ba5d8993587f51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369608"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867106"
 ---
-# <a name="url-preview-java-quickstart"></a>Démarrage rapide Java d’aperçu d’URL
+# <a name="quickstart-url-preview-with-java"></a>Démarrage rapide : URL Preview avec Java
 
 L’exemple Java suivant crée un aperçu d’Url pour le site web de SwiftKey : https://swiftkey.com/en.
 

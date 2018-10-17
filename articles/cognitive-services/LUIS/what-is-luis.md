@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 10/06/2018
 ms.author: diberry
-ms.openlocfilehash: a8e9deb7c677d04634b223045adc2d31fa74ba6e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0520c00ab20ca7210b3bb13567f9998e7231be43
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033037"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867653"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 
@@ -151,7 +151,7 @@ La réponse minimale du point de terminaison JSON contient l’énoncé de la re
 
 ## <a name="improve-model-prediction"></a>Améliorer la prédiction du modèle
 
-Une fois qu’un modèle LUIS a été publié et reçoit de vrais énoncés utilisateur, LUIS offre plusieurs méthodes pour améliorer la précision de la prédiction : [l’apprentissage actif](#active-learning) des énoncés de point de terminaison, des [listes d’expressions](#phrase-lists) pour l’inclusion de mots du domaine, ainsi que des [modèles](#patterns) pour réduire le nombre d’énoncés nécessaires.
+Une fois qu’un modèle LUIS a été publié et reçoit de vrais énoncés utilisateur, LUIS offre plusieurs méthodes pour améliorer la précision de la prédiction : [l’apprentissage actif](luis-concept-review-endpoint-utterances.md) des énoncés de point de terminaison, des [listes d’expressions](luis-concept-feature.md) pour l’inclusion de mots du domaine, ainsi que des [modèles](luis-concept-patterns.md) pour réduire le nombre d’énoncés nécessaires.
 <!--
 ### Active learning
 
@@ -171,25 +171,37 @@ Patterns allow you to simplify an intent's utterance collection into common [tem
 Author LUIS from the [authoring](https://aka.ms/luis-authoring-apis) APIs or from the LUIS portal. Query the published prediction endpoint of the model from the [endpoint](https://aka.ms/luis-endpoint-apis) APIs.
 -->
 
-## <a name="integrating-with-luis"></a>Intégration à LUIS
+## <a name="development-lifecycle"></a>Cycle de vie de développement
+LUIS offre différents outils, un contrôle de version et des fonctionnalités de collaboration avec d’autres auteurs LUIS à intégrer au cycle de vie de développement complet au niveau de l’application cliente et du modèle de langage. 
+
+## <a name="implementing-luis"></a>Implémentation de LUIS
 En tant qu’API REST, LUIS est utilisable avec n’importe quel produit, service ou infrastructure exécutant une requête HTTP. La liste ci-après répertorie les principaux produits et services Microsoft utilisés avec LUIS.
 
-Les applications clientes Microsoft pour LUIS sont les suivantes :
+La principale application cliente pour LUIS est la suivante :
 * [Web App Bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) crée rapidement un bot conversationnel sur lequel LUIS est activé pour discuter avec un utilisateur par le biais d’une entrée de texte. Utilise [Bot Framework][bot-framework] version [3.x](https://github.com/Microsoft/BotBuilder) ou [4.x](https://github.com/Microsoft/botbuilder-dotnet) pour bénéficier d’une expérience bot optimale.
-* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) : apprenez-en davantage grâce à ce [cours Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) avec LUIS. 
 
-Outils Microsoft permettant d’utiliser LUIS avec un bot :
+Outils simplifiant et accélérant l’utilisation de LUIS avec un bot :
+* [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) Le package NPM offre des fonctions de création et de prédiction avec un outil en ligne de commande autonome ou sous forme d’importation. 
+* [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen est un outil permettant de générer un code source C# et Typescript fortement typé à partir d’un modèle LUIS exporté.
 * [Dispatch](https://aka.ms/dispatch-tool) permet d’utiliser plusieurs applications LUIS et QnA Maker à partir d’une application parente à l’aide du modèle de répartiteur.
-* [L’Apprenant de conversation](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) accélère la création de conversations avec un bot à l’aide de LUIS.
-* [Project Personality Chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) vous permet de gérer les conversations courantes avec un bot.
+* [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown est un outil en ligne de commande facilitant la gestion des modèles de langage pour votre bot.
 
 Autres services Cognitive Services utilisés avec LUIS :
 * [QnA Maker][qnamaker]permet à différents types de textes de se combiner en une question et de répondre à la base de connaissances.
 * [L’API Vérification orthographique Bing](../bing-spell-check/proof-text.md) propose la correction de texte avant la prédiction. 
 * [Speech](../Speech-Service/overview.md) convertit les requêtes énoncées à voix haute sous forme de texte. 
+* [L’Apprenant de conversation](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview) accélère la création de conversations avec un bot à l’aide de LUIS.
+* [Project Personality Chat](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview) vous permet de gérer les conversations courantes avec un bot.
+<!--
+## Other ways of implementing LUIS
+
+A client application for LUIS is:
+* [Windows Mixed Reality](https://docs.microsoft.com/windows/mixed-reality/) - learn more with this [Mixed reality course](https://docs.microsoft.com/windows/mixed-reality/mr-azure-303) with LUIS. 
 
 
+Labs: 
 
+-->
 ## <a name="next-steps"></a>Étapes suivantes
 
 Créez une application LUIS avec un domaine [prédéfini](luis-get-started-create-app.md) ou [personnalisé](luis-quickstart-intents-only.md). [Interrogez le point de terminaison de prédiction](luis-get-started-cs-get-intent.md) d’une application IoT publique.

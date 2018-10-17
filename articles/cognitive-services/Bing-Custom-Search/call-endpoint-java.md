@@ -1,22 +1,23 @@
 ---
-title: Appeler un point de terminaison à l’aide de Java - Recherche personnalisée Bing - Microsoft Cognitive Services
+title: 'Démarrage rapide : appeler un point de terminaison à l’aide de Java - Recherche personnalisée Bing'
+titlesuffix: Azure Cognitive Services
 description: Ce guide de démarrage rapide montre comment demander les résultats de la recherche à partir de votre instance de recherche personnalisée en utilisant Java pour appeler le point de terminaison Recherche personnalisée Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951812"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814111"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Appeler le point de terminaison Recherche personnalisée Bing (Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Démarrage rapide : appeler un point de terminaison Recherche personnalisée Bing (Java)
 
 Ce guide de démarrage rapide montre comment demander les résultats de la recherche à partir de votre instance de recherche personnalisée en utilisant Java pour appeler le point de terminaison Recherche personnalisée Bing. 
 

@@ -1,4 +1,9 @@
-Découvrez les parcours d’apprentissage Azure Media Services :
+Découvrez la dernière version d’Azure Media Services : [Azure Media Services v3](https://docs.microsoft.com/azure/media-services/latest/).
 
-* [Flux de travail du streaming en direct de Media Services](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-live/)
-* [Flux de travail du streaming à la demande de Media Services](https://azure.microsoft.com/documentation/learning-paths/media-services-streaming-on-demand/)
+Vous pouvez commencer par les rubriques suivantes : 
+
+* [Vue d'ensemble](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
+* [Charger, encoder et diffuser en continu des vidéos à l’aide d’API](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
+* [Analyser](https://docs.microsoft.com/azure/media-services/latest/analyze-videos-tutorial-with-api)
+* [Diffuser en direct](https://docs.microsoft.com/azure/media-services/latest/stream-live-tutorial-with-api)
+* [Protéger votre contenu](https://docs.microsoft.com/azure/media-services/latest/protect-with-aes128)

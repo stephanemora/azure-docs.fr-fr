@@ -1,26 +1,23 @@
 ---
 title: Comparer Flow, Logic Apps, Functions et WebJobs - Azure
 description: 'Comparez les services de cloud computing Microsoft qui sont optimisés pour les tâches d’intégration : Flow, Logic Apps, Functions et WebJobs.'
-services: functions,app-service\logic
+services: functions, logic-apps
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-tags: ''
+manager: jeconnoc
 keywords: microsoft flow, flow, logic apps, azure functions, functions, azure webjobs, webjobs, traitement d’événements, calcul dynamique, architecture sans serveur
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9e79cba0b186ace97609409f49369ac89b5a1eeb
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 789b572a1d3b049bcfd9a739182c49c4da27fc96
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346281"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817005"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Comparer Flow, Logic Apps, Functions et WebJobs
 
@@ -56,7 +53,7 @@ Le tableau suivant vous aide à déterminer si Flow ou Logic Apps convient le mi
 
 Functions et Logic Apps sont des services Azure qui proposent des charges de travail sans serveur. Azure Functions est un service de calcul sans serveur, alors qu’Azure Logic Apps fournit des flux de travail sans serveur. Ces services peuvent créer des *orchestrations* complexes. Une orchestration est une collection de fonctions ou d’étapes, appelées *actions* dans Logic Apps, qui sont exécutées pour accomplir une tâche complexe. Par exemple, pour traiter un lot de commandes vous pourrez exécuter plusieurs instances d’une fonction en parallèle, attendre que toutes les instances se terminent et exécuter une fonction qui calcule un résultat de l’agrégat.
 
-Pour Azure Functions, vous développez des orchestrations en écrivant du code et en utilisant [l’extension Fonctions durables ](durable-functions-overview.md) (en préversion). Pour Logic Apps, vous créez des orchestrations en utilisant une interface graphique utilisateur ou en modifiant des fichiers config.
+Pour Azure Functions, vous développez des orchestrations en écrivant du code et en utilisant l’[extension Durable Functions](durable-functions-overview.md). Pour Logic Apps, vous créez des orchestrations en utilisant une interface graphique utilisateur ou en modifiant des fichiers config.
 
 Vous pouvez mélanger et associer les services lorsque vous créez une orchestration, en appelant des fonctions à partir d’applications logiques et inversement. Vous pouvez opter pour l’un ou l’autre des services pour créer chacune de vos orchestrations en fonction des capacités de ceux-ci ou de vos préférences. Le tableau suivant répertorie certaines des principales différences entre ces services :
  
@@ -65,7 +62,7 @@ Vous pouvez mélanger et associer les services lorsque vous créez une orchestra
 | Développement | Orienté code (impératif) | Orienté concepteur (déclaratif) |
 | Connectivité | [Environ une douzaine de types de liaison intégrés](functions-triggers-bindings.md#supported-bindings), écriture de code pour les liaisons personnalisées | [Grande collection de connecteurs](../connectors/apis-list.md), [Enterprise Integration Pack pour les scénarios B2B](../logic-apps/logic-apps-enterprise-integration-overview.md), [intégration de connecteurs personnalisés](../logic-apps/custom-connector-overview.md) |
 | Actions | Chaque activité est une fonction Azure ; écriture de code pour les fonctions de l’activité |[Grande collection d’actions prédéfinies](../logic-apps/logic-apps-workflow-actions-triggers.md)|
-| Surveillance | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Operations Management Suite](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
+| Surveillance | [Azure Application Insights](../application-insights/app-insights-overview.md) | [Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md)|
 | gestion | [API REST](durable-functions-http-api.md), [Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Portail Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), [API REST](https://docs.microsoft.com/rest/api/logic/), [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/?view=azurermps-5.6.0), [Visual Studio](https://docs.microsoft.com/azure/logic-apps/manage-logic-apps-with-visual-studio) |
 | Contexte d’exécution | Exécution possible [en local](functions-runtime-overview.md) ou dans le cloud. | Exécution uniquement dans le cloud.|
 

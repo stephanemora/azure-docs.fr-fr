@@ -1,30 +1,32 @@
 ---
-title: Démarrage rapide de l’API Émotion avec cURL | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour une prise en main rapide de l’API Émotion avec cURL dans Cognitive Services.
+title: 'Démarrage rapide : reconnaître les émotions sur des visages dans une image - API Émotion, cURL'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Émotion avec cURL.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: a7ca2cac718797462bb4dc889b3f1361b252435e
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ROBOTS: NOINDEX
+ms.openlocfilehash: dfdaa89c9d29e419539f385f601dc7f264bf838e
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021096"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237073"
 ---
-# <a name="emotion-api-curl-quick-start"></a>Démarrage rapide de l’API Émotion avec cURL
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Démarrage rapide : générer une application permettant de reconnaître des émotions sur des visages dans une image.
 
 > [!IMPORTANT]
-> La préversion de l’API Vidéo a pris fin le 30 octobre 2017. Essayez la nouvelle [préversion de l’API Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) pour extraire facilement des insights des vidéos et améliorer les expériences de découverte de contenu, telles que les résultats de recherche, en détectant le texte parlé, les visages, les personnes et les émotions. [Plus d’informations](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
+> L'API Émotion sera déconseillée à partir du 15 février 2019. La fonction de reconnaissance des émotions est maintenant disponible de façon générale dans le cadre de l’[API Visage](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-Cet article fournit des informations et des exemples de code pour une prise en main rapide de la [méthode Recognize de l’API Émotion](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) avec cURL afin de reconnaître les émotions exprimées par une ou plusieurs personnes dans une image. 
+Cet article fournit des informations et des exemples de code pour une prise en main rapide de la [méthode Recognize de l’API Émotion](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) avec cURL afin de reconnaître les émotions exprimées par une ou plusieurs personnes dans une image.
 
 ## <a name="prerequisite"></a>Configuration requise
-* Obtenez votre clé d’abonnement gratuite [à cette adresse](https://azure.microsoft.com/try/cognitive-services/).
+* Obtenez votre clé d’abonnement gratuite [à cette adresse](https://azure.microsoft.com/try/cognitive-services/)
 
 ## <a name="recognize-emotions-curl-example-request"></a>Exemple de requête de reconnaissance d’émotions avec cURL
 
@@ -38,16 +40,16 @@ curl -v -X POST "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recogni
 -H "Content-Type: application/json"
 -H "Ocp-Apim-Subscription-Key: {subscription key}"
 
---data-ascii "{body}" 
+--data-ascii "{body}"
 ```
 
 ## <a name="recognize-emotions-sample-response"></a>Exemple de réponse de la reconnaissance d’émotions
-Un appel réussi renvoie un tableau comprenant les entrées de visages et les résultats d’émotion associés, classés par taille du rectangle du visage dans l’ordre décroissant. Une réponse vide indique qu’aucun visage n’a été détecté. Une entrée d’émotion contient les champs suivants :
-* faceRectangle : emplacement du rectangle du visage sur l’image.
-* scores : résultats d’émotion pour chaque visage sur l’image. 
+Un appel réussi retourne un tableau comprenant les entrées de visages et les résultats d’émotion associés, classés par taille du rectangle du visage dans l’ordre décroissant. Une réponse vide indique qu’aucun visage n’a été détecté. Une entrée d’émotion contient les champs suivants :
+* faceRectangle : emplacement du rectangle du visage sur l’image.
+* scores : résultats d’émotion pour chaque visage sur l’image.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {
@@ -68,4 +70,3 @@ application/json
     }
   }
 ]
-

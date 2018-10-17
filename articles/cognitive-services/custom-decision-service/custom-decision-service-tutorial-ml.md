@@ -1,21 +1,23 @@
 ---
-title: Machine Learning - Azure Cognitive Services | Microsoft Docs
-description: Didacticiel pour le Machine Learning dans le Service Décision personnalisée Azure, une API cloud d’aide à la prise de décision contextuelle.
+title: 'Didacticiel : Personnalisation et définition des caractéristiques - Service Décision personnalisée'
+titlesuffix: Azure Cognitive Services
+description: Didacticiel sur la personnalisation et ma définition des caractéristiques de Machine Learning dans le Service Décision personnalisée.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
-ms.openlocfilehash: 50814d67ee39c6657954610358462d877843416e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369985"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869584"
 ---
-# <a name="machine-learning"></a>Apprentissage automatique
+# <a name="tutorial-featurization-and-feature-specification"></a>Didacticiel : Personnalisation et définition des caractéristiques
 
 Ce didacticiel traite des fonctionnalités Machine Learning avancées du Service Décision personnalisée. Le didacticiel compose de deux parties : [personnalisation](#featurization-concepts-and-implementation) et [spécification de fonctionnalité](#feature-specification-format-and-apis). La personnalisation fait référence à la représentation de vos données en tant que « fonctionnalités » pour Machine Learning. La spécification de fonctionnalité traite du format JSON et des API auxiliaires pour spécifier des fonctionnalités.
 
@@ -45,7 +47,7 @@ La traduction en fonctionnalités internes est la suivante :
 
 Certaines fonctionnalités font référence à la décision entière et sont les mêmes pour toutes les actions. Nous les appelons des *fonctionnalités partagées*. Certaines autres fonctionnalités sont spécifiques à une action particulière. Nous les appelons des *fonctionnalités dépendantes de l’action* (ADF).
 
-Dans l’exemple exécuté, les fonctionnalités partagées peuvent décrire l’utilisateur et/ou l’état du monde. Fonctionnalités comme la géolocalisation, l’âge et le sexe de l’utilisateur, et les principaux événements qui sont produisent maintenant. Les fonctionnalités dépendantes de l’action peuvent décrire les propriétés d’un article donné, comme les sujets abordés dans cet article.
+Dans l’exemple exécuté, les fonctionnalités partagées peuvent décrire l’utilisateur et/ou l’état du monde. Fonctionnalités comme la géolocalisation, l’âge et le sexe de l’utilisateur, et les principaux événements qui se produisent maintenant. Les fonctionnalités dépendantes de l’action peuvent décrire les propriétés d’un article donné, comme les sujets abordés dans cet article.
 
 ### <a name="interacting-features"></a>Fonctionnalités d’interaction
 

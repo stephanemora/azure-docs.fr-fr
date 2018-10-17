@@ -1,22 +1,23 @@
 ---
-title: Exécuter le modèle TensorFlow dans Python - Service Vision personnalisée - Azure Cognitive Services | Microsoft Docs
-description: Exécuter le modèle TensorFlow dans Python
+title: 'Didacticiel : exécuter le modèle TensorFlow dans Python - Service Vision personnalisée'
+titlesuffix: Azure Cognitive Services
+description: Exécutez un modèle TensorFlow dans Python.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: areddish
-ms.openlocfilehash: d31036404604104ca28328b6c8bc5d3ca74d83ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 26427406b045b96f2f3f612e4444b7dc2afcefc6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370545"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247310"
 ---
-# <a name="run-tensorflow-model-in-python"></a>Exécuter le modèle TensorFlow dans Python
+# <a name="tutorial-run-tensorflow-model-in-python"></a>Didacticiel : exécuter le modèle TensorFlow dans Python
 
 Une fois que vous avez [exporté votre modèle TensorFlow](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) à partir du Service Vision personnalisée, ce démarrage rapide vous montrera comment utiliser ce modèle localement pour classer des images.
 
@@ -177,7 +178,7 @@ with tf.Session() as sess:
     predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
 ```
 
-## <a name="view-the-results"></a>Afficher les résultats
+## <a name="view-the-results"></a>View the results
 
 Les résultats de l’exécution du tenseur d’image dans le modèle doivent ensuite être mappés aux étiquettes.
 
@@ -189,8 +190,8 @@ Les résultats de l’exécution du tenseur d’image dans le modèle doivent en
 
     # Or you can print out all of the results mapping labels to probabilities.
     label_index = 0
-    for p in predictions:
-        truncated_probablity = np.float64(round(p,8))
+    for p in predictions[0]:
+        truncated_probablity = np.float64(np.round(p,8))
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```

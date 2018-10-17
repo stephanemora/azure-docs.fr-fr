@@ -1,22 +1,27 @@
 ---
-title: Vue d’ensemble de l’API Web Language Model - Azure Cognitive Services | Microsoft Docs
+title: Vue d’ensemble de l’API Web Language Model
+titleSuffix: Azure Cognitive Services
 description: L’API Web Language Model dans Microsoft Cognitive Services fournit des outils de pointe pour le traitement en langage naturel.
 services: cognitive-services
 author: piyushbehre
-manager: yanbo
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: web-language-model
 ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
-ms.openlocfilehash: dc5dc0519e33e024014033ac5260004482b419c2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ROBOTS: NOINDEX
+ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096953"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48039989"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Qu’est-ce que l’API Modèle de langage web ? (Préversion)
+
+> [!IMPORTANT]
+> La préversion de Web Language Model a été désactivée le 9 août 2018. Nous vous recommandons d’utiliser les [modules d’analyse de texte Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) pour le traitement et l’analyse de texte.
 
 L’API Web Language Model de Microsoft est un service cloud basé sur REST, fournissant des outils de pointe pour le traitement en langage naturel. À l’aide de cette API, votre application peut tirer parti de la puissance de Big Data par le biais de modèles de langage entraînés sur les corpus issus du web et collectés par Bing sur le marché en-US.
 

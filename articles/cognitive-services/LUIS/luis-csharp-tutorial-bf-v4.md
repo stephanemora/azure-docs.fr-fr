@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/25/2018
 ms.author: diberry
-ms.openlocfilehash: f8350d46fecff726dd9f591fe3df0272f556b3e7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ce5b704a7ac251621698352608ea3eefa4629aea
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168134"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886542"
 ---
 # <a name="tutorial-luis-bot-in-c"></a>Tutoriel : Bot LUIS en C#
 À l’aide de C#, vous pouvez créer un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot utilise l’application HomeAutomation pour implémenter une solution de bot. Le bot est créé avec le [bot d’application web](https://docs.microsoft.com/azure/bot-service/) Azure et [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
@@ -286,20 +286,20 @@ Dans le fichier `BasicBot.cs`, ajoutez du code pour gérer les nouvelles intenti
 
     ```JSON
     TurnOn intent found, JSON response: {"$instance":{“HomeAutomation_Device”:[{“startIndex”:23,“endIndex”:29,“score”:0.9776345,“text”:“lights”,“type”:“HomeAutomation.Device”}],“HomeAutomation_Room”:[{“startIndex”:12,“endIndex”:22,“score”:0.9079433,“text”:“livingroom”,“type”:“HomeAutomation.Room”}]},“HomeAutomation_Device”:[“lights”],“HomeAutomation_Room”:[“livingroom”]}
-    ```    ```
+    ```    
 
-## Learn more about Bot Framework
-Azure Bot service uses the Bot Framework SDK. Learn more about the SDK and bot framework:
+## <a name="learn-more-about-bot-framework"></a>En savoir plus sur Bot Framework
+Le service de bot Azure utilise le SDK de Bot Framework. Découvrez le SDK et Bot Framework :
 
-* [Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4 documentation
-* [Bot Builder Samples](https://github.com/Microsoft/botbuilder-samples)
-* [Bot Builder SDK](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
-* [Bot Builder tools](https://github.com/Microsoft/botbuilder-tools):
+* Documentation [d’Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
+* [Exemples Bot Builder](https://github.com/Microsoft/botbuilder-samples)
+* [SDK Bot Builder](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [Outils de Bot Builder](https://github.com/Microsoft/botbuilder-tools)
 
-## Next steps
+## <a name="next-steps"></a>Étapes suivantes
 
-You created an Azure bot service, copied the bot secret and `.bot` file path, downloaded the zip file of the code. You added the prebuilt HomeAutomation domain to the LUIS app created as part of the new Azure bot service, then trained and published the app again. You extracted the code project, created an environment file (`.env`), and set the bot secret and the `.bot` file path. In the bot.js file, you added code to handle the two new intents. Then you tested the bot in the bot emulator to see the LUIS response for an utterance of one of the new intents. 
+Vous avez créé un service de bot Azure, copié le secret de bot et le chemin d’accès au fichier `.bot`, puis téléchargé le fichier zip du code. Vous avez ajouté le domaine HomeAutomation prédéfini à l’application LUIS créée dans le cadre du nouveau service de bot Azure, puis entraîné et republié l’application. Vous avez extrait le projet de code, créé un fichier d’environnement (`.env`) et défini le secret de bot ainsi que le chemin d’accès au fichier `.bot`. Dans le fichier bot.js, vous avez ajouté le code pour gérer les deux nouvelles intentions. Ensuite, vous avez testé le bot dans l’émulateur de bot afin de voir la réponse LUIS pour un énoncé d’une des nouvelles intentions. 
 
 
 > [!div class="nextstepaction"]
-> [Build a custom domain in LUIS](luis-quickstart-intents-only.md)
+> [Générer un domaine personnalisé dans LUIS](luis-quickstart-intents-only.md)

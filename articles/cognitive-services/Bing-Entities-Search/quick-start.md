@@ -1,29 +1,28 @@
 ---
-title: Guide de démarrage rapide de l’API Recherche d’entités | Microsoft Docs
-description: Prise en main de l’API Recherche d’entités Bing.
+title: 'Démarrage rapide : API Recherche d’entités Bing'
+description: Montre comment prendre en main l’API Recherche d’entités Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: B206A254-B7E9-49FF-AFD5-87B1E4D6D30B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: 12031d2447920c7e2d6180f35cf4fb29aa1b6150
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ffc9ebb21c6646b1a39af4659053adf4157d204b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367937"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813955"
 ---
-# <a name="making-your-first-entities-request"></a>Effectuer votre première requête d’entités
+# <a name="quickstart-making-your-first-bing-entity-search-request"></a>Démarrage rapide : votre première demande de recherche d’entités Bing
 
-L’API Recherche d’entités envoie une requête de recherche à Bing et obtient des résultats comprenant des entités et des lieux. Les résultats de lieux incluent les restaurants, les hôtels et d’autres commerces locaux. Pour les lieux, la requête peut spécifier le nom du commerce local ou elle peut demander une liste (par exemple, les restaurants dans ma zone). Les résultats d’entités incluent des personnes, des lieux ou d’autres éléments. Dans ce contexte, les lieux correspondent à des sites touristiques, des États, des pays, etc. 
+L’API Recherche d’entités Bing envoie une requête de recherche à Bing et obtient des résultats comprenant des entités et des lieux. Les résultats de lieux incluent les restaurants, les hôtels et d’autres commerces locaux. Pour les lieux, la requête peut spécifier le nom du commerce local ou elle peut demander une liste (par exemple, les restaurants dans ma zone). Les résultats d’entités incluent des personnes, des lieux ou d’autres éléments. Dans ce contexte, les lieux correspondent à des sites touristiques, des États, des pays, etc. 
 
 ## <a name="first-steps"></a>Premières étapes
 
-Avant de passer votre premier appel d’API, vous devez obtenir une clé d’abonnement Cognitive Services. Pour obtenir une clé, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Si l’API Recherche d’entités n’est pas disponible dans la partie supérieure, cliquez sur l’onglet **Recherche** et faites défiler la page jusqu’à ce que vous la trouviez.)
+Avant de pouvoir passer votre premier appel, vous devez obtenir une clé d’abonnement Cognitive Services. Pour obtenir une clé, consultez [Essayer Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-entities-search-api). (Si l’API Recherche d’entités n’est pas disponible dans la partie supérieure, cliquez sur l’onglet **Recherche** et faites défiler la page jusqu’à ce que vous la trouviez.)
 
 ## <a name="the-endpoint"></a>Point de terminaison
 
@@ -41,16 +40,16 @@ Nous vous recommandons de générer toutes les requêtes à partir d’un serveu
 
 La requête doit indiquer le paramètre [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query) qui contient le terme de recherche de l’utilisateur. La requête doit également indiquer le paramètre [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#mkt) qui vous permet de choisir le marché dont proviennent les résultats. Pour obtenir la liste complète des paramètres de requête facultatifs, consultez la page [Paramètres de requête](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#query-parameters). L’URL encode tous les paramètres de requête.  
   
-La requête doit indiquer l’en-tête [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey). Nous vous conseillons également d’indiquer les en-têtes suivants (qui sont facultatifs) :  
+La requête doit indiquer l’en-tête [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#subscriptionkey). Nous vous conseillons également d’indiquer les en-têtes suivants (qui sont facultatifs) :  
   
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientid)  
 -   [X-MSEdge-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#clientip)  
 -   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#location)  
 
-Les en-têtes relatifs à l’IP et à l’emplacement du client sont importants, car ils permettent de renvoyer du contenu géolocalisé.  
+Les en-têtes d’emplacement et d’adresse IP client sont importants, car ils permettent de renvoyer du contenu géolocalisé.  
 
-Pour obtenir la liste complète de tous les en-têtes de requête et de réponse, consultez la page [Headers (En-têtes)](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
+Pour obtenir la liste complète des en-têtes de requête et de réponse, consultez la page [En-têtes](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#headers).
 
 ## <a name="the-request"></a>Requête
 
@@ -66,7 +65,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Si vous appelez l’une des API Bing pour la première fois, n’incluez pas l’en-tête ID client. Indiquez uniquement l’ID client si vous avez précédemment appelé une API Bing et que Bing a retourné un ID client pour la combinaison utilisateur/appareil.
+Si vous appelez l’une des API Bing pour la première fois, n’incluez pas l’en-tête ID client. Indiquez uniquement l’ID client si vous avez précédemment appelé une API Bing et que Bing a renviyé un ID client pour la combinaison utilisateur/appareil.
 
 ## <a name="the-response"></a>Réponse
 

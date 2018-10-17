@@ -1,32 +1,34 @@
 ---
-title: Appeler un point de terminaison à l’aide de Node.js - Recherche personnalisée Bing - Microsoft Cognitive Services
-description: Ce guide de démarrage rapide montre comment demander les résultats de la recherche à partir de votre instance de recherche personnalisée en utilisant Node.js pour appeler le point de terminaison Recherche personnalisée Bing.
+title: 'Démarrage rapide : appeler un point de terminaison à l’aide de C# - Recherche personnalisée Bing'
+titlesuffix: Azure Cognitive Services
+description: Ce guide de démarrage rapide montre comment demander les résultats de la recherche depuis votre instance de recherche personnalisée, en utilisant C# pour appeler le point de terminaison Recherche personnalisée Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 73c31c7175bd4dfcb182fb76784937c176ac7702
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1c3b1031c2d08b1f346216b54d351c99f01db933
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977874"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814863"
 ---
-# <a name="call-bing-custom-search-endpoint-nodejs"></a>Appeler le point de terminaison Recherche personnalisée Bing (Node.js)
+# <a name="quickstart-call-bing-custom-search-endpoint-c"></a>Démarrage rapide : appeler un point de terminaison Recherche personnalisée Bing (C#)
 
-Ce guide de démarrage rapide montre comment demander les résultats de la recherche à partir de votre instance de recherche personnalisée en utilisant Node.js pour appeler le point de terminaison Recherche personnalisée Bing. 
+Ce guide de démarrage rapide montre comment demander les résultats de la recherche depuis votre instance de recherche personnalisée, en utilisant C# pour appeler le point de terminaison Recherche personnalisée Bing. 
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce démarrage rapide, les éléments suivants sont requis :
 
 - Une instance de recherche personnalisée prête à l’emploi. Consultez [Créer votre première instance Recherche personnalisée Bing](quick-start.md).
-- [Node.js](https://www.nodejs.org/) (déjà installé).
+- [.NET core](https://www.microsoft.com/net/download/core) installé.
 - Une clé d’abonnement Vous pouvez obtenir une clé d’abonnement quand vous activez votre [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), ou vous pouvez utiliser une clé d’abonnement payant de votre tableau de bord Azure (voir [Compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+
 
 ## <a name="run-the-code"></a>Exécuter le code
 
@@ -36,48 +38,99 @@ Pour exécuter cet exemple, suivez ces étapes :
   
 2. À partir d’un terminal ou d’une invite de commandes, accédez au dossier que vous venez de créer.  
   
-3. Installez le module du nœud **request** :
-    <pre>
-    npm install request
-    </pre>  
-    
-4. Créez un fichier nommé BingCustomSearch.js dans le dossier que vous avez créé et copiez-y le code suivant. Remplacez **YOUR-SUBSCRIPTION-KEY** et **YOUR-CUSTOM-CONFIG-ID** par votre clé d’abonnement et votre ID de configuration.  
+3. Exécutez les commandes suivantes :
+    ```
+    dotnet new console -o BingCustomSearch
+    cd BingCustomSearch
+    dotnet add package Newtonsoft.Json
+    dotnet restore
+    ```
   
-    ``` javascript
-    var request = require("request");
+4. Copiez le code suivant dans Program.cs. Remplacez **YOUR-SUBSCRIPTION-KEY** et **YOUR-CUSTOM-CONFIG-ID** par votre clé d’abonnement et votre ID de configuration.
+
+    ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Web;
+    using Newtonsoft.Json;
     
-    var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
-    var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
-    var searchTerm = 'microsoft';
+    namespace bing_custom_search_example_dotnet
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+                var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
+                var searchTerm = args.Length > 0 ? args[0]: "microsoft";            
     
-    var options = {
-        url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
-          'q=' + searchTerm + 
-          '&customconfig=' + customConfigId,
-        headers: {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey
+                var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
+                    "q=" + searchTerm +
+                    "&customconfig=" + customConfigId;
+    
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                var httpResponseMessage = client.GetAsync(url).Result;
+                var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
+                BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
+                
+                for(int i = 0; i < response.webPages.value.Length; i++)
+                {                
+                    var webPage = response.webPages.value[i];
+                    
+                    Console.WriteLine("name: " + webPage.name);
+                    Console.WriteLine("url: " + webPage.url);                
+                    Console.WriteLine("displayUrl: " + webPage.displayUrl);
+                    Console.WriteLine("snippet: " + webPage.snippet);
+                    Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
+                    Console.WriteLine();
+                }            
+            }
+        }
+    
+        public class BingCustomSearchResponse
+        {        
+            public string _type{ get; set; }            
+            public WebPages webPages { get; set; }
+        }
+    
+        public class WebPages
+        {
+            public string webSearchUrl { get; set; }
+            public int totalEstimatedMatches { get; set; }
+            public WebPage[] value { get; set; }        
+        }
+    
+        public class WebPage
+        {
+            public string name { get; set; }
+            public string url { get; set; }
+            public string displayUrl { get; set; }
+            public string snippet { get; set; }
+            public DateTime dateLastCrawled { get; set; }
+            public string cachedPageUrl { get; set; }
+            public OpenGraphImage openGraphImage { get; set; }        
+        }
+        
+        public class OpenGraphImage
+        {
+            public string contentUrl { get; set; }
+            public int width { get; set; }
+            public int height { get; set; }
         }
     }
+    ```
+6. Créez l’application à l’aide de la commande suivante. Notez le chemin de la DLL qui est référencé par la sortie de commande.
+
+    <pre>
+    dotnet build 
+    </pre>
     
-    request(options, function(error, response, body){
-        var searchResponse = JSON.parse(body);
-        for(var i = 0; i < searchResponse.webPages.value.length; ++i){
-            var webPage = searchResponse.webPages.value[i];
-            console.log('name: ' + webPage.name);
-            console.log('url: ' + webPage.url);
-            console.log('displayUrl: ' + webPage.displayUrl);
-            console.log('snippet: ' + webPage.snippet);
-            console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
-            console.log();
-        }
-    })
-    ```  
-  
-6. Exécutez le code à l’aide de la commande suivante :  
-  
-    ```    
-    node BingCustomSearch.js
-    ``` 
+7. Exécutez l’application à l’aide de la commande suivante en remplaçant **PATH TO OUTPUT** par le chemin de la DLL référencé dans l’étape 6.
+
+    <pre>    
+    dotnet **PATH TO OUTPUT**
+    </pre>
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Configurer votre expérience d’interface utilisateur hébergée](./hosted-ui.md)

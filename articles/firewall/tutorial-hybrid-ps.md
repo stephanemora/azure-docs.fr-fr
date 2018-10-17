@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 10/2/2018
 ms.author: victorh
-ms.openlocfilehash: 919051a945d423a104b286e9c5703c5b749cf026
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946457"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856069"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
@@ -134,6 +134,28 @@ $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
+## <a name="create-and-configure-the-onprem-vnet"></a>Créer et configurer le réseau virtuel OnPrem
+
+Définissez les sous-réseaux qui doivent être inclus dans le réseau virtuel :
+
+```azurepowershell
+$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
+$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
+```
+
+Maintenant, créez le réseau virtuel OnPrem :
+
+```azurepowershell
+$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
+-Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
+```
+Demandez l’allocation d’une adresse IP publique à la passerelle que vous allez créer pour le réseau virtuel. Notez que la valeur *AllocationMethod* est **dynamique**. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle de façon dynamique. 
+
+  ```azurepowershell
+  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Dynamic
+```
+
 ## <a name="configure-and-deploy-the-firewall"></a>Configurer et déployer le pare-feu
 
 Déployez maintenant le pare-feu dans le réseau virtuel hub.
@@ -154,11 +176,13 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>Configurer des règles de réseau
 
+<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+   -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
+
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
-$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort *
+
 $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
@@ -182,7 +206,7 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Créer et connecter les passerelles VPN
 
-Les réseaux virtuels hub et OnPrem sont connectés via une passerelle VPN.
+Les réseaux virtuels hub et OnPrem sont connectés via des passerelles VPN.
 
 ### <a name="create-a-vpn-gateway-for-the-hub-vnet"></a>Créer une passerelle VPN pour le réseau virtuel hub
 
@@ -262,27 +286,7 @@ Une fois la cmdlet exécutée, affichez les valeurs. Dans l’exemple ci-dessous
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>Créer et configurer le réseau virtuel OnPrem
 
-Définissez les sous-réseaux qui doivent être inclus dans le réseau virtuel :
-
-```azurepowershell
-$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
-$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
-```
-
-Maintenant, créez le réseau virtuel OnPrem :
-
-```azurepowershell
-$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
-```
-Demandez l’allocation d’une adresse IP publique à la passerelle que vous allez créer pour le réseau virtuel. Notez que la valeur *AllocationMethod* est **dynamique**. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle de façon dynamique. 
-
-  ```azurepowershell
-  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
-```
 
 ## <a name="peer-the-hub-and-spoke-vnets"></a>Appairer les réseaux virtuels hub et spoke
 
@@ -300,6 +304,9 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 Ensuite, créez deux itinéraires : 
 - Un itinéraire à partir du sous-réseau de passerelle hub vers le sous-réseau spoke via l’adresse IP du pare-feu
 - Un itinéraire par défaut à partir du sous-réseau spoke via l’adresse IP du pare-feu
+
+> [!NOTE]
+> Pare-feu Azure effectue un apprentissage de vos réseaux locaux à l’aide du protocole BGP. Il peut s’agir d’un itinéraire par défaut qui achemine le trafic Internet sur votre réseau local. Si vous souhaitez plutôt que le trafic Internet soit envoyé directement du pare-feu à Internet, ajoutez un itinéraire par défaut défini par l’utilisateur (0.0.0.0.0/0) sur AzureFirewallSubnet avec le prochain type de tronçon **Internet**. Votre trafic de destination local est toujours acheminé de force par tunnel via la passerelle VPN/ExpressRoute en utilisant les itinéraires plus précis appris par le protocole BGP.
 
 ```azurepowershell
 #Create a route table
@@ -397,8 +404,9 @@ Set-AzureRmVMExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
+```
 
-#Create a host firewall rule to allow ping in
+<!---#Create a host firewall rule to allow ping in
 Set-AzureRmVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -407,8 +415,8 @@ Set-AzureRmVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
-    -Location $Location1
-```
+    -Location $Location1--->
+
 
 ### <a name="create-the-onprem-virtual-machine"></a>Créer la machine virtuelle OnPrem
 Il s’agit d’une machine virtuelle simple, à laquelle vous pouvez vous connecter à l’aide du Bureau à distance et de l’adresse IP publique. À partir de là, vous pouvez vous connecter au serveur OnPrem via le pare-feu. Lorsque vous y êtes invité, saisissez le nom d’utilisateur et le mot de passe pour la machine virtuelle.
@@ -431,10 +439,10 @@ $NIC.IpConfigurations.privateipaddress
 ```
 
 1. À partir du portail Azure, connectez-vous à la machine virtuelle **VM-Onprem**.
-2. Ouvrez une invite de commandes Windows PowerShell sur **VM-Onprem** et effectuez un test ping sur l’adresse IP privée pour **VM-spoke-01**.
+<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
-   Vous devez obtenir une réponse.
-1. Ouvrez un navigateur web sur **VM-Onprem**et accédez à http://\<adresse IP privée de VM-spoke-01\>
+   You should get a reply.--->
+2. Ouvrez un navigateur web sur **VM-Onprem**et accédez à http://\<adresse IP privée de VM-spoke-01\>
 
    Vous devez voir la page Internet Information Services par défaut.
 
@@ -444,7 +452,7 @@ $NIC.IpConfigurations.privateipaddress
 
 Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 
-- Vous pouvez effectuer un test ping du serveur sur le réseau virtuel spoke.
+<!---- You can ping the server on the spoke VNet.--->
 - Vous pouvez naviguer sur le serveur web sur le réseau virtuel spoke.
 - Vous pouvez vous connecter au serveur sur le réseau virtuel spoke à l’aide de RDP.
 

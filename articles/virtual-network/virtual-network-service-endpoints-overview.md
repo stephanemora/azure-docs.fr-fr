@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410219"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239181"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -49,7 +49,7 @@ Pour obtenir les notifications les plus récentes, vérifiez la page [Mises à j
 
 Les points de terminaison de service fournissent les avantages suivants :
 
-- **Sécurité améliorée pour vos ressources de service Azure** : avec les points de terminaison de service, les ressources de service Azure peuvent être sécurisées pour votre réseau virtuel. La sécurisation des ressources du service améliore votre sécurité grâce à la suppression complète de l’accès Internet public aux ressources et à l’autorisation du trafic uniquement à partir de votre réseau virtuel.
+- **Sécurité améliorée de vos ressources de service Azure** : l’espace d’adressage privé VNet peut se recouper et ne permet donc pas d’identifier de façon unique le trafic en provenance de votre réseau virtuel. Les points de terminaison de service permettent de sécuriser les ressources de service Azure sur votre réseau virtuel en étendant l’identité du réseau virtuel à ce service. Une fois les points de terminaison de service activés dans votre réseau virtuel, vous pouvez sécuriser les ressources du service Azure pour votre réseau virtuel en ajoutant une règle de réseau virtuel aux ressources. Ainsi, votre sécurité est améliorée grâce à la suppression complète de l’accès Internet public aux ressources et à l’autorisation du trafic uniquement à partir de votre réseau virtuel.
 - **Routage optimal pour le trafic de service Azure à partir de votre réseau virtuel** : actuellement, tous les itinéraires dans votre réseau virtuel qui forcent le trafic Internet vers vos appliances locales et/ou virtuelles, aussi appelé tunneling forcé, forcent également le trafic de service Azure à prendre le même itinéraire que le trafic Internet. Les points de terminaison de service fournissent un routage optimal pour le trafic Azure. 
 
   Les points de terminaison acheminent toujours le trafic de service directement à partir de votre réseau virtuel vers le service sur le réseau principal de Microsoft Azure. La conservation du trafic sur le réseau principal d’Azure vous permet de continuer l’audit et la surveillance du trafic Internet sortant à partir de vos réseaux virtuels, via le tunneling forcé, sans affecter le trafic de service. Découvrez d’autres informations sur [les itinéraires définis par l’utilisateur et le tunneling forcé](virtual-networks-udr-overview.md).

@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0d75a58ddf0607286d41867828119fdd05e07d22
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3d9e00a97355c03da5360846d4cd9f27a8540ed6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985578"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017430"
 ---
 # <a name="example-embed-video-indexer-widgets-into-your-applications"></a>Exemple : Incorporer des widgets Video Indexer dans vos applications
 
@@ -47,15 +47,16 @@ Un widget **Lecteur** vous permet de diffuser la vidéo en continu à l’aide d
 ## <a name="embedding-public-content"></a>Incorporation de contenu public
 
 1. Accédez au site web [Video Indexer](https://www.videoindexer.ai/) et connectez-vous.
-2. Cliquez sur le bouton « Incorporer » qui s’affiche sous la vidéo.
+2. Cliquez sur la vidéo que vous souhaitez utiliser.
+3. Cliquez sur le bouton « Incorporer » qui s’affiche sous la vidéo.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
     Après que vous avez cliqué sur le bouton, une fenêtre d’incorporation s’affiche sur l’écran, vous permettant de choisir le widget à incorporer dans votre application.
     La sélection d’un widget (**Lecteur** ou **Insight cognitifs**) génère le code incorporé afin que vous puissiez le coller dans votre application.
  
-3. Choisissez le type de widget souhaité (**Insight cognitifs** ou **Lecteur**).
-4. Copiez le code incorporé et ajoutez-le à votre application. 
+4. Choisissez le type de widget souhaité (**Insight cognitifs** ou **Lecteur**).
+5. Copiez le code incorporé et ajoutez-le à votre application. 
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 

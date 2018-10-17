@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 11e082ae235706613b0a60b12bc2b27896953508
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 1c0710be11b95b66d16661b5aff9cbf739ccda92
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917696"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901927"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Tutoriel : mettre à niveau Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -60,7 +60,7 @@ Utilisez la commande [az aks upgrade][] pour mettre à niveau le cluster AKS. L�
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.10.6
 ```
 
-L’exemple de sortie condensée ci-après indique que la version *kubernetesVersion* présente à présente la valeur *1.10.6* :
+L’exemple de sortie condensée ci-après indique que la version *kubernetesVersion* présente à présent la valeur *1.10.6* :
 
 ```json
 {
@@ -101,6 +101,17 @@ Name          Location    ResourceGroup    KubernetesVersion    ProvisioningStat
 myAKSCluster  eastus      myResourceGroup  1.10.6               Succeeded            myaksclust-myresourcegroup-19da35-bd54a4be.hcp.eastus.azmk8s.io
 ```
 
+## <a name="delete-the-cluster"></a>Supprimer le cluster
+
+S’agissant de la dernière partie de la série de didacticiels, vous souhaiterez peut-être supprimer le cluster AKS. Les nœuds Kubernetes étant exécutés sur des machines virtuelles Azure, ils continuent d’occasionner des frais même si vous n’utilisez pas le cluster. Utilisez la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources, le service conteneur, ainsi que toutes les ressources associées.
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+> [!NOTE]
+> Lorsque vous supprimez le cluster, le principal de service Azure Active Directory utilisé par le cluster AKS n’est pas supprimé. Pour obtenir des instructions sur la façon de supprimer le principal de service, consultez [Considérations principales et suppression du principal de service AKS][sp-delete].
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez mis à niveau Kubernetes dans un cluster AKS. Vous avez appris à effectuer les actions suivantes :
@@ -125,3 +136,5 @@ Suivez ce lien pour en savoir plus sur AKS.
 [az aks get-upgrades]: /cli/azure/aks#az-aks-get-upgrades
 [az aks upgrade]: /cli/azure/aks#az-aks-upgrade
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-group-delete]: /cli/azure/group#az-group-delete
+[sp-delete]: kubernetes-service-principal.md#additional-considerations

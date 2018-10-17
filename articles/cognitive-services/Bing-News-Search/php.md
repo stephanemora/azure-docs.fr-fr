@@ -1,20 +1,21 @@
 ---
-title: Démarrage rapide PHP pour Azure Cognitive Services, API Recherche d'actualités Bing | Microsoft Docs
-description: Obtenez des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’actualités Bing dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : API Recherche d’actualités Bing, PHP'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Recherche d’actualités Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: a1e62a63ec926b77bca290767ee453cde83de3df
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8f70352a8f9f07b94b53fae0aac286bc65e3f0dc
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370152"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801742"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-php"></a>Démarrage rapide pour l’API Recherche d’actualités Bing avec PHP
 
@@ -26,14 +27,14 @@ Reportez-vous aux [informations de référence sur l’API](https://docs.microso
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. Vous pouvez utiliser un [essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.
+Vous devrez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec les **API Recherche Bing**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) est suffisant pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou d’une clé d’un abonnement payant de votre tableau de bord Azure.
 
 ## <a name="bing-news-search"></a>Recherche d’actualités Bing
 
 L’[API Recherche d'actualités Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) renvoie des résultats de l’actualité à partir du moteur de recherche Bing.
 
 1. Vérifiez que la prise en charge HTTP sécurisée est activée dans `php.ini` comme décrit dans le commentaire de code.
-2. Créez un projet PHP dans votre éditeur ou IDE favori.
+2. Créez un projet PHP dans votre éditeur ou IDE favori.
 3. Ajoutez le code ci-dessous.
 4. Remplacez la valeur `accessKey` par une clé d’accès valide pour votre abonnement.
 5. Exécutez le programme.
@@ -100,7 +101,7 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 
 **Réponse**
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {
@@ -199,5 +200,5 @@ Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suiva
 > [Pagination des actualités](paging-news.md)
 > [Utiliser des marqueurs d’ornement pour surligner du texte](hit-highlighting.md)
 > [Recherche d’actualités sur le web](search-the-web.md)  
-> [Essayez !](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
+> [Essayer](https://azure.microsoft.com/services/cognitive-services/bing-news-search-api/)
 

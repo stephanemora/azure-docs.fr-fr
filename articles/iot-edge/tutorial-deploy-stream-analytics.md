@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: de856aed32b596209f7af2861b76ed6648d0caca
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422743"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067820"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Stream Analytics en tant que module IoT Edge - (prévision)
 
@@ -139,7 +139,9 @@ Lorsque votre travail Stream Analytics est créé dans le portail Azure, vous po
 
 Pour préparer votre travail Stream Analytics à déployer sur un appareil IoT Edge, vous devez associer le travail à un conteneur dans un compte de stockage. Lorsque vous passez au déploiement de votre travail, la définition du travail est exportée vers le conteneur de stockage. 
 
-1. Sous **Configurer**, sélectionnez **Paramètres IoT Edge**.
+1. Sous **Configurer**, sélectionnez **Paramètres du compte de stockage**.
+
+1. Sélectionnez **Ajouter un compte de stockage**. 
 
 1. Sélectionnez votre **Compte de stockage** dans la liste déroulante.
 

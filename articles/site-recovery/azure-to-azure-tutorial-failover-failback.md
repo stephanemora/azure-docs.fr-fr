@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 61b354dfd6f704eb0677991c02f28de08e49ee37
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1c9af5c94aa05f60220080b779921a2c79c322f3
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917497"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067429"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Basculer et restaurer automatiquement des machines virtuelles Azure entre des régions Azure
 
@@ -41,7 +41,7 @@ Ce didacticiel explique comment basculer une seule machine virtuelle Azure vers 
 
    ![Basculement](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
-2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
+2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
 
    * **Dernier** (par défaut) : cette option traite toutes les données dans le service Site Recovery et fournit l’objectif de point de récupération (RPO) le plus bas.
    * **Dernier point traité** : cette option rétablit la machine virtuelle vers le dernier point de récupération ayant été traité par le service Site Recovery.
@@ -71,4 +71,4 @@ Après avoir basculé la machine virtuelle, vous devez la reprotéger afin qu’
 
 ## <a name="fail-back-to-the-primary-region"></a>Effectuer une restauration automatique vers la région primaire
 
-Une fois les machines virtuelles reprotégées, vous pouvez effectuer une restauration automatique vers la région primaire en fonction de vos besoins. Pour ce faire, suivez les instructions de [basculement](#run-a-failover).
+Une fois les machines virtuelles reprotégées, vous pouvez effectuer une restauration automatique vers la région primaire en fonction de vos besoins. Pour effectuer cette opération, configurez un basculement de la région secondaire vers la région primaire, comme décrit dans cet article.

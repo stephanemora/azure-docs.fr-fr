@@ -1,26 +1,25 @@
 ---
-title: 'Démarrage rapide : créer votre premier conteneur Azure Container Instances avec le portail Azure'
-description: Dans le cadre de ce guide de démarrage rapide, vous allez utiliser le portail Azure pour déployer un conteneur dans Azure Container Instances.
+title: 'Démarrage rapide : Exécuter une application dans Azure Container Instances'
+description: Dans ce démarrage rapide, vous allez utiliser le Portail Azure pour déployer une application s’exécutant dans un conteneur Docker sur Azure Container Instances
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6aa6fb27b2aa7c8b9614e5812fadc629b1e185f8
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076236"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857718"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Démarrage rapide : créer son premier conteneur dans Azure Container Instances
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Démarrage rapide : Exécuter une application dans Azure Container Instances
 
-Azure Container Instances facilite la création et la gestion de conteneurs Docker dans Azure, sans avoir à approvisionner les machines virtuelles ou à adopter un service de niveau supérieur. Dans le cadre de ce guide démarrage rapide, vous utilisez le portail Azure pour créer un conteneur dans Azure et pour l’exposer sur Internet avec un nom de domaine complet. Après avoir configuré quelques paramètres, vous voyez ceci dans votre navigateur :
+Utilisez Azure Container Instances pour exécuter, facilement et rapidement, des conteneurs Docker dans Azure. Vous n’avez pas besoin de déployer de machines virtuelles ou d’utiliser une plateforme d’orchestration de conteneur complète telle que Kubernetes. Dans ce démarrage rapide, vous utilisez le Portail Azure pour créer un conteneur dans Azure et mettez à disposition son application avec un nom de domaine complet. Après avoir configuré quelques paramètres et déployé le conteneur, vous pouvez accéder à l’application en cours d’exécution :
 
-![L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur][aci-portal-07]
+![Application déployée dans Azure Container Instances affichée dans le navigateur][aci-portal-07]
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -38,7 +37,7 @@ Entrez les valeurs suivantes dans les zones de texte **Nom du conteneur**, **Ima
 
 * Nom du conteneur : `mycontainer`
 * Image du conteneur : `microsoft/aci-helloworld`
-* Groupe de ressources : `myResourceGroup`
+* Groupe de ressources : **Créer** > `myResourceGroup`
 
 ![Configuration des paramètres de base pour une nouvelle instance de conteneur dans le portail Azure][aci-portal-03]
 
@@ -54,11 +53,11 @@ Une fois la validation terminée, un résumé des paramètres de votre conteneur
 
 ![Résumé des paramètres d’une nouvelle instance de conteneur dans le portail Azure][aci-portal-05]
 
-Quand le déploiement commence, une vignette apparaît sur le tableau de bord de votre portail, indiquant que le déploiement est en cours. Une fois le déploiement terminé, la vignette montre votre nouvelle instance de conteneur.
+Quand le déploiement commence, une notification s’affiche, indiquant que le déploiement est en cours. Une autre notification s’affiche lorsque le groupe de conteneurs a été déployé.
 
 ![Progression de la création d’une nouvelle instance de conteneur dans le portail Azure][aci-portal-08]
 
-Sélectionnez l’instance de conteneur **mycontainer** pour afficher ses propriétés. Prenez note du **nom de domaine complet** de l’instance de conteneur, ainsi que de son **état**.
+Ouvrez la vue d’ensemble du groupe de conteneurs en accédant à **Groupes de ressources** > **myResourceGroup** > **mycontainer**. Prenez note du **nom de domaine complet** de l’instance de conteneur, ainsi que de son **état**.
 
 ![Vue d’ensemble du groupe de conteneurs dans le portail Azure][aci-portal-06]
 
@@ -66,13 +65,13 @@ Une fois que son **État** est *En cours d’exécution*, accédez au nom de dom
 
 ![L’application déployée à l’aide d’Azure Container Instances est affichée dans le navigateur][aci-portal-07]
 
-Félicitations ! En configurant simplement quelques paramètres, vous avez déployé une application accessible publiquement dans Azure Container Instances.
+Félicitations ! En configurant simplement quelques paramètres, vous avez déployé une application accessible publiquement dans Azure Container Instances.
 
 ## <a name="view-container-logs"></a>Afficher les journaux d’un conteneur
 
 Il est utile d’afficher les journaux d’une instance de conteneur pour résoudre des problèmes liés au conteneur ou à l’application qu’il exécute.
 
-Pour afficher les journaux du conteneur, sous **PARAMÈTRES** , sélectionnez **Conteneurs**, puis **Journaux**. Vous devez normalement voir la requête HTTP GET générée quand vous affichez l’application dans votre navigateur.
+Pour afficher les journaux du conteneur, sous **Paramètres**, sélectionnez **Conteneurs**, puis **Journaux**. Vous devez normalement voir la requête HTTP GET générée quand vous affichez l’application dans votre navigateur.
 
 ![Journaux du conteneur dans le portail Azure][aci-portal-11]
 
@@ -88,7 +87,7 @@ Cliquez sur **Oui** quand la boîte de dialogue de confirmation apparaît.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé une instance de conteneur Azure à partir d’une image dans le registre du Hub Docker public. Si vous voulez créer une image conteneur par vous-même et la déployer dans Azure Container Instances à partir d’un registre de conteneurs Azure privé, passez au tutoriel Azure Container Instances.
+Dans ce guide de démarrage rapide, vous avez créé une instance de conteneur Azure à partir d’une image dans le registre du Hub Docker public. Si vous voulez créer une image conteneur et la déployer à partir d’un registre de conteneurs Azure privé, passez au didacticiel Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Didacticiel Azure Container Instances](./container-instances-tutorial-prepare-app.md)

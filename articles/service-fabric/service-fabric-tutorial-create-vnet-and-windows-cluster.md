@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2f503a534f79440e6e6c572b7fb29ce3048ee7bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410015"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831567"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Didacticiel : déployer un cluster Windows Service Fabric dans un réseau virtuel Azure
 
@@ -43,7 +43,7 @@ Cette série de tutoriels vous montre comment effectuer les opérations suivante
 > * Créer un cluster sécurisé sur Azure
 > * [Mettre à l’échelle un cluster](service-fabric-tutorial-scale-cluster.md)
 > * [Mettre à niveau le runtime d’un cluster](service-fabric-tutorial-upgrade-cluster.md)
-> * [Suppression d'un cluster](service-fabric-tutorial-delete-cluster.md)
+> * [Supprimer un cluster](service-fabric-tutorial-delete-cluster.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -88,7 +88,7 @@ Ce modèle déploie un cluster sécurisé de cinq machines virtuelles et un type
 
 ### <a name="service-fabric-cluster"></a>Cluster Service Fabric
 
-Un cluster Windows est déployé avec les caractéristiques suivantes :
+Dans la ressource **Microsoft.servicefabric/clusters**, un cluster Windows est configuré avec les caractéristiques suivantes :
 
 * un type de nœud unique
 * cinq nœuds dans le type de nœud principal (configurable dans les paramètres du modèle)
@@ -103,7 +103,7 @@ Un cluster Windows est déployé avec les caractéristiques suivantes :
 
 ### <a name="azure-load-balancer"></a>Équilibrage de charge Azure
 
-Un équilibreur de charge est déployé, et des sondes et règles sont configurées pour les ports suivants :
+Dans la ressource **Microsoft.Network/loadBalancers**, un équilibreur de charge est configuré et des sondes et règles sont configurées pour les ports suivants :
 
 * point de terminaison de connexion client : 19000
 * point de terminaison de passerelle HTTP : 19080
@@ -111,16 +111,16 @@ Un équilibreur de charge est déployé, et des sondes et règles sont configur�
 * port de l’application : 443
 * proxy inverse de Service Fabric : 19081
 
-Si d’autres ports de l’application sont nécessaires, vous devez ajuster les ressources Microsoft.Network/loadBalancers et Microsoft.Network/networkSecurityGroups pour autoriser le trafic entrant.
+Si d’autres ports de l’application sont nécessaires, vous devez ajuster les ressources **Microsoft.Network/loadBalancers** et **Microsoft.Network/networkSecurityGroups** pour autoriser le trafic entrant.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>Réseau virtuel, sous-réseau et groupe de sécurité réseau
 
-Les noms du réseau virtuel, du sous-réseau et du groupe de sécurité réseau sont déclarés dans les paramètres du modèle.  Les espaces d’adressage du réseau virtuel et du sous-réseau sont également déclarés dans les paramètres du modèle :
+Les noms du réseau virtuel, du sous-réseau et du groupe de sécurité réseau sont déclarés dans les paramètres du modèle.  Les espaces d’adressage du réseau virtuel et du sous-réseau sont également déclarés dans les paramètres de modèle et configurés dans la ressource **Microsoft.Network/virtualNetworks** :
 
 * espace d’adressage du réseau virtuel : 172.16.0.0/20
 * espace d’adressage de sous-réseau Service Fabric : 172.16.2.0/23
 
-Les règles de trafic entrant suivantes sont activées dans le groupe de sécurité réseau. Vous pouvez modifier les valeurs de port en modifiant les variables de modèle.
+Les règles de trafic entrant suivantes sont activées dans la ressource **Microsoft.Network/networkSecurityGroups**. Vous pouvez modifier les valeurs de port en modifiant les variables de modèle.
 
 * ClientConnectionEndpoint (TCP) : 19000
 * HttpGatewayEndpoint (HTTP/TCP) : 19080
@@ -131,7 +131,7 @@ Les règles de trafic entrant suivantes sont activées dans le groupe de sécuri
 * Plage de ports de l’application : 49152 à 65534 (utilisés pour les communications entre les services ; ne sont pas ouverts sur l’équilibreur de charge)
 * Bloquer tous les autres ports
 
-Si d’autres ports de l’application sont nécessaires, vous devez ajuster les ressources Microsoft.Network/loadBalancers et Microsoft.Network/networkSecurityGroups pour autoriser le trafic entrant.
+Si d’autres ports de l’application sont nécessaires, vous devez ajuster les ressources **Microsoft.Network/loadBalancers** et **Microsoft.Network/networkSecurityGroups** pour autoriser le trafic entrant.
 
 ## <a name="set-template-parameters"></a>Définir les paramètres de modèle
 

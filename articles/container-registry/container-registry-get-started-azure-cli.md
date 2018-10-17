@@ -2,19 +2,18 @@
 title: Démarrage rapide - Créer un registre Docker privé dans Azure avec l’interface de ligne de commande Azure
 description: Apprenez rapidement à créer un registre de conteneurs Docker privé avec l’interface de ligne de commande Azure.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
-ms.author: marsma
+ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: b17df81dd1d972f3e559140e9f43963e9c8cab2a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 57c72056b669865278fa8109cd7f4963a1f0887a
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42023492"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855236"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>Démarrage rapide : Créer un registre de conteneurs à l’aide de l’interface de ligne de commande Azure
 
@@ -22,7 +21,7 @@ Azure Container Registry est un service de registre de conteneurs Docker géré 
 
 Ce guide de démarrage rapide nécessite d’exécuter Azure CLI 2.0.27 ou ultérieur. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][azure-cli].
 
-Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
+Docker doit également être installé en local. Docker fournit des packages qui le configurent facilement sur n’importe quel système [macOS][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
@@ -129,7 +128,7 @@ L’exemple suivant répertorie les étiquettes sur le référentiel **aci-hello
 az acr repository show-tags --name <acrName> --repository aci-helloworld --output table
 ```
 
-Output:
+Sortie :
 
 ```bash
 Result
@@ -177,7 +176,7 @@ Pour voir l’application en cours d’exécution, accédez à l’adresse IP pu
 
 ![Application Hello world dans le navigateur][aci-app-browser]
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete][az-group-delete] pour supprimer le groupe de ressources, l’instance ACR et toutes les images conteneurs.
 

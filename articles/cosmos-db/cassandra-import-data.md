@@ -9,12 +9,12 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 0bf5e47513ded4b2c65e7291db497e53a42776a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976174"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247848"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Migrer vos données vers un compte d’API Cassandra Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Après avoir identifié les exigences de votre charge de travail existante, vous
 
 ## <a name="prerequisites-for-migration"></a>Prérequis pour la migration
 
-* **Créer des tables dans le compte de l’API Cassandra d’Azure Cosmos DB :** avant de commencer la migration des données, créez au préalable toutes vos tables à partir du portail Azure ou de cqlsh.
+* **Créer des tables dans le compte de l’API Cassandra d’Azure Cosmos DB :** avant de commencer la migration des données, créez au préalable toutes vos tables à partir du portail Azure ou de cqlsh. Si vous migrez vers un compte Azure Cosmos DB qui a un débit de niveau de base de données, assurez-vous de fournir une clé de partition lors de la création de conteneurs Azure Cosmos DB.
 
 * **Augmenter le débit :** la durée de la migration de vos données dépend de la quantité de débit que vous avez provisionnée pour les tables dans Azure Cosmos DB. Augmentez le débit pendant la durée de la migration. Si le débit est plus élevé, vous pouvez éviter la limitation de débit et procéder à une migration plus rapide. Une fois que vous avez effectué la migration, diminuez le débit pour réduire les coûts. Pour plus d’informations sur l’augmentation du débit, consultez [définir le débit](set-throughput.md) pour les conteneurs Azure Cosmos DB. Il est également recommandé d’avoir un compte Azure Cosmos DB dans la même région que votre base de données source. 
 

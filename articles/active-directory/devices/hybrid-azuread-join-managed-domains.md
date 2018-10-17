@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b3a3baaf22fa9c382bb45a5b2a2065ef7678faf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222165"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855950"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutoriel : Configurer une jonction Azure Active Directory hybride pour les domaines managés
 
@@ -68,7 +68,7 @@ L’accès des appareils aux ressources Microsoft suivantes depuis le réseau de
 - https://device.login.microsoftonline.com
 - https://autologon.microsoftazuread-sso.com (Si vous utilisez ou prévoyez d’utiliser l’authentification unique fluide)
 
-Si votre organisation nécessite l’accès à Internet via un proxy sortant, à compter de Windows 10 1709, vous pouvez configurer les paramètres du proxy sur votre ordinateur à l’aide d’un objet de stratégie de groupe (GPO). Si la version de Windows qui s’exécute sur votre ordinateur est antérieure à Windows 10 1709, vous devez implémenter la détection automatique de proxy Web (WPAD) pour permettre aux ordinateurs Windows 10 de procéder à l’inscription des appareils auprès d’Azure AD. 
+Si votre organisation nécessite l’accès à Internet via un proxy sortant, à compter de Windows 10 1709, vous pouvez [configurer les paramètres du proxy sur votre ordinateur à l’aide d’un objet de stratégie de groupe (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Si la version de Windows qui s’exécute sur votre ordinateur est antérieure à Windows 10 1709, vous devez implémenter la détection automatique de proxy Web (WPAD) pour permettre aux ordinateurs Windows 10 de procéder à l’inscription des appareils auprès d’Azure AD. 
 
 Si votre organisation nécessite l’accès à Internet via un proxy sortant authentifié, vous devez vous assurer que vos ordinateurs Windows 10 parviennent à s’authentifier correctement sur le proxy sortant. Les ordinateurs Windows 10 procèdent à l’inscription des appareils au moyen du contexte ordinateur, il est donc indispensable de configurer l’authentification du proxy sortant avec le contexte ordinateur. Poursuivez avec la configuration requise pour votre fournisseur de proxy sortant. 
 
@@ -156,7 +156,7 @@ La stratégie ci-après doit être définie sur la valeur **Tous** : **Les utili
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurer les paramètres d’intranet local pour l’inscription des appareils
 
-Pour terminer la jonction Azure AD hybride de vos appareils Windows de bas niveau et éviter les invites de certificat lorsque les appareils s’authentifient auprès d’Azure AD, vous pouvez transmettre une stratégie à vos appareils joints à un domaine et ajouter les URL ci-après à la zone Intranet local dans Internet Explorer :
+Pour terminer la jonction Azure AD Hybride de vos appareils Windows de bas niveau et éviter les invites de certificat lorsque les appareils s’authentifient auprès d’Azure AD, vous pouvez transmettre une stratégie à vos appareils joints à un domaine afin d’ajouter les URL ci-après à la zone Intranet local dans Internet Explorer :
 
 - `https://device.login.microsoftonline.com`
 

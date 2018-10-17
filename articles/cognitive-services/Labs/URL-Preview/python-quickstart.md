@@ -1,21 +1,23 @@
 ---
-title: Démarrage rapide Python pour l’aperçu d’URL de projet - Microsoft Cognitive Services | Microsoft Docs
-description: Exemple de script pour la prise en main rapide avec l’aperçu d’URL de projet dans Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : URL Preview de projet, Python'
+titlesuffix: Azure Cognitive Services
+description: Exemple de script pour la prise en main rapide en utilisant Project URL Preview avec Python.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 78b2d83b02aa9ea32509029c7456e04e420b8572
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: c4af701188c6453bd3c067b838519c32862af13d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369597"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867270"
 ---
-# <a name="url-preview-python-quickstart"></a>Démarrage rapide Python pour l’aperçu d’URL
+# <a name="quickstart-url-preview-with-python"></a>Démarrage rapide : URL Preview avec Python
 
 L’exemple Python suivant crée un aperçu d’Url pour le site web de SwiftKey : https://swiftkey.com/en.
 
@@ -65,6 +67,6 @@ print (json.dumps(json.loads(result), indent=4))
 ````
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide C#](csharp.md)
-- [Démarrage rapide de Java](java-quickstart.md)
+- [Démarrage rapide Java](java-quickstart.md)
 - [Démarrage rapide JavaScript](javascript.md)
 - [Démarrage d’URL Node](node-quickstart.md)

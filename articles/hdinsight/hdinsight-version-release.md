@@ -6,13 +6,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
-ms.date: 09/24/2018
-ms.openlocfilehash: 152a145601dcf4282ec0a3a3b6ebcf37bd11848b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/04/2018
+ms.openlocfilehash: ade162d0261b765336cbff9ea8a6429f9bd2d871
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992964"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801818"
 ---
 # <a name="hdinsight-40-overview-preview"></a>Vue d’ensemble de HDInsight 4.0 (préversion)
 
@@ -93,6 +93,12 @@ Aucun chemin de mise à niveau pris en charge n’est disponible pour les versio
 * HDI 4.0 ne prend pas en charge MapReduce. Utilisez Tez à la place. Découvrez plus en détail [Apache Tez](https://tez.apache.org/).
 
 * La vue Hive n’est plus disponible dans HDI 4.0. 
+
+* L’interpréteur de commandes d’Apache Zeppelin n’est pas pris en charge dans les clusters Spark et Interactive Query.
+
+* Vous ne pouvez pas *désactiver* LLAP sur un cluster Spark-LLAP. Vous pouvez uniquement désactiver LLAP.
+
+* Azure Data Lake Storage Gen2 ne peut pas enregistrer les blocs-notes Juypter dans un cluster Spark.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

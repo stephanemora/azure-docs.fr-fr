@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/16/2018
+ms.date: 09/06/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b5431feec23e2e0681967a9fe0345edc1db567aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d22e5111a0413c1774d4d41290741414c82039f7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513824"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814829"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Démarrage rapide : exécution de votre premier travail Microsoft Azure Batch avec l’API .NET
 
@@ -27,7 +27,7 @@ Ce démarrage rapide exécute un travail Azure Batch à partir d’une applicati
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [Visual Studio IDE](https://www.visualstudio.com/vs) (Visual Studio 2015 ou une version plus récente). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs) ou [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) pour Linux, macOS ou Windows. 
 
 * Un compte Batch et un compte Stockage Azure lié. Pour créer ces comptes, consultez les démarrages rapides Azure Batch à l’aide du [portail Azure](quick-create-portal.md) ou de l’[interface de ligne de commande Azure](quick-create-cli.md). 
 
@@ -37,7 +37,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
-## <a name="download-the-sample"></a>Téléchargez l’exemple
+## <a name="download-the-sample"></a>Télécharger l’exemple
 
 [Téléchargez ou clonez l’exemple d’application](https://github.com/Azure-Samples/batch-dotnet-quickstart) à partir de GitHub. Pour cloner le référentiel d’exemple d’application avec un client Git, utilisez la commande suivante :
 
@@ -60,9 +60,11 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 ## <a name="build-and-run-the-app"></a>Générer et exécuter l’application
 
-Pour afficher le flux de travail Batch en action, générez et exécutez l’application. Après avoir exécuté l’application, passez en revue le code pour savoir ce que fait chaque partie de l’application. 
+Pour afficher le flux de travail Batch en action, générer et exécuter l’application dans Visual Studio ou sur la ligne de commande avec les commandes `dotnet build` et `dotnet run`. Après avoir exécuté l’application, passez en revue le code pour savoir ce que fait chaque partie de l’application. Par exemple, dans Visual Studio :
 
 * Cliquez avec le bouton droit dans l’Explorateur de solutions, puis cliquez sur **Générer la solution**. 
 
@@ -122,9 +124,9 @@ L’application utilise la référence `blobClient` pour créer un conteneur dan
 ```csharp
 List<string> inputFilePaths = new List<string>
 {
-    @"..\..\taskdata0.txt",
-    @"..\..\taskdata1.txt",
-    @"..\..\taskdata2.txt"
+    "taskdata0.txt",
+    "taskdata1.txt",
+    "taskdata2.txt"
 };
 
 List<ResourceFile> inputFiles = new List<ResourceFile>();
@@ -192,7 +194,7 @@ try
 
     job.Commit(); 
 }
-...       
+...
 ```
 
 ### <a name="create-tasks"></a>Création de tâches
@@ -238,7 +240,7 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le comp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez exécuté une petite application générée à l’aide de l’API .NET Batch pour créer un pool et un travail Batch. Le travail a exécuté des tâches d’exemple et téléchargé des sorties créées sur les nœuds. Maintenant que vous maîtriserez les concepts clés du service Batch, vous êtres prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle. Pour en savoir plus sur Azure Batch et parcourir une charge de travail parallèle avec une application réelle, accédez au didacticiel .NET Batch.
+Dans ce guide de démarrage rapide, vous avez exécuté une petite application générée à l’aide de l’API .NET Batch pour créer un pool et un travail Batch. Le travail a exécuté des tâches d’exemple et téléchargé des sorties créées sur les nœuds. Maintenant que vous maîtriserez les concepts clés du service Batch, vous êtes prêt à essayer Azure Batch avec des charges de travail plus réalistes à plus grande échelle. Pour en savoir plus sur Azure Batch et parcourir une charge de travail parallèle avec une application réelle, accédez au didacticiel .NET Batch.
 
 
 > [!div class="nextstepaction"]

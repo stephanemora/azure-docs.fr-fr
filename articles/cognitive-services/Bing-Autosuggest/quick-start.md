@@ -1,25 +1,25 @@
 ---
-title: Démarrage rapide de l’API Suggestion automatique Bing | Microsoft Docs
+title: 'Démarrage rapide : API Suggestion automatique Bing'
+titlesuffix: Azure Cognitive Services
 description: Prise en main de l’API Suggestion automatique Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 1482E781-7352-4A3F-B1D5-B896381348C4
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: a7b54a1fb0b7c76eb72097357a6b51aa02e6e2fd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 446d271854a4e45bcea8c261a0dc078e549f8229
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369973"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830751"
 ---
-# <a name="making-your-first-autosuggest-query"></a>Créer votre première requête Suggestion automatique
+# <a name="quickstart-making-your-first-autosuggest-query"></a>Démarrage rapide : création de votre première requête Suggestion automatique
 
-Avant de passer votre premier appel d’API, vous devez obtenir une clé d’abonnement Cognitive Services. Pour obtenir une clé, rendez-vous sur la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
+Avant de pouvoir passer votre premier appel, vous devez obtenir une clé d’abonnement Cognitive Services. Pour obtenir une clé, rendez-vous sur la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api).
 
 Pour obtenir les résultats de la recherche sur le Web, vous devez envoyer une requête GET au point de terminaison suivant :
 
@@ -34,22 +34,22 @@ https://api.cognitive.microsoft.com/bing/v5.0/Suggestions
 > https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 > ```
 
-Vous devez utiliser le protocole HTTPS pour la requête.
+La requête doit utiliser le protocole HTTPS.
 
 Nous vous recommandons de générer toutes les requêtes à partir d’un serveur. Si vous diffusez la clé dans le cadre d’une application client, vous prenez le risque qu’un tiers malveillant puisse y accéder. Par ailleurs, en appelant l’API à partir d’un serveur, vous disposez d’un unique point de mise à niveau pour les prochaines versions de l’API.
 
 La requête doit indiquer le paramètre [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query) qui contient le terme de recherche partiel de l’utilisateur. La requête peut également indiquer le paramètre [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt) (facultatif), qui vous permet de choisir le marché dont proviennent les résultats. Pour obtenir la liste complète des paramètres de requête facultatifs, consultez la page [Paramètres de requête](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Toutes les valeurs des paramètres de requête doivent être codées au format URL.
 
-La requête doit indiquer l’en-tête [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Nous vous conseillons également d’indiquer les en-têtes suivants (qui sont facultatifs) :
+La requête doit indiquer l’en-tête [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Nous vous conseillons également d’indiquer les en-têtes suivants (qui sont facultatifs) :
 
 - [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
 - [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
 - [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
 - [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
 
-Les en-têtes relatifs à l’IP et à l’emplacement du client sont importants, car ils permettent de renvoyer du contenu géolocalisé.
+Les en-têtes d’emplacement et d’adresse IP client sont importants, car ils permettent de renvoyer du contenu géolocalisé.
 
-Pour obtenir la liste complète de tous les en-têtes de requête et de réponse, consultez la page [Headers (En-têtes)](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
+Pour obtenir la liste complète des en-têtes de requête et de réponse, consultez la page [En-têtes](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers).
 
 ## <a name="the-request"></a>Requête
 

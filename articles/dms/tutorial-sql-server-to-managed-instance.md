@@ -2,27 +2,24 @@
 title: Utiliser DMS pour migrer vers Azure SQL Database Managed Instance | Microsoft Docs
 description: Découvrez comment migrer une instance locale de SQL Server vers Azure SQL Database Managed Instance à l’aide d’Azure Database Migration Service.
 services: dms
-author: edmacauley
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: dbf71b1fcc15743f4670c4072921f1a167a90e97
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 10/10/2018
+ms.openlocfilehash: 2e8e9706a9572b85030a636dd75d4809447eabbc
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887300"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067889"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Migrer SQL Server vers Azure SQL Database Managed Instance hors connexion à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers une instance [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md). Pour des méthodes supplémentaires pouvant nécessiter un effort manuel, voir l’article [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md).
-
-> [!IMPORTANT]
-> Les projets de migration de SQL Server vers Azure SQL Database Managed Instance sont en préversion et soumis aux [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Dans ce didacticiel, vous allez migrer la base de données **Adventureworks2012** d’une instance locale de SQL Server vers Azure SQL Database Managed Instance en utilisant Azure Database Migration Service.
 
@@ -52,7 +49,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Inscrire le fournisseur de ressources Microsoft.DataMigration
 
-1. Connectez-vous au Portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
+1. Connectez-vous au portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
 
     ![Afficher les abonnements au portail](media\tutorial-sql-server-to-managed-instance\portal-select-subscriptions.png)        
 
@@ -102,7 +99,7 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
     ![Rechercher toutes les instances Azure Database Migration Service](media\tutorial-sql-server-to-managed-instance\dms-search.png)
 
-2. Dans l’écran **Azure Database Migration Service**, recherchez le nom de l’instance que vous avez créée, puis sélectionnez-la.
+2. Sur l’écran **Azure Database Migration Service**, recherchez le nom de l’instance que vous avez créée, puis sélectionnez-la.
  
 3. Sélectionnez **+ Nouveau projet de migration**.
 
@@ -135,9 +132,9 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
 ## <a name="specify-target-details"></a>Spécifier les détails de la cible
 
-1.  Dans l’écran **Détails de la cible de migration**, spécifiez les détails de connexion de la cible, à savoir l’option Azure SQL Database Managed Instance pré-approvisionnée vers laquelle vous migrez la base de données **AdventureWorks2012**.
+1.  Sur l’écran **Détails de la cible de migration**, spécifiez les détails de connexion de la cible, à savoir l’option Azure SQL Database Managed Instance pré-approvisionnée vers laquelle vous migrez la base de données **AdventureWorks2012**.
 
-    Si vous n’avez pas encore approvisionné l’Azure SQL Database Managed Instance, sélectionnez **Non** pour un lien destiné à vous aider à approvisionner l’instance. Vous pouvez toujours procéder à la création du projet, puis, quand l’Azure SQL Database Managed Instance est prête, revenir à ce projet spécifique pour exécuter la migration.   
+    Si vous n’avez pas encore approvisionné l’instance Azure SQL Database Managed Instance, sélectionnez **Non** pour obtenir un lien destiné à vous aider à approvisionner l’instance. Vous pouvez toujours procéder à la création du projet, puis, quand l’Azure SQL Database Managed Instance est prête, revenir à ce projet spécifique pour exécuter la migration.   
  
        ![Sélectionner la cible](media\tutorial-sql-server-to-managed-instance\dms-target-details2.png)
 
@@ -168,12 +165,12 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
     | | |
     |--------|---------|
-    |**Choisir une option de sauvegarde source** | Lorsque vous disposez déjà des fichiers de sauvegarde complète que DMS devra utiliser pour la migration des bases de données, choisissez l’option **Je fournirai les derniers fichiers de sauvegarde**. Si vous souhaitez que DMS crée la sauvegarde complète des bases de données sources et l’utilise pour la migration, choisissez l’option **J’autorise Azure Database Migration Service à créer des fichiers de sauvegarde**. |
+    |**Choisir une option de sauvegarde source** | Lorsque vous disposez déjà des fichiers de sauvegarde complète qu’Azure Database Migration Service doit utiliser pour la migration de base de données, choisissez l’option **Je fournirai les derniers fichiers de sauvegarde**. Si vous souhaitez que DMS crée la sauvegarde complète des bases de données sources et l’utilise pour la migration, choisissez l’option **J’autorise Azure Database Migration Service à créer des fichiers de sauvegarde**. |
     |**Partage d’emplacement réseau** | Partage réseau SMB local qu’Azure Database Migration Service peut utiliser pour la sauvegarde des bases de données sources. Le compte de service qui exécute l’instance source de SQL Server doit avoir des privilèges d’écriture pour ce partage réseau. Fournissez un nom de domaine complet ou les adresses IP du serveur dans le partage réseau, par exemple, « \\\nomserveur.nomdomaine.com\dossiersauvegarde » ou « \\\adresse IP\dossiersauvegarde ».|
     |**Nom d'utilisateur** | Assurez-vous que l’utilisateur Windows dispose d’un contrôle total sur le partage réseau que vous avez fourni précédemment. Azure Database Migration Service emprunte l’identité de l’utilisateur pour charger les fichiers de sauvegarde sur le conteneur de stockage Azure pour l’opération de restauration. Si vous avez sélectionné pour la migration des bases de données compatibles avec Transparent Data Encryption (TDE), l’utilisateur Windows ci-dessus doit correspondre au compte Administrateur intégré, et [Contrôle de compte d’utilisateur](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) doit être désactivé pour qu’Azure Database Migration Service puisse charger et supprimer les fichiers de certificat. |
     |**Mot de passe** | Mot de passe pour l’utilisateur. |
     |**Paramètres du compte de stockage** | L’URI SAS qui permet à Azure Database Migration Service d’accéder au conteneur de compte de stockage dans lequel le service charge les fichiers de sauvegarde et qui est utilisé pour migrer les bases de données vers Azure SQL Database Managed Instance. [Découvrez comment obtenir l’URI SAS du conteneur d’objets blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
-    |**Paramètres TDE** | Si vous migrez les bases de données sources compatibles avec TDE, vous devez disposer de privilèges d’écriture sur le serveur Azure SQL DB Managed Instance cible.  Dans le premier menu déroulant, sélectionnez l’abonnement dans lequel le serveur Azure SQL DB Managed Instance a été approvisionné.  Dans le second menu déroulant, sélectionnez le serveur Azure SQL DB Managed Instance cible. |
+    |**Paramètres TDE** | Si vous migrez les bases de données sources compatibles avec Transparent Data Encryption (TDE), vous devez disposer de privilèges d’écriture sur l’instance Azure SQL Database Managed Instance cible.  Dans le premier menu déroulant, sélectionnez l’abonnement dans lequel le serveur Azure SQL DB Managed Instance a été approvisionné.  Dans le second menu déroulant, sélectionnez **l’instance Azure SQL Database Managed Instance** cible. |
     
     ![Configurer les paramètres de migration](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings3.png)
 

@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide pour l’API Suggestion automatique Bing avec PHP | Microsoft Docs
-description: Permet d’obtenir des informations et des exemples de code pour une prise en main rapide de l’API Suggestion automatique dans Azure Cognitive Services.
+title: 'Démarrage rapide : API Suggestion automatique Bing, PHP'
+titlesuffix: Azure Cognitive Services
+description: Procurez-vous des informations et des exemples de code pour commencer rapidement à utiliser l’API Suggestion automatique Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 2a1a79d9868c577fa13fe8299421e7fbc99952af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 837fdfef0df0c8589a7395c49c3b25753039acd8
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370076"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831515"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-php"></a>Démarrage rapide pour l’API Suggestion automatique Bing avec PHP
-<a name="HOLTop"></a>
 
 Cet article vous explique comment utiliser [l’API Suggestion automatique Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) avec PHP. L’API Suggestion automatique Bing renvoie une liste de requêtes suggérées en fonction d’une chaîne de requête partielle saisie par l’utilisateur dans la zone de recherche. En règle générale, vous appelez cette API chaque fois que l’utilisateur saisit un nouveau caractère dans la zone de recherche, puis vous affichez les suggestions dans la liste déroulante de la zone de recherche. Cet article explique comment envoyer une requête qui renvoie les chaînes de requête suggérées pour *sail* (voile).
 
@@ -25,7 +25,7 @@ Cet article vous explique comment utiliser [l’API Suggestion automatique Bing]
 
 Vous avez besoin de [PHP 5.6.x](http://php.net/downloads.php) pour exécuter ce code.
 
-Vous devez utiliser un [compte API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API Suggestion automatique Bing v7**. Une version avec [essai gratuit](https://azure.microsoft.com/try/cognitive-services/#search) suffit néanmoins pour suivre ce guide de démarrage rapide. Vous avez besoin de la clé d’accès fournie au moment de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant provenant de votre tableau de bord Azure.
+Vous devez utiliser un [compte API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API Suggestion automatique Bing v7**. [L’essai gratuit](https://azure.microsoft.com/try/cognitive-services/#search) est suffisant pour suivre ce guide de démarrage rapide. Vous aurez besoin de la clé d’accès fournie lors de l’activation de votre essai gratuit, ou de la clé d’un abonnement payant présente sur votre tableau de bord Azure.
 
 ## <a name="get-autosuggest-results"></a>Obtenir les résultats de suggestion automatique
 
@@ -81,7 +81,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 
 ### <a name="response"></a>response
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant : 
+Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant : 
 
 ```json
 {

@@ -8,14 +8,14 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 045443637c06745472458dd9e33670875a33352b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193065"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068093"
 ---
 # <a name="what-is-azure-application-gateway"></a>Qu’est-ce qu’Azure Application Gateway ?
 
@@ -27,7 +27,38 @@ Les équilibreurs de charge traditionnels fonctionnent au niveau de la couche de
 
 Ce type de routage est connu comme l’équilibrage de charge de la couche d’application (couche OSI 7). Azure Application Gateway permet d’effectuer un routage basé sur une URL et bien plus encore. 
 
-Les fonctionnalités suivantes sont incluses dans Azure Application Gateway : 
+Les fonctionnalités suivantes sont incluses dans Azure Application Gateway :
+
+## <a name="autoscaling-public-preview"></a>Préversion publique de la mise à l’échelle automatique
+
+Outre les fonctionnalités décrites dans cet article, Application Gateway offre également une préversion publique d’une nouvelle référence SKU [Standard_V2] qui offre une mise à l’échelle automatique ainsi que d’autres améliorations critiques sur le plan des performances.
+
+- **Mise à l’échelle automatique** : les déploiements d’Application Gateway ou du WAF sous la référence SKU de la mise à l’échelle automatique peuvent augmenter ou diminuer en fonction de l’évolution des modèles de charge du trafic. La mise à l’échelle automatique vous évite aussi d’avoir à choisir une taille de déploiement ou un nombre d’instances au moment du provisionnement. 
+
+- **Redondance de zone** : un déploiement d’Application Gateway ou de WAF peut désormais couvrir plusieurs zones de disponibilité, ce qui évite d’avoir à provisionner et épingler plusieurs instances d’Application Gateway dans chaque zone à l’aide d’une instance Traffic Manager.
+
+- **Adresse IP virtuelle statique** : l’adresse IP virtuelle de la passerelle d’application prend désormais exclusivement en charge le type d’adresse IP virtuelle statique. Cela garantit que l’adresse IP virtuelle associée à la passerelle d’application ne change pas même après un redémarrage.
+
+- **Déploiement et mise à jour plus rapides** par rapport aux références SKU généralement disponibles. 
+
+- **Performances de déchargement SSL 5 fois supérieures** à celles des références SKU généralement disponibles.
+
+Pour plus d’informations sur les fonctionnalités d’évaluation publique d’Application Gateway, consultez [Passerelle d’application redondante dans une zone et avec mise à l’échelle automatique (préversion publique)](application-gateway-autoscaling-zone-redundant.md).
+
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Préversion du contrôleur d’entrée d’Azure Kubernetes Service (AKS) 
+
+Le contrôleur Application Gateway Ingress s’exécute en tant que pod au sein du cluster AKS et permet à Application Gateway de servir d’entrée à un cluster AKS. 
+
+Pour plus d’informations, consultez [Contrôleur d’entrée d’Azure Application Gateway](https://azure.github.io/application-gateway-kubernetes-ingress/).
+
+## <a name="connection-draining"></a>Vidage des connexions
+
+Le vidage des connexions permet d’éliminer délicatement les membres du pool principal lors des mises à jour planifiées de maintenance. Ce paramètre est activé via le paramètre du http principal et peut s’appliquer à tous les membres d’un pool principal pendant la création de règles. Une fois activée, Application Gateway s’assure que toutes les instances de désinscription d’un pool principal ne reçoivent aucune nouvelle requête tout en permettant aux requêtes existantes de se terminer dans un délai défini. Cela s’applique à la fois aux instances principales explicitement supprimées du pool principal par un appel d’API et aux instances secondaires signalées comme étant non intègres d’après les résultats des sondes d’intégrité.
+
+## <a name="custom-error-pages"></a>Pages d’erreur personnalisées
+Application Gateway vous permet de créer des pages d’erreur personnalisées au lieu d’afficher les pages d’erreur par défaut. Vous pouvez utiliser votre marque et votre mise en page personnelle à l’aide d’une page d’erreur personnalisée.
+
+Pour plus d’informations, consultez [Créer des pages d’erreur personnalisées Application Gateway](custom-error.md).
 
 ## <a name="secure-sockets-layer-ssl-termination"></a>Terminaison SSL (Secure Sockets Layer)
 

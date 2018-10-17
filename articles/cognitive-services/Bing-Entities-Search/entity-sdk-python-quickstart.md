@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide du Kit de développement logiciel (SDK) Python pour Recherche d’entités | Microsoft Docs
-description: Configuration de l’application console du Kit de développement logiciel (SDK) pour Recherche d’entités.
-titleSuffix: Azure Entity Search SDK Python quickstart
+title: 'Démarrage rapide : Kit de développement logiciel (SDK) pour Recherche d’entités Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Configuration de l’application console du Kit de développement logiciel (SDK) pour Recherche d’entités Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/15/2018
 ms.author: v-gedod
-ms.openlocfilehash: 95449fa3753291269e1a83d1431df3bf0cbe372f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 908373a216d0b14bb2dd41d3bb740b5582ac3ab1
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370421"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814234"
 ---
-# <a name="entity-search-sdk-python-quickstart"></a>Démarrage rapide du Kit de développement logiciel (SDK) Python pour Recherche d’entités
+# <a name="quickstart-bing-entity-search-sdk-with-python"></a>Démarrage rapide : Kit de développement logiciel (SDK) pour Recherche d’entités Bing avec Python
 
 Le Kit de développement logiciel (SDK) Recherche d’entités fournit les fonctionnalités de l’API REST pour les requêtes web et l’analyse des résultats.
 
@@ -216,5 +216,5 @@ def error(subscription_key):
 ```
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Exemples du Kit de développement logiciel (SDK) Python pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Exemples du SDK Python pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 

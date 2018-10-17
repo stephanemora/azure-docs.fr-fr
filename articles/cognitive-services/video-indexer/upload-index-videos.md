@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983883"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884304"
 ---
 # <a name="example-upload-and-index-your-videos"></a>Exemple : Charger et indexer vos vidéos  
 
@@ -36,6 +36,11 @@ L’article aborde également certains des paramètres que vous pouvez définir 
 - Lors du chargement de votre vidéo à partir de l’URL (par défaut), le point de terminaison doit être sécurisé avec TLS 1.2 (ou version ultérieure)
 - L’option de tableau d’octets est limitée à 2 Go et expire après 30 minutes
 - L’URL fournie dans le paramètre `videoURL` doit être encodée
+
+> [!Tip]
+> Il est recommandé d’utiliser la version 4.6.2 du .NET Framework. ou une version ultérieure, car les anciens .NET Framework ne sont pas définis par défaut sur TLS 1.2.
+>
+> Si vous devez utiliser une version antérieure du .NET Framework, ajoutez une ligne dans votre code avant d’effectuer l’appel de l’API REST :  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## <a name="configurations-and-params"></a>Configurations et paramètres
 
@@ -243,8 +248,14 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
+## <a name="common-errors"></a>Erreurs courantes
 
+Les codes d’état répertoriés dans le tableau suivant peuvent être renvoyés par l’opération de chargement (Upload).
 
+|Code d’état|ErrorType (dans le corps de la réponse)|Description|
+|---|---|---|
+|400|VIDEO_ALREADY_IN_PROGRESS|La même vidéo est déjà en cours de traitement dans le compte en question.|
+|400|VIDEO_ALREADY_FAILED|La même vidéo n’a pas pu être traitée dans le compte en question moins de 2 heures auparavant. Les clients API doivent attendre au moins 2 heures avant de recharger une vidéo.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

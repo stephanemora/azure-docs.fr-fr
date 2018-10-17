@@ -1,30 +1,32 @@
 ---
-title: Didacticiel sur l’API Émotion avec C# | Microsoft Docs
-description: Explorez une application Windows de base qui utilise l’API Émotion de Cognitive Services pour reconnaître les émotions exprimées par les visages présents sur une image.
+title: 'Didacticiel : Reconnaissance des émotions sur un visage dans une image - API Émotion, C#'
+titlesuffix: Azure Cognitive Services
+description: Explorez une application Windows de base permettant de reconnaître les émotions exprimées par les visages dans une image.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/23/2017
 ms.author: anroth
-ms.openlocfilehash: f015e5720f65d0951a77de76ce8882a6dcdc1c3b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: f3a84a68718fba29e2a4b2fae057e68976119c95
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368561"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237022"
 ---
-# <a name="emotion-api-in-c35-tutorial"></a>Didacticiel sur l’API Émotion avec C#
+# <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Didacticiel : Reconnaissance des émotions sur un visage dans une image.
 
 > [!IMPORTANT]
-> La préversion de l’API Vidéo a pris fin le 30 octobre 2017. Essayez la nouvelle [préversion de l’API Vidéo Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) pour extraire facilement des insights des vidéos et améliorer les expériences de découverte de contenu, telles que les résultats de recherche, en détectant le texte parlé, les visages, les personnes et les émotions. [Plus d’informations](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview)
+> L’API Émotion sera déconseillée à partir du 15 février 2019. La fonction de reconnaissance des émotions est maintenant accessible de façon générale dans le cadre de l’[API Visage](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 Explorez une application Windows de base qui utilise l’API Émotion pour reconnaître les émotions exprimées par les visages présents sur une image. L’exemple ci-dessous vous permet d’envoyer une URL d’image ou un fichier stocké localement. Vous pouvez utiliser cet exemple open source comme modèle pour générer votre propre application pour Windows avec l’API Émotion et WPF (Windows Presentation Foundation), qui fait partie de .NET Framework.
 
 ## <a name="Prerequisites">Composants requis</a>
-#### <a name="platform-requirements"></a>Exigences relatives à la plateforme  
+#### <a name="platform-requirements"></a>Plateforme requise  
 L’exemple ci-dessous a été développé pour .NET Framework à l’aide de [Visual Studio 2015, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs).  
 
 #### <a name="subscribe-to-emotion-api-and-get-a-subscription-key"></a>S’abonner à l’API Émotion et obtenir une clé d’abonnement  
@@ -51,37 +53,37 @@ Vous pouvez télécharger la bibliothèque de client de l’API Émotion via un 
 ## <a name="Step3">Étape 3 : Exécuter l’exemple</a>
 1.  Une fois la génération terminée, appuyez sur **F5** ou cliquez sur **Démarrer** dans le menu du ruban pour exécuter l’exemple.
 2.  Recherchez la fenêtre de l’API Émotion avec la **zone de texte** qui indique « **Paste your subscription key here to start** » (Collez votre clé d’abonnement ici pour démarrer). Collez votre clé d’abonnement dans la zone de texte comme indiqué dans la capture d’écran ci-dessous. Vous pouvez choisir de conserver votre clé d’abonnement sur votre PC ou ordinateur portable en cliquant sur le bouton « Save Key » (Enregistrer la clé). Quand vous souhaitez supprimer la clé d’abonnement du système, cliquez sur « Supprimer la clé » pour la supprimer de votre PC ou ordinateur portable.
-  
+
   ![Interface de la fonctionnalité Émotion](../Images/EmotionKey.png)
 
 3.  Sous « **Sélectionner un scénario** », cliquez pour utiliser l’un des deux scénarios, « **Detect emotion using a stream**» (Détecter une émotion à l’aide d’un flux) ou « **Detect emotion using a URL** » (Détecter une émotion à l’aide d’une URL), puis suivez les instructions à l’écran. Microsoft reçoit les images que vous chargez et peut les utiliser pour améliorer l’API Émotion et les services associés. En envoyant une image, vous confirmez que vous avez respecté notre [Code de conduite du développeur](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 4.  Voici des exemples d’images à utiliser avec cet exemple d’application. Vous pouvez trouver ces images dans [le référentiel GitHub de l’API Visage](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) dans le dossier **Données**. Notez que l’utilisation de ces images est fournie sous licence, sous un contrat d’usage raisonnable, ce qui signifie que vous pouvez les utiliser à des fins de test dans cet exemple, mais que vous ne pouvez pas les republier.
 
 ## <a name="Review">Réviser et apprendre</a>
-Maintenant que vous avez une application en cours d’exécution, examinons comment cet exemple d’application s’intègre à Microsoft Cognitive Services. Il sera ainsi plus facile de continuer la génération sur cette application ou de développer votre propre application à l’aide de l’API Émotion Microsoft. 
+Maintenant que vous avez une application en cours d’exécution, examinons comment cet exemple d’application s’intègre à Microsoft Cognitive Services. Il sera ainsi plus facile de continuer la génération sur cette application ou de développer votre propre application à l’aide de l’API Émotion Microsoft.
 
 Cet exemple d’application se sert de la bibliothèque de client de l’API Émotion, un simple wrapper de client C# pour l’API Émotion Microsoft. Quand vous avez créé l’exemple d’application comme décrit ci-dessus, vous avez obtenu la bibliothèque de client à partir d’un package NuGet. Vous pouvez examiner le code source de la bibliothèque de client dans le dossier intitulé « [Bibliothèque cliente](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary) » sous **Émotion**, **Windows**, **Bibliothèque cliente**, qui fait partie du référentiel de fichiers téléchargés indiqué plus haut dans [Prérequis](#Prerequisites).
- 
-Vous pouvez également déterminer comment utiliser le code de la bibliothèque de client dans **l’Explorateur de solutions** : sous **EmotionAPI-WPF_Samples**, développez **DetectEmotionUsingStreamPage.xaml** pour rechercher **DetectEmotionUsingStreamPage.xaml.cs**, qui est utilisé pour accéder à un fichier stocké localement ou développez **DetectEmotionUsingURLPage.xaml** pour rechercher  **DetectEmotionUsingURLPage.xaml.cs**, qui est utilisé lors du téléchargement d’une URL d’image. Double-cliquez sur les fichiers .xaml.cs pour les ouvrir dans de nouvelles fenêtres dans Visual Studio. 
+
+Vous pouvez également déterminer comment utiliser le code de la bibliothèque de client dans **l’Explorateur de solutions** : sous **EmotionAPI-WPF_Samples**, développez **DetectEmotionUsingStreamPage.xaml** pour rechercher **DetectEmotionUsingStreamPage.xaml.cs**, qui est utilisé pour accéder à un fichier stocké localement ou développez **DetectEmotionUsingURLPage.xaml** pour rechercher  **DetectEmotionUsingURLPage.xaml.cs**, qui est utilisé lors du téléchargement d’une URL d’image. Double-cliquez sur les fichiers .xaml.cs pour les ouvrir dans de nouvelles fenêtres dans Visual Studio.
 
 En examinant de quelle façon la bibliothèque de client Émotion est utilisée dans l’exemple d’application, observez les deux extraits de code de **DetectEmotionUsingStreamPage.xaml.cs** et **DetectEmotionUsingURLPage.xaml.cs**. Chaque fichier contient des commentaires de code qui indiquent « KEY SAMPLE CODE STARTS HERE » (L’EXEMPLE DE CODE COMMENCE ICI) et « KEY SAMPLE CODE ENDS HERE » (L’EXEMPLE DE CODE SE TERMINE ICI) pour vous aider à localiser les extraits de code reproduits ci-après.
 
-L’API Émotion est en mesure d’utiliser une URL d’image ou des données d’images binaires (sous la forme d’un flux d’octets) comme entrée. Les deux options sont examinées ci-dessous. Dans les deux cas, vous commencez par rechercher une directive using, qui vous permet d’utiliser la bibliothèque de client Émotion. 
+L’API Émotion est en mesure d’utiliser une URL d’image ou des données d’images binaires (sous la forme d’un flux d’octets) comme entrée. Les deux options sont examinées ci-dessous. Dans les deux cas, vous commencez par rechercher une directive using, qui vous permet d’utiliser la bibliothèque de client Émotion.
 ```csharp
 
-            // ----------------------------------------------------------------------- 
-            // KEY SAMPLE CODE STARTS HERE 
-            // Use the following namespace for EmotionServiceClient 
-            // ----------------------------------------------------------------------- 
-            using Microsoft.ProjectOxford.Emotion; 
-            using Microsoft.ProjectOxford.Emotion.Contract; 
-            // ----------------------------------------------------------------------- 
-            // KEY SAMPLE CODE ENDS HERE 
-            // ----------------------------------------------------------------------- 
+            // -----------------------------------------------------------------------
+            // KEY SAMPLE CODE STARTS HERE
+            // Use the following namespace for EmotionServiceClient
+            // -----------------------------------------------------------------------
+            using Microsoft.ProjectOxford.Emotion;
+            using Microsoft.ProjectOxford.Emotion.Contract;
+            // -----------------------------------------------------------------------
+            // KEY SAMPLE CODE ENDS HERE
+            // -----------------------------------------------------------------------
 ```
-#### <a name="detectemotionusingurlpagexamlcs"></a>DetectEmotionUsingURLPage.xaml.cs 
+#### <a name="detectemotionusingurlpagexamlcs"></a>DetectEmotionUsingURLPage.xaml.cs
 
-Cet extrait de code montre comment utiliser la bibliothèque de client pour envoyer votre clé d’abonnement et une URL de photo au service de l’API Émotion. 
+Cet extrait de code montre comment utiliser la bibliothèque de client pour envoyer votre clé d’abonnement et une URL de photo au service de l’API Émotion.
 
 ```csharp
 
@@ -115,9 +117,9 @@ Cet extrait de code montre comment utiliser la bibliothèque de client pour envo
             // KEY SAMPLE CODE ENDS HERE
             // -----------------------------------------------------------------------
 ```
-#### <a name="detectemotionusingstreampagexamlcs"></a>DetectEmotionUsingStreamPage.xaml.cs 
+#### <a name="detectemotionusingstreampagexamlcs"></a>DetectEmotionUsingStreamPage.xaml.cs
 
-L’exemple de code ci-dessous vous montre comment envoyer votre clé et une image stockée en local à l’API Émotion. 
+L’exemple de code ci-dessous vous montre comment envoyer votre clé et une image stockée en local à l’API Émotion.
 
 
 ```csharp

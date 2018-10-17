@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 4b209953e957d0c2892bc5c6bca7a577992c5dee
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617606"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843634"
 ---
 ## <a name="prerequisites"></a>Prérequis
 
@@ -21,18 +21,26 @@ ms.locfileid: "42617606"
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 ### <a name="azure-roles"></a>Rôles Azure
-Pour créer des instances Data Factory, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre des rôles *Contributeur* ou *Propriétaire*, ou *administrateur* de l’abonnement Azure. Dans le portail Azure, cliquez sur votre nom d’utilisateur dans le coin supérieur droit, puis sélectionnez **Autorisations** pour afficher les autorisations dont vous disposez dans l’abonnement. Si vous avez accès à plusieurs abonnements, sélectionnez l’abonnement approprié. Pour des exemples d’instructions concernant l’ajout d’un utilisateur à un rôle, consultez l’article [Ajout de rôles](../articles/billing/billing-add-change-azure-subscription-administrator.md).
+Pour créer des instances Data Factory, le compte d’utilisateur que vous utilisez pour vous connecter à Azure doit être membre des rôles *Contributeur* ou *Propriétaire*, ou *administrateur* de l’abonnement Azure. Pour visualiser les autorisations dont vous disposez dans l’abonnement, sélectionnez votre nom d’utilisateur dans le coin supérieur droit du Portail Azure, puis sélectionnez **Autorisations**. Si vous avez accès à plusieurs abonnements, sélectionnez l’abonnement approprié. 
 
-Pour créer et gérer des ressources enfants (comprenant des jeux de données, des services liés, des pipelines, des déclencheurs et des runtimes d’intégration) pour Data Factory à l’aide de l’IU Créer et surveiller dans le portail Azure, vous devez posséder le rôle **Contributeur de Data Factory** . Pour créer et gérer des ressources enfants à l’aide de Powershell ou du Kit de développement, le rôle **Contributeur** est suffisant.
+Les exigences applicables à la création et à la gestion des ressources enfants pour Data Factory (jeux de données, services liés, pipelines, déclencheurs et runtimes d’intégration) sont les suivantes :
+- Pour créer et gérer des ressources enfants dans le Portail Azure, vous devez appartenir au rôle **Contributeurs de Data Factory** au niveau du groupe de ressources ou à un niveau supérieur.
+- Pour créer et gérer des ressources enfants à l’aide de PowerShell ou du Kit de développement logiciel (SDK), le rôle **Contributeur** au niveau du groupe de ressources ou à un niveau supérieur est suffisant.
+
+Pour découvrir des exemples d’instructions concernant l’ajout d’un utilisateur à un rôle, consultez l’article décrivant comment [ajouter des rôles](../articles/billing/billing-add-change-azure-subscription-administrator.md).
+
+Pour plus d’informations, consultez les articles suivants :
+- [Rôle Contributeurs de fabrique de données](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
+- [Roles and permissions for Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md) (Rôles et autorisations pour Azure Data Factory)
 
 ### <a name="azure-storage-account"></a>Compte Azure Storage
 Dans ce guide de démarrage rapide, vous allez utiliser un compte Stockage Azure (un compte Stockage Blob, plus précisément) à usage général à la fois comme magasin de données *source* et de *destination*. Si vous ne possédez pas de compte Stockage Azure à usage général, consultez [Créer un compte de stockage](../articles/storage/common/storage-quickstart-create-account.md) pour en créer un. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obtenir le nom de compte de stockage et la clé de compte
-Dans ce guide de démarrage rapide, vous spécifiez le nom et la clé de votre compte Stockage Azure. La procédure suivante détaille les étapes à suivre pour obtenir le nom et la clé de votre compte de stockage : 
+Pour ce guide de démarrage rapide, vous devez disposer du nom et de la clé de votre compte de stockage Azure. La procédure suivante détaille les étapes à suivre pour obtenir le nom et la clé de votre compte de stockage : 
 
 1. Dans un navigateur web, accédez au [portail Azure](https://portal.azure.com). Connectez-vous avec votre nom d’utilisateur et votre mot de passe Azure. 
-2. Sélectionnez **Plus de services** dans le menu de gauche, filtrez en utilisant le mot clé **Stockage**, puis sélectionnez **Comptes de stockage**.
+2. Dans le menu de gauche, sélectionnez **Tous les services**, filtrez les services à l’aide du mot clé **Stockage**, puis sélectionnez **Comptes de stockage**.
 
    ![Rechercher un compte de stockage](media/data-factory-quickstart-prerequisites/search-storage-account.png)
 3. Dans la liste des comptes de stockage, appliquez un filtre pour votre compte de stockage (si nécessaire), puis sélectionnez votre compte de stockage. 
@@ -56,7 +64,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 4. Sélectionnez **adftutorial** dans la liste des conteneurs. 
 
    ![Sélection du conteneur](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
-1. Sur la page **Conteneur**, sélectionnez **Charger** dans la barre d’outils.  
+5. Sur la page **Conteneur**, sélectionnez **Charger** dans la barre d’outils.  
 
    ![Bouton Télécharger](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
 6. Sur la page **Charger l’objet blob**, sélectionnez **Avancé**.

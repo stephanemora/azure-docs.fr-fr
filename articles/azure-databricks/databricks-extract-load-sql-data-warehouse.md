@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: 11046089bd25e1ca9e117d5d8908471858450e6d
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: c416937f98f6bcb49f86fce18213ca4ed349c513
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308794"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902057"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -47,7 +47,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 Avant de commencer le didacticiel, veillez à disposer des éléments suivants :
 - Créez une instance Azure SQL Data Warehouse, créez une règle de pare-feu au niveau du serveur et connectez-vous au serveur en tant qu’administrateur du serveur. Suivez les instructions indiquées dans [Démarrage rapide : créer et interroger un entrepôt de données SQL Azure dans le portail Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
 - Créez une clé principale de base de données pour Azure SQL Data Warehouse. Suivez les instructions indiquées dans [Créer une clé principale de base de données](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
-- Créez un compte de stockage Blob Azure et un conteneur dans celui-ci. Récupérez également la clé d’accès au compte de stockage. Suivez les instructions indiquées dans [Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+- Créez un compte de stockage Blob Azure et un conteneur dans celui-ci. Récupérez également la clé d’accès au compte de stockage. Suivez les instructions indiquées dans [Démarrage rapide : Créer un compte de stockage d’objets blob Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 

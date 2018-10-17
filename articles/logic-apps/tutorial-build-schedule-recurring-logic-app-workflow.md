@@ -10,14 +10,14 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124016"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042289"
 ---
-# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Contrôler le trafic à l’aide d’une application logique planifiée
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Vérifier le trafic selon une planification avec Azure Logic Apps
 
 Azure Logic Apps permet d’automatiser les flux de travail qui s’exécutent selon une planification. Ce didacticiel montre comment générer une [application logique](../logic-apps/logic-apps-overview.md) avec un déclencheur basé sur un planificateur qui s’exécute chaque matin et vérifie la durée du trajet, y compris le trafic, entre deux endroits. Si la durée dépasse une limite définie, l’application logique envoie un e-mail contenant la durée du trajet et le temps supplémentaire nécessaire pour atteindre votre destination.
 
@@ -141,7 +141,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
    | **Étape 2** | <*end-location*> | Destination de l’itinéraire. | 
    | **Avoid** | Aucun | Tous les éléments à éviter sur votre itinéraire, par exemple les autoroutes, les péages, etc. | 
    | **Optimize** | timeWithTraffic | Paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec le trafic en cours, etc. Sélectionnez ce paramètre : « timeWithTraffic ». | 
-   | **Unité de distance** | <*your-preference*> | Unité de distance utilisé pour l’itinéraire. Cet article utilise l’unité suivante : « mile ».  | 
+   | **Unité de distance** | <*your-preference*> | Unité de distance utilisée pour l’itinéraire. Cet article utilise l’unité suivante : « mile ».  | 
    | **Mode de déplacement** | Conduite | Mode de déplacement pour parcourir l’itinéraire. Sélectionnez ce mode : « Conduite ». | 
    | **Date et heure de transit** | Aucun | S’applique au mode transit uniquement. | 
    | **Type de date et d’heure** | Aucun | S’applique au mode transit uniquement. | 
@@ -322,7 +322,7 @@ Pour créer d’autres applications logiques utilisant le déclencheur **Planifi
 * Supprimez d’anciens objets blob Azure.
 * Ajoutez un message à une file d’attente Stockage Azure.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées. Dans le menu Azure principal, accédez à **Groupes de ressources**, puis sélectionnez le groupe de ressources de votre application logique. Choisissez **Supprimer un groupe de ressources**. Confirmez le nom du groupe de ressources, puis choisissez **Supprimer**.
 

@@ -1,20 +1,21 @@
 ---
-title: Recherche d’entités Bing dans une application web à page unique | Microsoft Docs
+title: 'Didacticiel : Recherche d’entités Bing dans une application web à page unique'
+titlesuffix: Azure Cognitive Services
 description: Montre comment utiliser l’API Recherche d’entités Bing dans une application web à page unique.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 91c60913cd806baf100e5511cbf59299bf9a84f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370201"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815543"
 ---
 # <a name="tutorial-single-page-web-app"></a>Didacticiel : Application web à page unique
 
@@ -166,7 +167,7 @@ L’API Bing Maps offre une [`locationQuery`méthode](//msdn.microsoft.com/libra
 
 Nous ne pouvons pas accéder à l’API Bing Maps en utilisant une requête `XMLHttpRequest` ordinaire dans une application web, car le service ne prend pas en charge les requêtes cross-origin. Heureusement, il prend en charge JSONP (« P » pour « padded » qui signifie « rempli »). Une réponse JSONP est une réponse JSON ordinaire encapsulée dans un appel de fonction. La requête est effectuée en insérant une balise `<script>` dans le document. (Le chargement des scripts n’est pas soumis aux stratégies de sécurité de navigateur.)
 
-La fonction `bingMapsLocate()` crée et insère la balise `<script>` pour la requête. Le segment `jsonp=bingMapsCallback` de la chaîne de requête spécifie le nom de la fonction qui soit être appelée avec la réponse.
+La fonction `bingMapsLocate()` crée et insère la balise `<script>` pour la requête. Le segment `jsonp=bingMapsCallback` de la chaîne de requête spécifie le nom de la fonction qui doit être appelée avec la réponse.
 
 ```javascript
 function bingMapsLocate(where) {
@@ -446,7 +447,7 @@ Une fonction de renderer peut accepter les paramètres suivants :
 |-|-|
 |`item`|L’objet JavaScript contenant les propriétés de l’élément, telles que son URL et sa description.|
 |`index`|L’index de l’élément de résultat dans sa collection.|
-|`count`|Le nombre d’éléments dans la collection de l’élément du résultat de recherche.|
+|`count`|Le nombre d’éléments dans la collection de l’élément du résultat de la recherche.|
 
 Les paramètres `index` et `count` peuvent être utilisés pour compter les résultats, pour générer un code HTML spécial pour le début ou la fin d’une collection, pour insérer des sauts de ligne après un certain nombre d’éléments et ainsi de suite. Si un renderer n’a pas besoin de cette fonctionnalité, il est inutile d’accepter ces deux paramètres. En fait, nous ne les utilisons pas dans les renderers de notre application du didacticiel.
 
@@ -513,13 +514,13 @@ Notre fonction de renderer d’entité :
 
 ## <a name="persisting-client-id"></a>ID client persistant
 
-Les réponses provenant de l’API Recherche Bing peuvent inclure un en-tête `X-MSEdge-ClientID`, qui doit être renvoyé à l’API avec les demandes suivantes. Si plusieurs API Recherche Bing sont utilisées, le même ID de client doit être employé avec toutes, si possible.
+Les réponses provenant des API Recherche Bing peuvent inclure un en-tête `X-MSEdge-ClientID`, qui doit être renvoyé à l’API avec les requêtes suivantes. Si plusieurs API Recherche Bing sont utilisées, le même ID de client doit être employé avec toutes, si possible.
 
 Le fait de fournir l’en-tête `X-MSEdge-ClientID` permet aux API Bing d’associer toutes les recherches d’un utilisateur, ce qui présente deux avantages essentiels.
 
 Tout d’abord, cela permet au moteur de recherche Bing d’appliquer un contexte passé aux recherches pour trouver les résultats répondant le mieux à l’utilisateur. Si un utilisateur a précédemment recherché des termes liés à la navigation, par exemple, une recherche ultérieure sur « quais » peut éventuellement renvoyer des informations sur les lieux où mettre un navire à quai.
 
-Par ailleurs, Bing peut sélectionner au hasard des utilisateurs pour leur faire profiter des nouvelles fonctionnalités avant qu’elles ne deviennent disponibles au grand public. La fait de fournir le même ID de client avec chaque requête garantit que les utilisateurs choisis pour voir une fonctionnalité y aient toujours accès. Sans l’ID client, l’utilisateur peut voir une fonctionnalité apparaître et disparaître, de manière aléatoire, dans les résultats de recherche.
+Par ailleurs, Bing peut sélectionner au hasard des utilisateurs pour leur faire profiter des nouvelles fonctionnalités avant qu’elles ne deviennent disponibles au grand public. Le fait de fournir le même ID de client avec chaque requête garantit que les utilisateurs choisis pour voir une fonctionnalité y aient toujours accès. Sans l’ID client, l’utilisateur peut voir une fonctionnalité apparaître et disparaître, de manière aléatoire, dans les résultats de recherche.
 
 Les stratégies de sécurité de navigateur (CORS) peuvent rendre l’en-tête `X-MSEdge-ClientID` indisponible pour JavaScript. Cette limitation se produit lorsque la réponse de recherche a une origine différente de la page d’où provient la requête. Dans un environnement de production, vous devez gérer cette stratégie en hébergeant un script côté serveur qui effectue l’appel d’API sur le même domaine que la page web. Étant donné que le script a la même origine que la page web, l’en-tête `X-MSEdge-ClientID` est ensuite disponible pour JavaScript.
 
@@ -540,7 +541,7 @@ Enfin, lancez le proxy CORS avec la commande suivante :
 
     cors-proxy-server
 
-Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de la recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les demandes.
+Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de la recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les requêtes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,10 +1,9 @@
 ---
-title: Présentation Qu’est-ce qu’Azure Relay et pourquoi l’utiliser | Microsoft Docs
-description: Présentation d’Azure Relay
+title: Qu’est-ce qu’Azure Relay ? | Microsoft Docs
+description: Cet article fournit une vue d’ensemble du service Azure Relay, qui vous permet de développer des applications cloud qui utilisent des services locaux exécutés dans votre réseau d’entreprise sans ouvrir de connexion de pare-feu ni apporter de modifications intrusives à votre infrastructure réseau.
 services: service-bus-relay
-documentationcenter: .net
 author: spelluru
-manager: timlt
+manager: ''
 editor: ''
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
 ms.service: service-bus-relay
@@ -12,71 +11,85 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: dc616f18033014a5dcc9e5d15434497978484bc1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695963"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888084"
 ---
 # <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
+Le service Azure Relay vous permet d’exposer en toute sécurité les services exécutés dans votre réseau d’entreprise sur le cloud public. Vous pouvez le faire sans ouvrir de connexion de pare-feu ni apporter de modifications intrusives à votre infrastructure réseau d’entreprise. 
 
-Le service Azure Relay facilite les applications hybrides en offrant la possibilité d’exposer les services qui résident dans un réseau d’entreprise sur le cloud public en toute sécurité, sans avoir à ouvrir une connexion de pare-feu ni à exiger des modifications intrusives dans une infrastructure de réseau d’entreprise. Azure Relay prend en charge une grande variété de protocoles de transport et normes de services web.
+Le service de relais prend en charge les scénarios suivants entre les services locaux et les applications exécutées dans le cloud ou dans un autre environnement local. 
 
-Le service de relais prend en charge le trafic unidirectionnel standard, le trafic de demande/réponse et le trafic d’homologue à homologue. Il prend également en charge la distribution des événements sur Internet pour activer les scénarios de publication/abonnement et la communication par socket bidirectionnelle pour une efficacité accrue de point à point.
+- Communication unidirectionnelle standard, de requête/réponse et d’homologue à homologue 
+- Répartition des événements sur Internet pour activer des scénarios de publication/d’abonnement 
+- Communication par socket bidirectionnelle et non mise en mémoire tampon au-delà des limites du réseau.
 
-Dans le modèle de transfert de données par relais, un service local se connecte au service de relais via un port sortant et crée un socket bidirectionnel pour la communication liée à des adresses de rendez-vous spécifiques. Le client peut ensuite communiquer avec le service local en envoyant le trafic vers le service de relais ciblant l’adresse de rendez-vous. Le service de relais « relaie » ensuite les données au service local via le socket bidirectionnel dédié à chaque client. Le client n’a pas besoin d’une connexion directe au service local ni de savoir où se trouve le service, et le service local n’a pas besoin d’ouvrir de ports entrants sur le pare-feu.
+Azure Relay est différent des technologies d’intégration au niveau du réseau telles que VPN. Un relais Azure peut être limité à un point de terminaison à une application sur une seule machine. La technologie VPN est beaucoup plus intrusive, car elle repose sur la modification de l’environnement réseau. 
 
-Les principaux éléments de fonctionnalité d’Azure Relay sont la communication bidirectionnelle, non mise en mémoire tampon à travers les limites du réseau avec limitation de type TCP, la découverte de point de terminaison, l’état de la connectivité et la sécurité des points de terminaison superposés.
+## <a name="basic-flow"></a>Flux de base
+Dans le modèle de transfert de données par relais, les étapes de base impliquées sont les suivantes :
 
-Les fonctionnalités d’Azure Relay diffèrent des technologies d’intégration au niveau du réseau telles que le réseau VPN, car le relais peut être limité à un point de terminaison d’application unique sur un ordinateur unique, alors que la technologie VPN est beaucoup plus intrusive, car elle repose sur la modification de l’environnement réseau.
+1. Un service local se connecte au service de relais via un port sortant. 
+2. Il crée un socket bidirectionnel pour la communication liée à une adresse spécifique. 
+3. Le client peut ensuite communiquer avec le service local en envoyant le trafic vers le service de relais ciblant cette adresse. 
+4. Le service de relais *relaie* ensuite les données au service local via le socket bidirectionnel dédié au client. Le client n’a pas besoin d’une connexion directe au service local. Il n’a pas besoin de connaître l’emplacement du service. De plus, le service local n’a pas besoin de ports entrants ouverts sur le pare-feu.
 
+
+## <a name="features"></a>Caractéristiques 
 Azure Relay comprend deux fonctionnalités :
 
-1. [Connexions hybrides](#hybrid-connections) : utilise les sockets web standard ouverts permettant des scénarios multi-plateformes.
-2. [Relais WCF](#wcf-relays) : utilise Windows Communication Foundation (WCF) pour activer les appels de procédure à distance. Le relais WCF est l’offre de relais héritée que de nombreux clients utilisent déjà avec leurs modèles de programmation WCF.
+- [Connexions hybrides](#hybrid-connections) : utilise les sockets web standard ouverts permettant des scénarios multi-plateformes.
+- [Relais WCF](#wcf-relays) : utilise Windows Communication Foundation (WCF) pour activer les appels de procédure à distance. Le relais WCF est l’offre de relais héritée que de nombreux clients utilisent déjà avec leurs modèles de programmation WCF.
 
-Les connexions hybrides et relais WCF permettent une connexion sécurisée aux actifs existants au sein d’un réseau d’entreprise. L’utilisation de l’un par rapport à l’autre dépend de vos besoins particuliers, comme décrit dans le tableau suivant :
+## <a name="hybrid-connections"></a>les connexions hybrides
+
+La fonctionnalité Connexions hybrides dans Azure Relay est une évolution sécurisée et à protocole ouvert des fonctionnalités Relay qui existaient précédemment. Vous pouvez l’utiliser sur n’importe quelle plateforme et dans n’importe quel langage. La fonctionnalité Connexions hybrides dans Azure Relay est basée sur les protocoles HTTP et WebSockets. Elle vous permet d’envoyer des requêtes et de recevoir des réponses sur des sockets web ou HTTP(S). Cette fonctionnalité est compatible avec l’API WebSocket dans les navigateurs web courants. 
+
+Pour plus d’informations sur le protocole Connexions hybrides, consultez le [guide du protocole Connexions hybrides](relay-hybrid-connections-protocol.md). Vous pouvez utiliser Connexions hybrides avec une bibliothèque de sockets web pour n’importe quel runtime/langage.
+
+> [!NOTE]
+> Connexions hybrides d’Azure Relay remplace l’ancienne fonctionnalité Connexions hybrides de BizTalk Services. La fonctionnalité Connexions hybrides dans BizTalk Services repose sur WCF Relay d’Azure Service Bus. La fonctionnalité Connexions hybrides dans Azure Relay vient compléter la fonctionnalité de WCF Relay existante. Ces deux fonctionnalités du service (WCF Relay et Connexions hybrides) coexistent dans le service Azure Relay. Elles partagent une passerelle commune, mais ont des implémentations différentes.
+
+## <a name="wcf-relay"></a>Relais WCF
+WCF Relay fonctionne avec l’ensemble de .NET Framework et pour WCF. Vous établissez une connexion entre votre service local et le service de relais à l’aide d’une suite de liaisons de « relais » WCF. En coulisses, les liaisons de relais se mappent à de nouveaux éléments de liaison de transport destinés à créer des composants de canal WCF qui s'intègrent à Service Bus dans le cloud. Pour plus d’informations, consultez la page [Prise en main des relais WCF](relay-wcf-dotnet-get-started.md).
+
+## <a name="hybrid-connections-vs-wcf-relay"></a>Connexions hybrides et Relais WCF
+Connexions hybrides et WCF Relay permettent une connexion sécurisée aux actifs existants au sein d’un réseau d’entreprise. L’utilisation de l’un par rapport à l’autre dépend de vos besoins particuliers, comme décrit dans le tableau suivant :
 
 |  | Relais WCF | les connexions hybrides |
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
 | **.NET Framework** |x |x |
-| **JavaScript/NodeJS** | |x |
+| **Script Java/Node.JS** | |x |
 | **Protocole Open basé sur des normes** | |x |
 | **Plusieurs modèles de programmation RPC** | |x |
 
-## <a name="hybrid-connections"></a>les connexions hybrides
-
-La fonctionnalité de connexions hybrides Azure Relay est une évolution de protocole ouvert sécurisé des fonctionnalités existantes de relais, qui peut être implémentée sur n’importe quelle plateforme et dans n’importe quel langage. Les connexions hybrides peuvent relayer des WebSockets, ainsi que des requêtes et des réponses HTTP(S). Ces fonctionnalités sont compatibles avec l’API WebSocket dans les navigateurs web courants. Les connexions hybrides sont basées sur HTTP et WebSockets.
-
-Le protocole est entièrement documenté dans le [guide du protocole Connexions hybrides](relay-hybrid-connections-protocol.md), permettant l’utilisation du relais Connexions hybrides avec pratiquement n’importe quelle bibliothèque WebSockets pour n’importe quel langage et runtime.
-
-### <a name="service-history"></a>Historique des services
-
-Les connexions hybrides remplacent l’ancienne fonctionnalité appelée « BizTalk Services » qui a été créée sur le relais WCF Azure Service Bus. La nouvelle fonctionnalité de connexions hybrides vient compléter la fonction de relais WCF existante, et ces deux possibilités de service cohabitent dans le service Azure Relay. Elles partagent une passerelle commune, mais ont des implémentations différentes.
-
-## <a name="wcf-relay"></a>Relais WCF
-
-Le relais WCF fonctionne pour l’ensemble de .NET Framework (NETFX) et pour WCF. Vous lancez la connexion entre votre service local et le service de relais à l’aide d’une suite de liaisons de « relais » WCF. En coulisses, les liaisons de relais se mappent à de nouveaux éléments de liaison de transport destinés à créer des composants de canal WCF qui s'intègrent à Service Bus dans le cloud. Pour plus d’informations, consultez la page [Prise en main des relais WCF](relay-wcf-dotnet-get-started.md).
-
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Architecture : Traitement des requêtes de relais entrantes
-
-Lorsqu’un client envoie une requête au service [Azure Relay](/azure/service-bus-relay/), Azure Load Balancer la transmet à l’un des nœuds de passerelle. Si la requête est une requête d'écoute, le nœud de passerelle crée un relais. Si la requête est une requête de connexion à un relais spécifique, le nœud de passerelle transfère la requête de connexion au nœud de passerelle qui possède le relais. Le nœud de passerelle qui possède le relais envoie une requête de rendez-vous au client d'écoute, lui demandant de créer un canal temporaire au nœud de passerelle qui a reçu la requête de connexion.
-
-Lorsque la connexion au relais est établie, les clients peuvent échanger des messages via le nœud de passerelle utilisé pour le rendez-vous.
+Le diagramme suivant illustre comment les requêtes de relais entrantes sont gérées par le service Azure Relay :
 
 ![Traitement des requêtes WCF Relay entrantes](./media/relay-what-is-it/ic690645.png)
 
-## <a name="next-steps"></a>Étapes suivantes
+1. Le client qui écoute envoie une requête d’écoute au service Azure Relay. L’équilibreur de charge Azure achemine la requête à l’un des nœuds de passerelle. 
+2. Le service Azure Relay crée un relais dans le magasin de passerelles. 
+3. Le client expéditeur envoie une requête pour se connecter au service d’écoute. 
+4. La passerelle qui reçoit la requête recherche le relais dans le magasin de passerelles. 
+5. La passerelle transfère la requête de connexion à la passerelle appropriée mentionnée dans le magasin de passerelles. 
+6. La passerelle envoie une requête au client d’écoute pour qu’il crée un canal temporaire au nœud de passerelle le plus proche du client d’envoi. 
+7. Le client d’écoute crée maintenant un canal temporaire et envoie un message de réponse à la passerelle la plus proche du client d’envoi.
+8. La passerelle transfère le message de réponse au client d’envoi. 
 
-* [FAQ sur Azure Relay](relay-faq.md)
-* [Créer un espace de noms](relay-create-namespace-portal.md)
+Lorsque la connexion au relais est établie, les clients peuvent échanger des messages via le nœud de passerelle utilisé pour le rendez-vous.
+
+## <a name="next-steps"></a>Étapes suivantes
 * [Bien démarrer avec Websockets .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Bien démarrer avec les requêtes HTTP .NET](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 * [Bien démarrer avec Websockets Node](relay-hybrid-connections-node-get-started.md)
 * [Bien démarrer avec les requêtes HTTP Node](relay-hybrid-connections-http-requests-node-get-started.md)
+* [FAQ Relay](relay-faq.md)
 

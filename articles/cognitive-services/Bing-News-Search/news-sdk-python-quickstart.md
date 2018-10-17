@@ -1,23 +1,23 @@
 ---
-title: Démarrage rapide du Kit de développement logiciel (SDK) Python pour Recherche d’actualités | Microsoft Docs
-description: Configuration de l’application console du Kit de développement logiciel (SDK) pour Recherche d’actualités.
-titleSuffix: Azure News Search SDK Python quickstart
+title: 'Démarrage rapide : Kit SDK Recherche d’actualités Bing, Python'
+titleSuffix: Azure Cognitive Services
+description: Configuration de l’application console du Kit de développement logiciel (SDK) pour Recherche d’actualités Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: 6d212d1477ecf583a038e33e72aab3d60f6aa050
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8e4343b053835c0fc2219373ad60f96c7b80636a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370436"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803339"
 ---
-# <a name="news-search-sdk-python-quickstart"></a>Démarrage rapide du Kit de développement logiciel (SDK) Python pour Recherche d’actualités
+# <a name="quickstart-bing-news-search-sdk-with-python"></a>Démarrage rapide : Kit de développement logiciel (SDK) Recherche d’actualités Bing avec Python
 
 Le Kit de développement logiciel (SDK) Recherche d’actualités fournit les fonctionnalités de l’API REST pour les requêtes web et l’analyse des résultats. 
 
@@ -154,6 +154,6 @@ def news_trending(subscription_key):
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Exemples du Kit de développement logiciel (SDK) Python pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Exemples du SDK Python pour Cognitive Services](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 

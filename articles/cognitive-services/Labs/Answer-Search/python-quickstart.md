@@ -1,21 +1,23 @@
 ---
-title: Démarrage rapide Python pour Microsoft Cognitive Services, projet Recherche de réponses | Microsoft Docs
-description: Exemple de prise en main du projet Recherche de réponses avec Python, Microsoft Cognitive Services sur Azure.
+title: 'Démarrage rapide : Project Answer Search, Python'
+titlesuffix: Azure Cognitive Services
+description: Exemple en Python pour commencer à vous servir de Project Answer Search.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9cb5406c616ed8e96d73c00c788a0d20f66dcabd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c33a88b65dcdf5ddddff9f5109afbe0cca7247c4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369541"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869826"
 ---
-# <a name="project-answer-search-python-quickstart"></a>Démarrage rapide Python du projet Recherche de réponses
+# <a name="quickstart-project-answer-search-with-python"></a>Démarrage rapide : Project Answer Search avec Python
 
 L’exemple Python suivant crée et envoie une demande d’information sur « Rock de Gibraltar ».
 
@@ -66,5 +68,5 @@ print (json.dumps(json.loads(result), indent=4))
 ````
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide C#](c-sharp-quickstart.md)
-- [Démarrage rapide de Java](java-quickstart.md)
-- [Démarrage rapide Node](node-quickstart.md)
+- [Démarrage rapide Java](java-quickstart.md)
+- [Démarrage rapide de Node](node-quickstart.md)

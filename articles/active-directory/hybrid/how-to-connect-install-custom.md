@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452630"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888093"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installation personnalisée d’Azure AD Connect
 Les **paramètres personnalisés** Azure AD Connect sont utilisés lorsque vous souhaitez davantage d’options d’installation. Ils sont utiles si vous disposez de plusieurs forêts ou si vous voulez configurer des fonctionnalités facultatives que l’installation rapide ne propose pas. Ils sont utilisés dans tous les cas où l’option d’[**installation rapide**](how-to-connect-install-express.md) ne convient pas à votre déploiement ou à votre topologie.
@@ -156,12 +156,19 @@ Dans un déploiement de production complet, il est difficile de maintenir un seu
 ### <a name="optional-features"></a>Fonctionnalités facultatives
 Cet écran vous permet de sélectionner des fonctionnalités facultatives pour vos scénarios spécifiques.
 
+>[!WARNING]
+>Les versions d’Azure AD Connect **1.0.8641.0** et antérieures s’appuient sur Azure Access Control Service pour la réécriture du mot de passe.  Ce service sera supprimé le **7 novembre 2018**.  Si vous utilisez l’une de ces versions d’Azure AD Connect et que vous avez activé la réécriture du mot de passe, il est possible que les utilisateurs ne puissent plus modifier ou réinitialiser leurs mots de passe une fois le service supprimé. La réécriture du mot de passe avec ces versions d’Azure AD Connect ne sera pas prise en charge.
+>
+>Pour plus d’informations sur Azure Access Control Service, consultez [Comment : Effectuer une migration à partir d’Azure Access Control Service](../develop/active-directory-acs-migration.md)
+>
+>Pour télécharger la dernière version d’Azure AD Connect, cliquez [ici](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+
 ![Fonctionnalités facultatives](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > Si DirSync ou Azure AD Sync sont actuellement actifs, n’activez aucune des fonctionnalités d’écriture différée dans Azure AD Connect.
->
->
+
+
 
 | Fonctionnalités facultatives | Description |
 | --- | --- |
@@ -190,6 +197,9 @@ Selon les services sélectionnés à l’étape précédente, cette page affiche
 
 ### <a name="directory-extension-attribute-sync"></a>Synchronisation des attributs des extensions d’annuaire
 Vous pouvez étendre le schéma dans Azure AD en utilisant des attributs personnalisés ajoutés par votre organisation ou d’autres attributs dans Active Directory. Pour utiliser cette fonctionnalité, sélectionnez **Synchronisation des attributs des extensions d’annuaire** dans la page **Fonctionnalités facultatives**. Sur cette page, vous pouvez sélectionner d’autres attributs à synchroniser.
+
+>[!NOTE]
+>La zone Attributs disponibles respecte la casse.
 
 ![Extensions d’annuaire](./media/how-to-connect-install-custom/extension2.png)
 
@@ -389,7 +399,7 @@ Lorsque vous procédez à une installation personnalisée d’Azure AD Connect e
 
 Cela provient du fait qu’il existe déjà une base de données nommée **ADSync** sur l’instance SQL de SQL server, que vous avez spécifiée dans les zones de texte au-dessus.
 
-Cela se produit généralement après avoir désinstallé Azure AD Connect.  La base de données n’est pas supprimée du serveur SQL Server après désinstallation.
+Cela se produit généralement après avoir désinstallé Azure AD Connect.  La base de données n’est pas supprimé du serveur SQL Server après désinstallation.
 
 Pour résoudre ce problème, vérifiez d’abord que la base de données **ADSync** qui a été utilisée par Azure AD Connect avant d’être désinstallée n’est plus utilisée.
 

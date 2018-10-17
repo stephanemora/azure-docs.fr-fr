@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391800"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855174"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutoriel : Configurer une jonction Azure Active Directory hybride pour les domaines fédérés
 
@@ -78,9 +78,11 @@ L’accès des appareils aux ressources Microsoft suivantes depuis le réseau de
 - STS de votre organisation (domaines fédérés)
 - https://autologon.microsoftazuread-sso.com (Si vous utilisez ou prévoyez d’utiliser l’authentification unique fluide)
 
-Si votre organisation nécessite l’accès à Internet via un proxy sortant, à compter de Windows 10 1709, vous pouvez configurer les paramètres du proxy sur votre ordinateur à l’aide d’un objet de stratégie de groupe (GPO). Si la version de Windows qui s’exécute sur votre ordinateur est antérieure à Windows 10 1709, vous devez implémenter la détection automatique de proxy Web (WPAD) pour permettre aux ordinateurs Windows 10 de procéder à l’inscription des appareils auprès d’Azure AD. 
+À compter de Windows 10 1803, si la jonction Azure AD hybride instantanée d’un domaine fédéré tel qu’AD FS tombe en panne, nous nous appuyons sur Azure AD Connect pour synchroniser l’objet ordinateur dans Azure AD, qui sera ensuite utilisé pour terminer l’inscription de l’appareil à une jointure Azure AD hybride.
 
-Si votre organisation nécessite l’accès à Internet via un proxy sortant authentifié, vous devez vous assurer que vos ordinateurs Windows 10 parviennent à s’authentifier correctement sur le proxy sortant. Les ordinateurs Windows 10 procèdent à l’inscription des appareils au moyen du contexte ordinateur, il est donc indispensable de configurer l’authentification du proxy sortant avec le contexte ordinateur. Poursuivez avec la configuration requise pour votre fournisseur de proxy sortant. 
+Si votre organisation nécessite l’accès à Internet via un proxy sortant, à compter de Windows 10 1709, vous pouvez [configurer les paramètres du proxy sur votre ordinateur à l’aide d’un objet de stratégie de groupe (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Si la version de Windows qui s’exécute sur votre ordinateur est antérieure à Windows 10 1709, vous devez implémenter la détection automatique de proxy Web (WPAD) pour permettre aux ordinateurs Windows 10 de procéder à l’inscription des appareils auprès d’Azure AD. 
+
+Si votre organisation a besoin d’accéder à Internet via un proxy sortant authentifié, assurez-vous que vos ordinateurs Windows 10 parviennent à s’authentifier sur le proxy sortant. Les ordinateurs Windows 10 procèdent à l’inscription des appareils au moyen du contexte ordinateur, il est donc indispensable de configurer l’authentification du proxy sortant avec le contexte ordinateur. Poursuivez avec la configuration requise pour votre fournisseur de proxy sortant. 
 
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurer une jonction Azure AD hybride
